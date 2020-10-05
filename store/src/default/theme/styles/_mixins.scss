@@ -1,0 +1,9 @@
+@mixin menu-level-padding(){
+    $elem: '';
+    @for $i from 2 through 10 {
+        $elem: if($i == 2, ".sub-menu", selector-nest($elem, ".sub-menu"));      
+        #{$elem + ' .mat-button'} { 
+            padding-left: 16px + (20px * $i); 
+        }
+    }
+}

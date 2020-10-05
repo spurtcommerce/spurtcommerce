@@ -1,0 +1,49 @@
+<footer class="bg-primary footer">
+    <div fxLayout="row wrap" fxLayoutAlign="space-between" class="py-3 border-bottom-mute theme-container">
+        <div fxFlex="100" fxFlex.gt-sm="60" fxFlex.sm="50" class="useful-links">
+            <h3 class="col-title">USEFUL LINKS</h3>
+            <p class="mt-2" *ngFor="let links of listSandbox.pageList$ | async">
+                <a [routerLink]="['/page-detail', links.pageId]" class="white-color">{{links.title}}</a></p>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="20" fxFlex.sm="20" ngClass.xs="mt-2" *ngIf="(listSandbox.settingDetail$ | async) as contact">
+            <h3 class="col-title">CONTACT INFORMATION</h3>
+            <p fxLayout="row" fxLayoutAlign="start center" class="mt-2 ">
+                <mat-icon class="mr-1">location_on</mat-icon>
+                <span>{{contact.storeAddress}}</span>
+            </p>
+            <p fxLayout="row" fxLayoutAlign="start center" class="mt-1 ">
+                <mat-icon class="mr-1">call</mat-icon>
+                <span>{{contact.storeTelephone}}</span>
+            </p>
+            <p fxLayout="row" fxLayoutAlign="start center" class="mt-1 ">
+                <mat-icon class="mr-1">mail_outline</mat-icon>
+                <span>{{contact.storeEmail}}</span>
+            </p>
+            <p fxLayout="row" fxLayoutAlign="start center" class="mt-1 ">
+                <mat-icon class="mr-1">schedule</mat-icon>
+                <span>Mon - Sun / 9:00AM - 8:00PM</span>
+            </p>
+            <p fxLayout="row" fxLayoutAlign="start center" class="mt-1">
+                <mat-icon class="mr-1">directions</mat-icon>
+                <a class=" white-color" [routerLink]="['/getdirections']">Get directions</a>
+            </p>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="20" ngClass.sm="mt-2" ngClass.xs="mt-2" *ngIf="(listSandbox.settingDetail$ | async) as contact">
+            <h3 class="col-title">SOCIAL MEDIA</h3>
+            <p class="mt-2">
+                <a (click)="openLink(contact.facebook)" class="link"> <img src="assets/images/others/facebook.png"> </a>
+            </p>
+            <p class="mt-2">
+                <a (click)="openLink(contact.google)" class="link"> <img src="assets/images/others/google+.png"> </a>
+            </p>
+            <p class="mt-2">
+                <a (click)="openLink(contact.twitter)" class="link"> <img src="assets/images/others/twitter.png"> </a>
+            </p>
+        </div>
+        <div class="android-div">
+            <img class="android-img" src="assets/images/others/android.png" (click)="downloadApp()"></div>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" class="copyright theme-container">
+        <p ngClass.xs="mt-1" class="copyright">Copyright © 2019,Piccosoft Software labs India Private Limited</p>
+    </div>
+</footer>

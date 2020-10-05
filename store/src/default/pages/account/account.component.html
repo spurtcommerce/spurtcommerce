@@ -1,0 +1,23 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [opened]="sidenavOpen" [mode]="sidenavOpen ? 'side' : 'over'" class="account-sidenav" perfectScrollbar>
+        <mat-nav-list class="mat-elevation-z1 h-100">
+            <mat-list-item *ngFor="let link of links" (click)="doLogOut(link.name)">
+                <mat-icon matListIcon class="mat-icon-sm">{{link.icon}}</mat-icon>
+                <a matLine *ngIf="link['name'] != 'Logout'" [routerLink]="link.href" routerLinkActive="horizontal-active-link_account" [routerLinkActiveOptions]="{exact:true}">{{ link.name }}</a>
+
+                <a matLine *ngIf="link['name'] == 'Logout'" routerLinkActive="horizontal-active-link_account" [routerLinkActiveOptions]="{exact:true}">{{ link.name }}</a>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="account-content" ngClass.gt-sm="p-left">
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="header-row mat-elevation-z1 text-muted">
+            <button *ngIf="!sidenavOpen" mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <h3>{{pageInfo}}</h3>
+        </div>
+        <div class="account-wrapper mat-elevation-z1">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

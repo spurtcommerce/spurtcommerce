@@ -1,0 +1,12 @@
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #ed571f !important;
+    border: #ed571f !important;
+}
+
+th,
+td {
+    height: 45px;
+}
+.toggle .tgl:checked + .tgl-btn:after {
+    background-color: #ed571f !important;
+  }

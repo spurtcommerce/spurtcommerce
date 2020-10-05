@@ -1,0 +1,28 @@
+<div class="row products-section">
+    <div class="col-12 layout-mar">
+        <div class="card">
+            <div class="product-ts-left">
+                <ul>
+                    <li>
+                        <p>Total Banners</p>
+                        <h3>{{(sandbox.getbannerListCount$ | async)?.data}}
+
+                        </h3>
+                    </li>
+                    <li>
+                        <p>Active Banners</p>
+                        <h3>{{(sandbox.getbannerListActive$ | async)?.data}}
+                        </h3>
+                    </li>
+                    <li>
+                        <p>In-Active Banners</p>
+                        <h3>{{(sandbox.getbannerListInActive$ | async)?.data}}
+
+                        </h3>
+                    </li>
+                </ul>
+            </div>
+            <!--Left-->
+        </div>
+    </div>
+</div>

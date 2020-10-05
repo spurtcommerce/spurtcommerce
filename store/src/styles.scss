@@ -1,0 +1,345 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~swiper/dist/css/swiper.min.css';
+@import "default/theme/styles/base";
+@import "default/theme/styles/theme";
+@import '~@ngx-share/button/themes/default/default-theme';
+@import '~@ngx-share/button/themes/material/material-dark-theme';
+@import '~@ngx-share/button/themes/material/material-light-theme';
+@import '~@ngx-share/button/themes/circles/circles-dark-theme';
+@import '~@ngx-share/button/themes/modern/modern-light-theme';
+@import '~@ngx-share/button/themes/outline/outline-theme';
+.app.green {
+    .mat-standard-chip {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        justify-content: center;
+        padding: 7px 0px;
+        -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+    }
+    .mat-toolbar.header {
+        background: white;
+        color: #616161;
+        .top-menu {
+            a {
+                color: #616161;
+                text-transform: capitalize;
+                font-weight: 500;
+                &.dapp {
+                    border-right: 0px;
+                }
+            }
+        }
+        a.login-reg {
+            font-size: 14px;
+            color: black;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .mat-button {
+            color: black;
+            font-weight: 400;
+        }
+    }
+    .horizontal-active-link {
+        //color: white !important;
+    }
+    .horizontal-active-link_account {
+        color: green !important;
+    }
+    .top-navbar.mat-toolbar a {
+        color: white !important;
+        font-size: 12px;
+        padding: 6px 20px 6px 0;
+        min-width: 100px;
+    }
+    .featured-tabs {
+        .mat-tab-header {
+            border-bottom: 0px !important;
+        }
+        .mat-tab-label {
+            justify-content: flex-start;
+            padding-left: 0;
+            opacity: 1;
+            .mat-tab-label-content {
+                font-size: 20px;
+                color: black;
+                font-weight: 600;
+            }
+        }
+        .mat-tab-label-active {
+            border-bottom: 0px !important;
+            color: black;
+        }
+        .mat-ink-bar {
+            background: transparent !important;
+        }
+        .mat-tab-body-wrapper {
+            background: #fff;
+            -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
+            -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
+            .swiper-slide {
+                .mat-card {
+                    box-shadow: none;
+                    &:hover {
+                        -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
+                        -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
+                        box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
+                    }
+                }
+            }
+        }
+        .swiper-container {
+            padding: 0;
+        }
+    }
+    .prod-icon {
+        justify-content: space-between;
+        .picons {
+            justify-content: flex-start;
+            a {
+                display: inline-block;
+                margin-right: 10px;
+            }
+            &.picons-lg {
+                a {
+                    padding: 10px;
+                }
+            }
+        }
+        .cart-lk {
+            a {
+                border-radius: 5px;
+                border: solid 2px #027600;
+                padding: 5px 10px;
+                font-size: 12px;
+                font-weight: 500;
+                color: #027600;
+                text-decoration: none;
+                display: inline-block;
+                &:hover {
+                    background: #027600;
+                    color: white;
+                }
+            }
+            &.bc-lk {
+                a {
+                    font-size: 20px;
+                    padding: 10px 20px;
+                }
+            }
+        }
+    }
+    .middle-banner {
+        justify-content: space-between;
+        height: 370px;
+        margin-top: 30px;
+        .mb-left {
+            width: 40%;
+            background: #027600;
+            padding: 50px 30px;
+            box-sizing: border-box;
+            h2 {
+                font-size: 34px;
+                font-weight: 500;
+                color: white;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 16px;
+                font-weight: 400;
+                color: white;
+                margin-bottom: 20px;
+            }
+            a {
+                font-size: 14px;
+                font-weight: 500;
+                color: white;
+                background: black;
+                padding: 5px 10px;
+                margin-bottom: 20px;
+                -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+                -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+                box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+            }
+        }
+        .mb-rht {
+            width: 60%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    }
+    .email {
+        word-break: break-word;
+    }
+}
+
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-warn {
+    //width: 25%;
+    border-radius: 19px;
+}
+
+.mat-chip.mat-standard-chip.mat-chip-selected.averageDiscount {
+    background-color: #e1ae09 !important;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.mat-chip.mat-standard-chip.mat-chip-selected.discount {
+    background-color: #689f38 !important;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.blackStyle {
+    color: #616161;
+}
+
+.mode-group {
+    .mat-radio-checked .mat-radio-inner-circle {
+        background-color: #679e38 !important;
+    }
+}
+
+.address {
+    margin-bottom: 20px;
+    .mat-radio-checked .mat-radio-inner-circle {
+        background-color: #679e38 !important;
+    }
+    .mat-radio-button {
+        width: 100%;
+        margin-bottom: 0px;
+        border: solid thin #f2f2f2;
+        padding: 10px;
+    }
+    .mat-radio-button:nth-child(even) {
+        background: #fbfbfb;
+    }
+    .mat-radio-label {
+        white-space: normal;
+        vertical-align: top;
+    }
+    .mat-radio-label-content {
+        h3 {
+            font-size: 16px;
+            font-weight: 500;
+            span {
+                display: inline-block;
+                font-size: 12px;
+                color: #7bc76d;
+                background: #e7f5e4;
+                border-radius: 4px;
+                margin: 0 10px;
+                padding: 0 4px;
+            }
+            a {
+                float: right;
+                font-size: 14px;
+                color: #46b032;
+                text-decoration: none;
+            }
+        }
+    }
+    button {
+        display: block;
+        width: 100%;
+        margin: 15px 0;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 600;
+        background: #211f1f !important;
+        padding: 10px;
+        border-radius: 2px;
+        border: 0px;
+    }
+}
+
+.availableOptionsList {
+    .mat-radio-checked .mat-radio-inner-circle {
+        background-color: #5ca00c !important;
+    }
+}
+
+.newaddress {
+    margin-bottom: 20px;
+    .mat-radio-checked .mat-radio-inner-circle {
+        background-color: #679e38 !important;
+    }
+    .mat-radio-button {
+        width: 100%;
+        margin-bottom: 0px;
+        padding: 10px;
+    }
+    .mat-radio-button:nth-child(even) {
+        background: #fbfbfb;
+    }
+    .mat-radio-label {
+        white-space: normal;
+        vertical-align: top;
+    }
+    .mat-radio-label-content {
+        h3 {
+            font-size: 16px;
+            font-weight: 500;
+            span {
+                display: inline-block;
+                font-size: 12px;
+                color: #7bc76d;
+                background: #e7f5e4;
+                border-radius: 4px;
+                margin: 0 10px;
+                padding: 0 4px;
+            }
+            a {
+                float: right;
+                font-size: 14px;
+                color: #46b032;
+                text-decoration: none;
+            }
+        }
+    }
+    button {
+        display: block;
+        width: 100%;
+        margin: 15px 0;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 600;
+        background: #211f1f !important;
+        padding: 10px;
+        border-radius: 2px;
+        border: 0px;
+    }
+}
+
+.service-dialog {
+    max-width: 600px!important;
+    width: 510px !important;
+    overflow: hidden !important;
+    height: auto !important;
+}
+
+.mat-dialog-content {
+    height: auto !important;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.top-navbar.mat-toolbar a {
+    color: white !important;
+    font-size: 12px;
+    padding: 6px 20px 6px 0;
+    min-width: 100px;
+}

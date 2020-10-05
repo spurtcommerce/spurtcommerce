@@ -1,0 +1,45 @@
+<!-- ============================================================== -->
+<!-- toggle and nav items -->
+<!-- ============================================================== -->
+<ul class="navbar-nav float-left mr-auto navbar-left">
+    <!-- ============================================================== -->
+    <li class="nav-item dashboard-nav">
+        <a href="javascript:void(0)" class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="'active'">
+            <img src="assets/img/dashboard-ico.png"> Dashboard </a>
+    </li>
+    <!--<li class="nav-item">-->
+    <!--<a href="javascript:void(0)" class="nav-link"> <img src="assets/img/sales-ico.png"> Sales </a>-->
+    <!--</li>-->
+
+    <li class="nav-item mega-dropdown sales-nav">
+        <a class="nav-link waves-effect waves-dark" [routerLink]="['/sales']" [routerLinkActive]="'active'" href="javascript:void(0)" aria-expanded="false">
+            <span class="d-md-block"> <img src="assets/img/catelog-ico.png"> Sales
+      </span>
+        </a>
+    </li>
+    <!-- mega menu -->
+    <!-- ============================================================== -->
+    <li class="nav-item mega-dropdown catalog-nav">
+        <a class="nav-link waves-effect waves-dark" href="javascript:void(0)" [routerLink]="['/catalog']" [routerLinkActive]="'active'">
+            <span class="d-md-block"> <img src="assets/img/catelog-ico.png">Catalog
+          </span>
+        </a>
+    </li>
+    <!-- ============================================================== -->
+    <!-- End mega menu -->
+    <li class="nav-item mega-dropdown customers-nav">
+        <a [routerLink]="['/customers']" [routerLinkActive]="'active'" class="nav-link waves-effect waves-dark" href="javascript:void(0)">
+            <span class="d-md-block"> <img src="assets/img/customers-ico.png">Customers
+    </span>
+        </a>
+    </li>
+    <li class="nav-item mega-dropdown cms-nav">
+        <a [routerLink]="['/cms']" [routerLinkActive]="'active'" class="nav-link waves-effect waves-dark" href="javascript:void(0)">
+            <span class="d-md-block"> <img src="assets/img/cms-ico.png">CMS</span>
+        </a>
+    </li>
+</ul>
+<!-- ============================================================== -->
+<!-- Right side toggle and nav items -->
+<!-- ============================================================== -->
+<app-profile-bar (logout)="logout.emit($event)" [userDetails]="userDetails"></app-profile-bar>

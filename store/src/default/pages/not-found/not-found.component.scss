@@ -1,0 +1,44 @@
+.box{
+    border-radius: 0;
+    .box-header{
+        height: 180px;
+        .error{
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+    }
+    .box-content{
+        position: relative;
+        height: 180px;     
+        .box-content-inner{
+            position: absolute;
+            top: -34px;
+            left: 34px;
+            right: 34px;
+            height: 180px;
+        }
+        .box-content-header{
+            font-size: 16px; 
+            text-transform: uppercase;
+            font-weight:500;
+            &.server-error{
+                margin-bottom: 36px;
+            }
+        }
+        .box-text{
+            margin-bottom: 10px;
+            text-align: center;
+            &::last-child{
+                margin-bottom: 15px;
+            }
+        }
+        .box-footer{
+            position: relative;
+            bottom: 16px;
+            button{
+                min-width: 70px;
+                margin: 0 2px;
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+.options{
+    width: 60px;
+    height: 250px;
+    position: fixed;
+    top: 100px;
+    right: -62px;
+    z-index: 9999;
+    .options-icon{
+        padding: 0;
+        position: absolute;
+        top: 12px;
+        left: -36px;
+        min-width: 38px;
+        z-index: 1;
+        box-shadow: -2px 3px 1px -2px rgba(0,0,0,.2), 
+                    -2px 2px 2px 0 rgba(0,0,0,.14), 
+                    -2px 1px 5px 0 rgba(0,0,0,.12);
+    }
+    .mat-card{
+        position: absolute;
+        padding: 14px;
+        width: 100%;
+        height: 100%;
+    }
+    &.show{
+        right: -2px;
+    }
+    .skin-icon{
+        width: 32px;
+        height: 32px;
+        cursor: pointer;        
+        &.green{
+            background-color: #689f38;
+        }
+        &.blue{
+            background-color: #1976d2;
+        }
+        &.red{
+            background-color: #d32f2f;
+        }
+        &.pink{
+            background-color: #c2185b;
+        }
+        &.purple{
+            background-color: #7b1fa2;
+        }
+        &.grey{
+            background-color: #455a64;
+        }
+    }
+}

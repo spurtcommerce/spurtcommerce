@@ -1,0 +1,80 @@
+<!-- <div class="auth-box on-sidebar">
+    <div class="loginform" style="left: 25%;">
+        <div class="row">
+            <div class="col-12">
+                <form (ngSubmit)="onSubmit(loginForm.value)" [formGroup]="loginForm" class="form-horizontal m-t-20">
+                    <h3>Login Here</h3>
+                    <div class="input-group mb-4">
+
+                        <input type="text" class="form-control form-control-md" placeholder="User Name" aria-label="username" aria-describedby="basic-addon1" formControlName="username" [ngClass]="{'validationcolor':loginForm.get('username').hasError('required') && loginForm.get('username').touched&& ifSubmitted==true||(badResponse==true)}">
+
+                    </div>
+
+                    <div class="error" *ngIf="(loginForm.get('username').hasError('required') && loginForm.get('username').touched)&&ifSubmitted==true">
+                        username required
+                    </div>
+                    <div class="error" *ngIf="(loginForm.get('username').hasError('pattern') && loginForm.get('username').touched)&& ifSubmitted==true">
+
+                        Incorrect email
+                    </div>
+
+                    <div class="input-group mb-4">
+                        <input type="password" class="form-control form-control-md" placeholder="Password" aria-label="password" aria-describedby="basic-addon1" formControlName="password" [ngClass]="{'validationcolor':loginForm.get('password').hasError('required') && loginForm.get('password').touched&& ifSubmitted==true||(badResponse==true)}">
+
+                    </div>
+
+                    <div class="error" *ngIf="(loginForm.get('password').hasError('required') && loginForm.get('password').touched )&& ifSubmitted==true">
+                        password required
+                    </div>
+                    <div class="error" *ngIf="badResponse==true">
+                        username or password is incorrect
+                    </div>
+
+
+                    <div novalidate class="form-group row">
+                        <div class="col-md-6">
+                            <div class="custom-control custom-checkbox">
+                                <a href="javascript:void(0)" [routerLink]="['/auth/forgot-password']" class="text-dark">
+                                    Forgot password?</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-b-20">
+                            <button class="btn btn-block btn-info  float-right" type="submit">
+                                Login
+                                <span [hidden]="!(authSandbox.loginLoading$ | async)"
+                                      class="spinner-border spinner-border-sm pull-right" role="status"
+                                      aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="card-align">
+    <div class="cards">
+        <form (ngSubmit)="onSubmit(loginForm.value)" [formGroup]="loginForm">
+            <div class="admin">Admin Log in</div>
+            <input type="text" class="form-control placeholder-fix" placeholder="User Name" formControlName="username" [ngClass]="{'validationcolor':loginForm.get('username').hasError('required') && loginForm.get('username').touched&& ifSubmitted==true||(badResponse==true)}">
+            <div class="error" *ngIf="(loginForm.get('username').hasError('required') && loginForm.get('username').touched)&&ifSubmitted==true">
+                username required
+            </div>
+            <div class="error" *ngIf="(loginForm.get('username').hasError('pattern') && loginForm.get('username').touched)&& ifSubmitted==true">
+
+                Incorrect email
+            </div>
+            <input type="password" class="form-control placeholder-fix" placeholder="Password" formControlName="password" [ngClass]="{'validationcolor':loginForm.get('password').hasError('required') && loginForm.get('password').touched&& ifSubmitted==true||(badResponse==true)}">
+            <div class="error" *ngIf="(loginForm.get('password').hasError('required') && loginForm.get('password').touched )&& ifSubmitted==true">
+                password required
+            </div>
+            <div class="error" *ngIf="badResponse==true">
+                username or password is incorrect
+            </div>
+            <button class="btn btn-log">Log in</button>
+            <div class="forgot" [routerLink]="['/auth/forgot-password']">Cant login?</div>
+        </form>
+    </div>
+</div>

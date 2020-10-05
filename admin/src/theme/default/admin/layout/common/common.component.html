@@ -1,0 +1,84 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper" data-layout="horizontal" data-boxed-layout="boxed" [ngClass]="{'show-sidebar': showMobileMenu}" [dir]="options.dir" [attr.data-theme]="options.theme" [attr.data-layout]="options.layout" [attr.data-sidebartype]="options.sidebartype"
+    [attr.data-sidebar-position]="options.sidebarpos" [attr.data-header-position]="options.headerpos" [attr.data-boxed-layout]="options.boxed">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in topbar.scss -->
+    <!-- ============================================================== -->
+    <header class="topbar" [attr.data-navbarbg]="options.navbarbg">
+        <nav class="navbar top-navbar navbar-expand-md" [ngClass]="(options.navbarbg=='skin6')?'navbar-light':'navbar-dark'">
+            <div class="navbar-header" [attr.data-logobg]="options.logobg">
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <a class="navbar-brand" [routerLink]="['/dashboard']">
+                    <!-- Logo icon -->
+                    <b class="logo-icon">
+            <img src="assets/img/logo_v3.png" style="width: 170px;" alt="homepage" class="light-logo" />
+          </b>
+                </a>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-collapse collapse" id="navbarSupportedContent" [attr.data-navbarbg]="options.navbarbg" [ngbCollapse]="!isCollapsed">
+                <app-navigation class="w-100" (logout)="layoutSandbox.logOut()" [userDetails]="userDetails"></app-navigation>
+            </div>
+        </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <aside class="left-sidebar" [attr.data-sidebarbg]="options.sidebarbg">
+        <!-- Sidebar scroll-->
+        <!--<div class="scroll-sidebar">
+        <default-sidebar></default-sidebar>
+    </div>-->
+        <!-- End Sidebar scroll-->
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!--<default-breadcrumb></default-breadcrumb>-->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <router-outlet></router-outlet>
+            <!-- ============================================================== -->
+            <!-- End Start Page Content -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer text-center">
+            <div class="footer-wrap">
+                <div class="footer-left">
+                    <h3> Spurtcommerce </h3>
+                    <p> Copyrights &copy; 2019, Piccosoft. All Rights Reserved. </p>
+                </div>
+                <div class="footer-right">
+                    V.3.0
+                </div>
+            </div>
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <div class="chat-windows"></div>
+</div>

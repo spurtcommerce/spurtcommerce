@@ -1,0 +1,33 @@
+.del {
+    color: grey;
+}
+
+.product-dialog {
+    width: 50%;
+    .swiper-lazy {
+        min-height: 90%;
+        max-height: 90%;
+    }
+    .mat-dialog-container {
+        overflow: visible !important;
+        .close-btn-outer {
+            position: relative;
+            button {
+                position: absolute;
+                right: -44px;
+                top: -44px;
+            }
+        }
+        .swiper-slide {
+            text-align: center;
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.arroew {
+    display: inline-block !important;
+    float: right;
+}

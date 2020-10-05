@@ -1,0 +1,56 @@
+<div fxLayoutAlign="center center" class='navcart'>
+    <app-top-menu></app-top-menu>
+    <button mat-button [matMenuTriggerFor]="cartMenu" #cartMenuTrigger="matMenuTrigger" class="flex-row-button">
+        <mat-icon class="mat-icon-lg">shopping_cart</mat-icon>
+        <span *ngIf="(cartSandbox.cartlistCount$ | async) > 0" class="cart-items-count">{{cartSandbox.cartlistCount$ | async}}</span>
+        <div fxLayout="column" fxLayoutAlign="center center" fxShow="false" fxShow.gt-xs
+             class="top-cart">
+            <span *ngIf="(cartSandbox.cartlistCount$ | async) > 0">{{cartSandbox.cartlistCount$ | async}} item<span
+                    *ngIf="(cartSandbox.cartlistCount$ | async) > 1">s</span> :
+                                <span>$ {{cartSandbox.totalCartPrice$ | async}}</span>
+                            </span>
+        </div>
+        <mat-icon class="mat-icon-sm">arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #cartMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="top-menu-dropdown cart-dropdown">
+        <span (mouseleave)="cartMenuTrigger.closeMenu()" class="d-block">
+                            <div fxLayout="row" fxLayoutAlign="space-between center" class="text-muted">
+                                <b><span>{{cartSandbox.cartlistCount$ | async}} ITEM<span
+                                        *ngIf="(cartSandbox.cartlistCount$ | async) > 1">S</span></span>
+        </b>
+        <b><a [routerLink]="['/cart']"
+                                      class="text-muted">VIEW CART</a></b>
+</div>
+<div class="divider mt-1"></div>
+<div *ngIf="(cartSandbox.cartlistCount$ | async) == 0" class="py-1 text-muted text-center">You have no items in your shopping cart.</div>
+<mat-list (click)="$event.stopPropagation()">
+    <mat-list-item *ngFor="let product of cartSandbox.cartlist$ | async">
+        <h3 matLine class="text-muted">{{product.name}} </h3>
+        <p matLine class="text-muted">
+            <span>$ {{product.productCount}} x {{product.price}}
+            </span>
+        </p>
+        <button mat-icon-button color="warn" class="remove" (click)="remove(product)" matTooltip="Remove" matTooltipPosition="before">
+                                        <mat-icon class="mat-icon-sm">close</mat-icon>
+                                    </button>
+    </mat-list-item>
+</mat-list>
+<div *ngIf="(cartSandbox.cartlistCount$ | async) > 0" class="cart-dropdown-footer">
+    <div class="divider mt-1"></div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="text-muted mt-1">
+        <b>TOTAL:</b>
+        <b class="new-price">$ {{cartSandbox.totalCartPrice$ | async}}</b>
+    </div>
+    <div class="divider mt-1"></div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-1">
+        <button mat-mini-fab color="warn" (click)="clear()" matTooltip="Clear All" matTooltipPosition="after">
+                                        <mat-icon>remove_shopping_cart</mat-icon>
+                                    </button>
+        <a (click)="checkoutPage()" href="javascript:void(0)" mat-mini-fab color="primary" matTooltip="Checkout" matTooltipPosition="before">
+            <mat-icon>check</mat-icon>
+        </a>
+    </div>
+</div>
+</span>
+</mat-menu>
+</div>

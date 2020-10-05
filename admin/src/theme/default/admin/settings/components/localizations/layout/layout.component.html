@@ -1,0 +1,8 @@
+<div class="tab">
+    <button [routerLinkActive]="'active'" [routerLink]="['/settings/local/countries']" class="tablinks">Country</button>
+    <button [routerLinkActive]="'active'" [routerLink]="['/settings/local/zone']" class="tablinks">Zone</button>
+    <button [routerLinkActive]="'active'" [routerLink]="['/settings/local/order-status']" class="tablinks">Order Status</button>
+    <button [routerLinkActive]="'active'" [routerLink]="['/settings/local/stock-status']" class="tablinks">Stock Status</button>
+    <button [routerLinkActive]="'active'" [routerLink]="['/settings/local/emailtemp']" class="tablinks">Email Template</button>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,16 @@
+<div class="brands-carousel">
+    <div class="swiper-container h-100" [swiper]="config">
+        <div class="swiper-wrapper h-100">
+            <div *ngFor="let brand of brands" class="swiper-slide">
+                <div class="p-0">
+                    <a class="brand-item">
+                        <img (click)="selectBrand(brand.manufacturerId)" [src]="imagePath + '?path=' + brand.imagePath + '&name=' + brand.image +'&width=260&height=150'" onError="this.src='/assets/images/default_image.png';" class="swiper-lazy">
+                    </a>
+                    <!-- <div class="swiper-lazy-preloader"></div> -->
+                </div>
+            </div>
+        </div>
+        <button mat-icon-button class="swiper-button-prev swipe-arrow"><mat-icon>keyboard_arrow_left</mat-icon></button>
+        <button mat-icon-button class="swiper-button-next swipe-arrow"><mat-icon>keyboard_arrow_right</mat-icon></button>
+    </div>
+</div>

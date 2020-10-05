@@ -1,0 +1,79 @@
+<div *ngIf="(productControl.cartlistCount$ | async) == 0">
+    <mat-chip-list>
+        <mat-chip style="width: 25%;" color="warn" selected="true">YOU HAVE NO ITEMS IN YOUR SHOPPING CART</mat-chip>
+    </mat-chip-list>
+    <a [routerLink]="['/']" mat-raised-button color="primary" class="mt-2">Continue shopping</a>
+</div>
+
+<mat-card *ngIf="(productControl.cartlistCount$ | async) > 0" class="p-0">
+    <div class="mat-table cart-table">
+        <div class="mat-header-row">
+            <div class="mat-header-cell">Product</div>
+            <div class="mat-header-cell">Name</div>
+            <div class="mat-header-cell">Price</div>
+            <div class="mat-header-cell">Quantity</div>
+            <div class="mat-header-cell">Total</div>
+            <div class="mat-header-cell text-center">
+                <div class="px-1">
+                    <button mat-raised-button color="warn" (click)="clear()">Clear All</button>
+                </div>
+            </div>
+        </div>
+        <div *ngFor="let product of productControl.cartlist$ | async ; let i= index" class="mat-row">
+            <div class="mat-cell">
+                <img class="img-fixed-size" *ngIf="product.image" [src]="imagePath+ '?path=' + product.image.containerName + '&name=' + product.image.image + '&width=100&height=100'" onError="this.src='/assets/images/default_image.png';">
+                <img class="img-fixed-size" *ngIf="product.Images " [src]="imagePath + '?path=' + product['Images'].containerName + '&name=' + product['Images'].image + '&width=100&height=100'" onError="this.src='/assets/images/default_image.png';">
+                <ng-container *ngIf="product.productImage && product.productImage.length >= 1">
+                    <ng-container *ngFor='let prodectDetailsImage of product.productImage'>
+
+                        <img *ngIf="prodectDetailsImage.defaultImage === 1" class="img-fixed-size" [src]="imagePath + '?path=' + prodectDetailsImage.containerName + '&name=' + prodectDetailsImage.image + '&width=100&height=100'" onError="this.src='/assets/images/default_image.png';">
+                    </ng-container>
+                </ng-container>
+                <img [src]="imagePath + '?path=' + product.productImage.containerName + '&name=' + product.productImage.image + '&width=100&height=100'" onError="this.src='/assets/images/default_image.png';" *ngIf="product.productImage && !product.productImage.length">
+            </div>
+            <div class="mat-cell"><a [routerLink]="['/products/productdetails', product.productId]" class="product-name">{{product.name}}</a>
+            </div>
+            <div class="mat-cell">
+                $ {{product.price}}
+            </div>
+            <div class="mat-cell">
+                <button mat-button (click)="changeCount(product, false)">
+                    <mat-icon class="icon-remove">remove</mat-icon>
+                </button> {{product.productCount}}
+                <button mat-button (click)="changeCount(product, true)">
+                    <mat-icon class="icon-add">add</mat-icon>
+                </button>
+            </div>
+            <div class="mat-cell">
+                $ {{((product.price) * product.productCount).toFixed(2)}}
+            </div>
+            <div class="mat-cell text-center">
+                <div class="p-1">
+                    <button mat-mini-fab color="warn" (click)="removeProduct(product)" matTooltip="Clear">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="mat-row">
+            <div class="mat-cell"><a [routerLink]="['/']" mat-raised-button color="primary">Continue shopping</a>
+            </div>
+            <div class="mat-cell"></div>
+            <div class="mat-cell"></div>
+            <div class="mat-cell"></div>
+            <div class="mat-cell text-right margin-lt">
+                <div fxLayout="column" fxLayoutAlign="center end" class="grand-total px-2">
+                    <span class="new-price">Grand total:</span>
+                </div>
+            </div>
+            <div class="mat-cell">
+                <div fxLayout="column" fxLayoutAlign="center start" class="grand-total">
+                    <span class="new-price">$ {{productControl.totalCartPrice$ | async}}</span>
+                </div>
+            </div>
+            <div class="mat-cell text-center"><a (click)="checkoutPage()" class="checkout-wd" mat-raised-button color="primary">Proceed To Checkout</a>
+            </div>
+        </div>
+    </div>
+</mat-card>

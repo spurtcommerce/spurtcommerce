@@ -1,0 +1,206 @@
+@import "../../variable";
+
+.auth-wrapper{
+  min-height: 100vh;
+  position: relative;
+  .logo-left {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    text-align: center;
+    padding: 40px;
+    background: url(../../assets/img/login-left-bg.png) no-repeat;
+    background-size: cover;
+    h3 { font-size: 32px; font-weight: 500; color:white; position: relative; top: 30%; text-transform: uppercase; }
+   h2 { color: #008c8c ; position: relative; top: 31%;  margin-right: 65%}
+    p {
+      margin-top: 10px;
+      padding-top: 10px;
+      font-size: $h5-font-size;
+      color: white;
+      position: relative;
+      top: 31%;
+    }
+    span {
+      color: #487e9e;
+      font-size: 30px;
+      margin-right: 1%
+    }
+  }
+  .auth-box{
+    padding: 20px;
+    width: calc(100% - 450px);
+    text-align: center;
+    position: relative;
+    display: block;
+    margin-left: 450px;
+    .logo{
+      text-align: center;
+    }
+    .changePswform {
+      position: fixed;
+      top: 200px;
+      margin: auto;
+      width: 320px;
+      left: 0;
+      right: 0;
+      text-align: left;
+      h3 {
+        font-size: $h3-font-size;
+        font-weight: 500;
+        color: $black-300;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+      }
+      .input-group {
+        label {
+          display: block;
+          width: 100%;
+          font-size: 16px;
+          color: #000;
+          font-weight: 400;
+        }
+        .form-control {
+          height: calc(2.5625rem + 2px);
+          color: black;
+        }
+      }
+      .form-group {
+        .custom-control {
+          padding-left: 0; margin-top: 10px;
+        }
+      }
+      .btn-block {
+        line-height: 2;
+        font-weight: $font-weight-bold;
+        background: $skin1;
+        border-radius: 30px;
+        width: 130px;
+        margin: 0;
+      }
+      .float-left{
+        line-height: 2;
+        font-weight: $font-weight-bold;
+        background: $skin1;
+        border-radius: 30px;
+        width: 130px;
+        margin-left: -100%;
+      }
+    }
+    .loginform {
+      position: absolute;
+      top: 200px;
+      margin: auto;
+      width: 320px;
+      left: 0;
+      right: 0;
+      text-align: left;
+      h3 {
+        font-size: $h3-font-size;
+        font-weight: 500;
+        color: $black-300;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+      }
+      .input-group {
+        label {
+          display: block;
+          width: 100%;
+          font-size: 16px;
+          color: #000;
+          font-weight: 400;
+        }
+        .form-control {
+          height: calc(2.5625rem + 2px);
+          color: black;
+        }
+      }
+      .form-group {
+        .custom-control {
+          padding-left: 0; margin-top: 10px;
+        }
+      }
+      .btn-block {
+        line-height: 2;
+        font-weight: $font-weight-bold;
+        background: $skin1;
+        border-radius: 30px;
+        width: 130px;
+        margin: 0;
+      }
+      .float-left{
+        line-height: 2;
+        font-weight: $font-weight-bold;
+        background: $skin1;
+        border-radius: 30px;
+        width: 130px;
+        margin-left: -100%;
+      }
+    }
+  }
+
+  .signup-bottom {
+    position: fixed;  bottom: 20px;  width: calc(100% - 450px);  left: 450px;  text-align: center;
+    .signup-btm-text {
+      display: inline-block; width: 320px;
+      a { display: inline-block; font-size: $h6-font-size; color: #878787; float: left; margin-top: 5px; }
+      .btn-block {
+        width: 130px; margin: 0; border-radius: 30px; background: transparent; border: solid thin $skin1; color: $skin1; font-size: $h6-font-size;
+      }
+    }
+  }
+
+  #recoverform{
+    display: none;
+  }
+  .auth-sidebar{
+    position: fixed;
+    height: 100%;
+    right: 0px;
+    overflow: auto;
+    margin: 0px;
+    top: 0px;
+  }
+}
+
+@media(max-width:767px) {
+  .auth-wrapper{
+    .logo-left {
+      display: none;
+    }
+    .auth-box.on-sidebar {
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+      top: 90px;
+      padding: 0;
+      margin: 0;
+      .loginform {
+        position: relative;
+        width: 100%;
+        top: 0;
+        right: 0;
+        padding: 30px 30px 0;
+        .btn-block {
+          margin-top: 20px;
+        }
+      }
+      .signup-bottom {
+        width: 100%; left: 0;
+      }
+    }
+    .auth-sidebar{
+      position: relative;
+      max-width: 100%;
+      width: 100%;
+      margin: 0px 0 0px;
+      top: 200px;
+
+    }
+    .demo-text{
+      margin-top: 30px;
+    }
+  }
+}

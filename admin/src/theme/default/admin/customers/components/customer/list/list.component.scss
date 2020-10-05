@@ -1,0 +1,45 @@
+.td_css {
+    a {
+        cursor: pointer;
+    }
+}
+
+.td_css:hover {
+    color: #453886;
+    padding-bottom: .25em;
+    a {
+        text-decoration: underline;
+        color: black;
+    }
+    a.tooltip:hover {
+        display: inline;
+        position: absolute;
+        color: #111;
+        border: 1px solid #DCA;
+        background: #fffAF0;
+    }
+}
+
+.subtoolbar {
+    z-index: 0 !important;
+}
+
+.number {
+    background-color: green;
+    margin-top: 1%;
+    height: 34px;
+    padding: 1%;
+    padding-left: 4%;
+    padding-right: 4%;
+    color: white;
+    font-weight: 500;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #0fae61 !important;
+    border: #0fae61 !important;
+}
+
+// ::ng-deep .products-section {
+//     margin-top: 63px !important;
+// }

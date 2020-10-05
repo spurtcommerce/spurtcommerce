@@ -1,0 +1,328 @@
+// App
+
+/*==============================================================
+ For all pages
+ ============================================================== */
+
+#main-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.page-wrapper {
+    background: $body-bg;
+    position: relative;
+    transition: 0.2s ease-in;
+}
+
+.page-wrapper>.container-fluid {
+    padding: 0px;
+    min-height: calc(100vh - 124px);
+}
+
+
+/*******************
+ Footer
+*******************/
+
+.footer {
+    padding: 15px 20px;
+    background: $white-500;
+    .footer-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        .footer-left {
+            width: 70%;
+            text-align: left;
+            h3 {
+                display: inline-flex;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 17px;
+                font-weight: $font-weight-medium;
+                color: $black-200;
+                border-right: solid thin #ddd;
+                padding-right: 10px;
+                margin-right: 10px;
+            }
+            p {
+                display: inline-flex;
+                margin: 0;
+                padding: 0;
+                font-size: $font-size-xs;
+                color: $gray-700;
+            }
+        }
+        .footer-right {
+            width: 30%;
+            text-align: right;
+            font-size: $font-size-xs;
+            color: #007fff;
+        }
+    }
+}
+
+
+/*******************
+ Stickey inner-left-part
+*******************/
+
+$left-part-width: 260px;
+.left-part {
+    height: calc(100% - 189px);
+    width: $left-part-width;
+    position: absolute;
+    border-right: 1px solid $border-color;
+    .show-left-part {
+        position: absolute;
+        top: 25%;
+        right: -41px;
+    }
+}
+
+.right-part {
+    width: calc(100% - 260px);
+    min-height: calc(100vh - 64px);
+    overflow: auto;
+    margin-left: $left-part-width;
+    .dropdown-toggle::after {
+        display: none;
+    }
+}
+
+.reverse-mode {
+    .left-part {
+        right: 0;
+        border-left: 1px solid $border-color;
+    }
+    .show-left-part {
+        right: auto;
+        left: -41px;
+    }
+    .right-part {
+        margin-left: 0px;
+        margin-right: $left-part-width;
+    }
+}
+
+
+/*******************
+ Vertical layout
+*******************/
+
+#main-wrapper[data-layout="vertical"] {
+    /*Vertical*/
+    .topbar .top-navbar .navbar-header {
+        //width: $sidebar-width-full;
+        transition: 0.2s ease-in;
+    }
+    /*sidebar type*/
+    &[data-sidebartype="full"] {
+        .page-wrapper {
+            margin-left: $sidebar-width-full;
+        }
+    }
+    &[data-sidebartype="iconbar"] {
+        .page-wrapper {
+            margin-left: $sidebar-width-iconbar;
+        }
+        .left-sidebar,
+        .topbar .top-navbar .navbar-header,
+        .sidebar-nav ul .sidebar-item {
+            width: $sidebar-width-iconbar;
+        }
+        .sidebar-nav {
+            ul .sidebar-item {
+                .sidebar-link {
+                    display: block;
+                    text-align: center;
+                    i {
+                        display: block;
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+    &[data-sidebartype="overlay"] {
+        .topbar .top-navbar .navbar-header {
+            width: $sidebar-width-full;
+        }
+        .left-sidebar {
+            left: -$sidebar-width-full;
+        }
+        &.show-sidebar {
+            .left-sidebar {
+                left: 0;
+            }
+        }
+    }
+    /*Sidebar position*/
+    &[data-sidebar-position="fixed"] {
+        .topbar .top-navbar .navbar-header {
+            position: fixed;
+            z-index: 10;
+        }
+        .left-sidebar {
+            position: fixed;
+        }
+    }
+    /*Header position*/
+    &[data-header-position="fixed"] {
+        .topbar {
+            position: fixed;
+            width: 100%;
+        }
+        .page-wrapper {
+            padding-top: $topbar-height;
+        }
+    }
+    /*Boxed Layout*/
+    &[data-boxed-layout="boxed"] {
+        max-width: $boxed-width;
+        margin: 0 auto;
+        position: relative;
+        box-shadow: 1px 0 80px rgba(0, 0, 0, 0.2);
+    }
+    &[data-boxed-layout="boxed"][data-header-position="fixed"] {
+        .topbar {
+            max-width: $boxed-width;
+        }
+    }
+}
+
+
+/*******************
+ Vertical responsive layout
+*******************/
+
+@include media-breakpoint-up(md) {
+    #main-wrapper[data-layout="vertical"] {
+        /*Vertical*/
+        &[data-sidebartype="full"] {
+            .topbar .top-navbar .navbar-header {
+                width: $sidebar-width-full;
+            }
+        }
+        /*Sidebar position*/
+        &[data-sidebar-position="fixed"][data-sidebartype="full"],
+        &[data-sidebar-position="fixed"][data-sidebartype="overlay"] {
+            .topbar .top-navbar .navbar-collapse {
+                margin-left: $sidebar-width-full;
+            }
+        }
+        &[data-sidebar-position="fixed"][data-sidebartype="mini-sidebar"] {
+            .topbar .top-navbar .navbar-collapse {
+                margin-left: $sidebar-width-mini;
+            }
+        }
+        &[data-sidebar-position="fixed"][data-sidebartype="iconbar"] {
+            .topbar .top-navbar .navbar-collapse {
+                margin-left: $sidebar-width-iconbar;
+            }
+        }
+        /*Vertical with mini-sidebar*/
+        &[data-sidebartype="mini-sidebar"] {
+            .topbar .top-navbar .navbar-header {
+                width: $sidebar-width-mini;
+                .logo-text {
+                    display: none;
+                }
+                &.expand-logo {
+                    width: $sidebar-width-full;
+                    .logo-text {
+                        display: block;
+                    }
+                }
+            }
+        }
+        /*Fixed sidebar with minisidebar*/
+        &[data-sidebar-position="fixed"][data-sidebartype="mini-sidebar"] {
+            .topbar .top-navbar .navbar-collapse {
+                margin-left: $sidebar-width-mini;
+            }
+        }
+        &[data-sidebartype="mini-sidebar"] {
+            .page-wrapper {
+                margin-left: $sidebar-width-mini;
+            }
+            .sidebar-nav {
+                .hide-menu,
+                .has-arrow:after {
+                    display: none;
+                }
+                .nav-small-cap {
+                    justify-content: center;
+                }
+            }
+            .left-sidebar {
+                width: $sidebar-width-mini;
+                &:hover {
+                    width: $sidebar-width-full;
+                    .sidebar-nav {
+                        .hide-menu,
+                        .has-arrow:after {
+                            display: block;
+                        }
+                        .nav-small-cap {
+                            justify-content: flex-start;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 766px) {
+    #main-wrapper {
+        &[data-sidebartype="mini-sidebar"] {
+            .left-sidebar {
+                left: -$sidebar-width-full;
+            }
+        }
+        &.show-sidebar {
+            .left-sidebar {
+                left: 0;
+            }
+        }
+        &[data-layout="vertical"][data-sidebar-position="fixed"] {
+            .topbar .top-navbar {
+                .navbar-collapse {
+                    position: relative;
+                    top: $topbar-height;
+                }
+            }
+        }
+        /*Header position*/
+        &[data-layout="vertical"][data-header-position="fixed"][data-sidebar-position="fixed"] {
+            .topbar .top-navbar {
+                .navbar-collapse {
+                    position: relative;
+                    top: $topbar-height;
+                }
+            }
+        }
+    }
+    .left-part {
+        left: -$left-part-width;
+        background: $body-bg;
+        z-index: 1;
+        transition: 0.1s ease-in;
+        &.show-panel {
+            left: 0px;
+        }
+    }
+    .reverse-mode .left-part {
+        right: -$left-part-width;
+        left: auto;
+        &.show-panel {
+            right: 0px;
+        }
+    }
+    .right-part {
+        width: 100%;
+        margin-left: 0px;
+    }
+}

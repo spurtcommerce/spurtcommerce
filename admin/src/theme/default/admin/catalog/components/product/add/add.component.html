@@ -1,0 +1,278 @@
+<!--REACTIVE FORM-->
+<form novalidate [formGroup]="user">
+    <div class="col-12">
+        <div class="breadcrumbs-row noborder">
+            <div class="bc-col">
+                <ul>
+                    <li><a href="javascript:void(0)" [routerLink]="['/catalog/product']"> Products</a></li>
+                    <li> Add Product</li>
+                </ul>
+            </div>
+            <div class="bc-col-btn ap-col-btn">
+                <button class="btn btn-save" (click)="onSubmit(user.value)"><img src="assets/img/tick-round-white.png">
+                    Save
+                </button>
+                <button class="btn btn-cancel" [routerLink]="['/catalog/product']"><img
+                        src="assets/img/close-white-ico.png">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumbs-->
+    <div class="flex addproduct-wrap">
+        <div class="card ap-general">
+            <div class="ap-header">
+                <span> 1 </span>General
+            </div>
+            <div class="flex ap-body">
+
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>Products Name <sup>*</sup></label>
+                        <input type="text" class="form-control" placeholder="Products Name" formControlName="productName" [ngClass]="{'validationcolor':user.get('productName').hasError('required') && user.get('productName').touched&&submittedValues==true}">
+
+                        <div class="error" *ngIf="user.get('productName').hasError('required') && user.get('productName').touched&&submittedValues==true">
+                            Product Name is required
+                        </div>
+
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label> Sku<sup>*</sup></label>
+                        <input type="text" class="form-control" placeholder="Sku Number" formControlName="sku" [ngClass]="{'validationcolor':user.get('sku').hasError('required') && user.get('sku').touched&&submittedValues==true}">
+
+                        <div class="error" *ngIf="user.get('sku').hasError('required') && user.get('sku').touched&&submittedValues==true">
+                            sku is required
+                        </div>
+
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>Meta Tag Title</label>
+                        <input type="text" class="form-control" placeholder="Meta Tag Title" formControlName="metaTagTitle">
+
+
+                    </div>
+                </div>
+                <!--Col-->
+
+
+                <div class="ap-body-col width100">
+                    <div class="form-group">
+                        <label>Product Description</label>
+                        <ckeditor formControlName="productDescription">
+                        </ckeditor>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!--General-->
+
+        <div class="card ap-general ap-info">
+            <div class="ap-header">
+                <span> 2 </span>More Information
+            </div>
+            <div class="flex ap-body">
+                <ngb-tabset style="width:100%;">
+                    <ngb-tab>
+                        <ng-template ngbTabTitle> Data</ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="flex data-row">
+                                <div class="data-col">
+                                    <div class="form-group" *ngIf="categoriessandbox.getCategoriesList$ | async as categotyList">
+                                        <label>Category <sup>*</sup></label>
+                                        <select class="custom-select col-12" formControlName="selectedCategory" (change)="selecttCategory($event.target.value, categotyList)" [ngClass]="{'validationcolor':user.get('selectedCategory').hasError('required') && user.get('selectedCategory').touched&&submittedValues==true}">
+                                                    <option value=''>- -Select Category- -</option>
+                                                    <option *ngFor="let category of categotyList" [value]="category.categoryId"
+                                                            >{{category.name}}
+                                                    </option>
+                                                </select>
+
+                                        <div class="error" *ngIf="user.get('selectedCategory').hasError('required') && user.get('selectedCategory').touched&&submittedValues==true">
+                                            Category is required
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>Brand <sup>*</sup></label>
+                                        <select class="custom-select col-12" formControlName="model" [ngClass]="{'validationcolor':user.get('model').hasError('required') && user.get('model').touched&&submittedValues==true}">
+                                            <option value=''>- -Select Brand- -</option>
+                                            <option *ngFor="let arr of brandsandbox.getManufactureList$|async"
+                                                    value={{arr.manufacturerId}}>{{arr.name}}
+                                            </option>
+                                        </select>
+
+                                        <div class="error" *ngIf="user.get('model').hasError('required') && user.get('model').touched&&submittedValues==true">
+                                            Model is required
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <!--Col-->
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>Upc
+
+                                        </label>
+                                        <input type="text" class="form-control" placeholder="Upc" formControlName="upc">
+
+
+                                    </div>
+                                </div>
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>Location</label>
+                                        <input type="text" class="form-control" placeholder="Location" formControlName="location">
+
+                                    </div>
+                                </div>
+                                <!--Col-->
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>Price <sup>*</sup></label>
+                                        <input type="text" class="form-control" appOnlyNumber [isDot]="true" placeholder="Price" formControlName="price" [ngClass]="{'validationcolor':user.get('price').hasError('required') && user.get('price').touched&&submittedValues==true}">
+
+                                        <div class="error" *ngIf="user.get('price').hasError('required') && user.get('price').touched&&submittedValues==true">
+                                            Price is required
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <!--Col-->
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>Out of Stock Status
+                                            <sup>*</sup>
+                                        </label>
+                                        <select class="custom-select col-12" formControlName="outOfStockStatus" placeholder="Stock Status" [ngClass]="{'validationcolor':user.get('outOfStockStatus').hasError('required') && user.get('outOfStockStatus').touched&&submittedValues==true}">
+                                            <option value=''>- -Select Status- -</option>
+                                            <option *ngFor="let stocklist of stockStatusSandbox.getStockList$ | async"
+                                                    value={{stocklist.stockStatusId}}>{{stocklist.name}}
+                                            </option>
+                                        </select>
+
+                                        <div class="error" *ngIf="user.get('outOfStockStatus').hasError('required') && user.get('outOfStockStatus').touched&&submittedValues==true">
+                                            Out of Stock Status is required
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Col-->
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label class="control-label">Date Available</label>
+                                        <mat-form-field>
+                                            <input matInput [matDatepicker]="picker_dateAvailable" formControlName="dateAvailable">
+                                            <mat-datepicker-toggle matSuffix [for]="picker_dateAvailable"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker_dateAvailable></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>Status<sup>*</sup> </label>
+
+
+                                        <select class="custom-select col-12" formControlName="status" [ngClass]="{'validationcolor':user.get('status').hasError('required') && user.get('status').touched&&submittedValues==true}">
+                                            <option value=''>- -Select Status- -</option>
+                                            <option value="1">Enabled</option>
+                                            <option value="0">Disabled</option>
+                                        </select>
+
+
+                                        <div class="error" *ngIf="user.get('status').hasError('required') && user.get('status').touched&&submittedValues==true">
+                                            Status is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Col-->
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>Sort Order</label>
+                                        <input type="text" class="form-control" appOnlyNumber placeholder="Sort Order" formControlName="sortOrder">
+
+
+                                    </div>
+                                </div>
+
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>Condition<sup>*</sup></label>
+
+
+                                        <select class="custom-select col-12" formControlName="condition" [ngClass]="{'validationcolor':user.get('condition').hasError('required') && user.get('condition').touched&&submittedValues==true}">
+                                            <option value=''>- -Select Condition- -</option>
+                                            <option value="1">New</option>
+                                            <option value="2">Used</option>
+                                        </select>
+
+                                        <div class="error" *ngIf="user.get('condition').hasError('required') && user.get('condition').touched&&submittedValues==true">
+                                            Condition is required
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--Col-->
+                                <div class="data-col">
+                                    <!--<div class="form-group">-->
+                                    <label class="control-label" style="margin-left: 5px;padding: 1px 6px;">Shipping is required</label>
+
+                                    <mat-radio-group formControlName="requiredShipping">
+                                        <mat-radio-button value="1">Free</mat-radio-button>
+                                        <mat-radio-button value="2">Paid</mat-radio-button>
+                                    </mat-radio-group>
+                                    <div class="error" *ngIf="user.get('requiredShipping').hasError('required') && user.get('requiredShipping').touched&&submittedValues==true">
+                                        Shipping Mode is required
+                                    </div>
+                                </div>
+                                <!--Col-->
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>Images</ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="flex image-row">
+                                <div class="image-col" *ngFor="let data of uploadImage;let i=index">
+                                    <div class="img-hdr flex" *ngIf="!editId">
+                                        <input type="radio" name="'imageSelection'" [checked]="length==i" (change)="checkBox($event,i)">
+                                        <a href="javascript:void(0)" (click)="deleteImage(i)"> <img src="assets/img/delete-ico.png"> </a>
+                                    </div>
+                                    <div class="img-hdr flex" *ngIf="editId">
+                                        <input type="radio" name="'imageSelection'" [checked]="defaultImageValue==data.defaultImage" (change)="checkBox($event,i)">
+                                        <a href="javascript:void(0)" (click)="deleteImage(i)"> <img src="assets/img/delete-ico.png"> </a>
+                                    </div>
+                                    <div class="img-bdy">
+                                        <img [src]="imageUrls + '?path=' + data.containerName + '&name=' + data.image + '&width=60&height=60'" style=" width:100%; height:100%">
+                                    </div>
+                                </div>
+                                <!--Col-->
+                                <div class="image-col">
+                                    <div class="img-dflt">
+                                        <input style="cursor: pointer" (click)=" uploadProductImages()">
+                                        <img src="assets/img/add-photo-big.png">
+                                        <p>Add Images</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+
+            </div>
+        </div>
+    </div>
+</form>

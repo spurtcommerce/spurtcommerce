@@ -1,0 +1,11 @@
+<mat-toolbar class="top-navbar mat-elevation-z2" fxLayoutAlign="" color="primary">
+    <a mat-button [routerLink]="['/']" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}"> <img src="assets/images/home.png"> </a>
+    <a mat-button (click)="sendUniqueId('productFilter')" [routerLink]="['/products/', 'All']" class="colorMenu" routerLinkActive="colorMenu" [routerLinkActiveOptions]="{exact:true}">
+        All Products
+    </a>
+    <div *ngFor="let category of categories;let i=index">
+        <a mat-button class="colorMenu" routerLinkActive="horizontal-active-link" *ngIf="i < 8" [routerLink]="['/products', category.categoryId]" [routerLinkActiveOptions]="{exact:true}" (click)="indexData(i,category.categoryId)">{{category.name}}
+        </a>
+    </div>
+    <a mat-button routerLink="/contact" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">Contact</a>
+</mat-toolbar>

@@ -1,0 +1,61 @@
+<div class="flex setting2-inner-header">
+    <h3>Email Template</h3>
+</div>
+<div class="settings-right-wrapper">
+
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">Title</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emailtemp of sandbox.getemailtemplist$ | async; let i=index">
+                    <td class="text-center" scope="row">{{emailtemp.title}}</td>
+                    <td>{{emailtemp.subject}}</td>
+                    <td [innerHtml]='emailtemp.content'></td>
+                    <td>
+
+                        <div *ngIf="emailtemp.isActive == 1">Enabled</div>
+                        <div *ngIf="emailtemp.isActive == 0">Disabled</div>
+                    </td>
+                    <td>
+                        <i (click)="editEmailtemp(emailtemp)" class="fas fa-edit"></i>
+
+                        <i [ngbPopover]="deleteContent" placement="bottom" #deletePop="ngbPopover" style="margin-left: 15px;" class="fas fa-trash">
+                        <ng-template #deleteContent>
+                            <div class="style">
+                                <div class="modal-header">
+                                    <h6 class="modal-title" style="margin-left: 17%;"> Do you want to delete ?</h6>
+
+                                </div>
+
+                                <div class="modal-footer" style="margin-right: 23%;">
+                                    <button type="button" class="btn btn-danger" (click)="deletePop.close()"
+                                            data-dismiss="modal">No
+                                    </button>
+                                    <button type="button" class="btn btn-success"
+                                            (click)="deleteEmailtemp(emailtemp.emailTemplateId, deletePop)"
+                                            data-dismiss="modal">Yes
+                                    </button>
+                                </div>
+                            </div>
+                        </ng-template>
+
+                    </i>
+                        <!--<i (click)="deleteEmailtemp(emailtemp.emailTemplateId)" style="margin-left: 15px;" class="fas fa-trash"></i>-->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<mat-paginator [length]="sandbox.getemailtemppagelength$ | async" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)">
+</mat-paginator>

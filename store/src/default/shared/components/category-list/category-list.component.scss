@@ -1,0 +1,24 @@
+ .category {
+     .active {
+         background: #dbdbe2;
+         color: black;
+     }
+ }
+ 
+ .mat-expansion-panel {
+     display: unset;
+ }
+ 
+ .activeColor {
+     color: #689f38;
+ }
+ 
+ .main-cat {
+     margin-left: 10px;
+     h4 {
+         text-transform: uppercase;
+         cursor: pointer;
+         color: #616161;
+         margin: 14px 0;
+     }
+ }

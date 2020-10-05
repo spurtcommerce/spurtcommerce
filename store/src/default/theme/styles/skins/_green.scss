@@ -1,0 +1,5 @@
+$green-primary: mat-palette($mat-light-green, 700, 50, 900);
+$green-accent: mat-palette($mat-grey, 300, 100, 700);
+$green-warn: mat-palette($mat-red, 500, A200, 800);
+
+$green-theme: mat-light-theme($green-primary, $green-accent, $green-warn);

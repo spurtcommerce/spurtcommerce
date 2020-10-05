@@ -1,0 +1,23 @@
+.top-menu {
+    float: right;
+    margin-bottom: 6px;
+}
+.top-menu a {
+    color: #616161;
+    text-transform: capitalize;
+    /* font-weight: 500; */
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 31px;
+    padding: 0 10px;
+    min-width: 70px;
+    border-radius: 0;
+    border-right: solid thin rgba(112, 112, 112, 0.5);
+}
+.app{
+    border: none !important;
+    img{
+        margin-right: 1.5%;
+    }
+}

@@ -1,0 +1,104 @@
+.footer {
+  min-height: 100px;
+  padding: 16px 16px 0;
+  background: #211f1f !important;
+  .subscribe-block {
+    padding: 16px 0 32px 0;
+    text-align: center;
+    h1, h3 {
+      line-height: 1;
+    }
+    h1 {
+      margin-bottom: 6px;
+    }
+    .subscribe-search-form {
+      height: 50px;
+      padding: 0 16px;
+      input[type=text] {
+        border: 0;
+        outline: none;
+        padding: 0 25px;
+        font-size: 16px;
+      }
+      button {
+        font-size: 16px;
+        padding: 0 24px;
+        border-radius: 0;
+      }
+    }
+  }
+  .col-title {
+    font-weight: 600;
+  }
+  .mat-icon {
+    height: 21px;
+    line-height: 21px;
+  }
+  .link {
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .copyright {
+    font-size: 13px;
+    font-weight: 300;
+  }
+  .useful-links {
+    p {
+      display: inline-block;
+      width: 20%;
+      margin-right: -4px;
+    }
+  }
+  .copyright {
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer .subscribe-block {
+    .subscribe-search-form {
+      height: 40px;
+      margin-top: 16px;
+      input[type=text] {
+        padding: 0 8px;
+        font-size: 14px;
+      }
+      button {
+        font-size: 14px;
+        padding: 0 16px;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .footer .subscribe-block {
+    .subscribe-search-form {
+      margin-top: 16px;
+    }
+  }
+}
+
+.sebm-google-map-container {
+  height: 220px;
+}
+
+.android-img {
+  max-height: 85%;
+  max-width: 11%;
+  cursor: pointer;
+}
+
+.android-div {
+  width: 100%;
+  text-align: center;
+}
+
+.white-color {
+  color: white;
+}

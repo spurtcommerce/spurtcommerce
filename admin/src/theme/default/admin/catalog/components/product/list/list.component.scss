@@ -1,0 +1,8 @@
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color:#ed571f !important;
+  border:#ed571f  !important;
+}
+.toggle .tgl:checked + .tgl-btn:after {
+  background-color: #ed571f !important;
+}

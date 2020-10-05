@@ -1,0 +1,47 @@
+<div *ngIf="products && products.length>0" class="swiper-container" [swiper]="config">
+    <div class="swiper-wrapper h-100">
+        <div *ngFor="let product of products" class="swiper-slide">
+            <mat-card class="product-item " *ngIf='product'>
+                <mat-chip-list *ngIf="product.discount">
+                    <mat-chip selected="true" *ngIf="product.discount<=discountPrice" color="warn">
+                        {{product.discount}}%
+                    </mat-chip>
+                    <mat-chip selected="true" *ngIf="product.discount>=fiftyPercent" class="discount">
+                        {{product.discount}}%
+                    </mat-chip>
+                    <mat-chip selected="true" class="averageDiscount" *ngIf="(product.discount>discountPrice)&&(product.discount<fiftyPercent)">
+                        {{product.discount}}%
+                    </mat-chip>
+                </mat-chip-list>
+
+                <a [routerLink]="['/products/productdetails', product.productId]" class="image-link">
+                    <img *ngIf='product.image' [src]="imagePath+ '?path=' + product.image.containerName + '&name=' + product.image.image + '&width=260&height=260'" onError="this.src='/assets/images/default_image.png';" style="height:200px" class="swiper-lazy" alt="" />
+                    <!-- <div *ngIf='product.image' class="swiper-lazy-preloader"></div> -->
+                    <img *ngIf='!product.image' src="assets/images/default_image.png">
+                </a>
+                <a [routerLink]="['/products/productdetails', product.productId]" class="title text-truncate">
+                    {{product.name}}
+                </a>
+                <div fxLayout="row" fxLayoutAlign="space-between center" class="prices">
+                    <div fxLayout="column" fxLayoutAlign="center start">
+                        <div class="size-mat">
+                            <p class="new-price">
+                                $ {{product.price}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider mt-2"></div>
+                <div class="icons">
+                    <app-controls [product]="product" [type]="'home'" (OpenProductDialog)="openProductDialog(product)"></app-controls>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <button mat-mini-fab class="swiper-button-prev swipe-arrow">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button mat-mini-fab class="swiper-button-next swipe-arrow">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+</div>

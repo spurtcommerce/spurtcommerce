@@ -1,0 +1,10 @@
+<div class="controls">
+    <button mat-mini-fab color="primary" class="zoom-in" (click)="zoomIn()"><mat-icon>zoom_in</mat-icon></button>
+    <button mat-mini-fab color="primary" class="zoom-out" (click)="zoomOut()"><mat-icon>zoom_out</mat-icon></button>
+    <button mat-mini-fab color="warn" class="close" (click)="close()"><mat-icon>close</mat-icon></button>
+</div>
+<div mat-dialog-content>
+    <div class="viewer">
+        <img [src]="image" #zoomImage>
+    </div>
+</div>

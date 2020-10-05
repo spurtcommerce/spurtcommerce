@@ -1,0 +1,20 @@
+// Variables;
+@import "../../variable";
+
+
+
+.ct-series-a .ct-bar {
+    stroke: $info;
+}
+
+.ct-series-b .ct-bar {
+    stroke: $cyan;
+}
+
+ 
+
+@media(max-width:767px) {
+    .ct-bar {
+        stroke-width: 10px!important;
+    }
+}

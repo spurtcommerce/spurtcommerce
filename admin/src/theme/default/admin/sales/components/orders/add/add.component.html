@@ -1,0 +1,219 @@
+<div class="row products-section">
+    <div class="col-12">
+        <div class="breadcrumbs-row noborder">
+            <div class="bc-col">
+                <ul>
+                    <li><a href="javascript:void(0)"> Sales </a></li>
+                    <li> Add Orders</li>
+                </ul>
+            </div>
+            <div class="bc-col-btn ap-col-btn">
+                <button class="btn btn-save"><img src="assets/img/tick-round-white.png"> Save</button>
+                <button class="btn btn-cancel"><img src="assets/img/close-white-ico.png"> Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumbs-->
+</div>
+
+<div class="flex addproduct-wrap">
+
+    <div class="card ap-general">
+        <div class="ap-header">
+            <span> 1 </span> Customer Details
+        </div>
+        <div class="flex ap-body">
+            <div class="ap-body-col">
+                <div class="form-group">
+                    <label>Store <sup>*</sup></label>
+                    <input type="text" class="form-control" placeholder="Store">
+                </div>
+            </div>
+            <!--Col-->
+            <div class="ap-body-col">
+                <div class="form-group">
+                    <label>Currency</label>
+                    <input type="text" class="form-control" placeholder="Currency">
+                </div>
+            </div>
+            <!--Col-->
+            <div class="ap-body-col">
+                <div class="form-group">
+                    <label>Customer <sup>*</sup></label>
+                    <input type="text" class="form-control" placeholder="Customer">
+                </div>
+            </div>
+            <!--Col-->
+            <div class="ap-body-col">
+                <div class="form-group">
+                    <label>Customer Group <sup>*</sup></label>
+                    <input type="text" class="form-control" placeholder="Customer Group">
+                </div>
+            </div>
+            <!--Col-->
+            <div class="ap-body-col">
+                <div class="form-group">
+                    <label>First Name <sup>*</sup></label>
+                    <input type="text" class="form-control" placeholder="First Name">
+                </div>
+            </div>
+            <!--Col-->
+            <div class="ap-body-col">
+                <div class="form-group">
+                    <label>Last Name <sup>*</sup></label>
+                    <input type="text" class="form-control" placeholder="Last Name">
+                </div>
+            </div>
+            <!--Col-->
+            <div class="ap-body-col">
+                <div class="form-group">
+                    <label>E-mail <sup>*</sup></label>
+                    <input type="text" class="form-control" placeholder="E-mail">
+                </div>
+            </div>
+            <!--Col-->
+            <div class="ap-body-col">
+                <div class="form-group">
+                    <label>Telephone <sup>*</sup></label>
+                    <input type="text" class="form-control" placeholder="Telephone">
+                </div>
+            </div>
+            <!--Col-->
+        </div>
+    </div>
+    <!--General-->
+
+    <div class="card ap-general ap-info">
+        <div class="ap-header">
+            <span> 2 </span> More Information
+        </div>
+        <div class="flex ap-body">
+            <ngb-tabset style="width:100%;">
+                <ngb-tab>
+                    <ng-template ngbTabTitle>Data</ng-template>
+                    <ng-template ngbTabContent>
+                        <div class="flex data-row">
+                            <div class="data-col">
+                                <div class="form-group">
+                                    <label>Lorem Ipsum</label>
+                                    <input type="text" class="form-control" placeholder="Lorem Ipsum">
+                                </div>
+                                <!---->
+                                <div class="form-group">
+                                    <label>Lorem Ipsum</label>
+                                    <input type="text" class="form-control" placeholder="Lorem Ipsum">
+                                </div>
+                                <!---->
+                                <div class="form-group">
+                                    <label>Lorem Ipsum</label>
+                                    <select class="custom-select col-12" id="inlineFormCustomSelect1">
+                                        <option selected>Select</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--Col-->
+                            <div class="data-col">
+                                <div class="form-group">
+                                    <label>Lorem Ipsum
+                                        <button type="button" class="btn" placement="top" ngbTooltip="Tooltip on right">
+                                            <img src="assets/img/info-bg-ico.png"></button>
+                                    </label>
+                                    <div class="filters">
+                                        <input type="text" class="form-control" placeholder="Filters">
+                                        <ul class="flex">
+                                            <li> List 1 <a href="javascript:void(0)"> <img
+                                                    src="assets/img/minus-white-round.png"> </a></li>
+                                            <li> List 1 <a href="javascript:void(0)"> <img
+                                                    src="assets/img/minus-white-round.png"> </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Lorem Ipsum</label>
+                                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                        <option selected>Enabled</option>
+                                        <option value="1">Disabled</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--Col-->
+                            <div class="data-col">
+                                <div class="form-group">
+                                    <label>Lorem Ipsum
+                                        <button type="button" class="btn" placement="top" ngbTooltip="Tooltip on right">
+                                            <img src="assets/img/info-bg-ico.png"></button>
+                                    </label>
+                                    <div class="filters">
+                                        <input type="text" class="form-control" placeholder="Stores">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Col-->
+
+
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
+    </div>
+    <!--More Information-->
+
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Image Manager</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="flex search-nav">
+                <div class="search-section">
+                    <input placeholder="Search" type="text">
+                </div>
+                <div class="img-action-links">
+                    <ul class="flex" id="menu">
+                        <li><a href="javascript:void(0)"> <img src="assets/img/back-ico.png"> </a></li>
+                        <li><a href="javascript:void(0)"> <img src="assets/img/refresh-ico.png"> </a></li>
+                        <li>
+                            <input id="check01" type="checkbox" name="menu"/>
+                            <label for="check01"><img src="assets/img/file-open-ico.png"></label>
+                            <ul class="submenu">
+                                <li>Create Folder</li>
+                                <li>
+                                    <input type="text">
+                                    <button> Create</button>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0)"> <img src="assets/img/delete-file-ico.png"> </a></li>
+                        <li><a href="javascript:void(0)" class="upload-lnk"> Upload </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex image-row">
+                <div class="image-col">
+                    <div class="img-bdy"><img src="assets/img/file-img.png"></div>
+                    <p>Image Folder 1</p>
+                </div>
+                <!--Col-->
+                <div class="image-col">
+                    <div class="img-bdy"><img src="assets/img/file-img.png"></div>
+                    <p>Image Folder 2</p>
+                </div>
+                <!--Col-->
+                <div class="image-col">
+                    <div class="img-bdy"><img src="assets/img/product-img-bg1.png"></div>
+                    <p>img.jpg</p>
+                </div>
+                <!--Col-->
+            </div>
+        </div>
+    </ng-template>
+
+</div>
+

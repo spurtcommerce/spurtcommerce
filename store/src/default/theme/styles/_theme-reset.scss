@@ -1,0 +1,110 @@
+@mixin theme-reset($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .bg-primary {
+    @include _mat-toolbar-color($primary);
+  }
+  .bg-accent {
+    @include _mat-toolbar-color($accent);
+  }
+  .bg-warn {
+    @include _mat-toolbar-color($warn);
+  }
+
+  .text-muted {
+    color: mat-color($foreground, secondary-text) !important;
+  }
+
+  .secondary-color {
+    color: mat-color($primary, 100);
+  }
+
+  .top-navbar.mat-toolbar,
+  .app-dropdown .mat-menu-item,
+  .app-dropdown .user-info,
+  .account-sidenav .mat-nav-list .mat-list-item,
+  .product-item .title,
+  .info-bar .mat-card .content p,
+  .filter-sidenav .mat-expansion-panel-header-title,
+  .mat-tab-body-content,
+  .account-card-title {
+    color: mat-color($accent, darker) !important;
+  }
+
+  .top-toolbar.mat-toolbar-row {
+    border-bottom: 1px solid mat-color($primary, lighter, 0.2);
+    color: mat-color($primary, 100);
+    .top-menu a {
+      color: mat-color($primary, 100);
+    }
+  }
+
+  .top-navbar {
+    // background: mat-color($primary, lighter);
+    background: mat-color($background, background);
+  }
+
+  .border-bottom-mute {
+    border-bottom: 1px solid mat-color($primary, lighter, 0.2);
+  }
+
+  .search-dropdown.mat-menu-panel {
+    background: transparent;
+  }
+
+  .mat-snack-bar-container.success {
+    background: #388E3C;
+  }
+  .mat-snack-bar-container.error {
+    background: #E53935;
+  }
+
+  .new-price {
+    color: mat-color($warn);
+  }
+  .primary-text {
+    color: mat-color($primary);
+  }
+
+  .active-link {
+    background-color: mat-color($primary);
+    color: #fff;
+  }
+  .horizontal-active-link,
+  .app-dropdown .mat-menu-item.horizontal-active-link, {
+    color: mat-color($primary) !important;
+  }
+
+  /* ngx-pagination */
+  .product-pagination .ngx-pagination {
+    margin-bottom: 0;
+    padding: 14px 10px;
+    .current {
+      @include _mat-toolbar-color($primary);
+    }
+    a:hover, button:hover {
+      background: rgba(mat-color($primary), 0.2);
+      color: mat-color($foreground, base);
+    }
+  }
+  .sb-wrapper.sb-email.sb-show-icon.sb-show-text {
+    --button-color: #82807e !important;
+  }
+
+  .sb-wrapper.sb-show-icon {
+    cursor: default !important;
+  }
+  .mat-standard-chip {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    justify-content: center;
+    padding: 7px 0px;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+  }
+
+}

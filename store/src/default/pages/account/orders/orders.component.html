@@ -1,0 +1,38 @@
+<div class="mat-table orders-table">
+    <div class="wrapper" *ngIf="accountSandbox.historyListLoading$ | async">
+        <div class="overlay">
+            <div class="spinner-wrapper">
+                <app-spinner [isShow]="accountSandbox.historyListLoading$ | async"></app-spinner>
+            </div>
+        </div>
+    </div>
+    <div class="mat-header-row">
+        <div class="mat-header-cell">Orders</div>
+        <div class="mat-header-cell">Date</div>
+        <div class="mat-header-cell">Status</div>
+        <div class="mat-header-cell">Total Amount</div>
+        <div class="mat-header-cell"></div>
+    </div>
+    <div *ngFor="let order of accountSandbox.orderHistoryList$ | async; let i = index" class="mat-row">
+        <div class="mat-cell"><span class="order" [ngStyle]="{background: order.orderStatus.colorCode}" [ngClass]="{'color': order.orderPrefixId}">{{order.orderPrefixId}}</span></div>
+        <div class="mat-cell">{{order.createdDate | date: 'dd/MM/yyyy'}}</div>
+        <div class="mat-cell">{{order.orderStatus.name}}</div>
+        <div class="mat-cell">$ {{order.total}}</div>
+        <div class="mat-cell">
+            <div class="p-1 actions">
+                <button mat-mini-fab color="primary" matTooltip="View" [routerLink]="['/account/order-detail',order.orderId]">
+              <mat-icon>remove_red_eye</mat-icon>
+          </button>
+
+                <!-- <button mat-mini-fab color="warn" matTooltip="Download invoice" class="btn-invoice" (click)="downloadInvoice(order.orderId, order);isRecipt=i">
+                <i *ngIf="(accountSandbox.orderHistoryDetailLoading$ | async) && isRecipt === i" class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+                <mat-icon *ngIf="!(accountSandbox.orderHistoryDetailLoading$ | async) || isRecipt !== i">archive</mat-icon>
+          </button> -->
+            </div>
+        </div>
+    </div>
+    <mat-card class="p-0 text-center">
+        <mat-paginator [length]="accountSandbox.orderHistoryCount$|async" [pageSize]="pageSize" [pageIndex]="index" [pageSizeOptions]="[10,15,20]" (page)="onPageChange($event)">
+        </mat-paginator>
+    </mat-card>
+</div>

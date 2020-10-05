@@ -1,0 +1,28 @@
+<div class="row products-section">
+    <div class="col-12 layout-mar">
+        <div class="card">
+            <div class="product-ts-left">
+                <ul>
+                    <li>
+                        <p>Total Pages</p>
+                        <h3>{{pageSandbox.getpageslistcount$ | async}}
+
+                        </h3>
+                    </li>
+                    <li>
+                        <p>Active Pages</p>
+                        <h3>{{pageSandbox.activePageCount$ | async}}
+
+                        </h3>
+                    </li>
+                    <li>
+                        <p>In-Active Pages</p>
+                        <h3>{{pageSandbox.inactivePageCount$ | async}}
+
+                        </h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

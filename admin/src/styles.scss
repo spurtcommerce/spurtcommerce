@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600');
+
+
+.modelRef .modal-content {
+  width: 50%;
+  margin-top: 45%;
+  margin-left: 24%;
+}
+
+html, body {
+  height: auto;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto !important;
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+  margin-left: -123px !important;
+
+}
+
+.mat-menu-panel {
+  margin-left: 130px !important;
+}
+
+.mat-paginator-range-actions {
+  margin-right: 88px !important;
+}
+
+.modal-content {
+  background-color: transparent !important;
+  border: none !important;
+}
+.dd-highlight-item{
+  background-color: lightsteelblue;
+  color: black;
+}
+.dd-items-container{
+  background-color: #fff;
+  position: absolute;
+  font-size: 12px;
+  overflow: auto;
+  height: 153px;
+  width: 95%;
+  z-index: 9;
+  top: 27px;
+}

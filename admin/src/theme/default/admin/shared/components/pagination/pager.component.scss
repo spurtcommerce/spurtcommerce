@@ -1,0 +1,47 @@
+//@import "../../../../styles/variables.scss";
+
+a {
+  cursor: pointer;
+  color: #444;
+
+}
+
+.pagination {
+  padding-right: 15px;
+}
+
+#first {
+  background: #001830 !important;
+  color: #fff;
+  span{
+    padding:0 5px;
+  }
+
+}
+
+#last {
+  background: #001830 !important;
+  color: #fff;
+  span{
+    padding:0 5px;
+  }
+}
+
+.pagination ul li a {
+  display: block;
+  border: thin solid #e8e8e8;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #999;
+  border-radius: 2px;
+  margin: 7px 5px;
+}
+
+.pagination ul li.active a {
+  background: #04ad73;
+  color: #fff;
+}
+.disabled{
+  display: none !important;
+}

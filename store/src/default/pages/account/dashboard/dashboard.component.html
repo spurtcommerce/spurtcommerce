@@ -1,0 +1,28 @@
+<p class="text-muted">
+
+
+    Hello <b>{{(commonSandbox.getProfile$ | async)?.firstName}}</b> From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.
+</p>
+
+<div fxLayout="row wrap" class="flex-wrapper">
+    <div fxFlex="100" fxFlex.sm="50" fxFlex.xs="100" class="col">
+        <mat-card class="p-0 card-hover heightChanged">
+            <mat-card-header class="p-1 account-card-title" fxLayoutAlign="space-between center">
+                <mat-card-title class="m-0">
+                    <h3>Account Information</h3>
+                </mat-card-title>
+                <a mat-icon-button routerLink="/account/information">
+                    <mat-icon class="text-muted">edit</mat-icon>
+                </a>
+            </mat-card-header>
+            <div class="divider"></div>
+            <mat-card-content class="p-2 text-muted account-card-content">
+                <p>{{(commonSandbox.getProfile$ | async)?.firstName}}</p>
+                <p>{{(commonSandbox.getProfile$ | async)?.email}}</p>
+                <p><a routerLink="/account/information" class="primary-text">Change Password</a></p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+
+</div>

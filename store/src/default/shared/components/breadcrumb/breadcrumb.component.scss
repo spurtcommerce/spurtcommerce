@@ -1,0 +1,26 @@
+.breadcrumb{
+    padding: 8px 0;
+    box-shadow: none;
+    margin-bottom: 16px;
+    a, span{
+        font-size: 13px;
+        text-decoration: none;
+        color: inherit;
+    }
+    .mat-icon{
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+        padding: 0 6px;
+        opacity: 0.7;
+    }
+    .breadcrumb-title.active{
+        text-transform: uppercase;
+    }
+    .breadcrumb-item+.breadcrumb-item:before{
+        display: inline-block;
+        padding-right: .5rem;
+        padding-left: .5rem;
+        content: "»";
+    }
+}

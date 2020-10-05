@@ -1,0 +1,111 @@
+<app-pages-layout></app-pages-layout>
+<div class="row products-section products-sub-section">
+    <div class="col-12">
+        <div class="breadcrumbs-row">
+            <div class="bc-col">
+                <ul>
+                    <li><a href="javascript:void(0)"> CMS</a></li>
+                    <li> Pages</li>
+                </ul>
+            </div>
+            <div class="bc-col-btn">
+                <button class="btn cms-btn" (click)="addpage()"><img
+                        src="assets/img/add-white-ico.png">New Page</button>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumbs-->
+    <div class="col-12">
+        <div class="flex filter-row">
+            <div class="filter-lft">
+            </div>
+            <!--Lft-->
+            <div class="filter-nav-list">
+                <ul class="flex">
+                    <li *ngIf="checkedData.length==0" style="margin-left: 15px;">
+                        <a (click)="bulkDeleteEmpty()"><img src="assets/img/delete-ico-pink.png"> Delete
+                        </a>
+                    </li>
+                    <li *ngIf="checkedData.length>0" style="margin-left: 15px;" [ngbPopover]="deleteContent1" placement="left" #deletePop="ngbPopover">
+                        <a><img src="assets/img/delete-ico-pink.png"> Delete
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--Right-->
+        </div>
+    </div>
+</div>
+
+<div class="flex product-wrap">
+
+    <div class="product-table" style="width:100%">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" width="5%">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                </div>
+                            </div>
+                        </th>
+                        <th scope="col">Title</th>
+                        <th scope="col" width="100">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pagesList of appSandbox.getpageslist$ | async; let i=index">
+                        <th scope="row" class="text-center">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" (click)="selectChkBox($event, pagesList.pageId)" id={{pagesList.pageId}} [checked]="checkCondition[pagesList.pageId]" [ngModelOptions]="{standalone: true}" [(ngModel)]="checkmodules[pagesList.pageId]">
+                                    <!--<input type="checkbox" class="custom-control-input" id={{pagesList.pageId}}  value="check" >-->
+                                    <label class="custom-control-label" for={{pagesList.pageId}}></label>
+                                </div>
+                            </div>
+                        </th>
+                        <td>{{pagesList.title}}</td>
+                        <td>
+                            <a href="javascript:void(0)"> <img src="assets/img/edit-ico.png" (click)="editpagessList(pagesList)"> </a>
+                            <i style="margin-left: 15px;" [ngbPopover]="deleteContent" placement="left" #deletePop="ngbPopover" class="fas fa-trash"></i>
+                            <ng-template #deleteContent>
+                                <div class="style">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title" style="margin-left: 17%;"> Do you want to delete ?</h6>
+                                    </div>
+                                    <div class="modal-footer" style="margin-right: 23%;">
+                                        <button type="button" class="btn btn-danger" (click)="deletePop.close()" data-dismiss="modal">No
+                                    </button>
+                                        <button type="button" class="btn btn-success" (click)="deletePages(pagesList.pageId, deletePop)" data-dismiss="modal">Yes
+                                    </button>
+                                    </div>
+                                </div>
+                            </ng-template>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="no_data" *ngIf="(appSandbox.getpageslist$ | async)?.length==0">
+                <p>Items not found</p>
+            </div>
+        </div>
+        <mat-paginator [length]="appSandbox.getpageslistcount$ | async" [pageSizeOptions]="[pageSize]" [pageSize]="pageSize" [pageIndex]="index" (page)="onPageChange($event)">
+        </mat-paginator>
+    </div>
+</div>
+<ng-template #deleteContent1>
+    <div class="style">
+        <div class="modal-header">
+            <h6 class="modal-title" style="margin-left: 17%;"> Do you want to delete ?</h6>
+
+        </div>
+
+        <div class="modal-footer" style="margin-right: 23%;">
+            <button type="button" class="btn btn-danger" (click)="deletePop.close()" data-dismiss="modal">No
+                </button>
+            <button type="button" class="btn btn-success" (click)="bulkDelete()" data-dismiss="modal">
+                    Yes
+                </button>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,114 @@
+<div class="row products-section products-sub-section">
+    <div class="col-12">
+        <div class="breadcrumbs-row">
+            <div class="bc-col">
+                <ul>
+                    <li><a href="javascript:void(0)"> Catalog </a></li>
+                    <li> Brand</li>
+                </ul>
+            </div>
+            <div class="bc-col-btn">
+                <button class="btn" (click)='addBrand()'><img
+                        src="assets/img/add-white-ico.png"> Add Brand
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumbs-->
+    <div class="col-12">
+        <div class="flex filter-row">
+            <div class="filter-lft">
+                <div class="toggle">
+                    <p>Filters</p>
+                    <input class="tgl tgl-light" id="cb1" type="checkbox" [checked]="true" (change)="changeFilter($event)" />
+                    <label class="tgl-btn" for="cb1"></label>
+                </div>
+                <div class="order-status">
+                    <p>Status</p>
+                    <li style="list-style: none">
+                        <span style="display: inline-block;width: 14px;height: 16px;margin-right: 6px;vertical-align: middle;background-color: #32b643;"></span>Active
+                        <span style="display: inline-block;width: 14px;height: 16px;margin-left: 3px;margin-right: 7px;vertical-align: middle;background-color: #ea5738e6;"></span>In Active
+
+                    </li>
+                </div>
+            </div>
+            <!--Lft-->
+        </div>
+    </div>
+</div>
+
+
+
+<div class="flex product-wrap example-full-width">
+    <div *ngIf="buttonCheck == true" class="filter-section">
+        <div class="w3-container w3-animate-left">
+            <app-catalog-brand-filter (progressEmit)="receiveProgress($event)"></app-catalog-brand-filter>
+        </div>
+    </div>
+    <!--Filter-->
+    <div class="product-table" [ngClass]="{'changesize': buttonCheck == true }">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">Brand Name</th>
+                        <th class="text-center" scope="col">Brand Image</th>
+                        <th class="text-center" scope="col">Sort Order</th>
+                        <th class="text-center" scope="col">Action</th>
+                        <th class="text-center" scope="col" width="100px" class="text-center">Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let arr of (sandbox.getManufactureList$|async)'>
+
+                        <td class="text-center">{{arr.name}}
+                        </td>
+                        <td class="text-center">
+                            <img *ngIf="arr.image" [src]="imageUrl + '?path=' + arr.imagePath + '&name=' + arr.image + '&width=60&height=60'" onError="this.src='/assets/error-images/Load icon Products.png';" (load)="brandListImageLoading(arr.manufacturerId)" [hidden]="!brandListImage[arr.manufacturerId]">
+                            <img src="./assets/error-images/Load icon Products.png" [hidden]="brandListImage[arr.manufacturerId]">
+                        </td>
+                        <td class="text-center">{{arr.sortOrder}}</td>
+                        <td class="text-center">
+                            <a href="javascript:void(0)" (click)='editManufacture(arr)'> <img src="assets/img/edit-ico.png"></a>
+                            <a href="javascript:void(0)">
+                                <img src="assets/img/delete-file-ico.png" [ngbPopover]="deleteContent" placement="bottom" #deletePop="ngbPopover" style="margin-left: 15px;">
+                                <ng-template #deleteContent>
+                                    <div class="style">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" style="margin-left: 17%;">Do you want to delete ?
+                                            </h6>
+                                        </div>
+                                        <div class="modal-footer" style="margin-right: 23%;">
+                                            <button type="button" class="btn btn-danger" (click)="deletePop.close()" data-dismiss="modal">No
+                                            </button>
+                                            <button type="button" class="btn btn-success" (click)="deleteBrand(arr.manufacturerId, deletePop)" data-dismiss="modal">Yes
+                                            </button>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <div *ngIf="arr.isActive === 1">
+                                <span style="width: 41px;background: #32b643; color: white;display: inline-block;padding: 1px 4px;"><b>Active</b></span>
+
+                            </div>
+                            <div *ngIf="arr.isActive === 0">
+                                <span style="background: #ea5738e6; color: white;width: 63px;display: inline-block;padding: 1px 4px;"><b>In-Active</b></span>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="no_data" *ngIf="(sandbox.getManufactureList$|async)?.length==0">
+                <p>Items not found</p>
+            </div>
+            <mat-paginator [length]='(sandbox.getManufacturercount$|async)' [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)">
+            </mat-paginator>
+
+        </div>
+    </div>
+    <!--Table-->
+</div>

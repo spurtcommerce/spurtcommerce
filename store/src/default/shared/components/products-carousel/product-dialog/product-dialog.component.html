@@ -1,0 +1,60 @@
+<div class="close-btn-outer">
+    <button mat-mini-fab color="warn" (click)="close()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content>
+    <div fxLayout="row wrap">
+        <div fxFlex="100" fxFlex.gt-sm="50">
+            <div class="swiper-container h-100" [swiper]="config">
+                <div class="swiper-wrapper">
+                    <div *ngIf="product.Images as image" class="swiper-slide">
+                        <img [attr.data-src]="imagePath + '?path=' + image.containerName + '&name=' + image.image + '&width=573&height=673'" class="swiper-lazy" />
+                        <div class="swiper-lazy-preloader"></div>
+                    </div>
+                    <div *ngIf="product.image as image" class="swiper-slide">
+                        <img [attr.data-src]="imagePath + '?path=' + image.containerName + '&name=' + image.image + '&width=573&height=673'" class="swiper-lazy" />
+                        <div class="swiper-lazy-preloader"></div>
+                    </div>
+                </div>
+                <button mat-icon-button class="swiper-button-prev swipe-arrow">
+                    <mat-icon>keyboard_arrow_left</mat-icon>
+                </button>
+                <button mat-icon-button class="swiper-button-next swipe-arrow">
+                    <mat-icon>keyboard_arrow_right</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="50" ngClass.gt-sm="px-2 m-0" ngClass.sm="mt-2" ngClass.xs="mt-2">
+            <h2>{{product.name}}</h2>
+            <div class="py-1 lh">
+                <p><span class="text-muted fw-500">Category: </span><span>{{product.name }}</span></p>
+                <p><span class="text-muted fw-500">Availibility: </span><span>Available</span></p>
+            </div>
+            <div class="py-1">
+            </div>
+            <p class="py-1 text-muted lh">
+                <td [innerHtml]='product.description'></td>
+            </p>
+            <div class="text-muted">
+                <h2 class="new-price" style="display:inline-block">
+                    <ng-container *ngIf="(product.flag=='' && product.pricerefer=='');else one">$ {{product.price}}
+                    </ng-container>
+                    <ng-template #one>
+                        <span *ngIf="product.flag === 0">$ {{product.pricerefer}}</span>
+                        <span *ngIf="product.flag === 1"><del class="del">$ {{product.price}}</del> $ {{product.pricerefer}}</span>
+
+                    </ng-template>
+                </h2>
+                <div fxLayoutAlign="end" class="arroew">
+
+                    <button [mat-dialog-close]="product" (click)="redirect()" mat-icon-button matTooltip="View full details">
+                    <mat-icon>arrow_forward</mat-icon>
+                </button>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <app-controls [product]="product" [type]="'popup'" (closePopup)="closePopup($event)"></app-controls>
+        </div>
+    </div>
+</div>

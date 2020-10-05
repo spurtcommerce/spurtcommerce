@@ -1,0 +1,50 @@
+<div class="flex setting1-inner-header">
+    <h3>User List</h3>
+    <button class="btn" (click)=" AddeNewUser()"><img
+            src="assets/img/add-white-ico.png">Add User</button>
+</div>
+<div class="settings-right-wrapper">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Email Id</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let userlist of sandbox.getUsersList$ | async; let i=index">
+                    <td>{{userlist.firstName}} {{userlist.lastName}}</td>
+                    <td>{{userlist.email}}</td>
+                    <td>{{userlist.usergroup.name}}</td>
+                    <td><i (click)="editUser(userlist)" class="fas fa-edit"></i>
+                        <i [ngbPopover]="deleteContent" placement="bottom" #deletePop="ngbPopover" style="margin-left: 15px;" class="fas fa-trash">
+                        <ng-template #deleteContent>
+                            <div class="style">
+                                <div class="modal-header">
+                                    <h6 class="modal-title" style="margin-left: 17%;"> Do you want to delete ?</h6>
+
+                                </div>
+
+                                <div class="modal-footer" style="margin-right: 23%;">
+                                    <button type="button" class="btn btn-danger" (click)="deletePop.close()"
+                                            data-dismiss="modal">No
+                                    </button>
+                                    <button type="button" class="btn btn-success"
+                                            (click)="deleteUser(userlist.userId, deletePop)"
+                                            data-dismiss="modal">Yes
+                                    </button>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<mat-paginator [length]="sandbox.getuserpagelength$ | async" [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)">
+</mat-paginator>

@@ -1,0 +1,15 @@
+<div fxLayout="row" fxLayout.xs="column" [fxLayoutAlign]="align" class="text-muted">
+    <div *ngIf="type==='detail'">
+        <span>Quantity:</span>
+        <button mat-icon-button matTooltip="Remove" (click)="changeCount('remove')"><mat-icon>remove</mat-icon></button>
+        <span> {{quantity}} </span>
+        <button mat-icon-button matTooltip="Add" (click)="changeCount('add')"><mat-icon>add</mat-icon></button>
+    </div>
+    <div class='prod-icon'>
+        <button mat-flat-button color="primary" class="cart-add" (click)="addToCart(product)">ADD TO CART</button>
+
+    </div>
+</div>
+<div *ngIf="product?.availibilityCount == 0 && type=='all'" class="bg-warn p-1 mt-2">
+    Sorry, this item is unavailable. Please choose a different one.
+</div>

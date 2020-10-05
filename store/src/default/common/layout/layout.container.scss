@@ -1,0 +1,26 @@
+.main{
+  min-height: 400px;
+  min-height: calc(100vh - 288px);
+  padding: 16px;
+}
+.head-toolbar{
+  height: 35px !important;
+}
+.sidenav{
+  width: 250px;
+  padding: 8px 16px;
+  position: fixed;
+  .close{
+    margin-left: 178px;
+  }
+  .divider{
+    margin: 8px 0;
+  }
+}
+
+.head {
+  width: 100%;
+}
+.mat-toolbar{
+  background-color: white !important;
+}

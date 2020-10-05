@@ -1,0 +1,29 @@
+// Variables;
+@import "../../variable";
+
+.campaign {
+  position: relative;
+  height: 250px;
+  .ct-series-a .ct-area {
+    fill-opacity: 0.2;
+    fill: url(#gradient);
+  }
+  .ct-series-a .ct-line,
+  .ct-series-a .ct-point {
+    stroke: $info;
+    stroke-width: 2px;
+  }
+  .ct-series-b .ct-area {
+    fill: $cyan;
+    fill-opacity: 0.1;
+  }
+  .ct-series-b .ct-line,
+  .ct-series-b .ct-point {
+    stroke: $cyan;
+    stroke-width: 2px;
+  }
+  .ct-series-a .ct-point,
+  .ct-series-b .ct-point {
+    stroke-width: 6px;
+  }
+}

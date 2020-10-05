@@ -1,0 +1,145 @@
+<div class="spinner-wrapper">
+    <app-spinner [isShow]="productDetail.productDetailLoading$ | async"></app-spinner>
+</div>
+<div *ngIf="!(productDetail.productDetailLoading$ | async)">
+    <div fxLayout="row wrap">
+        <div fxFlex="100" fxFlex.gt-md="35" fxFlex.md="45">
+            <mat-card class="product-image">
+                <button mat-icon-button (click)="openZoomViewer()" fxHide="false" fxHide.gt-md>
+                <mat-icon>fullscreen</mat-icon>
+            </button>
+                <img class="fix-image" *ngIf="image" [src]="image" onError="this.src='/assets/images/default_image.png';" (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave($event)" />
+            </mat-card>
+
+            <div class="small-carousel">
+                <div class="swiper-container" [swiper]="configuration">
+                    <div class="swiper-wrapper">
+                        <div *ngFor="let image of (productDetail.productDetails$ | async)?.productImage" class="swiper-slide">
+                            <mat-card (click)="selectImage(image)" class=" p-1 card-hover" [ngClass]="{'changeColor': isActive[image.productId]}">
+                                <img [src]="imagePath + '?path=' + image.containerName + '&name=' + image.image + '&width=60&height=60'" class="swiper-lazy" onError="this.src='/assets/images/default_image.png';" />
+                                <!--<div class=" swiper-lazy-preloader"></div>-->
+                            </mat-card>
+                        </div>
+                    </div>
+                    <button mat-icon-button class="swiper-button-prev swipe-arrow">
+                    <mat-icon>keyboard_arrow_left</mat-icon>
+                </button>
+                    <button mat-icon-button class="swiper-button-next swipe-arrow">
+                    <mat-icon>keyboard_arrow_right</mat-icon>
+                </button>
+                </div>
+            </div>
+        </div>
+        <div fxFlex="100" fxFlex.gt-md="45" fxFlex.md="55" ngClass.gt-sm="px-3 m-0" ngClass.sm="mt-2" ngClass.xs="mt-2">
+            <div #zoomViewer fxShow="false" fxShow.gt-md *ngIf="zoomImage">
+                <mat-card *ngIf="zoomImage" class="zoom-viewer mat-elevation-z18" [ngStyle]="{'background-image': 'url(' + zoomImage + ')'}">
+                </mat-card>
+            </div>
+
+            <h2>{{(productDetail.productDetails$ | async)?.name}}</h2>
+            <div class="py-1 lh">
+                <p><span class="text-muted fw-500">Category: </span><span *ngIf="(productDetail.productDetails$ | async)?.Category[0]">{{(productDetail.productDetails$ | async)?.Category[0].categoryName}}</span>
+                </p>
+                <p><span class="text-muted fw-500">Availibility: </span><span>Available</span></p>
+                <p *ngIf="(productDetail.productDetails$ | async)as detail">
+                    <ng-template #t let-fill="fill">
+                        <span class="star" [class.full]="fill === 100">
+                          <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                    </ng-template>
+                </p>
+            </div>
+            <div class="py-1">
+            </div>
+            <div class="divider mt-1"></div>
+            <h2 class="py-2 new-price">$ {{(productDetail.productDetails$ | async)?.price}}</h2>
+            <div class="py-1">
+                <app-controls-product-detail [product]="productDetail.productDetails$ | async" [type]="'detail'"></app-controls-product-detail>
+            </div>
+
+            <div class="divider"></div>
+
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="text-muted py-1">
+            </div>
+
+        </div>
+        <div fxFlex="100" fxFlex.gt-md="20" fxHide fxShow.gt-md>
+            <div fxLayout="row wrap" class="info-bar product-right" ngClass.gt-md="m-0">
+                <div fxFlex="100" fxFlex.md="25" fxFlex.sm="50">
+                    <mat-card class="light-block" fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon class="mat-icon-xlg text-muted m-0">card_giftcard</mat-icon>
+                        <div class="content">
+                            <p>BONUS PLUS</p>
+                            <span class="text-muted m-0">Make fun of shopping and collect bonuses</span>
+                        </div>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.md="25" fxFlex.sm="50" class="mt-16">
+                    <mat-card class="light-block" fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon class="mat-icon-xlg text-muted m-0">local_shipping</mat-icon>
+                        <div class="content">
+                            <p>FREE SHIPPING</p>
+                            <span class="text-muted m-0">Free shipping on all orders over ₹99</span>
+                        </div>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.md="25" fxFlex.sm="50" class="mt-16">
+                    <mat-card class="light-block" fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon class="mat-icon-xlg text-muted m-0">monetization_on</mat-icon>
+                        <div class="content">
+                            <p>MONEY BACK GUARANTEE</p>
+                            <span class="text-muted m-0">30 Days money return guarantee</span>
+                        </div>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.md="25" fxFlex.sm="50" class="mt-16">
+                    <mat-card class="light-block" fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon class="mat-icon-xlg text-muted m-0">history</mat-icon>
+                        <div class="content">
+                            <p>ONLINE SUPPORT 24/7</p>
+                            <span class="text-muted m-0">Call Us: {{(productDetail.settingDetail$ | async)?.storeTelephone}}</span>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div fxLayout="row wrap" class="mt-2">
+        <div fxFlex="100" fxFlex.gt-md="78" fxFlex.md="74">
+            <mat-card>
+                <mat-tab-group [@.disabled]="true" [selectedIndex]="0">
+                    <mat-tab label="Description">
+                        <div class="full-desc lh">
+                            <p [innerHtml]='(productDetail.productDetails$ | async)?.description'></p>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+
+            </mat-card>
+
+        </div>
+        <div fxFlex="100" fxFlex.gt-md="22" fxFlex.md="26" ngClass.gt-sm="pl-3" fxHide fxShow.gt-sm>
+            <div class="big-carousel">
+                <div class="swiper-container" [swiper]="config">
+                    <div class="swiper-wrapper">
+                        <div *ngFor="let slide of productDetail.bannerList$ | async" class="swiper-slide">
+                            <img [routerLink]="['/products']" [src]="imagePath+ '?path=' + slide.imagePath + '&name=' + slide.image + '&width=560&height=560'" class="swiper-lazy" onError="this.src='/assets/images/default_image.png';" class="mw-100 d-block mt-3 bannercursor">
+                        </div>
+                        <!--<img src="https://via.placeholder.com/400x310/EEEEEE/9E9E9E/?text=Banner%202" alt=""-->
+                        <!--class="mw-100 d-block mt-3">-->
+                        <!--<img src="https://via.placeholder.com/400x310/EEEEEE/9E9E9E/?text=Banner%203" alt=""-->
+                        <!--class="mw-100 d-block mt-3">-->
+                    </div>
+                    <button mat-icon-button class="swiper-button-prev swipe-arrow">
+                            <mat-icon>keyboard_arrow_up</mat-icon>
+                        </button>
+                    <button mat-icon-button class="swiper-button-next swipe-arrow">
+                            <mat-icon>keyboard_arrow_down</mat-icon>
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

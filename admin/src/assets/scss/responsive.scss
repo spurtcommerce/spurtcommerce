@@ -1,0 +1,136 @@
+// Responsive
+/*
+Template Name: Admin Template
+Author: Wrappixel
+
+File: scss
+*/
+
+/*==============================================================
+ For Desktop & above all (1650px)
+ ============================================================== */
+
+/*==============================================================
+ For Laptop & above all (1370px)
+ ============================================================== */
+
+/*-- ==============================================================
+ Small Desktop & above all (1024px)
+ ============================================================== */
+
+/*-- ==============================================================
+ Ipad & above all(768px)
+ ============================================================== */
+
+@include media-breakpoint-up(md) {
+  .bc-content {
+    justify-content: flex-end;
+  }
+}
+
+/*-- ==============================================================
+ Phone and below ipad(767px)
+ ============================================================== */
+@include media-breakpoint-down(md) {
+  .do-block {
+    display: block !important;
+  }
+
+  .products-section {
+    margin-top: 0px !important;
+
+
+    .card { flex-wrap: wrap; }
+    .product-ts-left {
+      width: 100%;
+      ul {
+        flex-wrap: wrap;
+        li {
+          width: 50%; border-bottom: solid thin #ccc;
+          &:last-child { width: 100%; }
+        }
+      }
+    }
+    .product-ts-right {
+      width: 100%;
+    }
+  }
+
+  .products-sub-section{
+    margin-top: 0px!important;
+  }
+  .addproduct-wrap {
+    padding: 10px 15px!important;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .navbar-nav {
+    width: 100%; flex-wrap: wrap;
+    .nav-item {
+      width: 100%;
+    }
+    .topbar .mega-dropdown .dropdown-menu .mega-nav-menu a {
+      display: block;  width: 100%;
+    }
+  }
+  .product-wrap {
+    .filter-details {
+      display: none;
+    }
+    .product-table {
+      width: 100%!important;
+      .table-footer {
+        flex-wrap: wrap;
+        .view-rec { width: 100%; }
+      }
+    }
+  }
+  .ap-body-col {
+    width: 49.5%!important;
+  }
+  .categories-col {
+    width: 100%!important;
+  }
+  .data-col {
+    width: 49.5%!important;  margin-right: .5%!important;
+  }
+}
+
+@media(max-width:1023px) and (min-width: 768px) {
+  .navbar-left {
+    position: absolute; top: 50px; left: 0; width: 100%; background: #999999;
+  }
+}
+
+@media (max-width: 576px) {
+  .breadcrumbs-row {
+    flex-wrap: wrap!important; justify-content: flex-start!important;
+    .bc-col {
+      width: 100%!important;
+    }
+    .bc-col-btn {
+      text-align: left!important; width: 100%!important;
+    }
+  }
+  .ap-body-col {
+    width: 100%!important;
+  }
+  .data-col {
+    width: 100%!important;  margin-right: 0!important;
+  }
+  .filter-row {
+    .filter-lft {
+      width: 60px!important;
+    }
+    .filter-nav-list {
+      width: calc(100% - 60px)!important;
+      ul {
+        li {
+          margin-left: 5px!important;
+        }
+      }
+    }
+  }
+}

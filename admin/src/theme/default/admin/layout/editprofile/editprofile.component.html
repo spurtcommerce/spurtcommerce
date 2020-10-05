@@ -1,0 +1,101 @@
+<form novalidate [formGroup]="editProfileForm">
+    <div class="row products-section">
+        <div class="col-12 layout-mar">
+            <div class="breadcrumbs-row noborder">
+                <div class="bc-col">
+                    <ul>
+                        <li> Edit Profile</li>
+                    </ul>
+                </div>
+                <div class="bc-col-btn ap-col-btn">
+                    <button class="btn btn-save" (click)="save(editProfileForm.value)"><img
+                            src="assets/img/tick-round-white.png">Save
+                    </button>
+                    <button (click)="editprofileCancel()" class="btn btn-cancel"><img
+                            src="assets/img/close-white-ico.png"> Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--Breadcrumbs-->
+    </div>
+
+    <div class="flex addproduct-wrap addgroup-wrap">
+
+        <div class="card ap-general">
+            <div class="flex ap-body ap-edit-body">
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>Name <sup>*</sup></label>
+                        <input type="text" class="form-control" placeholder="Name" formControlName="Name" [ngClass]="{'validationcolor':editProfileForm.get('Name').hasError('required') && editProfileForm.get('Name').touched  &&ifSubmitted==true}">
+
+                        <div class="error" *ngIf="(editProfileForm.get('Name').hasError('required') && editProfileForm.get('Name').touched)  &&ifSubmitted==true">
+                            User Name is Required </div>
+                        <div class="error" *ngIf="(editProfileForm.get('Name').hasError('pattern') && editProfileForm.get('Name').touched)  &&ifSubmitted==true">
+
+                            Incorrect UserName Email
+                        </div>
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>Email <sup>*</sup></label>
+                        <input type="text" class="form-control" placeholder="Email" formControlName="Email" [ngClass]="{'validationcolor':editProfileForm.get('Email').hasError('required') && editProfileForm.get('Email').touched  &&ifSubmitted==true}">
+
+                        <div class="error" *ngIf="(editProfileForm.get('Email').hasError('required') && editProfileForm.get('Email').touched)  &&ifSubmitted==true">
+                            Email is Required </div>
+                        <div class="error" *ngIf="(editProfileForm.get('Email').hasError('pattern') && editProfileForm.get('Email').touched)  &&ifSubmitted==true">
+                            Incorrect Email
+                        </div>
+                    </div>
+                </div>
+                <!--Col-->
+
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>Phone Number <sup>*</sup> </label>
+                        <input type="text" class="form-control" maxlength="10" appOnlyNumber placeholder="Phone Number" formControlName="Phone" [ngClass]="{'validationcolor':editProfileForm.get('Phone').hasError('required') && editProfileForm.get('Phone').touched  &&ifSubmitted==true}">
+
+
+                        <div class="error" *ngIf="(editProfileForm.get('Phone').hasError('required') && editProfileForm.get('Phone').touched)  &&ifSubmitted==true">
+                            Phone Number is required </div>
+                        <div class="error" *ngIf="(editProfileForm.get('Phone').hasError('pattern') && editProfileForm.get('Phone').touched)  &&ifSubmitted==true">
+                            Incorrect Number
+                        </div>
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>Address<sup>*</sup></label>
+                        <textarea class="form-control" rows="2" placeholder="Address" formControlName="Address" [ngClass]="{'validationcolor':editProfileForm.get('Address').hasError('required') && editProfileForm.get('Address').touched  &&ifSubmitted==true}"></textarea>
+
+                        <div class="error" *ngIf="(editProfileForm.get('Address').hasError('required') && editProfileForm.get('Address').touched)  &&ifSubmitted==true">
+                            Address is Required </div>
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label> Profile Image <sup>*</sup></label>
+                        <div class="flex avatar-wrap">
+                            <div class="avathar-img">
+                                <img [src]="Image" style="width: 100%; height: 100%">
+                            </div>
+                            <div class="avathar-file">
+                                <input type="file" #filePath (change)="docufile($event)">
+                            </div>
+                            <a href="javascript:void(0)" (click)='uploadButtonClick()'>Change</a>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--Col-->
+            </div>
+        </div>
+        <!--General-->
+    </div>
+</form>
+<!--<app-profile-bar  [userDetails]="profileData"></app-profile-bar>-->

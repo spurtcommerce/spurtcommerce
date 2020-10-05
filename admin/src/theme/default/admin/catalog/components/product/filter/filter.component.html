@@ -1,0 +1,41 @@
+<!--<div [formGroup]="prodfilter" class="new-user">-->
+
+<form [formGroup]="filterForm">
+
+    <div class="form-group">
+        <label for="keyword">Product Name</label>
+        <input type="text" formControlName="keyword" class="form-control" id="Keyword" aria-describedby="emailHelp" placeholder="Enter Product Name">
+    </div>
+    <div class="form-group">
+        <label for="sku">Sku</label>
+        <input type="text" formControlName="sku" class="form-control" id="sku" placeholder="Sku Number">
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+
+        <div class="radio">
+            <label class="prod_filter">
+                <input type="radio" name="price" value="Min" (click)="selectPrice('Min')">
+               Min-price
+            </label>
+            <label class="prod_filter">
+                <input type="radio" name="price" value="Max" (click)="selectPrice('Max')">
+                Max-price
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        <select class="custom-select col-12" id="inlineFormCustomSelect" formControlName="status">
+            <option value="" selected>- -Select Status- -</option>
+            <option value="1">Active</option>
+            <option value="0">In-Active</option>
+        </select>
+    </div>
+    <div class="text-right filter-btns">
+        <a (click)="resetFilter()" style="cursor: pointer">.Reset</a>
+
+        <button type="submit" class="btn" (click)="applyFilter()">Apply Filters
+        </button>
+    </div>
+</form>

@@ -1,0 +1,40 @@
+<div class="flex setting2-inner-header">
+    <h3> Settings > Site Settings > SEO</h3>
+
+</div>
+<div class="settings-right-wrapper addnewuser">
+
+    <div class="new-user">
+        <form (ngSubmit)="onSubmit()" [formGroup]="seoForm" class="form-horizontal m-t-20">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Meta Title
+                            </label>
+                        <input type="text" formControlName="MetaTitle" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Meta Tag Description
+                                </label>
+                        <input type="text" formControlName="MetaTagDescription" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Meta Tag Keyword</label>
+                        <input type="text" formControlName="MetatagKeyword" class="form-control">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="flex user-btn">`
+                        <button type="submit" class="btn btn-add">Save</button>
+                        <button (click)="seoCancel()" class="btn btn-cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

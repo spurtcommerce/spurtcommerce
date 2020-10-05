@@ -1,0 +1,15 @@
+.under-dev {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px;
+  p {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #000;
+    margin: 15px 0;
+  }
+}

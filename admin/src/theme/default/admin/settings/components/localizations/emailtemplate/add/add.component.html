@@ -1,0 +1,61 @@
+<div class="flex setting2-inner-header">
+    <h3>{{updatetitle ? 'Update Email Template' : 'Add Email Template'}}</h3>
+</div>
+<div class="settings-right-wrapper addnewuser">
+
+    <div class="new-user">
+        <form (ngSubmit)="onSubmit(emailtempForm.value)" [formGroup]="emailtempForm" class="form-horizontal m-t-20">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Title<sup>*</sup></label>
+                        <input type="text" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" class="form-control" />
+                        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                            <div *ngIf="f.title.errors.required">Title is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Subject<sup>*</sup></label>
+                        <input type="text" formControlName="subject" [ngClass]="{ 'is-invalid': submitted && f.subject.errors }" class="form-control">
+                        <div *ngIf="submitted && f.subject.errors" class="invalid-feedback">
+                            <div *ngIf="f.subject.errors.required">Subject is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label>Content<sup>*</sup></label>
+                        <ckeditor formControlName="content" [ngClass]="{ 'is-invalid': submitted && f.content.errors }"></ckeditor>
+                        <div *ngIf="submitted && f.content.errors" class="invalid-feedback">
+                            <div *ngIf="f.content.errors.required">Content is required</div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label">Status
+                            <sup>*</sup></label>
+                        <select class="form-control custom-select" formControlName="status" data-placeholder="Choose Role" [ngClass]="{ 'is-invalid': submitted && f.status.errors }" placeholder="status">
+                            <option value="1">Enabled</option>
+                            <option value="0">Disabled</option>
+                        </select>
+                        <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+                            <div *ngIf="f.status.errors.required">Status is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="flex user-btn">
+                        <button type="submit" class="btn btn-add">Save</button>
+                        <button (click)="emailtempcancel()" class="btn btn-cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

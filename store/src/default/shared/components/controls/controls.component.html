@@ -1,0 +1,19 @@
+<div fxLayout="row" fxLayout.xs="column" [fxLayoutAlign]="align" class="text-muted">
+    <div *ngIf="type === 'detail'">
+        <span>Quantity:</span>
+        <button mat-icon-button matTooltip="Remove" (click)="changeCount('remove')"><mat-icon>remove</mat-icon></button>
+        <span> {{quantity}} </span>
+        <button mat-icon-button matTooltip="Add" (click)="changeCount('add')"><mat-icon>add</mat-icon></button>
+    </div>
+    <div class='prod-icon'>
+        <button *ngIf="type==='home'||type==='all'" mat-icon-button matTooltip="Quick view" (click)="openProductDialog(product)"><mat-icon>remove_red_eye</mat-icon></button>
+        <button *ngIf="type==='all'||type==='detail'||type==='popup'" mat-icon-button matTooltip="Add to cart" (click)="addToCart(product)"><mat-icon>shopping_cart</mat-icon></button>
+        <span *ngIf="type==='home'" class="cart-lk">
+            <a  (click)="addToCart(product)"> Add to Cart </a>
+        </span>
+    </div>
+</div>
+<div *ngIf="product?.availibilityCount == 0 && type=='all'" class="bg-warn p-1 mt-2">
+    Sorry, this item is unavailable. Please choose a different one.
+</div>
+<!-- *ngIf="type==='all'" -->

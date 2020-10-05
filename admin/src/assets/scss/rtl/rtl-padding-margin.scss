@@ -1,0 +1,23 @@
+/* Padding margin for rtl */
+
+$vertical-property-map: (m-r-: margin-left, m-l-: margin-right, p-r-: padding-left, p-l-: padding-right);
+$sizes-list: 5 10 15 20 25 30 40;
+@each $size in $sizes-list {
+    $val: $size + 0px;
+    @each $keyword,
+    $property in $vertical-property-map {
+        html body [dir="rtl"] .#{$keyword}#{$size} {
+            #{$property}: $val;
+        }
+    }
+}
+
+/* Zero margin padding for rtl */
+
+$zero-property-map: (m-r: margin-left, m-l: margin-right, p-r: padding-left, p-l: padding-right);
+@each $keyword,
+$property in $zero-property-map {
+    html body [dir="rtl"] .#{$keyword}-0 {
+        #{$property}: 0;
+    }
+}

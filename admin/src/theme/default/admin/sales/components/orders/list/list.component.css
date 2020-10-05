@@ -1,0 +1,15 @@
+/*.content {*/
+/*    height: 150px;*/
+/*    border: 1px solid pink;*/
+/*    min-width: 1100px;*/
+/*    width: 100%;*/
+/*}*/
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #dc4d5b !important;
+    border: #dc4d5b !important;
+}
+
+.toggle .tgl:checked + .tgl-btn:after {
+    background-color: #dc4d5b !important;
+  }

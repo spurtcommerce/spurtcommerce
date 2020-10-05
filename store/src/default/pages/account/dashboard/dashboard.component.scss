@@ -1,0 +1,38 @@
+.flex-wrapper {
+    margin: 8px -8px;
+    .col {
+        padding: 8px;
+        // height: 50%;
+    }
+}
+
+.account-card-content {
+    height: 100%;
+    padding: 40px !important;
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.card-hover {
+    -webkit-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    transition: all .25s ease;
+    &:hover {
+        -webkit-transform: translateY(-4px) scale(1.01);
+        -moz-transform: translateY(-4px) scale(1.01);
+        -ms-transform: translateY(-4px) scale(1.01);
+        -o-transform: translateY(-4px) scale(1.01);
+        transform: translateY(-4px) scale(1.05);
+        -webkit-box-shadow: 0 14px 24px rgba(62, 57, 107, .1);
+        box-shadow: 0 14px 24px rgba(62, 57, 107, .1);
+    }
+}
+
+.heightChanged {
+    height: 89%;
+}

@@ -1,0 +1,38 @@
+<div class="slider-wrapper">
+    <div class="main-slider">
+        <div class="swiper-container h-100" [swiper]="config">
+            <div class="swiper-wrapper h-100">
+                <div *ngFor="let slide of listSandbox.bannerList$ | async" class="swiper-slide">
+                    <div [attr.data-background]="imagePath + '?path=' + slide.imagePath + '&name=' + slide.image + '&width=1860&height=1860'" class="slide-item swiper-lazy">
+                        <!--<div [attr.data-background]="imagePath + slide.imagePath + slide.image" class="slide-item swiper-lazy">-->
+                        <div class="mask"></div>
+                        <div fxLayout="column" fxLayoutAlign="center center" class="content">
+                            <h1>{{slide.title}}</h1>
+                            <h3 [innerHtml]='slide.content'></h3>
+                            <button mat-raised-button color="primary" routerLink="/products">Shop now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination white"></div>
+            <button mat-mini-fab color="primary" class="swiper-button-prev swipe-arrow"><mat-icon>keyboard_arrow_left</mat-icon></button>
+            <button mat-mini-fab color="primary" class="swiper-button-next swipe-arrow"><mat-icon>keyboard_arrow_right</mat-icon></button>
+        </div>
+    </div>
+    <div class="main-slider-right">
+        <div class="msr-col" style="background-image: url(assets/images/slider-right-img1.png)">
+            <div class="msr-col-content">
+                <h3>Summer Collection</h3>
+                <p>New Arrivals On Sale</p>
+                <button mat-raised-button color="primary" (click)="allProducts()">Shop now</button>
+            </div>
+        </div>
+        <div class="msr-col-btm" style="background-image: url(assets/images/slider-right-img2.png)">
+            <div class="msr-col-content">
+                <h3>Shoes for you</h3>
+                <p>Now starting at $89</p>
+                <button mat-raised-button color="primary" (click)="allProducts()">Shop now</button>
+            </div>
+        </div>
+    </div>
+</div>

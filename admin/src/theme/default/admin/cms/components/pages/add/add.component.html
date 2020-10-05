@@ -1,0 +1,115 @@
+<app-pages-layout></app-pages-layout>
+<div class="row products-section">
+    <div class="col-12">
+        <div class="breadcrumbs-row noborder">
+            <div class="bc-col">
+                <ul>
+                    <li><a href="javascript:void(0)">CMS</a></li>
+                    <li>
+                        <a href="javascript:void(0)" [routerLink]="['/cms/pages']"> Pages </a>
+                    </li>
+                    <li> Add Page</li>
+                </ul>
+            </div>
+            <div class="bc-col-btn ap-col-btn">
+                <button type="submit" class="btn btn-save" (click)="onSubmit()"><img
+                        src="assets/img/tick-round-white.png"> Save
+                </button>
+                <button (click)="pagesCancel()" class="btn btn-cancel"><img
+                        src="assets/img/close-white-ico.png">Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumbs-->
+</div>
+
+<div class="flex addproduct-wrap addgroup-wrap">
+
+    <div class="card ap-general">
+        <form (ngSubmit)="onSubmit()" [formGroup]="pagesForm" class="form-horizontal m-t-20">
+            <div class="ap-header">
+                General Information
+            </div>
+            <div class="flex ap-body cmsap-body">
+
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>Page Title <sup>*</sup></label>
+                        <input type="text" class="form-control" formControlName="pageTitle" placeholder="Page Title" [ngClass]="{ 'is-invalid': submitted && f.pageTitle.errors }" />
+                        <div *ngIf="submitted && f.pageTitle.errors" class="invalid-feedback">
+                            <div *ngIf="f.pageTitle.errors.required">Page Title is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Col-->
+                <div class="ap-body-col width100">
+                    <div class="form-group">
+                        <label>Page Content<sup>*</sup></label>
+                        <ckeditor formControlName='pageContent' name='pageContent' class="cms_pages_validation" [ngClass]="{'Validationcolor': !pagesForm.get('pageContent').valid && pagesForm.get('pageContent').touched&&submitted==true}">
+                        </ckeditor>
+                        <div style="color:red" *ngIf="pagesForm.get('pageContent').hasError('required') && pagesForm.get('pageContent').touched && submitted==true">
+                            Page Content is required
+                        </div>
+
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>Active<sup>*</sup></label>
+                        <select class="custom-select col-12" formControlName="active" id="inlineFormCustomSelect" [ngClass]="{ 'is-invalid': submitted && f.active.errors }">
+                            <option value="">- -select Active- -</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                        <div *ngIf="submitted && f.active.errors" class="invalid-feedback">
+                            <div *ngIf="f.active.errors.required">Status is required</div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>Meta Title</label>
+                        <input type="text" class="form-control" formControlName="metaTitle" placeholder="Meta Title" [ngClass]="{ 'is-invalid': submitted && f.metaTitle.errors }">
+                        <div *ngIf="submitted && f.metaTitle.errors" class="invalid-feedback">
+                            <div *ngIf="f.metaTitle.errors.required">Meta Title is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>Meta Keyword</label>
+                        <input type="text" class="form-control" formControlName="metaKeyword" placeholder="Meta Keyword" [ngClass]="{ 'is-invalid': submitted && f.metaKeyword.errors }">
+                        <div *ngIf="submitted && f.metaKeyword.errors" class="invalid-feedback">
+                            <div *ngIf="f.metaKeyword.errors.required">Meta Keyword is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>Meta Content</label>
+                        <textarea class="form-control" rows="3" formControlName="metaContent" placeholder="Meta Content" [ngClass]="{ 'is-invalid': submitted && f.metaContent.errors }"></textarea>
+                        <div *ngIf="submitted && f.metaContent.errors" class="invalid-feedback">
+                            <div *ngIf="f.metaContent.errors.required">Meta Content is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Col-->
+
+            </div>
+        </form>
+
+    </div>
+    <!--General-->
+
+</div>

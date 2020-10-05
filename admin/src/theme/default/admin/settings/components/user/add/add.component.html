@@ -1,0 +1,92 @@
+<div class="flex setting1-inner-header" style="margin-bottom: 22px">
+    <h3> {{updatetitle ? 'Update User' : 'Add User'}} </h3>
+</div>
+<div class="settings-right-wrapper">
+
+    <!---->
+    <div class="new-user">
+        <form (ngSubmit)="onSubmit(user.value)" [formGroup]="user" class="form-horizontal m-t-20">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>First Name<sup class="supvalidation">*</sup></label>
+                        <input type="text" [(ngModel)]="firstName" formControlName="firstName" class="form-control" placeholder="First Name" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                            <div *ngIf="f.firstName.errors.required">First Name is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Last Name<sup class="supvalidation">*</sup></label>
+                        <input type="text" [(ngModel)]="lastName" formControlName="lastName" class="form-control" placeholder="Last Name" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                            <div *ngIf="f.lastName.errors.required">Last Name is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Email<sup class="supvalidation">*</sup></label>
+                        <input type="email" [(ngModel)]="email" formControlName="email" class="form-control" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required
+                            </div>
+                            <div *ngIf="f.email.errors">Email must be a valid email address'
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label">Role<sup class="supvalidation">*</sup></label>
+                        <select [(ngModel)]="role" class="form-control custom-select" data-placeholder="Choose Role" [ngClass]="{ 'is-invalid': submitted && f.role.errors }" formControlName="role" placeholder="Role">
+                            <option [ngValue]="undefined" selected>- -Select- -</option>
+                            <option *ngFor="let rolelist of sandbox.getGroupRoleList$ | async"
+                                    value={{rolelist.groupId}}>
+                                {{rolelist.name}}
+                            </option>
+                        </select>
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Role is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>User Name<sup class="supvalidation">*</sup></label>
+                        <input type="email" [(ngModel)]="username" formControlName="username" class="form-control" placeholder="User Name" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                            <div *ngIf="f.username.errors.required">User Name Email is required
+                            </div>
+                            <div *ngIf="f.username.errors">User Name Email must be a valid email address
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Password<sup class="supvalidation">*</sup></label>
+                        <input type="password" [(ngModel)]="password" formControlName="password" class="form-control" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="flex user-btn">
+                        <button type="submit" class="btn btn-add">{{updatetitle ? 'Update User' : 'Save' }}
+                        </button>
+                        <button (click)="UserCancle()" class="btn btn-cancel">Cancle
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

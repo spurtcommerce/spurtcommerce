@@ -1,0 +1,32 @@
+<app-sales-header></app-sales-header>
+<div class="row products-section">
+    <div class="col-12 layout-mar">
+        <div class="card">
+            <div class="product-ts-left">
+                <ul>
+                    <li>
+                        <p>Total Orders</p>
+                        <h3>{{layoutSandbox.totalOrderCount$ | async}}</h3>
+                    </li>
+                    <li>
+                        <p>Today's Orders</p>
+                        <h3>{{layoutSandbox.todayOrderCount$ | async}}</h3>
+                    </li>
+                    <li>
+                        <p>Total Orders Amount</p>
+                        <h3>$ {{(layoutSandbox.totalOrderAmount$ | async).toFixed(2)}}</h3>
+                    </li>
+                    <li>
+                        <p>Today's Orders Amount</p>
+                        <h3>$ {{(layoutSandbox.todayOrderAmount$ | async).toFixed(2)}}</h3>
+                    </li>
+                </ul>
+            </div>
+
+            <!--Left-->
+
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

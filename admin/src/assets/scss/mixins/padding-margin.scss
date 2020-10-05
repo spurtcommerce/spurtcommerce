@@ -1,0 +1,27 @@
+/*******************
+Padding margin property 
+*******************/
+
+$vertical-property-map: ( m-t-: margin-top, m-b-: margin-bottom, m-r-: margin-right, m-l-: margin-left, p-t-: padding-top, p-b-: padding-bottom, p-r-: padding-right, p-l-: padding-left, p-: padding, m-:margin);
+$sizes-list: 5 10 15 20 25 30 40;
+@each $size in $sizes-list {
+    $val: $size + 0px;
+    @each $keyword,
+    $property in $vertical-property-map {
+        html body .#{$keyword}#{$size} {
+            #{$property}: $val;
+        }
+    }
+}
+
+
+
+/** * Zero */
+
+$zero-property-map: ( m-0: margin, m-t: margin-top, m-r: margin-right, m-b: margin-bottom, m-l: margin-left, p-0: padding, p-t: padding-top, p-r: padding-right, p-b: padding-bottom, p-l: padding-left);
+@each $keyword,
+$property in $zero-property-map {
+    html body .#{$keyword}-0 {
+        #{$property}: 0;
+    }
+}

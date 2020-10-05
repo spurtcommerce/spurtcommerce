@@ -1,0 +1,39 @@
+<div class="flex setting2-inner-header">
+    <h3>Settings > Personalize > Product</h3>
+</div>
+<div class="settings-right-wrapper addnewuser">
+
+
+    <div class="new-user">
+        <form [formGroup]="perProductForm" class="form-horizontal m-t-20">
+            <div class="row">
+
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Category Product Count</label>
+                        <div class="radio">
+                            <mat-radio-group formControlName="productCount" fxLayout="column" fxLayoutGap=".25rem">
+                                <mat-radio-button [value]="'Yes'">Yes</mat-radio-button>
+                                <mat-radio-button [value]="'No'">No</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Default Items Per Page(Admin)<sup class="supvalidation">*</sup></label>
+                        <input type="text" formControlName="itemPage" class="form-control" />
+
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="flex user-btn">
+                        <button (click)="onSubmit()" type="submit" class="btn btn-add">Save</button>
+                        <button [routerLink]="['/dashboard']" class="btn btn-cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

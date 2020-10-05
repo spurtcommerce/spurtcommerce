@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="salesOrder" class="">
+    <div class="form-group">
+        <label for="keyboard"> OrderId </label>
+        <input type="text" class="form-control" id="keyboard" aria-describedby="emailHelp" formControlName="orderId" placeholder="OrderId">
+    </div>
+    <div class="form-group">
+        <label for="sku">Customer Name</label>
+        <input type="text" class="form-control" formControlName="name" id="sku" placeholder="Customer Name">
+    </div>
+    <div class="form-group">
+        <label>Total Amount</label>
+        <input type="text" class="form-control" formControlName="total" placeholder="Total Amount">
+
+    </div>
+    <div class="form-group">
+        <label class="control-label">Order Created </label>
+        <input type="date" class="form-control" formControlName="date">
+    </div>
+    <div class="form-group">
+        <label>Order Status </label>
+        <select class="custom-select col-12" data-placeholder="Choose OrderStatus" formControlName="orderStatusId">
+            <option value =''>-- Select Status --</option>
+            <option     *ngFor="let data of orderStatusSandbox.getOrderstatuslist$ | async"
+                     value={{data.orderStatusId}}>{{data.name}}</option>
+
+        </select>
+    </div>
+
+    <div class="text-right filter-btns">
+        <a style="cursor: pointer" (click)="reset()">Reset</a>
+        <button type="submit" class="btn">Apply Filters</button>
+    </div>
+</form>

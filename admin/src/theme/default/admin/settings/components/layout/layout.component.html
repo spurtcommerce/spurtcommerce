@@ -1,0 +1,18 @@
+<div class="settings-section">
+    <div class="settings-header">
+        <h3>Settings</h3>
+    </div>
+</div>
+
+<div class="settings-sidebar">
+    <ul class="flex">
+        <li><a href="javascript:void(0)" [routerLink]="['/settings/role']" [routerLinkActive]="'active'">Role</a></li>
+        <li><a href="javascript:void(0)" [routerLink]="['/settings/user']" [routerLinkActive]="'active'">User </a></li>
+        <li><a href="javascript:void(0)" [routerLink]="['/settings/generalsetting']" [routerLinkActive]="'active'">General Settings</a></li>
+        <li><a href="javascript:void(0)" [routerLink]="['/settings/personalize']" [routerLinkActive]="'active'">Personalize</a></li>
+        <li><a href="javascript:void(0)" [routerLink]="['/settings/sidesettings']" [routerLinkActive]="'active'">Site Settings</a></li>
+        <li><a href="javascript:void(0)" [routerLink]="['/settings/local']" [routerLinkActive]="'active'">Localizations</a></li>
+    </ul>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,32 @@
+.auth{
+  white-space: nowrap;
+  padding: 7px 14px;
+  font-weight: 500;
+}
+.forgot{
+  cursor: pointer;
+}
+.validationcolor{
+
+  ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+    background-color: red !important;
+    color: red !important;
+  }
+  ::ng-deep .mat-form-field-empty.mat-form-field-label {
+    color: red !important;
+  }
+  ::ng-deep .mat-form-field-label >  .mat-form-field-required-marker {
+    color: red  !important;
+  }
+
+}
+::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+  background-color: gray !important;
+  color: gray !important;
+}
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+  color: gray !important;
+}
+::ng-deep .mat-form-field-label >  .mat-form-field-required-marker {
+  color: gray  !important;
+}

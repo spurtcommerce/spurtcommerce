@@ -1,0 +1,18 @@
+<mat-toolbar-row fxLayoutAlign="space-between center" class="logo-toolbar theme-container">
+    <a class="logo" routerLink="/" (click)="closeSubMenus()"><img src="assets/images/storelogo.png" style="width: 192px; height: 43px"></a>
+    <div class="search-algin" fxFlex fxFlexOffset.gt-sm="10" fxShow="false" fxShow.gt-sm>
+        <form method="get" class="search-form" fxLayout="row">
+            <mat-menu #categoriesMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="categories-dropdown">
+            </mat-menu>
+            <input type="text" placeholder="What are you looking for ?" fxFlex (keyup)="searchData($event.target.value)">
+            <button mat-mini-fab (click)="search()" type="button" class="search-btn mat-elevation-z0 mat-mini-fab mat-accent">
+               Search
+            </button>
+        </form>
+    </div>
+
+    <div fxFlexOffset="10" fxLayout="row" fxLayoutAlign="center center">
+        <app-spurt-cart></app-spurt-cart>
+    </div>
+
+</mat-toolbar-row>

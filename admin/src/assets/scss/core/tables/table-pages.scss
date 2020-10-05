@@ -1,0 +1,164 @@
+/*
+Template Name: Admin Template
+Author: Wrappixel
+File: scss
+*/
+
+/*******************
+Table Cell
+*******************/
+
+.table-box {
+  display: table;
+  width: 100%;
+}
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.table thead th,
+.table th {
+  font-weight: 500;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.lite-padding td {
+  padding: 5px;
+}
+
+.v-middle {
+  td,
+  th {
+    vertical-align: middle;
+  }
+}
+
+/*******************
+Table td vertical middle
+*******************/
+
+.vm.table td,
+.vm.table th {
+  vertical-align: middle;
+}
+
+.no-th-brd.table th {
+  border: 0px;
+}
+
+.table.no-border {
+  tbody {
+    td {
+      border: 0px;
+    }
+  }
+}
+
+/*******************
+Table-Jsgrid table
+******************/
+
+.jsgrid-pager-page a,
+.jsgrid-pager-current-page,
+.jsgrid-pager-nav-button a {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0.5em 1em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #67757c;
+  border: 1px solid #ddd;
+}
+
+.jsgrid-pager-page a:hover,
+.jsgrid-pager-nav-button a:hover {
+  background-color: $themecolor;
+  color: $white;
+}
+
+.jsgrid-pager-current-page {
+  background-color: $themecolor;
+  color: $white;
+}
+
+.jsgrid-pager-page,
+.jsgrid-pager-nav-button {
+  padding: 0;
+}
+
+.jsgrid-pager-page.jsgrid-pager-current-page {
+  padding: 0.5em 1em !important;
+}
+
+// Data-tables
+
+table.dataTable {
+  thead {
+    th,
+    td {
+      border-bottom-color: $border-color;
+      text-align: center;
+    }
+  }
+  tbody {
+    td {
+      text-align: center;
+    }
+  }
+}
+
+.dataTables_wrapper {
+  .dataTables_filter input {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: $gray-700;
+    background-color: $white;
+    background-clip: padding-box;
+    border: 1px solid $input-border-color;
+    border-radius: 2px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .dataTables_length select {
+    height: calc(2.0625rem + 2px);
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+    line-height: 1.5;
+    color: $gray-700;
+    vertical-align: middle;
+    background: $white $custom-select-indicator no-repeat right 0.75rem center;
+    border: 1px solid $input-border-color;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  .dataTables_paginate {
+    .paginate_button {
+      border: 1px solid $border-color;
+      background: $white;
+      color: $themecolor !important;
+      &.disabled,
+      &.disabled:hover,
+      &.disabled:active {
+        border-color: $border-color;
+      }
+      &:hover,
+      &.current,
+      &.current:hover {
+        background: $themecolor;
+        border-color: $themecolor;
+        color: $white !important;
+      }
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+}

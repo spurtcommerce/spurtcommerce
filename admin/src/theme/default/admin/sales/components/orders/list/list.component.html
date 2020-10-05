@@ -1,0 +1,162 @@
+<div class="row products-section products-sub-section">
+    <div class="col-12">
+        <div class="breadcrumbs-row">
+            <div class="bc-col">
+                <ul>
+                    <li><a href="javascript:void(0)">Sales </a></li>
+                    <li> Orders</li>
+                </ul>
+            </div>
+            <div class="bc-col-btn">
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumbs-->
+    <div class="col-12">
+        <div class="flex filter-row">
+            <div class="filter-lft">
+                <div class="toggle">
+                    <p>Filters</p>
+                    <input class="tgl tgl-light" id="cb1" (change)="changeFilter($event)" [checked]="true" type="checkbox" />
+                    <label class="tgl-btn" for="cb1"></label>
+                </div>
+                <div class="order-status">
+                    <p>Order Status</p>
+                    <ul class="flex" *ngFor="let orderList of orderStatusSandbox.getOrderstatuslist$ | async">
+                        <li><span [ngStyle]="{'color':'white', 'background':orderList?.colorCode}"></span>{{orderList.name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--Lft-->
+            <div class="filter-nav-list">
+                <ul class="flex">
+                    <li *ngIf="checkedData.length==0" style="margin-left: 15px;">
+                        <a (click)="bulkDeleteEmpty()"><img src="assets/img/delete-ico.png">Delete</a>
+                    </li>
+                    <li *ngIf="checkedData.length>0" style="margin-left: 15px;" [ngbPopover]="deleteContent1" placement="left" #deletePop="ngbPopover">
+                        <a><img src="assets/img/delete-ico.png">Delete
+                        </a>
+                    </li>
+                    <li *ngIf="checkedData.length==0">
+                        <a (click)="bulkDeleteEmpty()" placement="top-right"> <img src="assets/img/export-ico.png"> Export </a>
+                    </li>
+                    <li *ngIf="checkedData.length>0">
+                        <a (click)="exportExcel()" placement="top-right"> <img src="assets/img/export-ico.png"> Export </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!--Right-->
+        </div>
+    </div>
+</div>
+
+
+<div class="flex product-wrap example-full-width">
+    <div *ngIf="buttonCheck == true" class="filter-section border-right">
+
+
+        <div class="w3-container w3-animate-left">
+
+            <app-sales-order-filter (salesEmit)="receiveProgress($event)"></app-sales-order-filter>
+
+        </div>
+    </div>
+    <!--Filter-->
+
+
+    <div class="product-table" [ngClass]="{'changesize': buttonCheck == true }">
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" width="5%">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                </div>
+                            </div>
+                        </th>
+
+                        <th scope="col" class="text-center">Order Id</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Total Amount</th>
+                        <th scope="col">Order Created</th>
+                        <th scope="col">Order Updated</th>
+                        <th scope="col">View</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let orderList of appSandbox.getOrderlist$ | async">
+                        <th scope="row">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" (click)="selectChkBox($event, orderList.orderId)" id={{orderList.orderId}} [checked]="checkCondition[orderList.orderId]" [ngModelOptions]="{standalone: true}" [(ngModel)]="checkmodules[orderList.orderId]">
+                                    <label class="custom-control-label" for={{orderList.orderId}}></label>
+                                </div>
+                            </div>
+                        </th>
+                        <td scope="row" style="text-align: center"><span *ngIf="orderList.orderPrefixId" style="    width: 115px;background: #9dec9d;display: inline-block; padding: 3px 7px;" ngbTooltip="{{orderList.orderStatus?.name}}" [ngStyle]="{'color': (orderList.orderStatus ? 'white' : 'black'), 'background':orderList.orderStatus?.colorCode}"><b>{{orderList.orderPrefixId}}</b></span>
+                        </td>
+                        <td>{{orderList.shippingFirstName}}</td>
+                        <td>$ {{orderList.totalAmount}}
+                        </td>
+                        <td>{{orderList.dateAdded | date: 'dd/MM/yyyy'}}</td>
+                        <td>{{orderList.dateModified | date: 'dd/MM/yyyy'}}</td>
+                        <td>
+                            <a href="javascript:void(0)" (click)="viewOrders(orderList.orderId)"> <img src="assets/img/view-ico.png"> </a>
+                        </td>
+                        <td>
+                            <i [ngbPopover]="deleteContent" placement="left" #deletePop="ngbPopover" style="cursor: pointer;" class="fas fa-trash globe_icon">
+                            <ng-template #deleteContent>
+                                <div class="style">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title"
+                                            style="margin-left: 17%;"> Do you want to delete this order?</h6>
+                                    </div>
+
+                                    <div class="modal-footer" style="margin-right: 23%;">
+                                        <button type="button" class="btn btn-danger" (click)="deletePop.close()"
+                                                data-dismiss="modal">No
+                                        </button>
+                                        <button type="button" class="btn btn-success"
+                                                (click)="deleteOrder(orderList.orderId)"
+                                                data-dismiss="modal">Yes
+                                        </button>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </i>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="no_data" *ngIf="(appSandbox.getOrderlist$ |async)?.length==0">
+                <p>Items not found</p>
+            </div>
+            <mat-paginator [length]="appSandbox.getOrderlistCount$ | async" [pageSize]="pageSize" [pageIndex]="index" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)">
+            </mat-paginator>
+
+        </div>
+    </div>
+    <!--Table-->
+</div>
+<ng-template #deleteContent1>
+    <div class="style">
+        <div class="modal-header">
+            <h6 class="modal-title" style="margin-left: 17%;"> Do you want to delete ?</h6>
+
+        </div>
+
+        <div class="modal-footer" style="margin-right: 23%;">
+            <button type="button" class="btn btn-danger" (click)="deletePop.close()" data-dismiss="modal">No
+            </button>
+            <button type="button" class="btn btn-success" (click)="bulkDelete()" data-dismiss="modal">
+                Yes
+            </button>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,6 @@
+<div class="main-cat" *ngFor="let category of categories; let i = index">
+
+    <h4 [ngClass]="{'horizontal-active-link':(isClicked[category.categoryId]) || ((listSandBox.getactiveCategoryID$|async) ==category.categoryId) || (activecategory==category.categoryId) }" (click)="changeCategory(category.categoryId,category.categoryId, category.name)">
+        {{category.name}}</h4>
+
+</div>

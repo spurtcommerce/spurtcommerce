@@ -1,0 +1,174 @@
+<div class="row products-section products-sub-section">
+    <div class="col-12">
+        <div class="breadcrumbs-row">
+            <div class="bc-col">
+                <ul>
+                    <li><a href="javascript:void(0)">Customer </a></li>
+                    <li> Customers</li>
+                </ul>
+            </div>
+            <div class="bc-col-btn">
+                <button class="btn customer-btn" (click)="addaddresscustomer()"><img src="assets/img/add-white-ico.png">
+                   Add Customer
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumbs-->
+    <div class="col-12">
+        <div class="flex filter-row">
+            <div class="filter-lft">
+                <div class="toggle">
+                    <p>Filters</p>
+                    <input class="tgl tgl-light" id="cb1" type="checkbox" [checked]="true" (change)="check($event)" />
+                    <label class="tgl-btn" for="cb1"></label>
+                </div>
+                <div class="order-status">
+                    <p>Status</p>
+                    <li style="list-style: none">
+                        <span style="display: inline-block;width: 14px;height: 16px;margin-right: 6px;vertical-align: middle;background-color: #32b643;"></span>Active
+                        <span style="display: inline-block;width: 14px;height: 16px;margin-left: 3px;margin-right: 7px;vertical-align: middle;background-color: #ea5738e6;"></span>In Active
+                    </li>
+                </div>
+            </div>
+            <!--Lft-->
+            <div class="filter-nav-list">
+                <ul class="flex">
+                    <li *ngIf="checkedData.length==0" style="margin-left: 15px;">
+                        <a (click)="bulkDeleteEmpty()"><img src="assets/img/delete-ico-green.png">Delete</a>
+                    </li>
+                    <li *ngIf="checkedData.length>0" style="margin-left: 15px;" [ngbPopover]="deleteContent1" placement="left" #deletePop="ngbPopover">
+                        <a><img src="assets/img/delete-ico-green.png">Delete
+                        </a>
+                    </li>
+                    <li *ngIf="checkedData.length==0">
+                        <a (click)="bulkDeleteEmpty()"> <img src="assets/img/export-ico-green.png"> Export </a>
+                    </li>
+                    <li *ngIf="checkedData.length>0">
+                        <a (click)="exportExcel()"> <img src="assets/img/export-ico-green.png"> Export </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!--Right-->
+        </div>
+    </div>
+</div>
+
+<div class="flex product-wrap example-full-width">
+
+    <div *ngIf="buttoncheck == true" class="filter-section border-right">
+        <div class="w3-container w3-animate-left">
+            <app-customer-filter (ProgressEmit)="receiveProgress($event)"></app-customer-filter>
+        </div>
+        <!--Filter-->
+    </div>
+    <div class="product-table" [ngClass]="{'changesize': buttoncheck == true }">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" width="5%">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                </div>
+                            </div>
+                        </th>
+                        <th scope="col">Name</th>
+                        <th scope="col">E-mail Id</th>
+                        <th scope="col">Group</th>
+                        <th scope="col">Date Of Registration</th>
+                        <!--<th scope="col">IP</th>-->
+                        <th scope="col">Action</th>
+                        <th scope="col" class="text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let customelist of sandbox.getCustomerlist$ | async;">
+                        <th scope="row">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" (click)="selectChkBox($event, customelist.id)" id={{customelist.id}} [checked]="checkCondition[customelist.id]" [ngModelOptions]="{standalone: true}" [(ngModel)]="checkmodules[customelist.id]">
+                                    <!--<input type="checkbox" class="custom-control-input" id={{customelist.id}}  value="check">-->
+                                    <label class="custom-control-label" for={{customelist.id}}></label>
+                                </div>
+                            </div>
+
+                        </th>
+                        <!-- <td>{{customelist.id}}</td> -->
+                        <td class="td_css">
+                            <a *ngIf="customelist.firstName" placement="bottom" ngbTooltip="View Details" (click)="viewcustomer(customelist.id)">
+                                <b></b>{{customelist.firstName}} {{customelist.lastName}}</a>
+                            <p *ngIf="!customelist.firstName">
+                                <b></b>social login</p>
+                        </td>
+                        <td>{{customelist.email}}</td>
+                        <td>Default</td>
+                        <td>{{customelist.createdDate | date : "dd/MM/yyyy"}}</td>
+
+                        <td>
+                            <a href="javascript:void(0)" (click)="editcustomer(customelist)"> <img src="assets/img/edit-ico.png"> </a>
+                            <i [ngbPopover]="deleteContent" placement="left" #deletePop="ngbPopover" style="margin-left: -2px;padding:10px" class="fas fa-trash">
+                            <ng-template #deleteContent>
+                                <div class="style">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title"
+                                            style="margin-left: 17%;"> Do you want to Delete?</h6>
+
+                                    </div>
+
+                                    <div class="modal-footer" style="margin-right: 23%;">
+                                        <button type="button" class="btn btn-danger" (click)="deletePop.close()"
+                                                data-dismiss="modal">No
+                                        </button>
+                                        <button type="button" class="btn btn-success"
+                                                (click)="deletecustomer(customelist.id, deletePop)"
+                                                data-dismiss="modal">Yes
+                                        </button>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </i>
+
+                        </td>
+
+                        <td class="text-center">
+                            <div *ngIf="customelist.isActive === 1">
+                                <span style="width: 41px;background: #32b643; color: white;display: inline-block;padding: 1px 4px;"><b>Active</b></span>
+
+                            </div>
+                            <div *ngIf="customelist.isActive === 0">
+                                <span style="background: #ea5738e6; color: white;width: 63px;display: inline-block;padding: 1px 4px;"><b>In-Active</b></span>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="no_data" *ngIf="(sandbox.getCustomerlist$ | async)?.length==0">
+                <p>Items not found</p>
+            </div>
+            <mat-paginator [length]="sandbox.getpagination$ | async" [pageIndex]="index" [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)">
+            </mat-paginator>
+        </div>
+    </div>
+    <!--Table-->
+</div>
+
+<ng-template #deleteContent1>
+    <div class="style">
+        <div class="modal-header">
+            <h6 class="modal-title" style="margin-left: 17%;"> Do you want to delete ?</h6>
+
+        </div>
+
+        <div class="modal-footer" style="margin-right: 23%;">
+            <button type="button" class="btn btn-danger" (click)="deletePop.close()" data-dismiss="modal">No
+                </button>
+            <button type="button" class="btn btn-success" (click)="bulkDelete()" data-dismiss="modal">
+                    Yes
+                </button>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,38 @@
+<div class="flex setting2-inner-header">
+    <h3>Settings > Personalize > Order</h3>
+</div>
+<div class="settings-right-wrapper addnewuser">
+
+
+    <div class="new-user">
+        <form [formGroup]="perOrderForm" class="form-horizontal m-t-20">
+            <div class="row">
+
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Invoice Prefix</label>
+                        <input type="text" formControlName="invoicePrefix" [ngClass]="{ 'is-invalid': submitted && f.invoicePrefix.errors }" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label">Order Status</label>
+                        <select class="form-control custom-select" data-placeholder="Choose Role" formControlName="orderStatus" placeholder="Order Status">
+                            <option *ngFor="let orderStatuslist of orderStatusSandbox.getOrderstatuslist$| async"
+                                    value={{orderStatuslist.orderStatusId}}>
+                                {{orderStatuslist.name}}
+                            </option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="flex user-btn">
+                        <button (click)="onSubmit()" type="submit" class="btn btn-add">Save</button>
+                        <button [routerLink]="['/dashboard']" class="btn btn-cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

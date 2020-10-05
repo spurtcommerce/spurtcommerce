@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit()" class="" [formGroup]="custftrform">
+    <div class="form-group">
+        <label for="keyboard">Customer Name </label>
+        <input type="text" formControlName="customername" class="form-control" id="keyboard" aria-describedby="emailHelp" placeholder="Customer Name">
+    </div>
+    <div class="form-group">
+        <label for="sku">Email </label>
+        <input type="text" formControlName="email" class="form-control" id="sku" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="sku">Customer Group </label>
+        <input type="text" formControlName="customergroup" class="form-control" id="sku" placeholder="Customer Group">
+    </div>
+    <div class="form-group">
+        <label class="control-label">Date Of Registration</label>
+
+        <input type="date" formControlName="custdate" class="form-control">
+    </div>
+    <div class="text-right filter-btns">
+        <a (click)="reset()" style="cursor: pointer">Reset</a>
+        <button type="submit" class="btn">Apply Filters </button>
+    </div>
+</form>

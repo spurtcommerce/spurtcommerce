@@ -1,0 +1,29 @@
+<app-cms-header></app-cms-header>
+<div class="row products-section">
+    <div class="col-12 layout-mar">
+        <div class="card">
+            <div class="product-ts-left">
+                <ul>
+                    <li>
+                        <p>Total Customers </p>
+                        <h3>{{layoutSandbox.totalCustomerCount$ | async}}
+                        </h3>
+                    </li>
+                    <li>
+                        <p>Active Customers</p>
+                        <h3>{{layoutSandbox.activeCustomerCount$ | async}}
+                        </h3>
+                    </li>
+                    <li>
+                        <p>In-Active Customers</p>
+                        <h3>{{layoutSandbox.inActiveCustomerCount$ | async}}
+                        </h3>
+                    </li>
+                </ul>
+            </div>
+            <!--Left-->
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

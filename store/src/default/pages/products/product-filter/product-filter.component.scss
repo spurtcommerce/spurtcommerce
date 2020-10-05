@@ -1,0 +1,68 @@
+.mat-expansion-panel-header-title {
+    text-transform: uppercase;
+}
+
+.filter-buttons {
+    button {
+        min-width: 36px;
+        margin: 0 6px 10px 0;
+        padding: 0;
+    }
+}
+
+.filter-price {
+    .mat-slider-horizontal {
+        min-width: 110px;
+    }
+}
+
+.filter-brands {
+    button {
+        width: 66px;
+        height: 44px;
+        min-width: 66px;
+        margin: 0 6px 10px 0;
+        padding: 0px;
+        overflow: hidden;
+        img {
+            width: 66px;
+            height: 44px;
+        }
+    }
+    .changeShadowColor {
+        box-shadow: 5px 7px 8px #0000FF;
+    }
+}
+
+.card-hover {
+    -webkit-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    transition: all .25s ease;
+    &:hover {
+        -webkit-transform: translateY(-4px) scale(1.01);
+        -moz-transform: translateY(-4px) scale(1.01);
+        -ms-transform: translateY(-4px) scale(1.01);
+        -o-transform: translateY(-4px) scale(1.01);
+        transform: translateY(-4px) scale(1.05);
+        -webkit-box-shadow: 0 14px 24px rgba(62, 57, 107, .1);
+        box-shadow: 0 14px 24px rgba(62, 57, 107, .1);
+    }
+}
+
+mat-radio-button {
+    margin-left: 25px;
+}
+
+mat-radio-group {
+    margin-left: -26px;
+}
+
+.categories-wrapper {
+    position: relative;
+    max-height: 100%;
+}
+
+.wrapper {
+    height: 500px !important;
+}

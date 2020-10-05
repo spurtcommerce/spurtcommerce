@@ -1,0 +1,34 @@
+@import 'layout/layout'; 
+
+@import 'scafholdings/scafholding';
+// Header
+@import 'loader/spinner';  
+// Header
+@import 'topbar/header'; 
+
+//table pages
+@import 'tables/table-pages';
+// breadcrumb
+@import 'breadcrumb/breadcrumb';     
+
+// sidebar
+@import 'sidebar/sidebar'; 
+
+//wave effects
+@import 'wave-effects/wave-effects';
+
+//wave effects
+@import 'buttons/buttons';
+
+//wave effects
+@import 'customizer/customizer'; 
+
+//Animation effects
+@import 'animation/animation';
+
+//perfect-scrollbar
+@import 'perfect-scrollbar/perfect-scrollbar';
+
+
+//extra
+@import 'extra/extra';

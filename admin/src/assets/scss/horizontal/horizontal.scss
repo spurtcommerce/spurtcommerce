@@ -1,0 +1,216 @@
+/*
+Template Name: Admin Template
+Author: Niravjoshi / Wrappixel
+File: scss
+*/
+
+$sidebarheight:54px;
+#main-wrapper[data-layout="horizontal"] {
+    /****************************
+    This is for the fixed header layout
+    ***************************/
+    &[data-header-position="fixed"] {
+        .topbar {
+            position: fixed;
+            width: 100%;
+        }
+        .left-sidebar {
+            padding-top: 64px;
+        }
+    }
+    /****************************
+    This is for the fixed sidebar layout
+    ***************************/
+    &[data-sidebar-position="fixed"] {
+        .topbar {
+            position: fixed;
+            width: 100%;
+        }
+        .left-sidebar {
+            padding-top: 64px;
+            position: fixed;
+        }
+        .page-wrapper {
+            padding-top: 78px;
+        }
+    }
+}
+
+
+/****************************
+This is for the horizontal layout
+***************************/
+
+@include media-breakpoint-up(md) {
+    #main-wrapper[data-layout="horizontal"] {
+        background: $body-bg;
+        .topbar {
+            transition: 0s;
+        }
+        /****************************
+        This is for the Boxed horizontal layout
+        ***************************/
+        &[data-boxed-layout="boxed"] {
+            .top-navbar,
+            .scroll-sidebar,
+            .page-wrapper {
+                max-width: $boxed-width;
+                margin: 0 auto;
+                position: relative;
+            }
+            .sidebar-nav {
+                #sidebarnav {
+                    flex-wrap: wrap;
+                    >.sidebar-item>.has-arrow:after {
+                        display: block;
+                    }
+                }
+                .sidebar-item {
+                    flex: 1 1 0;
+                }
+            }
+        }
+        &[data-sidebar-position="fixed"] {
+            .page-wrapper {
+                padding-top: 128px;
+            }
+        }
+        /****************************
+        This is for the horizontal layout
+        ***************************/
+        .topbar .top-navbar .navbar-header {
+            width: 200px;
+            background: #223948;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .topbar .sidebartoggler {
+            display: none;
+        }
+        .left-sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+            padding-top: 0px;
+            z-index: 45;
+            transition: 0s;
+            .scroll-sidebar {
+                height: $sidebarheight;
+            }
+        }
+        .sidebar-nav ul {
+            display: flex;
+        }
+        .scroll-sidebar {
+            height: auto;
+        }
+        .sidebar-nav {
+            #sidebarnav {
+                display: flex;
+                width: 100%;
+                .sidebar-item {
+                    position: relative;
+                    width: auto;
+                }
+                >.sidebar-item {
+                    border-right: 1px solid rgba(0, 0, 0, 0.1);
+                    &:last-child {
+                        border-right: none;
+                    }
+                    >.has-arrow:after {
+                        transform: rotate(-135deg) translate(0, -50%);
+                    }
+                    &:last-child>.first-level {
+                        right: 0px;
+                        left: auto;
+                    }
+                    &.two-column {
+                        .first-level {
+                            width: 400px;
+                            >.sidebar-item {
+                                float: $lft;
+                                width: 50%;
+                                vertical-align: top;
+                            }
+                        }
+                    }
+                }
+                >.sidebar-item ul {
+                    position: absolute;
+                    left: 0px;
+                    top: auto;
+                    width: 220px;
+                    padding-bottom: 0px;
+                    z-index: 100;
+                    display: none;
+                    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.1);
+                }
+                >.mega-dropdown {
+                    position: static;
+                    .first-level {
+                        width: 100%;
+                        >li {
+                            width: 25%;
+                            float: $lft;
+                        }
+                    }
+                }
+                >.sidebar-item:hover {
+                    background: rgba(0, 0, 0, 0.025);
+                }
+                >.sidebar-item:hover ul.first-level,
+                >.sidebar-item:hover ul.first-level.collapse {
+                    display: block;
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        background: rgba(0, 0, 0, 0.025);
+                        top: 0;
+                        height: 100%;
+                        width: 100%;
+                        left: 0;
+                        z-index: -1;
+                    }
+                }
+                >.sidebar-item ul.second-level {
+                    left: 220px;
+                    top: 0px;
+                }
+                >.sidebar-item:last-child>.first-level ul.second-level,
+                >.sidebar-item .first-level .right-side-dd ul.second-level {
+                    right: 220px;
+                    top: 0px;
+                    left: auto;
+                }
+                ul.first-level>.sidebar-item:hover ul.second-level {
+                    display: block;
+                }
+                >.sidebar-item>.has-arrow:after,
+                .nav-small-cap,
+                .sidebar-footer,
+                .user-pro,
+                .badge {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+    #main-wrapper[data-layout="horizontal"] {
+        .sidebar-nav>ul>.sidebar-item>.sidebar-link i {
+            display: none;
+        }
+        .sidebar-nav #sidebarnav>.sidebar-item {
+            flex: auto;
+        }
+    }
+    /****************************
+    This is for the fixed sidebar layout
+    ***************************/
+    &[data-sidebar-position="fixed"] {
+        .left-sidebar {
+            overflow: auto;
+        }
+    }
+}

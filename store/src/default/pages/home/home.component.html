@@ -1,0 +1,14 @@
+<app-main-carousel></app-main-carousel>
+<div class="products-tabs featured-tabs">
+
+    <mat-tab-group mat-stretch-tabs>
+
+        <mat-tab label="Today Deals">
+            <app-products-carousel [products]="listSandbox.todayDealList$ | async"></app-products-carousel>
+        </mat-tab>
+    </mat-tab-group>
+
+
+</div>
+
+<app-brands-carousel [brands]="listSandbox.manufacturer$ | async"></app-brands-carousel>

@@ -1,0 +1,71 @@
+@import '~@angular/material/theming';
+@include mat-core();
+@import 'theme-reset';
+.app {
+    &.green {
+        @import "skins/green";
+        @include angular-material-theme($green-theme);
+        @include theme-reset($green-theme);
+        .top-navbar.mat-toolbar a {
+            color: white !important;
+            font-size: 12px;
+            padding: 6px 20px 6px 0;
+            min-width: 100px;
+        }
+    }
+    &.blue {
+        @import "skins/blue";
+        @include angular-material-theme($blue-theme);
+        @include theme-reset($blue-theme);
+        .top-navbar.mat-toolbar a {
+            color: white !important;
+            font-size: 12px;
+            padding: 6px 20px 6px 0;
+            min-width: 100px;
+        }
+    }
+    &.red {
+        @import "skins/red";
+        @include angular-material-theme($red-theme);
+        @include theme-reset($red-theme);
+        .top-navbar.mat-toolbar a {
+            color: white !important;
+            font-size: 12px;
+            padding: 6px 20px 6px 0;
+            min-width: 100px;
+        }
+    }
+    &.pink {
+        @import "skins/pink";
+        @include angular-material-theme($pink-theme);
+        @include theme-reset($pink-theme);
+        .top-navbar.mat-toolbar a {
+            color: white !important;
+            font-size: 12px;
+            padding: 6px 20px 6px 0;
+            min-width: 100px;
+        }
+    }
+    &.purple {
+        @import "skins/purple";
+        @include angular-material-theme($purple-theme);
+        @include theme-reset($purple-theme);
+        .top-navbar.mat-toolbar a {
+            color: white !important;
+            font-size: 12px;
+            padding: 6px 20px 6px 0;
+            min-width: 100px;
+        }
+    }
+    &.grey {
+        @import "skins/grey";
+        @include angular-material-theme($grey-theme);
+        @include theme-reset($grey-theme);
+        .top-navbar.mat-toolbar a {
+            color: white !important;
+            font-size: 12px;
+            padding: 6px 20px 6px 0;
+            min-width: 100px;
+        }
+    }
+}

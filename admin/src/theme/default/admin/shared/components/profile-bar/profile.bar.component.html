@@ -1,0 +1,36 @@
+<ul class="navbar-nav float-right border-left profile-bar">
+    <li class="nav-item dropdown" ngbDropdown placement="bottom-left">
+        <a ngbDropdownToggle class="nav-link" href="javascript:void(0)" [routerLink]="['/settings']" [routerLinkActive]="'active'">
+            <img src="assets/img/settings-ico.png" alt="user">
+        </a>
+    </li>
+
+    <li class="nav-item dropdown" style="cursor: default" ngbDropdown placement="bottom-right">
+        <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" style="cursor: default" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            <span style="margin-left: -90px;">{{(userDetails && userDetails.firstName)}}</span>
+            <div style="margin-top: -65px;margin-left: 80px; cursor: pointer">
+                <img *ngIf="userDetails.avatar && !profileimage" ngbDropdownToggle [src]="imageUrls + '?path=' +userDetails.avatarPath + '&name=' + userDetails.avatar +'&width=60&height=60'" class="w3-circle" alt="Alps1" style="width: 55px;
+    height: 55px;">
+                <img *ngIf="userDetails.avatar == null && !profileimage" ngbDropdownToggle src="./assets/img/avatar-img1.png" class="w3-circle" alt="Alps3" style="width: 55px;
+    height: 55px;">
+                <img *ngIf="profileimage" ngbDropdownToggle [src]="imageUrls + '?path=' +profileimage.avatarPath + '&name=' + profileimage.avatar +'&width=60&height=60'" class="w3-circle" alt="Alps2" style="width: 55px;
+    height: 55px;">
+
+            </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right user-dd animated top-settings-menu" ngbDropdownMenu>
+
+            <a class="dropdown-item" [routerLink]="['/../../editprofile']">
+                <i class="ti-user m-r-5 m-l-5"></i>Edit Profile </a>
+            <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/change-password']">
+                <i class="ti-wallet m-r-5 m-l-5"></i>Change Password </a>
+            <a class="dropdown-item" href="javascript:void(0)" (click)="logout.emit($event)">
+                <i class="fa fa-power-off m-r-5 m-l-5"></i>Logout</a>
+        </div>
+    </li>
+    <!-- ============================================================== -->
+    <!-- User profile and search -->
+    <!-- ============================================================== -->
+</ul>
+<!--<app-editprofile></app-editprofile>-->

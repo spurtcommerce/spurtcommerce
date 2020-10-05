@@ -1,0 +1,410 @@
+// this is margin-padding class override
+
+@import 'rtl-padding-margin';
+
+// this is bootstrap override
+
+[dir="rtl"] {
+
+    text-align: right;
+    direction: rtl;
+
+    &#main-wrapper[data-layout="horizontal"] {
+        .topbar .top-navbar .navbar-header {
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+            border-right: none;
+        }
+        .sidebar-nav {
+            #sidebarnav > .sidebar-item {
+                border-left: 1px solid rgba(0, 0, 0, 0.1);
+                border-right: none;
+                &:last-child {
+                    border-left: none;
+                    > .first-level {
+                        left: 0;
+                        right: auto;
+                    }
+                }
+                ul {
+                    left: auto;
+                    right: 0;
+                    &.second-level {
+                        left: auto;
+                        right: 220px;
+                    }
+                }
+                &:last-child > .first-level ul.second-level,
+                .first-level .right-side-dd ul.second-level {
+                    right: auto;
+                    left: 220px;
+                }
+            }
+        }
+    }
+
+    .page-breadcrumb .breadcrumb .breadcrumb-item+.breadcrumb-item {
+        padding-right: 0.5rem;
+        padding-left: 0;
+        &::before {
+            content: "\e64a";
+            padding-right: 0;
+            padding-left: 0.5rem;
+        }
+    }
+
+    .custom-select {
+        padding: .375rem .75rem .375rem 1.75rem;
+        //background: url(../../images/custom-select.png) left 0.35rem center no-repeat $white;
+    }
+
+    .custom-control {
+        padding-left: 0;
+        padding-right: 1.5rem;
+    }
+
+    .custom-control-label::after,
+    .custom-control-label::before {
+        left: auto;
+        right: 0px;
+    }
+
+    .list-group {
+        padding: 0px;
+    }
+
+    .float-left {
+        float: right!important;
+    }
+    .float-right {
+        float: left!important;
+    }
+
+    .text-left {
+        text-align: right!important;
+    }
+    .text-right {
+        text-align: left!important;
+    }
+
+    .close {
+        float: left;
+    }
+
+    .modal-header .close {
+        float: left;
+        margin: -1rem auto -1rem -1rem;
+    }
+
+    .modal-footer>:not(:last-child) {
+        margin-left: 0.25rem;
+        margin-right: 0;
+    }
+
+    .ml-auto {
+        margin-right: auto!important;
+        margin-left: 0px!important;
+    }
+
+    .mr-auto {
+        margin-left: auto!important;
+        margin-right: 0px!important;
+    }
+
+    .border-right {
+        border-right: none!important;
+        border-left: 1px solid $border-color!important;
+    }
+
+    .border-left {
+        border-left: none!important;
+        border-right: 1px solid $border-color!important;
+    }
+
+    .alert-dismissible {
+        padding-left: 3.8125rem;
+        padding-right: 1.25rem;
+        .close {
+            left: 0;
+            right: auto;
+        }
+    }
+
+    .custom-file-label {
+        left: auto;
+        right: 0;
+        width: 100%;
+        &::after {
+            right: auto;
+            left: 0;
+        }
+    }
+
+    .dropdown-menu {
+        text-align: right;
+        right: 0!important;
+        &.dropdown-menu-right {
+            right: auto!important;
+            left: 0!important;
+        }
+    }
+
+    .topbar .navbar-collapse {
+        padding: 0 0 0 10px;
+    }
+
+    .navbar-nav,
+    .nav,
+    .list-unstyled,
+    .pagination {
+        padding-right: 0;
+    }
+
+    .topbar .top-navbar .navbar-header .navbar-brand .logo-icon {
+        margin-right: 0;
+    }
+
+    .topbar .dropdown-menu.dropdown-menu-right .with-arrow {
+        left: 0;
+        right: auto;
+    }
+
+    .topbar .dropdown-menu.dropdown-menu-right .with-arrow>span {
+        left: 20px;
+        right: auto;
+    }
+
+    .search-box .app-search .srh-btn {
+        right: auto;
+        left: 20px;
+    }
+
+    .mailbox .message-center .message-item .mail-contnet {
+        padding-right: 10px;
+        padding-left: 0;
+    }
+
+    .customizer {
+        left: -280px;
+        right: auto;
+        &.show-service-panel {
+            left: 0;
+            right: auto;
+        }
+        .service-panel-toggle {
+            right: -54px;
+            left: auto;
+        }
+    }
+
+    .sidebar-nav .has-arrow::after {
+        margin-left: 0;
+        margin-right: 10px;
+        right: auto;
+        left: 15px;
+    }
+
+    /* Stickey inner-left-part */
+
+    $left-part-width:260px;
+
+    .left-part {
+        border-left: 1px solid $border-color;
+        border-right: none;
+        .show-left-part {
+            left: -41px;
+            right: auto;
+        }
+    }
+
+    .right-part {
+        margin-right: $left-part-width;
+        margin-left: 0;
+        .dropdown-menu {
+            right: auto!important;
+            left: 0!important;
+        }
+    }
+
+    .reverse-mode {
+        .left-part {
+            right: auto;
+            left: 0
+        }
+        .show-left-part {
+            left: auto;
+            right: -41px;
+        }
+        .right-part {
+            margin-right: 0px;
+            margin-left: $left-part-width;
+        }
+    }
+
+    .profiletimeline {
+        padding-right: 40px;
+        padding-left: 0;
+        margin: 40px 30px 0 10px;
+        border-right: 1px solid $border-color;
+        border-left: none;
+        .sl-left {
+            float: right;
+            margin-right: -60px;
+            margin-left: 15px;
+        }
+    }
+
+    .feed-widget .feed-body .feed-item>.feed-icon {
+        margin-right: 0;
+        margin-left: 10px;
+    }
+
+    .chat-list {
+        .chat-item {
+            .chat-content {
+                padding-right: 15px;
+                padding-left: 0;
+            }
+            .chat-time {
+                margin: 5px 65px 15px 0;
+            }
+            &.odd .chat-content,
+            &.odd .chat-time {
+                text-align: left;
+            }
+        }
+    }
+
+    /* plugins */
+
+    div.dataTables_wrapper div.dataTables_filter {
+        text-align: left;
+    }
+
+    table.table-bordered.dataTable th,
+    table.table-bordered.dataTable td {
+        border-left-width: 1px;
+    }
+
+    div.dataTables_wrapper div.dataTables_filter input {
+        margin-right: 0.5rem;
+        margin-left: 0;
+    }
+
+    div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-child {
+        padding-left: 1px;
+    }
+
+    .lobilists {
+        .lobilist-actions {
+            right: auto;
+            left: 8px;
+        }
+        .lobilist-item .todo-actions {
+            right: auto;
+            left: 4px;
+        }
+        .lobilist-check {
+            left: auto;
+            right: 12px;
+        }
+        .lobilist-item,
+        .lobilist-item-placeholder {
+            padding-left: 0;
+            padding-right: 35px;
+        }
+        .lobilist-item .drag-handler {
+            left: auto;
+            right: 0;
+        }
+        .lobilist-wrapper,
+        .lobilist-placeholder {
+            margin-left: 16px;
+            margin-right: 0;
+        }
+    }
+
+    .datepicker {
+        direction: rtl;
+    }
+
+    .minicolors .minicolors-grid {
+        right: 22px;
+        left: auto;
+    }
+
+    .wizard>.steps>ul>li,
+    .wizard>.actions>ul>li {
+        float: right;
+    }
+
+    .wizard-content .wizard>.steps>ul>li:after {
+        right: auto;
+        left: 0;
+    }
+
+    .wizard-content .wizard>.steps>ul>li:before {
+        left: auto;
+        right: 0;
+    }
+
+    .wizard-content .wizard.vertical>.steps {
+        float: right;
+    }
+
+    /*.sl-icon i,
+    [class*=" ti-"],
+    [class^=ti-] {
+        float: right;
+        margin-left: 10px;
+        line-height: 20px;
+    }*/
+
+    .css-bar>i {
+        margin-left: 0;
+        margin-right: 5px;
+    }
+
+    .treeview span.icon {
+        margin-right: 0;
+        margin-left: 5px;
+    }
+
+    .dz-hidden-input {
+        display: none;
+    }
+
+    /* Vertical responsive layout */
+
+    @media(max-width:766px) {
+
+        &#main-wrapper {
+
+            &[data-sidebartype="mini-sidebar"] {
+                .left-sidebar {
+                    right: -$sidebar-width-full;
+                    left: auto;
+                }
+            }
+
+            &.show-sidebar {
+                .left-sidebar {
+                    right: 0;
+                    left: auto;
+                }
+            }
+        }
+
+        .left-part {
+            right: -260px;
+            left: auto;
+            &.show-panel {
+                right: 0px;
+                left: auto;
+            }
+        }
+        
+        .right-part {
+            margin-right: 0px;
+        }
+    }
+}

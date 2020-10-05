@@ -1,0 +1,116 @@
+# Server Configuration #
+# Logs #
+api/logs
+api/*.log
+api/*.log*
+
+# Node files #
+api/node_modules/
+api/npm-debug.log
+api/package-lock.json
+api/yarn-error.log
+
+# OS generated files #
+api/.DS_Store
+api/Thumbs.db
+api/.tmp/
+api/src/api/schema.gql
+
+# Typing #
+api/typings/
+
+# Dist #
+api/dist/
+api/tsconfig.build.json
+
+# IDE #
+api/.idea/
+api/*.swp
+api/.awcache
+
+# Generated source-code #
+api/src/**/*.js
+api/src/**/*.js.map
+!api/src/public/**/*
+api/test/**/*.js
+api/test/**/*.js.map
+api/coverage/
+!api/test/preprocessor.js
+
+# Store Configuration #
+# Logs #
+store/logs
+store/*.log
+store/*.log*
+
+# Node files #
+store/node_modules/
+store/npm-debug.log
+store/package-lock.json
+store/yarn-error.log
+
+# OS generated files #
+store/.DS_Store
+store/Thumbs.db
+store/.tmp/
+store/src/api/schema.gql
+
+# Typing #
+store/typings/
+
+# Dist #
+store/dist/
+store/tsconfig.build.json
+
+# IDE #
+store/.idea/
+store/*.swp
+store/.awcache
+
+# Generated source-code #
+store/src/**/*.js
+store/src/**/*.js.map
+!store/src/public/**/*
+store/test/**/*.js
+store/test/**/*.js.map
+store/coverage/
+!store/test/preprocessor.js
+
+# Admin Configuration #
+# Logs #
+admin/logs
+admin/*.log
+admin/*.log*
+
+# Node files #
+admin/node_modules/
+admin/npm-debug.log
+admin/package-lock.json
+admin/yarn-error.log
+
+# OS generated files #
+admin/.DS_Store
+admin/Thumbs.db
+admin/.tmp/
+admin/src/api/schema.gql
+
+# Typing #
+admin/typings/
+
+# Dist #
+admin/dist/
+admin/tsconfig.build.json
+
+# IDE #
+admin/.idea/
+admin/*.swp
+admin/.awcache
+
+# Generated source-code #
+admin/src/**/*.js
+admin/src/**/*.js.map
+!admin/src/public/**/*
+admin/test/**/*.js
+admin/test/**/*.js.map
+admin/coverage/
+!admin/test/preprocessor.js

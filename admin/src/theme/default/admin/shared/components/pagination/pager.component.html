@@ -1,0 +1,18 @@
+<div class="pagination">
+    <ul class="flex" *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}" >
+    <a *ngIf="pager.currentPage !== 1" id="first" (click)="setPage(pager.currentPage - 1); pageChange.emit(pager.currentPage)"><i class="fa fa-chevron-left" aria-hidden="true"></i><span>PREVIOUS</span></a>
+    <a *ngIf="pager.currentPage === 1" id="first"><i class="fa fa-chevron-left" aria-hidden="true"></i><span >PREVIOUS</span></a>
+    </li>
+    
+    <li *ngFor="let page of pager.pages" [ngClass]="{'active' :pager.currentPage === page}">
+    <a (click)="setPage(page); pageChange.emit(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" >
+    <a *ngIf="pager.currentPage !== pager.totalPages" id="last" (click)="setPage(pager.currentPage + 1); pageChange.emit(pager.currentPage)"><span>NEXT</span><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+    <a *ngIf="pager.currentPage === pager.totalPages" id="last" ><span >NEXT</span><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+    </li>
+    </ul>
+    </div>
+
+

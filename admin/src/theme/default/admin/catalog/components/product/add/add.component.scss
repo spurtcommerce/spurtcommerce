@@ -1,0 +1,68 @@
+/* LOGIN VALIDATION*/
+
+.validationcolor {
+    border-color: red;
+}
+
+.toggle .tgl:checked+.tgl-btn:after {
+    top: 0px !important;
+}
+
+.toggle .tgl+.tgl-btn:after {
+    top: 0px !important;
+}
+
+.toggle .tgl:checked+.tgl-btn:after {
+    background-color: white !important;
+}
+
+.toggle .tgl+.tgl-btn:after {
+    background-color: white !important;
+}
+
+.toggle .tgl+.tgl-btn {
+    height: 1.7em !important;
+}
+
+.toggle .tgl-light:checked+.tgl-btn {
+    background: #008c00 !important;
+}
+
+.toggle .tgl-light+.tgl-btn {
+    background: #f00 !important;
+}
+
+// option selected validator
+.optionValidator {
+    background: #ed571f !important;
+}
+
+.error {
+    color: red;
+}
+
+
+/* Blue */
+
+.info {
+    border-color: blue;
+    color: white;
+    background: blue;
+}
+
+.info:hover {
+    background: green;
+    color: white;
+}
+
+mat-radio-button {
+    padding: 1px 3px !important;
+}
+
+.datePiker {
+    padding: 3px 0px !important;
+}
+
+.error-field {
+    border: 1px soild #ff1e1e !important;
+}

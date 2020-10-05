@@ -1,0 +1,117 @@
+<div class="order-wrap" *ngIf="!(accountSandbox.orderHistoryDetailLoading$ | async)">
+
+    <div class="flex order-top" *ngIf="(accountSandbox.orderHistoryDetail$ | async) as detail">
+        <h3>Order Id #{{(accountSandbox.orderHistoryDetail$ | async).orderPrefixId }}</h3>
+    </div>
+    <!-- Top -->
+
+    <div class="order-content">
+
+        <div class="flex order-row" *ngIf="(!accountSandbox.orderHistoryDetailLoading$ | async) && (accountSandbox.orderHistoryDetailLoaded$ | async)">
+
+            <div class="order-col">
+                <h3>Order Id #{{(accountSandbox.orderHistoryDetail$ | async).orderId }}</h3>
+                <div class="order-lft-detail">
+                    <h4>
+                        <span>Order Date </span> {{(accountSandbox.orderHistoryDetail$ | async).createdDate | date:'dd/MMM/yyyy'}} </h4>
+                    <h4><span>Order Status </span> <span class="process">Processing</span></h4>
+                </div>
+            </div>
+            <!--  -->
+
+            <div class="order-col">
+                <h3>Customer Information</h3>
+                <div class="order-lft-detail">
+                    <h4>
+                        <span>Customer Name </span> {{(accountSandbox.orderHistoryDetail$ | async).shippingFirstname + ' ' +(accountSandbox.orderHistoryDetail$ | async).shippingLastname}} </h4>
+                    <h4><span>Email Id  </span> <a>{{(accountSandbox.orderHistoryDetail$ |
+                        async).email}}</a></h4>
+                </div>
+            </div>
+            <!--  -->
+
+        </div>
+        <!--  Order Row-->
+
+        <div class="flex order-row">
+
+            <div class="order-col">
+                <h3>Shipping Address</h3>
+                <div class="order-lft-detail">
+                    <p class="addr" *ngIf="(accountSandbox.orderHistoryDetail$ | async).shippingAddress1 ||(accountSandbox.orderHistoryDetail$ | async).shippingAddress2">
+                        {{(accountSandbox.orderHistoryDetail$ | async).shippingAddress1 + ' '+(accountSandbox.orderHistoryDetail$ | async).shippingAddress2}} </p>
+                    <p class="addr" *ngIf="(accountSandbox.orderHistoryDetail$ | async).shippingCity || (accountSandbox.orderHistoryDetail$ | async).shippingZone">
+                        {{(accountSandbox.orderHistoryDetail$ | async).shippingCity}} , {{(accountSandbox.orderHistoryDetail$ | async).shippingZone}}</p>
+                    <p class="phone" *ngIf="(accountSandbox.orderHistoryDetail$ | async).telephone">Phone : <span>{{(accountSandbox.orderHistoryDetail$ | async).telephone}}</span>
+                    </p>
+                </div>
+            </div>
+            <!--  -->
+
+            <div class="order-col">
+                <h3>Billing Address</h3>
+                <div class="order-lft-detail">
+                    <p class="addr" *ngIf="(accountSandbox.orderHistoryDetail$ | async).shippingAddress1 || (accountSandbox.orderHistoryDetail$ | async).shippingAddress2">
+                        {{(accountSandbox.orderHistoryDetail$ | async).shippingAddress1 + ' '+(accountSandbox.orderHistoryDetail$ | async).shippingAddress2}} </p>
+                    <p class="addr" *ngIf="(accountSandbox.orderHistoryDetail$ | async).shippingCity || (accountSandbox.orderHistoryDetail$ | async).shippingZone">
+                        {{(accountSandbox.orderHistoryDetail$ | async).shippingCity}} , {{(accountSandbox.orderHistoryDetail$ | async).shippingZone}}</p>
+                    <p class="phone" *ngIf="(accountSandbox.orderHistoryDetail$ | async).telephone">Phone : <span>{{(accountSandbox.orderHistoryDetail$ | async).telephone}}</span>
+                    </p>
+                </div>
+            </div>
+            <!--  -->
+
+        </div>
+        <!--  Order Row-->
+
+        <div class="order-table" *ngIf="(accountSandbox.orderHistoryDetail$ | async) as detail">
+            <h3>Items List</h3>
+            <table class="table">
+                <tr>
+                    <th width="40%">Products</th>
+                    <th width="20%" class="text-center">Price</th>
+                    <th width="20%" class="text-right">Qty</th>
+                    <th width="20%" class="text-right">Total</th>
+                </tr>
+
+
+                <tr *ngFor="let product of detail.productList ; let i= index">
+                    <td style="width:100%;padding: 0;" colspan="4">
+                        <table>
+                            <tr style="font-size: 16px;">
+                                <td class="text-left" width="40%"> {{product.name}}</td>
+                                <td class="text-center" width="20%">
+                                    $ {{product.productPrice}}
+                                </td>
+
+                                <td class="text-right" width="20%">{{product.quantity}}</td>
+                                <td class="text-right" width="20%">$ {{product.total}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-right total-amount">Total Amount</td>
+                    <td class="text-right total-amount"><b>$ {{(accountSandbox.orderHistoryDetail$ | async).total}}</b></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Table -->
+
+        <div class="flex order-btn" *ngIf="(accountSandbox.orderHistoryDetail$ | async) as detail">
+            <a style="border: 1px solid #d6cece;" [routerLink]='["/account/orders"]'>Cancel </a>
+            <!-- <a class="dload" (click)="downloadInvoiceDetail(detail)"> Download Invoice </a> -->
+        </div>
+
+    </div>
+    <!-- Order Content -->
+
+</div>
+
+<!-- <div class="wrapper" *ngIf="accountSandbox.orderHistoryDetailLoading$ | async"> -->
+<div class="overlay" *ngIf="accountSandbox.orderHistoryDetailLoading$ | async">
+    <div class="spinner-wrapper">
+        <app-spinner [isShow]="accountSandbox.orderHistoryDetailLoading$| async"></app-spinner>
+    </div>
+</div>
+<!-- </div> -->

@@ -1,0 +1,5 @@
+$red-primary: mat-palette($mat-red, 700, 50, 900);
+$red-accent: mat-palette($mat-grey, 300, 100, 700);
+$red-warn: mat-palette($mat-deep-orange, A400);
+
+$red-theme: mat-light-theme($red-primary, $red-accent, $red-warn);

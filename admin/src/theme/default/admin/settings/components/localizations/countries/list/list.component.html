@@ -1,0 +1,55 @@
+<div class="flex setting2-inner-header">
+    <h3>Settings > Localization > Countries</h3>
+    <button (click)=" addNewCountry()" class="btn"><img
+            src="assets/img/add-white-ico.png">Add Country</button>
+</div>
+<div class="settings-right-wrapper">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">Country Name</th>
+                    <th scope="col">Iso Code-1</th>
+                    <th scope="col">Iso Code-2</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let countrylist of countrySandbox.getcountries$ | async; let i=index">
+                    <td class="text-center" scope="row">{{countrylist.name}}</td>
+                    <td>{{countrylist.isoCode2}}</td>
+                    <td>{{countrylist.isoCode3}}</td>
+                    <td>
+                        <div *ngIf="countrylist.isActive === 1">Active</div>
+                        <div *ngIf="countrylist.isActive === 0">In-Active</div>
+                    </td>
+                    <td><i (click)="editCountry(countrylist)" class="fas fa-edit"></i>
+                        <i [ngbPopover]="deleteContent" placement="bottom" #deletePop="ngbPopover" style="margin-left: 15px;" class="fas fa-trash">
+                        <ng-template #deleteContent>
+                            <div class="style">
+                                <div class="modal-header">
+                                    <h6 class="modal-title" style="margin-left: 17%;"> Do you want to delete ?</h6>
+
+                                </div>
+
+                                <div class="modal-footer" style="margin-right: 23%;">
+                                    <button type="button" class="btn btn-danger" (click)="deletePop.close()"
+                                            data-dismiss="modal">No
+                                    </button>
+                                    <button type="button" class="btn btn-success"
+                                            (click)="deleteCountry(countrylist.countryId, deletePop)"
+                                            data-dismiss="modal">Yes
+                                    </button>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<mat-paginator [length]="countrySandbox.countryCount$ | async" [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)">
+</mat-paginator>

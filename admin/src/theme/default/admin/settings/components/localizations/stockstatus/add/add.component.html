@@ -1,0 +1,46 @@
+<div class="flex setting2-inner-header">
+    <h3 style="color:#FF006A">{{editedStockValue ? 'Update Stock Status' : 'Add Stock Status'}}</h3>
+</div>
+<div class="settings-right-wrapper addnewuser">
+
+    <div class="new-user">
+        <form [formGroup]="stockStatusform" class="form-horizontal m-t-20">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Stock Status Name<sup
+                                class="supvalidation">*</sup></label>
+                        <input type="text" formControlName="name" placeholder="Stock Status Name" class="form-control" [ngClass]="{'validationcolor':stockStatusform.get('name').hasError('required') && stockStatusform.get('name').touched && submitted}" />
+                        <div class="error" *ngIf="stockStatusform.get('name').hasError('required') && stockStatusform.get('name').touched && submitted">
+                            Name is required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label">Status<sup
+                                class="supvalidation">*</sup></label>
+                        <select class="form-control custom-select" formControlName="status" [ngClass]="{'validationcolor':!stockStatusform.get('status').valid && !stockStatusform.get('status').untouched && submitted}" data-placeholder="Choose Role" placeholder="status">
+                            <option value=''>- -Select Status- -</option>
+                            <option value=1>Enabled</option>
+                            <option value=0>Disabled</option>
+                        </select>
+
+                    </div>
+                    <div class="error" *ngIf="stockStatusform.get('status').hasError('required') && stockStatusform.get('status').touched && submitted">
+                        Status is required
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="flex user-btn">
+                        <button type="submit" (click)='onSubmit()' class="btn btn-add">Save
+                        </button>
+                        <button (click)="cancel()" class="btn btn-cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

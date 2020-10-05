@@ -1,0 +1,449 @@
+/*
+Template Name: Admin Template
+Author: Niravjoshi / Wrappixel
+File: scss
+*/
+
+// This is the extra scss
+// Tooltip for the sparkline charts
+html body {
+  .jqstooltip,
+  .flotTip {
+    width: auto !important;
+    height: auto !important;
+    background: $gray-900;
+    color: $white;
+    padding: 5px 10px;
+  }
+}
+
+body .jqstooltip {
+  border-color: transparent;
+  border-radius: 60px;
+}
+
+// Tooltip for the chartist chart charts
+.chartist-tooltip {
+  position: absolute;
+  display: inline-block;
+  opacity: 0;
+  border-radius: $border-radius;
+  padding: 10px 20px;
+  background: $info;
+  color: $white;
+  ext-align: center;
+  pointer-events: none;
+  z-index: 1;
+  -webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+.chartist-tooltip:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-top-color: $info;
+}
+
+.chartist-tooltip.tooltip-show {
+  opacity: 1;
+}
+
+.ct-area,
+.ct-line {
+  pointer-events: none;
+}
+
+.ct-series-a .ct-area {
+  fill: $cyan;
+}
+
+.ct-series-b .ct-area {
+  fill: $info;
+}
+
+.ct-series-c .ct-area {
+  fill: $indigo;
+}
+
+.ct-series-c .ct-area {
+  fill: $success;
+}
+
+.ct-series-a .ct-point,
+.ct-series-a .ct-line,
+.ct-series-a .ct-bar,
+.ct-series-a .ct-slice-donut {
+  stroke: $cyan;
+}
+
+.ct-series-b .ct-point,
+.ct-series-b .ct-line,
+.ct-series-b .ct-bar,
+.ct-series-b .ct-slice-donut {
+  stroke: $info;
+}
+
+.ct-series-c .ct-point,
+.ct-series-c .ct-line,
+.ct-series-c .ct-bar,
+.ct-series-c .ct-slice-donut {
+  stroke: $indigo;
+}
+
+.ct-series-d .ct-point,
+.ct-series-d .ct-line,
+.ct-series-d .ct-bar,
+.ct-series-d .ct-slice-donut {
+  stroke: $success;
+}
+
+.c3-chart-arcs-title {
+  fill: $text-muted;
+}
+
+.c3 line,
+.c3 path {
+  stroke: $gray-200;
+}
+.c3 text {
+  fill: $text-muted;
+}
+.c3-chart-arc path {
+  stroke: transparent;
+}
+.popover-item {
+  margin-left: -15px;
+  &:hover {
+    z-index: 10;
+    position: relative;
+  }
+}
+
+.icon-list-demo {
+  .preview {
+    padding: 10px;
+    i {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+  }
+  .f-icon {
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    i {
+      font-size: 20px;
+      margin-right: 10px;
+      width: 25px;
+    }
+  }
+}
+
+// Custom select
+.custom-select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  background-size: auto;
+}
+
+.material-icon-list-demo .icons div {
+    width: 33%;
+    padding: 10px;
+    display: inline-block;
+    line-height: 40px;
+    i {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    code {
+        margin-right: 10px;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+  .material-icon-list-demo .icons div {
+    width: 100%;
+  }
+}
+
+// This is for the datatable
+.table.dataTable {
+  border-collapse: collapse !important;
+}
+
+.dataTables_wrapper {
+  padding: 0px;
+}
+
+.note-editor.note-frame,
+.dropzone {
+  border-color: $border-color;
+}
+
+.dropzone {
+  border-style: dotted;
+}
+
+.note-toolbar {
+  z-index: 1;
+}
+
+// this is for custom pills
+.custom-pills {
+  .nav-pills {
+    .nav-link {
+      border-radius: 0;
+      opacity: 0.7;
+      &.active {
+        color: $themecolor;
+        opacity: 1;
+        background-color: transparent;
+        border-bottom: 2px solid $themecolor;
+      }
+    }
+  }
+}
+
+// Form row Separator
+label {
+  font-weight: $font-weight-medium;
+}
+
+.r-separator .form-group {
+  border-bottom: 1px solid $border-color;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.striped-rows .row:nth-child(odd) {
+  background-color: $gray-100;
+}
+
+.b-form .row {
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 0;
+  padding: 15px 0;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.b-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+// Custom validation Classes
+.error {
+  .form-control {
+    border-color: $danger;
+  }
+  .help-block {
+    color: $danger;
+  }
+}
+
+.validate {
+  .form-control {
+    border-color: $success;
+  }
+  .help-block {
+    color: $success;
+  }
+}
+
+@media (min-height: 33.875em) {
+  .picker--opened .picker__frame {
+    top: 30%;
+    bottom: auto;
+  }
+}
+
+.dtp > .dtp-content > .dtp-date-view > header.dtp-header {
+  background: #1d50de;
+}
+
+.dtp div.dtp-date,
+.dtp div.dtp-time,
+.dtp table.dtp-picker-days tr > td > a.selected {
+  background: $info;
+}
+
+.dtp .p10 > a {
+  color: $white;
+}
+
+.datepicker .day,
+.datepicker .dow {
+  padding: 5px 10px;
+}
+
+.docs-buttons .btn,
+.docs-data .input-group {
+  margin-bottom: 5px;
+}
+
+// scrollbar
+.scrollable {
+  position: relative;
+}
+
+.error-box {
+  height: 100%;
+  position: fixed;
+  //background: url(../../../images/background/error-bg.jpg) no-repeat center center #fff;
+  width: 100%;
+  .error-body {
+    padding-top: 5%;
+  }
+  .error-title {
+    font-size: 210px;
+    font-weight: 900;
+    text-shadow: 4px 4px 0 #fff, 6px 6px 0 $dark;
+    line-height: 210px;
+  }
+}
+
+.price-label {
+  position: absolute;
+  top: -10px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 100px;
+  padding: 5px 10px;
+}
+
+.price-sign {
+  position: absolute;
+  font-size: 15px;
+  top: 5px;
+  margin-left: -10px;
+}
+
+// Taskboard
+
+/*******************
+Taskboard scss
+******************/
+.taskboard {
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
+  padding: 8px;
+  .taskboard-wrapper {
+    width: 280px;
+    padding-right: 8px;
+    padding-left: 8px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+  .taskboard-list {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    white-space: normal;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+  }
+  .taskboard-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.02rem;
+    padding: 8px 8px 0;
+  }
+  .taskboard-task {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    margin-bottom: 8px;
+    background: $white;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:hover {
+      cursor: grab;
+    }
+  }
+  .taskboard-task:after {
+    content: "";
+    position: absolute;
+    border: 4px solid transparent;
+    top: 0;
+    border-top-width: 12px;
+    border-bottom-color: transparent;
+    right: 6px;
+  }
+  .taskboard-task.task-status-success:after {
+    border-top-color: $success;
+    border-right-color: $success;
+    border-left-color: $success;
+  }
+  .taskboard-task.task-status-info:after {
+    border-top-color: $info;
+    border-right-color: $info;
+    border-left-color: $info;
+  }
+  .taskboard-task.task-status-warning:after {
+    border-top-color: $warning;
+    border-right-color: $warning;
+    border-left-color: $warning;
+  }
+  .taskboard-task.task-status-danger:after {
+    border-top-color: $danger;
+    border-right-color: $danger;
+    border-left-color: $danger;
+  }
+  .taskboard-cards {
+    padding: 8px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .taskboard-task-title {
+    margin-bottom: 8px;
+  }
+}
+
+.ng2-smart-page-item {
+  border: 1px solid $border-color;
+  .ng2-smart-page-link {
+    border: none;
+  }
+  &.active {
+    border-color: $themecolor;
+    .ng2-smart-page-link {
+      border-color: transparent;
+    }
+  }
+}
+
+.ngx-datatable.material {
+  box-shadow: none;
+  border: 1px solid $border-color;
+}

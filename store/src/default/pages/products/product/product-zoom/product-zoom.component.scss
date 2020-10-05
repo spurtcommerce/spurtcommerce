@@ -1,0 +1,28 @@
+.zoom-dialog{
+    .mat-dialog-container{
+        overflow: visible !important;
+        .controls{
+            position: relative;
+            button{
+                position: absolute;
+                top: -44px;
+            }
+            .zoom-in{
+                right: 44px; 
+            }
+            .zoom-out{
+                right: 0; 
+            }
+            .close{
+                right: -44px;                
+            }
+        }
+        .viewer{
+            width: 100%;
+            text-align: center;
+            img{
+                max-width: 60%;
+            }
+        }    
+    }
+}

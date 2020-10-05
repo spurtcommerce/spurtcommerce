@@ -1,0 +1,116 @@
+<div class="dashboard">
+    <h4>Overview Dashboard</h4>
+    <div class="card">
+        <div class="flex">
+
+            <img src="./assets/img/Order.fw.png" id="img-order">
+            <div class="content">
+                <span>Orders</span>
+                <span class="dash-count">{{dashboardSandbox.OrderCount$ | async}}</span>
+            </div>
+            <img src="./assets/img/Payments.fw.png" id="img-payments">
+            <div class="content">
+                <span>Payments</span>
+                <span>0</span>
+            </div>
+            <img src="./assets/img/product.fw.png">
+
+            <div class="content">
+                <span>Products </span>
+                <span>{{dashboardSandbox.productCount$ | async}}</span>
+            </div>
+            <img src="./assets/img/Customers.fw.png" id="img-customers">
+            <div class="content" id="content">
+                <span>Customers</span>
+                <span>{{dashboardSandbox.customerCount$ | async}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <span class="sell-products">Top Selling Products  </span>
+        <span [hidden]="!(dashboardSandbox.topSellingProductsLoading$ | async) && (dashboardSandbox.topSellingProductsLoaded$ | async)" class="spinner-border spinner-border-sm pull-right" role="status" aria-hidden="true"></span>
+        <div class="top-selling" *ngIf="dashboardSandbox.topSellingProductsLoaded$ | async">
+            <div class="card card-hover" *ngFor="let topSellingProducts of dashboardSandbox.topSellingProducts$ | async">
+                <div class="top-sell">
+                    <div id="top-selling">
+
+                        <img *ngIf="topSellingProducts.productImage[0]" [src]="imageURL + '?path=' + topSellingProducts.productImage[0].containerName + '&name=' + topSellingProducts.productImage[0].image +'&width=90&height=90'" onError="this.src='/assets/error-images/Load icon Products.png';"
+                            (load)="topSellingImageLoading(topSellingProducts.product.productId)" [hidden]="!topSellingImage[topSellingProducts.product.productId]">
+                        <img src="./assets/error-images/Load icon Products.png" [hidden]="topSellingImage[topSellingProducts.product.productId]">
+                    </div>
+                    <div class="overflow">
+                        <span>{{topSellingProducts.product.name | slice:0:70}}
+                            <span style="margin-left: -2px"
+                                  *ngIf="topSellingProducts.product.name.length > 70">...</span>
+                        </span>
+                    </div>
+                </div>
+                <p class="top-selling-amount">$ {{topSellingProducts.product.price }}</p>
+
+                <span (click)="viewProduct(topSellingProducts.product.productId)" class="view">View Product}</span>
+            </div>
+        </div>
+    </div>
+    <div class="graph">
+        <div class="card m-r-20">
+            <span>Sales </span>
+            <span [hidden]="!(dashboardSandbox.salesOrderListLoading$ | async) && (dashboardSandbox.salesOrderListLoaded$ | async)" class="spinner-border spinner-border-sm pull-right" role="status" aria-hidden="true"></span>
+
+            <ng-container *ngIf="dashboardSandbox.salesOrderListLoaded$ | async">
+                <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="dashboardSandbox.salesOrderList$ | async" [gradient]="gradient" [xAxis]="showYAxis" [yAxis]="showXAxis" [legend]="showLegend" (select)="onSelect($event)">
+                </ngx-charts-bar-vertical>
+            </ng-container>
+
+        </div>
+        <div class="card">
+            <span>Visitors</span>
+            <span [hidden]="!(dashboardSandbox.visitorLogListLoading$ | async) && (dashboardSandbox.visitorLogListLoaded$ | async)" class="spinner-border spinner-border-sm pull-right" role="status" aria-hidden="true"></span>
+            <ng-container *ngIf="dashboardSandbox.visitorLogListLoaded$ | async">
+                <ngx-charts-line-chart [view]="view" [scheme]="colorScheme" [results]="dashboardSandbox.visitorLogList$ | async" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" (select)="onSelect($event)">
+                </ngx-charts-line-chart>
+            </ng-container>
+        </div>
+    </div>
+    <div class="table">
+        <div class="card m-r-20">
+            <span>Recent Customers</span>
+            <span [hidden]="!(dashboardSandbox.recentVisitorListLoading$ | async) && (dashboardSandbox.recentVisitorListLoaded$ | async)" class="spinner-border spinner-border-sm pull-right" role="status" aria-hidden="true"></span>
+            <table *ngIf="dashboardSandbox.recentVisitorListLoaded$ | async">
+                <thead>
+                    <tr>
+                        <th>Ip Address </th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let visitorList of dashboardSandbox.recentVisitorList$ | async">
+                        <td>{{visitorList.ip}}</td>
+                        <td>{{visitorList.firstName}}</td>
+                        <td>{{visitorList.username}}</td>
+                        <td>{{visitorList.createdDate | date:'MMM d, y, h:mm a'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card">
+            <div class="title-selling">
+                <span>Recent Selling Products</span><span>
+            </span>
+                <span [hidden]="!(dashboardSandbox.recentSellingProductLoading$ | async) && (dashboardSandbox.recentSellingProductLoaded$ | async)" class="spinner-border spinner-border-sm pull-right" role="status" aria-hidden="true"></span>
+            </div>
+            <ng-container *ngIf="dashboardSandbox.recentSellingProductLoaded$ | async">
+                <div class="recent" *ngFor="let product of dashboardSandbox.recentSellingProduct$ | async">
+                    <span class="number">{{product.order.orderPrefixId}}</span>
+                    <img *ngIf="product.productImage[0]" [src]="imageURL + '?path=' + product.productImage[0].containerName + '&name=' + product.productImage[0].image + '&width=60&height=60'" (load)="recentSellingImageLoading(product.orderId)" [hidden]="!recentSellingImage[product.orderId]">
+                    <img src="./assets/error-images/Load icon Products.png" [hidden]="recentSellingImage[product.orderId]">
+                    <span class="text-content">{{product.ProductName | slice:0:30}}</span>
+                    <span class="amount">$ {{product.Total }}</span>
+                    <span (click)="viewOrder(product.orderId)" class="View">View</span>
+                </div>
+                <br>
+            </ng-container>
+        </div>
+    </div>
+</div>

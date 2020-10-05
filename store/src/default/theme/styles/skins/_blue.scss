@@ -1,0 +1,5 @@
+$blue-primary: mat-palette($mat-blue, 700, 50, 900);
+$blue-accent: mat-palette($mat-grey, 300, 100, 700);
+$blue-warn: mat-palette($mat-red, A200);
+
+$blue-theme: mat-light-theme($blue-primary, $blue-accent, $blue-warn);

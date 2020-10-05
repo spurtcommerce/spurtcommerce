@@ -1,0 +1,60 @@
+<div class="flex setting2-inner-header">
+    <h3 style="color:#FF006A">{{updatetitle ? 'Update Order Status' : 'Add Order Status'}}</h3>
+</div>
+<div class="settings-right-wrapper addnewuser">
+
+    <div class="new-user">
+        <form (ngSubmit)="onSubmit()" [formGroup]="orderstatusform" class="form-horizontal m-t-20">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Order Status Name<sup class="supvalidation">*</sup></label>
+                        <input type="text" formControlName="orderstatusName" class="form-control" placeholder="Order Status Name" [ngClass]="{ 'is-invalid': submitted && f.orderstatusName.errors }" />
+                        <div *ngIf="submitted && f.orderstatusName.errors" class="invalid-feedback">
+                            <div *ngIf="f.orderstatusName.errors.required">
+                                Order Status Name is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label">Status
+                            <sup class="supvalidation">*</sup></label>
+                        <select class="form-control custom-select" formControlName="status" data-placeholder="Choose Role" [ngClass]="{ 'is-invalid': submitted && f.status.errors }" [ngClass]="{ 'invalid': submitted}" placeholder="status">
+                            <option value=''>- -Select Status- -</option>
+                            <option value="1">Enabled</option>
+                            <option value="0">Disabled</option>
+                        </select>
+                        <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+                            <div *ngIf="f.status.errors.required">
+                                Order Status is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label">Color Code</label><br>
+                        <input [(ngModel)]="colorcode" [ngClass]="{'invalid': colorRequire}" [(colorPicker)]="color" formControlName="colorcode" (colorPickerChange)="onchange($event)" [value]="color" />
+
+                    </div>
+                    <div *ngIf="colorRequire" style="color: #f62d51">
+                        Order Status Color is required
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="flex user-btn">
+                        <button type="submit" class="btn btn-add">Save
+                        </button>
+                        <button (click)="Addordstatuscancel()" class="btn btn-cancel"> Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

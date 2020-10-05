@@ -1,0 +1,33 @@
+.prod-icon {
+    display: inline-block;
+    .cart-lk {
+        position: absolute;
+        right: 0;
+        margin-right: 14px;
+        cursor: pointer !important;
+        a {
+            border-radius: 5px;
+            border: solid 2px #027600;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #027600;
+            text-decoration: none;
+            display: inline-block;
+            &:hover {
+                background: #027600;
+                color: white;
+            }
+        }
+        &.bc-lk {
+            a {
+                font-size: 20px;
+                padding: 10px 20px;
+            }
+        }
+    }
+    .compare-lk {
+        position: absolute;
+        cursor: pointer;
+    }
+}
