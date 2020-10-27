@@ -20,6 +20,17 @@ Spurtcommerce Community Edition is publicly available on GitHub and free to down
 | API | http://api.spurtcommerce.com |
 | Guide | http://docs.spurtcommerce.com |
 
+#  ❯ More updated Community Versions
+
+We have brought more updates to our Community Edition with more features and enhancements. You can become a member of Spurtcommerce Community and start enjoying the benefits of getting regular and more updates to the Spurtcommerce Community Edition.
+
+| Version | Feature | URL |
+| ------ | ------ | ------ |
+| V3.0.4 | <ul><li>Upgraded to Node V.14</li><li>Supports NPM Packages of Node V.14</li></ul> | [Download](https://accounts.spurtcommerce.com/)
+| V3.0.3 | <ul><li>In the Store, a Customer can compare up to three products.</li></ul> | [Download](https://accounts.spurtcommerce.com/)
+| V3.0.2 | <ul><li>Apart from usual pricing, the Admin can add discounted/special price for products and make it active only for specified dates.</li></ul> | [Download](https://accounts.spurtcommerce.com/)
+| V3.0.1 | <ul><li>The Admin can created multiple level categories with parent category at the topmost level and sub-categories under that.</li><li>The Admin can create multiple customer groups like wholesalers, retailers, loyal customers, etc and map certain customers under each group.</li><li>In Store, on the left menu, list of categories will be shown and on clicking on a particular category, in the top, up to three levels will be shown.</li></ul> | [Download](https://accounts.spurtcommerce.com/)
+
 
 # ❯ Why did we develop Spurtcommerce? 
 
