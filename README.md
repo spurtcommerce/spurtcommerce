@@ -2,6 +2,10 @@
 
 # Ecommerce / Nodejs + Angular 7 + Mysql 
 
+![GitHub last commit](https://img.shields.io/github/last-commit/spurtcommerce/spurtcommerce)
+![GitHub issues](https://img.shields.io/github/issues/spurtcommerce/spurtcommerce)
+![GitHub repo size](https://img.shields.io/github/repo-size/spurtcommerce/spurtcommerce?color=orange)
+
 #  ❯ Spurtcommerce Community Edition
 
 Spurtcommerce, an Open Source NodeJS and Angular eCommerce comes with full Source Code. The Community Edition comes with the basic and necessary features of a standard eCommerce platform. We welcome contributors to the Community and Developers to join us in constantly improving the solution and bringing new upgrades. Spurtcommerce comes with complete online documentation.
