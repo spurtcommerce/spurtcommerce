@@ -1,5 +1,5 @@
 /*
- * spurtcommerce community API
+ * spurtcommerce API
  * version 1.0
  * Copyright (c) 2019 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
@@ -90,6 +90,21 @@ export class CustomerOrderController {
         const newOrderTotal = new OrderTotal();
         let orderProduct = [];
         let i;
+        const errProd: any = [];
+        const orderProducts:  any = checkoutParam.productDetails;
+        for (i = 0; i < orderProducts.length; i++) {
+            const productValue = await this.productService.findOne({where: {productId: orderProducts[i].productId}});
+            if (!productValue) {
+                errProd.push(1);
+            }
+        }
+        if (errProd.length > 0) {
+            const errResponse: any = {
+                status: 0,
+                message: 'Invalid product',
+            };
+            return response.status(400).send(errResponse);
+        }
         let n;
         let totalProductAmount;
         let totalAmount = 0;
@@ -123,17 +138,19 @@ export class CustomerOrderController {
         newOrder.paymentAddressFormat = checkoutParam.shippingAddressFormat;
         const orderData = await this.orderService.create(newOrder);
         const countryName = await this.countryService.findOne(orderData.shippingCountry);
-        orderData.shippingCountry = countryName.name;
+        orderData.shippingCountry = countryName ? countryName.name : '' ;
         orderProduct = checkoutParam.productDetails;
         for (i = 0; i < orderProduct.length; i++) {
+            const productValue = await this.productService.findOne({where: {productId: orderProduct[i].productId}});
+            const price = productValue.price;
             const productDetails = new OrderProduct();
             productDetails.productId = orderProduct[i].productId;
-            productDetails.name = orderProduct[i].name;
+            productDetails.name = productValue.name;
             productDetails.orderId = orderData.orderId;
             productDetails.quantity = orderProduct[i].quantity;
-            productDetails.productPrice = orderProduct[i].price;
-            productDetails.total = +orderProduct[i].quantity * +orderProduct[i].price;
-            productDetails.model = orderProduct[i].model;
+            productDetails.productPrice = price;
+            productDetails.total = +orderProduct[i].quantity * +price;
+            productDetails.model = productValue.name;
             const productInformation = await this.orderProductService.createData(productDetails);
             const productImageData = await this.productService.findOne(productInformation.productId);
             const productImageDetail = await this.productImageService.findOne({where: {productId: productInformation.productId}});
@@ -261,12 +278,19 @@ export class CustomerOrderController {
     @Authorized('customer')
     public async orderDetail(@QueryParam('orderId') orderid: number, @Req() request: any, @Res() response: any): Promise<any> {
         const orderData = await this.orderService.findOrder({
-            where: {orderId: orderid},
+            where: {orderId: orderid, customerId: request.user.id},
             select: ['orderId', 'orderStatusId', 'orderPrefixId', 'customerId', 'invoiceNo', 'telephone', 'shippingFirstname', 'shippingLastname', 'shippingCompany', 'shippingAddress1',
                 'shippingAddress2', 'shippingCity', 'shippingZone', 'shippingPostcode', 'shippingCountry', 'shippingAddressFormat',
                 'paymentFirstname', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity',
                 'paymentPostcode', 'paymentCountry', 'paymentZone', 'paymentAddressFormat', 'total', 'createdDate'],
         });
+        if (!orderData) {
+            const errResponse: any = {
+                status: 0,
+                message: 'Invalid order for this user',
+            };
+            return response.status(400).send(errResponse);
+        }
          orderData.productList = await this.orderProductService.find({
                 where: {orderId: orderid},
                 select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice'],
