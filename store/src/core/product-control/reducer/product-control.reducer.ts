@@ -56,6 +56,26 @@ export function reducer(
         checkoutFailed: true
       });
     }
+
+    case actions.ActionTypes.ADD_TO_WISHLIST: {
+      return Object.assign({}, state, {
+        whislistLoading: true,
+        checkedOut: {}
+      });
+    }
+
+    case actions.ActionTypes.ADD_TO_WISHLIST_SUCCESS: {
+      return Object.assign({}, state, {
+        whislistLoading: false,
+        checkedOut: {}
+      });
+    }
+    case actions.ActionTypes.ADD_TO_WISHLIST_FAIL: {
+      return Object.assign({}, state, {
+        whislistLoading: false,
+        checkedOut: {}
+      });
+    }
     default: {
       return state;
     }
@@ -75,3 +95,5 @@ export const getCheckoutLoaded = (state: ProductControlState) =>
 export const getCheckoutFailed = (state: ProductControlState) =>
   state.checkoutFailed;
 
+  export const getWhislistLoading = (state: ProductControlState) =>
+  state.whislistLoading;

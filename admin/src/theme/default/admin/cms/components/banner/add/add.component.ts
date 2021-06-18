@@ -145,7 +145,7 @@ export class BannerAddComponent implements OnInit {
     this.bannerForm = this.fb.group({
       bannerTitle: [null, [Validators.required]],
       bannerContent: [''],
-      active: ['', Validators.required],
+      active: ['', [Validators.required]],
       bannerLink: [null],
       position: [null],
       imageInput: ['', [Validators.required]]
@@ -159,6 +159,7 @@ export class BannerAddComponent implements OnInit {
    * @param form entire form value
    */
   public onSubmit() {
+    console.log('forms', this.bannerForm.value);
     this.submitted = true;
     if (!this.bannerForm.valid) {
       this.validateAllFormFields(this.bannerForm);
@@ -196,8 +197,8 @@ export class BannerAddComponent implements OnInit {
         this.bannerForm.controls['bannerContent'].setValue(
           this.serviceData.content
         );
-        this.bannerLink = this.bannerInfo[0].link;
         this.bannerForm.controls['imageInput'].setValue(this.serviceData.image); // <-- Set Value for Validation
+        this.bannerLink = this.bannerInfo[0].link;
         this.position = this.bannerInfo[0].position;
         this.bannerForm.controls['active'].setValue(this.serviceData.active);
         this.postImageUrl =
@@ -231,6 +232,7 @@ export class BannerAddComponent implements OnInit {
     myReader.onloadend = e => {
       this.postImageUrl = myReader.result;
       this.ImageUrl = myReader.result;
+      console.log('select image', this.ImageUrl);
       this.changeDetectRef.detectChanges();
     };
     myReader.readAsDataURL(file);

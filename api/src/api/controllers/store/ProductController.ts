@@ -18,6 +18,7 @@ import {ProductViewLogService} from '../../services/ProductViewLogService';
 import jwt from 'jsonwebtoken';
 import {CustomerService} from '../../services/CustomerService';
 import {CategoryPathService} from '../../services/CategoryPathService';
+import { CustomerWishlistService } from '../../services/CustomerWishlistService';
 
 @JsonController('/product-store')
 export class ProductController {
@@ -27,6 +28,7 @@ export class ProductController {
                 private productImageService: ProductImageService,
                 private customerService: CustomerService,
                 private productViewLogService: ProductViewLogService,
+                private customerWishlistService: CustomerWishlistService,
                 private categoryPathService: CategoryPathService) {
     }
 
@@ -84,6 +86,17 @@ export class ProductController {
                 console.log('lll', decoded.id);
                 customerId = decoded.id;
             });
+            const wishStatus = await this.customerWishlistService.findOne({
+                where: {
+                    productId: id,
+                    customerId,
+                },
+            });
+            if (wishStatus) {
+                productDetails.wishListStatus = 1;
+            } else {
+                productDetails.wishListStatus = 0;
+            }
 
             const customerDetail = await this.customerService.findOne({where: {id: customerId}});
             const viewLog: any = new ProductViewLog();
@@ -96,6 +109,8 @@ export class ProductController {
             viewLog.mobileNumber = customerDetail.mobileNumber;
             viewLog.address = customerDetail.address;
             await this.productViewLogService.create(viewLog);
+        } else {
+            productDetails.wishListStatus = 0;
         }
 
         const successResponse: any = {
@@ -182,6 +197,26 @@ export class ProductController {
             });
             const temp: any = result;
             temp.productImage = productImage;
+            if (request.header('authorization')) {
+                const userId = jwt.verify(request.header('authorization').split(' ')[1], '123##$$)(***&');
+                const userUniqueId: any = Object.keys(userId).map((key: any) => {
+                    return [(key), userId[key]];
+                });
+                console.log(userUniqueId[0][1]);
+                const wishStatus = await this.customerWishlistService.findOne({
+                    where: {
+                        productId: result.productId,
+                        customerId: userUniqueId[0][1],
+                    },
+                });
+                if (wishStatus) {
+                    temp.wishListStatus = 1;
+                } else {
+                    temp.wishListStatus = 0;
+                }
+            } else {
+                temp.wishListStatus = 0;
+            }
             return temp;
         });
         const finalResult = await Promise.all(promises);

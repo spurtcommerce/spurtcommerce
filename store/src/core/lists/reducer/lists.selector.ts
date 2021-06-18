@@ -232,3 +232,23 @@ export const priceLoading = createSelector(
   getState,
   fromList.getPriceLoading
 );
+export const subCategoryList = createSelector(
+  getState,
+  fromList.subCategoryList
+);
+export const subCategoryLoading = createSelector(
+  getState,
+  fromList.subCategoryLoading
+);
+export const subCategoryLoaded = createSelector(
+  getState,
+  fromList.subCategoryLoaded
+);
+export const subCategoryID = createSelector(
+  getState,
+  fromList.selectedCategoryId
+);
+export const symbolSetting = createSelector(
+  getState,
+  fromList.getSymbolSetting
+);

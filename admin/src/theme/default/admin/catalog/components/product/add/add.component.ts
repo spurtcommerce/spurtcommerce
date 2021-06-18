@@ -52,7 +52,6 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   public productDescription: FormControl;
   public upc: FormControl;
   public sku: FormControl;
-  public selectedCategory: FormControl;
   public model: FormControl;
   public location: FormControl;
   public price: FormControl;
@@ -118,6 +117,8 @@ export class ProductAddComponent implements OnInit, OnDestroy {
 
   public updateproductdetails = [];
 
+    // selected category list
+    public selectedCategories: any = [];
 
   // ck editor
 
@@ -126,6 +127,9 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   public mycontent: string;
   public log = '';
   @ViewChild('myckeditor') ckeditor: any;
+
+  public selectedCategory: FormControl;
+
 
   constructor(
     public fb: FormBuilder,
@@ -192,7 +196,6 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.productDescription = new FormControl('');
     this.upc = new FormControl('');
     this.sku = new FormControl('', [Validators.required]);
-    this.selectedCategory = new FormControl('', [Validators.required]);
     this.model = new FormControl('', [Validators.required]);
     this.location = new FormControl('');
     this.price = new FormControl('', [Validators.required]);
@@ -213,6 +216,8 @@ export class ProductAddComponent implements OnInit, OnDestroy {
 
     this.dataRequired = new FormControl('');
     this.dateValue = new FormControl('');
+    this.selectedCategory = new FormControl('', [Validators.required]);
+
       (this.TextBoxRequired = new FormControl(''));
 
     this.user = this.fb.group({
@@ -221,7 +226,6 @@ export class ProductAddComponent implements OnInit, OnDestroy {
       productDescription: this.productDescription,
       upc: this.upc,
       sku: this.sku,
-      selectedCategory: this.selectedCategory,
       model: this.model,
       location: this.location,
       price: this.price,
@@ -238,6 +242,8 @@ export class ProductAddComponent implements OnInit, OnDestroy {
       dateTimeValue: this.dateTimeValue,
       dataRequired: this.dataRequired,
       dateValue: this.dateValue,
+      selectedCategory: this.selectedCategory,
+
       sizeForm: this.fb.group({
         sizeBoxRequired: this.sizeBoxRequired,
         sizeFormArray: this.fb.array([])
@@ -245,19 +251,6 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     });
   }
 
-  selecttCategory(event, categoryList) {
-    console.log('categoryList', categoryList);
-    console.log('event', event);
-    this.TotalCategories = categoryList.filter(list => {
-      if (list.categoryId === +event) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-    console.log('cat', this.TotalCategories);
-
-  }
   // create control for FormArray of sizeFormArray
   get sizeArray() {
     return <FormArray>this.user.controls['sizeForm'].get('sizeFormArray');
@@ -274,14 +267,30 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.stockStatusSandbox.stockStatusList(params);
   }
 
+  selecttCategory(event, categoryList) {
+    console.log('categoryList', categoryList);
+    console.log('event', event);
+    this.TotalCategories = categoryList.filter(list => {
+      if (list.categoryId === +event) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    console.log('cat', this.TotalCategories);
+
+  }
+
   /**
    * Handles  'onSubmit' event. Calls productSandbox doProductUpdate function if (this.editId) else
    * calls productSandbox doProductAdd function.
    * @param user entire form value
    */
   onSubmit(user) {
+    console.log('submit image', this.uploadImage);
     // calling
     this.submittedValues = true;
+
     if (!this.user.valid) {
       this.validateAllFormFields(this.user);
       return;
@@ -293,13 +302,15 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.param.upc = user.upc;
     this.param.sku = user.sku;
     this.param.image = this.uploadImage;
-    this.param.categoryId = this.TotalCategories;
     this.param.model = user.model;
     this.param.location = user.location;
     this.param.price = user.price;
     this.param.outOfStockStatus = user.outOfStockStatus;
     this.param.requiredShipping = user.requiredShipping;
     this.param.dateAvailable = user.dateAvailable;
+    this.param.categoryId = this.TotalCategories;
+
+
     const dateSendingToServer = new DatePipe('en-US').transform(
       user.dateAvailable,
       'yyyy-MM-dd'
@@ -312,6 +323,7 @@ export class ProductAddComponent implements OnInit, OnDestroy {
       this.param.productId = this.editId;
       this.productSandbox.doProductUpdate(this.param);
     } else {
+      console.log('params', this.param)
       this.productSandbox.doProductAdd(this.param);
     }
   }
@@ -364,6 +376,12 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   editProductForm(productDetail) {
     this.changeDetectRef.detectChanges();
     this.updateproductdetails.push(productDetail);
+    if (productDetail.Category && productDetail.Category.length > 0) {
+      this.selectedCategory.setValue(productDetail.Category[0].categoryId);
+    } else {
+      this.selectedCategories = [];
+    }
+    this.selectedProducts = productDetail.relatedProductDetail;
     this.uploadImage = productDetail.productImage;
     this.selectedProducts = productDetail.relatedProductDetail;
     this.productName.setValue(productDetail.name);
@@ -374,7 +392,6 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.outOfStockStatus.setValue(productDetail.stockStatusId);
     this.status.setValue(productDetail.isActive);
     this.model.setValue(productDetail.manufacturerId);
-    this.selectedCategory.setValue(productDetail.Category[0].categoryId);
     this.requiredShipping.setValue(productDetail.shipping);
     if (productDetail && productDetail.stockStatusId) {
       this.outOfStockStatus = productDetail.stockStatusId;
@@ -404,6 +421,8 @@ export class ProductAddComponent implements OnInit, OnDestroy {
         if (result !== '' && result !== undefined) {
           const lengthOfUploadImage: number = this.uploadImage.length;
           this.uploadImage.push(result);
+          console.log('upload image', this.uploadImage);
+
           this.length = 0;
           // make non default value
           if (this.uploadImage.length > 1 && !this.editId) {
@@ -426,6 +445,7 @@ export class ProductAddComponent implements OnInit, OnDestroy {
               }
             }
           }
+          console.log('upload image', this.uploadImage);
         }
         this.changeDetectRef.detectChanges();
         this.closeResult = `Closed with: ${'result'}`;

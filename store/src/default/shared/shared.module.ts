@@ -53,8 +53,6 @@ import {
   PerfectScrollbarConfigInterface
 } from 'ngx-perfect-scrollbar';
 import { PipesModule } from './pipes/pipes.module';
-import { Effect, EffectsModule } from '@ngrx/effects';
-
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
   suppressScrollX: true

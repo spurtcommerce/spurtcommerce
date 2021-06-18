@@ -100,7 +100,7 @@
 
         <div class="flex order-btn" *ngIf="(accountSandbox.orderHistoryDetail$ | async) as detail">
             <a style="border: 1px solid #d6cece;" [routerLink]='["/account/orders"]'>Cancel </a>
-            <!-- <a class="dload" (click)="downloadInvoiceDetail(detail)"> Download Invoice </a> -->
+            <a class="dload" (click)="downloadInvoiceDetail(detail)"> Download Invoice </a>
         </div>
 
     </div>

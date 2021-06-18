@@ -58,6 +58,38 @@ export function reducer(
         profile: {}
       });
     }
+
+    case actions.ActionTypes.GET_WISHLIST_COUNT: {
+      return Object.assign({}, state, {
+        wishlistCountLoading: true,
+        wishlistCountLoaded: false,
+        wishlistCountFailed: false
+      });
+    }
+
+    case actions.ActionTypes.GET_WISHLIST_COUNT_SUCCESS: {
+      return Object.assign({}, state, {
+        wishlistCount: payload.data,
+        wishlistCountLoading: false,
+        wishlistCountLoaded: true,
+        wishlistCountFailed: false
+      });
+    }
+    case actions.ActionTypes.GET_WISHLIST_COUNT_FAIL: {
+      return Object.assign({}, state, {
+        wishlistCount: 0,
+        wishlistCountLoading: false,
+        wishlistCountLoaded: true,
+        wishlistCountFailed: true
+      });
+    }
+    case actions.ActionTypes.GET_PROFILE: {
+      return Object.assign({}, state, {
+        getProfileLoading: true,
+        getProfileLoaded: false,
+        getProfileFailed: false
+      });
+    }
     default: {
       return state;
     }
@@ -71,3 +103,11 @@ export const getProfileLoading = (state: CommonState) =>
   state.getProfileLoading;
 export const getProfileLoaded = (state: CommonState) => state.getProfileLoaded;
 export const getProfileFailed = (state: CommonState) => state.getProfileFailed;
+
+export const getWishlistCount = (state: CommonState) => state.wishlistCount;
+export const getWishlistCountLoading = (state: CommonState) =>
+  state.wishlistCountLoading;
+export const getWishlistCountLoaded = (state: CommonState) =>
+  state.wishlistCountLoaded;
+export const getWishlistCountFailed = (state: CommonState) =>
+  state.wishlistCountFailed;

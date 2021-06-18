@@ -85,23 +85,24 @@
                         <ng-template ngbTabTitle> Data</ng-template>
                         <ng-template ngbTabContent>
                             <div class="flex data-row">
-                                <div class="data-col">
-                                    <div class="form-group" *ngIf="categoriessandbox.getCategoriesList$ | async as categotyList">
-                                        <label>Category <sup>*</sup></label>
-                                        <select class="custom-select col-12" formControlName="selectedCategory" (change)="selecttCategory($event.target.value, categotyList)" [ngClass]="{'validationcolor':user.get('selectedCategory').hasError('required') && user.get('selectedCategory').touched&&submittedValues==true}">
-                                                    <option value=''>- -Select Category- -</option>
-                                                    <option *ngFor="let category of categotyList" [value]="category.categoryId"
-                                                            >{{category.name}}
-                                                    </option>
-                                                </select>
-
-                                        <div class="error" *ngIf="user.get('selectedCategory').hasError('required') && user.get('selectedCategory').touched&&submittedValues==true">
-                                            Category is required
+                                    <div class="data-col">
+                                            <div class="form-group" *ngIf="categoriessandbox.getCategoriesList$ | async as categotyList">
+                                                <label>Category <sup>*</sup></label>
+                                                <select class="custom-select col-12" formControlName="selectedCategory" (change)="selecttCategory($event.target.value, categotyList)" [ngClass]="{'validationcolor':user.get('selectedCategory').hasError('required') && user.get('selectedCategory').touched&&submittedValues==true}">
+                                                            <option value=''>- -Select Category- -</option>
+                                                            <option *ngFor="let category of categotyList" [value]="category.categoryId"
+                                                                    >{{category.name}}
+                                                            </option>
+                                                        </select>
+        
+                                                <div class="error" *ngIf="user.get('selectedCategory').hasError('required') && user.get('selectedCategory').touched&&submittedValues==true">
+                                                    Category is required
+                                                </div>
+        
+        
+                                            </div>
                                         </div>
 
-
-                                    </div>
-                                </div>
                                 <div class="data-col">
                                     <div class="form-group">
                                         <label>Brand <sup>*</sup></label>

@@ -16,6 +16,7 @@ export class CreateBanner {
 
     public content: string;
 
+    @IsNotEmpty()
     public image: string;
 
     public link: string;

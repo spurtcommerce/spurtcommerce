@@ -49,3 +49,21 @@ body {
   z-index: 9;
   top: 27px;
 }
+
+.tag-active {
+  text-align: center;
+  background-color: #eefbf4;
+  color:  #56b768;
+  border-radius: 50px;
+  font-weight: 500;
+}
+.cke_bottom {
+  display: none !important;
+}
+.tag-inactive {
+  text-align: center;
+  background-color: #fdf0f3;
+  color:  #f14e6e;
+  border-radius: 50px;
+  font-weight: 500;
+}

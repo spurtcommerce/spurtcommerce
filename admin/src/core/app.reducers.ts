@@ -37,6 +37,7 @@ import * as fromLayoutSales from './admin/sales/layout/reducer/layout.reducer';
 import * as fromPersonalizeProduct from './admin/settings/personalize/product/product-reducer/product-reducer';
 import * as fromPersonalizeOrder from './admin/settings/personalize/order/order-reducer/order-reducer';
 import * as fromLayout from './admin/layout/reducer/layout.reducer';
+import * as fromCustomersGroup from './admin/Customers/customers-group/customers-group-reducer/customers-group.reducer';
 
 /**
  * combineReducers is another useful metareducer that takes a map of reducer
@@ -93,7 +94,9 @@ export const reducers: ActionReducerMap<State> = {
   salesLayout: fromLayoutSales.reducer,
   personalizeProduct: fromPersonalizeProduct.reducer,
   personalizeOrder: fromPersonalizeOrder.reducer,
-  layout: fromLayout.reducer
+  layout: fromLayout.reducer,
+  customersGroup: fromCustomersGroup.reducer,
+
 };
 
 export function logger(reducer: ActionReducer<State>): ActionReducer<any, any> {

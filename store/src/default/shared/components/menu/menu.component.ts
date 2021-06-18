@@ -7,23 +7,26 @@
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
  */
-import {Component, HostListener, Input, OnInit, ViewChild, PLATFORM_ID,
+import {Component, Input, OnInit, ViewChild, PLATFORM_ID,
     Inject
   } from '@angular/core';
   import { isPlatformBrowser } from '@angular/common';
 import {ListsSandbox} from '../../../../core/lists/lists.sandbox';
 import {Router} from '@angular/router';
 import {AppSettings, Settings} from '../../../app.settings';
+import {MatMenuTrigger} from '@angular/material';
 
 @Component({
     selector: 'app-menu',
     templateUrl: './menu.component.html',
-    styleUrls: ['./menu.component.scss']
+    styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
     // decorators
     @Input() categories: any;
     @Input() categoriesExpanded: any;
+    @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
     // param calls getProductList
     private brand: number;
     // local storage
@@ -53,6 +56,7 @@ export class MenuComponent implements OnInit {
     ngOnInit() {
     }
 
+
     /** index for selecting categories.
      * @param index from event
      * @param categoryId from event
@@ -61,6 +65,7 @@ export class MenuComponent implements OnInit {
         this.index = index;
         this.categoryId = id;
     }
+
 
     // Make category link active if category got selected
     linkActive() {

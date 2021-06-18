@@ -1,6 +1,6 @@
 {
     "name": "spurtcommerce",
-    "version": "1.0.0",
+    "version": "1.0",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
@@ -36,6 +36,8 @@
         "@ngrx/router-store": "^7.1.0",
         "@ngrx/store": "^7.3.0",
         "@ngrx/store-devtools": "^7.1.0",
+        "@ngx-translate/core": "^11.0.1",
+        "@ngx-translate/http-loader": "^4.0.0",
         "@swimlane/ngx-charts": "^10.0.0",
         "@swimlane/ngx-datatable": "^14.0.0",
         "angular-io-datepicker": "^1.3.1",

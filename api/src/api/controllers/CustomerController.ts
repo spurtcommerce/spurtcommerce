@@ -235,11 +235,23 @@ export class CustomerController {
             },
         ];
         const customerList = await this.customerService.list(limit, offset, search, WhereConditions, 0, count);
-
+        if (count) {
+            const successRes: any = {
+            status: 1,
+            message: 'Successfully got count ',
+            data: customerList,
+            };
+            return response.status(200).send(successRes);
+            }
+        const data: any = customerList.map(async (value: any) => {
+        const temp: any = value;
+        return temp;
+        });
+        const Customers =  await Promise.all(data);
         const successResponse: any = {
             status: 1,
             message: 'Successfully got Customer list.',
-            data: customerList,
+            data: Customers,
         };
         return response.status(200).send(successResponse);
 

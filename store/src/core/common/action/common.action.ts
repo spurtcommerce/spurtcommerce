@@ -15,9 +15,35 @@ export const ActionTypes = {
     GET_PROFILE_SUCCESS: type('[login] get profile success'),
     GET_PROFILE_FAIL: type('[login] get profile fail'),
 
-    DO_SIGN_OUT: type('[signout] sign out')
+    DO_SIGN_OUT: type('[signout] sign out'),
+
+    GET_WISHLIST_COUNT: type('[count] get wishlist count'),
+    GET_WISHLIST_COUNT_SUCCESS: type('[count] wishlist count success'),
+    GET_WISHLIST_COUNT_FAIL: type('[count] wishlist count fail'),
 
 };
+
+/* get wishlist count action*/
+export class GetWishlistCount implements Action {
+    type = ActionTypes.GET_WISHLIST_COUNT;
+
+    constructor(public payload: any) {
+    }
+}
+/* get Wishlist action*/
+export class GetWishlistCountSuccess implements Action {
+    type = ActionTypes.GET_WISHLIST_COUNT_SUCCESS;
+
+    constructor(public payload: any) {
+    }
+}
+
+export class GetWishlistCountFail implements Action {
+    type = ActionTypes.GET_WISHLIST_COUNT_FAIL;
+
+    constructor(public payload: any) {
+    }
+}
 
 /* get profile action*/
 

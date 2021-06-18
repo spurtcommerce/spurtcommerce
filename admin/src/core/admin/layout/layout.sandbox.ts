@@ -14,9 +14,14 @@ import * as store from '../../app.state.interface';
 import { getLoginSuccessResponse } from '../auth/reducer/selectors';
 import { LoginResponseModel } from '../auth/models/login.response.model';
 import * as layoutAction from './actions/layout.action';
+import { getSettingsResponse } from './reducer/layout.selector';
+
+
 @Injectable()
 export class LayoutSandbox {
   public user$ = this.appState$.select(getLoginSuccessResponse);
+  public settings$ = this.appState$.select(getSettingsResponse);
+
 
   constructor(
     protected appState$: Store<store.AppState>,

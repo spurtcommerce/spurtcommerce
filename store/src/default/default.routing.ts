@@ -101,7 +101,15 @@ export const routes: Routes = [
         data: {
           urls: [{ title: 'Product Detail ', url: '' }]
         }
-      }
+      },
+      {
+        path: 'wishlist',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/wishlist/wishlist.module#WishlistModule',
+        data: {
+          urls: [{ title: 'Wishlist', url: '' }]
+        }
+      },
     ]
   },
   {

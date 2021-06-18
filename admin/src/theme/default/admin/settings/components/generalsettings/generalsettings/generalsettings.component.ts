@@ -151,7 +151,7 @@ export class GeneralSettingComponent implements OnInit {
    */
   countrylist(offset: number = 0, keyword) {
     const params: any = {};
-    params.limit = '';
+    params.limit = this.pageSize;
     params.offset = offset;
     params.keyword = this.keyword;
     this.countrysandbox.getcountrieslist(params);
@@ -164,7 +164,7 @@ export class GeneralSettingComponent implements OnInit {
    */
   zonesList(offset: number = 0) {
     const params: any = {};
-    params.limit = '';
+    params.limit = this.pageSize;
     params.offset = offset;
     params.keyword = this.keyword;
     this.zonesandbox.getZoneList(params);

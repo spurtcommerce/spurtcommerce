@@ -21,5 +21,6 @@ export const getCheckedOutData = createSelector(getState, fromProduct.getChecked
 export const getCheckoutLoading = createSelector(getState, fromProduct.getCheckoutLoading);
 export const getCheckoutLoaded = createSelector(getState, fromProduct.getCheckoutLoaded);
 export const getCheckoutFailed = createSelector(getState, fromProduct.getCheckoutFailed);
+export const wishListLoading = createSelector(getState, fromProduct.getWhislistLoading);
 
 

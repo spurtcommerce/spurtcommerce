@@ -11,6 +11,8 @@
 export class CategorylistResponseModel {
   public categoryId: any = {};
   public name: any = {};
+  public image: any = {};
+  public imagePath: any = {};
   public parentInt: any = {};
   public sortOrder: any = {};
   public metaTagTitle: any = {};
@@ -22,6 +24,8 @@ export class CategorylistResponseModel {
   constructor(categorylistResponse: any) {
     this.categoryId = categorylistResponse.categoryId || '';
     this.name = categorylistResponse.name || '';
+    this.image = categorylistResponse.image || '';
+    this.imagePath = categorylistResponse.imagePath || '';
     this.parentInt = categorylistResponse.parentInt || '';
     this.sortOrder = categorylistResponse.sortOrder || '';
     this.metaTagTitle = categorylistResponse.metaTagTitle || '';

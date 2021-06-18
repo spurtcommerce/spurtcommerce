@@ -30,6 +30,8 @@ export const typeormLoader: MicroframeworkLoader = async (settings: Microframewo
 
     const connection = await createConnection(connectionOptions);
 
+    await connection.runMigrations();
+
     if (settings) {
         settings.setData('connection', connection);
         settings.onShutdown(() => connection.close());

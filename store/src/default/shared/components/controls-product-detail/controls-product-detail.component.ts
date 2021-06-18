@@ -21,6 +21,7 @@ import { MatSnackBar } from '@angular/material';
 import { ProductControlSandbox } from '../../../../core/product-control/product-control.sandbox';
 import { Router } from '@angular/router';
 import { ListsSandbox } from '../../../../core/lists/lists.sandbox';
+import { WishlistSandbox } from '../../../../core/wishlist/wishlist.sandbox';
 
 @Component({
   selector: 'app-controls-product-detail',
@@ -48,7 +49,9 @@ export class ControlsProductDetailComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     public controlSandbox: ProductControlSandbox,
     public listSandbox: ListsSandbox,
-    private router: Router
+    private router: Router,
+    public wishlistSandbox: WishlistSandbox,
+
   ) {}
 
   // intially get the cart data and calls layoutAlign
@@ -107,5 +110,28 @@ export class ControlsProductDetailComponent implements OnInit {
   // emit quantity while changing
   public changeQuantity(value) {
     this.QuantityChange.emit(value);
+  }
+
+  public addToWishList(product) {
+    if (this.isWish[this.product] && this.isWish[this.product] === 'warn') {
+      this.isWish[product] = '';
+      const params: any = {};
+      params.wishlistProductId = product.productId;
+      this.wishlistSandbox.deleteWishlist(params);
+    } else {
+      this.isWish[product] = 'warn';
+      let currentUser: any;
+      if (isPlatformBrowser(this.platformId)) {
+        currentUser = JSON.parse(localStorage.getItem('user'));
+      }
+      if (currentUser) {
+        const params: any = {};
+        params.productId = product.productId;
+        params.productOptionValueId	= '';
+        this.controlSandbox.addToWishlist(params);
+      } else {
+        this.router.navigate(['/auth']);
+      }
+    }
   }
 }

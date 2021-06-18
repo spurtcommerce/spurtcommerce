@@ -18,3 +18,7 @@ import * as fromLayout from './layout.reducer';
  * Auth store functions
  */
 export const getLayoutState = (state: AppState) => state.layout;
+export const getSettingsResponse = createSelector(
+    getLayoutState,
+    fromLayout.getSettings
+  );

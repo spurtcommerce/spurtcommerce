@@ -45,4 +45,16 @@ export class CommonEffect {
       );
     })
   );
+
+  @Effect()
+  getWishlistCount$: Observable<Action> = this.actions$.pipe(
+    ofType(actions.ActionTypes.GET_WISHLIST_COUNT),
+    map((action: actions.GetWishlistCount) => action.payload),
+    switchMap(state => {
+      return this.authApi.getWishlistCount(state).pipe(
+        map(wishlish => new actions.GetWishlistCountSuccess(wishlish)),
+        catchError(error => of(new actions.GetWishlistCountFail(error)))
+      );
+    })
+  );
 }

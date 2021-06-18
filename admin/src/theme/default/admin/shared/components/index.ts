@@ -19,11 +19,15 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ProfileBarComponent } from './profile-bar/profile.bar.component';
 import { MaterialModule } from '../../../default.material.module';
 import { RatingComponent } from './rating/rating.component';
+import { CurrencySymbolPipe } from './pipes/currency-symbol.pipe';
+
 
 export const COMPONENTS = [
   NavigationComponent,
   ProfileBarComponent,
-  RatingComponent
+  RatingComponent,
+  CurrencySymbolPipe,
+
 ];
 
 @NgModule({

@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 import { FilterByIdPipe } from './filter-by-id.pipe';
 import { FilterBrandsPipe } from './filter-brands.pipe';
 import { BrandSearchPipe } from './brand-search.pipe';
+import { CurrencySymbolPipe } from './currency-symbol.pipe';
+
 
 @NgModule({
   imports: [CommonModule],
@@ -20,11 +22,15 @@ import { BrandSearchPipe } from './brand-search.pipe';
     FilterByIdPipe,
     FilterBrandsPipe,
     BrandSearchPipe,
+    CurrencySymbolPipe
+
   ],
   exports: [
     FilterByIdPipe,
     FilterBrandsPipe,
     BrandSearchPipe,
+    CurrencySymbolPipe
+
   ]
 })
 export class PipesModule {}

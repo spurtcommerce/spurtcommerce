@@ -144,4 +144,19 @@ export class Customereffects {
       );
     })
   );
+
+    // Customer list
+    @Effect()
+    CustomerGrouplists$: Observable<Action> = this.action$.pipe(
+      ofType(actions.ActionTypes.DO_Customers_Group_List),
+      map((action: actions.DoCustomersGroupListAction) => action.payload),
+      switchMap(state => {
+        return this.Service.customersGroupList(state).pipe(
+          switchMap(customers => [
+            new actions.DoCustomersGroupListSuccessAction(customers)
+          ]),
+          catchError(error => of(new actions.DoCustomersGroupListFailAction(error)))
+        );
+      })
+    );
 }

@@ -172,7 +172,7 @@ export class UserAddComponent implements OnInit {
   // DROP DOWN ROLE LIST
   getuserGrouplist(offset: number = 0, keyword) {
     const params: any = {};
-    params.limit = '';
+    params.limit = this.pageSize;
     params.offset = offset;
     params.keyword = this.keyword;
     params.count = '';

@@ -22,7 +22,15 @@ export function reducer(
 
   switch (type) {
     case actions.ActionTypes.GET_SETTINGS_SUCCESS_ACTION: {
+      const setting = payload.data[0];
+      let symbolsettings = {};
+      if (setting.symbolLeft !== null) {
+        symbolsettings = { position: 'left', symbol: setting.symbolLeft };
+      } else if (setting.symbolRight !== null) {
+        symbolsettings = { position: 'right', symbol: setting.symbolRight };
+      }
       return Object.assign({}, state, {
+        settings: symbolsettings
       });
     }
     default: {
@@ -30,3 +38,5 @@ export function reducer(
     }
   }
 }
+export const getSettings = (state: LayoutState) => state.settings;
+

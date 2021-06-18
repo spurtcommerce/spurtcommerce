@@ -73,7 +73,11 @@ export class ProductFilterComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-      // this.getCategories();
+    if (this.category && this.category !== '') {
+      // this.getCategory(this.category);
+    } else {
+      this.getCategories();
+    }
   }
   // Initially calls getCategories,getBrands function.
   ngOnInit() {
@@ -108,6 +112,12 @@ export class ProductFilterComponent implements OnInit, OnChanges, OnDestroy {
       })
     );
   }
+
+  // getCategory(id) {
+  //   const params: any = {};
+  //   params.categoryId = id;
+  //   this.listSandbox.getCategory(params);
+  // }
   // calls listSandbox getManufacturerList for getting brand list
   public getBrands() {
     const params: any = {};

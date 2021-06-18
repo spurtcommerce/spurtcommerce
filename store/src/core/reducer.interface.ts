@@ -15,13 +15,17 @@ import * as fromProductControl from '../core/product-control/reducer/product-con
 import * as fromCommon from '../core/common/reducer/common.reducer';
 import * as fromList from '../core/lists/reducer/lists.reducer';
 import { environment } from '../environments/environment';
+import * as fromWishlist from '../core/wishlist/reducer/wishlist.reducer';
+
 
 export const reducers: ActionReducerMap<State> = {
   auth: fromAuth.reducer,
   account: fromAccount.reducer,
   productControl: fromProductControl.reducer,
   common: fromCommon.reducer,
-  list: fromList.reducer
+  list: fromList.reducer,
+  wishlist: fromWishlist.reducer,
+
 };
 
 export function logger(reducer: ActionReducer<State>): ActionReducer<any, any> {

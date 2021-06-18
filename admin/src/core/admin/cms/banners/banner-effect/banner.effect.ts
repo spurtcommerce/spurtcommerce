@@ -101,21 +101,21 @@ export class BannerEffect {
     })
   );
 
-   // ADD BANNER
-   @Effect()
-   doAddBanner$: Observable<Action> = this.action$.pipe(
-     ofType(actions.ActionTypes.DO_ADD_BANNER_ACTION),
-     map((action: actions.DoBannerAddAction) => action.payload),
-     switchMap(state => {
-       console.log('do banner effect', state);
-       return this.service.addBanner(state).pipe(
-         switchMap(salesPayments => [
-           new actions.DoBannerAddSuccessAction(salesPayments)
-         ]),
-         catchError(error => of(new actions.DoBannerAddFailAction(error)))
-       );
-     })
-   );
+  // ADD BANNER
+  @Effect()
+  doAddBanner$: Observable<Action> = this.action$.pipe(
+    ofType(actions.ActionTypes.DO_ADD_BANNER_ACTION),
+    map((action: actions.DoBannerAddAction) => action.payload),
+    switchMap(state => {
+      console.log('do banner effect', state);
+      return this.service.addBanner(state).pipe(
+        switchMap(salesPayments => [
+          new actions.DoBannerAddSuccessAction(salesPayments)
+        ]),
+        catchError(error => of(new actions.DoBannerAddFailAction(error)))
+      );
+    })
+  );
 
   // Update
   @Effect()

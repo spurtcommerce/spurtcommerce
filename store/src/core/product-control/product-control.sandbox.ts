@@ -23,6 +23,7 @@ import {
   getCheckoutLoaded,
   getCheckoutLoading,
   getTotalCartPrice,
+  wishListLoading
 } from './reducer/product-control.selector';
 import { CheckoutModel } from './models/checkout.model';
 
@@ -36,6 +37,7 @@ export class ProductControlSandbox {
   public checkoutLoading$ = this.appState$.select(getCheckoutLoading);
   public checkoutLoaded$ = this.appState$.select(getCheckoutLoaded);
   public checkoutFailed$ = this.appState$.select(getCheckoutFailed);
+  public wishlistLoading$ = this.appState$.select(wishListLoading);
 
   selectedProducts: any[] = [];
   cartTotal = 0;
@@ -319,6 +321,11 @@ export class ProductControlSandbox {
       new authAction.DoCheckoutAction(new CheckoutModel(params))
     );
   }
+
+    /*  addToWishlist  */
+    public addToWishlist(params): void {
+      this.appState$.dispatch(new authAction.AddtoWishlist(params));
+    }
 
   /**
    * get session data from session storage

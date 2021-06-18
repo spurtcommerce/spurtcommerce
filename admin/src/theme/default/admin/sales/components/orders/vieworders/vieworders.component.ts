@@ -18,6 +18,7 @@ import { DatePipe } from '@angular/common';
 import { ConfigService } from '../../../../../../../core/admin/service/config.service';
 import { LayoutSandbox } from '../../../../../../../core/admin/layout/layout.sandbox';
 import { Observable, Observer } from 'rxjs';
+import { CurrencySymbolPipe } from '../../../../shared/components/pipes/currency-symbol.pipe';
 
 @Component({
   selector: 'app-sales-order-vieworders',
@@ -43,7 +44,7 @@ import { Observable, Observer } from 'rxjs';
       }
     `
   ],
-  providers: [DatePipe]
+  providers: [DatePipe, CurrencySymbolPipe]
 })
 export class ViewOrdersComponent implements OnInit {
   public orderId: any;
@@ -69,7 +70,9 @@ export class ViewOrdersComponent implements OnInit {
     public layoutSandbox: LayoutSandbox,
     public orderStatusSandbox: OrderstatusSandbox,
     public datePipe: DatePipe,
-    private configService: ConfigService
+    private configService: ConfigService,
+    private pipe: CurrencySymbolPipe,
+
   ) {
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
   }
@@ -413,5 +416,35 @@ export class ViewOrdersComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+   /**
+   * download invoice for order
+   *
+   * @param dynamicBody creating dynamic body for the invoic detail
+   */
+  downloadInvoiceDetail(details, setting) {
+    this.symbolSettings = details.currencySymbolLeft ? {position: 'left', symbol: details.currencySymbolLeft} : details.currencySymbolRight ? {position: 'right', symbol: details.currencySymbolRight } : null;
+    this.invoice = setting;
+    this.invoiceDetail = details;
+    this.dynamicBody.widths = ['10%', '50%', '20%', '20%'];
+    const item1 = this.invoiceDetail.productList.map((item, index) => {
+      const splitTotal = item.total.split('.');
+      return [
+        index + 1,
+        item.name,
+        item.quantity,
+        this.pipe.transform(item.total, this.symbolSettings)
+      ];
+    });
+    this.dynamicBody.body = [
+      [
+        { alignment: 'center', text: 'S.no', style: 'th' },
+        { alignment: 'center', text: 'Products', style: 'th' },
+        { alignment: 'center', text: 'Quantity', style: 'th' },
+        { alignment: 'center', text: 'Total Amount', style: 'th' }
+      ]
+    ].concat(item1);
+    this.generatePdf();
   }
 }

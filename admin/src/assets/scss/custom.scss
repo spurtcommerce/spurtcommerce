@@ -2445,3 +2445,40 @@ thead {
         }
     }
 }
+
+.settings-center-wrapper {
+    display: block;
+    margin-right: 100px;
+    margin-left: 100px;
+    background: white;
+    padding: 15px 30px 100px;
+}
+
+.setting-inner-header {
+    justify-content: space-between;
+    padding: 8px;
+    h3 {
+        display: inline-flex;
+        font-size: $h5-font-size;
+        color: black;
+        padding-top: 10px;
+        margin-bottom: 0;
+        font-weight: 400;
+        padding-left: 20px;
+    }
+    .btn {
+        display: inline-flex;
+        background: $pink;
+        font-size: $h5-font-size;
+        color: white;
+        padding: 5px 20px;
+        img {
+            display: inline-block;
+            width: 100%;
+            vertical-align: middle;
+            margin-right: 10px;
+            position: relative;
+            top: 4px;
+        }
+    }
+}

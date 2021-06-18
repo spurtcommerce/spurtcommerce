@@ -185,6 +185,32 @@ export function reducer(state = initialState, {type, payload}: any): CustomerSta
                 deletecustomer: payload
             });
         }
+
+        // group list
+        case actions.ActionTypes.DO_Customers_Group_List: {
+            return Object.assign({}, state, {
+                CustomersGroupListLoading: true,
+                CustomersGroupListLoaded: false,
+                CustomersGroupListFailed: false,
+            });
+        }
+
+        case actions.ActionTypes.DO_Customers_Group_List_SUCCESS: {
+            return Object.assign({}, state, {
+                CustomersGroupListLoading: false,
+                CustomersGroupListLoaded: true,
+                CustomersGroupListFailed: false,
+                customersGroupList: payload.data
+            });
+        }
+
+        case actions.ActionTypes.DO_Customers_Group_List_FAIL: {
+            return Object.assign({}, state, {
+                CustomersGroupListLoading: false,
+                CustomersGroupListLoaded: false,
+                CustomersGroupListFailed: true,
+            });
+        }
         default: {
             return state;
         }
@@ -229,5 +255,10 @@ export const getDetailLoading = (state: CustomerState) => state.detailLoading;
 export const getDetailLoaded = (state: CustomerState) => state.detailLoaded;
 export const getDetailFailed = (state: CustomerState) => state.detailFailed;
 
+// customer list
+export const getCustomersGroupList = (state: CustomerState) => state.customersGroupList;
+export const getCustomersGroupListLoading = (state: CustomerState) => state.customersGroupListLoading;
+export const getCustomersGroupListLoaded = (state: CustomerState) => state.customersGroupListLoaded;
+export const getCustomersGroupListFailed = (state: CustomerState) => state.customersGroupListFailed;
 
 

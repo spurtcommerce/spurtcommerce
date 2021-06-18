@@ -73,7 +73,13 @@ export const ActionTypes = {
   ),
   GET_CUSTOMER_EXCEL_FAIL: type(
     '[CUSTOMER EXCEL DELETE] Do Customer Excel Fail'
-  )
+  ),
+
+  DO_Customers_Group_List: type('[Customer group List] customer group List'),
+  DO_Customers_Group_List_SUCCESS: type(
+    '[Customer group List success] Customer group list Success'
+  ),
+  DO_Customers_Group_List_FAIL: type('[Customer group List Fail] Customer group list Fail'),
 };
 
 // customer list
@@ -228,6 +234,25 @@ export class DoCustomerExcelSuccess implements Action {
 
 export class DoCustomerExcelFail implements Action {
   type = ActionTypes.GET_CUSTOMER_EXCEL_FAIL;
+
+  constructor(public payload: any = null) {}
+}
+
+// customer group list
+export class DoCustomersGroupListAction implements Action {
+  type = ActionTypes.DO_Customers_Group_List;
+
+  constructor(public payload: any) {}
+}
+
+export class DoCustomersGroupListSuccessAction implements Action {
+  type = ActionTypes.DO_Customers_Group_List_SUCCESS;
+
+  constructor(public payload: any) {}
+}
+
+export class DoCustomersGroupListFailAction implements Action {
+  type = ActionTypes.DO_Customers_Group_List_FAIL;
 
   constructor(public payload: any = null) {}
 }

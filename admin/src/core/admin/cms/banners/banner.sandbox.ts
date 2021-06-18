@@ -150,6 +150,7 @@ export class BannerSandbox implements OnDestroy {
   }
 
   public addBanner(data) {
+    console.log('add banner sandbox', data);
     this.appState.dispatch(new bannerActions.DoBannerAddAction(data));
   }
 
@@ -171,7 +172,7 @@ export class BannerSandbox implements OnDestroy {
   subscribe() {
     this.subscriptions.push(
       this.getAddNewBanner$.subscribe(data => {
-        if (data) {
+        if (data && data.status === 1) {
           if (data.message) {
             this.router.navigate(['/cms/banners/list']);
           }
@@ -181,7 +182,7 @@ export class BannerSandbox implements OnDestroy {
 
     this.subscriptions.push(
       this.getUpdatebanner$.subscribe(data => {
-        if (data) {
+        if (data && data.status === 1) {
           if (data.message) {
             this.router.navigate(['/cms/banners/list']);
           }

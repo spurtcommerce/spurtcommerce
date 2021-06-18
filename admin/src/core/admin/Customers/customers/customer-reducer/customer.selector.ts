@@ -123,3 +123,19 @@ export const getDetailFailed = createSelector(
   getCustomerState,
   fromCustomer.getDetailFailed
 );
+export const getCustomersGroupList = createSelector(
+  getCustomerState,
+  fromCustomer.getCustomersGroupList
+);
+export const getCustomersGroupListLoading = createSelector(
+  getCustomerState,
+  fromCustomer.getCustomersGroupListLoading
+);
+export const getCustomerGroupListLoaded = createSelector(
+  getCustomerState,
+  fromCustomer.getCustomersGroupListLoaded
+);
+export const getCustomersGroupListFailed = createSelector(
+  getCustomerState,
+  fromCustomer.getCustomersGroupListFailed
+);

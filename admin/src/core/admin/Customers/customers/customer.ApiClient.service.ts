@@ -105,6 +105,11 @@ export class CustomersApiClientService extends Api {
     return this.http.post(this.url + '/customer/delete-customer', param);
   }
 
+  customersGroupList(param) {
+    return this.http.get(this.url + '/customer-group/customergroup-list', param);
+  }
+
+
   /**
    * Handles 'CustomerExcel' function. Calls put method with specific api address
    * along its param.

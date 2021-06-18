@@ -22,4 +22,12 @@ export class CommonService extends Api {
     this.base = this.getBaseUrl();
     return this.http.get(this.base + 'customer/get-profile');
   }
+
+   /* get wishlist count api*/
+   public getWishlistCount(params: any): Observable<any> {
+    this.base = this.getBaseUrl();
+    return this.http.get(this.base + 'customer/wishlist-product-list', {
+      params: params
+    });
+  }
 }

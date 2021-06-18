@@ -40,6 +40,11 @@ export interface CustomerState extends Map<string, any> {
   deleteLoading: boolean;
   deleteLoaded: boolean;
   deleteFailed: boolean;
+
+  customersGroupListLoading: boolean;
+  customersGroupListLoaded: boolean;
+  customersGroupListFailed: boolean;
+  customersGroupList: any;
 }
 
 export const CustomerStateRecord = Record({
@@ -71,5 +76,10 @@ export const CustomerStateRecord = Record({
 
   deleteLoading: false,
   deleteLoaded: false,
-  deleteFailed: false
+  deleteFailed: false,
+
+  customersGroupListLoading: false,
+  customersGroupListLoaded: false,
+  customersGroupListFailed: false,
+  customersGroupList: []
 });

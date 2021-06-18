@@ -108,7 +108,11 @@ export const ActionTypes = {
   CREATE_ENQUIRY: type('[service enquiry] create'),
   CREATE_ENQUIRY_SUCCESS: type('[service enquiry] success'),
   CREATE_ENQUIRY_FAIL: type('[service enquiry] fail'),
-  REMOVE_ACTIVE_CATEGORYID: type('[remove active category]')
+  REMOVE_ACTIVE_CATEGORYID: type('[remove active category]'),
+
+  GET_SubCATEGORY_LIST: type('[SUB_CATEGORY] SUB CATEGORY'),
+  GET_SubCATEGORY_LIST_SUCCESS: type('[SUB_CATEGORY] SUB CATEGORY SUCCESS'),
+  GET_SubCATEGORY_LIST_FAIL: type('[SUB_CATEGORY] SUB CATEGORY FAIL'),
 };
 
 
@@ -490,6 +494,25 @@ export class CreateEnquirySuccess implements Action {
 
 export class CreateEnquiryFail implements Action {
   type = ActionTypes.CREATE_ENQUIRY_FAIL;
+
+  constructor(public payload: any) {}
+}
+
+// sub category
+export class GetSubCategoryList implements Action {
+  type = ActionTypes.GET_SubCATEGORY_LIST;
+
+  constructor(public payload: any) {}
+}
+
+export class GetSubCategoryListSuccess implements Action {
+  type = ActionTypes.GET_SubCATEGORY_LIST_SUCCESS;
+
+  constructor(public payload: any) {}
+}
+
+export class GetSubCategoryListFail implements Action {
+  type = ActionTypes.GET_SubCATEGORY_LIST_FAIL;
 
   constructor(public payload: any) {}
 }

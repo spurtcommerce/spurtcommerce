@@ -65,7 +65,13 @@ import {
   getAvailableOptionsArray,
   getproductDetailMandatory,
   getactiveCategoryID,
-  priceLoading
+  priceLoading,
+  subCategoryList,
+  subCategoryLoading,
+  subCategoryLoaded,
+  subCategoryID,
+  symbolSetting
+
 } from './reducer/lists.selector';
 import { ContactUsRequestModel } from './models/contact-us-request.model';
 
@@ -160,8 +166,16 @@ export class ListsSandbox {
     getAvailableOptionsArray
   );
 
+  public selectedCategoryList$ = this.appState$.select(subCategoryID);
+  public subCategoryList$ = this.appState$.select(subCategoryList);
+  public subCategoryLoading$ = this.appState$.select(subCategoryLoading);
+  public subCategoryLoaded$ = this.appState$.select(subCategoryLoaded);
+
   // active category
   public getactiveCategoryID$ = this.appState$.select(getactiveCategoryID);
+
+  public symbolSetting$ = this.appState$.select(symbolSetting);
+
 
   private subscriptions: Array<Subscription> = [];
   /** create a subject send the value from menucomponent and recieve value to productFilterComponent*/
@@ -250,6 +264,9 @@ export class ListsSandbox {
   }
   public removeActiveCategory(): void {
     this.appState$.dispatch(new authAction.RemoveActiveCategoryId());
+  }
+  public getCategory(params): void {
+    this.appState$.dispatch(new authAction.GetSubCategoryList(params));
   }
   /** subscribe   value **/
 

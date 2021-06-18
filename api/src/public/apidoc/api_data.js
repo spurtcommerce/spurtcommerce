@@ -8267,6 +8267,200 @@ define({ "api": [
   },
   {
     "type": "delete",
+    "url": "/api/customer/wishlist-product-delete/:id",
+    "title": "Delete Product From Wishlist",
+    "group": "Store_wishlist",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"wishlistProductId\" : \"\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Thank you deleted the product from wishlist successfully.\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/customer/wishlist-product-delete/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Wishlist Product Delete error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/controllers/store/CustomerWishListController.ts",
+    "groupTitle": "Store_wishlist",
+    "name": "DeleteApiCustomerWishlistProductDeleteId"
+  },
+  {
+    "type": "get",
+    "url": "/api/customer/wishlist-product-list",
+    "title": "WishList Product List",
+    "group": "Store_wishlist",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully show the wishlist Product List\",\n     \"status\": \"1\",\n     \"data\": \"{}\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/customer/wishlist-product-list"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Wishlist Product List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/controllers/store/CustomerWishListController.ts",
+    "groupTitle": "Store_wishlist",
+    "name": "GetApiCustomerWishlistProductList"
+  },
+  {
+    "type": "post",
+    "url": "/api/customer/add-product-to-wishlist",
+    "title": "Add Product To Wishlist",
+    "group": "Store_wishlist",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>Product Id</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"productId\" : \"\",\n     \"ProductOptionValueId\" : \"\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Thank you product added to the wishlist successfully.\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/customer/add-product-to-wishlist"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Add Product To Wishlist error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/controllers/store/CustomerWishListController.ts",
+    "groupTitle": "Store_wishlist",
+    "name": "PostApiCustomerAddProductToWishlist"
+  },
+  {
+    "type": "delete",
     "url": "/api/zone/delete-zone/:id",
     "title": "Delete Zone API",
     "group": "Zone",
@@ -8598,8 +8792,8 @@ define({ "api": [
     "url": "",
     "version": "0.0.0",
     "filename": "src/public/apidoc/main.js",
-    "group": "_home_veerapandi_picco_Documents_communityv1_0_7Aug20_spurtcommerce_community_v1_0_api_src_public_apidoc_main_js",
-    "groupTitle": "_home_veerapandi_picco_Documents_communityv1_0_7Aug20_spurtcommerce_community_v1_0_api_src_public_apidoc_main_js",
+    "group": "_home_veerapandi_picco_Documents_communityv3_0_1_revisedVersion_spurtcommerce_community_api_src_public_apidoc_main_js",
+    "groupTitle": "_home_veerapandi_picco_Documents_communityv3_0_1_revisedVersion_spurtcommerce_community_api_src_public_apidoc_main_js",
     "name": ""
   },
   {

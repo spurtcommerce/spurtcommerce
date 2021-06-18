@@ -1,6 +1,6 @@
 {
   "name": "SpurtCommerce",
-  "version": "1.0.0",
+  "version": "3.0.1",
   "description": "SpurtCommerce RESTFUL API",
   "main": "src/app.ts",
   "scripts": {
@@ -27,8 +27,8 @@
     "express"
   ],
   "apidoc": {
-    "name": "SpurtCommerce Community V1.0.0",
-    "version": "1.0.0",
+    "name": "SpurtCommerce V3.0.1",
+    "version": "3.0.1",
     "description": "SpurtCommerce RESTFUL API Document",
     "title": "SpurtCommerce RESTFUL API Document"
   },
@@ -105,7 +105,7 @@
     "typeorm": "^0.2.18",
     "typeorm-seeding": "^1.0.0-beta.6",
     "typeorm-typedi-extensions": "^0.2.1",
-    "typescript": "3.0.3",
+    "typescript": "^3.7.2",
     "uuid": "^3.3.2",
     "winston": "3.1.0"
   },

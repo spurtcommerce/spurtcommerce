@@ -35,6 +35,7 @@ export class DetailResponseModel {
   public productSpecialPrice: any;
   public pricerefer: number;
 
+
   constructor(detailResponse: any) {
     this.productId = detailResponse.productId || 0;
     this.sku = detailResponse.sku || '';
@@ -61,5 +62,6 @@ export class DetailResponseModel {
     this.productDiscount = detailResponse.productDiscountData || [];
     this.productSpecialPrice = detailResponse.productSpecialPrice || [];
     this.pricerefer = detailResponse.pricerefer || 0;
+
   }
 }

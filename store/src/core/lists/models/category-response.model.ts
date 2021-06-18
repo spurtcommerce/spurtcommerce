@@ -7,6 +7,7 @@
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
  */
+import { CategorychildrenResponseModel } from './categorychildren-response.model';
 
 export class CategoryResponseModel {
   public categoryId: string;
@@ -19,6 +20,7 @@ export class CategoryResponseModel {
   public name: string;
   public parentInt: string;
   public sortOrder: string;
+  public children: CategorychildrenResponseModel;
 
   constructor(listResponse: any) {
     this.categoryId = listResponse.categoryId || '';
@@ -31,5 +33,10 @@ export class CategoryResponseModel {
     this.name = listResponse.name || '';
     this.parentInt = listResponse.parentInt || '';
     this.sortOrder = listResponse.sortOrder || '';
+    this.children = listResponse.children
+      ? listResponse.children.map(children => {
+          return new CategorychildrenResponseModel(children);
+        })
+      : [];
   }
 }

@@ -18,7 +18,8 @@ import {
   profileFailed,
   profileLoaded,
   profileLoading,
-  getProfileValid
+  getProfileValid,
+  wishlistCount
 } from './reducer/common.selector';
 
 @Injectable()
@@ -29,6 +30,8 @@ export class CommonSandbox {
   public profileLoading$ = this.appState$.select(profileLoading);
   public profileLoaded$ = this.appState$.select(profileLoaded);
   public profileFailed$ = this.appState$.select(profileFailed);
+  public wishlistCount$ = this.appState$.select(wishlistCount);
+
 
   private subscriptions: Array<Subscription> = [];
 
@@ -47,4 +50,8 @@ export class CommonSandbox {
     this.appState$.dispatch(new commonAction.DoSignOut());
   }
   public registerEvents() {}
+
+  public getWishlistCounts(params): void {
+    this.appState$.dispatch(new commonAction.GetWishlistCount(params));
+  }
 }

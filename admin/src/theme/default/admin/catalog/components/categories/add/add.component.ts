@@ -43,6 +43,7 @@ export class CategoryAddComponent implements OnInit {
   public categoryDescription: FormControl;
   public categoryKeyword: FormControl;
   public categorySortOrder: FormControl;
+
   public status: FormControl;
   private valids: boolean;
   // popup

@@ -17,6 +17,12 @@ export interface CommonState extends Map<string, any> {
   profileValid: boolean;
   getProfileLoaded: boolean;
   getProfileFailed: boolean;
+
+  wishlistCountLoading: boolean;
+  wishlistCountLoaded: boolean;
+  wishlistCountFailed: boolean;
+  wishlistCount: number;
+
 }
 
 export const CommonRecord = Record({
@@ -26,4 +32,9 @@ export const CommonRecord = Record({
   getProfileLoading: false,
   getProfileLoaded: false,
   getProfileFailed: false,
+
+  wishlistCount: 0,
+  wishlistCountLoading: false,
+  wishlistCountLoaded: false,
+  wishlistCountFailed: false,
 });

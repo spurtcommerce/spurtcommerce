@@ -172,7 +172,10 @@ export class DoBannerPaginationFailAction implements Action {
 export class DoBannerAddAction implements Action {
   type = ActionTypes.DO_ADD_BANNER_ACTION;
 
-  constructor(public payload: any) {}
+  constructor(public payload: any) {
+    console.log('add banner action', payload);
+
+  }
 }
 
 export class DoBannerAddSuccessAction implements Action {

@@ -18,6 +18,9 @@ import * as store from '../../state.interface';
 import { catchError } from 'rxjs/internal/operators';
 import * as actions from './../action/product-control.action';
 import { ProductControlService } from '../product-control.service';
+import * as wishlistActions from '../../wishlist/action/wishlist.action';
+import * as countActions from '../../common/action/common.action';
+
 
 @Injectable()
 export class ProductControlEffect {
@@ -29,6 +32,23 @@ export class ProductControlEffect {
     private authApi: ProductControlService,
     private appState$: Store<store.AppState>
   ) {}
+
+
+  @Effect()
+  addToWishlist$: Observable<Action> = this.actions$.pipe(
+    ofType(actions.ActionTypes.ADD_TO_WISHLIST),
+    map((action: actions.AddtoWishlist) => action.payload),
+    switchMap(state => {
+      return this.authApi.addToWishlist(state).pipe(
+        switchMap(register => [
+          new actions.AddtoWishlistSuccess(register),
+          new wishlistActions.GetWishlist(this.parameter),
+          new countActions.GetWishlistCount(this.countParameter)
+        ]),
+        catchError(error => of(new actions.AddtoWishlistFail(error)))
+      );
+    })
+  );
 
   @Effect()
   checkout$: Observable<Action> = this.actions$.pipe(

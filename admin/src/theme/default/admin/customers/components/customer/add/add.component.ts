@@ -93,7 +93,7 @@ export class CustomerAddComponent implements OnInit {
     private router: Router,
     public fb: FormBuilder,
     public appSandbox: CustomerSandbox,
-    private service: CustomersApiClientService
+    private service: CustomersApiClientService,
   ) {}
 
   // style purpose using
@@ -141,6 +141,7 @@ export class CustomerAddComponent implements OnInit {
 
   // intially calls editcustomerinfo,initForm
   ngOnInit(): void {
+    this.customersGroupList();
     this.myValue = true;
     this.EditCustomerId = this.route.snapshot.paramMap.get('id');
     this.update_CustId_PSW = true;
@@ -152,6 +153,16 @@ export class CustomerAddComponent implements OnInit {
     } else {
     }
     this.initForm();
+  }
+
+  customersGroupList() {
+    const param: any = {};
+    param.limit = '';
+    param.offset = '';
+    param.keyword = '';
+    param.count = '';
+    console.log(param, 'rathu');
+    this.appSandbox.customersGroupList(param);
   }
 
   // cancel form Submit

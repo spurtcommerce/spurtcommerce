@@ -12,7 +12,7 @@
         </div>
         <mat-icon class="mat-icon-sm">arrow_drop_down</mat-icon>
     </button>
-    <mat-menu #cartMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="top-menu-dropdown cart-dropdown">
+    <mat-menu #cartMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="top-menu-dropdown cart-pane cart-dropdown">
         <span (mouseleave)="cartMenuTrigger.closeMenu()" class="d-block">
                             <div fxLayout="row" fxLayoutAlign="space-between center" class="text-muted">
                                 <b><span>{{cartSandbox.cartlistCount$ | async}} ITEM<span

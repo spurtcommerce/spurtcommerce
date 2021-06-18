@@ -168,6 +168,27 @@ export class ListsEffect {
               { name: 'description', content: res.data[0].metaTagDescription }
             ]);
             const description = this.meta.getTags('name=description');
+            if (res.data[0].symbolLeft !== null) {
+              if (isPlatformBrowser(this.platformId)) {
+                localStorage.setItem(
+                  'currency',
+                  JSON.stringify({
+                    position: 'left',
+                    symbol: res.data[0].symbolLeft
+                  })
+                );
+              }
+            } else if (res.data[0].symbolRight !== null) {
+              if (isPlatformBrowser(this.platformId)) {
+                localStorage.setItem(
+                  'currency',
+                  JSON.stringify({
+                    position: 'right',
+                    symbol: res.data[0].symbolRight
+                  })
+                );
+              }
+            }
           }
         }),
         map(featured => new actions.GetSettingsSuccess(featured)),
@@ -232,6 +253,18 @@ export class ListsEffect {
       return this.authApi.getTodayDealsList(state).pipe(
         map(orders => new actions.GetTodayDealsListSuccess(orders)),
         catchError(error => of(new actions.GetTodayDealsListFail(error)))
+      );
+    })
+  );
+
+  @Effect()
+  getSubCategory$: Observable<Action> = this.actions$.pipe(
+    ofType(actions.ActionTypes.GET_SubCATEGORY_LIST),
+    map((action: actions.GetSubCategoryList) => action.payload),
+    switchMap(state => {
+      return this.authApi.getSubCategoryList(state).pipe(
+        map(data => new actions.GetSubCategoryListSuccess(data)),
+        catchError(error => of(new actions.GetSubCategoryListFail(error)))
       );
     })
   );

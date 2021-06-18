@@ -22,6 +22,7 @@ import { CountryResponseModel } from '../models/country-response.model';
 import { ZoneResponseModel } from '../models/zone-response.model';
 import { TodayDealsResponseModel } from '../models/today-deals-response.model';
 import { ProductDetailMandatoryResponseModel } from '../models/product-detail-mandatory-response.model';
+import { SubcategoryResponseModel } from '../models/subcategory.response';
 
 export const initialState: ListsState = (new listsRecord() as unknown) as ListsState;
 
@@ -90,12 +91,33 @@ export function reducer(
     /**Active category  make selected category active and expanded
      * **/
     case actions.ActionTypes.GET_ACTIVE_CATEGORY: {
+      let tempsubCategoryID: any;
+      let childrenArray: any;
       const selectedCategoryID = parseInt(payload, 10);
+
+      if (state.category && payload) {
+        for (let i = 0; i < state.category.length; i++) {
+          childrenArray = state.category[i].children;
+          if (childrenArray[0]) {
+            for (let j = 0; j < childrenArray.length; j++) {
+              for (let k = 0; k < childrenArray[j].children.length; k++) {
+                if (
+                  childrenArray[j].children[k].categoryId === selectedCategoryID
+                ) {
+                  tempsubCategoryID = childrenArray[j].categoryId;
+                }
+              }
+            }
+          }
+        }
+      } else {
+        tempsubCategoryID = {};
+      }
       return Object.assign({}, state, {
         activeCategoryLoading: true,
         activeCategoryLoaded: false,
         activeCategoryFailed: false,
-        activeCategoryID: selectedCategoryID
+        activeCategoryID: tempsubCategoryID
       });
     }
     case actions.ActionTypes.REMOVE_ACTIVE_CATEGORYID: {
@@ -367,8 +389,18 @@ export function reducer(
     }
     case actions.ActionTypes.GET_SETTINGS_SUCCESS_ACTION: {
       const tempSetting = new SettingResponseModel(payload.data[0]);
+      const setting = payload.data[0];
+      let symbolsettings = {};
+      if (setting.symbolLeft !== null) {
+        symbolsettings = { position: 'left', symbol: setting.symbolLeft };
+      } else if (setting.symbolRight !== null) {
+        symbolsettings = { position: 'right', symbol: setting.symbolRight };
+      } else {
+        symbolsettings = { position: 'left', symbol: setting.symbolLeft };
+      }
       return Object.assign({}, state, {
         settingDetail: tempSetting,
+        symbolSetting: symbolsettings
       });
     }
 
@@ -463,6 +495,35 @@ export function reducer(
         todayDealFailed: true
       });
     }
+
+       // subcategory
+       case actions.ActionTypes.GET_SubCATEGORY_LIST: {
+        return Object.assign({}, state, {
+          SelectedcategoryId: payload.CategoryId,
+          subcategoryLoading: true,
+          subcategoryLoaded: false,
+          subcategoryFailed: false
+        });
+      }
+      case actions.ActionTypes.GET_SubCATEGORY_LIST_SUCCESS: {
+        const tempList = payload.data.children.map(list => {
+          const tempObject = new SubcategoryResponseModel(list);
+          return tempObject;
+        });
+        return Object.assign({}, state, {
+          subcategory: tempList,
+          subcategoryLoading: false,
+          subcategoryLoaded: true,
+          subcategoryFailed: false
+        });
+      }
+      case actions.ActionTypes.GET_SubCATEGORY_LIST_FAIL: {
+        return Object.assign({}, state, {
+          subcategoryLoading: false,
+          subcategoryLoaded: true,
+          subcategoryFailed: false
+        });
+      }
     default: {
       return state;
     }
@@ -545,3 +606,13 @@ export const getTodayDealLoading = (state: ListsState) =>
 export const getTodayDealLoaded = (state: ListsState) => state.todayDealLoaded;
 export const getTodayDealFailed = (state: ListsState) => state.todayDealFailed;
 export const getPriceLoading = (state: ListsState) => state.priceLoading;
+
+export const subCategoryList = (state: ListsState) => state.subcategory;
+export const subCategoryLoading = (state: ListsState) =>
+  state.subcategoryLoading;
+export const subCategoryLoaded = (state: ListsState) => state.subcategoryLoaded;
+
+export const selectedCategoryId = (state: ListsState) =>
+  state.SelectedcategoryId;
+  export const getSymbolSetting = (state: ListsState) => state.symbolSetting;
+

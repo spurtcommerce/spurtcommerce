@@ -25,7 +25,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { LayoutService } from '../../../../core/admin/Customers/layout/layout.service';
 import { LayoutSandbox } from '../../../../core/admin/Customers/layout/layout.sandbox';
 import { LayoutEffects } from '../../../../core/admin/Customers/layout/effects/layout.effect';
-
 @NgModule({
   declarations: [CustomerLayoutComponent, CustomerHeaderComponent],
   imports: [

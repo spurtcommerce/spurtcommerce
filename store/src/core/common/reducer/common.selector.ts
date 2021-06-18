@@ -34,3 +34,7 @@ export const profileFailed = createSelector(
   getState,
   fromWishlist.getProfileFailed
 );
+export const wishlistCount = createSelector(
+  getState,
+  fromWishlist.getWishlistCount
+);

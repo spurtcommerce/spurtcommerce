@@ -1,5 +1,5 @@
 /*
- * spurtcommerce community APImunity API
+ * spurtcommerce community API
  * version 1.0
  * Copyright (c) 2019 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>

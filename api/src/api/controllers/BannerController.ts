@@ -68,7 +68,6 @@ export class BannerController {
     @Post('/add-banner')
     @Authorized()
     public async createBanner(@Body({validate: true}) bannerParam: CreateBanner, @Res() response: any): Promise<any> {
-
         const image = bannerParam.image;
         if (image) {
             const type = image.split(';')[0].split('/')[1];
@@ -89,7 +88,7 @@ export class BannerController {
             newBanner.position = bannerParam.position;
             newBanner.isActive = bannerParam.status;
             const bannerSave = await this.bannerService.create(newBanner);
-
+   console.log(bannerSave + 'comminggg');
             if (bannerSave) {
                 const successResponse: any = {
                     status: 1,

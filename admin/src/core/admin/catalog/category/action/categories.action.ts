@@ -40,6 +40,9 @@ export const ActionTypes = {
   ),
   DO_CATEGORIESCOUNT_FAIL: type('[Listcount] Do Categorieslistcount Fail'),
 
+  DO_PRODUCT_REMOVE: type('[PRemove] Do Product Remove'),
+  DO_PRODUCT_ADD: type('[PAdd] Do Product Add')
+
 };
 
 // category list action
@@ -136,6 +139,20 @@ export class DoUpdateCategoriesFailAction implements Action {
   type = ActionTypes.DO_UPDATECATEGORIES_FAIL;
 
   constructor(public payload: any = null) {}
+}
+
+// product remove action
+export class DoProductremoveAction implements Action {
+  type = ActionTypes.DO_PRODUCT_REMOVE;
+
+  constructor(public payload: any) {}
+}
+
+// product add action
+export class DoProductaddAction implements Action {
+  type = ActionTypes.DO_PRODUCT_ADD;
+
+  constructor(public payload: any) {}
 }
 
 

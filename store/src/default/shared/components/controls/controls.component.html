@@ -6,6 +6,10 @@
         <button mat-icon-button matTooltip="Add" (click)="changeCount('add')"><mat-icon>add</mat-icon></button>
     </div>
     <div class='prod-icon'>
+        <button mat-icon-button matTooltip="{{product.wishListStatus === 1 ? 'Added to wishlist': 'Add to wishlist'}}" (click)="addToWishList(product)">
+                    <mat-icon [color]="isWish[product]" *ngIf="isWish[product] === 'warn'">favorite</mat-icon>
+                    <mat-icon  *ngIf="isWish[product] !== 'warn'">favorite</mat-icon>
+        </button>
         <button *ngIf="type==='home'||type==='all'" mat-icon-button matTooltip="Quick view" (click)="openProductDialog(product)"><mat-icon>remove_red_eye</mat-icon></button>
         <button *ngIf="type==='all'||type==='detail'||type==='popup'" mat-icon-button matTooltip="Add to cart" (click)="addToCart(product)"><mat-icon>shopping_cart</mat-icon></button>
         <span *ngIf="type==='home'" class="cart-lk">

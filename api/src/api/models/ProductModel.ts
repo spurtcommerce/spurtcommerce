@@ -13,6 +13,7 @@ import moment from 'moment';
 import {ProductToCategory} from './ProductToCategory';
 import {ProductImage} from './ProductImage';
 import {OrderProduct} from './OrderProduct';
+import { CustomerWishlist } from './CustomerWishlist';
 
 @Entity('product')
 export class Product extends BaseModel {
@@ -105,6 +106,9 @@ export class Product extends BaseModel {
 
     @OneToMany(type => OrderProduct, orderProduct => orderProduct.productInformationDetail)
     public orderProduct: OrderProduct[];
+
+    @OneToMany(type => CustomerWishlist, customerWishlist => customerWishlist.product)
+    public wishlist: CustomerWishlist[];
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

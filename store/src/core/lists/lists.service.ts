@@ -173,4 +173,12 @@ export class ListsService extends Api {
       params: reqOpts
     });
   }
+
+    /* subcategory list api*/
+    getSubCategoryList(param) {
+      this.base = this.getBaseUrl();
+      return this.http.get(this.base + 'list/specific-category-list', {
+        params: param
+      });
+    }
 }

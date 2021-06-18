@@ -49,6 +49,7 @@ import { EditprofileService } from '../../../core/admin/profile/editprofile/edit
 import { EditprofileSandbox } from '../../../core/admin/profile/editprofile/editprofile.sandbox';
 import { ConfigService } from '../../../core/admin/service/config.service';
 import { ToastrModule } from 'ng6-toastr-notifications';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { ComponentsModule } from './shared/components';
 import { DefaultCommonModule } from '../default.common.module';
@@ -67,7 +68,11 @@ import { PagerComponent } from './shared/components/pagination/pager.component';
 import { StockEffects } from '../../../core/admin/settings/localizations/stockStatus/stock-effect/stock.effect';
 import { StockService } from '../../../core/admin/settings/localizations/stockStatus/stock.service';
 import { StockSandbox } from '../../../core/admin/settings/localizations/stockStatus/stock.sandbox';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'assets/i18n/');
+}
 // ConfigService
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -110,7 +115,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ]),
     CKEditorModule,
     NgbModule,
-    NumberAcceptModule
+    NumberAcceptModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     {

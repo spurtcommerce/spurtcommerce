@@ -18,6 +18,7 @@ import { ListsSandbox } from '../../../../core/lists/lists.sandbox';
 import { MatSnackBar } from '@angular/material';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-top-menu',
   templateUrl: './top-menu.component.html',
@@ -50,6 +51,11 @@ export class TopMenuComponent implements OnInit, OnDestroy {
     if (isPlatformBrowser(this.platformId)) {
       if (localStorage.getItem('userToken')) {
         this.commonSandbox.doGetProfile();
+        const params: any = {};
+        params.limit = '';
+        params.offset = 0;
+        params.count = true;
+        this.commonSandbox.getWishlistCounts(params);
       }
     }
   }

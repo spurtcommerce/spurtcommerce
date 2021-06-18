@@ -1,4 +1,14 @@
 <div class="top-menu">
+        <span fxShow="false" fxShow.gt-sm>
+                <a mat-button [routerLink]="['/wishlist']"><span class="blackStyle">Wishlist
+                 <ng-container *ngIf="commonSandbox.wishlistCount$ | async;else noWhishListCount">
+                      ({{commonSandbox.wishlistCount$ | async}})
+                 </ng-container>
+                    <ng-template #noWhishListCount>
+                                 (0)
+                    </ng-template>
+                </span></a>
+            </span>
     <a mat-button [matMenuTriggerFor]="accountMenu" #accountMenuTrigger="matMenuTrigger" class="blackStyle" *ngIf="(commonSandbox.getProfile$ | async)?.email">
         <mat-icon class="mat-icon-sm account-icon blackStyle">person</mat-icon>
         <span fxShow="false" fxShow.gt-sm class="blackStyle">Account</span>
@@ -9,7 +19,7 @@
         <span fxShow="false" fxShow.gt-sm class="blackStyle">Login/Register</span>
     </a>
 
-    <mat-menu #accountMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown account">
+    <mat-menu #accountMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown account-pane account">
         <span>
             <div fxLayout="row" fxLayoutAlign="space-around center" class="user-info"
                  *ngIf="(commonSandbox.getProfile$ | async)?.email">

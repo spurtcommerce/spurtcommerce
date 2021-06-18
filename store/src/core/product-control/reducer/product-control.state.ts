@@ -18,6 +18,8 @@ export interface ProductControlState extends Map<string, any> {
   checkoutLoading: any;
   checkoutLoaded: any;
   checkoutFailed: any;
+  whislistLoading: boolean;
+
 }
 
 
@@ -30,5 +32,7 @@ export const productControlRecord = Record({
 
   checkoutLoading: false,
   checkoutLoaded: false,
-  checkoutFailed: false
+  checkoutFailed: false,
+  whislistLoading: false
+
 });

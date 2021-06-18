@@ -95,6 +95,15 @@ export interface ListsState extends Map<string, any> {
   enquiryLoaded: false;
   enquiryFailed: false;
   enquirySuccess: any;
+
+  subcategory: any;
+  subcategoryLoading: boolean;
+  subcategoryLoaded: boolean;
+  subcategoryFailed: boolean;
+  SelectedcategoryId: any;
+  symbolSetting: any;
+
+
 }
 
 export const listsRecord = Record({
@@ -173,5 +182,14 @@ export const listsRecord = Record({
   enquiryLoaded: false,
   enquiryFailed: false,
   enquirySuccess: {},
-  activeCategoryID: ''
+  activeCategoryID: '',
+
+  subcategory: {},
+  subcategoryLoading: false,
+  subcategoryLoaded: false,
+  subcategoryFailed: false,
+  SelectedcategoryId: '',
+
+  symbolSetting: {},
+
 });

@@ -24,6 +24,8 @@ import {ZoneService} from '../../services/zoneService';
 import {ProductToCategoryService} from '../../services/ProductToCategoryService';
 import {CategoryPathService} from '../../services/CategoryPathService';
 import {UserService} from '../../services/UserService';
+import { CustomerWishlistService } from '../../services/CustomerWishlistService';
+import jwt from 'jsonwebtoken';
 
 @JsonController('/list')
 export class CommonListController {
@@ -32,6 +34,7 @@ export class CommonListController {
                 private countryService: CountryService, private contactService: ContactService,
                 private emailTemplateService: EmailTemplateService,
                 private zoneService: ZoneService,
+                private customerWishlistService: CustomerWishlistService,
                 private productToCategoryService: ProductToCategoryService, private categoryPathService: CategoryPathService,  private userService: UserService
                  ) {
     }
@@ -270,6 +273,26 @@ export class CommonListController {
             const temp: any = result;
             temp.Images = productImage;
             temp.Category = productToCategory;
+            if (request.header('authorization')) {
+                const userId = jwt.verify(request.header('authorization').split(' ')[1], '123##$$)(***&');
+                const userUniqueId: any = Object.keys(userId).map((key: any) => {
+                    return [(key), userId[key]];
+                });
+                console.log(userUniqueId[0][1]);
+                const wishStatus = await this.customerWishlistService.findOne({
+                    where: {
+                        productId: result.productId,
+                        customerId: userUniqueId[0][1],
+                    },
+                });
+                if (wishStatus !== undefined) {
+                    temp.wishListStatus = 1;
+                } else {
+                    temp.wishListStatus = 0;
+                }
+            } else {
+                temp.wishListStatus = 0;
+            }
             return temp;
         });
         const finalResult = await Promise.all(promises);
@@ -328,6 +351,26 @@ export class CommonListController {
                 });
                 const temp: any = result;
                 temp.Images = productImage;
+                if (request.header('authorization')) {
+                    const userId = jwt.verify(request.header('authorization').split(' ')[1], '123##$$)(***&');
+                    const userUniqueId: any = Object.keys(userId).map((key: any) => {
+                        return [(key), userId[key]];
+                    });
+                    console.log(userUniqueId[0][1]);
+                    const wishStatus = await this.customerWishlistService.findOne({
+                        where: {
+                            productId: result.productId,
+                            customerId: userUniqueId[0][1],
+                        },
+                    });
+                    if (wishStatus) {
+                        temp.wishListStatus = 1;
+                    } else {
+                        temp.wishListStatus = 0;
+                    }
+                } else {
+                    temp.wishListStatus = 0;
+                }
                 return temp;
             });
             const finalResult = await

@@ -36,7 +36,9 @@ import {
   getupdatecustomers,
   getupdateFailed,
   getupdateLoaded,
-  getupdateLoading
+  getupdateLoading,
+  getCustomersGroupList,
+
 } from './customer-reducer/customer.selector';
 import { Subscription } from 'rxjs/index';
 import { ToastrManager } from 'ng6-toastr-notifications';
@@ -79,6 +81,7 @@ export class CustomerSandbox {
   public getDetailLoading$ = this.appState.select(getDetailLoading);
   public getDetailLoaded$ = this.appState.select(getDetailLoaded);
   public getDetailFailed$ = this.appState.select(getDetailFailed);
+  public getCustomersGroupList$ = this.appState.select(getCustomersGroupList);
 
   constructor(
     protected appState: Store<store.AppState>,
@@ -130,6 +133,11 @@ export class CustomerSandbox {
   // Do Customer Excel
   public customerExcel(value) {
     this.appState.dispatch(new customerAction.DoCustomerExcel(value));
+  }
+
+   // Group list
+   public customersGroupList(value) {
+    this.appState.dispatch(new customerAction.DoCustomersGroupListAction(value));
   }
 
   subscripe() {

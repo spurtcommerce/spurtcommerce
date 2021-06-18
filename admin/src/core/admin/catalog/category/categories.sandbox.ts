@@ -191,6 +191,14 @@ export class CategoriesSandbox {
     );
   }
 
+  public Productremove(value) {
+    this.appState.dispatch(new categoriesActions.DoProductremoveAction(value));
+  }
+
+  public Productadd(value) {
+    this.appState.dispatch(new categoriesActions.DoProductaddAction(value));
+  }
+
   public subscribe() {
     this.getAddCategories$.subscribe(data => {
       if (data && data.status === 1) {

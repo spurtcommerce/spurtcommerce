@@ -46,6 +46,10 @@ import {ShareButtonModule} from '@ngx-share/button';
 import {AgmCoreModule} from '@agm/core';
 import { APP_BASE_HREF } from '@angular/common';
 
+import { WishlistSandbox } from '../core/wishlist/wishlist.sandbox';
+import { WishlistService } from '../core/wishlist/wishlist.service';
+import { WishlistEffect } from '../core/wishlist/effects/wishlist.effect';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -56,6 +60,7 @@ import { APP_BASE_HREF } from '@angular/common';
         ComponentsModule,
         EffectsModule.forRoot([ListsEffect]),
         StoreModule.forRoot(reducers, {metaReducers}),
+        EffectsModule.forRoot([ListsEffect, WishlistEffect]),
         ShareButtonModule.withConfig({
             debug: true
         }),
@@ -85,7 +90,9 @@ import { APP_BASE_HREF } from '@angular/common';
         },
         {provide: APP_BASE_HREF, useValue: ''},
         ListsSandbox,
-        ListsService
+        ListsService,
+        WishlistSandbox,
+        WishlistService
     ],
     bootstrap: [DefaultComponent]
 })

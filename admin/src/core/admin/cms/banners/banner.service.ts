@@ -53,6 +53,7 @@ export class BannerService extends Api {
 
   // add
   addBanner(param: BanneraddModel) {
+    console.log('add banner', param);
     return this.http.post(this.url + '/banner/add-banner', param);
   }
 

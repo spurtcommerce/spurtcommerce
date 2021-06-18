@@ -175,6 +175,41 @@ export function reducer(
         categoriesCountRequestFailed: true
       });
     }
+
+        // product remove action
+
+    case actions.ActionTypes.DO_PRODUCT_REMOVE: {
+      const Data: any = state.categoryList;
+
+      for (let i = 0; i < Data.length; i++) {
+        if (i === payload) {
+          Data.splice(payload, 1);
+        }
+      }
+      return Object.assign({}, state, {
+        productRemoveList: Data,
+        productRemoveResponse: false,
+        productRemoveRequestLoading: true,
+        productRemoveRequestLoaded: false,
+        productRemoveRequestFailed: false
+      });
+    }
+
+    // product add action
+
+    case actions.ActionTypes.DO_PRODUCT_ADD: {
+      const Data: any = state.categoryList;
+
+      Data.push(payload);
+
+      return Object.assign({}, state, {
+        categoryList: Data,
+        productAddResponse: false,
+        productAddRequestLoading: true,
+        productAddRequestLoaded: false,
+        productAddRequestFailed: false
+      });
+    }
     default: {
       return state;
     }

@@ -1,6 +1,6 @@
 /*
- * spurtcommerce API
- * version 1.0
+ * spurtcommerce community API
+ * version 3.0
  * Copyright (c) 2019 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -138,7 +138,7 @@ export class CustomerOrderController {
         newOrder.paymentAddressFormat = checkoutParam.shippingAddressFormat;
         const orderData = await this.orderService.create(newOrder);
         const countryName = await this.countryService.findOne(orderData.shippingCountry);
-        orderData.shippingCountry = countryName ? countryName.name : '' ;
+        orderData.shippingCountry = countryName ? countryName.name : '';
         orderProduct = checkoutParam.productDetails;
         for (i = 0; i < orderProduct.length; i++) {
             const productValue = await this.productService.findOne({where: {productId: orderProduct[i].productId}});
