@@ -1,6 +1,6 @@
 ![alt text](/img/spurtcommerce-b2c-b2b.png "spurtcommerce Logo")
 
-# Ecommerce / Nodejs + Angular 7 + Mysql 
+# Ecommerce / Nodejs + Angular + Mysql 
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/spurtcommerce/spurtcommerce)
 ![GitHub issues](https://img.shields.io/github/issues/spurtcommerce/spurtcommerce)
