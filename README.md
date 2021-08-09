@@ -47,27 +47,6 @@ If you are looking for an advanced solution with full-fledged features for an on
 
 ![alt text](/img/spurtcommerce-singlevendor.png "spurtcommerce Logo")
 
-# ❯ B2C  / B2B Marketplace Key Features 
-
-eCommerce solutions are certainly not new in the industry. From over a past decade, several eCommerce solutions have been there. Also, most of them are open source and have a good supporting community as well. However, they are all built on PHP technology. 
-<ul>
-<li><strong><a href="#" rel="nofollow">Headless Commerce</a></strong> - build mobile apps or custom storefronts in any technology, <a href="#">JS/TS SDK available</a></li>
-<li><strong><a href="#" rel="nofollow">PWA</a></strong> - offline shopping experiences like native mobile apps</li>
-<li><strong><a href="#" rel="nofollow">Mobile-first Storefront</a></strong> - modern, ultra fast and responsive storefront designed for great UX as well as SEO</li>
-<li><strong><a href="#" rel="nofollow">Global Commerce</a></strong> - multi currency and multi language support out of the box, different shipping methods / costs for different regions, advanced tax calculation</li>
-<li><strong>Multi-Store</strong> - host multiple brands / stores on one Spree instance with different branding, configuration, payment methods, shipping options, product catalogs etc</li>
-<li><strong><a href="#" rel="nofollow">Multi-vendor marketplace</a></strong> - run your own marketplace with multiple suppliers with dedicated Supplier Dashboard</li>
-<li><strong>Responsive Admin Panel</strong> - manage and curate products, users, orders, returns, shipments &amp; more</li>
-<li><strong>Orders</strong> - robust system for orders, shipments, returns and refunds</li>
-<li><strong>Carts</strong> -  comprehensive and advanced discounts system</li>
-<li><strong>Payments</strong> - over 30 payment provider integration out of the box plus API to integrate any other gateway</li>
-<li><strong>Run everywhere</strong> - cloud, VPS, Docker, Kubernetes</li>
-<li><strong>Battle Tested</strong> - used by thousands of merchants around the globe in all categories since 2007!</li>
-<li><strong>Fully customizable</strong> - pick and choose parts you want to use and customize everything else (storefront, order processing, API, etc) to create unique solutions that your business requires</li>
-<li><strong>More features available via extensions</strong> - dozens of extensions built by community, ready for use for free!</li>
-</ul>
-
-
 # ❯ TechStack
 Spurtcommerce has been developed using the open source and futuristic technologies. Spurtcommerce is built using the open source frameworks of NodeJS and Angular, which are the niche and futuristic technologies. Spurtcommerce is an open source eCommerce solution, built for a cause of bringing an advancement in the field of eCommerce development, that will result in a high speed and good performing eCommerce application.
 
