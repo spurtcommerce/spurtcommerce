@@ -111,5 +111,5 @@ Should you require any support in installation, setup and on how to effectively 
 # ❯ About Piccosoft
 Spurtcommerce is developed by [Piccosoft Software Labs India (P) Limited,](http://www.piccosoft.com) which is primarily a Web and Mobile App Service Provider, and who have adopted the latest and niche technologies for their Development services. The team comprises of experienced Developers, who are technology enthusiasts and passionate about innovations.
 
-We are passionate about providing eCommerce development services. [Hire us now at](https://spurtcommerce.com/nodejs-shoppingcart-ecommerce-hire-developers) 
+We are passionate about providing eCommerce development services. [Hire us now at](http://piccotalent.com/) 
 
