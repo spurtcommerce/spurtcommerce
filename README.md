@@ -57,7 +57,7 @@ We have thoughtfully planned and brought all the standard features for B2C, B2B 
 <li><strong>OWASP Compliance </strong>- Tested and achieved for compliance to OWASP (Open Web Application Security Project Standards).</li>
 <li><strong>Responsive </strong>- Storefront is fully responsive for mobiles and tabs. </li>
 <li><strong>Inventory stock updates </strong>- The Inventory and Stock can be updated separately and for each SKU under a Product. </li>
-<li><strong><a href="https://www.spurtcommerce.com/features/Ecommerce-Tier-price" rel="nofollow">Tier Pricing </strong>- Tier pricing lets you offer discounts based on quantity from a product listing or product page in the storefront.</a></li>
+<li><strong><a href="https://www.spurtcommerce.com/features/Ecommerce-Tier-price" rel="nofollow">Tier Pricing </a> </strong>- Tier pricing lets you offer discounts based on quantity from a product listing or product page in the storefront.</li>
 <li><strong>product specifications </strong>- Product Attributes are different specifications of a product that can be configured by the Admin.</li>
 <li><strong>Coupons </strong>- Coupon codes can be created to provide attractive offers on purchase, to the Customers.</li>
 <li><strong>Product variants </strong>- With this feature, you can set different variants for a one product. </li>
