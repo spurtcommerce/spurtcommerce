@@ -47,6 +47,28 @@ If you are looking for an advanced solution with full-fledged features for an on
 
 ![alt text](/img/spurtcommerce-singlevendor.png "spurtcommerce Logo")
 
+
+# ❯ B2C  / B2B Marketplace Key Features 
+
+We have thoughtfully planned and brought all the standard features for B2C, B2B and C2C eCommerce. We have highlighted a few of the key features among them here. Have a glance !!!
+<ul>
+<li><strong><a href="https://www.spurtcommerce.com/features" rel="nofollow">Headless Commerce </a></strong> - Use the same NodeJS Backend API for any and multiple storefronts. </a></li>
+<li><strong>PWA </strong> - Provide the native app experience in a browser. </li>
+<li><strong>OWASP Compliance </strong>- Tested and achieved for compliance to OWASP (Open Web Application Security Project Standards).</li>
+<li><strong>Responsive </strong>- Storefront is fully responsive for mobiles and tabs. </li>
+<li><strong>Inventory stock updates </strong>- The Inventory and Stock can be updated separately and for each SKU under a Product. </li>
+<li><strong><a href="https://www.spurtcommerce.com/features/Ecommerce-Tier-price" rel="nofollow">Tier Pricing </strong>- Tier pricing lets you offer discounts based on quantity from a product listing or product page in the storefront.</a></li>
+<li><strong>product specifications </strong>- Product Attributes are different specifications of a product that can be configured by the Admin.</li>
+<li><strong>Coupons </strong>- Coupon codes can be created to provide attractive offers on purchase, to the Customers.</li>
+<li><strong>Product variants </strong>- With this feature, you can set different variants for a one product. </li>
+<li><strong>product Question and Answer </strong>- This feature will be useful for giving more information about a product and for having FAQs with answers for a product.</li>
+<li><strong>Vendor document verification </strong>- The Admin can perform the validation formalities and verify the Vendor for their legitimacy. </li>
+<li><strong>Commissions to Admin </strong>- Commissions can be charged either on Vendor basis or Product basis. A common commission can be set for a particular vendor or commission can be different for different products.  </li>
+<li><strong>SKU configuration </strong>- SKU (pronounced “skew”), short for stock keeping unit, is used by retailers to identify and track its inventory, or stock.</li>
+<li><strong>Promotion widget-</strong> - The Admin can create different Promotion Widgets and map products to those widgets and these get displayed on the storefront.</li>
+
+</ul>
+
 # ❯ TechStack
 Spurtcommerce has been developed using the open source and futuristic technologies. Spurtcommerce is built using the open source frameworks of NodeJS and Angular, which are the niche and futuristic technologies. Spurtcommerce is an open source eCommerce solution, built for a cause of bringing an advancement in the field of eCommerce development, that will result in a high speed and good performing eCommerce application.
 
