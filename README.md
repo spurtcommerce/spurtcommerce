@@ -18,9 +18,9 @@ Spurtcommerce Community Edition is publicly available on GitHub and free to down
 
 | Community Version 3.1 | Feature | URL |
 | ------ | ------ | ------ |
-| NodeJS Back End API + Angular | Get the best eCommerce solution with the state-of-the-art tech stack – the NodeJS Back-end API and the Angular front end and customize a standard eCommerce portal.| [Download](https://accounts.spurtcommerce.com/)
-| NodeJS Back End API + React | Looking for a solution that can result in a sophisticated React Storefront with a powerful back-end API on NodeJS Express Framework? | [Download](https://accounts.spurtcommerce.com/)
-| NodeJS Back End API + Flutter |If you want to customize a Flutter Mobile App and have a robust back-end API on the latest NodeJS, you are here now at the right place. Go for it.|[Download](https://accounts.spurtcommerce.com/)
+| NodeJS Back End API + Angular | Get the best eCommerce solution with the state-of-the-art tech stack – the NodeJS Back-end API and the Angular front end and customize a standard eCommerce portal.| [Download](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-download)
+| NodeJS Back End API + React | Looking for a solution that can result in a sophisticated React Storefront with a powerful back-end API on NodeJS Express Framework? | [Download](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-download)
+| NodeJS Back End API + Flutter |If you want to customize a Flutter Mobile App and have a robust back-end API on the latest NodeJS, you are here now at the right place. Go for it.|[Download](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-download)
 
 
 
