@@ -1,6 +1,6 @@
 /*
  * spurtcommerce
- * version 1.0
+ * version 3.0
  * www.spurtcommerce.com
  *
  * Copyright (c) 2019 piccosoft ltd
@@ -64,8 +64,20 @@ export class MenuComponent implements OnInit {
     indexData(index, id) {
         this.index = index;
         this.categoryId = id;
+        this.trigger.openMenu();
+        this.openMegaMenu();
     }
 
+    openMegaMenu() {
+        const pane = document.getElementsByClassName('cdk-overlay-pane');
+        [].forEach.call(pane, function (el) {
+            if (el.children.length > 0) {
+                if (el.children[0].classList.contains('mega-menu')) {
+                    el.classList.add('mega-menu-pane');
+                }
+            }
+        });
+    }
 
     // Make category link active if category got selected
     linkActive() {

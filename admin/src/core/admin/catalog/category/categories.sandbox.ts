@@ -199,6 +199,11 @@ export class CategoriesSandbox {
     this.appState.dispatch(new categoriesActions.DoProductaddAction(value));
   }
 
+  public filterCategory(value) {
+    this.appState.dispatch(new categoriesActions.FilterCategoryAction(value));
+  }
+  
+
   public subscribe() {
     this.getAddCategories$.subscribe(data => {
       if (data && data.status === 1) {

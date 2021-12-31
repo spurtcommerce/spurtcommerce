@@ -35,9 +35,26 @@ export function reducer(
         categoriesListRequestFailed: false
       });
     }
+      
+      
+    case actions.ActionTypes.FILTER_CATEGORY: {
+      let tempCategoryArray = [];
+      let catArray = [];
+      if (payload && state.categoryList !== undefined) {
+        tempCategoryArray = JSON.parse(JSON.stringify(state.categoryList));
+        catArray = tempCategoryArray.filter((elem) => !payload.find(({ categoryId }) => elem.categoryId === categoryId));
+      }
+      return Object.assign({}, state, {
+        categoryList: catArray
+
+      });
+    }
+
+
+      
+      
     case actions.ActionTypes.DO_CATEGORIES_LIST_SUCCESS: {
       const categoriesModel = payload.data.map(list => {
-        // categoryListFilter
         const tempcategoriesModel = new CategorylistResponseModel(list);
         return tempcategoriesModel;
       });
@@ -50,12 +67,14 @@ export function reducer(
       } else {
         categoriesFilterModel = state.categoryListFilter;
       }
+      console.log('category list',categoriesModel);
+      
       return Object.assign({}, state, {
         categoryList: categoriesModel,
         categoryListFilter: categoriesFilterModel,
         categoriesListResponse: true,
         categoriesListRequestLoading: false,
-        categoriesListRequestLoaded: false,
+        categoriesListRequestLoaded: true,
         categoriesListRequestFailed: false
       });
     }
@@ -180,10 +199,10 @@ export function reducer(
 
     case actions.ActionTypes.DO_PRODUCT_REMOVE: {
       const Data: any = state.categoryList;
-
       for (let i = 0; i < Data.length; i++) {
         if (i === payload) {
           Data.splice(payload, 1);
+          console.log('data spliced is',Data);
         }
       }
       return Object.assign({}, state, {
@@ -201,6 +220,8 @@ export function reducer(
       const Data: any = state.categoryList;
 
       Data.push(payload);
+      console.log('data added is',Data);
+      
 
       return Object.assign({}, state, {
         categoryList: Data,

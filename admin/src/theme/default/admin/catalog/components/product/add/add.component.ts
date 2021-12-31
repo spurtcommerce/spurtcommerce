@@ -1,7 +1,7 @@
 import { map } from 'rxjs/operators';
 /*
  * SpurtCommerce
- * version 1.0
+ * version 3.0
  * http://www.spurtcommerce.com
  *
  * Copyright (c) 2019 PICCOSOFT
@@ -86,7 +86,7 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   // editing values
   public editId: any;
   // pagination
-  public catagory: any;
+  public catagory: any = '';
   // upload
   public uploadImage: any = [];
   public TotalCategories: any = [];
@@ -118,7 +118,10 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   public updateproductdetails = [];
 
     // selected category list
-    public selectedCategories: any = [];
+  public selectedCategories: any = [];
+  public searchText = '';
+  productItem: any = {};
+
 
   // ck editor
 
@@ -127,9 +130,6 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   public mycontent: string;
   public log = '';
   @ViewChild('myckeditor') ckeditor: any;
-
-  public selectedCategory: FormControl;
-
 
   constructor(
     public fb: FormBuilder,
@@ -163,12 +163,20 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     // clear product details Data
+    this.getCategoryList();
     this.productSandbox.ClearProductDetails();
     // calling ProductDetail
-    this.initProductForm();
+    this.initProductForm();  
     if (this.editId) {
-      this.productSandbox.getProductDetail({ Id: this.editId });
-      this.regDetailEvent();
+      this.subscriptions.push(this.categoriessandbox.getCategoriesListRequestLoaded$.subscribe(data => {
+        if (data === true) {
+          this.productSandbox.getProductDetail({ Id: this.editId });
+          this.productSandbox.productDetails$.subscribe(data => {
+            this.productItem = data
+          })
+          this.regDetailEvent(); 
+        }
+      }));
     } else {
       this.initDropDownList();
     }
@@ -182,9 +190,10 @@ export class ProductAddComponent implements OnInit, OnDestroy {
       // forcePasteAsPlainText: true,
       height: '100%'
     };
+
   }
   initDropDownList() {
-    this.getCategoryList();
+    // this.getCategoryList();
     this.getManufacturerList();
     this.getStockStausList();
   }
@@ -216,8 +225,6 @@ export class ProductAddComponent implements OnInit, OnDestroy {
 
     this.dataRequired = new FormControl('');
     this.dateValue = new FormControl('');
-    this.selectedCategory = new FormControl('', [Validators.required]);
-
       (this.TextBoxRequired = new FormControl(''));
 
     this.user = this.fb.group({
@@ -242,8 +249,6 @@ export class ProductAddComponent implements OnInit, OnDestroy {
       dateTimeValue: this.dateTimeValue,
       dataRequired: this.dataRequired,
       dateValue: this.dateValue,
-      selectedCategory: this.selectedCategory,
-
       sizeForm: this.fb.group({
         sizeBoxRequired: this.sizeBoxRequired,
         sizeFormArray: this.fb.array([])
@@ -251,21 +256,58 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     });
   }
 
-  // create control for FormArray of sizeFormArray
-  get sizeArray() {
-    return <FormArray>this.user.controls['sizeForm'].get('sizeFormArray');
-  }
+   /**
+     * Handles  'searchCategory' event. Calls sandbox getCategoryList function.
 
-  // Stock Status List
+     * @param catagory searchCategory input value
+     */
+    searchCategory(event) {
+      this.catagory = event.target.value;
+      this.getCategoryList();
+    }
 
-  getStockStausList() {
-    const params: any = {};
-    params.limit = 0;
-    params.offset = 100;
-    params.keyword = '';
-    params.status = '1';
-    this.stockStatusSandbox.stockStatusList(params);
-  }
+    /**
+     * Handles  'selectCategory' event. Calls categoriessandbox Productremove  if (this.editId)function.
+     * else Calls categoriessandbox Productremove.And push  the datas to categories list using push() method.
+     * @param categoryId searchCategory input value
+     * @param name searchCategory input value
+     */
+    selectCategory(data, i) {
+      if (this.editId) {
+        const param: any = {};
+        param.categoryId = data.categoryId;
+        param.categoryName = data.name;
+        this.addOneTime = true;
+        this.selectedCategories.push(param);
+        this.categoriessandbox.Productremove(i);
+      } else {
+        this.selectedCategories.push(data);
+        this.categoriessandbox.Productremove(i);
+        this.show = false;
+      }
+      this.filteredArray = this.selectedCategories;
+    }
+
+    /**
+     * Handles  'removeCategory' event. Calls categoriessandbox Productadd  if (this.editId)function.
+     * else Calls categoriessandbox Productadd.And splice the datas with particular index as(i)
+     * @param categoryId searchCategory input value.
+     * @param name searchCategory input value.
+     */
+    removeCategory(data, i) {
+      if (this.editId) {
+        const param: any = {};
+        param.categoryId = data.categoryId;
+        param.name = data.categoryName;
+        this.addOneTime = true;
+        this.categoriessandbox.Productadd(param);
+        this.selectedCategories.splice(i, 1);
+      } else {
+        this.categoriessandbox.Productadd(data);
+        this.selectedCategories.splice(i, 1);
+      }
+      this.filteredArray = this.selectedCategories;
+    }
 
   selecttCategory(event, categoryList) {
     console.log('categoryList', categoryList);
@@ -282,6 +324,43 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Handles  'searchSelectedCategory' event. And show the searched result  in the form
+   *
+   * @param filter searchbox  value
+   */
+  searchSelectedCategory(filter: String) {
+    this.filteredArray = this.selectedCategories.filter(item => {
+      if (
+        item.name
+          .toString()
+          .toLowerCase()
+          .indexOf(filter.toLowerCase()) !== -1
+      ) {
+        if (this.filteredArray != null) {
+          this.show = true;
+        }
+        return true;
+      }
+      return false;
+    });
+  }
+  // create control for FormArray of sizeFormArray
+  get sizeArray() {
+    return <FormArray>this.user.controls['sizeForm'].get('sizeFormArray');
+  }
+
+  // Stock Status List
+
+  getStockStausList() {
+    const params: any = {};
+    params.limit = 0;
+    params.offset = 100;
+    params.keyword = '';
+    params.status = '1';
+    this.stockStatusSandbox.stockStatusList(params);
+  }
+
+  /**
    * Handles  'onSubmit' event. Calls productSandbox doProductUpdate function if (this.editId) else
    * calls productSandbox doProductAdd function.
    * @param user entire form value
@@ -290,6 +369,7 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     console.log('submit image', this.uploadImage);
     // calling
     this.submittedValues = true;
+    this.addSelecctedCategories();
 
     if (!this.user.valid) {
       this.validateAllFormFields(this.user);
@@ -302,15 +382,13 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.param.upc = user.upc;
     this.param.sku = user.sku;
     this.param.image = this.uploadImage;
+    this.param.categoryId = this.TotalCategories;
     this.param.model = user.model;
     this.param.location = user.location;
     this.param.price = user.price;
     this.param.outOfStockStatus = user.outOfStockStatus;
     this.param.requiredShipping = user.requiredShipping;
     this.param.dateAvailable = user.dateAvailable;
-    this.param.categoryId = this.TotalCategories;
-
-
     const dateSendingToServer = new DatePipe('en-US').transform(
       user.dateAvailable,
       'yyyy-MM-dd'
@@ -326,6 +404,19 @@ export class ProductAddComponent implements OnInit, OnDestroy {
       console.log('params', this.param)
       this.productSandbox.doProductAdd(this.param);
     }
+  }
+
+  /**
+   * Handles  'addSelecctedCategories' event.
+   *
+   * storing selectedCategories data in TotalCategories
+   */
+
+  addSelecctedCategories() {
+    if (this.show === true) {
+      this.selectedCategories = this.filteredArray;
+    }
+    this.TotalCategories = this.selectedCategories;
   }
 
   /**
@@ -374,14 +465,15 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   // editing Product Form with product list values
 
   editProductForm(productDetail) {
+    this.selectedCategories = [];
+    console.log('productDetail',productDetail);
+    if (productDetail.Category && productDetail.Category.length > 0) {
+      this.categoriessandbox.filterCategory(productDetail.Category);
+    }
+    this.selectedCategories = productDetail.Category;
+
     this.changeDetectRef.detectChanges();
     this.updateproductdetails.push(productDetail);
-    if (productDetail.Category && productDetail.Category.length > 0) {
-      this.selectedCategory.setValue(productDetail.Category[0].categoryId);
-    } else {
-      this.selectedCategories = [];
-    }
-    this.selectedProducts = productDetail.relatedProductDetail;
     this.uploadImage = productDetail.productImage;
     this.selectedProducts = productDetail.relatedProductDetail;
     this.productName.setValue(productDetail.name);

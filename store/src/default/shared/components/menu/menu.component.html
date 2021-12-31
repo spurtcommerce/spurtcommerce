@@ -1,11 +1,36 @@
 <mat-toolbar class="top-navbar mat-elevation-z2" fxLayoutAlign="" color="primary">
     <a mat-button [routerLink]="['/']" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}"> <img src="assets/images/home.png"> </a>
     <a mat-button (click)="sendUniqueId('productFilter')" [routerLink]="['/products/', 'All']" class="colorMenu" routerLinkActive="colorMenu" [routerLinkActiveOptions]="{exact:true}">
-        All Products
+        AllProducts
     </a>
-    <div *ngFor="let category of categories;let i=index">
-        <a mat-button class="colorMenu" routerLinkActive="horizontal-active-link" *ngIf="i < 8" [routerLink]="['/products', category.categoryId]" [routerLinkActiveOptions]="{exact:true}" (click)="indexData(i,category.categoryId)">{{category.name}}
-        </a>
-    </div>
+    <a mat-button class="colorMenu" routerLinkActive="horizontal-active-link" *ngFor="let category of categories;let i=index" [routerLinkActiveOptions]="{exact:true}" [matMenuTriggerFor]="menu" (click)="indexData(i,category.categoryId)">{{category.name}}
+        <mat-icon class="caret">arrow_drop_down</mat-icon>
+    </a>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false" class="mega-menu category-menu app-dropdown">
+        <span>
+        <div fxLayout="row wrap" *ngIf="((index)||(index === 0))">
+            <div fxFlex="20" fxLayout="column" class="p-1"
+                 *ngFor="let subCategory of categories[index].children">
+                <a mat-menu-item [routerLink]="['/products', subCategory.categoryId]"
+                   [routerLinkActiveOptions]="{exact:true}"
+                   (click)="linkActive()"
+                   routerLinkActive="horizontal-active-link">
+                    <b>{{subCategory.name}}</b>
+                </a>
+                <mat-divider></mat-divider>
+                <div *ngIf="subCategory.children">
+                    <div *ngFor="let grandsubCategory of subCategory.children;let j=index">
+                        <a mat-menu-item [routerLink]="['/products', grandsubCategory.categoryId]"
+                           [routerLinkActiveOptions]="{exact:true}"
+                           (click)="linkActive()"
+                           routerLinkActive="horizontal-active-link">
+                            {{grandsubCategory.name}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       </span>
+    </mat-menu>
     <a mat-button routerLink="/contact" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">Contact</a>
 </mat-toolbar>

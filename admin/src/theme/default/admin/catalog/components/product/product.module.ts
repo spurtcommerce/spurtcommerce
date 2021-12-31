@@ -43,6 +43,7 @@ import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ComponentsModule } from '../../../shared/components';
+import { PipeModule } from '../../../../../../core/admin/shared/pipes/category-search.pipe.module';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { ComponentsModule } from '../../../shared/components';
     EffectsModule.forRoot([MediaEffects]),
     CKEditorModule,
     NumberAcceptModule,
-    NgbModule
+    NgbModule,
+    PipeModule
   ],
   providers: [
     DatePipe,

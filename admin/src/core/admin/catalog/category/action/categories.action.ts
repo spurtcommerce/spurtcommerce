@@ -41,9 +41,17 @@ export const ActionTypes = {
   DO_CATEGORIESCOUNT_FAIL: type('[Listcount] Do Categorieslistcount Fail'),
 
   DO_PRODUCT_REMOVE: type('[PRemove] Do Product Remove'),
-  DO_PRODUCT_ADD: type('[PAdd] Do Product Add')
+  DO_PRODUCT_ADD: type('[PAdd] Do Product Add'),
+
+  FILTER_CATEGORY: type('[List] Filter category'),
+
 
 };
+
+export class FilterCategoryAction implements Action {
+  type = ActionTypes.FILTER_CATEGORY;
+  constructor(public payload: any) { }
+}
 
 // category list action
 export class DoCategorieslistAction implements Action {

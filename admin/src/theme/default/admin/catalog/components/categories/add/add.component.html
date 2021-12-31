@@ -79,7 +79,17 @@
                         <!--<ng-template ngbTabTitle>Data</ng-template>-->
                         <ng-template ngbTabContent>
                             <div class="flex data-row">
-                    
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>Parent</label>
+                                        <select class="custom-select col-12" id="categoryComponent" formControlName="categoryComponent">
+                                                    <option value=''>- -Select- -</option>
+                                                    <option selected *ngFor="let arr of sandbox.getCategoriesList$ | async"
+                                                            value={{arr.categoryId}}>{{arr.name}}
+                                                    </option>
+                                                </select>
+                                    </div>
+                                </div>
 
                                 <div class="data-col" style="margin-left: 3%">
                                     <div class="form-group">

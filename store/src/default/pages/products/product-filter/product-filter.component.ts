@@ -1,6 +1,6 @@
 /*
  * spurtcommerce
- * version 1.0
+ * version 3.0
  * http://api.spurtcommerce.com
  *
  * Copyright (c) 2019 piccosoft ltd
