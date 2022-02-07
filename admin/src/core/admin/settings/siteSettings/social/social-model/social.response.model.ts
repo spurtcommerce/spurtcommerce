@@ -1,10 +1,9 @@
 /*
- * SpurtCommerce
- * version 1.0
+ * spurtcommerce
  * http://www.spurtcommerce.com
  *
- * Copyright (c) 2019 PICCOSOFT
- * Author piccosoft <support@spurtcommerce.com>
+ * Copyright (c) 2022 Piccosoft Software Labs Pvt Ltd
+ * Author Piccosoft Software Labs Pvt Ltd <support@spurtcommerce.com>
  * Licensed under the MIT license.
  */
 export class SocialResponseModel {

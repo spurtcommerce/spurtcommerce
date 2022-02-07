@@ -16,7 +16,7 @@ Spurtcommerce, an Open Source NodeJS and Angular eCommerce comes with full Sourc
 
 Spurtcommerce Community Edition is publicly available on GitHub and free to download and use. 
 
-| Community Version 3.1 | Feature | URL |
+| Community Version 3.0.2 | Feature | URL |
 | ------ | ------ | ------ |
 | NodeJS Back End API + Angular | Get the best eCommerce solution with the state-of-the-art tech stack – the NodeJS Back-end API and the Angular front end and customize a standard eCommerce portal.| [Download](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-download)
 | NodeJS Back End API + React | Looking for a solution that can result in a sophisticated React Storefront with a powerful back-end API on NodeJS Express Framework? | [Download](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-download)
@@ -26,7 +26,7 @@ Spurtcommerce Community Edition is publicly available on GitHub and free to down
 
 
 
-#  ❯ Spurtcommerce Pro Edition version  4.6
+#  ❯ Spurtcommerce Pro Edition version  4.7
 
 Looking out to develop a high performing and highly scalable full-fledged eCommerce platform that matches with the recent eCommerce trend? Spurtcommerce 'Pro' Edition comes with all the advanced features of a full-fledged eCommerce platform. The features have been thoughtfully introduced, keeping the current and the upcoming eCommerce trend in mind. 
 

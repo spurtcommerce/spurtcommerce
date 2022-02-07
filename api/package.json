@@ -1,6 +1,6 @@
 {
   "name": "SpurtCommerce",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "SpurtCommerce RESTFUL API",
   "main": "src/app.ts",
   "scripts": {
@@ -27,8 +27,8 @@
     "express"
   ],
   "apidoc": {
-    "name": "SpurtCommerce V3.0.1",
-    "version": "3.0.1",
+    "name": "SpurtCommerce V3.0.2",
+    "version": "3.0.2",
     "description": "SpurtCommerce RESTFUL API Document",
     "title": "SpurtCommerce RESTFUL API Document"
   },

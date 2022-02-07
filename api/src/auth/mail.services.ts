@@ -1,8 +1,7 @@
 /*
  * spurtcommerce community API
- * version 1.0
- * Copyright (c) 2019 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
+ * Copyright (c) 2022 Piccosoft Software Labs Pvt Ltd
+ * Author Piccosoft Software Labs Pvt Ltd <support@spurtcommerce.com>
  * Licensed under the MIT license.
  */
 import ejs from 'ejs';
