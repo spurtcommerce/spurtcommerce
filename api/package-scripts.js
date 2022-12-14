@@ -45,15 +45,15 @@ module.exports = {
             inspector: {
                 script: series(
                     'nps banner.serve',
-                    'apidoc -i src -o src/public/apidoc',
+                    'apidoc -i src -i add-ons -o src/public/apidoc',
                     'nodemon --watch src --watch .env --inspect'
                 ),
                 description: 'Serves the current app and watches for changes to restart it, you may attach inspector to it.'
             },
             script: series(
                 'nps banner.serve',
-                'apidoc -i src -o src/public/apidoc',
-                'nodemon --watch src --watch .env'
+                'apidoc -i src -i add-ons -o src/public/apidoc',
+                'nodemon --watch src --watch .env --watch add-ons'
             ),
             description: 'Serves the current app and watches for changes to restart it'
         },
@@ -71,7 +71,7 @@ module.exports = {
          */
         generateapidoc: {
             script: series(
-                'apidoc -i src -o src/public/apidoc'
+                'apidoc -i src -i add-ons -o src/public/apidoc'
             ),
             description: 'Setup`s the development environment(npm & database)'
         },
@@ -102,6 +102,7 @@ module.exports = {
                 'nps banner.build',
                 'nps config',
                 'nps lint',
+                'nps pluginLintChecking',
                 'nps clean.dist',
                 'nps transpile',
                 'nps generateapidoc',
@@ -116,6 +117,13 @@ module.exports = {
          */
         lint: {
             script: tslint(`./src/**/*.ts`),
+            hiddenFromHelp: true
+        },
+        /**
+         * Runs TSLint over your Plugins
+         */
+        pluginLintChecking: {
+            script: tslint(`./add-ons/**/*.ts`),
             hiddenFromHelp: true
         },
         /**
@@ -143,6 +151,10 @@ module.exports = {
             tmp: {
                 script: rimraf('./.tmp'),
                 hiddenFromHelp: true
+            },
+            beforeBuild: {
+                script: rimraf('./.beforeBuild'),
+                hiddenFromHelp: true
             }
         },
         /**
@@ -152,27 +164,27 @@ module.exports = {
             default: {
                 script: series(
                     `nps copy.public`,
-                    `nps copy.apidoc`
+                    `nps copy.apidoc`,
                 ),
                 hiddenFromHelp: true
             },
             apidoc: {
                 script: copyDir(
                     './src/public/',
-                    './dist/public/'
+                    './dist/src/public/'
                 ),
                 hiddenFromHelp: true
             },
             public: {
                 script: copy(
                     './src/public/*',
-                    './dist'
+                    './dist/src'
                 ),
                 hiddenFromHelp: true
             },
             tmp: {
                 script: copyDir(
-                    './.tmp/src',
+                    './.tmp',
                     './dist'
                 ),
                 hiddenFromHelp: true
@@ -312,7 +324,186 @@ module.exports = {
             seed: banner('seed'),
             revert: banner('revert'),
             clean: banner('clean')
-        }
+        },
+        /**
+         * Builds the store app into the dist directory
+         */
+         storeBuild: {
+            script: series(
+                'nps banner.build',
+                'nps storeCopy',
+                'nps microServiceConfig',
+                'nps microServiceGenerateUtills',
+                'nps lintConfig',
+                'nps clean.dist',
+                'nps transpileMicroService',
+                'nps generateMicroServiceapidoc',
+                'nps microServiceCopyAfterBuild',
+                'nps microServiceCopyAfterBuild.tmp',
+                'nps clean.tmp',
+                'nps clean.beforeBuild'
+            ),
+            description: 'Builds the app into the dist directory'
+        },
+        /**
+         * Befor build make micro service folder
+         */
+         storeCopy: {
+            default: {
+                script: series(
+                    `nps storeCopy.beforeCoreBuild`,
+                    `nps storeCopy.beforeAddOnBuild`,
+                    `nps storeCopy.beforeCopyPackage`,
+                ),
+                hiddenFromHelp: true
+            },
+            beforeCoreBuild: {
+                script: copyCPYDir(
+                    './src/',
+                    './.beforeBuild',
+                    "'!./src/api/admin/**'"
+                ),
+                hiddenFromHelp: true
+            },
+            beforeAddOnBuild: {
+                script: copyCPYDir(
+                    './add-ons/',
+                    './.beforeBuild',
+                    "'!./add-ons/**/controllers/admin'"
+                ),
+                hiddenFromHelp: true
+            },
+            beforeCopyPackage: {
+                script: copyCPY(
+                    'package.json',
+                    './.beforeBuild'
+                ),
+                hiddenFromHelp: true
+            },
+        },
+        microServiceGenerateUtills: {
+            default: {
+                script: series(
+                    `ts-node --pretty utils/create-entities-index.ts .beforeBuild`,
+                    `ts-node --pretty utils/create-controller-index.ts .beforeBuild`,
+                    `ts-node --pretty utils/create-migration-index.ts .beforeBuild`,
+                ),
+                hiddenFromHelp: true
+            },
+        },
+        /**
+         * Copies static files to the build folder
+         */
+         microServiceCopyAfterBuild: {
+            default: {
+                script: series(
+                    `nps microServiceCopyAfterBuild.public`,
+                    `nps microServiceCopyAfterBuild.apidoc`
+                ),
+                hiddenFromHelp: true
+            },
+            apidoc: {
+                script: copyDir(
+                    './.beforeBuild/src/public/',
+                    './dist/src/public/'
+                ),
+                hiddenFromHelp: true
+            },
+            public: {
+                script: copy(
+                    './.beforeBuild/src/public/*',
+                    './dist/src'
+                ),
+                hiddenFromHelp: true
+            },
+            tmp: {
+                script: copyDir(
+                    './.tmp',
+                    './dist'
+                ),
+                hiddenFromHelp: true
+            }
+        },
+        /**
+         * Creates the needed configuration files
+         */
+        microServiceConfig: {
+            script: series(
+                runFast('./commands/tsconfig.micro.ts')
+            ),
+            hiddenFromHelp: true
+        },
+        /**
+         * Runs TSLint over your project
+         */
+         lintConfig: {
+            script: tslint(`./.beforeBuild/**/*.ts`),
+            hiddenFromHelp: true
+        },
+        /**
+         * Transpile your app into javascript
+         */
+         transpileMicroService: {
+            script: `tsc --project ./tsconfig.micro.build.json`,
+            hiddenFromHelp: true
+        },
+        /**
+         * Generate the api documentation
+         */
+         generateMicroServiceapidoc: {
+            script: series(
+                'apidoc -i .beforeBuild -o .beforeBuild/src/public/apidoc'
+            ),
+            description: 'Setup`s the development environment(npm & database)'
+        },
+        /**
+         * Builds the admin app into the dist directory
+         */
+         adminBuild: {
+            script: series(
+                'nps banner.build',
+                'nps adminCopy',
+                'nps microServiceConfig',
+                'nps microServiceGenerateUtills',
+                'nps lintConfig',
+                'nps clean.dist',
+                'nps transpileMicroService',
+                'nps generateMicroServiceapidoc',
+                'nps microServiceCopyAfterBuild',
+                'nps microServiceCopyAfterBuild.tmp',
+                'nps clean.tmp',
+                'nps clean.beforeBuild'
+            ),
+            description: 'Builds the app into the dist directory'
+        },
+        /**
+         * Befor build make micro service folder
+         */
+         adminCopy: {
+            default: {
+                script: series(
+                    `nps adminCopy.beforeCoreBuild`,
+                    `nps adminCopy.beforeAddOnBuild`,
+                ),
+                hiddenFromHelp: true
+            },
+            beforeCoreBuild: {
+                script: copyCPYDir(
+                    './src/',
+                    './.beforeBuild',
+                    "'!./src/api/store/**'"
+                ),
+                hiddenFromHelp: true
+            },
+            beforeAddOnBuild: {
+                script: copyCPYDir(
+                    './add-ons/',
+                    './.beforeBuild',
+                    "'!./add-ons/**/controllers/store'"
+                ),
+                hiddenFromHelp: true
+            },
+        },
     }
 };
 
@@ -331,6 +522,14 @@ function copy(source, target) {
 
 function copyDir(source, target) {
     return `ncp ${source} ${target}`;
+}
+
+function copyCPYDir(source, target, except) {
+    return `cpy '${source}' ${except} ${target}`;
+}
+
+function copyCPY(source, target) {
+    return `cpy '${source}' ${target}`;
 }
 
 function run(path) {
