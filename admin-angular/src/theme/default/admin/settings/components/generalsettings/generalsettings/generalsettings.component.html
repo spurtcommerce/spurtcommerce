@@ -1,0 +1,296 @@
+<div class="setup-wrapper">
+
+    <!-- <div class="breadcrumbs-row"> -->
+    <!-- <div class="bc-col mar"> -->
+    <!-- <ul>
+                <li class="cusror"><a href="javascript:void(0)" style="color: gray" routerLink="/settings"> Settings </a></li>
+                <li> General</li>
+                <li>Basic information</li>
+            </ul> -->
+    <app-breadcrumb></app-breadcrumb>
+    <!-- </div> -->
+    <!-- </div> -->
+
+    <!-- <div class="settings-wrapper flex"> -->
+
+    <!-- <div class="settings-aside">
+            <h3>Settings</h3>
+            <a href="javascript:Void(0)" class="active"> <span class="general"></span> General </a>
+            <a href="javascript:Void(0)" class=""> <span class="localization"></span> Localization </a>
+            <a href="javascript:Void(0)" class=""> <span class="permission"></span> Access and permission </a>
+            <a href="javascript:Void(0)" class=""> <span class="system"></span> System </a>
+            <a href="javascript:Void(0)" class=""> <span class="data"></span> Data </a>
+            <a href="javascript:Void(0)" class=""> <span class="personalize"></span> Personalize </a>
+            <a href="javascript:Void(0)" class=""> <span class="policy"></span> Policy </a>
+          </div> -->
+    <!-- sidebar -->
+
+    <div class="settings-content">
+
+        <div class="setup-container">
+
+            <div class="setup-left">
+                <h3>{{'Settings.nav.GeneralSettings'| translate}}</h3>
+                <p>General Settings is where the critical eCommerce settings are configured to get started with eCommerce portal. This includes adding of physical address for an online store which can be the main address of the company. Here, country, region,
+                     for the business is also configured. Also, the logo that appears on Store, invoice and email templates can be uploaded.
+                </p>
+
+            </div>
+
+            <div class="setup-right flex">
+
+                <div class="sr-left">
+                    <h4>{{'Settings.generalsettings.Basicinformation'| translate}}</h4>
+                    <div class="srl-desc">
+                        <p>In this section, the admin can provide the name of the business, owner details, contact email and phone number and the physical address of the company. </p>
+                    </div>
+                </div>
+
+                <form [formGroup]="generalSettings" class="form-horizontal">
+                    <div id="storeinfo" class="sup-rht-section">
+
+                        <div class="suprs-form">
+                            <div class="suprs-form-row flex">
+                                <label>{{'Settings.generalsettings.StoreName'| translate}} <a href="javascript:void(0)">
+                                        <!-- <img src="assets/img/icon-information-circle-outline.svg"> -->
+                                     </a> </label>
+                                <div class="suprs-form-col">
+                                    <input [appDisableIfUnauthorized]="'edit-general-settings'" type="text" formControlName="storeName" class="form-control" [ngClass]="{'validationcolor':generalSettings.controls.storeName.errors && submitted}" />
+                                </div>
+
+                                <div class="validation-error" *ngIf="generalSettings.get('storeName').hasError('maxlength')">
+                                    {{'Settings.generalsettings.Error.Mustbemaximum255characterslong'| translate}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="suprs-form">
+                            <div class="suprs-form-row flex">
+                                <label>{{'Settings.generalsettings.StoreOwner'| translate}} <a
+                                        href="javascript:void(0)"> 
+                                        <!-- <img
+                                            src="assets/img/icon-information-circle-outline.svg">  -->
+                                        </a> </label>
+                                <!-- <div class="form-group"> -->
+
+                                <div class="suprs-form-col">
+                                    <input [appDisableIfUnauthorized]="'edit-general-settings'" type="text" formControlName="storeOwner" class="form-control" />
+                                </div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+
+                        <div class="suprs-form">
+                            <div class="suprs-form-row flex">
+                                <label>{{'Settings.generalsettings.Email'| translate}} <a href="javascript:void(0)">
+                                        <!-- <img src="assets/img/icon-information-circle-outline.svg"> -->
+                                     </a> </label>
+                                <div class="suprs-form-col">
+                                    <input [appDisableIfUnauthorized]="'edit-general-settings'" type="text" formControlName="email" class="form-control" [ngClass]="{'validationcolor':generalSettings.controls.email.errors && submitted==true}" />
+                                </div>
+                                <div class="validation-error" *ngIf="generalSettings.get('email').hasError('maxlength')">
+                                    {{'Settings.generalsettings.Error.Mustbemaximum96characterslong'| translate}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="suprs-form">
+                            <div class="suprs-form-row flex">
+                                <label>{{'Settings.generalsettings.Phonenumber'| translate}} <a
+                                        href="javascript:void(0)">
+                                         <!-- <img
+                                            src="assets/img/icon-information-circle-outline.svg"> -->
+                                         </a> </label>
+                                <div class="suprs-form-col">
+                                    <input appOnlyNumber [appDisableIfUnauthorized]="'edit-general-settings'" type="text" formControlName="phonenumber" class="form-control" [ngClass]="{'validationcolor':generalSettings.controls.phonenumber.errors && submitted==true}" />
+                                </div>
+                                <div class="validation-error" *ngIf="generalSettings.get('phonenumber').hasError('maxlength')">
+                                    {{'Settings.generalsettings.Error.Mustbemaximum15numbers'| translate}}
+                                </div>
+                                <div class="validation-error" *ngIf="generalSettings.get('phonenumber').hasError('minlength')">
+                                    {{'Settings.generalsettings.Error.Mustbeatleast4numbers'| translate}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="suprs-form">
+                            <div class="suprs-form-row flex">
+                                <label>{{'Settings.generalsettings.Address'| translate}} <a href="javascript:void(0)">
+                                        <!-- <img src="assets/img/icon-information-circle-outline.svg"> -->
+                                     </a> </label>
+                                <div class="suprs-form-col">
+                                    <textarea [appDisableIfUnauthorized]="'edit-general-settings'" class="form-control" formControlName="address" placeholder="Address" [ngClass]="{'validationcolor':generalSettings.controls.address.errors && submitted==true}"></textarea>
+                                </div>
+                                <div class="validation-error" *ngIf="generalSettings.get('address').hasError('maxlength')">
+                                    {{'Settings.generalsettings.Error.Mustbemaximum128characterslong'| translate}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex srbtn">
+                            <button class="cancel" (click)="generalsettingcancel()">{{'Settings.generalsettings.Cancel'| translate}}</button>
+                            <button (click)="onSubmit()">{{'Settings.generalsettings.Save'| translate}}</button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="setup-right flex">
+
+                <div class="sr-left">
+                    <h4>{{'Settings.generalsettings.SiteSettings'| translate}}</h4>
+                    <div class="srl-desc">
+                        <p>In this section, the admin can upload the logos that has to appear on the site, invoice and email template. </p>
+                    </div>
+                </div>
+
+                <form (ngSubmit)="onSubmit()" [formGroup]="generalSettings" class="form-horizontal fh-sit-set">
+                    <div id="storeinfo" class="sup-rht-section">
+
+
+
+                        <!-- <div id="addlogo" class="sup-rht-section"> -->
+                        <div class="sup-rht-header">
+                            <h3>{{'Settings.generalsettings.SiteLogo'| translate}}</h3>
+                        </div>
+                        <div class="add-logo-er">
+                            <div class="addler-box flex" [appDisableIfUnauthorized]="'edit-general-settings'">
+                                <!-- <div class="img-dflt"> -->
+                                <input type="file" name="userImg" (change)="uploadChange($event)" accept="image/*" #filePath>
+                                <!-- <img src="assets/img/upload-img.svg" class="up-img"> -->
+                                <p *ngIf="postImageUrl === ''">{{'Settings.generalsettings.ClickordragLogo'| translate}}
+                                    <span>(Note: 232 * 50 pixels)</span></p>
+                                <img *ngIf="postImageUrl !== ''" style="width: 80%; height: 70%;" [src]="postImageUrl" class="up-img" [alt]="logo">
+                                <img *ngIf="postImageUrl === ''" style="width: 80%; height: 70%;" src="assets/img/upload-img.svg" class="up-img">
+                                <!-- <a *ngIf="postImageUrl !== ''" href="javascript:Void(0)" class="up-img-delete"> <span> <img src="assets/img/trash-red.svg"> </span> </a> -->
+                            </div>
+
+                            <div class="flex srbtn">
+                                <button [appDisableIfUnauthorized]="'edit-general-settings'" (click)="uploadButtonClick()" type="button">{{'Settings.generalsettings.UploadLogo'| translate}}</button>
+                            </div>
+
+                        </div>
+
+                        <div class="sup-rht-header">
+                            <label>{{'Settings.generalsettings.InvoiceLogo'| translate}}</label>
+                        </div>
+                        <div class="add-logo-er">
+                            <div class="addler-box addler-box-uploaded flex" [appDisableIfUnauthorized]="'edit-general-settings'">
+                                <!-- <div class="img-dflt"> -->
+                                <input type="file" name="invoiceImg" (change)="uploadInvoiceImage($event)" accept="image/*" #filePath3>
+                                <!-- <img src="assets/img/logo-sample.jpg"> -->
+                                <img *ngIf="postInvoiceImageUrl !== ''" style="width: 80%; height: 70%;" [src]="postInvoiceImageUrl" class="up-img" [alt]="invoiceImg">
+                                <img *ngIf="postInvoiceImageUrl === ''" style="width: 80%; height: 70%;" src="assets/img/upload-img.svg" class="up-img">
+
+                                <!-- <a href="javascript:Void(0)" class="up-img-delete"> <span> <img src="assets/img/trash-red.svg"> </span> </a> -->
+                            </div>
+                            <!-- </div> -->
+                            <div class="flex srbtn">
+                                <button [appDisableIfUnauthorized]="'edit-general-settings'" (click)="uploadInvoiceButtonClick()" type="button">{{'Settings.generalsettings.UploadLogo'| translate}}</button>
+                            </div>
+                        </div>
+
+                        <div class="sup-rht-header">
+                            <h3>{{'Settings.generalsettings.EmailTemplateLogo'| translate}}</h3>
+                        </div>
+                        <div class="add-logo-er">
+                            <div class="addler-box addler-box-uploaded flex" [appDisableIfUnauthorized]="'edit-general-settings'">
+                                <!-- <div class="img-dflt"> -->
+                                <input type="file" name="mailImg" (change)="uploadMailImage($event)" accept="image/*" #filePath2>
+                                <img *ngIf="postEmailImageUrl !== ''" style="width: 80%; height: 70%;" [src]="postEmailImageUrl" [alt]="mailImg">
+                                <img *ngIf="postEmailImageUrl === ''" style="width: 80%; height: 70%;" src="assets/img/upload-img.svg" class="up-img">
+                                <!-- <a href="javascript:Void(0)" class="up-img-delete"> <span> <img src="assets/img/trash-red.svg"> </span> </a> -->
+                            </div>
+                            <div class="flex srbtn">
+                                <button [appDisableIfUnauthorized]="'edit-general-settings'" (click)="uploadMailButtonClick()" type="button"> {{'Settings.generalsettings.UploadLogo'| translate}}</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+
+            </div>
+
+
+            <div class="setup-right flex">
+
+                <div class="sr-left">
+                    <h4>{{'Settings.generalsettings.StoreSettings'| translate}}</h4>
+                    <div class="srl-desc">
+                        <p>In this section, the admin can setup the country, origin or region,  for business, depending on the location it is situated.</p>
+                    </div>
+                </div>
+
+                <form [formGroup]="generalSettings" class="form-horizontal">
+                    <div id="storeinfo" class="sup-rht-section">
+
+
+
+                        <div class="suprs-form">
+                            <div class="suprs-form-row flex">
+                                <!-- <div class="form-group"> -->
+                                <label>{{'Settings.generalsettings.Country'| translate}} <a href="javascript:void(0)">
+                                        <!-- <img src="assets/img/icon-information-circle-outline.svg"> -->
+                                     </a> </label>
+                                <div class="suprs-form-col">
+                                    <div class="form-group">
+                                        <ng-select placeholder="{{'Settings.generalsettings.SelectCountry'| translate}}" [searchable]="false" [appDisableIfUnauthorized]="'edit-general-settings'" (change)="changeCountry()" formControlName="country" [clearable]="false">
+                                            <ng-option *ngFor=" let country of countrysandbox.countryList$ | async" [value]='country.countryId'> {{country.name}}</ng-option>
+                                        </ng-select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="suprs-form">
+                            <div class="suprs-form-row flex">
+
+                                <!-- <div class="form-group"> -->
+                                <label>{{'Settings.generalsettings.Region/State'| translate}} <a
+                                        href="javascript:void(0)"> 
+                                        <!-- <img
+                                            src="assets/img/icon-information-circle-outline.svg">  -->
+                                        </a> </label>
+                                <div class="suprs-form-col">
+                                    <div class="form-group">
+                                        <ng-select placeholder="{{'Settings.generalsettings.SelectRegion'| translate}}" [searchable]="false" [appDisableIfUnauthorized]="'edit-general-settings'" formControlName="zone" [clearable]="false">
+                                            <ng-option *ngFor="let zone of countryRegion" value={{zone.zoneId}}>
+                                                {{zone.name}}</ng-option>
+                                        </ng-select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex srbtn">
+                            <button class="cancel" (click)="generalsettingcancel()">{{'Settings.generalsettings.Cancel'| translate}}</button>
+                            <button (click)="onSubmit()">{{'Settings.generalsettings.Save'| translate}}</button>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </form>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- </div> -->
+
+
+
+
+
+
+
+
+
+</div>

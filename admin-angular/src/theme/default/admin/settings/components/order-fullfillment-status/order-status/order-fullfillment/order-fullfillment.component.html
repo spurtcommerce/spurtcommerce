@@ -1,0 +1,198 @@
+<div class="setup-wrapper">
+
+    <div class="ofs-container">
+
+        <div class="loc-lay-title">
+            <h3>Order Fullfilment Status</h3>
+            <p>In this section, the admin can create and maintain a master list of different aspects that will be required for an enhanced approach for listing products, providing a good shopping experience to the customers and also for making the entire
+                eCommerce portal SEO friendly.</p>
+        </div>
+
+        <div class="ofs-table">
+
+            <div class="ofs-row ofs-row-header flex">
+                <div class="ofs-col-fst">
+                    <h3>Status</h3>
+                </div>
+                <div class="ofs-col-lst flex">
+                    <div class="ofs-col-lst-col">Admin</div>
+                    <div class="ofs-col-lst-col">Vendor</div>
+                    <div class="ofs-col-lst-col">Buyer</div>
+                    <div class="ofs-col-lst-col">API</div>
+                    <div class="ofs-col-lst-action"></div>
+                </div>
+            </div>
+
+            <div class="ofs-row-scroll" *ngIf="(Orderfullfillmentsandbox.Orderfullfillmentlist$ | async) as data">
+
+                <div class="ofs-row-tit flex">
+                    <h3>{{data.name}} Order status</h3>
+                    <a> <img src="assets/images/info.svg" alt=""> </a>
+                </div>
+                <div class="ofs-row-new flex">
+                    <p>In case you require additional order return status, create one </p>
+                    <button (click)="addOrderStatus('','add')"> <img src="assets/img/add-white-ico.png" alt=""> New status</button>
+                </div>
+                <div class="ofs-row ofs-row-def flex" *ngFor="let datas of data[0]?.orderStatus;let i=index">
+                    <div class="ofs-col-fst flex">
+                        <div class="ofscf-move"> <img src="assets/img/funnel-simple-copy-3.svg" alt=""> </div>
+                        <div class="ofscsf-stit">{{datas.name}}</div>
+                        <!-- <div class="ofscsf-stst">{{data.name}}</div> -->
+                    </div>
+                    <div class="ofs-col-lst flex">
+                        <div class="ofs-col-lst-col">
+                            <img src="assets/images/check-green.svg" class="img-resize" alt="" *ngIf="datas.isAdmin===1">
+                            <img class="img-resize" src="assets/images/red-x.svg" alt="" *ngIf="datas.isAdmin!==1">
+                        </div>
+                        <div class="ofs-col-lst-col">
+                            <img class="img-resize" src="assets/images/check-green.svg" alt="" *ngIf="datas.isVendor===1">
+                            <img src="assets/images/red-x.svg" class="img-resize" alt="" *ngIf="datas.isVendor!==1">
+                        </div>
+                        <div class="ofs-col-lst-col">
+                            <img class="img-resize" src="assets/images/check-green.svg" alt="" *ngIf="datas.isBuyer===1">
+                            <img src="assets/images/red-x.svg" class="img-resize" alt="" *ngIf="datas.isBuyer!==1">
+                        </div>
+                        <div class="ofs-col-lst-col">
+                            <img class="img-resize" src="assets/images/check-green.svg" alt="" *ngIf="datas.isApi===1">
+                            <img src="assets/images/red-x.svg" alt="" class="img-resize" *ngIf="datas.isApi!==1">
+                        </div>
+                        <div class="ofs-col-lst-action flex">
+                            <div class="toggle">
+                                <input class="tgl tgl-light" id="{{ datas.orderStatusId }}" [(ngModel)]="datas.isActive" (change)="statuschange($event, datas)" type="checkbox" />
+                                <label class="tgl-btn" for="{{ datas.orderStatusId }}"></label>
+                            </div>
+                            <button (click)="addOrderStatus(datas,'edit')"> <img src="assets/img/edit-ico.png" alt=""> </button>
+                            <button> <img src="assets/img/delete-sm.svg" alt=""> </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="ofs-row ofs-row-def flex">
+                    <div class="ofs-col-fst flex">
+                        <div class="ofscf-move"> <img src="assets/img/funnel-simple.svg" alt=""> </div>
+                        <div class="ofscsf-stit">Order shipped</div>
+                        <div class="ofscsf-stst">Default</div>
+                    </div>
+                    <div class="ofs-col-lst flex">
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-action flex">
+                            <div class="toggle">
+                                <input class="tgl tgl-light" id="cb1" [checked]="true" type="checkbox" />
+                                <label class="tgl-btn" for="cb1"></label>
+                            </div>
+                            <button> <img src="assets/img/edit-ico.png" alt=""> </button>
+                            <button> <img src="assets/img/delete-sm.svg" alt=""> </button>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="ofs-row-tit flex">
+                    <h3>Cancellation status</h3>
+                    <a href=""> <img src="assets/img/info-dark.svg" alt=""> </a>
+                </div> -->
+                <!-- <div class="ofs-row-new flex">
+                    <p>In case you require additional cancellation status, create one </p>
+                    <button> <img src="assets/img/add-white-ico.png" alt=""> New Cancellation status</button>
+                </div>
+                <div class="ofs-row ofs-row-def flex">
+                    <div class="ofs-col-fst flex">
+                        <div class="ofscf-move"> <img src="assets/img/funnel-simple.svg" alt=""> </div>
+                        <div class="ofscsf-stit">Order delivered</div>
+                        <div class="ofscsf-stst">Default</div>
+                    </div>
+                    <div class="ofs-col-lst flex">
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-action flex">
+                            <div class="toggle">
+                                <input class="tgl tgl-light" id="cb1" [checked]="true" type="checkbox" />
+                                <label class="tgl-btn" for="cb1"></label>
+                            </div>
+                            <button> <img src="assets/img/edit-ico.png" alt=""> </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ofs-row ofs-row-def flex">
+                    <div class="ofs-col-fst flex">
+                        <div class="ofscf-move"> <img src="assets/img/funnel-simple.svg" alt=""> </div>
+                        <div class="ofscsf-stit">Order shipped</div>
+                        <div class="ofscsf-stst">Default</div>
+                    </div>
+                    <div class="ofs-col-lst flex">
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-action flex">
+                            <div class="toggle">
+                                <input class="tgl tgl-light" id="cb1" [checked]="true" type="checkbox" />
+                                <label class="tgl-btn" for="cb1"></label>
+                            </div>
+                            <button> <img src="assets/img/edit-ico.png" alt=""> </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ofs-row-tit flex">
+                    <h3>Shipping status</h3>
+                    <a href=""> <img src="assets/img/info-dark.svg" alt=""> </a>
+                </div>
+                <div class="ofs-row-new flex">
+                    <p>In case you require additional shipping status, create one </p>
+                    <button> <img src="assets/img/add-white-ico.png" alt=""> New shipping status</button>
+                </div>
+                <div class="ofs-row ofs-row-def flex">
+                    <div class="ofs-col-fst flex">
+                        <div class="ofscf-move"> <img src="assets/img/funnel-simple.svg" alt=""> </div>
+                        <div class="ofscsf-stit">Order delivered</div>
+                        <div class="ofscsf-stst">Default</div>
+                    </div>
+                    <div class="ofs-col-lst flex">
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-action flex">
+                            <div class="toggle">
+                                <input class="tgl tgl-light" id="cb1" [checked]="true" type="checkbox" />
+                                <label class="tgl-btn" for="cb1"></label>
+                            </div>
+                            <button> <img src="assets/img/edit-ico.png" alt=""> </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ofs-row ofs-row-def flex">
+                    <div class="ofs-col-fst flex">
+                        <div class="ofscf-move"> <img src="assets/img/funnel-simple.svg" alt=""> </div>
+                        <div class="ofscsf-stit">Order shipped</div>
+                        <div class="ofscsf-stst">Default</div>
+                    </div>
+                    <div class="ofs-col-lst flex">
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-col"> <img src="assets/img/check-copy.svg" alt=""> </div>
+                        <div class="ofs-col-lst-action flex">
+                            <div class="toggle">
+                                <input class="tgl tgl-light" id="cb1" [checked]="true" type="checkbox" />
+                                <label class="tgl-btn" for="cb1"></label>
+                            </div>
+                            <button> <img src="assets/img/edit-ico.png" alt=""> </button>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+            <!--  -->
+
+            <!-- <div class="ofs-gtn flex">
+                <button>Save</button>
+                <button class="cancel">Cancel</button>
+            </div> -->
+
+        </div>
+
+    </div>
+</div>

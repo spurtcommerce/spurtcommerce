@@ -1,0 +1,81 @@
+:host ::ng-deep .ng-select.ng-select-single .ng-select-container {
+    height: 36px;
+    padding: 5px 0 5px 7px;
+    border-radius: 40px;
+    border: solid 1px #eaeaea;
+    background-color: #fafafa;
+    font-size: 12px;
+    font-weight: normal;
+    color: #a4a4a4;
+    width: 106px;
+    cursor: pointer;
+}
+
+:host ::ng-deep .ng-select {
+    .ng-option {
+        font-size: small;
+    }
+    .ng-dropdown-panel.ng-select-bottom {
+        margin-left: 10px;
+        width: fit-content;
+    }
+    .ng-dropdown-panel.ng-select-top {
+        margin-left: 10px;
+        width: fit-content;
+    }
+}
+
+.dashboard-card-content {
+    // width: 100%;
+    width: calc(100% - 150px);
+    height: calc(100% - 30px);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.no-data {
+    padding: 20px;
+    text-align: center;
+}
+
+.checkbox-data {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    span {
+        padding: 5px;
+        font-size: 12px;
+        color: #000;
+    }
+}
+
+.no-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.rad-chart {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.rad-chart-left {
+    width: 200px;
+}
+
+.rad-chart-right {
+    width: calc(100% - 150px);
+    display: flex;
+    justify-content: center;
+}
+
+.product-name {
+    text-overflow: ellipsis;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+}

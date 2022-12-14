@@ -1,0 +1,57 @@
+<div class="card-align">
+    <div class="cards">
+        <form (ngSubmit)="onSubmit(loginForm.value)" [formGroup]="loginForm" autocomplete="off">
+            <div class="admin">{{'Profile.Login.AdminLogin' | translate}}</div>
+            <div class="log-group first">
+                <input type="text" class="form-control placeholder-fix" placeholder="User Name" formControlName="userName" [ngClass]="{
+            validationcolor:
+              (loginForm.get('userName').hasError('required') &&
+                loginForm.get('userName').touched &&
+                ifSubmitted == true) ||
+              badResponse == true
+          }" />
+                <div class="validation-error" *ngIf="
+            loginForm.get('userName').hasError('required') &&
+            loginForm.get('userName').touched &&
+            ifSubmitted == true
+          ">
+                    {{'Profile.Login.Error.Usernamerequired' | translate}}
+                </div>
+                <div class="validation-error" *ngIf="
+            loginForm.get('userName').hasError('pattern') &&
+            loginForm.get('userName').touched &&
+            ifSubmitted == true
+          ">
+                    {{'Profile.Login.Error.Incorrectemail' | translate}}
+
+                </div>
+            </div>
+            <div class="log-group">
+                <input type="password" class="form-control placeholder-fix" placeholder="Password" formControlName="password" [ngClass]="{
+            validationcolor:
+              (loginForm.get('password').hasError('required') &&
+                loginForm.get('password').touched &&
+                ifSubmitted == true) ||
+              badResponse == true
+          }" />
+                <div class="validation-error" *ngIf="
+            loginForm.get('password').hasError('required') &&
+            loginForm.get('password').touched &&
+            ifSubmitted == true
+          ">
+
+                    {{'Profile.Login.Error.Passwordrequired' | translate}}
+                </div>
+            </div>
+            <div class="validation-error" *ngIf="badResponse == true">
+
+                {{'Profile.Login.Error.UsernameorPasswordisincorrect' | translate}}
+            </div>
+            <button class="btn btn-log">{{'Profile.Login.login' | translate}}</button>
+            <div class="forgot" [routerLink]="['/auth/forgot-password']">
+
+                {{'Profile.Login.Error.Cantlogin?' | translate}}
+            </div>
+        </form>
+    </div>
+</div>

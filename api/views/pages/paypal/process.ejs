@@ -1,0 +1,90 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    window.setTimeout(function(){
+        window.location = $('#redirect')[0].href;
+    }, 2000);
+</script>
+<style type="text/css">
+@keyframes lds-eclipse {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes lds-eclipse {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.lds-eclipse {
+  position: relative;
+}
+.lds-eclipse div {
+  position: absolute;
+  -webkit-animation: lds-eclipse 1s linear infinite;
+  animation: lds-eclipse 1s linear infinite;
+  width: 160px;
+  height: 160px;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 0 0 #28292f;
+  -webkit-transform-origin: 80px 82px;
+  transform-origin: 80px 82px;
+}
+.lds-eclipse {
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+</style>
+<body class="bg-gradient-primary">
+
+  <div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <div class="body">
+              <div style="font-weight:bold; font-size:16px; color:green; margin-bottom: 10px; text-align:center;">
+                  Please wait payment to be processing
+              </div>
+              <div class="lds-css ng-scope">
+                <div style="width:100%;height:100%" class="lds-eclipse">
+                  <div></div>
+                </div>
+              </div>
+            </div>
+            <div style="font-size:12px; margin:0 auto; text-align:center;">
+                <a href="/paypal-payment/proceed/<%= orderId %>" id="redirect">In you not redirect click this link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+     

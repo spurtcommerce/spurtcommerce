@@ -1,0 +1,122 @@
+<div class="row products-section products-sub-section">
+
+    <div class="col-12 ">
+        <!-- add button -->
+        <div class="breadcrumbs-row" *ngIf="(sandbox.productDetails$ | async) as details">
+            <div class="flex card prod-dtl">
+                <img *ngIf="details.productImage" [src]="imageUrl + '?path=' + details.productImage[0].containerName + '&name=' + details.productImage[0].image + '&width=50&height=50'" onError="this.src='/assets/error-images/Load-icon-Products.png';">
+                <img *ngIf="!details.productImage" src="assets/error-images/Load-icon-Products.png" alt="load">
+                <h5 class="prod-title">{{details.name}}</h5>
+                <h5>{{ 'catalog.product.skunumber:' | translate }}
+                    <span>{{details.sku}}</span>
+                </h5>
+                <div class="bc-col-btn right add-btn">
+                    <button class="btn" (click)="addQuestion()" [appHideIfUnauthorized]="'create-product-question'" (click)="addQuestion()"><img
+              src="assets/img/add-white-ico.png" alt="add">{{ 'catalog.product.AddQuestion' | translate }}
+
+          </button>
+                </div>
+            </div>
+        </div>
+        <!-- add button -->
+    </div>
+
+    <div class="flex product-wrap example-full-width">
+
+        <!-- add question form -->
+        <div class="adp-row" *ngIf="isquestion">
+            <button class="close" (click)="remove()"><img src="assets/img/close.svg" alt="close"> </button>
+
+            <div class="flex adp-innr-row">
+                <div class="adp-innr-rht">
+                    <form [formGroup]="addQuestionForm">
+                        <div class="fg-row2 flex">
+                            <div class="text-grp">
+                                <p>{{ 'catalog.product.PostYourQuestion' | translate }}</p>
+                                <textarea formControlName="question" rows="3" class="form-control"></textarea>
+                                <div class="error" *ngIf="addQuestionForm.get('question').hasError('required') && submitted">
+                                    {{ 'catalog.product.Questionisrequired' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fg-row2 flex">
+                            <div class="text-grp">
+                                <p>{{ 'catalog.product.PostYourAnswer' | translate }}</p>
+                                <textarea formControlName="answer" rows="3" class="form-control"></textarea>
+                                <div class="error" *ngIf="addQuestionForm.get('answer').hasError('required') && submitted">
+                                    {{ 'catalog.product.Answerisrequired' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btns">
+                            <button class="save" (click)="submit()">{{ 'catalog.product.Post' | translate }}
+
+              </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- add question form -->
+
+
+        <div class="container-fluid" *ngIf="!isquestion">
+            <div class="table-responsive">
+                <table class="table" *ngIf="(sandbox.questionList$ | async)?.length > 0 && (sandbox.questionListLoaded$ | async)">
+                    <thead>
+                        <tr>
+                            <th>{{ 'catalog.product.Questions' | translate }}</th>
+                            <th>{{ 'catalog.product.NoofAnswer' | translate }}</th>
+                            <th>{{ 'catalog.product.CreatedBy' | translate }}</th>
+                            <th class="text-center">{{ 'catalog.product.Actions' | translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let list of sandbox.questionList$ | async">
+                            <td style="cursor: pointer;" (click)=viewAnswer(list)>{{list.question}}</td>
+                            <td>{{list.answerCount}}</td>
+                            <td>{{list.postedBy?.firstName}}</td>
+                            <td class="btn-action">
+                                <i [ngbPopover]="deleteContent" placement="left" #deletePop="ngbPopover" style="margin-left: -2px; cursor: pointer" class="fas fa-trash globe_icon" [appHideIfUnauthorized]="'delete-product-question'">
+                  <ng-template #deleteContent>
+                    <div class="style">
+                      <div class="modal-header">
+                        <h6 class="modal-title" style="margin-left: 17%;">
+                          {{ 'catalog.product.DoYouWantToDelete' | translate }}
+                        </h6>
+                      </div>
+
+                      <div class="modal-footer" style="margin-right: 23%;">
+                        <button type="button" class="btn btn-danger" (click)="deletePop.close()" data-dismiss="modal">
+                          {{ 'catalog.product.No' | translate }}
+                        </button>
+                        <button type="button" class="btn btn-success" (click)="deleteQuestion(list.questionId)"
+                          data-dismiss="modal">
+                          {{ 'catalog.product.Yes' | translate }}
+                        </button>
+                      </div>
+                    </div>
+                  </ng-template>
+                </i>
+                                <span *ngIf="list.answerCount !== 0" [appHideIfUnauthorized]="'update-product-question'">
+                  <label class="switch">
+                    <input type="checkbox" [checked]="list.isActive === 1"
+                      (change)="changeStatus($event.target.checked, list.questionId)">
+                    <span class="slider toggle-slide"></span>
+                                </label>
+                                </span>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div class="no_data" *ngIf="(sandbox.questionList$ | async)?.length == 0 && (sandbox.questionListLoaded$ | async)">
+                    <p>{{'Sales.Orders.datanotfound'| translate}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

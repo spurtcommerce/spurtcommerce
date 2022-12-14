@@ -1,0 +1,218 @@
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #3e5569;
+    background: white;
+}
+
+// toggle css
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 18px;
+    margin-right: 10px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: -8px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border: 1px solid #fde0d5;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border: 1px solid #fde0d5;
+  }
+  input:checked + .slider {
+    background-color: #f2086d;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px  #f2086d;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+ /* Rounded sliders */
+ .slider.toggle-slide {
+    border-radius: 34px;
+  }
+  
+  .slider.toggle-slide:before {
+    border-radius: 50%;
+  }
+  .btn-action {
+    text-align: center;
+  }
+  .globe_icon {
+      padding: 13px;
+  }
+  .breadcrumbs-row {
+      border-bottom: none !important;
+      padding-right: 50px !important;
+      padding-bottom: 30px !important;
+  }
+
+
+  // add question form styles
+  .adp-row {
+    padding: 30px;
+    position: relative;
+    margin: 10px 180px 30px;
+    width: 100%;
+    .close {
+        position: absolute;
+        right:10px;
+        top: 10px;
+    }
+    .adp-innr-row {
+        justify-content: space-between;
+        .user-photo {
+            width: 200px;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            img {
+                &.pp {
+                    width: 78px;
+                    height: 78px;
+                    border-radius: 50%;
+                }
+
+            }
+            p {
+                text-align: center;
+                position: relative;
+                input {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                }
+                a {
+                    display: inline-block;
+                    width: 57px;
+                    height: 18px;
+                    border: solid 1px #e3e3e3;
+                    background-color: white;
+                    line-height: 18px;
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: #141212;
+                }
+            }
+        }
+        .adp-innr-rht {
+          width: 100%;
+          .form-group, .toggle-group, .select-group, .button-group {
+                width: 48%;
+            }
+            .form-group label:before {
+                border-radius: 0;
+            }
+            .tgl + .tgl-btn {
+                display: inline-block;
+            }
+            .toggle-group {
+                span {
+                    position: relative;
+                    top: -6px;
+                    left: 20px;
+                }
+            }
+            .button-group {
+                justify-content: flex-end;
+            }
+
+            .text-grp {
+              width: 100%;
+              textarea {
+                width: 100%;
+                padding: 10px;
+                resize: none;
+                border: 1px solid #ececec;
+
+              }
+            }
+            .btns {
+              text-align: center;
+              padding-top: 10px;
+              button {
+                background: red;
+                border: none;
+                color: white;
+                width: 100px;
+                height: 30px;
+
+              }
+            }
+        }
+    }
+}
+
+.prod-dtl {
+  margin-left: 15px;
+  padding: 10px;
+  width: 100%;
+  
+  .prod-title {
+    color: red;
+    padding: 0px 20px 0px;
+
+  }
+}
+.add-btn {
+  width: 100%;
+  float: right;
+}
+.no_data{
+  margin-left: 0px!important;
+    margin-top: 3%;
+    color: gray;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.error {
+  color: red;
+
+}

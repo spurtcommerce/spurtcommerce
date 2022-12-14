@@ -1,0 +1,61 @@
+<div class="set-lay-notes flex" style="padding: 0 10px 10px 10px;">
+    <h4>Note :</h4>
+    <p>The admin can configure number of products per page in this section. </p>
+</div>
+
+<div class="setup-wrapper setup-personalize">
+    <div class="setup-container flex">
+
+        <div class="setup-left">
+            <h3>{{'Settings.personalize.product.WhatProductdetailsarerequired' | translate}}</h3>
+            <p>The admin can set up the default number for display of items per page and this can be based on the number or products in each category also. </p>
+        </div>
+
+        <div class="setup-right">
+            <form style="margin: 0;" [formGroup]="perProductForm" class="form-horizontal m-t-20">
+                <div class="sup-rht-section">
+
+                    <div class="suprs-form">
+                        <div class="suprs-form-row flex">
+                            <label>{{'Settings.personalize.product.DefaultItemsPerPage' | translate}}<sup class="supvalidation">*</sup></label>
+                            <div class="suprs-form-col">
+                                <input [appDisableIfUnauthorized]="'edit-personalize-product'" type="text" formControlName="itemPage" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="suprs-form">
+                        <div class="suprs-form-row flex">
+
+                            <div class="mm-row flex">
+                                <label>{{'Settings.personalize.product.CategoryProductCount' | translate}}</label>
+                                <!-- <mat-radio-group formControlName="productCount" fxLayout="column" fxLayoutGap=".25rem">
+                                    <mat-radio-button [value]="'Yes'">{{'Settings.personalize.product.Yes' | translate}}</mat-radio-button>
+                                    <mat-radio-button [value]="'No'">{{'Settings.personalize.product.No' | translate}}</mat-radio-button>
+                                </mat-radio-group> -->
+                                <div class="toggle">
+                                    <input class="tgl tgl-light" id="cb1" [checked]="true" type="checkbox" />
+                                    <label class="tgl-btn" for="cb1"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-12">
+                        <div style="justify-content: center;" class="flex user-btn">
+                            <button (click)="onSubmit()" [appHideIfUnauthorized]="'edit-personalize-product'" type="submit" class="settings-add-button">{{'Settings.personalize.product.Save' | translate}}</button>
+                            <button [routerLink]="['/settings']" [appHideIfUnauthorized]="'edit-personalize-product'" class="settings-add-button settings-cancel-button">{{'Settings.personalize.product.Cancel' | translate}}</button>
+                        </div>
+                    </div> -->
+
+                    <div class="flex srbtn">
+                        <button [routerLink]="['/settings']" [appHideIfUnauthorized]="'edit-personalize-product'" class="cancel">{{'Settings.Local.Country.Cancel' | translate}}</button>
+                        <button (click)="onSubmit()" [appHideIfUnauthorized]="'edit-personalize-product'">{{'Settings.Local.Save' | translate}}</button>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

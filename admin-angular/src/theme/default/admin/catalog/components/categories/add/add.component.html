@@ -1,0 +1,261 @@
+<!--REACTIVE FORM-->
+<form novalidate (ngSubmits)="onSubmits(user.value)" [formGroup]="user">
+    <div class="row products-section" style="margin:unset">
+        <div class="col-12">
+            <div class="breadcrumbs-row noborder">
+                <div class="bc-col">
+                </div>
+                <div class="bc-col-btn ap-col-btn">
+                    <button class="btn btn-save" (click)="onSubmits(user)">
+            <img src="assets/img/tick-round-white.png" alt="save" />
+            {{ 'catalog.categories.Save' | translate }}
+          </button>
+                    <button class="btn btn-cancel" [routerLink]="['/catalog/categories']" [queryParams]="queryDetails">
+            <img src="assets/img/close-white-ico.png" alt="cancel"/>{{
+              'catalog.categories.Cancel' | translate
+            }}
+          </button>
+                </div>
+            </div>
+        </div>
+        <!--Breadcrumbs-->
+    </div>
+
+    <div class="flex addproduct-wrap">
+        <div class="card ap-general">
+            <div class="ap-header">
+                <span> 1 </span> {{ 'catalog.product.General' | translate }}
+            </div>
+            <div class="flex ap-body">
+
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>{{ 'catalog.categories.CategoryName' | translate }}<sup>*</sup></label>
+                        <input type="text" class="form-control" placeholder="{{ 'catalog.categories.CategoryName' | translate }}" formControlName="categoryName" [ngClass]="{
+                validationcolor:
+                  user.get('categoryName').hasError('required') &&
+                  user.get('categoryName').touched &&
+                  submittedValues == true}" />
+                        <div class="validation-error" *ngIf="
+                user.get('categoryName').hasError('required') &&
+                user.get('categoryName').touched &&
+                submittedValues == true">
+                            {{ 'catalog.Error.CategoryNameRequired' | translate }}
+                        </div>
+                        <div class="validation-error" *ngIf="user.get('categoryName').hasError('maxlength')">
+                            {{ 'catalog.Error.categoryNameMaxlength' | translate }}
+                        </div>
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col" style="margin-left: 4%;">
+                    <div class="form-group">
+                        <label>{{ 'catalog.categories.categorySlug' | translate}}<sup></sup></label>
+                        <input type="text" class="form-control" placeholder="{{'catalog.categories.categorySlug' | translate}}" formControlName="categorySlug" />
+                    </div>
+                </div>
+            
+                <!--Col-->
+            </div>
+        </div>
+        <!--General-->
+
+        <div class="card ap-general ap-info">
+            <div class="ap-header">
+                <span> 2 </span> {{ 'catalog.product.MoreInformation' | translate }}
+            </div>
+            <div class="flex ap-body">
+                <ngb-tabset style="width:100%;">
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>General</ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="flex data-row">
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>{{ 'catalog.categories.Parent' | translate }}</label>
+                                        <ng-select placeholder="{{'catalog.product.SelectBrand'| translate}}" [editableSearchTerm]="true" id="categoryComponent" formControlName="categoryComponent">
+                                            <ng-option *ngFor="let arr of sandbox.getCategoriesList$ | async" [value]='arr.categoryId'>{{ arr.name }}</ng-option>
+                                        </ng-select>
+
+                                    </div>
+                                </div>
+                                <div class="data-col" style="margin-left: 3%">
+                                    <div class="form-group">
+                                        <label>{{ 'catalog.categories.SortOrder' | translate}}<sup>*</sup></label>
+                                        <input type="text" class="form-control" placeholder="{{'catalog.product.SortOrder' | translate}}" formControlName="categorySortOrder" appOnlyNumber [ngClass]="{
+                        validationcolor:
+                          user.get('categorySortOrder').hasError('required') &&
+                          user.get('categorySortOrder').touched &&
+                          submittedValues == true}" />
+                                        <div class="validation-error" *ngIf="
+                        user.get('categorySortOrder').hasError('required') &&
+                        user.get('categorySortOrder').touched &&
+                        submittedValues == true">
+                                            {{ 'catalog.Error.SortOrderRequired' | translate }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ap-body-col">
+                                    <div class="form-group">
+                                        <label>{{ 'catalog.categories.Status' | translate}}<sup>*</sup></label>
+
+                                        <ng-select style="cursor: pointer" formControlName="status" placeholder="{{ 'catalog.categories.Status' | translate}}" [ngClass]="{'error-fields': user.get('status').hasError('required') &&
+                                        user.get('status').touched &&
+                                        submittedValues == true}" placeholder="{{ 'catalog.product.SelectStatus' | translate}}" [searchable]="false">
+                                            <ng-option value="1">{{ 'catalog.product.Enabled' | translate }}</ng-option>
+                                            <ng-option value="0">{{ 'catalog.product.Disabled' | translate }}</ng-option>
+                                        </ng-select>
+                                        <div class="validation-error" *ngIf="
+                        user.get('status').hasError('required') &&
+                        user.get('status').touched &&
+                        submittedValues == true">
+                                            {{ 'catalog.Error.StatusRequired' | translate }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="ap-body-col" style="margin-left: 4%;">
+                                    <div class="form-group">
+                                        <label>{{ 'catalog.categories.categorySlug' | translate}}<sup></sup></label>
+                                        <input type="text" class="form-control" placeholder="{{'catalog.categories.categorySlug' | translate}}" formControlName="categorySlug" />
+                                    </div>
+                                </div> -->
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>{{ 'catalog.product.Image' | translate }}</ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="flex data-row">
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <div class="image-col">
+                                            <div class="img-dflt">
+                                                <input type="file" name="userImg" (change)="uploadChange($event)" accept="image/*" #filePath style="display: none">
+                                                <input type="hidden" name="fileHidden" formControlName="imageInput" />
+                                                <!-- Validation Field -->
+                                                <img [src]="postImageUrl" width="30%" height="30%" onError="src='./assets/upload-banner/upload.png';" [alt]="new.name ? new.name : item" />
+                                                <p></p>
+                                                <button (click)="uploadButtonClick()" type="button">
+                                  {{ 'CMS.Banners.UploadPic' | translate }}
+                                </button>
+                                                <p style="font-size: 10px">{{ 'catalog.Error.Support' | translate }}</p>
+                                                <div class="upload-error validation-error" *ngIf="user.get('imageInput').hasError('required') && submittedValues">{{ 'catalog.Error.Imageisrequired' | translate }}</div>
+                                                <div *ngIf="imageSizeError" class="upload-error validation-error">{{ 'catalog.Error.Imageshouldbelessthan2MB' | translate }}</div>
+                                                <div *ngIf="imageTypeError" class="upload-error validation-error">{{ 'catalog.Error.Pleaseuploadimageonly(.png,.jpg,.jpeg)' | translate }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>{{'catalog.product.SEO'| translate}}</ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="flex data-row" style="justify-content: space-between;">
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>{{ 'catalog.categories.MetaTagTitle' | translate }}</label>
+                                        <input type="text" class="form-control" placeholder="{{ 'catalog.categories.MetaTagTitle' | translate }}" formControlName="categoryTitle" [ngClass]="{validationcolor:user.get('categoryTitle').errors}" />
+                                        <div class="validation-error" *ngIf="user.get('categoryTitle').hasError('maxlength')">
+                                            {{ 'catalog.Error.MetaTagTitleMaxlength70' | translate }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="data-col" style="margin-left: 3%">
+                                    <div class="form-group">
+                                        <label>{{ 'catalog.categories.MetaTagKeyword' | translate }}</label>
+                                        <input type="text" class="form-control" placeholder="{{'catalog.categories.MetaTagKeyword' | translate}}" formControlName="categoryKeyword" [ngClass]="{validationcolor:user.get('categoryKeyword').errors}" />
+                                        <div class="validation-error" *ngIf="user.get('categoryKeyword').hasError('maxlength')">
+                                            {{ 'catalog.Error.MetaTagKeywordMaxlength' | translate }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ap-body-col width100">
+                                <div class="form-group">
+                                    <label>{{ 'catalog.categories.MetaTagDescription' | translate }}</label>
+                                    <!-- <input type="text" class="form-control" placeholder="{{ 'catalog.categories.MetaTagDescription' | translate }}" formControlName="categoryDescription" [ngClass]="{validationcolor:user.get('categoryDescription').errors}" /> -->
+                                    <textarea class="txtarea" formControlName="categoryDescription"></textarea>
+                                    <div class="validation-error" *ngIf="user.get('categoryDescription').hasError('maxlength')">
+                                        {{ 'catalog.Error.MetaTagDescriptionMaxlength' | translate }}
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+            </div>
+        </div>
+        <!--More Information-->
+
+        <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">{{ 'catalog.product.Image Manager' | translate }}</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">×</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <div class="flex search-nav">
+                    <div class="search-section">
+                        <input placeholder="Search" type="text" />
+                    </div>
+                    <div class="img-action-links">
+                        <ul class="flex" id="menu">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="assets/img/back-ico.png" alt="back" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="assets/img/refresh-ico.png" alt="refresh" />
+                                </a>
+                            </li>
+                            <li>
+                                <input id="check01" type="checkbox" name="menu" />
+                                <label for="check01"><img src="assets/img/file-open-ico.png" alt="open"
+                /></label>
+                                <ul class="submenu">
+                                    <li>{{ 'catalog.product.CreateFolder' | translate }}</li>
+                                    <li>
+                                        <input type="text" />
+                                        <button>{{ 'catalog.product.Create' | translate }}</button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="assets/img/delete-file-ico.png" alt="delete" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="upload-lnk"> {{ 'catalog.product.Upload' | translate }} </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex image-row">
+                    <div class="image-col">
+                        <div class="img-bdy"><img src="assets/img/file-img.png" alt="file-img" /></div>
+                        <p>{{ 'catalog.product.ImageFolder1' | translate }}</p>
+                    </div>
+                    <!--Col-->
+                    <div class="image-col">
+                        <div class="img-bdy"><img src="assets/img/file-img.png" alt="file-img" /></div>
+                        <p>{{ 'catalog.product.ImageFolder2' | translate }}</p>
+                    </div>
+                    <!--Col-->
+                    <div class="image-col">
+                        <div class="img-bdy">
+                            <img src="assets/img/product-img-bg1.png" alt="product-img" />
+                        </div>
+                        <p>{{ 'catalog.product.img.jpg' | translate }}</p>
+                    </div>
+                    <!--Col-->
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</form>

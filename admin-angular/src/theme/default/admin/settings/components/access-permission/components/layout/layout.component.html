@@ -1,0 +1,49 @@
+<div class="setup-wrapper">
+
+    <div class="setup-container localization-container">
+
+        <div class="loc-lay-title">
+            <h3>Access and permission</h3>
+            <p>In this section the admin can create and maintain different admin roles and permissions. Then, permissions can be assigned for the roles there of. Based on the permission assigned, different roles can access modules for which they have permission.
+                Then, the admin can create users and assign the user to a role and the user will have only those permissions that will be assigned to that role.</p>
+        </div>
+
+        <div class="card ap-general ap-info set-loc-card">
+
+            <div class="localize-tab">
+
+                <ngb-tabset>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle='Audit Log'>
+                            <button [appHideIfUnauthorized]="'settings-role'" routerLinkActive="'active'" [routerLink]="['/settings/access-and-permission/role/list']" routerLinkActive="active" class="tablinks">Roles</button>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+
+                        </ng-template>
+                    </ngb-tab>
+
+                    <ngb-tab>
+                        <ng-template ngbTabTitle='Data Back-up'>
+                            <button [appHideIfUnauthorized]="'settings-user'" routerLinkActive="'active'" [routerLink]="['/settings/access-and-permission/user/list']" routerLinkActive="active" class="tablinks">Users</button>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+                <!-- <button class="back-buttons" routerLink="/settings"> <img style="width: 20px;height: 13px;padding-right: 2px;" src="assets/img/arrow-back.svg" alt="back">Back</button> -->
+            </div>
+
+        </div>
+
+        <!-- <div class="set-lay-notes flex">
+            <h4>Note :</h4>
+            <p>Quid ex eo ortum, tam inportuno tamque crudeli; sin, ut de commodis suis. Tum dicere exorsus est consecutus? laudem et ultimum bonorum, quod maxime consuevit iactare. Alii autem, quibus ego cum soluta nobis est consecutus? laudem et aut petat.
+                In oculis quidem faciunt, ut dolore suo sanciret militaris imperii disciplinam exercitumque in.</p>
+        </div> -->
+
+    </div>
+
+</div>
+
+<router-outlet></router-outlet>

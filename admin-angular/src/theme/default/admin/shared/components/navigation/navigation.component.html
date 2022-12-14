@@ -1,0 +1,45 @@
+<!-- ============================================================== -->
+<!-- toggle and nav items -->
+<!-- ============================================================== -->
+<ul class="navbar-nav float-left mr-auto navbar-left">
+    <!-- ============================================================== -->
+    <li class="nav-item dashboard-nav">
+        <a href="javascript:void(0)" class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="'active'">
+            <img src="assets/img/header-icons/MainDashboard.svg"> {{'Dashboard.Dashboard'| translate}} </a>
+    </li>
+
+
+    <li class="nav-item mega-dropdown sales-nav" [appHideIfUnauthorized]="'sales'">
+        <a class="nav-link waves-effect waves-dark" [routerLink]="['/sales']" [routerLinkActive]="'active'" href="javascript:void(0)" aria-expanded="false">
+            <span class="d-md-block"> <img src="assets/img/header-icons/MainSales.svg"> {{'Dashboard.Sale'| translate}}
+      </span>
+        </a>
+    </li>
+    <!-- mega menu -->
+    <!-- ============================================================== -->
+    <li class="nav-item mega-dropdown catalog-nav" [appHideIfUnauthorized]="'catalog'">
+        <a class="nav-link waves-effect waves-dark" href="javascript:void(0)" [routerLink]="['/catalog']" [routerLinkActive]="'active'">
+            <span class="d-md-block"> <img width="20px" src="assets/img/header-icons/MainCatelog.svg">{{'Dashboard.Catalog'| translate}}
+          </span>
+        </a>
+    </li>
+    <!-- ============================================================== -->
+    <!-- End mega menu -->
+    <li class="nav-item mega-dropdown customers-nav" [appHideIfUnauthorized]="'customers'">
+        <a [routerLink]="['/customers']" [routerLinkActive]="'active'" class="nav-link waves-effect waves-dark" href="javascript:void(0)">
+            <span class="d-md-block"> <img width="30px" src="assets/img/header-icons/MainCustomers.svg">{{'Dashboard.Customers'| translate}}
+    </span>
+        </a>
+    </li>
+
+    <li class="nav-item mega-dropdown cms-nav" [appHideIfUnauthorized]="'cms'">
+        <a [routerLink]="['/cms']" [routerLinkActive]="'active'" class="nav-link waves-effect waves-dark" href="javascript:void(0)">
+            <span class="d-md-block"> <img width="20px" src="assets/img/header-icons/MainCMS.svg">{{'Dashboard.CMS'| translate}}  </span>
+        </a>
+    </li>
+
+</ul>
+<!-- ============================================================== -->
+<!-- Right side toggle and nav items -->
+<!-- ============================================================== -->
+<app-profile-bar (logout)="logout.emit($event)" [userDetails]="userDetails"></app-profile-bar>

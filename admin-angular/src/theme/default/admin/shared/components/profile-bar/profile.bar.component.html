@@ -1,0 +1,33 @@
+<ul class="navbar-nav float-right border-left profile-bar">
+    
+    <li class="nav-item dropdown" ngbDropdown placement="bottom-left">
+        <a ngbDropdownToggle class="nav-link" href="javascript:void(0)" [appHideIfUnauthorized]="'settings'" [routerLink]="['/settings']" [routerLinkActive]="'active'">
+            <img src="assets/img/header-icons/repairing-service.svg" alt="user">
+        </a>
+    </li>
+
+    <li class="nav-item dropdown" style="cursor: default" ngbDropdown placement="bottom-right">
+        <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" style="cursor: default" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            <span>{{(editProfileSandbox.getProfile$ | async)?.data?.firstName}}</span>
+            <div style="cursor: pointer" class="pro-pic-dropdown">
+                <img ngbDropdownToggle [src]="imageUrls + '?path=' + (layoutSandbox.user$ | async)?.avatarPath + '&name=' + (layoutSandbox.user$ | async)?.avatar +'&width=60&height=60'" onError="this.src='./assets/img/avatar-img1.png';" class="w3-circle" alt="Alps1"
+                    style="width: 55px;
+    height: 55px;">
+
+            </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right user-dd animated top-settings-menu" ngbDropdownMenu>
+
+            <a class="dropdown-item" [routerLink]="['/../../editprofile']">
+                <span> <img src="assets/img/icon-person.svg"> </span> My Profile </a>
+            <a class="dropdown-item" href="javascript:void(0)" [appHideIfUnauthorized]="'settings'" [routerLink]="['/settings']">
+                <span> <img src="assets/img/repairing-service.svg"> </span> Settings </a> 
+            <a class="dropdown-item" href="javascript:void(0)" (click)="logout.emit($event)">
+                <span> <img src="assets/img/icon-account-logout.svg"> </span> {{'Profile.user.Logout'| translate}} </a>
+        </div>
+    </li>
+    <!-- ============================================================== -->
+    <!-- User profile and search -->
+    <!-- ============================================================== -->
+</ul>

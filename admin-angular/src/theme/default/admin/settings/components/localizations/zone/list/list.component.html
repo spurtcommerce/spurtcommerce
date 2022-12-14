@@ -1,0 +1,88 @@
+<div class="set-lay-notes flex" style="padding: 0 10px 0 10px;">
+    <h4>Note :</h4>
+    <p>In this section, the admin can maintain the master list of countries. They can choose any one zone from this list that will be available in the general settings for configuring the zone to which the eCommerce business belongs to. </p>
+</div>
+
+<div class="setup-wrapper set-loc-wrapper">
+    <div class="setup-container localization-container">
+
+        <div class="card ap-general ap-info">
+            <div class="flex ap-body">
+                <ngb-tabset style="width:100%;">
+                    <ngb-tab>
+                        <ng-template ngbTabContent style="display: flex !important;">
+
+                            <div class="localize-header flex">
+                                <div class="loc-hdr-lft">
+                                    <!-- <p>Showing <span> 0 - 10 </span> results</p> -->
+                                    <div class="input-group">
+                                        <p>{{'Settings.Local.Resultsperpage' | translate}}</p>
+                                        <div class="select">
+                                            <select [(ngModel)]="pageSize" (change)="pageLength()">
+                                                <option *ngIf="pageSize!== '10' && pageSize!== '20' && pageSize!== '30'" value="{{pageSize}}">{{pageSize}}</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                      </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button (click)=" addeNewZone('','add')" class="set-ad-btn" [appHideIfUnauthorized]="'create-zone'"><img
+                    src="assets/img/add-white-ico.png" alt="add">{{'Settings.Local.Zone.AddNewZone' |
+                                    translate}}</button>
+                            </div>
+
+
+                            <div class="setup-right">
+                                <div class="table-responsive">
+                                    <table class="table" style="background: white !important;">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">{{'Settings.Local.Zone.Country' | translate}}
+                                                </th>
+                                                <th scope="col">{{'Settings.Local.Zone.ZoneName' | translate}}</th>
+                                                <th scope="col">{{'Settings.Local.Zone.ZoneCode' | translate}}</th>
+                                                <th scope="col">{{'Settings.Local.Emailtemplate.Status' | translate}}</th>
+                                                <th class="text-center" scope="col" [appHideIfUnauthorized]="" [multipleHide]="['edit-zone','delete-zone']">
+                                                    {{'Settings.Local.Zone.Action' | translate}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let zonelist of zoneSandbox.zoneList$ | async; let i=index">
+                                                <td scope="row">{{zonelist.country.name}}</td>
+                                                <td>{{zonelist.name}}</td>
+                                                <td>{{zonelist.code}}</td>
+                                                <td>
+                                                    <div *ngIf="zonelist.isActive === 1">{{'Settings.Local.StockStatus.Active' | translate}}
+                                                    </div>
+                                                    <div *ngIf="zonelist.isActive === 0">{{'Settings.Local.StockStatus.InActive' | translate}}
+                                                    </div>
+                                                </td>
+                                                <td class="text-center" [appHideIfUnauthorized]="" [multipleHide]="['edit-zone','delete-zone']">
+                                                    <div class="dropdown" ngbDropdown>
+                                                        <i class="fa fa-ellipsis-v cursor" style="padding:0 15px" ngbDropdownToggle> </i>
+                                                        <div ngbDropdownMenu class="dropdown-menu">
+                                                            <a [appHideIfUnauthorized]="'edit-zone'" class="dropdown-item" ngbDropdownItem href="javascript:void(0)" (click)="addeNewZone(zonelist,'edit')"> <img src="assets/img/edit.png" alt="edit" /> {{'Settings.Local.Edit' | translate}} </a>
+                                                            <a [appHideIfUnauthorized]="'delete-zone'" class="dropdown-item" ngbDropdownItem href="javascript:void(0)" (click)="deleteZone(zonelist.zoneId, deletePop)"> <img src="assets/img/delete-new.png" alt="delete"> {{'Settings.Local.Delete' | translate}} </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+                                    <mat-paginator [length]="zoneSandbox.zonePagination$ | async" [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)">
+                                    </mat-paginator>
+                                </div>
+                            </div>
+
+                        </ng-template>
+                    </ngb-tab>
+
+                </ngb-tabset>
+            </div>
+        </div>
+    </div>
+
+</div>

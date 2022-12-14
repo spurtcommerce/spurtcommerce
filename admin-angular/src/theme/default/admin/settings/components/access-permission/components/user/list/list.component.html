@@ -1,0 +1,93 @@
+<div class="set-lay-notes flex" style="padding: 0 10px 10px 10px;">
+    <h4>Note :</h4>
+    <p>The super admin can add different users and assign the users to a particular role. The users will be able to access only those modules to which they are granted the permission to access. </p>
+</div>
+
+<div class="setup-wrapper set-loc-wrapper">
+    <div class="setup-container localization-container">
+        <div class="card ap-general ap-info">
+            <div class="flex ap-body">
+
+                <div class="settings-right-wrapper">
+
+                    <div class="localize-header flex">
+                        <div class="loc-hdr-lft">
+                            <!-- <p>Showing <span> 0 - 10 </span> results</p> -->
+                            <div class="input-group">
+                                <p>{{'Settings.Local.Resultsperpage' | translate}}</p>
+                                <div class="select">
+                                    <select [(ngModel)]="pageSize" (change)="getUserList(0,'')">
+                                        <option *ngIf="pageSize!== '10' && pageSize!== '20' && pageSize!== '30'" value="{{pageSize}}">{{pageSize}}</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="set-ad-btn" (click)=" addNewUser('','add')" [appHideIfUnauthorized]="'create-user'"> <img src="assets/img/add-white-ico.png" alt="add">{{'Settings.User.AddNewUser' | translate}}</button>
+                    </div>
+
+                </div>
+
+                <!-- <div class="setup-container flex"> -->
+
+                <!-- <div class="setup-right">
+                        <h3>User</h3>
+                        <p>The admin can create different Users and map the users to different roles. These users will have access to roles, depending on the role permission.
+                        </p>
+                        <div class="flex sup-lft-btn">
+                            <button (click)=" addNewUser('','add')" [appHideIfUnauthorized]="'create-user'"> <img src="assets/img/add-white-ico.png" alt="add">{{'Settings.User.AddNewUser' | translate}}</button>
+                        </div>
+                    </div> -->
+                <!--left-->
+
+                <div class="setup-right">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <!-- <th width="20px"></th> -->
+                                    <th width="20%">{{'Settings.User.UserName' | translate}}</th>
+                                    <th>{{'Settings.User.EmailId' | translate}}</th>
+                                    <th>{{'Settings.User.Role' | translate}}</th>
+                                    <th class="text-right" [appHideIfUnauthorized]="" [multipleHide]="['edit-role-permission','edit-user','delete-user']">{{'Settings.User.Action' | translate}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let userlist of sandbox.getUsersList$ | async; let i=index">
+                                    <!-- <td>1</td> -->
+                                    <td>
+                                        <h3>{{userlist.firstName}} {{userlist.lastName}}</h3>
+                                    </td>
+                                    <td>{{userlist.email}}</td>
+                                    <td>{{userlist.usergroup.name}}</td>
+                                    <td class="text-right" [appHideIfUnauthorized]="" [multipleHide]="['edit-role-permission','edit-user','delete-user']">
+                                        <!-- <i [appHideIfUnauthorized]="'edit-role-permission'" [ngClass]="{'hide-permission' : userlist?.usergroup?.groupId === 1}" (click)="goToPermission(userlist)" class="fa fa-lock cursor" style="margin-right: 15px;" aria-hidden="true"></i>
+                                    <i [appHideIfUnauthorized]="'edit-user'" (click)=" addNewUser(userlist,'edit')" class="fas fa-edit cursor"></i>
+                                    <i [appHideIfUnauthorized]="'delete-user'" [ngbPopover]="deleteContent" placement="bottom" #deletePop="ngbPopover" style="margin-left: 15px;" class="fas fa-trash cursor"></i> -->
+                                        <div class="dropdown" ngbDropdown >
+                                            <i class="fa fa-ellipsis-v cursor" style="padding:0 15px" ngbDropdownToggle> </i>
+                                            <div ngbDropdownMenu class="dropdown-menu" style="min-width: 88px;">
+                                                <a *ngIf="Rolelist?.groupId !== 1"  class="dropdown-item" ngbDropdownItem [appHideIfUnauthorized]="'edit-role-permission'" [ngClass]="{'hide-permission' : userlist?.usergroup?.groupId === 1}" (click)="goToPermission(userlist)"
+                                                    style="cursor: pointer;">  {{'Settings.Local.Permission' | translate}}</a>
+                                                <a [appHideIfUnauthorized]="'edit-user'" (click)=" addNewUser(userlist,'edit')" class="dropdown-item" ngbDropdownItem href="javascript:void(0)">  {{'Settings.Local.Edit' | translate}} </a>
+                                                <a [appHideIfUnauthorized]="'delete-user'" style="margin-left: 15px; cursor: pointer;" class="dropdown-item" (click)="deleteUser(userlist.userId)"> {{'Settings.Local.Delete' | translate}} </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <mat-paginator [length]="sandbox.userPagination$ | async" [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)">
+                    </mat-paginator>
+                </div>
+                <!--right-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- </div> -->

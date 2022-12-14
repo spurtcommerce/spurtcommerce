@@ -1,0 +1,152 @@
+<app-banner-layout></app-banner-layout>
+<div class="row products-section" style="margin:unset">
+    <div class="col-12">
+        <div class="breadcrumbs-row noborder">
+            <div class="bc-col">
+
+            </div>
+            <div class="bc-col-btn ap-col-btn">
+                <button type="submit" (click)="onSubmit()" class="btn btn-save"><img
+                        src="assets/img/tick-round-white.png" alt="save" (click)="onSubmit()">{{'CMS.Banners.Save'| translate}}
+                </button>
+                <button (click)="bannerCancel()" class="btn btn-cancel"><img
+                        src="assets/img/close-white-ico.png" alt="close">{{'CMS.Banners.Cancel'| translate}}
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumbs-->
+</div>
+
+
+<div class="flex addproduct-wrap addgroup-wrap">
+
+    <div class="card ap-general">
+        <form [formGroup]="bannerForm">
+            <div class="ap-header">
+                {{'CMS.Pages.GeneralInformation'| translate}}
+            </div>
+            <div class="flex ap-body cmsap-body">
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>{{'CMS.Banners.BannerTitle'| translate}}<sup>*</sup> </label>
+                        <input type="text" class="form-control" [(ngModel)]="bannerTitle" formControlName="bannerTitle" placeholder="{{'CMS.BannerPlaceholder.BannerTitle'| translate}}" [ngClass]="{ 'is-invalid': submitted && f.bannerTitle.errors }">
+                        <div *ngIf="submitted && f.bannerTitle.errors" class="validation-error">
+                            <div *ngIf="f.bannerTitle.errors.required">{{'CMS.BannerError.BannerTitleIsRequired'| translate}}</div>
+                            <div class="error" *ngIf="bannerForm.get('bannerTitle').hasError('maxlength')">
+                                {{'CMS.BannerError.MustBe255CharacterLong'| translate}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col width100">
+                    <div class="form-group">
+                        <label>{{'CMS.BannerPlaceholder.BannerContent'| translate}}</label>
+                        <ckeditor [config]="config" formControlName="bannerContent" [ngClass]="{'Validationcolor':bannerForm.get('bannerContent').hasError('required') && bannerForm.get('bannerContent').touched&&submitted==true}">
+                        </ckeditor>
+                    </div>
+                </div>
+                <!--Col-->
+                <div style="display: flex;width:100%">
+                    <div style="width:50%">
+                        <div class="ap-body-col" style="width: 100%;">
+                            <div class="form-group">
+                                <label>{{'CMS.BannerPlaceholder.Link'| translate}}</label>
+                                <!-- <input type="text" class="form-control" [(ngModel)]="bannerLink" formControlName="bannerLink" placeholder="{{'CMS.BannerPlaceholder.EnterLink'| translate}}" [ngClass]="{ 'is-invalid': submitted && f.bannerLink.errors }">
+                                <div *ngIf="submitted && f.bannerLink.errors" class="validation-error">
+                                    <div *ngIf="f.bannerLink.errors.required">{{'CMS.BannerError.LinkIsRequired'| translate}}
+                                    </div>
+                                </div> -->
+                                <mat-radio-group aria-label="Select an option" (change)="productevent($event.value)" formControlName="type">
+                                    <mat-radio-button [checked]="checkedval==1" value="1">Custom</mat-radio-button>
+                                    <mat-radio-button [checked]="checkedval==2" value="2">Product</mat-radio-button>
+                                    <mat-radio-button [checked]="checkedval==3" value="3">Category</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="ap-body-col" style="width: 100%;">
+                            <div>
+                                <div class="form-group" *ngIf="customproduct==1">
+                                    <label>Custom</label>
+                                    <input type="text" class="form-control" placeholder="Custom text..." [(ngModel)]="bannerLink" formControlName="bannerLink">
+                                    <div *ngIf="submitted && f.bannerLink.errors" class="validation-error">
+                                        <div *ngIf="f.bannerLink.errors.required">{{'CMS.BannerError.LinkIsRequired'| translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" *ngIf="customproduct==2">
+                                    <label>Product</label>
+                                    <ng-select placeholder="Select Product..." [editableSearchTerm]="true" [dropdownPosition]="'bottom'" [(ngModel)]="productslugvalue" [ngModelOptions]="{standalone: true}" (change)="productslug($event)">
+                                        <ng-option *ngFor="let product of sandbox.ProductLists$ | async" [value]='product.productSlug'>{{ product.name }}</ng-option>
+                                    </ng-select>
+
+                                </div>
+                                <div class="form-group" *ngIf="customproduct==3">
+                                    <label>Category</label>
+                                    <ng-select placeholder="Select Category..." [(ngModel)]="categoryslugvalue" [ngModelOptions]="{standalone: true}" [editableSearchTerm]="true" [dropdownPosition]="'bottom'" (change)="categoryslug($event)">
+                                        <ng-option *ngFor="let arr of sandbox.categoryLists$ | async" [value]='arr.categorySlug'>{{ arr.name }}</ng-option>
+                                    </ng-select>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Col-->
+                        <div class="ap-body-col" style="width: 100%;">
+                            <div class="form-group">
+                                <label>{{'CMS.BannerPlaceholder.Position'| translate}}</label>
+                                <input type="text" class="form-control" [(ngModel)]="position" formControlName="position" placeholder="{{'CMS.BannerPlaceholder.EnterPosition'| translate}}" [ngClass]="{ 'is-invalid': submitted && f.position.errors }">
+                                <div *ngIf="submitted && f.position.errors" class="validation-error">
+                                    <div *ngIf="f.position.errors.required">{{'CMS.BannerError.PositionIsRequired'| translate}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ap-body-col" style="width: 100%;">
+                            <div class="form-group">
+                                <label>{{'CMS.Pages.Active'| translate}}<sup>*</sup></label>
+                                <ng-select placeholder="{{'CMS.Pages.SelectActive'| translate}}" [searchable]="false" formControlName="active" id="inlineFormCustomSelect" [ngClass]="{ 'error-fields': submitted && f.active.errors }">
+                                    <ng-option [value]="1">{{'CMS.Pages.Yes'| translate}}</ng-option>
+                                    <ng-option [value]="0">{{'CMS.Pages.No'| translate}}</ng-option>
+                                </ng-select>
+
+                                <div *ngIf="submitted && f.active.errors" class="validation-error">
+                                    <div *ngIf="f.active.errors.required">{{'CMS.Error.ThisFieldIsRequired'| translate}}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <div class="image-col">
+                            <div class="img-dflt">
+                                <input type="file" name="userImg" (change)="uploadChange($event)" accept="image/*" #filePath style="display: none">
+                                <input type="hidden" name="fileHidden" formControlName="imageInput" />
+                                <!-- Validation Field -->
+                                <img [src]="postImageUrl" width="13%" height="13%" [alt]="new.title?new.title:image">
+                                <p></p>
+                                <button (click)="uploadButtonClick()" type="button">{{'CMS.Banners.UploadPic'| translate}}
+                                </button>
+                                <p style="font-size: 10px">{{'CMS.BannerError.UploadPicFilesAllowed'| translate}}</p>
+                            </div>
+                        </div>
+                        <div class="validation-error" style="margin-top: -14px;" *ngIf="submitted && f.imageInput.errors">
+                            <div *ngIf="f.imageInput.errors.required">{{'catalog.Error.Imageisrequired'| translate}}</div>
+                        </div>
+                        <div style="margin-top: -14px;" *ngIf="imageSizeError" class="upload-error validation-error">{{'CMS.BannerError.ImageShouldBeLessThan2MB'| translate}}</div>
+                        <div style="margin-top: -14px;" *ngIf="imageTypeError" class="upload-error validation-error">{{'CMS.BannerError.PleaseUploadImagesOnly(.png,.jpg,.jpeg)'| translate}}</div>
+                    </div>
+
+                </div>
+                <!--col-->
+            </div>
+        </form>
+    </div>
+    <!--General-->
+
+
+</div>

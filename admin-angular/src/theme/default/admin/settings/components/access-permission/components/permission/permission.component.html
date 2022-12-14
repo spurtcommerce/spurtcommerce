@@ -1,0 +1,117 @@
+<div class="flex main-header">
+    <h3>Permission Status</h3>
+    <div class="form-group">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="checkbox22" [(ngModel)]="selectAllPermission" (change)="selectAll($event.target.checked)" />
+            <label class="custom-control-label cursor-pointer" for="checkbox22"> Select All </label>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="permission-wrap">
+
+    <div class="pw-row">
+        <h3>Order</h3>
+        <div class="pw-row-full flex">
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ord1" />
+                    <label class="custom-control-label cursor-pointer" for="ord1"> List Order </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ord2" />
+                    <label class="custom-control-label cursor-pointer" for="ord2"> Delete Order </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ord3" />
+                    <label class="custom-control-label cursor-pointer" for="ord3"> View Order </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ord4" />
+                    <label class="custom-control-label cursor-pointer" for="ord4"> Export Order </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ord5" />
+                    <label class="custom-control-label cursor-pointer" for="ord5"> Update Order Status </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pw-row">
+        <h3>Settings Delivery Location</h3>
+        <div class="pw-row-full flex">
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="sdl1" />
+                    <label class="custom-control-label cursor-pointer" for="sdl1"> Add Delivery Location </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="sdl2" />
+                    <label class="custom-control-label cursor-pointer" for="sdl2"> Update delivery Location </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="sdl3" />
+                    <label class="custom-control-label cursor-pointer" for="sdl3"> Delivery Location List </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="sdl4" />
+                    <label class="custom-control-label cursor-pointer" for="sdl4"> Delivery Location delete </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="flex srbtn">
+            <button class="cancel"> Cancel </button>
+            <button type="submit">Save</button>
+        </div>
+    </div>
+
+</div> -->
+
+
+<div class="permission-wrap">
+
+    <span class="user" *ngIf="type === 'user'">USER - <b>{{detail?.name | uppercase}}</b></span>
+    <span class="user-role">ROLE - <b>{{detail?.role | uppercase}}</b></span>
+    <!-- <div class="title">
+        <span>Permission Status</span>
+    </div> -->
+
+
+    <div class="pw-row" *ngIf="(sandbox.permissionListLoaded$ | async) && (sandbox.permissionLoaded$ | async)">
+        <div *ngFor="let main of sandbox.getPermissionsList$ | async">
+            <h3>{{main?.name}}</h3>
+            <!-- <div class="pw-row-full flex"> -->
+            <div class="form-group pw-row-full flex">
+                <div class="custom-control custom-checkbox" *ngFor="let sub of main?.permissionModule">
+                    <input type="checkbox" class="custom-control-input" [value]="sub.moduleId" [(ngModel)]="sub.selected" [checked]="sub.selected" (change)="statusChange()" id="{{sub.moduleId}}" />
+                    <label class="custom-control-label cursor-pointer" for="{{sub.moduleId}}"> {{sub?.name}} </label>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+        <div class="col-12">
+            <div class="flex srbtn">
+                <button class="cancel" (click)="cancel()"> Cancel </button>
+                <button type="submit" (click)="save()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

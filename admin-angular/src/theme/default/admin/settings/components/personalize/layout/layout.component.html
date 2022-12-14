@@ -1,0 +1,49 @@
+<div class="setup-wrapper">
+
+    <div class="setup-container localization-container">
+
+        <div class="loc-lay-title">
+            <h3>personalize</h3>
+            <p>The admin can configure the display of the product list and order list in this section. The admin can configure this at their convenience and decide on how many products or orders should be shown in the product master list page and order master
+                list page.</p>
+        </div>
+
+        <div class="card ap-general ap-info set-loc-card">
+
+            <div class="localize-tab">
+
+                <ngb-tabset>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle='Product'>
+                            <button [appHideIfUnauthorized]="'edit-personalize-product'" [routerLinkActive]="'active'" [routerLink]="['/settings/personalize/product']" class="tablinks">Product</button>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+
+                        </ng-template>
+                    </ngb-tab>
+
+                    <ngb-tab> 
+                        <ng-template ngbTabTitle='Order'>
+                            <button [appHideIfUnauthorized]="'edit-personalize-order'" [routerLinkActive]="'active'" [routerLink]="['/settings/personalize/order']" class="tablinks">Order</button>
+                        </ng-template>
+                        <ng-template ngbTabContent>
+
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+                <!-- <button class="back-buttons" routerLink="/settings"> <img style="width: 20px;height: 13px;padding-right: 2px;" src="assets/img/arrow-back.svg" alt="back">Back</button> -->
+            </div>
+
+        </div>
+
+        <!-- <div class="set-lay-notes flex">
+            <h4>Note :</h4>
+            <p>Quid ex eo ortum, tam inportuno tamque crudeli; sin, ut de commodis suis. Tum dicere exorsus est consecutus? laudem et ultimum bonorum, quod maxime consuevit iactare. Alii autem, quibus ego cum soluta nobis est consecutus? laudem et aut petat.
+                In oculis quidem faciunt, ut dolore suo sanciret militaris imperii disciplinam exercitumque in.</p>
+        </div> -->
+
+    </div>
+
+</div>
+
+<router-outlet></router-outlet>

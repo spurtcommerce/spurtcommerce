@@ -1,0 +1,26 @@
+
+.settings-right-wrapper {
+    margin-top: 0px !important;
+    margin-left: 0px !important;
+}
+ 
+.setting2-inner-header {
+    justify-content: space-between;
+    margin-bottom: 15px;
+    margin-left: 0px !important;
+    padding: 8px;
+}
+.settings-right-wrapper.addnewuser {
+    padding: 0px !important; 
+    z-index: 0;
+    position: relative;
+}
+.settings-right-wrapper.addnewuser .new-user {
+    padding: 40px 50px;
+    border: none;
+}
+  .bton{
+    background: none;
+    border: none;
+    outline: none;
+  }

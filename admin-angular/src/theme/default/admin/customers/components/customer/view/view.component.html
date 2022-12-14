@@ -1,0 +1,149 @@
+<div class="row products-section">
+    <div class="col-12">
+        <div class="breadcrumbs-row">
+            <div class="bc-col">
+
+            </div>
+
+            <div class="bc-col-btn">
+                <button class="btn" routerLink="/customers">
+          <img src="assets/img/close-white-ico.png" alt="cancel" />{{
+            'Customers.Customer.Cancel' | translate
+          }}
+        </button>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumbs-->
+</div>
+<div class="">
+    <div class="flex viewcustomer-wrap" *ngIf="sandbox.getDetailCustomer$ | async as detail">
+        <div class="view-customer">
+            <div class="flex vc-header">
+                <div class="vch-detail">
+                    <div class="vchd-image" *ngIf="detail && !detail.avatar">
+                        <img src="./assets/img/avatar-img1.png" alt="avatar" width="13%" height="13%" />
+                    </div>
+                    <div class="vchd-image" *ngIf="detail.avatar">
+                        <img [src]="
+              imageUrl +
+              detail.avatarPath +
+              detail.avatar +
+              '?width=60&height=60'
+            " class="avatar" alt="detail.firstName" />
+                    </div>
+                    <div class="vchd-content">
+                        <h3>
+                            {{ detail?.firstName }}
+                            <!--<sup>#00304</sup> -->
+                        </h3>
+                        <p>
+                            <span> <img src="./assets/img/group-ico-sm.png" alt="group"/> </span>{{detail?.customerGroupName}}
+                        </p>
+                        <p class="d-inline-block">
+                            <span> <img src="assets/img/mail-ico-sm.png" alt="email" /> </span> {{ detail?.email }}
+                        </p>
+                        <p class="d-inline-block">
+                            <span> <img src="assets/img/mobile-ico-sm.png" alt="mobile"/> </span> {{ detail?.mobileNumber }}
+                        </p>
+                        <p>
+                            <span> <img src="assets/img/addr-ico-sm.png" alt="address"/> </span> {{ detail?.address }}
+                        </p>
+                    </div>
+                </div>
+                <!--Detail-->
+                <div class="vch-social"></div>
+                <!--Social-->
+            </div>
+            <!--Header-->
+            <div class="flex vc-header">
+
+                <div class="customer-activity">
+                    <article>
+
+                        <h5>{{'Customers.Customer.LastLoginActivity' | translate }}</h5>
+
+                        <div class="lastlog">
+                            {{ detail?.lastLogin | date: 'MMM d, y, h:mm:ss a' }}
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+            <div class="flex vc-header" *ngIf="sandbox.viewCustomerProduct$ | async as customerproduct">
+                <div class="vch-detail">
+                    <h4>{{'Dashboard.Viewproduct'|translate}}</h4>
+                    <div class="table" *ngIf="customerproduct.length>0">
+                        <div class="card m-r-20">
+                            <div class="product-tbl">
+                                <table *ngIf="customerproduct?.length>0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>{{'Customers.Customer.ProductImage' | translate}}</th>
+                                            <th>{{'Sales.Orders.ProductName' | translate}}</th>
+                                            <th>{{'Customers.Customer.ViewedDate' | translate}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="cursor: pointer;" *ngFor="let array of customerproduct" [routerLink]="['/catalog/product/edit', array.productId]">
+                                            <td>
+                                                <img class="view-prod-img" [src]="imageUrl + '?path=' + array.containerName + '&name=' + array.image + '&width=100&height=100'" onError="this.src='assets/error-images/Load-icon-Products.png';" [alt]="array.productName" />
+                                            </td>
+                                            <td>{{array.productName}}</td>
+                                            <td>{{array.createdDate | date:'MMM d, y, h:mm a'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <mat-paginator #paginator [length]='(sandbox.viewCustomerProductCount$|async)' [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)">
+                                </mat-paginator>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="no-data" *ngIf="customerproduct.length === 0">
+                        {{'Customers.Customer.NoProductsViewed' | translate}}
+                    </div>
+                </div>
+                <!--Detail-->
+                <div class="vch-social"></div>
+            </div>
+            <!---->
+        </div>
+        <!--Left-->
+        <!-- <div
+    class="d-grid grid-template-col-2 grid-template-col-lg-5 grid-template-col-xl-4 grid-gap-2 grid-gap-xl-3 mt-4 mb-3"
+  > -->
+
+        <div class="buying-history card custom-card" *ngIf="sandbox.viewOrderProduct$ | async as orderproduct">
+            <h4 class="">
+                {{'Customers.Customer.OrderProducts' | translate}}
+                <!-- <span *ngIf="(sandbox.viewCustomerProductCount$ | async)>0">{{(sandbox.viewCustomerProductCount$ | async)}}</span> -->
+                <span *ngIf="(sandbox.viewOrderProductCount$ | async)>0">{{(sandbox.viewOrderProductCount$ | async)}}</span>
+
+            </h4>
+            <ul class="" *ngIf="orderproduct.length > 0">
+                <li *ngFor="let array of orderproduct">
+                    <img [src]="
+                            imageUrl +
+                            '?path=' +
+                            array.containerName +
+                            '&name=' +
+                            array.image +
+                            '&width=60&height=60'
+                        " onError="this.src='assets/error-images/Load-icon-Products.png';" [alt]="array.productName" />
+                    <br />
+                    <b class="bh-content"><h5> {{ array.productName }}</h5></b>
+                    <br /> {{ array.createdDate | date: 'MMM d, y, h:mm:ss a' }}
+                </li>
+            </ul>
+            <mat-paginator *ngIf="orderproduct.length > 0" #paginator [length]='(sandbox.viewOrderProductCount$|async)' [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" (page)="orderProductPageChange($event)">
+            </mat-paginator>
+            <div class="no-data" *ngIf="orderproduct.length === 0">
+                {{'Customers.Customer.NoProductsOrdered' | translate}}
+            </div>
+        </div>
+    </div>
+    <!--Right-->
+</div>

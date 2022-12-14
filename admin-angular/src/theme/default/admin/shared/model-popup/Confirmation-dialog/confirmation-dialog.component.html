@@ -1,0 +1,13 @@
+<div style=" background: #FFF; width: 50%; margin: 0 auto;
+    margin-top: 30vh;">
+    <div class="modal-header">
+        <h6 class="modal-title"> {{errorMsg}}</h6>
+    </div>
+
+    <div class="modal-footer" style="margin-right: 23%;">
+        <button type="button" class="btn btn-danger" (click)="dismiss()" data-dismiss="modal">{{'catalog.product.No'| translate}}
+    </button>
+        <button type="button" class="btn btn-success" (click)="accept()" data-dismiss="modal">{{'catalog.product.Yes'| translate}}
+    </button>
+    </div>
+</div>

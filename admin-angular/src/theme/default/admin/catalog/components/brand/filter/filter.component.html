@@ -1,0 +1,25 @@
+<form [formGroup]="filterForm" class="filter-form">
+
+    <div class="form-group">
+        <label for="keyword">{{'catalog.Brand.BrandName'| translate}}</label>
+        <input type="text" formControlName="keyword" class="form-control" id="Keyword" aria-describedby="emailHelp" placeholder="{{'catalog.Brand.EnterBrandName'| translate}}">
+    </div>
+
+
+
+    <div class="form-group">
+        <label>{{'catalog.Brand.Status'| translate}}</label>
+        <ng-select [clearable]="false" class="sol-fm" placeholder="{{'catalog.Brand.SelectStatus'| translate}}" [searchable]="false" id="inlineFormCustomSelect" formControlName="status">
+            <ng-option [value]="1">{{'catalog.Brand.Active'| translate}}</ng-option>
+            <ng-option [value]="0">{{'catalog.Brand.In-Active'| translate}}</ng-option>
+        </ng-select>
+    </div>
+
+    <div class="text-right filter-btns">
+        <a (click)="resetFilter()" style="cursor: pointer">{{'catalog.product.Reset'| translate}}</a>
+
+        <button type="submit" class="btn" (click)="applyFilter()">{{'catalog.product.ApplyFilters'| translate}}
+        </button>
+    </div>
+
+</form>

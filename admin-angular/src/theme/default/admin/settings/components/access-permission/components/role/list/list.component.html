@@ -1,0 +1,81 @@
+<div class="set-lay-notes flex" style="padding: 0 10px 10px 10px;">
+    <h4>Note :</h4>
+    <p>The super admin can add different roles here and assign permissions to the roles. By defining the permissions, the super admin will be either giving the privilege to the role to access certain modules and at the same time will be restricting the user
+        from accessing certain other modules. </p>
+</div>
+
+<div class="setup-wrapper set-loc-wrapper">
+    <div class="setup-container localization-container">
+        <div class="card ap-general ap-info">
+            <div class="flex ap-body">
+
+                <div class="settings-right-wrapper">
+
+                    <div class="localize-header flex">
+                        <div class="loc-hdr-lft">
+                            <!-- <p>Showing <span> 0 - 10 </span> results</p> -->
+                            <div class="input-group">
+                                <p>{{'Settings.Local.Resultsperpage' | translate}}</p>
+                                <div class="select">
+                                    <select [(ngModel)]="pageSize" (change)="getRolelist(0,pageSize)">
+                                        <option *ngIf="pageSize!== '10' && pageSize!== '20' && pageSize!== '30'" value="{{pageSize}}">{{pageSize}}</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="set-ad-btn" (click)="addNewRole('','add')" [appHideIfUnauthorized]="'create-role'"> <img src="assets/img/add-white-ico.png" alt="add"> {{'Settings.Role.AddNewRole' | translate}} </button>
+                    </div>
+
+                </div>
+
+                <div class="setup-right">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <!-- <th width="20px"></th> -->
+                                    <th width="50%">{{'Settings.Role.Name' | translate}}</th>
+                                    <th>{{'Settings.Role.Status' | translate}}</th>
+                                    <th class="text-center" width="50px"[appHideIfUnauthorized]="" [multipleHide]="['edit-role','delete-role','edit-role-permission']">{{'Settings.Role.Action' | translate}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let Rolelist of appSandbox.getRolesList$ | async; let i=index">
+
+                                    <td>
+                                        <h3>{{Rolelist.name}}</h3>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="Rolelist.isActive === 1">{{'Settings.Role.Active' | translate}}</div>
+                                        <div *ngIf="Rolelist.isActive === 0">{{'Settings.Role.InActive' | translate}}</div>
+                                    </td>
+                                    <td class="text-center" [appHideIfUnauthorized]="" [multipleHide]="['edit-role','delete-role','edit-role-permission']">
+
+                                        <div class="dropdown" ngbDropdown>
+                                            <i class="fa fa-ellipsis-v cursor" style="padding:0 15px" ngbDropdownToggle> </i>
+                                            <div ngbDropdownMenu class="dropdown-menu" style="min-width: 88px;">
+                                                <a *ngIf="Rolelist?.groupId !== 1"  class="dropdown-item" ngbDropdownItem [appHideIfUnauthorized]="'edit-role-permission'" [ngClass]="{'hide-permission' : Rolelist?.groupId === 1}" (click)="goToPermission(Rolelist)"
+                                                    style="cursor: pointer;"> Permission </a>
+                                                <a [appHideIfUnauthorized]="'edit-role'" (click)="addNewRole(Rolelist,'edit')" class="dropdown-item" ngbDropdownItem href="javascript:void(0)">  {{'Settings.Local.Edit' | translate}} </a>
+                                                <a [appHideIfUnauthorized]="'delete-role'" style="margin-left: 15px; cursor: pointer;" class="dropdown-item" (click)="deleteRole(Rolelist.groupId)"> {{'Settings.Local.Delete' | translate}} </a>
+                                            </div>
+                                        </div>
+
+
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <mat-paginator [length]="appSandbox.roleCount$ | async" [pageSize]="pageSize" [pageSizeOptions]="[[pageSize]]" (page)="onPageChange($event)">
+                        </mat-paginator>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="setup-wrapper">
+
+    <div class="setup-container localization-container">
+
+        <div class="loc-lay-title">
+            <h3>Site settings</h3>
+            <p>In this section, the admin can create and maintain a master list of different aspects that will be required for an enhanced approach for listing products, providing a good shopping experience to the customers and also for making the entire
+                eCommerce portal SEO friendly. </p>
+        </div>
+
+        <div class="card ap-general ap-info set-loc-card">
+
+            <div class="localize-tab"> 
+
+                <div class="tab seo-tab">
+                    <button [appHideIfUnauthorized]="'edit-seo-url'" [routerLinkActive]="'active'" [routerLink]="['/settings/site-settings/seo']" routerLinkActive="active" class="tablinks" >SEO</button>
+                    <button [appHideIfUnauthorized]="'edit-social-url'" [routerLinkActive]="'active'" [routerLink]="['/settings/site-settings/social']" routerLinkActive="active" class="tablinks">Social Media Keys</button>
+                </div>
+
+            </div>
+
+        </div> 
+
+    </div>
+
+</div>
+
+
+
+
+<router-outlet></router-outlet>

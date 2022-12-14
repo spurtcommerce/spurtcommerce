@@ -1,0 +1,50 @@
+<!-- <div class="flex setting2-inner-header">
+    <h3> {{'Settings.Common.Settings' | translate}} <span> > </span> {{'Settings.SiteSettings.SiteSettings' | translate}} <span> > </span> {{'Settings.SiteSettings.SEO' | translate}}</h3>
+</div> -->
+
+<div class="setup-wrapper setup-personalize">
+    <div class="setup-container flex">
+
+        <div class="setup-left">
+            <h3>What Payment details are required?</h3>
+            <p>Quid ex eo ortum, tam inportuno tamque crudeli; sin, ut de commodis suis. Tum dicere exorsus est consecutus? laudem et ultimum bonorum, quod maxime consuevit iactare. Alii autem, quibus ego cum soluta nobis est consecutus? laudem et aut petat.
+                In oculis quidem faciunt, ut dolore suo sanciret militaris imperii disciplinam exercitumque in.</p>
+        </div>
+
+        <div class="setup-right">
+            <form [formGroup]="seoForm" class="form-horizontal">
+
+                <div class="sup-rht-section">
+
+                    <div class="suprs-form">
+                        <div class="suprs-form-row flex">
+                            <label>Payment Details <a href="javascript:void(0)"> <img src="assets/img/icon-information-circle-outline.svg"> </a> </label>
+                            <div class="suprs-form-col">
+                                <textarea></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- <div class="col-12">
+                        <div class="flex user-btn">`
+                            <button type="submit" [appHideIfUnauthorized]="'edit-seo-url'"  class="settings-add-button">{{'Settings.SiteSettings.Save' | translate}}</button>
+                            <button (click)="seoCancel()" [appHideIfUnauthorized]="'edit-seo-url'"  class="settings-add-button settings-cancel-button">{{'Settings.SiteSettings.Cancel' | translate}}
+                            </button>
+                        </div>
+                    </div> -->
+
+                    <div class="flex srbtn">
+                        <button (click)="seoCancel()" [appHideIfUnauthorized]="'edit-seo-url'" class="cancel">{{'Settings.SiteSettings.Cancel' | translate}}</button>
+                        <button type="submit" [appHideIfUnauthorized]="'edit-seo-url'">{{'Settings.SiteSettings.Save' | translate}}</button>
+                    </div>
+
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>

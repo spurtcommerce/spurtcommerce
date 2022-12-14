@@ -1,0 +1,63 @@
+<div class="order-fulfillment-modal">
+    <h3 style="font-weight: 700;">{{updatetitle ? 'Update Order Return Status' : 'Add Order Return Status' | translate}}</h3>
+    <a (click)="close()" href="javascript:void(0)" class="close"> <img src="assets/img/close.svg" alt=""> </a>
+    <div class="ofm-content">
+        <p>In quo pertineant non fuisse torquem detraxit hosti et quidem exercitus quid ex eo delectu rerum, quem ad eam non ero tibique, si mihi probabis ea, quae sine causa? quae fuerit causa, nollem me ab eo delectu rerum, quem. </p>
+    </div>
+    <div class="ofm-stat flex" [formGroup]="stockStatusForm">
+        <div class="input-group">
+            <p>{{'Settings.Local.Orderstatus.OrderStatusName' | translate}}</p>
+            <input type="text" formControlName="OrderStatusName" [ngClass]="{ 'validationcolor': submitted && f.OrderStatusName.errors }">
+            <div *ngIf="submitted && f.OrderStatusName.errors" class="validation-error">
+                <div *ngIf="f.OrderStatusName.errors.required && submitted">
+                    {{'Settings.Local.Orderstatus.Error.OrderStatusNameisrequired' | translate}}
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <p>{{'Settings.Local.Orderstatus.Priority' | translate}}</p>
+            <input type="text" formControlName="priority" appOnlyNumber [ngClass]="{ 'validationcolor': submitted && f.priority.errors }">
+            <div *ngIf="submitted && f.priority.errors" class="validation-error">
+                <div *ngIf="f.priority.errors.required">
+                    {{'Settings.Local.Orderstatus.Error.Priorityisrequired' | translate}}
+                </div>
+            </div>
+        </div>
+        <div class="ig-ofm-stt">
+            <p>Participant Order Return Status</p>
+            <div class="ofm-ig-sts flex">
+                <div class="custom-control" *ngFor="let lists of list">
+
+                    <input type="checkbox" class="custom-control-input" id="{{lists.id}}" [(ngModel)]="lists.checked" [ngModelOptions]="{standalone: true}" (change)="result()" [ngClass]="{ 'error-checkbox': checkeddata?.length<1&&submitted }" />
+                    <label class="custom-control-label cursor-pointer" for="{{lists.id}}"> {{lists.name}}</label>
+                </div>
+
+            </div>
+            <p style="color:red" *ngIf="checkeddata?.length<1&&submitted">Choose any one</p>
+        </div>
+        <div class="input-group">
+            <p>{{'Settings.Local.Orderstatus.ColorCode' | translate}}</p>
+            <input [(ngModel)]="color" [(colorPicker)]="color" formControlName="ColorCode" (colorPickerChange)="onchange($event)" [value]="color" [ngClass]="{'invalid': colorRequire}" />
+            <div *ngIf="colorRequire" class="validation-error">
+                {{'Settings.Local.Orderstatus.Error.OrderStatusColorrequired' | translate}}
+            </div>
+        </div>
+        <div class="input-group" style="width:100%">
+            <p>{{'Settings.Local.Orderstatus.Status' | translate}}</p>
+
+            <ng-select [clearable]="false" [searchable]="false" formControlName="status" placeholder="{{'Settings.Local.Language.SelectStatus' | translate}}" [ngClass]="{ 'error-fields': submitted && f.status.errors }">
+                <ng-option [value]="1">{{'Settings.Local.Orderstatus.Enabled' | translate}}</ng-option>
+                <ng-option [value]="0">{{'Settings.Local.Orderstatus.Disabled' | translate}}</ng-option>
+            </ng-select>
+            <div style="margin-top: 12px;" *ngIf="submitted && f.status.errors" class="validation-error">
+                <div *ngIf="f.status.errors.required">
+                    {{'Settings.Local.Orderstatus.Error.OrderStatusisrequired' | translate}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ofs-gtn flex">
+        <button (click)="add()">Save</button>
+        <button (click)="close()" class="cancel">Cancel</button>
+    </div>
+</div>

@@ -1,0 +1,388 @@
+/* LOGIN VALIDATION*/
+
+.validationcolor {
+    border-color: red !important;
+}
+
+.seo-row {
+    width: 100% !important;
+    justify-content: space-between !important;
+    .data-col {
+        width: 31%;
+        margin-right: 2.3%;
+    }
+}
+
+.price-group {
+    border: solid 1px #eee;
+    background-color: white;
+    height: 33;
+    line-height: 30px;
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 14px;
+    color: black;
+    width: 100%;
+    .input-group-addon {
+        background: #f1f1f1;
+        width: 20%;
+        text-align: center;
+        height: 100%;
+        display: inline-block;
+        color: gray;
+    }
+    input {
+        display: inline-block;
+        width: 80%;
+        border: none;
+        height: 100%;
+        padding: 0px 10px;
+    }
+}
+
+.main-content {
+    .sub-content {
+        display: inline-block;
+        width: 18%;
+        margin: 10px;
+    }
+    label {
+        display: block;
+        min-height: 25px;
+        font-weight: 400 !important;
+        color: black;
+        font-size: 13px;
+    }
+}
+
+.remove {
+    width: 20px !important;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.add {
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.no-data {
+    display: block;
+    text-align: center;
+}
+
+.discount-main-content {
+    .sub-content {
+        display: inline-block;
+        width: 16%;
+        margin: 10px;
+        vertical-align: top;
+    }
+    label {
+        display: block;
+        min-height: 25px;
+        font-weight: 400 !important;
+        color: black;
+        font-size: 13px;
+    }
+}
+
+.toggle .tgl:checked+.tgl-btn:after {
+    top: 0px !important;
+}
+
+.toggle .tgl+.tgl-btn:after {
+    top: 0px !important;
+}
+
+.toggle .tgl:checked+.tgl-btn:after {
+    background-color: white !important;
+}
+
+.toggle .tgl+.tgl-btn:after {
+    background-color: white !important;
+}
+
+.toggle .tgl+.tgl-btn {
+    height: 1.7em !important;
+}
+
+.toggle .tgl-light:checked+.tgl-btn {
+    background: #008c00 !important;
+}
+
+.toggle .tgl-light+.tgl-btn {
+    background: #f00 !important;
+}
+
+// option selected validator
+.optionValidator {
+    background: #ed571f !important;
+}
+
+.error {
+    color: red;
+}
+
+
+/* Blue */
+
+.info {
+    border-color: blue;
+    color: white;
+    background: blue;
+}
+
+.info:hover {
+    background: green;
+    color: white;
+}
+
+mat-radio-button {
+    padding: 1px 3px !important;
+}
+
+.datePiker {
+    padding: 3px 0px !important;
+}
+
+.error-field {
+    border: 1px soild #ff1e1e !important;
+}
+
+.addproduct-wrap .card.ap-info .ap-body .tab-content .data-row .data-col {
+    width: 31%;
+    margin-right: 2.3%;
+}
+
+.ship {
+    margin-top: 34px;
+}
+
+.form-lft {
+    padding-left: 10px;
+    margin-right: 57px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+// toggle button
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 140px;
+    height: 34px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ca2222;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 21px;
+    left: 3px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2a6ab9;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(55px);
+    -ms-transform: translateX(55px);
+    transform: translateX(55px);
+}
+
+
+/*------ ADDED CSS ---------*/
+
+.on {
+    display: none;
+}
+
+.on,
+.off {
+    color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+}
+
+input:checked+.slider .on {
+    display: block;
+}
+
+input:checked+.slider .off {
+    display: none;
+}
+
+
+/*--------- END --------*/
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.round {
+    line-height: 48px;
+    color: #fff;
+    width: 79px;
+    height: 26px;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 100%;
+    background: #727273;
+    line-height: 52px;
+}
+
+.tier-inp {
+    width: 250px !important;
+}
+
+.addproduct-wrap .card .ap-body {
+    justify-content: space-between;
+    padding: 15px;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    padding-left: 64px;
+    width: unset !important;
+}
+
+.pd-img {
+    .close {
+        background: black;
+        border-radius: 10px;
+        width: 15px;
+    }
+}
+
+.pd-img-upld {
+    cursor: pointer !important;
+}
+
+.icon-disabled {
+    pointer-events: none;
+    opacity: 0.65;
+    background: #fff;
+}
+
+.errorMsg {
+    color: red;
+    position: absolute;
+    top: 50px;
+    left: 17px;
+    width: 110px;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: serif;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.date-with {
+    width: 100%;
+}
+
+td {
+    vertical-align: top;
+}
+
+.ng-dropdown-panel {
+    display: block !important;
+}
+
+.vdo-col {
+    height: 18px;
+    // margin: 24px 115.5px 8px 0;
+    font-size: 15px;
+    color: #000;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+.video-input {
+    width: 610px;
+    height: 42px;
+    // margin: 8px 300px 52px 0;
+    margin-bottom: 15px;
+    padding: 0 0 0 13px;
+    border-radius: 2px;
+    border: solid 1px #d7d2d2;
+    background-color: var(--white-three);
+    margin-left: 15px;
+}
+
+.video-button {
+    width: 100px;
+    height: 42px;
+    // margin: 0 0 0 318px;
+    // padding: 12px 26px 12px 27px;
+    border-radius: 2px;
+    border: solid 1px #016dd9;
+    background-color: #016dd9;
+    color: white;
+}
+
+.vdo-browse {
+    width: 145px;
+    height: 42px;
+    //   padding: 12px 15px 12px 16px;
+    border-radius: 2px;
+    border: solid 1px #016dd9;
+    background-color: #016dd9;
+    color: white;
+    position: absolute;
+}
+
+::-webkit-file-upload-button {
+    display: none;
+}
+
+.youtube-embeded {
+    justify-content: space-between;
+    width: 98%;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #ed571f !important;
+    border: #ed571f !important;
+}

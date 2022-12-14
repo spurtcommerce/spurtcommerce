@@ -1,0 +1,128 @@
+<div class="row products-section products-sub-section">
+
+    <div class="col-12">
+        <div class="flex filter-row">
+            <div class="filter-lft">
+                <div class="toggle">
+                    <p>{{'catalog.product.Filters'| translate}}</p>
+                    <input class="tgl tgl-light" id="cb1" type="checkbox" [checked]="true" (change)="changeFilter($event)" />
+                    <label class="tgl-btn" for="cb1"></label>
+                </div>
+                <ul class="order-status">
+                    <li>
+                        <span class="active"></span>{{'catalog.product.Active'| translate}}
+                    </li>
+                    <li>
+                        <span class="inactive"></span>{{'catalog.product.In-Active'| translate}}
+                    </li>
+                </ul>
+            </div>
+            <!--Lft-->
+            <div class="filter-nav-list">
+
+                <div class="bc-col-btn">
+                    <button class="btn" (click)="addCategories()" [appHideIfUnauthorized]="'create-category'"><img
+                            src="assets/img/add-white-ico.png" alt="add category">{{'catalog.categories.AddCategory'| translate}}
+                    </button>
+                </div>
+                <div class="bc-col-btn">
+                    <ul class="flex">
+                        <li>
+                            <a style="border-color:#fd5126!important;color:#fd5126!important;" href="javascript:void(0)" (click)="exportAll()">
+                                <img src="assets/images/exportall_category.svg" alt="export" height="16px" width="16px" />{{'catalog.product.All Export'| translate}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown" ngbDropdown>
+                    <i class="fa fa-ellipsis-h cursor" style="padding:8px 10px; margin-left:16px;background:#ffa17d;" [ngClass]="{'export-data': filterDataId.length!=0}" ngbDropdownToggle></i>
+                    <div ngbDropdownMenu class="dropdown-menu">
+                        <a [ngClass]="{'blur':filterDataId.length==0}" [disabled]="filterDataId.length==0" (click)="exportExcel()" class="dropdown-item" ngbDropdownItem href="javascript:void(0)"> <img src="assets/img/export-sm.svg" alt="export"> {{'catalog.product.Export'| translate}} </a>
+                        <!-- <a  class="dropdown-item" ngbDropdownItem href="javascript:void(0)"> <img src="assets/img/delete-sm.svg" alt="delete"> Delete </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flex product-wrap example-full-width">
+    <div *ngIf="buttonCheck == true" class="filter-section">
+        <div class="w3-container">
+            <app-spurt-catalog-categories-filter (progressEmit)="receiveProgress($event)">
+            </app-spurt-catalog-categories-filter>
+        </div>
+    </div>
+    <!--Filter-->
+    <div class="product-table" [ngClass]="{'changesize': buttonCheck == true }">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" width="5%">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox mr-sm-2" style="top:0px">
+                                    <input *ngIf="categorySandbox.getCategoriesList$ | async" type="checkbox" class="custom-control-input" id="checkbox1" (change)="selectAll()" [(ngModel)]="selectedAll" [ngModelOptions]="{standalone: true}" />
+                                    <label style="cursor: pointer;" class="custom-control-label" for="checkbox1"></label>
+                                </div>
+                            </div>
+                        </th>
+                        <th scope="col">{{'catalog.product.Image'| translate}}</th>
+                        <th scope="col" width="20%">{{'catalog.categories.CategoryName'| translate}}</th>
+                        <th scope="col" width="37%">{{'catalog.categories.Levels'| translate}}</th>
+                        <th class="text-center" scope="col">{{'catalog.categories.SortOrder'| translate}}</th>
+                        <th class="text-center" scope="col" width="100px" class="text-center">{{'catalog.product.Status'| translate}}</th>
+                        <th scope="col" class="text-center" [appHideIfUnauthorized]="" [multipleHide]="['edit-category','delete-category']">{{'catalog.categories.Action'| translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--response from category list or category filter list-->
+                    <tr *ngFor="let data of productListArray;let i=index">
+                        <th scope="row">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox mr-sm-2" style="top:0px">
+                                    <input type="checkbox" class="custom-control-input" (change)="checkIfAllSelected()" id="{{ data.categoryId }}" [ngModelOptions]="{ standalone: true }" [(ngModel)]="data.selected" />
+                                    <label class="custom-control-label" for="{{ data.categoryId }}"></label>
+                                </div>
+                            </div>
+                        </th>
+                        <td>
+                            <img *ngIf="data.imagePath" [src]="imageUrl + '?path=' + data.imagePath + '&name=' + data.image + '&width=60&height=60'" onError="this.src='/assets/error-images/Load-icon-Products.png';" (load)="categoryImageLoading(data.categoryId)" [hidden]="!categoryImage[data.categoryId]"
+                                [alt]="data.name">
+                            <img src="./assets/error-images/Load-icon-Products.png" alt="error-img" [hidden]="categoryImage[data.categoryId]">
+                        </td>
+                        <td class="name">{{data.name}}</td>
+                        <td>{{data.levels}}</td>
+                        <td class="text-center">{{data.sortOrder}}</td>
+                        <td class="text-center">
+                            <div *ngIf="data.isActive == 1">
+                                <span class="tag-active">{{'Settings.Role.Active'| translate}}</span>
+                            </div>
+                            <div *ngIf="data.isActive == 0">
+                                <span class="tag-inactive">{{'Settings.Role.InActive'| translate}}</span>
+                            </div>
+                        </td>
+                        <td class="text-center" [appHideIfUnauthorized]="" [multipleHide]="['edit-category','delete-category']">
+                            <div class="dropdown" ngbDropdown>
+                                <i class="fa fa-ellipsis-v cursor" style="padding:0 15px" ngbDropdownToggle>
+                                </i>
+                                <div ngbDropdownMenu class="dropdown-menu">
+                                    <a [appHideIfUnauthorized]="'edit-category'" class="dropdown-item" ngbDropdownItem href="javascript:void(0)" (click)="editCategory(data)"> <img src="assets/img/edit.png" alt="edit"> {{'catalog.coupon.Edit'| translate}} </a>
+                                    <a [appHideIfUnauthorized]="'delete-category'" class="dropdown-item" ngbDropdownItem href="javascript:void(0)" (click)="deleteCategory(data.categoryId)"> <img src="assets/img/delete-sm.svg" alt="delete"> {{'catalog.coupon.Delete'| translate}} </a>
+                                </div>
+                            </div>
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="no_data" *ngIf="(categorySandbox.getCategoriesList$ | async)?.length==0">
+                <p>{{'Sales.Orders.datanotfound'| translate}}</p>
+            </div>
+            <mat-paginator #paginator [length]="categorySandbox.getCategoriesListCount$ | async" [pageSize]="pageSize" [pageIndex]="index" [pageSizeOptions]="[pageSize]" [pageIndex]="index" (page)="onPageChange($event)">
+            </mat-paginator>
+        </div>
+    </div>
+    <!--Table-->
+</div>

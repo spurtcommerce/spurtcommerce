@@ -1,0 +1,46 @@
+<div class="setup-wrapper">
+
+    <div class="setup-container localization-container">
+
+        <div class="loc-lay-title">
+            <h3>System</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing</p>
+        </div>
+
+        <div class="card ap-general ap-info set-loc-card">
+
+            <div class="localize-tab">
+
+                <div class="tab seo-tab">
+                    <!-- <button [appHideIfUnauthorized]="'settings-site-seo'" [routerLinkActive]="'active'" [routerLink]="['/settings/sitesettings/seo']" class="tablinks">SEO</button> -->
+                    <button  [routerLinkActive]="'active'" [routerLink]="['/settings/sitesettings/maintenance']" [appHideIfUnauthorized]="'edit-general-settings'"lass="tablinks">Maintenance</button>
+                    <button  [routerLinkActive]="'active'" [routerLink]="['/settings/sitesettings/email']" [appHideIfUnauthorized]="'list-email-template'" class="tablinks">Email</button>
+                    <!-- <button [appHideIfUnauthorized]="''" [routerLinkActive]="'active'" [routerLink]="['/settings/sitesettings/social']" class="tablinks">Social Media Keys</button> -->
+                    <!-- <button [appHideIfUnauthorized]="''" [routerLinkActive]="'active'" [routerLink]="['/settings/sitesettings/payments']" class="tablinks">Payment</button> -->
+                    <!-- <button [appHideIfUnauthorized]="'settings-site-social'" [routerLinkActive]="'active'" [routerLink]="['/settings/sitesettings/social']" class="tablinks" >Social</button>
+                    <button [appHideIfUnauthorized]="'settings-site-filter'" [routerLinkActive]="'active'" [routerLink]="['/settings/sitesettings/filter']" class="tablinks" >Filter</button>
+
+                    <!-- <div class="back-button-settings">
+                        <button  class="coc" routerLink="/settings"> <img src="assets/img/arrow-back.svg" alt="arrow"> Back </button>
+                    </div>  -->
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- <div class="set-lay-notes flex">
+            <h4>Note :</h4>
+            <p>Quid ex eo ortum, tam inportuno tamque crudeli; sin, ut de commodis suis. Tum dicere exorsus est consecutus? laudem et ultimum bonorum, quod maxime consuevit iactare. Alii autem, quibus ego cum soluta nobis est consecutus? laudem et aut petat.
+                In oculis quidem faciunt, ut dolore suo sanciret militaris imperii disciplinam exercitumque in.</p>
+        </div> -->
+
+    </div>
+
+</div>
+
+
+
+
+<router-outlet></router-outlet>
