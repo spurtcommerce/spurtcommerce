@@ -7,6 +7,7 @@ const content: any = tsconfig;
 content.compilerOptions.outDir = '.tmp';
 content.include = [
     'src/**/*',
+    'add-ons/**/*',
 ];
 
 const filePath = path.join(process.cwd(), 'tsconfig.build.json');

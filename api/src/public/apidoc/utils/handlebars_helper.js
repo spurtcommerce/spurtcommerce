@@ -22,6 +22,16 @@ define([
     });
 
     /**
+     * set paramater type.
+     */
+    Handlebars.registerHelper("setInputType", function(text) {
+          if (text === "File") {
+            return "file";
+          }
+          return "text";
+    });
+
+    /**
      * start/stop timer for simple performance check.
      */
     var timer;
@@ -204,6 +214,46 @@ define([
     /**
      *
      */
+    Handlebars.registerHelper('gen_body', function(context, options) {
+      let strBody = {};
+      context.forEach(element => {
+        element.field = element.field.replace("]", "");
+        switch (element.type.toLowerCase()) {
+          case "string":
+            if (element.field.includes('[')) {
+              if (strBody[element.field.split("[")[0]] === undefined) {
+                strBody[element.field.split("[")[0]] = {};
+              }
+              strBody[element.field.split("[")[0]][element.field.split("[")[1]] = (element.defaultValue || "");
+              break;
+            }
+            strBody[element.field] = (element.defaultValue || "");
+            break;
+          case "number":
+            if (element.field.includes('[')) {
+              if (strBody[element.field.split("[")[0]] === undefined) {
+                strBody[element.field.split("[")[0]] = {};
+              }
+              strBody[element.field.split("[")[0]][element.field.split("[")[1]] = (element.defaultValue || 0);
+              break;
+            }
+            strBody[element.field] = (element.defaultValue || 0);
+            break;
+          case "object":
+            if (strBody[element.field] === undefined) {
+              strBody[element.field] = {};
+            }
+            break;
+          default:
+            strBody[element.field] = null;
+        }
+      });
+      return JSON.stringify(strBody, null, 4);
+    });
+
+    /**
+     *
+     */
     Handlebars.registerHelper('each_compare_field', function(source, compare, options) {
         return _handlebarsEachCompared('field', source, compare, options);
     });
@@ -242,7 +292,7 @@ define([
             if( ! compare)
                 return source;
 
-            var d = diffMatchPatch.diff_main(compare, source);
+            var d = diffMatchPatch.diff_main(stripHtml(compare), stripHtml(source));
             diffMatchPatch.diff_cleanupSemantic(d);
             ds = diffMatchPatch.diff_prettyHtml(d);
             ds = ds.replace(/&para;/gm, '');
@@ -351,6 +401,15 @@ define([
       }
       return html.join('');
     };
+
+    /**
+     * Fixes html after comparison (#506, #538, #616, #825)
+     */
+    function stripHtml(html){
+      var div = document.createElement("div");
+      div.innerHTML = html;
+      return div.textContent || div.innerText || "";
+    }
 
     // Exports
     return Handlebars;

@@ -1,7 +1,7 @@
 /*
- * spurtcommerce community API
- * version 1.0
- * Copyright (c) 2019 PICCOSOFT
+ * SpurtCommerce API
+ * version 4.8.0
+ * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
  */
@@ -78,6 +78,16 @@ export const env = {
     },
     imageserver: getOsEnv('IMAGE_SERVER'),
     storeUrl: getOsEnv('STORE_URL'),
+    baseUrl: getOsEnv('BASE_URL'),
+    storeRedirectUrl: getOsEnv('STORE_REDIRECT_URL'),
+    adminRedirectUrl: getOsEnv('ADMIN_REDIRECT_URL'),
+    storeForgetPasswordLink: getOsEnv('STORE_FORGET_PASSWORD_URL'),
+    adminForgetPasswordLink: getOsEnv('ADMIN_FORGET_PASSWORD_URL'),
+    loginAttemptsCount: getOsEnv('LOGIN_ATTEPMTS_COUNT'),
+    loginAttemptsMinutes: getOsEnv('LOGIN_ATTEPMTS_MINUTES'),
+    jwtSecret: getOsEnv('JWT_SECRET'),
+    cryptoSecret: getOsEnv('CRYPTO_SECRET'),
+    availImageTypes: getOsEnv('AVAILABLE_IMAGE_TYPES'),
 };
 
 export const mail = {

@@ -43,24 +43,6 @@ export class CreatePageTable1546582513520 implements MigrationInterface {
                     isPrimary: false,
                     isNullable: true,
                 }, {
-                    name: 'meta_tag_title',
-                    type: 'varchar',
-                    length: '255',
-                    isPrimary: false,
-                    isNullable: true,
-                }, {
-                    name: 'meta_tag_description',
-                    type: 'varchar',
-                    length: '255',
-                    isPrimary: false,
-                    isNullable: true,
-                }, {
-                    name: 'meta_tag_keywords',
-                    type: 'varchar',
-                    length: '255',
-                    isPrimary: false,
-                    isNullable: true,
-                }, {
                     name: 'view_page_count',
                     type: 'integer',
                     length: '11',

@@ -1,6 +1,6 @@
 import { Connection } from 'typeorm';
 import { Factory, Seed } from 'typeorm-seeding';
-import { Settings } from '../../api/models/Setting';
+import { Settings } from '../../api/core/models/Setting';
 export class CreateSetting implements Seed {
     public async seed(factory: Factory, connection: Connection): Promise<Settings> {
         const em = connection.createEntityManager();
@@ -19,6 +19,8 @@ export class CreateSetting implements Seed {
             setting.storeFax = 'fax number';
             setting.storeLogo = 'yourStoreLogo.jpg';
             setting.maintenanceMode = 1;
+            setting.storeLanguageName = 'store language';
+            setting.storeCurrencyId = 1;
             setting.storeImage = 'storeImage.png';
             setting.invoicePrefix = 'SPU';
             setting.orderStatus = 1;

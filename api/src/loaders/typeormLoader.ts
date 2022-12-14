@@ -1,12 +1,15 @@
 /*
- * spurtcommerce community API
- * Copyright (c) 2022 Piccosoft Software Labs Pvt Ltd
- * Author Piccosoft Software Labs Pvt Ltd <support@spurtcommerce.com>
+ * spurtcommerce API
+ * version 4.8.0
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
  */
 
 import { MicroframeworkLoader, MicroframeworkSettings } from 'microframework-w3tec';
 import { createConnection, getConnectionOptions } from 'typeorm';
+import * as entities from '../common/entities-index';
+import * as migrations from '../common/migrations-index';
 import { env } from '../env';
 
 export const typeormLoader: MicroframeworkLoader = async (settings: MicroframeworkSettings | undefined) => {
@@ -23,8 +26,8 @@ export const typeormLoader: MicroframeworkLoader = async (settings: Microframewo
         synchronize: env.db.synchronize,
         logging: true,
         logger: 'advanced-console',
-        entities: env.app.dirs.entities,
-        migrations: env.app.dirs.migrations,
+        entities: Object.values(entities),
+        migrations: Object.values(migrations),
     });
 
     const connection = await createConnection(connectionOptions);

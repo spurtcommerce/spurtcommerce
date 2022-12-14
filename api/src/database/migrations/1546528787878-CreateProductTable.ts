@@ -33,12 +33,6 @@ export class CreateProductTable1546528787878 implements MigrationInterface {
                     isPrimary: false,
                     isNullable: true,
                 }, {
-                    name: 'stock_status_id',
-                    type: 'integer',
-                    length: '11',
-                    isPrimary: false,
-                    isNullable: false,
-                }, {
                     name: 'image',
                     type: 'varchar',
                     length: '255',
@@ -94,24 +88,6 @@ export class CreateProductTable1546528787878 implements MigrationInterface {
                     isPrimary: false,
                     isNullable: true,
                 }, {
-                    name: 'meta_tag_title',
-                    type: 'varchar',
-                    length: '255',
-                    isPrimary: false,
-                    isNullable: true,
-                }, {
-                    name: 'meta_tag_description',
-                    type: 'varchar',
-                    length: '255',
-                    isPrimary: false,
-                    isNullable: true,
-                }, {
-                    name: 'meta_tag_keyword',
-                    type: 'varchar',
-                    length: '255',
-                    isPrimary: false,
-                    isNullable: true,
-                }, {
                     name: 'discount',
                     type: 'int',
                     length: '11',
@@ -136,6 +112,12 @@ export class CreateProductTable1546528787878 implements MigrationInterface {
                     isPrimary: false,
                     isNullable: true,
                 }, {
+                    name: 'is_featured',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }, {
                     name: 'today_deals',
                     type: 'int',
                     length: '11',
@@ -148,7 +130,19 @@ export class CreateProductTable1546528787878 implements MigrationInterface {
                     isNullable: true,
                     default: 0,
                 }, {
+                    name: 'wishlist_status',
+                    type: 'int',
+                    isPrimary: false,
+                    isNullable: true,
+                    default: 0 ,
+                }, {
                     name: 'condition',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }, {
+                    name: 'rating',
                     type: 'int',
                     length: '11',
                     isPrimary: false,

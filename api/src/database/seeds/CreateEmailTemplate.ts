@@ -1,9 +1,8 @@
 import { Connection } from 'typeorm';
 import { Factory, Seed } from 'typeorm-seeding';
-import { EmailTemplate } from '../../api/models/EmailTemplate';
+import { EmailTemplate } from '../../api/core/models/EmailTemplate';
 export class CreateEmailTemplate implements Seed {
-
-    public async seed(factory: Factory, connection: Connection): Promise<EmailTemplate> {
+    public async seed(factory: Factory, connection: Connection): Promise<any> {
         const em = connection.createEntityManager();
         const registerData = "Dear {name},<br/><br/> <p style='margin-bottom:.5em; margin: 0 0 10px 0;text-indent: 50px'> Thank you for expressing your interest and registering with Spurtcommerce, the faster roadway for a smarter eCommerce drive.   </p>";
         const fogotPasswordData = "Dear {name},<br/><br/>        <p style='margin-bottom:.5em; margin: 0 0 10px 0;text-indent: 50px'> Your new Password is :  {xxxxxx}  </p>";
@@ -19,7 +18,10 @@ export class CreateEmailTemplate implements Seed {
             "    <td dir='ltr' style='padding:0 0px;color:#000;font-weight:300;text-align:left;font-size:12px;line-height:1.2rem;padding-top:10px;font-family: 'Roboto', sans-serif;' valign='top'> The new order {orderId} from the Customer {name} has been successfully placed. Kindly find the following details on the placed order.    </tr> </tbody></table></td> </tr> ";
         const userData = ' <p>Dear {name}, <br />&nbsp;</p>' + '<p>We are glad to inform you that Spurtcommerce has added you as admin User.Here are your User Credentials for logging into the Application</p>' + '<p>User ID : {username}</p>' + '<p>Password : {password}</p>'
          + '<p>&nbsp;</p>' + '<p>You may login using the above Email Id and Password.</p>' + '<p>&nbsp;</p>';
-        const statusData: any = [            {
+        const enquiryData = '<p>Dear Admin,<br />&nbsp;</p>' + '<p>Some one gave service enquiry for <u>{title}</u>,</p>' + '<p><i>Comments</i> : {comments}</p>' + '<b><i>User Details:</i></b><br>' + 'Name: {name},<br> ' +
+         'Email: {email},<br>' + 'mobile: {mobile}<br>' + '<p>&nbsp;</p>' + '<p>&nbsp;</p>';
+        const oauthData = "Dear {name},<br/><br/>        <p style='margin-bottom:.5em; margin: 0 0 10px 0;text-indent: 50px'> Thankyou for showing your interest in SpurtCommerce, your temporary password for next time login is :  {xxxxxx} or you can login through Oauth. </p>";
+          const statusData: any = [            {
                 emailTemplateId: 1,
                 title: 'Register Content',
                 subject: 'Registration Successfully',
@@ -66,6 +68,20 @@ export class CreateEmailTemplate implements Seed {
                 title: 'Create admin user Content',
                 subject: 'Login credential',
                 content: userData,
+                isActive: 1,
+            },
+            {
+                emailTemplateId: 8,
+                title: 'service Enquiry',
+                subject: 'User enquiry for service',
+                content: enquiryData,
+                isActive: 1,
+            },
+            {
+                emailTemplateId: 9,
+                title: 'Oauth Registration',
+                subject: 'Oauth Registration',
+                content: oauthData,
                 isActive: 1,
             },
         ];

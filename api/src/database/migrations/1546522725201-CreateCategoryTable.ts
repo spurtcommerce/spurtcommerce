@@ -45,23 +45,6 @@ export class CreateCategoryTable1546522725201 implements MigrationInterface {
                     isPrimary: false,
                     isNullable: true,
                 }, {
-                    name: 'meta_tag_title',
-                    type: 'varchar',
-                    length: '255',
-                    isPrimary: false,
-                    isNullable: true,
-                }, {
-                    name: 'meta_tag_description',
-                    type: 'text',
-                    isPrimary: false,
-                    isNullable: true,
-                }, {
-                    name: 'meta_tag_keyword',
-                    type: 'varchar',
-                    length: '255',
-                    isPrimary: false,
-                    isNullable: true,
-                }, {
                     name: 'is_active',
                     type: 'int',
                     length: '11',

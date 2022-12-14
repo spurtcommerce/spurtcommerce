@@ -1,7 +1,8 @@
 /*
- * spurtcommerce community API
- * Copyright (c) 2022 Piccosoft Software Labs Pvt Ltd
- * Author Piccosoft Software Labs Pvt Ltd <support@spurtcommerce.com>
+ * spurtcommerce API
+ * version 4.8.0
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
  */
 
@@ -12,6 +13,10 @@ import { MicroframeworkLoader, MicroframeworkSettings } from 'microframework-w3t
 import { useExpressServer } from 'routing-controllers';
 import { authorizationChecker } from '../auth/authorizationChecker';
 import { currentUserChecker } from '../auth/currentUserChecker';
+import * as controllers from '../common/controller-index';
+import * as middlewares from '../common/middleware-index';
+import lusca from 'lusca';
+import fs from 'fs';
 import { env } from '../env';
 
 export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSettings | undefined) => {
@@ -23,8 +28,10 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
          * We could have also use useExpressServer here to attach controllers to an existing express instance.
          */
         const app = express();
-        app.use(bodyParser.urlencoded({extended: true}));
+        app.use(bodyParser.urlencoded({limit: '200mb', extended: true}));
         app.use(bodyParser.json({limit: '50mb'}));
+        app.use(lusca.xframe('SAMEORIGIN'));
+        app.use(lusca.xssProtection(true));
         const expressApp: Application = useExpressServer(app, {
             cors: true,
             classTransformer: true,
@@ -34,9 +41,8 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
              * We can add options about how routing-controllers should configure itself.
              * Here we specify what controllers should be registered in our express server.
              */
-            controllers: env.app.dirs.controllers,
-            middlewares: env.app.dirs.middlewares,
-            interceptors: env.app.dirs.interceptors,
+            controllers: Object.values(controllers),
+            middlewares: Object.values(middlewares),
 
             /**
              * Authorization features
@@ -44,10 +50,6 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
             authorizationChecker: authorizationChecker(connection),
             currentUserChecker: currentUserChecker(connection),
         });
-
-        // // parse application/x-www-form-urlencoded
-        // expressApp.use(bodyParser.urlencoded({extended: true}));
-        // expressApp.use(bodyParser.json({limit: '50mb'}));
 
         // Run application to listen on given port
         if (!env.isTest) {
@@ -57,5 +59,25 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
 
         // Here we can set the data for other loaders
         settings.setData('express_app', expressApp);
+
+        // const fs = require('fs');
+        function data(): void {
+            const dir = 'dist';
+            if (fs.existsSync(dir)) {
+                fs.readFile('dist/src/loaders/publicLoader.js', 'utf8', (err: any, dataV: any) => {
+                if (err) {
+                    return console.log(err);
+                }
+                const sourcePath = 'path.join(__dirname, ' + "'../../'" + ', ' + "'views/assets')";
+                const destPath = 'path.join(__dirname, ' + "'../../../'" + ', ' + "'views/assets')";
+                const result = dataV.replace(sourcePath , destPath);
+                fs.writeFile('dist/src/loaders/publicLoader.js', result, 'utf8', (errW) => {
+                    if (errW) { return console.log(errW); }
+                });
+                });
+            }
+        }
+
+        data();
     }
 };

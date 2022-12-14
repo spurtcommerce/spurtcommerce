@@ -6,12 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link href="vendor/bootstrap.min.css" rel="stylesheet" media="screen">
-  <link href="vendor/prettify.css" rel="stylesheet" media="screen">
+  <link href="vendor/prism.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" media="screen, print">
   <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
   <script src="vendor/polyfill.js"></script>
 </head>
-<body>
+<body class="container-fluid">
 
 <script id="template-sidenav" type="text/x-handlebars-template">
 <nav id="scrollingNav">
@@ -24,13 +27,13 @@
     {{#if title}}
       {{#if isHeader}}
         {{#if isFixed}}
-          <li class="nav-fixed nav-header navbar-btn nav-list-item" data-group="{{group}}"><a href="#api-{{group}}">{{underscoreToSpace title}}</a></li>
+          <li class="nav-fixed nav-header navbar-btn nav-list-item" data-group="{{group}}"><a href="#api-{{group}}" data-name="show-api-{{group}}" class="show-api api-{{group}}-init">{{underscoreToSpace title}}</a></li>
         {{else}}
-          <li class="nav-header nav-list-item" data-group="{{group}}"><a href="#api-{{group}}">{{underscoreToSpace title}}</a></li>
+          <li class="nav-header nav-list-item" data-group="{{group}}"><a href="#api-{{group}}" data-group="show-api-{{group}}" class="show-group api-{{group}}-init">{{underscoreToSpace title}}</a></li>
         {{/if}}
       {{else}}
         <li class="{{#if hidden}}hide {{/if}}" data-group="{{group}}" data-name="{{name}}" data-version="{{version}}">
-          <a href="#api-{{group}}-{{name}}" class="nav-list-item">{{title}}</a>
+          <a href="#api-{{group}}-{{name}}" title="{{url}}" data-group="show-api-{{group}}" data-name="show-api-{{group}}-{{name}}" class="nav-list-item show-api api-{{group}}-{{name}}-init">{{title}}<div class="nav-list-url-item hide">{{url}}</div></a>
         </li>
       {{/if}}
     {{/if}}
@@ -44,8 +47,8 @@
     <h1>{{name}}</h1>
     {{#if description}}<h2>{{{nl2br description}}}</h2>{{/if}}
   </div>
-  {{#if template.withCompare}}
   <div class="pull-right">
+    {{#if template.withCompare}}
     <div class="btn-group">
       <button id="version" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown">
         <strong>{{version}}</strong>&nbsp;<span class="caret"></span>
@@ -59,20 +62,24 @@
       {{/each}}
       </ul>
     </div>
+    {{else}}
+    <div id="version" class="well well-sm">
+      <strong>{{version}}</strong>
+    </div>
+    {{/if}}
   </div>
-  {{/if}}
   <div class="clearfix"></div>
 </script>
 
 <script id="template-header" type="text/x-handlebars-template">
   {{#if content}}
-    <div id="api-_">{{{content}}}</div>
+    <div id="api-_" class="show-api-article show-api-_-article">{{{content}}}</div>
   {{/if}}
 </script>
 
 <script id="template-footer" type="text/x-handlebars-template">
   {{#if content}}
-    <div id="api-_footer">{{{content}}}</div>
+    <div id="api-_footer" class="show-api-article show-api-_-article">{{{content}}}</div>
   {{/if}}
 </script>
 
@@ -87,13 +94,13 @@
 </script>
 
 <script id="template-sections" type="text/x-handlebars-template">
-  <section id="api-{{group}}">
+  <section id="api-{{group}}" class="show-api-group show-api-{{group}}-group {{#if aloneDisplay}} hide{{/if}}">
     <h1>{{underscoreToSpace title}}</h1>
     {{#if description}}
       <p>{{{nl2br description}}}</p>
     {{/if}}
     {{#each articles}}
-      <div id="api-{{group}}-{{name}}">
+      <div id="api-{{group}}-{{name}}" class="show-api-article show-api-{{group}}-article show-api-{{group}}-{{name}}-article {{#if aloneDisplay}} hide{{/if}}">
         {{{article}}}
       </div>
     {{/each}}
@@ -103,7 +110,7 @@
 <script id="template-article" type="text/x-handlebars-template">
   <article id="api-{{article.group}}-{{article.name}}-{{article.version}}" {{#if hidden}}class="hide"{{/if}} data-group="{{article.group}}" data-name="{{article.name}}" data-version="{{article.version}}">
     <div class="pull-left">
-      <h1>{{article.groupTitle}}{{#if article.title}} - {{article.title}}{{/if}}</h1>
+      <h1>{{underscoreToSpace article.groupTitle}}{{#if article.title}} - {{article.title}}{{/if}}</h1>
     </div>
     {{#if template.withCompare}}
     <div class="pull-right">
@@ -122,6 +129,8 @@
     {{/if}}
     <div class="clearfix"></div>
 
+    {{#if article.author}}<h4 class="muted">Authored by: {{article.author}}</h4>{{/if}}
+
     {{#if article.deprecated}}
       <p class="deprecated"><span>{{__ "DEPRECATED"}}</span>
         {{{markdown article.deprecated.content}}}
@@ -132,7 +141,7 @@
       <p>{{{nl2br article.description}}}</p>
     {{/if}}
     <span class="type type__{{toLowerCase article.type}}">{{toLowerCase article.type}}</span>
-    <pre class="prettyprint language-html" data-type="{{toLowerCase article.type}}"><code>{{article.url}}</code></pre>
+    <pre data-type="{{toLowerCase article.type}}"><code class="language-http">{{article.url}}</code></pre>
 
     {{#if article.permission}}
       <p>
@@ -148,6 +157,7 @@
       </p>
     {{/if}}
 
+    {{!-- CODE EXAMPLES IN TABS --}}
     {{#if_gt article.examples.length compare=0}}
       <ul class="nav nav-tabs nav-tabs-examples">
         {{#each article.examples}}
@@ -160,7 +170,7 @@
       <div class="tab-content">
       {{#each article.examples}}
         <div class="tab-pane{{#if_eq @index compare=0}} active{{/if_eq}}" id="examples-{{../id}}-{{@index}}">
-          <pre class="prettyprint language-{{type}}" data-type="{{type}}"><code>{{content}}</code></pre>
+          <pre data-type="{{type}}"><code class="language-{{type}}">{{content}}</code></pre>
         </div>
       {{/each}}
       </div>
@@ -169,10 +179,83 @@
     {{subTemplate "article-param-block" params=article.header _hasType=_hasTypeInHeaderFields section="header"}}
     {{subTemplate "article-param-block" params=article.parameter _hasType=_hasTypeInParameterFields section="parameter"}}
     {{subTemplate "article-param-block" params=article.success _hasType=_hasTypeInSuccessFields section="success"}}
+    {{subTemplate "article-query-block" params=article.query _hasType=_hasTypeInParameterFields section="query"}}
+    {{subTemplate "article-param-block" params=article.body _hasType=_hasTypeInSuccessFields section="body"}}
     {{subTemplate "article-param-block" params=article.error _col1="Name" _hasType=_hasTypeInErrorFields section="error"}}
 
     {{subTemplate "article-sample-request" article=article id=id}}
   </article>
+</script>
+
+<script id="template-article-query-block" type="text/x-handlebars-template">
+  {{#if article.query}}
+    <h2>Query Parameter(s)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 30%">{{#if ../_col1}}{{__ ../_col1}}{{else}}{{__ "Field"}}{{/if}}</th>
+          {{#unless this.Type compare=null}}
+            <th style="width: 10%">{{__ "Type"}}</th>
+          {{/unless}}
+          <th style="width: {{#if ../_hasType}}60%{{else}}70%{{/if}}">{{__ "Description"}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each params}}
+          <tr>
+            <td class="code">{{this.field}}</td>
+            {{#unless this.Type compare=null}}
+              <td>{{this.type}}</td>
+            {{/unless}}
+            <td>{{{nl2br this.description}}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+</script>
+
+<script id="template-article-body-block" type="text/x-handlebars-template">
+  {{#if article.body}}
+    <h2>Request Body</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 30%">{{#if ../_col1}}{{__ ../_col1}}{{else}}{{__ "Field"}}{{/if}}</th>
+          {{#unless this.Type compare=null}}
+            <th style="width: 10%">{{__ "Type"}}</th>
+          {{/unless}}
+          <th style="width: {{#if ../_hasType}}60%{{else}}70%{{/if}}">{{__ "Description"}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each params}}
+          <tr>
+            <td class="code">{{this.field}}</td>
+            {{#unless this.Type compare=null}}
+              <td>{{this.type}}</td>
+            {{/unless}}
+            <td>
+              {{{nl2br this.description}}}
+              {{#if defaultValue}}
+                <p class="default-value">{{__ "Default value:"}} <code>{{{defaultValue}}}</code></p>
+              {{/if}}
+              {{#if size}}
+                <p class="type-size">{{__ "Size range:"}} <code>{{{size}}}</code></p>
+              {{/if}}
+              {{#if allowedValues}}
+                <p class="type-size">{{__ "Allowed values:"}}
+                  {{#each allowedValues}}
+                    <code>{{{this}}}</code>{{#unless @last}}, {{/unless}}
+                  {{/each}}
+                </p>
+              {{/if}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
 </script>
 
 <script id="template-article-param-block" type="text/x-handlebars-template">
@@ -190,7 +273,7 @@
         <tbody>
         {{#each this}}
           <tr>
-            <td class="code">{{{splitFill field "." "&nbsp;&nbsp;"}}}{{#if optional}} <span class="label label-optional">{{__ "optional"}}</span>{{/if}}</td>
+            <td class="code">{{{splitFill field "." "&nbsp;&nbsp;"}}}{{#if optional}}<span class="label label-optional">{{__ "optional"}}</span>{{/if}}</td>
             {{#if ../../_hasType}}
               <td>
                 {{{type}}}
@@ -224,7 +307,7 @@
       <div class="tab-content">
       {{#each params.examples}}
         <div class="tab-pane{{#if_eq @index compare=0}} active{{/if_eq}}" id="{{../section}}-examples-{{../id}}-{{@index}}">
-        <pre class="prettyprint language-{{type}}" data-type="{{type}}"><code>{{reformat content type}}</code></pre>
+        <pre data-type="{{type}}"><code class="language-{{type}}">{{reformat content type}}</code></pre>
         </div>
       {{/each}}
       </div>
@@ -249,13 +332,13 @@
         {{#if article.header.fields}}
           <h3>{{__ "Headers"}}</h3>
           {{#each article.header.fields}}
-            <h4><input type="radio" data-sample-request-header-group-id="sample-request-header-{{@index}}" name="{{../id}}-sample-request-header" value="{{@index}}" class="sample-request-header sample-request-switch" {{#if_eq @index compare=0}} checked{{/if_eq}} />{{@key}}</h4>
-            <div class="{{../id}}-sample-request-header-fields{{#if_gt @index compare=0}} hide{{/if_gt}}">
+            <h4><input type="checkbox" data-sample-request-header-group-id="sample-request-header-{{@index}}" name="{{../id}}-sample-request-header" value="{{@index}}" class="sample-request-header sample-request-switch" checked />{{__ @key}}</h4>
+            <div class="{{../id}}-sample-request-header-fields">
               {{#each this}}
               <div class="form-group">
                 <label class="col-md-3 control-label" for="sample-request-header-field-{{field}}">{{field}}</label>
                 <div class="input-group">
-                  <input type="text" placeholder="{{field}}" id="sample-request-header-field-{{field}}" class="form-control sample-request-header" data-sample-request-header-name="{{field}}" data-sample-request-header-group="sample-request-header-{{@../index}}">
+                  <input type="text" placeholder="{{field}}" value="{{defaultValue}}" id="sample-request-header-field-{{field}}" class="form-control sample-request-header" data-sample-request-header-name="{{field}}" data-sample-request-header-group="sample-request-header-{{@../index}}">
                   <span class="input-group-addon">{{{type}}}</span>
                 </div>
               </div>
@@ -269,18 +352,82 @@
         {{#if article.parameter.fields}}
           <h3>{{__ "Parameters"}}</h3>
           {{#each article.parameter.fields}}
-            <h4><input type="radio" data-sample-request-param-group-id="sample-request-param-{{@index}}"  name="{{../id}}-sample-request-param" value="{{@index}}" class="sample-request-param sample-request-switch" {{#if_eq @index compare=0}} checked{{/if_eq}} />{{@key}}</h4>
-            <div class="form-group {{../id}}-sample-request-param-fields{{#if_gt @index compare=0}} hide{{/if_gt}}">
+            <h4><input type="checkbox" data-sample-request-param-group-id="sample-request-param-{{@index}}"  name="{{../id}}-sample-request-param" value="{{@index}}" class="sample-request-param sample-request-switch" checked/>{{__ @key}}
+              <select   name="{{../id}}-sample-header-content-type" class="{{../id}}-sample-request-param-select sample-header-content-type sample-header-content-type-switch">
+                <option value="undefined"  selected>ajax-auto</option>
+                <option value="body-json" >body/json</option>
+                <option value="body-form-data" >body/form-data</option>
+              </select>
+            </h4>
+            <div class="{{../id}}-sample-request-param-body {{../id}}-sample-header-content-type-body hide">
+              <div class="form-group">
+                <div class="input-group">
+                  <textarea id="sample-request-body-json" class="form-control sample-request-body" data-sample-request-body-group="sample-request-param-{{@./index}}" rows="6" style="OVERFLOW: visible" {{#if optional}}data-sample-request-param-optional="true"{{/if}}></textarea>
+                  <div class="input-group-addon">json</div>
+                </div>
+              </div>
+            </div>
+            <div class="{{../id}}-sample-request-param-fields {{../id}}-sample-header-content-type-fields">
               {{#each this}}
+              <div class="form-group">
                 <label class="col-md-3 control-label" for="sample-request-param-field-{{field}}">{{field}}</label>
                 <div class="input-group">
-                  <input id="sample-request-param-field-{{field}}" type="text" placeholder="{{field}}" class="form-control sample-request-param" data-sample-request-param-name="{{field}}" data-sample-request-param-group="sample-request-param-{{@../index}}" {{#if optional}}data-sample-request-param-optional="true"{{/if}}>
+                  <input id="sample-request-param-field-{{field}}" type="{{setInputType type}}" placeholder="{{field}}" class="form-control sample-request-param" data-sample-request-param-name="{{field}}" data-sample-request-param-group="sample-request-param-{{@../index}}" {{#if optional}}data-sample-request-param-optional="true"{{/if}}>
                   <div class="input-group-addon">{{{type}}}</div>
                 </div>
+              </div>
               {{/each}}
             </div>
           {{/each}}
         {{/if}}
+      {{/if}}
+
+      {{#if article.query}}
+            <h3>{{__ "Query Parameters"}}</h3>
+            <div class="{{../id}}-sample-request-param-fields {{../id}}-sample-header-content-type-fields">
+              {{#each article.query}}
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="sample-request-param-field-{{field}}">{{field}}</label>
+                  <div class="input-group">
+                    <input id="sample-request-param-field-{{field}}" type="{{setInputType type}}" placeholder="{{field}}" class="form-control sample-request-param" data-sample-request-param-name="{{field}}"
+                      data-sample-request-param-group="sample-request-param-{{@../index}}" {{#if optional}}data-sample-request-param-optional="true" {{/if}}>
+                    <div class="input-group-addon">{{{type}}}</div>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          {{/if}}
+
+      {{#if article.body}}
+        {{log this}}
+        <h3>{{__ "Body"}}</h3>
+        <h4><input type="checkbox" data-sample-request-param-group-id="sample-request-param-{{@index}}" name="{{this.id}}-sample-request-param" value="{{@index}}" class="sample-request-param sample-request-switch" checked />{{__ @key}}
+          <select name="{{this.id}}-sample-header-content-type" class="{{this.id}}-sample-request-param-select sample-header-content-type sample-header-content-type-switch">
+            <option value="body-json" selected>body/json</option>
+            <option value="body-form-data">body/form-data</option>
+          </select>
+        </h4>
+        <div class="{{this.id}}-sample-request-param-body {{this.id}}-sample-header-content-type-body">
+          <div class="form-group">
+            <div class="input-group">
+              <textarea id="sample-request-body-json" class="form-control sample-request-body" data-sample-request-body-group="sample-request-param-{{@./index}}" rows="6" style="OVERFLOW: visible"
+                {{#if optional}}data-sample-request-param-optional="true" {{/if}}>{{gen_body article.body}}</textarea>
+              <div class="input-group-addon">json</div>
+            </div>
+          </div>
+        </div>
+        <div class="{{this.id}}-sample-request-param-fields {{this.id}}-sample-header-content-type-fields hide">
+          {{#each article.body}}
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="sample-request-param-field-{{field}}">{{field}}</label>
+              <div class="input-group">
+                <input id="sample-request-param-field-{{field}}" type="{{setInputType type}}" placeholder="{{field}}" class="form-control sample-request-param" data-sample-request-param-name="{{field}}"
+                  data-sample-request-param-group="sample-request-param-{{@../index}}" {{#if optional}}data-sample-request-param-optional="true" {{/if}}>
+                <div class="input-group-addon">{{{type}}}</div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
       {{/if}}
 
           <div class="form-group">
@@ -293,7 +440,7 @@
               {{__ "Response"}}
               <button class="btn btn-default btn-xs pull-right sample-request-clear">X</button>
             </h3>
-            <pre class="prettyprint language-json" data-type="json"><code class="sample-request-response-json"></code></pre>
+            <pre data-type="json"><code class="language-json sample-request-response-json"></code></pre>
           </div>
         </fieldset>
       </form>
@@ -333,7 +480,7 @@
       {{/if}}
     {{/if}}
 
-    <pre class="prettyprint language-html" data-type="{{toLowerCase article.type}}"><code>{{{showDiff article.url compare.url}}}</code></pre>
+    <pre data-type="{{toLowerCase article.type}}"><code class="language-html">{{{showDiff article.url compare.url}}}</code></pre>
 
     {{subTemplate "article-compare-permission" article=article compare=compare}}
 
@@ -364,19 +511,19 @@
 
       {{#if typeSame}}
         <div class="tab-pane{{#if_eq index compare=0}} active{{/if_eq}}" id="compare-examples-{{../../article.id}}-{{index}}">
-          <pre class="prettyprint language-{{source.type}}" data-type="{{source.type}}"><code>{{{showDiff source.content compare.content}}}</code></pre>
+          <pre data-type="{{source.type}}"><code class="language-{{source.type}}">{{{showDiff source.content compare.content}}}</code></pre>
         </div>
       {{/if}}
 
       {{#if typeIns}}
         <div class="tab-pane{{#if_eq index compare=0}} active{{/if_eq}}" id="compare-examples-{{../../article.id}}-{{index}}">
-          <pre class="prettyprint language-{{source.type}}" data-type="{{source.type}}"><code>{{{source.content}}}</code></pre>
+          <pre data-type="{{source.type}}"><code class="language-{{source.type}}">{{{source.content}}}</code></pre>
         </div>
       {{/if}}
 
       {{#if typeDel}}
         <div class="tab-pane{{#if_eq index compare=0}} active{{/if_eq}}" id="compare-examples-{{../../article.id}}-{{index}}">
-          <pre class="prettyprint language-{{source.type}}" data-type="{{compare.type}}"><code>{{{compare.content}}}</code></pre>
+          <pre data-type="{{compare.type}}"><code class="language-{{source.type}}">{{{compare.content}}}</code></pre>
         </div>
       {{/if}}
 
@@ -535,19 +682,19 @@
 
       {{#if typeSame}}
         <div class="tab-pane{{#if_eq index compare=0}} active{{/if_eq}}" id="{{../../section}}-compare-examples-{{../../article.id}}-{{index}}">
-          <pre class="prettyprint language-{{source.type}}" data-type="{{source.type}}"><code>{{{showDiff source.content compare.content}}}</code></pre>
+          <pre data-type="{{source.type}}"><code class="language-{{source.type}}">{{{showDiff source.content compare.content}}}</code></pre>
         </div>
       {{/if}}
 
       {{#if typeIns}}
         <div class="tab-pane{{#if_eq index compare=0}} active{{/if_eq}}" id="{{../../section}}-compare-examples-{{../../article.id}}-{{index}}">
-          <pre class="prettyprint language-{{source.type}}" data-type="{{source.type}}"><code>{{{source.content}}}</code></pre>
+          <pre data-type="{{source.type}}"><code class="language-{{source.type}}">{{{source.content}}}</code></pre>
         </div>
       {{/if}}
 
       {{#if typeDel}}
         <div class="tab-pane{{#if_eq index compare=0}} active{{/if_eq}}" id="{{../../section}}-compare-examples-{{../../article.id}}-{{index}}">
-          <pre class="prettyprint language-{{source.type}}" data-type="{{compare.type}}"><code>{{{compare.content}}}</code></pre>
+          <pre data-type="{{compare.type}}"><code class="language-{{source.type}}">{{{compare.content}}}</code></pre>
         </div>
       {{/if}}
     {{/each_compare_title}}
