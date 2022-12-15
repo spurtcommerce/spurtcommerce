@@ -6,7 +6,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/spurtcommerce/spurtcommerce)
 ![GitHub repo size](https://img.shields.io/github/repo-size/spurtcommerce/spurtcommerce?color=orange)
 
-#  ❯ Spurtcommerce Community Edition
+#  ❯ Spurtcommerce 4.8.0 Community Edition
 
 Spurtcommerce, an Open Source NodeJS +React/Next JS + Angular eCommerce solution comes with full Source Code. The Community Edition comes with the basic and necessary features of a standard eCommerce platform. We welcome contributors to the Community and Developers to join us towards constantly improving the solution and bringing new upgrades. Spurtcommerce comes with complete online documentation.
 
@@ -34,7 +34,7 @@ Looking out to develop a high performing and highly scalable full-fledged eComme
 
 
 
-# ❯ Addon Supported Community Edition and Mutli-vendor Marketplace Edition
+# ❯ Addon Supported Community Edition and Multi-vendor Marketplace Edition
 
 Spurtcommerce Addons can be integrated with the Community Edition or Marketplace Edition to extend your ECommerce Portal with more features
 

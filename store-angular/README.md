@@ -25,8 +25,34 @@ Spurtcommerce Community Edition is publicly available on GitHub and free to down
 
 #  ❯ For SSR Build (Server Side Rendering) 
 
-Looking out to develop a high performing and highly scalable full-fledged eCommerce platform that matches with the recent eCommerce trend? Spurtcommerce 'Pro' Edition comes with all the advanced features of a full-fledged eCommerce platform. The features have been thoughtfully introduced, keeping the current and the upcoming eCommerce trend in mind. 
 
+Step-1 > Build and run the project with the below mentioned command
+
+```sh
+npm run dev-build:ssr && npm run serve:ssr
+
+```
+
+Step-2 > Open the browser and navigate to
+```sh
+http://localhost:4000
+```
+
+Step-3> For configuring the SSR, check the existence of this line in your Apache Server. If not, then add 
+this line in your server. 
+
+```sh
+ProxyRequests off
+<Proxy *> 
+            Order deny,allow 
+      Allow from all
+</Proxy>
+
+</Location>
+ProxyPass http://127.0.0.1:4000/ 
+ProxyPassReverse http://127.0.0.1:4000/
+</Location>
+```
 
 # ❯ Help and Support
 
