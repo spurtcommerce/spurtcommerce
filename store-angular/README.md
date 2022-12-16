@@ -54,14 +54,6 @@ ProxyPassReverse http://127.0.0.1:4000/
 </Location>
 ```
 
-# ❯ Help and Support
-
-Should you require any support in installation, setup and on how to effectively use Spurtcommerce for your eCommerce, you may seek help from the Spurt Community at community.spurtcommerce.com, or should you require any further support, you may write to support@spurtcommerce.com
-
-# ❯ About Piccosoft
-Spurtcommerce is developed by [Piccosoft Software Labs India (P) Limited,](http://www.piccosoft.com) which is primarily a Web and Mobile App Service Provider, and who have adopted the latest and niche technologies for their Development services. The team comprises of experienced Developers, who are technology enthusiasts and passionate about innovations.
-
-
 
 
 

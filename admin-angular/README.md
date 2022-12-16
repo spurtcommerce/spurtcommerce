@@ -1,27 +1,36 @@
-# SprutCom
+# Spurtcommerce Admin Panel Setup
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+Follow these steps for initial setup and running your angular admin application.
+Before you get started with the initial setup of Angular admin and running your application, make sure you have your are in place. 
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Follow these steps for initial setup and running your angular admin application.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Step1 > Unzip your file and open it with your desired ide and then go to terminal and type
 
-## Build
+`npm install ` 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+If npm Install doesn't work, then try the command below:
 
-## Running unit tests
+`npm install --force `
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Step2 > Navigate to project folder → src→ environments → environment.ts after that ,
 
-## Running end-to-end tests
+`export const environment = { 
+production: false, 
+baseUrl: '<Your API base url>', // eg: 'http://localhost:8000/backend/api/' 
+imageUrl: '<Your API url for image resize>', // eg: 'http://localhost:8000/backend/api/media/image-resize/' 
+productUrl: '<Your store base url>', // eg: 'http://yourip.com/' 
+relatedproductUrl : '<Your store base url>', // eg: 'http://yourip.com/' 
+blogUrl : '<Your store base url>', // eg: 'http://yourip.com/' 
+pluginUrl: '<Your API url>' // eg: 'http://yourip.com/'
+}; `
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Run your Application: 
+To run application in your respective browser, run the following command:
+
+ `npm run large-serve` 
+
