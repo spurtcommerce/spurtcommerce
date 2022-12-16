@@ -1,115 +1,142 @@
-![alt text](/img/spurtcommerce-b2c-b2b.png "spurtcommerce Logo")
 
-# Ecommerce / Nodejs + Angular + Mysql 
 
-![GitHub last commit](https://img.shields.io/github/last-commit/spurtcommerce/spurtcommerce)
-![GitHub issues](https://img.shields.io/github/issues/spurtcommerce/spurtcommerce)
-![GitHub repo size](https://img.shields.io/github/repo-size/spurtcommerce/spurtcommerce?color=orange)
+## Follow these steps for initial setup and running your Flutter StoreFront .
 
-#  ❯ Spurtcommerce Community Edition
+Step1 > Unzip your file and open it with your desired ide and then go to terminal and type
 
-Spurtcommerce, an Open Source NodeJS and Angular eCommerce comes with full Source Code. The Community Edition comes with the basic and necessary features of a standard eCommerce platform. We welcome contributors to the Community and Developers to join us in constantly improving the solution and bringing new upgrades. Spurtcommerce comes with complete online documentation.
+`npm install ` 
 
-*	Spurtcommerce Admin Control Panel 
-*	Spurtcommerce Store Front
-*	Spurtcommerce API 
+If npm Install doesn't work, then try the command below:
 
-Spurtcommerce Community Edition is publicly available on GitHub and free to download and use. 
+`npm install --force `
 
-| Community Version 3.0.2 | Feature | URL |
+Step2 > Navigate to project folder → src→ environments → environment.ts after that ,
+
+```sh 
+export const environment = {
+production: false, 
+storeUrl: '<Your API Base url>', // eg: 'http:/localhost:8000/backend/api/'
+imageUrl:'<Your API url for image resize>', // eg: 'http:/localhost:8000/backend/api/media/image-resize' 
+}; 
+```
+
+Now, Run your Application 
+
+For running your application in your respective browser run the following command:
+
+`ng serve `
+
+
+##  ❯ Spurtcommerce 4.8 Community shopping cart Features 
+| Angular Store (Version 13) | Description | URL |
 | ------ | ------ | ------ |
-| NodeJS Back End API + Angular | Get the best eCommerce solution with the state-of-the-art tech stack – the NodeJS Back-end API and the Angular front end and customize a standard eCommerce portal.| [Download](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-download)
-| NodeJS Back End API + React | Looking for a solution that can result in a sophisticated React Storefront with a powerful back-end API on NodeJS Express Framework? | [Download](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-download)
-| NodeJS Back End API + Flutter |If you want to customize a Flutter Mobile App and have a robust back-end API on the latest NodeJS, you are here now at the right place. Go for it.|[Download](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-download)
+| Store Front Demo | Get a complete walk through on the demo of the Features in the Community Edition of Spurtcommerce with Angular Storefront.  | [View](https://www.spurtcart.com)
+| Documents | Get access to the documents that can help you setup, install and deploy the Community Edition of NodeJS API and Angular Storefront.  | [Guide](https://www.spurtcommerce.dev/getting-started/development-and-setup/store-front-setup/angular-store-front)
+| Code Download |You may download the source code of the NodeJS API of Community Edition for free. Then, you can purchase the source code of Angular Storefront for your eCommerce portal. |[Buy](https://addon.spurtcommerce.com/details/angular-storefront-community)
 
 
 
 
-
-#  ❯ Spurtcommerce Pro Edition version  4.7
-
-Looking out to develop a high performing and highly scalable full-fledged eCommerce platform that matches with the recent eCommerce trend? Spurtcommerce 'Pro' Edition comes with all the advanced features of a full-fledged eCommerce platform. The features have been thoughtfully introduced, keeping the current and the upcoming eCommerce trend in mind. 
-
-### ❯ Spurtcommerce B2C / B2B Market Place Solutions
-If you are looking for a B2B/B2C Marketplace Solutions with a powerful Back End API of NodeJS and an ultra-modern front end on Angular, then the Spurtcommerce Multi-Vendor Solution with Angular Web Storefront is the best solution that can help you customize a revolutionary eCommerce Portal. With this solution you get the Admin Folder, API Folder, Vendor Folder, Spurtcommerce-marketplace.sql and Storefront Folder.
-
-![alt text](/img/spurtcommerce-multivendor.png "spurtcommerce Logo")
-
-### ❯ Spurtcommerce B2C / B2B Mobile App
-Mobile eCommerce or M-Commerce is now trending and having a Mobile App Storefront and giving End-Customers a facility to shop on their Mobile is something that needs to be thought about. With Spurtcommerce Multi-Vendor Marketplace or Spurtcommerce Single Vendor, you can opt for the Mobile App Storefront on Ionic framework for Hybrid Mobile Apps – both Android and iOS. With Single Vendor Solution, you get the Admin Folder, API Folder, Spurtcommerce.sql, storefront folder and Mobile folder. With Multi-Vendor Solution, you get the Admin Folder, API Folder, Vendor Folder, Marketplace.sql, Storefront folder and Mobile Folder.
-
-![alt text](/img/spurtcommerce-mobileapp.png "spurtcommerce Logo")
+Spurtcommerce, an Open Source NodeJS eCommerce Solution comes with the all the APIs required for running a simple eCommerce portal with all the required basic features.
 
 
-### ❯ Spurtcommerce B2C / B2B Single Vendor Solutions
-If you are looking for an advanced solution with full-fledged features for an online store where only its owner is selling their niche products, then go for our Single Vendor Solution with Angular Storefront. Customize this solution and develop an eCommerce portal that is futuristic in nature. With this solution, you get the Admin Folder, API Folder, Spurtcommerce.sql and Storefront Folder.
+Here is the list of APIs that are integrated with the Spurtcommerce Community Edition. 
+ 
 
 
-![alt text](/img/spurtcommerce-singlevendor.png "spurtcommerce Logo")
+* `Sign-Up / Sign-In ` – For signing up as a customer and then signing in with their user Id and password. 
+
+* `View Categories` - The Customer can navigate to various categories for browsing and search for the products they wish to buy.
+
+* `View Product List page` - The Customer can view the Product List Page from where they can navigate to the Product detail page.
+
+* `View Product Details` - The Customer can view the Product List Page from where they can navigate to the Product detail page.
+
+* `View Product Discount` – If the product is offered at discounted price, then it will show them the reduced price. 
+
+* `View Special Discount Products` – If the product is offered at special price, then the Customer can view it on the product detail page.
+ 
+* `Guest Checkout` – This is for the Customer to do a guest checkout, without having to register on the portal. 
+
+* `PWA` – For downloading the PWA app from the website. 
+
+* `Multi language` – To view the labels and static content in website in their preferred language. 
+
+* `Apply Coupons` – For availing coupon code to avail discount/offer on a product. 
+
+* `Add to Cart` – For adding products into the cart for checkout. 
+
+* `My Orders` – To view the orders placed by them. 
+
+* `Order Tracking` – To track the orders they have placed. 
+
+* `Checkout through Cash on Delivery` – To check out the cart using cash on delivery mode of payment.
+
+* `Add to Wish list` – To add products to the wish list to buy later. 
+
+* `Place Order` – To place the order for the items in their cart. 
+
+* `Product search` – Keyword based search for finding the right product. 
+
+* `Product Quick View` – To directly view the product title and the image in a popup, from the home page, without having to navigate anywhere else.  
+
+* `Sorting and Filters Product List` – Sort and filter options of the product based on brand, categories and price high to low and low to high.
+ 
+* `Product and Brand Search` – Searching products based on brand name. 
+
+* `Featured and Top Selling Products` – To view the featured and top selling products. 
+
+* `Add Multiple Delivery Address` – For customer to add multiple addresses for delivery to different places. 
+
+* `Change Password `– To change the password of their account on the eCommerce portal. 
+
+* `Email Notification` – To get email notifications in various scenarios like when order placed, when order delivered, etc. 
+* `Download and Printable Invoice` – To download the invoice for their order and to print them. 
+* `Categories Wise Product List – To view the list of products in a particular category.
+
+* `Shipping and Billing Address` – To have different addresses for shipping and billing. 
+
+* `View Banners` – To view different displayed banners on the storefront. 
+
+* `My Order History` – To view history of their orders placed. 
+
+* `Change and Forgot Password` – For changing existing password and for recovering forgotten password. 
 
 
-# ❯ B2C  / B2B Marketplace Key Features 
+Spurtcommerce Community Edition’s NodeJS API is publicly available on GitHub and free to download and use. The Angular Storefront Source Code can be purchased to complete your eCommerce portal a Storefront.
 
-We have thoughtfully planned and brought all the standard features for B2C, B2B and C2C eCommerce. We have highlighted a few of the key features among them here. Have a glance !!!
-<ul>
-<li><strong><a href="https://www.spurtcommerce.com/features" rel="Headless Commerc">Headless Commerce </a></strong> - Use the same NodeJS Backend API for any and multiple storefronts. </a></li>
-<li><strong>PWA </strong> - Provide the native app experience in a browser. </li>
-<li><strong><a href="https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-owasp-security" rel="OWASP Complianc"> OWASP Compliance </a> </strong>- Tested and achieved for compliance to OWASP (Open Web Application Security Project Standards).</li>
-<li><strong>Responsive </strong>- Storefront is fully responsive for mobiles and tabs. </li>
-<li><strong>Inventory stock updates </strong>- The Inventory and Stock can be updated separately and for each SKU under a Product. </li>
-<li><strong><a href="https://www.spurtcommerce.com/features/Ecommerce-Tier-price" rel="Tier Pricing">Tier Pricing </a> </strong>- Tier pricing lets you offer discounts based on quantity from a product listing or product page in the storefront.</li>
-<li><strong>product specifications </strong>- Product Attributes are different specifications of a product that can be configured by the Admin.</li>
-<li><strong>Coupons </strong>- Coupon codes can be created to provide attractive offers on purchase, to the Customers.</li>
-<li><strong>Product variants </strong>- With this feature, you can set different variants for a one product. </li>
-<li><strong>product Question and Answer </strong>- This feature will be useful for giving more information about a product and for having FAQs with answers for a product.</li>
-<li><strong>Vendor document verification </strong>- The Admin can perform the validation formalities and verify the Vendor for their legitimacy. </li>
-<li><strong>Commissions to Admin </strong>- Commissions can be charged either on Vendor basis or Product basis. A common commission can be set for a particular vendor or commission can be different for different products.  </li>
-<li><strong>SKU configuration </strong>- SKU (pronounced “skew”), short for stock keeping unit, is used by retailers to identify and track its inventory, or stock.</li>
-<li><strong>Promotion widget-</strong> - The Admin can create different Promotion Widgets and map products to those widgets and these get displayed on the storefront.</li>
-
-</ul>
-
-# ❯ TechStack
-Spurtcommerce has been developed using the open source and futuristic technologies. Spurtcommerce is built using the open source frameworks of NodeJS and Angular, which are the niche and futuristic technologies. Spurtcommerce is an open source eCommerce solution, built for a cause of bringing an advancement in the field of eCommerce development, that will result in a high speed and good performing eCommerce application.
-
-![alt text](/img/spurtcommerce-techstack.png "spurtcommerce TechStack")
-
-The Express JS, NodeJS and other libraries used in Spurtcommerce have been thoughtfully chosen  based on their technical supremacy, security and stability. These libraries allows you to adapt and customize code to your specific requirements, giving you complete flexibility and freedom, with the code not having connected to any particular Developer or specific somebody.
-
-For more details, refer https://spurtcommerce.com/nodejs-shoppingcart-ecommerce-technology
-Installation
-
-We want you to have a smooth sailing Spurtcommerce installation. The following video links will give you a step-by-step guidance on installing Spurtcommerce in,
-
-* Linux - https://youtu.be/DIcDvKz4UmM
-
-* Windows - https://www.youtube.com/watch?v=H6fM0WfBUs8
-
-# ❯ Demo and Pricing 
-
-The features in Spurtcommerce is the result of a thought process, keeping in mind the interest of eCommerce End-Users, eCommerce Business Owners as well as the Developers. The features within the solution have been developed with a motive to offer a seamless experience to our valuable Users of Spurtcommerce. 
-
-We have a detailed demo, separately for:
-
-*	Admin
-*	Store Front
-*	Mobile App
-*	Add-on Manager 
-
-To run a Spurt Demo, visit https://spurtcommerce.com/nodejs-shoppingcart-ecommerce-demo
+For getting more features and to make your eCommerce portal more feature-rich, visit https://addon.spurtcommerce.com/
 
 
 
-# ❯ License
 
-Spurtcommerce is released under the [BSD-3-Clause License.](https://github.com/spurtcommerce/spurtcommerce/blob/master/LICENSE).
+##  ❯ For SSR Build (Server Side Rendering) 
 
-# ❯ Help and Support
 
-Should you require any support in installation, setup and on how to effectively use Spurtcommerce for your eCommerce, you may seek help from the Spurt Community at community.spurtcommerce.com, or should you require any further support, you may write to support@spurtcommerce.com
+Step-1 > Build and run the project with the below mentioned command
 
-# ❯ About Piccosoft
-Spurtcommerce is developed by [Piccosoft Software Labs India (P) Limited,](http://www.piccosoft.com) which is primarily a Web and Mobile App Service Provider, and who have adopted the latest and niche technologies for their Development services. The team comprises of experienced Developers, who are technology enthusiasts and passionate about innovations.
+```sh
+npm run dev-build:ssr && npm run serve:ssr
 
-We are passionate about providing eCommerce development services. [Hire us now at](http://piccotalent.com/) 
+```
 
+Step-2 > Open the browser and navigate to
+```sh
+http://localhost:4000
+```
+
+Step-3> For configuring the SSR, check the existence of this line in your Apache Server. If not, then add 
+this line in your server. 
+
+```sh
+ProxyRequests off
+<Proxy *> 
+            Order deny,allow 
+      Allow from all
+</Proxy>
+
+</Location>
+ProxyPass http://127.0.0.1:4000/ 
+ProxyPassReverse http://127.0.0.1:4000/
+</Location>
+```
