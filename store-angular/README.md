@@ -12,11 +12,13 @@ If npm Install doesn't work, then try the command below:
 
 Step2 > Navigate to project folder → src→ environments → environment.ts after that ,
 
-`export const environment = {
+```sh 
+export const environment = {
 production: false, 
 storeUrl: '<Your API Base url>', // eg: 'http:/localhost:8000/backend/api/'
 imageUrl:'<Your API url for image resize>', // eg: 'http:/localhost:8000/backend/api/media/image-resize' 
-};`
+}; 
+```
 
 Now, Run your Application 
 
@@ -24,23 +26,32 @@ For running your application in your respective browser run the following comman
 
 `ng serve `
 
+
+#  ❯ Spurtcommerce 4.8 Community shopping cart Features 
 | Angular Store (Version 13) | Description | URL |
 | ------ | ------ | ------ |
-| StoreFront Demo | Get the best eCommerce solution with the state-of-the-art tech stack – the NodeJS Back-end API and the Angular front end and customize a standard eCommerce portal.| [View](https://www.spurtcart.com)
-| Documents | Looking for a solution that can result in a sophisticated React Storefront with a powerful back-end API on NodeJS Express Framework? | [Refer](https://www.spurtcommerce.dev/getting-started/development-and-setup/store-front-setup/angular-store-front)
-| Code Download |If you want to customize a Flutter Mobile App and have a robust back-end API on the latest NodeJS, you are here now at the right place. Go for it.|[Buy Request](https://addon.spurtcommerce.com/details/angular-storefront-community)
+| Store Front Demo | Get a complete walk through on the demo of the Features in the Community Edition of Spurtcommerce with Angular Storefront.  | [View](https://www.spurtcart.com)
+| Documents | Get access to the documents that can help you setup, install and deploy the Community Edition of NodeJS API and Angular Storefront.  | [Guide](https://www.spurtcommerce.dev/getting-started/development-and-setup/store-front-setup/angular-store-front)
+| Code Download |You may download the source code of the NodeJS API of Community Edition for free. Then, you can purchase the source code of Angular Storefront for your eCommerce portal. |[Buy](https://addon.spurtcommerce.com/details/angular-storefront-community)
 
 
 
-#  ❯ Spurtcommerce 4.8 Community API Integrated 
 
-Spurtcommerce, an Open Source NodeJS and Angular eCommerce comes with full Source Code. The Community Edition comes with the basic and necessary features of a standard eCommerce platform. We welcome contributors to the Community and Developers to join us in constantly improving the solution and bringing new upgrades. Spurtcommerce comes with complete online documentation.
 
-*	Spurtcommerce Admin Control Panel 
-*	Spurtcommerce Store Front
-*	Spurtcommerce API 
+Spurtcommerce, an Open Source NodeJS eCommerce Solution comes with the all the APIs required for running a simple eCommerce portal with all the required basic features.
 
-Spurtcommerce Community Edition is publicly available on GitHub and free to download and use. 
+Here is the list of APIs that are integrated with the Spurtcommerce Community Edition. 
+
+
+* `Navigation to various categories:` The Customer can navigate to various categories for browsing and search for the products they wish to buy.
+* `Product List Page:` The Customer can view the Product List Page from where they can navigate to the Product detail page. 
+*	`Product Detail Page:` The Customer can view the details of product that includes title, description and images of the Product. 
+*	`Add to Cart:` The Customer can add the products that they wish to buy to the cart. 
+*	`Checkout:` The Customer can then check out their cart items. 
+*	`Place Order:` The Customer can then place an order by using the cash on delivery mode of payment.  
+
+
+Spurtcommerce Community Edition’s NodeJS API is publicly available on GitHub and free to download and use. The Angular Storefront Source Code can be purchased to complete your eCommerce portal a Storefront. 
 
 
 
@@ -74,8 +85,3 @@ ProxyPass http://127.0.0.1:4000/
 ProxyPassReverse http://127.0.0.1:4000/
 </Location>
 ```
-
-
-
-
-
