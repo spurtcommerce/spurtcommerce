@@ -2,37 +2,53 @@
 
 ## Follow these steps for initial setup and running your Nextjs StoreFront .
 
-Step1 > Unzip your file and open it with your desired ide and then go to terminal and type
+Get the most aspired React Storefront for your eCommerce portal, using this step-by-step guide for setup.
 
-`npm install ` 
 
-If npm Install doesn't work, then try the command below:
+#####  Step1  =>  Extract the zip file of the project that is given to you.
 
-`npm install --force `
+Follow the given navigation:
 
-Step2 > Navigate to project folder → src→ environments → environment.ts after that ,
+Open store ->environment->.env.development , that file will look like as given below
 
-```sh 
-export const environment = {
-production: false, 
-storeUrl: '<Your API Base url>', // eg: 'http:/localhost:8000/backend/api/'
-imageUrl:'<Your API url for image resize>', // eg: 'http:/localhost:8000/backend/api/media/image-resize' 
-}; 
+For example: 
+
+`export const NEXT_PUBLIC_SERVER_URL=''`
+`export const NEXT_PUBLIC_IMAGE_URL=''`
+`export const NEXT_PUBLIC_VIDEO_URL=''`
+
+In .env.development, you have to set , as given below:
+
+In `NEXT_PUBLIC_SERVER_URL`, you have set endpoint path(e.g:"http://localhost:9000/api/")which will get while running api.
+
+In `NEXT_PUBLIC_IMAGE_URL`, you have to give resize image api url path(e.g:"http://localhost:9000/api/media/image-resize").
+
+In `NEXT_PUBLIC_VIDEO_URL`, you have to give resize image api url path(e.g:"http://localhost:9000/api/media/video-preview-s3/").
+
+##### Step 2  =>  Follow the next/Image configuration:
+
+Step9=>Open store->next.config.js, that file will look like as given below
+for example:
+```module.exports = { images: {
+domains: ["Your API url for image"], //eg: - if your link is https://your-image-url.com/ means you need to specify as your-image-url.com 
+},
+};
 ```
 
-Now, Run your Application 
 
-For running your application in your respective browser run the following command:
-
-`ng serve `
+Run the Project
+#### Step3 => To install the dependencies related to the project, open the terminal and give the command
+`npm install` 
+and continue the following command to run the project
+`npm run dev`
 
 
 ##  ❯ Spurtcommerce 4.8 Community shopping cart Features 
-| Angular Store (Version 13) | Description | URL |
+| Nextjs Store | Description | URL |
 | ------ | ------ | ------ |
-| Store Front Demo | Get a complete walk through on the demo of the Features in the Community Edition of Spurtcommerce with Angular Storefront.  | [View](https://www.spurtcart.com)
-| Documents | Get access to the documents that can help you setup, install and deploy the Community Edition of NodeJS API and Angular Storefront.  | [Guide](https://www.spurtcommerce.dev/getting-started/development-and-setup/store-front-setup/angular-store-front)
-| Code Download |You may download the source code of the NodeJS API of Community Edition for free. Then, you can purchase the source code of Angular Storefront for your eCommerce portal. |[Buy](https://addon.spurtcommerce.com/details/angular-storefront-community)
+| Store Front Demo | Get a complete walk through on the demo of the Features in the Community Edition of Spurtcommerce with Nextjs Storefront.  | [View](https://www.spurtcart.com)
+| Documents | Get access to the documents that can help you setup, install and deploy the Community Edition of NodeJS API and Nextjs Storefront.  | [Guide](https://www.spurtcommerce.dev/getting-started/development-and-setup/store-front-setup/react-store-front)
+| Code Download |You may download the source code of the NodeJS API of Community Edition for free. Then, you can purchase the source code of Nextjs Storefront for your eCommerce portal. |[Buy](https://addon.spurtcommerce.com/details/react-storefront-community)
 
 
 
@@ -103,40 +119,7 @@ Here is the list of APIs that are integrated with the Spurtcommerce Community Ed
 * `Change and Forgot Password` – For changing existing password and for recovering forgotten password. 
 
 
-Spurtcommerce Community Edition’s NodeJS API is publicly available on GitHub and free to download and use. The Angular Storefront Source Code can be purchased to complete your eCommerce portal a Storefront.
+Spurtcommerce Community Edition’s NodeJS API is publicly available on GitHub and free to download and use. The Nextjs Storefront Source Code can be purchased to complete your eCommerce portal a Storefront.
 
 For getting more features and to make your eCommerce portal more feature-rich, visit https://addon.spurtcommerce.com/
 
-
-
-
-##  ❯ For SSR Build (Server Side Rendering) 
-
-
-Step-1 > Build and run the project with the below mentioned command
-
-```sh
-npm run dev-build:ssr && npm run serve:ssr
-
-```
-
-Step-2 > Open the browser and navigate to
-```sh
-http://localhost:4000
-```
-
-Step-3> For configuring the SSR, check the existence of this line in your Apache Server. If not, then add 
-this line in your server. 
-
-```sh
-ProxyRequests off
-<Proxy *> 
-            Order deny,allow 
-      Allow from all
-</Proxy>
-
-</Location>
-ProxyPass http://127.0.0.1:4000/ 
-ProxyPassReverse http://127.0.0.1:4000/
-</Location>
-```
