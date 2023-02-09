@@ -1,4 +1,6 @@
+## Kindly note that Storefront's Nextjs Code and Store APIs are not free to download. Kindly click on the link below to make the purchase. 
 
+https://addon.spurtcommerce.com/details/react-storefront-community
 
 ## Follow these steps for initial setup and running your Nextjs StoreFront .
 
