@@ -1,0 +1,14 @@
+<svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter color-interpolation-filters="auto" id="sttkv0c11a">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g transform="translate(-1258 -10)" filter="url(#sttkv0c11a)" fill="none" fill-rule="evenodd">
+        <g transform="translate(1258 10)">
+            <path d="M0 0h21v21H0z"/>
+            <circle stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" cx="10.5" cy="10.5" r="3.938"/>
+            <path d="M15.066 5.34c.21.185.409.384.595.594l2.241.32a8.48 8.48 0 0 1 .834 2.015l-1.358 1.81s.017.561 0 .842l1.358 1.81a8.48 8.48 0 0 1-.835 2.015l-2.24.32s-.385.409-.595.595l-.32 2.241a8.48 8.48 0 0 1-2.015.834l-1.81-1.358c-.28.017-.561.017-.842 0l-1.81 1.358a8.48 8.48 0 0 1-2.015-.835l-.32-2.24a6.933 6.933 0 0 1-.595-.595l-2.241-.32a8.48 8.48 0 0 1-.834-2.015l1.358-1.81s-.017-.561 0-.842L2.264 8.27a8.48 8.48 0 0 1 .835-2.015l2.24-.32c.186-.21.385-.409.595-.595l.32-2.241a8.48 8.48 0 0 1 2.015-.834l1.81 1.358c.28-.017.561-.017.842 0l1.81-1.358a8.48 8.48 0 0 1 2.015.835l.32 2.24z" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+    </g>
+</svg>

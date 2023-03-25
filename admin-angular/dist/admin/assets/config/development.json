@@ -1,0 +1,10 @@
+{
+  "api": {
+    "baseUrl": "",
+    "imageUrl": "",
+    "productUrl": "",
+    "relatedproductUrl": "",
+    "blogUrl": "",
+    "pluginUrl": ""
+  }
+}

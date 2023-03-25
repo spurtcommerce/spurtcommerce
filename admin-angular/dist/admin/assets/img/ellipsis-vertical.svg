@@ -1,0 +1,14 @@
+<svg width="4" height="20" viewBox="0 0 4 20" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter color-interpolation-filters="auto" id="tt68wys9za">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.133333 0 0 0 0 0.133333 0 0 0 0 0.133333 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g transform="translate(-1299 -1531)" filter="url(#tt68wys9za)" fill="none" fill-rule="evenodd">
+        <g transform="rotate(90 -114 1417)" fill="#FFF" fill-rule="nonzero">
+            <circle cx="10" cy="2" r="2"/>
+            <circle cx="2" cy="2" r="2"/>
+            <circle cx="18" cy="2" r="2"/>
+        </g>
+    </g>
+</svg>
