@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import 'reflect-metadata';
 import { Get, Post, Put, Delete, Body, JsonController, Authorized, QueryParam, Res, Req } from 'routing-controllers';
@@ -66,6 +66,7 @@ export class CategoryController {
     @Authorized(['admin', 'create-category'])
     public async addCategory(@Body({ validate: true }) category: AddCategory, @Res() response: any): Promise<Category> {
         const newCategory = new Category();
+        console.log('category:', category);
         newCategory.name = category.name;
         const image = category.image;
         if (image) {
@@ -182,6 +183,7 @@ export class CategoryController {
     @Put('/category/:id')
     @Authorized(['admin', 'edit-category'])
     public async updateCategory(@Body({ validate: true }) category: UpdateCategoryRequest, @Res() response: any, @Req() request: any): Promise<Category> {
+        console.log('update:', category);
         const categoryId = await this.categoryService.findOne({
             where: {
                 categoryId: category.categoryId,

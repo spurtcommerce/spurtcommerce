@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import 'reflect-metadata';
 import {
@@ -220,6 +220,7 @@ export class OrderStatusController {
              };
              return response.status(400).send(errorResponse);
          }
+         console.log('status:', param.status);
          orderStatus.isActive = +param.status;
          const fullfillmentStatus = await this.orderStatusService.create(orderStatus);
          return response.status(200).send({
@@ -261,6 +262,7 @@ export class OrderStatusController {
             ];
          const WhereConditions = [];
          const orderStatusList = await this.orderStatusService.list(limit, offset, select, search, WhereConditions, count);
+         console.log('orderStatusList:', orderStatusList);
          const list = orderStatusList.map(async (value: any) => {
              const temp: any = value;
              const data = await this.orderStatusService.findAll({ where: {parentId: value.orderStatusId}});
@@ -315,6 +317,7 @@ export class OrderStatusController {
              value: parentId,
          });
          const orderStatusList = await this.orderStatusService.list(limit, offset, [], [], WhereConditions, false);
+         console.log('orderStatusList:', orderStatusList);
          if (orderStatusList) {
              const successResponse: any = {
                  status: 1,

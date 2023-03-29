@@ -1,10 +1,10 @@
 /*
- * Spurtcommerce PRO
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import 'reflect-metadata';
 import { IsNotEmpty, MaxLength } from 'class-validator';
@@ -38,6 +38,8 @@ export class CreateWidget {
     public position: number;
     @IsNotEmpty()
     public status: number;
+
+    public ShowHomePageWidget: number;
 
     public refId: [];
 }

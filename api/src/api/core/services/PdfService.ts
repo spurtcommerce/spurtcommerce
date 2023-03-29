@@ -17,17 +17,17 @@ import moment from 'moment';
 export class PdfService {
 
   public createPDFFile(htmlString: any, isDownload: boolean = false, reportGeneratedBy: string = ''): Promise<any> {
-    const pdf = require('html-pdf');
+    const pdf = require('html-pdf-node');
     const directoryPath = 'file://' + path.join(process.cwd(), 'uploads');
     const options = {
       format: 'A4',
       orientation: 'portrait',
       base: directoryPath,
-      margin: { top: '0mm', left: '5mm', bottom: '-5mm', right: '5mm' },
+      margin: { top: '0mm', left: '5mm', bottom: '0mm', right: '5mm' },
       timeout: 60000,
       zoomFactor: '0.5',
       quality: '100',
-      phantomArgs: ['--web-security=no', '--local-url-access=false'],
+      phantomArgs: ['--web-security=no', '--local-url-access=false', '--ignore-ssl-errors=yes'],
       footer: {
         height: '28mm',
         contents: {
@@ -39,16 +39,18 @@ export class PdfService {
     /**
      * It will create PDF of that HTML into given folder.
      */
-    return new Promise((resolve, reject) => {
-      pdf.create(htmlString, options).toBuffer((err, buffer) => {
-        if (err) {
-          return reject(err);
-        }
+    return new Promise(async (resolve, reject) => {
+      try {
+        const file = { content: htmlString };
+        const pdfBuffer = await pdf.generatePdf(file, options);
+        const pdfBase64 = await pdfBuffer.toString('base64');
         if (isDownload) {
-          resolve('data:application/pdf;base64,' + buffer.toString('base64'));
+          resolve('data:application/pdf;base64,' + pdfBase64);
         }
-        return resolve(buffer);
-      });
+        return resolve(pdfBuffer);
+      } catch (error: any) {
+        reject(error.message);
+      }
     });
   }
 

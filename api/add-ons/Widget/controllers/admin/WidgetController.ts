@@ -1,10 +1,10 @@
 /*
- * Spurtcommerce PRO
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import 'reflect-metadata';
 import {
@@ -29,6 +29,11 @@ import { WidgetItemService } from '../../../Widget/services/WidgetItemService';
 import { WidgetItem } from '../../../Widget/models/WidgetItem';
 import { CategoryPathService } from '../../../../src/api/core/services/CategoryPathService';
 import { CheckAddonMiddleware } from '../../../../src/api/core/middlewares/AddonValidationMiddleware';
+
+enum HomePageWidget {
+    MAX_LIMIT = 5,
+}
+
 @UseBefore(CheckAddonMiddleware)
 @JsonController('/widget')
 export class WidgetController {
@@ -61,6 +66,7 @@ export class WidgetController {
      *      "metaTagTitle" : "",
      *      "metaTagDescription" : "",
      *      "metaTagKeyword" : "",
+     *      "ShowHomePageWidget": "",
      *      "position" : "",
      *      "refId" : [],
      *      "status" : "",
@@ -80,6 +86,17 @@ export class WidgetController {
     public async createWidget(@Body({ validate: true }) widgetParam: CreateWidget, @Res() response: any): Promise<any> {
         const newWidget = new Widget();
         const widgetName = widgetParam.title;
+        const ShowWidgetFlag: Widget[] = await this.widgetService.find({
+            where : {
+                ShowHomePageWidget: 1,
+            },
+        });
+        if (widgetParam.ShowHomePageWidget && ShowWidgetFlag.length >= HomePageWidget.MAX_LIMIT) {
+            return response.status(400).send({
+                status: 0,
+                message: `Set-Home-Page Widget exceeds the Limit (MAX ${HomePageWidget.MAX_LIMIT})..!`,
+            });
+        }
         if (widgetName) {
             const data = widgetName.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
             const getCustomerSlug = await this.widgetService.slugData(widgetName, 0);
@@ -96,6 +113,7 @@ export class WidgetController {
             }
         }
         newWidget.widgetTitle = widgetParam.title;
+        newWidget.ShowHomePageWidget = widgetParam.ShowHomePageWidget;
         newWidget.widgetDescription = widgetParam.content;
         newWidget.widgetLinkType = widgetParam.widgetLinkType;
         newWidget.metaTagTitle = widgetParam.metaTagTitle;
@@ -104,6 +122,7 @@ export class WidgetController {
         newWidget.position = widgetParam.position;
         newWidget.isActive = widgetParam.status;
         const widgetSave = await this.widgetService.create(newWidget);
+        // Add ref item
         if (widgetParam.refId) {
             const relatedItems: any = widgetParam.refId;
             for (const relatedItem of relatedItems) {
@@ -163,7 +182,7 @@ export class WidgetController {
     @Get()
     @Authorized(['admin', 'widget-list'])
     public async widgetList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
-        const select = ['widgetId', 'widgetTitle', 'widgetDescription', 'widgetLinkType', 'position', 'isActive'];
+        const select = ['widgetId', 'widgetTitle', 'widgetDescription', 'widgetLinkType', 'position', 'isActive', 'ShowHomePageWidget', 'widgetSlugName'];
         const search = [
             {
                 name: 'widgetTitle',
@@ -267,6 +286,7 @@ export class WidgetController {
      *      "metaTagTitle" : "",
      *      "metaTagKeyword" : "",
      *      "metaTagDescription" : "",
+     *      "ShowHomePageWidget":"",
      *      "position" : "",
      *      "refId" : "",
      *      "status" : "",
@@ -297,10 +317,22 @@ export class WidgetController {
             };
             return response.status(400).send(errorResponse);
         }
+        const ShowWidgetFlag: Widget[] = await this.widgetService.find({
+            where : {
+                ShowHomePageWidget: 1,
+            },
+        });
+        if (widgetParam.ShowHomePageWidget && ShowWidgetFlag.length >= HomePageWidget.MAX_LIMIT) {
+            return response.status(400).send({
+                status: 0,
+                message: `Set-Home-Page Widget exceeds the Limit (MAX ${HomePageWidget.MAX_LIMIT})..!`,
+            });
+        }
         widget.widgetTitle = widgetParam.title;
         widget.widgetDescription = widgetParam.content;
         widget.widgetLinkType = widgetParam.widgetLinkType;
         widget.position = widgetParam.position;
+        widget.ShowHomePageWidget = widgetParam.ShowHomePageWidget;
         widget.metaTagTitle = widgetParam.metaTagTitle;
         widget.metaTagDescription = widgetParam.metaTagDescription;
         widget.metaTagKeyword = widgetParam.metaTagKeyword;
@@ -472,10 +504,6 @@ export class WidgetController {
                     'category.parentInt as parentInt',
                     'category.name as name',
                     'category.image as image',
-                    'category.imagePath as imagePath',
-                    'category.metaTagTitle as metaTagTitle',
-                    'category.metaTagDescription as metaTagDescription',
-                    'category.metaTagKeyword as metaTagKeyword',
                     'category.isActive as isActive',
                     'category.createdDate as createdDate',
                     'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'CategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',

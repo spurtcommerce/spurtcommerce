@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import 'reflect-metadata';
 import {
@@ -112,6 +112,7 @@ export class CustomerController {
             const customerSave = await this.customerService.create(newCustomer);
             if (customerSave) {
                 if (+customerParam.mailStatus === 1) {
+                    console.log('mailStatus:', customerParam.mailStatus);
                     const emailContent = await this.emailTemplateService.findOne(4);
                     const logo = await this.settingService.findOne();
                     const message = emailContent.content.replace('{name}', customerParam.username).replace('{username}', customerParam.email).replace('{password}', customerParam.password);
@@ -790,6 +791,7 @@ export class CustomerController {
         worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         for ( const customer of customerList) {
+            console.log('customer:', customer);
             if (customer.lastName === null) {
                 customer.lastName = '';
             }

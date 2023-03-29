@@ -1,0 +1,65 @@
+{
+    "deal":"Angebot des Tages",
+    "search-placeholder":"Ich kaufe ein....",
+    "search":"Suche",
+    "soc":"Einkaufen nach Abteilung",
+    "track-your":"Verfolgen Sie Ihre Bestellung",
+    "featured":"Ausgewählte Produkte",
+    "categories":"KATEGORIEN",
+    "french": "French",
+    "english": "English",
+    "german": "German",
+    "articleTitle": "BEISPIELTEXT",
+    "articleDescription": "ÜBER VULKANE\n",
+    "article1StParagraph": "Ein Vulkan ist eine geologische Struktur, die entsteht, wenn Magma (Gesteinsschmelze) bis an die Oberfläche eines Planeten (z. B. der Erde) aufsteigt. Alle Begleiterscheinungen, die mit dem Aufstieg und Austritt der glutflüssigen Gesteinsschmelze verbunden sind, bezeichnet man als Vulkanismus. Bei einem Vulkanausbruch werden nicht nur glutflüssige, sondern auch feste oder gasförmige Stoffe freigesetzt.",
+    "article2NdParagraph": "",
+    "by-brand":"VON MARKEN",
+    "by-price":"NACH PREIS",
+    "add-to-cart":"in den Warenkorb legen",
+    "buy-now":"jetzt bestellen",
+    "quantity":"Menge",
+    "quotation":"Zitat",
+    "sold-by":"Verkauft durch",
+    "brand":"Marke",
+    "account-info":"Kontoinformationen",
+    "address":"Adresse",
+    "wishlist":"Wunschzettel",
+    "logout":"Ausloggen",
+    "first-name":"Vorname",
+    "last-name":"Nachname",
+    "phone-num":"Telefonnummer",
+    "email-address":"E-Mail-Addresse",
+    "current-password":"Derzeitiges Passwort",
+    "new-password":"Neues Kennwort",
+    "update":"Aktualisieren",
+    "change-pass":"Ändere das Passwort",
+    "fname-req":"*Vorname ist erforderlich",
+    "phone-req":"Telefonnummer ist erforderlich",
+    "enter-fname":"Geben Sie Ihren Vornamen ein",
+    "enter-lname":"Geben Sie Ihren Nachnamen ein",
+    "enter-num":"Gib deine Telefonnummer ein",
+    "enter-mail":"Geben sie ihre E-Mailadresse ein",
+    "view-cart":"Warenkorb ansehen",
+    "checkout":"Auschecken",
+    "price":"Preis",
+    "total":"Gesamt",
+    "product":"Produkt",
+    "action":"Aktion",
+    "back-to-shop":"Zurück zum Shop",
+    "subtotal":"Zwischensumme",
+    "proceed-to-checkout":"Zur Kasse",
+    "checkout-info":"Informationen zur Kasse",
+    "contact-info":"Kontakt Informationen",
+    "your-order":"Deine Bestellung",
+    "continue-to-shopcart":"Zurück zum Warenkorb",
+    "continue-to-shipping":"Weiter zum Versand"
+
+
+    
+
+
+
+
+
+
+  }

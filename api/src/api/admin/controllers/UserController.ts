@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import 'reflect-metadata';
 import {
@@ -31,10 +31,6 @@ import { S3Service } from '../../core/services/S3Service';
 import { SettingService } from '../../core/services/SettingService';
 import { Raw } from 'typeorm';
 import moment from 'moment';
-import { launch, Page } from 'puppeteer';
-import { SitemapStream, streamToPromise } from 'sitemap';
-import { Readable } from 'stream';
-import * as fs from 'fs';
 @JsonController('/auth')
 export class UserController {
 
@@ -206,6 +202,7 @@ export class UserController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/create-user')
+    @Authorized(['admin', 'create-user'])
     public async createUser(@Body({ validate: true }) createParam: CreateRequest, @Res() response: any): Promise<any> {
         const userGroupExistWhereCondition = [
             {
@@ -729,12 +726,14 @@ export class UserController {
         const Crypto = require('crypto-js');
         const val = Crypto.AES.encrypt(customer.email, env.cryptoSecret).toString();
         const encryptedKey = Buffer.from(val).toString('base64');
+        console.log(encryptedKey + 'enc');
         customer.forgetPasswordKey = encryptedKey;
         customer.linkExpires = moment().add(20, 'minutes').format('YYYY-MM-DD HH:mm:ss');
         await this.userService.update(customer.userId, customer);
         const emailContent = await this.emailTemplateService.findOne(23);
         const logo = await this.settingService.findOne();
         const redirectUrl = env.adminForgetPasswordLink + '?token=' + encryptedKey;
+        console.log(redirectUrl + 'redirectUrl');
         const message = emailContent.content.replace('{name}', customer.firstName).replace('{link}', redirectUrl);
         const mailContents: any = {};
         mailContents.logo = logo;
@@ -767,9 +766,11 @@ export class UserController {
      */
     @Get('/forgot-password-key-check')
     public async keyCheck(@QueryParam('key') encryptedKey: string, @Res() response: any): Promise<any> {
+        console.log(encryptedKey + 'enkKey');
         const Crypto = require('crypto-js');
         const bytes = Crypto.AES.decrypt(Buffer.from(encryptedKey, 'base64').toString('ascii'), env.cryptoSecret);
         const decodedTokenKey = bytes.toString(Crypto.enc.Utf8);
+        console.log(decodedTokenKey + 'key');
         const customer = await this.userService.findOne({
             where: { email: decodedTokenKey, deleteFlag: 0 },
         });
@@ -835,8 +836,10 @@ export class UserController {
 
         }
         const Crypto = require('crypto-js');
+        console.log(tokenKey + 'tokenKey');
         const bytes = Crypto.AES.decrypt(Buffer.from(tokenKey, 'base64').toString('ascii'), env.cryptoSecret);
         const decodedTokenKey = bytes.toString(Crypto.enc.Utf8);
+        console.log(decodedTokenKey + 'key');
         const resultData = await this.userService.findOne({
             select: ['userId', 'firstName', 'email', 'phoneNumber', 'password', 'avatar', 'avatarPath', 'isActive', 'forgetPasswordKey'],
             where: { email: decodedTokenKey, deleteFlag: 0 },
@@ -906,93 +909,5 @@ export class UserController {
             data: resultData,
         };
         return response.status(200).send(successResponse);
-    }
-
-    // Get SiteMap API
-    /**
-     * @api {get} /api/auth/get-sitemap Get Sitemap API
-     * @apiGroup Authentication
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully Get the Sitemap..!",
-     *      "status": "1"
-     *       "data":{}
-     * }
-     * @apiSampleRequest /api/auth/get-sitemap
-     * @apiErrorExample {json} Get Profile error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    // Get Profile Function
-    @Get('/get-sitemap')
-    public async getSitempap(@Req() request: any, @Res() response: any): Promise<any> {
-        const allURLs = await this.scrapingURL(env.storeRedirectUrl, 6).catch((error) => {
-            console.error(error);
-        });
-        if (allURLs) {
-            await this.urlsToSitemap(env.storeRedirectUrl, allURLs);
-        }
-        return new Promise((resolve, reject) => {
-            const filePath = 'sitemap.xml';
-            response.download(filePath, (err, data) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    fs.unlinkSync(filePath);
-                    return response.end();
-                }
-            });
-        });
-    }
-
-    public async scrapingURL(URL: string, waitSec?: number): Promise<any> {
-        const browser = await launch();
-        const page = await browser.newPage();
-        const allPageURLs = await this.getAllPageURLs(page, URL, waitSec ? waitSec : 3);
-        await browser.close();
-        return allPageURLs;
-    }
-
-    public async getAllPageURLs(page: Page, URL: string, waitSec: number): Promise<any> {
-        await page.goto(URL, { waitUntil: 'domcontentloaded' });
-        await page.waitForTimeout(waitSec * 1000);
-        const currentPageURLs = await this.getCurrentPageURLs(page);
-        const currentURLs = currentPageURLs.map((path) => {
-            return /^(https|http):\/\//.test(path) ? URL + '/' : URL + path;
-        });
-        const uniqueURLs = Array.from(new Set(currentURLs));
-        return Array.from(new Set(uniqueURLs.sort()));
-    }
-
-    public async getCurrentPageURLs(page: Page): Promise<any> {
-        try {
-            return await page.evaluate(() => {
-                const elements = Array.from(document.querySelectorAll('a'));
-                return elements
-                    .map((element: Element) => {
-                        return element?.getAttribute('href');
-                    })
-                    .filter(data => !data?.includes('javascript:void(0)'))
-                    .filter((url) => url) as string[];
-            });
-        } catch (error) {
-            throw error;
-        }
-    }
-
-    public async urlsToSitemap(URL: string, allURLs: string[]): Promise<any> {
-        const links = allURLs.map((url) => {
-            return { url, changefreq: 'monthly', priority: 0.5 };
-        });
-        const stream = new SitemapStream({ hostname: URL });
-        const data = await streamToPromise(Readable.from(links).pipe(stream));
-        return new Promise((resolve, reject) => {
-            const filePath = 'sitemap.xml';
-            fs.writeFile(filePath, data.toString(), (err) => {
-                if (err) { throw err; }
-                resolve('sitemap created');
-            });
-        });
     }
 }

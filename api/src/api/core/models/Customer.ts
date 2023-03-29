@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import { Column, Entity, BeforeInsert, BeforeUpdate, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseModel } from './BaseModel';
@@ -17,6 +17,7 @@ import { Country } from './Country';
 import { CustomerDocument } from './CustomerDocument';
 import { IsNotEmpty } from 'class-validator';
 import { ProductViewLog } from './productViewLog';
+import { CustomerCart } from './CustomerCart';
 
 @Entity('customer')
 export class Customer extends BaseModel {
@@ -103,7 +104,6 @@ export class Customer extends BaseModel {
     @Exclude()
     @Column({ name: 'mail_status' })
     public mailStatus: number;
-
     @Column({ name: 'pincode' })
     public pincode: string;
     @Exclude()
@@ -138,6 +138,9 @@ export class Customer extends BaseModel {
 
     @OneToMany(type => CustomerDocument, customerDocument => customerDocument.customer)
     public customerDocument: CustomerDocument[];
+
+    @OneToMany(type => CustomerCart, customerCart => customerCart.customer)
+    public customerCart: CustomerCart[];
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

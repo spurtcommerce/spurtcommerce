@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import 'reflect-metadata';
 import { Get, JsonController, Res, Body, Post, Authorized, Put, BodyParam } from 'routing-controllers';
@@ -177,6 +177,7 @@ export class SettingController {
                 const stringLength = logo.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;
+                console.log(sizeInKb + 'kbbbb');
                 if (+sizeInKb <= 2048) {
                     if (env.imageserver === 's3') {
                         await this.s3Service.imageUpload((path + name), base64Data, type);
@@ -210,6 +211,7 @@ export class SettingController {
                 const stringLength = emailLogoPath.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;
+                console.log(sizeInKb + 'kbbbb');
                 if (+sizeInKb <= 2048) {
                     if (env.imageserver === 's3') {
                         await this.s3Service.imageUpload((emailLogoPath + emailLogoName), base64Data, type);
@@ -243,6 +245,7 @@ export class SettingController {
                 const stringLength = invoiceLogo.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;
+                console.log(sizeInKb + 'kbbbb');
                 if (+sizeInKb <= 2048) {
                     if (env.imageserver === 's3') {
                         await this.s3Service.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data, type);
@@ -311,6 +314,7 @@ export class SettingController {
                 const stringLength = logo.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;
+                console.log(sizeInKb + 'kbbbb');
                 if (+sizeInKb <= 2048) {
                     if (env.imageserver === 's3') {
                         await this.s3Service.imageUpload((path + name), base64Data, type);
@@ -344,6 +348,7 @@ export class SettingController {
                 const stringLength = emaillogo.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;
+                console.log(sizeInKb + 'kbbbb');
                 if (+sizeInKb <= 2048) {
                     if (env.imageserver === 's3') {
                         await this.s3Service.imageUpload((emailLogoPath + emailLogoName), base64Data, type);
@@ -369,6 +374,7 @@ export class SettingController {
                 const stringLength = invoiceLogo.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;
+                console.log(sizeInKb + 'kbbbb');
                 if (+sizeInKb <= 2048) {
                     if (env.imageserver === 's3') {
                         await this.s3Service.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data, extType);

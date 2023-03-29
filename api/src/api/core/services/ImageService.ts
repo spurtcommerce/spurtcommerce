@@ -235,13 +235,23 @@ export class ImageService {
 
         return new Promise(async (resolve, reject) => {
             const pathName = path.join(process.cwd(), 'uploads');
-            const files = await this.readDir(pathName);
+            const files: any = await this.readDir(pathName);
             const contents = [];
             const commonPrefix = [];
             if (folderName !== '') {
-                files.forEach(async (file: string | string[]) => {
-                    if (file.includes(folderName) === true) {
-                        commonPrefix.push({ Prefix: file + '/' });
+                files.forEach(async (file: any) => {
+                    if (Array.isArray(file) === false) {
+                        const filesName = file.toLowerCase();
+                        if (filesName.includes(folderName.toLowerCase())) {
+                            commonPrefix.push({ Prefix: file + '/' });
+                        }
+                    } else {
+                        for (const fileArray of file ) {
+                            const lowerCaseName = fileArray.toLowerCase();
+                            if (lowerCaseName.includes(folderName.toLowerCase())) {
+                                commonPrefix.push({ Prefix: fileArray + '/' });
+                            }
+                        }
                     }
                 });
             } else {

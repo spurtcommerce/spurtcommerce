@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import 'reflect-metadata';
 import { Get, JsonController, Res, Req, QueryParam, Param, UseBefore } from 'routing-controllers';
@@ -15,8 +15,6 @@ import { WidgetService } from '../../../Widget/services/WidgetService';
 import { WidgetItemService } from '../../../Widget/services/WidgetItemService';
 import moment = require('moment');
 import { CheckTokenMiddleware } from '../../../../src/api/core/middlewares/checkTokenMiddleware';
-import { CheckAddonMiddleware } from '../../../../src/api/core/middlewares/AddonValidationMiddleware';
-@UseBefore(CheckAddonMiddleware)
 @JsonController('/list')
 export class StoreWidgetListController {
     constructor(
@@ -26,6 +24,44 @@ export class StoreWidgetListController {
         private widgetItemService: WidgetItemService,
         private productToCategoryService: ProductToCategoryService
     ) {
+    }
+
+    // Widget Name List API
+    /**
+     * @api {get} /api/list/widget-menu-name Widget name List
+     * @apiGroup Store List
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Got Widget name List Successfully..!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/widget-menu-name
+     * @apiErrorExample {json} Widget List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Widget Name list Function
+    @UseBefore(CheckTokenMiddleware)
+    @Get('/widget-menu-name')
+    public async widgetNameList(@Res() response: any): Promise<any> {
+        const select = ['widgetId', 'widgetTitle', 'widgetSlugName'];
+        const WhereConditions = [
+            {
+                name: 'isActive',
+                value: 1,
+            },
+            {
+                name: 'ShowHomePageWidget',
+                value: 1,
+            },
+        ];
+        const widgetList: any = await this.widgetService.list(undefined, undefined, select, undefined, WhereConditions, false);
+        return response.status(200).send({
+            status: 1,
+            message: 'Got Widget name List Successfully..!',
+            data: widgetList,
+        });
     }
 
     // Widget List API
@@ -56,7 +92,7 @@ export class StoreWidgetListController {
     @UseBefore(CheckTokenMiddleware)
     @Get('/widget-list')
     public async widgetList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
-        const select = ['widgetId', 'widgetTitle', 'widgetLinkType', 'position', 'metaTagKeyword', 'metaTagDescription', 'metaTagTitle', 'widgetSlugName'];
+        const select = ['widgetId', 'widgetTitle', 'widgetLinkType', 'position', 'ShowHomePageWidget', 'metaTagKeyword', 'metaTagDescription', 'metaTagTitle', 'widgetSlugName'];
         const search = [];
         const WhereConditions = [
             {
@@ -230,7 +266,7 @@ export class StoreWidgetListController {
 
     // get widget detail API
     /**
-     * @api {get} /api/list/widget-detail/:widgetId get widget detail API
+     * @api {get} /api/list/widget-detail/:widgetSlug get widget detail API
      * @apiGroup Store List
      * @apiParam (Request body) {Number} limit Limit
      * @apiParam (Request body) {Number} offset Offset
@@ -243,16 +279,16 @@ export class StoreWidgetListController {
      *      }
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/list/widget-detail/:widgetId
+     * @apiSampleRequest /api/list/widget-detail/:widgetSlug
      * @apiErrorExample {json} Store list error
      * HTTP/1.1 500 Internal Server Error
      */
     @UseBefore(CheckTokenMiddleware)
-    @Get('/widget-detail/:widgetId')
-    public async widgetDetail(@Param('widgetId') widgetId: number, @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
+    @Get('/widget-detail/:widgetSlug')
+    public async widgetDetail(@Param('widgetSlug') widgetSlug: string, @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
         const widget = await this.widgetService.findOne({
             where: {
-                widgetId,
+                widgetSlugName: widgetSlug,
             },
         });
         if (!widget) {
@@ -264,7 +300,7 @@ export class StoreWidgetListController {
         }
         const BannerItem = await this.widgetItemService.find({
             where: {
-                widgetId,
+                widgetId: widget.widgetId,
             },
         });
         const arr: any = [];

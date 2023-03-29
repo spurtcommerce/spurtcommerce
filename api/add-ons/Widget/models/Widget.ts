@@ -1,3 +1,11 @@
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+
 import { Column, Entity, BeforeInsert, BeforeUpdate, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { BaseModel } from '../../../src/api/core/models/BaseModel';
 import moment = require('moment/moment');
@@ -21,6 +29,9 @@ export class Widget extends BaseModel {
 
     @Column({ name: 'position' })
     public position: number;
+
+    @Column({ name: 'show_home_page_widget' })
+    public ShowHomePageWidget: number;
 
     @Column({ name: 'meta_tag_keyword' })
     public metaTagKeyword: string;

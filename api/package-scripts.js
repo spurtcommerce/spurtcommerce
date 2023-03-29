@@ -14,14 +14,14 @@ module.exports = {
          * Starts the builded app from the dist directory.
          */
         start: {
-            script: 'cross-env NODE_ENV=development node dist/app.js',
+            script: 'cross-env NODE_ENV=development node dist/src/app.js',
             description: 'Starts the builded app',
         },
         /**
          * Starts the builded app from the dist directory.
          */
         qa: {
-            script: 'cross-env NODE_ENV=qa node dist/app.js',
+            script: 'cross-env NODE_ENV=qa node dist/src/app.js',
             description: 'Starts the builded app',
         },
         /**
@@ -163,8 +163,16 @@ module.exports = {
         copy: {
             default: {
                 script: series(
+                    `nps copy.swagger`,
                     `nps copy.public`,
                     `nps copy.apidoc`,
+                ),
+                hiddenFromHelp: true
+            },
+            swagger: {
+                script: copy(
+                    './src/api/swagger.json',
+                    './dist/src/'
                 ),
                 hiddenFromHelp: true
             },
@@ -361,7 +369,7 @@ module.exports = {
                 script: copyCPYDir(
                     './src/',
                     './.beforeBuild',
-                    "'!./src/api/admin/**'"
+                    "'!./src/api/admin/**' '!./src/api/vendor/**' '!./src/api/vendorAdmin/**'"
                 ),
                 hiddenFromHelp: true
             },
@@ -369,7 +377,7 @@ module.exports = {
                 script: copyCPYDir(
                     './add-ons/',
                     './.beforeBuild',
-                    "'!./add-ons/**/controllers/admin'"
+                    "'!./add-ons/**/controllers/admin' '!./add-ons/**/controllers/vendor' '!./add-ons/**/controllers/vendorAdmin'"
                 ),
                 hiddenFromHelp: true
             },
@@ -491,7 +499,7 @@ module.exports = {
                 script: copyCPYDir(
                     './src/',
                     './.beforeBuild',
-                    "'!./src/api/store/**'"
+                    "'!./src/api/store/**' '!./src/api/vendor/**'"
                 ),
                 hiddenFromHelp: true
             },
@@ -499,7 +507,55 @@ module.exports = {
                 script: copyCPYDir(
                     './add-ons/',
                     './.beforeBuild',
-                    "'!./add-ons/**/controllers/store'"
+                    "'!./add-ons/**/controllers/store' '!./add-ons/**/controllers/vendor'"
+                ),
+                hiddenFromHelp: true
+            },
+        },
+        /**
+         * Builds the vendor app into the dist directory
+         */
+         vendorBuild: {
+            script: series(
+                'nps banner.build',
+                'nps vendorCopy',
+                'nps microServiceConfig',
+                'nps microServiceGenerateUtills',
+                'nps lintConfig',
+                'nps clean.dist',
+                'nps transpileMicroService',
+                'nps generateMicroServiceapidoc',
+                'nps microServiceCopyAfterBuild',
+                'nps microServiceCopyAfterBuild.tmp',
+                'nps clean.tmp',
+                'nps clean.beforeBuild'
+            ),
+            description: 'Builds the app into the dist directory'
+        },
+        /**
+         * Befor build make micro service folder
+         */
+         vendorCopy: {
+            default: {
+                script: series(
+                    `nps vendorCopy.beforeCoreBuild`,
+                    `nps vendorCopy.beforeAddOnBuild`,
+                ),
+                hiddenFromHelp: true
+            },
+            beforeCoreBuild: {
+                script: copyCPYDir(
+                    './src/',
+                    './.beforeBuild',
+                    "'!./src/api/store/**' '!./src/api/admin/**' '!./src/api/vendorAdmin/**'"
+                ),
+                hiddenFromHelp: true
+            },
+            beforeAddOnBuild: {
+                script: copyCPYDir(
+                    './add-ons/',
+                    './.beforeBuild',
+                    "'!./add-ons/**/controllers/store' '!./add-ons/**/controllers/admin' '!./add-ons/**/controllers/vendorAdmin'"
                 ),
                 hiddenFromHelp: true
             },

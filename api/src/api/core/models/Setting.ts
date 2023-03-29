@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import { IsNotEmpty } from 'class-validator';
 import { BeforeInsert, Column, Entity, BeforeUpdate, PrimaryGeneratedColumn } from 'typeorm';
@@ -112,6 +112,9 @@ export class Settings extends BaseModel {
 
     @Column({ name: 'is_active' })
     public isActive: string;
+
+    @Column({ name: 'addons' })
+    public addons: string;
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

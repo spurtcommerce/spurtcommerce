@@ -138,7 +138,7 @@ export class S3Service {
     }
 
     // Image resize
-    public resizeImageBase64(imgName: string = '', imgPath: string = '', widthString: string = '', heightString: string = ''): Promise<any> {
+    public resizeImageBase64(imgName: string = '', imgPath: string = '', widthString: string, heightString: string): Promise<any> {
         AWS.config.update({accessKeyId: aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: aws_setup.AWS_SECRET_ACCESS_KEY});
         const ext = imgName.split('.');
         const imagePrefix = 'data:image/' + ext[1] + ';base64,';
@@ -148,7 +148,7 @@ export class S3Service {
             Key: imgPath + imgName, // path to the object you're looking for
         };
         return new Promise((resolve, reject) => {
-            s3.getObject(getParams, (err: any, data: any) => {
+            s3.getObject(getParams, async (err: any, data: any) => {
                 if (err) {
                     return reject(err);
                 }
@@ -181,14 +181,19 @@ export class S3Service {
             ContentEncoding: 'base64',
             ContentType: `image/${imageType}`,
         };
+        console.log('awsParams:', params);
         return new Promise((resolve, reject) => {
             return s3.upload(params, (err, data) => {
                 if (err) {
                     return reject(err);
                 }
+                console.log('data:', data);
                 const locationArray = data.Location.split('/');
+                console.log('locationArray before pop:', locationArray);
                 locationArray.pop();
+                console.log('locationArray after pop:', locationArray);
                 const locationPath = locationArray.join('/');
+                console.log('locationPath:', locationPath);
                 return resolve({path: locationPath});
             });
         });

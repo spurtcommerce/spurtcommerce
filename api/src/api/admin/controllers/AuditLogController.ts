@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 import moment from 'moment';
 import 'reflect-metadata';
 import {
@@ -131,11 +131,11 @@ export class AdminAuditLogController {
     @Get('/module-list')
     @Authorized()
     public async moduleList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
-        const select = ['AuditLog.module'];
+        const select = ['MAX(AuditLog.module) as module'];
         const search = [];
         const whereCondition = [];
         const sort = [{
-            name: 'created_date',
+            name: 'MAX(created_date)',
             order: 'DESC',
         }];
         const groupBy = [

@@ -62,7 +62,7 @@ export class MediaController {
     public async ObjectList(@QueryParam('folderName') folderName: string, @QueryParam('limit') limit: number, @QueryParam('marker') marker: string, @Req() request: any, @Res() response: any): Promise<any> {
         let val: any;
         if (env.imageserver === 's3') {
-            val = await this.s3Service.listBucker(limit, marker, folderName);
+            val = await this.s3Service.listBucker(limit, marker, folderName.toLowerCase());
             val.Contents.forEach((item, index) => {
                 const str = item.Key;
                 if (str.charAt(str.length - 1) === '/') {
@@ -73,7 +73,7 @@ export class MediaController {
                 return b.LastModified - a.LastModified;
             });
         } else {
-            val = await this.imageService.listFolders(limit, marker, folderName);
+            val = await this.imageService.listFolders(limit, marker, folderName.toLowerCase());
         }
         if (val) {
             const successResponse: any = {
@@ -448,8 +448,63 @@ export class MediaController {
     @Authorized('admin')
     public async getFolder(@QueryParam('folderName') folderName: string, @Req() request: any, @Res() response: any): Promise<any> {
         let val: any;
+        const originalFileName = folderName.toLowerCase();
         if (env.imageserver === 's3') {
-            val = await this.s3Service.getFolder(folderName);
+            const fileName = folderName;
+            const firstIndex = fileName[0];
+            const array = [];
+            array.push(firstIndex.toLowerCase());
+            array.push(firstIndex.toUpperCase());
+            const initialtData: any = [];
+            const contents = [];
+            const commonPrefixes = [];
+            const finalContents = [];
+            const finalCommonPrefixes = [];
+            let i = 1;
+            for (const data of array) {
+                val = await this.s3Service.getFolder(data);
+                if (i === 1) {
+                    initialtData.push(val);
+                }
+                i++;
+                contents.push(val.Contents);
+                commonPrefixes.push(val.CommonPrefixes);
+            }
+            // contents
+            for (const data of contents) {
+                for (const values of data) {
+                    const strValue = values.Key.toLowerCase();
+                    if (strValue.includes(originalFileName)) {
+                        finalContents.push(values);
+                    }
+                }
+            }
+
+            // finalommonPrefixes
+            for (const data of commonPrefixes) {
+                for (const values of data) {
+                    const strValue = values.Prefix.toLowerCase();
+                    if (strValue.includes(originalFileName)) {
+                        finalCommonPrefixes.push(values);
+                    }
+                }
+            }
+            const mapping = await initialtData.map(async (value: any) => {
+                value.Contents = finalContents;
+                value.CommonPrefixes = finalCommonPrefixes;
+                value.Prefix = folderName;
+                return value;
+            });
+            const resultData = await Promise.all(mapping);
+
+            if (resultData) {
+                const successResponse: any = {
+                    status: 1,
+                    message: 'Successfully got folder details',
+                    data: resultData[0],
+                };
+                return response.status(200).send(successResponse);
+            }
         } else {
             val = await this.imageService.getFolder(folderName);
         }
@@ -568,7 +623,7 @@ export class MediaController {
      * HTTP/1.1 500 Internal Server Error
      */
      @Post('/upload-multi-image')
-     @Authorized('admin')
+    //  @Authorized('admin')
      public async multiImage(@Body({ validate: true }) multipleImage: MultipleImageUpload, @Res() response: any): Promise<any> {
         let val: any;
         const images: any = multipleImage.image;
@@ -579,7 +634,7 @@ export class MediaController {
             const imageValue = value.image;
             const imageType = imageValue.split(';')[0].split('/')[1];
             const originalName = fileName.split('.')[0];
-            const imageName = originalName + Date.now() + '.' + imageType;
+            const imageName = originalName.toLowerCase() + Date.now() + '.' + imageType;
             const base64Data = new Buffer(imageValue.replace(/^data:image\/\w+;base64,/, ''), 'base64');
             const availableTypes = env.availImageTypes.split(',');
             const stringLength = imageValue.replace(/^data:image\/\w+;base64,/, '').length;

@@ -87,6 +87,7 @@ export class SanitizeMiddleware implements ExpressMiddlewareInterface {
               if (!isValid(value.toString())) {
                 return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
               }
+              console.log(value.toString().length + 'length');
             }
           }
         }

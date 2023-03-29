@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="143" height="38" viewBox="0 0 143 38">
+  <defs>
+    <filter id="Ellipse_860" x="105" y="0" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_1525" data-name="Group 1525" transform="translate(-576 -422)">
+    <g id="Group_1523" data-name="Group 1523">
+      <rect id="Rectangle_1281" data-name="Rectangle 1281" width="111" height="4" transform="translate(576 438)" fill="#2874f0"/>
+      <g id="Group_1519" data-name="Group 1519" transform="translate(684.001 424)">
+        <g transform="matrix(1, 0, 0, 1, -108, -2)" filter="url(#Ellipse_860)">
+          <circle id="Ellipse_860-2" data-name="Ellipse 860" cx="16" cy="16" r="16" transform="translate(108 2)" fill="#2874f0"/>
+        </g>
+      </g>
+    </g>
+    <path id="check-mark_2_" data-name="check-mark (2)" d="M153.2,169.323a1.4,1.4,0,0,1,0,1.977l-9.378,9.378a1.4,1.4,0,0,1-1.977,0l-4.464-4.464a1.4,1.4,0,0,1,1.977-1.977l3.476,3.476,8.389-8.39a1.4,1.4,0,0,1,1.977,0Z" transform="translate(555.024 265.086)" fill="#fff"/>
+  </g>
+</svg>

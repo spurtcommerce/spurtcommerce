@@ -65,8 +65,8 @@ export class CreateWidgetItemTable1601270946009 implements MigrationInterface {
         if (!ifExsist) {
             await queryRunner.createTable(table);
         }
-
-        const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('widget_id') !== -1);
+        const getTable = await queryRunner.getTable('widget_item');
+        const ifDataExsist = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('widget_id') !== -1);
         if (!ifDataExsist) {
             await queryRunner.createForeignKey(table, this.tableForeignKey);
         }

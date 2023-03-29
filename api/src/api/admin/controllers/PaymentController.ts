@@ -511,6 +511,7 @@ export class PaymentController {
         worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         for ( const data of paymentList) {
+        console.log('data:', data);
         rows.push([data.orderPrefixId, data.shippingFirstname, data.email, data.total, data.createdDate, data.paymentType, data.paymentDetails]);
         }
         // Add all rows data in sheet
@@ -641,7 +642,7 @@ export class PaymentController {
             'orderDetail.currencySymbolRight as currencySymbolRight',
             'orderDetail.shippingFirstname as shippingFirstname',
             'orderDetail.total as total',
-            'orderDetail.createdDate as createdDate',
+            // 'orderDetail.createdDate as createdDate',
             'orderDetail.paymentType as paymentType',
             'orderDetail.paymentDetails as paymentDetails',
             'orderDetail.customerId as customerId',
@@ -1025,6 +1026,7 @@ export class PaymentController {
         });
 
         const paymentList: any = await this.paymentArchiveService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+        console.log('paymentList len:', paymentList.length);
         if (+paymentList.length === 0) {
             return response.status(400).send({
                 status: 0,
@@ -1048,6 +1050,7 @@ export class PaymentController {
         worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         for (const data of paymentList) {
+            console.log('data:', data);
             rows.push([data.orderPrefixId, data.shippingFirstname, data.email, data.total, data.createdDate, data.paymentType, data.paymentDetails]);
         }
 

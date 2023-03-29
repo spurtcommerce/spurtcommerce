@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+    <defs>
+        <clipPath id="dwp6xmdkza">
+            <path data-name="Rectangle 1439" transform="translate(1080 32)" style="fill:#fff;stroke:#707070" d="M0 0h15v15H0z"/>
+        </clipPath>
+    </defs>
+    <g data-name="Mask Group 1" transform="translate(-1080 -32)" style="clip-path:url(#dwp6xmdkza)">
+        <g data-name="avatar (1)">
+            <g data-name="Group 2498">
+                <g data-name="Group 2497">
+                    <g data-name="Ellipse 195" style="stroke:#fff;fill:none" transform="translate(1084.687 32)">
+                        <circle cx="2.813" cy="2.813" r="2.813" style="stroke:none"/>
+                        <circle cx="2.813" cy="2.813" r="2.313" style="fill:none"/>
+                    </g>
+                </g>
+            </g>
+            <g data-name="Group 2500">
+                <g data-name="Group 2499">
+                    <g data-name="Path 3799" style="fill:none">
+                        <path d="M7.414 8.5a5.779 5.779 0 0 0-5.625 5.921A1.541 1.541 0 0 0 3.289 16h8.25a1.541 1.541 0 0 0 1.5-1.579A5.779 5.779 0 0 0 7.414 8.5z" style="stroke:none" transform="translate(1080.086 30.062)"/>
+                        <path d="M7.414 9.5c-2.55 0-4.625 2.208-4.625 4.921 0 .32.225.579.5.579h8.25c.276 0 .5-.26.5-.579 0-2.713-2.074-4.921-4.625-4.921m0-1c3.107 0 5.625 2.651 5.625 5.921 0 .872-.671 1.579-1.5 1.579H3.29c-.828 0-1.5-.707-1.5-1.579 0-3.27 2.519-5.921 5.625-5.921z" style="fill:#fff;stroke:none" transform="translate(1080.086 30.062)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

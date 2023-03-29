@@ -1,17 +1,17 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import { Service } from 'typedi';
 import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { CustomerCart } from '../models/CustomerCart';
 import { CustomerCartRepository } from '../repositories/CustomerCartRepository';
-import { Brackets, getConnection, Like } from 'typeorm';
+import { Brackets, getConnection, In, Like } from 'typeorm';
 
 @Service()
 export class CustomerCartService {
@@ -27,6 +27,16 @@ export class CustomerCartService {
 
     public find(order: any): Promise<any> {
         return this.customerCartRepository.find(order);
+    }
+
+    public findById(id: number): Promise<any> {
+        return this.customerCartRepository.find({
+            select: ['name', 'quantity', 'productPrice', 'total'],
+        });
+    }
+
+    public async update( cartId: number[], customerId: number): Promise<void> {
+        await this.customerCartRepository.update({ id: In(cartId)}, { customerId });
     }
 
     public list(limit: number, offset: number, select: any[], relation: any = [], whereConditions: any = [], search: any = [], count: number | boolean): Promise<any> {
@@ -128,6 +138,10 @@ export class CustomerCartService {
                     query.andWhere(item.name + ' IN (' + item.value + ')');
                 } else if (item.op === 'IS NULL' && item.sign === undefined) {
                     query.orWhere(item.name + 'IS NULL' + item.value);
+                } else if (item.op === 'where' && item.sign === 'like') {
+                    query.andWhere('LOWER(' + item.name + ')LIKE \'%' + item.value + '%\'');
+                } else if (item.op === 'where' && item.sign === 'not like') {
+                    query.andWhere('LOWER(' + item.name + ')NOT LIKE \'%' + item.value + '%\'');
                 }
             });
         }
@@ -168,6 +182,17 @@ export class CustomerCartService {
                                 return;
                             }
                             qb.orWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                        });
+                    }));
+                } else if (table.op === 'NOT' && table.name && table.name instanceof Array && table.name.length > 0) {
+                    query.andWhere(new Brackets(qb => {
+                        const namesArray = table.name;
+                        namesArray.forEach((name: string, index: number) => {
+                            if (index === 0) {
+                                qb.andWhere('LOWER(' + name + ')' + 'NOT LIKE ' + '\'%' + table.value + '%\'');
+                                return;
+                            }
+                            qb.orWhere('LOWER(' + name + ')' + ' NOT LIKE ' + '\'%' + table.value + '%\'');
                         });
                     }));
                 }

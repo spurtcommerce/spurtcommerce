@@ -1,0 +1,15 @@
+<svg id="Icon_Done_Sharp" data-name="Icon / Done / Sharp" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="11" viewBox="0 0 12 11">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Mask" d="M3.811,8.679.966,5.26,0,6.42,3.811,11,12,1.16,11.034,0Z" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_1" data-name="Group 1">
+    <path id="Mask-2" data-name="Mask" d="M3.811,8.679.966,5.26,0,6.42,3.811,11,12,1.16,11.034,0Z" fill="none"/>
+    <g id="Mask_Group_1" data-name="Mask Group 1" clip-path="url(#clip-path)">
+      <g id="_Icon_Color" data-name="↳ Icon Color">
+        <rect id="Rectangle_3" data-name="Rectangle 3" width="12" height="11" fill="#06aa06"/>
+      </g>
+    </g>
+  </g>
+</svg>

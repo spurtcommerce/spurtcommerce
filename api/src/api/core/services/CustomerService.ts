@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import { Service } from 'typedi';
 import { OrmRepository } from 'typeorm-typedi-extensions';
@@ -40,6 +40,15 @@ export class CustomerService {
     // find Condition
     public find(data: any): Promise<any> {
         return this.customerRepository.find(data);
+    }
+
+    public async findCustomerById(customerId: number, select?: string[]): Promise<Customer> {
+        const condition: any = {};
+        if (select) {
+            condition.select = select;
+        }
+        condition.where = { id: customerId };
+        return await this.customerRepository.findOne(condition);
     }
 
     // update customer

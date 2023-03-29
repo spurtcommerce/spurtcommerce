@@ -4,6 +4,7 @@ export async function CheckAddonMiddleware(request: any, response: any, next: an
     const pluginRepository = getManager().getRepository(Plugins);
     const routeSplit = request.route.path.split(':')[0];
     const validAddOnRoute = await pluginRepository.findOne({ where: { routes: Like('%~' + routeSplit + '~%'), pluginStatus: 1 } });
+    console.log(JSON.stringify(validAddOnRoute) + 'validAddOnRouteTwo');
     if (validAddOnRoute) {
         next();
     } else {

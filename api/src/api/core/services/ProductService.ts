@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import { Service } from 'typedi';
 import { OrmRepository } from 'typeorm-typedi-extensions';
@@ -203,6 +203,7 @@ export class ProductService {
         }
         // Keyword Search
         if (searchConditions && searchConditions.length > 0) {
+            console.log('searchConditions:', searchConditions);
             searchConditions.forEach((table: any) => {
                 if ((table.op === undefined && table.name && table.name instanceof Array && table.name.length > 0) && (table.value && table.value instanceof Array && table.value.length > 0)) {
                     const namesArray = table.name;

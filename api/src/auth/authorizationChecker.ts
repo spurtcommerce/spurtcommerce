@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import { Action } from 'routing-controllers';
 import { Container } from 'typedi';
@@ -16,13 +16,7 @@ import { AuthService } from './AuthService';
 export function authorizationChecker(connection: Connection): (action: Action, roles: string[]) => Promise<boolean> | boolean {
     const log = new Logger(__filename);
     const authService = Container.get<AuthService>(AuthService);
-
     return async function innerAuthorizationChecker(action: Action, roles: any): Promise<boolean> {
-        // here you can use request/response objects from action
-        // also if decorator defines roles it needs to access the action
-        // you can use them to provide granular access check
-        // checker must return either boolean (true or false)
-        // either promise that resolves a boolean value
         const userId = await authService.parseBasicAuthFromRequest(action.request);
         if (userId === undefined) {
             log.warn('No credentials given');
@@ -61,7 +55,6 @@ export function authorizationChecker(connection: Connection): (action: Action, r
                 log.warn('Invalid credentials given');
                 return false;
             }
-            // check for route permissions
             const routeName = roles[1];
             const userGroupId = (action.request.user && action.request.user.userGroupId) ? action.request.user.userGroupId : undefined;
             if (userGroupId) {

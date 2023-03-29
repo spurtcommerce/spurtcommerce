@@ -1,0 +1,6 @@
+<svg data-name="shopping-cart-simple (2)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <path data-name="Rectangle 1938" style="fill:none" d="M0 0h16v16H0z"/>
+    <circle data-name="Ellipse 202" cx="1" cy="1" r="1" transform="translate(5 13)" style="fill:#fff"/>
+    <circle data-name="Ellipse 203" cx="1" cy="1" r="1" transform="translate(11 13)" style="fill:#fff"/>
+    <path data-name="Path 5171" d="M10.247 34.62H22l-1.73 6.053a1.042 1.042 0 0 1-1.009.76h-6.276a1.042 1.042 0 0 1-1.009-.76L9.605 32.38A.524.524 0 0 0 9.1 32H8" transform="translate(-7 -30)" style="stroke:#fff;stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+</svg>

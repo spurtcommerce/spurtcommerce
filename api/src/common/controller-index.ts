@@ -6,6 +6,7 @@ export * from '../api/admin/controllers/CurrencyController';
 export * from '../api/admin/controllers/CustomerController';
 export * from '../api/admin/controllers/CustomerGroupController';
 export * from '../api/admin/controllers/EmailTemplateController';
+export * from '../api/admin/controllers/GmapController';
 export * from '../api/admin/controllers/LanguageController';
 export * from '../api/admin/controllers/OrderController';
 export * from '../api/admin/controllers/OrderStatusController';

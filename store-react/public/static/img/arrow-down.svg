@@ -1,0 +1,15 @@
+<svg id="Icon_Keyboard_Arrow_-_Down_Sharp" data-name="Icon / Keyboard Arrow - Down / Sharp" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8" height="4.94" viewBox="0 0 8 4.94">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Shape" d="M.94,0,4,3.053,7.06,0,8,.94l-4,4-4-4Z" fill="#b5b5b5"/>
+    </clipPath>
+  </defs>
+  <g id="Group_3" data-name="Group 3" transform="translate(0 0)">
+    <path id="Shape-2" data-name="Shape" d="M.94,0,4,3.053,7.06,0,8,.94l-4,4-4-4Z" fill="#b5b5b5"/>
+    <g id="Mask_Group_3" data-name="Mask Group 3" clip-path="url(#clip-path)">
+      <g id="_Icon_Color" data-name="↳ Icon Color" transform="translate(-4 -5.727)">
+        <rect id="Rectangle" width="16" height="16" fill="#b5b5b5"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -68,7 +68,6 @@ export class ErrorHandlerMiddleware implements ExpressErrorMiddlewareInterface {
                         break;
                     default:
                         responseObject.message = error.message;
-                        // responseObject.message = 'Something went wrong';
                         break;
                 }
 

@@ -1,10 +1,10 @@
 /*
- * spurtcommerce API
- * version 4.8.0
- * Copyright (c) 2021 piccosoft ltd
- * Author piccosoft ltd <support@piccosoft.com>
- * Licensed under the MIT license.
- */
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
 
 import 'reflect-metadata';
 import { Get, JsonController, Authorized, QueryParam, Res, Req, Post, Body, Delete, Param, BodyParam, Put } from 'routing-controllers';
@@ -374,13 +374,13 @@ export class OrderController {
         }
         let image: any;
         if (env.imageserver === 's3') {
-            image = await this.s3Service.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '50', '50');
+            image = await this.s3Service.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '110', '30');
         } else {
             image = await this.imageService.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '50', '50');
-        }
+       }
         orderData.logo = image;
         const htmlData = await this.pdfService.readHtmlToString('invoice', orderData);
-        const pdfBinary = await this.pdfService.createPDFFile(htmlData, true, '');
+        const pdfBinary = await this.pdfService.createPDFFile((' " ' + htmlData + ' " '), true, '');
         return response.status(200).send({
             data: pdfBinary,
             status: 1,
@@ -1839,6 +1839,7 @@ export class OrderController {
         worksheet.getCell('I1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         worksheet.getCell('J1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         for (const data of orderProductList) {
+            console.log('data:', data);
             const dataId = await this.orderService.findOrder(data.orderId);
             let requestStatus;
             if (data.cancelRequestStatus === 1) {
@@ -2017,10 +2018,10 @@ export class OrderController {
         @Res() response: any
     ): Promise<any> {
         const select = [
-            'MAX(Product.productId) as productId',
+            ('DISTINCT Product.productId as productId'),
             'MAX(productToCategory.productToCategoryId) as productToCategoryId',
             'MAX(productToCategory.categoryId) as categoryId',
-            'MAX(Product.name) as name',
+            'Product.name as name',
             'MAX(category.name) as categoryName'];
         const whereCondition = [];
         const searchConditions = [];
@@ -2321,7 +2322,7 @@ export class OrderController {
             groupByPeriodTypeObject.forEach((periodType: any) => {
                 const buyers = groupByPeriodTypeArray[periodType] && groupByPeriodTypeArray[periodType].length > 0 ? groupByPeriodTypeArray[periodType] : [];
                 rows.push(['Product name-' + '' + periodType + '']);
-                rows.push(['Customer name', 'quantity', 'date of purchase', 'payment type', 'Original Amount', 'Discount Amount', 'Total amount' , 'Order Id', 'orderStatus', 'Customer Group Name']);
+                rows.push(['Customer name', 'quantity', 'date of purchase', 'payment type', 'Original Amount', 'Discount Amount', 'Total amount', 'Order Id', 'orderStatus', 'Customer Group Name']);
                 for (const value of buyers) {
                     rows.push([value.firstName + (value.lastName ? value.lastName : ''), value.quantity, value.createdDate, value.paymentType, +value.basePrice, +value.discountAmount, +value.total, value.orderProductPrefixId, value.orderStatusName, value.groupName]);
                 }
