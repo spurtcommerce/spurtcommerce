@@ -48,6 +48,7 @@ export class GmapUpdateSettingColumn1676697134335 implements MigrationInterface 
                 pluginAdditionalInfo: JSON.stringify(pluginAdditionalInfo),
                 pluginFormInfo: JSON.stringify(pluginFormInfo),
                 pluginStatus: 1,
+                routes: '',
                 isEditable: 1,
                 createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
                 updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,

@@ -1,5 +1,5 @@
 {
-    "name": "Spurtcommerce Marketplace",
+    "name": "Spurtcommerce Community",
     "version": "4.8.1",
     "description": "Spurtcommerce RESTFUL API",
     "main": "src/app.ts",
@@ -35,10 +35,10 @@
         "express"
     ],
     "apidoc": {
-        "name": "SpurtCommerce-multivendor V4.8.1",
+        "name": "SpurtCommerce Community V4.8.1",
         "version": "4.8.1",
-        "description": "Spurtcommerce Marketplace RESTFUL API Document",
-        "title": "Spurtcommerce Marketplace RESTFUL API Document"
+        "description": "Spurtcommerce Community RESTFUL API Document",
+        "title": "Spurtcommerce Community RESTFUL API Document"
     },
     "author": "Piccosoft",
     "overrides": {
@@ -83,7 +83,7 @@
         "@types/express-session": "^1.15.12",
         "@types/express-validator": "^3.0.0",
         "@types/lusca": "^1.6.0",
-        "@types/passport": "^1.0.0",
+        "@types/passport": "1.0.0",
         "@types/paypal-rest-sdk": "^1.7.4",
         "apidoc": "^0.29.0",
         "array-to-tree": "^3.3.0",
@@ -176,7 +176,7 @@
         "type-graphql": "^1.1.1",
         "typedi": "0.8.0",
         "typeorm": "^0.2.45",
-        "typeorm-seeding": "^1.0.0-beta.6",
+        "typeorm-seeding": "1.0.0-beta.6",
         "typeorm-typedi-extensions": "^0.2.1",
         "typescript": "^4.5.5",
         "uncino": "^1.0.0",

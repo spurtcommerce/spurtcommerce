@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, TableColumn} from 'typeorm';
 
-export class AddPluginColumns1666936841928 implements MigrationInterface {
+export class AddPluginColumns1665135644841 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         const ifColumn = await queryRunner.hasColumn('plugins', 'is_editable');

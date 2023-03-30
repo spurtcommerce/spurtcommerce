@@ -152,8 +152,8 @@ export * from '../database/migrations/1656753952109-AlterColumnPaymentInformatio
 export * from '../database/migrations/1657012239912-AlterColumnsInSkuTable';
 export * from '../database/migrations/1657012922452-AlterColumnInProductTable';
 export * from '../database/migrations/1665122641263-AddColumnInPluginTable';
+export * from '../database/migrations/1665135644841-AddPluginColumns';
 export * from '../database/migrations/1666440763235-AddColumnInSettings';
-export * from '../database/migrations/1666936841928-AddPluginColumns';
 export * from '../database/migrations/1674449652221-AddIpColumntoCustomerCart';
 export * from '../database/migrations/1674815408760-AddColumnShowHomePageWidgetInWidgetTable';
 export * from '../database/migrations/1676697134335-GmapUpdateSettingColumn';
