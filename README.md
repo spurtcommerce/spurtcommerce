@@ -18,9 +18,9 @@ Spurtcommerce Community Edition is publicly available on GitHub and free to down
 
 | S.no | Spurtcommerce Community 4.8.2  | Download |
 | ------ | ------ | ------ |
-| [1]| [Documents] | [Link ](https://www.spurtcommerce.dev)
-| [Developer Manual](https://www.spurtcommerce.dev/frontend-deployment-setup/store-front-setup/react-store-front)| [Nextjs Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/react-storefront-community)
-| [Developer Manual](https://www.spurtcommerce.dev/frontend-deployment-setup/store-front-setup/flutter-store-front)| [Flutter Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/flutter-storefront-community)
+| 1| Developer Documents | [https://www.spurtcommerce.dev] (https://www.spurtcommerce.dev)
+| 2| Demo | [Demo ](https://addon.spurtcommerce.com/details/react-storefront-community)
+| 3| Addons | [https://www.spurtcommerce.com/addons ](https://www.spurtcommerce.com/addons)
 
 
 #  ❯ Spurtcommerce 4.8.2 Shopping cart Enterprise Edition
@@ -30,9 +30,9 @@ Looking out to develop a high performing and highly scalable full-fledged eComme
 
 | Document | Spurtcommerce Community 4.8.2 Demo | Download |
 | ------ | ------ | ------ |
-| [Developer Manual](https://www.spurtcommerce.dev/getting-started/development-and-setup/store-front-setup/angular-store-front#initial-setup)| [Angular Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/angular-storefront-community)
-| [Developer Manual](https://www.spurtcommerce.dev/frontend-deployment-setup/store-front-setup/react-store-front)| [Nextjs Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/react-storefront-community)
-| [Developer Manual](https://www.spurtcommerce.dev/frontend-deployment-setup/store-front-setup/flutter-store-front)| [Flutter Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/flutter-storefront-community)
+| 1| Developer Documents | [https://www.spurtcommerce.dev] (https://www.spurtcommerce.dev)
+| 2| Demo | [Demo ](https://addon.spurtcommerce.com/details/react-storefront-community)
+| 3| Source code | [https://www.spurtcommerce.com/price-details](https://www.spurtcommerce.com/price-details)
 
 
 
