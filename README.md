@@ -18,7 +18,7 @@ Spurtcommerce Community Edition is publicly available on GitHub and free to down
 
 | S.no | Spurtcommerce Community 4.8.2  | Download |
 | ------ | ------ | ------ |
-| 1| Developer Documents | [https://www.spurtcommerce.dev] (https://www.spurtcommerce.dev)
+| 1| Developer Documents | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
 | 2| Demo | [Demo ](https://addon.spurtcommerce.com/details/react-storefront-community)
 | 3| Addons | [https://www.spurtcommerce.com/addons ](https://www.spurtcommerce.com/addons)
 
@@ -28,9 +28,10 @@ Spurtcommerce Community Edition is publicly available on GitHub and free to down
 
 Looking out to develop a high performing and highly scalable full-fledged eCommerce platform on the latest tech stack that matches with the recent eCommerce trend? Spurtcommerce ‘Marketplace’ Edition comes with all the advanced features of a full-fledged eCommerce platform. The features have been thoughtfully introduced, keeping the current and the upcoming eCommerce trend in mind.
 
-| Document | Spurtcommerce Community 4.8.2 Demo | Download |
+
+| Document | Shopping Cart Enterprise 4.8.2  | Download |
 | ------ | ------ | ------ |
-| 1| Developer Documents | [https://www.spurtcommerce.dev] (https://www.spurtcommerce.dev)
+| 1| Developer Documents | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
 | 2| Demo | [Demo ](https://addon.spurtcommerce.com/details/react-storefront-community)
 | 3| Source code | [https://www.spurtcommerce.com/price-details](https://www.spurtcommerce.com/price-details)
 
@@ -40,7 +41,7 @@ Looking out to develop a high performing and highly scalable full-fledged eComme
 
 Looking out to develop a high performing and highly scalable full-fledged eCommerce platform on the latest tech stack that matches with the recent eCommerce trend? Spurtcommerce ‘Marketplace’ Edition comes with all the advanced features of a full-fledged eCommerce platform. The features have been thoughtfully introduced, keeping the current and the upcoming eCommerce trend in mind.
 
-| Document | Spurtcommerce Community 4.8.2 Demo | Download |
+| Document | Multi-Vendor Marketplace Enterprise 4.8.2  | Download |
 | ------ | ------ | ------ |
 | [Developer Manual](https://www.spurtcommerce.dev/getting-started/development-and-setup/store-front-setup/angular-store-front#initial-setup)| [Angular Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/angular-storefront-community)
 | [Developer Manual](https://www.spurtcommerce.dev/frontend-deployment-setup/store-front-setup/react-store-front)| [Nextjs Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/react-storefront-community)
@@ -48,7 +49,7 @@ Looking out to develop a high performing and highly scalable full-fledged eComme
 
 
 
-# ❯ Addon Supported Community Edition (Unlimted addons Free For Enterprise Edition)
+# ❯ Unlimted addons Free For Enterprise Edition
 
 Spurtcommerce Addons can be integrated with the Community Edition or Marketplace Edition to extend your ECommerce Portal with more features
 
