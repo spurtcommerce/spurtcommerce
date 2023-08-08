@@ -16,6 +16,18 @@ Spurtcommerce, an Open Source NodeJS +React/Next JS + Angular eCommerce solution
 
 Spurtcommerce Community Edition is publicly available on GitHub and free to download and use
 
+| S.no | Spurtcommerce Community 4.8.2  | Download |
+| ------ | ------ | ------ |
+| [1]| [Documents] | [Link ](https://www.spurtcommerce.dev)
+| [Developer Manual](https://www.spurtcommerce.dev/frontend-deployment-setup/store-front-setup/react-store-front)| [Nextjs Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/react-storefront-community)
+| [Developer Manual](https://www.spurtcommerce.dev/frontend-deployment-setup/store-front-setup/flutter-store-front)| [Flutter Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/flutter-storefront-community)
+
+
+#  ❯ Spurtcommerce 4.8.2 Shopping cart Enterprise Edition
+
+
+Looking out to develop a high performing and highly scalable full-fledged eCommerce platform on the latest tech stack that matches with the recent eCommerce trend? Spurtcommerce ‘Marketplace’ Edition comes with all the advanced features of a full-fledged eCommerce platform. The features have been thoughtfully introduced, keeping the current and the upcoming eCommerce trend in mind.
+
 | Document | Spurtcommerce Community 4.8.2 Demo | Download |
 | ------ | ------ | ------ |
 | [Developer Manual](https://www.spurtcommerce.dev/getting-started/development-and-setup/store-front-setup/angular-store-front#initial-setup)| [Angular Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/angular-storefront-community)
@@ -23,11 +35,8 @@ Spurtcommerce Community Edition is publicly available on GitHub and free to down
 | [Developer Manual](https://www.spurtcommerce.dev/frontend-deployment-setup/store-front-setup/flutter-store-front)| [Flutter Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/flutter-storefront-community)
 
 
-#  ❯ Spurtcommerce 4.8.2 Shopping cart Enterprice Edition
 
-
-
-#  ❯ Spurtcommerce 4.8.2 Multi-Vendor Marketplac Enterprice Edition
+#  ❯ Spurtcommerce 4.8.2 Multi-Vendor Marketplac Enterprise Edition
 
 Looking out to develop a high performing and highly scalable full-fledged eCommerce platform on the latest tech stack that matches with the recent eCommerce trend? Spurtcommerce ‘Marketplace’ Edition comes with all the advanced features of a full-fledged eCommerce platform. The features have been thoughtfully introduced, keeping the current and the upcoming eCommerce trend in mind.
 
