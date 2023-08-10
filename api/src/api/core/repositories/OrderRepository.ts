@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { EntityRepository, Repository } from 'typeorm';
 import { Order } from '../models/Order';
@@ -22,20 +22,6 @@ export class OrderRepository extends Repository<Order>  {
         query.orderBy('year', 'ASC');
         query.addOrderBy('month', 'ASC');
         query.limit('12');
-        return query.getRawMany();
-    }
-
-    public async transactionList( year: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Order, 'order');
-        query.select(['COUNT(order_id) as ordercount', 'MONTH(created_date) as month', 'SUM(order.total) as orderAmount']);
-        query.where('order.payment_flag = 1 AND order.payment_status = 1');
-        if (year) {
-        query.andWhere('YEAR(order.created_date) = :year', { year });
-        }
-        query.groupBy('month');
-        query.addGroupBy('YEAR(created_date)');
-        query.orderBy('YEAR(created_date)', 'ASC');
-        query.addOrderBy('month', 'ASC');
         return query.getRawMany();
     }
 

@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import {
@@ -24,7 +24,7 @@ import { ZoneService } from '../../core/services/zoneService';
 import { CountryService } from '../../core/services/CountryService';
 import { Zone } from '../../core/models/Zone';
 import { CreateZone } from './requests/CreateZoneRequest';
-import { classToPlain } from 'class-transformer';
+import { instanceToPlain } from 'class-transformer';
 import { Not } from 'typeorm';
 
 @JsonController('/zone')
@@ -98,6 +98,16 @@ export class ZoneController {
                 status: 0,
                 message: 'This Zone code already exists.',
             });
+        }
+        const zoneName = await this.zoneService.find({select: ['name']});
+        for (const zone of zoneName) {
+            if (zoneParam.name.toLowerCase() === zone.name.toLowerCase()) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You have already added this zone. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
         }
         const newZone = new Zone();
         newZone.countryId = zoneParam.countryId;
@@ -273,7 +283,7 @@ export class ZoneController {
             const successResponse: any = {
                 status: 1,
                 message: 'Successfully get all zone List',
-                data: classToPlain(zoneList),
+                data: instanceToPlain(zoneList),
             };
             return response.status(200).send(successResponse);
         } else {

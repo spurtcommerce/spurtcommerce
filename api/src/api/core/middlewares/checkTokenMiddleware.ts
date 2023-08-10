@@ -1,7 +1,6 @@
 import { env } from '../../../env';
 import {Customer} from '../models/Customer';
 import {AccessToken} from '../models/AccessTokenModel';
-// import moment from 'moment';
 import { getManager } from 'typeorm';
 export function CheckTokenMiddleware(request: any, response: any, next: any): any {
     const customerRepository = getManager().getRepository(Customer);

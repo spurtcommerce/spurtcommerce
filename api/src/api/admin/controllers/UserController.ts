@@ -1,16 +1,16 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import {
     Post, Body, JsonController, Res, Get, Authorized, QueryParam, Put, Param, Delete, Req, BodyParam
 } from 'routing-controllers';
-import { classToPlain } from 'class-transformer';
+import { instanceToPlain } from 'class-transformer';
 import jwt from 'jsonwebtoken';
 import { env } from '../../../env';
 import { ForgotPassword as ForgotPassword } from './requests/ForgotPasswordRequest';
@@ -111,7 +111,7 @@ export class UserController {
                         message: 'Logged in successfully.',
                         data: {
                             token: ciphertextToken,
-                            user: classToPlain(user),
+                            user: instanceToPlain(user),
                             permission,
                         },
                     };
@@ -256,7 +256,7 @@ export class UserController {
             MAILService.sendMail(mailContents, createParam.email, emailContent.subject, false, false, '');
             const successResponse: any = {
                 status: 1,
-                message: 'User saved successfully',
+                message: 'User Created Successfully',
                 data: userSaveResponse,
             };
             return response.status(200).send(successResponse);
@@ -600,7 +600,7 @@ export class UserController {
             }
             const name = 'Img_' + Date.now() + '.' + type;
             const path = 'user/';
-            const base64Data = new Buffer(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+            const base64Data = Buffer.from(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
             const stringLength = avatar.replace(/^data:image\/\w+;base64,/, '').length;
             const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
             const sizeInKb = sizeInBytes / 1024;

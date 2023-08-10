@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany } from 'typeorm';
 import { PrimaryGeneratedColumn } from 'typeorm/index';
@@ -27,10 +27,10 @@ export class Category extends BaseModel {
 
     @Column({ name: 'image_path' })
     public imagePath: string;
-    @IsNotEmpty()
+
     @Column({ name: 'parent_int' })
     public parentInt: number;
-
+    @IsNotEmpty()
     @Column({ name: 'sort_order' })
     public sortOrder: number;
 

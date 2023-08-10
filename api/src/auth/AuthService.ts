@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import * as express from 'express';
 import jwt from 'jsonwebtoken';
@@ -45,15 +45,15 @@ export class AuthService {
     }
 
     public async decryptToken(encryptString: string): Promise<any> {
-        const Crypto = require('crypto-js');
-        const bytes = Crypto.AES.decrypt(encryptString, env.cryptoSecret);
+        const Crypto  = require('crypto-js');
+        const bytes  = Crypto.AES.decrypt(encryptString, env.cryptoSecret);
         const originalEncryptedString = bytes.toString(Crypto.enc.Utf8);
         return new Promise<any>((subresolve, subreject) => {
-            jwt.verify(originalEncryptedString, env.jwtSecret, (err, decoded: any) => {
+            jwt.verify(originalEncryptedString,  env.jwtSecret, (err, decoded: any) => {
                 if (err) {
-                    return subresolve(undefined);
+                   return subresolve(undefined);
                 }
-                return subresolve({ id: decoded.id, role: decoded.role });
+                return subresolve({id: decoded.id, role: decoded.role});
             });
         });
     }
@@ -61,7 +61,7 @@ export class AuthService {
     public async validateUser(userId: number): Promise<User> {
         const user = await this.userRepository.findOne({
             where: {
-                userId, deleteFlag: 0, isActive: 1,
+                userId, deleteFlag : 0, isActive: 1,
             },
         });
         if (user) {
@@ -90,15 +90,15 @@ export class AuthService {
                 return undefined;
             }
             const token = authorization.split(' ')[1];
-            const Crypto = require('crypto-js');
-            const bytes = Crypto.AES.decrypt(token, env.cryptoSecret);
+            const Crypto  = require('crypto-js');
+            const bytes  = Crypto.AES.decrypt(token, env.cryptoSecret);
             const originalEncryptedString = bytes.toString(Crypto.enc.Utf8);
             const checkTokenRevoke: any = await this.accessTokenRepository.findOne({
                 where: {
                     token: originalEncryptedString,
                 },
             });
-            return checkTokenRevoke;
+         return checkTokenRevoke;
         }
         this.log.info('No credentials provided by the client');
         return undefined;

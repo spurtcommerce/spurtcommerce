@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import { Get, JsonController, Res, Body, Post, Authorized, Put, BodyParam } from 'routing-controllers';
@@ -173,7 +173,7 @@ export class SettingController {
                 }
                 const name = 'Img_' + Date.now() + '.' + type;
                 const path = 'storeLogo/';
-                const base64Data = new Buffer(logo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const base64Data = Buffer.from(logo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
                 const stringLength = logo.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;
@@ -207,7 +207,7 @@ export class SettingController {
                 }
                 const emailLogoName = 'EmailLogo_' + Date.now() + '.' + type;
                 const emailLogoPath = 'storeLogo/';
-                const base64Data = new Buffer(emaillogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const base64Data = Buffer.from(emaillogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
                 const stringLength = emailLogoPath.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;
@@ -241,7 +241,7 @@ export class SettingController {
                 }
                 const InvoiceLogoName = 'InvoiceLogo_' + Date.now() + '.' + type;
                 const InvoiceLogoPath = 'storeLogo/';
-                const base64Data = new Buffer(invoiceLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const base64Data = Buffer.from(invoiceLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
                 const stringLength = invoiceLogo.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;
@@ -310,7 +310,7 @@ export class SettingController {
                 }
                 const name = 'Img_' + Date.now() + '.' + type;
                 const path = 'storeLogo/';
-                const base64Data = new Buffer(logo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const base64Data = Buffer.from(logo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
                 const stringLength = logo.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;
@@ -344,7 +344,7 @@ export class SettingController {
                 }
                 const emailLogoName = 'EmailLogo_' + Date.now() + '.' + type;
                 const emailLogoPath = 'storeLogo/';
-                const base64Data = new Buffer(emaillogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const base64Data = Buffer.from(emaillogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
                 const stringLength = emaillogo.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;
@@ -370,7 +370,7 @@ export class SettingController {
                 const extType = invoiceLogo.split(';')[0].split('/')[1];
                 const InvoiceLogoName = 'InvoiceLogo_' + Date.now() + '.' + extType;
                 const InvoiceLogoPath = 'storeLogo/';
-                const base64Data = new Buffer(invoiceLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const base64Data = Buffer.from(invoiceLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
                 const stringLength = invoiceLogo.replace(/^data:image\/\w+;base64,/, '').length;
                 const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
                 const sizeInKb = sizeInBytes / 1024;

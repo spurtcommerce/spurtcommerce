@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { Service } from 'typedi';
 import { OrmRepository } from 'typeorm-typedi-extensions';
@@ -109,11 +109,6 @@ export class CustomerService {
     public async todayCustomerCount(todaydate: string): Promise<any> {
     return await this.customerRepository.TodayCustomerCount(todaydate);
     }
-    // dashboard custome count based on filter
-    public async dashboardCustomerCount(duration: number): Promise<any> {
-    return await this.customerRepository.dashboardCustomerCount(duration);
-    }
-
     public async listByQueryBuilder(
         limit: number,
         offset: number,

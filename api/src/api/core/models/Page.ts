@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { Column, Entity, BeforeInsert, BeforeUpdate, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseModel } from './BaseModel';
@@ -26,7 +26,7 @@ export class Page extends BaseModel {
     @IsNotEmpty()
     @Column({ name: 'full_text' })
     public content: string;
-
+    @IsNotEmpty()
     @Column({ name: 'page_group_id' })
     public pageGroupId: number;
 

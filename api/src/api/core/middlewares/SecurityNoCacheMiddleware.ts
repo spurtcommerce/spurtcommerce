@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 4.8.0
+ * version 4.8.2
  * http://api.spurtcommerce.com
  *
  * Copyright (c) 2021 piccosoft ltd

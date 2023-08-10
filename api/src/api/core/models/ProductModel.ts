@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { IsNotEmpty } from 'class-validator';
 import { BeforeInsert, Column, Entity, BeforeUpdate, PrimaryGeneratedColumn, OneToMany, OneToOne, JoinColumn } from 'typeorm';
@@ -12,15 +12,11 @@ import { BaseModel } from './BaseModel';
 import moment from 'moment';
 import { ProductToCategory } from './ProductToCategory';
 import { ProductImage } from './ProductImage';
-import { CustomerWishlist } from './CustomerWishlist';
 import { OrderProduct } from './OrderProduct';
 import { OrderProductLog } from './OrderProductLog';
 import { CustomerCart } from './CustomerCart';
 import { Sku } from './SkuModel';
 import { ProductViewLog } from './productViewLog';
-import { ProductSpecial } from './ProductSpecial';
-import { ProductDiscount } from './ProductDiscount';
-import { ProductVideo } from './ProductVideo';
 
 @Entity('product')
 export class Product extends BaseModel {
@@ -28,6 +24,7 @@ export class Product extends BaseModel {
     @IsNotEmpty()
     public productId: number;
 
+    @IsNotEmpty()
     @Column({ name: 'sku' })
     public sku: string;
 
@@ -40,6 +37,7 @@ export class Product extends BaseModel {
     @Column({ name: 'location' })
     public location: string;
 
+    @IsNotEmpty()
     @Column({ name: 'quantity' })
     public quantity: number;
 
@@ -49,9 +47,14 @@ export class Product extends BaseModel {
     @Column({ name: 'subtract_stock' })
     public subtractStock: number;
 
+    @IsNotEmpty()
+    @Column({ name: 'stock_status_id' })
+    public stockStatusId: number;
+
     @Column({ name: 'quotation_available' })
     public quotationAvailable: number;
 
+    @IsNotEmpty()
     @Column({ name: 'image' })
     public image: string;
 
@@ -77,26 +80,28 @@ export class Product extends BaseModel {
     @Column({ name: 'price' })
     public price: number;
 
+    @Column({ name: 'price_update_file_log_id' })
+    public priceUpdateFileLogId: number;
+
     @Column({ name: 'date_available' })
     public dateAvailable: Date;
 
     @Column({ name: 'sort_order' })
     public sortOrder: number;
 
+    @IsNotEmpty()
     @Column({ name: 'name' })
     public name: string;
 
     @Column({ name: 'description' })
     public description: string;
 
+    @IsNotEmpty()
     @Column({ name: 'amount' })
     public amount: number;
 
     @Column({ name: 'keywords' })
     public keywords: string;
-
-    @Column({ name: 'discount' })
-    public discount: number;
 
     @Column({ name: 'delete_flag' })
     public deleteFlag: number;
@@ -119,6 +124,7 @@ export class Product extends BaseModel {
     @Column({ name: 'product_slug' })
     public productSlug: string;
 
+    @IsNotEmpty()
     @Column({ name: 'is_active' })
     public isActive: number;
 
@@ -183,9 +189,6 @@ export class Product extends BaseModel {
     @OneToMany(type => ProductImage, productImage => productImage.product)
     public productImage: ProductImage[];
 
-    @OneToMany(type => CustomerWishlist, customerWishlist => customerWishlist.product)
-    public wishlist: CustomerWishlist[];
-
     @OneToMany(type => OrderProduct, orderProduct => orderProduct.productInformationDetail)
     public orderProduct: OrderProduct[];
 
@@ -195,17 +198,8 @@ export class Product extends BaseModel {
     @OneToMany(type => CustomerCart, customerCart => customerCart.product)
     public cart: OrderProductLog[];
 
-    @OneToMany(type => ProductSpecial, productSpecial => productSpecial.product)
-    public productSpecial: ProductSpecial[];
-
-    @OneToMany(type => ProductDiscount, productDiscount => productDiscount.product)
-    public productDiscount: ProductDiscount[];
-
     @OneToMany(type => ProductViewLog, productviewlog => productviewlog.product)
     public productviewlog: ProductViewLog[];
-
-    @OneToMany(type => ProductVideo, productvideo => productvideo.product)
-    public productVideo: ProductVideo[];
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

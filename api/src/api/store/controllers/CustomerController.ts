@@ -8,7 +8,7 @@
 
 import 'reflect-metadata';
 import { Post, Body, JsonController, Res, Req, Get, QueryParam, Put, BodyParam, UseBefore } from 'routing-controllers';
-import { classToPlain } from 'class-transformer';
+import { instanceToPlain } from 'class-transformer';
 import jwt from 'jsonwebtoken';
 import { MAILService } from '../../../auth/mail.services';
 import { CustomerRegisterRequest } from './requests/CustomerRegisterRequest';
@@ -35,10 +35,21 @@ import { LoginAttemptsService } from '../../core/services/LoginAttemptsService';
 import { AccessToken } from '../../core/models/AccessTokenModel';
 import { AccessTokenService } from '../../core/services/AccessTokenService';
 import { CheckCustomerMiddleware } from '../../core/middlewares/checkTokenMiddleware';
+import axios from 'axios';
 @JsonController('/customer')
 export class StoreCustomerController {
-    constructor(private customerService: CustomerService, private s3Service: S3Service, private settingService: SettingService, private loginAttemptsService: LoginAttemptsService, private accessTokenService: AccessTokenService,
-                private imageService: ImageService, private loginLogService: LoginLogService, private emailTemplateService: EmailTemplateService, private pluginService: PluginService, private customerActivityService: CustomerActivityService) {
+    constructor(
+        private customerService: CustomerService,
+        private s3Service: S3Service,
+        private settingService: SettingService,
+        private loginAttemptsService: LoginAttemptsService,
+        private accessTokenService: AccessTokenService,
+        private imageService: ImageService,
+        private loginLogService: LoginLogService,
+        private emailTemplateService: EmailTemplateService,
+        private pluginService: PluginService,
+        private customerActivityService: CustomerActivityService
+    ) {
     }
 
     // Customer Register API
@@ -75,19 +86,19 @@ export class StoreCustomerController {
     public async register(@Body({ validate: true }) registerParam: CustomerRegisterRequest, @Req() request: any, @Res() response: any): Promise<any> {
         const newUser = new Customer();
         newUser.firstName = registerParam.name;
-        newUser.lastName = registerParam.lastName;
+        newUser.lastName = registerParam.lastName ?? '';
         newUser.customerGroupId = 1;
         const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;
-            if (!registerParam.password.match(pattern)) {
-                const passwordValidatingMessage = [];
-                passwordValidatingMessage.push('Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
-                const errResponse: any = {
-                    status: 0,
-                    message: "You have an error in your request's body. Check 'errors' field for more details!",
-                    data: {message : passwordValidatingMessage},
-                };
-                return response.status(422).send(errResponse);
-            }
+        if (!registerParam.password.match(pattern)) {
+            const passwordValidatingMessage = [];
+            passwordValidatingMessage.push('Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
+            const errResponse: any = {
+                status: 0,
+                message: "You have an error in your request's body. Check 'errors' field for more details!",
+                data: { message: passwordValidatingMessage },
+            };
+            return response.status(422).send(errResponse);
+        }
         newUser.password = await Customer.hashPassword(registerParam.password);
         const emailId = registerParam.emailId.toLowerCase();
         newUser.email = emailId;
@@ -122,7 +133,7 @@ export class StoreCustomerController {
                 const successResponse: any = {
                     status: 1,
                     message: 'The registration has been completed successfully, We have sent you an confirmation email. Please check your registered email for more details ',
-                    data: classToPlain(resultData),
+                    data: instanceToPlain(resultData),
                 };
                 return response.status(200).send(successResponse);
             } else {
@@ -242,17 +253,15 @@ export class StoreCustomerController {
                     message: 'Logged in Successfully. ',
                     data: {
                         token: ciphertextToken,
-                        user: classToPlain(resultData),
+                        user: instanceToPlain(resultData),
                     },
                 };
 
                 // Plugin Logic
                 const { existsSync } = require('fs');
-                const pluginExist: boolean = await existsSync (process.cwd() + '/add-ons/AbandonedCart/controllers/admin/AbandonedCartController.ts');
+                const pluginExist: boolean = await existsSync(process.cwd() + '/add-ons/AbandonedCart/controllers/admin/AbandonedCartController.ts');
                 if (pluginExist) {
-                    const axios = require('axios');
-                    const baseUrl = env.app.schema + '://' + env.app.host + ':' + env.app.port;
-                    await axios.put((baseUrl + '/api/guest-cart'), {
+                    await axios.put((env.baseUrl + '/guest-cart'), {
                         data: {
                             token: ciphertextToken,
                             ip: loginLog.ipAddress,
@@ -375,7 +384,7 @@ export class StoreCustomerController {
                 const errResponse: any = {
                     status: 0,
                     message: "You have an error in your request's body. Check 'errors' field for more details!",
-                    data: {message : passwordValidatingMessage},
+                    data: { message: passwordValidatingMessage },
                 };
                 return response.status(422).send(errResponse);
             }
@@ -469,16 +478,16 @@ export class StoreCustomerController {
         if (image) {
             const type = image.split(';')[0].split('/')[1];
             const availableTypes = env.availImageTypes.split(',');
-                if (!availableTypes.includes(type)) {
-                    const errorTypeResponse: any = {
-                        status: 0,
-                        message: 'Only ' + env.availImageTypes + ' types are allowed',
-                    };
-                    return response.status(400).send(errorTypeResponse);
-                }
+            if (!availableTypes.includes(type)) {
+                const errorTypeResponse: any = {
+                    status: 0,
+                    message: 'Only ' + env.availImageTypes + ' types are allowed',
+                };
+                return response.status(400).send(errorTypeResponse);
+            }
             name = 'Img_' + Date.now() + '.' + type;
             const path = 'customer/';
-            const base64Data = new Buffer(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+            const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
             const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
             const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
             const sizeInKb = sizeInBytes / 1024;
@@ -500,7 +509,7 @@ export class StoreCustomerController {
             resultData.avatarPath = path;
         }
         resultData.firstName = customerEditProfileRequest.firstName;
-        resultData.lastName = customerEditProfileRequest.lastName;
+        resultData.lastName = customerEditProfileRequest.lastName ?? '';
         resultData.email = customerEditProfileRequest.emailId;
         resultData.mobileNumber = customerEditProfileRequest.phoneNumber;
         resultData.username = customerEditProfileRequest.emailId;
@@ -508,7 +517,7 @@ export class StoreCustomerController {
         const successResponse: any = {
             status: 1,
             message: 'The Customer  details have been updated successfully',
-            data: classToPlain(updateuserData),
+            data: instanceToPlain(updateuserData),
         };
         return response.status(200).send(successResponse);
     }
@@ -627,7 +636,7 @@ export class StoreCustomerController {
                     message: 'Loggedin successfully. ',
                     data: {
                         token: ciphertextToken,
-                        user: classToPlain(resultData),
+                        user: instanceToPlain(resultData),
                         password: tempPassword,
                     },
                 };
@@ -645,7 +654,7 @@ export class StoreCustomerController {
                 message: 'Loggedin successfully.',
                 data: {
                     token: ciphertextToken,
-                    user: classToPlain(resultData),
+                    user: instanceToPlain(resultData),
                 },
             };
             return response.status(200).send(successResponse);
@@ -679,11 +688,11 @@ export class StoreCustomerController {
         if (!customer) {
             const errResponse: any = {
                 status: 1,
-                message: 'This Email is Not Registerd. ',
+                message: 'This Email is Not Registered. ',
             };
             return response.status(400).send(errResponse);
         }
-        const Crypto  = require('crypto-js');
+        const Crypto = require('crypto-js');
         const val = Crypto.AES.encrypt(customer.email, env.cryptoSecret).toString();
         const encryptedKey = Buffer.from(val).toString('base64');
         console.log(val + 'val');
@@ -728,8 +737,8 @@ export class StoreCustomerController {
      */
     @Get('/forgot-password-key-check')
     public async keyCheck(@QueryParam('key') encryptedKey: string, @Res() response: any): Promise<any> {
-        const Crypto  = require('crypto-js');
-        const bytes  = Crypto.AES.decrypt(Buffer.from(encryptedKey, 'base64').toString('ascii'), env.cryptoSecret);
+        const Crypto = require('crypto-js');
+        const bytes = Crypto.AES.decrypt(Buffer.from(encryptedKey, 'base64').toString('ascii'), env.cryptoSecret);
         const decodedTokenKey = bytes.toString(Crypto.enc.Utf8);
         const customer = await this.customerService.findOne({
             where: { email: decodedTokenKey, deleteFlag: 0 },
@@ -796,8 +805,8 @@ export class StoreCustomerController {
             return response.status(400).send(keyError);
 
         }
-        const Crypto  = require('crypto-js');
-        const bytes  = Crypto.AES.decrypt(Buffer.from(tokenKey, 'base64').toString('ascii'), env.cryptoSecret);
+        const Crypto = require('crypto-js');
+        const bytes = Crypto.AES.decrypt(Buffer.from(tokenKey, 'base64').toString('ascii'), env.cryptoSecret);
         const decodedTokenKey = bytes.toString(Crypto.enc.Utf8);
         console.log(decodedTokenKey + 'decodedTokenKey');
         const resultData = await this.customerService.findOne({
@@ -811,7 +820,7 @@ export class StoreCustomerController {
             const errResponse: any = {
                 status: 0,
                 message: "You have an error in your request's body. Check 'errors' field for more details!",
-                data: {message : passwordValidatingMessage},
+                data: { message: passwordValidatingMessage },
             };
             return response.status(422).send(errResponse);
         }

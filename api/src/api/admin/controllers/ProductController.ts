@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import {
@@ -23,9 +23,7 @@ import { ProductService } from '../../core/services/ProductService';
 import { ProductToCategoryService } from '../../core/services/ProductToCategoryService';
 import { ProductImageService } from '../../core/services/ProductImageService';
 import { Product } from '../../core/models/ProductModel';
-import { ProductDiscount } from '../../core/models/ProductDiscount';
-import { ProductSpecial } from '../../core/models/ProductSpecial';
-import { classToPlain } from 'class-transformer';
+import { instanceToPlain } from 'class-transformer';
 import { DeleteProductRequest } from './requests/DeleteProductRequest';
 import { AddProductRequest } from './requests/CreateProductRequest';
 import { UpdateProductRequest } from './requests/UpdateProductRequest';
@@ -33,23 +31,20 @@ import { ProductToCategory } from '../../core/models/ProductToCategory';
 import { ProductImage } from '../../core/models/ProductImage';
 import { CategoryService } from '../../core/services/CategoryService';
 import { OrderProductService } from '../../core/services/OrderProductService';
-import { OrderService } from '../../core/services/OrderService';
 import { ProductViewLogService } from '../../core/services/ProductViewLogService';
-import { ProductDiscountService } from '../../core/services/ProductDiscountService';
-import { ProductSpecialService } from '../../core/services/ProductSpecialService';
 import moment = require('moment');
-import { CustomerService } from '../../core/services/CustomerService';
 import fs = require('fs');
 import { TaxService } from '../../core/services/TaxService';
-import { PaymentService } from '../../core/services/PaymentService';
 import { ImageService } from '../../core/services/ImageService';
 import { CategoryPathService } from '../../core/services/CategoryPathService';
 import { SkuService } from '../../core/services/SkuService';
 import { Sku } from '../../core/models/SkuModel';
-import { ProductVideoService } from '../../core/services/ProductVideoService';
-import { ProductVideo } from '../../core/models/ProductVideo';
 import { CustomerCartService } from '../../core/services/CustomerCartService';
+import { OrderService } from '../../core/services/OrderService';
+import { pluginModule } from '../../../loaders/pluginLoader';
 
+import uncino from 'uncino';
+const hooks = uncino();
 @JsonController('/product')
 export class ProductController {
     constructor(
@@ -58,18 +53,13 @@ export class ProductController {
         private productImageService: ProductImageService,
         private categoryService: CategoryService,
         private orderProductService: OrderProductService,
-        private orderService: OrderService,
         private productViewLogService: ProductViewLogService,
-        private productDiscountService: ProductDiscountService,
-        private productSpecialService: ProductSpecialService,
-        private customerService: CustomerService,
         private taxService: TaxService,
-        private paymentService: PaymentService,
         private categoryPathService: CategoryPathService,
         private skuService: SkuService,
-        private productVideoService: ProductVideoService,
         private imageService: ImageService,
-        private customerCartService: CustomerCartService
+        private customerCartService: CustomerCartService,
+        private orderService: OrderService
     ) {
     }
 
@@ -109,15 +99,16 @@ export class ProductController {
             'Product.productSlug as productSlug',
             'Product.isActive as isActive',
             'Product.dateAvailable as dateAvailable',
+            'Product.width as width',
+            'Product.height as height',
+            'Product.length as length',
+            'Product.weight as weight',
             '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as image',
             '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
             '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
             '(SELECT sku.sku_name as sku FROM sku WHERE sku.id = skuId) as sku',
             '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
             '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as modifiedPrice',
-            '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
-            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
-            '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
         ];
         const relations = [];
         const WhereConditions = [];
@@ -178,16 +169,8 @@ export class ProductController {
             } else {
                 temp.globe = 0;
             }
-            if (value.productSpecial !== null) {
-                temp.pricerefer = value.productSpecial;
-                temp.flag = 1;
-            } else if (value.productDiscount !== null) {
-                temp.pricerefer = value.productDiscount;
-                temp.flag = 0;
-            } else {
-                temp.pricerefer = '';
-                temp.flag = '';
-            }
+            temp.pricerefer = '';
+            temp.flag = '';
             return temp;
         });
         const results = await Promise.all(productList);
@@ -195,7 +178,7 @@ export class ProductController {
         const successResponse: any = {
             status: 1,
             message: 'Successfully got the complete product list.',
-            data: classToPlain(results),
+            data: instanceToPlain(results),
         };
         return response.status(200).send(successResponse);
     }
@@ -221,19 +204,16 @@ export class ProductController {
      * @apiParam (Request body) {String} categoryId CategoryId
      * @apiParam (Request body) {String} [relatedProductId] relatedProductId
      * @apiParam (Request body) {Number} price price
+     * @apiParam (Request body) {Number} [outOfStockStatus] outOfStockStatus
      * @apiParam (Request body) {Number} [requiredShipping] requiredShipping
      * @apiParam (Request body) {String} dateAvailable dateAvailable
      * @apiParam (Request body) {Number} status status
      * @apiParam (Request body) {Number{..9999}} sortOrder sortOrder
      * @apiParam (Request body) {Number} [quotationAvailable] quotationAvailable
-     * @apiParam (Request body) {String} [productSpecial] productSpecial
-     * @apiParam (Request body) {String} [productDiscount] productDiscount
      * @apiParam (Request body) {String} [height] height
      * @apiParam (Request body) {String} [weight] weight
      * @apiParam (Request body) {String} [length] length
      * @apiParam (Request body) {String} [width] width
-     * @apiParam (Request body) {Object} [productVideo] video
-     * @apiParam (Request body) {String} productVideo.name video name
      * @apiParam (Request body) {String} productVideo.path for embedded have to pass path only
      * @apiParam (Request body) {Number} productVideo.type 1 -> video 2 -> embedded
      * @apiParamExample {json} Input
@@ -252,9 +232,11 @@ export class ProductController {
      *      "tax" : "",
      *      "taxType" : "",
      *      "others" : "",
+     *      "outOfStockStatus" : "",
      *      "requiredShipping" : "",
      *      "dateAvailable" : "",
      *      "status" : "",
+     *      "outOfStockStatus" : "",
      *      "sortOrder" : "",
      *      "quotationAvailable" : "",
      *      "image":[
@@ -264,28 +246,6 @@ export class ProductController {
      *      "defaultImage":""
      *      }
      *      ]
-     *     "relatedProductId":[ ]
-     *     "productSpecial":[
-     *      {
-     *     "customerGroupId":""
-     *     "specialPriority":""
-     *     "specialPrice":""
-     *     "specialDateStart":""
-     *     "specialDateEnd":""
-     *      }],
-     *     "productDiscount":[
-     *      {
-     *         "discountQuantity":""
-     *         "discountPriority":""
-     *         "discountPrice":""
-     *         "discountDateStart":""
-     *         "discountDateEnd"""
-     *      }],
-     *      "productVideo":{
-     *               "name": "",
-     *               "path": "",
-     *               "type": ""
-     *      }
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
@@ -351,7 +311,8 @@ export class ProductController {
         newProduct.price = serviceCharge.productCost + serviceCharge.packingCost + serviceCharge.shippingCost + serviceCharge.others;
         newProduct.taxType = product.taxType ? product.taxType : 0;
         newProduct.taxValue = product.tax ? product.tax : 0;
-        // saving sku
+        newProduct.stockStatusId = product.outOfStockStatus ? product.outOfStockStatus : 0;
+        // saving sku //
         const findSku = await this.skuService.findOne({ where: { skuName: product.sku } });
         if (findSku) {
             const errorResponse: any = {
@@ -378,8 +339,7 @@ export class ProductController {
         newProduct.weight = (product && product.weight) ? product.weight : 0;
         newProduct.length = (product && product.length) ? product.length : 0;
         newProduct.width = (product && product.width) ? product.width : 0;
-        // adding category name and product name in keyword field for keyword search
-        const row: any = [];
+        const row: any[] = [];
         if (category.length !== 0) {
             for (const categoryId of category) {
                 const categoryNames: any = await this.categoryService.findOne({
@@ -419,46 +379,6 @@ export class ProductController {
             newProductImage.containerName = imageResult.containerName;
             newProductImage.defaultImage = imageResult.defaultImage;
             await this.productImageService.create(newProductImage);
-        }
-
-        // Product Discount
-        if (product.productDiscount) {
-            const productDiscount: any = product.productDiscount;
-            for (const discount of productDiscount) {
-                const discountData: any = new ProductDiscount();
-                discountData.productId = saveProduct.productId;
-                discountData.quantity = 1;
-                discountData.priority = discount.discountPriority;
-                discountData.price = discount.discountPrice;
-                discountData.dateStart = moment(discount.discountDateStart).toISOString();
-                discountData.dateEnd = moment(discount.discountDateEnd).toISOString();
-                await this.productDiscountService.create(discountData);
-            }
-        }
-
-        // Product Special
-        if (product.productSpecial) {
-            const productSpecial: any[] = product.productSpecial;
-            for (const special of productSpecial) {
-                const specialPriceData: any = new ProductSpecial();
-                specialPriceData.productId = saveProduct.productId;
-                specialPriceData.priority = special.specialPriority;
-                specialPriceData.price = special.specialPrice;
-                specialPriceData.dateStart = moment(special.specialDateStart).toISOString();
-                specialPriceData.dateEnd = moment(special.specialDateEnd).toISOString();
-                await this.productSpecialService.create(specialPriceData);
-            }
-        }
-
-        // save product Video
-        if (product.productVideo) {
-            const video = product.productVideo;
-            const productVideo: any = new ProductVideo();
-            productVideo.productId = saveProduct.productId;
-            productVideo.name = video.name;
-            productVideo.path = video.path;
-            productVideo.type = video.type;
-            await this.productVideoService.create(productVideo);
         }
         saveProduct.isSimplified = 1;
         await this.productService.create(saveProduct);
@@ -500,19 +420,16 @@ export class ProductController {
      * @apiParam (Request body) {Number} [tax] tax
      * @apiParam (Request body) {Number} [taxType] taxType
      * @apiParam (Request body) {Number} [others] others
+     * @apiParam (Request body) {Number} [outOfStockStatus] outOfStockStatus
      * @apiParam (Request body) {Number} [requiredShipping] requiredShipping
      * @apiParam (Request body) {String} [dateAvailable] dateAvailable
      * @apiParam (Request body) {Number} status status
      * @apiParam (Request body) {Number{..9999}} [sortOrder] sortOrder
      * @apiParam (Request body) {Number} quotationAvailable quotationAvailable
-     * @apiParam (Request body) {String} [productSpecial] productSpecial
-     * @apiParam (Request body) {String} [productDiscount] productDiscount
      * @apiParam (Request body) {String} [height] height
      * @apiParam (Request body) {String} [weight] weight
      * @apiParam (Request body) {String} [length] length
      * @apiParam (Request body) {String} [width] width
-     * @apiParam (Request body) {Object} [productVideo] video
-     * @apiParam (Request body) {String} productVideo.name video name
      * @apiParam (Request body) {String} productVideo.path for embedded have to pass path only
      * @apiParam (Request body) {Number} productVideo.type 1 -> video 2 -> embedded
      * @apiParamExample {json} Input
@@ -530,9 +447,11 @@ export class ProductController {
      *      "tax" : "",
      *      "taxType" : "",
      *      "others" : "",
+     *      "outOfStockStatus" : "",
      *      "requiredShipping" : "",
      *      "dateAvailable" : "",
      *      "status" : "",
+     *      "outOfStockStatus" : "",
      *      "sortOrder" : "",
      *      "quotationAvailable" : "",
      *      "image":[
@@ -543,28 +462,6 @@ export class ProductController {
      *      }
      *      ],
      *       "relatedProductId":[ "", ""],
-     *      "productSpecial":[
-     *      {
-     *     "customerGroupId":""
-     *     "specialPriority":""
-     *     "skuName":""
-     *     "specialPrice":""
-     *     "specialDateStart":""
-     *     "specialDateEnd":""
-     *      }],
-     *       "productDiscount":[
-     *      {
-     *         "discountPriority":""
-     *         "discountPrice":""
-     *         "skuName":""
-     *         "discountDateStart":""
-     *         "discountDateEnd"""
-     *      }],
-     *       "productVideo":{
-     *               "name": "",
-     *               "path": "",
-     *               "type": ""
-     *      }
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
@@ -585,23 +482,6 @@ export class ProductController {
                 status: 0,
                 message: 'Category should not be empty',
             });
-        }
-        let validatedDiscount = false;
-        let validatedSpecial = false;
-        const validateDiscountPrice: any = product.productDiscount;
-        if (validateDiscountPrice.length > 0) {
-            validatedDiscount = validateDiscountPrice.some(discData => discData.discountPrice < 0);
-        }
-        const validateSpecialPrice: any = product.productSpecial;
-        if (validateSpecialPrice.length > 0) {
-            validatedSpecial = validateSpecialPrice.some(specialData => specialData.specialPrice < 0);
-        }
-        if (validatedDiscount || validatedSpecial || (product.price < 0)) {
-            const errorResponse: any = {
-                status: 0,
-                message: 'Price should not be in negative',
-            };
-            return response.status(400).send(errorResponse);
         }
         if ((product.tax < 0)) {
             const errorResponse: any = {
@@ -634,7 +514,7 @@ export class ProductController {
         updateProduct.quantity = product.quantity ? product.quantity : 1;
         updateProduct.quotationAvailable = product.quotationAvailable ? product.quotationAvailable : 0;
 
-        // special charges
+        //// special charges//////
         const serviceCharge: any = {};
         serviceCharge.productCost = product.price;
         serviceCharge.packingCost = product.packingCost ? product.packingCost : 0;
@@ -645,7 +525,7 @@ export class ProductController {
         updateProduct.price = serviceCharge.productCost + serviceCharge.packingCost + serviceCharge.shippingCost + serviceCharge.others;
         updateProduct.taxType = product.taxType ? product.taxType : 0;
         updateProduct.taxValue = product.tax ? product.tax : 0;
-        // saving sku
+        // saving sku //
         let saveSku;
         const findSku = await this.skuService.findOne({ where: { skuName: updateProduct.sku } });
         if (findSku) {
@@ -671,8 +551,9 @@ export class ProductController {
             newSku.isActive = product.status;
             saveSku = await this.skuService.create(newSku);
         }
-        // ending sku
+        // ending sku //
         updateProduct.skuId = saveSku.id;
+        updateProduct.stockStatusId = product.outOfStockStatus ? product.outOfStockStatus : 0;
         updateProduct.shipping = product.requiredShipping;
         updateProduct.dateAvailable = moment(product.dateAvailable).toISOString();
         updateProduct.isActive = product.status;
@@ -733,97 +614,6 @@ export class ProductController {
                 await this.productImageService.create(newProductImage);
             }
         }
-
-        // Product Discount
-        if (product.productDiscount) {
-            // Delete the product discount
-            this.productDiscountService.delete({ productId: saveProduct.productId });
-            const productDiscount: any = product.productDiscount;
-            const distArr: any = [];
-            for (const discount of productDiscount) {
-                const discountData: any = new ProductDiscount();
-                discountData.productId = saveProduct.productId;
-                discountData.quantity = 1;
-                if (saveProduct.price <= discount.discountPrice) {
-                    const errorResponse: any = {
-                        status: 0,
-                        message: 'discount price should be less than original price.',
-                    };
-                    return response.status(400).send(errorResponse);
-                }
-                const skuValue: any = await this.skuService.findOne({
-                    where: {
-                        skuName: discount.skuName,
-                    },
-                });
-                if (skuValue) {
-                    discountData.skuId = skuValue.id;
-                } else {
-                    const errorResponse: any = {
-                        status: 0,
-                        message: 'Sku does not exist in discount price.',
-                    };
-                    return response.status(400).send(errorResponse);
-                }
-                discountData.priority = discount.discountPriority;
-                discountData.price = discount.discountPrice;
-                discountData.dateStart = moment(discount.discountDateStart).toISOString();
-                discountData.dateEnd = moment(discount.discountDateEnd).toISOString();
-                distArr.push(discountData);
-            }
-            await this.productDiscountService.create(distArr);
-        }
-
-        // Product Special
-        if (product.productSpecial) {
-            this.productSpecialService.delete({ productId: saveProduct.productId });
-            const productSpecial: any = product.productSpecial;
-            const splArr: any = [];
-            for (const special of productSpecial) {
-                const specialPriceData: any = new ProductSpecial();
-                specialPriceData.productId = saveProduct.productId;
-                if (saveProduct.price < special.specialPrice) {
-                    const errorResponse: any = {
-                        status: 0,
-                        message: 'special price should be less than original price.',
-                    };
-                    return response.status(400).send(errorResponse);
-                }
-                specialPriceData.customerGroupId = special.customerGroupId;
-                const specialSkuValue: any = await this.skuService.findOne({
-                    where: {
-                        skuName: special.skuName,
-                    },
-                });
-                if (specialSkuValue) {
-                    specialPriceData.skuId = specialSkuValue.id;
-                } else {
-                    const errorResponse: any = {
-                        status: 0,
-                        message: 'Sku does not exist in special price',
-                    };
-                    return response.status(400).send(errorResponse);
-                }
-                specialPriceData.priority = special.specialPriority;
-                specialPriceData.price = special.specialPrice;
-                specialPriceData.dateStart = moment(special.specialDateStart).toISOString();
-                specialPriceData.dateEnd = moment(special.specialDateEnd).toISOString();
-                splArr.push(specialPriceData);
-            }
-            await this.productSpecialService.create(splArr);
-        }
-
-        // update product Video
-        const video = product.productVideo;
-        if (video) {
-            await this.productVideoService.delete({ productId: saveProduct.productId });
-            const newProductVideo: any = new ProductVideo();
-            newProductVideo.productId = saveProduct.productId;
-            newProductVideo.name = video.name;
-            newProductVideo.type = video.type;
-            newProductVideo.path = video.path;
-            await this.productVideoService.create(newProductVideo);
-        }
         await this.productService.create(saveProduct);
         if (saveProduct) {
             const successResponse: any = {
@@ -862,7 +652,7 @@ export class ProductController {
         const productDetail: any = await this.productService.findOne({
             where: { productId: id },
         });
-        const productDetails: any = classToPlain(productDetail);
+        const productDetails: any = instanceToPlain(productDetail);
         productDetails.quotationAvailable = productDetail.quotationAvailable;
         const serviceCharges = productDetails.serviceCharges;
         if (serviceCharges) {
@@ -909,302 +699,12 @@ export class ProductController {
             const results = Promise.all(category);
             return results;
         });
-        productDetails.productSpecialPrice = await this.productSpecialService.findAll({
-            select: ['productSpecialId', 'priority', 'price', 'dateStart', 'dateEnd', 'skuId'],
-            where: { productId: productDetail.productId },
-        }).then((val) => {
-            const special = val.map(async (value: any) => {
-                const skuNames = await this.skuService.findOne({ id: value.skuId });
-                const temp: any = value;
-                if (skuNames !== undefined) {
-                    temp.skuName = skuNames.skuName;
-                } else {
-                    temp.skuName = '';
-                }
-                return temp;
-            });
-            const results = Promise.all(special);
-            return results;
-        });
-        productDetails.productDiscountData = await this.productDiscountService.findAll({
-            select: ['productDiscountId', 'quantity', 'priority', 'price', 'dateStart', 'dateEnd', 'skuId'],
-            where: { productId: productDetail.productId },
-        }).then((val) => {
-            const discount = val.map(async (value: any) => {
-                const discountSkuNames = await this.skuService.findOne({ id: value.skuId });
-                const temp: any = value;
-                if (discountSkuNames !== undefined) {
-                    temp.skuName = discountSkuNames.skuName;
-                } else {
-                    temp.skuName = '';
-                }
-                return temp;
-            });
-            const results = Promise.all(discount);
-            return results;
-        });
-
-        productDetails.productVideo = await this.productVideoService.findOne({
-            select: ['id', 'name', 'path', 'type', 'productId'],
-            where: { productId: productDetail.productId },
-        });
         const successResponse: any = {
             status: 1,
             message: 'Successfully get productDetail',
             data: productDetails,
         };
         return response.status(200).send(successResponse);
-    }
-
-    //  Top Selling Product List API
-    /**
-     * @api {get} /api/product/top-selling-productlist  Top selling ProductList API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get top selling product..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/product/top-selling-productlist
-     * @apiErrorExample {json} top selling product error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    // Order Detail Function
-    @Get('/top-selling-productlist')
-    @Authorized()
-    public async topSellingProductList(@Req() request: any, @Res() response: any): Promise<any> {
-        const select = [
-            'COUNT(OrderProduct.orderId) as ordercount',
-            'OrderProduct.skuName as skuName',
-            'productInformationDetail.productId as productId',
-            'productInformationDetail.price as price',
-            'productInformationDetail.name as name',
-            'productInformationDetail.description as description',
-            'productInformationDetail.productSlug as productSlug',
-            '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = productInformationDetail.productId AND pi.default_image = 1 LIMIT 1) as image',
-            '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = productInformationDetail.productId AND pi.default_image = 1 LIMIT 1) as containerName',
-            '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = productInformationDetail.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
-        ];
-        const relations = [
-            {
-                tableName: 'OrderProduct.productInformationDetail',
-                aliasName: 'productInformationDetail',
-            },
-            {
-                tableName: 'OrderProduct.product',
-                aliasName: 'product',
-            },
-        ];
-        const sort = [
-            {
-                name: 'ordercount',
-                order: 'DESC',
-            },
-        ];
-        const groupBy = [
-            {
-                name: 'productInformationDetail.productId',
-            },
-        ];
-        const productTopsellingList = await this.orderProductService.listByQueryBuilder(4, 0, select, [], [], relations, groupBy, sort, false, true);
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully get Top Selling Product..!',
-            data: productTopsellingList,
-        };
-        return response.status(200).send(successResponse);
-    }
-    //  Top Five Repeatedly Purchased Customer List API
-    /**
-     * @api {get} /api/product/top-five-repeatedly-purchased-customers  Top Five Repeatedly Purchased Customer List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get top 5 repeatedly purchased customer list!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/product/top-five-repeatedly-purchased-customers
-     * @apiErrorExample {json} top five repeatedly purchased customer list error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/top-five-repeatedly-purchased-customers')
-    @Authorized()
-    public async topFiveRepeatedlyPurchasedCustomers(@Req() request: any, @Res() response: any): Promise<any> {
-        const limit = 5;
-        const select = [
-            'MAX(Order.customerId) as customerId',
-            'customer.firstName as firstName',
-            'customer.lastName as lastName',
-            'customer.avatar as avatar',
-            'customer.avatarPath as avatarPath',
-            '(SELECT ca.city as paymentCity FROM address ca WHERE ca.customer_id = MAX(Order.customerId) LIMIT 1) as paymentCity',
-            'COUNT(Order.orderId) as orderCount',
-        ];
-        const relations = [{
-            tableName: 'Order.customer',
-            aliasName: 'customer',
-        }];
-        const whereConditions = [{
-            name: 'Order.paymentFlag',
-            op: 'and',
-            value: 1,
-        },
-        {
-            name: 'Order.paymentStatus',
-            op: 'and',
-            value: 1,
-        },
-        {
-            name: 'customer.deleteFlag',
-            op: 'and',
-            value: 0,
-        }];
-        const sort = [{
-            name: 'orderCount',
-            order: 'DESC',
-        }];
-        const groupBy = [{
-            name: 'Order.customerId',
-        }];
-        const topFiveRepeatedlyPurchasedCustomer = await this.orderService.listByQueryBuilder(limit, 0, select, whereConditions, [], relations, groupBy, sort, false, true);
-        if (topFiveRepeatedlyPurchasedCustomer) {
-            return response.status(200).send({
-                status: 1,
-                message: 'Successfully got the top 5 repeatedly purchased customer..!',
-                data: topFiveRepeatedlyPurchasedCustomer,
-            });
-        }
-    }
-    //  Top Performing Product List API
-    /**
-     * @api {get} /api/product/top-performing-products  Top Performing Product List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get top performing product list!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/product/top-performing-products
-     * @apiErrorExample {json} top performing product list error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/top-performing-products')
-    @Authorized()
-    public async topPerformingProucts(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
-        const topPerformingProducts = await this.orderProductService.topPerformingProducts(limit, offset, count, duration);
-        if (topPerformingProducts !== '' && topPerformingProducts !== undefined) {
-            return response.status(200).send({
-                status: 1,
-                message: 'Successfully got the top performing product list',
-                data: topPerformingProducts,
-            });
-        } else {
-            return response.status(400).send({
-                status: 0,
-                message: 'Cannot get top performing product list',
-            });
-        }
-    }
-    // Dashboard Customer Count API
-    /**
-     * @api {get} /api/product/dashboard/admin-customers-count Dashboard Customer Count API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get dashboard customers count",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/product/dashboard/admin-customers-count
-     * @apiErrorExample {json} dashboard customers count list error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/dashboard/admin-customers-count')
-    @Authorized()
-    public async dashboardCustomerCount(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
-        const customerCount = await this.customerService.dashboardCustomerCount(duration);
-        if (customerCount !== '' && customerCount !== undefined) {
-            return response.status(200).send({
-                status: 1,
-                message: 'Successfully got dashboard customers count',
-                data: customerCount,
-            });
-        }
-    }
-    // Dashboard Orders Count API
-    /**
-     * @api {get} /api/product/dashboard-admin/orders-count Dashboard Orders Count API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get dashboard orders count based on orders",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/product/dashboard-admin/orders-count
-     * @apiErrorExample {json} dashboard orders count list error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/dashboard-admin/orders-count')
-    @Authorized()
-    public async dashboardOrderCount(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
-        const countOfOrdersAndVendors = await this.orderService.dashboardOrdersCount(duration);
-        const count: any = {};
-        count.ordersCount = countOfOrdersAndVendors.ordersCount ? countOfOrdersAndVendors.ordersCount : 0;
-        return response.status(200).send({
-            status: 1,
-            message: 'Successfully got dashboard orders count based on orders',
-            data: count,
-        });
-    }
-    // Dashboard Average Order Value API
-    /**
-     * @api {get} /api/product/dashboard-average-order-value Dashboard Average Order Value API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get average order value",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/product/dashboard-average-order-value
-     * @apiErrorExample {json} average order value error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/dashboard-average-order-value')
-    @Authorized()
-    public async averageOrderValue(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
-        const orderproductstotal = await this.orderProductService.dashboardOrderProductsTotal(duration);
-        const orderProductsTotal = orderproductstotal.orderProductsTotal ? orderproductstotal.orderProductsTotal : 0;
-        const totalCount = +orderproductstotal.ordersCount;
-        const averageOrderValue = totalCount !== 0 ? (+orderProductsTotal) / +totalCount : 0;
-        return response.status(200).send({
-            status: 0,
-            message: 'Successfully got the average order value',
-            data: averageOrderValue.toFixed(2),
-        });
     }
     // Dashboard Get Total Revenue API
     /**
@@ -1235,194 +735,6 @@ export class ProductController {
             data: totalRevenue,
         });
     }
-    // Dashboard Average Conversion Ratio API
-    /**
-     * @api {get} /api/product/dashboard-average-conversion-ratio Dashboard Average Conversion Ratio API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get average conversion ratio",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/product/dashboard-average-conversion-ratio
-     * @apiErrorExample {json} average conversion ratio error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/dashboard-average-conversion-ratio')
-    @Authorized()
-    public async averageConversionRatio(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
-        const orderscount = await this.orderService.ordersCount(duration);
-        const customerscount = await this.customerService.dashboardCustomerCount(duration);
-        const averageConversionRatio = +customerscount !== 0 ? (+orderscount / +customerscount * 100) : 0;
-        return response.status(200).send({
-            status: 1,
-            message: 'Successfully got average conversion ratio',
-            data: averageConversionRatio.toFixed(2),
-        });
-    }
-    // Dashboard Graph Weekly Sales List API
-    /**
-     * @api {get} /api/product/dashboard/graph-weekly-saleslist Dashboard Graph Weekly Sales List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} productId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get top ten weekly sales list",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/product/dashboard/graph-weekly-saleslist
-     * @apiErrorExample {json} dashboard graph weekly sales list error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/dashboard/graph-weekly-saleslist')
-    @Authorized()
-    public async topTenWeeklySales(@QueryParam('productId') productId: string, @Req() request: any, @Res() response: any): Promise<any> {
-        const productids = productId.split(',');
-        if (!(productids.length <= 3)) {
-            return response.status(400).send({
-                status: 0,
-                message: 'length of productId should be less than or equal to three',
-            });
-        }
-        const orderProductData = await this.productService.findProducts(productids);
-        const list = orderProductData.map(async (result: any) => {
-            const data: any = await this.orderProductService.topTenWeeklySalesList(result.productId);
-            const temp: any = result;
-            const weekOfdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            const finaldata = [];
-            for (const day of weekOfdays) {
-                const salesFilter = data.filter((val) => {
-                    return val.days === day;
-                });
-                if (salesFilter.length === 0) {
-                    finaldata.push({ value: 0, days: day });
-                } else {
-                    finaldata.push(salesFilter[0]);
-                }
-            }
-            temp.value = finaldata;
-            return temp;
-        });
-        const weeklysaleslist = await Promise.all(list);
-        return response.status(200).send({
-            status: 1,
-            message: 'Successfully got the top ten weekly sales list',
-            data: weeklysaleslist,
-        });
-    }
-    // Recent Selling Product List
-    /**
-     * @api {get} /api/product/recent-selling-product  Recent Selling Product List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "successfully listed recent product selling!",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/product/recent-selling-product
-     * @apiErrorExample {json} Selling Product List error
-     * HTTP/1.1 500 Internal Server Errorproduct
-     */
-    // Recent selling product function
-    @Get('/recent-selling-product')
-    @Authorized()
-    public async sellingProduct(@Req() request: any, @Res() response: any): Promise<any> {
-        const limit = 3;
-        const select = [
-            'DISTINCT(OrderProduct.productId) as productId',
-            'OrderProduct.orderId as orderId',
-            'OrderProduct.name as ProductName',
-            'OrderProduct.quantity as Quantity',
-            'OrderProduct.total as Total',
-            'OrderProduct.createdDate as CreatedDate',
-            'OrderProduct.skuName as skuName',
-            'product.invoiceNo as invoiceNo',
-            'product.invoicePrefix as invoicePrefix',
-            'product.orderStatusId as orderStatusId',
-            'product.orderPrefixId as orderPrefixId',
-            '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = OrderProduct.productId AND pi.default_image = 1 LIMIT 1) as image',
-            '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = OrderProduct.productId AND pi.default_image = 1 LIMIT 1) as containerName',
-            '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = OrderProduct.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
-        ];
-        const relations = [
-            {
-                tableName: 'OrderProduct.productInformationDetail',
-                aliasName: 'productInformationDetail',
-            },
-            {
-                tableName: 'OrderProduct.product',
-                aliasName: 'product',
-            },
-        ];
-        const whereConditions = [];
-        const sort = [
-            {
-                name: 'OrderProduct.createdDate',
-                order: 'DESC',
-            },
-        ];
-        const recentSellingProductList = await this.orderProductService.listByQueryBuilder(limit, 0, select, whereConditions, [], relations, [], sort, false, true);
-        const successResponse: any = {
-            status: 1,
-            message: 'successfully listed recently selling products..!',
-            data: recentSellingProductList,
-        };
-        return response.status(200).send(successResponse);
-    }
-
-    // Recent viewLog list API
-    /**
-     * @api {get} /api/product/viewLog-list Product View Log List
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got Product view Log List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/product/viewLog-list
-     * @apiErrorExample {json} ViewLog List error
-     * HTTP/1.1 500 Internal Server Error
-     */
-
-    @Get('/viewLog-list')
-    @Authorized()
-    public async productViewLogList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
-        const select = [];
-        const whereConditions = [];
-        const search = [];
-        const viewLogs = await this.productViewLogService.list(limit, offset, select, search, whereConditions, 0, count);
-        if (count) {
-            const successresponse: any = {
-                status: 1,
-                message: 'Successfully got view log count',
-                data: viewLogs,
-            };
-            return response.status(200).send(successresponse);
-        } else {
-            const successResponse: any = {
-                status: 1,
-                message: 'Successfully got view log List',
-                data: viewLogs,
-            };
-            return response.status(200).send(successResponse);
-        }
-    }
-
     // Customer product view list API
     /**
      * @api {get} /api/product/customerProductView-list/:id Customer product View List
@@ -1469,7 +781,36 @@ export class ProductController {
             return response.status(200).send(successResponse);
         }
     }
-
+    // Dashboard Orders Count API
+    /**
+     * @api {get} /api/product/dashboard-admin/orders-count Dashboard Orders Count API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get dashboard orders and vendor count based on orders",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/dashboard-admin/orders-count
+     * @apiErrorExample {json} dashboard orders count list error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    @Get('/dashboard-admin/orders-count')
+    @Authorized()
+    public async dashboardOrderCount(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
+        const countOfOrdersAndVendors = await this.orderService.dashboardOrdersCount(duration);
+        const count: any = {};
+        count.ordersCount = countOfOrdersAndVendors.ordersCount ? countOfOrdersAndVendors.ordersCount : 0;
+        count.vendorsCount = countOfOrdersAndVendors.vendorsCount ? countOfOrdersAndVendors.vendorsCount : 0;
+        return response.status(200).send({
+            status: 1,
+            message: 'Successfully got dashboard orders and vendors count based on orders',
+            data: count,
+        });
+    }
     // Product Details Excel Document download
     /**
      * @api {get} /api/product/product-excel-list Product Excel
@@ -1533,7 +874,7 @@ export class ProductController {
         for (const id of productid) {
             const dataId = await this.productService.findOne(id);
             const productDescription = dataId.description;
-            const dataDescription = productDescription.replace(/(&nbsp;|(<([^>]+)>))/ig, '');
+            const dataDescription = productDescription.replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '');
             rows.push([dataId.productId, dataId.name, dataDescription.trim(), dataId.price, dataId.sku, dataId.upc, dataId.quantity, dataId.minimumQuantity, dataId.subtractStock]);
         }
         // Add all rows data in sheet
@@ -1641,14 +982,8 @@ export class ProductController {
         worksheet1.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         worksheet1.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         worksheet1.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-        const special = [];
-        const specialPrices = await this.productSpecialService.find();
-        for (const specialPrice of specialPrices) {
-            const productName = await this.productService.findOne({ where: { productId: specialPrice.productId } });
-            special.push([specialPrice.productSpecialId, specialPrice.productId, productName.name, specialPrice.priority, specialPrice.price, specialPrice.dateStart, specialPrice.dateEnd]);
-        }
+
         // Add all rows data in sheet
-        worksheet1.addRows(special);
         const worksheet2 = workbook.addWorksheet('discount price');
         worksheet2.columns = [
             { header: 'product dicount Id', key: 'productDiscountId', size: 16, width: 30 },
@@ -1666,14 +1001,6 @@ export class ProductController {
         worksheet2.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         worksheet2.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         worksheet2.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-        const discount = [];
-        const discountPrices = await this.productDiscountService.find();
-        for (const discountPrice of discountPrices) {
-            const productName = await this.productService.findOne({ where: { productId: discountPrice.productId } });
-            discount.push([discountPrice.productDiscountId, discountPrice.productId, productName.name, discountPrice.priority, discountPrice.price, discountPrice.dateStart, discountPrice.dateEnd]);
-        }
-        // Add all rows data in sheet
-        worksheet2.addRows(discount);
         const worksheet3 = workbook.addWorksheet('Images');
         worksheet3.columns = [
             { header: 'product Id', key: 'productId', size: 16, width: 15 },
@@ -1749,6 +1076,23 @@ export class ProductController {
     @Delete('/:id')
     @Authorized(['admin', 'delete-product'])
     public async deleteProduct(@Param('id') productid: number, @Res() response: any, @Req() request: any): Promise<Product> {
+                // Remove's Hook if in Memory
+                hooks.removeHook('coupon-delete', 'CD1-namespace');
+                // --
+                // Coupon Hook
+                function couponPlugin(productId: any, type: any): any {
+                    if (pluginModule.includes('Coupon')) {
+                        hooks.addHook('coupon-delete', 'CD1-namespace', async () => {
+                            const importPath = '../../../../add-ons/Coupon/coupon';
+                            const Coupon = await require(importPath);
+                            return await Coupon.CouponProccess(productId, type);
+                        });
+                        return true;
+                    }
+                    return false;
+                }
+                // ---
+
         const product = await this.productService.findOne(productid);
         if (product === undefined) {
             const errorResponse: any = {
@@ -1767,6 +1111,10 @@ export class ProductController {
         }
         await this.skuService.delete({ id: product.skuId });
         const deleteProduct = await this.productService.delete(productid);
+        const pluginExist = await couponPlugin(productid, 1);
+        if (pluginExist) {
+            await hooks.runHook('coupon-delete');
+        }
         if (deleteProduct) {
             const successResponse: any = {
                 status: 1,
@@ -1806,6 +1154,23 @@ export class ProductController {
     @Post('/delete-product')
     @Authorized()
     public async deleteMultipleProduct(@Body({ validate: true }) productDelete: DeleteProductRequest, @Res() response: any, @Req() request: any): Promise<Product> {
+                // Remove's Hook if in Memory
+                hooks.removeHook('coupon-delete', 'CD1-namespace');
+                // --
+                // Coupon PLugin
+                function couponPlugin(productId: any, type: any): any {
+                    if (pluginModule.includes('Coupon')) {
+                        hooks.addHook('coupon-delete', 'CD1-namespace', async () => {
+                            const importPath = '../../../../add-ons/Coupon/coupon';
+                            const Coupon = await require(importPath);
+                            return await Coupon.CouponProccess(productId, type);
+                        });
+                        return true;
+                    }
+                    return false;
+                }
+                // ---
+
         const productIdNo = productDelete.productId.toString();
         const productid = productIdNo.split(',');
         for (const id of productid) {
@@ -1832,6 +1197,10 @@ export class ProductController {
             const deleteProductId = parseInt(id, 10);
             const product = await this.productService.findOne(id);
             await this.skuService.delete({ id: product.skuId });
+            const pluginExist = await couponPlugin(deleteProductId, 1);
+            if (pluginExist) {
+                await hooks.runHook('coupon-delete');
+            }
             await this.productService.delete(deleteProductId);
         }
         const successResponse: any = {
@@ -1900,94 +1269,6 @@ export class ProductController {
         const successResponse: any = {
             status: 1,
             message: 'Successfully updated the product slug.',
-        };
-        return response.status(200).send(successResponse);
-    }
-
-    // Dashboard Count API
-    /**
-     * @api {get} /api/product/dashboard-count Dashboard Count API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get dashboard count",
-     *      "data":"{}"
-     * }
-     * @apiSampleRequest /api/product/dashboard-count
-     * @apiErrorExample {json} product error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/dashboard-count')
-    @Authorized()
-    public async dashboardCount(@Res() response: any): Promise<any> {
-        const dashboard: any = {};
-        const select = [];
-        const searchOrder = [{
-            name: 'paymentProcess',
-            op: 'where',
-            value: 1,
-        }];
-        const relation = [];
-        const WhereConditions = [];
-        const search = [];
-        const ordersCount = await this.orderService.list(0, 0, select, searchOrder, WhereConditions, relation, 1);
-        const paymentsCount = await this.paymentService.list(0, 0, select, search, WhereConditions, 1);
-        const productsCount = await this.productService.list(0, 0, select, relation, WhereConditions, search, 0, 1);
-        const customerWhereConditions = [{
-            name: 'deleteFlag',
-            op: 'where',
-            value: 0,
-        }];
-        const customersCount = await this.customerService.list(0, 0, search, customerWhereConditions, 0, 1);
-        dashboard.orders = ordersCount;
-        dashboard.payments = paymentsCount;
-        dashboard.products = productsCount;
-        dashboard.customers = customersCount;
-        const successResponse: any = {
-            status: 1,
-            message: 'successfully got the dashboard count.',
-            data: dashboard,
-        };
-        return response.status(200).send(successResponse);
-    }
-
-    // Dashboard Admin Total Vendor and Total Product Count API
-    /**
-     * @api {get} /api/product/dashboard-admin-totalvendor-totalproduct-count Dashboard Admin Total Vendor and Total Product Count API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get total vendor and total product count",
-     *      "data":"{}"
-     * }
-     * @apiSampleRequest /api/product/dashboard-admin-totalvendor-totalproduct-count
-     * @apiErrorExample {json} dashboard admin total vendor and total product count error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/dashboard-admin-totalvendor-totalproduct-count')
-    @Authorized()
-    public async dashboardAdminCount(@Res() response: any): Promise<any> {
-        const dashboardAdmin: any = {};
-        const select = [];
-        const whereConditionsForCustomers = [{
-            name: 'deleteFlag',
-            value: 0,
-        }];
-        const search = [];
-        const totalCustomerCount = await this.customerService.list(0, 0, search, whereConditionsForCustomers, 0, true);
-        const totalProductCount = await this.productService.list(0, 0, select, [], [], search, 0, true);
-        dashboardAdmin.customers = totalCustomerCount;
-        dashboardAdmin.products = totalProductCount;
-        const successResponse: any = {
-            status: 1,
-            message: 'successfully got the dashboard total product count.',
-            data: dashboardAdmin,
         };
         return response.status(200).send(successResponse);
     }
@@ -2122,60 +1403,5 @@ export class ProductController {
             }
             return $slug;
         }
-    }
-
-    // Inventory Product List API
-    /**
-     * @api {get} /api/product/update-owner-product-list Invendory Product List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get product list",
-     *      "data":"{}"
-     * }
-     * @apiSampleRequest /api/product/update-owner-product-list
-     * @apiErrorExample {json} productList error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/update-owner-product-list')
-    @Authorized()
-    public async updateProductList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<Product> {
-        const select = ['productId'];
-
-        const relation = [];
-
-        const WhereConditions = [
-        ];
-        const productLists: any = await this.productService.list(limit, offset, select, relation, WhereConditions, 0, 0, count);
-        if (count) {
-            const successRes: any = {
-                status: 1,
-                message: 'Successfully got count ',
-                data: productLists,
-            };
-            return response.status(200).send(successRes);
-        }
-        const promise = productLists.map(async (result: any) => {
-            const temp: any = result;
-            const product = await this.productService.findOne({ where: { productId: result.productId } });
-            product.owner = 1;
-            product.createdBy = 80;
-
-            await this.productService.create(product);
-            return temp;
-        });
-        const value = await Promise.all(promise);
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully got the complete product list. ',
-            data: value,
-        };
-        return response.status(200).send(successResponse);
     }
 }

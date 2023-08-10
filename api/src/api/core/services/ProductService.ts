@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { Service } from 'typedi';
 import { OrmRepository } from 'typeorm-typedi-extensions';
@@ -195,7 +195,7 @@ export class ProductService {
                 } else if (item.op === 'IN' && item.sign === undefined) {
                     query.andWhere(item.name + ' IN (' + item.value + ')');
                 } else if (item.op === 'like' && item.sign === undefined) {
-                    query.andWhere(item.name + ' like ' +  ' \'' + item.value + '\'');
+                    query.andWhere(item.name + ' like ' + ' \'' + item.value + '\'');
                 } else if (item.op === 'IS NULL' && item.sign === undefined) {
                     query.orWhere(item.name + ' IS NULL ' + item.value);
                 }

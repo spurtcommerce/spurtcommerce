@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import {
@@ -282,7 +282,7 @@ export class PageGroupController {
         }
     }
 
-    // Get Page Group API
+    //   Get Page Group API
     /**
      * @api {get} /api/page-group/get-page-group/:id Get Page Group API
      * @apiGroup Page Group

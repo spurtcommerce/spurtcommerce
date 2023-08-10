@@ -1,14 +1,14 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import { Get, Post, Put, Delete, Body, JsonController, Authorized, QueryParam, Res, Req } from 'routing-controllers';
-import { classToPlain } from 'class-transformer';
+import { instanceToPlain } from 'class-transformer';
 import { CategoryService } from '../../core/services/CategoryService';
 import { AddCategory } from './requests/AddCategoryRequest';
 import { UpdateCategoryRequest } from './requests/UpdateCategoryRequest';
@@ -81,7 +81,7 @@ export class CategoryController {
                 }
             const name = 'Img_' + Date.now() + '.' + type;
             const path = 'category/';
-            const base64Data = new Buffer(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+            const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
             const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
             const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
             const sizeInKb = sizeInBytes / 1024;
@@ -210,7 +210,7 @@ export class CategoryController {
                 }
             const name = 'Img_' + Date.now() + '.' + type;
             const path = 'category/';
-            const base64Data = new Buffer(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+            const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
             const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
             const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
             const sizeInKb = sizeInBytes / 1024;
@@ -286,7 +286,7 @@ export class CategoryController {
             const successResponse: any = {
                 status: 1,
                 message: 'Successfully updated category.',
-                data: classToPlain(categorySave),
+                data: instanceToPlain(categorySave),
             };
             return response.status(200).send(successResponse);
         } else {

@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { BeforeInsert, BeforeUpdate, Column, Entity, ManyToOne, JoinColumn } from 'typeorm';
 import { PrimaryGeneratedColumn } from 'typeorm/index';
@@ -24,7 +24,7 @@ export class PaymentItemsArchive extends BaseModel {
 
     @Column({ name: 'payment_archive_id' })
     public paymentArchiveId: number;
-
+    @IsNotEmpty()
     @Column({ name: 'total_amount' })
     public totalAmount: number;
 
@@ -33,7 +33,7 @@ export class PaymentItemsArchive extends BaseModel {
 
     @Column({ name: 'product_quantity' })
     public productQuantity: number;
-    @IsNotEmpty()
+
     @Column({ name: 'product_price' })
     public productPrice: number;
 

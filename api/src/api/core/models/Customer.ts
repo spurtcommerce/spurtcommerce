@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { Column, Entity, BeforeInsert, BeforeUpdate, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseModel } from './BaseModel';
@@ -113,13 +113,13 @@ export class Customer extends BaseModel {
     @Column({ name: 'is_active' })
     public isActive: number;
     @Exclude()
-    @Column({ name: 'forget_password_key' })
+    @Column({ name: 'forget_password_key'})
     public forgetPasswordKey: string;
 
-    @Column({ name: 'forget_password_link_expires' })
+    @Column({ name: 'forget_password_link_expires'})
     public linkExpires: string;
 
-    @Column({ name: 'locked_on' })
+    @Column({ name: 'locked_on'})
     public lockedOn: string;
 
     @ManyToOne(type => CustomerGroup, customergroup => customergroup.customer)

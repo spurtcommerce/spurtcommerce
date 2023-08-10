@@ -1,14 +1,14 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import { Post, JsonController, Req, Res, Get, QueryParam, Body, UseBefore } from 'routing-controllers';
-import { classToPlain } from 'class-transformer';
+import { instanceToPlain } from 'class-transformer';
 import { CustomerCheckoutRequest } from './requests/CustomerCheckoutRequest';
 import { OrderCancelRequest } from './requests/OrderCancelRequest';
 import { OrderService } from '../../core/services/OrderService';
@@ -40,9 +40,11 @@ import { CustomerCartService } from '../../core/services/CustomerCartService';
 import { OrderCancelReasonService } from '../../core/services/OrderCancelReasonService';
 import { SkuService } from '../../core/services/SkuService';
 import { TaxService } from '../../core/services/TaxService';
-import { CustomerBackorderRequest } from './requests/CustomerBackorderRequest';
 import { CheckCustomerMiddleware, CheckTokenMiddleware } from '../../core/middlewares/checkTokenMiddleware';
+import { pluginModule } from '../../../loaders/pluginLoader';
 
+import uncino from 'uncino';
+const hooks = uncino();
 @JsonController('/orders')
 export class CustomerOrderController {
     constructor(
@@ -67,7 +69,8 @@ export class CustomerOrderController {
         private customerCartService: CustomerCartService,
         private orderCancelReasonService: OrderCancelReasonService,
         private taxService: TaxService,
-        private imageService: ImageService, private skuService: SkuService) {
+        private imageService: ImageService,
+        private skuService: SkuService) {
     }
 
     // customer checkout
@@ -99,6 +102,9 @@ export class CustomerOrderController {
      * @apiParam (Request body) {String{..15}} phoneNumber Customer Phone Number
      * @apiParam (Request body) {String{..96}} emailId Customer Email Id
      * @apiParam (Request body) {String} [password] Customer password
+     * @apiParam (Request body) {String{..255}} [couponCode] couponCode
+     * @apiParam (Request body) {Number} [couponDiscountAmount] couponDiscountAmount
+     * @apiParam (Request body) {String} [couponData]
      * @apiParam (Request body) {String} [gstNo] gstNo
      * @apiParamExample {json} Input
      * {
@@ -110,7 +116,6 @@ export class CustomerOrderController {
      *      "model" : "",
      *      "name" : "",
      *      "skuName" : "",
-     *      "vendorId" : "",
      *      }],
      *      "shippingFirstName" : "",
      *      "shippingLastName" : "",
@@ -135,7 +140,6 @@ export class CustomerOrderController {
      *      "emailId" : "",
      *      "password" : "",
      *      "paymentMethod" : "",
-     *      "vendorId" : "",
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
@@ -151,11 +155,39 @@ export class CustomerOrderController {
     @UseBefore(CheckTokenMiddleware)
     @Post('/customer-checkout')
     public async customerCheckout(@Body({ validate: true }) checkoutParam: CustomerCheckoutRequest, @Res() response: any, @Req() request: any): Promise<any> {
+        // remove's hook if in memory..
+        hooks.removeHook('coupon-validator', 'C1-namespace');
+        hooks.removeHook('coupon', 'C2-namespace');
+        // --
         const logo = await this.settingService.findOne();
+        const coupon = {
+            couponCode: checkoutParam.couponCode,
+            couponData: checkoutParam.couponData,
+            couponDiscount: checkoutParam.couponDiscountAmount,
+        };
+
+        // Coupon Validation
+        if (pluginModule.includes('Coupon')) {
+            hooks.addHook('coupon-validator', 'C1-namespace', async () => {
+                const importPath = '../../../../add-ons/Coupon/coupon';
+                const Coupon = await require(importPath);
+                const pluginResponse: any = await Coupon.process(coupon);
+                return pluginResponse;
+            });
+            const couponResponse = await hooks.runHook('coupon-validator');
+            if (couponResponse === 'error') {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid Coupon',
+                });
+            }
+        }
+        // --
+
         const dynamicData: any = {};
         const orderProducts: any = checkoutParam.productDetails;
         for (const val of orderProducts) {
-            /// for find product price with tax , option price, special, discount and tire price /////
+            /// for find product price with tax
             let price: any;
             let taxType: any;
             let taxValue: any;
@@ -170,16 +202,16 @@ export class CustomerOrderController {
                 taxValue = productTire.taxValue;
             }
             const sku = await this.skuService.findOne({ where: { skuName: val.skuName } });
-                tirePrice = productTire.price;
-                if (taxType && taxType === 2) {
-                    const percentAmt = +tirePrice * (+taxValue / 100);
-                    priceWithTax = +tirePrice + +percentAmt;
-                } else if (taxType && taxType === 1) {
-                    priceWithTax = +tirePrice + +taxValue;
-                } else {
-                    priceWithTax = +tirePrice;
-                }
-                price = priceWithTax;
+            tirePrice = productTire.price;
+            if (taxType && taxType === 2) {
+                const percentAmt = +tirePrice * (+taxValue / 100);
+                priceWithTax = +tirePrice + +percentAmt;
+            } else if (taxType && taxType === 1) {
+                priceWithTax = +tirePrice + +taxValue;
+            } else {
+                priceWithTax = +tirePrice;
+            }
+            price = priceWithTax;
             const obj: any = {};
             obj.skuPrice = sku ? sku.price : productTire.price;
             obj.skuId = sku ? sku.id : productTire.skuId;
@@ -191,7 +223,6 @@ export class CustomerOrderController {
             obj.quantity = val.quantity;
             dynamicData[val.skuName] = obj;
         }
-
         const plugin = await this.pluginService.findOne({ where: { id: checkoutParam.paymentMethod } });
         if (plugin === undefined) {
             const errorResponse: any = {
@@ -340,7 +371,7 @@ export class CustomerOrderController {
         orderProduct = checkoutParam.productDetails;
         let j = 1;
         for (i = 0; i < orderProduct.length; i++) {
-            // finding price from backend ends
+            ///// finding price from backend ends /////
             const dynamicPrices = dynamicData[orderProduct[i].skuName];
             const productDetails = new OrderProduct();
             productDetails.productId = orderProduct[i].productId;
@@ -352,8 +383,6 @@ export class CustomerOrderController {
             productDetails.quantity = orderProduct[i].quantity;
             productDetails.productPrice = dynamicPrices.price;
             productDetails.basePrice = dynamicPrices.skuPrice;
-            productDetails.discountAmount = parseFloat(dynamicPrices.skuPrice) - parseFloat(dynamicPrices.tirePrice);
-            productDetails.discountedAmount = productDetails.discountAmount !== 0.00 ? dynamicPrices.tirePrice : '0.00';
             productDetails.taxType = dynamicPrices.taxType;
             productDetails.taxValue = dynamicPrices.taxValue;
             productDetails.total = +orderProduct[i].quantity * dynamicPrices.price;
@@ -362,6 +391,14 @@ export class CustomerOrderController {
             productDetails.orderStatusId = 1;
             const productInformation = await this.orderProductService.createData(productDetails);
             await this.orderProductLogService.create(productInformation);
+            // Remove product from Cart..!
+            const customerCartCondition: any = {};
+            customerCartCondition.productId = orderProduct[i].productId;
+            customerCartCondition.customerId = orderData.customerId;
+            const cart = await this.customerCartService.findOne({ where: customerCartCondition });
+            if (cart !== undefined) {
+                await this.customerCartService.delete(cart.id);
+            }
             const productImageData = await this.productService.findOne(productInformation.productId);
             let productImageDetail;
             productImageDetail = await this.productImageService.findOne({ where: { productId: productInformation.productId, defaultImage: 1 } });
@@ -374,15 +411,40 @@ export class CustomerOrderController {
             productDetailData.push(productImageData);
             j++;
         }
-        newOrder.amount = totalAmount;
-        newOrder.total = totalAmount;
+
+        // Coupon Code Plugin
+        let couponData: {
+            total: any,
+            couponCode: string,
+            discountAmount: any
+        } = { total: 0, couponCode: '', discountAmount: 0 };
+        if (pluginModule.includes('Coupon')) {
+            hooks.addHook('coupon', 'C2-namespace', async () => {
+                const importPath = '../../../../add-ons/Coupon/coupon';
+                const Coupon = await require(importPath);
+                const pluginResponse: any = await Coupon.process(coupon, orderData, dynamicData, totalAmount);
+                return pluginResponse;
+            });
+            couponData = await hooks.runHook('coupon');
+        }
+        // ---
         newOrder.invoiceNo = 'INV00'.concat(orderData.orderId);
         const nowDate = new Date();
         const orderDate = nowDate.getFullYear() + ('0' + (nowDate.getMonth() + 1)).slice(-2) + ('0' + nowDate.getDate()).slice(-2);
         newOrder.orderPrefixId = setting.invoicePrefix.concat('-' + orderDate + orderData.orderId);
-        await this.orderService.update(orderData.orderId, newOrder);
         newOrderTotal.orderId = orderData.orderId;
-        newOrderTotal.value = totalAmount;
+        if (couponData.discountAmount) {
+            newOrder.total = couponData.total;
+            newOrder.couponCode = couponData.couponCode;
+            newOrder.discountAmount = couponData.discountAmount;
+            newOrder.amount = totalAmount;
+            newOrderTotal.value = totalAmount - couponData.discountAmount;
+        } else {
+            newOrder.amount = totalAmount;
+            newOrder.total = totalAmount;
+            newOrderTotal.value = totalAmount;
+        }
+        await this.orderService.update(orderData.orderId, newOrder);
         await this.orderTotalService.createOrderTotalData(newOrderTotal);
         if (plugin.pluginName === 'CashOnDelivery') {
             const emailContent = await this.emailTemplateService.findOne(5);
@@ -460,337 +522,6 @@ export class CustomerOrderController {
         }
     }
 
-    // customer checkout
-    /**
-     * @api {post} /api/orders/back-order-checkout Checkout
-     * @apiGroup Store order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} productDetail Product Details
-     * @apiParam (Request body) {Number} [paymentMethod] paymentMethod
-     * @apiParam (Request body) {String{1..32}} shippingFirstName Shipping First name
-     * @apiParam (Request body) {String{..32}} shippingLastName Shipping Last Name
-     * @apiParam (Request body) {String} shippingCompany Shipping Company
-     * @apiParam (Request body) {String{..128}} shippingAddress_1 Shipping Address 1
-     * @apiParam (Request body) {String{..128}} [shippingAddress_2] Shipping Address 2
-     * @apiParam (Request body) {String{..128}} shippingCity Shipping City
-     * @apiParam (Request body) {Number{..10}} shippingPostCode Shipping PostCode
-     * @apiParam (Request body) {String} shippingCountryId ShippingCountryId
-     * @apiParam (Request body) {String{..128}} shippingZone Shipping Zone
-     * @apiParam (Request body) {String} shippingAddressFormat Shipping Address Format
-     * @apiParam (Request body) {String} paymentFirstName Payment First name
-     * @apiParam (Request body) {String} PaymentLastName Payment Last Name
-     * @apiParam (Request body) {String} PaymentCompany Payment Company
-     * @apiParam (Request body) {String} paymentAddress_1 Payment Address 1
-     * @apiParam (Request body) {String} paymentAddress_2 Payment Address 2
-     * @apiParam (Request body) {String} paymentCity Payment City
-     * @apiParam (Request body) {Number} paymentPostCode Payment PostCode
-     * @apiParam (Request body) {String} paymentCountryId PaymentCountryId
-     * @apiParam (Request body) {String} paymentZone Payment Zone
-     * @apiParam (Request body) {Number} phoneNumber Customer Phone Number
-     * @apiParam (Request body) {String{..96}} emailId Customer Email Id
-     * @apiParam (Request body) {String} password Customer password
-     * @apiParamExample {json} Input
-     * {
-     *      "productDetail" :[
-     *      {
-     *      "productId" : "",
-     *      "quantity" : "",
-     *      "price" : "",
-     *      "model" : "",
-     *      "name" : "",
-     *      "skuName" : "",
-     *      }],
-     *      "shippingFirstName" : "",
-     *      "shippingLastName" : "",
-     *      "shippingCompany" : "",
-     *      "shippingAddress_1" : "",
-     *      "shippingAddress_2" : "",
-     *      "shippingCity" : "",
-     *      "shippingPostCode" : "",
-     *      "shippingCountryId" : "",
-     *      "shippingZone" : "",
-     *      "shippingAddressFormat" : "",
-     *      "paymentFirstName" : "",
-     *      "paymentLastName" : "",
-     *      "paymentCompany" : "",
-     *      "paymentAddress_1" : "",
-     *      "paymentAddress_2" : "",
-     *      "paymentCity" : "",
-     *      "paymentPostCode" : "",
-     *      "paymentCountryId" : "",
-     *      "paymentZone" : "",
-     *      "phoneNumber" : "",
-     *      "emailId" : "",
-     *      "password" : "",
-     *      "paymentMethod" : "",
-     *      "vendorId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Check Out the product successfully And Send order detail in your mail ..!!",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/orders/back-order-checkout
-     * @apiErrorExample {json} Checkout error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    // Customer Checkout Function
-    @UseBefore(CheckTokenMiddleware)
-    @Post('/back-order-checkout')
-    public async backOrderCustomerCheckout(@Body({ validate: true }) checkoutParam: CustomerBackorderRequest, @Res() response: any, @Req() request: any): Promise<any> {
-        const logo = await this.settingService.findOne();
-        const plugin = await this.pluginService.findOne({ where: { id: checkoutParam.paymentMethod } });
-        if (plugin === undefined) {
-            const errorResponse: any = {
-                status: 0,
-                message: 'Payment method is invalid',
-            };
-            return response.status(400).send(errorResponse);
-        }
-        const newOrder: any = new Order();
-        const newOrderTotal = new OrderTotal();
-        let orderProduct = [];
-        let i;
-        let n;
-        let totalProductAmount;
-        let totalAmount = 0;
-        const productDetailData = [];
-        if (request.id) {
-            let customerId;
-            customerId = request.id;
-            newOrder.customerId = customerId;
-        } else {
-            const customerEmail = await this.customerService.findOne({
-                where: {
-                    email: checkoutParam.emailId,
-                    deleteFlag: 0,
-                },
-            });
-            if (customerEmail === undefined) {
-                if (checkoutParam.password) {
-                    const newUser = new Customer();
-                    newUser.firstName = checkoutParam.shippingFirstName;
-                    newUser.password = await Customer.hashPassword(checkoutParam.password);
-                    newUser.email = checkoutParam.emailId;
-                    newUser.username = checkoutParam.emailId;
-                    newUser.mobileNumber = checkoutParam.phoneNumber;
-                    newUser.isActive = 1;
-                    newUser.ip = (request.headers['x-forwarded-for'] ||
-                        request.connection.remoteAddress ||
-                        request.socket.remoteAddress ||
-                        request.connection.socket.remoteAddress).split(',')[0];
-                    const resultDatas = await this.customerService.create(newUser);
-                    const emailContents = await this.emailTemplateService.findOne(1);
-                    const message = emailContents.content.replace('{name}', resultDatas.firstName);
-                    const redirectUrl = env.storeRedirectUrl;
-                    const mailContent: any = {};
-                    mailContent.logo = logo;
-                    mailContent.emailContent = message;
-                    mailContent.redirectUrl = redirectUrl;
-                    mailContent.productDetailData = undefined;
-                    MAILService.sendMail(mailContent, resultDatas.email, emailContents.subject, false, false, '');
-                    newOrder.customerId = resultDatas.id;
-                } else {
-                    newOrder.customerId = 0;
-                }
-            } else {
-                const errorResponse: any = {
-                    status: 0,
-                    message: 'Please login for checkout, emailId already exist',
-                };
-                return response.status(400).send(errorResponse);
-            }
-        }
-        newOrder.email = checkoutParam.emailId;
-        newOrder.telephone = checkoutParam.phoneNumber;
-        newOrder.shippingFirstname = checkoutParam.shippingFirstName;
-        newOrder.shippingLastname = checkoutParam.shippingLastName;
-        newOrder.shippingAddress1 = checkoutParam.shippingAddress_1;
-        newOrder.shippingAddress2 = checkoutParam.shippingAddress_2;
-        newOrder.shippingCompany = checkoutParam.shippingCompany;
-        newOrder.shippingCity = checkoutParam.shippingCity;
-        newOrder.shippingZone = checkoutParam.shippingZone;
-        newOrder.shippingCountryId = checkoutParam.shippingCountryId;
-        const country = await this.countryService.findOne({
-            where: {
-                countryId: checkoutParam.shippingCountryId,
-            },
-        });
-        if (country) {
-            newOrder.shippingCountry = country.name;
-        }
-        newOrder.shippingPostcode = checkoutParam.shippingPostCode;
-        newOrder.shippingAddressFormat = checkoutParam.shippingAddressFormat;
-        newOrder.paymentMethod = checkoutParam.paymentMethod;
-        newOrder.isActive = 1;
-        newOrder.backOrders = 1;
-        const setting = await this.settingService.findOne();
-        newOrder.orderStatusId = setting.orderStatus;
-        newOrder.invoicePrefix = setting.invoicePrefix;
-        const currencyVal = await this.currencyService.findOne(setting.storeCurrencyId);
-        if (currencyVal) {
-            newOrder.currencyCode = currencyVal.code;
-            newOrder.currencyValue = currencyVal.value;
-            newOrder.currencySymbolLeft = currencyVal.symbolLeft;
-            newOrder.currencySymbolRight = currencyVal.symbolRight;
-            newOrder.currencyValue = currencyVal.value;
-        }
-        newOrder.paymentAddressFormat = checkoutParam.shippingAddressFormat;
-        const orderData = await this.orderService.create(newOrder);
-        await this.orderLogService.create(orderData);
-        const currencySymbol = await this.currencyService.findOne(setting.storeCurrencyId);
-        if (currencySymbol) {
-            orderData.currencyRight = currencySymbol.symbolRight;
-            orderData.currencyLeft = currencySymbol.symbolLeft;
-        }
-        const nwDate = new Date();
-        const orderDate = nwDate.getFullYear() + ('0' + (nwDate.getMonth() + 1)).slice(-2) + ('0' + nwDate.getDate()).slice(-2);
-        orderProduct = checkoutParam.productDetails;
-        let j = 1;
-        for (i = 0; i < orderProduct.length; i++) {
-            // for find product price with tax , option price, special, discount and tire price
-            let price: any;
-            let taxType: any;
-            let taxValue: any;
-            let tirePrice: any;
-            let priceWithTax: any;
-            const productTire = await this.productService.findOne({ where: { productId: orderProduct[i].productId } });
-            taxType = productTire.taxType;
-            if (taxType === 2 && taxType) {
-                const tax = await this.taxService.findOne({ where: { taxId: productTire.taxValue } });
-                taxValue = (tax !== undefined) ? tax.taxPercentage : 0;
-            } else if (taxType === 1 && taxType) {
-                taxValue = productTire.taxValue;
-            }
-            const sku = await this.skuService.findOne({ where: { skuName: orderProduct[i].skuName } });
-                tirePrice = productTire.price;
-                if (taxType && taxType === 2) {
-                    const percentAmt = +tirePrice * (+taxValue / 100);
-                    priceWithTax = +tirePrice + +percentAmt;
-                } else if (taxType && taxType === 1) {
-                    priceWithTax = +tirePrice + +taxValue;
-                } else {
-                    priceWithTax = +tirePrice;
-                }
-                price = priceWithTax;
-            const skuPrice = sku ? sku.price : productTire.price;
-            // finding price from backend ends
-            const productDetails = new OrderProduct();
-            productDetails.productId = orderProduct[i].productId;
-            productDetails.orderProductPrefixId = orderData.invoicePrefix.concat('-' + orderDate + orderData.orderId) + j;
-            productDetails.name = productTire.name;
-            productDetails.orderId = orderData.orderId;
-            productDetails.quantity = orderProduct[i].quantity;
-            productDetails.productPrice = price;
-            productDetails.basePrice = skuPrice;
-            productDetails.discountAmount = parseFloat(skuPrice) - parseFloat(tirePrice);
-            productDetails.discountedAmount = productDetails.discountAmount !== 0.00 ? tirePrice : '0.00';
-            productDetails.taxType = taxType;
-            productDetails.taxValue = taxValue;
-            productDetails.total = +orderProduct[i].quantity * price;
-            productDetails.model = productTire.name;
-            productDetails.skuName = orderProduct[i].skuName ? orderProduct[i].skuName : '';
-            productDetails.orderStatusId = 1;
-            const productInformation = await this.orderProductService.createData(productDetails);
-            await this.orderProductLogService.create(productInformation);
-            const cart = await this.customerCartService.findOne({ where: { productId: orderProduct[i].productId, customerId: orderData.customerId } });
-            if (cart !== undefined) {
-                await this.customerCartService.delete(cart.id);
-            }
-            let productImageDetail;
-            productImageDetail = await this.productImageService.findOne({ where: { productId: productInformation.productId, defaultImage: 1 } });
-            const productImageData = await this.productService.findOne(productInformation.productId);
-            productImageData.productInformationData = productInformation;
-            productImageData.productImage = productImageDetail;
-            totalProductAmount = await this.orderProductService.findData(orderProduct[i].productId, orderData.orderId, productInformation.orderProductId);
-            for (n = 0; n < totalProductAmount.length; n++) {
-                totalAmount += +totalProductAmount[n].total;
-            }
-            productDetailData.push(productImageData);
-            j++;
-        }
-        newOrder.ip = (request.headers['x-forwarded-for'] ||
-            request.connection.remoteAddress ||
-            request.socket.remoteAddress ||
-            request.connection.socket.remoteAddress).split(',')[0];
-        newOrder.amount = totalAmount;
-        newOrder.total = totalAmount;
-        newOrder.invoiceNo = 'INV00'.concat(orderData.orderId);
-        newOrder.orderPrefixId = setting.invoicePrefix.concat('-' + orderDate + orderData.orderId);
-        await this.orderService.update(orderData.orderId, newOrder);
-        newOrderTotal.orderId = orderData.orderId;
-        newOrderTotal.value = totalAmount;
-        await this.orderTotalService.createOrderTotalData(newOrderTotal);
-        if (plugin.pluginName === 'CashOnDelivery') {
-            const emailContent = await this.emailTemplateService.findOne(5);
-            const adminEmailContent = await this.emailTemplateService.findOne(6);
-            const today = ('0' + nwDate.getDate()).slice(-2) + '.' + ('0' + (nwDate.getMonth() + 1)).slice(-2) + '.' + nwDate.getFullYear();
-            const customerFirstName = orderData.shippingFirstname;
-            const customerLastName = orderData.shippingLastname;
-            const customerName = customerFirstName + ' ' + customerLastName;
-            const adminMessage = adminEmailContent.content.replace('{adminname}', 'Admin').replace('{name}', customerName).replace('{orderId}', orderData.orderId);
-            const customerMessage = emailContent.content.replace('{name}', customerName);
-            const adminId: any = [];
-            const adminUser = await this.userService.findAll({ select: ['username'], where: { userGroupId: 1, deleteFlag: 0 } });
-            for (const user of adminUser) {
-                const val = user.username;
-                adminId.push(val);
-            }
-
-            const adminRedirectUrl = env.adminRedirectUrl;
-            const adminMailContents: any = {};
-            adminMailContents.logo = logo;
-            adminMailContents.emailContent = adminMessage;
-            adminMailContents.redirectUrl = adminRedirectUrl;
-            adminMailContents.productDetailData = productDetailData;
-            adminMailContents.today = today;
-            adminMailContents.orderData = orderData;
-            MAILService.sendMail(adminMailContents, adminId, adminEmailContent.subject, false, false, '');
-            const storeRedirectUrl = env.storeRedirectUrl;
-            const storeMailContents: any = {};
-            storeMailContents.logo = logo;
-            storeMailContents.emailContent = customerMessage;
-            storeMailContents.redirectUrl = storeRedirectUrl;
-            storeMailContents.productDetailData = productDetailData;
-            storeMailContents.today = today;
-            storeMailContents.orderData = orderData;
-            MAILService.sendMail(storeMailContents, adminId, emailContent.subject, false, false, '');
-            const order = await this.orderService.findOrder(orderData.orderId);
-            order.paymentType = plugin ? plugin.pluginName : '';
-            order.productDetail = await this.orderProductService.find({ where: { orderId: orderData.orderId } }).then((val) => {
-                const productImage = val.map(async (value: any) => {
-                    let image;
-                    image = await this.productImageService.findOne({ where: { productId: value.productId } });
-                    const temp: any = value;
-                    temp.image = image;
-                    return temp;
-                });
-                const results = Promise.all(productImage);
-                return results;
-            });
-            const successResponse: any = {
-                status: 1,
-                message: 'You have successfully placed order. order details sent to your mail',
-                data: order,
-            };
-            return response.status(200).send(successResponse);
-        } else {
-
-            const pluginInfo = JSON.parse(plugin.pluginAdditionalInfo);
-            orderData.paymentProcess = 0;
-            await this.orderService.update(orderData.orderId, orderData);
-            const route = env.baseUrl + pluginInfo.processRoute + '/' + orderData.orderPrefixId;
-            const successResponse: any = {
-                status: 3,
-                message: 'Redirect to this url',
-                data: route,
-            };
-            return response.status(200).send(successResponse);
-
-        }
-    }
-
     // Customer Order List API
     /**
      * @api {get} /api/orders/order-list My Order List
@@ -840,8 +571,7 @@ export class CustomerOrderController {
             'OrderProduct.quantity as quantity',
             'OrderProduct.cancelRequest as cancelRequest',
             'OrderProduct.cancelRequestStatus as cancelRequestStatus',
-            'OrderProduct.discountAmount as discountAmount',
-            'OrderProduct.discountedAmount as discountedAmount',
+            'OrderProduct.couponDiscountAmount as couponDiscountAmount',
             'OrderProduct.skuName as skuName',
             'orderStatus.orderStatusId as orderStatusId',
             'orderStatus.name as name',
@@ -949,7 +679,6 @@ export class CustomerOrderController {
                 where: { productId: results.productId },
                 select: ['productSlug', 'name'],
             });
-            console.log('product datas...');
             if (products) {
                 temp.productSlug = products.productSlug;
                 temp.productName = products.name;
@@ -969,289 +698,7 @@ export class CustomerOrderController {
         const successResponse: any = {
             status: 1,
             message: 'Successfully shown the order list. ',
-            data: classToPlain(result),
-        };
-        return response.status(200).send(successResponse);
-    }
-
-    // Customer Order Detail API
-    /**
-     * @api {get} /api/orders/order-detail My OrderDetail
-     * @apiGroup Store order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} orderProductId orderProductId
-     * @apiParamExample {json} Input
-     * {
-     *      "orderProductId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully show the Order Detail..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/orders/order-detail
-     * @apiErrorExample {json} Order Detail error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    // Order Detail Function
-    @UseBefore(CheckCustomerMiddleware)
-    @Get('/order-detail')
-    public async orderDetail(@QueryParam('orderProductId') orderProductId: number, @Req() request: any, @Res() response: any): Promise<any> {
-        const obj: any = {};
-        const orderProduct = await this.orderProductService.findOne({
-        select: ['basePrice', 'taxValue', 'taxType', 'orderProductId', 'orderId', 'productId', 'createdDate', 'modifiedDate', 'total', 'name', 'productPrice', 'orderProductPrefixId', 'quantity', 'orderStatusId', 'discountAmount', 'discountedAmount', 'skuName'],
-            where: {
-                orderProductId,
-            },
-        });
-        if (!orderProduct) {
-            const errorResponse: any = {
-                status: 0,
-                message: 'Invalid Order Product Id',
-            };
-            return response.status(400).send(errorResponse);
-        }
-        const order = await this.orderService.findOrder({
-            select: ['paymentType', 'shippingAddress1', 'shippingAddress2', 'shippingCity', 'shippingPostcode', 'shippingZone', 'shippingCountry', 'paymentAddress1', 'paymentAddress2', 'paymentCity', 'paymentPostcode', 'paymentZone', 'paymentCountry', 'currencySymbolLeft', 'currencySymbolRight', 'customerGstNo'],
-            where: {
-                orderId: orderProduct.orderId, customerId: request.user.id,
-            },
-        });
-        if (!order) {
-            const errResponse: any = {
-                status: 0,
-                message: 'Invalid order for this customer',
-            };
-            return response.status(400).send(errResponse);
-        }
-        const product = await this.productImageService.findOne({
-            select: ['productId', 'image', 'containerName'],
-            where: {
-                productId: orderProduct.productId,
-                defaultImage: 1,
-            },
-        });
-        const products = await this.productService.findOne({
-            select: ['productSlug'],
-            where: {
-                productId: orderProduct.productId,
-            },
-        });
-        const passingOrderStatus = await this.orderStatusService.findOne({
-            where: {
-                orderStatusId: orderProduct.orderStatusId,
-            },
-        });
-        obj.orderedDate = orderProduct.createdDate;
-        obj.orderProductPrefixId = orderProduct.orderProductPrefixId;
-        obj.shippingAddress1 = order.shippingAddress1;
-        obj.shippingAddress2 = order.shippingAddress2;
-        obj.shippingCity = order.shippingCity;
-        if (products) {
-            obj.productSlug = products.productSlug;
-        }
-        obj.shippingPostcode = order.shippingPostcode;
-        obj.shippingZone = order.shippingZone;
-        obj.paymentMethod = order.paymentType;
-        obj.total = orderProduct.total;
-        if (passingOrderStatus) {
-            obj.orderStatus = passingOrderStatus.name;
-        }
-        obj.currencySymbolLeft = order.currencySymbolLeft;
-        obj.currencySymbolRight = order.currencySymbolRight;
-        obj.discountAmount = orderProduct.discountAmount;
-        obj.discountedAmount = orderProduct.discountedAmount;
-        obj.orderProductPrefixId = orderProduct.orderProductPrefixId;
-        obj.customerGstNo = order.customerGstNo;
-        obj.paymentAddress1 = order.paymentAddress1;
-        obj.paymentAddress2 = order.paymentAddress2;
-        obj.paymentCity = order.paymentCity;
-        obj.paymentPostcode = order.paymentPostcode;
-        obj.paymentZone = order.paymentZone;
-        obj.paymentCountry = order.paymentCountry;
-        obj.orderProductPrefixId = orderProduct.orderProductPrefixId;
-        if (orderProduct.modifiedDate) {
-            obj.orderStatusDate = orderProduct.modifiedDate;
-        } else {
-            obj.orderStatusDate = orderProduct.createdDate;
-        }
-        if (product) {
-            obj.productImage = product.image;
-            obj.containerName = product.containerName;
-        }
-        obj.basePrice = orderProduct.basePrice;
-        obj.taxValue = orderProduct.taxValue;
-        obj.taxType = orderProduct.taxType;
-        obj.orderId = orderProduct.orderId;
-        obj.orderProductId = orderProduct.orderProductId;
-        obj.productId = orderProduct.productId;
-        obj.productName = orderProduct.name;
-        obj.productQuantity = orderProduct.quantity;
-        obj.productPrice = orderProduct.productPrice;
-        obj.skuName = orderProduct.skuName;
-        const orderStatus = await this.orderStatusService.findAll({
-            select: ['orderStatusId', 'name'],
-            where: {
-                isActive: 1,
-            },
-        });
-        const orderProductLog = await this.orderProductLogService.find({
-            select: ['orderProductLogId', 'createdDate', 'orderStatusId'],
-            where: {
-                orderProductId: orderProduct.orderProductId,
-            },
-        });
-        const orderStatusDate = orderStatus.map(async (value: any) => {
-            const date = orderProductLog.find(item => item.orderStatusId === value.orderStatusId);
-            const temp: any = value;
-            if (date === undefined) {
-                temp.createdDate = '';
-            } else {
-                temp.createdDate = date.createdDate;
-            }
-            return temp;
-        });
-        const result = await Promise.all(orderStatusDate);
-        obj.deliveryStatus = result;
-        const rating = undefined;
-        if (rating !== undefined) {
-            obj.rating = rating.rating;
-            obj.review = rating.review;
-        } else {
-            obj.rating = 0;
-            obj.review = '';
-        }
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully show the order details',
-            data: obj,
-        };
-        return response.status(200).send(successResponse);
-    }
-
-    // Track Order Product API
-    /**
-     * @api {get} /api/orders/track-order-product Track Order
-     * @apiGroup Store order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} orderProductId Order Product Id
-     * @apiParamExample {json} Input
-     * {
-     *      "orderProductId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully show the Track Order..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/orders/track-order-product
-     * @apiErrorExample {json} Track Order error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    // Track Order Function
-    @UseBefore(CheckCustomerMiddleware)
-    @Get('/track-order-product')
-    public async trackOrder(@QueryParam('orderProductId') orderProductId: number, @Req() request: any, @Res() response: any): Promise<any> {
-        const obj: any = {};
-        const orderProduct = await this.orderProductService.findOne({
-            select: ['basePrice', 'taxValue', 'taxType', 'orderProductId', 'trackingNo', 'trackingUrl', 'name', 'productPrice', 'orderId', 'productId', 'orderProductPrefixId', 'total', 'quantity', 'discountAmount', 'discountedAmount', 'modifiedDate', 'orderStatusId', 'createdDate', 'skuName'],
-            where: { orderProductId },
-        });
-        if (!orderProduct) {
-            const errorResponse: any = {
-                status: 0,
-                message: 'Invalid Order Product Id',
-            };
-            return response.status(400).send(errorResponse);
-        }
-        const product = await this.productImageService.findOne({
-            select: ['image', 'containerName', 'productId'],
-            where: { productId: orderProduct.productId, defaultImage: 1 },
-        });
-        const order = await this.orderService.findOrder({
-            select: ['shippingAddress1', 'shippingAddress2', 'shippingCity', 'shippingPostcode', 'shippingZone', 'currencySymbolLeft', 'currencySymbolRight', 'orderPrefixId'],
-            where: { orderId: orderProduct.orderId, customerId: request.user.id },
-        });
-        if (!order) {
-            const errResponse: any = {
-                status: 0,
-                message: 'Invalid order for this customer',
-            };
-            return response.status(400).send(errResponse);
-        }
-        const passingOrderStatus = await this.orderStatusService.findOne({
-            where: {
-                orderStatusId: orderProduct.orderStatusId,
-            },
-        });
-        obj.basePrice = orderProduct.basePrice;
-        obj.taxValue = orderProduct.taxValue;
-        obj.taxType = orderProduct.taxType;
-        obj.orderProductId = orderProduct.orderProductId;
-        obj.orderId = orderProduct.orderId;
-        obj.productId = orderProduct.productId;
-        obj.orderProductPrefixId = orderProduct.orderProductPrefixId;
-        obj.trackingId = orderProduct.trackingNo;
-        obj.trackingUrl = orderProduct.trackingUrl;
-        obj.productName = orderProduct.name;
-        obj.productPrice = orderProduct.productPrice;
-        obj.discountAmount = orderProduct.discountAmount;
-        obj.discountedAmount = orderProduct.discountedAmount;
-        obj.skuName = orderProduct.skuName;
-        obj.total = orderProduct.total;
-        if (orderProduct.modifiedDate) {
-            obj.orderStatusDate = orderProduct.modifiedDate;
-        } else {
-            obj.orderStatusDate = orderProduct.createdDate;
-        }
-        if (passingOrderStatus) {
-            obj.orderStatus = passingOrderStatus.name;
-        }
-        obj.productQuantity = orderProduct.quantity;
-        obj.shippingAddress1 = order.shippingAddress1;
-        obj.shippingAddress2 = order.shippingAddress2;
-        obj.shippingCity = order.shippingCity;
-        obj.shippingPostcode = order.shippingPostcode;
-        obj.shippingZone = order.shippingZone;
-        obj.currencySymbolLeft = order.currencySymbolLeft;
-        obj.currencySymbolRight = order.currencySymbolRight;
-        obj.orderPrefixId = order.orderPrefixId;
-        if (product) {
-            obj.productImage = product.image;
-            obj.containerName = product.containerName;
-        }
-        const orderStatus = await this.orderStatusService.findAll({
-            select: ['orderStatusId', 'name'],
-            where: {
-                isActive: 1,
-            },
-        });
-        const orderProductLog = await this.orderProductLogService.find({
-            select: ['orderProductLogId', 'createdDate', 'orderStatusId'],
-            where: {
-                orderProductId: orderProduct.orderProductId,
-            },
-        });
-        const orderStatusDate = orderStatus.map(async (value: any) => {
-            const date = orderProductLog.find(item => item.orderStatusId === value.orderStatusId);
-            const temp: any = value;
-            if (date === undefined) {
-                temp.createdDate = '';
-            } else {
-                temp.createdDate = date.createdDate;
-            }
-            return temp;
-        });
-        const result = await Promise.all(orderStatusDate);
-        obj.deliveryStatus = result;
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully shown the Track Order.',
-            data: obj,
+            data: instanceToPlain(result),
         };
         return response.status(200).send(successResponse);
     }
@@ -1296,7 +743,7 @@ export class CustomerOrderController {
         const orderData = await this.orderService.findOrder({
             where: { orderId: orderProduct.orderId, customerId: request.user.id }, select: ['orderId', 'orderStatusId', 'customerId', 'telephone', 'invoiceNo', 'paymentStatus', 'invoicePrefix', 'orderPrefixId', 'shippingFirstname', 'shippingLastname', 'shippingCompany', 'shippingAddress1',
                 'shippingAddress2', 'shippingCity', 'email', 'shippingZone', 'shippingPostcode', 'shippingCountry', 'shippingAddressFormat',
-                'paymentFirstname', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity', 'discountAmount', 'amount',
+                'paymentFirstname', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity', 'amount',
                 'paymentPostcode', 'paymentCountry', 'paymentZone', 'paymentAddressFormat', 'total', 'customerId', 'createdDate', 'currencyCode', 'currencySymbolLeft', 'currencySymbolRight'],
         });
         if (!orderData) {
@@ -1306,14 +753,14 @@ export class CustomerOrderController {
             };
             return response.status(400).send(errResponse);
         }
-        orderData.productList = await this.orderProductService.find({ where: { orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount'] }).then((val) => {
+        orderData.productList = await this.orderProductService.find({ where: { orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'taxType', 'taxValue'] }).then((val) => {
             const productVal = val.map(async (value: any) => {
                 const rating = undefined;
                 const tempVal: any = value;
                 tempVal.taxType = value.taxType;
                 tempVal.taxValue = value.taxValue;
                 if (value.taxType === 2) {
-                    const price = value.discountAmount === '0.00' || value.discountAmount === null ? +value.basePrice : +value.discountedAmount;
+                    const price = +value.basePrice;
                     tempVal.taxValueInAmount = (price * (+value.taxValue / 100)).toFixed(2);
                 } else {
                     tempVal.taxValueInAmount = value.taxValue;
@@ -1379,54 +826,6 @@ export class CustomerOrderController {
         let decrypted = decipher.update(encryptedText);
         decrypted = Buffer.concat([decrypted, decipher.final()]);
         return decrypted.toString();
-    }
-
-    // Order Cancel Reason List
-    /**
-     * @api {get} /api/orders/order-cancel-reason-list Order Cancel Reason List
-     * @apiGroup Store order
-     * @apiParam (Request body) {Number} limit Limit
-     * @apiParam (Request body) {Number} offset Offset
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "limit" : "",
-     *      "offset": "",
-     *      "count": "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully Listed..!",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/orders/order-cancel-reason-list
-     * @apiErrorExample {json} order cancel reason List error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    // Abuse Reason list Function
-    @UseBefore(CheckCustomerMiddleware)
-    @Get('/order-cancel-reason-list')
-    public async reasonList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
-        const select = ['id', 'reason'];
-        const ReasonList: any = await this.orderCancelReasonService.list(limit, offset, select, 0, 0, count).then(async (value) => {
-            const mapping = await value.map((data) => {
-                const temp = data;
-                const reasonData = temp.reason;
-                const resultData = reasonData.charAt(0).toUpperCase() + reasonData.slice(1);
-                temp.reason = resultData;
-                return data;
-            });
-            const result = await Promise.all(mapping);
-            return result;
-        });
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully got Order Cancel Reason list',
-            data: ReasonList,
-        };
-        return response.status(200).send(successResponse);
     }
 
     // order cancel Request API
@@ -1509,6 +908,164 @@ export class CustomerOrderController {
             };
             return response.status(400).send(errorResponse);
         }
+    }
+
+        // Customer Order Detail API
+    /**
+     * @api {get} /api/orders/order-detail My OrderDetail
+     * @apiGroup Store order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} orderProductId orderProductId
+     * @apiParamExample {json} Input
+     * {
+     *      "orderProductId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the Order Detail..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/orders/order-detail
+     * @apiErrorExample {json} Order Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Detail Function
+    @UseBefore(CheckCustomerMiddleware)
+    @Get('/order-detail')
+    public async orderDetail(@QueryParam('orderProductId') orderProductId: number, @Req() request: any, @Res() response: any): Promise<any> {
+        const obj: any = {};
+        const orderProduct = await this.orderProductService.findOne({
+            select: ['basePrice', 'taxValue', 'taxType', 'orderProductId', 'orderId', 'productId', 'createdDate', 'modifiedDate', 'total', 'name', 'productPrice', 'orderProductPrefixId', 'quantity', 'orderStatusId', 'discountAmount', 'discountedAmount', 'skuName', 'couponDiscountAmount'],
+            where: {
+                orderProductId,
+            },
+        });
+        if (!orderProduct) {
+            const errorResponse: any = {
+                status: 0,
+                message: 'Invalid Order Product Id',
+            };
+            return response.status(400).send(errorResponse);
+        }
+        const order = await this.orderService.findOrder({
+            select: ['paymentType', 'shippingAddress1', 'shippingAddress2', 'shippingCity', 'shippingPostcode', 'shippingZone', 'shippingCountry', 'paymentAddress1', 'paymentAddress2', 'paymentCity', 'paymentPostcode', 'paymentZone', 'paymentCountry', 'currencySymbolLeft', 'currencySymbolRight', 'customerGstNo'],
+            where: {
+                orderId: orderProduct.orderId, customerId: request.user.id,
+            },
+        });
+        if (!order) {
+            const errResponse: any = {
+                status: 0,
+                message: 'Invalid order for this customer',
+            };
+            return response.status(400).send(errResponse);
+        }
+        const product = await this.productImageService.findOne({
+            select: ['productId', 'image', 'containerName'],
+            where: {
+                productId: orderProduct.productId,
+                defaultImage: 1,
+            },
+        });
+        const products = await this.productService.findOne({
+            select: ['productSlug'],
+            where: {
+                productId: orderProduct.productId,
+            },
+        });
+        const passingOrderStatus = await this.orderStatusService.findOne({
+            where: {
+                orderStatusId: orderProduct.orderStatusId,
+            },
+        });
+        obj.orderedDate = orderProduct.createdDate;
+        obj.orderProductPrefixId = orderProduct.orderProductPrefixId;
+        obj.shippingAddress1 = order.shippingAddress1;
+        obj.shippingAddress2 = order.shippingAddress2;
+        obj.shippingCity = order.shippingCity;
+        if (products) {
+            obj.productSlug = products.productSlug;
+        }
+        obj.shippingPostcode = order.shippingPostcode;
+        obj.shippingZone = order.shippingZone;
+        obj.paymentMethod = order.paymentType;
+        obj.total = orderProduct.total;
+        if (passingOrderStatus) {
+            obj.orderStatus = passingOrderStatus.name;
+        }
+        obj.currencySymbolLeft = order.currencySymbolLeft;
+        obj.currencySymbolRight = order.currencySymbolRight;
+        obj.discountAmount = orderProduct.discountAmount;
+        obj.discountedAmount = orderProduct.discountedAmount;
+        obj.couponDiscountAmount = orderProduct.couponDiscountAmount;
+        obj.orderProductPrefixId = orderProduct.orderProductPrefixId;
+        obj.customerGstNo = order.customerGstNo;
+        obj.paymentAddress1 = order.paymentAddress1;
+        obj.paymentAddress2 = order.paymentAddress2;
+        obj.paymentCity = order.paymentCity;
+        obj.paymentPostcode = order.paymentPostcode;
+        obj.paymentZone = order.paymentZone;
+        obj.paymentCountry = order.paymentCountry;
+        obj.orderProductPrefixId = orderProduct.orderProductPrefixId;
+        if (orderProduct.modifiedDate) {
+            obj.orderStatusDate = orderProduct.modifiedDate;
+        } else {
+            obj.orderStatusDate = orderProduct.createdDate;
+        }
+        if (product) {
+            obj.productImage = product.image;
+            obj.containerName = product.containerName;
+        }
+        obj.basePrice = orderProduct.basePrice;
+        obj.taxValue = orderProduct.taxValue;
+        obj.taxType = orderProduct.taxType;
+        obj.orderId = orderProduct.orderId;
+        obj.orderProductId = orderProduct.orderProductId;
+        obj.productId = orderProduct.productId;
+        obj.productName = orderProduct.name;
+        obj.productQuantity = orderProduct.quantity;
+        obj.productPrice = orderProduct.productPrice;
+        obj.skuName = orderProduct.skuName;
+        const orderStatus = await this.orderStatusService.findAll({
+            select: ['orderStatusId', 'name'],
+            where: {
+                isActive: 1,
+            },
+        });
+        const orderProductLog = await this.orderProductLogService.find({
+            select: ['orderProductLogId', 'createdDate', 'orderStatusId'],
+            where: {
+                orderProductId: orderProduct.orderProductId,
+            },
+        });
+        const orderStatusDate = orderStatus.map(async (value: any) => {
+            const date = orderProductLog.find(item => item.orderStatusId === value.orderStatusId);
+            const temp: any = value;
+            if (date === undefined) {
+                temp.createdDate = '';
+            } else {
+                temp.createdDate = date.createdDate;
+            }
+            return temp;
+        });
+        const result = await Promise.all(orderStatusDate);
+        obj.deliveryStatus = result;
+        const rating = undefined;
+        if (rating !== undefined) {
+            obj.rating = rating.rating;
+            obj.review = rating.review;
+        } else {
+            obj.rating = 0;
+            obj.review = '';
+        }
+        const successResponse: any = {
+            status: 1,
+            message: 'Successfully show the order details',
+            data: obj,
+        };
+        return response.status(200).send(successResponse);
     }
 
     // Get Order Status API

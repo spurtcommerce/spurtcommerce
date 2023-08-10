@@ -133,7 +133,7 @@ export class SanitizeMiddleware implements ExpressMiddlewareInterface {
       for (const [key, value] of Object.entries(data)) {
         if (key !== 'password' && key !== 'confirmPassword' && key !== 'newPassword' && key !== 'oldPassword' && key !== 'productDescription' && key !== 'description'
           && key !== 'metaTagDescription' && key !== 'metaTagTitle' && key !== 'categoryDescription' && key !== 'widgetDescription' && key !== 'companyDescription' && key !== 'content' && key !== 'metaTagContent') {
-          if (key === 'productName' || key === 'permission') {
+          if (key === 'productName' || key === 'permission' || key === 'keyword') {
             if (!isValid2(value.toString())) {
               return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
             }

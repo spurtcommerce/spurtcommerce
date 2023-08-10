@@ -1,15 +1,16 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
-import { Column, Entity, BeforeInsert, BeforeUpdate, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, BeforeInsert, BeforeUpdate, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseModel } from './BaseModel';
 import moment = require('moment/moment');
 import { IsNotEmpty } from 'class-validator';
+import { Zone } from './Zone';
 @Entity('address')
 export class Address extends BaseModel {
     @IsNotEmpty()
@@ -60,6 +61,10 @@ export class Address extends BaseModel {
 
     @Column({ name: 'is_active' })
     public isActive: number;
+
+    @ManyToOne(type => Zone, zone => zone.address)
+    @JoinColumn({name: 'zone_id'})
+    public zone: Zone[];
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

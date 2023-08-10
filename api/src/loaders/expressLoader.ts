@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { Application } from 'express';
 import express from 'express';
@@ -16,7 +16,6 @@ import { currentUserChecker } from '../auth/currentUserChecker';
 import * as controllers from '../common/controller-index';
 import * as middlewares from '../common/middleware-index';
 import lusca from 'lusca';
-import fs from 'fs';
 import { env } from '../env';
 
 export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSettings | undefined) => {
@@ -28,8 +27,8 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
          * We could have also use useExpressServer here to attach controllers to an existing express instance.
          */
         const app = express();
-        app.use(bodyParser.urlencoded({limit: '200mb', extended: true}));
-        app.use(bodyParser.json({limit: '50mb'}));
+        app.use(bodyParser.urlencoded({ limit: '200mb', extended: true }));
+        app.use(bodyParser.json({ limit: '50mb' }));
         app.use(lusca.xframe('SAMEORIGIN'));
         app.use(lusca.xssProtection(true));
         const expressApp: Application = useExpressServer(app, {
@@ -43,6 +42,7 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
              */
             controllers: Object.values(controllers),
             middlewares: Object.values(middlewares),
+            // interceptors: env.app.dirs.interceptors,
 
             /**
              * Authorization features
@@ -59,25 +59,5 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
 
         // Here we can set the data for other loaders
         settings.setData('express_app', expressApp);
-
-        // const fs = require('fs');
-        function data(): void {
-            const dir = 'dist';
-            if (fs.existsSync(dir)) {
-                fs.readFile('dist/src/loaders/publicLoader.js', 'utf8', (err: any, dataV: any) => {
-                if (err) {
-                    return console.log(err);
-                }
-                const sourcePath = 'path.join(__dirname, ' + "'../../'" + ', ' + "'views/assets')";
-                const destPath = 'path.join(__dirname, ' + "'../../../'" + ', ' + "'views/assets')";
-                const result = dataV.replace(sourcePath , destPath);
-                fs.writeFile('dist/src/loaders/publicLoader.js', result, 'utf8', (errW) => {
-                    if (errW) { return console.log(errW); }
-                });
-                });
-            }
-        }
-
-        data();
     }
 };

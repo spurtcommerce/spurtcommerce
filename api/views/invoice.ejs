@@ -101,15 +101,11 @@
                         var price = 0;
                         var tax = 0;
                         var total = 0;
-                        var discountAmt = 0;
-                        var discountedAmt = 0;
                         data.productList.forEach(function(product) { 
                             quantity += product.quantity;
                             price += parseFloat(product.basePrice);
                             tax+= parseFloat(product.taxValueInAmount);
                             total += parseFloat(product.total);
-                            discountAmt += parseFloat(product.discountAmount);
-                            discountedAmt += parseFloat(product.discountedAmount);
                             var value = parseFloat(product.quantity) * parseFloat(product.basePrice);
                     %>
                     <tr>          

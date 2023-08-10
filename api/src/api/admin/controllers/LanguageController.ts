@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import { Get, Put, Delete, Param, QueryParam, Post, Body, JsonController, Authorized, Req, Res } from 'routing-controllers';
@@ -62,6 +62,16 @@ export class LanguageController {
             };
             return response.status(400).send(errorResponse);
         }
+        const languageName = await this.languageService.find({select: ['name']});
+        for (const language of languageName) {
+            if (languageParam.name.toLowerCase() === language.name.toLowerCase()) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You have already added this language. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        }
         const newLanguage = new Language();
         if (image) {
             const type = image.split(';')[0].split('/')[1];
@@ -75,7 +85,7 @@ export class LanguageController {
                 }
             const name = 'Img_' + Date.now() + '.' + type;
             const path = 'language/';
-            const base64Data = new Buffer(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+            const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
             const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
             const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
             const sizeInKb = sizeInBytes / 1024;
@@ -225,6 +235,16 @@ export class LanguageController {
             };
             return response.status(400).send(errorResponse);
         }
+        const languageName = await this.languageService.find({select: ['name'], where: {languageId: Not(language.languageId)}});
+        for (const languages of languageName) {
+            if (languageParam.name.toLowerCase() === languages.name.toLowerCase()) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You have already added this language. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        }
         const image = languageParam.image;
         if (image) {
             const type = image.split(';')[0].split('/')[1];
@@ -238,7 +258,7 @@ export class LanguageController {
                 }
             const name = 'Img_' + Date.now() + '.' + type;
             const path = 'language/';
-            const base64Data = new Buffer(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+            const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
             const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
             const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
             const sizeInKb = sizeInBytes / 1024;

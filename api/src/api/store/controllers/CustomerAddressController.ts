@@ -16,10 +16,12 @@ import { AddressService } from '../../core/services/AddressService';
 import { Address } from '../../core/models/Address';
 import { CustomerAddress } from './requests/CreateAddressRequest';
 import { CheckCustomerMiddleware } from '../../core/middlewares/checkTokenMiddleware';
-@UseBefore(CheckCustomerMiddleware)
+
 @JsonController('/CustomerAddress')
 export class CustomerAddressController {
-    constructor(private addressService: AddressService) {
+    constructor(
+        private addressService: AddressService
+    ) {
     }
 
     // Create Customer Address
@@ -57,6 +59,7 @@ export class CustomerAddressController {
      * @apiErrorExample {json} addAddress error
      * HTTP/1.1 500 Internal Server Error
      */
+    @UseBefore(CheckCustomerMiddleware)
     @Post('/add-address')
     public async createAddress(@Body({ validate: true }) addressParam: CustomerAddress, @Res() response: any, @Req() request: any): Promise<any> {
         if (addressParam.addressType === 2) {
@@ -64,11 +67,11 @@ export class CustomerAddressController {
                 where: {
                     addressType: addressParam.addressType,
                 },
-                }).then(async (value) => {
-                    for (const data of value) {
-                        await this.addressService.delete(data.addressId);
-                    }
-                });
+            }).then(async (value) => {
+                for (const data of value) {
+                    await this.addressService.delete(data.addressId);
+                }
+            });
         }
         const newAddress = new Address();
         newAddress.customerId = request.user.id;
@@ -116,6 +119,7 @@ export class CustomerAddressController {
      * @apiErrorExample {json} address error
      * HTTP/1.1 500 Internal Server Error
      */
+    @UseBefore(CheckCustomerMiddleware)
     @Delete('/delete-address/:id')
     public async deleteAddress(@Param('id') id: number, @Req() request: any, @Res() response: any): Promise<any> {
 
@@ -170,6 +174,7 @@ export class CustomerAddressController {
      * @apiErrorExample {json} Address error
      * HTTP/1.1 500 Internal Server Error
      */
+    @UseBefore(CheckCustomerMiddleware)
     @Get('/get-address-list')
     public async getCustomerAddress(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
         const WhereConditions = [
@@ -178,7 +183,7 @@ export class CustomerAddressController {
                 value: request.user.id,
             },
         ];
-        const customerAddress = await this.addressService.list(limit, offset, WhereConditions, count);
+        const customerAddress = await this.addressService.list(limit, offset, [], [], WhereConditions, count);
         const successResponse: any = {
             status: 1,
             message: 'Successfully Get the customer Address',
@@ -222,6 +227,7 @@ export class CustomerAddressController {
      * @apiErrorExample {json} Address error
      * HTTP/1.1 500 Internal Server Error
      */
+    @UseBefore(CheckCustomerMiddleware)
     @Put('/update-address/:id')
     public async updateAddress(@Body({ validate: true }) addressParam: CustomerAddress, @Param('id') id: number, @Req() request: any, @Res() response: any): Promise<any> {
 

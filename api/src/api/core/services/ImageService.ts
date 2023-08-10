@@ -1,6 +1,6 @@
 /*
  * SpurtCommerce API
- * version 4.8.0
+ * version 4.8.2
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -18,6 +18,7 @@ export class ImageService {
         const filteredPath = path.normalize(folderName).replace(/^(\.\.(\/|\\|$))+/, '');
         const directoryPath = path.join(process.cwd(), 'uploads' + '/' + filteredPath);
         const files = await this.readDir(directoryPath);
+        console.log(JSON.stringify(files) + 'files');
         const contents = [];
         const commonPrefix = [];
         let filess;

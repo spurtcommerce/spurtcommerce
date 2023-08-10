@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import { Get, JsonController, Authorized, QueryParam, Res, Req, Post, Body, Delete, Param, BodyParam, Put } from 'routing-controllers';
@@ -39,23 +39,25 @@ import { PaymentArchiveService } from '../../core/services/PaymentArchiveService
 
 @JsonController('/order')
 export class OrderController {
-    constructor(private orderService: OrderService, private orderLogService: OrderLogService,
-                private orderProductService: OrderProductService,
-                private pdfService: PdfService,
-                private countryService: CountryService,
-                private zoneService: ZoneService,
-                private settingService: SettingService,
-                private s3Service: S3Service,
-                private imageService: ImageService,
-                private paymentService: PaymentService,
-                private paymentItemsService: PaymentItemsService,
-                private orderProductLogService: OrderProductLogService,
-                private productImageService: ProductImageService,
-                private emailTemplateService: EmailTemplateService,
-                private pluginService: PluginService,
-                private orderStatusService: OrderStatusService,
-                private productService: ProductService,
-                private paymentArchiveService: PaymentArchiveService
+    constructor(
+        private orderService: OrderService,
+        private orderLogService: OrderLogService,
+        private orderProductService: OrderProductService,
+        private pdfService: PdfService,
+        private countryService: CountryService,
+        private zoneService: ZoneService,
+        private settingService: SettingService,
+        private s3Service: S3Service,
+        private imageService: ImageService,
+        private paymentService: PaymentService,
+        private paymentItemsService: PaymentItemsService,
+        private orderProductLogService: OrderProductLogService,
+        private productImageService: ProductImageService,
+        private emailTemplateService: EmailTemplateService,
+        private pluginService: PluginService,
+        private orderStatusService: OrderStatusService,
+        private productService: ProductService,
+        private paymentArchiveService: PaymentArchiveService
     ) {
     }
 
@@ -93,8 +95,16 @@ export class OrderController {
      */
     @Get('/orderlist')
     @Authorized(['admin', 'list-order'])
-    public async orderList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('orderId') orderId: string, @QueryParam('orderStatusId') orderStatusId: string, @QueryParam('customerName') customerName: string,
-                           @QueryParam('totalAmount') totalAmount: string, @QueryParam('dateAdded') dateAdded: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
+    public async orderList(
+        @QueryParam('limit') limit: number,
+        @QueryParam('offset') offset: number,
+        @QueryParam('orderId') orderId: string,
+        @QueryParam('orderStatusId') orderStatusId: string,
+        @QueryParam('customerName') customerName: string,
+        @QueryParam('totalAmount') totalAmount: string,
+        @QueryParam('dateAdded') dateAdded: string,
+        @QueryParam('count') count: number | boolean,
+        @Res() response: any): Promise<any> {
         const select = [
             'COUNT(order.orderId) as NoOfItems',
             'MAX(OrderProduct.orderProductId) as orderProductId',
@@ -234,7 +244,7 @@ export class OrderController {
             return response.status(400).send(errorResponse);
         }
         orderData.productList = await this.orderProductService.find({
-                where: { orderId: orderid }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'trackingUrl', 'trackingNo', 'orderStatusId', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'orderStatusId',
+            where: { orderId: orderid }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'trackingUrl', 'trackingNo', 'orderStatusId', 'basePrice', 'taxType', 'taxValue', 'orderStatusId',
                 'skuName', 'orderProductPrefixId', 'modifiedDate', 'cancelReason', 'cancelReasonDescription', 'cancelRequestStatus', 'cancelRequest'],
         }).then((val) => {
             const productVal = val.map(async (value: any) => {
@@ -326,14 +336,14 @@ export class OrderController {
             };
             return response.status(400).send(errorResponse);
         }
-        orderData.productList = await this.orderProductService.find({ where: { orderId: orderid }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount'] }).then((val) => {
+        orderData.productList = await this.orderProductService.find({ where: { orderId: orderid }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'taxType', 'taxValue'] }).then((val) => {
             const productVal = val.map(async (value: any) => {
                 const rating = undefined;
                 const tempVal: any = value;
                 tempVal.taxType = value.taxType;
                 tempVal.taxValue = value.taxValue;
                 if (value.taxType === 2) {
-                    const price = value.discountAmount === '0.00' || value.discountAmount === null ? +value.basePrice : +value.discountedAmount;
+                    const price = value.basePrice;
                     tempVal.taxValueInAmount = (price * (+value.taxValue / 100)).toFixed(2);
                 } else {
                     tempVal.taxValueInAmount = value.taxValue;
@@ -377,7 +387,7 @@ export class OrderController {
             image = await this.s3Service.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '110', '30');
         } else {
             image = await this.imageService.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '50', '50');
-       }
+        }
         orderData.logo = image;
         const htmlData = await this.pdfService.readHtmlToString('invoice', orderData);
         const pdfBinary = await this.pdfService.createPDFFile((' " ' + htmlData + ' " '), true, '');
@@ -426,69 +436,6 @@ export class OrderController {
         };
         return response.status(200).send(successResponse);
 
-    }
-    // sales Graph List API
-    /**
-     * @api {get} /api/order/sales-graph-list Sales Graph List API
-     * @apiGroup Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} year year
-     * @apiParam (Request body) {String} month month
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get sales graph list",
-     *      "data":{
-     *      }
-     * }
-     * @apiSampleRequest /api/order/sales-graph-list
-     * @apiErrorExample {json} sales error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/sales-graph-list')
-    @Authorized()
-    public async salesGraphList(@QueryParam('year') year: string, @QueryParam('month') month: string, @Res() response: any): Promise<any> {
-        const orderList = await this.orderProductService.salesGraphList(year, month);
-        const promises = orderList.map(async (result: any) => {
-            const temp: any = result;
-            return temp;
-        });
-        const finalResult = await Promise.all(promises);
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully got the sales count list',
-            data: finalResult,
-        };
-        return response.status(200).send(successResponse);
-    }
-    // Dashboard Transaction List API
-    /**
-     * @api {get} /api/order/transaction-list Dashboard Transaction List API
-     * @apiGroup Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} year year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get transaction list",
-     *      "data":{
-     *      }
-     * }
-     * @apiSampleRequest /api/order/transaction-list
-     * @apiErrorExample {json} transaction list error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/transaction-list')
-    @Authorized()
-    public async transactionList(@QueryParam('year') year: number, @Res() response: any): Promise<any> {
-        const transactionlist = await this.orderService.transactionList(year);
-        return response.status(200).send({
-            status: 1,
-            message: 'Successfully got the transaction list',
-            data: transactionlist,
-        });
     }
     // total order amount API
     /**
@@ -964,7 +911,7 @@ export class OrderController {
             paymentParams.paymentAmount = updateOrder.total;
             const payments = await this.paymentService.create(paymentParams);
             let i;
-            const orderProduct = await this.orderProductService.find({ where: { orderId: updateOrder.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'discountAmount', 'discountedAmount'] });
+            const orderProduct = await this.orderProductService.find({ where: { orderId: updateOrder.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice'] });
             for (i = 0; i < orderProduct.length; i++) {
                 const paymentItems = new PaymentItems();
                 paymentItems.paymentId = payments.paymentId;
@@ -982,7 +929,7 @@ export class OrderController {
                 },
             });
             if (paymentArchive) {
-                await this.paymentArchiveService.delete({orderId});
+                await this.paymentArchiveService.delete({ orderId });
             }
             await this.paymentService.delete({ orderId });
         }
@@ -1190,6 +1137,7 @@ export class OrderController {
             mailContents.emailContent = message;
             mailContents.redirectUrl = redirectUrl;
             mailContents.productDetailData = undefined;
+            console.log('order.email:', order.email);
             MAILService.sendMail(mailContents, order.email, emailContent.subject, false, false, '');
             const successResponse: any = {
                 status: 1,
@@ -1253,7 +1201,7 @@ export class OrderController {
             },
         ];
         const orderProductList = await this.orderProductLogService.list(0, 0, select, relation, WhereConditions, 0);
-        const orderStatuss = await this.orderStatusService.findAll({ select: ['orderStatusId', 'name'], where: { isActive: 1, parentId: 7}, order: { priority: 'ASC' } });
+        const orderStatuss = await this.orderStatusService.findAll({ select: ['orderStatusId', 'name'], where: { isActive: 1, parentId: 7 }, order: { priority: 'ASC' } });
         const orderProduct = orderStatuss.map(async (value: any) => {
             const user = orderProductList.find(item => item.orderStatusId === value.orderStatusId);
             const temp: any = value;
@@ -1366,8 +1314,6 @@ export class OrderController {
             'OrderProduct.cancelRequestStatus as cancelRequestStatus',
             'OrderProduct.cancelReason as cancelReason',
             'OrderProduct.cancelReasonDescription as cancelReasonDescription',
-            'OrderProduct.discountAmount as discountAmount',
-            'OrderProduct.discountedAmount as discountedAmount',
         ];
 
         const relations = [
@@ -1758,8 +1704,6 @@ export class OrderController {
             'OrderProduct.cancelRequestStatus as cancelRequestStatus',
             'OrderProduct.cancelReason as cancelReason',
             'OrderProduct.cancelReasonDescription as cancelReasonDescription',
-            'OrderProduct.discountAmount as discountAmount',
-            'OrderProduct.discountedAmount as discountedAmount',
         ];
 
         const relations = [
@@ -1935,7 +1879,7 @@ export class OrderController {
             paymentParams.paymentInformation = paymentParam.paymentDetail;
             const payments = await this.paymentService.create(paymentParams);
             let i;
-            const orderProduct = await this.orderProductService.find({ where: { orderId: updateOrder.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'discountAmount', 'discountedAmount'] });
+            const orderProduct = await this.orderProductService.find({ where: { orderId: updateOrder.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice'] });
             for (i = 0; i < orderProduct.length; i++) {
                 const paymentItems = new PaymentItems();
                 paymentItems.paymentId = payments.paymentId;
@@ -1985,8 +1929,13 @@ export class OrderController {
      */
     @Get('/order-count-for-list')
     @Authorized()
-    public async orderCountForList(@QueryParam('orderId') orderId: string, @QueryParam('orderStatusId') orderStatusId: string, @QueryParam('customerName') customerName: string,
-                                   @QueryParam('totalAmount') totalAmount: string, @QueryParam('dateAdded') dateAdded: string, @Res() response: any): Promise<any> {
+    public async orderCountForList(
+        @QueryParam('orderId') orderId: string,
+        @QueryParam('orderStatusId') orderStatusId: string,
+        @QueryParam('customerName') customerName: string,
+        @QueryParam('totalAmount') totalAmount: string,
+        @QueryParam('dateAdded') dateAdded: string,
+        @Res() response: any): Promise<any> {
         const orderList: any = await this.orderService.orderCount(orderId, orderStatusId, totalAmount, customerName, dateAdded);
         const successResponse: any = {
             status: 1,
@@ -2076,9 +2025,11 @@ export class OrderController {
      */
     @Get('/sales-report-list')
     @Authorized(['admin', 'sales-report-list'])
-    public async salesReport(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('categoryId') categoryId: string, @QueryParam('productId') productId: string,
-                             @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string,
-                             @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
+    public async salesReport(
+        @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('categoryId') categoryId: string, @QueryParam('productId') productId: string,
+        @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string,
+        @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any
+    ): Promise<any> {
         const select = [
             ('DISTINCT OrderProduct.orderProductId as orderProductId'),
             'productInformationDetail.productId as productId',
@@ -2088,9 +2039,7 @@ export class OrderController {
             'OrderProduct.orderProductPrefixId as orderProductPrefixId',
             'OrderProduct.quantity as quantity',
             'OrderProduct.total as total',
-            'OrderProduct.discountedAmount as discountedAmount',
             'OrderProduct.orderStatusId as orderStatusId',
-            'OrderProduct.discountAmount as discountAmount',
             'OrderProduct.createdDate as createdDate',
             'OrderProduct.productPrice as productPrice',
             'OrderProduct.basePrice as basePrice',
@@ -2219,9 +2168,16 @@ export class OrderController {
      */
     @Get('/sales-report-excel-list')
     @Authorized(['admin', 'sales-report-export'])
-    public async salesExcelReport(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('productId') productId: string,
-                                  @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string,
-                                  @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
+    public async salesExcelReport(
+        @QueryParam('limit') limit: number,
+        @QueryParam('offset') offset: number,
+        @QueryParam('productId') productId: string,
+        @QueryParam('startDate') startDate: string,
+        @QueryParam('endDate') endDate: string,
+        @QueryParam('count') count: number | boolean,
+        @Req() request: any,
+        @Res() response: any)
+        : Promise<any> {
         const excel = require('exceljs');
         const workbook = new excel.Workbook();
         const worksheet = workbook.addWorksheet('Total Sales Export sheet', { properties: { defaultColWidth: 15 } });
@@ -2237,7 +2193,6 @@ export class OrderController {
             'orderProduct.quantity as quantity',
             'orderProduct.total as total',
             'orderProduct.basePrice as basePrice',
-            'orderProduct.discountAmount as discountAmount',
             'orderProduct.createdDate as createdDate',
             'orderProduct.productPrice as productPrice',
             'orderStatus.name as orderStatusName',
@@ -2322,9 +2277,9 @@ export class OrderController {
             groupByPeriodTypeObject.forEach((periodType: any) => {
                 const buyers = groupByPeriodTypeArray[periodType] && groupByPeriodTypeArray[periodType].length > 0 ? groupByPeriodTypeArray[periodType] : [];
                 rows.push(['Product name-' + '' + periodType + '']);
-                rows.push(['Customer name', 'quantity', 'date of purchase', 'payment type', 'Original Amount', 'Discount Amount', 'Total amount', 'Order Id', 'orderStatus', 'Customer Group Name']);
+                rows.push(['Customer name', 'quantity', 'date of purchase', 'payment type', 'Original Amount', 'Total amount', 'Order Id', 'orderStatus', 'Customer Group Name']);
                 for (const value of buyers) {
-                    rows.push([value.firstName + (value.lastName ? value.lastName : ''), value.quantity, value.createdDate, value.paymentType, +value.basePrice, +value.discountAmount, +value.total, value.orderProductPrefixId, value.orderStatusName, value.groupName]);
+                    rows.push([value.firstName + (value.lastName ? value.lastName : ''), value.quantity, value.createdDate, value.paymentType, +value.basePrice, +value.total, value.orderProductPrefixId, value.orderStatusName, value.groupName]);
                 }
             });
         }

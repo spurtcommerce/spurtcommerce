@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany, OneToOne, JoinColumn } from 'typeorm';
 import { PrimaryGeneratedColumn } from 'typeorm/index';
@@ -12,12 +12,13 @@ import { BaseModel } from './BaseModel';
 import { PaymentItemsArchive } from './PaymentItemsArchive';
 import { Order } from './Order';
 import moment = require('moment');
+import { IsNotEmpty } from 'class-validator';
 @Entity('payment_archive')
 export class PaymentArchive extends BaseModel {
-
+    @IsNotEmpty()
     @PrimaryGeneratedColumn({ name: 'payment_archive_id' })
     public paymentArchiveId: number;
-
+    @IsNotEmpty()
     @Column({ name: 'order_id' })
     public orderId: number;
 
@@ -29,7 +30,7 @@ export class PaymentArchive extends BaseModel {
 
     @Column({ name: 'payment_information' })
     public paymentInformation: string;
-
+    @IsNotEmpty()
     @Column({ name: 'payment_amount' })
     public paymentAmount: number;
 

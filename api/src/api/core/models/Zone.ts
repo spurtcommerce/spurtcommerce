@@ -1,17 +1,18 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
-import { Column, Entity, BeforeInsert, BeforeUpdate, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, BeforeInsert, BeforeUpdate, JoinColumn, ManyToOne, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { BaseModel } from './BaseModel';
 import { Exclude } from 'class-transformer';
 import { Country } from './Country';
 import moment = require('moment/moment');
 import { IsNotEmpty } from 'class-validator';
+import { Address } from './Address';
 
 @Entity('zone')
 export class Zone extends BaseModel {
@@ -20,6 +21,7 @@ export class Zone extends BaseModel {
     public zoneId: number;
 
     @Exclude()
+    @IsNotEmpty()
     @Column({ name: 'country_id' })
     public countryId: number;
 
@@ -35,6 +37,9 @@ export class Zone extends BaseModel {
     @ManyToOne(type => Country, country => country.zone)
     @JoinColumn({ name: 'country_id' })
     public country: Country;
+
+    @OneToMany(type => Address, address => address.zone)
+    public address: Address;
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

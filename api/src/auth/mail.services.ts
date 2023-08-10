@@ -1,14 +1,14 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 import ejs from 'ejs';
 import nodemailer from 'nodemailer';
 import smtpTransport from 'nodemailer-smtp-transport';
-import { mail } from '../env';
+import { env, mail } from '../env';
 export class MAILService {
     // sendMail API
     public static sendMail(templateContentDetails: any, recipientMailId: string | any, mailSubject: string, bcc: boolean = false, isAttachment: boolean = false, attachmentDetails: any): Promise<any> {
@@ -22,7 +22,8 @@ export class MAILService {
                     pass: mail.AUTH.pass,
                 },
             }));
-            ejs.renderFile('./views/emailTemplate.ejs', templateContentDetails, (err, data) => {
+            templateContentDetails.baseUrl = env.baseUrl;
+            ejs.renderFile(`${templateContentDetails.templateName ?? './views/emailTemplate.ejs'}`, templateContentDetails, (err, data) => {
                 if (err) {
                     throw err;
                 } else {

@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 4.8.0
+ * version 4.8.2
  * http://api.spurtcommerce.com
  *
  * Copyright (c) 2021 piccosoft ltd
@@ -33,19 +33,22 @@ export class Plugins extends BaseModel {
     @Column({ name: 'plugin_additional_info' })
     public pluginAdditionalInfo: string;
 
-    @Column({ name: 'plugin_form_info' })
+    @Column({ name: 'plugin_form_info'})
     public pluginFormInfo: string;
 
     @Column({ name: 'plugin_status' })
     public pluginStatus: number;
 
+    @Column({ name: 'plugin_timestamp' })
+    public pluginTimestamp: number;
+
     @Column({ name: 'slug_name'})
     public slugName: string;
 
-    @Column({name: 'is_editable'})
+    @Column({ name: 'is_editable'})
     public isEditable: number;
 
-    @Column({name: 'routes'})
+    @Column({ name: 'routes'})
     public routes: string;
 
     @BeforeInsert()

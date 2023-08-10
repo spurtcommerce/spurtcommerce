@@ -1,15 +1,14 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
-import { BeforeInsert, Column, Entity, BeforeUpdate, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { BeforeInsert, Column, Entity, BeforeUpdate, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseModel } from './BaseModel';
 import moment from 'moment';
-import { Product } from './ProductModel';
 import { IsNotEmpty } from 'class-validator';
 
 @Entity('product_video')
@@ -29,10 +28,6 @@ export class ProductVideo extends BaseModel {
     @IsNotEmpty()
     @Column({ name: 'type' })
     public type: string;
-
-    @ManyToOne(type => Product, product => product.productVideo)
-    @JoinColumn({ name: 'product_id' })
-    public product: Product;
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

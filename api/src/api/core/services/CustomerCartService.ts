@@ -1,17 +1,17 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { Service } from 'typedi';
 import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { CustomerCart } from '../models/CustomerCart';
 import { CustomerCartRepository } from '../repositories/CustomerCartRepository';
-import { Brackets, getConnection, In, Like } from 'typeorm';
+import { Brackets, DeleteResult, getConnection, In, Like } from 'typeorm';
 
 @Service()
 export class CustomerCartService {
@@ -25,7 +25,7 @@ export class CustomerCartService {
         return this.customerCartRepository.save(checkoutdata);
     }
 
-    public find(order: any): Promise<any> {
+    public find(order: any): Promise<CustomerCart[]> {
         return this.customerCartRepository.find(order);
     }
 
@@ -85,7 +85,7 @@ export class CustomerCartService {
     }
 
     // delete cart
-    public async delete(id: any): Promise<any> {
+    public async delete(id: any): Promise<DeleteResult> {
         this.log.info('Delete a cart');
         const newProduct = await this.customerCartRepository.delete(id);
         return newProduct;

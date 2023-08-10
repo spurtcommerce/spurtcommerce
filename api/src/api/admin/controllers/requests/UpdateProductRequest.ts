@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import {IsNotEmpty, Max, MaxLength} from 'class-validator';
@@ -31,6 +31,7 @@ export class UpdateProductRequest {
         message: 'productName should be maximum 60 character',
     })
     public productName: string;
+    // @IsNotEmpty()
     public productDescription: string;
 
     @MaxLength(64, {
@@ -60,7 +61,10 @@ export class UpdateProductRequest {
     @IsNotEmpty()
     public price: number;
 
+    // @IsNotEmpty()
     public location: string;
+
+    public outOfStockStatus: number;
 
     public requiredShipping: number;
 

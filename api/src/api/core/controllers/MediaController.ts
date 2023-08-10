@@ -1,6 +1,6 @@
 /*
  * SpurtCommerce API
- * version 4.8.0
+ * version 4.8.1
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -26,12 +26,16 @@ AWS.config.update({
     region: aws_setup.AWS_DEFAULT_REGION,
 });
 
+// const s3 = new AWS.S3();
+
 @JsonController('/media')
 export class MediaController {
-    constructor(private s3Service: S3Service,
-                private imageService: ImageService,
-                private settingService: SettingService,
-                private currencyService: CurrencyService) {
+    constructor(
+        private s3Service: S3Service,
+        private imageService: ImageService,
+        private settingService: SettingService,
+        private currencyService: CurrencyService
+    ) {
     }
 
     // Get Bucket Object List API
@@ -72,6 +76,7 @@ export class MediaController {
             val.Contents.sort((a: any, b: any) => {
                 return b.LastModified - a.LastModified;
             });
+            console.log(JSON.stringify(val.Contents) + 'contents');
         } else {
             val = await this.imageService.listFolders(limit, marker, folderName.toLowerCase());
         }
@@ -283,23 +288,23 @@ export class MediaController {
         const base64 = fileNameRequest.image;
         const path = fileNameRequest.path;
         AWS.config.update({ accessKeyId: aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: aws_setup.AWS_SECRET_ACCESS_KEY });
-        const base64Data = new Buffer(base64.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+        const base64Data = Buffer.from(base64.replace(/^data:image\/\w+;base64,/, ''), 'base64');
         const type = base64.split(';')[0].split('/')[1];
         const availableTypes = env.availImageTypes.split(',');
-                if (!availableTypes.includes(type)) {
-                    const errorTypeResponse: any = {
-                        status: 0,
-                        message: 'Only ' + env.availImageTypes + ' types are allowed',
-                    };
-                    return response.status(400).send(errorTypeResponse);
-                }
-                let name;
-                const fileName = fileNameRequest.fileName;
-                if (fileName) {
-                    const originalName = fileName.split('.')[0];
-                    name = originalName + '_' + Date.now() + '.' + type;
-                } else {
-         name = 'Img_' + Date.now() + '.' + type;
+        if (!availableTypes.includes(type)) {
+            const errorTypeResponse: any = {
+                status: 0,
+                message: 'Only ' + env.availImageTypes + ' types are allowed',
+            };
+            return response.status(400).send(errorTypeResponse);
+        }
+        let name;
+        const fileName = fileNameRequest.fileName;
+        if (fileName) {
+            const originalName = fileName.split('.')[0];
+            name = originalName + '_' + Date.now() + '.' + type;
+        } else {
+            name = 'Img_' + Date.now() + '.' + type;
         }
         const stringLength = base64.replace(/^data:image\/\w+;base64,/, '').length;
         const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
@@ -635,7 +640,7 @@ export class MediaController {
             const imageType = imageValue.split(';')[0].split('/')[1];
             const originalName = fileName.split('.')[0];
             const imageName = originalName.toLowerCase() + Date.now() + '.' + imageType;
-            const base64Data = new Buffer(imageValue.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+            const base64Data = Buffer.from(imageValue.replace(/^data:image\/\w+;base64,/, ''), 'base64');
             const availableTypes = env.availImageTypes.split(',');
             const stringLength = imageValue.replace(/^data:image\/\w+;base64,/, '').length;
             AWS.config.update({ accessKeyId: aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: aws_setup.AWS_SECRET_ACCESS_KEY });

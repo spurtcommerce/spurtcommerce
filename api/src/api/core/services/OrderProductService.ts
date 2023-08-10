@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { Service } from 'typedi';
 import { OrmRepository } from 'typeorm-typedi-extensions';
@@ -27,7 +27,6 @@ export class OrderProductService {
     public async findData(productid: number, orderid: number, orderProductid: number): Promise<any> {
         this.log.info('find a order product data');
         return this.orderProductRepository.find({ where: { productId: productid, orderId: orderid, orderProductId: orderProductid } });
-
     }
 
     public find(order: any): Promise<any> {
@@ -92,7 +91,7 @@ export class OrderProductService {
                 if (joinTb.op === 'left') {
                     query.leftJoin(joinTb.tableName, joinTb.aliasName);
                 } else {
-                query.innerJoin(joinTb.tableName, joinTb.aliasName);
+                    query.innerJoin(joinTb.tableName, joinTb.aliasName);
                 }
             });
         }
@@ -205,14 +204,7 @@ export class OrderProductService {
     public async productVarientPaymentProcess(sku: string): Promise<any> {
         return await this.orderProductRepository.productVarientPaymentProcess(sku);
     }
-    // top performing products
-    public async topPerformingProducts(limit: number, offset: number, count: number | boolean, duration: number): Promise<any> {
-        return await this.orderProductRepository.topPerformingProduct(limit, offset, count, duration);
-    }
-    // sales list
-    public async salesGraphList(year: string, month: string): Promise<any> {
-        return await this.orderProductRepository.salesGraphList(year, month);
-    }
+
     public async topTenWeeklySalesList(productId: any): Promise<any> {
         return await this.orderProductRepository.topTenWeeklySales(productId);
     }

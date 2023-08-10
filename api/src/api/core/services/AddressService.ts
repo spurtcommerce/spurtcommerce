@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { Service } from 'typedi';
 import { OrmRepository } from 'typeorm-typedi-extensions';
@@ -37,10 +37,17 @@ export class AddressService {
     }
 
     // address List
-    public list(limit: number, offset: number, whereConditions: any = [], count: number | boolean): Promise<any> {
+    public async list(limit: number, offset: number, select: any = [], relations: any = [], whereConditions: any = [], count: number | boolean): Promise<Address[] | any> {
         const condition: any = {};
-
         condition.where = {};
+
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+
+        if (relations && relations.length > 0) {
+            condition.relations = relations;
+        }
 
         if (whereConditions && whereConditions.length > 0) {
             whereConditions.forEach((item: any) => {

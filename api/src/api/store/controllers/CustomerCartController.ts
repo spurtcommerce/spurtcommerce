@@ -19,8 +19,10 @@ import { CheckCustomerMiddleware } from '../../core/middlewares/checkTokenMiddle
 @JsonController('/customer-cart')
 export class StoreCustomerCartController {
     constructor(
-        private productService: ProductService, private skuService: SkuService,
-        private customerCartService: CustomerCartService, private productImageService: ProductImageService
+        private productService: ProductService,
+        private skuService: SkuService,
+        private customerCartService: CustomerCartService,
+        private productImageService: ProductImageService
     ) {
     }
 
@@ -90,6 +92,22 @@ export class StoreCustomerCartController {
                     return response.status(200).send(deleteCart);
                 }
                 const qty = Number(findOption.quantity) + +cartParam.quantity;
+                console.log('qty:', qty);
+                if (product.hasStock === 1) {
+                    if (!(sku.minQuantityAllowedCart <= qty)) {
+                        const minCart: any = {
+                            status: 0,
+                            message: 'Quantity should greater than min Quantity.',
+                        };
+                        return response.status(400).send(minCart);
+                    } else if (!(sku.maxQuantityAllowedCart >= qty)) {
+                        const maxCart: any = {
+                            status: 0,
+                            message: 'Reached maximum quantity limit',
+                        };
+                        return response.status(400).send(maxCart);
+                    }
+                }
                 findOption.quantity = qty;
             } else {
                 findOption.quantity = cartParam.quantity;
@@ -106,12 +124,33 @@ export class StoreCustomerCartController {
             return response.status(200).send(successResponse);
         } else {
             if (cartParam.quantity === 0) {
+                if (!findOption) {
+                    return response.status(200).send({
+                        status: 1,
+                        message: 'Successfully removed from Cart',
+                    });
+                }
                 await this.customerCartService.delete(findOption.id);
                 const deleteCart: any = {
                     status: 1,
                     message: 'Successfully removed from Cart',
                 };
                 return response.status(200).send(deleteCart);
+            }
+            if (product.hasStock === 1) {
+                if (!(sku.minQuantityAllowedCart <= +cartParam.quantity)) {
+                    const minCart: any = {
+                        status: 0,
+                        message: 'Quantity should greater than min Quantity.',
+                    };
+                    return response.status(400).send(minCart);
+                } else if (!(sku.maxQuantityAllowedCart >= +cartParam.quantity)) {
+                    const maxCart: any = {
+                        status: 0,
+                        message: 'Reached maximum quantity limit',
+                    };
+                    return response.status(400).send(maxCart);
+                }
             }
             const addCustomerCart: any = new CustomerCart();
             addCustomerCart.productId = cartParam.productId,
@@ -121,20 +160,19 @@ export class StoreCustomerCartController {
                 addCustomerCart.productPrice = cartParam.productPrice,
                 addCustomerCart.total = +cartParam.quantity * +cartParam.productPrice,
                 addCustomerCart.skuName = cartParam.skuName;
-                addCustomerCart.ip = (request.headers['x-forwarded-for'] ||
+            addCustomerCart.ip = (request.headers['x-forwarded-for'] ||
                 request.connection.remoteAddress ||
                 request.socket.remoteAddress ||
                 request.connection.socket.remoteAddress).split(',')[0];
-                const val = await this.customerCartService.createData(addCustomerCart);
-                const cart: any = {
-                    status: 1,
-                    message: 'Added to cart',
-                    data: val,
-                };
-                return response.status(200).send(cart);
-            }
+            const val = await this.customerCartService.createData(addCustomerCart);
+            const cart: any = {
+                status: 1,
+                message: 'Added to cart',
+                data: val,
+            };
+            return response.status(200).send(cart);
+        }
     }
-
     // Customer Cart List API
     /**
      * @api {get} /api/customer-cart/customer-cart-list  Customer Cart List API
@@ -186,7 +224,9 @@ export class StoreCustomerCartController {
             'product.rating as rating',
             'product.isActive as isActive',
             'product.productSlug as productSlug',
+            'product.hasStock as hasStock',
             'product.outOfStockThreshold as outOfStockThreshold',
+            'product.stockStatusId as stockStatusId',
             'product.createdDate as createdDate',
             'product.keywords as keywords',
             'IF(product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `product`.`tax_value` LIMIT 1), product.taxValue)  as taxValue',
@@ -197,9 +237,6 @@ export class StoreCustomerCartController {
             '(SELECT sku.min_quantity_allowed_cart as minQuantityAllowedCart FROM sku WHERE sku.id = skuId) as minQuantityAllowedCart',
             '(SELECT sku.max_quantity_allowed_cart as maxQuantityAllowedCart FROM sku WHERE sku.id = skuId) as maxQuantityAllowedCart',
             '(SELECT sku.enable_back_orders as enableBackOrders FROM sku WHERE sku.id = skuId) as enableBackOrders',
-            '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
-            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
-            '(SELECT price FROM product_special ps WHERE ps.product_id = product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
         ];
         const whereCondition = [];
         const relations = [];
@@ -252,7 +289,6 @@ export class StoreCustomerCartController {
                 temp.pricerefer = '';
                 temp.flag = '';
             }
-            return temp;
         });
         const finalResult = await Promise.all(findImage);
         if (cartList) {
@@ -300,7 +336,7 @@ export class StoreCustomerCartController {
                 },
             });
             for (const cart of customerCart) {
-                const itemId = parseInt(cart.id, 10);
+                const itemId = cart.id;
                 await this.customerCartService.delete(itemId);
             }
             const Response: any = {

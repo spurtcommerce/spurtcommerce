@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { Service } from 'typedi';
 import { OrmRepository } from 'typeorm-typedi-extensions';
@@ -25,6 +25,11 @@ export class LanguageService {
     public async create(language: any): Promise<any> {
         this.log.info('Create a new language ');
         return this.languageRepository.save(language);
+    }
+
+    // find condition
+    public async find(language: any): Promise<any> {
+        return this.languageRepository.find(language);
     }
 
     // find Condition

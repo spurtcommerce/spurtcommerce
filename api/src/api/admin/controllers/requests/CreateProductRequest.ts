@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import {IsNotEmpty, Max, MaxLength} from 'class-validator';
@@ -66,8 +66,12 @@ export class AddProductRequest {
     @IsNotEmpty()
     public quantity: number;
 
+    public outOfStockStatus: number;
+
+    // @IsNotEmpty()
     public requiredShipping: number;
 
+    // @IsNotEmpty()
     public dateAvailable: string;
 
     @IsNotEmpty()
@@ -75,13 +79,12 @@ export class AddProductRequest {
     @Max(9999, {
         message: 'Maximum length of sortOrder should be 4',
     })
+    // @IsNotEmpty()
     public sortOrder: number;
 
     public quotationAvailable: number;
 
     public defaultImage: number;
-
-    public relatedProductId: string;
 
     public packingCost: number;
 
@@ -101,11 +104,4 @@ export class AddProductRequest {
 
     public length: string;
 
-    public productDiscount: [];
-
-    public productSpecial: [];
-
-    public productAttribute: Attribute[];
-
-    public productVideo: Video;
 }

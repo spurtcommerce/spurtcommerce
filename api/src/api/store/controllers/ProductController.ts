@@ -8,7 +8,7 @@
 
 import 'reflect-metadata';
 import { Get, QueryParam, JsonController, Res, Req, Param, UseBefore } from 'routing-controllers';
-import { classToPlain } from 'class-transformer';
+import { instanceToPlain } from 'class-transformer';
 import { ProductToCategoryService } from '../../core/services/ProductToCategoryService';
 import { ProductService } from '../../core/services/ProductService';
 import { CategoryService } from '../../core/services/CategoryService';
@@ -18,10 +18,7 @@ import { ProductViewLog } from '../../core/models/productViewLog';
 import { CustomerActivity } from '../../core/models/CustomerActivity';
 import { ProductViewLogService } from '../../core/services/ProductViewLogService';
 import { CustomerService } from '../../core/services/CustomerService';
-import { ProductDiscountService } from '../../core/services/ProductDiscountService';
-import { ProductSpecialService } from '../../core/services/ProductSpecialService';
 import { CategoryPathService } from '../../core/services/CategoryPathService';
-import { CustomerWishlistService } from '../../core/services/CustomerWishlistService';
 import { TaxService } from '../../core/services/TaxService';
 import { OrderProductService } from '../../core/services/OrderProductService';
 import { SkuService } from '../../core/services/SkuService';
@@ -41,9 +38,10 @@ export class StoreProductController {
         private taxService: TaxService,
         private orderProductService: OrderProductService,
         private skuService: SkuService,
-        private productDiscountService: ProductDiscountService, private productSpecialService: ProductSpecialService,
         private categoryPathService: CategoryPathService,
-        private customerWishlistService: CustomerWishlistService, private productVideoService: ProductVideoService) {
+        private productVideoService: ProductVideoService
+    ) {
+        // --
     }
 
     // Product Details API
@@ -84,7 +82,7 @@ export class StoreProductController {
                 message: 'Invalid product',
             });
         }
-        const productDetails: any = classToPlain(productDetail);
+        const productDetails: any = instanceToPlain(productDetail);
         if (productDetails.taxType === 2) {
             const tax = await this.taxService.findOne({ taxId: productDetails.taxValue });
             if (tax) {
@@ -157,9 +155,7 @@ export class StoreProductController {
         productDetails.skuId = productDetails.skuId ? productDetails.skuId : '';
         productDetails.variantName = '';
         productDetails.variantId = '';
-        let skuValue = undefined;
-        let skuId = undefined;
-        skuValue = await this.skuService.findOne({ id: productDetails.skuId });
+        const skuValue = await this.skuService.findOne({ id: productDetails.skuId });
         if (skuValue) {
             productDetails.price = skuValue.price;
             productDetails.skuName = skuValue.skuName;
@@ -169,46 +165,26 @@ export class StoreProductController {
             productDetails.minQuantityAllowedCart = skuValue.minQuantityAllowedCart;
             productDetails.maxQuantityAllowedCart = skuValue.maxQuantityAllowedCart;
             productDetails.enableBackOrders = skuValue.enableBackOrders;
-            skuId = skuValue.id;
-        }
-        if (skuId) {
-            const nowDate = new Date();
-            const todaydate = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
-            const productSpecial = await this.productSpecialService.findSpecialPriceWithSku(productDetail.productId, skuId, todaydate);
-            const productDiscount = await this.productDiscountService.findDiscountPricewithSku(productDetail.productId, skuId, todaydate);
-            if (productSpecial !== undefined) {
-                productDetails.pricerefer = productSpecial.price;
-                productDetails.flag = 1;
-            } else if (productDiscount !== undefined) {
-                productDetails.pricerefer = productDiscount.price;
-                productDetails.flag = 0;
+            if (productDetails.hasStock === 1) {
+                if (skuValue.quantity <= skuValue.outOfStockThreshold) {
+                    productDetails.stockStatus = 'outOfStock';
+                } else {
+                    productDetails.stockStatus = 'inStock';
+                }
             } else {
-                productDetails.pricerefer = '';
-                productDetails.flag = '';
+                productDetails.stockStatus = 'inStock';
             }
-        } else {
-            productDetails.pricerefer = '';
-            productDetails.flag = '';
         }
+        productDetails.pricerefer = '';
+        productDetails.flag = '';
         if (request.id) {
             let customerId;
             customerId = request.id;
-            const wishStatus = await this.customerWishlistService.findOne({
-                where: {
-                    productId: productDetail.productId,
-                    customerId,
-                },
-            });
             const orderProduct = await this.orderProductService.buyedCount(productDetail.productId, customerId);
             if (orderProduct.length > 0) {
                 productDetails.buyed = 1;
             } else {
                 productDetails.buyed = 0;
-            }
-            if (wishStatus) {
-                productDetails.wishListStatus = 1;
-            } else {
-                productDetails.wishListStatus = 0;
             }
             const customerDetail = await this.customerService.findOne({ where: { id: customerId } });
             const customerActivity = new CustomerActivity();
@@ -228,7 +204,6 @@ export class StoreProductController {
             viewLog.address = customerDetail.address;
             await this.productViewLogService.create(viewLog);
         } else {
-            productDetails.wishListStatus = 0;
             productDetails.buyed = 0;
         }
         // product video
@@ -346,33 +321,13 @@ export class StoreProductController {
                 temp.ratingCount = 0;
                 temp.reviewCount = 'null';
                 temp.skuName = '';
-                let skuValue = undefined;
-                let skuId = undefined;
-                skuValue = await this.skuService.findOne({ id: List.skuId });
+                const skuValue = await this.skuService.findOne({ id: List.skuId });
                 if (skuValue) {
                     temp.price = skuValue.price;
                     temp.skuName = skuValue.skuName;
-                    skuId = skuValue.id;
                 }
-                if (skuId) {
-                    const nowDate = new Date();
-                    const todaydate = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
-                    const productSpecial = await this.productSpecialService.findSpecialPriceWithSku(List.productId, skuId, todaydate);
-                    const productDiscount = await this.productDiscountService.findDiscountPricewithSku(List.productId, skuId, todaydate);
-                    if (productSpecial !== undefined) {
-                        temp.pricerefer = productSpecial.price;
-                        temp.flag = 1;
-                    } else if (productDiscount !== undefined) {
-                        temp.pricerefer = productDiscount.price;
-                        temp.flag = 0;
-                    } else {
-                        temp.pricerefer = '';
-                        temp.flag = '';
-                    }
-                } else {
-                    temp.pricerefer = '';
-                    temp.flag = '';
-                }
+                temp.pricerefer = '';
+                temp.flag = '';
                 if (List.taxType === 2) {
                     const tax = await this.taxService.findOne({ taxId: List.taxValue });
                     if (tax) {
@@ -382,6 +337,15 @@ export class StoreProductController {
                     }
                 }
                 temp.productImage = defaultValue;
+                if (List.hasStock === 1) {
+                    if (List.quantity <= List.outOfStockThreshold) {
+                        temp.stockStatus = 'outOfStock';
+                    } else {
+                        temp.stockStatus = 'inStock';
+                    }
+                } else {
+                    temp.stockStatus = 'inStock';
+                }
                 Detail.push(temp);
                 const Response: any = {
                     status: 1,
@@ -459,33 +423,16 @@ export class StoreProductController {
                     temp.ratingCount = 0;
                     temp.reviewCount = 'null';
                     temp.skuName = '';
-                    let skuValue = undefined;
-                    let skuId = undefined;
-                    skuValue = await this.skuService.findOne({ id: productListData.skuId });
+                    const skuValue = await this.skuService.findOne({ id: productListData.skuId });
+
                     if (skuValue) {
                         temp.price = skuValue.price;
                         temp.skuName = skuValue.skuName;
-                        skuId = skuValue.id;
                     }
-                    if (skuId) {
-                        const nowDate = new Date();
-                        const todaydate = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
-                        const productSpecial = await this.productSpecialService.findSpecialPriceWithSku(productListData.productId, skuId, todaydate);
-                        const productDiscount = await this.productDiscountService.findDiscountPricewithSku(productListData.productId, skuId, todaydate);
-                        if (productSpecial !== undefined) {
-                            temp.pricerefer = productSpecial.price;
-                            temp.flag = 1;
-                        } else if (productDiscount !== undefined) {
-                            temp.pricerefer = productDiscount.price;
-                            temp.flag = 0;
-                        } else {
-                            temp.pricerefer = '';
-                            temp.flag = '';
-                        }
-                    } else {
-                        temp.pricerefer = '';
-                        temp.flag = '';
-                    }
+
+                    temp.pricerefer = '';
+                    temp.flag = '';
+
                     if (productListData.taxType === 2) {
                         const tax = await this.taxService.findOne({ taxId: productListData.taxValue });
                         if (tax) {
@@ -495,6 +442,15 @@ export class StoreProductController {
                         }
                     }
                     temp.productImage = defaultValue;
+                    if (productListData.hasStock === 1) {
+                        if (productListData.quantity <= productListData.outOfStockThreshold) {
+                            temp.stockStatus = 'outOfStock';
+                        } else {
+                            temp.stockStatus = 'inStock';
+                        }
+                    } else {
+                        temp.stockStatus = 'inStock';
+                    }
                     productDataDetail.push(temp);
                 }
                 const successResponse: any = {

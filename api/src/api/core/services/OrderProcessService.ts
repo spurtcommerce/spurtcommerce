@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { getManager } from 'typeorm';
 
@@ -65,7 +65,7 @@ export class OrderProcessService {
         const payments = await paymentRepository.save(paymentParams);
         const productDetailData = [];
         let i;
-        const orderProduct = await orderProductRepository.find({ where: { orderId: orderData.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'discountAmount', 'discountedAmount', 'basePrice'] });
+        const orderProduct = await orderProductRepository.find({ where: { orderId: orderData.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice'] });
         for (i = 0; i < orderProduct.length; i++) {
             const paymentItems = new PaymentItems();
             paymentItems.paymentId = payments.paymentId;
@@ -75,7 +75,7 @@ export class OrderProcessService {
             paymentItems.productQuantity = orderProduct[i].quantity;
             paymentItems.productPrice = orderProduct[i].productPrice;
             await paymentItemsRepository.save(paymentItems);
-            const productInformation = await orderProductRepository.findOne({ where: { orderProductId: orderProduct[i].orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'discountAmount', 'discountedAmount', 'skuName', 'taxValue', 'taxType', 'orderProductPrefixId'] });
+            const productInformation = await orderProductRepository.findOne({ where: { orderProductId: orderProduct[i].orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'skuName', 'taxValue', 'taxType', 'orderProductPrefixId'] });
             const productImageData: any = await productRepository.findOne(productInformation.productId);
             let productImageDetail;
                 productImageDetail = await productImageRepository.findOne({ where: { productId: productInformation.productId, defaultImage: 1 } });

@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { BeforeInsert, BeforeUpdate, Column, Entity, ManyToOne, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 import { PrimaryGeneratedColumn } from 'typeorm/index';
@@ -95,6 +95,9 @@ export class OrderProduct extends BaseModel {
 
     @Column({ name: 'sku_name' })
     public skuName: string;
+
+    @Column({ name: 'coupon_discount_amount' })
+    public couponDiscountAmount: string;
 
     @ManyToOne(type => Product, product => product.orderProduct)
     @JoinColumn({ name: 'product_id' })

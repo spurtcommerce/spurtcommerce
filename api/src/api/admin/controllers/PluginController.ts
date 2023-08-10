@@ -1,16 +1,17 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
-import { classToPlain } from 'class-transformer';
+import { instanceToPlain } from 'class-transformer';
 import 'reflect-metadata';
 import {
     Get,
     JsonController,
+    // Authorized,
     QueryParam,
     Res,
     Param,
@@ -18,11 +19,13 @@ import {
     Body
 } from 'routing-controllers';
 import { PluginService } from '../../core/services/PluginService';
+import { SettingService } from '../../core/services/SettingService';
 import { UpdatePluginStatus } from './requests/UpdatePluginStatus';
 @JsonController('/plugins')
 export class PluginController {
     constructor(
-        private pluginService: PluginService
+        private pluginService: PluginService,
+        private settingService: SettingService
     ) {
     }
 
@@ -44,6 +47,7 @@ export class PluginController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/list')
+    // @Authorized()
     public async pluginList(@QueryParam('module') module: string, @Res() response: any): Promise<any> {
 
         const whereConditions = [];
@@ -60,7 +64,7 @@ export class PluginController {
         const successResponse: any = {
             status: 1,
             message: 'Successfully got the complete product list.',
-            data: classToPlain(pluginList),
+            data: instanceToPlain(pluginList),
         };
         return response.status(200).send(successResponse);
     }
@@ -83,6 +87,7 @@ export class PluginController {
      * HTTP/1.1 500 Internal Server Error
      */
      @Get('/detail/:id')
+    //  @Authorized()
      public async pluginDetail(@Param('id') pluginId: number, @Res() response: any): Promise<any> {
          const pluginDetail = await this.pluginService.findOne({
              id: pluginId,
@@ -130,6 +135,7 @@ export class PluginController {
      * HTTP/1.1 500 Internal Server Error
      */
      @Put('/update/plugin-status/:id')
+    //  @Authorized()
      public async updatePluginStatus(@Param('id') pluginId: number, @Body({validate: true}) updateParam: UpdatePluginStatus, @Res() response: any): Promise<any> {
          const plugin = await this.pluginService.findOne({
              where: {
@@ -144,6 +150,16 @@ export class PluginController {
          }
          plugin.pluginStatus = updateParam.pluginStatus;
          await this.pluginService.create(plugin);
+         const setting = await this.settingService.findOne();
+         const addonPermissions: any = setting.addons ? JSON.parse(setting.addons) : {};
+         if (+updateParam.pluginStatus === 1) {
+         addonPermissions[plugin.slugName] = true;
+         } else {
+         console.log('false');
+         addonPermissions[plugin.slugName] = false;
+         }
+         setting.addons = JSON.stringify(addonPermissions);
+         await this.settingService.create(setting);
          return response.status(200).send({
              status: 1,
              message: 'Successfully updated the plugin status',

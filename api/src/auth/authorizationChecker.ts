@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import { Action } from 'routing-controllers';
 import { Container } from 'typedi';
@@ -56,6 +56,7 @@ export function authorizationChecker(connection: Connection): (action: Action, r
                 return false;
             }
             const routeName = roles[1];
+            console.log(routeName + 'routeName');
             const userGroupId = (action.request.user && action.request.user.userGroupId) ? action.request.user.userGroupId : undefined;
             if (userGroupId) {
                 const getUserGroup = await authService.validateUserGroup(userGroupId);

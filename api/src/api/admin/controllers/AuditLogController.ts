@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 import moment from 'moment';
 import 'reflect-metadata';
 import {
@@ -89,6 +89,7 @@ export class AdminAuditLogController {
             });
         }
         const auditLog: any = await this.auditLogService.listByQueryBuilder(limit, offset, select, whereCondition, search, [], 0, sort, count);
+        // const aa = JSON.parse(auditLog[0].browserInfo);
         if (count) {
             const successResponse: any = {
                 status: 1,

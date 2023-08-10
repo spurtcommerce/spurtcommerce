@@ -7,8 +7,8 @@
 */
 
 import 'reflect-metadata';
-import {IsNotEmpty , IsString, MaxLength, MinLength, Validate, IsEmail, IsNumber } from 'class-validator';
-import {EscapeValidation} from './EscapeValidation';
+import { IsNotEmpty, IsString, MaxLength, MinLength, Validate, IsEmail, IsNumber } from 'class-validator';
+import { EscapeValidation } from './EscapeValidation';
 export class CustomerCheckoutRequest {
     @MaxLength(32, {
         message: 'shipping first name should be maximum 32 character',
@@ -78,7 +78,7 @@ export class CustomerCheckoutRequest {
     })
     public shippingCompany: string;
     @IsNotEmpty({
-        message: 'Country is required' ,
+        message: 'Country is required',
     })
     @IsNumber()
     public shippingCountryId: number;
@@ -130,4 +130,4 @@ export class CustomerCheckoutRequest {
     public paymentCompany: string;
     @IsNumber()
     public paymentCountryId: number;
-    }
+}

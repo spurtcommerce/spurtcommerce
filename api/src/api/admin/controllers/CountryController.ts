@@ -1,10 +1,10 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * spurtcommerce API
+ * version 4.8.2
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
 
 import 'reflect-metadata';
 import {
@@ -243,6 +243,46 @@ export class CountryController {
         }
     }
 
+    // Get Country Id API
+    /**
+     * @api {get} /api/country/get-country-id/ Get Country Id API
+     * @apiGroup Country
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "countryName" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully  got country Id.",
+     *      "data": {
+     *                  "countryId"
+     *             }
+     * }
+     * @apiSampleRequest /api/country/delete-country/:id
+     * @apiErrorExample {json} Country error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    @Get('/get-country-id')
+    @Authorized(['admin'])
+    public async getCountryId(@QueryParam('countryName') countryName: string, @Req() request: any, @Res() response: any): Promise<any> {
+        const country = await this.countryService.findOne({ where: { name: countryName }, select: ['countryId'] });
+        if (!country) {
+            const successResponses: any = {
+                status: 0,
+                message: 'Enter Valid Country Name ',
+            };
+            return response.status(200).send(successResponses);
+        }
+        const successResponse: any = {
+            status: 1,
+            message: 'Successfully got country Id',
+            data: country,
+        };
+        return response.status(200).send(successResponse);
+    }
     // Delete Country API
     /**
      * @api {delete} /api/country/delete-country/:id Delete Country API
