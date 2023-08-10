@@ -26,7 +26,7 @@ Spurtcommerce Community Edition is publicly available on GitHub and free to down
 #  ❯ Spurtcommerce 4.8.2 Shopping cart Enterprise Edition
 
 
-Looking out to develop a high performing and highly scalable full-fledged eCommerce platform on the latest tech stack that matches with the recent eCommerce trend? Spurtcommerce ‘Marketplace’ Edition comes with all the advanced features of a full-fledged eCommerce platform. The features have been thoughtfully introduced, keeping the current and the upcoming eCommerce trend in mind.
+Introducing Spurtcommerce Shopping Cart Enterprise Edition v.4.8.2, built on top of the Community Edition, comprehensively equipped with end-to-end single-vendor capabilities. Having been crafted for Business Owners and Developers, it offers an all-inclusive eCommerce solution with fully customizable Source Code. One can easily initiate a single-vendor online store, harnessing the power of complete customization flexibility. This also includes the benefit of dedicated support from the Spurtcommerce Team. 
 
 
 | Document | Shopping Cart Enterprise 4.8.2  | Download |
@@ -39,7 +39,7 @@ Looking out to develop a high performing and highly scalable full-fledged eComme
 
 #  ❯ Spurtcommerce 4.8.2 Multi-Vendor Marketplac Enterprise Edition
 
-Looking out to develop a high performing and highly scalable full-fledged eCommerce platform on the latest tech stack that matches with the recent eCommerce trend? Spurtcommerce ‘Marketplace’ Edition comes with all the advanced features of a full-fledged eCommerce platform. The features have been thoughtfully introduced, keeping the current and the upcoming eCommerce trend in mind.
+Presenting Spurtcommerce Enterprise Edition v.4.8.2 Multi-Vendor Solution, enriched with powerful multi-vendor capabilities. Includes the capabilities of seamless management of unique panels for each vendor, while retaining full and comprehensive administrative control over the entire eCommerce portal. Comes with 100% customizable source code, allowing tweaking, forking and altering every aspect of Source Code for any eCommerce business needs with Multi-Vendor capabilities. With dedicated support from Spurtcommerce team, venture into the world of multi-vendor eCommerce confidently and effectively. 
 
 | Document | Multi-Vendor Marketplace Enterprise 4.8.2  | Download |
 | ------ | ------ | ------ |
@@ -51,12 +51,11 @@ Looking out to develop a high performing and highly scalable full-fledged eComme
 
 # ❯ Unlimted addons Free For Enterprise Edition
 
-Spurtcommerce Addons can be integrated with the Community Edition or Marketplace Edition to extend your ECommerce Portal with more features
+Experience unparalleled value with Spurtcommerce Enterprise Editions - both the Shopping Cart and Multi-Vendor Marketplace versions - where the entire range of addons are offered completely free of charge. Explore our free addons available exclusively for our Enterprise Edition users and take your eCommerce business to new heights.
 
-Our Addons come with full source code and when integrated, your B2C/B2B/C2C/D2C eCommerce portal becomes full-featured.
+https://www.spurtcommerce.com/addons
 
-To explore and learn more about our addons, visit https://www.spurtcommerce.com/addons
-
+Upgrade your Spurtcommerce experience by purchasing addons that extend the functionality of your eCommerce portal built on the Community Edition of Spurtcommerce. Each addon introduces new dimensions to your eCommerce portal. Browse through our range of addons to enrich your Community Edition, while Enterprise Edition users enjoy a variety of free addons that enhance their eCommerce journey. Explore and enhance your Spurtcommerce experience today.
 
 # ❯ Dedicted Support
 
