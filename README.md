@@ -33,7 +33,7 @@ Introducing Spurtcommerce Shopping Cart Enterprise Edition v.4.8.2, built on top
 | ------ | ------ | ------ |
 | 1| Developer Documents | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
 | 2| Demo | [https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-demo/ ](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-demo/)
-| 3| Dedicated Support| [https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-demo](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-demo)
+| 3|  Support Portal| [https://accounts.spurtcommerce.com/](https://accounts.spurtcommerce.com/)
 
 
 
@@ -45,7 +45,7 @@ Presenting Spurtcommerce Enterprise Edition v.4.8.2 Multi-Vendor Solution, enric
 | ------ | ------ | ------ |
 | 1| Developer Documents | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
 | 2| live Demo | [https://marketplace48.spurtcart.com/ ](https://marketplace48.spurtcart.com/)
-| 3| Dedicated Support| [https://www.spurtcommerce.com/price-details](https://accounts.spurtcommerce.com/#/auth/login-client)
+| 3|  Support Portal| [https://accounts.spurtcommerce.com/](https://accounts.spurtcommerce.com/)
 
 
 
