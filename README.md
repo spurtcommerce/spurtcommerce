@@ -16,10 +16,10 @@ Spurtcommerce, an Open Source NodeJS +React/Next JS + Angular eCommerce solution
 
 Spurtcommerce Community Edition is publicly available on GitHub and free to download and use
 
-| S.no | Spurtcommerce Community 4.8.2  | Download |
+| S.no | Spurtcommerce Community 4.8.2  | Reference  |
 | ------ | ------ | ------ |
 | 1| Developer Documents | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
-| 2| Demo | [Demo ](https://addon.spurtcommerce.com/details/react-storefront-community)
+| 2| Discussion | [https://discord.com/invite/hyW4MXXn8n ](https://discord.com/invite/hyW4MXXn8n)
 | 3| Addons | [https://www.spurtcommerce.com/addons ](https://www.spurtcommerce.com/addons)
 
 
@@ -29,11 +29,11 @@ Spurtcommerce Community Edition is publicly available on GitHub and free to down
 Introducing Spurtcommerce Shopping Cart Enterprise Edition v.4.8.2, built on top of the Community Edition, comprehensively equipped with end-to-end single-vendor capabilities. Having been crafted for Business Owners and Developers, it offers an all-inclusive eCommerce solution with fully customizable Source Code. One can easily initiate a single-vendor online store, harnessing the power of complete customization flexibility. This also includes the benefit of dedicated support from the Spurtcommerce Team. 
 
 
-| Document | Shopping Cart Enterprise 4.8.2  | Download |
+| S.no | Shopping Cart Enterprise 4.8.2  | Reference |
 | ------ | ------ | ------ |
 | 1| Developer Documents | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
-| 2| Demo | [Demo ](https://addon.spurtcommerce.com/details/react-storefront-community)
-| 3| Source code | [https://www.spurtcommerce.com/price-details](https://www.spurtcommerce.com/price-details)
+| 2| Demo | [https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-demo/ ](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-demo/)
+| 3| Dedicated Support| [https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-demo](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-demo)
 
 
 
@@ -41,11 +41,11 @@ Introducing Spurtcommerce Shopping Cart Enterprise Edition v.4.8.2, built on top
 
 Presenting Spurtcommerce Enterprise Edition v.4.8.2 Multi-Vendor Solution, enriched with powerful multi-vendor capabilities. Includes the capabilities of seamless management of unique panels for each vendor, while retaining full and comprehensive administrative control over the entire eCommerce portal. Comes with 100% customizable source code, allowing tweaking, forking and altering every aspect of Source Code for any eCommerce business needs with Multi-Vendor capabilities. With dedicated support from Spurtcommerce team, venture into the world of multi-vendor eCommerce confidently and effectively. 
 
-| Document | Multi-Vendor Marketplace Enterprise 4.8.2  | Download |
+| S.no | Multi-Vendor Marketplace Enterprise 4.8.2  | Reference |
 | ------ | ------ | ------ |
-| [Developer Manual](https://www.spurtcommerce.dev/getting-started/development-and-setup/store-front-setup/angular-store-front#initial-setup)| [Angular Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/angular-storefront-community)
-| [Developer Manual](https://www.spurtcommerce.dev/frontend-deployment-setup/store-front-setup/react-store-front)| [Nextjs Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/react-storefront-community)
-| [Developer Manual](https://www.spurtcommerce.dev/frontend-deployment-setup/store-front-setup/flutter-store-front)| [Flutter Store](https://www.spurtcart.com) | [Code ](https://addon.spurtcommerce.com/details/flutter-storefront-community)
+| 1| Developer Documents | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
+| 2| live Demo | [https://marketplace48.spurtcart.com/ ](https://marketplace48.spurtcart.com/)
+| 3| Dedicated Support| [https://www.spurtcommerce.com/price-details](https://accounts.spurtcommerce.com/#/auth/login-client)
 
 
 
