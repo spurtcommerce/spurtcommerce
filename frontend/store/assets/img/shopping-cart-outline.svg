@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <clipPath id="83zddoc6ra">
+            <path data-name="Rectangle 1936" transform="translate(1244 22)" style="stroke:#707070;fill:#fff" d="M0 0h24v24H0z"/>
+        </clipPath>
+    </defs>
+    <g data-name="Mask Group 4" transform="translate(-1244 -22)" style="clip-path:url(#83zddoc6ra)">
+        <path data-name="shopping-cart (3)" d="M11.484 19.545a1.546 1.546 0 1 1-1.546 1.546 1.546 1.546 0 0 1 1.546-1.546zm6.722 0a1.546 1.546 0 1 1-1.546 1.546 1.546 1.546 0 0 1 1.547-1.546zM1.222 4.106h2.183a.947.947 0 0 1 .912.694l3.065 11.027a2.884 2.884 0 0 0 2.779 2.113h9.332a2.885 2.885 0 0 0 2.8-2.186l1.941-7.764A.961.961 0 0 0 23.3 6.8H9.939a.961.961 0 1 0 0 1.921H22.07l-1.643 6.572a.963.963 0 0 1-.935.729h-9.331a.964.964 0 0 1-.928-.706L6.169 4.286a2.868 2.868 0 0 0-2.764-2.1H1.222a.961.961 0 1 0 0 1.921z" transform="translate(1243.739 21.59)" style="fill-rule:evenodd;fill:#fff"/>
+    </g>
+</svg>

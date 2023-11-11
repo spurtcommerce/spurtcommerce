@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> IHC </title>
+    <link href="https://fonts.googleapis.com/css2?family=Coustard&display=swap" rel="stylesheet"> 
+    <style type="text/css">
+      body { font-family: 'Coustard', serif; margin: 2mm; }
+      * { box-sizing: border-box; }
+      p,h1,h2,h3,h4,h5,h6 { margin:0; padding: 0; }
+    </style>
+  </head>
+  <body>
+
+    <table width="100%" style="border-bottom: solid 3px #629d38;">
+    	<tr>
+    		<td colspan="2"><h2 style="font-size: 1.675rem;color: #000;text-align:center;">Tax Invoice</h2><td>
+    	</tr>
+      <tr>
+        <td style="text-align: left;" valign="center">
+          <% if (data.vendor.companyName) { %>
+          <p style="font-size: 0.65rem;color:#000;"><%= data.vendor.companyName %></p>
+          <% } %>
+          <p style="font-size: 0.65rem;color:#000;"><%= data.vendor.companyAddress1 %>, <%= data.vendor.companyAddress2 %>, <br>
+            <%= data.vendor.companyCity %> - <%= data.vendor.pincode %>, <%= data.vendor.companyState %>, <%= data.vendor.countryName %>.</p>
+          <% if (data.vendor.companyTaxNumber) { %>
+          <p style="font-size: 0.65rem;color:#000;">GST No:<%= data.vendor.companyTaxNumber %></p>
+          <% } %>
+        </td>        
+        <td valign="center">
+            <p style="text-align: right;">
+                <img src="<%= data.logo %>">
+            </p>
+          <p style="font-size: 0.6125rem;color: #000;text-align:right;"><span style="color: #888;">Invoice No :</span>  <%= data.invoicePrefix + data.invoiceNo %></p>
+          <p style="font-size: 0.6125rem;color: #000;text-align:right; width: 90%;"><span style="color: #888;">Date :</span> <%= moment(data.createdDate).format('MMM DD, YYYY')%></p>
+        </td>
+      </tr>
+      <tr>
+        
+      </tr>
+    </table>
+
+    <table width="100%" style="margin-top: 20px;">
+      <tr>
+        <td width="70%" valign="top">
+          <h3 style="font-size: 1.0625rem;color: #000;margin-bottom: 0.6rem;">Deliver To</h3>
+          <p style="font-size: 0.6125rem;color: #000;line-height: 2;"><%= data.shippingFirstname + ' ' + data.shippingLastname %></p>
+          <p style="font-size: 0.6125rem;color: #4f4f4f;line-height: 1.2;"><%= data.shippingAddress1 + ', ' + data.shippingAddress2%> <br> 
+            <%= data.shippingCity + ',' + data.shippingZone + ',' + data.shippingCountry %> <br>
+            <% if (data.customerGstNo) { %>
+            Gst No: <%= data.customerGstNo %> <br>
+            <% } %>
+            PIN Code : <%= data.shippingPostcode %>
+            <% if (data.telephone) { %>
+            <br>
+            Mobile: <%= data.telephone %> 
+            <% } %>
+            </p>
+          <p style="margin-top: 0.8rem;margin-bottom: 1.5rem;"> 
+            <span style="display: inline-block;width: 254px;height: 38px; line-height: 38px;padding: 0 5px;border-radius: 3px;background-color: #629d38;font-size: 1.0625rem;color:#fff;">
+            POS : <%= data.shippingZone %>
+            </span> 
+          </p>
+          <p style="font-size: 0.6375rem;color: #000;text-align:left;"><span style="color: #888;">Order No :</span>  <%= data.orderPrefixId %></p>
+          <p style="font-size: 0.6375rem;color: #000;text-align:left"><span style="color: #888;">Date :</span>  <%= moment(data.createdDate).format('MMM DD, YYYY')%></p>
+        </td>
+        <td width="" valign="top">
+          <h3 style="font-size: 1.0625rem;color: #000;margin-bottom: 0.6rem;">Billing Address</h3>
+          <p style="font-size: 0.6125rem;color: #000;line-height: 2;"><%= data.paymentFirstname + ' ' + data.paymentLastname %></p>
+          <p style="font-size: 0.6125rem;color: #4f4f4f;line-height: 1.2;"><%= data.paymentAddress1 + ', ' + (data.paymentAddress2 ? data.paymentAddress2 : '') %>  <br>
+            <%= data.paymentCity + ',' + data.paymentZone + ',' + (data.paymentCountry? data.paymentCountry : '')  %> <br>
+            <% if (data.customerGstNo) { %>
+            Gst No: <%= data.customerGstNo %> <br>
+            <% } %>
+            PIN Code : <%= data.paymentPostcode %></p>
+        </td>
+      </tr>
+    </table>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 20px; border-bottom: solid 2px #000">
+      <tr>
+        <th style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">S.No</th>
+        <th style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Product Name</th>
+        <th style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Quantity</th>
+        <th style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;"> Unit Price <br><%= '(' + data.currencyCode + ')' %></th>
+        <th style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;"> Net Amount <br><%= '(' + data.currencyCode + ')'  %></th>
+        <th style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Discount</th>
+        <th style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Tax Rate</th>
+        <th style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;"> Tax Amount <br><%= '(' + data.currencyCode + ')'  %></th>
+        <th style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Coupon Discount</th>
+        <th style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;"> Final Amount <br><%= '(' + data.currencyCode + ')'  %></th>
+      </tr>
+      <% 
+      var i = 1;
+      var quantity = 0;
+      var price = 0;
+      var tax = 0;
+      var total = 0;
+      var discountAmt = 0;
+      var discountedAmt = 0;
+      data.productList.forEach(function(product) { 
+          quantity += product.quantity;
+          price += parseFloat(product.basePrice);
+          tax+= parseFloat(product.taxValueInAmount);
+          total += parseFloat(product.total);
+          discountAmt += parseFloat(product.discountAmount);
+          discountedAmt += parseFloat(product.discountedAmount);
+          var value = parseFloat(product.quantity) * parseFloat(product.basePrice);
+  %>
+      <tr>
+        <td style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= i %></td>
+        <td style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= product.skuName %> <br><%= product.name %></td>
+        <td style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= product.quantity %></td>
+        <td style="font-size: 0.55rem;padding:10px;text-align:right;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"> <%= product.basePrice  %></td>
+        <td style="font-size: 0.55rem;padding:10px;text-align:right;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"> <%= (value).toFixed(2) %> <%= ( data.symbolRight ? data.currencyCode : '' ) %></td>
+        <td style="font-size: 0.55rem;padding:10px;text-align:right;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= product.discountAmount %></td>
+        <td style="font-size: 0.55rem;padding:10px;text-align:right;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= (product.taxType === 2 ?  product.taxValue + '%': product.taxValue + '.00')%></td>
+        <td style="font-size: 0.55rem;padding:10px;text-align:right;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"> <%= (product.taxValueInAmount ?  product.taxValueInAmount: 0) %></td>
+        <td style="font-size: 0.55rem;padding:10px;text-align:right;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= product.couponDiscountAmount %></td>
+        <td style="font-size: 0.55rem;padding:10px;text-align:right;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;background-color: #f4f4f4;"> <%= product.total%></td>
+      </tr>
+      <% 
+                        i++;
+                        }); 
+                    %>
+      <tr>        
+        <td colspan="9" style="font-size: 0.6125rem;padding:10px;text-align:right;font-weight: normal;color: #000;"> Grand Total</td>
+        <td style="font-size: 0.6125rem;padding:10px;text-align:right;font-weight: normal;color: #000;"><%= ( data.symbolLeft ? data.currencyCode : '' ) %> <%= (total).toFixed(2)%> <%= ( data.symbolRight ? data.currencyCode : '' ) %></td>
+      </tr>
+      
+    </table>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 20px;">
+      <tr>
+        <td style="font-size: 0.6125rem;color: #000;">
+          Grand Total in Words : <%= data.currencyInWords %>
+        </td>
+      </tr>
+    </table>
+    </body>
+</html>

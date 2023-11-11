@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Multivendor Invoice </title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,400,600,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body { margin: 0 8pt; font-family: 'Montserrat', sans-serif; }
+        table {  }
+        * { box-sizing: border-box; }
+    </style>
+
+      
+    
+  </head>
+  <body>
+
+    <table cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+            <td>
+                <table cellspacing="0" cellpadding="0" width="100%" style="background: #fff;padding: 8pt;">
+                    <tr>
+                        
+                        <td style="border-bottom: solid thin #ddd;padding-bottom: 10px;">
+                            <img src="<%= data.logo %>">
+                        </td>
+
+                        <td width="30%" style="font-size: 8pt;font-weight: 400;color: rgb(154, 154, 154);border-bottom: solid thin #ddd;padding-bottom: 10px;"> 
+                            <p style="margin:0;padding:0"><%= data.settingDetails.storeAddress %> </p>
+                            <p style="margin:0;padding:0"><%= data.countryData.name %>, </p>
+                            <p style="margin:0;padding:0"><%= data.zoneData.name %></p>
+                        </td>
+                        <td width="30%" style="font-size: 8pt;font-weight: 400;color: rgb(154, 154, 154);border-bottom: solid thin #ddd;padding-bottom: 10px;"> 
+                            <p style="margin:0;padding:0">Tel: <%= data.settingDetails.storeTelephone %>, </p>
+                            <!-- <p style="margin:0;padding:0">Fax: 1-847-675-3322,</p> -->
+                        </td>
+                        <td width="20%" style="font-size: 8pt;font-weight: 400;color: rgb(154, 154, 154);border-bottom: solid thin #ddd;padding-bottom: 10px;"> 
+                            <p style="margin:0;padding:0">Email: <%= data.settingDetails.storeEmail %></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table cellspacing="0" cellpadding="0" width="100%" style="background: #fff;padding: 8pt;">
+                    <tr>
+                        <td width="40%" style="font-size: 8pt;font-weight: 400;color: rgb(0, 0, 0);padding-bottom: 10px;"> 
+                            <p style="margin:0;padding:0">Order ID : #<%= data.orderPrefixId %> </p>
+                            <p style="margin:0;padding:0">Order Date : <%= moment(data.createdDate).format('MMM DD, YYYY')%></p>
+                        </td>
+                        <td width="40%" style="font-size: 8pt;font-weight: 400;color: rgb(0, 0, 0);padding-bottom: 10px;"> 
+                            <p style="margin:0;padding:0">Invoice No : <%= data.invoicePrefix + '-' + data.invoiceNo %></p>
+                            <p style="margin:0;padding:0">Invoice Date : <%= moment(data.createdDate).format('MMM DD, YYYY')%></p>
+                        </td>
+                        <td width="20%" style="font-size: 20pt;font-weight: 400;color: #000;padding-bottom: 10px;text-align: center;">
+                            Invoice
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table cellspacing="0" cellpadding="0" width="100%" style="background: #fff;padding: 8pt;">
+                    <tr>
+                        <td>
+                           <h3 style="font-size: 9pt;font-weight: 400;color:#262222;margin: 0 0 5pt;">Billing Address</h3> 
+                           <h3 style="font-size: 8pt;font-weight: 400;color:#262222;margin: 0 0 2pt;"><%= data.paymentFirstname + ' ' + data.paymentLastname %> , </h3>
+                           <h3 style="font-size: 8pt;font-weight: 400;color:#262222;margin: 0 0 2pt;"><%= data.paymentAddress1 + ', ' + data.paymentAddress2%> </h3>
+                           <h3 style="font-size: 8pt;font-weight: 400;color:#262222;margin: 0 0 2pt;"><%= data.paymentCity + ' ' + data.paymentPostcode %></h3> 
+                        </td>
+                        <td width="300px" style="background-color: #fff;padding:8pt;"> 
+                           
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table cellspacing="0" cellpadding="0" width="100%" style="background: #fff;">
+                    <tr>          
+                        <td width="" style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">S.No</td>              
+                        <td width="" style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Product Name</td>
+                        <td width="" style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Quantity</td>
+                        <td width="" style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Unit Price <br><%= '(' + data.currencyCode + ')' %></td>
+                        <td width="" style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;"">Net Amount <br><%= '(' + data.currencyCode + ')'  %></td>
+                        <td width="" style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Discount</td>
+                        <td width="" style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Tax Rate </td>
+                        <td width="" style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Tax Amount <br><%= '(' + data.currencyCode + ')'  %></td>
+                        <td width="" style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Coupon Discount </td>
+                        <td width="" style="font-size: 0.5625rem;padding-bottom:5px;text-align:center;border-bottom:solid 1px #ddd;font-weight: normal;color: #2b2929;">Final Amount <br><%= '(' + data.currencyCode + ')'  %></td>
+                    </tr>
+                    <% 
+                        var i = 1;
+                        var quantity = 0;
+                        var price = 0;
+                        var tax = 0;
+                        var total = 0;
+                        var discountAmt = 0;
+                        var couponDiscountAmt = 0;
+                        var discountedAmt = 0;
+                        data.productList.forEach(function(product) { 
+                            quantity += product.quantity;
+                            price += parseFloat(product.basePrice);
+                            tax+= parseFloat(product.taxValueInAmount);
+                            total += parseFloat(product.total);
+                            couponDiscountAmt += parseFloat(product.couponDiscountAmount);
+                            discountAmt += parseFloat(product.discountAmount);
+                            discountedAmt += parseFloat(product.discountedAmount);
+                            var value = parseFloat(product.quantity) * parseFloat(product.basePrice);
+                    %>
+                    <tr>          
+                        <td width="" style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= i %>.</td>              
+                        <td width="" style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= product.name %></td>
+                        <td width="" style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= product.quantity %></td>
+                        <td width="" style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= product.basePrice %></td>
+                        <td width="" style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= (value).toFixed(2) %> <%= ( data.symbolRight ? data.currencyCode : '' ) %></td>
+                        <td width="" style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= product.discountAmount %></td>
+                        <td width="" style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= (product.taxType === 2 ?  product.taxValue + '%': (product.taxValue ? product.taxValue : 0) + '.00')%></td>
+                        <td width="" style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= (product.taxValueInAmount ?  product.taxValueInAmount: 0.00 + '.00') %></td>
+                        <td width="" style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= product.couponDiscountAmount %></td>
+                        <td width="" style="font-size: 0.55rem;padding:10px;text-align:left;border-bottom:solid 1px #ddd;font-weight: normal;color: #000;"><%= product.total %></td>
+                    </tr>
+                    <% 
+                        i++;
+                        }); 
+                    %>
+                    <!-- <tr>          
+                        <td width="20pt" style="text-align:left;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>              
+                        <td width="30%" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;">SubTotal</td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"><%= quantity %></td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:left;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:left;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:left;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"><%= (tax ? tax : 0.00) %></td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"><%= total %></td>
+                    </tr>
+                    <tr>          
+                        <td width="20pt" style="text-align:left;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>              
+                        <td width="30%" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;">Discounts</td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"><%= (discountAmt ? discountAmt : 0.00 + '.00') %></td>
+                    </tr> -->
+                    <!-- <tr>          
+                        <td width="20pt" style="text-align:left;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>              
+                        <td width="30%" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;">Coupon Discounts</td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"><%= (couponDiscountAmt ? couponDiscountAmt : 0.00 + '.00')  %></td>
+                    </tr> -->
+                    <!-- <tr>          
+                        <td width="20pt" style="text-align:left;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>              
+                        <td width="30%" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:right;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:center;font-size: 8pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"></td>
+                        <td width="" style="text-align:right;font-size: 13pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;">Total</td>
+                        <td width="" style="text-align:left;font-size: 13pt;font-weight: 400;color: #000;padding: 5pt 5pt 5pt 15pt;"><%= ( data.symbolLeft ? data.currencyCode : '' ) %> <%= (total).toFixed(2)%> <%= ( data.symbolRight ? data.currencyCode : '' ) %></td> -->
+                        <tr>        
+                            <td colspan="9" style="font-size: 0.6125rem;padding:10px;text-align:right;font-weight: normal;color: #000;"> Grand Total</td>
+                            <td style="font-size: 0.6125rem;padding:10px;text-align:right;font-weight: normal;color: #000;"><%= ( data.symbolLeft ? data.currencyCode : '' ) %> <%= (total).toFixed(2)%> <%= ( data.symbolRight ? data.currencyCode : '' ) %></td>
+                          </tr>
+                    <!-- </tr> -->
+                </table>
+            </td>
+        </tr>
+        <!--  -->
+        <!-- <tr>
+            <td>
+                <p style="font-size: 11px;font-weight: normal;color: rgb(129, 129, 129);margin: 20pt 0 4px;padding:0;">Payment terms & Conditions </p>
+
+                <p style="font-size: 10px;font-weight: normal;color: rgb(129, 129, 129);margin: 0;padding:0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. Sed sit amet arcu aliquet, molestie justo at, auctor nunc.</p>
+
+            </td>  
+        </tr> -->
+    </table>
+  </body>
+</html>

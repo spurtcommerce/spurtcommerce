@@ -1,0 +1,20 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter color-interpolation-filters="auto" id="o559ry3nea">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g transform="translate(-549 -8)" filter="url(#o559ry3nea)" fill="none" fill-rule="evenodd">
+        <g transform="translate(549 8)">
+            <path d="M0 0h24v24H0z"/>
+            <circle stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" cx="7.5" cy="15.75" r="3"/>
+            <path d="M3 21a5.626 5.626 0 0 1 9 0" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" cx="7.5" cy="6" r="3"/>
+            <path d="M3 11.25a5.626 5.626 0 0 1 9 0" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" cx="16.5" cy="15.75" r="3"/>
+            <path d="M12 21a5.626 5.626 0 0 1 9 0" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" cx="16.5" cy="6" r="3"/>
+            <path d="M12 11.25a5.626 5.626 0 0 1 9 0" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+    </g>
+</svg>

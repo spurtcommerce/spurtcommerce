@@ -1,0 +1,145 @@
+@media (min-width: 1680px) {
+  .maximus {
+      max-width: 1280px;
+      margin: 0 auto;
+  }
+}
+
+@media (max-width: 1680px) {
+  .maximus {
+      max-width: 100%;
+  }
+
+}
+
+
+
+/* rsposive for tablet  */
+@media (min-width: 1680px) {
+
+
+
+}
+
+@media (min-width:1301px) and (max-width: 1679px) {
+
+
+
+}
+
+@media (min-width:1024.2px) and (max-width: 1300.2px) {
+
+
+
+}
+
+@media (max-width: 1200px) {
+
+  
+
+}
+
+
+@media (min-width: 992px) {
+
+
+
+}
+
+@media (max-width: 1100px) {
+.banner-text {
+  right: 20px;
+}
+.sign-row {
+  width: 90%;
+}
+.sign-left {
+  width: 45%;
+}
+.sign-form {
+  width: 52%;
+}
+}
+
+@media (max-width: 992px) {
+.sign-row {
+  justify-content: center;
+}
+.sign-left {
+  display: none;
+}
+}
+
+@media(min-width:767px) and (max-width: 993px) {
+
+
+
+}
+
+@media (max-width: 767.5px) {
+.banner-text {
+  display: none;
+}
+}
+
+@media (max-width: 768.58px) {
+.ftr-contact {
+  margin-top: 20px;
+}
+
+}
+
+@media(max-width:767px) and (min-width: 576px) {
+
+
+
+}
+
+@media (max-width: 650px) {
+
+}
+
+@media (max-width: 500px) {
+.logo-avl-loc {
+  width: 100%;
+  font-size: 12px;
+}
+.header-top a.logreg {
+  margin: 0 5px;
+  font-size: 12px;
+}
+.header-top {
+  padding: 5px 10px;
+}
+.header-top a.vendor {
+  font-size: 12px;
+}
+.lang {
+  font-size: 12px;
+}
+.sign-form {
+  width: 90%;
+}
+.sign-row {
+  margin-top: 200px;
+}
+}
+
+@media (max-width: 360px) {
+
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (min-width:769px) {
+
+}
+
+
+@media screen and (max-width: 781px) {
+
+
+}

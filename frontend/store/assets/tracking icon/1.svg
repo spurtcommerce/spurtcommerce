@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38">
+  <defs>
+    <filter id="Ellipse_859" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_1522" data-name="Group 1522" transform="translate(-553 -422)">
+    <g id="Group_1518" data-name="Group 1518" transform="translate(556 424)">
+      <g transform="matrix(1, 0, 0, 1, -3, -2)" filter="url(#Ellipse_859)">
+        <circle id="Ellipse_859-2" data-name="Ellipse 859" cx="16" cy="16" r="16" transform="translate(3 2)" fill="#2874f0"/>
+      </g>
+    </g>
+    <path id="check-mark_2_" data-name="check-mark (2)" d="M153.2,169.323a1.4,1.4,0,0,1,0,1.977l-9.378,9.378a1.4,1.4,0,0,1-1.977,0l-4.464-4.464a1.4,1.4,0,0,1,1.977-1.977l3.476,3.476,8.389-8.39a1.4,1.4,0,0,1,1.977,0Z" transform="translate(427.024 265.086)" fill="#fff"/>
+  </g>
+</svg>
