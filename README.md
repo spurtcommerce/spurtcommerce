@@ -1,55 +1,41 @@
-![alt text](/img/spurtcommerce-b2c-b2b.png "spurtcommerce Logo")
+# Overview
 
-# Spurtcommerce E-Commerce Solution / NodeJS + React + Next JS + Angular +MySQL 
+This is the official repository of Spurtcommerce. Using these Build , you can easily deploy Spurtcommerce Multi-Vendor Marketplace in your local server.
 
-![GitHub last commit](https://img.shields.io/github/last-commit/spurtcommerce/spurtcommerce)
-![GitHub issues](https://img.shields.io/github/issues/spurtcommerce/spurtcommerce)
-![GitHub repo size](https://img.shields.io/github/repo-size/spurtcommerce/spurtcommerce?color=orange)
 
-#  ❯ Spurtcommerce 4.8.2 Community Edition
+![GitHub last commit](https://img.shields.io/github/last-commit/spurtcommerce/deployment)
+![GitHub issues](https://img.shields.io/github/issues/spurtcommerce/deployment)
+![GitHub repo size](https://img.shields.io/github/repo-size/spurtcommerce/deployment?color=orange)
 
-Spurtcommerce, an Open Source NodeJS +React/Next JS + Angular eCommerce solution comes with full Source Code. The Community Edition comes with the basic and necessary features of a standard eCommerce platform. We welcome contributors to the Community and Developers to join us towards constantly improving the solution and bringing new upgrades. Spurtcommerce comes with complete online documentation.
+#
 
-*	Spurtcommerce Admin Control Panel
-*	Spurtcommerce React/NextJS/Angular Store Front
-*	Spurtcommerce API 
+#  ❯ Spurtcommerce 4.8.2 Community Mulivendor Marketplace V4.8.2 from Build
 
-Spurtcommerce Community Edition is publicly available on GitHub and free to download and use
+This is the official repository of Spurtcommerce. Using these Build , you can easily deploy Spurtcommerce Multi-Vendor Marketplace in your local server.
 
-| S.no | Spurtcommerce Community 4.8.2  | Reference  |
+
+## step 1:-
+
+Copy all the files to  you local server
+
+## Step 2:-
+
+
+
+
+
+
+#  ❯ Code is avilable for customisation as your needs
+
+Comes with 100% customizable source code, allowing tweaking, forking and altering every aspect of Source Code for any eCommerce business needs with Multi-Vendor capabilities. With dedicated support from Spurtcommerce team, venture into the world of multi-vendor eCommerce confidently and effectively. 
+
+| S.no | Product  | Reference |
 | ------ | ------ | ------ |
-| 1| Developer Documents | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
-| 2| Discussion | [https://discord.com/invite/hyW4MXXn8n ](https://discord.com/invite/hyW4MXXn8n)
-| 3| Addons | [https://www.spurtcommerce.com/addons ](https://www.spurtcommerce.com/addons)
+| 1| Spurtcommerce API Suite - | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
+| 2| Spurtcommerce Store Front| [https://marketplace48.spurtcart.com/ ](https://marketplace48.spurtcart.com/)
 
 
-#  ❯ Spurtcommerce 4.8.2 Shopping cart Enterprise Edition
-
-
-Introducing Spurtcommerce Shopping Cart Enterprise Edition v.4.8.2, built on top of the Community Edition, comprehensively equipped with end-to-end single-vendor capabilities. Having been crafted for Business Owners and Developers, it offers an all-inclusive eCommerce solution with fully customizable Source Code. One can easily initiate a single-vendor online store, harnessing the power of complete customization flexibility. This also includes the benefit of dedicated support from the Spurtcommerce Team. 
-
-
-| S.no | Shopping Cart Enterprise 4.8.2  | Reference |
-| ------ | ------ | ------ |
-| 1| Developer Documents | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
-| 2| Demo | [https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-demo/ ](https://www.spurtcommerce.com/nodejs-shoppingcart-ecommerce-demo/)
-| 3|  Support Portal| [https://accounts.spurtcommerce.com/](https://accounts.spurtcommerce.com/)
-
-
-
-#  ❯ Spurtcommerce 4.8.2 Multi-Vendor Marketplac Enterprise Edition
-
-Presenting Spurtcommerce Enterprise Edition v.4.8.2 Multi-Vendor Solution, enriched with powerful multi-vendor capabilities. Includes the capabilities of seamless management of unique panels for each vendor, while retaining full and comprehensive administrative control over the entire eCommerce portal. Comes with 100% customizable source code, allowing tweaking, forking and altering every aspect of Source Code for any eCommerce business needs with Multi-Vendor capabilities. With dedicated support from Spurtcommerce team, venture into the world of multi-vendor eCommerce confidently and effectively. 
-
-| S.no | Multi-Vendor Marketplace Enterprise 4.8.2  | Reference |
-| ------ | ------ | ------ |
-| 1| Developer Documents | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
-| 2| live Demo | [https://marketplace48.spurtcart.com/ ](https://marketplace48.spurtcart.com/)
-| 3|  Support Portal| [https://accounts.spurtcommerce.com/](https://accounts.spurtcommerce.com/)
-
-
-
-# ❯ Unlimted addons Free For Enterprise Edition
+# ❯ Unlimted addons Free 
 
 Experience unparalleled value with Spurtcommerce Enterprise Editions - both the Shopping Cart and Multi-Vendor Marketplace versions - where the entire range of addons are offered completely free of charge. Explore our free addons available exclusively for our Enterprise Edition users and take your eCommerce business to new heights.
 
