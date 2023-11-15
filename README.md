@@ -6,7 +6,7 @@
    
 </p>
 <h3 align="center">Open Source Multi Vendor Marketplace for Ecommerce Solution - Self hosted </h3>
-<p align="center"> Build with Nodejs + TypeScript + Angular + React + Mysql and Postgre</p>
+<p align="center"> Build with Nodejs + TypeScript + Angular + React + MySQL and PostgreSQL</p>
 <p align="center"><a href="https://www.spurtcommerce.com/price-details"> Support PRO</a> · <a href="https://www.spurtcommerce.com/price-details"> Frontend </a> ·  <a href="https://www.spurtcommerce.com/price-details"> API Suite </a></p>
 <br />
 <p align="center">
@@ -26,6 +26,7 @@
 > [!IMPORTANT]
 > 🎉 <strong>Spurtcommerce 4.8.2 is now available!</strong> Read more in the <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"><strong>announcement post</strong></a>.
 <br />
+
 ## ❯  🚀 Easy to Deploy Spurtcommerce API on your server
 
 This is the official repository of Spurtcommerce. Using these Build , you can easily deploy Spurtcommerce Multi-Vendor Marketplace in your local server.
