@@ -1,6 +1,6 @@
 
 <p align="center">
-  <a href="https://www.spurtcommerce.com">
+  <a href="https://www.spurtcommerce.com/#gh-light-mode-only">
     <img src="https://www.spurtcommerce.com/spurtcommerce.svg" width="318px" alt="Spurtcommerce logo" />
   </a>
    
@@ -8,7 +8,7 @@
 <h3 align="center">Open-source Multi vendor Marketplace for Ecommerce Solution - Self hosted </h3>
 <p align="center"> Build with Nodejs + TypeScript + Angular + React + Mysql and Postgre</p>
 <p align="center"><a href="https://www.spurtcommerce.com/price-details"> Support</a> · <a href="https://www.spurtcommerce.com/price-details"> Frontend </a> ·  <a href="https://www.spurtcommerce.com/price-details"> API Suite </a></p>
-
+<br />
 <p align="center">
   <a href="https://github.com/spurtcommerce/multivendor-marketplace/releases">
     <img src="https://img.shields.io/github/last-commit/spurtcommerce/deployment" alt="GitHub last commit" />
@@ -21,6 +21,7 @@
     <img src="https://img.shields.io/github/repo-size/spurtcommerce/deployment?color=orange" alt="GitHub repo size" />
   </a>
 </p>
+<br />
 
 # Overview
 
