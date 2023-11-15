@@ -5,9 +5,9 @@
   </a>
    
 </p>
-<h3 align="center">Open-source Multi vendor Marketplace for Ecommerce Solution - Self hosted </h3>
+<h3 align="center">Open Source Multi Vendor Marketplace for Ecommerce Solution - Self hosted </h3>
 <p align="center"> Build with Nodejs + TypeScript + Angular + React + Mysql and Postgre</p>
-<p align="center"><a href="https://www.spurtcommerce.com/price-details"> Support</a> · <a href="https://www.spurtcommerce.com/price-details"> Frontend </a> ·  <a href="https://www.spurtcommerce.com/price-details"> API Suite </a></p>
+<p align="center"><a href="https://www.spurtcommerce.com/price-details"> Support PRO</a> · <a href="https://www.spurtcommerce.com/price-details"> Frontend </a> ·  <a href="https://www.spurtcommerce.com/price-details"> API Suite </a></p>
 <br />
 <p align="center">
   <a href="https://github.com/spurtcommerce/multivendor-marketplace/releases">
@@ -23,7 +23,10 @@
 </p>
 <br />
 
-## ❯  🚀 Easy to deploy Spurtcommerce API on your server
+> [!IMPORTANT]
+> 🎉 <strong>Spurtcommerce 4.8.2 is now available!</strong> Read more in the <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"><strong>announcement post</strong></a>.
+<br />
+## ❯  🚀 Easy to Deploy Spurtcommerce API on your server
 
 This is the official repository of Spurtcommerce. Using these Build , you can easily deploy Spurtcommerce Multi-Vendor Marketplace in your local server.
 
@@ -62,13 +65,13 @@ TYPEORM_LOGGING=["query", "error"]
 TYPEORM_LOGGER=advanced-console
 ```
 
-Step 6:
+### Step 5:
 In terminal, Navigate to multivendor-marketplace/api folder and Start API execution using the following command:
 ```
 $ node dist/src/app.js
 ```
 
-## ❯  🚀 Easy to deploy frontent Admin , Vendor and Store on your server (Angular)
+## ❯  🚀 Deploy Frontend Admin , Vendor and Store (Angular)
 
 
 ### Step 1:
@@ -90,20 +93,31 @@ Completion of above steps should successfully setup frontend builds of all 3 pan
 Above steps concludes successful installation and setup of Spurtcommerce Marketplace solution build in your local (or) server.
 
 
+## 🤔 Support , Document and Help
 
-# ❯ Dedicated Support
+Spurtcommerce 4.8.2 is published to npm under the `@spurtcommerce/*` namespace.
 
-Should you require any support in installation, setup and on how to effectively use Spurtcommerce for your eCommerce should you require any further support, you may write to support@spurtcommerce.com
+You can find our extended documentation on our [www.spurtcommerce.dev](https://www.spurtcommerce.dev), but some quick links that might be helpful:
+
+- Read [Technology](https://www.spurtcommerce.com/opensource-ecommerce-multivendor-nodejs-react-angular) to learn about our vision and what's in the box.
+
+- Our [Discard](https://discord.com/invite/hyW4MXXn8n) Questions, Live Discussions [Spurtcommerce Support](https://accounts.spurtcommerce.com/#/auth/login-client).
+- An [API Reference](https://www.spurtcommerce.dev/v/spurtapi/) contains the details on Spurtcommerce foundational building blocks.
+- Some [Video](https://www.youtube.com/@Spurtcommerce/videos) Video Tutorials 
+- Every [Release](https://github.com/spurtcommerce/multivendor-marketplace/releases) is documented on the Github Releases page.
+
+🐞 If you spot a bug, please [submit a detailed issue](https://github.com/spurtcommerce/multivendor-marketplace/issues/new), and wait for assistance.
+
+🤔 If you have a question or feature request, please [start a new discussion](https://github.com/orgs/spurtcommerce/discussions/new/choose). 
 
 
+## ❯ Maintainers
+Spurtcommerce is developed and maintain by [Piccosoft Software Labs India (P) Limited,](https://www.piccosoft.com).
 
-# ❯ License
+
+## ❯ License
 
 Spurtcommerce is released under the [BSD-3-Clause License.](https://github.com/spurtcommerce/spurtcommerce/blob/master/LICENSE).
 
-
-
-# ❯ About Piccosoft
-Spurtcommerce is developed by [Piccosoft Software Labs India (P) Limited,](http://www.piccosoft.com) which is primarily a Web and Mobile App Service Provider, and who have adopted the latest and niche technologies for their Development services. The team comprises of experienced Developers, who are technology enthusiasts and passionate about innovations.
 
 
