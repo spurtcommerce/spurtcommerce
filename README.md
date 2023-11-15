@@ -1,3 +1,27 @@
+
+<p align="center">
+  <a href="https://www.spurtcommerce.com">
+    <img src="https://www.spurtcommerce.com/spurtcommerce.svg" width="318px" alt="Spurtcommerce logo" />
+  </a>
+   
+</p>
+<h3 align="center">Open-source Multi vendor Marketplace for Ecommerce Solution - Self hosted </h3>
+<p align="center"> Build with Nodejs + TypeScript + Angular + React + Mysql and Postgre</p>
+<p align="center"><a href="https://www.spurtcommerce.com/price-details"> Support</a> · <a href="https://www.spurtcommerce.com/price-details"> Frontend </a> ·  <a href="https://www.spurtcommerce.com/price-details"> API Suite </a></p>
+
+<p align="center">
+  <a href="https://github.com/spurtcommerce/multivendor-marketplace/releases">
+    <img src="https://img.shields.io/github/last-commit/spurtcommerce/deployment" alt="GitHub last commit" />
+  </a>
+  <a href="https://github.com/spurtcommerce/multivendor-marketplace/issues">
+    <img src="https://img.shields.io/github/issues/spurtcommerce/deployment" alt="GitHub issues" />
+  </a>
+
+  <a href="https://github.com/spurtcommerce/multivendor-marketplace/releases">
+    <img src="https://img.shields.io/github/repo-size/spurtcommerce/deployment?color=orange" alt="GitHub repo size" />
+  </a>
+</p>
+
 # Overview
 
 This is the official repository of Spurtcommerce. Using these Build , you can easily deploy Spurtcommerce Multi-Vendor Marketplace in your local server.
@@ -9,7 +33,7 @@ This is the official repository of Spurtcommerce. Using these Build , you can ea
 
 #
 
-#  ❯ Spurtcommerce 4.8.2 Community Mulivendor Marketplace V4.8.2 from Build
+#  ❯ Spurtcommerce 4.8.2 Community Mulivendor Marketplace from Build
 
 This is the official repository of Spurtcommerce. Using these Build , you can easily deploy Spurtcommerce Multi-Vendor Marketplace in your local server.
 
@@ -34,14 +58,6 @@ Comes with 100% customizable source code, allowing tweaking, forking and alterin
 | 1| Spurtcommerce API Suite - | [https://www.spurtcommerce.dev](https://www.spurtcommerce.dev)
 | 2| Spurtcommerce Store Front| [https://marketplace48.spurtcart.com/ ](https://marketplace48.spurtcart.com/)
 
-
-# ❯ Unlimted addons Free 
-
-Experience unparalleled value with Spurtcommerce Enterprise Editions - both the Shopping Cart and Multi-Vendor Marketplace versions - where the entire range of addons are offered completely free of charge. Explore our free addons available exclusively for our Enterprise Edition users and take your eCommerce business to new heights.
-
-https://www.spurtcommerce.com/addons
-
-Upgrade your Spurtcommerce experience by purchasing addons that extend the functionality of your eCommerce portal built on the Community Edition of Spurtcommerce. Each addon introduces new dimensions to your eCommerce portal. Browse through our range of addons to enrich your Community Edition, while Enterprise Edition users enjoy a variety of free addons that enhance their eCommerce journey. Explore and enhance your Spurtcommerce experience today.
 
 # ❯ Dedicted Support
 
