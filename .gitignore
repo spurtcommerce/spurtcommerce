@@ -19,9 +19,7 @@ api/src/api/schema.gql
 # Typing #
 api/typings/
 
-# Dist #
-api/dist/
-api/tsconfig.build.json
+
 
 # IDE #
 api/.idea/

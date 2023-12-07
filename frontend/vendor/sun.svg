@@ -1,0 +1,14 @@
+<svg id="Sun" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+  <rect id="Rectangle" width="12" height="12" fill="none"/>
+  <g id="Group" transform="translate(0.375 0.375)">
+    <circle id="Oval" cx="3.188" cy="3.188" r="3.188" transform="translate(2.438 2.438)" fill="#f6c909"/>
+    <path id="Path" d="M.375,1.688A.375.375,0,0,0,.75,1.313V.375a.375.375,0,0,0-.75,0v.938A.375.375,0,0,0,.375,1.688Z" transform="translate(5.25)" fill="#f6c909"/>
+    <path id="Path-2" data-name="Path" d="M.773,1.3A.375.375,0,1,0,1.3.773L.64.11A.375.375,0,1,0,.11.64Z" transform="translate(1.538 1.538)" fill="#f6c909"/>
+    <path id="Path-3" data-name="Path" d="M1.688.375A.375.375,0,0,0,1.313,0H.375a.375.375,0,0,0,0,.75h.938A.375.375,0,0,0,1.688.375Z" transform="translate(0 5.25)" fill="#f6c909"/>
+    <path id="Path-4" data-name="Path" d="M.773.11.11.773a.375.375,0,1,0,.53.53L1.3.641A.375.375,0,1,0,.773.11Z" transform="translate(1.538 8.299)" fill="#f6c909"/>
+    <path id="Path-5" data-name="Path" d="M.375,0A.375.375,0,0,0,0,.375v.938a.375.375,0,0,0,.75,0V.375A.375.375,0,0,0,.375,0Z" transform="translate(5.25 9.563)" fill="#f6c909"/>
+    <path id="Path-6" data-name="Path" d="M.641.11a.375.375,0,1,0-.53.53L.773,1.3A.375.375,0,1,0,1.3.773Z" transform="translate(8.299 8.299)" fill="#f6c909"/>
+    <path id="Path-7" data-name="Path" d="M1.313,0H.375a.375.375,0,0,0,0,.75h.938a.375.375,0,0,0,0-.75Z" transform="translate(9.563 5.25)" fill="#f6c909"/>
+    <path id="Path-8" data-name="Path" d="M.375,1.413A.374.374,0,0,0,.64,1.3L1.3.64A.375.375,0,1,0,.773.11L.11.773a.375.375,0,0,0,.265.64Z" transform="translate(8.299 1.538)" fill="#f6c909"/>
+  </g>
+</svg>

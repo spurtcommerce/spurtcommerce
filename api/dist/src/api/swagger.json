@@ -1,0 +1,97 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample server.",
+    "version": "1.0.0",
+    "title": "Spurt",
+    "contact": {
+      "email": "viji@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "3.6.249.0",
+  "basePath": "/backend",
+  "tags": [
+    {
+      "name": "user",
+      "description": "User Master ..!"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "login user",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "username",
+            "description": "username of the user",
+            "required": true,
+            "type": "string"
+           
+          },
+          {
+            "in": "formData",
+            "name": "password",
+            "description": "password of the user",
+            "required": true,
+            "type": "string"
+           
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Wrong Login Information."
+          },
+          "200": {
+            "description": "Logged in successfully"
+          }
+        }
+      }
+    }, 
+   
+    "/api/auth/get-profile": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Get user profile",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "Successfully Get the Profile."
+          }
+        }
+      }
+    }
+  }
+}
+  
+  

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2257" data-name="Rectangle 2257" width="24" height="24" transform="translate(44 363)" fill="#fff" stroke="#359989" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_76" data-name="Mask Group 76" transform="translate(-44 -363)" clip-path="url(#clip-path)">
+    <g id="discount-circle-svgrepo-com" transform="translate(42.605 361.605)">
+      <path id="Path_5384" data-name="Path 5384" d="M13.4,24.558A11.163,11.163,0,1,0,2.233,13.4,11.163,11.163,0,0,0,13.4,24.558Z" fill="none" stroke="#359989" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.674"/>
+      <path id="Path_5385" data-name="Path 5385" d="M10.047,16.744l6.7-6.7" fill="none" stroke="rgba(53,153,137,0.4)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.674"/>
+      <path id="Path_5386" data-name="Path 5386" d="M16.18,16.186h.01" fill="none" stroke="rgba(53,153,137,0.4)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.233"/>
+      <path id="Path_5387" data-name="Path 5387" d="M10.6,10.6h.01" fill="none" stroke="rgba(53,153,137,0.4)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.233"/>
+    </g>
+  </g>
+</svg>

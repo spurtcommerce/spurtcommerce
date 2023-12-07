@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="13.294" viewBox="0 0 12 13.294">
+  <g id="Group_2965" data-name="Group 2965" transform="translate(-4254 -2799.351)">
+    <rect id="Rectangle_2394" data-name="Rectangle 2394" width="12" height="12" transform="translate(4254 2800)" fill="none"/>
+    <g id="Group_2964" data-name="Group 2964" transform="translate(-33 9)">
+      <g id="invoice_1_" data-name="invoice (1)" transform="translate(4287 2791)">
+        <g id="Group_2963" data-name="Group 2963">
+          <path id="Path_5599" data-name="Path 5599" d="M10.269.308a.5.5,0,0,0-.547.083l-.787.7a.056.056,0,0,1-.075,0L7.789.13a.51.51,0,0,0-.681,0l-1.07.957a.057.057,0,0,1-.076,0L4.892.13a.51.51,0,0,0-.681,0L3.14,1.088a.057.057,0,0,1-.075,0l-.788-.7A.507.507,0,0,0,1.434.77V11.226a.507.507,0,0,0,.845.382l.787-.7a.056.056,0,0,1,.075,0l1.071.958a.51.51,0,0,0,.681,0l1.07-.957a.057.057,0,0,1,.076,0l1.07.957a.51.51,0,0,0,.681,0l1.071-.958a.057.057,0,0,1,.075,0l.788.7a.507.507,0,0,0,.843-.382V.774a.5.5,0,0,0-.3-.466Z" fill="none" stroke="#fff" stroke-width="1.2"/>
+        </g>
+      </g>
+      <line id="Line_426" data-name="Line 426" x2="2.933" transform="translate(4290.567 2795.071)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.2"/>
+      <line id="Line_427" data-name="Line 427" x2="4.933" transform="translate(4290.567 2797.071)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.2"/>
+      <line id="Line_428" data-name="Line 428" x2="4.933" transform="translate(4290.567 2799.071)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.2"/>
+    </g>
+  </g>
+</svg>

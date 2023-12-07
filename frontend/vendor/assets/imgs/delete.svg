@@ -1,7 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18">
-    <g fill="#000" fill-rule="nonzero">
-        <path d="M9.296 6.188a.4.4 0 0 0-.4.4v7.56a.4.4 0 0 0 .8 0v-7.56a.4.4 0 0 0-.4-.4zM4.576 6.188a.4.4 0 0 0-.4.4v7.56a.4.4 0 0 0 .8 0v-7.56a.4.4 0 0 0-.4-.4z"/>
-        <path d="M1.136 5.085v9.855c0 .583.214 1.13.587 1.522a1.97 1.97 0 0 0 1.429.618h7.568a1.97 1.97 0 0 0 1.43-.618c.372-.392.586-.94.586-1.522V5.085a1.528 1.528 0 0 0-.392-3.005h-2.048v-.5A1.572 1.572 0 0 0 8.712 0H5.16a1.572 1.572 0 0 0-1.584 1.58v.5H1.528a1.528 1.528 0 0 0-.392 3.005zM10.72 16.28H3.152c-.684 0-1.216-.588-1.216-1.34V5.12h10v9.82c0 .753-.532 1.34-1.216 1.34zM4.376 1.58A.77.77 0 0 1 5.16.8h3.552a.77.77 0 0 1 .784.78v.5h-5.12v-.5zm-2.848 1.3h10.816a.72.72 0 1 1 0 1.44H1.528a.72.72 0 1 1 0-1.44z"/>
-        <path d="M6.936 6.188a.4.4 0 0 0-.4.4v7.56a.4.4 0 0 0 .8 0v-7.56a.4.4 0 0 0-.4-.4z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="13.2" viewBox="0 0 12 13.2">
+  <g id="Group_45" data-name="Group 45" transform="translate(-1233 -453.4)">
+    <rect id="Rectangle_115" data-name="Rectangle 115" width="12" height="12" transform="translate(1233 454)" fill="#fff"/>
+    <g id="Icon_feather-trash-2" data-name="Icon feather-trash-2" transform="translate(1229.1 451)">
+      <path id="Path_26" data-name="Path 26" d="M4.5,9H15.3" transform="translate(0 -3.6)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+      <path id="Path_27" data-name="Path 27" d="M15.9,5.4v8.4A1.2,1.2,0,0,1,14.7,15h-6a1.2,1.2,0,0,1-1.2-1.2V5.4m1.8,0V4.2A1.2,1.2,0,0,1,10.5,3h2.4a1.2,1.2,0,0,1,1.2,1.2V5.4" transform="translate(-1.8)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+      <path id="Path_28" data-name="Path 28" d="M15,16.5v3.6" transform="translate(-6.3 -8.1)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+      <path id="Path_29" data-name="Path 29" d="M21,16.5v3.6" transform="translate(-9.9 -8.1)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
     </g>
+  </g>
 </svg>

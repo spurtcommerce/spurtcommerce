@@ -1,12 +1,7 @@
-<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-        <filter color-interpolation-filters="auto" id="kerd18ygea">
-            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.370360 0 0 0 0 0.488232 0 0 0 0 0.565105 0 0 0 1.000000 0"/>
-        </filter>
-    </defs>
-    <g transform="translate(-947 -8)" filter="url(#kerd18ygea)" fill="none" fill-rule="evenodd">
-        <path d="M971 8h-24v24h24z"/>
-        <path d="M956.75 15.5v11.599a.75.75 0 0 1-.334.624l-1.03.687a.75.75 0 0 1-1.144-.442L953 23" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M953 23a3.75 3.75 0 0 1 0-7.5h3.75s5.105 0 10.017-4.12a.75.75 0 0 1 1.233.573v14.594a.75.75 0 0 1-1.233.573C961.855 23 956.75 23 956.75 23H953z" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Megaphone" transform="translate(24)">
+    <rect id="Rectangle" width="24" height="24" transform="translate(-24)" fill="none"/>
+    <path id="Path" d="M0,0V11.6a.75.75,0,0,1-.334.624l-1.031.687a.75.75,0,0,1-.686.076.75.75,0,0,1-.457-.518L-3.75,7.5" transform="translate(-14.25 7.5)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <path id="Path-2" data-name="Path" d="M-15,11.8a3.75,3.75,0,0,1-3.75-3.75A3.75,3.75,0,0,1-15,4.3h3.75A17.053,17.053,0,0,0-1.233.176.75.75,0,0,1-.434.07.75.75,0,0,1,0,.749V15.343a.75.75,0,0,1-.434.68.75.75,0,0,1-.8-.106A17.053,17.053,0,0,0-11.25,11.8Z" transform="translate(-3 3.204)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+  </g>
 </svg>

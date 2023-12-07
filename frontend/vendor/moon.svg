@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2384" data-name="Rectangle 2384" width="10" height="10" transform="translate(22.434 3.434)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2969" data-name="Group 2969" transform="translate(-1217 -22)">
+    <path id="Path_Copy" data-name="Path Copy" d="M8,16a8,8,0,1,1,8-8A8,8,0,0,1,8,16Z" transform="translate(1217 22)" fill="#1f1f23"/>
+    <g id="Mask_Group_117" data-name="Mask Group 117" transform="translate(1197.565 21.565)" clip-path="url(#clip-path)">
+      <g id="moon-svgrepo-com_1_" data-name="moon-svgrepo-com (1)" transform="translate(22.417 3.415)">
+        <path id="Union_3" data-name="Union 3" d="M3.34,9.718v0A5,5,0,0,1,5,0c.232,0,.27.348.071.468a3.25,3.25,0,1,0,4.463,4.46C9.653,4.73,10,4.769,10,5A5.006,5.006,0,0,1,3.34,9.718ZM3,8Z" transform="translate(0.018 0.019)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

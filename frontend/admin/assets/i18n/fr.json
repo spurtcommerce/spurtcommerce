@@ -1,28 +1,22 @@
 {
     "CommonFormAll": {
         "Doyouwanttodelete": "Voulez-vous supprimer ?",
-        "No":"Non",
-        "Yes":"Oui"
+        "No": "Non",
+        "Yes": "Oui"
     },
-
-    "Marketing":{
-        "ManagePromotions":"Gérer les promotions",
-        "Coupons":"Bons de réduction",
-        "ManageCrossSelling":"Gérer la vente croisée",
-        "RelatedProducts":"Produits connexes",
-        "ItemsNotFound":"Articles introuvables",
-        "AddCoupon":"Ajouter un coupon"
-
+    "Marketing": {
+        "ManagePromotions": "Gérer les promotions",
+        "Coupons": "Bons de réduction",
+        "ManageCrossSelling": "Gérer la vente croisée",
+        "RelatedProducts": "Produits connexes",
+        "ItemsNotFound": "Articles introuvables",
+        "AddCoupon": "Ajouter un coupon"
     },
-
-    "Pagination":{
-
-        "Common":{
-            "Previous":"PRÉCÉDENTE",
-            "Next":"SUIVANTE"
+    "Pagination": {
+        "Common": {
+            "Previous": "PRÉCÉDENTE",
+            "Next": "SUIVANTE"
         }
-        
-
     },
     "CMS": {
         "Pages": {
@@ -80,30 +74,29 @@
             "SelectStatus": "Sélectionnez le statut",
             "SelectActive": "Select Active",
             "SelectCategories": "Sélectionnez les catégories",
-            "ManageContent":"Gérer le contenu",
-            "ManageBanners":"Gérer les bannières",
-            "Banners":"Bannières",
-            "ManageSEO":"Gérer le référencement",
-            "BannerContent":"Contenu de la bannière",
-            "URLLink":"Lien URL",
-            "ManageBlogs":"Gérer les blogs",
-            "Custom":"Coutume",
-            "Product":"Produit",
-            "Category":"Catégorie",
-            "UploadImages":"Importer des images",
-            "AddBanner":"Ajouter une bannière",
-            "AddGroup":"Ajouter un groupe",
-            "ItemsNotFound":"Articles introuvables",
-            "Sequencetheparticularbanner":"Vous pouvez définir la position ou l'ordre dans lequel la bannière particulière apparaîtra sur la page d'accueil, dans le défilement automatique.",
-            "Pleasetypethevalidlink":"Veuillez saisir le lien valide",
-            "SupportFormat & below 2MB Files allowed":"Prise en charge du format (.png .jpg .jpeg) et des fichiers inférieurs à 2 Mo autorisés",
-            "AddImage":"Ajouter une image",
-            "Bannersadvertisementappearingparagraph":"Les bannières sont des publicités apparaissant sur une page Web sous la forme d'une barre, d'une colonne ou d'une boîte. Vous pouvez fournir un nom ou un titre pour la bannière qui va venir sur la page d'accueil.",
-            "Purposeofthebanner":"Vous pouvez fournir un contenu pour la bannière qui peut inclure l'objectif de la bannière, l'offre associée à la bannière et les produits sont les catégories auxquelles les bannières sont taguées.",
-            "TheeCommerceportal":"Vous pouvez fournir l'un des liens URL du portail de commerce électronique afin de diriger l'utilisateur vers une catégorie ou une page de produit particulière, à partir de la bannière de la page d'accueil..",
-            "Addmultipleages":"Vous pouvez fournir un nom pour le groupe sous lequel vous pouvez ajouter plusieurs tranches d'âge. Le nom du groupe doit convenir à toutes les pages qui relèvent de ce groupe. Par exemple, sous le groupe de pages - Politiques de l'utilisateur, vous pouvez ajouter des pages telles que les conditions d'utilisation, la politique de confidentialité, etc.",
-            "Thegroupnameactiveorinactive":"Vous pouvez choisir de garder le nom du groupe actif ou inactif - actif lorsque vous souhaitez l'afficher aux utilisateurs finaux dans la vitrine ou inactif, lorsque vous souhaitez le masquer aux utilisateurs. Vous pouvez toujours activer le nom de groupe inactivé."
-
+            "ManageContent": "Gérer le contenu",
+            "ManageBanners": "Gérer les bannières",
+            "Banners": "Bannières",
+            "ManageSEO": "Gérer le référencement",
+            "BannerContent": "Contenu de la bannière",
+            "URLLink": "Lien URL",
+            "ManageBlogs": "Gérer les blogs",
+            "Custom": "Coutume",
+            "Product": "Produit",
+            "Category": "Catégorie",
+            "UploadImages": "Importer des images",
+            "AddBanner": "Ajouter une bannière",
+            "AddGroup": "Ajouter un groupe",
+            "ItemsNotFound": "Articles introuvables",
+            "Sequencetheparticularbanner": "Vous pouvez définir la position ou l'ordre dans lequel la bannière particulière apparaîtra sur la page d'accueil, dans le défilement automatique.",
+            "Pleasetypethevalidlink": "Veuillez saisir le lien valide",
+            "SupportFormat & below 2MB Files allowed": "Prise en charge du format (.png .jpg .jpeg) et des fichiers inférieurs à 2 Mo autorisés",
+            "AddImage": "Ajouter une image",
+            "Bannersadvertisementappearingparagraph": "Les bannières sont des publicités apparaissant sur une page Web sous la forme d'une barre, d'une colonne ou d'une boîte. Vous pouvez fournir un nom ou un titre pour la bannière qui va venir sur la page d'accueil.",
+            "Purposeofthebanner": "Vous pouvez fournir un contenu pour la bannière qui peut inclure l'objectif de la bannière, l'offre associée à la bannière et les produits sont les catégories auxquelles les bannières sont taguées.",
+            "TheeCommerceportal": "Vous pouvez fournir l'un des liens URL du portail de commerce électronique afin de diriger l'utilisateur vers une catégorie ou une page de produit particulière, à partir de la bannière de la page d'accueil..",
+            "Addmultipleages": "Vous pouvez fournir un nom pour le groupe sous lequel vous pouvez ajouter plusieurs tranches d'âge. Le nom du groupe doit convenir à toutes les pages qui relèvent de ce groupe. Par exemple, sous le groupe de pages - Politiques de l'utilisateur, vous pouvez ajouter des pages telles que les conditions d'utilisation, la politique de confidentialité, etc.",
+            "Thegroupnameactiveorinactive": "Vous pouvez choisir de garder le nom du groupe actif ou inactif - actif lorsque vous souhaitez l'afficher aux utilisateurs finaux dans la vitrine ou inactif, lorsque vous souhaitez le masquer aux utilisateurs. Vous pouvez toujours activer le nom de groupe inactivé."
         },
         "Blog": {
             "Blogs": "Blogues",
@@ -206,11 +199,8 @@
         },
         "JobError": {
             "JobTitleIsRequired": "Le titre du poste est requis",
-
             "JobContentIsRequired": "La description du poste est requise",
-
             "JobStatusIsRequired": "La description du poste est requise",
-
             "JobEmailIsRequired": "L'e-mail est requis",
             "JobEmailIsValidRequired": "L'e-mail doit être valide",
             "JobMobileIsRequired": "Le numéro de portable est requis",
@@ -234,8 +224,8 @@
             "TotalSales": "Ventes totales",
             "MetaTagTitleMaxlength70": "Doit contenir au maximum 70 caractères",
             "Mustbe160": "Doit contenir au maximum 160 caractères",
-            "ProductLinkisrequired":"Le lien du produit est requis",
-            "CategoryLinkisrequired":"Le lien de catégorie est requis"
+            "ProductLinkisrequired": "Le lien du produit est requis",
+            "CategoryLinkisrequired": "Le lien de catégorie est requis"
         },
         "Placeholder": {
             "PageTitle": "Titre de la page",
@@ -261,9 +251,9 @@
             "Cancel": "Annuler",
             "BannerTitle": "Titre de la bannière",
             "UploadPic": "Charger une photo",
-            "TotalBanners":"Nombre total de bannières",
-            "ActiveBanners":"Bannières actives",
-            "In-ActiveBanners":"Bannières inactives"
+            "TotalBanners": "Nombre total de bannières",
+            "ActiveBanners": "Bannières actives",
+            "In-ActiveBanners": "Bannières inactives"
         },
         "BannerPlaceholder": {
             "BannerContent": "Contenu de la bannière",
@@ -284,7 +274,6 @@
             "ImageShouldBeLessThan2MB": "Image should be less than 2MB",
             "PleaseUploadImagesOnly(.png,.jpg,.jpeg)": "Please upload image only(.png,.jpg,.jpeg)"
         },
-
         "Widgets": {
             "Widgets": "widget",
             "WidgetsTitle": "Titre du Widget",
@@ -305,16 +294,15 @@
             "SearchProducts": "Recherche de produits",
             "itemsselected": "éléments sélectionnés",
             "SearchSelectedProducts": "Rechercher des produits sélectionnés"
-
         },
-        "Promotions":{
+        "Promotions": {
             "promotions": "Promotions",
-            "totalWidgets":"Promotions totales",
-            "activeWidgets":"Promotions actives",
-            "inactiveWidgets":"Promotions inactives",
+            "totalWidgets": "Promotions totales",
+            "activeWidgets": "Promotions actives",
+            "inactiveWidgets": "Promotions inactives",
             "AddWidget": "Ajouter des promotions",
-            "WidgetsTitle":"Titre des promotions",
-            "WidgetContent":"Contenu des promotions"
+            "WidgetsTitle": "Titre des promotions",
+            "WidgetContent": "Contenu des promotions"
         },
         "PageGroup": {
             "GroupName": "Nom de groupe",
@@ -324,50 +312,44 @@
             "activePages": "Groupe total de pages actives",
             "inactivePages": "Groupe total de pages inactives",
             "totalPages": "Groupe de pages totales"
-
-
         },
-        "ManageContent":{
-            "Pages":"Pages",
-            "Page Group":"Groupe de pages",
-            "PromotionWidget":"Widget promotionnel",
-            "QuestionandAnswer":"Question et réponse",
-            "RatingsandReview":"Évaluations et avis"
+        "ManageContent": {
+            "Pages": "Pages",
+            "Page Group": "Groupe de pages",
+            "PromotionWidget": "Widget promotionnel",
+            "QuestionandAnswer": "Question et réponse",
+            "RatingsandReview": "Évaluations et avis"
         },
-        "ManageSEO":{
-            "Product":"Produit",
-            "Category":"Catégorie",
-            "Pages":"Pages",
-            "Blog":"Blog",
-            "SiteMap":"Plan du site"
+        "ManageSEO": {
+            "Product": "Produit",
+            "Category": "Catégorie",
+            "Pages": "Pages",
+            "Blog": "Blog",
+            "SiteMap": "Plan du site"
         },
-        "ManageBlogs":{
-            "Blogs":"Blogues",
-            "BlogCategory":"Catégorie de blogue"
+        "ManageBlogs": {
+            "Blogs": "Blogues",
+            "BlogCategory": "Catégorie de blogue"
         }
-        
-        
-
     },
     "Sales": {
         "nav": {
-
-            "ManageOrders":"Gérer les commandes",
-            "Orders":"Orders",
+            "CouponDiscount":"Bon de réduction",
+            "ManageOrders": "Gérer les commandes",
+            "Orders": "Orders",
             "BackOrders": "Commandes en attente",
             "FailedOrders": "Commandes échouées",
-            "Abandoned":"Abandonnée",
+            "Abandoned": "Abandonnée",
             "Payments": "Paiements",
             "ArchivePayments": "Archiver les paiements",
             "Inventory": "Inventaire",
             "varInventory": "Inventaire varié",
             "CancelRequests": "Annuler des demandes",
             "QuotationRequests": "Demandes de devis",
-            "StockUpdate":"Mise à jour des stocks",
-            "Variantstockupdate":"Mise à jour du stock de variantes",
-            "ManageAccounts":"Gérer les comptes",
-            "ManageInventory":"Gérer l'inventaire"
-
+            "StockUpdate": "Mise à jour des stocks",
+            "Variantstockupdate": "Mise à jour du stock de variantes",
+            "ManageAccounts": "Gérer les comptes",
+            "ManageInventory": "Gérer l'inventaire"
         },
         "Orders": {
             "Orders": "Orders",
@@ -402,6 +384,11 @@
             "Shipping": "Expédition",
             "Invoices": "Facturess",
             "Active": "Active",
+            "OutofStockThreshold": "Seuil de rupture de stock",
+            "Notifywhenquantityisbelow": "Avertir lorsque la quantité est inférieure",
+            "MinQuantityallowedincart": "Quantité minimale autorisée dans le panier",
+            "MaxQuantityallowedincart": "Quantité maximale autorisée dans le panier",
+            "Enablebackorders": "Activer les commandes en souffrance",
             "In-Active": "Inactif",
             "TotalOrder": "Commandes totales",
             "TodayOrder": "Les commandes du jour",
@@ -484,9 +471,9 @@
             "Min Quantity allowed in cart": "Quantité minimale autorisée dans le panier",
             "Max Quantity allowed in cart": "Quantité maximale autorisée dans le panier",
             "Enable back orders": "Activer les commandes en attente",
-            "SellingPrice+Shipping":"Prix ​​de vente + expédition",
+            "SellingPrice+Shipping": "Prix ​​de vente + expédition",
             "TierPrice": "Prix ​​de palier",
-            "LastUpdated":"Dernière mise à jour",
+            "LastUpdated": "Dernière mise à jour",
             "Pleaseselectpaymentmethod": "Veuillez sélectionner le mode de paiement",
             "PaymentRefId": "ID de référence de paiement",
             "Paymentrefidisrequired": "L'identifiant de paiement est requis",
@@ -508,59 +495,51 @@
             "QTY": "QTÉ",
             "ChangeorderStatus": "Modifier le statut de la commande",
             "URL": "URL",
-            "DeliveryLocation":"Lieu de livraison",
-            
-            "ManageStock":"Gérer les stocks",
-            "ItemNotFound":"Objet non-trouvé",
-            "PaymentFrom":"Paiement de",
-            "PaymentTo":"Paiement à"
-           
-            
-
+            "DeliveryLocation": "Lieu de livraison",
+            "ManageStock": "Gérer les stocks",
+            "ItemNotFound": "Objet non-trouvé",
+            "PaymentFrom": "Paiement de",
+            "PaymentTo": "Paiement à"
         },
         "SalesPlaceholder": {
             "TotalAmount": "Montant total",
             "SKUNumber": "Nom du client",
             "OrderId": "Numéro de commande"
         },
-        "Abandoned":{
-            "Keyword":"Mot-clé",
-            "Filters":"Filters",
+        "Abandoned": {
+            "Keyword": "Mot-clé",
+            "Filters": "Filters",
             "ApplyFilters": "Appliquer des filtres",
             "Reset": "Réinitialiser",
-            "LiveCart":"Chariots en direct",
-            "AbandonedCarts":"Chariots abandonnés",
-            "CustomerName":"Nom du client",
-            "EmailAddress":"Adresse e-mail",
-            "Product":"Produit",
-            "CartSubtotal":"Sous-total du panier",
-            "IpAdderss":"Adresse IP",
-            "LastUpdated":"Dernière mise à jour",
-            "ProductName":"Nom du produit",
-            "Quantity":"Quantité",
-            "Price":"Prix",
-            "Subtotal":"Total",
-            "ClearCart":"Vider le panier",
-            "SendMail":"Envoyer un mail",
-            "Comments/Messagetocustomer":"Commentaires / Message au client",
-            "Export":"Exporter",
-            "Delete":"Supprimer"
-
-
-
-
+            "LiveCart": "Chariots en direct",
+            "AbandonedCarts": "Chariots abandonnés",
+            "CustomerName": "Nom du client",
+            "EmailAddress": "Adresse e-mail",
+            "Product": "Produit",
+            "CartSubtotal": "Sous-total du panier",
+            "IpAdderss": "Adresse IP",
+            "LastUpdated": "Dernière mise à jour",
+            "ProductName": "Nom du produit",
+            "Quantity": "Quantité",
+            "Price": "Prix",
+            "Subtotal": "Total",
+            "ClearCart": "Vider le panier",
+            "SendMail": "Envoyer un mail",
+            "Comments/Messagetocustomer": "Commentaires / Message au client",
+            "Export": "Exporter",
+            "Delete": "Supprimer"
         }
     },
     "Customers": {
         "RecentActivity": "Activité récente",
         "Groups": "Groupes",
         "Customer": {
-            "ManageCustomers":"Gérer les clients",
+            "ManageCustomers": "Gérer les clients",
             "Customer": "Cliente",
-            "CustomerGroup":"Groupe de clients",
+            "CustomerGroup": "Groupe de clients",
             "Customers": "Clientes",
             "AddCustomer": "Ajouter un client",
-            "Addcustomers":"Ajouter des clients",
+            "Addcustomers": "Ajouter des clients",
             "Delete": "Supprimer",
             "Export": "Exporter",
             "Import": "Importer",
@@ -587,7 +566,7 @@
             "AddressType": "Type d'adresse",
             "CustomerName": "Nom du client",
             "Email": "E-mail",
-            "Back":"Dos",
+            "Back": "Dos",
             "Telephone": "Téléphone",
             "MoreInformation": "Plus d'information",
             "General": "Générale",
@@ -624,13 +603,12 @@
             "SelectCustomerGroup": "SSélectionnez le groupe de clients",
             "ColorCode": "Code couleur",
             "PostalCode": "Code Postal",
-            "Itemsnotfound":"Articles introuvables",
-            "CountryisRequired":"Le pays est obligatoire",
-            "StateisRequired":"L'état est obligatoire",
-            "Home":"Maison",
-            "Work":"Travail",
-            "AreyouSureyouwanttodeletethisaddress":"Êtes-vous sûr de vouloir supprimer cette adresse"
-            
+            "Itemsnotfound": "Articles introuvables",
+            "CountryisRequired": "Le pays est obligatoire",
+            "StateisRequired": "L'état est obligatoire",
+            "Home": "Maison",
+            "Work": "Travail",
+            "AreyouSureyouwanttodeletethisaddress": "Êtes-vous sûr de vouloir supprimer cette adresse"
         },
         "Error": {
             "AddressLine1IsRequired": "L'adresse 1 est obligatoire",
@@ -668,10 +646,9 @@
             "MustBe128CharacterLong": "Doit contenir au maximum 128 caractères",
             "MustBeAlbhapets": "Doit être des alphabets",
             "MustBe6CharacterLong": "Doit contenir au maximum 6 caractères",
-            "PAGENOTFOUND":"PAGE NON TROUVÉE !",
-            "YOUSEEMTOBETRYINGTOFINDHISWAYHOME":"VOUS SEMBLEZ ESSAYER DE RETROUVER SON CHEMIN",
-            "Backtohome":"De retour à la maison"
-
+            "PAGENOTFOUND": "PAGE NON TROUVÉE !",
+            "YOUSEEMTOBETRYINGTOFINDHISWAYHOME": "VOUS SEMBLEZ ESSAYER DE RETROUVER SON CHEMIN",
+            "Backtohome": "De retour à la maison"
         },
         "CustomerPlaceholder": {
             "CustomerGroup": "Défaut",
@@ -696,41 +673,37 @@
             "ColorCode": "Code couleur",
             "IsActive": "C'est actif"
         }
-       
     },
     "Settings": {
-        "paragraph":{
-
-            "AdminProfile":"Cette section contiendra le nom d'utilisateur de l'administrateur, l'identifiant de messagerie de l'administrateur, le numéro de téléphone de l'administrateur et l'adresse de l'administrateur. Il est recommandé que cette section contienne des informations correctes et soit mise à jour au plus tard, en particulier le numéro de téléphone et l'identifiant de messagerie de l'administrateur, car il peut changer de temps à autre. Ces modifications doivent être mises à jour immédiatement et enregistrées.",
-            "Localizationadaptation":"La localisation est l'adaptation de l'activité de commerce électronique à un certain pays et à une certaine zone et la configuration de la devise locale, des lieux de livraison et des taxes applicables à l'entreprise.",
-            "createandmaintainthemasterlist":"Dans cette section, l'administrateur peut créer et gérer la liste principale des différents statuts de commande - par exemple, commande confirmée, en cours de livraison, etc..",
-            "admincanaddvarioustaxes":"Dans cette section, l'administrateur peut ajouter diverses taxes qui seront applicables sur divers produits qui seront vendus sur le portail eCommerce. Celui-ci sera disponible à la sélection pour indiquer la taxe applicable sur le prix du produit, tout en répertoriant le produit.",
-            "Masterlistofcountries":"Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quelle zone de cette liste qui sera disponible dans les paramètres généraux pour configurer la zone à laquelle appartient l'entreprise de commerce électronique.",
-            "Admincanconfigurethepermissions":"Dans cette section, l'administrateur peut configurer les autorisations pour le changement de statut de la commande par l'administrateur, le fournisseur et l'acheteur. Par exemple, l'administrateur aura le droit de modifier n'importe quel statut de commande, allant de la commande acceptée à la commande livrée. Le fournisseur peut ne pas avoir l'autorisation de confirmer une commande, mais peut avoir l'autorisation de changer le statut de la commande en prêt pour l'expédition et expédié. Les clients peuvent avoir l'autorisation d'annuler une commande et de demander un retour.",
-            "Aprovisionforadding":"Une disposition pour ajouter un nouveau statut dans la liste principale a été prévue. Par exemple, prêt pour le ramassage à l'entrepôt. Créer une",
-            "Aprovisionforaddingaddinganewstatus":"Une disposition pour ajouter un nouveau statut dans la liste principale a été prévue. Par exemple, prêt pour le ramassage à l'entrepôt. Créer une",
-            "OrdercancelledCreateone":"Une disposition pour ajouter un nouveau statut dans la liste principale a été prévue. Par exemple, prêt pour le ramassage à l'entrepôt. Créer une",
-            "OrderonholdCreateone":"Une disposition pour ajouter un nouveau statut dans la liste principale, lorsque la commande est en attente. Par exemple, Commande en attente. Créer une",
-            "returnreceivedCreate":"Une disposition permettant d'ajouter un nouveau statut dans la liste principale, après l'ordre de retour arrive. Par exemple, retour reçu. Créer",
-            "DeliveredCreateone":"Une disposition pour ajouter un nouveau statut dans la liste principale, après la livraison. Par exemple, Livré. Créer une",
-            "Inquopertineant":"In quo pertinent non fuisse torquem detraxit hosti et quidem exercitus quid ex eo delectu rerum, quem ad eam non ero tibique, si mihi probabis ea, quae sine causa ? quae fuerit causa, nollem me ab eo delectu rerum, quem.",
-            "Forsendingnotifications":"Dans cette section, le peut gérer et maintenir le sujet et le contenu des modèles d'e-mail qui seront utilisés pour envoyer des notifications au fournisseur, aux clients et à l'administrateur eux-mêmes, dans différentes instances.",
-            "Displayoftheproductlistandorderlist":"L'administrateur peut configurer l'affichage de la liste des produits et de la liste des commandes dans cette section. L'administrateur peut le configurer à sa convenance et décider du nombre de produits ou de commandes à afficher dans la page de la liste principale des produits et la page de la liste principale des commandes..",
-            "Admincanconfigurethenumberoforders":"L'administrateur peut configurer le nombre de commandes par page dans cette section Ce qui est requis ici?",
-            "Commonprefixforalltheordernumbers":"L'administrateur peut fournir ici le préfixe de facture qui suivra le numéro de commande. Ce sera le préfixe commun pour tous les numéros de commande. L'administrateur peut également configurer le statut de la commande par défaut une fois qu'elle est passée par le client.",
-            "Numberofproductsperpage":"L'administrateur peut configurer le nombre de produits par page dans cette section",
-            "Productsineachcategoryalso":"L'administrateur peut configurer le nombre par défaut pour l'affichage des articles par page et cela peut également être basé sur le nombre ou les produits dans chaque catégorie.",
-            "Facebookpagelink":"Dans cette section, l'administrateur peut fournir des liens de page de médias sociaux du portail de commerce électronique - lien de page Facebook, lien de page Twitter et lien de page Instagram.",
-            "AdaptationoftheeCommercebusiness":"AddOns est l'adaptation de l'activité de commerce électronique à une certaine passerelle de paiement",
-            "Admincancreateandmaintain":"Dans cette section, l'administrateur peut créer et maintenir une liste principale des différents aspects qui seront nécessaires pour une approche améliorée de la liste des produits, offrant une bonne expérience d'achat aux clients et également pour rendre l'ensemble du portail de commerce électronique convivial pour le référencement..",
-            "SEOfriendlywithmetatags":"Il s'agit de la section dédiée à rendre l'ensemble du site convivial pour le référencement avec des balises méta. Ici, l'administrateur peut fournir le titre, la description et les mots-clés qui amèneront le portail de commerce électronique en tête du classement des moteurs de recherche..",
-            "Setupthecountry":"Dans cette section, l'administrateur peut configurer le pays, l'origine ou la région, la langue et la devise de l'entreprise, en fonction de l'emplacement où elle se trouve.."
-
-
+        "paragraph": {
+            "AdminProfile": "Cette section contiendra le nom d'utilisateur de l'administrateur, l'identifiant de messagerie de l'administrateur, le numéro de téléphone de l'administrateur et l'adresse de l'administrateur. Il est recommandé que cette section contienne des informations correctes et soit mise à jour au plus tard, en particulier le numéro de téléphone et l'identifiant de messagerie de l'administrateur, car il peut changer de temps à autre. Ces modifications doivent être mises à jour immédiatement et enregistrées.",
+            "Localizationadaptation": "La localisation est l'adaptation de l'activité de commerce électronique à un certain pays et à une certaine zone et la configuration de la devise locale, des lieux de livraison et des taxes applicables à l'entreprise.",
+            "createandmaintainthemasterlist": "Dans cette section, l'administrateur peut créer et gérer la liste principale des différents statuts de commande - par exemple, commande confirmée, en cours de livraison, etc..",
+            "admincanaddvarioustaxes": "Dans cette section, l'administrateur peut ajouter diverses taxes qui seront applicables sur divers produits qui seront vendus sur le portail eCommerce. Celui-ci sera disponible à la sélection pour indiquer la taxe applicable sur le prix du produit, tout en répertoriant le produit.",
+            "Masterlistofcountries": "Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quelle zone de cette liste qui sera disponible dans les paramètres généraux pour configurer la zone à laquelle appartient l'entreprise de commerce électronique.",
+            "Admincanconfigurethepermissions": "Dans cette section, l'administrateur peut configurer les autorisations pour le changement de statut de la commande par l'administrateur, le fournisseur et l'acheteur. Par exemple, l'administrateur aura le droit de modifier n'importe quel statut de commande, allant de la commande acceptée à la commande livrée. Le fournisseur peut ne pas avoir l'autorisation de confirmer une commande, mais peut avoir l'autorisation de changer le statut de la commande en prêt pour l'expédition et expédié. Les clients peuvent avoir l'autorisation d'annuler une commande et de demander un retour.",
+            "Aprovisionforadding": "Une disposition pour ajouter un nouveau statut dans la liste principale a été prévue. Par exemple, prêt pour le ramassage à l'entrepôt. Créer une",
+            "Aprovisionforaddingaddinganewstatus": "Une disposition pour ajouter un nouveau statut dans la liste principale a été prévue. Par exemple, prêt pour le ramassage à l'entrepôt. Créer une",
+            "OrdercancelledCreateone": "Une disposition pour ajouter un nouveau statut dans la liste principale a été prévue. Par exemple, prêt pour le ramassage à l'entrepôt. Créer une",
+            "OrderonholdCreateone": "Une disposition pour ajouter un nouveau statut dans la liste principale, lorsque la commande est en attente. Par exemple, Commande en attente. Créer une",
+            "returnreceivedCreate": "Une disposition permettant d'ajouter un nouveau statut dans la liste principale, après l'ordre de retour arrive. Par exemple, retour reçu. Créer",
+            "DeliveredCreateone": "Une disposition pour ajouter un nouveau statut dans la liste principale, après la livraison. Par exemple, Livré. Créer une",
+            "Inquopertineant": "In quo pertinent non fuisse torquem detraxit hosti et quidem exercitus quid ex eo delectu rerum, quem ad eam non ero tibique, si mihi probabis ea, quae sine causa ? quae fuerit causa, nollem me ab eo delectu rerum, quem.",
+            "Forsendingnotifications": "Dans cette section, le peut gérer et maintenir le sujet et le contenu des modèles d'e-mail qui seront utilisés pour envoyer des notifications au fournisseur, aux clients et à l'administrateur eux-mêmes, dans différentes instances.",
+            "Displayoftheproductlistandorderlist": "L'administrateur peut configurer l'affichage de la liste des produits et de la liste des commandes dans cette section. L'administrateur peut le configurer à sa convenance et décider du nombre de produits ou de commandes à afficher dans la page de la liste principale des produits et la page de la liste principale des commandes..",
+            "Admincanconfigurethenumberoforders": "L'administrateur peut configurer le nombre de commandes par page dans cette section Ce qui est requis ici?",
+            "Commonprefixforalltheordernumbers": "L'administrateur peut fournir ici le préfixe de facture qui suivra le numéro de commande. Ce sera le préfixe commun pour tous les numéros de commande. L'administrateur peut également configurer le statut de la commande par défaut une fois qu'elle est passée par le client.",
+            "Numberofproductsperpage": "L'administrateur peut configurer le nombre de produits par page dans cette section",
+            "Productsineachcategoryalso": "L'administrateur peut configurer le nombre par défaut pour l'affichage des articles par page et cela peut également être basé sur le nombre ou les produits dans chaque catégorie.",
+            "Facebookpagelink": "Dans cette section, l'administrateur peut fournir des liens de page de médias sociaux du portail de commerce électronique - lien de page Facebook, lien de page Twitter et lien de page Instagram.",
+            "AdaptationoftheeCommercebusiness": "AddOns est l'adaptation de l'activité de commerce électronique à une certaine passerelle de paiement",
+            "Admincancreateandmaintain": "Dans cette section, l'administrateur peut créer et maintenir une liste principale des différents aspects qui seront nécessaires pour une approche améliorée de la liste des produits, offrant une bonne expérience d'achat aux clients et également pour rendre l'ensemble du portail de commerce électronique convivial pour le référencement..",
+            "SEOfriendlywithmetatags": "Il s'agit de la section dédiée à rendre l'ensemble du site convivial pour le référencement avec des balises méta. Ici, l'administrateur peut fournir le titre, la description et les mots-clés qui amèneront le portail de commerce électronique en tête du classement des moteurs de recherche..",
+            "Setupthecountry": "Dans cette section, l'administrateur peut configurer le pays, l'origine ou la région, la langue et la devise de l'entreprise, en fonction de l'emplacement où elle se trouve.."
         },
-
         "nav": {
-            "Note:":"Note:",
+            "CouponDiscount": "Bon de réduction",
+            "Note:": "Note:",
             "settings": "Paramètres",
             "User": "Utilisatrice",
             "Role": "Rôle",
@@ -760,113 +733,97 @@
             "Accessandpermission": "Accès et autorisation",
             "Data": "Données",
             "SiteSettings": "Paramètres du site",
-            "Country":"Pays",
-            "Language":"Langue",
-            "Currency":"Monnaie",
-            "Note":"Note",
-            "OrderFullfilmentStatus":"Statut d'exécution de la commande",
-            "Status":"Statut",
-            "Admin":"Administratrice",
-            "Vendor":"Fournisseuse",
-            "Buyer":"Acheteuse",
-            "API":"API",
-            "Newstatus":"Nouveau statut",
-            "ParticipantOrder ReturnStatus":"État de retour de la commande du participant",
-            "Chooseanyone":"Choisissez n'importe lequel",
-            "personalize":"personnaliser",
-            "SocialMediaKeys":"Clés des médias sociaux",
-            "Site-Map":"Plan du site",
-            "GenerateSiteMap":"Générer un plan du site",
-            "Sitesettings":"Paramètres du site",
-            "SettingOrder":"Dans cette section, l'administrateur peut créer et gérer différents rôles et autorisations d'administrateur. Ensuite, des autorisations peuvent être attribuées pour les rôles de ceux-ci. En fonction de l'autorisation attribuée, différents rôles peuvent accéder aux modules pour lesquels ils ont l'autorisation. Ensuite, l'administrateur peut créer des utilisateurs et attribuer l'utilisateur à un rôle et l'utilisateur n'aura que les autorisations qui seront attribuées à ce rôle",
-            "PermissionStatus":"Statut d'autorisation",
-            "Cancel":"Annuler",
-            "Save":"Sauvegarder",
-            "specialcharacternotallowed":"caractère spécial non autorisé",
-            "SuperAdmin":"Le super administrateur peut ajouter ici différents rôles et attribuer des autorisations aux rôles. En définissant les autorisations, le super administrateur donnera soit le privilège au rôle d'accéder à certains modules et en même temps empêchera l'utilisateur d'accéder à certains autres modules.",
-            "Superadmin":"Le super administrateur peut ajouter différents utilisateurs et affecter les utilisateurs à un rôle particulier. Les utilisateurs pourront accéder uniquement aux modules auxquels ils sont autorisés à accéder.",
-            "UpdateSettings":"Mettre à jour les paramètres",
-            "Submit":"Soumettre",
-            "AddOns":"Modules complémentaires",
-            "Add-ON":"Module complémentaireL'administrateur peut choisir de configurer l'un de ces modules complémentaires disponibles. est une extension pour le script de base ou un logiciel qui peut être ajouté pour avoir des fonctionnalités supplémentaires pour votre portail de commerce électronique.",
-            "Name":"Nom",
-            "AdminHeader":"L'administrateur peut choisir de configurer l'un de ces modules complémentaires disponibles.",
-             "Action":"Action",
-             "Active":"Active",
-             "In-Active":"Inactif",
-             "Configure":"Configurer",
-             "Adminheader":"Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quel pays dans cette liste qui sera disponible dans les paramètres généraux pour configurer le pays auquel appartient l'entreprise de commerce électronique..",
-             "SelectAll":"Tout sélectionner",
-             "AddonAdaptation":"AddOns est l'adaptation de l'activité de commerce électronique à une certaine passerelle de paiement.",
-             "Permission":"Autorisation",
-             "AdminNote":"L'administrateur peut choisir de configurer l'un de ces modules complémentaires disponibles.",
-             "Module":"Module",
-             "Generalsetting":"Les paramètres généraux sont l'endroit où les paramètres critiques de commerce électronique sont configurés pour démarrer avec le portail de commerce électronique",
-             "BasicGeneralInformation":"Dans cette section, l'administrateur peut fournir le nom de l'entreprise, les détails du propriétaire, l'e-mail de contact et le numéro de téléphone, ainsi que l'adresse physique de l'entreprise..",
-             "Website":"URL du site de l'entreprise",
-             "GeneralSiteSettings":"Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quel pays dans cette liste qui sera disponible dans les paramètres généraux pour configurer le pays auquel appartient l'entreprise de commerce électronique..",
-             "Maximum30characters":"Maximum30caractères",
-             "Maximum3characters":"Maximum3caractères",
-             "NotesInformation":"Dans cette section, l'administrateur peut gérer la liste principale des devises et l'administrateur peut choisir n'importe quelle devise de cette liste qui sera disponible dans les paramètres généraux pour configurer la devise dans laquelle le prix des produits sera affiché dans le portail de commerce électronique..",
-             "AdminLanguage":"L'administrateur peut ajouter différentes langues ici, pour que les clients internationaux choisissent la langue de préférence dans la vitrine.",
-             "SettingsHome":"Paramètres Accueil",
-             "Changesettings":"Modifier les paramètres",
-             "SettingOrders":"Définition des commandes",
-             "Settings":"Paramètres",
-             "LocalizationAdaptation":"La localisation est l'adaptation de l'activité de commerce électronique à un certain pays et à une certaine zone et la configuration du local...",
-             "AdminSection":"Dans cette section, l'administrateur peut créer et gérer différents rôles et autorisations d'administrateur.",
-             "Adminsheader":"À partir de cette section, l'administrateur peut avoir des configurations au niveau du système telles que la commutation sur l'ensemble...",
-             "AdminConfigure":"L'administrateur peut configurer l'affichage de la liste des produits et de la liste des commandes dans cette section.",
-            "Adminsection":"Dans cette section, l'administrateur peut créer et maintenir une liste principale des différents aspects qui seront requis pour un..",
-            "OrderFull-FillmentStatus":"Statut d'exécution complète de la commande",
-            "Adminrequire":"Dans cette section, l'administrateur peut créer et maintenir une liste principale des différents aspects qui seront requis pour un...",
-            "Add-Ons":"Modules complémentaires",
-            "AdminCreate":"Dans cette section, l'administrateur peut créer et maintenir un plugin.",
-            "SettingAdmin":"Dans cette section, l'administrateur aura la trace de toutes les activités d'administration - quand un utilisateur administrateur particulier a accédé, à quel module il a accédé et a apporté des modifications au module, ainsi que la date et l'heure. Une option de sélection de dates est fournie pour supprimer les journaux entre une certaine période.",
-            "LogFrom":"Se connecter depuis",
-            "PleaseChooseAtleastonedate":"Veuillez choisir au moins une date",
-            "LogTo":"Se connecter à",
-            "AdminSMTP":"Ici, l'administrateur peut configurer le SMTP pour envoyer des notifications par e-mail aux fournisseurs et aux clients. Le développement de cette section est en cours et sera bientôt disponible.",
-            "ComingSoon":"À venir",
-            "adminConfigure":"Ici, l'administrateur peut configurer le SMS pour envoyer des notifications par SMS aux fournisseurs et aux clients. Le développement de cette section est en cours et sera bientôt disponible.",
-            "SystemSection":"Dans cette section, l'administrateur peut configurer les aspects qui sont globaux et s'appliquent à l'ensemble du portail. Par exemple, définir le portail en mode maintenance, configurer les identifiants de messagerie, SMTP et SMS.",
-            "Maintenance":"Entretien",
-            "AuditLog":"Journal d'audit",
-            "DataImport":"Importation de données",
-            "DataExport":"Exportation de données",
-            "SettingEnabling":"En activant cela, l'administrateur empêchera les utilisateurs finaux/clients de faire tout type d'activité - parcourir et rechercher des produits ou effectuer un achat en ligne, sur le portail de commerce électronique. L'administrateur peut utiliser cette option chaque fois qu'il a besoin de mettre à jour ou d'améliorer le portail de commerce électronique. De cette façon, ils en informeront les clients et leur demanderont leur patience pendant qu'ils mettent à jour ou améliorent le portail de commerce électronique..",
-            "SettingEntermaintenance":"Souhaitez-vous activer le mode maintenance pour votre portail eCommerce ? N'oubliez pas que vos clients ne pourront effectuer aucune activité sur le portail eCommerce lorsque le mode maintenance sera activé.",
-            "WhatPaymentdetailsarerequired?":"Quels détails de paiement sont requis?",
-            "SettingPayment":"Quid ex eo ortum, tam inportuno tamque crudeli; sin, ut de commodis suis. Tum dicere exorsus est consecutus? laudem et ultimum bonorum, quod maxime consuevit iactare. Alii autem, quibus ego cum soluta nobis est consecutus? laudem et aut petat.In oculis quidem faciunt, ut dolore suo sanciret militaris imperii disciplinam exercitumque in.",
-            "PaymentDetails":"Détails de paiement",
-            
-                    
-            "AdminDescription":"Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quel pays dans cette liste qui sera disponible dans les paramètres généraux pour configurer le pays auquel appartient l'entreprise de commerce électronique..",
-            "Users":"Utilisatrices",
-            "Admincountry":"Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quel pays dans cette liste qui sera disponible dans les paramètres généraux pour configurer le pays auquel appartient l'entreprise de commerce électronique..",
-            "Order-fullfillmentstatus":"État d'exécution de la commande",
-            "SEO":"référencement"
-    
-           
-            
-
-    
-    
-
-            
-
-
-
-            
-            
-            
+            "Country": "Pays",
+            "Language": "Langue",
+            "Currency": "Monnaie",
+            "Note": "Note",
+            "OrderFullfilmentStatus": "Statut d'exécution de la commande",
+            "Status": "Statut",
+            "Admin": "Administratrice",
+            "Vendor": "Fournisseuse",
+            "Buyer": "Acheteuse",
+            "API": "API",
+            "Newstatus": "Nouveau statut",
+            "ParticipantOrder ReturnStatus": "État de retour de la commande du participant",
+            "Chooseanyone": "Choisissez n'importe lequel",
+            "personalize": "personnaliser",
+            "SocialMediaKeys": "Clés des médias sociaux",
+            "Site-Map": "Plan du site",
+            "GenerateSiteMap": "Générer un plan du site",
+            "Sitesettings": "Paramètres du site",
+            "SettingOrder": "Dans cette section, l'administrateur peut créer et gérer différents rôles et autorisations d'administrateur. Ensuite, des autorisations peuvent être attribuées pour les rôles de ceux-ci. En fonction de l'autorisation attribuée, différents rôles peuvent accéder aux modules pour lesquels ils ont l'autorisation. Ensuite, l'administrateur peut créer des utilisateurs et attribuer l'utilisateur à un rôle et l'utilisateur n'aura que les autorisations qui seront attribuées à ce rôle",
+            "PermissionStatus": "Statut d'autorisation",
+            "Cancel": "Annuler",
+            "Save": "Sauvegarder",
+            "specialcharacternotallowed": "caractère spécial non autorisé",
+            "SuperAdmin": "Le super administrateur peut ajouter ici différents rôles et attribuer des autorisations aux rôles. En définissant les autorisations, le super administrateur donnera soit le privilège au rôle d'accéder à certains modules et en même temps empêchera l'utilisateur d'accéder à certains autres modules.",
+            "Superadmin": "Le super administrateur peut ajouter différents utilisateurs et affecter les utilisateurs à un rôle particulier. Les utilisateurs pourront accéder uniquement aux modules auxquels ils sont autorisés à accéder.",
+            "UpdateSettings": "Mettre à jour les paramètres",
+            "Submit": "Soumettre",
+            "AddOns": "Modules complémentaires",
+            "Add-ON": "Module complémentaireL'administrateur peut choisir de configurer l'un de ces modules complémentaires disponibles. est une extension pour le script de base ou un logiciel qui peut être ajouté pour avoir des fonctionnalités supplémentaires pour votre portail de commerce électronique.",
+            "Name": "Nom",
+            "AdminHeader": "L'administrateur peut choisir de configurer l'un de ces modules complémentaires disponibles.",
+            "Action": "Action",
+            "Active": "Active",
+            "In-Active": "Inactif",
+            "Configure": "Configurer",
+            "Adminheader": "Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quel pays dans cette liste qui sera disponible dans les paramètres généraux pour configurer le pays auquel appartient l'entreprise de commerce électronique..",
+            "SelectAll": "Tout sélectionner",
+            "AddonAdaptation": "AddOns est l'adaptation de l'activité de commerce électronique à une certaine passerelle de paiement.",
+            "Permission": "Autorisation",
+            "AdminNote": "L'administrateur peut choisir de configurer l'un de ces modules complémentaires disponibles.",
+            "Module": "Module",
+            "Generalsetting": "Les paramètres généraux sont l'endroit où les paramètres critiques de commerce électronique sont configurés pour démarrer avec le portail de commerce électronique",
+            "BasicGeneralInformation": "Dans cette section, l'administrateur peut fournir le nom de l'entreprise, les détails du propriétaire, l'e-mail de contact et le numéro de téléphone, ainsi que l'adresse physique de l'entreprise..",
+            "Website": "URL du site de l'entreprise",
+            "GeneralSiteSettings": "Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quel pays dans cette liste qui sera disponible dans les paramètres généraux pour configurer le pays auquel appartient l'entreprise de commerce électronique..",
+            "Maximum30characters": "Maximum30caractères",
+            "Maximum3characters": "Maximum3caractères",
+            "NotesInformation": "Dans cette section, l'administrateur peut gérer la liste principale des devises et l'administrateur peut choisir n'importe quelle devise de cette liste qui sera disponible dans les paramètres généraux pour configurer la devise dans laquelle le prix des produits sera affiché dans le portail de commerce électronique..",
+            "AdminLanguage": "L'administrateur peut ajouter différentes langues ici, pour que les clients internationaux choisissent la langue de préférence dans la vitrine.",
+            "SettingsHome": "Paramètres Accueil",
+            "Changesettings": "Modifier les paramètres",
+            "SettingOrders": "Définition des commandes",
+            "Settings": "Paramètres",
+            "LocalizationAdaptation": "La localisation est l'adaptation de l'activité de commerce électronique à un certain pays et à une certaine zone et la configuration du local...",
+            "AdminSection": "Dans cette section, l'administrateur peut créer et gérer différents rôles et autorisations d'administrateur.",
+            "Adminsheader": "À partir de cette section, l'administrateur peut avoir des configurations au niveau du système telles que la commutation sur l'ensemble...",
+            "AdminConfigure": "L'administrateur peut configurer l'affichage de la liste des produits et de la liste des commandes dans cette section.",
+            "Adminsection": "Dans cette section, l'administrateur peut créer et maintenir une liste principale des différents aspects qui seront requis pour un..",
+            "OrderFull-FillmentStatus": "Statut d'exécution complète de la commande",
+            "Adminrequire": "Dans cette section, l'administrateur peut créer et maintenir une liste principale des différents aspects qui seront requis pour un...",
+            "Add-Ons": "Modules complémentaires",
+            "AdminCreate": "Dans cette section, l'administrateur peut créer et maintenir un plugin.",
+            "SettingAdmin": "Dans cette section, l'administrateur aura la trace de toutes les activités d'administration - quand un utilisateur administrateur particulier a accédé, à quel module il a accédé et a apporté des modifications au module, ainsi que la date et l'heure. Une option de sélection de dates est fournie pour supprimer les journaux entre une certaine période.",
+            "LogFrom": "Se connecter depuis",
+            "PleaseChooseAtleastonedate": "Veuillez choisir au moins une date",
+            "LogTo": "Se connecter à",
+            "AdminSMTP": "Ici, l'administrateur peut configurer le SMTP pour envoyer des notifications par e-mail aux fournisseurs et aux clients. Le développement de cette section est en cours et sera bientôt disponible.",
+            "ComingSoon": "À venir",
+            "adminConfigure": "Ici, l'administrateur peut configurer le SMS pour envoyer des notifications par SMS aux fournisseurs et aux clients. Le développement de cette section est en cours et sera bientôt disponible.",
+            "SystemSection": "Dans cette section, l'administrateur peut configurer les aspects qui sont globaux et s'appliquent à l'ensemble du portail. Par exemple, définir le portail en mode maintenance, configurer les identifiants de messagerie, SMTP et SMS.",
+            "Maintenance": "Entretien",
+            "AuditLog": "Journal d'audit",
+            "DataImport": "Importation de données",
+            "DataExport": "Exportation de données",
+            "SettingEnabling": "En activant cela, l'administrateur empêchera les utilisateurs finaux/clients de faire tout type d'activité - parcourir et rechercher des produits ou effectuer un achat en ligne, sur le portail de commerce électronique. L'administrateur peut utiliser cette option chaque fois qu'il a besoin de mettre à jour ou d'améliorer le portail de commerce électronique. De cette façon, ils en informeront les clients et leur demanderont leur patience pendant qu'ils mettent à jour ou améliorent le portail de commerce électronique..",
+            "SettingEntermaintenance": "Souhaitez-vous activer le mode maintenance pour votre portail eCommerce ? N'oubliez pas que vos clients ne pourront effectuer aucune activité sur le portail eCommerce lorsque le mode maintenance sera activé.",
+            "WhatPaymentdetailsarerequired?": "Quels détails de paiement sont requis?",
+            "SettingPayment": "Quid ex eo ortum, tam inportuno tamque crudeli; sin, ut de commodis suis. Tum dicere exorsus est consecutus? laudem et ultimum bonorum, quod maxime consuevit iactare. Alii autem, quibus ego cum soluta nobis est consecutus? laudem et aut petat.In oculis quidem faciunt, ut dolore suo sanciret militaris imperii disciplinam exercitumque in.",
+            "PaymentDetails": "Détails de paiement",
+            "AdminDescription": "Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quel pays dans cette liste qui sera disponible dans les paramètres généraux pour configurer le pays auquel appartient l'entreprise de commerce électronique..",
+            "Users": "Utilisatrices",
+            "Admincountry": "Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quel pays dans cette liste qui sera disponible dans les paramètres généraux pour configurer le pays auquel appartient l'entreprise de commerce électronique..",
+            "Order-fullfillmentstatus": "État d'exécution de la commande",
+            "SEO": "référencement"
         },
         "system": {
             "Entermaintenancemode": "Entrer en mode maintenance?",
             "Yes": "Oui",
             "No": "Non",
             "Save": "Sauvegarder",
-            "Cancel":"Annuler"
+            "Cancel": "Annuler"
         },
         "data": {
             "DateFrom": "Dater de",
@@ -900,7 +857,6 @@
                 "Assignvaluestovariant/ attribute here": "Attribuez des valeurs à la variante/attribut ici",
                 "Add": "Ajouter",
                 "Update": "Mise à jour"
-
             },
             "filter": {
                 "AddFilter": "Ajouter un filtre",
@@ -922,7 +878,6 @@
                 "SortOrder": "Ordre de tri",
                 "Select": "Sélectionner",
                 "VariantValueName": "Nom de la valeur de la variante"
-
             },
             "Attributes": {
                 "AddAttribute": "Ajouter un attribut",
@@ -1114,7 +1069,6 @@
                 "AddCountry": "Ajouter un pays",
                 "Cancel": "Annuler",
                 "SelectStatus": "Sélectionnez le statut",
-                
                 "Error": {
                     "CountryNameisrequired": "Le nom du pays est requis",
                     "IsoCode-1isrequired": "Le code iso-1 est requis",
@@ -1148,9 +1102,8 @@
                     "IsoCode-2mustbeatmax3characters": "Le code Iso-2 doit comporter au maximum 3 caractères",
                     "Countryisrequired": "Le pays est requis",
                     "Mustbemax128characterslong": "Doit contenir au maximum 128 caractères",
-                    "Maximum30characters":"Maximum30characters",
-                    "":"Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quel pays dans cette liste qui sera disponible dans les paramètres généraux pour configurer le pays auquel appartient l'entreprise de commerce électronique.."
-
+                    "Maximum30characters": "Maximum30characters",
+                    "": "Dans cette section, l'administrateur peut maintenir la liste principale des pays. Ils peuvent choisir n'importe quel pays dans cette liste qui sera disponible dans les paramètres généraux pour configurer le pays auquel appartient l'entreprise de commerce électronique.."
                 }
             },
             "Location": {
@@ -1183,7 +1136,6 @@
                     "Mustbemax6numbers": "Doit être max 6 chiffress",
                     "Mustbenumbers": "Doit être des nombres",
                     "MustbeCharacters": "Doit être des caractères"
-
                 }
             },
             "Orderstatus": {
@@ -1394,17 +1346,17 @@
             "forgotpassword": "Mot de passe oublié",
             "Submit": "Soumettre",
             "BacktoLogin": "Retour àLogin",
-            "ResetPassword":"réinitialiser le mot de passe",
-            "Password":"Mot de passe",
-            "Passwordisrequired":"Mot de passe requis",
-            "Mustleast8characterslong":"Doit avoir au moins 8 caractères",
-            "Passwordleastonelowercaseandoneuppercaseletter":"Le mot de passe doit contenir au moins une lettre minuscule et une lettre majuscule",
-            "Passwordleastonesymbolandonenumber":"Le mot de passe doit contenir au moins un symbole et un chiffre",
-            "Passwordnotmorethan50characters":"Le mot de passe ne doit pas dépasser 50 caractères",
-            "ConfirmPassword":"Confirmez le mot de passe",
-            "Confirmpasswordisrequired":"Confirmer le mot de passe est requis",
-            "Passworddoesnotmatch":"Le mot de passe ne correspond pas",
-            "Linkhavealreadybeenused":"Le lien a déjà été utilisé",
+            "ResetPassword": "réinitialiser le mot de passe",
+            "Password": "Mot de passe",
+            "Passwordisrequired": "Mot de passe requis",
+            "Mustleast8characterslong": "Doit avoir au moins 8 caractères",
+            "Passwordleastonelowercaseandoneuppercaseletter": "Le mot de passe doit contenir au moins une lettre minuscule et une lettre majuscule",
+            "Passwordleastonesymbolandonenumber": "Le mot de passe doit contenir au moins un symbole et un chiffre",
+            "Passwordnotmorethan50characters": "Le mot de passe ne doit pas dépasser 50 caractères",
+            "ConfirmPassword": "Confirmez le mot de passe",
+            "Confirmpasswordisrequired": "Confirmer le mot de passe est requis",
+            "Passworddoesnotmatch": "Le mot de passe ne correspond pas",
+            "Linkhavealreadybeenused": "Le lien a déjà été utilisé",
             "Error": {
                 "Usernamerequired": "Nom d'utilisateur est nécessaire",
                 "Incorrectemail": "Adresse Email incorrecte",
@@ -1415,11 +1367,10 @@
                 "Cantlogin?": "Impossible de se connecter?"
             }
         },
-        "Token":{
-                "forgotpasswordlinkexpired":"Votre lien de mot de passe oublié a expiré, réessayez.",
-                "automaticallyredirectloginpage":"Il redirigera automatiquement la page de connexion après un certain temps."
+        "Token": {
+            "forgotpasswordlinkexpired": "Votre lien de mot de passe oublié a expiré, réessayez.",
+            "automaticallyredirectloginpage": "Il redirigera automatiquement la page de connexion après un certain temps."
         },
-
         "Notfound": {
             "PAGENOTFOUND": "PAGE NON TROUVÉE !",
             "YOUSEEMTOBETRYINGTOFINDHISWAYHOME": "VOUS SEMBLEZ ESSAYER DE RETROUVER SON CHEMIN",
@@ -1450,16 +1401,15 @@
             "RatingReview": "Examen de la notation",
             "Import/Export": "Importer / Exporter",
             "Import": "Importer",
-            "ProductCategories":"catégories de produits",
-            "ProductVariants":"Variantes de produit",
-            "BulkImport":"Importation en masse",
-
-            "ProductAtrributes":"Attributs du produit",
-            "Itemsnotfound":"Articles introuvables",
-            "Addcategories":"Ajouter des catégories",
-            "ManageImports":"Gérer les importations",
-            "ManageProducts":"Gérer les produits",
-            "General":"Générale"
+            "ProductCategories": "catégories de produits",
+            "ProductVariants": "Variantes de produit",
+            "BulkImport": "Importation en masse",
+            "ProductAtrributes": "Attributs du produit",
+            "Itemsnotfound": "Articles introuvables",
+            "Addcategories": "Ajouter des catégories",
+            "ManageImports": "Gérer les importations",
+            "ManageProducts": "Gérer les produits",
+            "General": "Générale"
         },
         "product": {
             "Products": "Des produits",
@@ -1468,16 +1418,15 @@
             "In-activeProducts": "Produits inactifs",
             "New": "NOUVEAU",
             "Catalog": "Catalogue",
-            
+            "Product Slug": "Limace de produit",
+            "Search Available Categories": "Rechercher les catégories disponibles",
+            "Search Selected Categories": "Rechercher les catégories sélectionnées",
             "Export": "Exporter",
             "Import": "Importer",
-            
             "Sku": "UGS",
             "ProductsName": " Nom du produit",
-            
             "Price": "Prix",
             "Action": "Action",
-            
             "ProductName": "Nom du produit",
             "Min-price": "Prix ​​min",
             "Max-price": "Prix ​​max",
@@ -1487,10 +1436,8 @@
             "ApplyFilters": "Appliquer des filtres",
             "Search": "Recherche",
             "DoYouWantToDelete": "Voulez-vous supprimer ?",
-            
             "Filters": "Filtres",
-            "UploadImages":"Importer des images",
-            
+            "UploadImages": "Importer des images",
             "Save": "Sauvegarder",
             "Cancel": "Annuler",
             "Add": "Ajouter",
@@ -1511,19 +1458,16 @@
             "Upc": "CUP",
             "Location": "Emplacement",
             "MinimumQuantity": "Quantité minimum",
-            "Discountenddateisrequired":"La date de fin de la réduction est requise",
-            "SpecialPriceshouldbelessthanTotalPrice":"Le prix spécial doit être inférieur au prix total",
-            "SpecialpriceshouldbelessthanVariantprice":"Le prix spécial doit être inférieur au prix de la variante",
-            "StartDateisrequired":"La date de début est requise",
-            "EndDateisrequired":"La date de fin est requise",
-            "Quantityisrequired":"La quantité est requise",
-            "PriceRange":"Échelle des prix",
-            "LowtoHigh":"de bas en haut",
-            "HightoLow":"Haut en bas",
-            "AddProducts":"Ajouter des produits",
-        
-          
-          
+            "Discountenddateisrequired": "La date de fin de la réduction est requise",
+            "SpecialPriceshouldbelessthanTotalPrice": "Le prix spécial doit être inférieur au prix total",
+            "SpecialpriceshouldbelessthanVariantprice": "Le prix spécial doit être inférieur au prix de la variante",
+            "StartDateisrequired": "La date de début est requise",
+            "EndDateisrequired": "La date de fin est requise",
+            "Quantityisrequired": "La quantité est requise",
+            "PriceRange": "Échelle des prix",
+            "LowtoHigh": "de bas en haut",
+            "HightoLow": "Haut en bas",
+            "AddProducts": "Ajouter des produits",
             "OutofStockStatus": "État de rupture de stock",
             "RequiredShipping": "Expédition requise",
             "DateAvailable": "Produit disponible à partir de ",
@@ -1544,8 +1488,7 @@
             "CustomerGroup": "Customer GroupGroupe de clients",
             "Qty": "Qté",
             "Priority": "Priorité",
-            "Itemsnotfound":"Articles introuvables",
-         
+            "Itemsnotfound": "Articles introuvables",
             "DateStart": "date de depart",
             "DateEnd": "Date de fin",
             "Default": "Défaut",
@@ -1578,6 +1521,7 @@
             "Manufacturer": "Fabricant",
             "Brand": "Marque",
             "SelectBrand": "Sélectionner la marque",
+            "SelectCategory": "Choisir une catégorie",
             "Enablepostalcode": "Activez la vérification du code postal pour l'expédition.",
             "EnableQuotationRequest": "Activer la demande de devis.",
             "Selectmediasource": "Sélectionnez la source multimédia",
@@ -1653,14 +1597,14 @@
             "CreatedBy": "Créé par",
             "Actions": "Actions",
             "SelectStatus": "Sélectionnez le statut",
-            "MustbeMinimum2Characters":"Doit contenir au moins 2 caractères",
-            "MustbeMaximum8Characters":"Doit contenir au maximum 8 caractères",
-            "Dateisrequired":"La date est obligatoire",
-            "Skuisrequired":"Sku est requis",
-            "Priorityisrequired":"La priorité est requise",
-            "varientprice":"prix de la variante",
-            "DiscountPriceshouldbelessthanTotalPrice":"Le prix de remise doit être inférieur à TotalPrice",
-            "Priceisrequired":"Le prix est requis",
+            "MustbeMinimum2Characters": "Doit contenir au moins 2 caractères",
+            "MustbeMaximum8Characters": "Doit contenir au maximum 8 caractères",
+            "Dateisrequired": "La date est obligatoire",
+            "Skuisrequired": "Sku est requis",
+            "Priorityisrequired": "La priorité est requise",
+            "varientprice": "prix de la variante",
+            "DiscountPriceshouldbelessthanTotalPrice": "Le prix de remise doit être inférieur à TotalPrice",
+            "Priceisrequired": "Le prix est requis",
             "ToolTip": {
                 "Refresh": "Rafraîchir",
                 "Delete": "Supprimer",
@@ -1768,10 +1712,7 @@
             "Maximum100": "La valeur du coupon doit être inférieure à 100",
             "TodayStartdate": "Veuillez choisir la date de début au-dessus de la date actuelle",
             "TodayEnddate": "Veuillez choisir la date de fin au-dessus de la date actuelle ",
-            "Change":"Changement"
-          
-
-
+            "Change": "Changement"
         },
         "categories": {
             "Categories": "Catégories",
@@ -1885,7 +1826,6 @@
             "Filters": "Filtres",
             "Active": "Actif",
             "In-Active": "Inactif"
-
         }
     },
     "Dashboard": {
@@ -1917,7 +1857,7 @@
         "English": "Anglais",
         "Hindi": "hindi",
         "CMS": "CMS",
-        "Marketing":"Commercialisation",
+        "Marketing": "Commercialisation",
         "SalesReport": " Rapport des ventes",
         "NoMonthlysalesfound": "Aucune vente mensuelle trouvée",
         "totalRevenue": "Revenu total",
@@ -1945,16 +1885,15 @@
         "photostoCompareSales": "Sélectionnez 3 produits pour comparer les ventes",
         "transaction": "Transactions",
         "NoDatafound": "Aucune donnée disponible",
-        "CRM":"GRC",
-        "Admin":"Administratrice",
-        "CreateFolder":"Créer le dossier",
-        "Create":"Créer",
-        "Upload":"Télécharger",
-        "Insert":"Insérer",
-        "LoadMore":"Charger plus...",
+        "CRM": "GRC",
+        "Admin": "Administratrice",
+        "CreateFolder": "Créer le dossier",
+        "Create": "Créer",
+        "Upload": "Télécharger",
+        "Insert": "Insérer",
+        "LoadMore": "Charger plus...",
         "MyProfile": "Mon profil",
         "Settings": "Paramètres"
-
     },
     "ToolTip": {
         "comingsoon": "À venir",
@@ -1968,23 +1907,29 @@
     },
     "marketplace": {
         "seller": {
-            "ResetReport":"Réinitialiser le rapport",
+            "Close": "Fermer",
+            "FileTitle": "Titre du fichier",
+            "NotApprove": "Non approuvé",
+            "LastUploadedOn": "Dernier téléchargement le",
+            "DocumentTitle": "Titre du document",
+            "VendorDocumentList": "Liste des documents du fournisseur",
+            "ResetReport": "Réinitialiser le rapport",
             "Save": "Sauvegarder",
-            "VendorProducts":"Produits du vendeur",
-            "CommonProducts":"Produits communs",
-             "Vendors":"Vendeurs",
-             "ManageVendors":"Gérer les fournisseurs",
-             "ManageProducts":"Gérer les produits",
-             "ManageSales":"Gérer les ventes",
-             "SettlementHistory":"Historique de la colonisation",
-             "SalesbyVendor":"Ventes par fournisseur",
-             "TotalSaleReport":"Rapport de vente totale",
-             "Settlement":"Règlementement",
-             "Reports":"Rapports",
-            "Orders":"Ordres",
-            "Payments":"Paiements",
-            "SettlementOrder":"Ordonnance de règlement",
-            "VendorGroup":"Groupe de fournisseurs",
+            "VendorProducts": "Produits du vendeur",
+            "CommonProducts": "Produits communs",
+            "Vendors": "Vendeurs",
+            "ManageVendors": "Gérer les fournisseurs",
+            "ManageProducts": "Gérer les produits",
+            "ManageSales": "Gérer les ventes",
+            "SettlementHistory": "Historique de la colonisation",
+            "SalesbyVendor": "Ventes par fournisseur",
+            "TotalSaleReport": "Rapport de vente totale",
+            "Settlement": "Règlementement",
+            "Reports": "Rapports",
+            "Orders": "Ordres",
+            "Payments": "Paiements",
+            "SettlementOrder": "Ordonnance de règlement",
+            "VendorGroup": "Groupe de fournisseurs",
             "Cancel": "Annuler",
             "VendorInformation": "Informations sur le vendeur",
             "FirstName": "Prénom",
@@ -2054,64 +1999,63 @@
             "documentName": "Nom du document",
             "ReceivedOn": "Reçu le",
             "Approved": "Approuvé",
-            "Not-Approved":"Non approuvé",
+            "Not-Approved": "Non approuvé",
             "Notes": "Remarques",
             "Documents": "Documents",
             "NoCategoriesFound": "Aucune catégorie trouvée",
             "CategoriesAssigned": "Catégories attribuées",
             "ChangeStatus": "Changer de statut",
             "TaxNumber": "Numéro d'identification fiscale",
-            "CompanyDetails":"Détails de l'entreprise",
-            "Tax&PaymentInformation":"Informations fiscales et de paiement",
-            "CoverImage/logo":"Image de couverture/logo",
-            "Socialmedia":"Réseaux sociaux",
-            "Vendorgroup":"Groupe de fournisseurs",
-            "Companyaddress":"Adresse de la société",
-            "Contactperson":"Personne de contact",
-            "DisplayName":"Afficher un nom",
-            "Displaynameisavailable":"Le nom d'affichage est disponible",
-            "vendorGroupisRequired":"VendorGroup est obligatoire",
-            "Checkavailability":"Voir les disponibilités",
-            "Displaynameshouldunique":"Le nom à afficher doit être unique",
-            "displaynameisrequired":"le nom d'affichage est requis",
-            "specialcharactersnotallowed":"caractères spéciaux non autorisés",
-            "StateisRequired":"L'état est obligatoire",
-            "PostalCode":"Code Postal",
-            "Setpassword":"Définir le mot de passe",
-            "Bankdetails":"coordonnées bancaires",
-            "Uploadlogo":"Télécharger le logo",
-            "AssignCategory":"Attribuer une catégorie",
-            "Clicktouploadlogo":"Cliquez pour télécharger le logo",
-            "Uploadbannerimage":"Télécharger l'image de la bannière",
-            "Clicktouploadbannerimage":"Cliquez pour télécharger l'image de la bannière",
-            "Aboutthecompany":"À propos de l'entreprise",
-            "DefaultCommission":"Commission par défaut",
-            "CommissionApplied":"Commission appliquée",
-            "Setdefaultcommission":"Définir la commission par défaut",
-            "Assign":"Attribuer",
-            "Categories":"Catégories",
-            "SelectedCategory":"Catégorie sélectionnée",
-            "Contactdetails":"Détails du contact",
-            "Apply":"Appliquer",
-            "ItemsNotFound":"Articles introuvables",
-            "Categoryavailable":"Catégorie disponible",
-            "SetCommission":"Définir la commission",
-            "NoProductsfound":"Aucun produit trouvé",
-            "Vendordetails":"Détails du vendeur",
-            "Companyname":"Nom de l'entreprise",
-            "Mobile":"Mobile",
-            "GST":"TPS",
-            "Documentname":"Nom du document",
-            "NewGroup":"Nouveau groupe",
-            "GroupName":"Nom de groupe",
-            "Commissionforthisgroup":"Commission pour ce groupe",
-            "AddVendorGroup":"Ajouter un groupe de fournisseurs",
-            "Groupname":"Nom de groupe",
-            "TotalGroups":"Groupes totaux",
-            "In-ActiveGroups":"Groupes inactifs",
-            "ActiveGroups":"Groupes actifs",
-            "Commission(%)":"Commission(%)"
-
+            "CompanyDetails": "Détails de l'entreprise",
+            "Tax&PaymentInformation": "Informations fiscales et de paiement",
+            "CoverImage/logo": "Image de couverture/logo",
+            "Socialmedia": "Réseaux sociaux",
+            "Vendorgroup": "Groupe de fournisseurs",
+            "Companyaddress": "Adresse de la société",
+            "Contactperson": "Personne de contact",
+            "DisplayName": "Afficher un nom",
+            "Displaynameisavailable": "Le nom d'affichage est disponible",
+            "vendorGroupisRequired": "VendorGroup est obligatoire",
+            "Checkavailability": "Voir les disponibilités",
+            "Displaynameshouldunique": "Le nom à afficher doit être unique",
+            "displaynameisrequired": "le nom d'affichage est requis",
+            "specialcharactersnotallowed": "caractères spéciaux non autorisés",
+            "StateisRequired": "L'état est obligatoire",
+            "PostalCode": "Code Postal",
+            "Setpassword": "Définir le mot de passe",
+            "Bankdetails": "coordonnées bancaires",
+            "Uploadlogo": "Télécharger le logo",
+            "AssignCategory": "Attribuer une catégorie",
+            "Clicktouploadlogo": "Cliquez pour télécharger le logo",
+            "Uploadbannerimage": "Télécharger l'image de la bannière",
+            "Clicktouploadbannerimage": "Cliquez pour télécharger l'image de la bannière",
+            "Aboutthecompany": "À propos de l'entreprise",
+            "DefaultCommission": "Commission par défaut",
+            "CommissionApplied": "Commission appliquée",
+            "Setdefaultcommission": "Définir la commission par défaut",
+            "Assign": "Attribuer",
+            "Categories": "Catégories",
+            "SelectedCategory": "Catégorie sélectionnée",
+            "Contactdetails": "Détails du contact",
+            "Apply": "Appliquer",
+            "ItemsNotFound": "Articles introuvables",
+            "Categoryavailable": "Catégorie disponible",
+            "SetCommission": "Définir la commission",
+            "NoProductsfound": "Aucun produit trouvé",
+            "Vendordetails": "Détails du vendeur",
+            "Companyname": "Nom de l'entreprise",
+            "Mobile": "Mobile",
+            "GST": "TPS",
+            "Documentname": "Nom du document",
+            "NewGroup": "Nouveau groupe",
+            "GroupName": "Nom de groupe",
+            "Commissionforthisgroup": "Commission pour ce groupe",
+            "AddVendorGroup": "Ajouter un groupe de fournisseurs",
+            "Groupname": "Nom de groupe",
+            "TotalGroups": "Groupes totaux",
+            "In-ActiveGroups": "Groupes inactifs",
+            "ActiveGroups": "Groupes actifs",
+            "Commission(%)": "Commission(%)"
         },
         "Errors": {
             "Firstnameisrequired": "Le prénom est requis",
@@ -2144,13 +2088,12 @@
             "CountryisRequired": "Le pays est obligatoire",
             "Pincodeisrequired": "Le code PIN est requis",
             "Mustbemax6numbers": "Doit être max 6 chiffres",
-            "Maximum128characters":"128 caractères maximum",
-            "PostalCodeIsRequired":"Le code postal est requis",
-            "PostalCodeMustbeminimumfournumbers":"Code postal Doit être composé d'au moins quatre chiffres",
-            "PostalCodeMustbemaximumsixnumbers":"Code postal Doit comporter au maximum six chiffres",
-            "Groupnameisrequired":"Le nom du groupe est requis",
-            "Categoryisrequired":"La catégorie est obligatoire",
-
+            "Maximum128characters": "128 caractères maximum",
+            "PostalCodeIsRequired": "Le code postal est requis",
+            "PostalCodeMustbeminimumfournumbers": "Code postal Doit être composé d'au moins quatre chiffres",
+            "PostalCodeMustbemaximumsixnumbers": "Code postal Doit comporter au maximum six chiffres",
+            "Groupnameisrequired": "Le nom du groupe est requis",
+            "Categoryisrequired": "La catégorie est obligatoire",
             "PriceRequired": "Le prix est requis",
             "ProductNameRequired": " Le nom du produit est requis",
             "skuRequired": "Sku est requis",
@@ -2370,24 +2313,22 @@
             "Entertexthere": "Entrez le texte ici...",
             "quantity": "quantité",
             "Approve": "Approuver",
-            "MustbeMinimum2characters":"Doit contenir au moins 2 caractères",
-            "MustbeMaximum8characters":"Doit contenir au maximum 8 caractères",
-            "Dateisrequired":"La date est obligatoire",
-            "Skuisrequired":"Sku est requis",
-            "Priorityisrequired":"La priorité est requise",
-            "varientprice":"prix de la variante",
-            "DiscountPriceshouldbelessthanTotalPrice":"Le prix de remise doit être inférieur à TotalPrice",
-            "Priceisrequired":"Le prix est requis",
-            "Startdateisrequired":"La date de début est requise",
-            "productEnddateisrequired":"La date de fin du produit est requise",
-            "SpecialPriceshouldbelessthanTotalPrice":"Le prix spécial doit être inférieur au prix total",
-            "Enddateisrequired":"La date de fin est requise",
-            "Quantityisrequired":"La quantité est requise",
-            "NoofItems":"pas d'articles",
-            "TotalSalesReport":"Rapport sur les ventes totales"
-            
+            "MustbeMinimum2characters": "Doit contenir au moins 2 caractères",
+            "MustbeMaximum8characters": "Doit contenir au maximum 8 caractères",
+            "Dateisrequired": "La date est obligatoire",
+            "Skuisrequired": "Sku est requis",
+            "Priorityisrequired": "La priorité est requise",
+            "varientprice": "prix de la variante",
+            "DiscountPriceshouldbelessthanTotalPrice": "Le prix de remise doit être inférieur à TotalPrice",
+            "Priceisrequired": "Le prix est requis",
+            "Startdateisrequired": "La date de début est requise",
+            "productEnddateisrequired": "La date de fin du produit est requise",
+            "SpecialPriceshouldbelessthanTotalPrice": "Le prix spécial doit être inférieur au prix total",
+            "Enddateisrequired": "La date de fin est requise",
+            "Quantityisrequired": "La quantité est requise",
+            "NoofItems": "pas d'articles",
+            "TotalSalesReport": "Rapport sur les ventes totales"
         },
-
         "sales": {
             "OrdersList": "liste des commandes",
             "Filters": "Filtres",
@@ -2412,18 +2353,16 @@
             "CustomerName": "Nom du client",
             "Searchbycustomername&OrderId": "Recherche par nom de client et numéro de commande",
             "SelectInvoice": "Sélectionnez Facture",
-            "ProductStatus":"État du produit",
-            "Approved":"Approuvé",
-            "AddProduct":"Ajouter un produit",
-            "ItemNotFound":"Objet non-trouvé",
-            "VendorName":"Nom du fournisseur",
-            "Not-Approved":"Non approuvé",
-            "NoofVendors":"Nombre de vendeurs",
-           
-            "ItemsNotFound":"Articles introuvables",
-            "PaymentStatus":"Statut de paiement",
-            "Save":"Sauvegarder"
-   
+            "ProductStatus": "État du produit",
+            "Approved": "Approuvé",
+            "AddProduct": "Ajouter un produit",
+            "ItemNotFound": "Objet non-trouvé",
+            "VendorName": "Nom du fournisseur",
+            "Not-Approved": "Non approuvé",
+            "NoofVendors": "Nombre de vendeurs",
+            "ItemsNotFound": "Articles introuvables",
+            "PaymentStatus": "Statut de paiement",
+            "Save": "Sauvegarder"
         },
         "payments": {
             "TotalPaymentAmount": "Montant total du paiement",
@@ -2445,7 +2384,6 @@
             "FromDate": "Partir de la date",
             "ToDate": "À ce jour",
             "Customername": "Nom du client"
-
         },
         "settlement": {
             "Selectordertomakesettlement": "Sélectionnez la commande pour effectuer le règlement",
@@ -2465,14 +2403,12 @@
             "OrderStatus(at Line Level)": "Statut de la commande (au niveau de la ligne)",
             "Settlement": "Règlement",
             "Title": "Titre",
-            "TotalOrders:":"Total des commandes:",
+            "TotalOrders:": "Total des commandes:",
             "TotalSettlementValue:": "Valeur totale du règlement :",
             "SettlementDetails": "Détails du règlement",
             "SettlementDate": "date de règlement",
             "NoofOrders": "Nombre de commandes",
             "TotalSettlementValue": "Valeur totale du règlement"
-
-
         },
         "menu": {
             "Vendors": "Vendeurs",
@@ -2538,9 +2474,74 @@
             "clearAll": "tout effacer",
             "vendors": "Vendeuses",
             "records": "enregistrements",
-            "reset": "Réinitialiser"
-
+            "reset": "Réinitialiser",
+            "Imagesizeshouldbelessthan10MB": "La taille des images doit être inférieure à 10 Mo",
+            "Youcannoteditcurrentloggedinuser": "Vous ne pouvez pas modifier l'utilisateur actuellement connecté",
+            "Pleaseeditthetax": "Veuillez modifier la taxe",
+            "pleaseuploadavideolessthan50MB": "veuillez télécharger une vidéo de moins de 50 Mo",
+            "UpdatetheAddressFirst": "Mettez d'abord à jour l'adresse",
+            "message": "message"
         }
-
+    },
+    "common": {
+        "Image": "Image",
+        "Quotes": "Citations",
+        "Action": "Action",
+        "Product Quotation": "Devis de produit",
+        "Goto": "Aller à",
+        "This feature is currently not active for you": "Cette fonctionnalité n'est actuellement pas active pour vous",
+        "To activate this feature": "Pour activer cette fonctionnalité",
+        "Product Name": "Nom du produit",
+        "Product SKU": "UGS du produit",
+        "Quotation Received": "Devis reçu",
+        "Requested Customer": "Client demandé",
+        "Requested on": "Demandé le",
+        "Quantity": "Quantité",
+        "Unit": "Unité",
+        "Order Value": "Valeur de la commande",
+        "Purpose": "But",
+        "Comments": "commentaires",
+        "Add New Vendor": "Ajouter un nouveau fournisseur",
+        "Edit vendor": "Modifier le fournisseur",
+        "Company Details": "Détails de l'entreprise",
+        "Company Name": "Nom de l'entreprise",
+        "vendorGroup is Required": "vendorGroup est requis",
+        "Display name is available": "Le nom d'affichage est disponible",
+        "Check availability": "Vérifier la disponibilité",
+        "Display name should unique": "Le nom d'affichage doit être unique",
+        "Display name is required": "Le nom d'affichage est requis",
+        "special characters not allowed": "Les caractères spéciaux ne sont pas autorisés",
+        "Company address": "Adresse de l'entreprise",
+        "State is Required": "L'état est requis",
+        "Postal Code": "Code postal",
+        "Postal Code Is Required": "Le code postal est requis",
+        "Postal Code Must be minimum four numbers": "Le code postal doit comporter au moins quatre chiffres",
+        "Postal Code Must be maximum six numbers": "Le code postal doit comporter au plus six chiffres",
+        "Set password": "Définir le mot de passe",
+        "Maximum 128 characters": "Maximum 128 caractères",
+        "Tax & Payment Information": "Informations fiscales et de paiement",
+        "Tax Number": "Numéro de taxe",
+        "Bank details": "Détails bancaires",
+        "Bank Details is Required": "Les détails bancaires sont requis",
+        "Provide bank details eg: Bank name, Account number, Account Holder Name": "Fournir les détails bancaires, par exemple : nom de la banque, numéro de compte, nom du titulaire du compte",
+        "Cover Image/logo": "Image de couverture/logo",
+        "Upload logo": "Téléverser le logo",
+        "Click to upload logo": "Cliquez pour téléverser le logo",
+        "Click to upload banner image": "Cliquez pour téléverser l'image de la bannière",
+        "Company Description": "Description de l'entreprise",
+        "Social media": "Réseaux sociaux",
+        "Twitter": "Twitter",
+        "Instagram": "Instagram",
+        "Youtube": "Youtube",
+        "Facebook": "Facebook",
+        "Reason Is Required": "La raison est requise",
+        "Contact person": "Personne à contacter"
+    },
+    "breadcrumbs": {
+        "Sales": "Ventes",
+        "ManageOrders": "Gérer les commandes",
+        "Orders": "Ordres",
+        "List": "Liste",
+        "Details": "Détails"
     }
 }

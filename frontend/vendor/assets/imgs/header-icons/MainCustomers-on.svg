@@ -1,15 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-  <g id="MainCustomers-on" transform="translate(-549 -8)">
-    <g id="Group_97" data-name="Group 97" transform="translate(549 8)">
-      <path id="Path_153" data-name="Path 153" d="M0,0H24V24H0Z" fill="none" fill-rule="evenodd"/>
-      <circle id="Ellipse_4" data-name="Ellipse 4" cx="3" cy="3" r="3" transform="translate(4.5 12.75)" fill="none" stroke="#249622" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <path id="Path_154" data-name="Path 154" d="M3,21a5.626,5.626,0,0,1,9,0" fill="none" stroke="#249622" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" fill-rule="evenodd"/>
-      <circle id="Ellipse_5" data-name="Ellipse 5" cx="3" cy="3" r="3" transform="translate(4.5 3)" fill="none" stroke="#249622" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <path id="Path_155" data-name="Path 155" d="M3,11.25a5.626,5.626,0,0,1,9,0" fill="none" stroke="#249622" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" fill-rule="evenodd"/>
-      <circle id="Ellipse_6" data-name="Ellipse 6" cx="3" cy="3" r="3" transform="translate(13.5 12.75)" fill="none" stroke="#249622" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <path id="Path_156" data-name="Path 156" d="M12,21a5.626,5.626,0,0,1,9,0" fill="none" stroke="#249622" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" fill-rule="evenodd"/>
-      <circle id="Ellipse_7" data-name="Ellipse 7" cx="3" cy="3" r="3" transform="translate(13.5 3)" fill="none" stroke="#249622" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-      <path id="Path_157" data-name="Path 157" d="M12,11.25a5.626,5.626,0,0,1,9,0" fill="none" stroke="#249622" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" fill-rule="evenodd"/>
-    </g>
-  </g>
+<svg id="AppWindow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="Rectangle" width="24" height="24" fill="none"/>
+  <rect id="Rectangle-2" data-name="Rectangle" width="18" height="15" rx="0.75" transform="translate(3 4.501)" fill="none" stroke="#398d10" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+  <circle id="Oval" cx="1.125" cy="1.125" r="1.125" transform="translate(5.25 6.751)" fill="#398d10"/>
+  <circle id="Oval-2" data-name="Oval" cx="1.125" cy="1.125" r="1.125" transform="translate(9 6.751)" fill="#398d10"/>
 </svg>
