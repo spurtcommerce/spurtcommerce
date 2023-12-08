@@ -4,23 +4,7 @@
     "description": "Spurtcommerce RESTFUL API",
     "main": "src/app.ts",
     "scripts": {
-        "start": "npm run create-index && nps",
-        "build": "npm start build",
-        "test:jest": "jest --setupFiles dotenv/config  --detectOpenHandles",
-        "storeBuild": "npm start storeBuild",
-        "adminBuild": "npm start adminBuild",
-        "vendorBuild": "npm start vendorBuild",
-        "presetup": "npm install",
-        "generatedoc": "apidoc -i src -i add-ons -o src/public/apidoc",
-        "setup": "npm start config && npm start setup.script",
-        "dbseed": "npm start dbseed.script",
-        "tslint": "tslint --project .",
-        "create-entities-index": "ts-node --pretty utils/create-entities-index.ts",
-        "create-controller-index": "ts-node --pretty utils/create-controller-index.ts",
-        "create-middleware-index": "ts-node --pretty utils/create-middleware-index.ts",
-        "create-migration-index": "ts-node --pretty utils/create-migration-index.ts",
-        "create-index": "npm run create-entities-index && npm run create-controller-index && npm run create-middleware-index && npm run create-migration-index",
-        "postbuild": "ts-node --pretty utils/copy-templates.ts"
+        "start": "node dist/src/app.js"
     },
     "engines": {
         "node": ">=8.0.0",
