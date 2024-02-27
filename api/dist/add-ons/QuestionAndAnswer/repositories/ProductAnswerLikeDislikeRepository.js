@@ -1,1 +1,36 @@
-'use strict';const a184_0x41470e=a184_0xab66;(function(_0x4fd15d,_0x2284b5){const _0xfb09b9=a184_0xab66,_0x47d7a2=_0x4fd15d();while(!![]){try{const _0x1654fd=-parseInt(_0xfb09b9(0x9e))/0x1+-parseInt(_0xfb09b9(0xa3))/0x2*(parseInt(_0xfb09b9(0x93))/0x3)+-parseInt(_0xfb09b9(0x95))/0x4*(-parseInt(_0xfb09b9(0x90))/0x5)+-parseInt(_0xfb09b9(0xa5))/0x6+parseInt(_0xfb09b9(0x8e))/0x7+parseInt(_0xfb09b9(0x9f))/0x8+-parseInt(_0xfb09b9(0xa0))/0x9;if(_0x1654fd===_0x2284b5)break;else _0x47d7a2['push'](_0x47d7a2['shift']());}catch(_0x227d36){_0x47d7a2['push'](_0x47d7a2['shift']());}}}(a184_0xfe32,0xc1c34));function a184_0xab66(_0x2e5979,_0x255e01){const _0xfe321a=a184_0xfe32();return a184_0xab66=function(_0xab66ac,_0x20b586){_0xab66ac=_0xab66ac-0x8e;let _0x368631=_0xfe321a[_0xab66ac];return _0x368631;},a184_0xab66(_0x2e5979,_0x255e01);}Object[a184_0x41470e(0x92)](exports,a184_0x41470e(0xa6),{'value':!![]}),exports['ProductAnswerLikeDislikeRepository']=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a184_0x41470e(0x9c)),ProductAnswerLikeDislike_1=require(a184_0x41470e(0xa2));let ProductAnswerLikeDislikeRepository=class ProductAnswerLikeDislikeRepository extends typeorm_1[a184_0x41470e(0xa1)]{['findLikeCount'](_0x116d07){const _0xe087aa=a184_0x41470e;return tslib_1[_0xe087aa(0x9d)](this,void 0x0,void 0x0,function*(){const _0x20fe62=_0xe087aa,_0x2d3969=yield this[_0x20fe62(0x9b)]['createQueryBuilder'](ProductAnswerLikeDislike_1['ProductAnswerLikeDislike'],_0x20fe62(0x91));return _0x2d3969[_0x20fe62(0xa7)](_0x20fe62(0x98)),_0x2d3969[_0x20fe62(0x96)](_0x20fe62(0x94),{'type':0x1,'answerId':_0x116d07}),_0x2d3969[_0x20fe62(0xa4)]();});}[a184_0x41470e(0x9a)](_0x1841a1){const _0x5153af=a184_0x41470e;return tslib_1[_0x5153af(0x9d)](this,void 0x0,void 0x0,function*(){const _0x3f3511=_0x5153af,_0x1883ad=yield this[_0x3f3511(0x9b)][_0x3f3511(0x99)](ProductAnswerLikeDislike_1[_0x3f3511(0x97)],'productAnswerLikeDislike');return _0x1883ad['select']('COUNT(productAnswerLikeDislike.id)\x20as\x20dislikeCount'),_0x1883ad[_0x3f3511(0x96)](_0x3f3511(0x94),{'type':0x2,'answerId':_0x1841a1}),_0x1883ad[_0x3f3511(0xa4)]();});}};ProductAnswerLikeDislikeRepository=tslib_1['__decorate']([(0x0,typeorm_1[a184_0x41470e(0x8f)])(ProductAnswerLikeDislike_1[a184_0x41470e(0x97)])],ProductAnswerLikeDislikeRepository),exports['ProductAnswerLikeDislikeRepository']=ProductAnswerLikeDislikeRepository;function a184_0xfe32(){const _0x151df7=['manager','typeorm','__awaiter','299522XEFVmE','6512392jNmFKt','11548431BnzctT','Repository','../models/ProductAnswerLikeDislike','6nlkDwo','getRawOne','7495158Psjkta','__esModule','select','10461514TwSQUc','EntityRepository','10qZgUFj','productAnswerLikeDislike','defineProperty','265407JWvMNW','productAnswerLikeDislike.type\x20=\x20:type\x20AND\x20productAnswerLikeDislike.answerId\x20=\x20:answerId','3164764QaCYpU','where','ProductAnswerLikeDislike','COUNT(productAnswerLikeDislike.id)\x20as\x20likeCount','createQueryBuilder','findDislikeCount'];a184_0xfe32=function(){return _0x151df7;};return a184_0xfe32();}
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductAnswerLikeDislikeRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const ProductAnswerLikeDislike_1 = require("../models/ProductAnswerLikeDislike");
+let ProductAnswerLikeDislikeRepository = class ProductAnswerLikeDislikeRepository extends typeorm_1.Repository {
+    findLikeCount(answerId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(ProductAnswerLikeDislike_1.ProductAnswerLikeDislike, 'productAnswerLikeDislike');
+            query.select('COUNT(productAnswerLikeDislike.id) as likeCount');
+            query.where('productAnswerLikeDislike.type = :type AND productAnswerLikeDislike.answerId = :answerId', { type: 1, answerId });
+            return query.getRawOne();
+        });
+    }
+    findDislikeCount(answerId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(ProductAnswerLikeDislike_1.ProductAnswerLikeDislike, 'productAnswerLikeDislike');
+            query.select('COUNT(productAnswerLikeDislike.id) as dislikeCount');
+            query.where('productAnswerLikeDislike.type = :type AND productAnswerLikeDislike.answerId = :answerId', { type: 2, answerId });
+            return query.getRawOne();
+        });
+    }
+};
+ProductAnswerLikeDislikeRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(ProductAnswerLikeDislike_1.ProductAnswerLikeDislike)
+], ProductAnswerLikeDislikeRepository);
+exports.ProductAnswerLikeDislikeRepository = ProductAnswerLikeDislikeRepository;
+//# sourceMappingURL=ProductAnswerLikeDislikeRepository.js.map

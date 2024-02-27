@@ -1,1 +1,67 @@
-'use strict';function a686_0x2ab9(){const _0xb3c106=['Display\x20name\x20is\x20required','93858eyjTgt','displayName','firstname\x20should\x20be\x20maximum\x2032\x20character','31211770cxcJzu','Company\x20name\x20is\x20required','design:type','1188qvuZGp','__esModule','MaxLength','61344pWnpTE','VendorRegisterRequest','3510bBQPmN','password\x20must\x20contain\x20minimum\x208\x20character','prototype','Matches','212792FZCvne','5825Kpvovh','7923706kaqotA','__decorate','reflect-metadata','IsNotEmpty','MinLength','defineProperty','__metadata','emailId','firstName','lastname\x20should\x20be\x20maximum\x2032\x20character','password\x20is\x20required','tslib','emailId\x20should\x20be\x20maximum\x2096\x20character','confirmPassword','companyName','1552450kdgzBE','Email\x20Id\x20is\x20required','lastName','57InmVXY'];a686_0x2ab9=function(){return _0xb3c106;};return a686_0x2ab9();}const a686_0x31cd4e=a686_0x1f3c;(function(_0x47aea9,_0x225ca8){const _0x41f118=a686_0x1f3c,_0x98fbd4=_0x47aea9();while(!![]){try{const _0x1d2a95=parseInt(_0x41f118(0x1f2))/0x1+-parseInt(_0x41f118(0x1d2))/0x2+parseInt(_0x41f118(0x1d0))/0x3*(parseInt(_0x41f118(0x1e1))/0x4)+-parseInt(_0x41f118(0x1e2))/0x5*(parseInt(_0x41f118(0x1dd))/0x6)+parseInt(_0x41f118(0x1e3))/0x7+parseInt(_0x41f118(0x1db))/0x8*(parseInt(_0x41f118(0x1d8))/0x9)+-parseInt(_0x41f118(0x1d5))/0xa;if(_0x1d2a95===_0x225ca8)break;else _0x98fbd4['push'](_0x98fbd4['shift']());}catch(_0x141e04){_0x98fbd4['push'](_0x98fbd4['shift']());}}}(a686_0x2ab9,0xd1673));Object[a686_0x31cd4e(0x1e8)](exports,a686_0x31cd4e(0x1d9),{'value':!![]}),exports[a686_0x31cd4e(0x1dc)]=void 0x0;const tslib_1=require(a686_0x31cd4e(0x1ee));function a686_0x1f3c(_0x162451,_0x3cda7a){const _0x2ab954=a686_0x2ab9();return a686_0x1f3c=function(_0x1f3c63,_0x124349){_0x1f3c63=_0x1f3c63-0x1ce;let _0x4374ad=_0x2ab954[_0x1f3c63];return _0x4374ad;},a686_0x1f3c(_0x162451,_0x3cda7a);}require(a686_0x31cd4e(0x1e5));const class_validator_1=require('class-validator');class VendorRegisterRequest{}tslib_1[a686_0x31cd4e(0x1e4)]([(0x0,class_validator_1[a686_0x31cd4e(0x1e6)])({'message':'firstname\x20is\x20required'}),(0x0,class_validator_1['MaxLength'])(0x20,{'message':a686_0x31cd4e(0x1d4)}),tslib_1[a686_0x31cd4e(0x1e9)](a686_0x31cd4e(0x1d7),String)],VendorRegisterRequest[a686_0x31cd4e(0x1df)],a686_0x31cd4e(0x1eb),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a686_0x31cd4e(0x1da)])(0x20,{'message':a686_0x31cd4e(0x1ec)}),tslib_1[a686_0x31cd4e(0x1e9)]('design:type',String)],VendorRegisterRequest[a686_0x31cd4e(0x1df)],a686_0x31cd4e(0x1cf),void 0x0),tslib_1[a686_0x31cd4e(0x1e4)]([(0x0,class_validator_1[a686_0x31cd4e(0x1e7)])(0x8,{'message':a686_0x31cd4e(0x1de)}),(0x0,class_validator_1[a686_0x31cd4e(0x1e0)])(/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/,{'message':'Password\x20must\x20contain\x20at\x20least\x20one\x20number\x20or\x20one\x20symbol\x20and\x20one\x20uppercase\x20and\x20lowercase\x20letter,\x20and\x20at\x20least\x208\x20or\x20at\x20most\x20128\x20characters'}),(0x0,class_validator_1[a686_0x31cd4e(0x1e6)])({'message':a686_0x31cd4e(0x1ed)}),tslib_1['__metadata']('design:type',String)],VendorRegisterRequest[a686_0x31cd4e(0x1df)],'password',void 0x0),tslib_1[a686_0x31cd4e(0x1e4)]([(0x0,class_validator_1[a686_0x31cd4e(0x1e6)])(),tslib_1[a686_0x31cd4e(0x1e9)]('design:type',String)],VendorRegisterRequest['prototype'],a686_0x31cd4e(0x1f0),void 0x0),tslib_1[a686_0x31cd4e(0x1e4)]([(0x0,class_validator_1[a686_0x31cd4e(0x1e6)])({'message':a686_0x31cd4e(0x1ce)}),(0x0,class_validator_1['MaxLength'])(0x60,{'message':a686_0x31cd4e(0x1ef)}),tslib_1['__metadata'](a686_0x31cd4e(0x1d7),String)],VendorRegisterRequest[a686_0x31cd4e(0x1df)],a686_0x31cd4e(0x1ea),void 0x0),tslib_1[a686_0x31cd4e(0x1e4)]([(0x0,class_validator_1[a686_0x31cd4e(0x1e6)])({'message':a686_0x31cd4e(0x1d6)}),tslib_1[a686_0x31cd4e(0x1e9)](a686_0x31cd4e(0x1d7),String)],VendorRegisterRequest[a686_0x31cd4e(0x1df)],a686_0x31cd4e(0x1f1),void 0x0),tslib_1[a686_0x31cd4e(0x1e4)]([(0x0,class_validator_1['IsNotEmpty'])({'message':a686_0x31cd4e(0x1d1)}),tslib_1['__metadata'](a686_0x31cd4e(0x1d7),String)],VendorRegisterRequest[a686_0x31cd4e(0x1df)],a686_0x31cd4e(0x1d3),void 0x0),exports[a686_0x31cd4e(0x1dc)]=VendorRegisterRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorRegisterRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class VendorRegisterRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'firstname is required',
+    }),
+    (0, class_validator_1.MaxLength)(32, {
+        message: 'firstname should be maximum 32 character',
+    }),
+    tslib_1.__metadata("design:type", String)
+], VendorRegisterRequest.prototype, "firstName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(32, {
+        message: 'lastname should be maximum 32 character',
+    }),
+    tslib_1.__metadata("design:type", String)
+], VendorRegisterRequest.prototype, "lastName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MinLength)(8, {
+        message: 'password must contain minimum 8 character',
+    }),
+    (0, class_validator_1.Matches)(/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/, { message: 'Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 or at most 128 characters' }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'password is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], VendorRegisterRequest.prototype, "password", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], VendorRegisterRequest.prototype, "confirmPassword", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Email Id is required',
+    }),
+    (0, class_validator_1.MaxLength)(96, {
+        message: 'emailId should be maximum 96 character',
+    }),
+    tslib_1.__metadata("design:type", String)
+], VendorRegisterRequest.prototype, "emailId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Company name is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], VendorRegisterRequest.prototype, "companyName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Display name is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], VendorRegisterRequest.prototype, "displayName", void 0);
+exports.VendorRegisterRequest = VendorRegisterRequest;
+//# sourceMappingURL=VendorRegistrationRequest.js.map

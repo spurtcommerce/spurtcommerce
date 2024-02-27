@@ -1,1 +1,25 @@
-'use strict';const a353_0x5e86c5=a353_0x2e58;(function(_0x603227,_0x50ce60){const _0x4063f5=a353_0x2e58,_0x58b299=_0x603227();while(!![]){try{const _0x487447=-parseInt(_0x4063f5(0x111))/0x1*(parseInt(_0x4063f5(0x10f))/0x2)+parseInt(_0x4063f5(0x114))/0x3+-parseInt(_0x4063f5(0x105))/0x4*(parseInt(_0x4063f5(0x109))/0x5)+parseInt(_0x4063f5(0x104))/0x6+-parseInt(_0x4063f5(0x10c))/0x7+parseInt(_0x4063f5(0x106))/0x8+-parseInt(_0x4063f5(0x107))/0x9*(-parseInt(_0x4063f5(0x10b))/0xa);if(_0x487447===_0x50ce60)break;else _0x58b299['push'](_0x58b299['shift']());}catch(_0x4b61f3){_0x58b299['push'](_0x58b299['shift']());}}}(a353_0x3bab,0x29005));Object[a353_0x5e86c5(0x113)](exports,a353_0x5e86c5(0x108),{'value':!![]}),exports[a353_0x5e86c5(0x112)]=void 0x0;function a353_0x3bab(){const _0x2023c0=['8JeFduk','CompressionMiddleware','defineProperty','220638NLWTCM','Middleware','924444YYJJDR','44ZDRTYP','841256UQgOnO','2007RVDoeN','__esModule','84345udPaNg','routing-controllers','21950aCcbzj','1515038nLSYRB','__decorate','default','63082IhOulK','before'];a353_0x3bab=function(){return _0x2023c0;};return a353_0x3bab();}const tslib_1=require('tslib'),compression_1=tslib_1['__importDefault'](require('compression')),routing_controllers_1=require(a353_0x5e86c5(0x10a));let CompressionMiddleware=class CompressionMiddleware{['use'](_0x807352,_0x35f570,_0xadad8){const _0x34cc4e=a353_0x5e86c5;return(0x0,compression_1[_0x34cc4e(0x10e)])()(_0x807352,_0x35f570,_0xadad8);}};function a353_0x2e58(_0x2d349c,_0x32ac79){const _0x3bab06=a353_0x3bab();return a353_0x2e58=function(_0x2e58b1,_0x3ca2ba){_0x2e58b1=_0x2e58b1-0x104;let _0x4658fd=_0x3bab06[_0x2e58b1];return _0x4658fd;},a353_0x2e58(_0x2d349c,_0x32ac79);}CompressionMiddleware=tslib_1[a353_0x5e86c5(0x10d)]([(0x0,routing_controllers_1[a353_0x5e86c5(0x115)])({'type':a353_0x5e86c5(0x110)})],CompressionMiddleware),exports[a353_0x5e86c5(0x112)]=CompressionMiddleware;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CompressionMiddleware = void 0;
+const tslib_1 = require("tslib");
+const compression_1 = tslib_1.__importDefault(require("compression"));
+const routing_controllers_1 = require("routing-controllers");
+let CompressionMiddleware = class CompressionMiddleware {
+    use(req, res, next) {
+        return (0, compression_1.default)()(req, res, next);
+    }
+};
+CompressionMiddleware = tslib_1.__decorate([
+    (0, routing_controllers_1.Middleware)({ type: 'before' })
+], CompressionMiddleware);
+exports.CompressionMiddleware = CompressionMiddleware;
+//# sourceMappingURL=CompressionMiddleware.js.map

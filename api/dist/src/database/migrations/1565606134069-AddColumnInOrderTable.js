@@ -1,1 +1,43 @@
-'use strict';function a801_0x3a8f(){const _0x310289=['varchar','8VEYFLc','currency_symbol_left','622MNStvx','tslib','dropColumn','4650375AiAaST','__awaiter','TableColumn','hasColumn','typeorm','__esModule','5040154fCmErq','1890882gsaJtp','defineProperty','6OMFcoE','142158CjgWqM','5469DbOBOS','order','addColumn','16840cAOGnH','utf8mb4_unicode_ci','4763JQSkhw','255','AddColumnInOrderTable1565606134069','ALTER\x20TABLE\x20`country`\x20CHANGE\x20`country_id`\x20`country_id`\x20INT(11)AUTO_INCREMENT\x20','query','3344956erazis','currency_symbol_right'];a801_0x3a8f=function(){return _0x310289;};return a801_0x3a8f();}const a801_0x28ae0e=a801_0x454e;(function(_0xdcc22,_0x1555dc){const _0x1f9049=a801_0x454e,_0x13cfd8=_0xdcc22();while(!![]){try{const _0x30871d=parseInt(_0x1f9049(0x175))/0x1+parseInt(_0x1f9049(0x168))/0x2*(parseInt(_0x1f9049(0x159))/0x3)+-parseInt(_0x1f9049(0x163))/0x4+parseInt(_0x1f9049(0x16b))/0x5+parseInt(_0x1f9049(0x174))/0x6*(-parseInt(_0x1f9049(0x171))/0x7)+parseInt(_0x1f9049(0x166))/0x8*(-parseInt(_0x1f9049(0x172))/0x9)+-parseInt(_0x1f9049(0x15c))/0xa*(-parseInt(_0x1f9049(0x15e))/0xb);if(_0x30871d===_0x1555dc)break;else _0x13cfd8['push'](_0x13cfd8['shift']());}catch(_0x38e4cc){_0x13cfd8['push'](_0x13cfd8['shift']());}}}(a801_0x3a8f,0x92f8f));function a801_0x454e(_0x2941b8,_0x48b4bf){const _0x3a8f08=a801_0x3a8f();return a801_0x454e=function(_0x454ee0,_0x54f6b2){_0x454ee0=_0x454ee0-0x159;let _0x40b89b=_0x3a8f08[_0x454ee0];return _0x40b89b;},a801_0x454e(_0x2941b8,_0x48b4bf);}Object[a801_0x28ae0e(0x173)](exports,a801_0x28ae0e(0x170),{'value':!![]}),exports[a801_0x28ae0e(0x160)]=void 0x0;const tslib_1=require(a801_0x28ae0e(0x169)),typeorm_1=require(a801_0x28ae0e(0x16f));class AddColumnInOrderTable1565606134069{['up'](_0x22af02){const _0x4fb648=a801_0x28ae0e;return tslib_1[_0x4fb648(0x16c)](this,void 0x0,void 0x0,function*(){const _0xbe60d9=_0x4fb648,_0x6b03eb=yield _0x22af02[_0xbe60d9(0x16e)](_0xbe60d9(0x15a),'currency_symbol_left');!_0x6b03eb&&(yield _0x22af02[_0xbe60d9(0x15b)](_0xbe60d9(0x15a),new typeorm_1[(_0xbe60d9(0x16d))]({'name':_0xbe60d9(0x167),'type':_0xbe60d9(0x165),'length':_0xbe60d9(0x15f),'isPrimary':![],'isNullable':!![],'collation':_0xbe60d9(0x15d)})));const _0x569a8=yield _0x22af02[_0xbe60d9(0x16e)]('order',_0xbe60d9(0x164));!_0x569a8&&(yield _0x22af02[_0xbe60d9(0x15b)](_0xbe60d9(0x15a),new typeorm_1[(_0xbe60d9(0x16d))]({'name':'currency_symbol_right','type':_0xbe60d9(0x165),'length':_0xbe60d9(0x15f),'isPrimary':![],'isNullable':!![],'collation':_0xbe60d9(0x15d)}))),yield _0x22af02[_0xbe60d9(0x162)]('ALTER\x20TABLE\x20`product`\x20CHANGE\x20`price`\x20`price`\x20decimal(10,2)\x20DEFAULT\x20NULL'),yield _0x22af02[_0xbe60d9(0x162)](_0xbe60d9(0x161));});}['down'](_0x42f9ce){const _0x102359=a801_0x28ae0e;return tslib_1[_0x102359(0x16c)](this,void 0x0,void 0x0,function*(){const _0x4916e8=_0x102359;yield _0x42f9ce[_0x4916e8(0x16a)]('order','currency_symbol_left'),yield _0x42f9ce[_0x4916e8(0x16a)](_0x4916e8(0x15a),_0x4916e8(0x164));});}}exports[a801_0x28ae0e(0x160)]=AddColumnInOrderTable1565606134069;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInOrderTable1565606134069 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInOrderTable1565606134069 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('order', 'currency_symbol_left');
+            if (!ifExist) {
+                yield queryRunner.addColumn('order', new typeorm_1.TableColumn({
+                    name: 'currency_symbol_left',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                    collation: 'utf8mb4_unicode_ci',
+                }));
+            }
+            const ifExistColumn = yield queryRunner.hasColumn('order', 'currency_symbol_right');
+            if (!ifExistColumn) {
+                yield queryRunner.addColumn('order', new typeorm_1.TableColumn({
+                    name: 'currency_symbol_right',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                    collation: 'utf8mb4_unicode_ci',
+                }));
+            }
+            yield queryRunner.query('ALTER TABLE `product` CHANGE `price` `price` decimal(10,2) DEFAULT NULL');
+            yield queryRunner.query('ALTER TABLE `country` CHANGE `country_id` `country_id` INT(11)AUTO_INCREMENT ');
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('order', 'currency_symbol_left');
+            yield queryRunner.dropColumn('order', 'currency_symbol_right');
+        });
+    }
+}
+exports.AddColumnInOrderTable1565606134069 = AddColumnInOrderTable1565606134069;
+//# sourceMappingURL=1565606134069-AddColumnInOrderTable.js.map

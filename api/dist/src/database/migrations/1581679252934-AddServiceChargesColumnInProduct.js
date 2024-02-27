@@ -1,1 +1,60 @@
-'use strict';function a842_0x2974(_0x23c369,_0x462fe8){const _0x3a0038=a842_0x3a00();return a842_0x2974=function(_0x2974ad,_0x3c7810){_0x2974ad=_0x2974ad-0x11f;let _0x3ff0f8=_0x3a0038[_0x2974ad];return _0x3ff0f8;},a842_0x2974(_0x23c369,_0x462fe8);}const a842_0x15a857=a842_0x2974;function a842_0x3a00(){const _0x14319e=['7924224DuxetV','TableColumn','hasColumn','dropColumn','service_charges','tslib','product','addColumn','21441CrMtak','vendor','product_slug','255','1690040pUoLfW','222KUppCM','2202564JsOBys','1591660pGZydl','price_update_file_log_id','varchar','__esModule','20526680dsrDie','1116577MswQEz','typeorm','integer','__awaiter'];a842_0x3a00=function(){return _0x14319e;};return a842_0x3a00();}(function(_0x3e083e,_0x388f64){const _0x3a0a06=a842_0x2974,_0x4a2032=_0x3e083e();while(!![]){try{const _0x1599c2=parseInt(_0x3a0a06(0x130))/0x1+parseInt(_0x3a0a06(0x129))/0x2*(parseInt(_0x3a0a06(0x124))/0x3)+-parseInt(_0x3a0a06(0x12b))/0x4+parseInt(_0x3a0a06(0x128))/0x5+parseInt(_0x3a0a06(0x12a))/0x6+parseInt(_0x3a0a06(0x134))/0x7+-parseInt(_0x3a0a06(0x12f))/0x8;if(_0x1599c2===_0x388f64)break;else _0x4a2032['push'](_0x4a2032['shift']());}catch(_0xb2277f){_0x4a2032['push'](_0x4a2032['shift']());}}}(a842_0x3a00,0xbf3ae));Object['defineProperty'](exports,a842_0x15a857(0x12e),{'value':!![]}),exports['AddServiceChargesColumnInProduct1581679252934']=void 0x0;const tslib_1=require(a842_0x15a857(0x121)),typeorm_1=require(a842_0x15a857(0x131));class AddServiceChargesColumnInProduct1581679252934{['up'](_0x413fc8){const _0x441d54=a842_0x15a857;return tslib_1[_0x441d54(0x133)](this,void 0x0,void 0x0,function*(){const _0x4e31a3=_0x441d54,_0x2438df=yield _0x413fc8[_0x4e31a3(0x136)](_0x4e31a3(0x122),_0x4e31a3(0x120));!_0x2438df&&(yield _0x413fc8[_0x4e31a3(0x123)](_0x4e31a3(0x122),new typeorm_1[(_0x4e31a3(0x135))]({'name':_0x4e31a3(0x120),'type':_0x4e31a3(0x12d),'length':'255','isPrimary':![],'isNullable':!![]})));const _0x2ba1a9=yield _0x413fc8['hasColumn'](_0x4e31a3(0x122),'product_slug');!_0x2ba1a9&&(yield _0x413fc8['addColumn'](_0x4e31a3(0x122),new typeorm_1[(_0x4e31a3(0x135))]({'name':_0x4e31a3(0x126),'type':_0x4e31a3(0x12d),'length':_0x4e31a3(0x127),'isPrimary':![],'isNullable':!![]})));const _0x2c42e8=yield _0x413fc8['hasColumn'](_0x4e31a3(0x122),_0x4e31a3(0x120));!_0x2c42e8&&(yield _0x413fc8[_0x4e31a3(0x123)](_0x4e31a3(0x122),new typeorm_1[(_0x4e31a3(0x135))]({'name':_0x4e31a3(0x120),'type':_0x4e31a3(0x12d),'length':_0x4e31a3(0x127),'isPrimary':![],'isNullable':!![]})));const _0x14bca8=yield _0x413fc8[_0x4e31a3(0x136)]('product','price_update_file_log_id');!_0x14bca8&&(yield _0x413fc8[_0x4e31a3(0x123)](_0x4e31a3(0x122),new typeorm_1[(_0x4e31a3(0x135))]({'name':_0x4e31a3(0x12c),'type':_0x4e31a3(0x132),'length':'11','isPrimary':![],'isNullable':!![]})));});}['down'](_0x5c0720){const _0x39453b=a842_0x15a857;return tslib_1[_0x39453b(0x133)](this,void 0x0,void 0x0,function*(){const _0x1bdb01=_0x39453b;yield _0x5c0720[_0x1bdb01(0x11f)](_0x1bdb01(0x125),'price_update_file_log_id'),yield _0x5c0720[_0x1bdb01(0x11f)]('vendor',_0x1bdb01(0x126)),yield _0x5c0720[_0x1bdb01(0x11f)](_0x1bdb01(0x125),_0x1bdb01(0x120));});}}exports['AddServiceChargesColumnInProduct1581679252934']=AddServiceChargesColumnInProduct1581679252934;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddServiceChargesColumnInProduct1581679252934 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddServiceChargesColumnInProduct1581679252934 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('product', 'service_charges');
+            if (!ifExist) {
+                yield queryRunner.addColumn('product', new typeorm_1.TableColumn({
+                    name: 'service_charges',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist1 = yield queryRunner.hasColumn('product', 'product_slug');
+            if (!ifExist1) {
+                yield queryRunner.addColumn('product', new typeorm_1.TableColumn({
+                    name: 'product_slug',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist2 = yield queryRunner.hasColumn('product', 'service_charges');
+            if (!ifExist2) {
+                yield queryRunner.addColumn('product', new typeorm_1.TableColumn({
+                    name: 'service_charges',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist4 = yield queryRunner.hasColumn('product', 'price_update_file_log_id');
+            if (!ifExist4) {
+                yield queryRunner.addColumn('product', new typeorm_1.TableColumn({
+                    name: 'price_update_file_log_id',
+                    type: 'integer',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('vendor', 'price_update_file_log_id');
+            yield queryRunner.dropColumn('vendor', 'product_slug');
+            yield queryRunner.dropColumn('vendor', 'service_charges');
+        });
+    }
+}
+exports.AddServiceChargesColumnInProduct1581679252934 = AddServiceChargesColumnInProduct1581679252934;
+//# sourceMappingURL=1581679252934-AddServiceChargesColumnInProduct.js.map

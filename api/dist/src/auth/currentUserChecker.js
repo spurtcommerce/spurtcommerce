@@ -1,1 +1,20 @@
-'use strict';const a706_0x48c40c=a706_0x51c3;function a706_0x509a(){const _0x2644b5=['user','defineProperty','currentUserChecker','12aqpMGt','tslib','request','439582jcQJbn','4832707eTGtXj','2502228ufZapU','1156664qAlkuJ','2VdppeS','195QHhhVh','7Wynifa','1236476HhxDAA','9NbAhZK','126hCwtvw','__awaiter','825980nSUOjV','696565wbnZdm'];a706_0x509a=function(){return _0x2644b5;};return a706_0x509a();}(function(_0x5c9a53,_0x227a57){const _0x38a741=a706_0x51c3,_0x3f0b80=_0x5c9a53();while(!![]){try{const _0x4b0586=parseInt(_0x38a741(0x109))/0x1*(parseInt(_0x38a741(0x105))/0x2)+parseInt(_0x38a741(0xfa))/0x3*(-parseInt(_0x38a741(0xf9))/0x4)+parseInt(_0x38a741(0xfe))/0x5*(-parseInt(_0x38a741(0x102))/0x6)+parseInt(_0x38a741(0xf8))/0x7*(-parseInt(_0x38a741(0x108))/0x8)+-parseInt(_0x38a741(0xfb))/0x9*(parseInt(_0x38a741(0xfd))/0xa)+-parseInt(_0x38a741(0x106))/0xb+parseInt(_0x38a741(0x107))/0xc*(parseInt(_0x38a741(0x10a))/0xd);if(_0x4b0586===_0x227a57)break;else _0x3f0b80['push'](_0x3f0b80['shift']());}catch(_0x2dc187){_0x3f0b80['push'](_0x3f0b80['shift']());}}}(a706_0x509a,0x97a24));function a706_0x51c3(_0x42d0e8,_0x58b893){const _0x509ad2=a706_0x509a();return a706_0x51c3=function(_0x51c3aa,_0x28834b){_0x51c3aa=_0x51c3aa-0xf8;let _0x472946=_0x509ad2[_0x51c3aa];return _0x472946;},a706_0x51c3(_0x42d0e8,_0x58b893);}Object[a706_0x48c40c(0x100)](exports,'__esModule',{'value':!![]}),exports[a706_0x48c40c(0x101)]=void 0x0;const tslib_1=require(a706_0x48c40c(0x103));function currentUserChecker(_0x7b3af5){return function _0x35d33f(_0x3c259e){const _0xfda439=a706_0x51c3;return tslib_1[_0xfda439(0xfc)](this,void 0x0,void 0x0,function*(){const _0x123edb=_0xfda439;return _0x3c259e[_0x123edb(0x104)][_0x123edb(0xff)];});};}exports[a706_0x48c40c(0x101)]=currentUserChecker;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.currentUserChecker = void 0;
+const tslib_1 = require("tslib");
+function currentUserChecker(connection) {
+    return function innerCurrentUserChecker(action) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return action.request.user;
+        });
+    };
+}
+exports.currentUserChecker = currentUserChecker;
+//# sourceMappingURL=currentUserChecker.js.map

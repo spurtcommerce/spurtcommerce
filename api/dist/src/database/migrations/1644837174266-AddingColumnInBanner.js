@@ -1,1 +1,29 @@
-'use strict';const a926_0x81056a=a926_0x3559;(function(_0x3c2471,_0x1a354a){const _0x143334=a926_0x3559,_0x3950ca=_0x3c2471();while(!![]){try{const _0x4727de=-parseInt(_0x143334(0x1e9))/0x1*(-parseInt(_0x143334(0x1ec))/0x2)+parseInt(_0x143334(0x1f7))/0x3*(-parseInt(_0x143334(0x1f1))/0x4)+parseInt(_0x143334(0x1e2))/0x5+parseInt(_0x143334(0x1eb))/0x6+-parseInt(_0x143334(0x1f8))/0x7+-parseInt(_0x143334(0x1f4))/0x8+-parseInt(_0x143334(0x1e6))/0x9*(-parseInt(_0x143334(0x1ed))/0xa);if(_0x4727de===_0x1a354a)break;else _0x3950ca['push'](_0x3950ca['shift']());}catch(_0x13e12f){_0x3950ca['push'](_0x3950ca['shift']());}}}(a926_0x1053,0xab982));function a926_0x1053(){const _0x5c8fbc=['1883604cDTPYb','1097194nTcJbf','9698090MwYXsI','defineProperty','integer','__awaiter','854312BsyMUu','link_type','tslib','3909944vCQpuE','hasColumn','TableColumn','9uLCfkh','7415541YRUXiJ','2553765MjZKeM','__esModule','typeorm','addColumn','9LKUVEI','banner','down','2iNBOzJ','AddingColumnInBanner1644837174266'];a926_0x1053=function(){return _0x5c8fbc;};return a926_0x1053();}function a926_0x3559(_0x5b031d,_0x4fd4e9){const _0x1053ed=a926_0x1053();return a926_0x3559=function(_0x35599d,_0x1fc807){_0x35599d=_0x35599d-0x1e2;let _0x568e6c=_0x1053ed[_0x35599d];return _0x568e6c;},a926_0x3559(_0x5b031d,_0x4fd4e9);}Object[a926_0x81056a(0x1ee)](exports,a926_0x81056a(0x1e3),{'value':!![]}),exports[a926_0x81056a(0x1ea)]=void 0x0;const tslib_1=require(a926_0x81056a(0x1f3)),typeorm_1=require(a926_0x81056a(0x1e4));class AddingColumnInBanner1644837174266{['up'](_0x1e6267){const _0xc68af7=a926_0x81056a;return tslib_1[_0xc68af7(0x1f0)](this,void 0x0,void 0x0,function*(){const _0xe1e70a=_0xc68af7,_0x5115ca=yield _0x1e6267[_0xe1e70a(0x1f5)](_0xe1e70a(0x1e7),_0xe1e70a(0x1f2));!_0x5115ca&&(yield _0x1e6267[_0xe1e70a(0x1e5)]('banner',new typeorm_1[(_0xe1e70a(0x1f6))]({'name':_0xe1e70a(0x1f2),'type':_0xe1e70a(0x1ef),'length':'11','isPrimary':![],'isNullable':!![],'default':0x0})));});}[a926_0x81056a(0x1e8)](_0x5a0ca7){const _0x10cef8=a926_0x81056a;return tslib_1[_0x10cef8(0x1f0)](this,void 0x0,void 0x0,function*(){const _0x491727=_0x10cef8;yield _0x5a0ca7['dropColumn'](_0x491727(0x1e7),_0x491727(0x1f2));});}}exports['AddingColumnInBanner1644837174266']=AddingColumnInBanner1644837174266;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddingColumnInBanner1644837174266 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddingColumnInBanner1644837174266 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('banner', 'link_type');
+            if (!ifExist) {
+                yield queryRunner.addColumn('banner', new typeorm_1.TableColumn({
+                    name: 'link_type',
+                    type: 'integer',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                    default: 0,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('banner', 'link_type');
+        });
+    }
+}
+exports.AddingColumnInBanner1644837174266 = AddingColumnInBanner1644837174266;
+//# sourceMappingURL=1644837174266-AddingColumnInBanner.js.map

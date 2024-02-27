@@ -1,1 +1,103 @@
-'use strict';function a164_0x4ed1(){const _0x1eb6e0=['TableForeignKey','typeorm','15732926juTHqw','CreateTableProductAnswerTable1584619809783','1528365DxeAYI','276XntLcC','product_answer','dropTable','modified_by','2135979pJwBDQ','18735pbtoXm','285389SztMNR','is_active','fk_tbl_tableProductAnswer_tbl_tableProductQuestion_foreignKey','2rAUFxt','createTable','answer','integer','810500ORQMWx','datetime','question_id','foreignKeys','getTable','tslib','CASCADE','increment','Table','indexOf','tableForeignKey','createForeignKey','type','929642rMdpLM','16RWFlOJ','created_by','created_date','CURRENT_TIMESTAMP','24ePFaau','__esModule','product_question','reference_id','answer_id'];a164_0x4ed1=function(){return _0x1eb6e0;};return a164_0x4ed1();}function a164_0x401d(_0x6dd1be,_0x469436){const _0x4ed1b1=a164_0x4ed1();return a164_0x401d=function(_0x401d32,_0xe7ada7){_0x401d32=_0x401d32-0x96;let _0x3bf0cb=_0x4ed1b1[_0x401d32];return _0x3bf0cb;},a164_0x401d(_0x6dd1be,_0x469436);}const a164_0x4075c6=a164_0x401d;(function(_0x1f1b52,_0x2a9507){const _0x37ebf7=a164_0x401d,_0x36543c=_0x1f1b52();while(!![]){try{const _0x16d7e2=-parseInt(_0x37ebf7(0xae))/0x1+-parseInt(_0x37ebf7(0xb1))/0x2*(-parseInt(_0x37ebf7(0xa7))/0x3)+parseInt(_0x37ebf7(0xa8))/0x4*(-parseInt(_0x37ebf7(0xad))/0x5)+-parseInt(_0x37ebf7(0x9e))/0x6*(parseInt(_0x37ebf7(0x99))/0x7)+-parseInt(_0x37ebf7(0x9a))/0x8*(parseInt(_0x37ebf7(0xac))/0x9)+-parseInt(_0x37ebf7(0xb5))/0xa+parseInt(_0x37ebf7(0xa5))/0xb;if(_0x16d7e2===_0x2a9507)break;else _0x36543c['push'](_0x36543c['shift']());}catch(_0x24787b){_0x36543c['push'](_0x36543c['shift']());}}}(a164_0x4ed1,0x4b675));Object['defineProperty'](exports,a164_0x4075c6(0x9f),{'value':!![]}),exports['CreateTableProductAnswerTable1584619809783']=void 0x0;const tslib_1=require(a164_0x4075c6(0xba)),typeorm_1=require(a164_0x4075c6(0xa4));class CreateTableProductAnswerTable1584619809783{constructor(){const _0x1103b4=a164_0x4075c6;this[_0x1103b4(0x96)]=new typeorm_1[(_0x1103b4(0xa3))]({'name':_0x1103b4(0xb0),'columnNames':['question_id'],'referencedColumnNames':[_0x1103b4(0xb7)],'referencedTableName':_0x1103b4(0xa0),'onDelete':_0x1103b4(0xbb)});}['up'](_0x525533){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3f5697=a164_0x401d,_0x3cf586=new typeorm_1[(_0x3f5697(0xbd))]({'name':_0x3f5697(0xa9),'columns':[{'name':_0x3f5697(0xa2),'type':_0x3f5697(0xb4),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x3f5697(0xbc)},{'name':_0x3f5697(0xb7),'type':_0x3f5697(0xb4),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3f5697(0xb3),'type':'text','isPrimary':![],'isNullable':!![]},{'name':_0x3f5697(0x98),'type':_0x3f5697(0xb4),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3f5697(0xa1),'type':_0x3f5697(0xb4),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3f5697(0xaf),'type':_0x3f5697(0xb4),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3f5697(0x9b),'type':_0x3f5697(0xb4),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3f5697(0x9c),'type':_0x3f5697(0xb6),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':_0x3f5697(0xab),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':'modified_date','type':_0x3f5697(0xb6),'isPrimary':![],'isNullable':!![],'default':_0x3f5697(0x9d)}]}),_0x5c3757=yield _0x525533['hasTable']('product_answer');!_0x5c3757&&(yield _0x525533[_0x3f5697(0xb2)](_0x3cf586));const _0x25ed60=yield _0x525533[_0x3f5697(0xb9)](_0x3f5697(0xa9)),_0xe10b2f=_0x25ed60[_0x3f5697(0xb8)]['find'](_0x27640b=>_0x27640b['columnNames'][_0x3f5697(0xbe)](_0x3f5697(0xb7))!==-0x1);!_0xe10b2f&&(yield _0x525533[_0x3f5697(0x97)](_0x3cf586,this[_0x3f5697(0x96)]));});}['down'](_0x147966){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xd181e=a164_0x401d;yield _0x147966[_0xd181e(0xaa)](_0xd181e(0xa9),!![]);});}}exports[a164_0x4075c6(0xa6)]=CreateTableProductAnswerTable1584619809783;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateTableProductAnswerTable1584619809783 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateTableProductAnswerTable1584619809783 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_tableProductAnswer_tbl_tableProductQuestion_foreignKey',
+            columnNames: ['question_id'],
+            referencedColumnNames: ['question_id'],
+            referencedTableName: 'product_question',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'product_answer',
+                columns: [
+                    {
+                        name: 'answer_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'question_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'answer',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'type',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'reference_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('product_answer');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const getTable = yield queryRunner.getTable('product_answer');
+            const ifDataExsist = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('question_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('product_answer', true);
+        });
+    }
+}
+exports.CreateTableProductAnswerTable1584619809783 = CreateTableProductAnswerTable1584619809783;
+//# sourceMappingURL=1584619809783-CreateTableProductAnswerTable.js.map

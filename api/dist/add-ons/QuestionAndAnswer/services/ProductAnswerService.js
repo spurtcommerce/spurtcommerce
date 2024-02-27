@@ -1,1 +1,94 @@
-'use strict';const a190_0x598975=a190_0x142f;(function(_0x348889,_0x4c56c0){const _0x25015b=a190_0x142f,_0x555167=_0x348889();while(!![]){try{const _0x54c341=-parseInt(_0x25015b(0xa7))/0x1*(parseInt(_0x25015b(0xa8))/0x2)+-parseInt(_0x25015b(0xb9))/0x3*(parseInt(_0x25015b(0xc5))/0x4)+parseInt(_0x25015b(0xba))/0x5*(parseInt(_0x25015b(0xa9))/0x6)+parseInt(_0x25015b(0xc7))/0x7+-parseInt(_0x25015b(0xb3))/0x8+-parseInt(_0x25015b(0xa3))/0x9+parseInt(_0x25015b(0xca))/0xa;if(_0x54c341===_0x4c56c0)break;else _0x555167['push'](_0x555167['shift']());}catch(_0x4eefc9){_0x555167['push'](_0x555167['shift']());}}}(a190_0x5bbf,0x9e286));function a190_0x5bbf(){const _0x2f9af2=['info','delete','DESC','Service','13684wzxMvw','count','3881192xTjmtk','__awaiter','order','21913770EdnNfM','answerId','save','tslib','typeorm/index','__metadata','Like','11658555usGBFO','like','__param','value','607gDdUJm','2434DTNhZI','59370MSOPgh','__decorate','findOne','take','select','forEach','productAnswerRepository','log','length','Create\x20a\x20new\x20product\x20answer\x20','9575496YxyMUR','name','list','create','ProductAnswerRepository','findAll','39ZbyZIR','595nTmBXS','skip','../repositories/ProductAnswerRepository','ProductAnswerService','where','find','../../../src/decorators/Logger'];a190_0x5bbf=function(){return _0x2f9af2;};return a190_0x5bbf();}function a190_0x142f(_0x318088,_0x3ca42b){const _0x5bbfc5=a190_0x5bbf();return a190_0x142f=function(_0x142f5b,_0x4629fe){_0x142f5b=_0x142f5b-0xa2;let _0x28464b=_0x5bbfc5[_0x142f5b];return _0x28464b;},a190_0x142f(_0x318088,_0x3ca42b);}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a190_0x598975(0xbd)]=void 0x0;const tslib_1=require(a190_0x598975(0xcd)),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require('typeorm-typedi-extensions'),Logger_1=require(a190_0x598975(0xc0)),ProductAnswerRepository_1=require(a190_0x598975(0xbc)),index_1=require(a190_0x598975(0xce));let ProductAnswerService=class ProductAnswerService{constructor(_0x1404dd,_0xd2448c){const _0x2c3a6b=a190_0x598975;this['productAnswerRepository']=_0x1404dd,this[_0x2c3a6b(0xb0)]=_0xd2448c;}[a190_0x598975(0xb6)](_0x2eecbb){const _0x53799a=a190_0x598975;return tslib_1[_0x53799a(0xc8)](this,void 0x0,void 0x0,function*(){const _0x5494db=_0x53799a;return this[_0x5494db(0xb0)][_0x5494db(0xc1)](_0x5494db(0xb2)),this['productAnswerRepository'][_0x5494db(0xcc)](_0x2eecbb);});}[a190_0x598975(0xab)](_0x50d885){const _0x37c8a2=a190_0x598975;return this[_0x37c8a2(0xaf)][_0x37c8a2(0xab)](_0x50d885);}['update'](_0x23eee4,_0x577095){const _0x59c097=a190_0x598975;return _0x577095[_0x59c097(0xcb)]=_0x23eee4,this[_0x59c097(0xaf)][_0x59c097(0xcc)](_0x577095);}[a190_0x598975(0xb5)](_0x1b7492,_0x2be281,_0x4c1e9e=[],_0x3fa193=[],_0x3fd896=[],_0x544908){const _0xc29045=a190_0x598975,_0x4d01f1={};return _0x4c1e9e&&_0x4c1e9e[_0xc29045(0xb1)]>0x0&&(_0x4d01f1[_0xc29045(0xad)]=_0x4c1e9e),_0x4d01f1[_0xc29045(0xbe)]={},_0x3fd896&&_0x3fd896[_0xc29045(0xb1)]>0x0&&_0x3fd896['forEach'](_0x5963c3=>{const _0x357dcf=_0xc29045;_0x4d01f1[_0x357dcf(0xbe)][_0x5963c3['name']]=_0x5963c3[_0x357dcf(0xa6)];}),_0x3fa193&&_0x3fa193[_0xc29045(0xb1)]>0x0&&_0x3fa193[_0xc29045(0xae)](_0x1697db=>{const _0x423432=_0xc29045,_0xa28727=_0x1697db['op'];if(_0xa28727==='where'&&_0x1697db[_0x423432(0xa6)]!=='')_0x4d01f1[_0x423432(0xbe)][_0x1697db[_0x423432(0xb4)]]=_0x1697db['value'];else _0xa28727===_0x423432(0xa4)&&_0x1697db[_0x423432(0xa6)]!==''&&(_0x4d01f1[_0x423432(0xbe)][_0x1697db[_0x423432(0xb4)]]=(0x0,index_1[_0x423432(0xa2)])('%'+_0x1697db[_0x423432(0xa6)]+'%'));}),_0x4d01f1[_0xc29045(0xc9)]={'createdDate':_0xc29045(0xc3)},_0x1b7492&&_0x1b7492>0x0&&(_0x4d01f1[_0xc29045(0xac)]=_0x1b7492,_0x4d01f1[_0xc29045(0xbb)]=_0x2be281),_0x544908?this[_0xc29045(0xaf)][_0xc29045(0xc6)](_0x4d01f1):this[_0xc29045(0xaf)][_0xc29045(0xbf)](_0x4d01f1);}[a190_0x598975(0xc2)](_0x268b18){const _0x6cbd1=a190_0x598975;return tslib_1[_0x6cbd1(0xc8)](this,void 0x0,void 0x0,function*(){const _0xe89afe=_0x6cbd1;return yield this[_0xe89afe(0xaf)][_0xe89afe(0xc2)](_0x268b18);});}[a190_0x598975(0xb8)](_0x56a0b2){const _0x3188af=a190_0x598975;return this[_0x3188af(0xb0)][_0x3188af(0xc1)]('Find\x20a\x20data'),this[_0x3188af(0xaf)][_0x3188af(0xbf)](_0x56a0b2);}};ProductAnswerService=tslib_1[a190_0x598975(0xaa)]([(0x0,typedi_1[a190_0x598975(0xc4)])(),tslib_1[a190_0x598975(0xa5)](0x0,(0x0,typeorm_typedi_extensions_1['OrmRepository'])()),tslib_1[a190_0x598975(0xa5)](0x1,(0x0,Logger_1['Logger'])(__filename)),tslib_1[a190_0x598975(0xcf)]('design:paramtypes',[ProductAnswerRepository_1[a190_0x598975(0xb7)],Object])],ProductAnswerService),exports[a190_0x598975(0xbd)]=ProductAnswerService;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductAnswerService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../src/decorators/Logger");
+const ProductAnswerRepository_1 = require("../repositories/ProductAnswerRepository");
+const index_1 = require("typeorm/index");
+let ProductAnswerService = class ProductAnswerService {
+    constructor(productAnswerRepository, log) {
+        this.productAnswerRepository = productAnswerRepository;
+        this.log = log;
+    }
+    // create Country
+    create(answer) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new product answer ');
+            return this.productAnswerRepository.save(answer);
+        });
+    }
+    // findCondition
+    findOne(answer) {
+        return this.productAnswerRepository.findOne(answer);
+    }
+    // update country
+    update(id, answer) {
+        answer.answerId = id;
+        return this.productAnswerRepository.save(answer);
+    }
+    // country List
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== '') {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== '') {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        condition.order = {
+            createdDate: 'DESC',
+        };
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.productAnswerRepository.count(condition);
+        }
+        else {
+            return this.productAnswerRepository.find(condition);
+        }
+    }
+    // delete Country
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.productAnswerRepository.delete(id);
+        });
+    }
+    // find a data
+    findAll(productDiscount) {
+        this.log.info('Find a data');
+        return this.productAnswerRepository.find(productDiscount);
+    }
+};
+ProductAnswerService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [ProductAnswerRepository_1.ProductAnswerRepository, Object])
+], ProductAnswerService);
+exports.ProductAnswerService = ProductAnswerService;
+//# sourceMappingURL=ProductAnswerService.js.map

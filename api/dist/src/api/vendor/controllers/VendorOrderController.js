@@ -1,1 +1,5262 @@
-'use strict';const a669_0xbe4a96=a669_0x20db;(function(_0x3d9409,_0x5f46e8){const _0x432b58=a669_0x20db,_0x1fd652=_0x3d9409();while(!![]){try{const _0x4a4873=parseInt(_0x432b58(0x1c9))/0x1*(parseInt(_0x432b58(0x404))/0x2)+parseInt(_0x432b58(0x352))/0x3+-parseInt(_0x432b58(0x311))/0x4*(-parseInt(_0x432b58(0x351))/0x5)+parseInt(_0x432b58(0x2cd))/0x6*(-parseInt(_0x432b58(0x214))/0x7)+parseInt(_0x432b58(0x316))/0x8*(parseInt(_0x432b58(0x158))/0x9)+parseInt(_0x432b58(0x27f))/0xa*(parseInt(_0x432b58(0x2fe))/0xb)+-parseInt(_0x432b58(0x1d1))/0xc;if(_0x4a4873===_0x5f46e8)break;else _0x1fd652['push'](_0x1fd652['shift']());}catch(_0x4eaeaf){_0x1fd652['push'](_0x1fd652['shift']());}}}(a669_0x18a2,0x40bcd));function a669_0x18a2(){const _0x542c45=['settingDetails','orderDetail.ip\x20as\x20ipAddress','design:paramtypes','Order\x20Cancel\x20Status','235830qrlyFm','43314cuAcTP','duration','customerGroup','customerGstNo','replace','pluginName','zoneService','imageserver','{orderPrefixId}','ProductImageService','failedOrderExportExcel','archiveOrderExport','Successfully\x20updated\x20the\x20order\x20status.','limit','model','../../core/services/SettingService','list','subOrderId','COUNT(orderProduct.orderProductId)\x20as\x20totalOrderProductId','hours','htmlPdf','discountAmount','exportCancelRequest','log','settingService','orderDetail.createdDate\x20as\x20createdDate','companyTaxNumber','mobileNumber','status','VendorOrders.vendor','update','VendorOrderArchiveLogService','eachRow','NetAmount','companyLogo','VendorOrders.order','imageService','SettingService','(SELECT\x20productImage.container_name\x20from\x20product_image\x20as\x20productImage\x20where\x20productImage.default_image\x20=\x201\x20AND\x20productImage.product_id\x20=\x20productId\x20LIMIT\x201)\x20as\x20containerName','customerGroupName','Successfully\x20got\x20order\x20product\x20count','customer','vendorOrderStatus.colorCode\x20as\x20orderColorCode','invoiceLogo','pdfService','priority','buyers','orderProduct.name','`orderProduct`.`cancel_request_status`','../../core/services/VendorOrderArchiveService','orderProduct.orderProductId\x20as\x20orderProductId','orderCustomer.firstName','VendorOrders.subOrderStatusId','BulkfailedOrderExportExcel','QueryParam','orderStatus','orderPrefixId','paymentCity','companyMobileNumber','VendorOrdersService','Bulk\x20Failed\x20Order\x20Export\x20excel\x20Sheet','paymentPostcode','OrderProductPrefixId','{order}','VendorInvoice.createdDate\x20as\x20createdDate','Put','orderProductLogService','taxType','values','ZoneService','Successfully\x20got\x20the\x20complete\x20order\x20list.','order.customerId','quantity','MAX(order.shippingCity)\x20as\x20shippingCity','VendorPaymentArchiveService','productPrice','vendorOffset','Product\x20Name','orderProduct.skuName\x20as\x20skuName','shippingAddress1','Param','vendorOrderArchiveLogService','orderCustomer','commission','/export-order-invoice-list','product.name\x20as\x20productName','customerGroup.name\x20as\x20groupName','env','vendorInvoice','updateVendorOrderCancelStatus','findAll','VendorOrderArchive','Total','order.orderPrefixId','vendorOrderArchiveService','orderDetail.paymentProcess','countryName','download','taxTypeValue','ASC','map','topProductSelling','storeLogoPath','unlinkSync','/bulk-failed-order-excel-list','/bulk-back-order-excel-list','../../core/services/zoneService','orderProductId','en-US','BodyParam','/archive-order-export','CountryService','CustomerAddress','orderProductService','Invalid\x20orderId','sendMail','exceljs','email','discountedAmount','isActive','VendorOrderLog','product.imagePath\x20as\x20imagePath','Order.currencySymbolRight\x20as\x20currencySymbolRight','productImageService','orderProduct.orderStatusId\x20as\x20orderProductStatusId','VendorInvoice.invoiceNo','orderInvoiceExportSendEmailPdf','border','Successfully\x20updated\x20Shipping\x20Information','Order.shippingCountry\x20as\x20shippingCountry','paymentItemId','../../core/models/VendorPayment','updateShippingInformation','Base\x20Value','pending','Successfully\x20Got\x20Order\x20Product\x20List..!','orderListCount','JsonController','Successfully\x20got\x20vendor\x20sales\x20count.','orderProduct.taxValue\x20as\x20taxValue','symbolRight','OrderPrefixId','paymentLastname','shippingFirstname','exportOrderIvoiceList','vendorOrdersService','InvoiceNo','/order-list','VendorInvoice.total\x20as\x20total','VendorOrderArchive.subOrderId','paymentMethod','orderProduct.cancelReason\x20as\x20cancelReason','design:returntype','currencyCode','ProductService','Order\x20Deleted\x20Successfully','VendorPayment','vendorInvoiceList','address2','../../core/services/VendorInvoiceItemService','vendorInvoiceItemService','cancelRequestReason','cancelStatusId','/purchased-customer-list','subOrderStatusId','vendorRecentOrderList','fileNamefileName','VendorOrderArchive.vendorId\x20as\x20vendorId','Successfully\x20got\x20the\x20vendor\x20orders\x20count','product.productId\x20as\x20productId','invoiceLogoPath','SubOrderId','SUM(order.total)\x20as\x20purched','shippingLastname','vendor','vendorId','redirectUrl','vendorId:','1049324hjUcGA','raw','PdfService','VendorOrders.subOrderId\x20as\x20subOrderId','{title}','VendorOrders.vendorId\x20as\x20vendorId','Successfully\x20shown\x20the\x20Back\x20Order\x20list.\x20','Successfully\x20got\x20vendor\x20sales\x20list.','orderDetail.shippingFirstname','../../core/services/VendorPaymentService','convert','orderStatusService','orderDetail.shippingFirstname\x20as\x20firstName','../../core/services/VendorOrderArchiveLogService','split','Successfully\x20got\x20the\x20vendor\x20order\x20count','IGST','order.isActive\x20as\x20isActive','vendor.companyName\x20as\x20companyName','vendor.companyState\x20as\x20companyState','orderStatus.name\x20as\x20orderStatus','tslib','./BulkFailedOrderExcel_','price','parentId','totalSalesExcelView','getFullYear','shippingAddress2','`orderDetail`.`created_date`','ToWords','orderExportPdf','vendorSalesReportList','sku','modifiedDate','companyName','vendorOrders.subOrderStatusId\x20as\x20subOrderStatusId','productDetailData','/order-counts','TotalValue','/vendor-order-status-list-based-on-parent','../../../env','product.keywords\x20as\x20keywords','skuName','VendorOrders.subOrderStatusId\x20as\x20subOrderStatusId','Successfully\x20get\x20Top\x20Selling\x20Product..!','vendorOrders.subOrderStatusId','/recent-order-list','productviewlog','./VendorCustomerExcel_','customerId','__metadata','total','invoice','VendorInvoiceItemService','user','s3Service','Sub\x20Order\x20Id','VendorInvoice.total','couponDiscountAmount','18RLkbeg','orderProduct.productInformationDetail','companyCity','VendorInvoice.vendorId','customer.lastName\x20as\x20lastName','length','orderStatusList','Authorized','sub\x20Order\x20Id','orderDetail.customer','companyState','Successfully\x20got\x20the\x20vendor\x20order\x20status\x20count.','productviewlog.customerId','{status}','Bulk\x20Archive\x20Order\x20Archive\x20Excel','image','__importDefault','VendorOrders.total\x20as\x20total','Successfully\x20got\x20the\x20complete\x20order\x20archive\x20list\x20count.','VendorOrderArchive.orderStatus','orderProduct.productId\x20as\x20productId','vendorOrders.total\x20as\x20total','product','create','/back-order-list','Res','orderProduct.cancelReasonDescription\x20as\x20cancelReasonDescription','orderCustomer.isActive\x20as\x20isActive','orderProduct.name\x20as\x20name','customer.customerGroup','Get','Failed\x20Order\x20Export\x20excel\x20Sheet','orderStatus.colorCode\x20as\x20orderColorCode','unable\x20to\x20update\x20Order\x20Cancel\x20Status.','Successfully\x20shown\x20the\x20archive\x20order\x20Detail.\x20','Order.shippingZone\x20as\x20shippingZone','VendorOrders.vendorId','Invalid\x20ArchiveId','startDate','forEach','Product\x20name-','../../core/services/EmailTemplateService','orderProductPrefixId','Order\x20Created','Invalid\x20Vendor\x20Order','order','Order.orderPrefixId\x20as\x20orderPrefixId','OrderAmount','orderInvoiceExportPdf','orderProduct.total\x20as\x20total','subtract','delete','VendorOrderArchive.vendorId','archiveOrderExportBulk','../../core/services/VendorService','hsn','orderStatus.name\x20as\x20orderStatusName','vendorOrders.vendorId','isVendor','/vendor-order-status-list','address1','Order\x20Cancel\x20Reason','OrderProductId','Invoice\x20not\x20found\x20for\x20this\x20order','./VendorInvoice','VendorOrderArchive.subOrderStatusId\x20as\x20subOrderStatusId','username','VendorInvoice.invoiceNo\x20as\x20invoiceNo','telephone','vendorOrderLimit','/make-vendor-order-archive','all','getDate','paymentFlag','customerFirstName','../../core/services/CustomerService','rejected','MAX(order.shippingAddress1)\x20as\x20shippingAddress1','orderProduct.discountedAmount\x20as\x20discountedAmount','order.orderStatusId\x20as\x20orderStatusId','revokeArchive','paymentInformation','VendorOrders.orderProduct','{productname}','`VendorOrders`.`created_date`','orderDetail.paymentStatus\x20as\x20paymentStatus','Post','then','orderProduct.couponDiscountAmount\x20as\x20couponDiscountAmount','zoneData','customer.lastName','orderDetail.paymentZone\x20as\x20paymentZone','vendorInvoiceItemId','orderDetail.isActive\x20as\x20isActive','Successfully\x20archived','paymentStatus','/bulk-vendor-order-cancel-excel-list','vendorOrderStatus.name\x20as\x20orderStatusName','archiveOrderList','shippingCountry','Order.shippingFirstname\x20as\x20customerFirstName','vendorOrders.orderProductId','/vendor-orders-based-status-list','CustomerAdress','orderId','customerPurchasedProductList','writeFile','DESC','trim','pluginService','VendorInvoice.createdDate','orderCustomer.email\x20as\x20email','name','1DOarrA','orderDetail.currencySymbolRight\x20as\x20currencySymbolRight','includes','vendorOrderLogId','Order.backOrders','orderCustomer.firstName\x20as\x20firstName','__importStar','Discount\x20Amount','7415832LAJbAb','toFixed','and','companyAddress2','vendorPayment:','./BackOrderExcel_','orderProduct.orderProductPrefixId\x20as\x20orderProductPrefixId','../../core/services/VendorOrderLogService','productviewlog.productId','orderCustomer.mobileNumber\x20as\x20mobileNumber','VendorOrders.commission\x20as\x20commission','file\x20is\x20empty','customerName','cancelReason','containerName','/order-export-pdf','orderCustomer.customerGroup','vendorInvoiceId','./OrderCancelExcel_','VendorProducts.product','design:type','../../core/services/OrderStatusService','order.currencySymbolRight\x20as\x20currencySymbolRight','../../core/services/OrderService','VendorInvoiceService','Access\x20Restricted\x20to\x20change\x20status.','Successfully\x20got\x20order\x20status\x20list\x20based\x20on\x20parent.','vendorService','push','vendorFailedOrderList','vendorInvoice.invoicePrefix\x20as\x20invoicePrefix','vendorOrders','end','VendorOrderLogService','xlsx','Order.createdDate','orderStatusColorCode','./FailedOrderExcel_','order.currencySymbolLeft\x20as\x20currencySymbolLeft','paymentCountry','unable\x20to\x20delete\x20Order','VendorInvoice.vendorId\x20as\x20vendorId','default','listByQueryBuilder','Successfully\x20got\x20the\x20complete\x20cancel\x20order\x20list.','shipping_firstname','Quantity','invalid\x20order','createdDate','updateOrderStatus','/today-vendor-order-count','VendorOrders.total','searchOrderList','findOrder','../../core/models/VendorPaymentArchive','country','cancelRequestStatus','shippingCity','order.createdDate\x20as\x20createdDate','orderDate','updateBulkVendorOrderCancelStatus','offset','getCell','customer.firstName','getMonth','orderProduct.quantity\x20as\x20quantity','customer.firstName\x20as\x20firstName','371Boaxea','orderProduct','order.customer','orderDetail.shippingCountry\x20as\x20shippingCountry','where','amount','vendorOrderId:','order.shippingCity\x20as\x20shippingCity','VendorInvoice.invoicePrefix\x20as\x20invoicePrefix','createData','VendorOrders.orderId\x20as\x20orderId','orderDetail.backOrders','getBuyersCount','Order-invoice-list','COUNT(order.orderId)\x20as\x20ordered','Invalid\x20orderProductId','Delete','to-words','order.paymentStatus\x20as\x20paymentStatus','order.orderPrefixId\x20as\x20orderPrefixId','VendorOrders.vendor_id','vendorOrderId','unable\x20to\x20get\x20list.','../../core/services/PluginService','../../core/models/VendorOrderArchiveLog','product.sku','customer.emailcustomer.email','orderProduct.vendorOrders','Successfully\x20got\x20the\x20customer\x20view\x20log\x20count','Order.currencyCode\x20as\x20currencyCode','orderDetail.createdDate','__decorate','findOne','orderArchiveDetail','../../core/services/VendorOrderService','vendorOrders.total','subject','currencySymbolLeft','/archive-order-detail/:vendorOrderArchiveId','{name}','orderStatusName','orderCustomer.id','vendorOrderBasedStatusList','lastName','100','Amount','approved','product.sku\x20as\x20sku','COUNT(productviewlog.productId)\x20as\x20productViewedCount','CustomerName','VendorInvoice.shippingLastname','VendorInvoice.email\x20as\x20email','Order.email\x20as\x20email','Successfully\x20revoked\x20archived\x20order','makeArchive','orderDetail.vendorInvoice','zoneId','Back\x20Order\x20Export\x20excel\x20Sheet','../../core/services/ProductImageService','keyword','orderProduct.orderProductPrefixId','orderProduct.productPrice\x20as\x20price','order\x20date','`order`.`created_date`','statusColorCode','orderData','Workbook','archiveDate','companyCountryId','shippingPostcode','orderStatusId','/archive-order-list-count','customerGroup.name\x20as\x20customerGroup','MAILService','cancelorderListtt','VendorInvoice.vendorInvoiceId\x20as\x20vendorInvoiceId','Order\x20Line\x20number','orderDetail.orderId\x20as\x20orderId','invalid\x20archive\x20order','MAX(order.shippingZone)\x20as\x20shippingZone','/vendor-orders-based-status-details/:orderStatusId','colorCode','../../core/services/OrderProductLogService','countryData','VendorInvoice.shippingFirstname\x20as\x20shippingFirstname','Successfully\x20rejected\x20the\x20cancelled\x20orders','\x2000:00:00','vendorProductViewedCustomer','trace','Successfully\x20updated\x20the\x20order\x20cancel\x20status.','orderService','minutes','orderLogList','orderProduct.productPrice\x20as\x20productPrice','findVendorTodayOrderCount','VendorInvoice.orderDetail','vendorRedirectUrl','Order\x20Detail\x20Sheet','trackingNo','Successfully\x20got\x20the\x20vendor\x20order\x20details.','VendorOrderArchive.total\x20as\x20total','companyLogoPath','orderCustomer.avatar\x20as\x20imageName','paymentFirstname','unable\x20to\x20get\x20order\x20status\x20list\x20based\x20on\x20parent.','order.orderProduct','CommissionAmount','21550alLJDH','invoicePrefix','currencySymbolRight','orderDetail.shippingFirstname\x20as\x20customerFirstName','readFileSync','VendorOrders.orderDetail','vendorOrderLogService','order.shippingCountry\x20as\x20shippingCountry','orderStatusList:','In-active','orderProduct.cancelRequest\x20as\x20cancelRequest','productName','emailContent','currencyInWords','Order.createdDate\x20as\x20createdDate','../../core/services/VendorInvoiceService','readHtmlToString','content','Cancel\x20request\x20for\x20this\x20product\x20is\x20approved,\x20so\x20you\x20cannot\x20update\x20order\x20status','vendorProductService','invoiceNo','orderCustomer.customerGroupId\x20as\x20customerGroupId','orderDetail.shippingZone\x20as\x20shippingZone','logo','basePrice','orderProduct.taxType\x20as\x20taxType','Req','toLowerCase','deleteOrder','YYYY-MM-DD\x20HH:mm:ss','VendorOrderArchive.commission\x20as\x20commission','VendorOrderArchive.vendorOrderArchiveId\x20as\x20vendorOrderArchiveId','VendorProducts.vendorId','DISTINCT\x20order.customerId\x20as\x20customerId','../../../auth/mail.services','bulkExportVendorOrderCancelRequest','.pdf','commissionAmount','emailTemplateService','OrderProductLogService','EmailTemplateService','product.productviewlog','customerService','\x2023:59:59','/vendor-order-cancel-excel-list','VendorOrderArchive.order','Coupon\x20Discount\x20Amount','output_','/update-bulk-vendor-order-cancel-request','orderProduct.cancelRequestStatus\x20as\x20cancelRequestStatus','/archive-order-list','orderDetail.paymentStatus','product.image\x20as\x20image','orderProduct.discountAmount\x20as\x20discountAmount','150','orderProduct.name\x20as\x20productName','./BulkBackOrderExcel_','order.shippingFirstname\x20as\x20customerFirstName','PluginService','prototype','vendorOrderStatusDetails','Successfully\x20get\x20Today\x20order\x20count','productId','paymentZone','VendorInvoice.shippingFirstname','Order.customer','orderProduct.productId','SGST,CGST','customerGroup.name','/revoke-vendor-order-archive','VendorOrderArchive.orderProduct','bulkExportBackorder','Successfully\x20got\x20the\x20cancel\x20request\x20count.','INR','OrderProductLog','format','concat','vendorOrderArchiveId','26046kpdFUg','like','columns','orderDetail.shippingAddress1\x20as\x20shippingAdress1','groupName','/vendor-orders-based-status-count','taxValue','Customer\x20Name','thin','keys','MAX(order.createdDate)\x20as\x20orderCreatedDate','vendor-invoice','storeRedirectUrl','tax','routing-controllers','products','topSellingProductList','vendorPaymentService','Invalid\x20orderProductId\x20for\x20vendor','orderProduct.basePrice\x20as\x20basePrice','Email','vendorInvoice.invoiceNo\x20as\x20invoiceNo','/sales-report-export-list','endDate','en-IN','/failed-order-excel-list','.xlsx','VendorOrders.vendorOrderId\x20as\x20vendorOrderId','defineProperty','orderDetail.orderPrefixId\x20as\x20orderPrefixId','shippingZone','/bulk-archive-order-export','Order.orderId\x20as\x20orderId','/update-order-status/:vendorOrderId','OrderService','orderDetail.email\x20as\x20email','taxValueInAmount','vendorPaymentArchiveService','firstName','companyPanNumber','orderDetail','find','Successfully\x20shown\x20the\x20order\x20Detail.\x20','../../core/services/CountryService','__param','orderCount','VendorOrders.createdDate\x20as\x20createdDate','./VendorOrderArchiveExcel_','Successfully\x20got\x20the\x20vendor\x20failed\x20Order\x20list.','352bWBiaX','resizeImageBase64','../../core/models/OrderProductLog','city','addWorksheet','vendorPaymentArchive:','order.createdDate','orderCustomer.avatarPath\x20as\x20containerName','trackingUrl','__awaiter','ProductPrice','../../core/services/VendorProductService','Order.currencySymbolLeft\x20as\x20currencySymbolLeft','orderCounts','VendorOrderArchive.subOrderId\x20as\x20subOrderId','countryService','purchedProduct','moment','Order\x20Archive\x20Excel','12DOgrRz','reduce','archiveOrderListCount','getRow','deliverylist','1454664Qmimkf','Order\x20Id','orderDetail.orderPrefixId','./TotalSalesReportExcel_','/vendor-invoice-list','companyEmailId','VendorService','left','now','/customer-purchased-product/:id','paymentAddress1','orderListtt','OrderId','orderDetail.currencySymbolLeft\x20as\x20currencySymbolLeft','companyAddress1','Successfully\x20accepted\x20the\x20cancelled\x20orders','addRows','paymentAddress2','productList','S3Service','Customer','send','/vendorOrderLoglist','orderDetail.orderStatusId\x20as\x20orderStatusId','0.00','./BulkOrderCancelExcel_','Successfully\x20get\x20Count.\x20','vendorInvoiceService','unable\x20to\x20update\x20Shipping\x20Information','pincode','Order.orderProduct','vendorLimit','Product\x20Price','order_product_Id','VendorOrderArchive.orderId\x20as\x20orderId','VendorOrders.orderStatus','Order.shippingCity\x20as\x20shippingCity','orderCustomer.lastName','orderDetail.shippingCity\x20as\x20shippingCity','backOrderProductList','VendorOrderArchiveLog','count','./Invoice_','orderCustomer.lastName\x20as\x20lastName','productService','VendorInvoice.shippingLastname\x20as\x20shippingLastname','../../core/services/S3Service','Mail\x20sent\x20to\x20you','VendorInvoice.orderId\x20as\x20orderId','MAX(productviewlog.createdDate)','paymentCompany','vendor.vendorId\x20as\x20vendorId','dateAdded','VendorOrderController','VendorPaymentService'];a669_0x18a2=function(){return _0x542c45;};return a669_0x18a2();}Object[a669_0xbe4a96(0x2e9)](exports,'__esModule',{'value':!![]}),exports[a669_0xbe4a96(0x34b)]=void 0x0;const tslib_1=require(a669_0xbe4a96(0x419));require('reflect-metadata');const routing_controllers_1=require(a669_0xbe4a96(0x2db)),VendorOrderService_1=require(a669_0xbe4a96(0x236)),OrderService_1=require(a669_0xbe4a96(0x1e8)),OrderProductService_1=require('../../core/services/OrderProductService'),ProductService_1=require('../../core/services/ProductService'),ProductImageService_1=require(a669_0xbe4a96(0x24e)),PluginService_1=require(a669_0xbe4a96(0x22b)),VendorOrderLogService_1=require(a669_0xbe4a96(0x1d8)),VendorProductService_1=require(a669_0xbe4a96(0x309)),VendorOrderLog_1=require('../../core/models/VendorOrderLog'),PdfService_1=require('../../core/services/PdfService'),CountryService_1=require(a669_0xbe4a96(0x2f8)),zoneService_1=require(a669_0xbe4a96(0x3bc)),S3Service_1=require(a669_0xbe4a96(0x344)),ImageService_1=require('../../core/services/ImageService'),SettingService_1=require(a669_0xbe4a96(0x361)),env_1=require(a669_0xbe4a96(0x42c)),VendorOrderArchive_1=require('../../core/models/VendorOrderArchive'),VendorOrderArchiveLog_1=require(a669_0xbe4a96(0x22c)),VendorOrderArchiveLogService_1=require(a669_0xbe4a96(0x411)),VendorOrderArchiveService_1=require(a669_0xbe4a96(0x383)),VendorOrders_1=require('../../core/models/VendorOrders'),OrderStatusService_1=require(a669_0xbe4a96(0x1e6)),OrderProductLogService_1=require(a669_0xbe4a96(0x266)),EmailTemplateService_1=require(a669_0xbe4a96(0x181)),OrderProductLog_1=require(a669_0xbe4a96(0x300)),moment_1=tslib_1[a669_0xbe4a96(0x168)](require(a669_0xbe4a96(0x30f))),fs=tslib_1[a669_0xbe4a96(0x1cf)](require('fs')),mail_services_1=require(a669_0xbe4a96(0x2a1)),VendorPaymentService_1=require(a669_0xbe4a96(0x40d)),VendorPaymentArchiveService_1=require('../../core/services/VendorPaymentArchiveService'),VendorInvoiceService_1=require(a669_0xbe4a96(0x28e)),VendorInvoiceItemService_1=require(a669_0xbe4a96(0x3f1)),VendorPaymentArchive_1=require(a669_0xbe4a96(0x207)),VendorService_1=require(a669_0xbe4a96(0x18e)),CustomerService_1=require(a669_0xbe4a96(0x1a3)),to_words_1=require(a669_0xbe4a96(0x225)),VendorPayment_1=require(a669_0xbe4a96(0x3d5));let VendorOrderController=class VendorOrderController{constructor(_0x265472,_0x5c9e83,_0x44bace,_0x42c327,_0x292da4,_0x283d9d,_0x199723,_0x401588,_0x2bd4a9,_0x21b451,_0x1bcf62,_0x2051c6,_0x17e6ad,_0x88a17a,_0x5edd81,_0x4d7b64,_0x1809fd,_0x5da916,_0x24144d,_0x24a3ec,_0x5b57b9,_0x5867f7,_0x20bc40,_0x398bce,_0x297196){const _0x5e1f4a=a669_0xbe4a96;this[_0x5e1f4a(0x3e3)]=_0x265472,this[_0x5e1f4a(0x26e)]=_0x5c9e83,this[_0x5e1f4a(0x3c3)]=_0x44bace,this[_0x5e1f4a(0x1c5)]=_0x42c327,this[_0x5e1f4a(0x292)]=_0x292da4,this[_0x5e1f4a(0x3cd)]=_0x283d9d,this['vendorOrderLogService']=_0x199723,this[_0x5e1f4a(0x342)]=_0x401588,this['pdfService']=_0x2bd4a9,this['countryService']=_0x21b451,this['zoneService']=_0x1bcf62,this[_0x5e1f4a(0x154)]=_0x2051c6,this[_0x5e1f4a(0x3a3)]=_0x17e6ad,this[_0x5e1f4a(0x3b0)]=_0x88a17a,this['orderStatusService']=_0x5edd81,this['orderProductLogService']=_0x4d7b64,this[_0x5e1f4a(0x2a5)]=_0x1809fd,this[_0x5e1f4a(0x2de)]=_0x5da916,this[_0x5e1f4a(0x2f2)]=_0x24144d,this[_0x5e1f4a(0x331)]=_0x24a3ec,this['vendorInvoiceItemService']=_0x5b57b9,this[_0x5e1f4a(0x1ec)]=_0x5867f7,this[_0x5e1f4a(0x376)]=_0x20bc40,this[_0x5e1f4a(0x36a)]=_0x398bce,this[_0x5e1f4a(0x2a9)]=_0x297196;}[a669_0xbe4a96(0x3f7)](_0x2ff4d2,_0x4f13d9,_0xe5bcc9,_0x253d88,_0x106276,_0x54f56e){const _0xe18e41=a669_0xbe4a96;return tslib_1[_0xe18e41(0x307)](this,void 0x0,void 0x0,function*(){const _0x3826f8=_0xe18e41,_0x20f774=[_0x3826f8(0x229),_0x3826f8(0x1c0),_0x3826f8(0x401),'subOrderId',_0x3826f8(0x3f6),_0x3826f8(0x150),_0x3826f8(0x201)],_0x425424=[{'name':'vendorId','op':_0x3826f8(0x218),'value':_0x106276['user'][_0x3826f8(0x401)]},{'name':_0x3826f8(0x3f6),'op':_0x3826f8(0x218),'value':_0xe5bcc9},{'name':_0x3826f8(0x3b1),'op':_0x3826f8(0x218),'value':0x1}],_0x103e12=[],_0x5e538b=['orderDetail'],_0x54c52f=yield this['vendorOrdersService'][_0x3826f8(0x362)](_0x2ff4d2,_0x4f13d9,_0x20f774,_0x5e538b,_0x103e12,_0x425424,_0x253d88);if(_0x253d88){const _0x543d01={'status':0x1,'message':'Successfully\x20got\x20count.','data':_0x54c52f};return _0x54f56e['status'](0xc8)[_0x3826f8(0x32b)](_0x543d01);}const _0x41185b=_0x54c52f[_0x3826f8(0x3b6)](_0x5d44d0=>tslib_1[_0x3826f8(0x307)](this,void 0x0,void 0x0,function*(){const _0x40be42=_0x3826f8,_0x417207=yield this[_0x40be42(0x26e)]['findOrder']({'where':{'orderId':_0x5d44d0['orderId']},'select':['orderId',_0x40be42(0x38a),'customerId',_0x40be42(0x3e1),'shippingCountry',_0x40be42(0x20a),_0x40be42(0x239),_0x40be42(0x281)]}),_0x48e142=yield this[_0x40be42(0x40f)][_0x40be42(0x234)]({'where':{'orderStatusId':_0x5d44d0[_0x40be42(0x3f6)]},'select':[_0x40be42(0x1c8)]}),_0x10a52e=_0x5d44d0;return _0x10a52e[_0x40be42(0x38a)]=_0x417207[_0x40be42(0x38a)],_0x10a52e['productTotal']=_0x5d44d0[_0x40be42(0x150)],_0x10a52e['customerFirstName']=_0x417207[_0x40be42(0x3e1)],_0x10a52e[_0x40be42(0x301)]=_0x417207[_0x40be42(0x20a)],_0x10a52e[_0x40be42(0x208)]=_0x417207[_0x40be42(0x1bb)],_0x10a52e['currencySymbolLeft']=_0x417207[_0x40be42(0x239)],_0x10a52e[_0x40be42(0x281)]=_0x417207['currencySymbolRight'],_0x48e142&&(_0x10a52e['orderStatusName']=_0x48e142[_0x40be42(0x1c8)]),_0x10a52e;})),_0x5da48b=yield Promise[_0x3826f8(0x19f)](_0x41185b),_0x5b666f={'status':0x1,'message':_0x3826f8(0x398),'data':_0x5da48b};return _0x54f56e[_0x3826f8(0x36e)](0xc8)[_0x3826f8(0x32b)](_0x5b666f);});}[a669_0xbe4a96(0x2f5)](_0x30a2e6,_0x3dd4dd,_0x5554b8){const _0x495e6d=a669_0xbe4a96;return tslib_1[_0x495e6d(0x307)](this,void 0x0,void 0x0,function*(){const _0x3fee2a=_0x495e6d,_0xc45ee6=yield this[_0x3fee2a(0x3e3)][_0x3fee2a(0x234)]({'where':{'vendorOrderId':_0x30a2e6,'vendorId':_0x3dd4dd['user'][_0x3fee2a(0x401)]},'select':[_0x3fee2a(0x229),_0x3fee2a(0x1c0),_0x3fee2a(0x401),_0x3fee2a(0x363),'subOrderStatusId',_0x3fee2a(0x3bd),_0x3fee2a(0x150),'createdDate','trackingUrl',_0x3fee2a(0x276)]});if(!_0xc45ee6){const _0x3e002b={'status':0x0,'message':_0x3fee2a(0x200)};return _0x5554b8['status'](0x190)[_0x3fee2a(0x32b)](_0x3e002b);}_0xc45ee6[_0x3fee2a(0x328)]=yield this[_0x3fee2a(0x3c3)]['find']({'where':{'orderProductId':_0xc45ee6[_0x3fee2a(0x3bd)]},'select':[_0x3fee2a(0x3bd),'name','quantity',_0x3fee2a(0x150),_0x3fee2a(0x2bd),'basePrice',_0x3fee2a(0x395),'taxValue','discountAmount',_0x3fee2a(0x3c8),'couponDiscountAmount','skuName',_0x3fee2a(0x182)]})['then'](_0x432463=>{const _0x113af2=_0x3fee2a,_0x425d8f=_0x432463[_0x113af2(0x3b6)](_0x497c05=>tslib_1[_0x113af2(0x307)](this,void 0x0,void 0x0,function*(){const _0x121ea7=_0x113af2,_0x5a903b=yield this['productImageService'][_0x121ea7(0x234)]({'where':{'productId':_0x497c05['productId'],'defaultImage':0x1}}),_0x4e9bf0=_0x497c05;return _0x5a903b&&(_0x4e9bf0['image']=_0x5a903b[_0x121ea7(0x167)],_0x4e9bf0[_0x121ea7(0x1df)]=_0x5a903b[_0x121ea7(0x1df)]),_0x4e9bf0;})),_0x1930b7=Promise[_0x113af2(0x19f)](_0x425d8f);return _0x1930b7;});const _0x2cc649=yield this[_0x3fee2a(0x26e)]['findOrder']({'where':{'orderId':_0xc45ee6[_0x3fee2a(0x1c0)]},'select':[_0x3fee2a(0x3e1),_0x3fee2a(0x3a1),_0x3fee2a(0x41f),_0x3fee2a(0x20a),_0x3fee2a(0x259),_0x3fee2a(0x1bb),_0x3fee2a(0x239),_0x3fee2a(0x281),_0x3fee2a(0x2eb),_0x3fee2a(0x3e8),_0x3fee2a(0x1b7),_0x3fee2a(0x38a),'email',_0x3fee2a(0x19c)]}),_0x4b5756=yield this['pluginService'][_0x3fee2a(0x234)]({'where':{'id':_0x2cc649['paymentMethod']}}),_0x2e741d=yield this['orderStatusService'][_0x3fee2a(0x234)]({'where':{'orderStatusId':_0xc45ee6[_0x3fee2a(0x3f6)]},'select':[_0x3fee2a(0x1c8),'colorCode']});_0xc45ee6[_0x3fee2a(0x1a2)]=_0x2cc649[_0x3fee2a(0x3e1)],_0xc45ee6['shippingAddress1']=_0x2cc649[_0x3fee2a(0x3a1)],_0xc45ee6['shippingAddress2']=_0x2cc649['shippingAddress2'],_0xc45ee6[_0x3fee2a(0x20a)]=_0x2cc649[_0x3fee2a(0x20a)],_0xc45ee6[_0x3fee2a(0x259)]=_0x2cc649['shippingPostcode'],_0xc45ee6[_0x3fee2a(0x1bb)]=_0x2cc649['shippingCountry'],_0xc45ee6[_0x3fee2a(0x2eb)]=_0x2cc649[_0x3fee2a(0x2eb)],_0xc45ee6[_0x3fee2a(0x38a)]=_0x2cc649[_0x3fee2a(0x38a)],_0xc45ee6[_0x3fee2a(0x3c7)]=_0x2cc649[_0x3fee2a(0x3c7)],_0xc45ee6[_0x3fee2a(0x36d)]=_0x2cc649['telephone'];_0x2e741d&&(_0xc45ee6[_0x3fee2a(0x23c)]=_0x2e741d[_0x3fee2a(0x1c8)],_0xc45ee6[_0x3fee2a(0x254)]=_0x2e741d[_0x3fee2a(0x265)]);_0x4b5756&&(_0xc45ee6[_0x3fee2a(0x3e8)]=_0x4b5756[_0x3fee2a(0x357)]);_0xc45ee6[_0x3fee2a(0x239)]=_0x2cc649[_0x3fee2a(0x239)],_0xc45ee6[_0x3fee2a(0x281)]=_0x2cc649[_0x3fee2a(0x281)],_0xc45ee6['paymentFlag']=_0x2cc649[_0x3fee2a(0x1a1)],_0xc45ee6[_0x3fee2a(0x1b7)]=_0x2cc649[_0x3fee2a(0x1b7)];const _0xe9a1bc={'status':0x1,'message':_0x3fee2a(0x2f7),'data':_0xc45ee6};return _0x5554b8[_0x3fee2a(0x36e)](0xc8)['send'](_0xe9a1bc);});}[a669_0xbe4a96(0x235)](_0x220a0a,_0x27ebbc,_0x22b4ea){const _0x5afa05=a669_0xbe4a96;return tslib_1[_0x5afa05(0x307)](this,void 0x0,void 0x0,function*(){const _0x83c004=_0x5afa05,_0x2ce500=yield this[_0x83c004(0x3b0)][_0x83c004(0x234)]({'where':{'vendorOrderArchiveId':_0x220a0a,'vendorId':_0x27ebbc['user'][_0x83c004(0x401)]},'select':['orderId','vendorId',_0x83c004(0x363),_0x83c004(0x3f6),_0x83c004(0x337),_0x83c004(0x150),'createdDate','commission']});if(!_0x2ce500){const _0x51f510={'status':0x0,'message':_0x83c004(0x262)};return _0x22b4ea['status'](0x190)[_0x83c004(0x32b)](_0x51f510);}_0x2ce500[_0x83c004(0x328)]=yield this[_0x83c004(0x3c3)]['find']({'where':{'orderProductId':_0x2ce500[_0x83c004(0x337)]},'select':[_0x83c004(0x3bd),_0x83c004(0x1c8),'quantity',_0x83c004(0x150),'productId',_0x83c004(0x297),_0x83c004(0x395),_0x83c004(0x2d3),_0x83c004(0x367),_0x83c004(0x3c8),_0x83c004(0x157),_0x83c004(0x42e),_0x83c004(0x182)]})[_0x83c004(0x1af)](_0x4bae08=>{const _0x5e4e68=_0x83c004,_0x473064=_0x4bae08[_0x5e4e68(0x3b6)](_0x4e90e9=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x183458=_0x5e4e68,_0x5930bc=yield this[_0x183458(0x3cd)][_0x183458(0x234)]({'where':{'productId':_0x4e90e9['productId'],'defaultImage':0x1}}),_0x5c5081=_0x4e90e9;return _0x5930bc&&(_0x5c5081['image']=_0x5930bc[_0x183458(0x167)],_0x5c5081[_0x183458(0x1df)]=_0x5930bc[_0x183458(0x1df)]),_0x5c5081;})),_0x520ff5=Promise[_0x5e4e68(0x19f)](_0x473064);return _0x520ff5;});const _0x431f8e=yield this[_0x83c004(0x26e)][_0x83c004(0x206)]({'where':{'orderId':_0x2ce500[_0x83c004(0x1c0)]},'select':['shippingFirstname',_0x83c004(0x3a1),_0x83c004(0x41f),_0x83c004(0x20a),_0x83c004(0x259),_0x83c004(0x1bb),_0x83c004(0x239),'currencySymbolRight',_0x83c004(0x2eb),_0x83c004(0x3e8),'paymentFlag',_0x83c004(0x1b7),_0x83c004(0x38a),_0x83c004(0x3c7),'telephone']}),_0x2b648b=yield this['pluginService'][_0x83c004(0x234)]({'where':{'id':_0x431f8e['paymentMethod']}}),_0x409a6b=yield this['orderStatusService']['findOne']({'where':{'orderStatusId':_0x2ce500[_0x83c004(0x3f6)]},'select':[_0x83c004(0x1c8),_0x83c004(0x265)]});_0x2ce500[_0x83c004(0x1a2)]=_0x431f8e['shippingFirstname'],_0x2ce500['shippingAddress1']=_0x431f8e['shippingAddress1'],_0x2ce500[_0x83c004(0x41f)]=_0x431f8e[_0x83c004(0x41f)],_0x2ce500[_0x83c004(0x20a)]=_0x431f8e[_0x83c004(0x20a)],_0x2ce500['shippingPostcode']=_0x431f8e[_0x83c004(0x259)],_0x2ce500[_0x83c004(0x1bb)]=_0x431f8e[_0x83c004(0x1bb)],_0x2ce500[_0x83c004(0x2eb)]=_0x431f8e[_0x83c004(0x2eb)],_0x2ce500[_0x83c004(0x38a)]=_0x431f8e[_0x83c004(0x38a)],_0x2ce500['email']=_0x431f8e[_0x83c004(0x3c7)],_0x2ce500[_0x83c004(0x36d)]=_0x431f8e[_0x83c004(0x19c)];_0x409a6b&&(_0x2ce500[_0x83c004(0x23c)]=_0x409a6b['name'],_0x2ce500[_0x83c004(0x254)]=_0x409a6b[_0x83c004(0x265)]);_0x2b648b&&(_0x2ce500[_0x83c004(0x3e8)]=_0x2b648b[_0x83c004(0x357)]);_0x2ce500[_0x83c004(0x239)]=_0x431f8e[_0x83c004(0x239)],_0x2ce500[_0x83c004(0x281)]=_0x431f8e['currencySymbolRight'],_0x2ce500['paymentFlag']=_0x431f8e[_0x83c004(0x1a1)],_0x2ce500[_0x83c004(0x1b7)]=_0x431f8e[_0x83c004(0x1b7)];const _0x63471f={'status':0x1,'message':_0x83c004(0x17a),'data':_0x2ce500};return _0x22b4ea['status'](0xc8)[_0x83c004(0x32b)](_0x63471f);});}[a669_0xbe4a96(0x2fa)](_0x5df1a0,_0x4cec2a){const _0x1ac4dd=a669_0xbe4a96;return tslib_1[_0x1ac4dd(0x307)](this,void 0x0,void 0x0,function*(){const _0x40ece0=_0x1ac4dd,_0x115a66=new Date(),_0x93763a=_0x115a66[_0x40ece0(0x41e)]()+'-'+(_0x115a66[_0x40ece0(0x211)]()+0x1)+'-'+_0x115a66[_0x40ece0(0x1a0)](),_0x5f104a=yield this[_0x40ece0(0x3e3)][_0x40ece0(0x272)](_0x5df1a0[_0x40ece0(0x153)][_0x40ece0(0x401)],_0x93763a),_0x4bc5e1={'status':0x1,'message':_0x40ece0(0x2bc),'data':_0x5f104a};return _0x4cec2a[_0x40ece0(0x36e)](0xc8)[_0x40ece0(0x32b)](_0x4bc5e1);});}[a669_0xbe4a96(0x30b)](_0x59160c,_0x41630a){const _0x18c80c=a669_0xbe4a96;return tslib_1[_0x18c80c(0x307)](this,void 0x0,void 0x0,function*(){const _0x13722c=_0x18c80c,_0x34f861=new Date(),_0x3eb907=_0x34f861[_0x13722c(0x41e)]()+'-'+(_0x34f861[_0x13722c(0x211)]()+0x1)+'-'+_0x34f861['getDate'](),_0x5ad088=yield this[_0x13722c(0x3e3)][_0x13722c(0x272)](_0x59160c[_0x13722c(0x153)][_0x13722c(0x401)],_0x3eb907),_0x2c09bc=yield this[_0x13722c(0x3e3)][_0x13722c(0x220)](_0x59160c[_0x13722c(0x153)][_0x13722c(0x401)]),_0x5e7436=yield this[_0x13722c(0x3e3)][_0x13722c(0x205)](_0x59160c['user'][_0x13722c(0x401)],'','','','',0x0),_0x4fbcd0={'status':0x1,'message':_0x13722c(0x2bc),'data':{'totalOrderCount':_0x5e7436[_0x13722c(0x15d)],'todayOrderCount':_0x5ad088['orderCount'],'paidCount':_0x2c09bc['salesCount']}};return _0x41630a['status'](0xc8)['send'](_0x4fbcd0);});}[a669_0xbe4a96(0x29b)](_0x1ab081,_0x3d0d6b,_0x54cfc9){const _0xec0152=a669_0xbe4a96;return tslib_1[_0xec0152(0x307)](this,void 0x0,void 0x0,function*(){const _0x9a9ba=_0xec0152,_0x800d5=yield this['orderService'][_0x9a9ba(0x2f6)]({'where':{'orderId':_0x1ab081}});if(_0x800d5[_0x9a9ba(0x15d)]===0x0){const _0x685449={'status':0x0,'message':_0x9a9ba(0x3c4)};return _0x3d0d6b[_0x9a9ba(0x36e)](0x190)['send'](_0x685449);}const _0x55d3cc=yield this[_0x9a9ba(0x26e)]['delete'](_0x1ab081);if(_0x55d3cc){const _0x493be6={'status':0x1,'message':_0x9a9ba(0x3ed)};return _0x3d0d6b[_0x9a9ba(0x36e)](0xc8)[_0x9a9ba(0x32b)](_0x493be6);}else{const _0x50e43c={'status':0x0,'message':_0x9a9ba(0x1f9)};return _0x3d0d6b[_0x9a9ba(0x36e)](0x190)[_0x9a9ba(0x32b)](_0x50e43c);}});}[a669_0xbe4a96(0x202)](_0x4322ee,_0x4b87a0,_0x5e764e,_0xc96c0e){const _0x48b35e=a669_0xbe4a96;return tslib_1[_0x48b35e(0x307)](this,void 0x0,void 0x0,function*(){const _0x2f2937=_0x48b35e,_0x49f061=yield this['orderStatusService'][_0x2f2937(0x234)]({'where':{'orderStatusId':_0x4b87a0}});if(_0x49f061[_0x2f2937(0x192)]!==0x1){const _0x50e62b={'status':0x0,'message':_0x2f2937(0x1ea)};return _0xc96c0e['status'](0x190)[_0x2f2937(0x32b)](_0x50e62b);}const _0x23ed6f=yield this['vendorOrdersService'][_0x2f2937(0x234)]({'where':{'vendorOrderId':_0x4322ee,'vendorId':_0x5e764e[_0x2f2937(0x153)][_0x2f2937(0x401)]}});if(!_0x23ed6f){const _0x9617e={'status':0x0,'message':_0x2f2937(0x184)};return _0xc96c0e[_0x2f2937(0x36e)](0x190)[_0x2f2937(0x32b)](_0x9617e);}const _0x201ac2=yield this['orderProductService'][_0x2f2937(0x234)]({'where':{'orderProductId':_0x23ed6f[_0x2f2937(0x3bd)]}});if(_0x201ac2[_0x2f2937(0x209)]===0x1){const _0x25c636={'status':0x0,'message':_0x2f2937(0x291)};return _0xc96c0e[_0x2f2937(0x36e)](0x190)[_0x2f2937(0x32b)](_0x25c636);}const _0x11556e=new VendorOrderLog_1[(_0x2f2937(0x3ca))]();_0x11556e[_0x2f2937(0x401)]=_0x23ed6f[_0x2f2937(0x401)],_0x11556e[_0x2f2937(0x229)]=_0x23ed6f['vendorOrderId'],_0x11556e['orderId']=_0x23ed6f['orderId'],_0x11556e[_0x2f2937(0x363)]=_0x23ed6f[_0x2f2937(0x363)],_0x11556e[_0x2f2937(0x3f6)]=_0x4b87a0,_0x11556e['total']=_0x23ed6f[_0x2f2937(0x150)],yield this[_0x2f2937(0x285)][_0x2f2937(0x16f)](_0x11556e),_0x23ed6f[_0x2f2937(0x3f6)]=_0x4b87a0;const _0x138371=yield this[_0x2f2937(0x3e3)][_0x2f2937(0x370)](_0x23ed6f['vendorOrderId'],_0x23ed6f);_0x201ac2[_0x2f2937(0x25a)]=_0x4b87a0;const _0x3a7c44=yield this[_0x2f2937(0x3c3)][_0x2f2937(0x370)](_0x201ac2[_0x2f2937(0x3bd)],_0x201ac2),_0x575dce=new OrderProductLog_1[(_0x2f2937(0x2c9))]();_0x575dce['model']=_0x3a7c44[_0x2f2937(0x360)],_0x575dce['name']=_0x3a7c44[_0x2f2937(0x1c8)],_0x575dce[_0x2f2937(0x1c0)]=_0x3a7c44[_0x2f2937(0x1c0)],_0x575dce[_0x2f2937(0x3bd)]=_0x3a7c44[_0x2f2937(0x3bd)],_0x575dce[_0x2f2937(0x25a)]=_0x3a7c44[_0x2f2937(0x25a)],_0x575dce[_0x2f2937(0x2bd)]=_0x3a7c44['productId'],_0x575dce['productPrice']=_0x3a7c44[_0x2f2937(0x39d)],_0x575dce[_0x2f2937(0x39a)]=_0x3a7c44[_0x2f2937(0x39a)],_0x575dce[_0x2f2937(0x150)]=_0x3a7c44['total'],_0x575dce[_0x2f2937(0x26c)]=_0x3a7c44['trace'],_0x575dce[_0x2f2937(0x2da)]=_0x3a7c44[_0x2f2937(0x2da)],_0x575dce[_0x2f2937(0x276)]=_0x3a7c44[_0x2f2937(0x276)],_0x575dce[_0x2f2937(0x306)]=_0x3a7c44[_0x2f2937(0x306)],_0x575dce['isActive']=_0x3a7c44['isActive'],yield this[_0x2f2937(0x394)][_0x2f2937(0x16f)](_0x575dce);const _0x3556b0=yield this[_0x2f2937(0x40f)]['findOne']({'where':{'orderStatusId':_0x138371[_0x2f2937(0x3f6)]}});_0x138371['subOrderStatusId']=_0x3556b0[_0x2f2937(0x25a)],_0x138371[_0x2f2937(0x1c8)]=_0x3556b0[_0x2f2937(0x1c8)];if(_0x138371!==undefined){const _0x365b0a=yield this[_0x2f2937(0x2a5)][_0x2f2937(0x234)](0x15),_0x327760=yield this[_0x2f2937(0x36a)][_0x2f2937(0x234)](),_0x3a5e83=yield this[_0x2f2937(0x26e)][_0x2f2937(0x206)](_0x201ac2[_0x2f2937(0x1c0)]),_0x4efb8d=yield this[_0x2f2937(0x40f)][_0x2f2937(0x234)](_0x4b87a0),_0x5d27f9=_0x365b0a[_0x2f2937(0x290)][_0x2f2937(0x356)](_0x2f2937(0x23b),_0x3a5e83[_0x2f2937(0x3e1)])['replace'](_0x2f2937(0x408),_0x3a7c44[_0x2f2937(0x1c8)])[_0x2f2937(0x356)](_0x2f2937(0x165),_0x4efb8d[_0x2f2937(0x1c8)])[_0x2f2937(0x356)](_0x2f2937(0x391),_0x3a5e83['orderPrefixId']),_0x298c53=env_1[_0x2f2937(0x3a9)][_0x2f2937(0x2d9)],_0x3df40f={};_0x3df40f[_0x2f2937(0x296)]=_0x327760,_0x3df40f['emailContent']=_0x5d27f9,_0x3df40f[_0x2f2937(0x402)]=_0x298c53,_0x3df40f[_0x2f2937(0x428)]=undefined,mail_services_1[_0x2f2937(0x25d)][_0x2f2937(0x3c5)](_0x3df40f,_0x3a5e83['email'],_0x365b0a[_0x2f2937(0x238)],![],![],'');const _0x449fe6={'status':0x1,'message':_0x2f2937(0x35e),'data':_0x138371};return _0xc96c0e[_0x2f2937(0x36e)](0xc8)['send'](_0x449fe6);}else{const _0x2d13a5={'status':0x1,'message':'unable\x20to\x20update\x20OrderStatus.'};return _0xc96c0e[_0x2f2937(0x36e)](0x190)[_0x2f2937(0x32b)](_0x2d13a5);}});}['orderStatusList'](_0x512e37,_0x339363,_0x382b99,_0x49a405,_0x5af9e9,_0xfae5e3,_0x1b8beb){const _0x1a398c=a669_0xbe4a96;return tslib_1[_0x1a398c(0x307)](this,void 0x0,void 0x0,function*(){const _0x3909ca=_0x1a398c,_0x463383=[_0x3909ca(0x25a),_0x3909ca(0x1c8),_0x3909ca(0x265),_0x3909ca(0x37f),_0x3909ca(0x3c9)],_0x2d5ef4=[{'name':'name','op':_0x3909ca(0x2ce),'value':_0x382b99},{'name':_0x3909ca(0x3c9),'op':_0x3909ca(0x2ce),'value':_0x49a405}],_0x251ff8=yield this[_0x3909ca(0x40f)][_0x3909ca(0x362)](_0x512e37,_0x339363,_0x463383,_0x2d5ef4,[],_0xfae5e3);if(_0x251ff8){const _0x5ec4e4={'status':0x1,'message':'Successfully\x20got\x20the\x20complete\x20order\x20status\x20list.','data':_0x251ff8};return _0x1b8beb['status'](0xc8)['send'](_0x5ec4e4);}else{const _0x29acc6={'status':0x0,'message':'unable\x20to\x20get\x20OrderStatus.'};return _0x1b8beb[_0x3909ca(0x36e)](0x190)['send'](_0x29acc6);}});}[a669_0xbe4a96(0x23e)](_0x10594d,_0x561f25,_0x518305,_0x3a3e74,_0x1481d1,_0x5ca3e4,_0x254b6f,_0xbc7aec,_0x10e7dd){const _0x4bc9ed=a669_0xbe4a96;return tslib_1[_0x4bc9ed(0x307)](this,void 0x0,void 0x0,function*(){const _0x194dbd=_0x4bc9ed,_0x48d570=[_0x194dbd(0x25a),'name',_0x194dbd(0x265),'isActive'],_0x56736d=[{'name':_0x194dbd(0x1c8),'op':_0x194dbd(0x2ce),'value':_0x1481d1},{'name':'isActive','op':_0x194dbd(0x2ce),'value':_0x5ca3e4}],_0x3395bf=[],_0x3854bc=yield this[_0x194dbd(0x40f)][_0x194dbd(0x362)](_0x10594d,_0x561f25,_0x48d570,_0x56736d,_0x3395bf,_0x254b6f),_0xa6af07=_0x3854bc[_0x194dbd(0x3b6)](_0x458f08=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x22462b=_0x194dbd,_0x467b8b=_0x458f08,_0x1e77d9=[_0x22462b(0x2e8),'VendorOrders.subOrderId\x20as\x20subOrderId',_0x22462b(0x36b),_0x22462b(0x42f),_0x22462b(0x323),_0x22462b(0x1ca),_0x22462b(0x410),_0x22462b(0x1ad),_0x22462b(0x169),'orderProduct.discountAmount\x20as\x20discountAmount',_0x22462b(0x1a6),_0x22462b(0x1b0),_0x22462b(0x1d7),_0x22462b(0x2d0),_0x22462b(0x33c),'orderDetail.shippingZone\x20as\x20shippingZone',_0x22462b(0x217)],_0x60504d=[{'tableName':'VendorOrders.orderDetail','aliasName':_0x22462b(0x2f5)},{'tableName':'VendorOrders.orderProduct','aliasName':_0x22462b(0x215)}],_0x255442=[],_0x4034ec=[];_0x4034ec[_0x22462b(0x1ed)]({'name':_0x22462b(0x17c),'op':_0x22462b(0x1d3),'value':_0xbc7aec[_0x22462b(0x153)][_0x22462b(0x401)]},{'name':_0x22462b(0x3b1),'op':_0x22462b(0x1d3),'value':0x1},{'name':_0x22462b(0x386),'op':_0x22462b(0x1d3),'value':_0x458f08[_0x22462b(0x25a)]});const _0x5eeedb=[],_0x34211a=[];_0x34211a[_0x22462b(0x1ed)]({'name':_0x22462b(0x232),'order':_0x22462b(0x1c3)});const _0xc97850=yield this[_0x22462b(0x3e3)][_0x22462b(0x1fc)](_0x518305,_0x3a3e74,_0x1e77d9,_0x4034ec,_0x5eeedb,_0x60504d,_0x255442,_0x34211a,![],!![]);return _0x467b8b[_0x22462b(0x1f0)]=_0xc97850,_0x467b8b;})),_0x4b820a=yield Promise[_0x194dbd(0x19f)](_0xa6af07);if(_0x4b820a){const _0xe43fec={'status':0x1,'message':'Successfully\x20got\x20the\x20complete\x20order\x20status\x20list.','data':_0x4b820a};return _0x10e7dd['status'](0xc8)[_0x194dbd(0x32b)](_0xe43fec);}});}[a669_0xbe4a96(0x2bb)](_0xdbcc07,_0x2fc96f,_0x14b122,_0x4c6e12,_0x9d04bd,_0x529d14){const _0x3e2ac9=a669_0xbe4a96;return tslib_1[_0x3e2ac9(0x307)](this,void 0x0,void 0x0,function*(){const _0x314270=_0x3e2ac9,_0x320525=[_0x314270(0x2e8),_0x314270(0x407),_0x314270(0x36b),_0x314270(0x42f),'orderDetail.currencySymbolLeft\x20as\x20currencySymbolLeft',_0x314270(0x1ca),_0x314270(0x410),'orderDetail.paymentStatus\x20as\x20paymentStatus',_0x314270(0x169),_0x314270(0x2b4),'orderProduct.discountedAmount\x20as\x20discountedAmount',_0x314270(0x1b0),'orderProduct.orderProductPrefixId\x20as\x20orderProductPrefixId',_0x314270(0x2d0),_0x314270(0x33c),_0x314270(0x295),'orderDetail.shippingCountry\x20as\x20shippingCountry'],_0x11d478=[{'tableName':_0x314270(0x284),'aliasName':_0x314270(0x2f5)},{'tableName':_0x314270(0x1aa),'aliasName':_0x314270(0x215)}],_0x5a5e58=[],_0x1412cc=[];_0x1412cc[_0x314270(0x1ed)]({'name':'VendorOrders.vendorId','op':_0x314270(0x1d3),'value':_0x9d04bd[_0x314270(0x153)]['vendorId']},{'name':_0x314270(0x3b1),'op':'and','value':0x1},{'name':_0x314270(0x386),'op':_0x314270(0x1d3),'value':_0xdbcc07});const _0x9eb35f=[],_0x396ea1=[];_0x396ea1[_0x314270(0x1ed)]({'name':_0x314270(0x232),'order':_0x314270(0x1c3)});if(_0x4c6e12){const _0x3d7981=yield this[_0x314270(0x3e3)][_0x314270(0x1fc)](_0x2fc96f,_0x14b122,_0x320525,_0x1412cc,_0x9eb35f,_0x11d478,_0x5a5e58,_0x396ea1,!![],!![]);return _0x529d14[_0x314270(0x36e)](0xc8)['send']({'status':0x1,'message':_0x314270(0x413),'data':_0x3d7981});}const _0x274ef1=yield this[_0x314270(0x3e3)][_0x314270(0x1fc)](_0x2fc96f,_0x14b122,_0x320525,_0x1412cc,_0x9eb35f,_0x11d478,_0x5a5e58,_0x396ea1,![],!![]);if(_0x274ef1)return _0x529d14['status'](0xc8)[_0x314270(0x32b)]({'status':0x1,'message':_0x314270(0x277),'data':_0x274ef1});});}[a669_0xbe4a96(0x3da)](_0x189e78,_0x3fe344,_0x4c59a1,_0xdcfefc,_0x4e6cf2,_0x2fff35,_0x3ddd59,_0x4211ef,_0x4af6c1){const _0xf02966=a669_0xbe4a96;return tslib_1[_0xf02966(0x307)](this,void 0x0,void 0x0,function*(){const _0x54f19d=_0xf02966,_0x193786=[_0x54f19d(0x25a),'name',_0x54f19d(0x265),_0x54f19d(0x3c9)],_0xbcc0b4=[{'name':'name','op':_0x54f19d(0x2ce),'value':_0x4e6cf2},{'name':_0x54f19d(0x3c9),'op':_0x54f19d(0x2ce),'value':_0x2fff35}],_0x473671=[],_0x2fc43c=yield this[_0x54f19d(0x40f)][_0x54f19d(0x362)](_0x189e78,_0x3fe344,_0x193786,_0xbcc0b4,_0x473671,_0x3ddd59),_0x34d70a=_0x2fc43c['map'](_0x4380ff=>tslib_1[_0x54f19d(0x307)](this,void 0x0,void 0x0,function*(){const _0x2ef2fe=_0x54f19d,_0x297381=_0x4380ff,_0x564df3=[],_0x4d7f6b=[{'tableName':'VendorOrders.orderDetail','aliasName':_0x2ef2fe(0x2f5)},{'tableName':_0x2ef2fe(0x1aa),'aliasName':_0x2ef2fe(0x215)}],_0x552f86=[],_0x2f470e=[];_0x2f470e[_0x2ef2fe(0x1ed)]({'name':_0x2ef2fe(0x17c),'op':'and','value':_0x4211ef[_0x2ef2fe(0x153)][_0x2ef2fe(0x401)]},{'name':'orderDetail.paymentProcess','op':_0x2ef2fe(0x1d3),'value':0x1},{'name':_0x2ef2fe(0x386),'op':'and','value':_0x4380ff[_0x2ef2fe(0x25a)]});const _0x3f5a16=[],_0x87ee4e=[];_0x87ee4e['push']({'name':'orderDetail.createdDate','order':_0x2ef2fe(0x1c3)});const _0x366c84=yield this[_0x2ef2fe(0x3e3)]['listByQueryBuilder'](0x0,0x0,_0x564df3,_0x2f470e,_0x3f5a16,_0x4d7f6b,_0x552f86,_0x87ee4e,!![],!![]);return _0x297381[_0x2ef2fe(0x2fa)]=_0x366c84,_0x297381;})),_0xde5b4a=yield Promise[_0x54f19d(0x19f)](_0x34d70a);if(_0xde5b4a){const _0xed3b26={'status':0x1,'message':_0x54f19d(0x163),'data':_0xde5b4a};return _0x4af6c1[_0x54f19d(0x36e)](0xc8)[_0x54f19d(0x32b)](_0xed3b26);}});}[a669_0xbe4a96(0x270)](_0x10ed07,_0x5c1619){const _0x1145a4=a669_0xbe4a96;return tslib_1[_0x1145a4(0x307)](this,void 0x0,void 0x0,function*(){const _0x316a1d=_0x1145a4,_0xf5f905=[_0x316a1d(0x1cc),_0x316a1d(0x401),'vendorOrderId',_0x316a1d(0x1c0),_0x316a1d(0x363),_0x316a1d(0x3f6),'createdDate',_0x316a1d(0x425)],_0x423290=[{'name':'vendorOrderId','op':_0x316a1d(0x218),'value':_0x10ed07}],_0x32f7d3=yield this[_0x316a1d(0x285)][_0x316a1d(0x362)](0x0,0x0,_0xf5f905,_0x423290,0x0),_0xba30ee=yield this[_0x316a1d(0x40f)][_0x316a1d(0x3ac)]({'select':[_0x316a1d(0x25a),_0x316a1d(0x1c8)],'where':{'isActive':0x1,'parentId':0x7},'order':{'priority':_0x316a1d(0x3b5)}}),_0x5303f0=_0xba30ee[_0x316a1d(0x3b6)](_0x1d3cd3=>tslib_1[_0x316a1d(0x307)](this,void 0x0,void 0x0,function*(){const _0x397a02=_0x316a1d,_0x4809f7=_0x32f7d3[_0x397a02(0x2f6)](_0x5a7842=>_0x5a7842[_0x397a02(0x3f6)]===_0x1d3cd3['orderStatusId']),_0x41b6d3=_0x1d3cd3;return _0x4809f7===undefined?_0x41b6d3[_0x397a02(0x201)]='':_0x41b6d3['createdDate']=_0x4809f7[_0x397a02(0x201)],_0x41b6d3;})),_0x215617=yield Promise['all'](_0x5303f0),_0x47b21a={'status':0x1,'message':'Successfully\x20got\x20the\x20complete\x20Vendor\x20Order\x20Status\x20Log\x20list.','data':_0x215617};return _0x5c1619[_0x316a1d(0x36e)](0xc8)['send'](_0x47b21a);});}[a669_0xbe4a96(0x2dd)](_0x2baa9e,_0x36942b,_0x58a05c){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4067da=a669_0x20db,_0x1af36a=yield this[_0x4067da(0x292)][_0x4067da(0x3b7)](_0x36942b['user'][_0x4067da(0x401)],_0x2baa9e,0x4),_0x4c2c5e=_0x1af36a['map'](_0x334dc5=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1e4daa=_0x4067da,_0x174aee=yield this[_0x1e4daa(0x342)][_0x1e4daa(0x234)]({'select':['productId',_0x1e4daa(0x41b),'name'],'where':{'productId':_0x334dc5['product']}}),_0x1f1b97=_0x334dc5;return _0x1f1b97['product']=_0x174aee,_0x1f1b97;})),_0x5e43d5=yield Promise[_0x4067da(0x19f)](_0x4c2c5e),_0x3f7782={'status':0x1,'message':_0x4067da(0x149),'data':_0x5e43d5};return _0x58a05c[_0x4067da(0x36e)](0xc8)[_0x4067da(0x32b)](_0x3f7782);});}[a669_0xbe4a96(0x3d6)](_0x8715b8,_0x2f04bd,_0x336bd5,_0x5244d7,_0x1402d){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5aad87=a669_0x20db,_0x3a385b=yield this[_0x5aad87(0x3e3)][_0x5aad87(0x234)]({'where':{'vendorOrderId':_0x8715b8,'vendorId':_0x5244d7[_0x5aad87(0x153)]['vendorId']}});if(!_0x3a385b){const _0x234913={'status':0x0,'message':'Invalid\x20Vendor\x20Order'};return _0x1402d[_0x5aad87(0x36e)](0x190)[_0x5aad87(0x32b)](_0x234913);}const _0x481cfc=yield this[_0x5aad87(0x3c3)][_0x5aad87(0x234)](_0x3a385b[_0x5aad87(0x3bd)]);if(_0x481cfc[_0x5aad87(0x209)]===0x1){const _0x110b1a={'status':0x0,'message':'Cancel\x20request\x20for\x20this\x20product\x20is\x20approved,\x20so\x20you\x20cannot\x20update\x20order\x20status'};return _0x1402d[_0x5aad87(0x36e)](0x190)['send'](_0x110b1a);}_0x3a385b[_0x5aad87(0x306)]=_0x2f04bd,_0x3a385b['trackingNo']=_0x336bd5;const _0x5ca74=yield this['vendorOrdersService'][_0x5aad87(0x16f)](_0x3a385b);_0x481cfc[_0x5aad87(0x306)]=_0x2f04bd,_0x481cfc[_0x5aad87(0x276)]=_0x336bd5,yield this[_0x5aad87(0x3c3)][_0x5aad87(0x21d)](_0x481cfc);if(_0x5ca74){const _0x700026={'status':0x1,'message':_0x5aad87(0x3d2),'data':_0x5ca74};return _0x1402d[_0x5aad87(0x36e)](0xc8)[_0x5aad87(0x32b)](_0x700026);}else{const _0x137c28={'status':0x0,'message':_0x5aad87(0x332)};return _0x1402d[_0x5aad87(0x36e)](0x190)[_0x5aad87(0x32b)](_0x137c28);}});}[a669_0xbe4a96(0x422)](_0x403488,_0x3c688d,_0x52d282){const _0x5c3fea=a669_0xbe4a96;return tslib_1[_0x5c3fea(0x307)](this,void 0x0,void 0x0,function*(){const _0x1b83bb=_0x5c3fea,_0x223a49=yield this[_0x1b83bb(0x3e3)]['findOne']({'where':{'vendorOrderId':_0x403488,'vendorId':_0x3c688d['user'][_0x1b83bb(0x401)]},'select':[_0x1b83bb(0x229),'orderId',_0x1b83bb(0x401),'subOrderId',_0x1b83bb(0x3f6),_0x1b83bb(0x3bd),_0x1b83bb(0x150),_0x1b83bb(0x201)]});if(!_0x223a49){const _0x59fa20={'status':0x0,'message':_0x1b83bb(0x184)};return _0x52d282['status'](0x190)[_0x1b83bb(0x32b)](_0x59fa20);}_0x223a49['productList']=yield this[_0x1b83bb(0x3c3)][_0x1b83bb(0x2f6)]({'where':{'orderProductId':_0x223a49['orderProductId']},'select':['orderProductId',_0x1b83bb(0x1c8),_0x1b83bb(0x39a),_0x1b83bb(0x150),_0x1b83bb(0x2bd),_0x1b83bb(0x39d),_0x1b83bb(0x297),_0x1b83bb(0x395),_0x1b83bb(0x2d3),_0x1b83bb(0x367),_0x1b83bb(0x3c8),'couponDiscountAmount']})[_0x1b83bb(0x1af)](_0x3fdbe6=>{const _0x35dd02=_0x1b83bb,_0x5e18a6=_0x3fdbe6[_0x35dd02(0x3b6)](_0x1cec82=>tslib_1[_0x35dd02(0x307)](this,void 0x0,void 0x0,function*(){const _0x1bf7f8=_0x35dd02,_0x3e6b39=yield this['productImageService']['findOne']({'where':{'productId':_0x1cec82['productId'],'defaultImage':0x1}}),_0x65c9b7=_0x1cec82;_0x3e6b39&&(_0x65c9b7['image']=_0x3e6b39['image'],_0x65c9b7[_0x1bf7f8(0x1df)]=_0x3e6b39[_0x1bf7f8(0x1df)]);if(_0x1cec82[_0x1bf7f8(0x395)]===0x2){const _0x2de07c=_0x1cec82[_0x1bf7f8(0x367)]===_0x1bf7f8(0x32e)||_0x1cec82[_0x1bf7f8(0x367)]===null?+_0x1cec82[_0x1bf7f8(0x297)]:+_0x1cec82[_0x1bf7f8(0x3c8)];_0x65c9b7['taxValueInAmount']=(_0x2de07c*(+_0x1cec82[_0x1bf7f8(0x2d3)]/0x64))[_0x1bf7f8(0x1d2)](0x2);}else _0x65c9b7['taxValueInAmount']=_0x1cec82[_0x1bf7f8(0x2d3)];return _0x65c9b7;})),_0x369a7e=Promise[_0x35dd02(0x19f)](_0x5e18a6);return _0x369a7e;});const _0x4fa9a4=yield this['orderService'][_0x1b83bb(0x206)]({'where':{'orderId':_0x223a49[_0x1b83bb(0x1c0)]},'select':[_0x1b83bb(0x280),_0x1b83bb(0x293),_0x1b83bb(0x38a),_0x1b83bb(0x3e1),_0x1b83bb(0x3ff),_0x1b83bb(0x3a1),_0x1b83bb(0x41f),_0x1b83bb(0x20a),_0x1b83bb(0x259),'shippingCountry',_0x1b83bb(0x27b),'paymentLastname',_0x1b83bb(0x348),_0x1b83bb(0x320),_0x1b83bb(0x327),_0x1b83bb(0x38b),_0x1b83bb(0x38f),'paymentCountry','currencySymbolLeft',_0x1b83bb(0x281),_0x1b83bb(0x2eb),'paymentMethod']}),_0x10dbad=yield this[_0x1b83bb(0x1c5)]['findOne']({'where':{'id':_0x4fa9a4[_0x1b83bb(0x3e8)]}}),_0x144fd6='',_0x10eb86=[],_0x1cc9a0=[],_0x496bbd=0x1,_0x57dc46=yield this[_0x1b83bb(0x36a)][_0x1b83bb(0x362)](_0x496bbd,_0x144fd6,_0x10eb86,_0x1cc9a0),_0x2af2ce=_0x57dc46[0x0],_0x5b6837=yield this['countryService'][_0x1b83bb(0x234)]({'where':{'countryId':_0x2af2ce['countryId']}}),_0x2e1dc9=yield this[_0x1b83bb(0x358)][_0x1b83bb(0x234)]({'where':{'zoneId':_0x2af2ce[_0x1b83bb(0x24c)]}});_0x223a49[_0x1b83bb(0x34d)]=_0x2af2ce,_0x223a49[_0x1b83bb(0x1b1)]=_0x2e1dc9!==undefined?_0x2e1dc9:'\x20',_0x223a49[_0x1b83bb(0x267)]=_0x5b6837!==undefined?_0x5b6837:'\x20',_0x223a49[_0x1b83bb(0x3e1)]=_0x4fa9a4[_0x1b83bb(0x3e1)],_0x223a49[_0x1b83bb(0x3ff)]=_0x4fa9a4[_0x1b83bb(0x3ff)],_0x223a49[_0x1b83bb(0x3a1)]=_0x4fa9a4[_0x1b83bb(0x3a1)],_0x223a49['shippingAddress2']=_0x4fa9a4[_0x1b83bb(0x41f)],_0x223a49[_0x1b83bb(0x20a)]=_0x4fa9a4[_0x1b83bb(0x20a)],_0x223a49[_0x1b83bb(0x259)]=_0x4fa9a4[_0x1b83bb(0x259)],_0x223a49['paymentFirstname']=_0x4fa9a4[_0x1b83bb(0x27b)],_0x223a49[_0x1b83bb(0x3e0)]=_0x4fa9a4[_0x1b83bb(0x3e0)],_0x223a49[_0x1b83bb(0x320)]=_0x4fa9a4[_0x1b83bb(0x320)],_0x223a49[_0x1b83bb(0x327)]=_0x4fa9a4[_0x1b83bb(0x327)],_0x223a49[_0x1b83bb(0x38b)]=_0x4fa9a4[_0x1b83bb(0x38b)],_0x223a49[_0x1b83bb(0x38f)]=_0x4fa9a4[_0x1b83bb(0x38f)],_0x223a49[_0x1b83bb(0x3e8)]=_0x10dbad[_0x1b83bb(0x357)],_0x223a49['symbolLeft']=_0x4fa9a4[_0x1b83bb(0x239)],_0x223a49['symbolRight']=_0x4fa9a4[_0x1b83bb(0x281)],_0x223a49[_0x1b83bb(0x293)]=_0x4fa9a4[_0x1b83bb(0x293)],_0x223a49['invoicePrefix']=_0x4fa9a4[_0x1b83bb(0x280)],_0x223a49['orderPrefixId']=_0x4fa9a4[_0x1b83bb(0x38a)];let _0x24580c;env_1[_0x1b83bb(0x3a9)][_0x1b83bb(0x359)]==='s3'?_0x24580c=yield this[_0x1b83bb(0x154)]['resizeImageBase64'](_0x2af2ce[_0x1b83bb(0x37d)],_0x2af2ce[_0x1b83bb(0x3fc)],'50','50'):_0x24580c=yield this[_0x1b83bb(0x376)]['resizeImageBase64'](_0x2af2ce[_0x1b83bb(0x37d)],_0x2af2ce['invoiceLogoPath'],'50','50');_0x223a49[_0x1b83bb(0x296)]=_0x24580c;const _0x3f1d48=yield this[_0x1b83bb(0x37e)][_0x1b83bb(0x28f)]('invoice',_0x223a49),_0x139960=_0x1b83bb(0x340)+(_0x4fa9a4[_0x1b83bb(0x280)]+_0x4fa9a4[_0x1b83bb(0x293)])+_0x1b83bb(0x2a3);return yield this['pdfService'][_0x1b83bb(0x366)](_0x3f1d48,_0x139960),new Promise((_0x2371e4,_0x382697)=>{const _0x3c4b11=_0x1b83bb;_0x52d282[_0x3c4b11(0x3b3)](_0x139960,(_0x3b1f2a,_0x74190)=>{const _0x26c14d=_0x3c4b11;if(_0x3b1f2a)_0x382697(_0x3b1f2a);else return fs[_0x26c14d(0x3b9)](_0x139960),_0x52d282['end']();});});});}[a669_0xbe4a96(0x24a)](_0x56ff21,_0xc32b0f,_0x69793c){const _0x39a4f6=a669_0xbe4a96;return tslib_1[_0x39a4f6(0x307)](this,void 0x0,void 0x0,function*(){const _0x447f94=_0x39a4f6,_0x1e84cd=yield this[_0x447f94(0x3e3)][_0x447f94(0x234)]({'where':{'vendorOrderId':_0x56ff21,'vendorId':_0xc32b0f[_0x447f94(0x153)][_0x447f94(0x401)]}});if(!_0x1e84cd){const _0x2ba5af={'status':0x0,'message':_0x447f94(0x184)};return _0x69793c['status'](0x190)['send'](_0x2ba5af);}const _0x6a89c3=new VendorOrderArchive_1[(_0x447f94(0x3ad))]();_0x6a89c3[_0x447f94(0x401)]=_0x1e84cd[_0x447f94(0x401)],_0x6a89c3[_0x447f94(0x1c0)]=_0x1e84cd[_0x447f94(0x1c0)],_0x6a89c3[_0x447f94(0x363)]=_0x1e84cd[_0x447f94(0x363)],_0x6a89c3[_0x447f94(0x3f6)]=_0x1e84cd['subOrderStatusId'],_0x6a89c3[_0x447f94(0x337)]=_0x1e84cd[_0x447f94(0x3bd)],_0x6a89c3[_0x447f94(0x150)]=_0x1e84cd[_0x447f94(0x150)],_0x6a89c3['commission']=_0x1e84cd[_0x447f94(0x3a5)],_0x6a89c3[_0x447f94(0x306)]=_0x1e84cd[_0x447f94(0x306)],_0x6a89c3[_0x447f94(0x276)]=_0x1e84cd[_0x447f94(0x276)];const _0x340510=yield this[_0x447f94(0x3b0)]['create'](_0x6a89c3),_0x5f57cd=yield this[_0x447f94(0x285)][_0x447f94(0x2f6)]({'where':{'vendorOrderId':_0x56ff21}}),_0x57e525=[];for(const _0x5f517b of _0x5f57cd){const _0x3ff17d=new VendorOrderArchiveLog_1[(_0x447f94(0x33e))]();_0x3ff17d[_0x447f94(0x2cc)]=_0x340510['vendorOrderArchiveId'],_0x3ff17d[_0x447f94(0x401)]=_0x5f517b['vendorId'],_0x3ff17d['orderId']=_0x5f517b[_0x447f94(0x1c0)],_0x3ff17d['subOrderId']=_0x5f517b['subOrderId'],_0x3ff17d[_0x447f94(0x3f6)]=_0x5f517b[_0x447f94(0x3f6)],_0x3ff17d[_0x447f94(0x337)]=_0x1e84cd['orderProductId'],_0x3ff17d['total']=_0x5f517b[_0x447f94(0x150)],_0x3ff17d[_0x447f94(0x3a5)]=_0x5f517b[_0x447f94(0x3a5)],_0x3ff17d[_0x447f94(0x306)]=_0x5f517b['trackingUrl'],_0x3ff17d[_0x447f94(0x276)]=_0x5f517b[_0x447f94(0x276)],_0x57e525[_0x447f94(0x1ed)](_0x3ff17d);}yield this[_0x447f94(0x3a3)]['create'](_0x57e525);const _0xf4f787=yield this[_0x447f94(0x2de)]['findOne']({'where':{'vendorOrderId':_0x56ff21}});if(_0xf4f787){const _0x114265=new VendorPaymentArchive_1['VendorPaymentArchive']();_0x114265[_0x447f94(0x401)]=_0xf4f787[_0x447f94(0x401)],_0x114265['vendorOrderId']=_0x340510[_0x447f94(0x2cc)],_0x114265['vendorOrderArchive']=0x1,_0x114265[_0x447f94(0x3d4)]=_0xf4f787[_0x447f94(0x3d4)],_0x114265[_0x447f94(0x219)]=_0xf4f787[_0x447f94(0x219)],_0x114265[_0x447f94(0x2a4)]=_0xf4f787[_0x447f94(0x2a4)],yield this[_0x447f94(0x2f2)][_0x447f94(0x16f)](_0x114265);}yield this[_0x447f94(0x3e3)][_0x447f94(0x18b)](_0x1e84cd);const _0xa69858={'status':0x1,'message':_0x447f94(0x249)};return _0x69793c['status'](0xc8)[_0x447f94(0x32b)](_0xa69858);});}[a669_0xbe4a96(0x1a8)](_0x54937b,_0xdf7db0,_0x3f3dfb){const _0x1e2038=a669_0xbe4a96;return tslib_1[_0x1e2038(0x307)](this,void 0x0,void 0x0,function*(){const _0x2a0a54=_0x1e2038,_0xfa37b6=yield this[_0x2a0a54(0x3b0)]['findOne']({'where':{'vendorOrderArchiveId':_0x54937b}});if(!_0xfa37b6){const _0x20feb0={'status':0x0,'message':'invalid\x20Vendor\x20Order\x20Archive\x20Id'};return _0x3f3dfb[_0x2a0a54(0x36e)](0x190)[_0x2a0a54(0x32b)](_0x20feb0);}const _0x4734d7=new VendorOrders_1['VendorOrders']();console[_0x2a0a54(0x369)](_0x2a0a54(0x403),_0xfa37b6['vendorId']),_0x4734d7[_0x2a0a54(0x401)]=_0xfa37b6[_0x2a0a54(0x401)],_0x4734d7[_0x2a0a54(0x1c0)]=_0xfa37b6[_0x2a0a54(0x1c0)],_0x4734d7[_0x2a0a54(0x363)]=_0xfa37b6[_0x2a0a54(0x363)],_0x4734d7['subOrderStatusId']=_0xfa37b6[_0x2a0a54(0x3f6)],_0x4734d7['orderProductId']=_0xfa37b6[_0x2a0a54(0x337)],_0x4734d7['total']=_0xfa37b6[_0x2a0a54(0x150)],_0x4734d7['commission']=_0xfa37b6[_0x2a0a54(0x3a5)],_0x4734d7[_0x2a0a54(0x306)]=_0xfa37b6[_0x2a0a54(0x306)],_0x4734d7[_0x2a0a54(0x276)]=_0xfa37b6['trackingNo'];const _0x2a27b1=yield this[_0x2a0a54(0x3e3)][_0x2a0a54(0x16f)](_0x4734d7);console[_0x2a0a54(0x369)](_0x2a0a54(0x21a),_0x2a27b1['vendorOrderId']);const _0x35106e=yield this['vendorOrderArchiveLogService'][_0x2a0a54(0x2f6)]({'where':{'vendorOrderArchiveId':_0x54937b}}),_0x3e144a=[];for(const _0x2016aa of _0x35106e){const _0x229d60=new VendorOrderLog_1['VendorOrderLog']();_0x229d60[_0x2a0a54(0x229)]=_0x2a27b1['vendorOrderId'],_0x229d60[_0x2a0a54(0x401)]=_0x2016aa[_0x2a0a54(0x401)],_0x229d60[_0x2a0a54(0x1c0)]=_0x2016aa[_0x2a0a54(0x1c0)],_0x229d60[_0x2a0a54(0x363)]=_0x2016aa[_0x2a0a54(0x363)],_0x229d60[_0x2a0a54(0x3f6)]=_0x2016aa['subOrderStatusId'],_0x229d60[_0x2a0a54(0x150)]=_0x2016aa[_0x2a0a54(0x150)],_0x3e144a[_0x2a0a54(0x1ed)](_0x229d60);}yield this[_0x2a0a54(0x285)][_0x2a0a54(0x16f)](_0x3e144a);const _0x4ddcb8=yield this[_0x2a0a54(0x2f2)][_0x2a0a54(0x234)]({'where':{'vendorOrderId':_0x54937b,'vendorOrderArchive':0x1}});console[_0x2a0a54(0x369)](_0x2a0a54(0x303),_0x4ddcb8);if(_0x4ddcb8){const _0x2499c0=new VendorPayment_1[(_0x2a0a54(0x3ee))]();_0x2499c0[_0x2a0a54(0x401)]=_0x4ddcb8[_0x2a0a54(0x401)],_0x2499c0[_0x2a0a54(0x229)]=_0x2a27b1[_0x2a0a54(0x229)],_0x2499c0[_0x2a0a54(0x3d4)]=_0x4ddcb8[_0x2a0a54(0x3d4)],_0x2499c0[_0x2a0a54(0x219)]=_0x4ddcb8['amount'],_0x2499c0[_0x2a0a54(0x2a4)]=_0x4ddcb8[_0x2a0a54(0x2a4)],yield this['vendorPaymentService'][_0x2a0a54(0x16f)](_0x2499c0),console[_0x2a0a54(0x369)](_0x2a0a54(0x1d5),_0x2499c0);}yield this[_0x2a0a54(0x3b0)][_0x2a0a54(0x18b)](_0xfa37b6);const _0x118527={'status':0x1,'message':_0x2a0a54(0x1b6)};return _0x3f3dfb[_0x2a0a54(0x36e)](0xc8)[_0x2a0a54(0x32b)](_0x118527);});}['archiveOrderList'](_0xd0206a,_0x1362c1,_0x3339db,_0x441aef,_0x3dcf5b,_0x40a23e,_0x325767,_0x20fb09,_0x524017,_0x3f9119){const _0x5ea529=a669_0xbe4a96;return tslib_1[_0x5ea529(0x307)](this,void 0x0,void 0x0,function*(){const _0x3d6aa9=_0x5ea529,_0x5217df=(0x0,moment_1[_0x3d6aa9(0x1fb)])(_0x441aef)[_0x3d6aa9(0x18a)](0x5,_0x3d6aa9(0x365))[_0x3d6aa9(0x18a)](0x1e,'minutes')['format'](_0x3d6aa9(0x29c)),_0x4fa611=_0x3dcf5b+_0x3d6aa9(0x2aa),_0x35e7b2=(0x0,moment_1[_0x3d6aa9(0x1fb)])(_0x4fa611)[_0x3d6aa9(0x18a)](0x5,_0x3d6aa9(0x365))[_0x3d6aa9(0x18a)](0x1e,_0x3d6aa9(0x26f))[_0x3d6aa9(0x2ca)](_0x3d6aa9(0x29c)),_0x461ad8=[_0x3d6aa9(0x29e),'VendorOrderArchive.orderId\x20as\x20orderId',_0x3d6aa9(0x3f9),_0x3d6aa9(0x30c),_0x3d6aa9(0x199),'vendorOrderStatus.name\x20as\x20orderStatusName',_0x3d6aa9(0x37c),_0x3d6aa9(0x1a7),_0x3d6aa9(0x20b),_0x3d6aa9(0x1f7),_0x3d6aa9(0x1e7),_0x3d6aa9(0x2b8),_0x3d6aa9(0x226),'order.orderPrefixId\x20as\x20orderPrefixId',_0x3d6aa9(0x278),_0x3d6aa9(0x29d),'order.isActive\x20as\x20isActive',_0x3d6aa9(0x21b),_0x3d6aa9(0x286),_0x3d6aa9(0x1d7),_0x3d6aa9(0x2b4),'orderProduct.couponDiscountAmount\x20as\x20couponDiscountAmount',_0x3d6aa9(0x1a6)],_0x1b2804=[{'tableName':_0x3d6aa9(0x2ac),'aliasName':_0x3d6aa9(0x185)},{'tableName':_0x3d6aa9(0x16b),'aliasName':'vendorOrderStatus'},{'tableName':_0x3d6aa9(0x2c5),'aliasName':_0x3d6aa9(0x215)}],_0xa37bd6=[],_0x1ff5cf=[];_0x1ff5cf[_0x3d6aa9(0x1ed)]({'name':_0x3d6aa9(0x18c),'op':'and','value':_0x524017[_0x3d6aa9(0x153)][_0x3d6aa9(0x401)]});_0x441aef&&_0x441aef!==''&&_0x1ff5cf[_0x3d6aa9(0x1ed)]({'name':_0x3d6aa9(0x253),'op':_0x3d6aa9(0x405),'sign':'>=','value':_0x5217df});_0x3dcf5b&&_0x3dcf5b!==''&&_0x1ff5cf[_0x3d6aa9(0x1ed)]({'name':_0x3d6aa9(0x253),'op':_0x3d6aa9(0x405),'sign':'<=','value':_0x35e7b2});const _0x54596e=[];_0x3339db&&_0x3339db!==''&&_0x54596e[_0x3d6aa9(0x1ed)]({'name':[_0x3d6aa9(0x1fe),_0x3d6aa9(0x3af)],'value':_0x3339db['toLowerCase']()});_0x325767&&_0x325767!==''&&_0x54596e[_0x3d6aa9(0x1ed)]({'name':[_0x3d6aa9(0x3af)],'value':_0x325767[_0x3d6aa9(0x29a)]()});const _0x380dff=[];_0x380dff[_0x3d6aa9(0x1ed)]({'name':_0x3d6aa9(0x304),'order':_0x3d6aa9(0x1c3)});const _0x2fc3c9=yield this[_0x3d6aa9(0x3b0)]['listByQueryBuilder'](_0xd0206a,_0x1362c1,_0x461ad8,_0x1ff5cf,_0x54596e,_0x1b2804,_0xa37bd6,_0x380dff,![],!![]),_0x4e62a6=_0x2fc3c9[_0x3d6aa9(0x3b6)](_0x3a8acd=>tslib_1[_0x3d6aa9(0x307)](this,void 0x0,void 0x0,function*(){const _0x43ead6=_0x3d6aa9,_0x1ff1d7=_0x3a8acd,_0x3bba7e=_0x3a8acd[_0x43ead6(0x3a5)]&&_0x3a8acd['commission']>0x0?_0x3a8acd[_0x43ead6(0x3a5)]:0x0;let _0x4ed267;return _0x4ed267=_0x3a8acd['total']*(_0x3bba7e/0x64),_0x1ff1d7['NetAmount']=_0x3a8acd[_0x43ead6(0x150)]-_0x4ed267,_0x1ff1d7[_0x43ead6(0x27e)]=_0x4ed267,_0x1ff1d7;})),_0x561997=yield Promise[_0x3d6aa9(0x19f)](_0x4e62a6),_0x5f4961={'status':0x1,'message':'Successfully\x20got\x20the\x20complete\x20order\x20archive\x20list.','data':_0x561997};return _0x3f9119['status'](0xc8)['send'](_0x5f4961);});}['archiveOrderListCount'](_0x185e44,_0x213c02,_0x5ee78d,_0x2fe0e6,_0x4c6903,_0x5a258b,_0x229b4e,_0x4bfd38,_0x282816){const _0x4cfa8c=a669_0xbe4a96;return tslib_1[_0x4cfa8c(0x307)](this,void 0x0,void 0x0,function*(){const _0x47b6ff=_0x4cfa8c,_0x1b09be=(0x0,moment_1[_0x47b6ff(0x1fb)])(_0x2fe0e6)[_0x47b6ff(0x18a)](0x5,_0x47b6ff(0x365))[_0x47b6ff(0x18a)](0x1e,'minutes')['format'](_0x47b6ff(0x29c)),_0x351aec=_0x4c6903+_0x47b6ff(0x2aa),_0x2dd5ff=(0x0,moment_1[_0x47b6ff(0x1fb)])(_0x351aec)[_0x47b6ff(0x18a)](0x5,_0x47b6ff(0x365))[_0x47b6ff(0x18a)](0x1e,_0x47b6ff(0x26f))['format']('YYYY-MM-DD\x20HH:mm:ss'),_0x26b9a4=[_0x47b6ff(0x29e),_0x47b6ff(0x338),_0x47b6ff(0x3f9),_0x47b6ff(0x30c),_0x47b6ff(0x199),_0x47b6ff(0x1b9),_0x47b6ff(0x37c),_0x47b6ff(0x1a7),_0x47b6ff(0x20b),'order.currencySymbolLeft\x20as\x20currencySymbolLeft',_0x47b6ff(0x1e7),'order.shippingFirstname\x20as\x20customerFirstName',_0x47b6ff(0x226),_0x47b6ff(0x278),_0x47b6ff(0x29d),_0x47b6ff(0x415),'order.shippingCity\x20as\x20shippingCity','order.shippingCountry\x20as\x20shippingCountry',_0x47b6ff(0x2b4),_0x47b6ff(0x1b0),_0x47b6ff(0x1a6)],_0x410bcc=[{'tableName':_0x47b6ff(0x2ac),'aliasName':_0x47b6ff(0x185)},{'tableName':_0x47b6ff(0x16b),'aliasName':'vendorOrderStatus'},{'tableName':_0x47b6ff(0x2c5),'aliasName':'orderProduct'}],_0x5dedd6=[],_0x5e1009=[];_0x5e1009[_0x47b6ff(0x1ed)]({'name':'VendorOrderArchive.vendorId','op':'and','value':_0x4bfd38[_0x47b6ff(0x153)][_0x47b6ff(0x401)]});_0x2fe0e6&&_0x2fe0e6!==''&&_0x5e1009[_0x47b6ff(0x1ed)]({'name':_0x47b6ff(0x253),'op':_0x47b6ff(0x405),'sign':'>=','value':_0x1b09be});_0x4c6903&&_0x4c6903!==''&&_0x5e1009[_0x47b6ff(0x1ed)]({'name':_0x47b6ff(0x253),'op':_0x47b6ff(0x405),'sign':'<=','value':_0x2dd5ff});const _0x3ff22c=[];_0x5ee78d&&_0x5ee78d!==''&&_0x3ff22c['push']({'name':[_0x47b6ff(0x1fe),_0x47b6ff(0x3e7)],'value':_0x5ee78d['toLowerCase']()});const _0x156264=[];_0x156264[_0x47b6ff(0x1ed)]({'name':_0x47b6ff(0x304),'order':_0x47b6ff(0x1c3)});const _0x286e9d=yield this[_0x47b6ff(0x3b0)]['listByQueryBuilder'](_0x185e44,_0x213c02,_0x26b9a4,_0x5e1009,_0x3ff22c,_0x410bcc,_0x5dedd6,_0x156264,!![],!![]),_0x5c8fd8={'status':0x1,'message':_0x47b6ff(0x16a),'data':_0x286e9d};return _0x282816[_0x47b6ff(0x36e)](0xc8)[_0x47b6ff(0x32b)](_0x5c8fd8);});}[a669_0xbe4a96(0x321)](_0x2a08a3,_0x11148c,_0x534b2b,_0x173682,_0x218c1d,_0xf8c711,_0x26c015,_0x474f29,_0x9ee04,_0x22994c,_0x1b2616,_0x31cf48,_0x58bfe9,_0x4ccc04){const _0x436058=a669_0xbe4a96;return tslib_1[_0x436058(0x307)](this,void 0x0,void 0x0,function*(){const _0x3f255a=_0x436058,_0xe0d58f=(0x0,moment_1['default'])(_0x474f29)[_0x3f255a(0x18a)](0x5,_0x3f255a(0x365))[_0x3f255a(0x18a)](0x1e,'minutes')['format']('YYYY-MM-DD\x20HH:mm:ss'),_0x2893f4=_0x9ee04+_0x3f255a(0x2aa),_0x5133a4=(0x0,moment_1['default'])(_0x2893f4)[_0x3f255a(0x18a)](0x5,_0x3f255a(0x365))[_0x3f255a(0x18a)](0x1e,_0x3f255a(0x26f))[_0x3f255a(0x2ca)](_0x3f255a(0x29c)),_0x534d33=[_0x3f255a(0x2e8),_0x3f255a(0x21e),_0x3f255a(0x409),'VendorOrders.subOrderId\x20as\x20subOrderId',_0x3f255a(0x42f),'orderStatus.name\x20as\x20orderStatusName',_0x3f255a(0x178),_0x3f255a(0x32d),_0x3f255a(0x36b),_0x3f255a(0x323),'orderDetail.currencySymbolRight\x20as\x20currencySymbolRight',_0x3f255a(0x282),_0x3f255a(0x1ad),_0x3f255a(0x169),'VendorOrders.commission\x20as\x20commission',_0x3f255a(0x1b5),_0x3f255a(0x33c),_0x3f255a(0x1d7),'orderProduct.discountAmount\x20as\x20discountAmount','orderProduct.orderProductPrefixId\x20as\x20orderProductPrefixId',_0x3f255a(0x1a6),_0x3f255a(0x227),_0x3f255a(0x213),'customer.lastName\x20as\x20lastName'],_0x1155b4=[{'tableName':_0x3f255a(0x284),'aliasName':'orderDetail'},{'tableName':'VendorOrders.orderStatus','aliasName':'orderStatus'},{'tableName':'VendorOrders.orderProduct','aliasName':'orderProduct'},{'tableName':_0x3f255a(0x375),'aliasName':_0x3f255a(0x185)},{'tableName':_0x3f255a(0x216),'aliasName':_0x3f255a(0x37b)}],_0x393ca6=[],_0x4bc5c7=[],_0x59a668=[];_0x173682&&_0x173682!==''&&_0x59a668['push']({'name':['order.orderPrefixId'],'value':_0x173682});+_0x26c015&&_0x26c015!==''&&_0x4bc5c7[_0x3f255a(0x1ed)]({'name':_0x3f255a(0x386),'op':_0x3f255a(0x1d3),'value':+_0x26c015});_0x218c1d&&_0x218c1d!==''&&_0x59a668[_0x3f255a(0x1ed)]({'name':[_0x3f255a(0x204)],'value':_0x218c1d});_0x4bc5c7[_0x3f255a(0x1ed)]({'name':_0x3f255a(0x17c),'op':_0x3f255a(0x1d3),'value':_0x58bfe9['user'][_0x3f255a(0x401)]},{'name':_0x3f255a(0x3b1),'op':_0x3f255a(0x1d3),'value':0x1},{'name':_0x3f255a(0x21f),'op':_0x3f255a(0x1d3),'value':0x0});+_0x22994c&&_0x4bc5c7[_0x3f255a(0x1ed)]({'name':_0x3f255a(0x2b2),'op':'and','value':0x1});_0x474f29&&_0x474f29!==''&&_0x4bc5c7['push']({'name':'`orderDetail`.`created_date`','op':_0x3f255a(0x405),'sign':'>=','value':_0xe0d58f});_0x9ee04&&_0x9ee04!==''&&_0x4bc5c7[_0x3f255a(0x1ed)]({'name':_0x3f255a(0x420),'op':_0x3f255a(0x405),'sign':'<=','value':_0x5133a4});_0x1b2616&&_0x59a668[_0x3f255a(0x1ed)]({'name':['orderDetail.createdDate'],'value':_0x1b2616});_0x534b2b&&_0x534b2b!==''&&_0x59a668[_0x3f255a(0x1ed)]({'name':[_0x3f255a(0x40c)],'value':_0x534b2b});(_0xf8c711===null||_0xf8c711===void 0x0?void 0x0:_0xf8c711[_0x3f255a(0x1c4)]())&&_0x59a668[_0x3f255a(0x1ed)]({'name':[_0x3f255a(0x40c),'orderDetail.shippingCity',_0x3f255a(0x3af),_0x3f255a(0x204)],'value':_0xf8c711[_0x3f255a(0x29a)]()});const _0x1521bb=[];_0x1521bb[_0x3f255a(0x1ed)]({'name':_0x3f255a(0x232),'order':_0x3f255a(0x1c3)});if(_0x31cf48){const _0x4a2d11=yield this[_0x3f255a(0x3e3)][_0x3f255a(0x1fc)](_0x2a08a3,_0x11148c,_0x534d33,_0x4bc5c7,_0x59a668,_0x1155b4,_0x393ca6,_0x1521bb,!![],!![]);return _0x4ccc04[_0x3f255a(0x36e)](0xc8)[_0x3f255a(0x32b)]({'status':0x1,'message':_0x3f255a(0x3fa),'data':_0x4a2d11});}const _0x1ead9a=yield this[_0x3f255a(0x3e3)][_0x3f255a(0x1fc)](_0x2a08a3,_0x11148c,_0x534d33,_0x4bc5c7,_0x59a668,_0x1155b4,_0x393ca6,_0x1521bb,![],!![]),_0x189a59=_0x1ead9a[_0x3f255a(0x3b6)](_0xd417e1=>tslib_1[_0x3f255a(0x307)](this,void 0x0,void 0x0,function*(){const _0x35fa23=_0x3f255a,_0x3b0bb3=_0xd417e1,_0x596bc6=_0xd417e1['commission']&&_0xd417e1[_0x35fa23(0x3a5)]>0x0?_0xd417e1[_0x35fa23(0x3a5)]:0x0;let _0xc04211;return _0xc04211=_0xd417e1['total']*(_0x596bc6/0x64),_0x3b0bb3[_0x35fa23(0x373)]=_0xd417e1[_0x35fa23(0x150)]-_0xc04211,_0x3b0bb3[_0x35fa23(0x27e)]=_0xc04211,_0x3b0bb3;})),_0x1ebbc5=yield Promise[_0x3f255a(0x19f)](_0x189a59),_0xd2d497={'status':0x1,'message':_0x3f255a(0x398),'data':_0x1ebbc5};return _0x4ccc04['status'](0xc8)[_0x3f255a(0x32b)](_0xd2d497);});}['archiveOrderExportBulk'](_0x33cb1c,_0x5e067c,_0x49ba9e){const _0x28fb3c=a669_0xbe4a96;return tslib_1[_0x28fb3c(0x307)](this,void 0x0,void 0x0,function*(){const _0xad436a=_0x28fb3c,_0x1a5e1e=require('exceljs'),_0x4cd109=new _0x1a5e1e[(_0xad436a(0x256))](),_0x4e3e8e=_0x4cd109['addWorksheet'](_0xad436a(0x166));_0x4e3e8e['columns']=[{'header':_0xad436a(0x3fd),'key':_0xad436a(0x363),'size':0x10,'width':0xf},{'header':_0xad436a(0x20c),'key':_0xad436a(0x20c),'size':0x10,'width':0xf},{'header':_0xad436a(0x245),'key':_0xad436a(0x1dd),'size':0x10,'width':0xf},{'header':'CustomerAddress','key':_0xad436a(0x1bf),'size':0x10,'width':0x18},{'header':_0xad436a(0x187),'key':'TotalAmount','size':0x10,'width':0xf},{'header':_0xad436a(0x27e),'key':_0xad436a(0x27e),'size':0x10,'width':0xf},{'header':_0xad436a(0x373),'key':'NetAmount','size':0x10,'width':0xf}],_0x4e3e8e['getCell']('A1')[_0xad436a(0x3d1)]={'top':{'style':_0xad436a(0x2d5)},'left':{'style':'thin'},'bottom':{'style':_0xad436a(0x2d5)},'right':{'style':_0xad436a(0x2d5)}},_0x4e3e8e['getCell']('B1')[_0xad436a(0x3d1)]={'top':{'style':_0xad436a(0x2d5)},'left':{'style':'thin'},'bottom':{'style':_0xad436a(0x2d5)},'right':{'style':_0xad436a(0x2d5)}},_0x4e3e8e[_0xad436a(0x20f)]('C1')[_0xad436a(0x3d1)]={'top':{'style':'thin'},'left':{'style':_0xad436a(0x2d5)},'bottom':{'style':_0xad436a(0x2d5)},'right':{'style':'thin'}},_0x4e3e8e['getCell']('D1')[_0xad436a(0x3d1)]={'top':{'style':_0xad436a(0x2d5)},'left':{'style':_0xad436a(0x2d5)},'bottom':{'style':_0xad436a(0x2d5)},'right':{'style':'thin'}},_0x4e3e8e[_0xad436a(0x20f)]('E1')['border']={'top':{'style':_0xad436a(0x2d5)},'left':{'style':'thin'},'bottom':{'style':_0xad436a(0x2d5)},'right':{'style':_0xad436a(0x2d5)}},_0x4e3e8e[_0xad436a(0x20f)]('F1')['border']={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':_0xad436a(0x2d5)},'right':{'style':'thin'}},_0x4e3e8e[_0xad436a(0x20f)]('G1')[_0xad436a(0x3d1)]={'top':{'style':_0xad436a(0x2d5)},'left':{'style':'thin'},'bottom':{'style':_0xad436a(0x2d5)},'right':{'style':_0xad436a(0x2d5)}};const _0x355c95=[],_0x4a6886=[_0xad436a(0x29e),_0xad436a(0x338),_0xad436a(0x3f9),_0xad436a(0x30c),'order.orderStatusId\x20as\x20orderStatusId',_0xad436a(0x20b),'order.currencySymbolLeft\x20as\x20currencySymbolLeft',_0xad436a(0x1e7),_0xad436a(0x2b8),_0xad436a(0x226),'VendorOrderArchive.total\x20as\x20total',_0xad436a(0x29d),'order.isActive\x20as\x20isActive',_0xad436a(0x21b),_0xad436a(0x286),'orderProduct.discountAmount\x20as\x20discountAmount',_0xad436a(0x1b0),_0xad436a(0x1a6)],_0x142ebf=[{'tableName':_0xad436a(0x2ac),'aliasName':'order'},{'tableName':_0xad436a(0x2c5),'aliasName':_0xad436a(0x215)}],_0x2c4c21=[],_0x2befb6=[];_0x2befb6[_0xad436a(0x1ed)]({'name':_0xad436a(0x18c),'op':_0xad436a(0x1d3),'value':_0x33cb1c});const _0x2a44b8=[],_0x3de431=[];_0x3de431[_0xad436a(0x1ed)]({'name':'order.createdDate','order':'DESC'});const _0x2b7ca7=yield this[_0xad436a(0x3b0)][_0xad436a(0x1fc)](0x0,0x0,_0x4a6886,_0x2befb6,_0x2a44b8,_0x142ebf,_0x2c4c21,_0x3de431,![],!![]);for(const _0x3b6c01 of _0x2b7ca7){const _0x40d88c=_0x3b6c01[_0xad436a(0x3a5)]&&_0x3b6c01[_0xad436a(0x3a5)]>0x0?_0x3b6c01[_0xad436a(0x3a5)]:0x0;let _0x4cc385,_0x20df5b,_0x32d95f;_0x4cc385=_0x3b6c01[_0xad436a(0x150)]*(_0x40d88c/0x64),_0x20df5b=_0x4cc385,_0x32d95f=_0x3b6c01[_0xad436a(0x150)]-_0x4cc385;if(_0x3b6c01[_0xad436a(0x239)]!==undefined)_0x355c95['push']([_0x3b6c01[_0xad436a(0x363)],_0x3b6c01['createdDate'],_0x3b6c01[_0xad436a(0x1a2)],_0x3b6c01['shippingCity']+','+_0x3b6c01[_0xad436a(0x1bb)],_0x3b6c01[_0xad436a(0x239)]+(parseFloat(_0x3b6c01[_0xad436a(0x150)])+parseFloat(_0x3b6c01[_0xad436a(0x367)])),_0x3b6c01[_0xad436a(0x239)]+_0x20df5b,_0x3b6c01[_0xad436a(0x239)]+_0x32d95f]);else _0x3b6c01['currencySymbolRight']!==undefined?_0x355c95[_0xad436a(0x1ed)]([_0x3b6c01[_0xad436a(0x363)],_0x3b6c01[_0xad436a(0x201)],_0x3b6c01[_0xad436a(0x1a2)],_0x3b6c01['shippingCity']+','+_0x3b6c01['shippingCountry'],parseFloat(_0x3b6c01[_0xad436a(0x150)])+parseFloat(_0x3b6c01['discountAmount'])+_0x3b6c01[_0xad436a(0x281)],_0x20df5b+_0x3b6c01[_0xad436a(0x239)],_0x32d95f+_0x3b6c01[_0xad436a(0x239)]]):_0x355c95[_0xad436a(0x1ed)]([_0x3b6c01[_0xad436a(0x363)],_0x3b6c01['createdDate'],_0x3b6c01[_0xad436a(0x1a2)],_0x3b6c01[_0xad436a(0x20a)]+','+_0x3b6c01[_0xad436a(0x1bb)],parseFloat(_0x3b6c01['total'])+parseFloat(_0x3b6c01[_0xad436a(0x367)]),_0x20df5b,_0x32d95f]);}_0x4e3e8e[_0xad436a(0x326)](_0x355c95);const _0x2a218f=_0xad436a(0x2fc)+Date['now']()+_0xad436a(0x2e7);return yield _0x4cd109[_0xad436a(0x1f3)][_0xad436a(0x1c2)](_0x2a218f),new Promise((_0x3cc34f,_0x3e2174)=>{const _0xce2e07=_0xad436a;_0x49ba9e[_0xce2e07(0x3b3)](_0x2a218f,(_0x4837ee,_0x45c1cb)=>{const _0x37250e=_0xce2e07;if(_0x4837ee)_0x3e2174(_0x4837ee);else return fs[_0x37250e(0x3b9)](_0x2a218f),_0x49ba9e[_0x37250e(0x1f1)]();});});});}['archiveOrderExport'](_0x2706b3,_0x4052cf,_0x1cbb1e){const _0x4c6f3c=a669_0xbe4a96;return tslib_1[_0x4c6f3c(0x307)](this,void 0x0,void 0x0,function*(){const _0x54e725=_0x4c6f3c,_0x177172=require('exceljs'),_0x1bbd46=new _0x177172[(_0x54e725(0x256))](),_0x44140b=_0x1bbd46[_0x54e725(0x302)](_0x54e725(0x310)),_0x5f446e=_0x2706b3[_0x54e725(0x412)](',');for(const _0x23aa76 of _0x5f446e){const _0x39de7c=yield this[_0x54e725(0x3b0)][_0x54e725(0x234)]({'where':{'vendorOrderArchiveId':_0x23aa76,'vendorId':_0x4052cf['user'][_0x54e725(0x401)]}});if(_0x39de7c===undefined){const _0x1c2994={'status':0x0,'message':_0x54e725(0x17d)};return _0x1cbb1e[_0x54e725(0x36e)](0x190)[_0x54e725(0x32b)](_0x1c2994);}}_0x44140b[_0x54e725(0x2cf)]=[{'header':_0x54e725(0x3fd),'key':_0x54e725(0x363),'size':0x10,'width':0xf},{'header':_0x54e725(0x20c),'key':_0x54e725(0x20c),'size':0x10,'width':0xf},{'header':'ArchiveDate','key':_0x54e725(0x257),'size':0x10,'width':0xf},{'header':'CustomerName','key':_0x54e725(0x1dd),'size':0x10,'width':0xf},{'header':_0x54e725(0x3c2),'key':'CustomerAdress','size':0x10,'width':0x18},{'header':_0x54e725(0x187),'key':'TotalAmount','size':0x10,'width':0xf},{'header':'CommissionAmount','key':_0x54e725(0x27e),'size':0x10,'width':0xf},{'header':_0x54e725(0x373),'key':_0x54e725(0x373),'size':0x10,'width':0xf}],_0x44140b[_0x54e725(0x20f)]('A1')[_0x54e725(0x3d1)]={'top':{'style':'thin'},'left':{'style':_0x54e725(0x2d5)},'bottom':{'style':_0x54e725(0x2d5)},'right':{'style':_0x54e725(0x2d5)}},_0x44140b[_0x54e725(0x20f)]('B1')[_0x54e725(0x3d1)]={'top':{'style':'thin'},'left':{'style':_0x54e725(0x2d5)},'bottom':{'style':_0x54e725(0x2d5)},'right':{'style':_0x54e725(0x2d5)}},_0x44140b['getCell']('C1')[_0x54e725(0x3d1)]={'top':{'style':_0x54e725(0x2d5)},'left':{'style':_0x54e725(0x2d5)},'bottom':{'style':_0x54e725(0x2d5)},'right':{'style':'thin'}},_0x44140b['getCell']('D1')['border']={'top':{'style':'thin'},'left':{'style':_0x54e725(0x2d5)},'bottom':{'style':_0x54e725(0x2d5)},'right':{'style':_0x54e725(0x2d5)}},_0x44140b[_0x54e725(0x20f)]('E1')['border']={'top':{'style':_0x54e725(0x2d5)},'left':{'style':_0x54e725(0x2d5)},'bottom':{'style':'thin'},'right':{'style':'thin'}},_0x44140b[_0x54e725(0x20f)]('F1')['border']={'top':{'style':'thin'},'left':{'style':_0x54e725(0x2d5)},'bottom':{'style':_0x54e725(0x2d5)},'right':{'style':_0x54e725(0x2d5)}},_0x44140b[_0x54e725(0x20f)]('G1')[_0x54e725(0x3d1)]={'top':{'style':_0x54e725(0x2d5)},'left':{'style':_0x54e725(0x2d5)},'bottom':{'style':_0x54e725(0x2d5)},'right':{'style':_0x54e725(0x2d5)}},_0x44140b[_0x54e725(0x20f)]('G1')[_0x54e725(0x3d1)]={'top':{'style':_0x54e725(0x2d5)},'left':{'style':'thin'},'bottom':{'style':_0x54e725(0x2d5)},'right':{'style':_0x54e725(0x2d5)}};const _0x4c766d=[];for(const _0x2d8272 of _0x5f446e){const _0x38f48d=yield this[_0x54e725(0x3b0)][_0x54e725(0x234)]({'where':{'vendorOrderArchiveId':_0x2d8272}}),_0x375a94=yield this[_0x54e725(0x26e)]['findOrder']({'where':{'orderId':_0x38f48d[_0x54e725(0x1c0)]}}),_0x1b828f=yield this[_0x54e725(0x3c3)]['findOne']({'where':{'orderProductId':_0x38f48d[_0x54e725(0x337)]}}),_0x4cd83c=_0x38f48d[_0x54e725(0x3a5)]&&_0x38f48d[_0x54e725(0x3a5)]>0x0?_0x38f48d[_0x54e725(0x3a5)]:0x0;let _0x53d19b,_0x5e84bd,_0x181473;_0x53d19b=_0x38f48d[_0x54e725(0x150)]*(_0x4cd83c/0x64),_0x5e84bd=_0x53d19b,_0x181473=_0x38f48d[_0x54e725(0x150)]-_0x53d19b;if(_0x375a94[_0x54e725(0x239)]!==undefined)_0x4c766d[_0x54e725(0x1ed)]([_0x38f48d[_0x54e725(0x363)],_0x375a94['createdDate'],_0x38f48d[_0x54e725(0x201)],_0x375a94['shippingFirstname'],_0x375a94[_0x54e725(0x20a)]+','+_0x375a94['shippingCountry'],_0x375a94['currencySymbolLeft']+(parseFloat(_0x38f48d[_0x54e725(0x150)])+parseFloat(_0x1b828f[_0x54e725(0x367)])),_0x375a94['currencySymbolLeft']+_0x5e84bd,_0x375a94[_0x54e725(0x239)]+_0x181473]);else _0x375a94[_0x54e725(0x281)]!==undefined?_0x4c766d[_0x54e725(0x1ed)]([_0x38f48d['subOrderId'],_0x375a94['createdDate'],_0x38f48d[_0x54e725(0x201)],_0x375a94[_0x54e725(0x3e1)],_0x375a94[_0x54e725(0x20a)]+','+_0x375a94[_0x54e725(0x1bb)],parseFloat(_0x38f48d[_0x54e725(0x150)])+parseFloat(_0x1b828f[_0x54e725(0x367)])+_0x375a94['currencySymbolRight'],_0x5e84bd+_0x375a94[_0x54e725(0x239)],_0x181473+_0x375a94[_0x54e725(0x239)]]):_0x4c766d[_0x54e725(0x1ed)]([_0x38f48d[_0x54e725(0x363)],_0x375a94[_0x54e725(0x201)],_0x38f48d[_0x54e725(0x201)],_0x375a94[_0x54e725(0x3e1)],_0x375a94[_0x54e725(0x20a)]+','+_0x375a94['shippingCountry'],parseFloat(_0x38f48d[_0x54e725(0x150)])+parseFloat(_0x1b828f[_0x54e725(0x367)]),_0x5e84bd,_0x181473]);}_0x44140b['addRows'](_0x4c766d);const _0x4975b5=_0x54e725(0x2fc)+Date[_0x54e725(0x31e)]()+'.xlsx';return yield _0x1bbd46[_0x54e725(0x1f3)]['writeFile'](_0x4975b5),new Promise((_0x3f5fd2,_0x4085c4)=>{const _0xcf6dad=_0x54e725;_0x1cbb1e[_0xcf6dad(0x3b3)](_0x4975b5,(_0x5de642,_0x2e9618)=>{const _0x4e72f3=_0xcf6dad;if(_0x5de642)_0x4085c4(_0x5de642);else return fs[_0x4e72f3(0x3b9)](_0x4975b5),_0x1cbb1e['end']();});});});}['cancelorderListtt'](_0x395316,_0x5a3332,_0x3da9a2,_0x1e5c81,_0x4cfd36,_0x3a826d,_0x387f91,_0x3a3d8b){const _0x18c478=a669_0xbe4a96;return tslib_1[_0x18c478(0x307)](this,void 0x0,void 0x0,function*(){const _0x4aa7a9=_0x18c478,_0x3025ae=(0x0,moment_1[_0x4aa7a9(0x1fb)])(_0x1e5c81)[_0x4aa7a9(0x18a)](0x5,_0x4aa7a9(0x365))[_0x4aa7a9(0x18a)](0x1e,_0x4aa7a9(0x26f))[_0x4aa7a9(0x2ca)](_0x4aa7a9(0x29c)),_0x1644aa=_0x4cfd36+'\x2023:59:59',_0x4775d8=(0x0,moment_1['default'])(_0x1644aa)[_0x4aa7a9(0x18a)](0x5,'hours')['subtract'](0x1e,_0x4aa7a9(0x26f))[_0x4aa7a9(0x2ca)](_0x4aa7a9(0x29c)),_0x35d47a=[_0x4aa7a9(0x2e8),'VendorOrders.orderId\x20as\x20orderId',_0x4aa7a9(0x409),_0x4aa7a9(0x407),'VendorOrders.subOrderStatusId\x20as\x20subOrderStatusId','orderStatus.name\x20as\x20orderStatusName','orderStatus.colorCode\x20as\x20orderColorCode','orderDetail.orderStatusId\x20as\x20orderStatusId',_0x4aa7a9(0x36b),'orderDetail.currencySymbolLeft\x20as\x20currencySymbolLeft',_0x4aa7a9(0x1ca),_0x4aa7a9(0x282),_0x4aa7a9(0x1ad),_0x4aa7a9(0x169),_0x4aa7a9(0x1db),'orderDetail.isActive\x20as\x20isActive','orderDetail.shippingCity\x20as\x20shippingCity',_0x4aa7a9(0x217),_0x4aa7a9(0x384),_0x4aa7a9(0x174),_0x4aa7a9(0x289),'orderProduct.orderProductPrefixId\x20as\x20orderProductPrefixId',_0x4aa7a9(0x2b0),_0x4aa7a9(0x3e9),_0x4aa7a9(0x2b4),_0x4aa7a9(0x1b0),_0x4aa7a9(0x1a6),_0x4aa7a9(0x172)],_0x9bd4a8=[{'tableName':_0x4aa7a9(0x284),'aliasName':_0x4aa7a9(0x2f5)},{'tableName':_0x4aa7a9(0x339),'aliasName':_0x4aa7a9(0x389)},{'tableName':_0x4aa7a9(0x1aa),'aliasName':'orderProduct'}],_0x26e9b3=[],_0x348edb=[];_0x348edb['push']({'name':'VendorOrders.vendorId','op':_0x4aa7a9(0x1d3),'value':_0x387f91[_0x4aa7a9(0x153)][_0x4aa7a9(0x401)]},{'name':_0x4aa7a9(0x3b1),'op':'and','value':0x1},{'name':'orderProduct.cancelRequest','op':'and','value':0x1});_0x1e5c81&&_0x1e5c81!==''&&_0x348edb[_0x4aa7a9(0x1ed)]({'name':'`orderDetail`.`created_date`','op':'raw','sign':'>=','value':_0x3025ae});_0x4cfd36&&_0x4cfd36!==''&&_0x348edb[_0x4aa7a9(0x1ed)]({'name':_0x4aa7a9(0x420),'op':_0x4aa7a9(0x405),'sign':'<=','value':_0x4775d8});const _0x219f24=[];_0x3da9a2&&_0x3da9a2!==''&&_0x219f24[_0x4aa7a9(0x1ed)]({'name':[_0x4aa7a9(0x1fe),'orderProduct.orderProductPrefixId'],'value':_0x3da9a2['toLowerCase']()});const _0x5c6f9d=[];_0x5c6f9d[_0x4aa7a9(0x1ed)]({'name':_0x4aa7a9(0x232),'order':_0x4aa7a9(0x1c3)});if(_0x3a826d){const _0x2694d7=yield this[_0x4aa7a9(0x3e3)][_0x4aa7a9(0x1fc)](_0x395316,_0x5a3332,_0x35d47a,_0x348edb,_0x219f24,_0x9bd4a8,_0x26e9b3,_0x5c6f9d,!![],!![]),_0x5c1709={'status':0x1,'message':_0x4aa7a9(0x2c7),'data':_0x2694d7};return _0x3a3d8b[_0x4aa7a9(0x36e)](0xc8)['send'](_0x5c1709);}const _0x15e8ca=yield this['vendorOrdersService'][_0x4aa7a9(0x1fc)](_0x395316,_0x5a3332,_0x35d47a,_0x348edb,_0x219f24,_0x9bd4a8,_0x26e9b3,_0x5c6f9d,![],!![]),_0x42c740=_0x15e8ca['map'](_0x28ff3b=>tslib_1[_0x4aa7a9(0x307)](this,void 0x0,void 0x0,function*(){const _0x4078e4=_0x4aa7a9,_0x39cfa5=_0x28ff3b,_0x2050e7=_0x28ff3b[_0x4078e4(0x3a5)]&&_0x28ff3b[_0x4078e4(0x3a5)]>0x0?_0x28ff3b[_0x4078e4(0x3a5)]:0x0;let _0x6a81d2;return _0x6a81d2=_0x28ff3b[_0x4078e4(0x150)]*(_0x2050e7/0x64),_0x39cfa5[_0x4078e4(0x373)]=_0x28ff3b[_0x4078e4(0x150)]-_0x6a81d2,_0x39cfa5[_0x4078e4(0x27e)]=_0x6a81d2,_0x39cfa5;})),_0x5a0a7b=yield Promise['all'](_0x42c740),_0x3a92c6={'status':0x1,'message':_0x4aa7a9(0x1fd),'data':_0x5a0a7b};return _0x3a3d8b[_0x4aa7a9(0x36e)](0xc8)['send'](_0x3a92c6);});}[a669_0xbe4a96(0x3ab)](_0x3a0d19,_0x36055b,_0x3169f5,_0x1c03a2){const _0x58595d=a669_0xbe4a96;return tslib_1[_0x58595d(0x307)](this,void 0x0,void 0x0,function*(){const _0x485595=_0x58595d,_0x24d7dd=yield this[_0x485595(0x3c3)]['findOne']({'where':{'orderProductId':_0x3a0d19}});if(!_0x24d7dd){const _0x36dfc2={'status':0x0,'message':_0x485595(0x223)};return _0x1c03a2[_0x485595(0x36e)](0x190)[_0x485595(0x32b)](_0x36dfc2);}const _0x4d14a5=yield this['vendorOrdersService'][_0x485595(0x234)]({'where':{'orderProductId':_0x3a0d19,'vendorId':_0x3169f5[_0x485595(0x153)][_0x485595(0x401)]}});if(!_0x4d14a5){const _0x13a0e7={'status':0x0,'message':_0x485595(0x2df)};return _0x1c03a2[_0x485595(0x36e)](0x190)[_0x485595(0x32b)](_0x13a0e7);}_0x24d7dd[_0x485595(0x209)]=_0x36055b;const _0x12af5a=yield this['orderProductService'][_0x485595(0x370)](_0x24d7dd[_0x485595(0x3bd)],_0x24d7dd),_0x9df2c5=yield this[_0x485595(0x26e)][_0x485595(0x206)]({'where':{'orderId':_0x24d7dd['orderId']}}),_0x3bce2f=yield this[_0x485595(0x2a5)][_0x485595(0x234)](0x14),_0x1a343c=yield this[_0x485595(0x36a)]['findOne']();let _0x97e467,_0x56faa9;if(_0x12af5a[_0x485595(0x209)]===0x1)_0x97e467=_0x485595(0x242),_0x56faa9=_0x485595(0x325);else{if(_0x12af5a[_0x485595(0x209)]===0x2)_0x97e467=_0x485595(0x1a4),_0x56faa9=_0x485595(0x269);else _0x12af5a[_0x485595(0x209)]===0x0&&(_0x97e467='pending');}const _0x2db0c5=_0x3bce2f[_0x485595(0x290)][_0x485595(0x356)]('{name}',_0x9df2c5[_0x485595(0x3e1)])[_0x485595(0x356)](_0x485595(0x1ab),_0x24d7dd[_0x485595(0x1c8)])[_0x485595(0x356)](_0x485595(0x165),_0x97e467),_0x414cb9=env_1[_0x485595(0x3a9)]['vendorRedirectUrl'],_0x12eaf9={};_0x12eaf9[_0x485595(0x296)]=_0x1a343c,_0x12eaf9[_0x485595(0x28b)]=_0x2db0c5,_0x12eaf9[_0x485595(0x402)]=_0x414cb9,_0x12eaf9[_0x485595(0x428)]=undefined,mail_services_1[_0x485595(0x25d)]['sendMail'](_0x12eaf9,_0x9df2c5[_0x485595(0x3c7)],_0x3bce2f[_0x485595(0x238)],![],![],'');if(_0x12af5a!==undefined){const _0x1f34d0={'status':0x1,'message':_0x56faa9,'data':_0x12af5a};return _0x1c03a2[_0x485595(0x36e)](0xc8)['send'](_0x1f34d0);}else{const _0x26ea62={'status':0x1,'message':_0x485595(0x179)};return _0x1c03a2[_0x485595(0x36e)](0x190)[_0x485595(0x32b)](_0x26ea62);}});}[a669_0xbe4a96(0x20d)](_0x2b8fe7,_0x19daaa,_0x5c4977,_0x7e12aa){const _0x11267e=a669_0xbe4a96;return tslib_1[_0x11267e(0x307)](this,void 0x0,void 0x0,function*(){const _0x312110=_0x11267e,_0x58aed4=_0x2b8fe7[_0x312110(0x412)](','),_0x4a0a0d=[];for(const _0x4107c9 of _0x58aed4){const _0x12c3a4=yield this[_0x312110(0x3c3)]['findOne']({'where':{'orderProductId':_0x4107c9}});!_0x12c3a4&&_0x4a0a0d[_0x312110(0x1ed)](0x1);}if(_0x4a0a0d[_0x312110(0x15d)]>0x0){const _0x428907={'status':0x0,'message':_0x312110(0x223)};return _0x7e12aa[_0x312110(0x36e)](0x190)[_0x312110(0x32b)](_0x428907);}for(const _0x228a67 of _0x58aed4){const _0x595aff=yield this[_0x312110(0x3e3)]['findOne']({'where':{'orderProductId':_0x228a67,'vendorId':_0x5c4977[_0x312110(0x153)]['vendorId']}});if(!_0x595aff){const _0x32d8b1={'status':0x0,'message':_0x312110(0x2df)};return _0x7e12aa[_0x312110(0x36e)](0x190)[_0x312110(0x32b)](_0x32d8b1);}}for(const _0x2a1ab3 of _0x58aed4){const _0x2e6264=yield this[_0x312110(0x3c3)][_0x312110(0x234)]({'where':{'orderProductId':_0x2a1ab3}});_0x2e6264[_0x312110(0x209)]=_0x19daaa;const _0x1ae340=yield this[_0x312110(0x3c3)][_0x312110(0x370)](_0x2e6264['orderProductId'],_0x2e6264),_0x55e9ab=yield this[_0x312110(0x26e)][_0x312110(0x206)]({'where':{'orderId':_0x2e6264[_0x312110(0x1c0)]}}),_0x19501c=yield this[_0x312110(0x2a5)][_0x312110(0x234)](0x14),_0x4bb141=yield this['settingService']['findOne']();let _0xf01183;if(_0x1ae340['cancelRequestStatus']===0x1)_0xf01183=_0x312110(0x242);else{if(_0x1ae340['cancelRequestStatus']===0x2)_0xf01183=_0x312110(0x1a4);else _0x1ae340['cancelRequestStatus']===0x0&&(_0xf01183='pending');}const _0x4fc7eb=_0x19501c[_0x312110(0x290)][_0x312110(0x356)](_0x312110(0x23b),_0x55e9ab[_0x312110(0x3e1)])[_0x312110(0x356)](_0x312110(0x1ab),_0x2e6264['name'])['replace'](_0x312110(0x165),_0xf01183),_0x27b6cb=env_1[_0x312110(0x3a9)][_0x312110(0x274)],_0x11206={};_0x11206[_0x312110(0x296)]=_0x4bb141,_0x11206[_0x312110(0x28b)]=_0x4fc7eb,_0x11206[_0x312110(0x402)]=_0x27b6cb,_0x11206['productDetailData']=undefined,mail_services_1[_0x312110(0x25d)][_0x312110(0x3c5)](_0x11206,_0x55e9ab[_0x312110(0x3c7)],_0x19501c['subject'],![],![],'');}const _0x1d3c01={'status':0x1,'message':_0x312110(0x26d)};return _0x7e12aa[_0x312110(0x36e)](0xc8)[_0x312110(0x32b)](_0x1d3c01);});}[a669_0xbe4a96(0x368)](_0x50e7bc,_0x44d7c5,_0xd69171){const _0x1cb7f2=a669_0xbe4a96;return tslib_1[_0x1cb7f2(0x307)](this,void 0x0,void 0x0,function*(){const _0x522dab=_0x1cb7f2,_0xf291dd=require(_0x522dab(0x3c6)),_0x5b3b32=new _0xf291dd[(_0x522dab(0x256))](),_0x2cf275=_0x5b3b32[_0x522dab(0x302)](_0x522dab(0x275)),_0x295788=[],_0x4be557=_0x50e7bc[_0x522dab(0x412)](',');for(const _0x3ebdc1 of _0x4be557){const _0x40e04f=yield this[_0x522dab(0x3c3)][_0x522dab(0x234)]({'where':{'orderProductId':_0x3ebdc1}});if(_0x40e04f['length']===0x0){const _0x87e184={'status':0x0,'message':_0x522dab(0x223)};return _0xd69171[_0x522dab(0x36e)](0x190)[_0x522dab(0x32b)](_0x87e184);}}_0x2cf275['columns']=[{'header':_0x522dab(0x155),'key':_0x522dab(0x363),'size':0x10,'width':0xf},{'header':'Customer\x20Name','key':_0x522dab(0x3e1),'size':0x10,'width':0xf},{'header':_0x522dab(0x2e1),'key':_0x522dab(0x3c7),'size':0x10,'width':0xf},{'header':_0x522dab(0x39f),'key':_0x522dab(0x28a),'size':0x10,'width':0xf},{'header':'Product\x20Price','key':_0x522dab(0x39d),'size':0x10,'width':0xf},{'header':_0x522dab(0x1ff),'key':_0x522dab(0x39a),'size':0x10,'width':0xf},{'header':_0x522dab(0x150),'key':_0x522dab(0x150),'size':0x10,'width':0xf},{'header':_0x522dab(0x350),'key':_0x522dab(0x209),'size':0x10,'width':0xf},{'header':_0x522dab(0x195),'key':_0x522dab(0x3f3),'size':0x10,'width':0xf}],_0x2cf275[_0x522dab(0x20f)]('A1')[_0x522dab(0x3d1)]={'top':{'style':'thin'},'left':{'style':_0x522dab(0x2d5)},'bottom':{'style':'thin'},'right':{'style':_0x522dab(0x2d5)}},_0x2cf275[_0x522dab(0x20f)]('B1')['border']={'top':{'style':_0x522dab(0x2d5)},'left':{'style':_0x522dab(0x2d5)},'bottom':{'style':_0x522dab(0x2d5)},'right':{'style':_0x522dab(0x2d5)}},_0x2cf275['getCell']('C1')[_0x522dab(0x3d1)]={'top':{'style':'thin'},'left':{'style':_0x522dab(0x2d5)},'bottom':{'style':_0x522dab(0x2d5)},'right':{'style':_0x522dab(0x2d5)}},_0x2cf275['getCell']('D1')[_0x522dab(0x3d1)]={'top':{'style':_0x522dab(0x2d5)},'left':{'style':_0x522dab(0x2d5)},'bottom':{'style':_0x522dab(0x2d5)},'right':{'style':'thin'}},_0x2cf275['getCell']('E1')['border']={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':_0x522dab(0x2d5)},'right':{'style':_0x522dab(0x2d5)}},_0x2cf275['getCell']('F1')[_0x522dab(0x3d1)]={'top':{'style':_0x522dab(0x2d5)},'left':{'style':'thin'},'bottom':{'style':_0x522dab(0x2d5)},'right':{'style':_0x522dab(0x2d5)}},_0x2cf275[_0x522dab(0x20f)]('G1')[_0x522dab(0x3d1)]={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':_0x522dab(0x2d5)},'right':{'style':_0x522dab(0x2d5)}},_0x2cf275[_0x522dab(0x20f)]('H1')[_0x522dab(0x3d1)]={'top':{'style':_0x522dab(0x2d5)},'left':{'style':_0x522dab(0x2d5)},'bottom':{'style':_0x522dab(0x2d5)},'right':{'style':'thin'}},_0x2cf275[_0x522dab(0x20f)]('I1')[_0x522dab(0x3d1)]={'top':{'style':'thin'},'left':{'style':_0x522dab(0x2d5)},'bottom':{'style':'thin'},'right':{'style':_0x522dab(0x2d5)}};for(const _0x4672a4 of _0x4be557){const _0x4b5c81=yield this[_0x522dab(0x3e3)][_0x522dab(0x234)]({'where':{'orderProductId':_0x4672a4,'vendorId':_0x44d7c5[_0x522dab(0x153)][_0x522dab(0x401)]}});if(_0x4b5c81){const _0x7406e6=yield this['orderProductService']['findOne'](_0x4672a4),_0x378e3f=yield this[_0x522dab(0x26e)]['findOrder'](_0x7406e6[_0x522dab(0x1c0)]);let _0x1e1a12;if(_0x7406e6[_0x522dab(0x209)]===0x1)_0x1e1a12=_0x522dab(0x242);else{if(_0x7406e6[_0x522dab(0x209)]===0x2)_0x1e1a12=_0x522dab(0x1a4);else _0x7406e6[_0x522dab(0x209)]===0x0&&(_0x1e1a12=_0x522dab(0x3d8));}const _0x21b7bf=_0x378e3f[_0x522dab(0x281)],_0x35d86d=_0x378e3f[_0x522dab(0x239)];_0x35d86d===null&&_0x21b7bf===null?_0x295788['push']([_0x4b5c81['subOrderId'],_0x378e3f[_0x522dab(0x3e1)],_0x378e3f['email'],_0x7406e6[_0x522dab(0x1c8)],_0x7406e6[_0x522dab(0x39d)],_0x7406e6[_0x522dab(0x39a)],_0x7406e6['total'],_0x7406e6[_0x522dab(0x1de)],_0x1e1a12]):_0x35d86d!==undefined?_0x295788[_0x522dab(0x1ed)]([_0x4b5c81[_0x522dab(0x363)],_0x378e3f[_0x522dab(0x3e1)],_0x378e3f['email'],_0x7406e6[_0x522dab(0x1c8)],_0x7406e6[_0x522dab(0x39d)],_0x7406e6[_0x522dab(0x39a)],_0x35d86d+_0x7406e6[_0x522dab(0x150)],_0x7406e6[_0x522dab(0x1de)],_0x1e1a12]):_0x295788[_0x522dab(0x1ed)]([_0x4b5c81[_0x522dab(0x363)],_0x378e3f[_0x522dab(0x3e1)],_0x378e3f['email'],_0x7406e6['name'],_0x7406e6[_0x522dab(0x39d)],_0x7406e6['quantity'],_0x7406e6[_0x522dab(0x150)]+_0x21b7bf,_0x7406e6[_0x522dab(0x1de)],_0x1e1a12]);}}_0x2cf275[_0x522dab(0x326)](_0x295788);const _0x5ceea3=_0x522dab(0x1e3)+Date['now']()+_0x522dab(0x2e7);return yield _0x5b3b32['xlsx'][_0x522dab(0x1c2)](_0x5ceea3),new Promise((_0x28e5f7,_0x165db6)=>{_0xd69171['download'](_0x5ceea3,(_0xfe0fdb,_0x2bd721)=>{const _0x1bc86f=a669_0x20db;if(_0xfe0fdb)_0x165db6(_0xfe0fdb);else return fs['unlinkSync'](_0x5ceea3),_0xd69171[_0x1bc86f(0x1f1)]();});});});}[a669_0xbe4a96(0x2a2)](_0x514b21,_0x305d84){const _0x34f58d=a669_0xbe4a96;return tslib_1[_0x34f58d(0x307)](this,void 0x0,void 0x0,function*(){const _0x3f781c=_0x34f58d,_0x4ab2a7=require('exceljs'),_0x3269b7=new _0x4ab2a7['Workbook'](),_0x1ff5ff=_0x3269b7['addWorksheet'](_0x3f781c(0x275)),_0x2b6d80=[],_0xb00c16=[_0x3f781c(0x2e8),'VendorOrders.orderId\x20as\x20orderId',_0x3f781c(0x409),'VendorOrders.subOrderId\x20as\x20subOrderId',_0x3f781c(0x42f),_0x3f781c(0x190),'orderStatus.colorCode\x20as\x20orderColorCode','orderDetail.orderStatusId\x20as\x20orderStatusId',_0x3f781c(0x36b),_0x3f781c(0x2f0),_0x3f781c(0x323),'orderDetail.currencySymbolRight\x20as\x20currencySymbolRight','orderDetail.shippingFirstname\x20as\x20customerFirstName',_0x3f781c(0x1ad),'VendorOrders.total\x20as\x20total','VendorOrders.commission\x20as\x20commission',_0x3f781c(0x1b5),'orderDetail.shippingCity\x20as\x20shippingCity',_0x3f781c(0x217),'orderProduct.orderProductId\x20as\x20orderProductId',_0x3f781c(0x289),_0x3f781c(0x2b0),_0x3f781c(0x3e9),'orderProduct.name\x20as\x20name',_0x3f781c(0x271),_0x3f781c(0x212),_0x3f781c(0x2b4),_0x3f781c(0x2b4),'orderProduct.couponDiscountAmount\x20as\x20couponDiscountAmount',_0x3f781c(0x172)],_0x4ab4b8=[{'tableName':_0x3f781c(0x284),'aliasName':_0x3f781c(0x2f5)},{'tableName':_0x3f781c(0x339),'aliasName':_0x3f781c(0x389)},{'tableName':_0x3f781c(0x1aa),'aliasName':_0x3f781c(0x215)}],_0x35222e=[],_0x5c8080=[];_0x5c8080[_0x3f781c(0x1ed)]({'name':_0x3f781c(0x17c),'op':_0x3f781c(0x1d3),'value':_0x514b21['user'][_0x3f781c(0x401)]},{'name':_0x3f781c(0x3b1),'op':'and','value':0x1},{'name':'orderProduct.cancelRequest','op':_0x3f781c(0x1d3),'value':0x1});const _0x1a97cb=[],_0x27c47c=[];_0x27c47c[_0x3f781c(0x1ed)]({'name':_0x3f781c(0x232),'order':_0x3f781c(0x1c3)});const _0x518a84=yield this[_0x3f781c(0x3e3)][_0x3f781c(0x1fc)](0x0,0x0,_0xb00c16,_0x5c8080,_0x1a97cb,_0x4ab4b8,_0x35222e,_0x27c47c,![],!![]);if(_0x518a84[_0x3f781c(0x15d)]===0x0){const _0x3515fe={'status':0x0,'message':'file\x20is\x20empty'};return _0x305d84[_0x3f781c(0x36e)](0x190)[_0x3f781c(0x32b)](_0x3515fe);}_0x1ff5ff[_0x3f781c(0x2cf)]=[{'header':_0x3f781c(0x160),'key':'subOrderId','size':0x10,'width':0xf},{'header':_0x3f781c(0x2d4),'key':_0x3f781c(0x3e1),'size':0x10,'width':0xf},{'header':'Email','key':'email','size':0x10,'width':0xf},{'header':_0x3f781c(0x39f),'key':_0x3f781c(0x28a),'size':0x10,'width':0xf},{'header':_0x3f781c(0x336),'key':_0x3f781c(0x39d),'size':0x10,'width':0xf},{'header':'Quantity','key':_0x3f781c(0x39a),'size':0x10,'width':0xf},{'header':_0x3f781c(0x150),'key':_0x3f781c(0x150),'size':0x10,'width':0xf},{'header':_0x3f781c(0x350),'key':_0x3f781c(0x209),'size':0x10,'width':0xf},{'header':_0x3f781c(0x195),'key':'cancelRequestReason','size':0x10,'width':0xf}],_0x1ff5ff['getCell']('A1')[_0x3f781c(0x3d1)]={'top':{'style':_0x3f781c(0x2d5)},'left':{'style':'thin'},'bottom':{'style':_0x3f781c(0x2d5)},'right':{'style':_0x3f781c(0x2d5)}},_0x1ff5ff[_0x3f781c(0x20f)]('B1')['border']={'top':{'style':_0x3f781c(0x2d5)},'left':{'style':_0x3f781c(0x2d5)},'bottom':{'style':'thin'},'right':{'style':_0x3f781c(0x2d5)}},_0x1ff5ff[_0x3f781c(0x20f)]('C1')[_0x3f781c(0x3d1)]={'top':{'style':_0x3f781c(0x2d5)},'left':{'style':'thin'},'bottom':{'style':_0x3f781c(0x2d5)},'right':{'style':_0x3f781c(0x2d5)}},_0x1ff5ff['getCell']('D1')['border']={'top':{'style':_0x3f781c(0x2d5)},'left':{'style':_0x3f781c(0x2d5)},'bottom':{'style':'thin'},'right':{'style':_0x3f781c(0x2d5)}},_0x1ff5ff[_0x3f781c(0x20f)]('E1')['border']={'top':{'style':_0x3f781c(0x2d5)},'left':{'style':_0x3f781c(0x2d5)},'bottom':{'style':_0x3f781c(0x2d5)},'right':{'style':_0x3f781c(0x2d5)}},_0x1ff5ff[_0x3f781c(0x20f)]('F1')[_0x3f781c(0x3d1)]={'top':{'style':_0x3f781c(0x2d5)},'left':{'style':_0x3f781c(0x2d5)},'bottom':{'style':'thin'},'right':{'style':_0x3f781c(0x2d5)}},_0x1ff5ff['getCell']('G1')[_0x3f781c(0x3d1)]={'top':{'style':_0x3f781c(0x2d5)},'left':{'style':_0x3f781c(0x2d5)},'bottom':{'style':'thin'},'right':{'style':_0x3f781c(0x2d5)}},_0x1ff5ff[_0x3f781c(0x20f)]('H1')['border']={'top':{'style':_0x3f781c(0x2d5)},'left':{'style':_0x3f781c(0x2d5)},'bottom':{'style':_0x3f781c(0x2d5)},'right':{'style':'thin'}},_0x1ff5ff[_0x3f781c(0x20f)]('I1')[_0x3f781c(0x3d1)]={'top':{'style':_0x3f781c(0x2d5)},'left':{'style':_0x3f781c(0x2d5)},'bottom':{'style':_0x3f781c(0x2d5)},'right':{'style':_0x3f781c(0x2d5)}};for(const _0x102332 of _0x518a84){let _0x37da15;if(_0x102332['cancelRequestStatus']===0x1)_0x37da15=_0x3f781c(0x242);else{if(_0x102332[_0x3f781c(0x209)]===0x2)_0x37da15='rejected';else _0x102332[_0x3f781c(0x209)]===0x0&&(_0x37da15='pending');}const _0x2c4c85=_0x102332[_0x3f781c(0x281)],_0x2e5a0e=_0x102332['currencySymbolLeft'];_0x2e5a0e===null&&_0x2c4c85===null?_0x2b6d80[_0x3f781c(0x1ed)]([_0x102332[_0x3f781c(0x363)],_0x102332['customerFirstName'],_0x102332[_0x3f781c(0x3c7)],_0x102332[_0x3f781c(0x1c8)],_0x102332[_0x3f781c(0x39d)],_0x102332[_0x3f781c(0x39a)],_0x102332['total'],_0x102332['cancelReason'],_0x37da15]):_0x2e5a0e!==undefined?_0x2b6d80[_0x3f781c(0x1ed)]([_0x102332[_0x3f781c(0x363)],_0x102332[_0x3f781c(0x1a2)],_0x102332['email'],_0x102332[_0x3f781c(0x1c8)],_0x102332[_0x3f781c(0x39d)],_0x102332['quantity'],_0x2e5a0e+_0x102332[_0x3f781c(0x150)],_0x102332[_0x3f781c(0x1de)],_0x37da15]):_0x2b6d80['push']([_0x102332['subOrderId'],_0x102332[_0x3f781c(0x1a2)],_0x102332[_0x3f781c(0x3c7)],_0x102332['name'],_0x102332['productPrice'],_0x102332[_0x3f781c(0x39a)],_0x102332[_0x3f781c(0x150)]+_0x2c4c85,_0x102332[_0x3f781c(0x1de)],_0x37da15]);}_0x1ff5ff[_0x3f781c(0x326)](_0x2b6d80);const _0x339eb9=_0x3f781c(0x32f)+Date['now']()+_0x3f781c(0x2e7);return yield _0x3269b7[_0x3f781c(0x1f3)][_0x3f781c(0x1c2)](_0x339eb9),new Promise((_0xa8c8da,_0x38d17a)=>{const _0x221c23=_0x3f781c;_0x305d84[_0x221c23(0x3b3)](_0x339eb9,(_0x32e114,_0x3436f4)=>{const _0x38a71a=_0x221c23;if(_0x32e114)_0x38d17a(_0x32e114);else return fs[_0x38a71a(0x3b9)](_0x339eb9),_0x305d84[_0x38a71a(0x1f1)]();});});});}[a669_0xbe4a96(0x3ef)](_0x23dd42,_0x20aaef,_0x45fb4c,_0x1af13d,_0xe99b4c,_0x450862,_0x1ef472,_0x3520b7,_0x3797bf,_0x56fc59){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x31d2c9=a669_0x20db,_0x152cf1=(0x0,moment_1['default'])(_0x1af13d)['subtract'](0x5,_0x31d2c9(0x365))[_0x31d2c9(0x18a)](0x1e,_0x31d2c9(0x26f))['format'](_0x31d2c9(0x29c)),_0x2a55f3=_0xe99b4c+_0x31d2c9(0x2aa),_0x39159d=(0x0,moment_1[_0x31d2c9(0x1fb)])(_0x2a55f3)[_0x31d2c9(0x18a)](0x5,_0x31d2c9(0x365))[_0x31d2c9(0x18a)](0x1e,_0x31d2c9(0x26f))[_0x31d2c9(0x2ca)]('YYYY-MM-DD\x20HH:mm:ss'),_0x27b79d=[_0x31d2c9(0x25f),_0x31d2c9(0x19b),_0x31d2c9(0x21c),_0x31d2c9(0x268),_0x31d2c9(0x343),'VendorInvoice.orderId\x20as\x20orderId','VendorInvoice.vendorId\x20as\x20vendorId',_0x31d2c9(0x392),_0x31d2c9(0x247),'VendorInvoice.total\x20as\x20total',_0x31d2c9(0x2ea)],_0x47610d=[{'tableName':_0x31d2c9(0x273),'aliasName':_0x31d2c9(0x2f5)}],_0x51c962=[],_0x3132ba=[];_0x3132ba[_0x31d2c9(0x1ed)]({'name':'VendorInvoice.vendorId','op':_0x31d2c9(0x1d3),'value':_0x3797bf['user'][_0x31d2c9(0x401)]},{'name':_0x31d2c9(0x3b1),'op':_0x31d2c9(0x1d3),'value':0x1});_0x1af13d&&_0x1af13d!==''&&_0x3132ba[_0x31d2c9(0x1ed)]({'name':_0x31d2c9(0x1c6),'op':_0x31d2c9(0x405),'sign':'>=','value':_0x152cf1});_0xe99b4c&&_0xe99b4c!==''&&_0x3132ba['push']({'name':_0x31d2c9(0x1c6),'op':'raw','sign':'<=','value':_0x39159d});const _0x5946a3=[];_0x45fb4c&&_0x45fb4c!==''&&_0x5946a3[_0x31d2c9(0x1ed)]({'name':[_0x31d2c9(0x2bf),_0x31d2c9(0x246),'VendorInvoice.invoiceNo'],'value':_0x45fb4c[_0x31d2c9(0x29a)]()});_0x1ef472&&_0x1ef472!==''&&_0x5946a3[_0x31d2c9(0x1ed)]({'name':['VendorInvoice.shippingFirstname'],'value':_0x1ef472});_0x3520b7&&_0x3520b7!==''&&_0x5946a3[_0x31d2c9(0x1ed)]({'name':[_0x31d2c9(0x246)],'value':_0x3520b7});const _0x3ca0ba=[];_0x3ca0ba[_0x31d2c9(0x1ed)]({'name':'VendorInvoice.createdDate','order':_0x31d2c9(0x1c3)});if(_0x450862){const _0x45a55c=yield this[_0x31d2c9(0x331)][_0x31d2c9(0x1fc)](_0x23dd42,_0x20aaef,_0x27b79d,_0x3132ba,_0x5946a3,_0x47610d,_0x51c962,_0x3ca0ba,!![],!![]),_0x444678={'status':0x1,'message':_0x31d2c9(0x2c7),'data':_0x45a55c};return _0x56fc59[_0x31d2c9(0x36e)](0xc8)[_0x31d2c9(0x32b)](_0x444678);}const _0x341eb5=yield this['vendorInvoiceService']['listByQueryBuilder'](_0x23dd42,_0x20aaef,_0x27b79d,_0x3132ba,_0x5946a3,_0x47610d,_0x51c962,_0x3ca0ba,![],!![]),_0x1ebf9d=_0x341eb5[_0x31d2c9(0x3b6)](_0x52f517=>tslib_1[_0x31d2c9(0x307)](this,void 0x0,void 0x0,function*(){const _0x4ea159=_0x31d2c9,_0x3c088a=_0x52f517,_0x597845=yield this['vendorInvoiceItemService']['findAll']({'where':{'vendorInvoiceId':_0x52f517[_0x4ea159(0x1e2)]}});return _0x3c088a[_0x4ea159(0x2dc)]=_0x597845[_0x4ea159(0x15d)],_0x3c088a;})),_0x4155c1=yield Promise[_0x31d2c9(0x19f)](_0x1ebf9d);if(_0x341eb5){const _0x33b6a1={'status':0x1,'message':'Successfully\x20got\x20the\x20vendor\x20invoice\x20list.','data':_0x4155c1};return _0x56fc59['status'](0xc8)['send'](_0x33b6a1);}else{const _0x447d0f={'status':0x0,'message':_0x31d2c9(0x22a)};return _0x56fc59['status'](0x190)['send'](_0x447d0f);}});}[a669_0xbe4a96(0x188)](_0x2b6b74,_0x25378e,_0x126105){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x28bee6=a669_0x20db,_0x462c7e=yield this['vendorInvoiceService'][_0x28bee6(0x234)]({'where':{'orderId':_0x2b6b74,'vendorId':_0x25378e[_0x28bee6(0x153)]['vendorId']},'select':[_0x28bee6(0x1e2),_0x28bee6(0x1c0),_0x28bee6(0x401),'invoiceNo',_0x28bee6(0x280),_0x28bee6(0x3e1),_0x28bee6(0x3ff),_0x28bee6(0x150),_0x28bee6(0x201)]});if(!_0x462c7e){const _0x46bf0d={'status':0x0,'message':_0x28bee6(0x197)};return _0x126105['status'](0x190)[_0x28bee6(0x32b)](_0x46bf0d);}const _0xf9dd19=yield this[_0x28bee6(0x1ec)][_0x28bee6(0x234)]({'select':['vendorId',_0x28bee6(0x14e),_0x28bee6(0x426),_0x28bee6(0x374),_0x28bee6(0x279),_0x28bee6(0x38c),'companyEmailId','companyWebsite',_0x28bee6(0x324),_0x28bee6(0x1d4),_0x28bee6(0x15a),_0x28bee6(0x162),_0x28bee6(0x258),_0x28bee6(0x333),_0x28bee6(0x36c),_0x28bee6(0x2f4),_0x28bee6(0x1a9),_0x28bee6(0x3a5)],'where':{'vendorId':_0x25378e[_0x28bee6(0x153)]['vendorId']}}),_0x5c83cc=yield this[_0x28bee6(0x26e)][_0x28bee6(0x206)]({'where':{'orderId':_0x462c7e[_0x28bee6(0x1c0)]},'select':['paymentFirstname',_0x28bee6(0x3c7),_0x28bee6(0x3e0),_0x28bee6(0x348),_0x28bee6(0x320),'paymentAddress2',_0x28bee6(0x38b),_0x28bee6(0x355),_0x28bee6(0x19c),'paymentPostcode',_0x28bee6(0x1f8),_0x28bee6(0x2be),_0x28bee6(0x3e1),_0x28bee6(0x3ff),'shippingCompany',_0x28bee6(0x3a1),_0x28bee6(0x41f),_0x28bee6(0x20a),_0x28bee6(0x259),'shippingCountry',_0x28bee6(0x2eb),'currencySymbolLeft',_0x28bee6(0x281),'currencyCode','paymentMethod','orderPrefixId']});let _0x4ab9a1=parseFloat(_0x28bee6(0x32e));_0x462c7e[_0x28bee6(0x328)]=yield this[_0x28bee6(0x3f2)][_0x28bee6(0x3ac)]({'where':{'vendorInvoiceId':_0x462c7e[_0x28bee6(0x1e2)]},'select':[_0x28bee6(0x1b4),_0x28bee6(0x1e2),_0x28bee6(0x3bd)]})[_0x28bee6(0x1af)](_0x4ff28e=>{const _0x3e8202=_0x28bee6,_0x519a97=_0x4ff28e[_0x3e8202(0x3b6)](_0x99682f=>tslib_1[_0x3e8202(0x307)](this,void 0x0,void 0x0,function*(){const _0x46d666=_0x3e8202,_0x15c974=yield this[_0x46d666(0x3c3)][_0x46d666(0x234)]({'where':{'orderProductId':_0x99682f[_0x46d666(0x3bd)]},'select':[_0x46d666(0x3bd),_0x46d666(0x1c8),'quantity','total',_0x46d666(0x2bd),_0x46d666(0x39d),_0x46d666(0x297),'taxType','taxValue','discountAmount',_0x46d666(0x3c8),'couponDiscountAmount','skuName']}),_0x24e805=yield this[_0x46d666(0x342)][_0x46d666(0x234)]({'select':[_0x46d666(0x424),_0x46d666(0x18f)],'where':{'productId':_0x15c974[_0x46d666(0x2bd)]}}),_0x5f5caa=_0x15c974;if(_0x15c974[_0x46d666(0x395)]===0x2){const _0x282492=_0x15c974[_0x46d666(0x367)]==='0.00'||_0x15c974[_0x46d666(0x367)]===null?+_0x15c974['basePrice']:+_0x15c974['discountedAmount'];_0x5f5caa[_0x46d666(0x2f1)]=(_0x282492*(+_0x15c974[_0x46d666(0x2d3)]/0x64))['toFixed'](0x2);}else _0x5f5caa['taxValueInAmount']=_0x15c974['taxValue'];_0x5f5caa[_0x46d666(0x424)]=_0x24e805[_0x46d666(0x424)],_0x5f5caa[_0x46d666(0x18f)]=_0x24e805['hsn'];const _0x53a0b2=_0x15c974[_0x46d666(0x150)];return _0x4ab9a1+=parseFloat(_0x53a0b2),_0x5f5caa;})),_0x440880=Promise[_0x3e8202(0x19f)](_0x519a97);return _0x440880;});const _0x540dc2=yield this[_0x28bee6(0x36a)][_0x28bee6(0x234)](),_0x4b3fff=yield this[_0x28bee6(0x30d)][_0x28bee6(0x234)]({'select':[_0x28bee6(0x1c8)],'where':{'countryId':_0xf9dd19[_0x28bee6(0x258)]}});_0xf9dd19[_0x28bee6(0x3b2)]=_0x4b3fff?_0x4b3fff[_0x28bee6(0x1c8)]:'',_0x462c7e[_0x28bee6(0x400)]=_0xf9dd19;const _0x486c61=_0x540dc2;_0x462c7e['symbolLeft']=_0x5c83cc[_0x28bee6(0x239)],_0x462c7e[_0x28bee6(0x3de)]=_0x5c83cc[_0x28bee6(0x281)],_0x462c7e['currencyCode']=_0x5c83cc[_0x28bee6(0x3eb)],_0x462c7e[_0x28bee6(0x38a)]=_0x5c83cc[_0x28bee6(0x38a)],_0x462c7e[_0x28bee6(0x27b)]=_0x5c83cc[_0x28bee6(0x27b)],_0x462c7e['paymentLastname']=_0x5c83cc[_0x28bee6(0x3e0)],_0x462c7e[_0x28bee6(0x320)]=_0x5c83cc[_0x28bee6(0x320)],_0x462c7e[_0x28bee6(0x327)]=_0x5c83cc['paymentAddress2'],_0x462c7e['paymentCity']=_0x5c83cc[_0x28bee6(0x38b)],_0x462c7e['paymentPostcode']=_0x5c83cc[_0x28bee6(0x38f)],_0x462c7e[_0x28bee6(0x2be)]=_0x5c83cc['paymentZone'],_0x462c7e[_0x28bee6(0x1f8)]=_0x5c83cc['paymentCountry'],_0x462c7e['shippingFirstname']=_0x5c83cc[_0x28bee6(0x3e1)],_0x462c7e[_0x28bee6(0x3ff)]=_0x5c83cc[_0x28bee6(0x3ff)],_0x462c7e[_0x28bee6(0x3a1)]=_0x5c83cc['shippingAddress1'],_0x462c7e[_0x28bee6(0x41f)]=_0x5c83cc[_0x28bee6(0x41f)],_0x462c7e[_0x28bee6(0x20a)]=_0x5c83cc['shippingCity'],_0x462c7e[_0x28bee6(0x259)]=_0x5c83cc[_0x28bee6(0x259)],_0x462c7e[_0x28bee6(0x2eb)]=_0x5c83cc[_0x28bee6(0x2eb)],_0x462c7e[_0x28bee6(0x1bb)]=_0x5c83cc[_0x28bee6(0x1bb)],_0x462c7e['customerGstNo']=_0x5c83cc['customerGstNo'],_0x462c7e[_0x28bee6(0x19c)]=_0x5c83cc[_0x28bee6(0x19c)];let _0x50b22b;_0x5c83cc[_0x28bee6(0x3eb)]===_0x28bee6(0x2c8)?_0x50b22b=new to_words_1['ToWords']({'localeCode':_0x28bee6(0x2e5)}):_0x50b22b=new to_words_1[(_0x28bee6(0x421))]({'localeCode':_0x28bee6(0x3be)});const _0x16957a=_0x50b22b[_0x28bee6(0x40e)](_0x4ab9a1,{'currency':!![]});_0x462c7e[_0x28bee6(0x28c)]=_0x16957a;let _0x551a46;env_1[_0x28bee6(0x3a9)]['imageserver']==='s3'?_0x551a46=yield this[_0x28bee6(0x154)][_0x28bee6(0x2ff)](_0x486c61['storeLogo'],_0x486c61[_0x28bee6(0x3b8)],_0x28bee6(0x2b5),_0x28bee6(0x2b5)):_0x551a46=yield this[_0x28bee6(0x376)][_0x28bee6(0x2ff)](_0x486c61['storeLogo'],_0x486c61[_0x28bee6(0x3b8)],_0x28bee6(0x2b5),_0x28bee6(0x2b5));_0x462c7e['logo']=_0x551a46;const _0x45a2b0=yield this['pdfService'][_0x28bee6(0x28f)](_0x28bee6(0x2d8),_0x462c7e),_0x2a7c65='./Invoice_'+(_0x462c7e['invoicePrefix']+_0x462c7e[_0x28bee6(0x293)])+_0x28bee6(0x2a3);return yield this[_0x28bee6(0x37e)][_0x28bee6(0x366)](_0x45a2b0,_0x2a7c65),new Promise((_0x2e2c95,_0x5d7884)=>{const _0x49f712=_0x28bee6;_0x126105[_0x49f712(0x3b3)](_0x2a7c65,(_0x4b59d6,_0x16c676)=>{const _0x2543f2=_0x49f712;if(_0x4b59d6)_0x5d7884(_0x4b59d6);else return fs[_0x2543f2(0x3b9)](_0x2a7c65),_0x126105[_0x2543f2(0x1f1)]();});});});}[a669_0xbe4a96(0x423)](_0x8b162a,_0x898ad8,_0x4c173c,_0x18149a,_0x1f2f01,_0x1a857b,_0x1c202b,_0x3102d2){const _0x46a08d=a669_0xbe4a96;return tslib_1[_0x46a08d(0x307)](this,void 0x0,void 0x0,function*(){const _0x1f3ecb=_0x46a08d,_0x225554=['VendorOrders.vendorOrderId\x20as\x20vendorOrderId',_0x1f3ecb(0x21e),'vendor.companyState\x20as\x20companyState','VendorOrders.vendorId\x20as\x20vendorId','orderProduct.orderProductPrefixId\x20as\x20orderProductPrefixId',_0x1f3ecb(0x212),_0x1f3ecb(0x174),'orderProduct.productPrice\x20as\x20price',_0x1f3ecb(0x212),'orderProduct.basePrice\x20as\x20basePrice',_0x1f3ecb(0x3a0),_0x1f3ecb(0x298),_0x1f3ecb(0x3dd),_0x1f3ecb(0x169),_0x1f3ecb(0x407),_0x1f3ecb(0x1db),_0x1f3ecb(0x2fb),_0x1f3ecb(0x323),'orderDetail.currencySymbolRight\x20as\x20currencySymbolRight',_0x1f3ecb(0x2b0),_0x1f3ecb(0x1b3),_0x1f3ecb(0x2b6),_0x1f3ecb(0x3a0),'orderStatus.name\x20as\x20orderStatusName','orderStatus.colorCode\x20as\x20orderColorCode',_0x1f3ecb(0x2e2),_0x1f3ecb(0x1ef),_0x1f3ecb(0x213),_0x1f3ecb(0x15c),_0x1f3ecb(0x2b4),_0x1f3ecb(0x1b0),_0x1f3ecb(0x25c),'orderDetail.paymentType\x20as\x20paymentType',_0x1f3ecb(0x34e)],_0xd79327=[{'tableName':_0x1f3ecb(0x1aa),'aliasName':_0x1f3ecb(0x215)},{'tableName':_0x1f3ecb(0x36f),'aliasName':_0x1f3ecb(0x400)},{'tableName':'VendorOrders.orderDetail','aliasName':_0x1f3ecb(0x2f5)},{'tableName':'VendorOrders.orderStatus','aliasName':'orderStatus'},{'tableName':_0x1f3ecb(0x24b),'op':'left','aliasName':_0x1f3ecb(0x3aa)},{'tableName':_0x1f3ecb(0x161),'op':_0x1f3ecb(0x31d),'aliasName':_0x1f3ecb(0x37b)},{'tableName':_0x1f3ecb(0x175),'op':_0x1f3ecb(0x31d),'aliasName':_0x1f3ecb(0x354)}],_0x382183=[];_0x382183['push']({'name':_0x1f3ecb(0x228),'op':_0x1f3ecb(0x1d3),'value':_0x1c202b['user'][_0x1f3ecb(0x401)]},{'name':'orderDetail.paymentProcess','op':_0x1f3ecb(0x1d3),'value':0x1},{'name':_0x1f3ecb(0x2b2),'op':_0x1f3ecb(0x1d3),'value':0x1},{'name':_0x1f3ecb(0x382),'op':'and','value':0x0});_0x1f2f01&&_0x382183[_0x1f3ecb(0x1ed)]({'name':_0x1f3ecb(0x2c1),'op':'IN','value':_0x1f2f01});_0x4c173c&&_0x4c173c!==''&&_0x382183[_0x1f3ecb(0x1ed)]({'name':_0x1f3ecb(0x1ac),'op':_0x1f3ecb(0x405),'sign':'>=','value':_0x4c173c+_0x1f3ecb(0x26a)});_0x18149a&&_0x18149a!==''&&_0x382183[_0x1f3ecb(0x1ed)]({'name':_0x1f3ecb(0x1ac),'op':_0x1f3ecb(0x405),'sign':'<=','value':_0x18149a+'\x2023:59:59'});const _0x42ae99=[{'name':_0x1f3ecb(0x229),'order':'DESC'}];if(_0x1a857b){const _0xd48a0a=yield this[_0x1f3ecb(0x3e3)][_0x1f3ecb(0x1fc)](_0x8b162a,_0x898ad8,_0x225554,_0x382183,[],_0xd79327,[],_0x42ae99,!![],!![]),_0x3daff4={'status':0x1,'message':_0x1f3ecb(0x3dc),'data':_0xd48a0a};return _0x3102d2['status'](0xc8)['send'](_0x3daff4);}const _0x114732=yield this['vendorOrdersService'][_0x1f3ecb(0x1fc)](_0x8b162a,_0x898ad8,_0x225554,_0x382183,[],_0xd79327,[],_0x42ae99,![],!![]),_0xeb89c8=[];let _0x544357=0x0;const _0x3e3ef9=_0x3846d9=>_0x4135e0=>_0x4135e0[_0x1f3ecb(0x312)]((_0x495571,_0x1da330)=>{const _0x308cde=_0x1f3ecb,_0x5db141=_0x1da330[_0x3846d9];return _0x495571[_0x5db141]=(_0x495571[_0x5db141]||[])[_0x308cde(0x2cb)](_0x1da330),_0x495571;},{}),_0x1ff35d=_0x3e3ef9(_0x1f3ecb(0x28a)),_0x10737d=_0x1ff35d(_0x114732),_0x4221fa=Object[_0x1f3ecb(0x2d6)](_0x10737d);_0x4221fa&&_0x4221fa[_0x1f3ecb(0x15d)]>0x0&&_0x4221fa[_0x1f3ecb(0x17f)](_0x1911f6=>{const _0x4e4291=_0x1f3ecb,_0x220dd9={};_0x220dd9[_0x4e4291(0x28a)]=_0x1911f6,_0x220dd9[_0x4e4291(0x380)]=_0x10737d[_0x1911f6]&&_0x10737d[_0x1911f6][_0x4e4291(0x15d)]>0x0?_0x10737d[_0x1911f6]:[];for(const _0x3b868e of _0x10737d[_0x1911f6]){_0x544357+=+_0x3b868e[_0x4e4291(0x150)];}_0xeb89c8['push'](_0x220dd9);});const _0x321eb2=yield this[_0x1f3ecb(0x3e3)][_0x1f3ecb(0x1fc)](_0x8b162a,_0x898ad8,_0x225554,_0x382183,[],_0xd79327,[],_0x42ae99,!![],!![]),_0x2bcd06={'status':0x1,'message':_0x1f3ecb(0x40b),'data':_0xeb89c8,'total':_0x544357,'orderCount':_0x321eb2};return _0x3102d2[_0x1f3ecb(0x36e)](0xc8)[_0x1f3ecb(0x32b)](_0x2bcd06);});}[a669_0xbe4a96(0x41d)](_0x6d6be7,_0x59b259,_0x15d93e,_0x3c84d7,_0x1f6135,_0x166232,_0x3a50c1,_0x17525a){const _0x5a96a7=a669_0xbe4a96;return tslib_1[_0x5a96a7(0x307)](this,void 0x0,void 0x0,function*(){const _0x2083fb=_0x5a96a7,_0x4e860c=require('exceljs'),_0x5d8b75=new _0x4e860c['Workbook'](),_0x1e0ad3=_0x5d8b75[_0x2083fb(0x302)]('Total\x20Sales\x20Export\x20sheet'),_0x305979=[],_0x3bf36b=[_0x2083fb(0x349),_0x2083fb(0x416),_0x2083fb(0x417),_0x2083fb(0x2e8),'VendorOrders.orderId\x20as\x20orderId',_0x2083fb(0x409),_0x2083fb(0x1d7),_0x2083fb(0x212),_0x2083fb(0x174),_0x2083fb(0x251),_0x2083fb(0x212),_0x2083fb(0x2e0),_0x2083fb(0x3a0),_0x2083fb(0x2b4),_0x2083fb(0x1b0),'orderProduct.taxType\x20as\x20taxType',_0x2083fb(0x3dd),_0x2083fb(0x169),'VendorOrders.subOrderId\x20as\x20subOrderId',_0x2083fb(0x1db),_0x2083fb(0x2fb),_0x2083fb(0x323),_0x2083fb(0x1ca),_0x2083fb(0x1b3),_0x2083fb(0x2b6),_0x2083fb(0x2b0),_0x2083fb(0x190),_0x2083fb(0x178),_0x2083fb(0x2e2),_0x2083fb(0x1ef),_0x2083fb(0x213),_0x2083fb(0x15c),'customerGroup.name\x20as\x20groupName'],_0x2a894b=[{'tableName':_0x2083fb(0x36f),'aliasName':_0x2083fb(0x400)},{'tableName':_0x2083fb(0x284),'aliasName':_0x2083fb(0x2f5)},{'tableName':'VendorOrders.orderProduct','aliasName':_0x2083fb(0x215)},{'tableName':_0x2083fb(0x339),'aliasName':_0x2083fb(0x389)},{'tableName':_0x2083fb(0x24b),'op':_0x2083fb(0x31d),'aliasName':_0x2083fb(0x3aa)},{'tableName':_0x2083fb(0x161),'op':_0x2083fb(0x31d),'aliasName':_0x2083fb(0x37b)},{'tableName':_0x2083fb(0x175),'op':'left','aliasName':_0x2083fb(0x354)}],_0x16533a=[],_0x5021c9=[];_0x5021c9[_0x2083fb(0x1ed)]({'name':_0x2083fb(0x3b1),'op':'and','value':0x1},{'name':_0x2083fb(0x2b2),'op':_0x2083fb(0x1d3),'value':0x1},{'name':_0x2083fb(0x17c),'op':_0x2083fb(0x1d3),'value':_0x3a50c1[_0x2083fb(0x153)][_0x2083fb(0x401)]},{'name':'`orderProduct`.`cancel_request_status`','op':_0x2083fb(0x1d3),'value':0x0});_0x15d93e&&_0x5021c9[_0x2083fb(0x1ed)]({'name':_0x2083fb(0x2c1),'op':'IN','value':_0x15d93e});_0x3c84d7&&_0x3c84d7!==''&&_0x5021c9[_0x2083fb(0x1ed)]({'name':'`VendorOrders`.`created_date`','op':_0x2083fb(0x405),'sign':'>=','value':_0x3c84d7+_0x2083fb(0x26a)});_0x1f6135&&_0x1f6135!==''&&_0x5021c9[_0x2083fb(0x1ed)]({'name':_0x2083fb(0x1ac),'op':'raw','sign':'<=','value':_0x1f6135+_0x2083fb(0x2aa)});const _0x560856=[],_0x3576db=[{'name':_0x2083fb(0x229),'order':_0x2083fb(0x1c3)}],_0x47c209=yield this[_0x2083fb(0x3e3)]['listByQueryBuilder'](0x0,0x0,_0x3bf36b,_0x5021c9,_0x560856,_0x2a894b,_0x16533a,_0x3576db,![],!![]),_0x45ff59=_0x27f6f5=>_0xec10aa=>_0xec10aa[_0x2083fb(0x312)]((_0x1dee26,_0x2d0ce8)=>{const _0xe8ae2=_0x2d0ce8[_0x27f6f5];return _0x1dee26[_0xe8ae2]=(_0x1dee26[_0xe8ae2]||[])['concat'](_0x2d0ce8),_0x1dee26;},{}),_0x3d66cc=_0x45ff59('productName'),_0x226b9d=_0x3d66cc(_0x47c209),_0x1fcd7a=Object[_0x2083fb(0x2d6)](_0x226b9d);_0x1fcd7a&&_0x1fcd7a[_0x2083fb(0x15d)]>0x0&&_0x1fcd7a['forEach'](_0x3d06b9=>{const _0x1199fe=_0x2083fb,_0x3a4aee=_0x226b9d[_0x3d06b9]&&_0x226b9d[_0x3d06b9][_0x1199fe(0x15d)]>0x0?_0x226b9d[_0x3d06b9]:[];_0x305979['push']([_0x1199fe(0x180)+''+_0x3d06b9+'']),_0x305979[_0x1199fe(0x1ed)]([_0x1199fe(0x260),'Customer\x20Name',_0x1199fe(0x252),_0x1199fe(0x151),_0x1199fe(0x424),_0x1199fe(0x1ff),_0x1199fe(0x3d7),_0x1199fe(0x1d0),_0x1199fe(0x2ad),_0x1199fe(0x42a),_0x1199fe(0x389),'Customer\x20Group\x20Name']);for(const _0x4b294a of _0x3a4aee){_0x305979[_0x1199fe(0x1ed)]([_0x4b294a[_0x1199fe(0x182)],_0x4b294a['firstName']+(_0x4b294a[_0x1199fe(0x23f)]?_0x4b294a[_0x1199fe(0x23f)]:''),_0x4b294a['createdDate'],_0x4b294a[_0x1199fe(0x280)]+_0x4b294a[_0x1199fe(0x293)],_0x4b294a[_0x1199fe(0x42e)],+_0x4b294a[_0x1199fe(0x39a)],+_0x4b294a[_0x1199fe(0x297)],+_0x4b294a[_0x1199fe(0x367)],+_0x4b294a[_0x1199fe(0x157)],+_0x4b294a['total'],_0x4b294a['orderStatusName'],_0x4b294a['groupName']]);}});_0x1e0ad3[_0x2083fb(0x326)](_0x305979);const _0x3fbeb6=_0x2083fb(0x319)+Date[_0x2083fb(0x31e)]()+'.xlsx';return yield _0x5d8b75['xlsx'][_0x2083fb(0x1c2)](_0x3fbeb6),new Promise((_0x9c25a6,_0x25d35c)=>{const _0x53f903=_0x2083fb;_0x17525a[_0x53f903(0x3b3)](_0x3fbeb6,(_0x17d6b1,_0x82541f)=>{const _0x2e3cda=_0x53f903;if(_0x17d6b1)_0x25d35c(_0x17d6b1);else return fs[_0x2e3cda(0x3b9)](_0x3fbeb6),_0x17525a[_0x2e3cda(0x1f1)]();});});});}[a669_0xbe4a96(0x3d0)](_0x5364f4,_0x5cb871,_0x360f56){const _0x569cc6=a669_0xbe4a96;return tslib_1[_0x569cc6(0x307)](this,void 0x0,void 0x0,function*(){const _0x3d3ae6=_0x569cc6,_0x148df6=yield this['vendorInvoiceService'][_0x3d3ae6(0x234)]({'where':{'orderId':_0x5364f4,'vendorId':_0x5cb871[_0x3d3ae6(0x153)][_0x3d3ae6(0x401)]},'select':[_0x3d3ae6(0x1e2),_0x3d3ae6(0x1c0),_0x3d3ae6(0x401),_0x3d3ae6(0x293),_0x3d3ae6(0x280),_0x3d3ae6(0x3e1),'shippingLastname',_0x3d3ae6(0x150),_0x3d3ae6(0x201)]});if(!_0x148df6){const _0x4f3819={'status':0x0,'message':'Invoice\x20not\x20found\x20for\x20this\x20order'};return _0x360f56['status'](0x190)[_0x3d3ae6(0x32b)](_0x4f3819);}const _0x50c802=yield this[_0x3d3ae6(0x1ec)]['findOne']({'select':['vendorId',_0x3d3ae6(0x14e),_0x3d3ae6(0x426),_0x3d3ae6(0x374),'companyLogoPath',_0x3d3ae6(0x38c),_0x3d3ae6(0x31b),'companyWebsite',_0x3d3ae6(0x324),_0x3d3ae6(0x1d4),'companyCity',_0x3d3ae6(0x162),_0x3d3ae6(0x258),_0x3d3ae6(0x333),'companyTaxNumber',_0x3d3ae6(0x2f4),_0x3d3ae6(0x1a9),'commission'],'where':{'vendorId':_0x5cb871[_0x3d3ae6(0x153)][_0x3d3ae6(0x401)]}}),_0x49b84b=yield this['customerService'][_0x3d3ae6(0x234)]({'select':['id',_0x3d3ae6(0x2f3),_0x3d3ae6(0x23f),_0x3d3ae6(0x3c7),_0x3d3ae6(0x36d),_0x3d3ae6(0x19a)],'where':{'id':_0x50c802[_0x3d3ae6(0x14e)]}}),_0x27c16e=yield this[_0x3d3ae6(0x26e)][_0x3d3ae6(0x206)]({'where':{'orderId':_0x148df6['orderId']},'select':[_0x3d3ae6(0x27b),_0x3d3ae6(0x3c7),_0x3d3ae6(0x3e0),_0x3d3ae6(0x348),_0x3d3ae6(0x320),_0x3d3ae6(0x327),_0x3d3ae6(0x38b),_0x3d3ae6(0x355),'telephone','paymentPostcode',_0x3d3ae6(0x1f8),_0x3d3ae6(0x2be),_0x3d3ae6(0x3e1),_0x3d3ae6(0x3ff),'shippingCompany',_0x3d3ae6(0x3a1),'shippingAddress2',_0x3d3ae6(0x20a),_0x3d3ae6(0x259),_0x3d3ae6(0x1bb),_0x3d3ae6(0x2eb),_0x3d3ae6(0x239),'currencySymbolRight','currencyCode','paymentMethod','orderPrefixId']});let _0x15f475=parseFloat('0.00');_0x148df6[_0x3d3ae6(0x328)]=yield this['vendorInvoiceItemService'][_0x3d3ae6(0x3ac)]({'where':{'vendorInvoiceId':_0x148df6[_0x3d3ae6(0x1e2)]},'select':[_0x3d3ae6(0x1b4),_0x3d3ae6(0x1e2),_0x3d3ae6(0x3bd)]})['then'](_0x359fec=>{const _0x10db16=_0x3d3ae6,_0xc29751=_0x359fec[_0x10db16(0x3b6)](_0xac4668=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x40e23a=_0x10db16,_0x2c6ee5=yield this[_0x40e23a(0x3c3)]['findOne']({'where':{'orderProductId':_0xac4668['orderProductId']},'select':[_0x40e23a(0x3bd),_0x40e23a(0x1c8),_0x40e23a(0x39a),_0x40e23a(0x150),_0x40e23a(0x2bd),_0x40e23a(0x39d),_0x40e23a(0x297),'taxType',_0x40e23a(0x2d3),_0x40e23a(0x367),_0x40e23a(0x3c8),_0x40e23a(0x157),'skuName']}),_0xbaf278=yield this[_0x40e23a(0x342)][_0x40e23a(0x234)]({'select':[_0x40e23a(0x424),_0x40e23a(0x18f)],'where':{'productId':_0x2c6ee5['productId']}}),_0x414a2d=_0x2c6ee5;if(_0x2c6ee5[_0x40e23a(0x395)]===0x2){const _0x4ccf9c=_0x2c6ee5['discountAmount']==='0.00'||_0x2c6ee5[_0x40e23a(0x367)]===null?+_0x2c6ee5[_0x40e23a(0x297)]:+_0x2c6ee5[_0x40e23a(0x3c8)];_0x414a2d[_0x40e23a(0x2f1)]=(_0x4ccf9c*(+_0x2c6ee5[_0x40e23a(0x2d3)]/0x64))[_0x40e23a(0x1d2)](0x2);}else _0x414a2d[_0x40e23a(0x2f1)]=_0x2c6ee5[_0x40e23a(0x2d3)];if(_0x2c6ee5[_0x40e23a(0x395)]!==0x0&&_0x50c802['companyState']&&_0x50c802[_0x40e23a(0x2be)]!==null){if(_0x50c802['companyState'][_0x40e23a(0x29a)]()===_0x27c16e[_0x40e23a(0x2be)][_0x40e23a(0x29a)]())_0x414a2d['taxTypeValue']=_0x40e23a(0x2c2);else _0x50c802[_0x40e23a(0x162)][_0x40e23a(0x29a)]()!==_0x27c16e[_0x40e23a(0x2be)][_0x40e23a(0x29a)]()&&(_0x414a2d[_0x40e23a(0x3b4)]=_0x40e23a(0x414));}else _0x414a2d[_0x40e23a(0x3b4)]=0x0;_0x414a2d[_0x40e23a(0x424)]=_0xbaf278[_0x40e23a(0x424)],_0x414a2d[_0x40e23a(0x18f)]=_0xbaf278[_0x40e23a(0x18f)];const _0x45b07e=_0x2c6ee5[_0x40e23a(0x150)];return _0x15f475+=parseFloat(_0x45b07e),_0x414a2d;})),_0xfdc0a6=Promise[_0x10db16(0x19f)](_0xc29751);return _0xfdc0a6;});const _0x292c0c=yield this[_0x3d3ae6(0x36a)]['findOne'](),_0xd0a764=yield this[_0x3d3ae6(0x30d)]['findOne']({'select':['name'],'where':{'countryId':_0x50c802[_0x3d3ae6(0x258)]}});_0x50c802[_0x3d3ae6(0x3b2)]=_0xd0a764?_0xd0a764['name']:'',_0x148df6[_0x3d3ae6(0x400)]=_0x50c802;const _0x6f6669=_0x292c0c;_0x148df6['symbolLeft']=_0x27c16e['currencySymbolLeft'],_0x148df6['symbolRight']=_0x27c16e['currencySymbolRight'],_0x148df6[_0x3d3ae6(0x3eb)]=_0x27c16e[_0x3d3ae6(0x3eb)],_0x148df6[_0x3d3ae6(0x38a)]=_0x27c16e[_0x3d3ae6(0x38a)],_0x148df6[_0x3d3ae6(0x27b)]=_0x27c16e[_0x3d3ae6(0x27b)],_0x148df6[_0x3d3ae6(0x3e0)]=_0x27c16e['paymentLastname'],_0x148df6[_0x3d3ae6(0x320)]=_0x27c16e[_0x3d3ae6(0x320)],_0x148df6[_0x3d3ae6(0x327)]=_0x27c16e[_0x3d3ae6(0x327)],_0x148df6[_0x3d3ae6(0x38b)]=_0x27c16e[_0x3d3ae6(0x38b)],_0x148df6['paymentPostcode']=_0x27c16e[_0x3d3ae6(0x38f)],_0x148df6[_0x3d3ae6(0x2be)]=_0x27c16e[_0x3d3ae6(0x2be)],_0x148df6[_0x3d3ae6(0x1f8)]=_0x27c16e['paymentCountry'],_0x148df6[_0x3d3ae6(0x3e1)]=_0x27c16e['shippingFirstname'],_0x148df6[_0x3d3ae6(0x3ff)]=_0x27c16e['shippingLastname'],_0x148df6[_0x3d3ae6(0x3a1)]=_0x27c16e[_0x3d3ae6(0x3a1)],_0x148df6['shippingAddress2']=_0x27c16e['shippingAddress2'],_0x148df6[_0x3d3ae6(0x20a)]=_0x27c16e['shippingCity'],_0x148df6[_0x3d3ae6(0x259)]=_0x27c16e[_0x3d3ae6(0x259)],_0x148df6['shippingZone']=_0x27c16e[_0x3d3ae6(0x2eb)],_0x148df6[_0x3d3ae6(0x1bb)]=_0x27c16e['shippingCountry'],_0x148df6[_0x3d3ae6(0x355)]=_0x27c16e[_0x3d3ae6(0x355)],_0x148df6[_0x3d3ae6(0x19c)]=_0x27c16e['telephone'],_0x148df6['email']=_0x27c16e['email'];const _0x4f797f=new to_words_1[(_0x3d3ae6(0x421))](),_0xacdab2=_0x4f797f[_0x3d3ae6(0x40e)](_0x15f475,{'currency':!![]});_0x148df6['currencyInWords']=_0xacdab2;let _0x185e63;env_1[_0x3d3ae6(0x3a9)]['imageserver']==='s3'?_0x185e63=yield this[_0x3d3ae6(0x154)][_0x3d3ae6(0x2ff)](_0x6f6669['invoiceLogo'],_0x6f6669[_0x3d3ae6(0x3fc)],'100',_0x3d3ae6(0x240)):_0x185e63=yield this[_0x3d3ae6(0x376)]['resizeImageBase64'](_0x6f6669[_0x3d3ae6(0x37d)],_0x6f6669[_0x3d3ae6(0x3fc)],'100',_0x3d3ae6(0x240));_0x148df6['logo']=_0x185e63;const _0xb5b8e2=yield this[_0x3d3ae6(0x37e)][_0x3d3ae6(0x28f)](_0x3d3ae6(0x2d8),_0x148df6),_0x9745e8=Math['floor'](Math['random']()*0x64+0x1),_0x52197f=_0x3d3ae6(0x2ae)+_0x9745e8+_0x3d3ae6(0x2a3),_0x156725=process['cwd']()+'/'+_0x52197f;yield this['pdfService'][_0x3d3ae6(0x366)](_0xb5b8e2,_0x156725);const _0x31b426=[{'name':_0x52197f,'path':_0x156725}],_0x2ce9be=fs[_0x3d3ae6(0x283)](_0x52197f);console[_0x3d3ae6(0x369)](_0x2ce9be,_0x3d3ae6(0x3f8));const _0x8d491c=yield this['emailTemplateService'][_0x3d3ae6(0x234)](0x18),_0x3c3223=env_1[_0x3d3ae6(0x3a9)][_0x3d3ae6(0x274)],_0x1acdca=_0x8d491c[_0x3d3ae6(0x290)]['replace'](_0x3d3ae6(0x23b),_0x49b84b['firstName'])[_0x3d3ae6(0x356)](_0x3d3ae6(0x35a),_0x148df6['orderPrefixId']),_0x33d6d6=yield this[_0x3d3ae6(0x36a)]['findOne'](),_0x284134={};return _0x284134['logo']=_0x33d6d6,_0x284134['emailContent']=_0x1acdca,_0x284134[_0x3d3ae6(0x402)]=_0x3c3223,_0x284134[_0x3d3ae6(0x255)]=_0x148df6,_0x284134[_0x3d3ae6(0x428)]=undefined,console[_0x3d3ae6(0x369)](_0x49b84b[_0x3d3ae6(0x3c7)],_0x3d3ae6(0x22e)),yield mail_services_1[_0x3d3ae6(0x25d)][_0x3d3ae6(0x3c5)](_0x284134,_0x49b84b[_0x3d3ae6(0x3c7)],_0x8d491c[_0x3d3ae6(0x238)],![],!![],_0x31b426),yield fs[_0x3d3ae6(0x3b9)](_0x156725),_0x360f56[_0x3d3ae6(0x36e)](0xc8)[_0x3d3ae6(0x32b)]({'status':0x1,'message':_0x3d3ae6(0x345)});});}[a669_0xbe4a96(0x33d)](_0x2bd023,_0x239027,_0x17d8e8,_0x5eb1d2,_0x3efe63,_0x891c5,_0x1908fa,_0x2fb7ab,_0x3acff8,_0x25a20f){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x14303f=a669_0x20db,_0x27066c=['Order.createdDate\x20as\x20createdDate',_0x14303f(0x2ed),_0x14303f(0x1bc),_0x14303f(0x33a),_0x14303f(0x3d3),'Order.shippingZone\x20as\x20shippingZone','Order.currencyCode\x20as\x20currencyCode',_0x14303f(0x30a),'Order.currencySymbolRight\x20as\x20currencySymbolRight','orderProduct.orderProductId\x20as\x20orderProductId',_0x14303f(0x3ce),_0x14303f(0x16c),_0x14303f(0x174),_0x14303f(0x189),'orderProduct.orderProductPrefixId\x20as\x20orderProductPrefixId',_0x14303f(0x271),'orderProduct.quantity\x20as\x20quantity',_0x14303f(0x213),'customer.lastName\x20as\x20lastName',_0x14303f(0x427),_0x14303f(0x16d)],_0x111984=[{'tableName':'Order.orderProduct','aliasName':_0x14303f(0x215)},{'tableName':_0x14303f(0x22f),'op':_0x14303f(0x31d),'aliasName':_0x14303f(0x1f0)},{'tableName':_0x14303f(0x2c0),'aliasName':_0x14303f(0x37b)}],_0x468e4c=[],_0x4bf3e9=[];+_0x1908fa&&_0x1908fa!==''&&_0x4bf3e9[_0x14303f(0x1ed)]({'name':_0x14303f(0x14a),'op':_0x14303f(0x1d3),'value':+_0x1908fa});_0x3efe63&&_0x3efe63!==0x0&&_0x4bf3e9[_0x14303f(0x1ed)]({'name':_0x14303f(0x237),'op':_0x14303f(0x405),'sign':'=','value':+_0x3efe63});_0x17d8e8&&_0x17d8e8!==''&&_0x4bf3e9[_0x14303f(0x1ed)]({'name':['Order.shippingFirstname'],'op':_0x14303f(0x1d3),'value':_0x17d8e8});_0x4bf3e9[_0x14303f(0x1ed)]({'name':_0x14303f(0x1cd),'op':_0x14303f(0x1d3),'value':0x1},{'name':'vendorOrders.vendorId','op':_0x14303f(0x1d3),'value':_0x3acff8[_0x14303f(0x153)][_0x14303f(0x401)]});const _0x18c48c=[];_0x5eb1d2&&_0x5eb1d2!==''&&_0x18c48c['push']({'name':['orderProduct.orderProductPrefixId'],'value':_0x5eb1d2});_0x891c5&&_0x891c5!==''&&_0x18c48c[_0x14303f(0x1ed)]({'name':[_0x14303f(0x381),'orderProduct.orderProductPrefixId',_0x14303f(0x210),'vendorOrders.total',_0x14303f(0x14a),'Order.shippingFirstname'],'value':_0x891c5[_0x14303f(0x29a)]()});_0x17d8e8&&_0x17d8e8!==''&&_0x18c48c[_0x14303f(0x1ed)]({'name':['customer.firstName',_0x14303f(0x1b2)],'value':_0x17d8e8[_0x14303f(0x29a)]()});const _0x51df7b=[];_0x51df7b[_0x14303f(0x1ed)]({'name':_0x14303f(0x1f4),'order':_0x14303f(0x1c3)});if(_0x2fb7ab){const _0x1910f3=yield this[_0x14303f(0x26e)][_0x14303f(0x1fc)](_0x2bd023,_0x239027,_0x27066c,_0x4bf3e9,_0x18c48c,_0x111984,_0x468e4c,_0x51df7b,!![],!![]),_0x302255={'status':0x1,'message':_0x14303f(0x330),'data':_0x1910f3};return _0x25a20f[_0x14303f(0x36e)](0xc8)['send'](_0x302255);}const _0x3dace6=yield this[_0x14303f(0x26e)][_0x14303f(0x1fc)](_0x2bd023,_0x239027,_0x27066c,_0x4bf3e9,_0x18c48c,_0x111984,_0x468e4c,_0x51df7b,![],!![]),_0x560224=_0x3dace6[_0x14303f(0x3b6)](_0x4acc9c=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x8200d5=_0x14303f,_0x5291fb=_0x4acc9c,_0x14c21d=yield this[_0x8200d5(0x3cd)][_0x8200d5(0x234)]({'where':{'productId':_0x4acc9c['productId'],'defaultImage':0x1},'select':[_0x8200d5(0x167),_0x8200d5(0x1df)]});_0x14c21d!==undefined?(_0x5291fb[_0x8200d5(0x167)]=_0x14c21d[_0x8200d5(0x167)],_0x5291fb['containerName']=_0x14c21d[_0x8200d5(0x1df)]):(_0x5291fb['image']='',_0x5291fb[_0x8200d5(0x1df)]='');const _0x127316=yield this['orderStatusService'][_0x8200d5(0x234)]({'where':{'orderStatusId':_0x4acc9c['orderProductStatusId']}});return _0x5291fb['orderStatusName']=_0x127316[_0x8200d5(0x1c8)],_0x5291fb[_0x8200d5(0x1f5)]=_0x127316[_0x8200d5(0x265)],_0x4acc9c;})),_0x238fca=yield Promise['all'](_0x560224),_0x54b724={'status':0x1,'message':_0x14303f(0x40a),'data':_0x238fca};return _0x25a20f[_0x14303f(0x36e)](0xc8)[_0x14303f(0x32b)](_0x54b724);});}[a669_0xbe4a96(0x1ee)](_0x55d7c1,_0x30017f,_0x4db6a3,_0x22bfa7,_0x7cd344,_0x2c18f1,_0x105468,_0x2af867,_0x48f392,_0x2c389a,_0x56efea,_0x2ca392){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xd32214=a669_0x20db,_0x59319f=(0x0,moment_1[_0xd32214(0x1fb)])(_0x22bfa7)[_0xd32214(0x18a)](0x5,_0xd32214(0x365))[_0xd32214(0x18a)](0x1e,_0xd32214(0x26f))[_0xd32214(0x2ca)](_0xd32214(0x29c)),_0x19ee48=_0x7cd344+'\x2023:59:59',_0x4a968b=(0x0,moment_1[_0xd32214(0x1fb)])(_0x19ee48)[_0xd32214(0x18a)](0x5,_0xd32214(0x365))[_0xd32214(0x18a)](0x1e,_0xd32214(0x26f))[_0xd32214(0x2ca)](_0xd32214(0x29c)),_0xab13f4=['VendorInvoice.vendorInvoiceId\x20as\x20vendorInvoiceId',_0xd32214(0x19b),_0xd32214(0x21c),_0xd32214(0x268),_0xd32214(0x343),'VendorInvoice.orderId\x20as\x20orderId',_0xd32214(0x1fa),'VendorInvoice.createdDate\x20as\x20createdDate',_0xd32214(0x247),_0xd32214(0x3e6),_0xd32214(0x2ea),_0xd32214(0x261)],_0x4721c1=[{'tableName':_0xd32214(0x273),'aliasName':'orderDetail'}],_0x2166e9=[],_0x5417e4=[];_0x2af867&&_0x2af867!==''&&_0x5417e4[_0xd32214(0x1ed)]({'name':_0xd32214(0x156),'op':'raw','sign':'=','value':+_0x2af867});_0x5417e4[_0xd32214(0x1ed)]({'name':_0xd32214(0x15b),'op':_0xd32214(0x1d3),'value':_0x56efea[_0xd32214(0x153)][_0xd32214(0x401)]},{'name':_0xd32214(0x3b1),'op':_0xd32214(0x1d3),'value':0x0});_0x22bfa7&&_0x22bfa7!==''&&_0x5417e4[_0xd32214(0x1ed)]({'name':_0xd32214(0x1c6),'op':_0xd32214(0x405),'sign':'>=','value':_0x59319f});_0x7cd344&&_0x7cd344!==''&&_0x5417e4['push']({'name':_0xd32214(0x1c6),'op':_0xd32214(0x405),'sign':'<=','value':_0x4a968b});const _0x45cffc=[];_0x2c18f1&&_0x2c18f1!==''&&_0x45cffc[_0xd32214(0x1ed)]({'name':[_0xd32214(0x2bf),_0xd32214(0x246)],'value':_0x2c18f1[_0xd32214(0x29a)]()});_0x4db6a3&&_0x4db6a3!==''&&_0x45cffc[_0xd32214(0x1ed)]({'name':[_0xd32214(0x2bf),_0xd32214(0x246),_0xd32214(0x3cf),_0xd32214(0x318),_0xd32214(0x156)],'value':_0x4db6a3[_0xd32214(0x29a)]()});_0x105468&&_0x105468!==''&&_0x45cffc[_0xd32214(0x1ed)]({'name':[_0xd32214(0x318)],'value':_0x105468[_0xd32214(0x29a)]()});const _0x4d8e08=[];_0x4d8e08[_0xd32214(0x1ed)]({'name':_0xd32214(0x1c6),'order':_0xd32214(0x1c3)});if(_0x2c389a){const _0x40ac88=yield this[_0xd32214(0x331)][_0xd32214(0x1fc)](_0x55d7c1,_0x30017f,_0xab13f4,_0x5417e4,_0x45cffc,_0x4721c1,_0x2166e9,_0x4d8e08,!![],!![]),_0x4f3b21={'status':0x1,'message':_0xd32214(0x2c7),'data':_0x40ac88};return _0x2ca392[_0xd32214(0x36e)](0xc8)['send'](_0x4f3b21);}const _0x5c938e=yield this[_0xd32214(0x331)][_0xd32214(0x1fc)](_0x55d7c1,_0x30017f,_0xab13f4,_0x5417e4,_0x45cffc,_0x4721c1,_0x2166e9,_0x4d8e08,![],!![]),_0x14096e=_0x5c938e[_0xd32214(0x3b6)](_0x3f5284=>tslib_1[_0xd32214(0x307)](this,void 0x0,void 0x0,function*(){const _0x1296c5=_0xd32214,_0x261b96=_0x3f5284;return _0x261b96['productItems']=yield this[_0x1296c5(0x3f2)]['findAll']({'where':{'vendorInvoiceId':_0x3f5284['vendorInvoiceId']}})[_0x1296c5(0x1af)](_0x1e5cd0=>{const _0x138bd6=_0x1296c5,_0x14d546=_0x1e5cd0[_0x138bd6(0x3b6)](_0x3d3f91=>tslib_1[_0x138bd6(0x307)](this,void 0x0,void 0x0,function*(){const _0x519143=_0x138bd6,_0xcc51c4=yield this[_0x519143(0x3c3)][_0x519143(0x234)]({'orderProductId':_0x3d3f91[_0x519143(0x3bd)]}),_0x365d23=_0x3d3f91;return _0xcc51c4!==undefined&&(_0x365d23[_0x519143(0x28a)]=_0xcc51c4['name'],_0x365d23[_0x519143(0x297)]=_0xcc51c4[_0x519143(0x297)],_0x365d23[_0x519143(0x39d)]=_0xcc51c4['productPrice'],_0x365d23['discountAmount']=_0xcc51c4[_0x519143(0x367)],_0x365d23[_0x519143(0x3c8)]=_0xcc51c4[_0x519143(0x3c8)],_0x365d23['taxType']=_0xcc51c4[_0x519143(0x395)],_0x365d23['taxValue']=_0xcc51c4[_0x519143(0x2d3)],_0x365d23[_0x519143(0x39a)]=_0xcc51c4[_0x519143(0x39a)],_0x365d23[_0x519143(0x42e)]=_0xcc51c4['skuName'],_0x365d23[_0x519143(0x150)]=_0xcc51c4[_0x519143(0x150)]),_0x365d23;})),_0x242f8b=Promise['all'](_0x14d546);return _0x242f8b;}),_0x261b96;})),_0x1e86e3=yield Promise[_0xd32214(0x19f)](_0x14096e);if(_0x5c938e){const _0x2a2ad6={'status':0x1,'message':_0xd32214(0x2fd),'data':_0x1e86e3};return _0x2ca392[_0xd32214(0x36e)](0xc8)[_0xd32214(0x32b)](_0x2a2ad6);}else{const _0x3790bb={'status':0x0,'message':_0xd32214(0x22a)};return _0x2ca392[_0xd32214(0x36e)](0x190)[_0xd32214(0x32b)](_0x3790bb);}});}[a669_0xbe4a96(0x2c6)](_0x2e7ac8,_0x278643,_0x3ab95b,_0x471af7,_0x10bfb0){const _0x19ba6e=a669_0xbe4a96;return tslib_1[_0x19ba6e(0x307)](this,void 0x0,void 0x0,function*(){const _0x24aa44=_0x19ba6e,_0x37da43=require('exceljs'),_0xdf3dbd=new _0x37da43[(_0x24aa44(0x256))](),_0x5b4511=_0xdf3dbd['addWorksheet'](_0x24aa44(0x24d)),_0x45e4bb=[],_0x52cd0e=['Order.createdDate\x20as\x20createdDate',_0x24aa44(0x2ed),_0x24aa44(0x186),_0x24aa44(0x1bc),_0x24aa44(0x33a),'Order.shippingCountry\x20as\x20shippingCountry',_0x24aa44(0x17b),_0x24aa44(0x231),_0x24aa44(0x248),_0x24aa44(0x30a),_0x24aa44(0x3cc),_0x24aa44(0x384),_0x24aa44(0x3ce),_0x24aa44(0x16c),_0x24aa44(0x174),'orderProduct.total\x20as\x20total',_0x24aa44(0x1d7),_0x24aa44(0x271),_0x24aa44(0x212)],_0x34a599=[{'tableName':_0x24aa44(0x334),'aliasName':_0x24aa44(0x215)},{'tableName':_0x24aa44(0x22f),'op':_0x24aa44(0x31d),'aliasName':_0x24aa44(0x1f0)}],_0x567f74=[],_0x4437fb=[];_0x4437fb['push']({'name':_0x24aa44(0x1cd),'op':'and','value':0x1},{'name':_0x24aa44(0x191),'op':_0x24aa44(0x1d3),'value':_0x471af7[_0x24aa44(0x153)][_0x24aa44(0x401)]});const _0x2efd88=[];_0x3ab95b&&_0x3ab95b!==''&&_0x2efd88[_0x24aa44(0x1ed)]({'name':[_0x24aa44(0x381),_0x24aa44(0x250)],'value':_0x3ab95b['toLowerCase']()});const _0x34b223=[];_0x34b223['push']({'name':_0x24aa44(0x1f4),'order':'DESC'});const _0x36c628=yield this[_0x24aa44(0x26e)][_0x24aa44(0x1fc)](_0x2e7ac8,_0x278643,_0x52cd0e,_0x4437fb,_0x2efd88,_0x34a599,_0x567f74,_0x34b223,![],!![]);if(_0x36c628['length']===0x0){const _0x1eb969={'status':0x0,'message':_0x24aa44(0x1dc)};return _0x10bfb0['status'](0x190)['send'](_0x1eb969);}_0x5b4511[_0x24aa44(0x2cf)]=[{'header':_0x24aa44(0x317),'key':_0x24aa44(0x38a),'size':0x10,'width':0xf},{'header':_0x24aa44(0x390),'key':'orderProductPrefixId','size':0x10,'width':0xf},{'header':'Customer\x20Name','key':_0x24aa44(0x3e1),'size':0x10,'width':0xf},{'header':_0x24aa44(0x2e1),'key':'email','size':0x10,'width':0xf},{'header':_0x24aa44(0x39f),'key':_0x24aa44(0x28a),'size':0x10,'width':0xf},{'header':_0x24aa44(0x336),'key':'productPrice','size':0x10,'width':0xf},{'header':_0x24aa44(0x1ff),'key':_0x24aa44(0x39a),'size':0x10,'width':0xf},{'header':_0x24aa44(0x150),'key':_0x24aa44(0x150),'size':0x10,'width':0xf}],_0x5b4511[_0x24aa44(0x20f)]('A1')[_0x24aa44(0x3d1)]={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':'thin'},'right':{'style':_0x24aa44(0x2d5)}},_0x5b4511['getCell']('B1')['border']={'top':{'style':_0x24aa44(0x2d5)},'left':{'style':_0x24aa44(0x2d5)},'bottom':{'style':_0x24aa44(0x2d5)},'right':{'style':_0x24aa44(0x2d5)}},_0x5b4511[_0x24aa44(0x20f)]('C1')[_0x24aa44(0x3d1)]={'top':{'style':_0x24aa44(0x2d5)},'left':{'style':_0x24aa44(0x2d5)},'bottom':{'style':'thin'},'right':{'style':_0x24aa44(0x2d5)}},_0x5b4511[_0x24aa44(0x20f)]('D1')['border']={'top':{'style':_0x24aa44(0x2d5)},'left':{'style':_0x24aa44(0x2d5)},'bottom':{'style':_0x24aa44(0x2d5)},'right':{'style':_0x24aa44(0x2d5)}},_0x5b4511[_0x24aa44(0x20f)]('E1')['border']={'top':{'style':_0x24aa44(0x2d5)},'left':{'style':_0x24aa44(0x2d5)},'bottom':{'style':'thin'},'right':{'style':_0x24aa44(0x2d5)}},_0x5b4511[_0x24aa44(0x20f)]('F1')[_0x24aa44(0x3d1)]={'top':{'style':_0x24aa44(0x2d5)},'left':{'style':_0x24aa44(0x2d5)},'bottom':{'style':_0x24aa44(0x2d5)},'right':{'style':_0x24aa44(0x2d5)}},_0x5b4511[_0x24aa44(0x20f)]('G1')['border']={'top':{'style':'thin'},'left':{'style':_0x24aa44(0x2d5)},'bottom':{'style':'thin'},'right':{'style':'thin'}},_0x5b4511[_0x24aa44(0x20f)]('H1')[_0x24aa44(0x3d1)]={'top':{'style':_0x24aa44(0x2d5)},'left':{'style':_0x24aa44(0x2d5)},'bottom':{'style':'thin'},'right':{'style':_0x24aa44(0x2d5)}};for(const _0x305fee of _0x36c628){const _0xfcb590=_0x305fee[_0x24aa44(0x281)],_0x40e48f=_0x305fee[_0x24aa44(0x239)];_0x40e48f===null&&_0xfcb590===null?_0x45e4bb[_0x24aa44(0x1ed)]([_0x305fee[_0x24aa44(0x38a)],_0x305fee[_0x24aa44(0x182)],_0x305fee[_0x24aa44(0x1a2)],_0x305fee[_0x24aa44(0x3c7)],_0x305fee[_0x24aa44(0x1c8)],_0x305fee[_0x24aa44(0x39d)],_0x305fee['quantity'],_0x305fee[_0x24aa44(0x150)]]):_0x40e48f!==undefined?_0x45e4bb[_0x24aa44(0x1ed)]([_0x305fee[_0x24aa44(0x38a)],_0x305fee['orderProductPrefixId'],_0x305fee['customerFirstName'],_0x305fee['email'],_0x305fee['name'],_0x305fee[_0x24aa44(0x39d)],_0x305fee[_0x24aa44(0x39a)],_0x40e48f+_0x305fee[_0x24aa44(0x150)]]):_0x45e4bb['push']([_0x305fee[_0x24aa44(0x38a)],_0x305fee[_0x24aa44(0x182)],_0x305fee[_0x24aa44(0x1a2)],_0x305fee[_0x24aa44(0x3c7)],_0x305fee[_0x24aa44(0x1c8)],_0x305fee['productPrice'],_0x305fee[_0x24aa44(0x39a)],_0x305fee[_0x24aa44(0x150)]+_0xfcb590]);}_0x5b4511[_0x24aa44(0x326)](_0x45e4bb);const _0x1dad09=_0x24aa44(0x2b7)+Date['now']()+_0x24aa44(0x2e7);return yield _0xdf3dbd[_0x24aa44(0x1f3)][_0x24aa44(0x1c2)](_0x1dad09),new Promise((_0x2aed1a,_0x244272)=>{const _0x262190=_0x24aa44;_0x10bfb0[_0x262190(0x3b3)](_0x1dad09,(_0x38683c,_0x30d6d6)=>{const _0x589724=_0x262190;if(_0x38683c)_0x244272(_0x38683c);else return fs['unlinkSync'](_0x1dad09),_0x10bfb0[_0x589724(0x1f1)]();});});});}['backOrderExport'](_0x506f55,_0x7824b2,_0x50efe8){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x26a508=a669_0x20db,_0x16ab93=require('exceljs'),_0x3ef733=new _0x16ab93[(_0x26a508(0x256))](),_0x30338a=_0x3ef733['addWorksheet'](_0x26a508(0x24d)),_0x366cf9=[],_0x580158=[_0x26a508(0x28d),_0x26a508(0x2ed),_0x26a508(0x186),_0x26a508(0x1bc),_0x26a508(0x33a),_0x26a508(0x3d3),'Order.shippingZone\x20as\x20shippingZone',_0x26a508(0x231),_0x26a508(0x248),_0x26a508(0x30a),'Order.currencySymbolRight\x20as\x20currencySymbolRight',_0x26a508(0x384),'orderProduct.orderStatusId\x20as\x20orderProductStatusId',_0x26a508(0x16c),_0x26a508(0x174),_0x26a508(0x189),'orderProduct.orderProductPrefixId\x20as\x20orderProductPrefixId',_0x26a508(0x271),_0x26a508(0x212)],_0x502aa0=[{'tableName':_0x26a508(0x334),'aliasName':_0x26a508(0x215)},{'tableName':'orderProduct.vendorOrders','op':_0x26a508(0x31d),'aliasName':_0x26a508(0x1f0)}],_0x28f4f0=[],_0x433bb5=[];_0x433bb5['push']({'name':_0x26a508(0x1cd),'op':_0x26a508(0x1d3),'value':0x1},{'name':'vendorOrders.vendorId','op':_0x26a508(0x1d3),'value':_0x7824b2[_0x26a508(0x153)]['vendorId']},{'name':_0x26a508(0x1bd),'op':'IN','value':_0x506f55});const _0x2d45eb=[],_0x472b44=[];_0x472b44[_0x26a508(0x1ed)]({'name':_0x26a508(0x1f4),'order':'DESC'});const _0x45179c=yield this[_0x26a508(0x26e)][_0x26a508(0x1fc)](0x0,0x0,_0x580158,_0x433bb5,_0x2d45eb,_0x502aa0,_0x28f4f0,_0x472b44,![],!![]);if(_0x45179c[_0x26a508(0x15d)]===0x0){const _0x4ad8ba={'status':0x0,'message':_0x26a508(0x1dc)};return _0x50efe8['status'](0x190)[_0x26a508(0x32b)](_0x4ad8ba);}_0x30338a[_0x26a508(0x2cf)]=[{'header':'Order\x20Id','key':_0x26a508(0x38a),'size':0x10,'width':0xf},{'header':_0x26a508(0x390),'key':_0x26a508(0x182),'size':0x10,'width':0xf},{'header':_0x26a508(0x2d4),'key':_0x26a508(0x3e1),'size':0x10,'width':0xf},{'header':_0x26a508(0x2e1),'key':_0x26a508(0x3c7),'size':0x10,'width':0xf},{'header':'Product\x20Name','key':_0x26a508(0x28a),'size':0x10,'width':0xf},{'header':_0x26a508(0x336),'key':_0x26a508(0x39d),'size':0x10,'width':0xf},{'header':'Quantity','key':'quantity','size':0x10,'width':0xf},{'header':_0x26a508(0x150),'key':_0x26a508(0x150),'size':0x10,'width':0xf}],_0x30338a[_0x26a508(0x20f)]('A1')[_0x26a508(0x3d1)]={'top':{'style':_0x26a508(0x2d5)},'left':{'style':'thin'},'bottom':{'style':_0x26a508(0x2d5)},'right':{'style':_0x26a508(0x2d5)}},_0x30338a[_0x26a508(0x20f)]('B1')['border']={'top':{'style':_0x26a508(0x2d5)},'left':{'style':_0x26a508(0x2d5)},'bottom':{'style':_0x26a508(0x2d5)},'right':{'style':_0x26a508(0x2d5)}},_0x30338a[_0x26a508(0x20f)]('C1')[_0x26a508(0x3d1)]={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':_0x26a508(0x2d5)},'right':{'style':_0x26a508(0x2d5)}},_0x30338a[_0x26a508(0x20f)]('D1')[_0x26a508(0x3d1)]={'top':{'style':_0x26a508(0x2d5)},'left':{'style':_0x26a508(0x2d5)},'bottom':{'style':_0x26a508(0x2d5)},'right':{'style':_0x26a508(0x2d5)}},_0x30338a[_0x26a508(0x20f)]('E1')['border']={'top':{'style':_0x26a508(0x2d5)},'left':{'style':_0x26a508(0x2d5)},'bottom':{'style':_0x26a508(0x2d5)},'right':{'style':'thin'}},_0x30338a[_0x26a508(0x20f)]('F1')[_0x26a508(0x3d1)]={'top':{'style':_0x26a508(0x2d5)},'left':{'style':'thin'},'bottom':{'style':'thin'},'right':{'style':_0x26a508(0x2d5)}},_0x30338a[_0x26a508(0x20f)]('G1')[_0x26a508(0x3d1)]={'top':{'style':_0x26a508(0x2d5)},'left':{'style':_0x26a508(0x2d5)},'bottom':{'style':_0x26a508(0x2d5)},'right':{'style':'thin'}},_0x30338a['getCell']('H1')[_0x26a508(0x3d1)]={'top':{'style':_0x26a508(0x2d5)},'left':{'style':'thin'},'bottom':{'style':_0x26a508(0x2d5)},'right':{'style':_0x26a508(0x2d5)}};for(const _0x3fb31b of _0x45179c){const _0x5d38b1=_0x3fb31b['currencySymbolRight'],_0x1e4a19=_0x3fb31b[_0x26a508(0x239)];_0x1e4a19===null&&_0x5d38b1===null?_0x366cf9[_0x26a508(0x1ed)]([_0x3fb31b[_0x26a508(0x38a)],_0x3fb31b['orderProductPrefixId'],_0x3fb31b[_0x26a508(0x1a2)],_0x3fb31b['email'],_0x3fb31b['name'],_0x3fb31b['productPrice'],_0x3fb31b['quantity'],_0x3fb31b[_0x26a508(0x150)]]):_0x1e4a19!==undefined?_0x366cf9['push']([_0x3fb31b[_0x26a508(0x38a)],_0x3fb31b[_0x26a508(0x182)],_0x3fb31b['customerFirstName'],_0x3fb31b['email'],_0x3fb31b[_0x26a508(0x1c8)],_0x3fb31b['productPrice'],_0x3fb31b[_0x26a508(0x39a)],_0x1e4a19+_0x3fb31b[_0x26a508(0x150)]]):_0x366cf9[_0x26a508(0x1ed)]([_0x3fb31b[_0x26a508(0x38a)],_0x3fb31b[_0x26a508(0x182)],_0x3fb31b[_0x26a508(0x1a2)],_0x3fb31b[_0x26a508(0x3c7)],_0x3fb31b['name'],_0x3fb31b[_0x26a508(0x39d)],_0x3fb31b['quantity'],_0x3fb31b['total']+_0x5d38b1]);}_0x30338a[_0x26a508(0x326)](_0x366cf9);const _0x57871e=_0x26a508(0x1d6)+Date[_0x26a508(0x31e)]()+_0x26a508(0x2e7);return yield _0x3ef733[_0x26a508(0x1f3)][_0x26a508(0x1c2)](_0x57871e),new Promise((_0x22c171,_0x1c29bc)=>{_0x50efe8['download'](_0x57871e,(_0x1a95c2,_0x54cc4a)=>{const _0x392cb7=a669_0x20db;if(_0x1a95c2)_0x1c29bc(_0x1a95c2);else return fs[_0x392cb7(0x3b9)](_0x57871e),_0x50efe8[_0x392cb7(0x1f1)]();});});});}[a669_0xbe4a96(0x35c)](_0x5398dc,_0x22ab2a,_0x5f01f0){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4b33e8=a669_0x20db,_0x40682b=require(_0x4b33e8(0x3c6)),_0x14d83a=new _0x40682b[(_0x4b33e8(0x256))](),_0x25d128=_0x14d83a[_0x4b33e8(0x302)](_0x4b33e8(0x177),{'properties':{'defaultColWidth':0x1e}}),_0x6d3b0c=[],_0x2c02c1=[_0x4b33e8(0x25f),_0x4b33e8(0x19b),_0x4b33e8(0x21c),_0x4b33e8(0x268),_0x4b33e8(0x343),_0x4b33e8(0x346),_0x4b33e8(0x1fa),_0x4b33e8(0x392),_0x4b33e8(0x247),_0x4b33e8(0x3e6),'orderDetail.orderPrefixId\x20as\x20orderPrefixId',_0x4b33e8(0x261),_0x4b33e8(0x323),_0x4b33e8(0x1ca),_0x4b33e8(0x261)],_0x19f489=[{'tableName':_0x4b33e8(0x273),'aliasName':_0x4b33e8(0x2f5)}],_0x2d7b75=[],_0x716706=[];_0x716706[_0x4b33e8(0x1ed)]({'name':'VendorInvoice.vendorId','op':_0x4b33e8(0x1d3),'value':_0x22ab2a[_0x4b33e8(0x153)][_0x4b33e8(0x401)]},{'name':'orderDetail.paymentProcess','op':_0x4b33e8(0x1d3),'value':0x0},{'name':'VendorInvoice.orderId','op':'IN','value':_0x5398dc});const _0x5da95f=[];_0x5da95f[_0x4b33e8(0x1ed)]({'name':'VendorInvoice.createdDate','order':_0x4b33e8(0x1c3)});const _0x584bf8=yield this[_0x4b33e8(0x331)][_0x4b33e8(0x1fc)](0x0,0x0,_0x2c02c1,_0x716706,[],_0x19f489,_0x2d7b75,_0x5da95f,![],!![]);_0x6d3b0c[_0x4b33e8(0x1ed)]([_0x4b33e8(0x322),_0x4b33e8(0x2d4),_0x4b33e8(0x3ae),_0x4b33e8(0x183)]);for(const _0x3e078a of _0x584bf8){const _0x35ed80=_0x3e078a['currencySymbolRight'],_0x2db9a6=_0x3e078a[_0x4b33e8(0x239)];_0x2db9a6===null&&_0x35ed80===null?_0x6d3b0c[_0x4b33e8(0x1ed)]([_0x3e078a[_0x4b33e8(0x38a)],_0x3e078a['shippingFirstname']+''+(_0x3e078a[_0x4b33e8(0x3ff)]?_0x3e078a['shippingLastname']:''),_0x3e078a[_0x4b33e8(0x150)],_0x3e078a[_0x4b33e8(0x201)]]):_0x2db9a6!==undefined?_0x6d3b0c[_0x4b33e8(0x1ed)]([_0x3e078a[_0x4b33e8(0x38a)],_0x3e078a['shippingFirstname']+''+(_0x3e078a[_0x4b33e8(0x3ff)]?_0x3e078a['shippingLastname']:''),_0x2db9a6+_0x3e078a[_0x4b33e8(0x150)],_0x3e078a[_0x4b33e8(0x201)]]):_0x6d3b0c[_0x4b33e8(0x1ed)]([_0x3e078a['orderPrefixId'],_0x3e078a['shippingFirstname']+''+(_0x3e078a['shippingLastname']?_0x3e078a[_0x4b33e8(0x3ff)]:''),_0x3e078a[_0x4b33e8(0x150)]+_0x35ed80,_0x3e078a[_0x4b33e8(0x201)]]);_0x6d3b0c['push'](['OrderProductId',_0x4b33e8(0x322),_0x4b33e8(0x39f),_0x4b33e8(0x1ff),_0x4b33e8(0x308),_0x4b33e8(0x1d0),_0x4b33e8(0x2ad),'Total']);const _0x4b0d11=yield this['vendorInvoiceItemService']['findAll']({'where':{'vendorInvoiceId':_0x3e078a[_0x4b33e8(0x1e2)]}});if(_0x4b0d11[_0x4b33e8(0x15d)]>0x0)for(const _0x56320c of _0x4b0d11){const _0x5be11f=yield this[_0x4b33e8(0x3c3)]['findOne']({'orderProductId':_0x56320c[_0x4b33e8(0x3bd)]});_0x5be11f&&_0x6d3b0c[_0x4b33e8(0x1ed)]([_0x5be11f['orderProductPrefixId'],_0x3e078a[_0x4b33e8(0x38a)],_0x5be11f[_0x4b33e8(0x1c8)],_0x5be11f['quantity'],_0x5be11f[_0x4b33e8(0x39d)],_0x5be11f[_0x4b33e8(0x367)],_0x5be11f[_0x4b33e8(0x157)],_0x5be11f[_0x4b33e8(0x150)]]);}}_0x25d128[_0x4b33e8(0x326)](_0x6d3b0c),_0x25d128[_0x4b33e8(0x372)]({'includeEmpty':!![]},(_0x56ba44,_0x8b1432)=>{const _0x53cd86=_0x4b33e8;(_0x56ba44[_0x53cd86(0x396)][_0x53cd86(0x1cb)]('OrderId')||_0x56ba44[_0x53cd86(0x396)]['includes'](_0x53cd86(0x196)))&&(_0x25d128['getRow'](_0x8b1432)['font']={'bold':!![]});});const _0x27694b=_0x4b33e8(0x1f6)+Date[_0x4b33e8(0x31e)]()+_0x4b33e8(0x2e7);return yield _0x14d83a['xlsx'][_0x4b33e8(0x1c2)](_0x27694b),new Promise((_0x131093,_0x5ec8a5)=>{_0x5f01f0['download'](_0x27694b,(_0x1e8ff6,_0x227ccc)=>{const _0x1f646b=a669_0x20db;if(_0x1e8ff6)_0x5ec8a5(_0x1e8ff6);else return fs[_0x1f646b(0x3b9)](_0x27694b),_0x5f01f0[_0x1f646b(0x1f1)]();});});});}[a669_0xbe4a96(0x387)](_0x2f4e31,_0xcb5a8a){const _0x32604a=a669_0xbe4a96;return tslib_1[_0x32604a(0x307)](this,void 0x0,void 0x0,function*(){const _0x406176=_0x32604a,_0x4bec1f=require('exceljs'),_0xcbebe2=new _0x4bec1f[(_0x406176(0x256))](),_0x2ea92f=_0xcbebe2[_0x406176(0x302)](_0x406176(0x38e),{'properties':{'defaultColWidth':0x1e}}),_0x21a896=[],_0x265fc3=['VendorInvoice.vendorInvoiceId\x20as\x20vendorInvoiceId','VendorInvoice.invoiceNo\x20as\x20invoiceNo',_0x406176(0x21c),_0x406176(0x268),'VendorInvoice.shippingLastname\x20as\x20shippingLastname',_0x406176(0x346),_0x406176(0x1fa),_0x406176(0x392),_0x406176(0x247),_0x406176(0x3e6),_0x406176(0x2ea),_0x406176(0x261),_0x406176(0x323),_0x406176(0x1ca),'orderDetail.orderId\x20as\x20orderId'],_0x554b5e=[{'tableName':_0x406176(0x273),'aliasName':_0x406176(0x2f5)}],_0x38cc97=[],_0xe41002=[];_0xe41002[_0x406176(0x1ed)]({'name':_0x406176(0x15b),'op':_0x406176(0x1d3),'value':_0x2f4e31[_0x406176(0x153)][_0x406176(0x401)]},{'name':_0x406176(0x3b1),'op':_0x406176(0x1d3),'value':0x0});const _0x2e9429=[];_0x2e9429[_0x406176(0x1ed)]({'name':_0x406176(0x1c6),'order':_0x406176(0x1c3)});const _0x550548=yield this[_0x406176(0x331)]['listByQueryBuilder'](0x0,0x0,_0x265fc3,_0xe41002,[],_0x554b5e,_0x38cc97,_0x2e9429,![],!![]);_0x21a896[_0x406176(0x1ed)]([_0x406176(0x322),'Customer\x20Name','Total',_0x406176(0x183)]);for(const _0xf9f755 of _0x550548){const _0xcc0bd2=_0xf9f755['currencySymbolRight'],_0x507f7a=_0xf9f755[_0x406176(0x239)];_0x507f7a===null&&_0xcc0bd2===null?_0x21a896[_0x406176(0x1ed)]([_0xf9f755['orderPrefixId'],_0xf9f755['shippingFirstname']+''+(_0xf9f755[_0x406176(0x3ff)]?_0xf9f755['shippingLastname']:''),_0xf9f755[_0x406176(0x150)],_0xf9f755[_0x406176(0x201)]]):_0x507f7a!==undefined?_0x21a896[_0x406176(0x1ed)]([_0xf9f755[_0x406176(0x38a)],_0xf9f755[_0x406176(0x3e1)]+''+(_0xf9f755[_0x406176(0x3ff)]?_0xf9f755['shippingLastname']:''),_0x507f7a+_0xf9f755[_0x406176(0x150)],_0xf9f755[_0x406176(0x201)]]):_0x21a896[_0x406176(0x1ed)]([_0xf9f755[_0x406176(0x38a)],_0xf9f755[_0x406176(0x3e1)]+''+(_0xf9f755['shippingLastname']?_0xf9f755['shippingLastname']:''),_0xf9f755['total']+_0xcc0bd2,_0xf9f755[_0x406176(0x201)]]);_0x21a896[_0x406176(0x1ed)]([_0x406176(0x3df),_0x406176(0x322),_0x406176(0x39f),_0x406176(0x1ff),_0x406176(0x308),_0x406176(0x1d0),_0x406176(0x2ad),_0x406176(0x3ae)]);const _0x23080f=yield this[_0x406176(0x3f2)][_0x406176(0x3ac)]({'where':{'vendorInvoiceId':_0xf9f755['vendorInvoiceId']}});if(_0x23080f['length']>0x0)for(const _0x3cf243 of _0x23080f){const _0x38dd61=yield this['orderProductService'][_0x406176(0x234)]({'orderProductId':_0x3cf243[_0x406176(0x3bd)]});_0x38dd61&&_0x21a896['push']([_0x38dd61[_0x406176(0x182)],_0xf9f755[_0x406176(0x38a)],_0x38dd61[_0x406176(0x1c8)],_0x38dd61[_0x406176(0x39a)],_0x38dd61['productPrice'],_0x38dd61[_0x406176(0x367)],_0x38dd61[_0x406176(0x157)],_0x38dd61[_0x406176(0x150)]]);}}_0x2ea92f[_0x406176(0x326)](_0x21a896),_0x2ea92f[_0x406176(0x372)]({'includeEmpty':!![]},(_0x30d638,_0x320faa)=>{const _0x5c10c1=_0x406176;(_0x30d638['values'][_0x5c10c1(0x1cb)]('OrderId')||_0x30d638[_0x5c10c1(0x396)]['includes'](_0x5c10c1(0x3df)))&&(_0x2ea92f[_0x5c10c1(0x314)](_0x320faa)['font']={'bold':!![]});});const _0x2e670=_0x406176(0x41a)+Date['now']()+_0x406176(0x2e7);return yield _0xcbebe2['xlsx']['writeFile'](_0x2e670),new Promise((_0x5875b2,_0x9d0319)=>{_0xcb5a8a['download'](_0x2e670,(_0x364f57,_0x2493dc)=>{const _0x4b0d43=a669_0x20db;if(_0x364f57)_0x9d0319(_0x364f57);else return fs['unlinkSync'](_0x2e670),_0xcb5a8a[_0x4b0d43(0x1f1)]();});});});}['orderStatusListBasedOnParent'](_0x57c072,_0x524da7,_0x11560a,_0x5ba03a){const _0x53cc44=a669_0xbe4a96;return tslib_1[_0x53cc44(0x307)](this,void 0x0,void 0x0,function*(){const _0x24d9e8=_0x53cc44,_0x41b7a6=[];_0x41b7a6['push']({'name':_0x24d9e8(0x41c),'value':_0x11560a});const _0x42de3a=yield this[_0x24d9e8(0x40f)][_0x24d9e8(0x362)](_0x57c072,_0x524da7,[],[],_0x41b7a6,![]);console['log'](_0x24d9e8(0x287),_0x42de3a);if(_0x42de3a){const _0x1ccddb={'status':0x1,'message':_0x24d9e8(0x1eb),'data':_0x42de3a};return _0x5ba03a['status'](0xc8)[_0x24d9e8(0x32b)](_0x1ccddb);}else{const _0x12fc43={'status':0x0,'message':_0x24d9e8(0x27c)};return _0x5ba03a[_0x24d9e8(0x36e)](0x190)['send'](_0x12fc43);}});}['purchasedCustomers'](_0x5c4cee,_0x4ae273,_0x1fcc63,_0xfca60,_0x2a1f54,_0x1f9509,_0x34abe4,_0x325739,_0xee7acb,_0x1f476a){const _0x1ef3a0=a669_0xbe4a96;return tslib_1[_0x1ef3a0(0x307)](this,void 0x0,void 0x0,function*(){const _0x2903e3=_0x1ef3a0,_0x4ebc1c=['DISTINCT\x20order.customerId\x20as\x20customerId','orderCustomer.email\x20as\x20email','orderCustomer.firstName\x20as\x20firstName',_0x2903e3(0x341),_0x2903e3(0x1da),_0x2903e3(0x294),'MAX(order.shippingAddress1)\x20as\x20shippingAddress1','MAX(order.shippingAddress2)\x20as\x20shippingAddress2','MAX(order.shippingCity)\x20as\x20shippingCity','MAX(order.shippingZone)\x20as\x20shippingZone',_0x2903e3(0x2d7),'SUM(order.total)\x20as\x20purched',_0x2903e3(0x173),_0x2903e3(0x27a),_0x2903e3(0x305),'customerGroup.name\x20as\x20groupName',_0x2903e3(0x222),_0x2903e3(0x364)],_0x1f2881=[{'tableName':_0x2903e3(0x375),'aliasName':_0x2903e3(0x185)},{'tableName':_0x2903e3(0x216),'aliasName':_0x2903e3(0x3a4)},{'tableName':_0x2903e3(0x1e1),'aliasName':_0x2903e3(0x354)},{'tableName':_0x2903e3(0x27d),'aliasName':_0x2903e3(0x215)}],_0x4ef623=[{'name':_0x2903e3(0x17c),'op':_0x2903e3(0x1d3),'value':_0x1f476a[_0x2903e3(0x153)][_0x2903e3(0x401)]}],_0x1e4609=[];_0x325739&&_0x325739!==''&&_0x1e4609[_0x2903e3(0x1ed)]({'name':['orderCustomer.email',_0x2903e3(0x33b),_0x2903e3(0x385),'orderCustomer.mobile','customerGroup.name'],'value':_0x325739[_0x2903e3(0x29a)]()});(_0xfca60===null||_0xfca60===void 0x0?void 0x0:_0xfca60[_0x2903e3(0x1c4)]())&&_0x1e4609[_0x2903e3(0x1ed)]({'name':[_0x2903e3(0x385),_0x2903e3(0x33b)],'value':_0xfca60});(_0x34abe4===null||_0x34abe4===void 0x0?void 0x0:_0x34abe4['trim']())&&_0x1e4609['push']({'name':['orderCustomer.mobileNumber'],'value':_0x34abe4});(_0x1f9509===null||_0x1f9509===void 0x0?void 0x0:_0x1f9509['trim']())&&_0x1e4609[_0x2903e3(0x1ed)]({'name':['orderCustomer.email'],'value':_0x1f9509});(_0x2a1f54===null||_0x2a1f54===void 0x0?void 0x0:_0x2a1f54['trim']())&&_0x1e4609[_0x2903e3(0x1ed)]({'name':[_0x2903e3(0x2c3)],'value':_0x2a1f54});const _0x3d324b=[{'name':_0x2903e3(0x399)},{'name':_0x2903e3(0x23d)}],_0x5ce973=[{'name':'MAX(order.createdDate)','order':_0x2903e3(0x1c3)}],_0x53c1a1=yield this[_0x2903e3(0x3e3)][_0x2903e3(0x1fc)](_0x4ae273,_0x5c4cee,_0x4ebc1c,_0x4ef623,_0x1e4609,_0x1f2881,_0x3d324b,_0x5ce973,![],!![]);return _0xee7acb['status'](0xc8)[_0x2903e3(0x32b)]({'status':0x1,'message':'Successfully\x20Got\x20Vendor\x20Order\x20List..!','data':_0x53c1a1 instanceof Array?_0x1fcc63?_0x53c1a1[_0x2903e3(0x15d)]:_0x53c1a1:_0x53c1a1});});}['exportVendorCustomer'](_0x1f10f9,_0x30bca8,_0x53338b){const _0x211655=a669_0xbe4a96;return tslib_1[_0x211655(0x307)](this,void 0x0,void 0x0,function*(){const _0x2bacd6=_0x211655,_0x9aeffa=require(_0x2bacd6(0x3c6)),_0x2a2f32=new _0x9aeffa[(_0x2bacd6(0x256))](),_0x2d33dd=_0x2a2f32[_0x2bacd6(0x302)](_0x2bacd6(0x166));_0x2d33dd['columns']=[{'header':_0x2bacd6(0x3c7),'key':_0x2bacd6(0x3c7),'size':0x10,'width':0xf},{'header':'customerName','key':'customerName','size':0x10,'width':0xf},{'header':_0x2bacd6(0x36d),'key':_0x2bacd6(0x36d),'size':0x10,'width':0x18},{'header':_0x2bacd6(0x2d1),'key':_0x2bacd6(0x2d1),'size':0x10,'width':0xf},{'header':_0x2bacd6(0x194),'key':_0x2bacd6(0x194),'size':0x10,'width':0xf},{'header':'address2','key':_0x2bacd6(0x3f0),'size':0x10,'width':0xf},{'header':_0x2bacd6(0x30e),'key':'purchedProduct','size':0x10,'width':0xf},{'header':'status','key':_0x2bacd6(0x36e),'size':0x10,'width':0xf}],_0x2d33dd[_0x2bacd6(0x20f)]('A1')[_0x2bacd6(0x3d1)]={'top':{'style':'thin'},'left':{'style':_0x2bacd6(0x2d5)},'bottom':{'style':_0x2bacd6(0x2d5)},'right':{'style':'thin'}},_0x2d33dd[_0x2bacd6(0x20f)]('B1')['border']={'top':{'style':_0x2bacd6(0x2d5)},'left':{'style':_0x2bacd6(0x2d5)},'bottom':{'style':_0x2bacd6(0x2d5)},'right':{'style':_0x2bacd6(0x2d5)}},_0x2d33dd['getCell']('C1')[_0x2bacd6(0x3d1)]={'top':{'style':_0x2bacd6(0x2d5)},'left':{'style':_0x2bacd6(0x2d5)},'bottom':{'style':_0x2bacd6(0x2d5)},'right':{'style':_0x2bacd6(0x2d5)}},_0x2d33dd[_0x2bacd6(0x20f)]('D1')[_0x2bacd6(0x3d1)]={'top':{'style':_0x2bacd6(0x2d5)},'left':{'style':_0x2bacd6(0x2d5)},'bottom':{'style':_0x2bacd6(0x2d5)},'right':{'style':_0x2bacd6(0x2d5)}},_0x2d33dd['getCell']('E1')[_0x2bacd6(0x3d1)]={'top':{'style':_0x2bacd6(0x2d5)},'left':{'style':'thin'},'bottom':{'style':'thin'},'right':{'style':'thin'}},_0x2d33dd[_0x2bacd6(0x20f)]('F1')[_0x2bacd6(0x3d1)]={'top':{'style':_0x2bacd6(0x2d5)},'left':{'style':_0x2bacd6(0x2d5)},'bottom':{'style':_0x2bacd6(0x2d5)},'right':{'style':_0x2bacd6(0x2d5)}},_0x2d33dd[_0x2bacd6(0x20f)]('G1')[_0x2bacd6(0x3d1)]={'top':{'style':_0x2bacd6(0x2d5)},'left':{'style':'thin'},'bottom':{'style':_0x2bacd6(0x2d5)},'right':{'style':_0x2bacd6(0x2d5)}},_0x2d33dd[_0x2bacd6(0x20f)]('H1')['border']={'top':{'style':_0x2bacd6(0x2d5)},'left':{'style':_0x2bacd6(0x2d5)},'bottom':{'style':'thin'},'right':{'style':_0x2bacd6(0x2d5)}},_0x2d33dd['getCell']('I1')[_0x2bacd6(0x3d1)]={'top':{'style':'thin'},'left':{'style':_0x2bacd6(0x2d5)},'bottom':{'style':_0x2bacd6(0x2d5)},'right':{'style':_0x2bacd6(0x2d5)}};const _0x20c540=[_0x2bacd6(0x2a0),_0x2bacd6(0x1c7),_0x2bacd6(0x1ce),_0x2bacd6(0x341),_0x2bacd6(0x1da),_0x2bacd6(0x294),_0x2bacd6(0x1a5),'MAX(order.shippingAddress2)\x20as\x20shippingAddress2',_0x2bacd6(0x39b),_0x2bacd6(0x263),_0x2bacd6(0x3fe),_0x2bacd6(0x173),'orderCustomer.avatar\x20as\x20imageName',_0x2bacd6(0x305),_0x2bacd6(0x3a8),_0x2bacd6(0x222),_0x2bacd6(0x364)],_0x273081=[{'tableName':'VendorOrders.order','aliasName':_0x2bacd6(0x185)},{'tableName':_0x2bacd6(0x216),'aliasName':_0x2bacd6(0x3a4)},{'tableName':_0x2bacd6(0x1e1),'aliasName':_0x2bacd6(0x354)},{'tableName':_0x2bacd6(0x27d),'aliasName':_0x2bacd6(0x215)}],_0x12aa77=[{'name':'VendorOrders.vendorId','op':_0x2bacd6(0x1d3),'value':_0x53338b[_0x2bacd6(0x153)][_0x2bacd6(0x401)]}];if(_0x1f10f9&&_0x1f10f9!==''){const _0xbc2139=_0x1f10f9[_0x2bacd6(0x412)](',');_0x12aa77[_0x2bacd6(0x1ed)]({'name':_0x2bacd6(0x399),'op':'IN','value':_0xbc2139});}const _0xe4489e=[{'name':_0x2bacd6(0x399)},{'name':_0x2bacd6(0x23d)}],_0x44bdb9=yield this[_0x2bacd6(0x3e3)][_0x2bacd6(0x1fc)](0x0,0x0,_0x20c540,_0x12aa77,[],_0x273081,_0xe4489e,[],![],!![]),_0x140ab3=_0x44bdb9[_0x2bacd6(0x3b6)](_0x580dcd=>{const _0x628749=_0x2bacd6;return _0x580dcd[_0x628749(0x3c9)]=_0x580dcd[_0x628749(0x3c9)]===0x1?'Active':_0x628749(0x288),_0x580dcd;}),_0x299e80=[];for(const _0x45ae34 of _0x140ab3){_0x299e80['push']([_0x45ae34[_0x2bacd6(0x3c7)],_0x45ae34[_0x2bacd6(0x2f3)]+'\x20'+_0x45ae34[_0x2bacd6(0x23f)],_0x45ae34[_0x2bacd6(0x36d)],_0x45ae34[_0x2bacd6(0x2d1)],_0x45ae34[_0x2bacd6(0x3a1)],_0x45ae34['shippingAddress2'],_0x45ae34['totalOrderProductId'],_0x45ae34[_0x2bacd6(0x3c9)]]);}_0x2d33dd[_0x2bacd6(0x326)](_0x299e80);const _0x33c633=_0x2bacd6(0x14d)+Date[_0x2bacd6(0x31e)]()+_0x2bacd6(0x2e7);return yield _0x2a2f32['xlsx'][_0x2bacd6(0x1c2)](_0x33c633),new Promise((_0x535abc,_0x578e62)=>{const _0x58b38d=_0x2bacd6;_0x30bca8[_0x58b38d(0x3b3)](_0x33c633,(_0x3fda9a,_0x10a3f1)=>{const _0x3d81ac=_0x58b38d;if(_0x3fda9a)_0x578e62(_0x3fda9a);else return fs['unlinkSync'](_0x33c633),_0x30bca8[_0x3d81ac(0x1f1)]();});});});}['customerPurchasedProductList'](_0x45a1ef,_0x194015,_0x45b637,_0x18b06d,_0xef9b74,_0x3b92e1,_0x3354e5,_0x370af5){const _0x5dee98=a669_0xbe4a96;return tslib_1[_0x5dee98(0x307)](this,void 0x0,void 0x0,function*(){const _0x39d6de=_0x5dee98,_0x17e720=[_0x39d6de(0x384),_0x39d6de(0x243),_0x39d6de(0x2b6),'order.createdDate\x20as\x20orderedDate',_0x39d6de(0x16c),_0x39d6de(0x418),'(SELECT\x20productImage.image\x20from\x20product_image\x20as\x20productImage\x20where\x20productImage.default_image\x20=\x201\x20AND\x20productImage.product_id\x20=\x20productId\x20LIMIT\x201)\x20as\x20image',_0x39d6de(0x378)],_0x6a4f6f=[{'tableName':_0x39d6de(0x375),'aliasName':_0x39d6de(0x185)},{'tableName':_0x39d6de(0x27d),'aliasName':_0x39d6de(0x215)},{'tableName':'orderProduct.orderStatus','aliasName':_0x39d6de(0x389)},{'tableName':_0x39d6de(0x159),'aliasName':_0x39d6de(0x16e)}],_0x2e0d9d=[];_0x3354e5&&_0x3354e5!==''&&_0x2e0d9d[_0x39d6de(0x1ed)]({'name':['orderProduct.name'],'value':_0x3354e5[_0x39d6de(0x29a)]()});_0x370af5&&_0x370af5!==''&&_0x2e0d9d[_0x39d6de(0x1ed)]({'name':['product.sku'],'value':_0x370af5[_0x39d6de(0x29a)]()});const _0x50664e=[{'name':_0x39d6de(0x17c),'op':_0x39d6de(0x1d3),'value':_0x45a1ef[_0x39d6de(0x153)]['vendorId']},{'name':_0x39d6de(0x399),'op':'and','value':_0x45b637}],_0x290102=[{'name':'VendorOrders.createdDate','order':_0x39d6de(0x1c3)}],_0x1f5986=yield this[_0x39d6de(0x3e3)][_0x39d6de(0x1fc)](_0x18b06d,_0xef9b74,_0x17e720,_0x50664e,_0x2e0d9d,_0x6a4f6f,[],_0x290102,![],!![]);if(_0x3b92e1)return _0x194015[_0x39d6de(0x36e)](0xc8)[_0x39d6de(0x32b)]({'status':0x1,'message':_0x39d6de(0x37a),'count':_0x1f5986['length']});const _0x43c89e=yield Promise[_0x39d6de(0x19f)](_0x1f5986[_0x39d6de(0x3b6)](_0x20669d=>tslib_1[_0x39d6de(0x307)](this,void 0x0,void 0x0,function*(){const _0x27153b=_0x39d6de,_0x1934d7=_0x20669d,_0x444b79=yield this[_0x27153b(0x394)][_0x27153b(0x2f6)]({'where':{'orderProductId':_0x20669d[_0x27153b(0x3bd)]},'relations':[_0x27153b(0x389)]});return _0x1934d7[_0x27153b(0x389)]=_0x444b79['map'](_0x90fcb4=>({'orderStatusId':_0x90fcb4[_0x27153b(0x389)][_0x27153b(0x25a)],'statusName':_0x90fcb4[_0x27153b(0x389)][_0x27153b(0x1c8)],'createdOn':_0x90fcb4[_0x27153b(0x201)]})),_0x1934d7;})));return _0x194015[_0x39d6de(0x36e)](0xc8)['send']({'status':0x1,'message':_0x39d6de(0x3d9),'data':_0x43c89e});});}[a669_0xbe4a96(0x26b)](_0x468b4f,_0x5edd95,_0x2d2d52,_0x577e99,_0x3ead69,_0x2069b7,_0x28b6ca,_0x473e47){const _0x45c2de=a669_0xbe4a96;return tslib_1[_0x45c2de(0x307)](this,void 0x0,void 0x0,function*(){const _0x1d0e9b=_0x45c2de,_0x12f7a0=[_0x1d0e9b(0x243),_0x1d0e9b(0x3fb),_0x1d0e9b(0x3a7),_0x1d0e9b(0x42d),_0x1d0e9b(0x2b3),_0x1d0e9b(0x3cb),'MAX(productviewlog.createdDate)\x20as\x20createdDate',_0x1d0e9b(0x244)],_0x23ef6b=[];_0x23ef6b[_0x1d0e9b(0x1ed)]({'tableName':_0x1d0e9b(0x1e4),'aliasName':'product'},{'tableName':_0x1d0e9b(0x2a8),'aliasName':_0x1d0e9b(0x14c)});const _0x5d88f5=[];_0x5d88f5['push']({'name':_0x1d0e9b(0x29f),'op':_0x1d0e9b(0x1d3),'value':_0x473e47[_0x1d0e9b(0x153)]['vendorId']},{'name':_0x1d0e9b(0x164),'op':'and','value':_0x2d2d52});const _0x2c0917=[{'name':_0x1d0e9b(0x1d9)}],_0x2b9916=[];_0x577e99&&_0x577e99!==''&&_0x2b9916['push']({'name':['product.name'],'value':_0x577e99['toLowerCase']()});_0x3ead69&&_0x3ead69!==''&&_0x2b9916['push']({'name':[_0x1d0e9b(0x22d)],'value':_0x3ead69[_0x1d0e9b(0x29a)]()});const _0x9a2d4c=[{'name':_0x1d0e9b(0x347),'order':_0x1d0e9b(0x1c3)}],_0x1d5b9b=yield this['vendorProductService'][_0x1d0e9b(0x1fc)](_0x468b4f,_0x5edd95,_0x12f7a0,_0x5d88f5,_0x2b9916,_0x23ef6b,_0x2c0917,_0x9a2d4c,_0x2069b7,!![]);if(!_0x2069b7){const _0x17ba46=yield Promise[_0x1d0e9b(0x19f)](_0x1d5b9b[_0x1d0e9b(0x3b6)](_0x343aef=>tslib_1[_0x1d0e9b(0x307)](this,void 0x0,void 0x0,function*(){const _0x662cac=_0x1d0e9b,_0x497a25=_0x343aef,_0x4a8665=yield this[_0x662cac(0x3cd)][_0x662cac(0x3ac)]({'where':{'productId':_0x497a25['productId']}});return _0x497a25['productImage']=_0x4a8665,_0x497a25;})));return _0x28b6ca[_0x1d0e9b(0x36e)](0xc8)[_0x1d0e9b(0x32b)]({'status':0x1,'message':'Successfully\x20got\x20the\x20customer\x20view\x20log\x20list','data':_0x17ba46});}else return _0x28b6ca['status'](0xc8)[_0x1d0e9b(0x32b)]({'status':0x1,'message':_0x1d0e9b(0x230),'data':_0x1d5b9b});});}[a669_0xbe4a96(0x3e2)](_0x2f5e12,_0x2b2b78,_0x1c9c56,_0x2ca21c,_0x1ebd0c){const _0x30d402=a669_0xbe4a96;return tslib_1[_0x30d402(0x307)](this,void 0x0,void 0x0,function*(){const _0x4203e9=_0x30d402,_0x5d5d28=_0x2f5e12&&_0x2f5e12!==''?_0x2f5e12['split'](','):[],_0x1b5c87=require('exceljs'),_0xbd4c92=new _0x1b5c87[(_0x4203e9(0x256))](),_0x5aaa69=_0xbd4c92[_0x4203e9(0x302)](_0x4203e9(0x221)),_0x51bb37=[];_0x5aaa69['columns']=[{'header':'InvoiceNo','key':_0x4203e9(0x3e4),'size':0x10,'width':0xf},{'header':_0x4203e9(0x32a),'key':_0x4203e9(0x32a),'size':0x10,'width':0xf},{'header':'Amount','key':_0x4203e9(0x241),'size':0x10,'width':0xf},{'header':_0x4203e9(0x201),'key':_0x4203e9(0x201),'size':0x10,'width':0x18}],_0x5aaa69[_0x4203e9(0x20f)]('A1')[_0x4203e9(0x3d1)]={'top':{'style':_0x4203e9(0x2d5)},'left':{'style':_0x4203e9(0x2d5)},'bottom':{'style':_0x4203e9(0x2d5)},'right':{'style':_0x4203e9(0x2d5)}},_0x5aaa69[_0x4203e9(0x20f)]('B1')[_0x4203e9(0x3d1)]={'top':{'style':_0x4203e9(0x2d5)},'left':{'style':_0x4203e9(0x2d5)},'bottom':{'style':_0x4203e9(0x2d5)},'right':{'style':_0x4203e9(0x2d5)}},_0x5aaa69[_0x4203e9(0x20f)]('C1')[_0x4203e9(0x3d1)]={'top':{'style':'thin'},'left':{'style':_0x4203e9(0x2d5)},'bottom':{'style':_0x4203e9(0x2d5)},'right':{'style':_0x4203e9(0x2d5)}},_0x5aaa69[_0x4203e9(0x20f)]('D1')[_0x4203e9(0x3d1)]={'top':{'style':'thin'},'left':{'style':_0x4203e9(0x2d5)},'bottom':{'style':'thin'},'right':{'style':'thin'}};const _0x2a1c36=['VendorInvoice.vendorInvoiceId\x20as\x20vendorInvoiceId',_0x4203e9(0x19b),'VendorInvoice.invoicePrefix\x20as\x20invoicePrefix',_0x4203e9(0x268),_0x4203e9(0x343),'VendorInvoice.orderId\x20as\x20orderId',_0x4203e9(0x1fa),_0x4203e9(0x392),_0x4203e9(0x247),_0x4203e9(0x3e6),_0x4203e9(0x2ea)],_0x458d8a=[{'tableName':_0x4203e9(0x273),'aliasName':'orderDetail'}],_0x301c1b=[];_0x5d5d28[_0x4203e9(0x15d)]>0x0?_0x301c1b['push']({'name':'VendorInvoice.vendorInvoiceId','op':'IN','value':_0x2f5e12}):_0x301c1b['push']({'name':'VendorInvoice.vendorId','op':_0x4203e9(0x1d3),'value':_0x2ca21c[_0x4203e9(0x153)][_0x4203e9(0x401)]});const _0x1eabb8=yield this[_0x4203e9(0x331)][_0x4203e9(0x1fc)](_0x2b2b78,_0x1c9c56,_0x2a1c36,_0x301c1b,[],_0x458d8a,[],[],![],!![]);for(const _0x5cefa0 of _0x1eabb8){const _0x1642db={};_0x1642db[_0x4203e9(0x3e4)]=_0x5cefa0[_0x4203e9(0x293)],_0x1642db['Customer']=_0x5cefa0[_0x4203e9(0x3e1)]+'\x20'+_0x5cefa0[_0x4203e9(0x3ff)],_0x1642db['Amount']=_0x5cefa0[_0x4203e9(0x150)],_0x1642db['createdDate']=_0x5cefa0['createdDate'],_0x51bb37[_0x4203e9(0x1ed)](_0x1642db);}_0x5aaa69[_0x4203e9(0x326)](_0x51bb37);const _0xc45979=_0x4203e9(0x198)+Date[_0x4203e9(0x31e)]()+_0x4203e9(0x2e7);return yield _0xbd4c92['xlsx']['writeFile'](_0xc45979),new Promise((_0x47a479,_0x2a2056)=>{_0x1ebd0c['download'](_0xc45979,(_0x2961bb,_0x33114c)=>{if(_0x2961bb)_0x2a2056(_0x2961bb);else return fs['unlinkSync'](_0xc45979),_0x1ebd0c['end']();});});});}};function a669_0x20db(_0xe0dbd8,_0x2d7e8f){const _0x18a2ab=a669_0x18a2();return a669_0x20db=function(_0x20dbf3,_0x59424a){_0x20dbf3=_0x20dbf3-0x149;let _0x5318e1=_0x18a2ab[_0x20dbf3];return _0x5318e1;},a669_0x20db(_0xe0dbd8,_0x2d7e8f);}tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x14b)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x35f))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x36e))),tslib_1['__param'](0x3,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x33f))),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1['Res'])()),tslib_1[a669_0xbe4a96(0x14f)]('design:type',Function),tslib_1['__metadata'](a669_0xbe4a96(0x34f),[Number,Number,String,Object,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)]('design:returntype',Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x3f7),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])('/order-detail/:vendorOrderId'),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x3a2)])('vendorOrderId')),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1['__metadata']('design:paramtypes',[Number,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'orderDetail',null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x23a)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x3a2)])(a669_0xbe4a96(0x2cc))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata'](a669_0xbe4a96(0x1e5),Function),tslib_1['__metadata']('design:paramtypes',[Number,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController['prototype'],a669_0xbe4a96(0x235),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x203)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController['prototype'],a669_0xbe4a96(0x2fa),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x429)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1['Req'])()),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)]('design:paramtypes',[Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController['prototype'],a669_0xbe4a96(0x30b),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x224)])('/delete-order/:id'),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1['__metadata'](a669_0xbe4a96(0x34f),[Number,Object,Object]),tslib_1['__metadata'](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x29b),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1['Put'])(a669_0xbe4a96(0x2ee)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x3a2)])(a669_0xbe4a96(0x229))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['BodyParam'])('subOrderStatusId')),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1['Res'])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)]('design:paramtypes',[Number,Number,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController['prototype'],a669_0xbe4a96(0x202),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x193)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x24f))),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x36e))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('orderStatus')),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('count')),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Number,String,String,Number,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x15e),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x1be)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('offset')),tslib_1['__param'](0x2,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x19d))),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('vendorOrderOffset')),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x24f))),tslib_1['__param'](0x5,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x36e))),tslib_1['__param'](0x6,(0x0,routing_controllers_1['QueryParam'])('count')),tslib_1[a669_0xbe4a96(0x2f9)](0x7,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x8,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)]('design:paramtypes',[Number,Number,Number,Number,String,String,Object,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController['prototype'],a669_0xbe4a96(0x23e),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x264)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x3a2)])(a669_0xbe4a96(0x25a))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1['QueryParam'])('offset')),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1['__metadata'](a669_0xbe4a96(0x34f),[String,Number,Number,Object,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'vendorOrderStatusDetails',null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(a669_0xbe4a96(0x2d2)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x335))),tslib_1['__param'](0x3,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x39e))),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('keyword')),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x36e))),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1[a669_0xbe4a96(0x2f9)](0x7,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1['__param'](0x8,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Number,Number,Number,String,String,Object,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x3da),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x32c)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x229))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)]('design:paramtypes',[Number,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x270),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1['Get'])('/top-selling-productlist'),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x353))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)]('design:type',Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x2dd),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a669_0xbe4a96(0x1ae)])('/update-shipping-information'),(0x0,routing_controllers_1['Authorized'])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x3bf)])('vendorOrderId')),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['BodyParam'])('trackingUrl')),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x3bf)])(a669_0xbe4a96(0x276))),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1['Res'])()),tslib_1[a669_0xbe4a96(0x14f)]('design:type',Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,String,String,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)]('design:returntype',Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x3d6),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1['Get'])(a669_0xbe4a96(0x1e0)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x229))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1['__metadata'](a669_0xbe4a96(0x34f),[Number,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x422),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x1ae)])(a669_0xbe4a96(0x19e)),(0x0,routing_controllers_1['Authorized'])('vendor'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x3bf)])(a669_0xbe4a96(0x229))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Object,Object]),tslib_1['__metadata'](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'makeArchive',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a669_0xbe4a96(0x1ae)])(a669_0xbe4a96(0x2c4)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x3bf)])(a669_0xbe4a96(0x2cc))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1['__metadata'](a669_0xbe4a96(0x34f),[Number,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x1a8),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x2b1)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('limit')),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x24f))),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x17e))),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x2e4))),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x315))),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x1c0))),tslib_1[a669_0xbe4a96(0x2f9)](0x7,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1[a669_0xbe4a96(0x2f9)](0x8,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x9,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1['__metadata'](a669_0xbe4a96(0x1e5),Function),tslib_1['__metadata'](a669_0xbe4a96(0x34f),[Number,Number,String,String,String,Number,String,Object,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x1ba),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1['Get'])(a669_0xbe4a96(0x25b)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x35f))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('keyword')),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x17e))),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('endDate')),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x315))),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1[a669_0xbe4a96(0x2f9)](0x7,(0x0,routing_controllers_1['Req'])()),tslib_1[a669_0xbe4a96(0x2f9)](0x8,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Number,String,String,String,Number,Object,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x313),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1['Get'])(a669_0xbe4a96(0x3e5)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x1dd))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x1c0))),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x219))),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x24f))),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x389))),tslib_1['__param'](0x7,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x17e))),tslib_1[a669_0xbe4a96(0x2f9)](0x8,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x2e4))),tslib_1[a669_0xbe4a96(0x2f9)](0x9,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x315))),tslib_1[a669_0xbe4a96(0x2f9)](0xa,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x34a))),tslib_1[a669_0xbe4a96(0x2f9)](0xb,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1['__param'](0xc,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1['__param'](0xd,(0x0,routing_controllers_1['Res'])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Number,String,String,String,String,String,String,String,Number,String,Object,Object,Object]),tslib_1['__metadata'](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x321),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x2ec)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x401))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x18d),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x3c0)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x2cc))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[String,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController['prototype'],a669_0xbe4a96(0x35d),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])('/cancel-order-list'),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['QueryParam'])('offset')),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x24f))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x17e))),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x2e4))),tslib_1['__param'](0x5,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x33f))),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1['Req'])()),tslib_1[a669_0xbe4a96(0x2f9)](0x7,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)]('design:type',Function),tslib_1[a669_0xbe4a96(0x14f)]('design:paramtypes',[Number,Number,String,String,String,Object,Object,Object]),tslib_1['__metadata'](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x25e),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x393)])('/update-vendor-order-cancel-request/:orderProductId'),(0x0,routing_controllers_1['Authorized'])('vendor'),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x3a2)])('orderProductId')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x3bf)])('cancelStatusId')),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1['Res'])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Number,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x3ab),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x2af)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('orderProductId')),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x3f4))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1['__metadata'](a669_0xbe4a96(0x34f),[String,Number,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController['prototype'],a669_0xbe4a96(0x20d),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x2ab)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x3bd))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1['__metadata'](a669_0xbe4a96(0x34f),[String,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x368),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x1b8)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Object,Object]),tslib_1[a669_0xbe4a96(0x14f)]('design:returntype',Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x2a2),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1['Get'])(a669_0xbe4a96(0x31a)),(0x0,routing_controllers_1['Authorized'])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['QueryParam'])('offset')),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('keyword')),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('startDate')),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x2e4))),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1['__param'](0x6,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x2f3))),tslib_1[a669_0xbe4a96(0x2f9)](0x7,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x23f))),tslib_1[a669_0xbe4a96(0x2f9)](0x8,(0x0,routing_controllers_1['Req'])()),tslib_1[a669_0xbe4a96(0x2f9)](0x9,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1['__metadata']('design:paramtypes',[Number,Number,String,String,String,Object,String,String,Object,Object]),tslib_1['__metadata'](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'vendorInvoiceList',null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1['Get'])('/order-invoice-export-pdf'),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x1c0))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1['__metadata'](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x188),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])('/sales-report-list'),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1['__param'](0x0,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x17e))),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1['QueryParam'])('endDate')),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('productId')),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1['Req'])()),tslib_1[a669_0xbe4a96(0x2f9)](0x7,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata'](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Number,String,String,String,Object,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)]('design:returntype',Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x423),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x2e3)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('limit')),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x2bd))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x17e))),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x2e4))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x7,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1['__metadata'](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Number,String,String,String,Object,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x41d),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1['Post'])('/order-invoice-export-send-email-pdf'),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x3bf)])('orderId')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)]('design:type',Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController['prototype'],a669_0xbe4a96(0x3d0),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1['Get'])(a669_0xbe4a96(0x170)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1['__param'](0x0,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x1dd))),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1['QueryParam'])('orderId')),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x219))),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x24f))),tslib_1['__param'](0x6,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('orderStatus')),tslib_1['__param'](0x7,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1['__param'](0x8,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x9,(0x0,routing_controllers_1['Res'])()),tslib_1[a669_0xbe4a96(0x14f)]('design:type',Function),tslib_1['__metadata'](a669_0xbe4a96(0x34f),[Number,Number,String,String,Number,String,String,Object,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController['prototype'],a669_0xbe4a96(0x33d),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])('/vendor-failed-order-list'),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x24f))),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x17e))),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x2e4))),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x1dd))),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x1c0))),tslib_1[a669_0xbe4a96(0x2f9)](0x7,(0x0,routing_controllers_1['QueryParam'])('amount')),tslib_1[a669_0xbe4a96(0x2f9)](0x8,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x389))),tslib_1[a669_0xbe4a96(0x2f9)](0x9,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1['__param'](0xa,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0xb,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Number,String,String,String,String,String,String,String,Object,Object,Object]),tslib_1['__metadata'](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'vendorFailedOrderList',null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x3bb)),(0x0,routing_controllers_1['Authorized'])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x24f))),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)]('design:type',Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Object,Object,Object,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'bulkExportBackorder',null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])('/back-order-excel-list'),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x3bd))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1['__metadata'](a669_0xbe4a96(0x34f),[String,Object,Object]),tslib_1['__metadata'](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController['prototype'],'backOrderExport',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x2e6)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x1c0))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[String,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'failedOrderExportExcel',null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1['Get'])(a669_0xbe4a96(0x3ba)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a669_0xbe4a96(0x14f)]('design:type',Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'BulkfailedOrderExportExcel',null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x42b)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])('vendor'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x20e))),tslib_1['__param'](0x2,(0x0,routing_controllers_1['QueryParam'])('parentId')),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Number,Number,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'orderStatusListBasedOnParent',null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])(a669_0xbe4a96(0x3f5)),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('limit')),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('customerName')),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x379))),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x3c7))),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x36d))),tslib_1['__param'](0x7,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x24f))),tslib_1[a669_0xbe4a96(0x2f9)](0x8,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1['__param'](0x9,(0x0,routing_controllers_1['Req'])()),tslib_1['__metadata']('design:type',Function),tslib_1[a669_0xbe4a96(0x14f)]('design:paramtypes',[Number,Number,Number,String,String,String,String,String,Object,Object]),tslib_1['__metadata'](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'purchasedCustomers',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])('/export-customer'),(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),tslib_1['__param'](0x0,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x14e))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1['__metadata']('design:type',Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[String,Object,Object]),tslib_1['__metadata'](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'exportVendorCustomer',null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(a669_0xbe4a96(0x31f)),(0x0,routing_controllers_1['Authorized'])(a669_0xbe4a96(0x400)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x3a2)])('id')),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x20e))),tslib_1[a669_0xbe4a96(0x2f9)](0x5,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x33f))),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x28a))),tslib_1[a669_0xbe4a96(0x2f9)](0x7,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x424))),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Object,Object,Number,Number,Number,Object,String,String]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x1c1),null),tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),(0x0,routing_controllers_1[a669_0xbe4a96(0x176)])('/product-viewed-customer'),tslib_1[a669_0xbe4a96(0x2f9)](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x1,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('offset')),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x14e))),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('productName')),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('sku')),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])(a669_0xbe4a96(0x33f))),tslib_1[a669_0xbe4a96(0x2f9)](0x6,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x7,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[Number,Number,Number,String,String,Object,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],'vendorProductViewedCustomer',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a669_0xbe4a96(0x15f)])(a669_0xbe4a96(0x400)),(0x0,routing_controllers_1['Get'])(a669_0xbe4a96(0x3a6)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('vendorInvoiceId')),tslib_1['__param'](0x1,(0x0,routing_controllers_1['QueryParam'])(a669_0xbe4a96(0x35f))),tslib_1[a669_0xbe4a96(0x2f9)](0x2,(0x0,routing_controllers_1[a669_0xbe4a96(0x388)])('offset')),tslib_1[a669_0xbe4a96(0x2f9)](0x3,(0x0,routing_controllers_1[a669_0xbe4a96(0x299)])()),tslib_1[a669_0xbe4a96(0x2f9)](0x4,(0x0,routing_controllers_1[a669_0xbe4a96(0x171)])()),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x1e5),Function),tslib_1[a669_0xbe4a96(0x14f)]('design:paramtypes',[String,Number,Number,Object,Object]),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x3ea),Promise)],VendorOrderController[a669_0xbe4a96(0x2ba)],a669_0xbe4a96(0x3e2),null),VendorOrderController=tslib_1[a669_0xbe4a96(0x233)]([(0x0,routing_controllers_1[a669_0xbe4a96(0x3db)])('/vendor-order'),tslib_1[a669_0xbe4a96(0x14f)](a669_0xbe4a96(0x34f),[VendorOrderService_1[a669_0xbe4a96(0x38d)],OrderService_1[a669_0xbe4a96(0x2ef)],OrderProductService_1['OrderProductService'],PluginService_1[a669_0xbe4a96(0x2b9)],VendorProductService_1['VendorProductService'],ProductImageService_1[a669_0xbe4a96(0x35b)],VendorOrderLogService_1[a669_0xbe4a96(0x1f2)],ProductService_1[a669_0xbe4a96(0x3ec)],PdfService_1[a669_0xbe4a96(0x406)],CountryService_1[a669_0xbe4a96(0x3c1)],zoneService_1[a669_0xbe4a96(0x397)],S3Service_1[a669_0xbe4a96(0x329)],VendorOrderArchiveLogService_1[a669_0xbe4a96(0x371)],VendorOrderArchiveService_1['VendorOrderArchiveService'],OrderStatusService_1['OrderStatusService'],OrderProductLogService_1[a669_0xbe4a96(0x2a6)],EmailTemplateService_1[a669_0xbe4a96(0x2a7)],VendorPaymentService_1[a669_0xbe4a96(0x34c)],VendorPaymentArchiveService_1[a669_0xbe4a96(0x39c)],VendorInvoiceService_1[a669_0xbe4a96(0x1e9)],VendorInvoiceItemService_1[a669_0xbe4a96(0x152)],VendorService_1[a669_0xbe4a96(0x31c)],ImageService_1['ImageService'],SettingService_1[a669_0xbe4a96(0x377)],CustomerService_1['CustomerService']])],VendorOrderController),exports[a669_0xbe4a96(0x34b)]=VendorOrderController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorOrderController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const VendorOrderService_1 = require("../../core/services/VendorOrderService");
+const OrderService_1 = require("../../core/services/OrderService");
+const OrderProductService_1 = require("../../core/services/OrderProductService");
+const ProductService_1 = require("../../core/services/ProductService");
+const ProductImageService_1 = require("../../core/services/ProductImageService");
+const PluginService_1 = require("../../core/services/PluginService");
+const VendorOrderLogService_1 = require("../../core/services/VendorOrderLogService");
+const VendorProductService_1 = require("../../core/services/VendorProductService");
+const VendorOrderLog_1 = require("../../core/models/VendorOrderLog");
+const PdfService_1 = require("../../core/services/PdfService");
+const CountryService_1 = require("../../core/services/CountryService");
+const zoneService_1 = require("../../core/services/zoneService");
+const S3Service_1 = require("../../core/services/S3Service");
+const ImageService_1 = require("../../core/services/ImageService");
+const SettingService_1 = require("../../core/services/SettingService");
+const env_1 = require("../../../env");
+const VendorOrderArchive_1 = require("../../core/models/VendorOrderArchive");
+const VendorOrderArchiveLog_1 = require("../../core/models/VendorOrderArchiveLog");
+const VendorOrderArchiveLogService_1 = require("../../core/services/VendorOrderArchiveLogService");
+const VendorOrderArchiveService_1 = require("../../core/services/VendorOrderArchiveService");
+const VendorOrders_1 = require("../../core/models/VendorOrders");
+const OrderStatusService_1 = require("../../core/services/OrderStatusService");
+const OrderProductLogService_1 = require("../../core/services/OrderProductLogService");
+const EmailTemplateService_1 = require("../../core/services/EmailTemplateService");
+const OrderProductLog_1 = require("../../core/models/OrderProductLog");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const fs = tslib_1.__importStar(require("fs"));
+const mail_services_1 = require("../../../auth/mail.services");
+const VendorPaymentService_1 = require("../../core/services/VendorPaymentService");
+const VendorPaymentArchiveService_1 = require("../../core/services/VendorPaymentArchiveService");
+const VendorInvoiceService_1 = require("../../core/services/VendorInvoiceService");
+const VendorInvoiceItemService_1 = require("../../core/services/VendorInvoiceItemService");
+const VendorPaymentArchive_1 = require("../../core/models/VendorPaymentArchive");
+const VendorService_1 = require("../../core/services/VendorService");
+const CustomerService_1 = require("../../core/services/CustomerService");
+const to_words_1 = require("to-words");
+const VendorPayment_1 = require("../../core/models/VendorPayment");
+let VendorOrderController = class VendorOrderController {
+    constructor(vendorOrdersService, orderService, orderProductService, pluginService, vendorProductService, productImageService, vendorOrderLogService, productService, pdfService, countryService, zoneService, s3Service, vendorOrderArchiveLogService, vendorOrderArchiveService, orderStatusService, orderProductLogService, emailTemplateService, vendorPaymentService, vendorPaymentArchiveService, vendorInvoiceService, vendorInvoiceItemService, vendorService, imageService, settingService, customerService) {
+        this.vendorOrdersService = vendorOrdersService;
+        this.orderService = orderService;
+        this.orderProductService = orderProductService;
+        this.pluginService = pluginService;
+        this.vendorProductService = vendorProductService;
+        this.productImageService = productImageService;
+        this.vendorOrderLogService = vendorOrderLogService;
+        this.productService = productService;
+        this.pdfService = pdfService;
+        this.countryService = countryService;
+        this.zoneService = zoneService;
+        this.s3Service = s3Service;
+        this.vendorOrderArchiveLogService = vendorOrderArchiveLogService;
+        this.vendorOrderArchiveService = vendorOrderArchiveService;
+        this.orderStatusService = orderStatusService;
+        this.orderProductLogService = orderProductLogService;
+        this.emailTemplateService = emailTemplateService;
+        this.vendorPaymentService = vendorPaymentService;
+        this.vendorPaymentArchiveService = vendorPaymentArchiveService;
+        this.vendorInvoiceService = vendorInvoiceService;
+        this.vendorInvoiceItemService = vendorInvoiceItemService;
+        this.vendorService = vendorService;
+        this.imageService = imageService;
+        this.settingService = settingService;
+        this.customerService = customerService;
+        // --
+    }
+    // Recent order List API
+    /**
+     * @api {get}  Recent Vendor Order list API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get recent order list",
+     *      "data":{
+     *      "orderId" : "",
+     *      "orderStatusId" : "",
+     *      "customerName" : "",
+     *      "totalAmount" : "",
+     *      "dateAdded" : "",
+     *      "dateModified" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/recent-order-list
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorRecentOrderList(limit, offset, status, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['vendorOrderId', 'orderId', 'vendorId', 'subOrderId', 'subOrderStatusId', 'total', 'createdDate'];
+            const WhereConditions = [
+                {
+                    name: 'vendorId',
+                    op: 'where',
+                    value: request.user.vendorId,
+                },
+                {
+                    name: 'subOrderStatusId',
+                    op: 'where',
+                    value: status,
+                },
+                {
+                    name: 'orderDetail.paymentProcess',
+                    op: 'where',
+                    value: 1,
+                },
+            ];
+            const search = [];
+            const relation = ['orderDetail'];
+            const orderList = yield this.vendorOrdersService.list(limit, offset, select, relation, search, WhereConditions, count);
+            if (count) {
+                const Response = {
+                    status: 1,
+                    message: 'Successfully got count.',
+                    data: orderList,
+                };
+                return response.status(200).send(Response);
+            }
+            const ordersList = orderList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const order = yield this.orderService.findOrder({
+                    where: { orderId: value.orderId },
+                    select: ['orderId', 'orderPrefixId', 'customerId', 'shippingFirstname', 'shippingCountry', 'shippingCity', 'currencySymbolLeft', 'currencySymbolRight'],
+                });
+                const orderStatus = yield this.orderStatusService.findOne({
+                    where: { orderStatusId: value.subOrderStatusId },
+                    select: ['name'],
+                });
+                const temp = value;
+                temp.orderPrefixId = order.orderPrefixId;
+                temp.productTotal = value.total;
+                temp.customerFirstName = order.shippingFirstname;
+                temp.city = order.shippingCity;
+                temp.country = order.shippingCountry;
+                temp.currencySymbolLeft = order.currencySymbolLeft;
+                temp.currencySymbolRight = order.currencySymbolRight;
+                if (orderStatus) {
+                    temp.orderStatusName = orderStatus.name;
+                }
+                return temp;
+            }));
+            const results = yield Promise.all(ordersList);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete order list.',
+                data: results,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    //  Order Detail API
+    /**
+     * @api {get} /api/vendor-order/order-detail/:vendorOrderId  Order Detail API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "orderId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the Order Detail..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/order-detail/:vendorOrderId
+     * @apiErrorExample {json} Order Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Detail Function
+    orderDetail(vendorOrderId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderData = yield this.vendorOrdersService.findOne({
+                where: { vendorOrderId, vendorId: request.user.vendorId }, select: ['vendorOrderId', 'orderId', 'vendorId', 'subOrderId', 'subOrderStatusId', 'orderProductId', 'total', 'createdDate', 'trackingUrl', 'trackingNo'],
+            });
+            if (!orderData) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'invalid order',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            orderData.productList = yield this.orderProductService.find({ where: { orderProductId: orderData.orderProductId }, select: ['orderProductId', 'name', 'quantity', 'total', 'productId', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'skuName', 'orderProductPrefixId'] }).then((val) => {
+                const vendorOrder = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const ProductImage = yield this.productImageService.findOne({ where: { productId: value.productId, defaultImage: 1 } });
+                    const temp = value;
+                    if (ProductImage) {
+                        temp.image = ProductImage.image;
+                        temp.containerName = ProductImage.containerName;
+                    }
+                    return temp;
+                }));
+                const results = Promise.all(vendorOrder);
+                return results;
+            });
+            const order = yield this.orderService.findOrder({
+                where: { orderId: orderData.orderId },
+                select: ['shippingFirstname', 'shippingAddress1', 'shippingAddress2', 'shippingCity', 'shippingPostcode', 'shippingCountry', 'currencySymbolLeft', 'currencySymbolRight', 'shippingZone', 'paymentMethod', 'paymentStatus', 'orderPrefixId', 'email', 'telephone'],
+            });
+            const plugin = yield this.pluginService.findOne({ where: { id: order.paymentMethod } });
+            const orderStatusData = yield this.orderStatusService.findOne({
+                where: { orderStatusId: orderData.subOrderStatusId },
+                select: ['name', 'colorCode'],
+            });
+            orderData.customerFirstName = order.shippingFirstname;
+            orderData.shippingAddress1 = order.shippingAddress1;
+            orderData.shippingAddress2 = order.shippingAddress2;
+            orderData.shippingCity = order.shippingCity;
+            orderData.shippingPostcode = order.shippingPostcode;
+            orderData.shippingCountry = order.shippingCountry;
+            orderData.shippingZone = order.shippingZone;
+            orderData.orderPrefixId = order.orderPrefixId;
+            orderData.email = order.email;
+            orderData.mobileNumber = order.telephone;
+            if (orderStatusData) {
+                orderData.orderStatusName = orderStatusData.name;
+                orderData.statusColorCode = orderStatusData.colorCode;
+            }
+            if (plugin) {
+                orderData.paymentMethod = plugin.pluginName;
+            }
+            orderData.currencySymbolLeft = order.currencySymbolLeft;
+            orderData.currencySymbolRight = order.currencySymbolRight;
+            orderData.paymentFlag = order.paymentFlag;
+            orderData.paymentStatus = order.paymentStatus;
+            const successResponse = {
+                status: 1,
+                message: 'Successfully shown the order Detail. ',
+                data: orderData,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    //  Order Detail API
+    /**
+     * @api {get} /api/vendor-order/archive-order-detail/:vendorOrderArchiveId  Order Detail API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the Arhicve Order Detail..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/archive-order-detail/:vendorOrderArchiveId
+     * @apiErrorExample {json} Order Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Archive Order Detail Function
+    orderArchiveDetail(vendorOrderArchiveId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderData = yield this.vendorOrderArchiveService.findOne({
+                where: { vendorOrderArchiveId, vendorId: request.user.vendorId }, select: ['orderId', 'vendorId', 'subOrderId', 'subOrderStatusId', 'order_product_Id', 'total', 'createdDate', 'commission'],
+            });
+            if (!orderData) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'invalid archive order',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            orderData.productList = yield this.orderProductService.find({ where: { orderProductId: orderData.order_product_Id }, select: ['orderProductId', 'name', 'quantity', 'total', 'productId', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'skuName', 'orderProductPrefixId'] }).then((val) => {
+                const vendorOrder = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const ProductImage = yield this.productImageService.findOne({ where: { productId: value.productId, defaultImage: 1 } });
+                    const temp = value;
+                    if (ProductImage) {
+                        temp.image = ProductImage.image;
+                        temp.containerName = ProductImage.containerName;
+                    }
+                    return temp;
+                }));
+                const results = Promise.all(vendorOrder);
+                return results;
+            });
+            const order = yield this.orderService.findOrder({
+                where: { orderId: orderData.orderId },
+                select: ['shippingFirstname', 'shippingAddress1', 'shippingAddress2', 'shippingCity', 'shippingPostcode', 'shippingCountry', 'currencySymbolLeft', 'currencySymbolRight', 'shippingZone', 'paymentMethod', 'paymentFlag', 'paymentStatus', 'orderPrefixId', 'email', 'telephone'],
+            });
+            const plugin = yield this.pluginService.findOne({ where: { id: order.paymentMethod } });
+            const orderStatusData = yield this.orderStatusService.findOne({
+                where: { orderStatusId: orderData.subOrderStatusId },
+                select: ['name', 'colorCode'],
+            });
+            orderData.customerFirstName = order.shippingFirstname;
+            orderData.shippingAddress1 = order.shippingAddress1;
+            orderData.shippingAddress2 = order.shippingAddress2;
+            orderData.shippingCity = order.shippingCity;
+            orderData.shippingPostcode = order.shippingPostcode;
+            orderData.shippingCountry = order.shippingCountry;
+            orderData.shippingZone = order.shippingZone;
+            orderData.orderPrefixId = order.orderPrefixId;
+            orderData.email = order.email;
+            orderData.mobileNumber = order.telephone;
+            if (orderStatusData) {
+                orderData.orderStatusName = orderStatusData.name;
+                orderData.statusColorCode = orderStatusData.colorCode;
+            }
+            if (plugin) {
+                orderData.paymentMethod = plugin.pluginName;
+            }
+            orderData.currencySymbolLeft = order.currencySymbolLeft;
+            orderData.currencySymbolRight = order.currencySymbolRight;
+            orderData.paymentFlag = order.paymentFlag;
+            orderData.paymentStatus = order.paymentStatus;
+            const successResponse = {
+                status: 1,
+                message: 'Successfully shown the archive order Detail. ',
+                data: orderData,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Today order count API
+    /**
+     * @api {get} /api/vendor-order/today-vendor-order-count Today Vendor Order Count API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get Today order count",
+     *      "data":{
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/today-vendor-order-count
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderCount(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const nowDate = new Date();
+            const todaydate = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
+            const orderCount = yield this.vendorOrdersService.findVendorTodayOrderCount(request.user.vendorId, todaydate);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get Today order count',
+                data: orderCount,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Order Counts
+    /**
+     * @api {get} /api/vendor-order/order-counts order counts
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get Today order count",
+     *      "data":{
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/order-counts
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderCounts(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const nowDate = new Date();
+            const todaydate = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
+            const todayOrderCount = yield this.vendorOrdersService.findVendorTodayOrderCount(request.user.vendorId, todaydate);
+            const buyerAndRevenueCount = yield this.vendorOrdersService.getBuyersCount(request.user.vendorId);
+            const orderList = yield this.vendorOrdersService.searchOrderList(request.user.vendorId, '', '', '', '', 0);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get Today order count',
+                data: {
+                    totalOrderCount: orderList.length,
+                    todayOrderCount: todayOrderCount.orderCount,
+                    paidCount: buyerAndRevenueCount.salesCount,
+                },
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Delete Order API
+    /**
+     * @api {delete} /api/vendor-order/delete-vendor-order/:id Delete Vendor Order API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "id" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully deleted Vendor Order.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/delete-order/:id
+     * @apiErrorExample {json} orderDelete error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteOrder(orderid, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderData = yield this.orderService.find({ where: { orderId: orderid } });
+            if (orderData.length === 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid orderId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteOrder = yield this.orderService.delete(orderid);
+            if (deleteOrder) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Order Deleted Successfully',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to delete Order',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // update Order Status API
+    /**
+     * @api {put} /api/vendor-order/update-order-status/:vendorOrderId Update OrderStatus API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} subOrderStatusId OrderStatus subOrderStatusId
+     * @apiParamExample {json} Input
+     * {
+     *      "subOrderStatusId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated orderStatus.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/update-order-status/:vendorOrderId
+     * @apiErrorExample {json} OrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateOrderStatus(vendorOrderId, subOrderStatusId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const val = yield this.orderStatusService.findOne({ where: { orderStatusId: subOrderStatusId } });
+            if (val.isVendor !== 1) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Access Restricted to change status.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const vendorOrder = yield this.vendorOrdersService.findOne({
+                where: {
+                    vendorOrderId, vendorId: request.user.vendorId,
+                },
+            });
+            if (!vendorOrder) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Vendor Order',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const orderProductStatus = yield this.orderProductService.findOne({
+                where: {
+                    orderProductId: vendorOrder.orderProductId,
+                },
+            });
+            if (orderProductStatus.cancelRequestStatus === 1) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Cancel request for this product is approved, so you cannot update order status',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const vendorOrderLog = new VendorOrderLog_1.VendorOrderLog();
+            vendorOrderLog.vendorId = vendorOrder.vendorId;
+            vendorOrderLog.vendorOrderId = vendorOrder.vendorOrderId;
+            vendorOrderLog.orderId = vendorOrder.orderId;
+            vendorOrderLog.subOrderId = vendorOrder.subOrderId;
+            vendorOrderLog.subOrderStatusId = subOrderStatusId;
+            vendorOrderLog.total = vendorOrder.total;
+            yield this.vendorOrderLogService.create(vendorOrderLog);
+            vendorOrder.subOrderStatusId = subOrderStatusId;
+            const orderStatusUpdate = yield this.vendorOrdersService.update(vendorOrder.vendorOrderId, vendorOrder);
+            orderProductStatus.orderStatusId = subOrderStatusId;
+            const orderProductStatusUpdate = yield this.orderProductService.update(orderProductStatus.orderProductId, orderProductStatus);
+            const orderProductLog = new OrderProductLog_1.OrderProductLog();
+            orderProductLog.model = orderProductStatusUpdate.model;
+            orderProductLog.name = orderProductStatusUpdate.name;
+            orderProductLog.orderId = orderProductStatusUpdate.orderId;
+            orderProductLog.orderProductId = orderProductStatusUpdate.orderProductId;
+            orderProductLog.orderStatusId = orderProductStatusUpdate.orderStatusId;
+            orderProductLog.productId = orderProductStatusUpdate.productId;
+            orderProductLog.productPrice = orderProductStatusUpdate.productPrice;
+            orderProductLog.quantity = orderProductStatusUpdate.quantity;
+            orderProductLog.total = orderProductStatusUpdate.total;
+            orderProductLog.trace = orderProductStatusUpdate.trace;
+            orderProductLog.tax = orderProductStatusUpdate.tax;
+            orderProductLog.trackingNo = orderProductStatusUpdate.trackingNo;
+            orderProductLog.trackingUrl = orderProductStatusUpdate.trackingUrl;
+            orderProductLog.isActive = orderProductStatusUpdate.isActive;
+            yield this.orderProductLogService.create(orderProductLog);
+            const vendorOrderStatus = yield this.orderStatusService.findOne({
+                where: {
+                    orderStatusId: orderStatusUpdate.subOrderStatusId,
+                },
+            });
+            orderStatusUpdate.subOrderStatusId = vendorOrderStatus.orderStatusId;
+            orderStatusUpdate.name = vendorOrderStatus.name;
+            if (orderStatusUpdate !== undefined) {
+                const emailContent = yield this.emailTemplateService.findOne(21);
+                const logo = yield this.settingService.findOne();
+                const order = yield this.orderService.findOrder(orderProductStatus.orderId);
+                const orderStatus = yield this.orderStatusService.findOne(subOrderStatusId);
+                const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{title}', orderProductStatusUpdate.name).replace('{status}', orderStatus.name).replace('{order}', order.orderPrefixId);
+                const redirectUrl = env_1.env.storeRedirectUrl;
+                const mailContents = {};
+                mailContents.logo = logo;
+                mailContents.emailContent = message;
+                mailContents.redirectUrl = redirectUrl;
+                mailContents.productDetailData = undefined;
+                mail_services_1.MAILService.sendMail(mailContents, order.email, emailContent.subject, false, false, '');
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated the order status.',
+                    data: orderStatusUpdate,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 1,
+                    message: 'unable to update OrderStatus.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Vendor Order Status List API
+    /**
+     * @api {get} /api/vendor-order/vendor-order-status-list OrderStatus List API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} orderStatus orderStatus
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get vendor order status list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/vendor-order-status-list
+     * @apiErrorExample {json} OrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderStatusList(limit, offset, keyword, status, orderStatus, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['orderStatusId', 'name', 'colorCode', 'priority', 'isActive'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const orderStatusList = yield this.orderStatusService.list(limit, offset, select, search, [], count);
+            if (orderStatusList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the complete order status list.',
+                    data: orderStatusList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to get OrderStatus.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Vendor order List based on order status API
+    /**
+     * @api {get} /api/vendor-order/vendor-orders-based-status-list Vendor order List based on order status API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} vendorOrderLimit limit
+     * @apiParam (Request body) {Number} vendorOrderOffset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get vendor order list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/vendor-orders-based-status-list
+     * @apiErrorExample {json} OrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorOrderBasedStatusList(limit, offset, vendorOrderLimit, vendorOrderOffset, keyword, status, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['orderStatusId', 'name', 'colorCode', 'isActive'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const WhereConditions = [];
+            const orderStatusList = yield this.orderStatusService.list(limit, offset, select, search, WhereConditions, count);
+            const promise = orderStatusList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const selectOrder = [
+                    'VendorOrders.vendorOrderId as vendorOrderId',
+                    'VendorOrders.subOrderId as subOrderId',
+                    'orderDetail.createdDate as createdDate',
+                    'VendorOrders.subOrderStatusId as subOrderStatusId',
+                    'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                    'orderDetail.currencySymbolRight as currencySymbolRight',
+                    'orderDetail.shippingFirstname as firstName',
+                    'orderDetail.paymentStatus as paymentStatus',
+                    'VendorOrders.total as total',
+                    'orderProduct.discountAmount as discountAmount',
+                    'orderProduct.discountedAmount as discountedAmount',
+                    'orderProduct.couponDiscountAmount as couponDiscountAmount',
+                    'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                    'orderDetail.shippingAddress1 as shippingAdress1',
+                    'orderDetail.shippingCity as shippingCity',
+                    'orderDetail.shippingZone as shippingZone',
+                    'orderDetail.shippingCountry as shippingCountry'
+                ];
+                const relations = [
+                    {
+                        tableName: 'VendorOrders.orderDetail',
+                        aliasName: 'orderDetail',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderProduct',
+                        aliasName: 'orderProduct',
+                    },
+                ];
+                const groupBy = [];
+                const whereConditions = [];
+                whereConditions.push({
+                    name: 'VendorOrders.vendorId',
+                    op: 'and',
+                    value: request.user.vendorId,
+                }, {
+                    name: 'orderDetail.paymentProcess',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: 'VendorOrders.subOrderStatusId',
+                    op: 'and',
+                    value: value.orderStatusId,
+                });
+                const searchConditions = [];
+                const sort = [];
+                sort.push({
+                    name: 'orderDetail.createdDate',
+                    order: 'DESC',
+                });
+                const orderList = yield this.vendorOrdersService.listByQueryBuilder(vendorOrderLimit, vendorOrderOffset, selectOrder, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+                temp.vendorOrders = orderList;
+                return temp;
+            }));
+            const results = yield Promise.all(promise);
+            if (results) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the complete order status list.',
+                    data: results,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Vendor order detail based on order status API
+    /**
+     * @api {get} /api/vendor-order/vendor-orders-based-status-details/:orderStatusId Vendor order detail bases on order status API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get the vendor order details ",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/vendor-orders-based-status-details/:orderStatusId
+     * @apiErrorExample {json} OrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorOrderStatusDetails(orderStatusId, limit, offset, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const selectOrder = [
+                'VendorOrders.vendorOrderId as vendorOrderId',
+                'VendorOrders.subOrderId as subOrderId',
+                'orderDetail.createdDate as createdDate',
+                'VendorOrders.subOrderStatusId as subOrderStatusId',
+                'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                'orderDetail.currencySymbolRight as currencySymbolRight',
+                'orderDetail.shippingFirstname as firstName',
+                'orderDetail.paymentStatus as paymentStatus',
+                'VendorOrders.total as total',
+                'orderProduct.discountAmount as discountAmount',
+                'orderProduct.discountedAmount as discountedAmount',
+                'orderProduct.couponDiscountAmount as couponDiscountAmount',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                'orderDetail.shippingAddress1 as shippingAdress1',
+                'orderDetail.shippingCity as shippingCity',
+                'orderDetail.shippingZone as shippingZone',
+                'orderDetail.shippingCountry as shippingCountry'
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                },
+                {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'VendorOrders.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'VendorOrders.subOrderStatusId',
+                op: 'and',
+                value: orderStatusId,
+            });
+            const searchConditions = [];
+            const sort = [];
+            sort.push({
+                name: 'orderDetail.createdDate',
+                order: 'DESC',
+            });
+            if (count) {
+                const orderListCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, selectOrder, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got the vendor order count',
+                    data: orderListCount,
+                });
+            }
+            const orderList = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, selectOrder, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            if (orderList) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got the vendor order details.',
+                    data: orderList,
+                });
+            }
+        });
+    }
+    // Vendor order count based on order status API
+    /**
+     * @api {get} /api/vendor-order/vendor-orders-based-status-count Vendor order count based on order status API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get the vendor order status count",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/vendor-orders-based-status-count
+     * @apiErrorExample {json} OrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderListCount(limit, offset, vendorLimit, vendorOffset, keyword, status, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['orderStatusId', 'name', 'colorCode', 'isActive'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const WhereConditions = [];
+            const orderStatusList = yield this.orderStatusService.list(limit, offset, select, search, WhereConditions, count);
+            const promise = orderStatusList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const selectOrder = [];
+                const relations = [
+                    {
+                        tableName: 'VendorOrders.orderDetail',
+                        aliasName: 'orderDetail',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderProduct',
+                        aliasName: 'orderProduct',
+                    },
+                ];
+                const groupBy = [];
+                const whereConditions = [];
+                whereConditions.push({
+                    name: 'VendorOrders.vendorId',
+                    op: 'and',
+                    value: request.user.vendorId,
+                }, {
+                    name: 'orderDetail.paymentProcess',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: 'VendorOrders.subOrderStatusId',
+                    op: 'and',
+                    value: value.orderStatusId,
+                });
+                const searchConditions = [];
+                const sort = [];
+                sort.push({
+                    name: 'orderDetail.createdDate',
+                    order: 'DESC',
+                });
+                const orderList = yield this.vendorOrdersService.listByQueryBuilder(0, 0, selectOrder, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                temp.orderCount = orderList;
+                return temp;
+            }));
+            const results = yield Promise.all(promise);
+            if (results) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the vendor order status count.',
+                    data: results,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // order log List API
+    /**
+     * @api {get} /api/vendor-order/vendorOrderLoglist Vendor Order Log List API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorOrderId vendorOrderId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get vendor order log list",
+     *      "data":{
+     *      "orderId" : "",
+     *      "orderStatusId" : "",
+     *      "customerName" : "",
+     *      "totalAmount" : "",
+     *      "dateAdded" : "",
+     *      "dateModified" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/vendorOrderLoglist
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderLogList(vendorOrderId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['vendorOrderLogId', 'vendorId', 'vendorOrderId', 'orderId', 'subOrderId', 'subOrderStatusId', 'createdDate', 'modifiedDate'];
+            const WhereConditions = [
+                {
+                    name: 'vendorOrderId',
+                    op: 'where',
+                    value: vendorOrderId,
+                },
+            ];
+            const orderList = yield this.vendorOrderLogService.list(0, 0, select, WhereConditions, 0);
+            const orderStatuss = yield this.orderStatusService.findAll({ select: ['orderStatusId', 'name'], where: { isActive: 1, parentId: 7 }, order: { priority: 'ASC' } });
+            const order = orderStatuss.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const user = orderList.find(item => item.subOrderStatusId === value.orderStatusId);
+                const temp = value;
+                if (user === undefined) {
+                    temp.createdDate = '';
+                }
+                else {
+                    temp.createdDate = user.createdDate;
+                }
+                return temp;
+            }));
+            const result = yield Promise.all(order);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete Vendor Order Status Log list.',
+                data: result,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    //  Top Selling Product List API
+    /**
+     * @api {get} /api/vendor-order/top-selling-productlist  Top selling ProductList API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} duration 1-> thisWeek 2-> thisMonth 3-> thisYear
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get top selling product..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/top-selling-productlist
+     * @apiErrorExample {json} top selling product error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Detail Function
+    topSellingProductList(duration, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const data = yield this.vendorProductService.topProductSelling(request.user.vendorId, duration, 4);
+            const promise = data.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const product = yield this.productService.findOne({
+                    select: ['productId', 'price', 'name'],
+                    where: { productId: result.product },
+                });
+                const temp = result;
+                temp.product = product;
+                return temp;
+            }));
+            const value = yield Promise.all(promise);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get Top Selling Product..!',
+                data: value,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    //  update shipping information API
+    /**
+     * @api {post} /api/vendor-order/update-shipping-information   update shipping information API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorOrderId VendorOrderId
+     * @apiParam (Request body) {String} trackingUrl shipping tracking url
+     * @apiParam (Request body) {String} trackingNo shipping tracking no
+     * @apiParamExample {json} Input
+     * {
+     *   "orderId" : "",
+     *   "trackingUrl" : "",
+     *   "trackingNo" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated shipping information.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/update-shipping-information
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateShippingInformation(vendorOrderId, trackingUrl, trackingNo, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const updateOrder = yield this.vendorOrdersService.findOne({ where: { vendorOrderId, vendorId: request.user.vendorId } });
+            if (!updateOrder) {
+                const errResponse = {
+                    status: 0,
+                    message: 'Invalid Vendor Order',
+                };
+                return response.status(400).send(errResponse);
+            }
+            const updateOrderProduct = yield this.orderProductService.findOne(updateOrder.orderProductId);
+            if (updateOrderProduct.cancelRequestStatus === 1) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Cancel request for this product is approved, so you cannot update order status',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            updateOrder.trackingUrl = trackingUrl;
+            updateOrder.trackingNo = trackingNo;
+            const orderSave = yield this.vendorOrdersService.create(updateOrder);
+            updateOrderProduct.trackingUrl = trackingUrl;
+            updateOrderProduct.trackingNo = trackingNo;
+            yield this.orderProductService.createData(updateOrderProduct);
+            if (orderSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated Shipping Information',
+                    data: orderSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to update Shipping Information',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    //  Order Export PDF API
+    /**
+     * @api {get} /api/vendor-order/order-export-pdf  Order Export PDF API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorOrderId vendorOrderId
+     * @apiParamExample {json} Input
+     * {
+     *      "vendorOrderId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the Order Detail..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/order-export-pdf
+     * @apiErrorExample {json} Order Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Detail Function
+    orderExportPdf(vendorOrderId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderData = yield this.vendorOrdersService.findOne({
+                where: { vendorOrderId, vendorId: request.user.vendorId }, select: ['vendorOrderId', 'orderId', 'vendorId', 'subOrderId', 'subOrderStatusId', 'orderProductId', 'total', 'createdDate'],
+            });
+            if (!orderData) {
+                const errResponse = {
+                    status: 0,
+                    message: 'Invalid Vendor Order',
+                };
+                return response.status(400).send(errResponse);
+            }
+            orderData.productList = yield this.orderProductService.find({ where: { orderProductId: orderData.orderProductId }, select: ['orderProductId', 'name', 'quantity', 'total', 'productId', 'productPrice', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount'] }).then((val) => {
+                const vendorOrder = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const ProductImage = yield this.productImageService.findOne({ where: { productId: value.productId, defaultImage: 1 } });
+                    const temp = value;
+                    if (ProductImage) {
+                        temp.image = ProductImage.image;
+                        temp.containerName = ProductImage.containerName;
+                    }
+                    if (value.taxType === 2) {
+                        const price = value.discountAmount === '0.00' || value.discountAmount === null ? +value.basePrice : +value.discountedAmount;
+                        temp.taxValueInAmount = (price * (+value.taxValue / 100)).toFixed(2);
+                    }
+                    else {
+                        temp.taxValueInAmount = value.taxValue;
+                    }
+                    return temp;
+                }));
+                const results = Promise.all(vendorOrder);
+                return results;
+            });
+            const order = yield this.orderService.findOrder({
+                where: { orderId: orderData.orderId },
+                select: ['invoicePrefix', 'invoiceNo', 'orderPrefixId', 'shippingFirstname', 'shippingLastname', 'shippingAddress1', 'shippingAddress2', 'shippingCity', 'shippingPostcode', 'shippingCountry',
+                    'paymentFirstname', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity',
+                    'paymentPostcode', 'paymentCountry', 'currencySymbolLeft', 'currencySymbolRight', 'shippingZone', 'paymentMethod'],
+            });
+            const plugin = yield this.pluginService.findOne({ where: { id: order.paymentMethod } });
+            const select = '';
+            const relation = [];
+            const WhereConditions = [];
+            const limit = 1;
+            const settings = yield this.settingService.list(limit, select, relation, WhereConditions);
+            const settingDetails = settings[0];
+            const countryData = yield this.countryService.findOne({ where: { countryId: settingDetails.countryId } });
+            const zoneData = yield this.zoneService.findOne({ where: { zoneId: settingDetails.zoneId } });
+            orderData.settingDetails = settingDetails;
+            orderData.zoneData = (zoneData !== undefined) ? zoneData : ' ';
+            orderData.countryData = (countryData !== undefined) ? countryData : ' ';
+            orderData.shippingFirstname = order.shippingFirstname;
+            orderData.shippingLastname = order.shippingLastname;
+            orderData.shippingAddress1 = order.shippingAddress1;
+            orderData.shippingAddress2 = order.shippingAddress2;
+            orderData.shippingCity = order.shippingCity;
+            orderData.shippingPostcode = order.shippingPostcode;
+            orderData.paymentFirstname = order.paymentFirstname;
+            orderData.paymentLastname = order.paymentLastname;
+            orderData.paymentAddress1 = order.paymentAddress1;
+            orderData.paymentAddress2 = order.paymentAddress2;
+            orderData.paymentCity = order.paymentCity;
+            orderData.paymentPostcode = order.paymentPostcode;
+            orderData.paymentMethod = plugin.pluginName;
+            orderData.symbolLeft = order.currencySymbolLeft;
+            orderData.symbolRight = order.currencySymbolRight;
+            orderData.invoiceNo = order.invoiceNo;
+            orderData.invoicePrefix = order.invoicePrefix;
+            orderData.orderPrefixId = order.orderPrefixId;
+            let image;
+            if (env_1.env.imageserver === 's3') {
+                image = yield this.s3Service.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '50', '50');
+            }
+            else {
+                image = yield this.imageService.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '50', '50');
+            }
+            orderData.logo = image;
+            const htmlData = yield this.pdfService.readHtmlToString('invoice', orderData);
+            const pathName = `./Invoice_${order.invoicePrefix + order.invoiceNo}.pdf`;
+            yield this.pdfService.htmlPdf(htmlData, pathName);
+            return new Promise((resolve, reject) => {
+                response.download(pathName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(pathName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Make Vendor Order Archive API
+    /**
+     * @api {post} /api/vendor-order/make-vendor-order-archive Make Vendor Order Archive API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorOrderId Vendor Order Id
+     * @apiParamExample {json} Input
+     * {
+     *   "vendorOrderId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Archive",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/make-vendor-order-archive
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    makeArchive(vendorOrderId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorOrder = yield this.vendorOrdersService.findOne({
+                where: {
+                    vendorOrderId, vendorId: request.user.vendorId,
+                },
+            });
+            if (!vendorOrder) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Vendor Order',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newVendorOrderArchive = new VendorOrderArchive_1.VendorOrderArchive();
+            newVendorOrderArchive.vendorId = vendorOrder.vendorId;
+            newVendorOrderArchive.orderId = vendorOrder.orderId;
+            newVendorOrderArchive.subOrderId = vendorOrder.subOrderId;
+            newVendorOrderArchive.subOrderStatusId = vendorOrder.subOrderStatusId;
+            newVendorOrderArchive.order_product_Id = vendorOrder.orderProductId;
+            newVendorOrderArchive.total = vendorOrder.total;
+            newVendorOrderArchive.commission = vendorOrder.commission;
+            newVendorOrderArchive.trackingUrl = vendorOrder.trackingUrl;
+            newVendorOrderArchive.trackingNo = vendorOrder.trackingNo;
+            const archive = yield this.vendorOrderArchiveService.create(newVendorOrderArchive);
+            const vendorOrderLog = yield this.vendorOrderLogService.find({
+                where: {
+                    vendorOrderId,
+                },
+            });
+            const arr = [];
+            for (const data of vendorOrderLog) {
+                const newVendorOrderArchiveLog = new VendorOrderArchiveLog_1.VendorOrderArchiveLog();
+                newVendorOrderArchiveLog.vendorOrderArchiveId = archive.vendorOrderArchiveId;
+                newVendorOrderArchiveLog.vendorId = data.vendorId;
+                newVendorOrderArchiveLog.orderId = data.orderId;
+                newVendorOrderArchiveLog.subOrderId = data.subOrderId;
+                newVendorOrderArchiveLog.subOrderStatusId = data.subOrderStatusId;
+                newVendorOrderArchiveLog.order_product_Id = vendorOrder.orderProductId;
+                newVendorOrderArchiveLog.total = data.total;
+                newVendorOrderArchiveLog.commission = data.commission;
+                newVendorOrderArchiveLog.trackingUrl = data.trackingUrl;
+                newVendorOrderArchiveLog.trackingNo = data.trackingNo;
+                arr.push(newVendorOrderArchiveLog);
+            }
+            yield this.vendorOrderArchiveLogService.create(arr);
+            const vendorPayment = yield this.vendorPaymentService.findOne({
+                where: {
+                    vendorOrderId,
+                },
+            });
+            if (vendorPayment) {
+                const newVendorPaymentArchive = new VendorPaymentArchive_1.VendorPaymentArchive();
+                newVendorPaymentArchive.vendorId = vendorPayment.vendorId;
+                newVendorPaymentArchive.vendorOrderId = archive.vendorOrderArchiveId;
+                newVendorPaymentArchive.vendorOrderArchive = 1;
+                newVendorPaymentArchive.paymentItemId = vendorPayment.paymentItemId;
+                newVendorPaymentArchive.amount = vendorPayment.amount;
+                newVendorPaymentArchive.commissionAmount = vendorPayment.commissionAmount;
+                yield this.vendorPaymentArchiveService.create(newVendorPaymentArchive);
+            }
+            yield this.vendorOrdersService.delete(vendorOrder);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully revoked archived order',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Revoke Vendor Order Archive API
+    /**
+     * @api {post} /api/vendor-order/revoke-vendor-order-archive Revoke Vendor Order Archive API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorOrderArchiveId Vendor Order Archive Id
+     * @apiParamExample {json} Input
+     * {
+     *   "vendorOrderArchiveId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Revoked Archive",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/revoke-vendor-order-archive
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    revokeArchive(vendorOrderArchiveId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorOrderArchive = yield this.vendorOrderArchiveService.findOne({
+                where: {
+                    vendorOrderArchiveId,
+                },
+            });
+            if (!vendorOrderArchive) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'invalid Vendor Order Archive Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newVendorOrders = new VendorOrders_1.VendorOrders();
+            console.log('vendorId:', vendorOrderArchive.vendorId);
+            newVendorOrders.vendorId = vendorOrderArchive.vendorId;
+            newVendorOrders.orderId = vendorOrderArchive.orderId;
+            newVendorOrders.subOrderId = vendorOrderArchive.subOrderId;
+            newVendorOrders.subOrderStatusId = vendorOrderArchive.subOrderStatusId;
+            newVendorOrders.orderProductId = vendorOrderArchive.order_product_Id;
+            newVendorOrders.total = vendorOrderArchive.total;
+            newVendorOrders.commission = vendorOrderArchive.commission;
+            newVendorOrders.trackingUrl = vendorOrderArchive.trackingUrl;
+            newVendorOrders.trackingNo = vendorOrderArchive.trackingNo;
+            const vendorOrders = yield this.vendorOrdersService.create(newVendorOrders);
+            console.log('vendorOrderId:', vendorOrders.vendorOrderId);
+            const vendorOrderArchiveLog = yield this.vendorOrderArchiveLogService.find({
+                where: {
+                    vendorOrderArchiveId,
+                },
+            });
+            const arr = [];
+            for (const data of vendorOrderArchiveLog) {
+                const newVendorOrderLog = new VendorOrderLog_1.VendorOrderLog();
+                newVendorOrderLog.vendorOrderId = vendorOrders.vendorOrderId;
+                newVendorOrderLog.vendorId = data.vendorId;
+                newVendorOrderLog.orderId = data.orderId;
+                newVendorOrderLog.subOrderId = data.subOrderId;
+                newVendorOrderLog.subOrderStatusId = data.subOrderStatusId;
+                newVendorOrderLog.total = data.total;
+                arr.push(newVendorOrderLog);
+            }
+            yield this.vendorOrderLogService.create(arr);
+            const vendorPaymentArchive = yield this.vendorPaymentArchiveService.findOne({
+                where: {
+                    vendorOrderId: vendorOrderArchiveId, vendorOrderArchive: 1,
+                },
+            });
+            console.log('vendorPaymentArchive:', vendorPaymentArchive);
+            if (vendorPaymentArchive) {
+                const newVendorPayment = new VendorPayment_1.VendorPayment();
+                newVendorPayment.vendorId = vendorPaymentArchive.vendorId;
+                newVendorPayment.vendorOrderId = vendorOrders.vendorOrderId;
+                newVendorPayment.paymentItemId = vendorPaymentArchive.paymentItemId;
+                newVendorPayment.amount = vendorPaymentArchive.amount;
+                newVendorPayment.commissionAmount = vendorPaymentArchive.commissionAmount;
+                yield this.vendorPaymentService.create(newVendorPayment);
+                console.log('vendorPayment:', newVendorPayment);
+            }
+            yield this.vendorOrderArchiveService.delete(vendorOrderArchive);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully archived',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Archive Order List API
+    /**
+     * @api {get} /api/vendor-order/archive-order-list  Archive Order list API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword search by orderId, customer name
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got archive order list",
+     *      "data":{
+     *      "orderId" : "",
+     *      "orderStatusId" : "",
+     *      "customerName" : "",
+     *      "totalAmount" : "",
+     *      "dateModified" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/archive-order-list
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    archiveOrderList(limit, offset, keyword, startDate, endDate, deliverylist, orderId, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const date = endDate + ' 23:59:59';
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const select = [
+                'VendorOrderArchive.vendorOrderArchiveId as vendorOrderArchiveId',
+                'VendorOrderArchive.orderId as orderId',
+                'VendorOrderArchive.vendorId as vendorId',
+                'VendorOrderArchive.subOrderId as subOrderId',
+                'VendorOrderArchive.subOrderStatusId as subOrderStatusId',
+                'vendorOrderStatus.name as orderStatusName',
+                'vendorOrderStatus.colorCode as orderColorCode',
+                'order.orderStatusId as orderStatusId',
+                'order.createdDate as createdDate',
+                'order.currencySymbolLeft as currencySymbolLeft',
+                'order.currencySymbolRight as currencySymbolRight',
+                'order.shippingFirstname as customerFirstName',
+                'order.paymentStatus as paymentStatus',
+                'order.orderPrefixId as orderPrefixId',
+                'VendorOrderArchive.total as total',
+                'VendorOrderArchive.commission as commission',
+                'order.isActive as isActive',
+                'order.shippingCity as shippingCity',
+                'order.shippingCountry as shippingCountry',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                'orderProduct.discountAmount as discountAmount',
+                'orderProduct.couponDiscountAmount as couponDiscountAmount',
+                'orderProduct.discountedAmount as discountedAmount'
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrderArchive.order',
+                    aliasName: 'order',
+                },
+                {
+                    tableName: 'VendorOrderArchive.orderStatus',
+                    aliasName: 'vendorOrderStatus',
+                },
+                {
+                    tableName: 'VendorOrderArchive.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'VendorOrderArchive.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            });
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`order`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDateMin,
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`order`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDateMin,
+                });
+            }
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['shipping_firstname', 'order.orderPrefixId'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            if (orderId && orderId !== '') {
+                searchConditions.push({
+                    name: ['order.orderPrefixId'],
+                    value: orderId.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'order.createdDate',
+                order: 'DESC',
+            });
+            const orderArchiveList = yield this.vendorOrderArchiveService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const orderArchiveResponse = orderArchiveList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const defCommission = (value.commission && value.commission > 0) ? value.commission : 0;
+                let commission;
+                commission = value.total * (defCommission / 100);
+                temp.NetAmount = value.total - commission;
+                temp.CommissionAmount = commission;
+                return temp;
+            }));
+            const paymentListDetails = yield Promise.all(orderArchiveResponse);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete order archive list.',
+                data: paymentListDetails,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Archive Order List Count API
+    /**
+     * @api {get} /api/vendor-order/archive-order-list-count  Archive Order list count API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword search by orderId, customer name
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got archive order list count",
+     *      "data":{
+     *      "orderId" : "",
+     *      "orderStatusId" : "",
+     *      "customerName" : "",
+     *      "totalAmount" : "",
+     *      "dateModified" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/archive-order-list-count
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    archiveOrderListCount(limit, offset, keyword, startDate, endDate, deliverylist, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const date = endDate + ' 23:59:59';
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const select = [
+                'VendorOrderArchive.vendorOrderArchiveId as vendorOrderArchiveId',
+                'VendorOrderArchive.orderId as orderId',
+                'VendorOrderArchive.vendorId as vendorId',
+                'VendorOrderArchive.subOrderId as subOrderId',
+                'VendorOrderArchive.subOrderStatusId as subOrderStatusId',
+                'vendorOrderStatus.name as orderStatusName',
+                'vendorOrderStatus.colorCode as orderColorCode',
+                'order.orderStatusId as orderStatusId',
+                'order.createdDate as createdDate',
+                'order.currencySymbolLeft as currencySymbolLeft',
+                'order.currencySymbolRight as currencySymbolRight',
+                'order.shippingFirstname as customerFirstName',
+                'order.paymentStatus as paymentStatus',
+                'VendorOrderArchive.total as total',
+                'VendorOrderArchive.commission as commission',
+                'order.isActive as isActive',
+                'order.shippingCity as shippingCity',
+                'order.shippingCountry as shippingCountry',
+                'orderProduct.discountAmount as discountAmount',
+                'orderProduct.couponDiscountAmount as couponDiscountAmount',
+                'orderProduct.discountedAmount as discountedAmount'
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrderArchive.order',
+                    aliasName: 'order',
+                },
+                {
+                    tableName: 'VendorOrderArchive.orderStatus',
+                    aliasName: 'vendorOrderStatus',
+                },
+                {
+                    tableName: 'VendorOrderArchive.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'VendorOrderArchive.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            });
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`order`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDateMin,
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`order`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDateMin,
+                });
+            }
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['shipping_firstname', 'VendorOrderArchive.subOrderId'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'order.createdDate',
+                order: 'DESC',
+            });
+            const orderArchiveList = yield this.vendorOrderArchiveService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete order archive list count.',
+                data: orderArchiveList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Order List API
+    /**
+     * @api {get} /api/vendor-order/order-list  Order list API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiParam (Request body) {String} orderId orderId
+     * @apiParam (Request body) {Number} amount amount
+     * @apiParam (Request body) {String} orderStatus orderStatus
+     * @apiParam (Request body) {String} customerName
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} dateAdded search by dateAdded
+     * @apiParam (Request body) {Number} deliverylist deliverylist
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got order list",
+     *      "data":{
+     *      "orderId" : "",
+     *      "orderStatusId" : "",
+     *      "customerName" : "",
+     *      "totalAmount" : "",
+     *      "dateModified" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/order-list
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderListtt(limit, offset, customerName, orderId, amount, keyword, orderStatus, startDate, endDate, deliverylist, dateAdded, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const date = endDate + ' 23:59:59';
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const select = [
+                'VendorOrders.vendorOrderId as vendorOrderId',
+                'VendorOrders.orderId as orderId',
+                'VendorOrders.vendorId as vendorId',
+                'VendorOrders.subOrderId as subOrderId',
+                'VendorOrders.subOrderStatusId as subOrderStatusId',
+                'orderStatus.name as orderStatusName',
+                'orderStatus.colorCode as orderColorCode',
+                'orderDetail.orderStatusId as orderStatusId',
+                'orderDetail.createdDate as createdDate',
+                'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                'orderDetail.currencySymbolRight as currencySymbolRight',
+                'orderDetail.shippingFirstname as customerFirstName',
+                'orderDetail.paymentStatus as paymentStatus',
+                'VendorOrders.total as total',
+                'VendorOrders.commission as commission',
+                'orderDetail.isActive as isActive',
+                'orderDetail.shippingCity as shippingCity',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                'orderProduct.discountAmount as discountAmount',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                'orderProduct.discountedAmount as discountedAmount',
+                'order.orderPrefixId as orderPrefixId',
+                'customer.firstName as firstName',
+                'customer.lastName as lastName',
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                },
+                {
+                    tableName: 'VendorOrders.orderStatus',
+                    aliasName: 'orderStatus',
+                },
+                {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+                {
+                    tableName: 'VendorOrders.order',
+                    aliasName: 'order',
+                },
+                {
+                    tableName: 'order.customer',
+                    aliasName: 'customer',
+                },
+            ];
+            const groupBy = [];
+            const whereConditions = [];
+            const searchConditions = [];
+            if (orderId && orderId !== '') {
+                searchConditions.push({
+                    name: ['order.orderPrefixId'],
+                    value: orderId,
+                });
+            }
+            if (+orderStatus && orderStatus !== '') {
+                whereConditions.push({
+                    name: 'VendorOrders.subOrderStatusId',
+                    op: 'and',
+                    value: +orderStatus,
+                });
+            }
+            if (amount && amount !== '') {
+                searchConditions.push({
+                    name: ['VendorOrders.total'],
+                    value: amount,
+                });
+            }
+            whereConditions.push({
+                name: 'VendorOrders.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderDetail.backOrders',
+                op: 'and',
+                value: 0,
+            });
+            if (+deliverylist) {
+                whereConditions.push({
+                    name: 'orderDetail.paymentStatus',
+                    op: 'and',
+                    value: 1,
+                });
+            }
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`orderDetail`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDateMin,
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`orderDetail`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDateMin,
+                });
+            }
+            if (dateAdded) {
+                searchConditions.push({
+                    name: ['orderDetail.createdDate'],
+                    value: dateAdded,
+                });
+            }
+            if (customerName && customerName !== '') {
+                searchConditions.push({
+                    name: ['orderDetail.shippingFirstname'],
+                    value: customerName,
+                });
+            }
+            if (keyword === null || keyword === void 0 ? void 0 : keyword.trim()) {
+                searchConditions.push({
+                    name: ['orderDetail.shippingFirstname', 'orderDetail.shippingCity', 'order.orderPrefixId', 'VendorOrders.total'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'orderDetail.createdDate',
+                order: 'DESC',
+            });
+            if (count) {
+                const orderCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got the vendor orders count',
+                    data: orderCount,
+                });
+            }
+            const orderList = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const orderResponse = orderList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const defCommission = (value.commission && value.commission > 0) ? value.commission : 0;
+                let commission;
+                commission = value.total * (defCommission / 100);
+                temp.NetAmount = value.total - commission;
+                temp.CommissionAmount = commission;
+                return temp;
+            }));
+            const paymentListDetails = yield Promise.all(orderResponse);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete order list.',
+                data: paymentListDetails,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Bulk Archive Order Export API
+    /**
+     * @api {get} /api/vendor-order/bulk-archive-order-export  Bulk Archive Order Export API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorId vendorId
+     * @apiSampleRequest /api/vendor-order/bulk-archive-order-export
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    archiveOrderExportBulk(vendorId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Bulk Archive Order Archive Excel');
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'SubOrderId', key: 'subOrderId', size: 16, width: 15 },
+                { header: 'orderDate', key: 'orderDate', size: 16, width: 15 },
+                { header: 'CustomerName', key: 'customerName', size: 16, width: 15 },
+                { header: 'CustomerAddress', key: 'CustomerAdress', size: 16, width: 24 },
+                { header: 'OrderAmount', key: 'TotalAmount', size: 16, width: 15 },
+                { header: 'CommissionAmount', key: 'CommissionAmount', size: 16, width: 15 },
+                { header: 'NetAmount', key: 'NetAmount', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const rows = [];
+            const select = [
+                'VendorOrderArchive.vendorOrderArchiveId as vendorOrderArchiveId',
+                'VendorOrderArchive.orderId as orderId',
+                'VendorOrderArchive.vendorId as vendorId',
+                'VendorOrderArchive.subOrderId as subOrderId',
+                'order.orderStatusId as orderStatusId',
+                'order.createdDate as createdDate',
+                'order.currencySymbolLeft as currencySymbolLeft',
+                'order.currencySymbolRight as currencySymbolRight',
+                'order.shippingFirstname as customerFirstName',
+                'order.paymentStatus as paymentStatus',
+                'VendorOrderArchive.total as total',
+                'VendorOrderArchive.commission as commission',
+                'order.isActive as isActive',
+                'order.shippingCity as shippingCity',
+                'order.shippingCountry as shippingCountry',
+                'orderProduct.discountAmount as discountAmount',
+                'orderProduct.couponDiscountAmount as couponDiscountAmount',
+                'orderProduct.discountedAmount as discountedAmount'
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrderArchive.order',
+                    aliasName: 'order',
+                },
+                {
+                    tableName: 'VendorOrderArchive.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'VendorOrderArchive.vendorId',
+                op: 'and',
+                value: vendorId,
+            });
+            const searchConditions = [];
+            const sort = [];
+            sort.push({
+                name: 'order.createdDate',
+                order: 'DESC',
+            });
+            const orderArchiveList = yield this.vendorOrderArchiveService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            for (const val of orderArchiveList) {
+                const defCommission = (val.commission && val.commission > 0) ? val.commission : 0;
+                let commission;
+                let CommissionAmount;
+                let netAmount;
+                commission = val.total * (defCommission / 100);
+                CommissionAmount = commission;
+                netAmount = val.total - commission;
+                if (val.currencySymbolLeft !== undefined) {
+                    rows.push([val.subOrderId, val.createdDate, val.customerFirstName, val.shippingCity + ',' + val.shippingCountry, val.currencySymbolLeft + (parseFloat(val.total) + parseFloat(val.discountAmount)),
+                        val.currencySymbolLeft + CommissionAmount, val.currencySymbolLeft + netAmount]);
+                }
+                else if (val.currencySymbolRight !== undefined) {
+                    rows.push([val.subOrderId, val.createdDate, val.customerFirstName, val.shippingCity + ',' + val.shippingCountry, (parseFloat(val.total) + parseFloat(val.discountAmount)) + val.currencySymbolRight,
+                        CommissionAmount + val.currencySymbolLeft, netAmount + val.currencySymbolLeft]);
+                }
+                else {
+                    rows.push([val.subOrderId, val.createdDate, val.customerFirstName, val.shippingCity + ',' + val.shippingCountry, (parseFloat(val.total) + parseFloat(val.discountAmount)),
+                        CommissionAmount, netAmount]);
+                }
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './VendorOrderArchiveExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Archive Order Export API
+    /**
+     * @api {get} /api/vendor-order/archive-order-export  Archive Order Export API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} vendorOrderArchiveId vendorOrderArchiveId
+     * @apiSampleRequest /api/vendor-order/archive-order-export
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    archiveOrderExport(vendorOrderArchiveId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Order Archive Excel');
+            // Excel sheet column define
+            const splitOrderArchive = vendorOrderArchiveId.split(',');
+            for (const record of splitOrderArchive) {
+                const dataId = yield this.vendorOrderArchiveService.findOne({ where: { vendorOrderArchiveId: record, vendorId: request.user.vendorId } });
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid ArchiveId',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            worksheet.columns = [
+                { header: 'SubOrderId', key: 'subOrderId', size: 16, width: 15 },
+                { header: 'orderDate', key: 'orderDate', size: 16, width: 15 },
+                { header: 'ArchiveDate', key: 'archiveDate', size: 16, width: 15 },
+                { header: 'CustomerName', key: 'customerName', size: 16, width: 15 },
+                { header: 'CustomerAddress', key: 'CustomerAdress', size: 16, width: 24 },
+                { header: 'OrderAmount', key: 'TotalAmount', size: 16, width: 15 },
+                { header: 'CommissionAmount', key: 'CommissionAmount', size: 16, width: 15 },
+                { header: 'NetAmount', key: 'NetAmount', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const rows = [];
+            for (const val of splitOrderArchive) {
+                const orderArchive = yield this.vendorOrderArchiveService.findOne({ where: { vendorOrderArchiveId: val } });
+                const order = yield this.orderService.findOrder({ where: { orderId: orderArchive.orderId } });
+                const orderProduct = yield this.orderProductService.findOne({ where: { orderProductId: orderArchive.order_product_Id } });
+                const defCommission = (orderArchive.commission && orderArchive.commission > 0) ? orderArchive.commission : 0;
+                let commission;
+                let CommissionAmount;
+                let netAmount;
+                commission = orderArchive.total * (defCommission / 100);
+                CommissionAmount = commission;
+                netAmount = orderArchive.total - commission;
+                if (order.currencySymbolLeft !== undefined) {
+                    rows.push([orderArchive.subOrderId, order.createdDate, orderArchive.createdDate, order.shippingFirstname, order.shippingCity + ',' + order.shippingCountry, order.currencySymbolLeft + (parseFloat(orderArchive.total) + parseFloat(orderProduct.discountAmount)),
+                        order.currencySymbolLeft + CommissionAmount, order.currencySymbolLeft + netAmount]);
+                }
+                else if (order.currencySymbolRight !== undefined) {
+                    rows.push([orderArchive.subOrderId, order.createdDate, orderArchive.createdDate, order.shippingFirstname, order.shippingCity + ',' + order.shippingCountry, (parseFloat(orderArchive.total) + parseFloat(orderProduct.discountAmount)) + order.currencySymbolRight,
+                        CommissionAmount + order.currencySymbolLeft, netAmount + order.currencySymbolLeft]);
+                }
+                else {
+                    rows.push([orderArchive.subOrderId, order.createdDate, orderArchive.createdDate, order.shippingFirstname, order.shippingCity + ',' + order.shippingCountry, (parseFloat(orderArchive.total) + parseFloat(orderProduct.discountAmount)),
+                        CommissionAmount, netAmount]);
+                }
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './VendorOrderArchiveExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Cancel Order List API
+    /**
+     * @api {get} /api/vendor-order/cancel-order-list  Cancel Order list API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword search by orderId, customer name
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got cancel order list",
+     *      "data":{
+     *      "orderId" : "",
+     *      "orderStatusId" : "",
+     *      "customerName" : "",
+     *      "totalAmount" : "",
+     *      "dateModified" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/cancel-order-list
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    cancelorderListtt(limit, offset, keyword, startDate, endDate, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const date = endDate + ' 23:59:59';
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const select = [
+                'VendorOrders.vendorOrderId as vendorOrderId',
+                'VendorOrders.orderId as orderId',
+                'VendorOrders.vendorId as vendorId',
+                'VendorOrders.subOrderId as subOrderId',
+                'VendorOrders.subOrderStatusId as subOrderStatusId',
+                'orderStatus.name as orderStatusName',
+                'orderStatus.colorCode as orderColorCode',
+                'orderDetail.orderStatusId as orderStatusId',
+                'orderDetail.createdDate as createdDate',
+                'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                'orderDetail.currencySymbolRight as currencySymbolRight',
+                'orderDetail.shippingFirstname as customerFirstName',
+                'orderDetail.paymentStatus as paymentStatus',
+                'VendorOrders.total as total',
+                'VendorOrders.commission as commission',
+                'orderDetail.isActive as isActive',
+                'orderDetail.shippingCity as shippingCity',
+                'orderDetail.shippingCountry as shippingCountry',
+                'orderProduct.orderProductId as orderProductId',
+                'orderProduct.name as name',
+                'orderProduct.cancelRequest as cancelRequest',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                'orderProduct.cancelRequestStatus as cancelRequestStatus',
+                'orderProduct.cancelReason as cancelReason',
+                'orderProduct.discountAmount as discountAmount',
+                'orderProduct.couponDiscountAmount as couponDiscountAmount',
+                'orderProduct.discountedAmount as discountedAmount',
+                'orderProduct.cancelReasonDescription as cancelReasonDescription'
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                },
+                {
+                    tableName: 'VendorOrders.orderStatus',
+                    aliasName: 'orderStatus',
+                },
+                {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'VendorOrders.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderProduct.cancelRequest',
+                op: 'and',
+                value: 1,
+            });
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`orderDetail`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDateMin,
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`orderDetail`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDateMin,
+                });
+            }
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['shipping_firstname', 'orderProduct.orderProductPrefixId'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'orderDetail.createdDate',
+                order: 'DESC',
+            });
+            if (count) {
+                const orderListCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got the cancel request count.',
+                    data: orderListCount,
+                };
+                return response.status(200).send(successRes);
+            }
+            const orderList = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const orderResponse = orderList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const defCommission = (value.commission && value.commission > 0) ? value.commission : 0;
+                let commission;
+                commission = value.total * (defCommission / 100);
+                temp.NetAmount = value.total - commission;
+                temp.CommissionAmount = commission;
+                return temp;
+            }));
+            const paymentListDetails = yield Promise.all(orderResponse);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete cancel order list.',
+                data: paymentListDetails,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // update Vendor Order Cancel Request Status API
+    /**
+     * @api {put} /api/vendor-order/update-vendor-order-cancel-request/:orderProductId Update Vendor Order Cancel Request Status API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} cancelStatusId send 1 -> approved 2 ->rejected
+     * @apiParamExample {json} Input
+     * {
+     *      "cancelStatusId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated order cancel status.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/update-vendor-order-cancel-request/:orderProductId
+     * @apiErrorExample {json} Vendor Order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateVendorOrderCancelStatus(orderProductId, cancelStatusId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderProduct = yield this.orderProductService.findOne({
+                where: {
+                    orderProductId,
+                },
+            });
+            if (!orderProduct) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid orderProductId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const vendorOrder = yield this.vendorOrdersService.findOne({
+                where: {
+                    orderProductId, vendorId: request.user.vendorId,
+                },
+            });
+            if (!vendorOrder) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid orderProductId for vendor',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            orderProduct.cancelRequestStatus = cancelStatusId;
+            const orderProductStatusUpdate = yield this.orderProductService.update(orderProduct.orderProductId, orderProduct);
+            const order = yield this.orderService.findOrder({ where: { orderId: orderProduct.orderId } });
+            const emailContent = yield this.emailTemplateService.findOne(20);
+            const logo = yield this.settingService.findOne();
+            let status;
+            let res;
+            if (orderProductStatusUpdate.cancelRequestStatus === 1) {
+                status = 'approved';
+                res = 'Successfully accepted the cancelled orders';
+            }
+            else if (orderProductStatusUpdate.cancelRequestStatus === 2) {
+                status = 'rejected';
+                res = 'Successfully rejected the cancelled orders';
+            }
+            else if (orderProductStatusUpdate.cancelRequestStatus === 0) {
+                status = 'pending';
+            }
+            const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{productname}', orderProduct.name).replace('{status}', status);
+            const redirectUrl = env_1.env.vendorRedirectUrl;
+            const mailContents = {};
+            mailContents.logo = logo;
+            mailContents.emailContent = message;
+            mailContents.redirectUrl = redirectUrl;
+            mailContents.productDetailData = undefined;
+            mail_services_1.MAILService.sendMail(mailContents, order.email, emailContent.subject, false, false, '');
+            if (orderProductStatusUpdate !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: res,
+                    data: orderProductStatusUpdate,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 1,
+                    message: 'unable to update Order Cancel Status.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // update Bulk Order Cancel Request Status API
+    /**
+     * @api {get} /api/vendor-order/update-bulk-vendor-order-cancel-request Update bulk Vendor Order Cancel Request Status API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} orderProductId
+     * @apiParam (Request body) {Number} cancelStatusId send 1 -> approved 2 ->rejected
+     * @apiParamExample {json} Input
+     * {
+     *      "cancelStatusId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated Bulk order cancel status.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/update-bulk-vendor-order-cancel-request
+     * @apiErrorExample {json} Vendor Order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateBulkVendorOrderCancelStatus(orderProductId, cancelStatusId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderProducts = orderProductId.split(',');
+            const arr = [];
+            for (const orderProduct of orderProducts) {
+                const orderProd = yield this.orderProductService.findOne({
+                    where: {
+                        orderProductId: orderProduct,
+                    },
+                });
+                if (!orderProd) {
+                    arr.push(1);
+                }
+            }
+            if (arr.length > 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid orderProductId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            for (const orderProduct of orderProducts) {
+                const vendorOrder = yield this.vendorOrdersService.findOne({
+                    where: {
+                        orderProductId: orderProduct, vendorId: request.user.vendorId,
+                    },
+                });
+                if (!vendorOrder) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid orderProductId for vendor',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            for (const orderProduct of orderProducts) {
+                const orderProdt = yield this.orderProductService.findOne({
+                    where: {
+                        orderProductId: orderProduct,
+                    },
+                });
+                orderProdt.cancelRequestStatus = cancelStatusId;
+                const orderProductStatusUpdate = yield this.orderProductService.update(orderProdt.orderProductId, orderProdt);
+                const order = yield this.orderService.findOrder({ where: { orderId: orderProdt.orderId } });
+                const emailContent = yield this.emailTemplateService.findOne(20);
+                const logo = yield this.settingService.findOne();
+                let status;
+                if (orderProductStatusUpdate.cancelRequestStatus === 1) {
+                    status = 'approved';
+                }
+                else if (orderProductStatusUpdate.cancelRequestStatus === 2) {
+                    status = 'rejected';
+                }
+                else if (orderProductStatusUpdate.cancelRequestStatus === 0) {
+                    status = 'pending';
+                }
+                const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{productname}', orderProdt.name).replace('{status}', status);
+                const redirectUrl = env_1.env.vendorRedirectUrl;
+                const mailContents = {};
+                mailContents.logo = logo;
+                mailContents.emailContent = message;
+                mailContents.redirectUrl = redirectUrl;
+                mailContents.productDetailData = undefined;
+                mail_services_1.MAILService.sendMail(mailContents, order.email, emailContent.subject, false, false, '');
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully updated the order cancel status.',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Export bulk order cancel request
+    /**
+     * @api {get} /api/vendor-order/vendor-order-cancel-excel-list Vendor Order Cancel Excel list
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} orderProductId orderProductId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the Vendor Order Cancel Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/vendor-order-cancel-excel-list
+     * @apiErrorExample {json} Vendor Order Cancel Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    exportCancelRequest(orderProductId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Order Detail Sheet');
+            const rows = [];
+            const orderid = orderProductId.split(',');
+            for (const id of orderid) {
+                const dataId = yield this.orderProductService.findOne({ where: { orderProductId: id } });
+                if (dataId.length === 0) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid orderProductId',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'Sub Order Id', key: 'subOrderId', size: 16, width: 15 },
+                { header: 'Customer Name', key: 'shippingFirstname', size: 16, width: 15 },
+                { header: 'Email', key: 'email', size: 16, width: 15 },
+                { header: 'Product Name', key: 'productName', size: 16, width: 15 },
+                { header: 'Product Price', key: 'productPrice', size: 16, width: 15 },
+                { header: 'Quantity', key: 'quantity', size: 16, width: 15 },
+                { header: 'total', key: 'total', size: 16, width: 15 },
+                { header: 'Order Cancel Status', key: 'cancelRequestStatus', size: 16, width: 15 },
+                { header: 'Order Cancel Reason', key: 'cancelRequestReason', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('H1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('I1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const id of orderid) {
+                const vendorOrder = yield this.vendorOrdersService.findOne({
+                    where: {
+                        orderProductId: id, vendorId: request.user.vendorId,
+                    },
+                });
+                if (vendorOrder) {
+                    const data = yield this.orderProductService.findOne(id);
+                    const dataId = yield this.orderService.findOrder(data.orderId);
+                    let status;
+                    if (data.cancelRequestStatus === 1) {
+                        status = 'approved';
+                    }
+                    else if (data.cancelRequestStatus === 2) {
+                        status = 'rejected';
+                    }
+                    else if (data.cancelRequestStatus === 0) {
+                        status = 'pending';
+                    }
+                    const right = dataId.currencySymbolRight;
+                    const left = dataId.currencySymbolLeft;
+                    if (left === null && right === null) {
+                        rows.push([vendorOrder.subOrderId, dataId.shippingFirstname, dataId.email, data.name, data.productPrice, data.quantity, data.total, data.cancelReason, status]);
+                    }
+                    else {
+                        if (left !== undefined) {
+                            rows.push([vendorOrder.subOrderId, dataId.shippingFirstname, dataId.email, data.name, data.productPrice, data.quantity, left + data.total, data.cancelReason, status]);
+                        }
+                        else {
+                            rows.push([vendorOrder.subOrderId, dataId.shippingFirstname, dataId.email, data.name, data.productPrice, data.quantity, data.total + right, data.cancelReason, status]);
+                        }
+                    }
+                }
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './OrderCancelExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Export bulk Vendor order cancel request api
+    /**
+     * @api {get} /api/vendor-order/bulk-vendor-order-cancel-excel-list Bulk Order Cancel Excel list
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the Bulk Order Cancel Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/bulk-vendor-order-cancel-excel-list
+     * @apiErrorExample {json} Order Cancel Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    bulkExportVendorOrderCancelRequest(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Order Detail Sheet');
+            const rows = [];
+            const select = [
+                'VendorOrders.vendorOrderId as vendorOrderId',
+                'VendorOrders.orderId as orderId',
+                'VendorOrders.vendorId as vendorId',
+                'VendorOrders.subOrderId as subOrderId',
+                'VendorOrders.subOrderStatusId as subOrderStatusId',
+                'orderStatus.name as orderStatusName',
+                'orderStatus.colorCode as orderColorCode',
+                'orderDetail.orderStatusId as orderStatusId',
+                'orderDetail.createdDate as createdDate',
+                'orderDetail.email as email',
+                'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                'orderDetail.currencySymbolRight as currencySymbolRight',
+                'orderDetail.shippingFirstname as customerFirstName',
+                'orderDetail.paymentStatus as paymentStatus',
+                'VendorOrders.total as total',
+                'VendorOrders.commission as commission',
+                'orderDetail.isActive as isActive',
+                'orderDetail.shippingCity as shippingCity',
+                'orderDetail.shippingCountry as shippingCountry',
+                'orderProduct.orderProductId as orderProductId',
+                'orderProduct.cancelRequest as cancelRequest',
+                'orderProduct.cancelRequestStatus as cancelRequestStatus',
+                'orderProduct.cancelReason as cancelReason',
+                'orderProduct.name as name',
+                'orderProduct.productPrice as productPrice',
+                'orderProduct.quantity as quantity',
+                'orderProduct.discountAmount as discountAmount',
+                'orderProduct.discountAmount as discountAmount',
+                'orderProduct.couponDiscountAmount as couponDiscountAmount',
+                'orderProduct.cancelReasonDescription as cancelReasonDescription'
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                },
+                {
+                    tableName: 'VendorOrders.orderStatus',
+                    aliasName: 'orderStatus',
+                },
+                {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'VendorOrders.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderProduct.cancelRequest',
+                op: 'and',
+                value: 1,
+            });
+            const searchConditions = [];
+            const sort = [];
+            sort.push({
+                name: 'orderDetail.createdDate',
+                order: 'DESC',
+            });
+            const orderList = yield this.vendorOrdersService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            // Excel sheet column define
+            if (orderList.length === 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'file is empty',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            worksheet.columns = [
+                { header: 'sub Order Id', key: 'subOrderId', size: 16, width: 15 },
+                { header: 'Customer Name', key: 'shippingFirstname', size: 16, width: 15 },
+                { header: 'Email', key: 'email', size: 16, width: 15 },
+                { header: 'Product Name', key: 'productName', size: 16, width: 15 },
+                { header: 'Product Price', key: 'productPrice', size: 16, width: 15 },
+                { header: 'Quantity', key: 'quantity', size: 16, width: 15 },
+                { header: 'total', key: 'total', size: 16, width: 15 },
+                { header: 'Order Cancel Status', key: 'cancelRequestStatus', size: 16, width: 15 },
+                { header: 'Order Cancel Reason', key: 'cancelRequestReason', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('H1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('I1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const id of orderList) {
+                let status;
+                if (id.cancelRequestStatus === 1) {
+                    status = 'approved';
+                }
+                else if (id.cancelRequestStatus === 2) {
+                    status = 'rejected';
+                }
+                else if (id.cancelRequestStatus === 0) {
+                    status = 'pending';
+                }
+                const right = id.currencySymbolRight;
+                const left = id.currencySymbolLeft;
+                if (left === null && right === null) {
+                    rows.push([id.subOrderId, id.customerFirstName, id.email, id.name, id.productPrice, id.quantity, id.total, id.cancelReason, status]);
+                }
+                else {
+                    if (left !== undefined) {
+                        rows.push([id.subOrderId, id.customerFirstName, id.email, id.name, id.productPrice, id.quantity, left + id.total, id.cancelReason, status]);
+                    }
+                    else {
+                        rows.push([id.subOrderId, id.customerFirstName, id.email, id.name, id.productPrice, id.quantity, (id.total) + right, id.cancelReason, status]);
+                    }
+                }
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './BulkOrderCancelExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // invoice list API
+    /**
+     * @api {get} /api/vendor-order/vendor-invoice-list Vendor Invoice List API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} startDate startDate
+     * @apiParam (Request body) {String} endDate endDate
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get vendor invoice list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/vendor-invoice-list
+     * @apiErrorExample {json} vendor invoice error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorInvoiceList(limit, offset, keyword, startDate, endDate, count, firstName, lastName, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const date = endDate + ' 23:59:59';
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const select = [
+                'VendorInvoice.vendorInvoiceId as vendorInvoiceId',
+                'VendorInvoice.invoiceNo as invoiceNo',
+                'VendorInvoice.invoicePrefix as invoicePrefix',
+                'VendorInvoice.shippingFirstname as shippingFirstname',
+                'VendorInvoice.shippingLastname as shippingLastname',
+                'VendorInvoice.orderId as orderId',
+                'VendorInvoice.vendorId as vendorId',
+                'VendorInvoice.createdDate as createdDate',
+                'VendorInvoice.email as email',
+                'VendorInvoice.total as total',
+                'orderDetail.orderPrefixId as orderPrefixId',
+            ];
+            const relations = [{
+                    tableName: 'VendorInvoice.orderDetail',
+                    aliasName: 'orderDetail',
+                }];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'VendorInvoice.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            });
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: 'VendorInvoice.createdDate',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDateMin,
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: 'VendorInvoice.createdDate',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDateMin,
+                });
+            }
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['VendorInvoice.shippingFirstname', 'VendorInvoice.shippingLastname', 'VendorInvoice.invoiceNo'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            if (firstName && firstName !== '') {
+                searchConditions.push({
+                    name: ['VendorInvoice.shippingFirstname'],
+                    value: firstName,
+                });
+            }
+            if (lastName && lastName !== '') {
+                searchConditions.push({
+                    name: ['VendorInvoice.shippingLastname'],
+                    value: lastName,
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'VendorInvoice.createdDate',
+                order: 'DESC',
+            });
+            if (count) {
+                const orderListCount = yield this.vendorInvoiceService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got the cancel request count.',
+                    data: orderListCount,
+                };
+                return response.status(200).send(successRes);
+            }
+            const invoiceList = yield this.vendorInvoiceService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const invoiceResponse = invoiceList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const vendorOrder = yield this.vendorInvoiceItemService.findAll({
+                    where: {
+                        vendorInvoiceId: value.vendorInvoiceId,
+                    },
+                });
+                temp.products = vendorOrder.length;
+                return temp;
+            }));
+            const vendorInvoiceList = yield Promise.all(invoiceResponse);
+            if (invoiceList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the vendor invoice list.',
+                    data: vendorInvoiceList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to get list.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    //  Order invoice export PDF API
+    /**
+     * @api {get} /api/vendor-order/order-invoice-export-pdf  Order Invoice Export PDF API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} orderId orderId
+     * @apiParamExample {json} Input
+     * {
+     *      "orderId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the Order Detail..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/order-invoice-export-pdf
+     * @apiErrorExample {json} Order Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Detail Function
+    orderInvoiceExportPdf(orderId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderData = yield this.vendorInvoiceService.findOne({
+                where: { orderId, vendorId: request.user.vendorId }, select: ['vendorInvoiceId', 'orderId', 'vendorId', 'invoiceNo', 'invoicePrefix', 'shippingFirstname', 'shippingLastname', 'total', 'createdDate'],
+            });
+            if (!orderData) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invoice not found for this order',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const vendor = yield this.vendorService.findOne({
+                select: ['vendorId', 'customerId', 'companyName', 'companyLogo', 'companyLogoPath', 'companyMobileNumber', 'companyEmailId', 'companyWebsite', 'companyAddress1', 'companyAddress2', 'companyCity', 'companyState', 'companyCountryId', 'pincode', 'companyTaxNumber', 'companyPanNumber', 'paymentInformation', 'commission'],
+                where: { vendorId: request.user.vendorId },
+            });
+            const order = yield this.orderService.findOrder({
+                where: { orderId: orderData.orderId },
+                select: ['paymentFirstname', 'email', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity', 'customerGstNo', 'telephone',
+                    'paymentPostcode', 'paymentCountry', 'paymentZone', 'shippingFirstname', 'shippingLastname', 'shippingCompany', 'shippingAddress1', 'shippingAddress2', 'shippingCity',
+                    'shippingPostcode', 'shippingCountry', 'shippingZone', 'currencySymbolLeft', 'currencySymbolRight', 'currencyCode', 'paymentMethod', 'orderPrefixId'],
+            });
+            let amount = parseFloat('0.00');
+            orderData.productList = yield this.vendorInvoiceItemService.findAll({ where: { vendorInvoiceId: orderData.vendorInvoiceId }, select: ['vendorInvoiceItemId', 'vendorInvoiceId', 'orderProductId'] }).then((val) => {
+                const vendorOrder = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const orderProduct = yield this.orderProductService.findOne({ where: { orderProductId: value.orderProductId }, select: ['orderProductId', 'name', 'quantity', 'total', 'productId', 'productPrice', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'skuName'] });
+                    const product = yield this.productService.findOne({ select: ['sku', 'hsn'], where: { productId: orderProduct.productId } });
+                    const temp = orderProduct;
+                    if (orderProduct.taxType === 2) {
+                        const price = orderProduct.discountAmount === '0.00' || orderProduct.discountAmount === null ? +orderProduct.basePrice : +orderProduct.discountedAmount;
+                        temp.taxValueInAmount = (price * (+orderProduct.taxValue / 100)).toFixed(2);
+                    }
+                    else {
+                        temp.taxValueInAmount = orderProduct.taxValue;
+                    }
+                    temp.sku = product.sku;
+                    temp.hsn = product.hsn;
+                    const amt = orderProduct.total;
+                    amount += parseFloat(amt);
+                    return temp;
+                }));
+                const results = Promise.all(vendorOrder);
+                return results;
+            });
+            const settings = yield this.settingService.findOne();
+            const country = yield this.countryService.findOne({ select: ['name'], where: { countryId: vendor.companyCountryId } });
+            vendor.countryName = country ? country.name : '';
+            orderData.vendor = vendor;
+            const settingDetails = settings;
+            orderData.symbolLeft = order.currencySymbolLeft;
+            orderData.symbolRight = order.currencySymbolRight;
+            orderData.currencyCode = order.currencyCode;
+            orderData.orderPrefixId = order.orderPrefixId;
+            orderData.paymentFirstname = order.paymentFirstname;
+            orderData.paymentLastname = order.paymentLastname;
+            orderData.paymentAddress1 = order.paymentAddress1;
+            orderData.paymentAddress2 = order.paymentAddress2;
+            orderData.paymentCity = order.paymentCity;
+            orderData.paymentPostcode = order.paymentPostcode;
+            orderData.paymentZone = order.paymentZone;
+            orderData.paymentCountry = order.paymentCountry;
+            orderData.shippingFirstname = order.shippingFirstname;
+            orderData.shippingLastname = order.shippingLastname;
+            orderData.shippingAddress1 = order.shippingAddress1;
+            orderData.shippingAddress2 = order.shippingAddress2;
+            orderData.shippingCity = order.shippingCity;
+            orderData.shippingPostcode = order.shippingPostcode;
+            orderData.shippingZone = order.shippingZone;
+            orderData.shippingCountry = order.shippingCountry;
+            orderData.customerGstNo = order.customerGstNo;
+            orderData.telephone = order.telephone;
+            let toWords;
+            if (order.currencyCode === 'INR') {
+                toWords = new to_words_1.ToWords({ localeCode: 'en-IN' });
+            }
+            else {
+                toWords = new to_words_1.ToWords({ localeCode: 'en-US' });
+            }
+            const words = toWords.convert(amount, { currency: true });
+            orderData.currencyInWords = words;
+            let image;
+            if (env_1.env.imageserver === 's3') {
+                image = yield this.s3Service.resizeImageBase64(settingDetails.storeLogo, settingDetails.storeLogoPath, '150', '150');
+            }
+            else {
+                image = yield this.imageService.resizeImageBase64(settingDetails.storeLogo, settingDetails.storeLogoPath, '150', '150');
+            }
+            orderData.logo = image;
+            const htmlData = yield this.pdfService.readHtmlToString('vendor-invoice', orderData);
+            const pathName = `./Invoice_${orderData.invoicePrefix + orderData.invoiceNo}.pdf`;
+            yield this.pdfService.htmlPdf(htmlData, pathName);
+            return new Promise((resolve, reject) => {
+                response.download(pathName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(pathName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Vendor Report List API
+    /**
+     * @api {get} /api/vendor-order/sales-report-list  Sales Report list API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} productId
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got vendor sales report list",
+     *      "data":{
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/sales-report-list
+     * @apiErrorExample {json} Vendor Order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorSalesReportList(limit, offset, startDate, endDate, productId, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const subOrderSelect = [
+                'VendorOrders.vendorOrderId as vendorOrderId',
+                'VendorOrders.orderId as orderId',
+                'vendor.companyState as companyState',
+                'VendorOrders.vendorId as vendorId',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                'orderProduct.quantity as quantity',
+                'orderProduct.name as name',
+                'orderProduct.productPrice as price',
+                'orderProduct.quantity as quantity',
+                'orderProduct.basePrice as basePrice',
+                'orderProduct.skuName as skuName',
+                'orderProduct.taxType as taxType',
+                'orderProduct.taxValue as taxValue',
+                'VendorOrders.total as total',
+                'VendorOrders.subOrderId as subOrderId',
+                'VendorOrders.commission as commission',
+                'VendorOrders.createdDate as createdDate',
+                'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                'orderDetail.currencySymbolRight as currencySymbolRight',
+                'orderProduct.cancelRequestStatus as cancelRequestStatus',
+                'orderDetail.paymentZone as paymentZone',
+                'orderProduct.name as productName',
+                'orderProduct.skuName as skuName',
+                'orderStatus.name as orderStatusName',
+                'orderStatus.colorCode as orderColorCode',
+                'vendorInvoice.invoiceNo as invoiceNo',
+                'vendorInvoice.invoicePrefix as invoicePrefix',
+                'customer.firstName as firstName',
+                'customer.lastName as lastName',
+                'orderProduct.discountAmount as discountAmount',
+                'orderProduct.couponDiscountAmount as couponDiscountAmount',
+                'customerGroup.name as customerGroup',
+                'orderDetail.paymentType as paymentType',
+                'orderDetail.ip as ipAddress',
+            ];
+            const subOrderRelations = [
+                {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+                {
+                    tableName: 'VendorOrders.vendor',
+                    aliasName: 'vendor',
+                },
+                {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                },
+                {
+                    tableName: 'VendorOrders.orderStatus',
+                    aliasName: 'orderStatus',
+                },
+                {
+                    tableName: 'orderDetail.vendorInvoice',
+                    op: 'left',
+                    aliasName: 'vendorInvoice',
+                }, {
+                    tableName: 'orderDetail.customer',
+                    op: 'left',
+                    aliasName: 'customer',
+                }, {
+                    tableName: 'customer.customerGroup',
+                    op: 'left',
+                    aliasName: 'customerGroup',
+                },
+            ];
+            const subOrderWhereConditions = [];
+            subOrderWhereConditions.push({
+                name: 'VendorOrders.vendor_id',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderDetail.paymentStatus',
+                op: 'and',
+                value: 1,
+            }, {
+                name: '`orderProduct`.`cancel_request_status`',
+                op: 'and',
+                value: 0,
+            });
+            if (productId) {
+                subOrderWhereConditions.push({
+                    name: 'orderProduct.productId',
+                    op: 'IN',
+                    value: productId,
+                });
+            }
+            if (startDate && startDate !== '') {
+                subOrderWhereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDate + ' 00:00:00',
+                });
+            }
+            if (endDate && endDate !== '') {
+                subOrderWhereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDate + ' 23:59:59',
+                });
+            }
+            const sortOrder = [{
+                    name: 'vendorOrderId',
+                    order: 'DESC',
+                }];
+            if (count) {
+                const vendorOrderCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], sortOrder, true, true);
+                const countResponse = {
+                    status: 1,
+                    message: 'Successfully got vendor sales count.',
+                    data: vendorOrderCount,
+                };
+                return response.status(200).send(countResponse);
+            }
+            const vendorOrderList = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], sortOrder, false, true);
+            const result = [];
+            let total = 0;
+            const groupByKey = key => array => array.reduce((objectsByKeyValue, obj) => {
+                const value = obj[key];
+                objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
+                return objectsByKeyValue;
+            }, {});
+            const groupByType = groupByKey('productName');
+            const groupByPeriodTypeArray = groupByType(vendorOrderList);
+            const groupByPeriodTypeObject = Object.keys(groupByPeriodTypeArray);
+            if (groupByPeriodTypeObject && groupByPeriodTypeObject.length > 0) {
+                groupByPeriodTypeObject.forEach((periodType) => {
+                    const temp = {};
+                    temp.productName = periodType;
+                    temp.buyers = groupByPeriodTypeArray[periodType] && groupByPeriodTypeArray[periodType].length > 0 ? groupByPeriodTypeArray[periodType] : [];
+                    for (const val of groupByPeriodTypeArray[periodType]) {
+                        total += +val.total;
+                    }
+                    result.push(temp);
+                });
+            }
+            const orderCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], sortOrder, true, true);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got vendor sales list.',
+                data: result, total, orderCount,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Total sales report Download
+    /**
+     * @api {get} /api/vendor-order/sales-report-export-list sales report excel download
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} productId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download total sales report excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/sales-report-export-list
+     * @apiErrorExample {json} Total sales report excel error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    totalSalesExcelView(limit, offset, productId, startDate, endDate, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Total Sales Export sheet');
+            const rows = [];
+            const select = [
+                'vendor.vendorId as vendorId',
+                'vendor.companyName as companyName',
+                'vendor.companyState as companyState',
+                'VendorOrders.vendorOrderId as vendorOrderId',
+                'VendorOrders.orderId as orderId',
+                'VendorOrders.vendorId as vendorId',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                'orderProduct.quantity as quantity',
+                'orderProduct.name as name',
+                'orderProduct.productPrice as price',
+                'orderProduct.quantity as quantity',
+                'orderProduct.basePrice as basePrice',
+                'orderProduct.skuName as skuName',
+                'orderProduct.discountAmount as discountAmount',
+                'orderProduct.couponDiscountAmount as couponDiscountAmount',
+                'orderProduct.taxType as taxType',
+                'orderProduct.taxValue as taxValue',
+                'VendorOrders.total as total',
+                'VendorOrders.subOrderId as subOrderId',
+                'VendorOrders.commission as commission',
+                'VendorOrders.createdDate as createdDate',
+                'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                'orderDetail.currencySymbolRight as currencySymbolRight',
+                'orderDetail.paymentZone as paymentZone',
+                'orderProduct.name as productName',
+                'orderProduct.cancelRequestStatus as cancelRequestStatus',
+                'orderStatus.name as orderStatusName',
+                'orderStatus.colorCode as orderColorCode',
+                'vendorInvoice.invoiceNo as invoiceNo',
+                'vendorInvoice.invoicePrefix as invoicePrefix',
+                'customer.firstName as firstName',
+                'customer.lastName as lastName',
+                'customerGroup.name as groupName',
+            ];
+            const relations = [{
+                    tableName: 'VendorOrders.vendor',
+                    aliasName: 'vendor',
+                }, {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                }, {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                }, {
+                    tableName: 'VendorOrders.orderStatus',
+                    aliasName: 'orderStatus',
+                }, {
+                    tableName: 'orderDetail.vendorInvoice',
+                    op: 'left',
+                    aliasName: 'vendorInvoice',
+                }, {
+                    tableName: 'orderDetail.customer',
+                    op: 'left',
+                    aliasName: 'customer',
+                }, {
+                    tableName: 'customer.customerGroup',
+                    op: 'left',
+                    aliasName: 'customerGroup',
+                }];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderDetail.paymentStatus',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'VendorOrders.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: '`orderProduct`.`cancel_request_status`',
+                op: 'and',
+                value: 0,
+            });
+            if (productId) {
+                whereConditions.push({
+                    name: 'orderProduct.productId',
+                    op: 'IN',
+                    value: productId,
+                });
+            }
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDate + ' 00:00:00',
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDate + ' 23:59:59',
+                });
+            }
+            const searchConditions = [];
+            const sort = [{
+                    name: 'vendorOrderId',
+                    order: 'DESC',
+                }];
+            const orderList = yield this.vendorOrdersService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const groupByKey = key => array => array.reduce((objectsByKeyValue, obj) => {
+                const value = obj[key];
+                objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
+                return objectsByKeyValue;
+            }, {});
+            const groupByType = groupByKey('productName');
+            const groupByPeriodTypeArray = groupByType(orderList);
+            const groupByPeriodTypeObject = Object.keys(groupByPeriodTypeArray);
+            if (groupByPeriodTypeObject && groupByPeriodTypeObject.length > 0) {
+                groupByPeriodTypeObject.forEach((periodType) => {
+                    const buyers = groupByPeriodTypeArray[periodType] && groupByPeriodTypeArray[periodType].length > 0 ? groupByPeriodTypeArray[periodType] : [];
+                    rows.push(['Product name-' + '' + periodType + '']);
+                    rows.push(['Order Line number', 'Customer Name', 'order date', 'invoice', 'sku', 'Quantity', 'Base Value', 'Discount Amount', 'Coupon Discount Amount', 'TotalValue', 'orderStatus', 'Customer Group Name']);
+                    for (const value of buyers) {
+                        rows.push([value.orderProductPrefixId, value.firstName + (value.lastName ? value.lastName : ''), value.createdDate, value.invoicePrefix + value.invoiceNo, value.skuName, +value.quantity, +value.basePrice, +value.discountAmount, +value.couponDiscountAmount, +value.total, value.orderStatusName, value.groupName]);
+                    }
+                });
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './TotalSalesReportExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    //  Order invoice export send email PDF API
+    /**
+     * @api {post} /api/vendor-order/order-invoice-export-send-email-pdf  Order Invoice Export Send Email API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} orderId orderId
+     * @apiParamExample {json} Input
+     * {
+     *      "orderId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the Order Detail..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/order-invoice-export-send-email-pdf
+     * @apiErrorExample {json} Order Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Detail Function
+    orderInvoiceExportSendEmailPdf(orderId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderData = yield this.vendorInvoiceService.findOne({
+                where: { orderId, vendorId: request.user.vendorId }, select: ['vendorInvoiceId', 'orderId', 'vendorId', 'invoiceNo', 'invoicePrefix', 'shippingFirstname', 'shippingLastname', 'total', 'createdDate'],
+            });
+            if (!orderData) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invoice not found for this order',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const vendor = yield this.vendorService.findOne({
+                select: ['vendorId', 'customerId', 'companyName', 'companyLogo', 'companyLogoPath', 'companyMobileNumber', 'companyEmailId', 'companyWebsite', 'companyAddress1', 'companyAddress2', 'companyCity', 'companyState', 'companyCountryId', 'pincode', 'companyTaxNumber', 'companyPanNumber', 'paymentInformation', 'commission'],
+                where: { vendorId: request.user.vendorId },
+            });
+            const customer = yield this.customerService.findOne({
+                select: ['id', 'firstName', 'lastName', 'email', 'mobileNumber', 'username'],
+                where: { id: vendor.customerId },
+            });
+            const order = yield this.orderService.findOrder({
+                where: { orderId: orderData.orderId },
+                select: ['paymentFirstname', 'email', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity', 'customerGstNo', 'telephone',
+                    'paymentPostcode', 'paymentCountry', 'paymentZone', 'shippingFirstname', 'shippingLastname', 'shippingCompany', 'shippingAddress1', 'shippingAddress2', 'shippingCity',
+                    'shippingPostcode', 'shippingCountry', 'shippingZone', 'currencySymbolLeft', 'currencySymbolRight', 'currencyCode', 'paymentMethod', 'orderPrefixId'],
+            });
+            let amount = parseFloat('0.00');
+            orderData.productList = yield this.vendorInvoiceItemService.findAll({ where: { vendorInvoiceId: orderData.vendorInvoiceId }, select: ['vendorInvoiceItemId', 'vendorInvoiceId', 'orderProductId'] }).then((val) => {
+                const vendorOrder = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const orderProduct = yield this.orderProductService.findOne({ where: { orderProductId: value.orderProductId }, select: ['orderProductId', 'name', 'quantity', 'total', 'productId', 'productPrice', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'skuName'] });
+                    const product = yield this.productService.findOne({ select: ['sku', 'hsn'], where: { productId: orderProduct.productId } });
+                    const temp = orderProduct;
+                    if (orderProduct.taxType === 2) {
+                        const price = orderProduct.discountAmount === '0.00' || orderProduct.discountAmount === null ? +orderProduct.basePrice : +orderProduct.discountedAmount;
+                        temp.taxValueInAmount = (price * (+orderProduct.taxValue / 100)).toFixed(2);
+                    }
+                    else {
+                        temp.taxValueInAmount = orderProduct.taxValue;
+                    }
+                    if (orderProduct.taxType !== 0 && (vendor.companyState) && vendor.paymentZone !== null) {
+                        if (vendor.companyState.toLowerCase() === order.paymentZone.toLowerCase()) {
+                            temp.taxTypeValue = 'SGST,CGST';
+                        }
+                        else if (vendor.companyState.toLowerCase() !== order.paymentZone.toLowerCase()) {
+                            temp.taxTypeValue = 'IGST';
+                        }
+                    }
+                    else {
+                        temp.taxTypeValue = 0;
+                    }
+                    temp.sku = product.sku;
+                    temp.hsn = product.hsn;
+                    const amt = orderProduct.total;
+                    amount += parseFloat(amt);
+                    return temp;
+                }));
+                const results = Promise.all(vendorOrder);
+                return results;
+            });
+            const settings = yield this.settingService.findOne();
+            const country = yield this.countryService.findOne({ select: ['name'], where: { countryId: vendor.companyCountryId } });
+            vendor.countryName = country ? country.name : '';
+            orderData.vendor = vendor;
+            const settingDetails = settings;
+            orderData.symbolLeft = order.currencySymbolLeft;
+            orderData.symbolRight = order.currencySymbolRight;
+            orderData.currencyCode = order.currencyCode;
+            orderData.orderPrefixId = order.orderPrefixId;
+            orderData.paymentFirstname = order.paymentFirstname;
+            orderData.paymentLastname = order.paymentLastname;
+            orderData.paymentAddress1 = order.paymentAddress1;
+            orderData.paymentAddress2 = order.paymentAddress2;
+            orderData.paymentCity = order.paymentCity;
+            orderData.paymentPostcode = order.paymentPostcode;
+            orderData.paymentZone = order.paymentZone;
+            orderData.paymentCountry = order.paymentCountry;
+            orderData.shippingFirstname = order.shippingFirstname;
+            orderData.shippingLastname = order.shippingLastname;
+            orderData.shippingAddress1 = order.shippingAddress1;
+            orderData.shippingAddress2 = order.shippingAddress2;
+            orderData.shippingCity = order.shippingCity;
+            orderData.shippingPostcode = order.shippingPostcode;
+            orderData.shippingZone = order.shippingZone;
+            orderData.shippingCountry = order.shippingCountry;
+            orderData.customerGstNo = order.customerGstNo;
+            orderData.telephone = order.telephone;
+            orderData.email = order.email;
+            const toWords = new to_words_1.ToWords();
+            const words = toWords.convert(amount, { currency: true });
+            orderData.currencyInWords = words;
+            let image;
+            if (env_1.env.imageserver === 's3') {
+                image = yield this.s3Service.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '100', '100');
+            }
+            else {
+                image = yield this.imageService.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '100', '100');
+            }
+            orderData.logo = image;
+            const htmlData = yield this.pdfService.readHtmlToString('vendor-invoice', orderData);
+            const pathPrefix = Math.floor((Math.random() * 100) + 1);
+            const fileName = `output_${pathPrefix}.pdf`;
+            const path = `${process.cwd()}/${fileName}`;
+            yield this.pdfService.htmlPdf(htmlData, path);
+            const attachments = [{
+                    name: fileName,
+                    path,
+                }];
+            const pdfBinary = fs.readFileSync(fileName);
+            console.log(pdfBinary, 'fileNamefileName');
+            const emailContent = yield this.emailTemplateService.findOne(24);
+            const redirectUrl = env_1.env.vendorRedirectUrl;
+            const message = emailContent.content.replace('{name}', customer.firstName).replace('{orderPrefixId}', orderData.orderPrefixId);
+            const logo = yield this.settingService.findOne();
+            const mailContents = {};
+            mailContents.logo = logo;
+            mailContents.emailContent = message;
+            mailContents.redirectUrl = redirectUrl;
+            mailContents.orderData = orderData;
+            mailContents.productDetailData = undefined;
+            console.log(customer.email, 'customer.emailcustomer.email');
+            yield mail_services_1.MAILService.sendMail(mailContents, customer.email, emailContent.subject, false, true, attachments);
+            yield fs.unlinkSync(path);
+            return response.status(200).send({
+                status: 1,
+                message: 'Mail sent to you',
+            });
+        });
+    }
+    // Back order List API
+    /**
+     * @api {get} /api/vendor-order/back-order-list Back Order List
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the Back Order List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/back-order-list
+     * @apiErrorExample {json} back order List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Cancel Request List Function
+    backOrderProductList(limit, offset, customerName, orderId, amount, keyword, orderStatus, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'Order.createdDate as createdDate',
+                'Order.orderId as orderId',
+                'Order.shippingFirstname as customerFirstName',
+                'Order.shippingCity as shippingCity',
+                'Order.shippingCountry as shippingCountry',
+                'Order.shippingZone as shippingZone',
+                'Order.currencyCode as currencyCode',
+                'Order.currencySymbolLeft as currencySymbolLeft',
+                'Order.currencySymbolRight as currencySymbolRight',
+                'orderProduct.orderProductId as orderProductId',
+                'orderProduct.orderStatusId as orderProductStatusId',
+                'orderProduct.productId as productId',
+                'orderProduct.name as name',
+                'orderProduct.total as total',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                'orderProduct.productPrice as productPrice',
+                'orderProduct.quantity as quantity',
+                'customer.firstName as firstName',
+                'customer.lastName as lastName',
+                'vendorOrders.subOrderStatusId as subOrderStatusId',
+                'vendorOrders.total as total',
+            ];
+            const relations = [
+                {
+                    tableName: 'Order.orderProduct',
+                    aliasName: 'orderProduct',
+                }, {
+                    tableName: 'orderProduct.vendorOrders',
+                    op: 'left',
+                    aliasName: 'vendorOrders',
+                }, {
+                    tableName: 'Order.customer',
+                    aliasName: 'customer',
+                }
+            ];
+            const groupBy = [];
+            const whereConditions = [];
+            if (+orderStatus && orderStatus !== '') {
+                whereConditions.push({
+                    name: 'vendorOrders.subOrderStatusId',
+                    op: 'and',
+                    value: +orderStatus,
+                });
+            }
+            if (amount && amount !== 0) {
+                whereConditions.push({
+                    name: 'vendorOrders.total',
+                    op: 'raw',
+                    sign: '=',
+                    value: +amount,
+                });
+            }
+            // if (customerName && customerName !== '') {
+            //     whereConditions.push({
+            //         name: ['Order.shippingFirstname'],
+            //         op: 'and',
+            //         value: customerName,
+            //     });
+            // }
+            whereConditions.push({
+                name: 'Order.backOrders',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'vendorOrders.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            });
+            const searchConditions = [];
+            if (orderId && orderId !== '') {
+                searchConditions.push({
+                    name: ['orderProduct.orderProductPrefixId'],
+                    value: orderId,
+                });
+            }
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['orderProduct.name', 'orderProduct.orderProductPrefixId', 'customer.firstName', 'vendorOrders.total', 'vendorOrders.subOrderStatusId', 'Order.shippingFirstname'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            if (customerName && customerName !== '') {
+                searchConditions.push({
+                    name: ['customer.firstName', 'customer.lastName', 'Order.shippingFirstname'],
+                    value: customerName.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'Order.createdDate',
+                order: 'DESC',
+            });
+            if (count) {
+                const orderCount = yield this.orderService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                const Response = {
+                    status: 1,
+                    message: 'Successfully get Count. ',
+                    data: orderCount,
+                };
+                return response.status(200).send(Response);
+            }
+            const orderList = yield this.orderService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const promises = orderList.map((results) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = results;
+                const productImage = yield this.productImageService.findOne({
+                    where: { productId: results.productId, defaultImage: 1 },
+                    select: ['image', 'containerName'],
+                });
+                if (productImage !== undefined) {
+                    temp.image = productImage.image;
+                    temp.containerName = productImage.containerName;
+                }
+                else {
+                    temp.image = '';
+                    temp.containerName = '';
+                }
+                const passingOrderStatus = yield this.orderStatusService.findOne({
+                    where: {
+                        orderStatusId: results.orderProductStatusId,
+                    },
+                });
+                temp.orderStatusName = passingOrderStatus.name;
+                temp.orderStatusColorCode = passingOrderStatus.colorCode;
+                return results;
+            }));
+            const result = yield Promise.all(promises);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully shown the Back Order list. ',
+                data: result,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // vendor failed order list API
+    /**
+     * @api {get} /api/vendor-order/vendor-failed-order-list Vendor Failed Order List API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} startDate startDate
+     * @apiParam (Request body) {String} endDate endDate
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get vendor invoice list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/vendor-failed-order-list
+     * @apiErrorExample {json} vendor invoice error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorFailedOrderList(limit, offset, keyword, startDate, endDate, customerName, orderId, amount, orderStatus, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const date = endDate + ' 23:59:59';
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const select = [
+                'VendorInvoice.vendorInvoiceId as vendorInvoiceId',
+                'VendorInvoice.invoiceNo as invoiceNo',
+                'VendorInvoice.invoicePrefix as invoicePrefix',
+                'VendorInvoice.shippingFirstname as shippingFirstname',
+                'VendorInvoice.shippingLastname as shippingLastname',
+                'VendorInvoice.orderId as orderId',
+                'VendorInvoice.vendorId as vendorId',
+                'VendorInvoice.createdDate as createdDate',
+                'VendorInvoice.email as email',
+                'VendorInvoice.total as total',
+                'orderDetail.orderPrefixId as orderPrefixId',
+                'orderDetail.orderId as orderId',
+            ];
+            const relations = [{
+                    tableName: 'VendorInvoice.orderDetail',
+                    aliasName: 'orderDetail',
+                }];
+            const groupBy = [];
+            const whereConditions = [];
+            if (amount && amount !== '') {
+                whereConditions.push({
+                    name: 'VendorInvoice.total',
+                    op: 'raw',
+                    sign: '=',
+                    value: +amount,
+                });
+            }
+            whereConditions.push({
+                name: 'VendorInvoice.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 0,
+            });
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: 'VendorInvoice.createdDate',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDateMin,
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: 'VendorInvoice.createdDate',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDateMin,
+                });
+            }
+            const searchConditions = [];
+            if (customerName && customerName !== '') {
+                searchConditions.push({
+                    name: ['VendorInvoice.shippingFirstname', 'VendorInvoice.shippingLastname'],
+                    value: customerName.toLowerCase(),
+                });
+            }
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['VendorInvoice.shippingFirstname', 'VendorInvoice.shippingLastname', 'VendorInvoice.invoiceNo', 'orderDetail.orderPrefixId', 'VendorInvoice.total'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            if (orderId && orderId !== '') {
+                searchConditions.push({
+                    name: ['orderDetail.orderPrefixId'],
+                    value: orderId.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'VendorInvoice.createdDate',
+                order: 'DESC',
+            });
+            if (count) {
+                const orderListCount = yield this.vendorInvoiceService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got the cancel request count.',
+                    data: orderListCount,
+                };
+                return response.status(200).send(successRes);
+            }
+            const failedOrderList = yield this.vendorInvoiceService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const failedOrderResponse = failedOrderList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                temp.productItems = yield this.vendorInvoiceItemService.findAll({
+                    where: { vendorInvoiceId: value.vendorInvoiceId },
+                }).then((val) => {
+                    const orderProduct = val.map((values) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                        const products = yield this.orderProductService.findOne({ orderProductId: values.orderProductId });
+                        const tempVal = values;
+                        if (products !== undefined) {
+                            tempVal.productName = products.name;
+                            tempVal.basePrice = products.basePrice;
+                            tempVal.productPrice = products.productPrice;
+                            tempVal.discountAmount = products.discountAmount;
+                            tempVal.discountedAmount = products.discountedAmount;
+                            tempVal.taxType = products.taxType;
+                            tempVal.taxValue = products.taxValue;
+                            tempVal.quantity = products.quantity;
+                            tempVal.skuName = products.skuName;
+                            tempVal.total = products.total;
+                        }
+                        return tempVal;
+                    }));
+                    const results = Promise.all(orderProduct);
+                    return results;
+                });
+                return temp;
+            }));
+            const vendorFailedOrderList = yield Promise.all(failedOrderResponse);
+            if (failedOrderList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the vendor failed Order list.',
+                    data: vendorFailedOrderList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to get list.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Export Backorder list api
+    /**
+     * @api {get} /api/vendor-order/bulk-back-order-excel-list Bulk back order Excel list
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the Bulk Order Cancel Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/order/bulk-order-cancel-excel-list
+     * @apiErrorExample {json} Order Cancel Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    bulkExportBackorder(limit, offset, keyword, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Back Order Export excel Sheet');
+            const rows = [];
+            const select = [
+                'Order.createdDate as createdDate',
+                'Order.orderId as orderId',
+                'Order.orderPrefixId as orderPrefixId',
+                'Order.shippingFirstname as customerFirstName',
+                'Order.shippingCity as shippingCity',
+                'Order.shippingCountry as shippingCountry',
+                'Order.shippingZone as shippingZone',
+                'Order.currencyCode as currencyCode',
+                'Order.email as email',
+                'Order.currencySymbolLeft as currencySymbolLeft',
+                'Order.currencySymbolRight as currencySymbolRight',
+                'orderProduct.orderProductId as orderProductId',
+                'orderProduct.orderStatusId as orderProductStatusId',
+                'orderProduct.productId as productId',
+                'orderProduct.name as name',
+                'orderProduct.total as total',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                'orderProduct.productPrice as productPrice',
+                'orderProduct.quantity as quantity',
+            ];
+            const relations = [
+                {
+                    tableName: 'Order.orderProduct',
+                    aliasName: 'orderProduct',
+                }, {
+                    tableName: 'orderProduct.vendorOrders',
+                    op: 'left',
+                    aliasName: 'vendorOrders',
+                }
+            ];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'Order.backOrders',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'vendorOrders.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            });
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['orderProduct.name', 'orderProduct.orderProductPrefixId'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'Order.createdDate',
+                order: 'DESC',
+            });
+            const orderList = yield this.orderService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            if (orderList.length === 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'file is empty',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'Order Id', key: 'orderPrefixId', size: 16, width: 15 },
+                { header: 'OrderProductPrefixId', key: 'orderProductPrefixId', size: 16, width: 15 },
+                { header: 'Customer Name', key: 'shippingFirstname', size: 16, width: 15 },
+                { header: 'Email', key: 'email', size: 16, width: 15 },
+                { header: 'Product Name', key: 'productName', size: 16, width: 15 },
+                { header: 'Product Price', key: 'productPrice', size: 16, width: 15 },
+                { header: 'Quantity', key: 'quantity', size: 16, width: 15 },
+                { header: 'total', key: 'total', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('H1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const order of orderList) {
+                const right = order.currencySymbolRight;
+                const left = order.currencySymbolLeft;
+                if (left === null && right === null) {
+                    rows.push([order.orderPrefixId, order.orderProductPrefixId, order.customerFirstName, order.email, order.name, order.productPrice, order.quantity, order.total]);
+                }
+                else {
+                    if (left !== undefined) {
+                        rows.push([order.orderPrefixId, order.orderProductPrefixId, order.customerFirstName, order.email, order.name, order.productPrice, order.quantity, left + order.total]);
+                    }
+                    else {
+                        rows.push([order.orderPrefixId, order.orderProductPrefixId, order.customerFirstName, order.email, order.name, order.productPrice, order.quantity, order.total + right]);
+                    }
+                }
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './BulkBackOrderExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Export Backorder list api
+    /**
+     * @api {get} /api/vendor-order/back-order-excel-list back order Excel list
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} orderProductId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download Order Cancel Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/back-order-excel-list
+     * @apiErrorExample {json} Back Order Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    backOrderExport(orderProductId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Back Order Export excel Sheet');
+            const rows = [];
+            const select = [
+                'Order.createdDate as createdDate',
+                'Order.orderId as orderId',
+                'Order.orderPrefixId as orderPrefixId',
+                'Order.shippingFirstname as customerFirstName',
+                'Order.shippingCity as shippingCity',
+                'Order.shippingCountry as shippingCountry',
+                'Order.shippingZone as shippingZone',
+                'Order.currencyCode as currencyCode',
+                'Order.email as email',
+                'Order.currencySymbolLeft as currencySymbolLeft',
+                'Order.currencySymbolRight as currencySymbolRight',
+                'orderProduct.orderProductId as orderProductId',
+                'orderProduct.orderStatusId as orderProductStatusId',
+                'orderProduct.productId as productId',
+                'orderProduct.name as name',
+                'orderProduct.total as total',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                'orderProduct.productPrice as productPrice',
+                'orderProduct.quantity as quantity',
+            ];
+            const relations = [
+                {
+                    tableName: 'Order.orderProduct',
+                    aliasName: 'orderProduct',
+                }, {
+                    tableName: 'orderProduct.vendorOrders',
+                    op: 'left',
+                    aliasName: 'vendorOrders',
+                }
+            ];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'Order.backOrders',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'vendorOrders.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'vendorOrders.orderProductId',
+                op: 'IN',
+                value: orderProductId,
+            });
+            const searchConditions = [];
+            const sort = [];
+            sort.push({
+                name: 'Order.createdDate',
+                order: 'DESC',
+            });
+            const orderList = yield this.orderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            if (orderList.length === 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'file is empty',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'Order Id', key: 'orderPrefixId', size: 16, width: 15 },
+                { header: 'OrderProductPrefixId', key: 'orderProductPrefixId', size: 16, width: 15 },
+                { header: 'Customer Name', key: 'shippingFirstname', size: 16, width: 15 },
+                { header: 'Email', key: 'email', size: 16, width: 15 },
+                { header: 'Product Name', key: 'productName', size: 16, width: 15 },
+                { header: 'Product Price', key: 'productPrice', size: 16, width: 15 },
+                { header: 'Quantity', key: 'quantity', size: 16, width: 15 },
+                { header: 'total', key: 'total', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('H1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const order of orderList) {
+                const right = order.currencySymbolRight;
+                const left = order.currencySymbolLeft;
+                if (left === null && right === null) {
+                    rows.push([order.orderPrefixId, order.orderProductPrefixId, order.customerFirstName, order.email, order.name, order.productPrice, order.quantity, order.total]);
+                }
+                else {
+                    if (left !== undefined) {
+                        rows.push([order.orderPrefixId, order.orderProductPrefixId, order.customerFirstName, order.email, order.name, order.productPrice, order.quantity, left + order.total]);
+                    }
+                    else {
+                        rows.push([order.orderPrefixId, order.orderProductPrefixId, order.customerFirstName, order.email, order.name, order.productPrice, order.quantity, order.total + right]);
+                    }
+                }
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './BackOrderExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Export Failed Order list api
+    /**
+     * @api {get} /api/vendor-order/failed-order-excel-list failed order Excel list
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} orderId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download Failed Order Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/failed-order-excel-list
+     * @apiErrorExample {json} Failed Order Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    failedOrderExportExcel(orderId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Failed Order Export excel Sheet', { properties: { defaultColWidth: 30 } });
+            const rows = [];
+            const select = [
+                'VendorInvoice.vendorInvoiceId as vendorInvoiceId',
+                'VendorInvoice.invoiceNo as invoiceNo',
+                'VendorInvoice.invoicePrefix as invoicePrefix',
+                'VendorInvoice.shippingFirstname as shippingFirstname',
+                'VendorInvoice.shippingLastname as shippingLastname',
+                'VendorInvoice.orderId as orderId',
+                'VendorInvoice.vendorId as vendorId',
+                'VendorInvoice.createdDate as createdDate',
+                'VendorInvoice.email as email',
+                'VendorInvoice.total as total',
+                'orderDetail.orderPrefixId as orderPrefixId',
+                'orderDetail.orderId as orderId',
+                'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                'orderDetail.currencySymbolRight as currencySymbolRight',
+                'orderDetail.orderId as orderId',
+            ];
+            const relations = [{
+                    tableName: 'VendorInvoice.orderDetail',
+                    aliasName: 'orderDetail',
+                }];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'VendorInvoice.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 0,
+            }, {
+                name: 'VendorInvoice.orderId',
+                op: 'IN',
+                value: orderId,
+            });
+            const sort = [];
+            sort.push({
+                name: 'VendorInvoice.createdDate',
+                order: 'DESC',
+            });
+            const failedOrderList = yield this.vendorInvoiceService.listByQueryBuilder(0, 0, select, whereConditions, [], relations, groupBy, sort, false, true);
+            // Excel sheet column define
+            rows.push(['OrderId', 'Customer Name', 'Total', 'Order Created']);
+            for (const order of failedOrderList) {
+                const right = order.currencySymbolRight;
+                const left = order.currencySymbolLeft;
+                if (left === null && right === null) {
+                    rows.push([order.orderPrefixId, order.shippingFirstname + '' + (order.shippingLastname ? order.shippingLastname : ''), order.total, order.createdDate]);
+                }
+                else {
+                    if (left !== undefined) {
+                        rows.push([order.orderPrefixId, order.shippingFirstname + '' + (order.shippingLastname ? order.shippingLastname : ''), left + order.total, order.createdDate]);
+                    }
+                    else {
+                        rows.push([order.orderPrefixId, order.shippingFirstname + '' + (order.shippingLastname ? order.shippingLastname : ''), order.total + right, order.createdDate]);
+                    }
+                }
+                rows.push(['OrderProductId', 'OrderId', 'Product Name', 'Quantity', 'ProductPrice', 'Discount Amount', 'Coupon Discount Amount', 'Total']);
+                const productItems = yield this.vendorInvoiceItemService.findAll({
+                    where: { vendorInvoiceId: order.vendorInvoiceId },
+                });
+                if (productItems.length > 0) {
+                    for (const items of productItems) {
+                        const products = yield this.orderProductService.findOne({ orderProductId: items.orderProductId });
+                        if (products) {
+                            rows.push([products.orderProductPrefixId, order.orderPrefixId, products.name, products.quantity, products.productPrice, products.discountAmount, products.couponDiscountAmount, products.total]);
+                        }
+                    }
+                }
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            worksheet.eachRow({ includeEmpty: true }, ((row, rowNumber) => {
+                if (row.values.includes('OrderId') || row.values.includes('OrderProductId')) {
+                    worksheet.getRow(rowNumber).font = { bold: true };
+                }
+            }));
+            const fileName = './FailedOrderExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Export Failed Order list api
+    /**
+     * @api {get} /api/vendor-order/bulk-failed-order-excel-list Bulk failed order Excel list
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download Failed Order Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor-order/bulk-failed-order-excel-list
+     * @apiErrorExample {json} Failed Order Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    BulkfailedOrderExportExcel(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Bulk Failed Order Export excel Sheet', { properties: { defaultColWidth: 30 } });
+            const rows = [];
+            const select = [
+                'VendorInvoice.vendorInvoiceId as vendorInvoiceId',
+                'VendorInvoice.invoiceNo as invoiceNo',
+                'VendorInvoice.invoicePrefix as invoicePrefix',
+                'VendorInvoice.shippingFirstname as shippingFirstname',
+                'VendorInvoice.shippingLastname as shippingLastname',
+                'VendorInvoice.orderId as orderId',
+                'VendorInvoice.vendorId as vendorId',
+                'VendorInvoice.createdDate as createdDate',
+                'VendorInvoice.email as email',
+                'VendorInvoice.total as total',
+                'orderDetail.orderPrefixId as orderPrefixId',
+                'orderDetail.orderId as orderId',
+                'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                'orderDetail.currencySymbolRight as currencySymbolRight',
+                'orderDetail.orderId as orderId',
+            ];
+            const relations = [{
+                    tableName: 'VendorInvoice.orderDetail',
+                    aliasName: 'orderDetail',
+                }];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'VendorInvoice.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 0,
+            });
+            const sort = [];
+            sort.push({
+                name: 'VendorInvoice.createdDate',
+                order: 'DESC',
+            });
+            const failedOrderList = yield this.vendorInvoiceService.listByQueryBuilder(0, 0, select, whereConditions, [], relations, groupBy, sort, false, true);
+            // Excel sheet column define
+            rows.push(['OrderId', 'Customer Name', 'Total', 'Order Created']);
+            for (const order of failedOrderList) {
+                const right = order.currencySymbolRight;
+                const left = order.currencySymbolLeft;
+                if (left === null && right === null) {
+                    rows.push([order.orderPrefixId, order.shippingFirstname + '' + (order.shippingLastname ? order.shippingLastname : ''), order.total, order.createdDate]);
+                }
+                else {
+                    if (left !== undefined) {
+                        rows.push([order.orderPrefixId, order.shippingFirstname + '' + (order.shippingLastname ? order.shippingLastname : ''), left + order.total, order.createdDate]);
+                    }
+                    else {
+                        rows.push([order.orderPrefixId, order.shippingFirstname + '' + (order.shippingLastname ? order.shippingLastname : ''), order.total + right, order.createdDate]);
+                    }
+                }
+                rows.push(['OrderPrefixId', 'OrderId', 'Product Name', 'Quantity', 'ProductPrice', 'Discount Amount', 'Coupon Discount Amount', 'Total']);
+                const productItems = yield this.vendorInvoiceItemService.findAll({
+                    where: { vendorInvoiceId: order.vendorInvoiceId },
+                });
+                if (productItems.length > 0) {
+                    for (const items of productItems) {
+                        const products = yield this.orderProductService.findOne({ orderProductId: items.orderProductId });
+                        if (products) {
+                            rows.push([products.orderProductPrefixId, order.orderPrefixId, products.name, products.quantity, products.productPrice, products.discountAmount, products.couponDiscountAmount, products.total]);
+                        }
+                    }
+                }
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            worksheet.eachRow({ includeEmpty: true }, ((row, rowNumber) => {
+                if (row.values.includes('OrderId') || row.values.includes('OrderPrefixId')) {
+                    worksheet.getRow(rowNumber).font = { bold: true };
+                }
+            }));
+            const fileName = './BulkFailedOrderExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Getting A Child Order Status List Based On Parent List API
+    /**
+     * @api {get} /api/vendor-order/vendor-order-status-list-based-on-parent Getting A Child Order Status List Based On Parent List API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} parentId parentId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got order status list based on parent",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/order-status/vendor-order-status-list-based-on-parent
+     * @apiErrorExample {json} OrderStatusListBasedOnParent error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderStatusListBasedOnParent(limit, offset, parentId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const WhereConditions = [];
+            WhereConditions.push({
+                name: 'parentId',
+                value: parentId,
+            });
+            const orderStatusList = yield this.orderStatusService.list(limit, offset, [], [], WhereConditions, false);
+            console.log('orderStatusList:', orderStatusList);
+            if (orderStatusList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got order status list based on parent.',
+                    data: orderStatusList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to get order status list based on parent.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Purchased Customer List
+    /**
+     * @api {get} /api/vendor-order/purchased-customer-list Purchased Customer List
+     * @apiGroup Vendor Product
+     * @apiHeader {string} Authorization
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} count count
+     * @apiParam (Request body) {String} customerName search by customerName
+     * @apiParam (Request body) {String} email search by email
+     * @apiparam (request body) {String} mobileNumber search by mobileNumber
+     * @apiSuccessExample {json} success
+     * HTTP/1.1 200 ok
+     * {
+     *      "status": "1",
+     *      "message": "successfully get the data",
+     *      "data": {},
+     * }
+     * @apiSampleRequest api/vendor-order/purchased-customer-list
+     * @apiErrorExample {json} error
+     * HTTP/1.1 500 internal server error
+     */
+    purchasedCustomers(offset, limit, count, customerName, customerGroupName, email, mobileNumber, keyword, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'DISTINCT order.customerId as customerId',
+                `orderCustomer.email as email`,
+                `orderCustomer.firstName as firstName`,
+                `orderCustomer.lastName as lastName`,
+                `orderCustomer.mobileNumber as mobileNumber`,
+                `orderCustomer.customerGroupId as customerGroupId`,
+                `MAX(order.shippingAddress1) as shippingAddress1`,
+                `MAX(order.shippingAddress2) as shippingAddress2`,
+                `MAX(order.shippingCity) as shippingCity`,
+                `MAX(order.shippingZone) as shippingZone`,
+                'MAX(order.createdDate) as orderCreatedDate',
+                `SUM(order.total) as purched`,
+                `orderCustomer.isActive as isActive`,
+                `orderCustomer.avatar as imageName`,
+                `orderCustomer.avatarPath as containerName`,
+                `customerGroup.name as groupName`,
+                'COUNT(order.orderId) as ordered',
+                'COUNT(orderProduct.orderProductId) as totalOrderProductId',
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrders.order',
+                    aliasName: 'order',
+                },
+                {
+                    tableName: 'order.customer',
+                    aliasName: 'orderCustomer',
+                },
+                {
+                    tableName: 'orderCustomer.customerGroup',
+                    aliasName: 'customerGroup',
+                },
+                {
+                    tableName: 'order.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const whereConditions = [
+                {
+                    name: 'VendorOrders.vendorId',
+                    op: 'and',
+                    value: request.user.vendorId,
+                },
+            ];
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['orderCustomer.email', 'orderCustomer.lastName', 'orderCustomer.firstName', 'orderCustomer.mobile', 'customerGroup.name'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            if (customerName === null || customerName === void 0 ? void 0 : customerName.trim()) {
+                searchConditions.push({
+                    name: [`orderCustomer.firstName`, `orderCustomer.lastName`],
+                    value: customerName,
+                });
+            }
+            if (mobileNumber === null || mobileNumber === void 0 ? void 0 : mobileNumber.trim()) {
+                searchConditions.push({
+                    name: [`orderCustomer.mobileNumber`],
+                    value: mobileNumber,
+                });
+            }
+            if (email === null || email === void 0 ? void 0 : email.trim()) {
+                searchConditions.push({
+                    name: [`orderCustomer.email`],
+                    value: email,
+                });
+            }
+            if (customerGroupName === null || customerGroupName === void 0 ? void 0 : customerGroupName.trim()) {
+                searchConditions.push({
+                    name: [`customerGroup.name`],
+                    value: customerGroupName,
+                });
+            }
+            const groupBy = [
+                {
+                    name: 'order.customerId',
+                },
+                {
+                    name: `orderCustomer.id`,
+                },
+            ];
+            const sort = [
+                {
+                    name: 'MAX(order.createdDate)',
+                    order: 'DESC',
+                },
+            ];
+            const vendorOrders = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            return response.status(200).send({
+                status: 1,
+                message: `Successfully Got Vendor Order List..!`,
+                data: vendorOrders instanceof Array ? count ? vendorOrders.length : vendorOrders : vendorOrders,
+            });
+        });
+    }
+    exportVendorCustomer(customerId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Bulk Archive Order Archive Excel');
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'email', key: 'email', size: 16, width: 15 },
+                { header: 'customerName', key: 'customerName', size: 16, width: 15 },
+                { header: 'mobileNumber', key: 'mobileNumber', size: 16, width: 24 },
+                { header: 'groupName', key: 'groupName', size: 16, width: 15 },
+                { header: 'address1', key: 'address1', size: 16, width: 15 },
+                { header: 'address2', key: 'address2', size: 16, width: 15 },
+                { header: 'purchedProduct', key: 'purchedProduct', size: 16, width: 15 },
+                { header: 'status', key: 'status', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('H1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('I1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const select = [
+                'DISTINCT order.customerId as customerId',
+                `orderCustomer.email as email`,
+                `orderCustomer.firstName as firstName`,
+                `orderCustomer.lastName as lastName`,
+                `orderCustomer.mobileNumber as mobileNumber`,
+                `orderCustomer.customerGroupId as customerGroupId`,
+                `MAX(order.shippingAddress1) as shippingAddress1`,
+                `MAX(order.shippingAddress2) as shippingAddress2`,
+                `MAX(order.shippingCity) as shippingCity`,
+                `MAX(order.shippingZone) as shippingZone`,
+                `SUM(order.total) as purched`,
+                `orderCustomer.isActive as isActive`,
+                `orderCustomer.avatar as imageName`,
+                `orderCustomer.avatarPath as containerName`,
+                `customerGroup.name as groupName`,
+                'COUNT(order.orderId) as ordered',
+                'COUNT(orderProduct.orderProductId) as totalOrderProductId',
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrders.order',
+                    aliasName: 'order',
+                },
+                {
+                    tableName: 'order.customer',
+                    aliasName: 'orderCustomer',
+                },
+                {
+                    tableName: 'orderCustomer.customerGroup',
+                    aliasName: 'customerGroup',
+                },
+                {
+                    tableName: 'order.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const whereConditions = [
+                {
+                    name: 'VendorOrders.vendorId',
+                    op: 'and',
+                    value: request.user.vendorId,
+                },
+            ];
+            if (customerId && customerId !== '') {
+                const customerIds = customerId.split(',');
+                whereConditions.push({
+                    name: 'order.customerId',
+                    op: 'IN',
+                    value: customerIds,
+                });
+            }
+            const groupBy = [
+                {
+                    name: 'order.customerId',
+                },
+                {
+                    name: `orderCustomer.id`,
+                },
+            ];
+            const vendorOrders = yield this.vendorOrdersService.listByQueryBuilder(0, 0, select, whereConditions, [], relations, groupBy, [], false, true);
+            const mappingData = vendorOrders.map((value) => {
+                value.isActive = value.isActive === 1 ? 'Active' : 'In-active';
+                return value;
+            });
+            const rows = [];
+            for (const data of mappingData) {
+                rows.push([data.email, data.firstName + ' ' + data.lastName, data.mobileNumber, data.groupName, data.shippingAddress1, data.shippingAddress2, data.totalOrderProductId, data.isActive]);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './VendorCustomerExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    customerPurchasedProductList(request, response, customerId, limit, offset, count, productName, sku) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'orderProduct.orderProductId as orderProductId',
+                'product.sku as sku',
+                'orderProduct.name as productName',
+                'order.createdDate as orderedDate',
+                'orderProduct.productId as productId',
+                'orderStatus.name as orderStatus',
+                '(SELECT productImage.image from product_image as productImage where productImage.default_image = 1 AND productImage.product_id = productId LIMIT 1) as image',
+                '(SELECT productImage.container_name from product_image as productImage where productImage.default_image = 1 AND productImage.product_id = productId LIMIT 1) as containerName',
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrders.order',
+                    aliasName: 'order',
+                },
+                {
+                    tableName: 'order.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+                {
+                    tableName: 'orderProduct.orderStatus',
+                    aliasName: 'orderStatus',
+                },
+                {
+                    tableName: 'orderProduct.productInformationDetail',
+                    aliasName: 'product',
+                },
+            ];
+            const searchConditions = [];
+            if (productName && productName !== '') {
+                searchConditions.push({
+                    name: ['orderProduct.name'],
+                    value: productName.toLowerCase(),
+                });
+            }
+            if (sku && sku !== '') {
+                searchConditions.push({
+                    name: ['product.sku'],
+                    value: sku.toLowerCase(),
+                });
+            }
+            const whereCondition = [
+                {
+                    name: 'VendorOrders.vendorId',
+                    op: 'and',
+                    value: request.user.vendorId,
+                },
+                {
+                    name: 'order.customerId',
+                    op: 'and',
+                    value: customerId,
+                },
+            ];
+            const sort = [
+                {
+                    name: 'VendorOrders.createdDate',
+                    order: 'DESC',
+                },
+            ];
+            const orderProductList = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereCondition, searchConditions, relations, [], sort, false, true);
+            if (count) {
+                return response.status(200).send({ status: 1, message: 'Successfully got order product count', count: orderProductList.length });
+            }
+            const orderProductStatusList = yield Promise.all(orderProductList.map((orderProduct) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const orderProductView = orderProduct;
+                const orderStatus = yield this.orderProductLogService.find({ where: { orderProductId: orderProduct.orderProductId }, relations: ['orderStatus'] });
+                orderProductView.orderStatus = orderStatus.map((orderStat) => ({
+                    orderStatusId: orderStat.orderStatus.orderStatusId,
+                    statusName: orderStat.orderStatus.name,
+                    createdOn: orderStat.createdDate,
+                }));
+                return orderProductView;
+            })));
+            return response.status(200).send({
+                status: 1,
+                message: `Successfully Got Order Product List..!`,
+                data: orderProductStatusList,
+            });
+        });
+    }
+    // product Viewed Customer
+    /**
+     * @api {get} /api/vendor-order/product-viewed-customer product Viewed Customer
+     * @apiGroup Vendor Product
+     * @apiHeader {string} Authorization
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {String} customerId customerId
+     * @apiSuccessExample {json} success
+     * HTTP/1.1 200 ok
+     * {
+     *      "status": "1",
+     *      "message": "Successfully got the customer view log list",
+     *      "data": {},
+     * }
+     * @apiSampleRequest api/vendor-order/product-viewed-customer
+     * @apiErrorExample {json} error
+     * HTTP/1.1 500 internal server error
+     */
+    vendorProductViewedCustomer(limit, offset, customerId, productName, sku, count, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'product.sku as sku',
+                'product.productId as productId',
+                'product.name as productName',
+                'product.keywords as keywords',
+                'product.image as image',
+                'product.imagePath as imagePath',
+                'MAX(productviewlog.createdDate) as createdDate',
+                'COUNT(productviewlog.productId) as productViewedCount',
+            ];
+            const relation = [];
+            relation.push({
+                tableName: 'VendorProducts.product',
+                aliasName: 'product',
+            }, {
+                tableName: 'product.productviewlog',
+                aliasName: 'productviewlog',
+            });
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'VendorProducts.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'productviewlog.customerId',
+                op: 'and',
+                value: customerId,
+            });
+            const groupBy = [
+                {
+                    name: 'productviewlog.productId',
+                },
+            ];
+            const searchConditions = [];
+            if (productName && productName !== '') {
+                searchConditions.push({
+                    name: ['product.name'],
+                    value: productName.toLowerCase(),
+                });
+            }
+            if (sku && sku !== '') {
+                searchConditions.push({
+                    name: ['product.sku'],
+                    value: sku.toLowerCase(),
+                });
+            }
+            const sort = [
+                {
+                    name: 'MAX(productviewlog.createdDate)',
+                    order: 'DESC',
+                },
+            ];
+            const customerViewLogList = yield this.vendorProductService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relation, groupBy, sort, count, true);
+            if (!count) {
+                const resultList = yield Promise.all(customerViewLogList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const temp = value;
+                    const productImage = yield this.productImageService.findAll({ where: { productId: temp.productId } });
+                    temp.productImage = productImage;
+                    return temp;
+                })));
+                return response.status(200).send({ status: 1, message: 'Successfully got the customer view log list', data: resultList });
+            }
+            else {
+                return response.status(200).send({ status: 1, message: 'Successfully got the customer view log count', data: customerViewLogList });
+            }
+        });
+    }
+    exportOrderIvoiceList(vendorInvoiceId, limit, offset, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorInvoiceIds = vendorInvoiceId && vendorInvoiceId !== '' ? vendorInvoiceId.split(',') : [];
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Order-invoice-list');
+            const rows = [];
+            worksheet.columns = [
+                { header: 'InvoiceNo', key: 'InvoiceNo', size: 16, width: 15 },
+                { header: 'Customer', key: 'Customer', size: 16, width: 15 },
+                { header: 'Amount', key: 'Amount', size: 16, width: 15 },
+                { header: 'createdDate', key: 'createdDate', size: 16, width: 24 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const select = [
+                'VendorInvoice.vendorInvoiceId as vendorInvoiceId',
+                'VendorInvoice.invoiceNo as invoiceNo',
+                'VendorInvoice.invoicePrefix as invoicePrefix',
+                'VendorInvoice.shippingFirstname as shippingFirstname',
+                'VendorInvoice.shippingLastname as shippingLastname',
+                'VendorInvoice.orderId as orderId',
+                'VendorInvoice.vendorId as vendorId',
+                'VendorInvoice.createdDate as createdDate',
+                'VendorInvoice.email as email',
+                'VendorInvoice.total as total',
+                'orderDetail.orderPrefixId as orderPrefixId',
+            ];
+            const relations = [{
+                    tableName: 'VendorInvoice.orderDetail',
+                    aliasName: 'orderDetail',
+                }];
+            const whereConditions = [];
+            if (vendorInvoiceIds.length > 0) {
+                whereConditions.push({
+                    name: 'VendorInvoice.vendorInvoiceId',
+                    op: 'IN',
+                    value: vendorInvoiceId,
+                });
+            }
+            else {
+                whereConditions.push({
+                    name: 'VendorInvoice.vendorId',
+                    op: 'and',
+                    value: request.user.vendorId,
+                });
+            }
+            const orderInvoices = yield this.vendorInvoiceService.listByQueryBuilder(limit, offset, select, whereConditions, [], relations, [], [], false, true);
+            for (const vals of orderInvoices) {
+                const temp = {};
+                temp.InvoiceNo = vals.invoiceNo;
+                temp.Customer = vals.shippingFirstname + ' ' + vals.shippingLastname;
+                temp.Amount = vals.total;
+                temp.createdDate = vals.createdDate;
+                rows.push(temp);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './VendorInvoice' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/recent-order-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "vendorRecentOrderList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-detail/:vendorOrderId'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('vendorOrderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/archive-order-detail/:vendorOrderArchiveId'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('vendorOrderArchiveId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderArchiveDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/today-vendor-order-count'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-counts'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderCounts", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-order/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "deleteOrder", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-order-status/:vendorOrderId'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('vendorOrderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('subOrderStatusId')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "updateOrderStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-order-status-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('orderStatus')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderStatusList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-orders-based-status-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('vendorOrderLimit')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('vendorOrderOffset')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, Number, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "vendorOrderBasedStatusList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-orders-based-status-details/:orderStatusId'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('orderStatusId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Number, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "vendorOrderStatusDetails", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-orders-based-status-count'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('vendorLimit')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('vendorOffset')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, Number, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderListCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendorOrderLoglist'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('vendorOrderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderLogList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/top-selling-productlist'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('duration')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "topSellingProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/update-shipping-information'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('vendorOrderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('trackingUrl')),
+    tslib_1.__param(2, (0, routing_controllers_1.BodyParam)('trackingNo')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "updateShippingInformation", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-export-pdf'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('vendorOrderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderExportPdf", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/make-vendor-order-archive'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('vendorOrderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "makeArchive", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/revoke-vendor-order-archive'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('vendorOrderArchiveId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "revokeArchive", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/archive-order-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('deliverylist')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "archiveOrderList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/archive-order-list-count'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('deliverylist')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "archiveOrderListCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('customerName')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('amount')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('orderStatus')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('deliverylist')),
+    tslib_1.__param(10, (0, routing_controllers_1.QueryParam)('dateAdded')),
+    tslib_1.__param(11, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(12, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(13, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, String, String, Number, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderListtt", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/bulk-archive-order-export'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('vendorId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "archiveOrderExportBulk", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/archive-order-export'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('vendorOrderArchiveId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "archiveOrderExport", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/cancel-order-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "cancelorderListtt", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-vendor-order-cancel-request/:orderProductId'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('orderProductId')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('cancelStatusId')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "updateVendorOrderCancelStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/update-bulk-vendor-order-cancel-request'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('orderProductId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('cancelStatusId')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "updateBulkVendorOrderCancelStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-order-cancel-excel-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('orderProductId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "exportCancelRequest", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/bulk-vendor-order-cancel-excel-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "bulkExportVendorOrderCancelRequest", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-invoice-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('firstName')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('lastName')),
+    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "vendorInvoiceList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-invoice-export-pdf'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderInvoiceExportPdf", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/sales-report-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('productId')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "vendorSalesReportList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/sales-report-export-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('productId')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "totalSalesExcelView", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/order-invoice-export-send-email-pdf'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('orderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderInvoiceExportSendEmailPdf", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/back-order-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('customerName')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('amount')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('orderStatus')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Number, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "backOrderProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-failed-order-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('customerName')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('amount')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('orderStatus')),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(10, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(11, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "vendorFailedOrderList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/bulk-back-order-excel-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "bulkExportBackorder", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/back-order-excel-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('orderProductId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "backOrderExport", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/failed-order-excel-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "failedOrderExportExcel", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/bulk-failed-order-excel-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "BulkfailedOrderExportExcel", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-order-status-list-based-on-parent'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('parentId')),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderStatusListBasedOnParent", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/purchased-customer-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('customerName')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('customerGroupName')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('email')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('mobileNumber')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(9, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, String, String, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "purchasedCustomers", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/export-customer'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('customerId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "exportVendorCustomer", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/customer-purchased-product/:id'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('productName')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('sku')),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Number, Number, Number, Object, String, String]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "customerPurchasedProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Authorized)('vendor'),
+    (0, routing_controllers_1.Get)('/product-viewed-customer'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('customerId')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('productName')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('sku')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(7, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "vendorProductViewedCustomer", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Authorized)('vendor'),
+    (0, routing_controllers_1.Get)('/export-order-invoice-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('vendorInvoiceId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "exportOrderIvoiceList", null);
+VendorOrderController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/vendor-order'),
+    tslib_1.__metadata("design:paramtypes", [VendorOrderService_1.VendorOrdersService,
+        OrderService_1.OrderService,
+        OrderProductService_1.OrderProductService,
+        PluginService_1.PluginService,
+        VendorProductService_1.VendorProductService,
+        ProductImageService_1.ProductImageService,
+        VendorOrderLogService_1.VendorOrderLogService,
+        ProductService_1.ProductService,
+        PdfService_1.PdfService,
+        CountryService_1.CountryService,
+        zoneService_1.ZoneService,
+        S3Service_1.S3Service,
+        VendorOrderArchiveLogService_1.VendorOrderArchiveLogService,
+        VendorOrderArchiveService_1.VendorOrderArchiveService,
+        OrderStatusService_1.OrderStatusService,
+        OrderProductLogService_1.OrderProductLogService,
+        EmailTemplateService_1.EmailTemplateService,
+        VendorPaymentService_1.VendorPaymentService,
+        VendorPaymentArchiveService_1.VendorPaymentArchiveService,
+        VendorInvoiceService_1.VendorInvoiceService,
+        VendorInvoiceItemService_1.VendorInvoiceItemService,
+        VendorService_1.VendorService,
+        ImageService_1.ImageService,
+        SettingService_1.SettingService,
+        CustomerService_1.CustomerService])
+], VendorOrderController);
+exports.VendorOrderController = VendorOrderController;
+//# sourceMappingURL=VendorOrderController.js.map

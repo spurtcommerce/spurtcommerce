@@ -1,1 +1,531 @@
-'use strict';const a690_0x408ee5=a690_0x3d38;(function(_0x40f15b,_0x57526c){const _0x1263fa=a690_0x3d38,_0x5d9394=_0x40f15b();while(!![]){try{const _0x3fe6ef=parseInt(_0x1263fa(0x175))/0x1+parseInt(_0x1263fa(0x192))/0x2*(-parseInt(_0x1263fa(0x17f))/0x3)+parseInt(_0x1263fa(0x17b))/0x4*(parseInt(_0x1263fa(0x13d))/0x5)+-parseInt(_0x1263fa(0x177))/0x6*(parseInt(_0x1263fa(0x132))/0x7)+parseInt(_0x1263fa(0x156))/0x8+parseInt(_0x1263fa(0x183))/0x9*(-parseInt(_0x1263fa(0x15f))/0xa)+-parseInt(_0x1263fa(0x198))/0xb;if(_0x3fe6ef===_0x57526c)break;else _0x5d9394['push'](_0x5d9394['shift']());}catch(_0x5d8d42){_0x5d9394['push'](_0x5d9394['shift']());}}}(a690_0x5353,0x92a73));Object['defineProperty'](exports,a690_0x408ee5(0x167),{'value':!![]}),exports[a690_0x408ee5(0x173)]=void 0x0;const tslib_1=require(a690_0x408ee5(0x16e));require('reflect-metadata');const routing_controllers_1=require(a690_0x408ee5(0x188)),CreateVendorGroupRequest_1=require(a690_0x408ee5(0x13e)),VendorGroupService_1=require('../../core/services/VendorGroupService'),VendorService_1=require('../../core/services/VendorService'),VendorGroup_1=require(a690_0x408ee5(0x153)),VendorGroupCategoryService_1=require(a690_0x408ee5(0x195)),VendorGroupCategory_1=require(a690_0x408ee5(0x145)),CategoryPathService_1=require(a690_0x408ee5(0x161)),VendorProductService_1=require(a690_0x408ee5(0x193)),CategoryService_1=require(a690_0x408ee5(0x16f));function a690_0x3d38(_0x572b06,_0x5d5d9e){const _0x53534d=a690_0x5353();return a690_0x3d38=function(_0x3d38b,_0x1cd11f){_0x3d38b=_0x3d38b-0x132;let _0x447731=_0x53534d[_0x3d38b];return _0x447731;},a690_0x3d38(_0x572b06,_0x5d5d9e);}let VendorGroupController=class VendorGroupController{constructor(_0xd7e6c8,_0x509bbf,_0x579e9b,_0x19b125,_0x4fd485,_0x671a81){const _0x454d58=a690_0x408ee5;this[_0x454d58(0x13c)]=_0xd7e6c8,this[_0x454d58(0x15b)]=_0x509bbf,this['vendorGroupCategoryService']=_0x579e9b,this[_0x454d58(0x163)]=_0x19b125,this['vendorProductService']=_0x4fd485,this[_0x454d58(0x17c)]=_0x671a81;}['createVendorGroup'](_0x4593e3,_0x4161b5){const _0xc011b9=a690_0x408ee5;return tslib_1[_0xc011b9(0x150)](this,void 0x0,void 0x0,function*(){const _0x3a1a45=_0xc011b9,_0x51bde4=_0x4593e3['categoryIds'][_0x3a1a45(0x185)]();if(_0x51bde4[_0x3a1a45(0x187)]===0x0){const _0x571b68={'status':0x0,'message':_0x3a1a45(0x147)};return _0x4161b5['status'](0x190)['send'](_0x571b68);}const _0x48aed5=_0x51bde4[_0x3a1a45(0x14d)](','),_0x27747d=yield this[_0x3a1a45(0x13c)][_0x3a1a45(0x15e)]({'where':{'name':_0x4593e3['name']}});if(_0x27747d){const _0x338097={'status':0x0,'message':_0x3a1a45(0x15c)};return _0x4161b5[_0x3a1a45(0x142)](0x190)['send'](_0x338097);}const _0xaace17=new VendorGroup_1[(_0x3a1a45(0x141))]();_0xaace17['name']=_0x4593e3[_0x3a1a45(0x176)],_0xaace17[_0x3a1a45(0x144)]=_0x4593e3[_0x3a1a45(0x144)],_0xaace17[_0x3a1a45(0x16a)]=_0x4593e3[_0x3a1a45(0x142)],_0xaace17[_0x3a1a45(0x16b)]=_0x4593e3[_0x3a1a45(0x16b)];const _0x2959ed=yield this['vendorGroupService'][_0x3a1a45(0x166)](_0xaace17);if(_0x2959ed){if(_0x51bde4[_0x3a1a45(0x187)]>0x0)for(const _0x21e8fe of _0x48aed5){const _0xc67600=new VendorGroupCategory_1['VendorGroupCategory']();_0xc67600[_0x3a1a45(0x18e)]=_0x2959ed[_0x3a1a45(0x194)],_0xc67600[_0x3a1a45(0x168)]=+_0x21e8fe,_0xc67600[_0x3a1a45(0x16a)]=0x1,yield this[_0x3a1a45(0x15d)][_0x3a1a45(0x166)](_0xc67600);}const _0x17b58c={'status':0x1,'message':_0x3a1a45(0x159),'data':_0x2959ed};return _0x4161b5['status'](0xc8)[_0x3a1a45(0x172)](_0x17b58c);}else{const _0x454698={'status':0x0,'message':_0x3a1a45(0x138)};return _0x4161b5[_0x3a1a45(0x142)](0x190)['send'](_0x454698);}});}[a690_0x408ee5(0x189)](_0x119f26,_0x55bd8a,_0x335bb8){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xd734be=a690_0x3d38,_0x28fe04=_0x55bd8a['categoryIds'];if(_0x28fe04[_0xd734be(0x187)]===0x0){const _0x3eee63={'status':0x0,'message':_0xd734be(0x18d)};return _0x335bb8[_0xd734be(0x142)](0x190)[_0xd734be(0x172)](_0x3eee63);}const _0x2868c9=yield this['vendorGroupService'][_0xd734be(0x15e)]({'where':{'groupId':_0x119f26}});if(!_0x2868c9){const _0x1eb910={'status':0x0,'message':_0xd734be(0x140)};return _0x335bb8[_0xd734be(0x142)](0x190)[_0xd734be(0x172)](_0x1eb910);}const _0xbe9011=new VendorGroup_1[(_0xd734be(0x141))]();_0xbe9011[_0xd734be(0x176)]=_0x55bd8a[_0xd734be(0x176)],_0xbe9011['description']=_0x55bd8a[_0xd734be(0x144)],_0xbe9011[_0xd734be(0x16a)]=_0x55bd8a['status'],_0xbe9011[_0xd734be(0x16b)]=_0x55bd8a['commission'];const _0x2157d0=yield this[_0xd734be(0x13c)][_0xd734be(0x148)](_0x119f26,_0xbe9011);if(_0x2157d0){if(_0x28fe04[_0xd734be(0x187)]>0x0){const _0x1b59bb=yield this[_0xd734be(0x15d)][_0xd734be(0x139)]({'where':{'vendorGroupId':_0x119f26}});_0x1b59bb[_0xd734be(0x187)]>0x0&&(yield this[_0xd734be(0x15d)]['delete'](_0x1b59bb));const _0x28a030=[];for(const _0x37320a of _0x28fe04){const _0x5f15fa=new VendorGroupCategory_1['VendorGroupCategory']();_0x5f15fa[_0xd734be(0x18e)]=_0x2157d0[_0xd734be(0x194)],_0x5f15fa['categoryId']=_0x37320a,_0x5f15fa[_0xd734be(0x16a)]=0x1,_0x28a030['push'](_0x5f15fa);}yield this[_0xd734be(0x15d)][_0xd734be(0x166)](_0x28a030);}const _0x13abc2={'status':0x1,'message':_0xd734be(0x14e),'data':_0x2157d0};return _0x335bb8[_0xd734be(0x142)](0xc8)['send'](_0x13abc2);}else{const _0x1d2243={'status':0x0,'message':_0xd734be(0x146)};return _0x335bb8[_0xd734be(0x142)](0x190)[_0xd734be(0x172)](_0x1d2243);}});}[a690_0x408ee5(0x197)](_0x20626d,_0x499c23,_0x595f9d,_0x4a7578,_0x24ab62,_0x25e7c2){const _0x41559f=a690_0x408ee5;return tslib_1[_0x41559f(0x150)](this,void 0x0,void 0x0,function*(){const _0x4b8052=_0x41559f,_0x188ceb=[_0x4b8052(0x194),_0x4b8052(0x176),'description',_0x4b8052(0x16a),_0x4b8052(0x16b)],_0xecd20a=[{'name':_0x4b8052(0x176),'op':_0x4b8052(0x18b),'value':_0x595f9d},{'name':_0x4b8052(0x16a),'op':'like','value':_0x4a7578}],_0x2bf6ef=[],_0x2b82a2=yield this[_0x4b8052(0x13c)][_0x4b8052(0x143)](_0x20626d,_0x499c23,_0x188ceb,_0x2bf6ef,_0xecd20a,_0x24ab62);if(_0x24ab62)return _0x25e7c2[_0x4b8052(0x142)](0xc8)[_0x4b8052(0x172)]({'status':0x1,'message':_0x4b8052(0x162),'data':_0x2b82a2});const _0x1b8970=_0x2b82a2[_0x4b8052(0x13a)](_0x3c8d1c=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x252c1c=_0x4b8052,_0x503fda=_0x3c8d1c;return _0x503fda[_0x252c1c(0x17e)]=yield this[_0x252c1c(0x13c)][_0x252c1c(0x17e)](_0x3c8d1c[_0x252c1c(0x194)]),_0x503fda[_0x252c1c(0x13b)]=yield this['vendorGroupCategoryService']['groupCategoryCount'](_0x3c8d1c[_0x252c1c(0x194)]),_0x503fda;})),_0x4eead9=yield Promise['all'](_0x1b8970),_0x4f7f67={'status':0x1,'message':_0x4b8052(0x13f),'data':_0x4eead9};return _0x25e7c2[_0x4b8052(0x142)](0xc8)[_0x4b8052(0x172)](_0x4f7f67);});}[a690_0x408ee5(0x14a)](_0x22f978,_0x1c4533,_0x2e4ac9){const _0x335a01=a690_0x408ee5;return tslib_1[_0x335a01(0x150)](this,void 0x0,void 0x0,function*(){const _0x13bf4e=_0x335a01,_0x4acd7c=yield this['vendorGroupService'][_0x13bf4e(0x15e)]({'where':{'groupId':_0x22f978}});if(!_0x4acd7c){const _0x3b0708={'status':0x0,'message':_0x13bf4e(0x140)};return _0x1c4533[_0x13bf4e(0x142)](0x190)['send'](_0x3b0708);}const _0x4be486=yield this[_0x13bf4e(0x13c)][_0x13bf4e(0x15e)]({'where':{'groupId':_0x22f978,'name':_0x13bf4e(0x149)}});if(_0x4be486){const _0x5604a7={'status':0x0,'message':_0x13bf4e(0x184)};return _0x1c4533['status'](0x190)[_0x13bf4e(0x172)](_0x5604a7);}const _0xbee94c=yield this[_0x13bf4e(0x15b)][_0x13bf4e(0x15e)]({'where':{'vendorGroupId':_0x22f978}});if(_0xbee94c){const _0x1ccb2f={'status':0x0,'message':_0x13bf4e(0x191)};return _0x1c4533['status'](0x190)[_0x13bf4e(0x172)](_0x1ccb2f);}const _0x5aee4e=yield this[_0x13bf4e(0x15d)][_0x13bf4e(0x139)]({'where':{'vendorGroupId':_0x22f978}});_0x5aee4e[_0x13bf4e(0x187)]>0x0&&(yield this[_0x13bf4e(0x15d)][_0x13bf4e(0x14f)](_0x5aee4e));const _0x543c5d=yield this['vendorGroupService']['delete'](_0x22f978);if(_0x543c5d){const _0x490d40={'status':0x1,'message':'Vendor\x20Group\x20Deleted\x20Successfully.'};return _0x1c4533[_0x13bf4e(0x142)](0xc8)[_0x13bf4e(0x172)](_0x490d40);}else{const _0x207060={'status':0x0,'message':'Unable\x20to\x20delete\x20the\x20vendor\x20group.'};return _0x1c4533['status'](0x190)[_0x13bf4e(0x172)](_0x207060);}});}['vendorGroupDetails'](_0x4fb9b1,_0x46d41d){const _0x343a7c=a690_0x408ee5;return tslib_1[_0x343a7c(0x150)](this,void 0x0,void 0x0,function*(){const _0x117d02=_0x343a7c,_0x1605ef=yield this['vendorGroupService']['findOne']({'select':[_0x117d02(0x176),_0x117d02(0x16b),'isActive'],'where':{'groupId':_0x4fb9b1}});if(!_0x1605ef)return _0x46d41d['status'](0x190)[_0x117d02(0x172)]({'status':0x0,'message':'Invalid\x20vendor\x20group\x20Id'});_0x1605ef[_0x117d02(0x14b)]=yield this[_0x117d02(0x15d)][_0x117d02(0x139)]({'where':{'vendorGroupId':_0x4fb9b1}})[_0x117d02(0x14c)](_0x5b2e5a=>{const _0x9f554b=_0x5b2e5a['map'](_0x9d0c91=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x11a5d6=a690_0x3d38,_0x22b076=yield this[_0x11a5d6(0x17c)][_0x11a5d6(0x15e)]({'where':{'categoryId':_0x9d0c91[_0x11a5d6(0x168)]}}),_0x8bc97b=yield this['categoryPathService'][_0x11a5d6(0x181)](_0x22b076['categorySlug']);_0x8bc97b&&_0x8bc97b[_0x11a5d6(0x17d)]&&(_0x22b076[_0x11a5d6(0x17d)]=_0x8bc97b[_0x11a5d6(0x17d)]);const _0x3f3260=_0x22b076,_0x4506ed=yield this['vendorProductService'][_0x11a5d6(0x134)](_0x9d0c91[_0x11a5d6(0x168)]);return _0x4506ed?_0x3f3260[_0x11a5d6(0x18c)]=0x1:_0x3f3260[_0x11a5d6(0x18c)]=0x0,_0x3f3260;})),_0x5ebfa1=Promise['all'](_0x9f554b);return _0x5ebfa1;});const _0x3b2af0={'status':0x1,'message':_0x117d02(0x155),'data':_0x1605ef};return _0x46d41d[_0x117d02(0x142)](0xc8)[_0x117d02(0x172)](_0x3b2af0);});}[a690_0x408ee5(0x158)](_0x3e9cbc){const _0x3965fc=a690_0x408ee5;return tslib_1[_0x3965fc(0x150)](this,void 0x0,void 0x0,function*(){const _0x47c0bb=_0x3965fc,_0x3045f7={},_0x4f8ae7=[],_0x3b232a=[],_0x2939de=[],_0x46b091=yield this[_0x47c0bb(0x13c)][_0x47c0bb(0x143)](0x0,0x0,_0x4f8ae7,_0x3b232a,_0x2939de,0x1),_0x1fc236=[{'name':'isActive','op':_0x47c0bb(0x151),'value':0x1}],_0x3b3f6d=yield this['vendorGroupService'][_0x47c0bb(0x143)](0x0,0x0,_0x4f8ae7,_0x3b232a,_0x1fc236,0x1),_0x156be6=[{'name':_0x47c0bb(0x16a),'op':_0x47c0bb(0x151),'value':0x0}],_0x1ff1c3=yield this[_0x47c0bb(0x13c)][_0x47c0bb(0x143)](0x0,0x0,_0x4f8ae7,_0x3b232a,_0x156be6,0x1);_0x3045f7['totalVendors']=_0x46b091?_0x46b091:0x0,_0x3045f7[_0x47c0bb(0x137)]=_0x3b3f6d?_0x3b3f6d:0x0,_0x3045f7[_0x47c0bb(0x160)]=_0x1ff1c3?_0x1ff1c3:0x0;const _0x234d55={'status':0x1,'message':'Successfully\x20got\x20the\x20vendor\x20group\x20count','data':_0x3045f7};return _0x3e9cbc[_0x47c0bb(0x142)](0xc8)[_0x47c0bb(0x172)](_0x234d55);});}};function a690_0x5353(){const _0x7f715f=['2222810XAVzRz','./requests/CreateVendorGroupRequest','Successfully\x20got\x20all\x20vendor\x20group\x20List','Invalid\x20group\x20Id.','VendorGroup','status','list','description','../../core/models/VendorGroupCategory','Unable\x20to\x20update\x20the\x20Vendor\x20Group.','Category\x20Ids\x20cannot\x20be\x20empty.','update','default','deleteGroup','vendorGroupCategory','then','split','Vendor\x20Group\x20updated\x20successfully.','delete','__awaiter','where','/:id','../../core/models/VendorGroup','Get','Successfully\x20got\x20vendor\x20group\x20details.','4405320DCKUPj','VendorGroupService','vendorGroupCount','Vendor\x20Group\x20Created\x20Successfully','Res','vendorService','This\x20Vendor\x20Group\x20already\x20exists.','vendorGroupCategoryService','findOne','27770mtkpZf','inActiveVendors','../../core/services/CategoryPathService','Successfully\x20got\x20vendor\x20group\x20list\x20count','categoryPathService','CreateVendorGroup','Req','create','__esModule','categoryId','design:returntype','isActive','commission','__metadata','design:paramtypes','tslib','../../core/services/CategoryService','QueryParam','offset','send','VendorGroupController','VendorProductService','1159607aaaAoi','name','114lclCIb','Post','design:type','__param','8oRoanA','categoryService','levels','vendorCount','6dSzdns','createVendorGroup','findCategoryLevel','Param','1143tKAZWS','You\x20cannot\x20delete\x20this\x20vendor\x20group.','toString','count','length','routing-controllers','updateVendorRole','Authorized','like','productAvailable','Category\x20Ids\x20should\x20not\x20be\x20empty.','vendorGroupId','JsonController','__decorate','You\x20cannot\x20delete\x20this\x20Vendor\x20group\x20as\x20Vendors\x20are\x20mapped\x20to\x20it.','511194bnTVEg','../../core/services/VendorProductService','groupId','../../core/services/VendorGroupCategoryService','keyword','vendorgroupList','11621236waQVrE','28868UbgZJa','prototype','findingProduct','VendorService','Body','activeVendors','Unable\x20to\x20save\x20Vendor\x20Group.','findAll','map','categoryCount','vendorGroupService'];a690_0x5353=function(){return _0x7f715f;};return a690_0x5353();}tslib_1[a690_0x408ee5(0x190)]([(0x0,routing_controllers_1[a690_0x408ee5(0x178)])(),(0x0,routing_controllers_1[a690_0x408ee5(0x18a)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a690_0x408ee5(0x136)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a690_0x408ee5(0x15a)])()),tslib_1[a690_0x408ee5(0x16c)]('design:type',Function),tslib_1[a690_0x408ee5(0x16c)](a690_0x408ee5(0x16d),[CreateVendorGroupRequest_1[a690_0x408ee5(0x164)],Object]),tslib_1['__metadata'](a690_0x408ee5(0x169),Promise)],VendorGroupController[a690_0x408ee5(0x133)],a690_0x408ee5(0x180),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Put'])(a690_0x408ee5(0x152)),(0x0,routing_controllers_1[a690_0x408ee5(0x18a)])(),tslib_1[a690_0x408ee5(0x17a)](0x0,(0x0,routing_controllers_1[a690_0x408ee5(0x182)])('id')),tslib_1[a690_0x408ee5(0x17a)](0x1,(0x0,routing_controllers_1[a690_0x408ee5(0x136)])({'validate':!![]})),tslib_1[a690_0x408ee5(0x17a)](0x2,(0x0,routing_controllers_1[a690_0x408ee5(0x15a)])()),tslib_1['__metadata']('design:type',Function),tslib_1[a690_0x408ee5(0x16c)](a690_0x408ee5(0x16d),[Number,CreateVendorGroupRequest_1[a690_0x408ee5(0x164)],Object]),tslib_1[a690_0x408ee5(0x16c)](a690_0x408ee5(0x169),Promise)],VendorGroupController[a690_0x408ee5(0x133)],a690_0x408ee5(0x189),null),tslib_1[a690_0x408ee5(0x190)]([(0x0,routing_controllers_1[a690_0x408ee5(0x154)])(),(0x0,routing_controllers_1[a690_0x408ee5(0x18a)])(),tslib_1[a690_0x408ee5(0x17a)](0x0,(0x0,routing_controllers_1['QueryParam'])('limit')),tslib_1['__param'](0x1,(0x0,routing_controllers_1['QueryParam'])(a690_0x408ee5(0x171))),tslib_1[a690_0x408ee5(0x17a)](0x2,(0x0,routing_controllers_1[a690_0x408ee5(0x170)])(a690_0x408ee5(0x196))),tslib_1[a690_0x408ee5(0x17a)](0x3,(0x0,routing_controllers_1[a690_0x408ee5(0x170)])(a690_0x408ee5(0x142))),tslib_1[a690_0x408ee5(0x17a)](0x4,(0x0,routing_controllers_1[a690_0x408ee5(0x170)])(a690_0x408ee5(0x186))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a690_0x408ee5(0x15a)])()),tslib_1[a690_0x408ee5(0x16c)](a690_0x408ee5(0x179),Function),tslib_1['__metadata'](a690_0x408ee5(0x16d),[Number,Number,String,String,Object,Object]),tslib_1[a690_0x408ee5(0x16c)](a690_0x408ee5(0x169),Promise)],VendorGroupController[a690_0x408ee5(0x133)],a690_0x408ee5(0x197),null),tslib_1[a690_0x408ee5(0x190)]([(0x0,routing_controllers_1['Delete'])(a690_0x408ee5(0x152)),(0x0,routing_controllers_1[a690_0x408ee5(0x18a)])(),tslib_1[a690_0x408ee5(0x17a)](0x0,(0x0,routing_controllers_1[a690_0x408ee5(0x182)])('id')),tslib_1[a690_0x408ee5(0x17a)](0x1,(0x0,routing_controllers_1[a690_0x408ee5(0x15a)])()),tslib_1[a690_0x408ee5(0x17a)](0x2,(0x0,routing_controllers_1[a690_0x408ee5(0x165)])()),tslib_1[a690_0x408ee5(0x16c)]('design:type',Function),tslib_1[a690_0x408ee5(0x16c)](a690_0x408ee5(0x16d),[Number,Object,Object]),tslib_1[a690_0x408ee5(0x16c)](a690_0x408ee5(0x169),Promise)],VendorGroupController[a690_0x408ee5(0x133)],a690_0x408ee5(0x14a),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a690_0x408ee5(0x154)])('/vendor-group-details/:id'),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a690_0x408ee5(0x17a)](0x0,(0x0,routing_controllers_1[a690_0x408ee5(0x182)])('id')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a690_0x408ee5(0x15a)])()),tslib_1[a690_0x408ee5(0x16c)](a690_0x408ee5(0x179),Function),tslib_1['__metadata'](a690_0x408ee5(0x16d),[Number,Object]),tslib_1[a690_0x408ee5(0x16c)](a690_0x408ee5(0x169),Promise)],VendorGroupController[a690_0x408ee5(0x133)],'vendorGroupDetails',null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])('/vendor-group-count'),(0x0,routing_controllers_1['Authorized'])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a690_0x408ee5(0x15a)])()),tslib_1[a690_0x408ee5(0x16c)](a690_0x408ee5(0x179),Function),tslib_1[a690_0x408ee5(0x16c)]('design:paramtypes',[Object]),tslib_1[a690_0x408ee5(0x16c)]('design:returntype',Promise)],VendorGroupController[a690_0x408ee5(0x133)],a690_0x408ee5(0x158),null),VendorGroupController=tslib_1[a690_0x408ee5(0x190)]([(0x0,routing_controllers_1[a690_0x408ee5(0x18f)])('/vendor-group'),tslib_1[a690_0x408ee5(0x16c)](a690_0x408ee5(0x16d),[VendorGroupService_1[a690_0x408ee5(0x157)],VendorService_1[a690_0x408ee5(0x135)],VendorGroupCategoryService_1['VendorGroupCategoryService'],CategoryPathService_1['CategoryPathService'],VendorProductService_1[a690_0x408ee5(0x174)],CategoryService_1['CategoryService']])],VendorGroupController),exports[a690_0x408ee5(0x173)]=VendorGroupController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorGroupController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const CreateVendorGroupRequest_1 = require("./requests/CreateVendorGroupRequest");
+const VendorGroupService_1 = require("../../core/services/VendorGroupService");
+const VendorService_1 = require("../../core/services/VendorService");
+const VendorGroup_1 = require("../../core/models/VendorGroup");
+const VendorGroupCategoryService_1 = require("../../core/services/VendorGroupCategoryService");
+const VendorGroupCategory_1 = require("../../core/models/VendorGroupCategory");
+const CategoryPathService_1 = require("../../core/services/CategoryPathService");
+const VendorProductService_1 = require("../../core/services/VendorProductService");
+const CategoryService_1 = require("../../core/services/CategoryService");
+let VendorGroupController = class VendorGroupController {
+    constructor(vendorGroupService, vendorService, vendorGroupCategoryService, categoryPathService, vendorProductService, categoryService) {
+        this.vendorGroupService = vendorGroupService;
+        this.vendorService = vendorService;
+        this.vendorGroupCategoryService = vendorGroupCategoryService;
+        this.categoryPathService = categoryPathService;
+        this.vendorProductService = vendorProductService;
+        this.categoryService = categoryService;
+    }
+    // Create Vendor Group API
+    /**
+     * @api {post} /api/vendor-group Create vendor group API
+     * @apiGroup VendorGroup
+     * @apiParam (Request body) {String{..30}} name groupName
+     * @apiParam (Request body) {Number} commission Group Commission
+     * @apiParam (Request body) {String} [description] groupDescription
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {Number[]} categoryIds Category Id List
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "commission" : "",
+     *      "description" : "",
+     *      "status" : "",
+     *      "categoryIds": []
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "New Vendor group is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-group
+     * @apiErrorExample {json} createVendor error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createVendorGroup(createVendorGroup, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const categories = createVendorGroup.categoryIds.toString();
+            if (categories.length === 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Category Ids cannot be empty.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const category = categories.split(',');
+            const vendor = yield this.vendorGroupService.findOne({
+                where: {
+                    name: createVendorGroup.name,
+                },
+            });
+            if (vendor) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'This Vendor Group already exists.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newGroupParams = new VendorGroup_1.VendorGroup();
+            newGroupParams.name = createVendorGroup.name;
+            newGroupParams.description = createVendorGroup.description;
+            newGroupParams.isActive = createVendorGroup.status;
+            newGroupParams.commission = createVendorGroup.commission;
+            const vendorGroupSaveResponse = yield this.vendorGroupService.create(newGroupParams);
+            if (vendorGroupSaveResponse) {
+                // Add vendor group category
+                if (categories.length > 0) {
+                    for (const categoryId of category) {
+                        const vendorGroupCategory = new VendorGroupCategory_1.VendorGroupCategory();
+                        vendorGroupCategory.vendorGroupId = vendorGroupSaveResponse.groupId;
+                        vendorGroupCategory.categoryId = +categoryId;
+                        vendorGroupCategory.isActive = 1;
+                        yield this.vendorGroupCategoryService.create(vendorGroupCategory);
+                    }
+                }
+                const successResponse = {
+                    status: 1,
+                    message: 'Vendor Group Created Successfully',
+                    data: vendorGroupSaveResponse,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to save Vendor Group.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update Vendor Group API
+    /**
+     * @api {put} /api/vendor-group/:id Update Vendor Group API
+     * @apiGroup VendorGroup
+     * @apiParam (Request body) {String{..30}} name groupName
+     * @apiParam (Request body) {Number} commission Group Commission
+     * @apiParam (Request body) {String} [description] groupDescription
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {Number[]} categoryIds Category Id List
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "commission" : "",
+     *      "description" : "",
+     *      "status" : "",
+     *      "categoryIds": ""
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": " Vendor Group is updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-group/:id
+     * @apiErrorExample {json} update-vendor-group error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateVendorRole(id, updateVendorGroup, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const categories = updateVendorGroup.categoryIds;
+            if (categories.length === 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Category Ids should not be empty.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const vendor = yield this.vendorGroupService.findOne({
+                where: {
+                    groupId: id,
+                },
+            });
+            if (!vendor) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid group Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newVendorGroup = new VendorGroup_1.VendorGroup();
+            newVendorGroup.name = updateVendorGroup.name;
+            newVendorGroup.description = updateVendorGroup.description;
+            newVendorGroup.isActive = updateVendorGroup.status;
+            newVendorGroup.commission = updateVendorGroup.commission;
+            const vendorGroupSaveResponse = yield this.vendorGroupService.update(id, newVendorGroup);
+            if (vendorGroupSaveResponse) {
+                // Delete existing and Add new Vendor Group Category
+                if (categories.length > 0) {
+                    const vendorGroupCategoryList = yield this.vendorGroupCategoryService.findAll({
+                        where: { vendorGroupId: id },
+                    });
+                    if (vendorGroupCategoryList.length > 0) {
+                        yield this.vendorGroupCategoryService.delete(vendorGroupCategoryList);
+                    }
+                    const listOfGroupCategories = [];
+                    for (const categoryId of categories) {
+                        const vendorGroupCategory = new VendorGroupCategory_1.VendorGroupCategory();
+                        vendorGroupCategory.vendorGroupId = vendorGroupSaveResponse.groupId;
+                        vendorGroupCategory.categoryId = categoryId;
+                        vendorGroupCategory.isActive = 1;
+                        listOfGroupCategories.push(vendorGroupCategory);
+                    }
+                    yield this.vendorGroupCategoryService.create(listOfGroupCategories);
+                }
+                const successResponse = {
+                    status: 1,
+                    message: 'Vendor Group updated successfully.',
+                    data: vendorGroupSaveResponse,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the Vendor Group.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Vendor Group List API
+    /**
+     * @api {get} /api/vendor-group Vendor Group List API
+     * @apiGroup VendorGroup
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {String} count count in number or boolean
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *    "message": "Successfully get vendor group list",
+     *    "data":"{}"
+     *    "status": "1"
+     *  }
+     * @apiSampleRequest /api/vendor-group
+     * @apiErrorExample {json} vendor-group-list error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorgroupList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['groupId', 'name', 'description', 'isActive', 'commission'];
+            const whereConditions = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                },
+                {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const relation = [];
+            const vendorGroupList = yield this.vendorGroupService.list(limit, offset, select, relation, whereConditions, count);
+            if (count) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got vendor group list count',
+                    data: vendorGroupList,
+                });
+            }
+            const vendorGroups = vendorGroupList.map((val) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = val;
+                temp.vendorCount = yield this.vendorGroupService.vendorCount(val.groupId);
+                temp.categoryCount = yield this.vendorGroupCategoryService.groupCategoryCount(val.groupId);
+                return temp;
+            }));
+            const result = yield Promise.all(vendorGroups);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got all vendor group List',
+                data: result,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // delete Vendor Group API
+    /**
+     * @api {delete} /api/vendor-group/:id Delete Vendor Group API
+     * @apiGroup VendorGroup
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} groupId  groupId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted vendorGroup.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-group/:id
+     * @apiErrorExample {json} VendorGroup error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteGroup(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const groupId = yield this.vendorGroupService.findOne({
+                where: {
+                    groupId: id,
+                },
+            });
+            if (!groupId) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid group Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            // find Default group
+            const defaultGroupId = yield this.vendorGroupService.findOne({
+                where: {
+                    groupId: id,
+                    name: 'default',
+                },
+            });
+            if (defaultGroupId) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You cannot delete this vendor group.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            // find vendor
+            const findVendor = yield this.vendorService.findOne({
+                where: {
+                    vendorGroupId: id,
+                },
+            });
+            if (findVendor) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You cannot delete this Vendor group as Vendors are mapped to it.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            // find vendor group category and delete
+            const findVendorGroupCategoryList = yield this.vendorGroupCategoryService.findAll({
+                where: {
+                    vendorGroupId: id,
+                },
+            });
+            if (findVendorGroupCategoryList.length > 0) {
+                yield this.vendorGroupCategoryService.delete(findVendorGroupCategoryList);
+            }
+            const deleteGroup = yield this.vendorGroupService.delete(id);
+            if (deleteGroup) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Vendor Group Deleted Successfully.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the vendor group.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Get Vendor Group Details API
+    /**
+     * @api {get} /api/vendor-group/vendor-group-details/:id Vendor Group Details API
+     * @apiGroup VendorGroup
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully get vendor group details",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-group/vendor-group-details/:id
+     * @apiErrorExample {json} vendorgroup error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorGroupDetails(id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorGroup = yield this.vendorGroupService.findOne({
+                select: ['name', 'commission', 'isActive'],
+                where: {
+                    groupId: id,
+                },
+            });
+            if (!vendorGroup) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid vendor group Id',
+                });
+            }
+            vendorGroup.vendorGroupCategory = yield this.vendorGroupCategoryService.findAll({
+                where: {
+                    vendorGroupId: id,
+                },
+            }).then((val) => {
+                const category = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const categoryValue = yield this.categoryService.findOne({ where: { categoryId: value.categoryId } });
+                    const categoryLevel = yield this.categoryPathService.findCategoryLevel(categoryValue.categorySlug);
+                    if (categoryLevel && categoryLevel.levels) {
+                        categoryValue.levels = categoryLevel.levels;
+                    }
+                    const temp = categoryValue;
+                    const productToCategory = yield this.vendorProductService.findingProduct(value.categoryId);
+                    if (productToCategory) {
+                        temp.productAvailable = 1;
+                    }
+                    else {
+                        temp.productAvailable = 0;
+                    }
+                    return temp;
+                }));
+                const results = Promise.all(category);
+                return results;
+            });
+            const successRes = {
+                status: 1,
+                message: 'Successfully got vendor group details.',
+                data: vendorGroup,
+            };
+            return response.status(200).send(successRes);
+        });
+    }
+    // Vendor Group Count API
+    /**
+     * @api {get} /api/vendor-group/vendor-group-count Vendor Group Count API
+     * @apiGroup VendorGroup
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get vendor group count",
+     *      "data":{},
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-group/vendor-group-count
+     * @apiErrorExample {json} vendorGroup error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorGroupCount(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorGroup = {};
+            const select = [];
+            const search = [];
+            const WhereConditions = [];
+            const allVendorGroupCount = yield this.vendorGroupService.list(0, 0, select, search, WhereConditions, 1);
+            const whereConditionsActive = [
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 1,
+                },
+            ];
+            const activeVendorGroupCount = yield this.vendorGroupService.list(0, 0, select, search, whereConditionsActive, 1);
+            const whereConditionsInActive = [
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 0,
+                },
+            ];
+            const inActiveVendorGroupCount = yield this.vendorGroupService.list(0, 0, select, search, whereConditionsInActive, 1);
+            vendorGroup.totalVendors = allVendorGroupCount ? allVendorGroupCount : 0;
+            vendorGroup.activeVendors = activeVendorGroupCount ? activeVendorGroupCount : 0;
+            vendorGroup.inActiveVendors = inActiveVendorGroupCount ? inActiveVendorGroupCount : 0;
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the vendor group count',
+                data: vendorGroup,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateVendorGroupRequest_1.CreateVendorGroup, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorGroupController.prototype, "createVendorGroup", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateVendorGroupRequest_1.CreateVendorGroup, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorGroupController.prototype, "updateVendorRole", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorGroupController.prototype, "vendorgroupList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorGroupController.prototype, "deleteGroup", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-group-details/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorGroupController.prototype, "vendorGroupDetails", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-group-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorGroupController.prototype, "vendorGroupCount", null);
+VendorGroupController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/vendor-group'),
+    tslib_1.__metadata("design:paramtypes", [VendorGroupService_1.VendorGroupService,
+        VendorService_1.VendorService,
+        VendorGroupCategoryService_1.VendorGroupCategoryService,
+        CategoryPathService_1.CategoryPathService,
+        VendorProductService_1.VendorProductService,
+        CategoryService_1.CategoryService])
+], VendorGroupController);
+exports.VendorGroupController = VendorGroupController;
+//# sourceMappingURL=VendorGroupController.js.map

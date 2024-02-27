@@ -1,1 +1,20 @@
-'use strict';const a476_0x57884a=a476_0x41e9;function a476_0x549f(){const _0xb20341=['6hzKNju','typeorm','414852jMJSqX','__esModule','__decorate','1999920ymIYOv','1620584wHTUjl','1827sbjQUr','1908955ifTUQR','4603984fnYuwv','tslib','Language','Repository','EntityRepository','4152MGBrxo','defineProperty','297524CusuzE','15uuRang','2DlYWMW','LanguageRepository'];a476_0x549f=function(){return _0xb20341;};return a476_0x549f();}(function(_0x5cbf9c,_0xa32782){const _0x5dbbf9=a476_0x41e9,_0x4154d4=_0x5cbf9c();while(!![]){try{const _0x47c2ff=-parseInt(_0x5dbbf9(0x1f0))/0x1*(-parseInt(_0x5dbbf9(0x1f2))/0x2)+-parseInt(_0x5dbbf9(0x1f1))/0x3*(-parseInt(_0x5dbbf9(0x1e2))/0x4)+parseInt(_0x5dbbf9(0x1e8))/0x5*(-parseInt(_0x5dbbf9(0x1f4))/0x6)+parseInt(_0x5dbbf9(0x1e6))/0x7+parseInt(_0x5dbbf9(0x1ee))/0x8*(-parseInt(_0x5dbbf9(0x1e7))/0x9)+parseInt(_0x5dbbf9(0x1e5))/0xa+-parseInt(_0x5dbbf9(0x1e9))/0xb;if(_0x47c2ff===_0xa32782)break;else _0x4154d4['push'](_0x4154d4['shift']());}catch(_0x4c575c){_0x4154d4['push'](_0x4154d4['shift']());}}}(a476_0x549f,0x5378d));Object[a476_0x57884a(0x1ef)](exports,a476_0x57884a(0x1e3),{'value':!![]}),exports[a476_0x57884a(0x1f3)]=void 0x0;const tslib_1=require(a476_0x57884a(0x1ea)),typeorm_1=require(a476_0x57884a(0x1e1)),Language_1=require('../models/Language');function a476_0x41e9(_0x2e3345,_0x3417e9){const _0x549fd7=a476_0x549f();return a476_0x41e9=function(_0x41e98a,_0x3bea09){_0x41e98a=_0x41e98a-0x1e1;let _0x474aed=_0x549fd7[_0x41e98a];return _0x474aed;},a476_0x41e9(_0x2e3345,_0x3417e9);}let LanguageRepository=class LanguageRepository extends typeorm_1[a476_0x57884a(0x1ec)]{};LanguageRepository=tslib_1[a476_0x57884a(0x1e4)]([(0x0,typeorm_1[a476_0x57884a(0x1ed)])(Language_1[a476_0x57884a(0x1eb)])],LanguageRepository),exports[a476_0x57884a(0x1f3)]=LanguageRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LanguageRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Language_1 = require("../models/Language");
+let LanguageRepository = class LanguageRepository extends typeorm_1.Repository {
+};
+LanguageRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(Language_1.Language)
+], LanguageRepository);
+exports.LanguageRepository = LanguageRepository;
+//# sourceMappingURL=LanguageRepository.js.map

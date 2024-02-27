@@ -1,1 +1,155 @@
-'use strict';const a704_0xaa1150=a704_0x5e1e;function a704_0x5e1e(_0x3648ed,_0x2488ee){const _0x128952=a704_0x1289();return a704_0x5e1e=function(_0x5e1e73,_0x9e1042){_0x5e1e73=_0x5e1e73-0x13c;let _0x22ecaf=_0x128952[_0x5e1e73];return _0x22ecaf;},a704_0x5e1e(_0x3648ed,_0x2488ee);}function a704_0x1289(){const _0x53b45b=['toString','90879WlqvQF','split','decrypt','crypto-js','customer','customerRepository','934866TnhiIr','UserId:','role','__metadata','__param','__decorate','stringify','162128GQmonW','4YIEfEy','validateUserGroup','cryptoSecret','OrmRepository','userGroupRepository','../api/core/repositories/AccessTokenRepository','AccessTokenRepository','design:paramtypes','log','isActive','userRepository','info','accessTokenRepository','../api/core/repositories/CustomerRepository','typedi','header','defineProperty','Bearer','jsonwebtoken','checkTokenExist','vendorRepository','99YFOUNy','Utf8','parseBasicAuthFromRequest','decryptToken','findOne','AuthService','../decorators/Logger','108260JGtNXb','No\x20credentials\x20provided\x20by\x20the\x20client','../api/core/repositories/UserGroupRepository','deleteFlag','env','../api/core/repositories/VendorRepository','AES','66326QqyyZe','Service','123110tLKXFK','__awaiter','1HmGtoR','../env','CustomerRepository','authorization','__esModule','Credentials\x20provided\x20by\x20the\x20client','1446928Ikcfhx'];a704_0x1289=function(){return _0x53b45b;};return a704_0x1289();}(function(_0x31e499,_0x10a72d){const _0x313b97=a704_0x5e1e,_0x3c65bb=_0x31e499();while(!![]){try{const _0x3d39fe=-parseInt(_0x313b97(0x16c))/0x1*(parseInt(_0x313b97(0x168))/0x2)+parseInt(_0x313b97(0x174))/0x3*(-parseInt(_0x313b97(0x145))/0x4)+-parseInt(_0x313b97(0x161))/0x5+-parseInt(_0x313b97(0x13d))/0x6+parseInt(_0x313b97(0x172))/0x7+parseInt(_0x313b97(0x144))/0x8+-parseInt(_0x313b97(0x15a))/0x9*(-parseInt(_0x313b97(0x16a))/0xa);if(_0x3d39fe===_0x10a72d)break;else _0x3c65bb['push'](_0x3c65bb['shift']());}catch(_0x3b752d){_0x3c65bb['push'](_0x3c65bb['shift']());}}}(a704_0x1289,0x1da80));Object[a704_0xaa1150(0x155)](exports,a704_0xaa1150(0x170),{'value':!![]}),exports[a704_0xaa1150(0x15f)]=void 0x0;const tslib_1=require('tslib'),jsonwebtoken_1=tslib_1['__importDefault'](require(a704_0xaa1150(0x157))),typedi_1=require(a704_0xaa1150(0x153)),typeorm_typedi_extensions_1=require('typeorm-typedi-extensions'),UserRepository_1=require('../api/core/repositories/UserRepository'),CustomerRepository_1=require(a704_0xaa1150(0x152)),VendorRepository_1=require(a704_0xaa1150(0x166)),env_1=require(a704_0xaa1150(0x16d)),Logger_1=require(a704_0xaa1150(0x160)),AccessTokenRepository_1=require(a704_0xaa1150(0x14a)),UserGroupRepository_1=require(a704_0xaa1150(0x163));let AuthService=class AuthService{constructor(_0x5431f4,_0x848dc5,_0x47bb08,_0x41fa1c,_0x6086b5,_0x30d336){const _0x5d92f0=a704_0xaa1150;this['log']=_0x5431f4,this[_0x5d92f0(0x14f)]=_0x848dc5,this[_0x5d92f0(0x13c)]=_0x47bb08,this[_0x5d92f0(0x159)]=_0x41fa1c,this[_0x5d92f0(0x149)]=_0x6086b5,this[_0x5d92f0(0x151)]=_0x30d336;}[a704_0xaa1150(0x15c)](_0x26a9d7){const _0x3bdb59=a704_0xaa1150;return tslib_1[_0x3bdb59(0x16b)](this,void 0x0,void 0x0,function*(){const _0x1a230f=_0x3bdb59,_0x1056fb=_0x26a9d7[_0x1a230f(0x154)]('authorization');if(_0x1056fb&&_0x1056fb[_0x1a230f(0x175)]('\x20')[0x0]===_0x1a230f(0x156)){this[_0x1a230f(0x14d)][_0x1a230f(0x150)](_0x1a230f(0x171));if(!_0x1056fb)return undefined;const _0x351cf7=yield this[_0x1a230f(0x15d)](_0x1056fb[_0x1a230f(0x175)]('\x20')[0x1]);return console['log'](JSON[_0x1a230f(0x143)](_0x351cf7)+_0x1a230f(0x13e)),_0x351cf7;}return this[_0x1a230f(0x14d)][_0x1a230f(0x150)](_0x1a230f(0x162)),undefined;});}[a704_0xaa1150(0x15d)](_0x550529){const _0xbfe20d=a704_0xaa1150;return tslib_1[_0xbfe20d(0x16b)](this,void 0x0,void 0x0,function*(){const _0x22b702=_0xbfe20d,_0x5c6049=require(_0x22b702(0x177)),_0x133e56=_0x5c6049[_0x22b702(0x167)][_0x22b702(0x176)](_0x550529,env_1['env'][_0x22b702(0x147)]),_0x305e33=_0x133e56['toString'](_0x5c6049['enc']['Utf8']);return new Promise((_0x189a5c,_0x42a187)=>{const _0x2c1250=_0x22b702;jsonwebtoken_1['default']['verify'](_0x305e33,env_1[_0x2c1250(0x165)]['jwtSecret'],(_0x129595,_0x1be45a)=>{const _0x1d1409=_0x2c1250;if(_0x129595)return _0x189a5c(undefined);return _0x189a5c({'id':_0x1be45a['id'],'role':_0x1be45a[_0x1d1409(0x13f)]});});});});}['validateUser'](_0x129311){const _0x5ce7b0=a704_0xaa1150;return tslib_1[_0x5ce7b0(0x16b)](this,void 0x0,void 0x0,function*(){const _0x1ea24c=_0x5ce7b0,_0x599430=yield this[_0x1ea24c(0x14f)]['findOne']({'where':{'userId':_0x129311,'deleteFlag':0x0,'isActive':0x1}});if(_0x599430)return _0x599430;return undefined;});}['validateCustomer'](_0x15f805){const _0x4bb2fd=a704_0xaa1150;return tslib_1[_0x4bb2fd(0x16b)](this,void 0x0,void 0x0,function*(){const _0x2c471a=_0x4bb2fd,_0x223ab1=yield this['customerRepository'][_0x2c471a(0x15e)]({'where':{'id':_0x15f805,'isActive':0x1,'deleteFlag':0x0}});if(_0x223ab1)return _0x223ab1;return undefined;});}['validateVendor'](_0x2c558b){const _0x2757a0=a704_0xaa1150;return tslib_1[_0x2757a0(0x16b)](this,void 0x0,void 0x0,function*(){const _0xffbfd9=_0x2757a0,_0x586cb1=yield this['vendorRepository'][_0xffbfd9(0x15e)]({'where':{'vendorId':_0x2c558b},'relations':[_0xffbfd9(0x178)]});if(_0x586cb1){if(_0x586cb1[_0xffbfd9(0x178)][_0xffbfd9(0x14e)]===0x1&&_0x586cb1[_0xffbfd9(0x178)][_0xffbfd9(0x164)]===0x0)return _0x586cb1;}return undefined;});}[a704_0xaa1150(0x158)](_0x26ca7f){const _0x3c5312=a704_0xaa1150;return tslib_1[_0x3c5312(0x16b)](this,void 0x0,void 0x0,function*(){const _0x1815a2=_0x3c5312,_0x3a9a06=_0x26ca7f['header'](_0x1815a2(0x16f));if(_0x3a9a06&&_0x3a9a06[_0x1815a2(0x175)]('\x20')[0x0]===_0x1815a2(0x156)){this[_0x1815a2(0x14d)][_0x1815a2(0x150)](_0x1815a2(0x171));if(!_0x3a9a06)return undefined;const _0x545546=_0x3a9a06[_0x1815a2(0x175)]('\x20')[0x1],_0x1607fd=require(_0x1815a2(0x177)),_0x31757d=_0x1607fd['AES'][_0x1815a2(0x176)](_0x545546,env_1['env'][_0x1815a2(0x147)]),_0x59602b=_0x31757d[_0x1815a2(0x173)](_0x1607fd['enc'][_0x1815a2(0x15b)]),_0x4b7a32=yield this['accessTokenRepository']['findOne']({'where':{'token':_0x59602b}});return _0x4b7a32;}return this[_0x1815a2(0x14d)]['info']('No\x20credentials\x20provided\x20by\x20the\x20client'),undefined;});}[a704_0xaa1150(0x146)](_0x41690a){const _0x1a2e95=a704_0xaa1150;return tslib_1[_0x1a2e95(0x16b)](this,void 0x0,void 0x0,function*(){const _0x2a26f0=_0x1a2e95,_0x5b6b46=yield this['userGroupRepository'][_0x2a26f0(0x15e)]({'where':{'groupId':_0x41690a}});if(_0x5b6b46)return _0x5b6b46;return undefined;});}};AuthService=tslib_1[a704_0xaa1150(0x142)]([(0x0,typedi_1[a704_0xaa1150(0x169)])(),tslib_1['__param'](0x0,(0x0,Logger_1['Logger'])(__filename)),tslib_1[a704_0xaa1150(0x141)](0x1,(0x0,typeorm_typedi_extensions_1[a704_0xaa1150(0x148)])()),tslib_1[a704_0xaa1150(0x141)](0x2,(0x0,typeorm_typedi_extensions_1['OrmRepository'])()),tslib_1[a704_0xaa1150(0x141)](0x3,(0x0,typeorm_typedi_extensions_1[a704_0xaa1150(0x148)])()),tslib_1[a704_0xaa1150(0x141)](0x4,(0x0,typeorm_typedi_extensions_1[a704_0xaa1150(0x148)])()),tslib_1[a704_0xaa1150(0x141)](0x5,(0x0,typeorm_typedi_extensions_1[a704_0xaa1150(0x148)])()),tslib_1[a704_0xaa1150(0x140)](a704_0xaa1150(0x14c),[Object,UserRepository_1['UserRepository'],CustomerRepository_1[a704_0xaa1150(0x16e)],VendorRepository_1['VendorRepository'],UserGroupRepository_1['UserGroupRepository'],AccessTokenRepository_1[a704_0xaa1150(0x14b)]])],AuthService),exports[a704_0xaa1150(0x15f)]=AuthService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AuthService = void 0;
+const tslib_1 = require("tslib");
+const jsonwebtoken_1 = tslib_1.__importDefault(require("jsonwebtoken"));
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const UserRepository_1 = require("../api/core/repositories/UserRepository");
+const CustomerRepository_1 = require("../api/core/repositories/CustomerRepository");
+const VendorRepository_1 = require("../api/core/repositories/VendorRepository");
+const env_1 = require("../env");
+const Logger_1 = require("../decorators/Logger");
+const AccessTokenRepository_1 = require("../api/core/repositories/AccessTokenRepository");
+const UserGroupRepository_1 = require("../api/core/repositories/UserGroupRepository");
+let AuthService = class AuthService {
+    constructor(log, userRepository, customerRepository, vendorRepository, userGroupRepository, accessTokenRepository) {
+        this.log = log;
+        this.userRepository = userRepository;
+        this.customerRepository = customerRepository;
+        this.vendorRepository = vendorRepository;
+        this.userGroupRepository = userGroupRepository;
+        this.accessTokenRepository = accessTokenRepository;
+    }
+    parseBasicAuthFromRequest(req) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const authorization = req.header('authorization');
+            if (authorization && authorization.split(' ')[0] === 'Bearer') {
+                this.log.info('Credentials provided by the client');
+                if (!authorization) {
+                    return undefined;
+                }
+                const UserId = yield this.decryptToken(authorization.split(' ')[1]);
+                console.log(JSON.stringify(UserId) + 'UserId:');
+                return UserId;
+            }
+            this.log.info('No credentials provided by the client');
+            return undefined;
+        });
+    }
+    decryptToken(encryptString) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const Crypto = require('crypto-js');
+            const bytes = Crypto.AES.decrypt(encryptString, env_1.env.cryptoSecret);
+            const originalEncryptedString = bytes.toString(Crypto.enc.Utf8);
+            return new Promise((subresolve, subreject) => {
+                jsonwebtoken_1.default.verify(originalEncryptedString, env_1.env.jwtSecret, (err, decoded) => {
+                    if (err) {
+                        return subresolve(undefined);
+                    }
+                    return subresolve({ id: decoded.id, role: decoded.role });
+                });
+            });
+        });
+    }
+    validateUser(userId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const user = yield this.userRepository.findOne({
+                where: {
+                    userId, deleteFlag: 0, isActive: 1,
+                },
+            });
+            if (user) {
+                return user;
+            }
+            return undefined;
+        });
+    }
+    validateCustomer(userId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = yield this.customerRepository.findOne({
+                where: {
+                    id: userId, isActive: 1, deleteFlag: 0,
+                },
+            });
+            if (customer) {
+                return customer;
+            }
+            return undefined;
+        });
+    }
+    validateVendor(userId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendors = yield this.vendorRepository.findOne({
+                where: {
+                    vendorId: userId,
+                }, relations: ['customer'],
+            });
+            if (vendors) {
+                if (vendors.customer.isActive === 1 && vendors.customer.deleteFlag === 0) {
+                    return vendors;
+                }
+            }
+            return undefined;
+        });
+    }
+    checkTokenExist(req) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const authorization = req.header('authorization');
+            if (authorization && authorization.split(' ')[0] === 'Bearer') {
+                this.log.info('Credentials provided by the client');
+                if (!authorization) {
+                    return undefined;
+                }
+                const token = authorization.split(' ')[1];
+                const Crypto = require('crypto-js');
+                const bytes = Crypto.AES.decrypt(token, env_1.env.cryptoSecret);
+                const originalEncryptedString = bytes.toString(Crypto.enc.Utf8);
+                const checkTokenRevoke = yield this.accessTokenRepository.findOne({
+                    where: {
+                        token: originalEncryptedString,
+                    },
+                });
+                return checkTokenRevoke;
+            }
+            this.log.info('No credentials provided by the client');
+            return undefined;
+        });
+    }
+    validateUserGroup(userGroupId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const group = yield this.userGroupRepository.findOne({
+                where: {
+                    groupId: userGroupId,
+                },
+            });
+            if (group) {
+                return group;
+            }
+            return undefined;
+        });
+    }
+};
+AuthService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__param(1, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(2, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(3, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(4, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(5, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__metadata("design:paramtypes", [Object, UserRepository_1.UserRepository,
+        CustomerRepository_1.CustomerRepository,
+        VendorRepository_1.VendorRepository,
+        UserGroupRepository_1.UserGroupRepository,
+        AccessTokenRepository_1.AccessTokenRepository])
+], AuthService);
+exports.AuthService = AuthService;
+//# sourceMappingURL=AuthService.js.map

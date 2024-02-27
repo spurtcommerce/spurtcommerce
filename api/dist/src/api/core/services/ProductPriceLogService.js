@@ -1,1 +1,94 @@
-'use strict';const a590_0x2fc82c=a590_0x3883;(function(_0x39a76e,_0x2c5e25){const _0x3e0cd4=a590_0x3883,_0x53085a=_0x39a76e();while(!![]){try{const _0x168d8f=-parseInt(_0x3e0cd4(0x13d))/0x1+-parseInt(_0x3e0cd4(0x140))/0x2+parseInt(_0x3e0cd4(0x12a))/0x3+parseInt(_0x3e0cd4(0x13c))/0x4*(-parseInt(_0x3e0cd4(0x13e))/0x5)+parseInt(_0x3e0cd4(0x120))/0x6*(parseInt(_0x3e0cd4(0x136))/0x7)+parseInt(_0x3e0cd4(0x124))/0x8*(parseInt(_0x3e0cd4(0x11e))/0x9)+-parseInt(_0x3e0cd4(0x12e))/0xa*(-parseInt(_0x3e0cd4(0x121))/0xb);if(_0x168d8f===_0x2c5e25)break;else _0x53085a['push'](_0x53085a['shift']());}catch(_0x1f5bf2){_0x53085a['push'](_0x53085a['shift']());}}}(a590_0x2038,0x5b27b));function a590_0x2038(){const _0x39d21f=['find','Find\x20a\x20data','Like','info','where','441807BsyWjP','Service','log','delete','10512590VyzHQJ','create\x20a\x20data','value','skip','../repositories/ProductPriceLogRepository','typeorm','ProductPriceLogService','tslib','560zwAaoN','Delete\x20a\x20product\x20option\x20value','count','productPriceLogRepository','findAll','typeorm-typedi-extensions','405448nVYBtJ','457670WSiVNF','5xJuuFn','save','1157720wqUomr','name','like','findOne','Logger','defineProperty','ProductPriceLogRepository','__param','create','design:paramtypes','length','45kTbCop','list','2418nLIcSY','11QTWmNH','__awaiter','forEach','448792BWYIdL'];a590_0x2038=function(){return _0x39d21f;};return a590_0x2038();}function a590_0x3883(_0x1d9618,_0xa939ef){const _0x2038f2=a590_0x2038();return a590_0x3883=function(_0x3883fd,_0x25108e){_0x3883fd=_0x3883fd-0x118;let _0x2e0f51=_0x2038f2[_0x3883fd];return _0x2e0f51;},a590_0x3883(_0x1d9618,_0xa939ef);}Object[a590_0x2fc82c(0x118)](exports,'__esModule',{'value':!![]}),exports[a590_0x2fc82c(0x134)]=void 0x0;const tslib_1=require(a590_0x2fc82c(0x135)),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require(a590_0x2fc82c(0x13b)),Logger_1=require('../../../decorators/Logger'),ProductPriceLogRepository_1=require(a590_0x2fc82c(0x132)),typeorm_1=require(a590_0x2fc82c(0x133));let ProductPriceLogService=class ProductPriceLogService{constructor(_0x3e0fa1,_0x330680){const _0x593375=a590_0x2fc82c;this[_0x593375(0x139)]=_0x3e0fa1,this['log']=_0x330680;}[a590_0x2fc82c(0x11b)](_0x3844a7){const _0x352a18=a590_0x2fc82c;return tslib_1[_0x352a18(0x122)](this,void 0x0,void 0x0,function*(){const _0x3039d2=_0x352a18;return this[_0x3039d2(0x12c)][_0x3039d2(0x128)](_0x3039d2(0x12f)),this[_0x3039d2(0x139)][_0x3039d2(0x13f)](_0x3844a7);});}[a590_0x2fc82c(0x143)](_0x57752f){const _0xbc0a10=a590_0x2fc82c;return this['log'][_0xbc0a10(0x128)](_0xbc0a10(0x126)),this[_0xbc0a10(0x139)]['findOne'](_0x57752f);}[a590_0x2fc82c(0x13a)](_0x2f49a2){const _0x59125b=a590_0x2fc82c;return this[_0x59125b(0x12c)][_0x59125b(0x128)](_0x59125b(0x126)),this[_0x59125b(0x139)][_0x59125b(0x125)](_0x2f49a2);}[a590_0x2fc82c(0x125)](){const _0x398f72=a590_0x2fc82c;return this[_0x398f72(0x12c)]['info'](_0x398f72(0x126)),this['productPriceLogRepository'][_0x398f72(0x125)]();}['delete'](_0x5dd152){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2e3c20=a590_0x3883;this[_0x2e3c20(0x12c)][_0x2e3c20(0x128)](_0x2e3c20(0x137));const _0x630b5c=yield this[_0x2e3c20(0x139)][_0x2e3c20(0x12d)](_0x5dd152);return _0x630b5c;});}[a590_0x2fc82c(0x11f)](_0x59645f,_0x349d95,_0x272348=[],_0x3b878c=[],_0x30a39e=[],_0x222ca0){const _0x2c5bff=a590_0x2fc82c,_0x5dc181={};return _0x272348&&_0x272348['length']>0x0&&(_0x5dc181['select']=_0x272348),_0x5dc181['where']={},_0x30a39e&&_0x30a39e[_0x2c5bff(0x11d)]>0x0&&_0x30a39e[_0x2c5bff(0x123)](_0x25f509=>{const _0x345446=_0x2c5bff;_0x5dc181[_0x345446(0x129)][_0x25f509[_0x345446(0x141)]]=_0x25f509[_0x345446(0x130)];}),_0x3b878c&&_0x3b878c[_0x2c5bff(0x11d)]>0x0&&_0x3b878c['forEach'](_0x42df8a=>{const _0x397ba6=_0x2c5bff,_0x5def41=_0x42df8a['op'];if(_0x5def41==='where'&&_0x42df8a[_0x397ba6(0x130)]!==undefined)_0x5dc181[_0x397ba6(0x129)][_0x42df8a[_0x397ba6(0x141)]]=_0x42df8a['value'];else _0x5def41===_0x397ba6(0x142)&&_0x42df8a[_0x397ba6(0x130)]!==undefined&&(_0x5dc181[_0x397ba6(0x129)][_0x42df8a['name']]=(0x0,typeorm_1[_0x397ba6(0x127)])('%'+_0x42df8a[_0x397ba6(0x130)]+'%'));}),_0x59645f&&_0x59645f>0x0&&(_0x5dc181['take']=_0x59645f,_0x5dc181[_0x2c5bff(0x131)]=_0x349d95),_0x222ca0?this['productPriceLogRepository'][_0x2c5bff(0x138)](_0x5dc181):this['productPriceLogRepository'][_0x2c5bff(0x125)](_0x5dc181);}};ProductPriceLogService=tslib_1['__decorate']([(0x0,typedi_1[a590_0x2fc82c(0x12b)])(),tslib_1['__param'](0x0,(0x0,typeorm_typedi_extensions_1['OrmRepository'])()),tslib_1[a590_0x2fc82c(0x11a)](0x1,(0x0,Logger_1[a590_0x2fc82c(0x144)])(__filename)),tslib_1['__metadata'](a590_0x2fc82c(0x11c),[ProductPriceLogRepository_1[a590_0x2fc82c(0x119)],Object])],ProductPriceLogService),exports[a590_0x2fc82c(0x134)]=ProductPriceLogService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductPriceLogService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const ProductPriceLogRepository_1 = require("../repositories/ProductPriceLogRepository");
+const typeorm_1 = require("typeorm");
+let ProductPriceLogService = class ProductPriceLogService {
+    constructor(productPriceLogRepository, log) {
+        this.productPriceLogRepository = productPriceLogRepository;
+        this.log = log;
+    }
+    // create a data
+    create(Data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('create a data');
+            return this.productPriceLogRepository.save(Data);
+        });
+    }
+    // findone a data
+    findOne(id) {
+        this.log.info('Find a data');
+        return this.productPriceLogRepository.findOne(id);
+    }
+    // find a data
+    findAll(productSpecial) {
+        this.log.info('Find a data');
+        return this.productPriceLogRepository.find(productSpecial);
+    }
+    // find a data
+    find() {
+        this.log.info('Find a data');
+        return this.productPriceLogRepository.find();
+    }
+    // delete product option
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a product option value');
+            const deleteProductOptionValue = yield this.productPriceLogRepository.delete(id);
+            return deleteProductOptionValue;
+        });
+    }
+    // country List
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, typeorm_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.productPriceLogRepository.count(condition);
+        }
+        else {
+            return this.productPriceLogRepository.find(condition);
+        }
+    }
+};
+ProductPriceLogService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [ProductPriceLogRepository_1.ProductPriceLogRepository, Object])
+], ProductPriceLogService);
+exports.ProductPriceLogService = ProductPriceLogService;
+//# sourceMappingURL=ProductPriceLogService.js.map

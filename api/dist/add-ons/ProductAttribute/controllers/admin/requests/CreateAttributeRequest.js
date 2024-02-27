@@ -1,1 +1,58 @@
-'use strict';function a65_0xd5b2(){const _0x4f1854=['826854gMjqct','__esModule','prototype','1878208ASkDok','44blbVTL','groupId','design:type','10HhpyFK','CreateAttribute','201423tlWiMU','27598IjrCai','444NzaGBM','Attribute\x20name\x20is\x20required','__metadata','1115253hBnXcw','IsNotEmpty','MaxLength','6eBPAKM','attribute\x20name\x20should\x20be\x20maximum\x20255\x20characters','sortOrder\x20is\x20required','reflect-metadata','314941gsSWJc','__decorate','defineProperty','sortOrder','32jUTETu','attributeName','2379025KaAcbs','Max'];a65_0xd5b2=function(){return _0x4f1854;};return a65_0xd5b2();}const a65_0x1bb89c=a65_0x1ebd;(function(_0x2f7eee,_0x21230a){const _0x3686bb=a65_0x1ebd,_0xa0fe7b=_0x2f7eee();while(!![]){try{const _0x24d0b4=parseInt(_0x3686bb(0x149))/0x1*(-parseInt(_0x3686bb(0x158))/0x2)+parseInt(_0x3686bb(0x148))/0x3*(parseInt(_0x3686bb(0x143))/0x4)+-parseInt(_0x3686bb(0x15a))/0x5+parseInt(_0x3686bb(0x150))/0x6*(-parseInt(_0x3686bb(0x15c))/0x7)+-parseInt(_0x3686bb(0x142))/0x8+parseInt(_0x3686bb(0x14d))/0x9*(-parseInt(_0x3686bb(0x146))/0xa)+parseInt(_0x3686bb(0x154))/0xb*(parseInt(_0x3686bb(0x14a))/0xc);if(_0x24d0b4===_0x21230a)break;else _0xa0fe7b['push'](_0xa0fe7b['shift']());}catch(_0x3b0957){_0xa0fe7b['push'](_0xa0fe7b['shift']());}}}(a65_0xd5b2,0x628fe));Object[a65_0x1bb89c(0x156)](exports,a65_0x1bb89c(0x15d),{'value':!![]}),exports[a65_0x1bb89c(0x147)]=void 0x0;const tslib_1=require('tslib');require(a65_0x1bb89c(0x153));const class_validator_1=require('class-validator');function a65_0x1ebd(_0x30c857,_0x21486f){const _0xd5b2b=a65_0xd5b2();return a65_0x1ebd=function(_0x1ebdac,_0x2cdce5){_0x1ebdac=_0x1ebdac-0x142;let _0xa4601=_0xd5b2b[_0x1ebdac];return _0xa4601;},a65_0x1ebd(_0x30c857,_0x21486f);}class CreateAttribute{}tslib_1['__decorate']([(0x0,class_validator_1[a65_0x1bb89c(0x14e)])({'message':a65_0x1bb89c(0x14b)}),(0x0,class_validator_1[a65_0x1bb89c(0x14f)])(0xff,{'message':a65_0x1bb89c(0x151)}),tslib_1[a65_0x1bb89c(0x14c)](a65_0x1bb89c(0x145),String)],CreateAttribute[a65_0x1bb89c(0x15e)],a65_0x1bb89c(0x159),void 0x0),tslib_1[a65_0x1bb89c(0x155)]([(0x0,class_validator_1['IsNotEmpty'])({'message':'group\x20is\x20required'}),tslib_1['__metadata'](a65_0x1bb89c(0x145),Number)],CreateAttribute[a65_0x1bb89c(0x15e)],a65_0x1bb89c(0x144),void 0x0),tslib_1[a65_0x1bb89c(0x155)]([(0x0,class_validator_1[a65_0x1bb89c(0x15b)])(0x270f,{'message':'maximum\x20length\x20of\x20sort\x20order\x20should\x20be\x204'}),(0x0,class_validator_1[a65_0x1bb89c(0x14e)])({'message':a65_0x1bb89c(0x152)}),tslib_1[a65_0x1bb89c(0x14c)](a65_0x1bb89c(0x145),Number)],CreateAttribute['prototype'],a65_0x1bb89c(0x157),void 0x0),exports[a65_0x1bb89c(0x147)]=CreateAttribute;
+"use strict";
+/* tslint:disable:max-classes-per-file */
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateAttribute = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+const class_transformer_1 = require("class-transformer");
+class AttributeValue {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], AttributeValue.prototype, "value", void 0);
+class CreateAttribute {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Attribute name is required',
+    }),
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'attribute name should be maximum 255 characters',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateAttribute.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'sortOrder is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateAttribute.prototype, "sortOrder", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'type is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateAttribute.prototype, "type", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsArray)(),
+    (0, class_transformer_1.Type)(() => AttributeValue),
+    (0, class_validator_1.ArrayMinSize)(1),
+    tslib_1.__metadata("design:type", Array)
+], CreateAttribute.prototype, "attributeValues", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    tslib_1.__metadata("design:type", Array)
+], CreateAttribute.prototype, "deleteAttributeValueIds", void 0);
+exports.CreateAttribute = CreateAttribute;
+//# sourceMappingURL=CreateAttributeRequest.js.map

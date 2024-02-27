@@ -1,1 +1,26 @@
-'use strict';const a326_0x423faa=a326_0x2d6c;(function(_0x3633df,_0x15eaf5){const _0x26522c=a326_0x2d6c,_0x1cece9=_0x3633df();while(!![]){try{const _0x5c3227=parseInt(_0x26522c(0x12f))/0x1*(-parseInt(_0x26522c(0x12b))/0x2)+-parseInt(_0x26522c(0x134))/0x3*(-parseInt(_0x26522c(0x12e))/0x4)+-parseInt(_0x26522c(0x128))/0x5+-parseInt(_0x26522c(0x13c))/0x6+parseInt(_0x26522c(0x13a))/0x7*(-parseInt(_0x26522c(0x137))/0x8)+parseInt(_0x26522c(0x135))/0x9+parseInt(_0x26522c(0x130))/0xa;if(_0x5c3227===_0x15eaf5)break;else _0x1cece9['push'](_0x1cece9['shift']());}catch(_0x31f23c){_0x1cece9['push'](_0x1cece9['shift']());}}}(a326_0x24a3,0xdffa4));Object[a326_0x423faa(0x131)](exports,a326_0x423faa(0x12d),{'value':!![]}),exports['ForgotPassword']=void 0x0;const tslib_1=require('tslib');require('reflect-metadata');const class_validator_1=require('class-validator');class ForgotPassword{}function a326_0x2d6c(_0x3dac2a,_0x4dff37){const _0x24a374=a326_0x24a3();return a326_0x2d6c=function(_0x2d6c0f,_0x420632){_0x2d6c0f=_0x2d6c0f-0x128;let _0x34305e=_0x24a374[_0x2d6c0f];return _0x34305e;},a326_0x2d6c(_0x3dac2a,_0x4dff37);}tslib_1[a326_0x423faa(0x133)]([(0x0,class_validator_1[a326_0x423faa(0x129)])(0x60,{'message':a326_0x423faa(0x12c)}),(0x0,class_validator_1[a326_0x423faa(0x136)])(0x4,{'message':a326_0x423faa(0x12a)}),tslib_1[a326_0x423faa(0x138)]('design:type',String)],ForgotPassword[a326_0x423faa(0x132)],a326_0x423faa(0x139),void 0x0),exports[a326_0x423faa(0x13b)]=ForgotPassword;function a326_0x24a3(){const _0x2ad534=['email\x20is\x20minimum\x204\x20character','20fZfTaq','email\x20is\x20maximum\x2096\x20character','__esModule','104gYwbMK','86573qEoPUg','36832440yOnUhu','defineProperty','prototype','__decorate','14394POnftH','11225925ImErwn','MinLength','2832OBfFau','__metadata','email','7868KlbKof','ForgotPassword','7536600ESQnvq','8090895oObYZB','MaxLength'];a326_0x24a3=function(){return _0x2ad534;};return a326_0x24a3();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ForgotPassword = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class ForgotPassword {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(96, {
+        message: 'email is maximum 96 character',
+    }),
+    (0, class_validator_1.MinLength)(4, {
+        message: 'email is minimum 4 character',
+    }),
+    tslib_1.__metadata("design:type", String)
+], ForgotPassword.prototype, "email", void 0);
+exports.ForgotPassword = ForgotPassword;
+//# sourceMappingURL=ForgotPasswordRequest.js.map

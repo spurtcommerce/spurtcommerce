@@ -1,1 +1,76 @@
-'use strict';function a437_0x47dd(_0x152632,_0x38f258){const _0x302ca8=a437_0x302c();return a437_0x47dd=function(_0x47dd25,_0x1bb3fc){_0x47dd25=_0x47dd25-0x69;let _0x1225d8=_0x302ca8[_0x47dd25];return _0x1225d8;},a437_0x47dd(_0x152632,_0x38f258);}const a437_0x269b38=a437_0x47dd;(function(_0x1c8766,_0x210cdc){const _0x3d657a=a437_0x47dd,_0x5a8517=_0x1c8766();while(!![]){try{const _0x1ef722=parseInt(_0x3d657a(0x91))/0x1*(-parseInt(_0x3d657a(0x76))/0x2)+parseInt(_0x3d657a(0x8c))/0x3*(-parseInt(_0x3d657a(0x94))/0x4)+-parseInt(_0x3d657a(0x77))/0x5+-parseInt(_0x3d657a(0x7a))/0x6*(parseInt(_0x3d657a(0x6d))/0x7)+-parseInt(_0x3d657a(0x88))/0x8*(parseInt(_0x3d657a(0x7f))/0x9)+parseInt(_0x3d657a(0x7c))/0xa+parseInt(_0x3d657a(0x85))/0xb;if(_0x1ef722===_0x210cdc)break;else _0x5a8517['push'](_0x5a8517['shift']());}catch(_0x192b13){_0x5a8517['push'](_0x5a8517['shift']());}}}(a437_0x302c,0x80985));function a437_0x302c(){const _0x581ad4=['design:paramtypes','Column','moment','createdDate','__esModule','slug','prototype','194AFCVwS','4641385uVQHsg','User','group_id','4524114orqbow','BeforeUpdate','2387390EZsiYK','groupId','design:returntype','779535gQbanF','createDetails','Exclude','__metadata','defineProperty','BaseModel','35760736fBMPbj','tslib','__decorate','24ksEHaF','permission','design:type','format','2326026uIJQtV','PrimaryGeneratedColumn','IsNotEmpty','class-transformer','Entity','2531YCtfWP','__awaiter','user_group','4mIsUyJ','YYYY-MM-DD\x20HH:mm:ss','UserGroup','updateDetails','modifiedDate','isActive','typeorm','7scwsZN','./BaseModel'];a437_0x302c=function(){return _0x581ad4;};return a437_0x302c();}Object[a437_0x269b38(0x83)](exports,a437_0x269b38(0x73),{'value':!![]}),exports[a437_0x269b38(0x96)]=void 0x0;const tslib_1=require(a437_0x269b38(0x86)),class_validator_1=require('class-validator'),typeorm_1=require(a437_0x269b38(0x6c)),class_transformer_1=require(a437_0x269b38(0x8f)),User_1=require('./User'),BaseModel_1=require(a437_0x269b38(0x6e)),moment=require(a437_0x269b38(0x71));let UserGroup=class UserGroup extends BaseModel_1[a437_0x269b38(0x84)]{['createDetails'](){const _0x3e810c=a437_0x269b38;return tslib_1[_0x3e810c(0x92)](this,void 0x0,void 0x0,function*(){const _0x2913c8=_0x3e810c;this[_0x2913c8(0x72)]=moment()[_0x2913c8(0x8b)](_0x2913c8(0x95));});}['updateDetails'](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x572eab=a437_0x47dd;this[_0x572eab(0x6a)]=moment()[_0x572eab(0x8b)](_0x572eab(0x95));});}};tslib_1[a437_0x269b38(0x87)]([(0x0,class_validator_1[a437_0x269b38(0x8e)])(),(0x0,typeorm_1[a437_0x269b38(0x8d)])({'name':a437_0x269b38(0x79)}),tslib_1[a437_0x269b38(0x82)](a437_0x269b38(0x8a),Number)],UserGroup[a437_0x269b38(0x75)],a437_0x269b38(0x7d),void 0x0),tslib_1[a437_0x269b38(0x87)]([(0x0,class_validator_1[a437_0x269b38(0x8e)])(),(0x0,typeorm_1[a437_0x269b38(0x70)])({'name':'name'}),tslib_1[a437_0x269b38(0x82)](a437_0x269b38(0x8a),String)],UserGroup[a437_0x269b38(0x75)],'name',void 0x0),tslib_1['__decorate']([(0x0,class_transformer_1[a437_0x269b38(0x81)])(),(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a437_0x269b38(0x70)])({'name':a437_0x269b38(0x74)}),tslib_1['__metadata']('design:type',String)],UserGroup[a437_0x269b38(0x75)],a437_0x269b38(0x74),void 0x0),tslib_1[a437_0x269b38(0x87)]([(0x0,class_transformer_1[a437_0x269b38(0x81)])(),(0x0,typeorm_1[a437_0x269b38(0x70)])({'name':'permission'}),tslib_1[a437_0x269b38(0x82)](a437_0x269b38(0x8a),String)],UserGroup[a437_0x269b38(0x75)],a437_0x269b38(0x89),void 0x0),tslib_1[a437_0x269b38(0x87)]([(0x0,class_transformer_1[a437_0x269b38(0x81)])(),(0x0,typeorm_1[a437_0x269b38(0x70)])({'name':'is_active'}),tslib_1['__metadata'](a437_0x269b38(0x8a),Number)],UserGroup[a437_0x269b38(0x75)],a437_0x269b38(0x6b),void 0x0),tslib_1[a437_0x269b38(0x87)]([(0x0,typeorm_1['OneToMany'])(_0x4c4657=>User_1[a437_0x269b38(0x78)],_0x2f20f2=>_0x2f20f2['usergroup']),tslib_1['__metadata'](a437_0x269b38(0x8a),Array)],UserGroup[a437_0x269b38(0x75)],'users',void 0x0),tslib_1[a437_0x269b38(0x87)]([(0x0,typeorm_1['BeforeInsert'])(),tslib_1[a437_0x269b38(0x82)](a437_0x269b38(0x8a),Function),tslib_1[a437_0x269b38(0x82)]('design:paramtypes',[]),tslib_1[a437_0x269b38(0x82)](a437_0x269b38(0x7e),Promise)],UserGroup[a437_0x269b38(0x75)],a437_0x269b38(0x80),null),tslib_1[a437_0x269b38(0x87)]([(0x0,typeorm_1[a437_0x269b38(0x7b)])(),tslib_1[a437_0x269b38(0x82)](a437_0x269b38(0x8a),Function),tslib_1[a437_0x269b38(0x82)](a437_0x269b38(0x6f),[]),tslib_1['__metadata'](a437_0x269b38(0x7e),Promise)],UserGroup[a437_0x269b38(0x75)],a437_0x269b38(0x69),null),UserGroup=tslib_1[a437_0x269b38(0x87)]([(0x0,typeorm_1[a437_0x269b38(0x90)])(a437_0x269b38(0x93))],UserGroup),exports[a437_0x269b38(0x96)]=UserGroup;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserGroup = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+const typeorm_1 = require("typeorm");
+const class_transformer_1 = require("class-transformer");
+const User_1 = require("./User");
+const BaseModel_1 = require("./BaseModel");
+const moment = require("moment");
+let UserGroup = class UserGroup extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'group_id' }),
+    tslib_1.__metadata("design:type", Number)
+], UserGroup.prototype, "groupId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'name' }),
+    tslib_1.__metadata("design:type", String)
+], UserGroup.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'slug' }),
+    tslib_1.__metadata("design:type", String)
+], UserGroup.prototype, "slug", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, typeorm_1.Column)({ name: 'permission' }),
+    tslib_1.__metadata("design:type", String)
+], UserGroup.prototype, "permission", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], UserGroup.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => User_1.User, user => user.usergroup),
+    tslib_1.__metadata("design:type", Array)
+], UserGroup.prototype, "users", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserGroup.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserGroup.prototype, "updateDetails", null);
+UserGroup = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('user_group')
+], UserGroup);
+exports.UserGroup = UserGroup;
+//# sourceMappingURL=UserGroup.js.map

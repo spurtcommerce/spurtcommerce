@@ -1,1 +1,30 @@
-'use strict';function a201_0x1fa8(_0x46a26a,_0x304673){const _0x185ea2=a201_0x185e();return a201_0x1fa8=function(_0x1fa8de,_0xa709cb){_0x1fa8de=_0x1fa8de-0xfd;let _0x8a9597=_0x185ea2[_0x1fa8de];return _0x8a9597;},a201_0x1fa8(_0x46a26a,_0x304673);}function a201_0x185e(){const _0x31eab0=['pluginName','typeorm','down','1908XWUoTo','3049404cFmsZP','__esModule','tslib','12658212DfteBQ','__awaiter','7669088oLOfZi','pluginTimestamp','../../../src/api/core/models/Plugin','AddPluginTimestampInRatingAndReview1679898788153','463888Lyctut','findOne','198470kBargc','save','4125597rzrHWf','3060bTJOUY','rating-review','defineProperty','5xmOfHZ'];a201_0x185e=function(){return _0x31eab0;};return a201_0x185e();}const a201_0x181892=a201_0x1fa8;(function(_0x14920c,_0x6e334c){const _0x5c2a4c=a201_0x1fa8,_0x27efde=_0x14920c();while(!![]){try{const _0x818a75=-parseInt(_0x5c2a4c(0xfd))/0x1+-parseInt(_0x5c2a4c(0x107))/0x2*(parseInt(_0x5c2a4c(0x100))/0x3)+parseInt(_0x5c2a4c(0x111))/0x4+parseInt(_0x5c2a4c(0x103))/0x5*(parseInt(_0x5c2a4c(0x108))/0x6)+parseInt(_0x5c2a4c(0xff))/0x7+-parseInt(_0x5c2a4c(0x10d))/0x8+parseInt(_0x5c2a4c(0x10b))/0x9;if(_0x818a75===_0x6e334c)break;else _0x27efde['push'](_0x27efde['shift']());}catch(_0xeb4960){_0x27efde['push'](_0x27efde['shift']());}}}(a201_0x185e,0x77983));Object[a201_0x181892(0x102)](exports,a201_0x181892(0x109),{'value':!![]}),exports['AddPluginTimestampInRatingAndReview1679898788153']=void 0x0;const tslib_1=require(a201_0x181892(0x10a)),typeorm_1=require(a201_0x181892(0x105)),Plugin_1=require(a201_0x181892(0x10f));class AddPluginTimestampInRatingAndReview1679898788153{['up'](_0x102d0c){const _0xa2b306=a201_0x181892;return tslib_1[_0xa2b306(0x10c)](this,void 0x0,void 0x0,function*(){const _0x396e55=_0xa2b306,_0x7d3c4c=(0x0,typeorm_1['getRepository'])(Plugin_1['Plugins']),_0x12c96d=yield _0x7d3c4c[_0x396e55(0x112)]({'where':{'slugName':_0x396e55(0x101)}});_0x12c96d&&(_0x12c96d[_0x396e55(0x104)]='RatingAndReview',_0x12c96d[_0x396e55(0x10e)]=0x183b1cef903,yield _0x7d3c4c[_0x396e55(0xfe)](_0x12c96d));});}[a201_0x181892(0x106)](_0xabdd0){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){});}}exports[a201_0x181892(0x110)]=AddPluginTimestampInRatingAndReview1679898788153;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddPluginTimestampInRatingAndReview1679898788153 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../../../src/api/core/models/Plugin");
+class AddPluginTimestampInRatingAndReview1679898788153 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const repo = (0, typeorm_1.getRepository)(Plugin_1.Plugins);
+            const plugin = yield repo.findOne({
+                where: {
+                    slugName: 'rating-review',
+                },
+            });
+            if (plugin) {
+                plugin.pluginName = 'RatingAndReview';
+                plugin.pluginTimestamp = 1665135474947; // This Add-on's Plugin Migration Timestamp
+                yield repo.save(plugin);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.AddPluginTimestampInRatingAndReview1679898788153 = AddPluginTimestampInRatingAndReview1679898788153;
+//# sourceMappingURL=1679898788153-AddPluginTimestampInRatingAndReview.js.map

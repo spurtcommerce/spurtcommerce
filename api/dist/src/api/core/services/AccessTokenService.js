@@ -1,1 +1,46 @@
-'use strict';const a547_0x58bc6a=a547_0x1c73;(function(_0xcf2fec,_0x484718){const _0x5f4380=a547_0x1c73,_0x36a352=_0xcf2fec();while(!![]){try{const _0x5e059b=-parseInt(_0x5f4380(0x14f))/0x1*(-parseInt(_0x5f4380(0x14b))/0x2)+-parseInt(_0x5f4380(0x147))/0x3+-parseInt(_0x5f4380(0x146))/0x4*(parseInt(_0x5f4380(0x141))/0x5)+-parseInt(_0x5f4380(0x148))/0x6*(-parseInt(_0x5f4380(0x149))/0x7)+-parseInt(_0x5f4380(0x145))/0x8+parseInt(_0x5f4380(0x151))/0x9+-parseInt(_0x5f4380(0x156))/0xa*(-parseInt(_0x5f4380(0x14d))/0xb);if(_0x5e059b===_0x484718)break;else _0x36a352['push'](_0x36a352['shift']());}catch(_0x5686c4){_0x36a352['push'](_0x36a352['shift']());}}}(a547_0x3869,0xde41c));Object[a547_0x58bc6a(0x144)](exports,'__esModule',{'value':!![]}),exports[a547_0x58bc6a(0x152)]=void 0x0;function a547_0x3869(){const _0x1e66fb=['1331031wPdyKZ','25386bYuFCt','231ASzJpK','Delete\x20a\x20token','78yysEyJ','info','4587DjPqws','findOne','10001CSaxsk','../../../decorators/Logger','2412594SgPrCi','AccessTokenService','AccessTokenRepository','save','accessTokenRepository','58790NLRFRw','design:paramtypes','delete','__awaiter','typeorm-typedi-extensions','Logger','typedi','__metadata','__decorate','__param','976710LitJrL','../repositories/AccessTokenRepository','create','defineProperty','1097216dHwXql','36JYyBxz'];a547_0x3869=function(){return _0x1e66fb;};return a547_0x3869();}const tslib_1=require('tslib'),typedi_1=require(a547_0x58bc6a(0x13d)),typeorm_typedi_extensions_1=require(a547_0x58bc6a(0x13b)),Logger_1=require(a547_0x58bc6a(0x150)),AccessTokenRepository_1=require(a547_0x58bc6a(0x142));function a547_0x1c73(_0x2e0c12,_0x12498c){const _0x38691b=a547_0x3869();return a547_0x1c73=function(_0x1c73a2,_0xd78b9d){_0x1c73a2=_0x1c73a2-0x138;let _0xd5091d=_0x38691b[_0x1c73a2];return _0xd5091d;},a547_0x1c73(_0x2e0c12,_0x12498c);}let AccessTokenService=class AccessTokenService{constructor(_0x5d8b17,_0x560aa9){const _0x47bfb2=a547_0x58bc6a;this[_0x47bfb2(0x155)]=_0x5d8b17,this['log']=_0x560aa9;}[a547_0x58bc6a(0x14e)](_0x5db708){const _0x54560b=a547_0x58bc6a;return this[_0x54560b(0x155)]['findOne'](_0x5db708);}['delete'](_0x43c207){const _0x3f88c7=a547_0x58bc6a;return tslib_1[_0x3f88c7(0x13a)](this,void 0x0,void 0x0,function*(){const _0x42fe43=_0x3f88c7;this['log'][_0x42fe43(0x14c)](_0x42fe43(0x14a)),yield this[_0x42fe43(0x155)][_0x42fe43(0x139)](_0x43c207);return;});}[a547_0x58bc6a(0x143)](_0x21218e){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4f4a87=a547_0x1c73;return this[_0x4f4a87(0x155)][_0x4f4a87(0x154)](_0x21218e);});}};AccessTokenService=tslib_1[a547_0x58bc6a(0x13f)]([(0x0,typedi_1['Service'])(),tslib_1[a547_0x58bc6a(0x140)](0x0,(0x0,typeorm_typedi_extensions_1['OrmRepository'])()),tslib_1[a547_0x58bc6a(0x140)](0x1,(0x0,Logger_1[a547_0x58bc6a(0x13c)])(__filename)),tslib_1[a547_0x58bc6a(0x13e)](a547_0x58bc6a(0x138),[AccessTokenRepository_1[a547_0x58bc6a(0x153)],Object])],AccessTokenService),exports[a547_0x58bc6a(0x152)]=AccessTokenService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AccessTokenService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const AccessTokenRepository_1 = require("../repositories/AccessTokenRepository");
+let AccessTokenService = class AccessTokenService {
+    constructor(accessTokenRepository, log) {
+        this.accessTokenRepository = accessTokenRepository;
+        this.log = log;
+    }
+    findOne(accessToken) {
+        return this.accessTokenRepository.findOne(accessToken);
+    }
+    // delete token
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a token');
+            yield this.accessTokenRepository.delete(id);
+            return;
+        });
+    }
+    // create token
+    create(accessToken) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return this.accessTokenRepository.save(accessToken);
+        });
+    }
+};
+AccessTokenService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [AccessTokenRepository_1.AccessTokenRepository, Object])
+], AccessTokenService);
+exports.AccessTokenService = AccessTokenService;
+//# sourceMappingURL=AccessTokenService.js.map

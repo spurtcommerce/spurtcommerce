@@ -1,1 +1,93 @@
-'use strict';const a752_0x3ce634=a752_0x25dd;(function(_0x53c6df,_0x2a1249){const _0x57b386=a752_0x25dd,_0x416d53=_0x53c6df();while(!![]){try{const _0x143b99=parseInt(_0x57b386(0x89))/0x1*(-parseInt(_0x57b386(0x6d))/0x2)+-parseInt(_0x57b386(0x83))/0x3*(-parseInt(_0x57b386(0x6b))/0x4)+parseInt(_0x57b386(0x6a))/0x5*(parseInt(_0x57b386(0x84))/0x6)+parseInt(_0x57b386(0x78))/0x7*(parseInt(_0x57b386(0x77))/0x8)+parseInt(_0x57b386(0x80))/0x9+-parseInt(_0x57b386(0x79))/0xa*(-parseInt(_0x57b386(0x7d))/0xb)+-parseInt(_0x57b386(0x6c))/0xc*(parseInt(_0x57b386(0x69))/0xd);if(_0x143b99===_0x2a1249)break;else _0x416d53['push'](_0x416d53['shift']());}catch(_0x2e9984){_0x416d53['push'](_0x416d53['shift']());}}}(a752_0xec07,0x9fdf0));function a752_0x25dd(_0x595206,_0x45b46b){const _0xec0774=a752_0xec07();return a752_0x25dd=function(_0x25ddf8,_0x54c277){_0x25ddf8=_0x25ddf8-0x68;let _0x1eba8f=_0xec0774[_0x25ddf8];return _0x1eba8f;},a752_0x25dd(_0x595206,_0x45b46b);}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a752_0x3ce634(0x75)]=void 0x0;function a752_0xec07(){const _0x4963fa=['221196RNvlxz','2cfUtmc','order_history_id','TINYTEXT','CURRENT_TIMESTAMP','increment','integer','created_date','is_active','CreateOrderHistoryTable1546581933917','__awaiter','8TjIdMg','3764362VrrjSf','10aeOpqU','down','order_history','int','5489209aSbymC','date_added','comment','650592rmDyzQ','modified_by','order_id','3tmWpuX','96kKvUMK','notify','createTable','typeorm','modified_date','254119RTXOuo','hasTable','DATETIME','1209CgKCjt','332765GxjqNO','1797196yzQGhg'];a752_0xec07=function(){return _0x4963fa;};return a752_0xec07();}const tslib_1=require('tslib'),typeorm_1=require(a752_0x3ce634(0x87));class CreateOrderHistoryTable1546581933917{['up'](_0x67973a){const _0x165884=a752_0x3ce634;return tslib_1[_0x165884(0x76)](this,void 0x0,void 0x0,function*(){const _0x2b63dd=_0x165884,_0x58816d=new typeorm_1['Table']({'name':_0x2b63dd(0x7b),'columns':[{'name':_0x2b63dd(0x6e),'type':_0x2b63dd(0x72),'length':'11','isGenerated':!![],'generationStrategy':_0x2b63dd(0x71),'isPrimary':!![],'isNullable':![]},{'name':_0x2b63dd(0x82),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':'order_status_id','type':_0x2b63dd(0x72),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x2b63dd(0x85),'type':_0x2b63dd(0x6f),'isPrimary':![],'isNullable':!![]},{'name':_0x2b63dd(0x7f),'type':'TEXT','isPrimary':![],'isNullable':!![]},{'name':_0x2b63dd(0x7e),'type':_0x2b63dd(0x68),'isPrimary':![],'isNullable':!![]},{'name':_0x2b63dd(0x74),'type':_0x2b63dd(0x7c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_by','type':_0x2b63dd(0x72),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x2b63dd(0x81),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x2b63dd(0x73),'type':_0x2b63dd(0x68),'isPrimary':![],'isNullable':!![],'default':_0x2b63dd(0x70)},{'name':_0x2b63dd(0x88),'type':_0x2b63dd(0x68),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'}]}),_0x4c1a0c=yield _0x67973a[_0x2b63dd(0x8a)](_0x2b63dd(0x7b));!_0x4c1a0c&&(yield _0x67973a[_0x2b63dd(0x86)](_0x58816d));});}[a752_0x3ce634(0x7a)](_0x2ce595){const _0x39c595=a752_0x3ce634;return tslib_1[_0x39c595(0x76)](this,void 0x0,void 0x0,function*(){const _0x105cac=_0x39c595;yield _0x2ce595['dropTable'](_0x105cac(0x7b),!![]);});}}exports[a752_0x3ce634(0x75)]=CreateOrderHistoryTable1546581933917;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateOrderHistoryTable1546581933917 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateOrderHistoryTable1546581933917 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'order_history',
+                columns: [
+                    {
+                        name: 'order_history_id',
+                        type: 'integer',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'order_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'order_status_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'notify',
+                        type: 'TINYTEXT',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'comment',
+                        type: 'TEXT',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'date_added',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('order_history');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('order_history', true);
+        });
+    }
+}
+exports.CreateOrderHistoryTable1546581933917 = CreateOrderHistoryTable1546581933917;
+//# sourceMappingURL=1546581933917-CreateOrderHistoryTable.js.map

@@ -1,1 +1,492 @@
-'use strict';function a285_0x2c63(_0x556b45,_0x3dcb99){const _0x5223db=a285_0x5223();return a285_0x2c63=function(_0x2c634c,_0x3f05f5){_0x2c634c=_0x2c634c-0xaf;let _0x4532fe=_0x5223db[_0x2c634c];return _0x4532fe;},a285_0x2c63(_0x556b45,_0x3dcb99);}const a285_0xf502b8=a285_0x2c63;(function(_0x43beb6,_0x5d8421){const _0x4514e2=a285_0x2c63,_0x416142=_0x43beb6();while(!![]){try{const _0x27627b=-parseInt(_0x4514e2(0xbe))/0x1*(parseInt(_0x4514e2(0x10d))/0x2)+-parseInt(_0x4514e2(0x117))/0x3*(-parseInt(_0x4514e2(0xc5))/0x4)+-parseInt(_0x4514e2(0x106))/0x5+-parseInt(_0x4514e2(0xc3))/0x6*(parseInt(_0x4514e2(0xe3))/0x7)+-parseInt(_0x4514e2(0xb4))/0x8+-parseInt(_0x4514e2(0xfd))/0x9+parseInt(_0x4514e2(0x10f))/0xa;if(_0x27627b===_0x5d8421)break;else _0x416142['push'](_0x416142['shift']());}catch(_0x4b0f64){_0x416142['push'](_0x416142['shift']());}}}(a285_0x5223,0xaf672));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports['BulkImport']=void 0x0;function a285_0x5223(){const _0x2f4ea7=['Variant_Quantity','discountPrice','1003779PurHVz','category','Discount_Priority_','quantity','priority','split','sku','ManufacturerStatus','attributeName','Attribute_Group_','Description','StockStatusId','3603760JrTKNd','Model','variantImage','productSpecialPrice','Length','Variant_sku','variantOriginalPrice','Product_Tire_Quantity_','Manufacturer_Image','__awaiter','12335itugkj','Tax','Product_Special_Priority_','Variant_Price','RelatedProductId','6YrilCj','Product_Tire_Price_','12NIMfWQ','SKU','video','_Sort_Order','Discount_Date_Start_','Variant_Value','Tax_Type','Product_Special_End_Date_','totalDiscountLength','Width','Video_Link','Attribute_Name_','discountQuantity','attributeGroup','Category','variantQuantity','MetaTagKeyword','Product_Special_Price_','totalTireLength','ProductVariants','Variant_OriginalPrice','Package_Cost','CategorySortOrder','variant','variantOptions','includes','varianName','push','DateAvailable','Discount_Quantity_','5195407RcnHck','sortOrder','VendorId','endDate','MetaTagDescription','PackageCost','Variant_Name','Weight','Variant_Image','variantPrice','ManufacturerName','variantValue','Images','price','Height','Product_Special_Start_Date_','Manufacturer_Name','attribute','CategoryName','Price','Required_Shipping','discountPriority','discountStartDate','Name','productTirePrice','Stock_Status_Id','2219832YOQLaA','HSN','totalSpecialLength','discountEndDate','ProductSlug','ManufacturerImage','UPC','Discount_Price_','variantSku','1035485NErGhY','TaxType','Quantity','startDate','Discount_Date_End_','bulkImportRequest','Attribute_Value_','6NRhSWc','ShippingCost','13980920YAQFCh','pluginModule','Shipping_Cost','MetaTagTitle','Manufacturer_Status','tslib'];a285_0x5223=function(){return _0x2f4ea7;};return a285_0x5223();}const tslib_1=require(a285_0xf502b8(0x114)),pluginLoader_1=require('../../../../loaders/pluginLoader');class BulkImport{[a285_0xf502b8(0x10b)](_0x28a3e3,_0x5651c2){const _0x467f17=a285_0xf502b8;var _0x3658b9,_0x4a94ad,_0x3017fa,_0x517298,_0x49a46b,_0x3873f4,_0x3d252c,_0x12980a,_0x2371ee,_0x3793dc,_0x134652,_0x4e44c4,_0x299e8d,_0x48125d,_0x41e4e6,_0x32cade,_0x5ac5dc,_0x4285c2,_0x1bade3;return tslib_1[_0x467f17(0xbd)](this,void 0x0,void 0x0,function*(){const _0x529094=_0x467f17;let _0x58f2d0=0x0,_0x185dbb=0x0,_0x2e5842=0x0;const _0x5005ae=[];for(const _0x402611 of _0x28a3e3){const _0x32cca7={},_0x4ac05a=[],_0x1b3ba0=[],_0x508839=[],_0xd5cc9=[],_0x1c7839=[],_0x1832b9=[],_0x36a974=[];let _0x2d680a=0x0;for(const _0x330b9a of _0x5651c2){const _0x3575d3={};if(_0x402611===_0x330b9a['Name']&&_0x2d680a===0x0){_0x32cca7['SKU']=_0x330b9a[_0x529094(0xc6)],_0x32cca7[_0x529094(0x103)]=_0x330b9a[_0x529094(0x103)],_0x32cca7[_0x529094(0xfe)]=_0x330b9a[_0x529094(0xfe)],_0x32cca7['Quantity']=_0x330b9a[_0x529094(0x108)],_0x32cca7[_0x529094(0xf6)]=_0x330b9a[_0x529094(0xf6)],_0x32cca7[_0x529094(0x107)]=_0x330b9a[_0x529094(0xcb)],_0x32cca7[_0x529094(0xbf)]=_0x330b9a[_0x529094(0xbf)],_0x32cca7[_0x529094(0xe1)]=_0x330b9a['DateAvailable'],_0x32cca7['Name']=_0x330b9a['Name'],_0x32cca7[_0x529094(0xb2)]=_0x330b9a['Description'],_0x32cca7[_0x529094(0xb5)]=_0x330b9a[_0x529094(0xb5)],_0x32cca7['Condition']=_0x330b9a['Condition'],_0x32cca7[_0x529094(0xed)]=_0x330b9a[_0x529094(0xf3)],_0x32cca7[_0x529094(0x102)]=_0x330b9a[_0x529094(0xbc)],_0x32cca7[_0x529094(0xaf)]=_0x330b9a[_0x529094(0x113)],_0x32cca7[_0x529094(0xb3)]=_0x330b9a[_0x529094(0xfc)],_0x32cca7[_0x529094(0x112)]=_0x330b9a[_0x529094(0x112)],_0x32cca7[_0x529094(0xe7)]=_0x330b9a['MetaTagDescription'],_0x32cca7[_0x529094(0xd5)]=_0x330b9a[_0x529094(0xd5)],_0x32cca7[_0x529094(0x101)]=_0x330b9a['ProductSlug'],_0x32cca7[_0x529094(0xef)]=_0x330b9a[_0x529094(0xef)],_0x32cca7[_0x529094(0xf5)]=_0x330b9a[_0x529094(0xf5)],_0x32cca7[_0x529094(0xdb)]=_0x330b9a[_0x529094(0xdb)],_0x32cca7[_0x529094(0xc2)]=_0x330b9a[_0x529094(0xc2)],_0x32cca7[_0x529094(0xf7)]=_0x330b9a[_0x529094(0xf7)],_0x32cca7['Height']=_0x330b9a[_0x529094(0xf1)],_0x32cca7[_0x529094(0xea)]=_0x330b9a[_0x529094(0xea)],_0x32cca7['Width']=_0x330b9a[_0x529094(0xce)],_0x32cca7[_0x529094(0xb8)]=_0x330b9a[_0x529094(0xb8)],_0x32cca7[_0x529094(0xe8)]=_0x330b9a[_0x529094(0xda)],_0x32cca7[_0x529094(0x10e)]=_0x330b9a[_0x529094(0x111)],_0x32cca7[_0x529094(0xe5)]=_0x330b9a['VendorId'];const _0x243193=_0x330b9a[_0x529094(0xcf)];if(_0x243193){if(_0x243193[_0x529094(0xde)](',')){const _0x44305f=_0x243193[_0x529094(0x11c)](',');_0x36a974[_0x529094(0xe0)](..._0x44305f);}else _0x36a974[_0x529094(0xe0)](_0x330b9a[_0x529094(0xcf)]);}_0x3575d3['variantSku']=_0x330b9a[_0x529094(0xb9)],_0x3575d3[_0x529094(0xd4)]=_0x330b9a[_0x529094(0x115)],_0x3575d3[_0x529094(0xb6)]=_0x330b9a[_0x529094(0xeb)],_0x3575d3[_0x529094(0xec)]=_0x330b9a[_0x529094(0xc1)],_0x3575d3[_0x529094(0xba)]=_0x330b9a['Variant_OriginalPrice'];let _0x173dee=0x1;while(_0x173dee>=0x1){if('Discount_Quantity_'+_0x173dee in _0x330b9a===!![]&&_0x529094(0xe2)+_0x173dee!==''){if(_0x330b9a['Discount_Quantity_'+_0x173dee]!==''){const _0x18353e={};_0x18353e[_0x529094(0x11d)]=_0x330b9a[_0x529094(0xb9)]?pluginLoader_1[_0x529094(0x110)][_0x529094(0xde)](_0x529094(0xd8))?_0x330b9a[_0x529094(0xb9)]:_0x330b9a[_0x529094(0xc6)]:_0x330b9a[_0x529094(0xc6)],_0x18353e[_0x529094(0xd1)]=+_0x330b9a[_0x529094(0xe2)+_0x173dee]?+_0x330b9a[_0x529094(0xe2)+_0x173dee]:undefined,_0x18353e[_0x529094(0xf8)]=+_0x330b9a[_0x529094(0x119)+_0x173dee]?+_0x330b9a[_0x529094(0x119)+_0x173dee]:undefined,_0x18353e[_0x529094(0x116)]=+_0x330b9a['Discount_Price_'+_0x173dee]?+_0x330b9a[_0x529094(0x104)+_0x173dee]:undefined,_0x18353e[_0x529094(0xf9)]=_0x330b9a['Discount_Date_Start_'+_0x173dee]?_0x330b9a[_0x529094(0xc9)+_0x173dee]:undefined,_0x18353e[_0x529094(0x100)]=_0x330b9a[_0x529094(0x10a)+_0x173dee]?_0x330b9a[_0x529094(0x10a)+_0x173dee]:undefined,_0x508839[_0x529094(0xe0)](_0x18353e);}_0x173dee++,_0x58f2d0++;}else _0x173dee=0x0;}let _0x55548d=0x1;while(_0x55548d>=0x1){if(_0x529094(0xc0)+_0x55548d in _0x330b9a===!![]&&'Product_Special_Priority_'+_0x55548d!==''){if(_0x330b9a['Product_Special_Priority_'+_0x55548d]!==''){const _0x26c9b1={};_0x26c9b1[_0x529094(0x11d)]=_0x330b9a[_0x529094(0xb9)]?pluginLoader_1[_0x529094(0x110)]['includes'](_0x529094(0xd8))?_0x330b9a[_0x529094(0xb9)]:_0x330b9a['SKU']:_0x330b9a[_0x529094(0xc6)],_0x26c9b1[_0x529094(0x11b)]=(_0x3658b9=_0x330b9a[_0x529094(0xc0)+_0x55548d])!==null&&_0x3658b9!==void 0x0?_0x3658b9:undefined,_0x26c9b1['price']=(_0x4a94ad=_0x330b9a[_0x529094(0xd6)+_0x55548d])!==null&&_0x4a94ad!==void 0x0?_0x4a94ad:undefined,_0x26c9b1['startDate']=(_0x3017fa=_0x330b9a[_0x529094(0xf2)+_0x55548d])!==null&&_0x3017fa!==void 0x0?_0x3017fa:undefined,_0x26c9b1[_0x529094(0xe6)]=(_0x517298=_0x330b9a[_0x529094(0xcc)+_0x55548d])!==null&&_0x517298!==void 0x0?_0x517298:undefined,_0xd5cc9[_0x529094(0xe0)](_0x26c9b1);}_0x55548d++,_0x185dbb++;}else _0x55548d=0x0;}let _0x20a2c6=0x1;while(_0x20a2c6>=0x1){if('Product_Tire_Quantity_'+_0x20a2c6 in _0x330b9a===!![]&&_0x529094(0xbb)+_0x20a2c6!==''){if(_0x330b9a[_0x529094(0xbb)+_0x20a2c6]!==''){const _0x1e3e53={};_0x1e3e53[_0x529094(0x11d)]=_0x330b9a[_0x529094(0xb9)]?pluginLoader_1['pluginModule'][_0x529094(0xde)](_0x529094(0xd8))?_0x330b9a[_0x529094(0xb9)]:_0x330b9a[_0x529094(0xc6)]:_0x330b9a[_0x529094(0xc6)],_0x1e3e53[_0x529094(0x11a)]=(_0x49a46b=_0x330b9a[_0x529094(0xbb)+_0x20a2c6])!==null&&_0x49a46b!==void 0x0?_0x49a46b:undefined,_0x1e3e53[_0x529094(0xf0)]=(_0x3873f4=_0x330b9a[_0x529094(0xc4)+_0x20a2c6])!==null&&_0x3873f4!==void 0x0?_0x3873f4:undefined,_0x1c7839['push'](_0x1e3e53);}_0x20a2c6++,_0x2e5842++;}else _0x20a2c6=0x0;}let _0x25a456=0x1;while(_0x25a456>=0x1){if(_0x529094(0xd3)+_0x25a456 in _0x330b9a===!![]&&_0x529094(0xd3)+_0x25a456+'_Sort_Order'!==''){if(_0x330b9a[_0x529094(0xd3)+_0x25a456]!==''){const _0xc8f231={};_0xc8f231[_0x529094(0x118)]=_0x330b9a[_0x529094(0xd3)+_0x25a456],_0xc8f231[_0x529094(0xe4)]=_0x330b9a[_0x529094(0xd3)+_0x25a456+_0x529094(0xc8)],_0x1832b9[_0x529094(0xe0)](_0xc8f231);}_0x25a456++;}else _0x25a456=0x0;}let _0x4faf53=0x1;while(_0x4faf53>=0x1){if(_0x529094(0xd0)+_0x4faf53 in _0x330b9a===!![]&&'Attribute_Name_'+_0x4faf53!==''){if(_0x330b9a[_0x529094(0xd0)+_0x4faf53]!==''){const _0x2d225a={};_0x2d225a[_0x529094(0xd2)]=_0x330b9a[_0x529094(0xb1)+_0x4faf53],_0x2d225a[_0x529094(0xb0)]=_0x330b9a[_0x529094(0xd0)+_0x4faf53],_0x2d225a['attributeValue']=_0x330b9a[_0x529094(0x10c)+_0x4faf53],_0x1b3ba0['push'](_0x2d225a);}_0x4faf53++;}else _0x4faf53=0x0;}const _0x3fbe40=[];let _0x3114fd=0x1;while(_0x3114fd>=0x1){if(_0x529094(0xe9)+_0x3114fd in _0x330b9a===!![]){const _0x597d92={};_0x597d92[_0x529094(0xdf)]=(_0x3d252c=_0x330b9a[_0x529094(0xe9)+_0x3114fd])!==null&&_0x3d252c!==void 0x0?_0x3d252c:undefined,_0x597d92[_0x529094(0xee)]=(_0x12980a=_0x330b9a[_0x529094(0xca)+_0x3114fd])!==null&&_0x12980a!==void 0x0?_0x12980a:undefined,_0x3fbe40['push'](_0x597d92),_0x3114fd++;}else _0x3114fd=0x0;}_0x3575d3[_0x529094(0xdd)]=_0x3fbe40,_0x4ac05a[_0x529094(0xe0)](_0x3575d3),_0x2d680a++;}else{if(_0x402611===_0x330b9a[_0x529094(0xfa)]&&_0x2d680a>0x0){let _0x200dd2=0x1;_0x3575d3[_0x529094(0x105)]=_0x330b9a['Variant_sku'],_0x3575d3['variantQuantity']=_0x330b9a['Variant_Quantity'],_0x3575d3[_0x529094(0xb6)]=_0x330b9a['Variant_Image'],_0x3575d3[_0x529094(0xec)]=_0x330b9a[_0x529094(0xc1)],_0x3575d3[_0x529094(0xba)]=_0x330b9a[_0x529094(0xd9)];const _0x29ced5=[];while(_0x200dd2>=0x1){if(_0x529094(0xe9)+_0x200dd2 in _0x330b9a===!![]){const _0x28e3a4={};_0x28e3a4[_0x529094(0xdf)]=_0x330b9a[_0x529094(0xe9)+_0x200dd2]?_0x330b9a[_0x529094(0xe9)+_0x200dd2]:undefined,_0x28e3a4['variantValue']=_0x330b9a[_0x529094(0xca)+_0x200dd2]?_0x330b9a[_0x529094(0xca)+_0x200dd2]:undefined,_0x29ced5[_0x529094(0xe0)](_0x28e3a4),_0x200dd2++;}else _0x200dd2=0x0;}_0x3575d3['variantOptions']=_0x29ced5;_0x3575d3['skuName']!==''&&_0x4ac05a[_0x529094(0xe0)](_0x3575d3);_0x2d680a=_0x2d680a++;const _0x1a15b4=_0x330b9a[_0x529094(0xcf)];if(_0x1a15b4!==''){if(_0x1a15b4[_0x529094(0xde)](',')){const _0x436ebd=_0x1a15b4[_0x529094(0x11c)](',');_0x36a974[_0x529094(0xe0)](..._0x436ebd);}else _0x36a974[_0x529094(0xe0)](_0x330b9a[_0x529094(0xcf)]);}let _0x179777=0x1;while(_0x179777>=0x1){if(_0x529094(0xe2)+_0x179777 in _0x330b9a===!![]&&'Discount_Quantity_'+_0x179777!==''){if(_0x330b9a[_0x529094(0xe2)+_0x179777]!==''){const _0x5914c2={};_0x5914c2[_0x529094(0x11d)]=_0x330b9a[_0x529094(0xb9)]?pluginLoader_1[_0x529094(0x110)][_0x529094(0xde)](_0x529094(0xd8))?_0x330b9a['Variant_sku']:_0x330b9a[_0x529094(0xc6)]:_0x330b9a[_0x529094(0xc6)],_0x5914c2['discountQuantity']=(_0x2371ee=+_0x330b9a[_0x529094(0xe2)+_0x179777])!==null&&_0x2371ee!==void 0x0?_0x2371ee:undefined,_0x5914c2[_0x529094(0xf8)]=(_0x3793dc=+_0x330b9a[_0x529094(0x119)+_0x179777])!==null&&_0x3793dc!==void 0x0?_0x3793dc:undefined,_0x5914c2[_0x529094(0x116)]=(_0x134652=+_0x330b9a[_0x529094(0x104)+_0x179777])!==null&&_0x134652!==void 0x0?_0x134652:undefined,_0x5914c2[_0x529094(0xf9)]=(_0x4e44c4=_0x330b9a[_0x529094(0xc9)+_0x179777])!==null&&_0x4e44c4!==void 0x0?_0x4e44c4:undefined,_0x5914c2['discountEndDate']=(_0x299e8d=_0x330b9a[_0x529094(0x10a)+_0x179777])!==null&&_0x299e8d!==void 0x0?_0x299e8d:undefined,_0x508839[_0x529094(0xe0)](_0x5914c2);}_0x179777++;}else _0x179777=0x0;}let _0x172874=0x1;while(_0x172874>=0x1){if(_0x529094(0xc0)+_0x172874 in _0x330b9a===!![]&&_0x529094(0xc0)+_0x172874!==''){if(_0x330b9a[_0x529094(0xc0)+_0x172874]!==''){const _0x72fbb0={};_0x72fbb0[_0x529094(0x11d)]=_0x330b9a[_0x529094(0xb9)]?pluginLoader_1['pluginModule'][_0x529094(0xde)](_0x529094(0xd8))?_0x330b9a[_0x529094(0xb9)]:_0x330b9a['SKU']:_0x330b9a[_0x529094(0xc6)],_0x72fbb0[_0x529094(0x11b)]=(_0x48125d=_0x330b9a[_0x529094(0xc0)+_0x172874])!==null&&_0x48125d!==void 0x0?_0x48125d:undefined,_0x72fbb0[_0x529094(0xf0)]=(_0x41e4e6=_0x330b9a['Product_Special_Price_'+_0x172874])!==null&&_0x41e4e6!==void 0x0?_0x41e4e6:undefined,_0x72fbb0[_0x529094(0x109)]=(_0x32cade=_0x330b9a[_0x529094(0xf2)+_0x172874])!==null&&_0x32cade!==void 0x0?_0x32cade:undefined,_0x72fbb0['endDate']=(_0x5ac5dc=_0x330b9a[_0x529094(0xcc)+_0x172874])!==null&&_0x5ac5dc!==void 0x0?_0x5ac5dc:undefined,_0xd5cc9['push'](_0x72fbb0);}_0x172874++;}else _0x172874=0x0;}let _0x4dae7d=0x1;while(_0x4dae7d>=0x1){if(_0x529094(0xbb)+_0x4dae7d in _0x330b9a===!![]&&'Product_Tire_Quantity_'+_0x4dae7d!==''){if(_0x330b9a[_0x529094(0xbb)+_0x4dae7d]!==''){const _0x474b51={};_0x474b51[_0x529094(0x11d)]=_0x330b9a[_0x529094(0xb9)]?pluginLoader_1[_0x529094(0x110)][_0x529094(0xde)](_0x529094(0xd8))?_0x330b9a[_0x529094(0xb9)]:_0x330b9a[_0x529094(0xc6)]:_0x330b9a[_0x529094(0xc6)],_0x474b51[_0x529094(0x11a)]=(_0x4285c2=_0x330b9a[_0x529094(0xbb)+_0x4dae7d])!==null&&_0x4285c2!==void 0x0?_0x4285c2:undefined,_0x474b51[_0x529094(0xf0)]=(_0x1bade3=_0x330b9a[_0x529094(0xc4)+_0x4dae7d])!==null&&_0x1bade3!==void 0x0?_0x1bade3:undefined,_0x1c7839[_0x529094(0xe0)](_0x474b51);}_0x4dae7d++;}else _0x4dae7d=0x0;}}}}_0x32cca7[_0x529094(0x118)]=_0x1832b9,_0x32cca7[_0x529094(0xdc)]=_0x4ac05a,_0x32cca7[_0x529094(0xf4)]=_0x1b3ba0,_0x32cca7['productDiscount']=_0x508839,_0x32cca7[_0x529094(0xb7)]=_0xd5cc9,_0x32cca7[_0x529094(0xfb)]=_0x1c7839,_0x32cca7[_0x529094(0xc7)]=_0x36a974,_0x32cca7[_0x529094(0xcd)]=_0x58f2d0,_0x32cca7[_0x529094(0xff)]=_0x185dbb,_0x32cca7[_0x529094(0xd7)]=_0x2e5842,_0x58f2d0=0x0,_0x185dbb=0x0,_0x2e5842=0x0,_0x5005ae[_0x529094(0xe0)](_0x32cca7);}return _0x5005ae;});}}exports['BulkImport']=BulkImport;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BulkImport = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const pluginLoader_1 = require("../../../../loaders/pluginLoader");
+const SkuService_1 = require("../../../core/services/SkuService");
+const CategoryService_1 = require("../../../core/services/CategoryService");
+require("reflect-metadata");
+let BulkImport = class BulkImport {
+    constructor(skuService, categoryService) {
+        this.skuService = skuService;
+        this.categoryService = categoryService;
+        this.validationConfig = {
+            Quantity: 'Quantity value should be numeric format',
+            Price: 'Price value should be numeric format',
+            Tax: 'Tax value should be numeric format',
+            Manufacturer_Status: 'Manufacturer_Status value should be numeric format',
+            Stock_Status_Id: 'Stock_Status_Id value should be numeric format',
+            Required_Shipping: 'Required_Shipping value should be numeric format',
+            Height: 'Height value should be numeric format',
+            Weight: 'Weight value should be numeric format',
+            Width: 'Width value should be numeric format',
+            Length: 'Length value should be numeric format',
+            Package_Cost: 'Package_Cost value should be numeric format',
+            Shipping_Cost: 'Shipping_Cost value should be numeric format',
+            VendorId: 'VendorId value should be numeric format',
+            Variant_Quantity: 'Variant_Quantity value should be numeric format',
+            Variant_OriginalPrice: 'Variant_OriginalPrice value should be numeric format',
+            Variant_Price: 'Variant_Price value should be numeric format',
+            Has_Tire_Price: 'Has_Tire_Price value should be numeric format',
+            // Add more fields as needed
+        };
+        this.catageryValidation = {
+            Sort_Order: 'The Sort_Order value should be numeric format',
+            Status: 'The Status value should be in numeric format',
+            Status_Value: 'The status value should be either 1 or 0 (1 -> Active, 0 -> In-Active)',
+            Parent_Category: 'The Parent_Category value should be in numeric format',
+        };
+    }
+    bulkImportRequest(filterName, inputData) {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            let totalDiscount = 0;
+            let totalSpecial = 0;
+            let totalTire = 0;
+            const productArr = [];
+            for (const fName of filterName) {
+                const tempObj = {};
+                const variantOption = [];
+                const attributeDats = [];
+                const discount = [];
+                const specialPrice = [];
+                const tirePriceData = [];
+                const categoryDatas = [];
+                const productVideo = [];
+                let i = 0;
+                for (const data of inputData) {
+                    const variantOptionObj = {};
+                    // Request from 0th index values
+                    if (fName === data.Name && i === 0) {
+                        tempObj.SKU = data.SKU;
+                        tempObj.UPC = data.UPC;
+                        tempObj.HSN = data.HSN;
+                        tempObj.Quantity = data.Quantity;
+                        tempObj.Price = data.Price;
+                        // tempObj.TaxType = data.Tax_Type;
+                        tempObj.Tax = data.Tax;
+                        tempObj.DateAvailable = data.DateAvailable;
+                        tempObj.Name = data.Name;
+                        tempObj.Description = data.Description;
+                        tempObj.Model = data.Model;
+                        tempObj.Condition = data.Condition;
+                        tempObj.ManufacturerName = data.Manufacturer_Name;
+                        tempObj.ManufacturerImage = data.Manufacturer_Image;
+                        tempObj.ManufacturerStatus = data.Manufacturer_Status;
+                        tempObj.StockStatusId = data.Stock_Status_Id;
+                        tempObj.MetaTagTitle = data.MetaTagTitle;
+                        tempObj.MetaTagDescription = data.MetaTagDescription;
+                        tempObj.MetaTagKeyword = data.MetaTagKeyword;
+                        tempObj.ProductSlug = data.ProductSlug;
+                        tempObj.Images = data.Images;
+                        tempObj.CategoryName = data.CategoryName;
+                        tempObj.CategorySortOrder = data.CategorySortOrder;
+                        tempObj.RelatedProductId = data.RelatedProductId;
+                        tempObj.Required_Shipping = data.Required_Shipping;
+                        tempObj.Height = data.Height;
+                        tempObj.Weight = data.Weight;
+                        tempObj.Width = data.Width;
+                        tempObj.Length = data.Length;
+                        tempObj.PackageCost = data.Package_Cost;
+                        tempObj.ShippingCost = data.Shipping_Cost;
+                        tempObj.VendorId = data.VendorId;
+                        const videoArr = data.Video_Link;
+                        if (videoArr) {
+                            if (videoArr.includes(',')) {
+                                const splitVideoArr = videoArr.split(',');
+                                productVideo.push(...splitVideoArr);
+                            }
+                            else {
+                                productVideo.push(data.Video_Link);
+                            }
+                        }
+                        variantOptionObj.variantSku = data.Variant_sku;
+                        variantOptionObj.variantQuantity = data.Variant_Quantity;
+                        variantOptionObj.variantImage = data.Variant_Image;
+                        variantOptionObj.variantPrice = data.Variant_Price;
+                        variantOptionObj.variantOriginalPrice = data.Variant_OriginalPrice;
+                        // Discount price
+                        let m = 1;
+                        while (m >= 1) {
+                            if ('Discount_Quantity_' + m in data === true && 'Discount_Quantity_' + m !== '') {
+                                if (data['Discount_Quantity_' + m] !== '') {
+                                    const discountValues = {};
+                                    discountValues.sku = data.Variant_sku ? (pluginLoader_1.pluginModule.includes('ProductVariants') ? data.Variant_sku : data.SKU) : data.SKU;
+                                    discountValues.discountQuantity = +data['Discount_Quantity_' + m] ? +data['Discount_Quantity_' + m] : undefined;
+                                    discountValues.discountPriority = +data['Discount_Priority_' + m] ? +data['Discount_Priority_' + m] : undefined;
+                                    discountValues.discountPrice = +data['Discount_Price_' + m] ? +data['Discount_Price_' + m] : undefined;
+                                    discountValues.discountStartDate = data['Discount_Date_Start_' + m] ? data['Discount_Date_Start_' + m] : undefined;
+                                    discountValues.discountEndDate = data['Discount_Date_End_' + m] ? data['Discount_Date_End_' + m] : undefined;
+                                    discount.push(discountValues);
+                                }
+                                m++;
+                                totalDiscount++;
+                            }
+                            else {
+                                m = 0;
+                            }
+                        }
+                        // special price
+                        let l = 1;
+                        while (l >= 1) {
+                            if ('Product_Special_Priority_' + l in data === true && 'Product_Special_Priority_' + l !== '') {
+                                if (data['Product_Special_Priority_' + l] !== '') {
+                                    const specialPriceValue = {};
+                                    specialPriceValue.sku = data.Variant_sku ? (pluginLoader_1.pluginModule.includes('ProductVariants') ? data.Variant_sku : data.SKU) : data.SKU;
+                                    specialPriceValue.priority = (_a = data['Product_Special_Priority_' + l]) !== null && _a !== void 0 ? _a : undefined;
+                                    specialPriceValue.price = (_b = data['Product_Special_Price_' + l]) !== null && _b !== void 0 ? _b : undefined;
+                                    specialPriceValue.startDate = (_c = data['Product_Special_Start_Date_' + l]) !== null && _c !== void 0 ? _c : undefined;
+                                    specialPriceValue.endDate = (_d = data['Product_Special_End_Date_' + l]) !== null && _d !== void 0 ? _d : undefined;
+                                    specialPrice.push(specialPriceValue);
+                                }
+                                l++;
+                                totalSpecial++;
+                            }
+                            else {
+                                l = 0;
+                            }
+                        }
+                        // tire price
+                        let q = 1;
+                        while (q >= 1) {
+                            if ('Product_Tire_Quantity_' + q in data === true && 'Product_Tire_Quantity_' + q !== '') {
+                                if (data['Product_Tire_Quantity_' + q] !== '') {
+                                    const tirePrice = {};
+                                    tirePrice.sku = data.Variant_sku ? (pluginLoader_1.pluginModule.includes('ProductVariants') ? data.Variant_sku : data.SKU) : data.SKU;
+                                    tirePrice.quantity = (_e = data['Product_Tire_Quantity_' + q]) !== null && _e !== void 0 ? _e : undefined;
+                                    tirePrice.price = (_f = data['Product_Tire_Price_' + q]) !== null && _f !== void 0 ? _f : undefined;
+                                    tirePriceData.push(tirePrice);
+                                }
+                                q++;
+                                totalTire++;
+                            }
+                            else {
+                                q = 0;
+                            }
+                        }
+                        // Category Request
+                        let n = 1;
+                        while (n >= 1) {
+                            if ('Category' + n in data === true && 'Category' + n + '_Sort_Order' !== '') {
+                                if (data['Category' + n] !== '') {
+                                    const categoryObj = {};
+                                    categoryObj.category = data['Category' + n];
+                                    categoryObj.sortOrder = data['Category' + n + '_Sort_Order'];
+                                    categoryDatas.push(categoryObj);
+                                }
+                                n++;
+                            }
+                            else {
+                                n = 0;
+                            }
+                        }
+                        // Attribute
+                        let k = 1;
+                        while (k >= 1) {
+                            if ('Attribute_Name_' + k in data === true && 'Attribute_Name_' + k !== '') {
+                                if (data['Attribute_Name_' + k] !== '') {
+                                    const arrributeObj = {};
+                                    arrributeObj.attributeGroup = data['Attribute_Group_' + k];
+                                    arrributeObj.attributeName = data['Attribute_Name_' + k];
+                                    arrributeObj.attributeValue = data['Attribute_Value_' + k];
+                                    attributeDats.push(arrributeObj);
+                                }
+                                k++;
+                            }
+                            else {
+                                k = 0;
+                            }
+                        }
+                        const variantOptions = [];
+                        let j = 1;
+                        // Variant option
+                        while (j >= 1) {
+                            if ('Variant_Name' + j in data === true) {
+                                const variantOptionsObj = {};
+                                variantOptionsObj.varianName = (_g = data['Variant_Name' + j]) !== null && _g !== void 0 ? _g : undefined;
+                                variantOptionsObj.variantValue = (_h = data['Variant_Value' + j]) !== null && _h !== void 0 ? _h : undefined;
+                                variantOptions.push(variantOptionsObj);
+                                j++;
+                            }
+                            else {
+                                j = 0;
+                            }
+                        }
+                        variantOptionObj.variantOptions = variantOptions;
+                        variantOption.push(variantOptionObj);
+                        i++;
+                    }
+                    else if (fName === data.Name && i > 0) {
+                        let j = 1;
+                        variantOptionObj.variantSku = data.Variant_sku;
+                        variantOptionObj.variantQuantity = data.Variant_Quantity;
+                        variantOptionObj.variantImage = data.Variant_Image;
+                        variantOptionObj.variantPrice = data.Variant_Price;
+                        variantOptionObj.variantOriginalPrice = data.Variant_OriginalPrice;
+                        const variantOptions = [];
+                        while (j >= 1) {
+                            if ('Variant_Name' + j in data === true) {
+                                const variantOptionsObj = {};
+                                variantOptionsObj.varianName = data['Variant_Name' + j] ? data['Variant_Name' + j] : undefined;
+                                variantOptionsObj.variantValue = data['Variant_Value' + j] ? data['Variant_Value' + j] : undefined;
+                                variantOptions.push(variantOptionsObj);
+                                j++;
+                            }
+                            else {
+                                j = 0;
+                            }
+                        }
+                        variantOptionObj.variantOptions = variantOptions;
+                        if (variantOptionObj.skuName !== '') {
+                            variantOption.push(variantOptionObj);
+                        }
+                        i = i++;
+                        const videoArr = data.Video_Link;
+                        if (videoArr !== '') {
+                            if (videoArr.includes(',')) {
+                                const splitVideoArr = videoArr.split(',');
+                                productVideo.push(...splitVideoArr);
+                            }
+                            else {
+                                productVideo.push(data.Video_Link);
+                            }
+                        }
+                        // product discount
+                        let m = 1;
+                        while (m >= 1) {
+                            if ('Discount_Quantity_' + m in data === true && 'Discount_Quantity_' + m !== '') {
+                                if (data['Discount_Quantity_' + m] !== '') {
+                                    const discountValues = {};
+                                    discountValues.sku = data.Variant_sku ? (pluginLoader_1.pluginModule.includes('ProductVariants') ? data.Variant_sku : data.SKU) : data.SKU;
+                                    discountValues.discountQuantity = (_j = +data['Discount_Quantity_' + m]) !== null && _j !== void 0 ? _j : undefined;
+                                    discountValues.discountPriority = (_k = +data['Discount_Priority_' + m]) !== null && _k !== void 0 ? _k : undefined;
+                                    discountValues.discountPrice = (_l = +data['Discount_Price_' + m]) !== null && _l !== void 0 ? _l : undefined;
+                                    discountValues.discountStartDate = (_m = data['Discount_Date_Start_' + m]) !== null && _m !== void 0 ? _m : undefined;
+                                    discountValues.discountEndDate = (_o = data['Discount_Date_End_' + m]) !== null && _o !== void 0 ? _o : undefined;
+                                    discount.push(discountValues);
+                                }
+                                m++;
+                            }
+                            else {
+                                m = 0;
+                            }
+                        }
+                        // product special price
+                        let l = 1;
+                        while (l >= 1) {
+                            if ('Product_Special_Priority_' + l in data === true && 'Product_Special_Priority_' + l !== '') {
+                                if (data['Product_Special_Priority_' + l] !== '') {
+                                    const specialPriceValue = {};
+                                    specialPriceValue.sku = data.Variant_sku ? (pluginLoader_1.pluginModule.includes('ProductVariants') ? data.Variant_sku : data.SKU) : data.SKU;
+                                    specialPriceValue.priority = (_p = data['Product_Special_Priority_' + l]) !== null && _p !== void 0 ? _p : undefined;
+                                    specialPriceValue.price = (_q = data['Product_Special_Price_' + l]) !== null && _q !== void 0 ? _q : undefined;
+                                    specialPriceValue.startDate = (_r = data['Product_Special_Start_Date_' + l]) !== null && _r !== void 0 ? _r : undefined;
+                                    specialPriceValue.endDate = (_s = data['Product_Special_End_Date_' + l]) !== null && _s !== void 0 ? _s : undefined;
+                                    specialPrice.push(specialPriceValue);
+                                }
+                                l++;
+                            }
+                            else {
+                                l = 0;
+                            }
+                        }
+                        // tire price
+                        let k = 1;
+                        while (k >= 1) {
+                            if ('Product_Tire_Quantity_' + k in data === true && 'Product_Tire_Quantity_' + k !== '') {
+                                if (data['Product_Tire_Quantity_' + k] !== '') {
+                                    const tirePrice = {};
+                                    tirePrice.sku = data.Variant_sku ? (pluginLoader_1.pluginModule.includes('ProductVariants') ? data.Variant_sku : data.SKU) : data.SKU;
+                                    tirePrice.quantity = (_t = data['Product_Tire_Quantity_' + k]) !== null && _t !== void 0 ? _t : undefined;
+                                    tirePrice.price = (_u = data['Product_Tire_Price_' + k]) !== null && _u !== void 0 ? _u : undefined;
+                                    tirePriceData.push(tirePrice);
+                                }
+                                k++;
+                            }
+                            else {
+                                k = 0;
+                            }
+                        }
+                    }
+                }
+                tempObj.category = categoryDatas;
+                tempObj.variant = variantOption;
+                tempObj.attribute = attributeDats;
+                tempObj.productDiscount = discount;
+                tempObj.productSpecialPrice = specialPrice;
+                tempObj.productTirePrice = tirePriceData;
+                tempObj.video = productVideo;
+                tempObj.totalDiscountLength = totalDiscount;
+                tempObj.totalSpecialLength = totalSpecial;
+                tempObj.totalTireLength = totalTire;
+                totalDiscount = 0;
+                totalSpecial = 0;
+                totalTire = 0;
+                productArr.push(tempObj);
+            }
+            return productArr;
+        });
+    }
+    validateAndFormatData(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const requiredFields = ['SKU', 'Quantity', 'Price', 'DateAvailable', 'Name', 'Images', 'Category1'];
+            const result = [];
+            // For checking error occur or not
+            let errorStatus = false;
+            for (const jsonValue of data) {
+                console.log(jsonValue, 'jsonValue');
+                const errors = [];
+                const findSku = yield this.skuService.findOne({ where: { skuName: jsonValue.SKU } });
+                if (findSku) {
+                    errors.push('duplicate SKU name. give some other name');
+                    errorStatus = true;
+                }
+                const findVariantSku = yield this.skuService.findOne({ where: { skuName: jsonValue.Variant_sku } });
+                if (findVariantSku) {
+                    errors.push('duplicate Variant_sku name. give some other name');
+                    errorStatus = true;
+                }
+                const findSkuFromExcel = yield data.find(item => item.SKU === jsonValue.SKU && item.Name !== jsonValue.Name);
+                if (findSkuFromExcel) {
+                    errors.push('Duplicate SKU in your Uploaded file');
+                    errorStatus = true;
+                }
+                const findVariantSkuFromExcel = yield data.filter(item => item.Variant_sku === jsonValue.Variant_sku);
+                console.log(findVariantSkuFromExcel.length, 'findVariantSkuFromExcelfindVariantSkuFromExcel');
+                if (findVariantSkuFromExcel.length > 1) {
+                    errors.push('Duplicate Variant_sku in your Uploaded file');
+                    errorStatus = true;
+                }
+                // add discount price into validationConfig
+                let m = 1;
+                while (m >= 1) {
+                    if ('Discount_Quantity_' + m in jsonValue === true && jsonValue['Discount_Quantity_' + m] !== '') {
+                        this.validationConfig[`Discount_Quantity_${m}`] = `Discount_Quantity_${m} value should be numeric format`;
+                        if ('Discount_Priority_' + m in jsonValue === true && jsonValue['Discount_Priority_' + m] !== '') {
+                            this.validationConfig[`Discount_Priority_${m}`] = `Discount_Priority_${m} value should be numeric format`;
+                        }
+                        if ('Discount_Price' + m in jsonValue === true && jsonValue['Discount_Price' + m] !== '') {
+                            this.validationConfig[`Discount_Price_${m}`] = `Discount_Price_${m} value should be numeric format`;
+                        }
+                        m++;
+                    }
+                    else {
+                        m = 0;
+                    }
+                }
+                // add special price into validationConfig
+                let l = 1;
+                while (l >= 1) {
+                    if ('Product_Special_Priority_' + l in jsonValue === true && jsonValue['Product_Special_Priority_' + l] !== '') {
+                        this.validationConfig[`Product_Special_Priority_${l}`] = `Product_Special_Priority_${l} value should be numeric format`;
+                        if ('Product_Special_Price_' + l in jsonValue === true && jsonValue['Product_Special_Price_' + l] !== '') {
+                            this.validationConfig[`Product_Special_Price_${l}`] = `Product_Special_Price_${l} value should be numeric format`;
+                        }
+                        l++;
+                    }
+                    else {
+                        l = 0;
+                    }
+                }
+                // tire price
+                let q = 1;
+                while (q >= 1) {
+                    if ('Product_Tire_Quantity_' + q in jsonValue === true && jsonValue['Product_Tire_Quantity_' + q] !== '') {
+                        this.validationConfig[`Product_Tire_Quantity_${q}`] = `Product_Tire_Quantity_${q} value should be numeric format`;
+                        if ('Product_Tire_Price_' + q in jsonValue === true && jsonValue['Product_Tire_Price_' + q] !== '') {
+                            this.validationConfig[`Product_Tire_Price_${q}`] = `Product_Tire_Price_${q} value should be numeric format`;
+                        }
+                        q++;
+                    }
+                    else {
+                        q = 0;
+                    }
+                }
+                // Category Request
+                let n = 1;
+                while (n >= 1) {
+                    if ('Category' + n in jsonValue === true && typeof jsonValue['Category' + n] === 'number') {
+                        errors.push(`${'Category' + n} value should be Varchar(String) format`);
+                        n++;
+                    }
+                    else {
+                        n = 0;
+                    }
+                }
+                const intTypeField = Object.keys(this.validationConfig);
+                // console.log(intTypeField, 'keysssssssssss', this.validationConfig);
+                for (const requiredValue of requiredFields) {
+                    if (!jsonValue.hasOwnProperty(requiredValue)) {
+                        errors.push(`Missing ${requiredValue} field`);
+                        errorStatus = true;
+                    }
+                    else if ((requiredValue === 'Name' && jsonValue.Name === '') || (requiredValue === 'Price' && jsonValue.Price === '')) {
+                        errors.push(`Missing ${requiredValue} value`);
+                    }
+                }
+                for (const intValues of intTypeField) {
+                    if (jsonValue.hasOwnProperty(intValues) && typeof jsonValue[intValues] !== 'number' && jsonValue[intValues] !== '') {
+                        errors.push(this.validationConfig[intValues]);
+                        errorStatus = true;
+                    }
+                }
+                jsonValue.Error = errors.length > 0 ? errors.join(',') : '';
+                result.push(jsonValue);
+            }
+            const resultData = { data: result, errorStatus };
+            return resultData;
+        });
+    }
+    categoryValidationAndFormatData(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const requiredFields = ['Category_Name', 'Sort_Order', 'Status'];
+            const result = [];
+            let errorStatus = false;
+            for (const jsonValue of data) {
+                const errors = [];
+                const intTypeField = Object.keys(this.catageryValidation);
+                // Validate the required fields and values
+                for (const requiredValue of requiredFields) {
+                    if (!jsonValue.hasOwnProperty(requiredValue)) {
+                        errors.push(`Missing ${requiredValue} field`);
+                        errorStatus = true;
+                    }
+                    else if (jsonValue[requiredValue] === '') {
+                        errors.push(`Missing ${requiredValue} value`);
+                    }
+                }
+                // Validate integer values
+                for (const intValues of intTypeField) {
+                    if (jsonValue.hasOwnProperty(intValues) && typeof jsonValue[intValues] !== 'number' && jsonValue[intValues] !== '') {
+                        errors.push(this.catageryValidation[intValues]);
+                        errorStatus = true;
+                    }
+                }
+                // Validate status
+                if ((jsonValue.hasOwnProperty('Status') && jsonValue.Status > 1) || (jsonValue.hasOwnProperty('Status') && jsonValue.Status < 0)) {
+                    errors.push(this.catageryValidation.Status_Value);
+                    errorStatus = true;
+                }
+                // Validate Parent Category Id
+                if (jsonValue.hasOwnProperty('Parent_Category') && typeof jsonValue.Parent_Category === 'number') {
+                    const ifParentCategory = yield this.categoryService.findOne({ where: { categoryId: jsonValue.Parent_Category } });
+                    if (!ifParentCategory) {
+                        errors.push('Invalid Parent_Category');
+                    }
+                }
+                jsonValue.Error = errors.length > 0 ? errors.join(',') : '';
+                result.push(jsonValue);
+            }
+            const resultData = { data: result, errorStatus };
+            return resultData;
+        });
+    }
+};
+BulkImport = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__metadata("design:paramtypes", [SkuService_1.SkuService,
+        CategoryService_1.CategoryService])
+], BulkImport);
+exports.BulkImport = BulkImport;
+//# sourceMappingURL=BulkImportRequest.js.map

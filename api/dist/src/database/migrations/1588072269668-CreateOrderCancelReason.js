@@ -1,1 +1,72 @@
-'use strict';const a864_0x4db636=a864_0x3d7c;function a864_0x3d7c(_0x259472,_0x182bd3){const _0x5638c3=a864_0x5638();return a864_0x3d7c=function(_0x3d7cfe,_0xa18b2b){_0x3d7cfe=_0x3d7cfe-0x165;let _0x2a4fce=_0x5638c3[_0x3d7cfe];return _0x2a4fce;},a864_0x3d7c(_0x259472,_0x182bd3);}(function(_0x2f877e,_0x59438f){const _0x4be992=a864_0x3d7c,_0x41b228=_0x2f877e();while(!![]){try{const _0x2ed683=parseInt(_0x4be992(0x16e))/0x1*(-parseInt(_0x4be992(0x170))/0x2)+-parseInt(_0x4be992(0x181))/0x3*(parseInt(_0x4be992(0x178))/0x4)+-parseInt(_0x4be992(0x174))/0x5*(-parseInt(_0x4be992(0x17d))/0x6)+parseInt(_0x4be992(0x17b))/0x7+parseInt(_0x4be992(0x165))/0x8+-parseInt(_0x4be992(0x180))/0x9+parseInt(_0x4be992(0x16f))/0xa;if(_0x2ed683===_0x59438f)break;else _0x41b228['push'](_0x41b228['shift']());}catch(_0x3f41a8){_0x41b228['push'](_0x41b228['shift']());}}}(a864_0x5638,0x3f278));function a864_0x5638(){const _0x336b83=['44OiDxEo','created_date','varchar','is_active','5svrKVy','dropTable','__awaiter','CURRENT_TIMESTAMP','136CdfYYg','__esModule','reason','2118921luziUX','created_by','16332oQyMqf','down','hasTable','808947IjDsMt','10149YJygsQ','datetime','2190648wIZBxq','CreateOrderCancelReason1588072269668','modified_date','integer','order_cancel_reason','typeorm','255','tslib','createTable','16884YYCIIV','2557770FLfvCz'];a864_0x5638=function(){return _0x336b83;};return a864_0x5638();}Object['defineProperty'](exports,a864_0x4db636(0x179),{'value':!![]}),exports[a864_0x4db636(0x166)]=void 0x0;const tslib_1=require(a864_0x4db636(0x16c)),typeorm_1=require(a864_0x4db636(0x16a));class CreateOrderCancelReason1588072269668{['up'](_0x410081){const _0x7bd9e1=a864_0x4db636;return tslib_1[_0x7bd9e1(0x176)](this,void 0x0,void 0x0,function*(){const _0x40748d=_0x7bd9e1,_0x1e1640=new typeorm_1['Table']({'name':'order_cancel_reason','columns':[{'name':'id','type':_0x40748d(0x168),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':'increment'},{'name':_0x40748d(0x17a),'type':_0x40748d(0x172),'length':_0x40748d(0x16b),'isPrimary':![],'isNullable':!![]},{'name':_0x40748d(0x173),'type':_0x40748d(0x168),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x40748d(0x17c),'type':_0x40748d(0x168),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x40748d(0x171),'type':_0x40748d(0x182),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':'modified_by','type':_0x40748d(0x168),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x40748d(0x167),'type':_0x40748d(0x182),'isPrimary':![],'isNullable':!![],'default':_0x40748d(0x177)}]}),_0x192f7e=yield _0x410081[_0x40748d(0x17f)](_0x40748d(0x169));!_0x192f7e&&(yield _0x410081[_0x40748d(0x16d)](_0x1e1640));});}[a864_0x4db636(0x17e)](_0x588fad){const _0x1284a1=a864_0x4db636;return tslib_1[_0x1284a1(0x176)](this,void 0x0,void 0x0,function*(){const _0x3285d0=_0x1284a1;yield _0x588fad[_0x3285d0(0x175)](_0x3285d0(0x169),!![]);});}}exports['CreateOrderCancelReason1588072269668']=CreateOrderCancelReason1588072269668;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateOrderCancelReason1588072269668 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateOrderCancelReason1588072269668 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'order_cancel_reason',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'reason',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('order_cancel_reason');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('order_cancel_reason', true);
+        });
+    }
+}
+exports.CreateOrderCancelReason1588072269668 = CreateOrderCancelReason1588072269668;
+//# sourceMappingURL=1588072269668-CreateOrderCancelReason.js.map

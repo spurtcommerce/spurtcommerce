@@ -1,1 +1,295 @@
-'use strict';const a280_0x34f565=a280_0x2663;function a280_0x51ad(){const _0x418442=['admin','Put','findOne','/tax','count','limit','typeorm','create-tax','252188cCpiTo','prototype','taxList','routing-controllers','141330xxjBpv','taxName','send','delete','Successfully\x20created\x20new\x20tax.','defineProperty','104409GLNpbk','48122dCWQTx','../../core/services/TaxService','taxService','deleteTax','productService','Body','../../core/services/ProductService','TaxService','966088JRnjyb','design:returntype','addTax','132349QVlyou','/add-tax','JsonController','taxId','taxPercentage','Tax','/update-tax/:taxId','/tax-list','Authorized','../../core/models/Tax','/delete-tax/:taxId','Successfully\x20get\x20all\x20tax\x20List','design:paramtypes','delete-tax','Successfully\x20updated\x20the\x20tax.','Invalid\x20tax\x20Id','Successfully\x20deleted\x20the\x20Tax.','list','__param','Post','edit-tax','__decorate','updateTax','439474tHgcpS','Unable\x20to\x20delete\x20the\x20tax.','QueryParam','CreateTaxRequest','__metadata','tslib','design:type','status','__awaiter','35BYFOxo','unable\x20to\x20create\x20tax.','Req','Tax\x20name\x20already\x20exits.','taxStatus','TaxController','Param','Unable\x20to\x20update\x20the\x20tax.','Res'];a280_0x51ad=function(){return _0x418442;};return a280_0x51ad();}(function(_0x11dee7,_0x28ba87){const _0x44afbb=a280_0x2663,_0x33ae3e=_0x11dee7();while(!![]){try{const _0x1382ca=parseInt(_0x44afbb(0x113))/0x1+-parseInt(_0x44afbb(0x108))/0x2+-parseInt(_0x44afbb(0x107))/0x3+-parseInt(_0x44afbb(0xfd))/0x4+-parseInt(_0x44afbb(0xec))/0x5*(-parseInt(_0x44afbb(0x101))/0x6)+parseInt(_0x44afbb(0xe3))/0x7+-parseInt(_0x44afbb(0x110))/0x8;if(_0x1382ca===_0x28ba87)break;else _0x33ae3e['push'](_0x33ae3e['shift']());}catch(_0x3d5ba9){_0x33ae3e['push'](_0x33ae3e['shift']());}}}(a280_0x51ad,0x1ca60));Object[a280_0x34f565(0x106)](exports,'__esModule',{'value':!![]}),exports['TaxController']=void 0x0;const tslib_1=require(a280_0x34f565(0xe8));require('reflect-metadata');const routing_controllers_1=require(a280_0x34f565(0x100)),TaxService_1=require(a280_0x34f565(0x109)),Tax_1=require(a280_0x34f565(0xd5)),CreateTaxRequest_1=require('./requests/CreateTaxRequest'),ProductService_1=require(a280_0x34f565(0x10e)),typeorm_1=require(a280_0x34f565(0xfb));function a280_0x2663(_0x35d456,_0x37526a){const _0x51ad94=a280_0x51ad();return a280_0x2663=function(_0x2663b9,_0x196b81){_0x2663b9=_0x2663b9-0xd0;let _0x4f46df=_0x51ad94[_0x2663b9];return _0x4f46df;},a280_0x2663(_0x35d456,_0x37526a);}let TaxController=class TaxController{constructor(_0x167d8d,_0x1f6c91){const _0x44d034=a280_0x34f565;this[_0x44d034(0x10a)]=_0x167d8d,this[_0x44d034(0x10c)]=_0x1f6c91;}[a280_0x34f565(0x112)](_0x503490,_0x2e2e39){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4ffbdc=a280_0x2663,_0x37e94c=yield this[_0x4ffbdc(0x10a)]['findOne']({'where':{'taxName':_0x503490['taxName']}});if(_0x37e94c){const _0x22d0ee={'status':0x0,'message':_0x4ffbdc(0xef)};return _0x2e2e39[_0x4ffbdc(0xea)](0x190)[_0x4ffbdc(0x103)](_0x22d0ee);}const _0x225344=new Tax_1[(_0x4ffbdc(0xd1))]();_0x225344['taxName']=_0x503490[_0x4ffbdc(0x102)],_0x225344[_0x4ffbdc(0xd0)]=_0x503490[_0x4ffbdc(0xd0)],_0x225344[_0x4ffbdc(0xf0)]=_0x503490[_0x4ffbdc(0xf0)];const _0x3878b8=yield this[_0x4ffbdc(0x10a)]['create'](_0x225344);if(_0x3878b8!==undefined){const _0x3e0ce3={'status':0x1,'message':_0x4ffbdc(0x105),'data':_0x3878b8};return _0x2e2e39['status'](0xc8)['send'](_0x3e0ce3);}else{const _0x1dd594={'status':0x0,'message':_0x4ffbdc(0xed)};return _0x2e2e39['status'](0x190)['send'](_0x1dd594);}});}[a280_0x34f565(0xe2)](_0x101653,_0x3f8635,_0x247f50){const _0x3d7084=a280_0x34f565;return tslib_1[_0x3d7084(0xeb)](this,void 0x0,void 0x0,function*(){const _0x41db27=_0x3d7084,_0x233e34=yield this[_0x41db27(0x10a)][_0x41db27(0xf7)]({'where':{'taxId':_0x101653}});if(!_0x233e34){const _0x4451d9={'status':0x0,'message':_0x41db27(0xdb)};return _0x247f50[_0x41db27(0xea)](0x190)['send'](_0x4451d9);}const _0x240609=yield this[_0x41db27(0x10a)][_0x41db27(0xf7)]({'where':{'taxName':_0x3f8635[_0x41db27(0x102)],'taxId':(0x0,typeorm_1['Not'])(_0x233e34['taxId'])}});if(_0x240609){const _0x4c71db={'status':0x0,'message':'Tax\x20name\x20already\x20exits.'};return _0x247f50[_0x41db27(0xea)](0x190)[_0x41db27(0x103)](_0x4c71db);}_0x233e34[_0x41db27(0x102)]=_0x3f8635['taxName'],_0x233e34['taxPercentage']=_0x3f8635[_0x41db27(0xd0)],_0x233e34[_0x41db27(0xf0)]=_0x3f8635[_0x41db27(0xf0)];const _0x2617ed=yield this['taxService']['create'](_0x233e34);if(_0x2617ed!==undefined){const _0x4083d5={'status':0x1,'message':_0x41db27(0xda),'data':_0x2617ed};return _0x247f50[_0x41db27(0xea)](0xc8)[_0x41db27(0x103)](_0x4083d5);}else{const _0x32326f={'status':0x0,'message':_0x41db27(0xf3)};return _0x247f50[_0x41db27(0xea)](0x190)[_0x41db27(0x103)](_0x32326f);}});}[a280_0x34f565(0xff)](_0x57d0ec,_0x5445a8,_0x39f686,_0x8ceacc,_0xa765da,_0x216946){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1668a7=a280_0x2663,_0x4ed7c4=['taxId',_0x1668a7(0x102),_0x1668a7(0xd0),_0x1668a7(0xf0)],_0x4ddc6a=[];(_0x8ceacc==='0'||_0x8ceacc)&&_0x4ddc6a['push']({'name':'taxStatus','value':_0x8ceacc});const _0x2e5086=yield this[_0x1668a7(0x10a)][_0x1668a7(0xdd)](_0x57d0ec,_0x5445a8,_0x4ed7c4,_0x4ddc6a,_0x39f686,_0xa765da),_0x1879f5={'status':0x1,'message':_0x1668a7(0xd7),'data':_0x2e5086};return _0x216946[_0x1668a7(0xea)](0xc8)[_0x1668a7(0x103)](_0x1879f5);});}['deleteTax'](_0x4ba951,_0x17dff0,_0x1a2483){const _0x1b43aa=a280_0x34f565;return tslib_1[_0x1b43aa(0xeb)](this,void 0x0,void 0x0,function*(){const _0x58cdb8=_0x1b43aa,_0x230b73=yield this['taxService']['findOne']({'where':{'taxId':_0x4ba951}});if(!_0x230b73){const _0x21adcf={'status':0x0,'message':'Invalid\x20tax\x20Id.'};return _0x17dff0[_0x58cdb8(0xea)](0x190)[_0x58cdb8(0x103)](_0x21adcf);}const _0x426a30=yield this[_0x58cdb8(0x10c)][_0x58cdb8(0xf7)]({'where':{'taxType':0x2,'taxValue':_0x230b73[_0x58cdb8(0x116)]}});if(_0x426a30){const _0x8f8c2a={'status':0x0,'message':'You\x20cannot\x20delete\x20this\x20tax\x20as\x20it\x20is\x20already\x20mapped\x20to\x20a\x20product.'};return _0x17dff0[_0x58cdb8(0xea)](0x190)['send'](_0x8f8c2a);}const _0x487c6a=yield this[_0x58cdb8(0x10a)][_0x58cdb8(0x104)](_0x230b73);if(_0x487c6a){const _0x4fd644={'status':0x1,'message':_0x58cdb8(0xdc)};return _0x17dff0[_0x58cdb8(0xea)](0xc8)[_0x58cdb8(0x103)](_0x4fd644);}else{const _0x5c0f37={'status':0x0,'message':_0x58cdb8(0xe4)};return _0x17dff0[_0x58cdb8(0xea)](0x190)[_0x58cdb8(0x103)](_0x5c0f37);}});}};tslib_1[a280_0x34f565(0xe1)]([(0x0,routing_controllers_1[a280_0x34f565(0xdf)])(a280_0x34f565(0x114)),(0x0,routing_controllers_1[a280_0x34f565(0xd4)])([a280_0x34f565(0xf5),a280_0x34f565(0xfc)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a280_0x34f565(0xf4)])()),tslib_1[a280_0x34f565(0xe7)](a280_0x34f565(0xe9),Function),tslib_1[a280_0x34f565(0xe7)](a280_0x34f565(0xd8),[CreateTaxRequest_1[a280_0x34f565(0xe6)],Object]),tslib_1[a280_0x34f565(0xe7)](a280_0x34f565(0x111),Promise)],TaxController[a280_0x34f565(0xfe)],a280_0x34f565(0x112),null),tslib_1[a280_0x34f565(0xe1)]([(0x0,routing_controllers_1[a280_0x34f565(0xf6)])(a280_0x34f565(0xd2)),(0x0,routing_controllers_1[a280_0x34f565(0xd4)])([a280_0x34f565(0xf5),a280_0x34f565(0xe0)]),tslib_1[a280_0x34f565(0xde)](0x0,(0x0,routing_controllers_1[a280_0x34f565(0xf2)])(a280_0x34f565(0x116))),tslib_1[a280_0x34f565(0xde)](0x1,(0x0,routing_controllers_1[a280_0x34f565(0x10d)])({'validate':!![]})),tslib_1[a280_0x34f565(0xde)](0x2,(0x0,routing_controllers_1[a280_0x34f565(0xf4)])()),tslib_1[a280_0x34f565(0xe7)](a280_0x34f565(0xe9),Function),tslib_1[a280_0x34f565(0xe7)](a280_0x34f565(0xd8),[Number,CreateTaxRequest_1[a280_0x34f565(0xe6)],Object]),tslib_1[a280_0x34f565(0xe7)](a280_0x34f565(0x111),Promise)],TaxController['prototype'],a280_0x34f565(0xe2),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(a280_0x34f565(0xd3)),tslib_1[a280_0x34f565(0xde)](0x0,(0x0,routing_controllers_1[a280_0x34f565(0xe5)])(a280_0x34f565(0xfa))),tslib_1[a280_0x34f565(0xde)](0x1,(0x0,routing_controllers_1[a280_0x34f565(0xe5)])('offset')),tslib_1[a280_0x34f565(0xde)](0x2,(0x0,routing_controllers_1['QueryParam'])('keyword')),tslib_1[a280_0x34f565(0xde)](0x3,(0x0,routing_controllers_1[a280_0x34f565(0xe5)])('status')),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a280_0x34f565(0xe5)])(a280_0x34f565(0xf9))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a280_0x34f565(0xf4)])()),tslib_1[a280_0x34f565(0xe7)]('design:type',Function),tslib_1['__metadata'](a280_0x34f565(0xd8),[Number,Number,String,String,Object,Object]),tslib_1[a280_0x34f565(0xe7)](a280_0x34f565(0x111),Promise)],TaxController[a280_0x34f565(0xfe)],'taxList',null),tslib_1[a280_0x34f565(0xe1)]([(0x0,routing_controllers_1['Delete'])(a280_0x34f565(0xd6)),(0x0,routing_controllers_1['Authorized'])([a280_0x34f565(0xf5),a280_0x34f565(0xd9)]),tslib_1[a280_0x34f565(0xde)](0x0,(0x0,routing_controllers_1['Param'])(a280_0x34f565(0x116))),tslib_1[a280_0x34f565(0xde)](0x1,(0x0,routing_controllers_1[a280_0x34f565(0xf4)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a280_0x34f565(0xee)])()),tslib_1['__metadata'](a280_0x34f565(0xe9),Function),tslib_1['__metadata'](a280_0x34f565(0xd8),[Number,Object,Object]),tslib_1[a280_0x34f565(0xe7)]('design:returntype',Promise)],TaxController['prototype'],a280_0x34f565(0x10b),null),TaxController=tslib_1['__decorate']([(0x0,routing_controllers_1[a280_0x34f565(0x115)])(a280_0x34f565(0xf8)),tslib_1['__metadata']('design:paramtypes',[TaxService_1[a280_0x34f565(0x10f)],ProductService_1['ProductService']])],TaxController),exports[a280_0x34f565(0xf1)]=TaxController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TaxController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const TaxService_1 = require("../../core/services/TaxService");
+const Tax_1 = require("../../core/models/Tax");
+const CreateTaxRequest_1 = require("./requests/CreateTaxRequest");
+const ProductService_1 = require("../../core/services/ProductService");
+const typeorm_1 = require("typeorm");
+let TaxController = class TaxController {
+    constructor(taxService, productService) {
+        this.taxService = taxService;
+        this.productService = productService;
+    }
+    // create tax API
+    /**
+     * @api {post} /api/tax/add-tax Add Tax API
+     * @apiGroup Tax
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..255}} taxName Tax taxName
+     * @apiParam (Request body) {Number} [taxPercentage] Tax taxPercentage
+     * @apiParam (Request body) {Number} taxStatus Tax taxStatus
+     * @apiParamExample {json} Input
+     * {
+     *      "taxName" : "",
+     *      "taxPercentage" : "",
+     *      "taxStatus" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully created new tax.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/tax/add-tax
+     * @apiErrorExample {json} Zone error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addTax(createParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const existTax = yield this.taxService.findOne({ where: { taxName: createParam.taxName } });
+            if (existTax) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Tax name already exits.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newTax = new Tax_1.Tax();
+            newTax.taxName = createParam.taxName;
+            newTax.taxPercentage = createParam.taxPercentage;
+            newTax.taxStatus = createParam.taxStatus;
+            const taxSave = yield this.taxService.create(newTax);
+            if (taxSave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully created new tax.',
+                    data: taxSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to create tax.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // update Tax API
+    /**
+     * @api {put} /api/tax/update-tax/:taxId Update Tax API
+     * @apiGroup Tax
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..255}} taxName Tax taxName
+     * @apiParam (Request body) {string} [taxPercentage] Tax taxPercentage
+     * @apiParam (Request body) {String} taxStatus Tax taxStatus
+     * @apiParamExample {json} Input
+     * {
+     *      "taxName" : "",
+     *      "taxPercentage" : "",
+     *      "taxStatus" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated Tax.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/tax/update-tax/:taxId
+     * @apiErrorExample {json} Tax error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateTax(taxId, updateParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const tax = yield this.taxService.findOne({
+                where: {
+                    taxId,
+                },
+            });
+            if (!tax) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid tax Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const existTax = yield this.taxService.findOne({ where: { taxName: updateParam.taxName, taxId: (0, typeorm_1.Not)(tax.taxId) } });
+            if (existTax) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Tax name already exits.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            tax.taxName = updateParam.taxName;
+            tax.taxPercentage = updateParam.taxPercentage;
+            tax.taxStatus = updateParam.taxStatus;
+            const taxSave = yield this.taxService.create(tax);
+            if (taxSave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated the tax.',
+                    data: taxSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the tax.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Tax List API
+    /**
+     * @api {get} /api/tax/tax-list Tax List API
+     * @apiGroup Tax
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get tax list",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/tax/tax-list
+     * @apiErrorExample {json} Tax error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    taxList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['taxId', 'taxName', 'taxPercentage', 'taxStatus'];
+            const WhereConditions = [];
+            if (status === '0' || status) {
+                WhereConditions.push({
+                    name: 'taxStatus',
+                    value: status,
+                });
+            }
+            const taxList = yield this.taxService.list(limit, offset, select, WhereConditions, keyword, count);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get all tax List',
+                data: taxList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // delete Tax API
+    /**
+     * @api {delete} /api/tax/delete-tax/:taxId Delete Tax API
+     * @apiGroup Tax
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "taxId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Tax.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/tax/delete-tax/:taxId
+     * @apiErrorExample {json} Tax error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteTax(taxId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const tax = yield this.taxService.findOne({
+                where: {
+                    taxId,
+                },
+            });
+            if (!tax) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid tax Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const product = yield this.productService.findOne({
+                where: {
+                    taxType: 2, taxValue: tax.taxId,
+                },
+            });
+            if (product) {
+                const errResponse = {
+                    status: 0,
+                    message: 'You cannot delete this tax as it is already mapped to a product.',
+                };
+                return response.status(400).send(errResponse);
+            }
+            const deleteTax = yield this.taxService.delete(tax);
+            if (deleteTax) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the Tax.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the tax.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/add-tax'),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-tax']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateTaxRequest_1.CreateTaxRequest, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], TaxController.prototype, "addTax", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-tax/:taxId'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-tax']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('taxId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateTaxRequest_1.CreateTaxRequest, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], TaxController.prototype, "updateTax", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/tax-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], TaxController.prototype, "taxList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-tax/:taxId'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-tax']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('taxId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], TaxController.prototype, "deleteTax", null);
+TaxController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/tax'),
+    tslib_1.__metadata("design:paramtypes", [TaxService_1.TaxService, ProductService_1.ProductService])
+], TaxController);
+exports.TaxController = TaxController;
+//# sourceMappingURL=TaxController.js.map

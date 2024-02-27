@@ -1,1 +1,25 @@
-'use strict';const a677_0x183ce0=a677_0x310f;(function(_0x532c2b,_0x22b4d3){const _0x4332cc=a677_0x310f,_0x50ecee=_0x532c2b();while(!![]){try{const _0x4b285d=parseInt(_0x4332cc(0xb9))/0x1*(-parseInt(_0x4332cc(0xb6))/0x2)+parseInt(_0x4332cc(0xac))/0x3+-parseInt(_0x4332cc(0xb7))/0x4+-parseInt(_0x4332cc(0xb5))/0x5*(parseInt(_0x4332cc(0xa6))/0x6)+parseInt(_0x4332cc(0xa9))/0x7+parseInt(_0x4332cc(0xb2))/0x8*(-parseInt(_0x4332cc(0xae))/0x9)+-parseInt(_0x4332cc(0xa7))/0xa*(-parseInt(_0x4332cc(0xaa))/0xb);if(_0x4b285d===_0x22b4d3)break;else _0x50ecee['push'](_0x50ecee['shift']());}catch(_0x84b08e){_0x50ecee['push'](_0x50ecee['shift']());}}}(a677_0x54f7,0x2f8e1));function a677_0x310f(_0x3afb69,_0xcadeca){const _0x54f73e=a677_0x54f7();return a677_0x310f=function(_0x310f48,_0x14ab21){_0x310f48=_0x310f48-0xa6;let _0x43f7e8=_0x54f73e[_0x310f48];return _0x43f7e8;},a677_0x310f(_0x3afb69,_0xcadeca);}Object[a677_0x183ce0(0xb1)](exports,a677_0x183ce0(0xad),{'value':!![]}),exports['DeliveryPersonLogin']=void 0x0;function a677_0x54f7(){const _0x5e753e=['205686uaCoXQ','__esModule','999VWUSnA','class-validator','DeliveryPersonLogin','defineProperty','22264atnNgR','emailId','IsNotEmpty','5WsUVEZ','276778WRCKfT','486240ioWbBQ','__decorate','1WMTHBz','prototype','reflect-metadata','2024742FaEbmT','877430ndxCNG','design:type','1699985kPfvgb','99crcHUA','__metadata'];a677_0x54f7=function(){return _0x5e753e;};return a677_0x54f7();}const tslib_1=require('tslib');require(a677_0x183ce0(0xbb));const class_validator_1=require(a677_0x183ce0(0xaf));class DeliveryPersonLogin{}tslib_1[a677_0x183ce0(0xb8)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a677_0x183ce0(0xab)](a677_0x183ce0(0xa8),String)],DeliveryPersonLogin[a677_0x183ce0(0xba)],a677_0x183ce0(0xb3),void 0x0),tslib_1[a677_0x183ce0(0xb8)]([(0x0,class_validator_1[a677_0x183ce0(0xb4)])(),tslib_1['__metadata'](a677_0x183ce0(0xa8),String)],DeliveryPersonLogin[a677_0x183ce0(0xba)],'password',void 0x0),exports[a677_0x183ce0(0xb0)]=DeliveryPersonLogin;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeliveryPersonLogin = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class DeliveryPersonLogin {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], DeliveryPersonLogin.prototype, "emailId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], DeliveryPersonLogin.prototype, "password", void 0);
+exports.DeliveryPersonLogin = DeliveryPersonLogin;
+//# sourceMappingURL=DeliveryPersonLoginRequest.js.map

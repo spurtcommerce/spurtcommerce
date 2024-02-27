@@ -1,1 +1,329 @@
-'use strict';const a208_0xf30511=a208_0x3205;function a208_0x3205(_0x3a5e38,_0x30d722){const _0x520731=a208_0x5207();return a208_0x3205=function(_0x320560,_0x2afd27){_0x320560=_0x320560-0x73;let _0x58e71d=_0x520731[_0x320560];return _0x58e71d;},a208_0x3205(_0x3a5e38,_0x30d722);}(function(_0x1bc482,_0x59eb65){const _0x50e95d=a208_0x3205,_0x3d3d10=_0x1bc482();while(!![]){try{const _0x52be93=-parseInt(_0x50e95d(0xd6))/0x1*(parseInt(_0x50e95d(0xa1))/0x2)+parseInt(_0x50e95d(0x76))/0x3*(-parseInt(_0x50e95d(0x7d))/0x4)+-parseInt(_0x50e95d(0xa3))/0x5+-parseInt(_0x50e95d(0xb6))/0x6+-parseInt(_0x50e95d(0xdb))/0x7+-parseInt(_0x50e95d(0x80))/0x8*(parseInt(_0x50e95d(0xac))/0x9)+parseInt(_0x50e95d(0x8e))/0xa*(parseInt(_0x50e95d(0xde))/0xb);if(_0x52be93===_0x59eb65)break;else _0x3d3d10['push'](_0x3d3d10['shift']());}catch(_0x35fc98){_0x3d3d10['push'](_0x3d3d10['shift']());}}}(a208_0x5207,0xb01a6));Object['defineProperty'](exports,a208_0xf30511(0x9e),{'value':!![]}),exports['SeoProductController']=void 0x0;const tslib_1=require('tslib');function a208_0x5207(){const _0x4cafcb=['(SELECT\x20pi.default_image\x20as\x20defaultImage\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20defaultImage','seo-update','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20AS\x20productDiscount','containerName','escapeChar','17153YCUQuV','push','name','seoDetail','Product.sku\x20as\x20sku','4215176MMaPWD','update','(SELECT\x20sku.sku_name\x20as\x20sku\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20sku','18110840cMFUYc','send','Product.productId\x20as\x20productId','Body','instanceToPlain','MSeoMeta','findOne','productDiscount','__decorate','772617JXkiUQ','create','CheckAddonMiddleware','productSpecialService','productSpecial','Post','__param','4TAXBaI','product','Product.quantity\x20as\x20quantity','8OTqEvg','../../../../src/api/core/services/ProductService','seo','productImageService','seoId','../../models/MSeoMetaModel','class-transformer','Param','__awaiter','Product.price\x20as\x20price','count','admin','design:paramtypes','Seo\x20created\x20Successfully.\x20','20xCGQMB','image','Product.skuId\x20as\x20skuId','Seo\x20Updated\x20successfully','listByQueryBuilder','Res','AddSeoRequest','__metadata','productSlug','metaTagKeyword','(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20\x20pd2.date_end\x20>=\x20CURDATE()))\x20','Unable\x20to\x20create\x20Seo.\x20','(SELECT\x20pi.container_name\x20as\x20containerName\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20containerName','QueryParam','sku','/product-seo','__esModule','ProductDiscountService','price','24dExpWX','/:productId','519545EPLKuk','Product.isActive\x20as\x20isActive','product-seo-detail','(SELECT\x20pi.image\x20as\x20image\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20image','Authorized','map','../../services/MSeoMetaService','Get','flag','1685565lIPVYe','../../../../src/api/core/services/ProductImageService','refId','productId','metaTagTitle','seoType','Product.createdDate','design:type','JsonController','updateSeo','7288950LPMRxQ','../../../../src/api/core/services/ProductDiscountService','productImage','../../../../src/api/core/middlewares/AddonValidationMiddleware','limit','skuService','Invalid\x20product.\x20','design:returntype','(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','Product.name','productService','routing-controllers','ProductSpecialService','prototype','productDiscountService','UseBefore','ProductImageService','./requests/CreateSeoRequest','Product.name\x20as\x20name','pricerefer','metaTagDescription','SeoProductController','SKU\x20does\x20not\x20exist.','Successfully\x20got\x20product\x20lists\x20count.','status','mSeoMetaService','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20modifiedPrice'];a208_0x5207=function(){return _0x4cafcb;};return a208_0x5207();}require('reflect-metadata');const routing_controllers_1=require(a208_0xf30511(0xc1)),ProductService_1=require(a208_0xf30511(0x81)),MSeoMetaService_1=require(a208_0xf30511(0xa9)),class_transformer_1=require(a208_0xf30511(0x86)),MSeoMetaModel_1=require(a208_0xf30511(0x85)),CreateSeoRequest_1=require(a208_0xf30511(0xc7)),ProductImageService_1=require(a208_0xf30511(0xad)),SkuService_1=require('../../../../src/api/core/services/SkuService'),ProductDiscountService_1=require(a208_0xf30511(0xb7)),ProductSpecialService_1=require('../../../../src/api/core/services/ProductSpecialService'),AddonValidationMiddleware_1=require(a208_0xf30511(0xb9));let SeoProductController=class SeoProductController{constructor(_0x23747e,_0x892303,_0x1e3749,_0x3bd65e,_0x21ad96,_0x3f32a5){const _0x3dc1c1=a208_0xf30511;this[_0x3dc1c1(0xc0)]=_0x23747e,this['mSeoMetaService']=_0x892303,this[_0x3dc1c1(0x83)]=_0x1e3749,this[_0x3dc1c1(0xbb)]=_0x3bd65e,this[_0x3dc1c1(0xc4)]=_0x21ad96,this[_0x3dc1c1(0x79)]=_0x3f32a5;}['productList'](_0x5136a8,_0x3ce9b3,_0x56527d,_0x56ed1f,_0x24557e){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1a3f1f=a208_0x3205,_0x25ee65=[_0x1a3f1f(0xe0),_0x1a3f1f(0xda),_0x1a3f1f(0xc8),_0x1a3f1f(0x7f),_0x1a3f1f(0x89),_0x1a3f1f(0x90),'Product.productSlug\x20as\x20productSlug',_0x1a3f1f(0xa4),_0x1a3f1f(0xa6),_0x1a3f1f(0x9a),_0x1a3f1f(0xd1),_0x1a3f1f(0xdd),'(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20price',_0x1a3f1f(0xd0),_0x1a3f1f(0x98)+_0x1a3f1f(0xd3),_0x1a3f1f(0xbe)+'\x20'+'ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20AS\x20productSpecial'],_0x52972a=[];_0x56527d&&_0x56527d!==''&&_0x52972a[_0x1a3f1f(0xd7)]({'name':[_0x1a3f1f(0xbf)],'value':_0x56527d});const _0x10d2be=[{'name':_0x1a3f1f(0xb2),'order':'DESC'}],_0x4b37cc=yield this[_0x1a3f1f(0xc0)][_0x1a3f1f(0x92)](_0x5136a8,_0x3ce9b3,_0x25ee65,[],_0x52972a,[],[],_0x10d2be,![],!![]);if(_0x56ed1f){const _0x15efc2=yield this['productService'][_0x1a3f1f(0x92)](_0x5136a8,_0x3ce9b3,_0x25ee65,[],_0x52972a,[],[],_0x10d2be,!![],!![]);return _0x24557e[_0x1a3f1f(0xce)](0xc8)[_0x1a3f1f(0xdf)]({'status':0x1,'message':_0x1a3f1f(0xcd),'data':_0x15efc2});}const _0x41c401=_0x4b37cc[_0x1a3f1f(0xa8)](_0x5a090b=>tslib_1[_0x1a3f1f(0x88)](this,void 0x0,void 0x0,function*(){const _0x5b66e1=_0x1a3f1f,_0x5a5831=_0x5a090b;if(_0x5a090b['productSpecial']!==null)_0x5a5831[_0x5b66e1(0xc9)]=_0x5a090b[_0x5b66e1(0x7a)],_0x5a5831[_0x5b66e1(0xab)]=0x1;else _0x5a090b[_0x5b66e1(0x74)]!==null?(_0x5a5831[_0x5b66e1(0xc9)]=_0x5a090b[_0x5b66e1(0x74)],_0x5a5831[_0x5b66e1(0xab)]=0x0):(_0x5a5831[_0x5b66e1(0xc9)]='',_0x5a5831[_0x5b66e1(0xab)]='');return _0x5a5831;})),_0x17a28d=yield Promise['all'](_0x41c401),_0x37c0c7={'status':0x1,'message':'Successfully\x20got\x20the\x20\x20product\x20list.','data':(0x0,class_transformer_1[_0x1a3f1f(0xe2)])(_0x17a28d)};return _0x24557e[_0x1a3f1f(0xce)](0xc8)['send'](_0x37c0c7);});}[a208_0xf30511(0xb5)](_0xe87442,_0x5824e7,_0x1ff960){const _0x395cb5=a208_0xf30511;return tslib_1[_0x395cb5(0x88)](this,void 0x0,void 0x0,function*(){const _0x10d059=_0x395cb5,_0x1da3a4=yield this[_0x10d059(0xc0)][_0x10d059(0x73)](_0xe87442);if(!_0x1da3a4){const _0x56241f={'status':0x0,'message':_0x10d059(0xbc)};return _0x1ff960[_0x10d059(0xce)](0x190)['send'](_0x56241f);}const _0x4b3530=yield this[_0x10d059(0xcf)][_0x10d059(0x73)]({'where':{'refId':_0xe87442,'seoType':_0x10d059(0x7e)}});if(_0x4b3530){_0x4b3530[_0x10d059(0xb0)]=_0x5824e7['metaTagTitle']?_0x5824e7['metaTagTitle']:_0x1da3a4['name'],_0x4b3530['metaTagDescription']=_0x5824e7[_0x10d059(0xca)]?yield this[_0x10d059(0xcf)]['escapeChar'](_0x5824e7['metaTagDescription']):'',_0x4b3530['metaTagKeyword']=_0x5824e7[_0x10d059(0x97)],_0x4b3530[_0x10d059(0xae)]=_0xe87442,_0x4b3530[_0x10d059(0xb1)]='product',yield this[_0x10d059(0xcf)][_0x10d059(0xdc)](_0x4b3530[_0x10d059(0x84)],_0x4b3530);const _0x31568c={'status':0x1,'message':_0x10d059(0x91)};return _0x1ff960[_0x10d059(0xce)](0xc8)[_0x10d059(0xdf)](_0x31568c);}const _0x28c46e=new MSeoMetaModel_1[(_0x10d059(0xe3))]();_0x28c46e['metaTagTitle']=_0x5824e7[_0x10d059(0xb0)]?_0x5824e7[_0x10d059(0xb0)]:_0x1da3a4[_0x10d059(0xd8)],_0x28c46e[_0x10d059(0xca)]=_0x5824e7[_0x10d059(0xca)]?yield this['mSeoMetaService'][_0x10d059(0xd5)](_0x5824e7[_0x10d059(0xca)]):'',_0x28c46e[_0x10d059(0x97)]=_0x5824e7[_0x10d059(0x97)],_0x28c46e[_0x10d059(0xae)]=_0xe87442,_0x28c46e[_0x10d059(0xb1)]='product';const _0x1db94a=yield this[_0x10d059(0xcf)][_0x10d059(0x77)](_0x28c46e);if(_0x1db94a){const _0x67e58b={'status':0x1,'message':_0x10d059(0x8d),'data':_0x1db94a};return _0x1ff960[_0x10d059(0xce)](0xc8)[_0x10d059(0xdf)](_0x67e58b);}else{const _0xdcd7d8={'status':0x0,'message':_0x10d059(0x99)};return _0x1ff960[_0x10d059(0xce)](0x190)['send'](_0xdcd7d8);}});}[a208_0xf30511(0xd9)](_0x7da6a8,_0x39e9e9){const _0x561791=a208_0xf30511;return tslib_1[_0x561791(0x88)](this,void 0x0,void 0x0,function*(){const _0x2c4e54=_0x561791,_0x35115f=yield this['productService']['findOne']({'select':['productId',_0x2c4e54(0xd8),_0x2c4e54(0x9c),_0x2c4e54(0x96)],'where':{'productId':_0x7da6a8}});if(!_0x35115f)return _0x39e9e9['status'](0x190)[_0x2c4e54(0xdf)]({'status':0x0,'message':_0x2c4e54(0xbc)});_0x35115f[_0x2c4e54(0xb8)]=yield this[_0x2c4e54(0x83)][_0x2c4e54(0x73)]({'select':[_0x2c4e54(0x8f),_0x2c4e54(0xd4)],'where':{'productId':_0x35115f[_0x2c4e54(0xaf)],'defaultImage':0x1}});const _0x5f3b83=yield this[_0x2c4e54(0xbb)][_0x2c4e54(0x73)]({'select':['id',_0x2c4e54(0xa0)],'where':{'skuName':_0x35115f['sku']}});if(!_0x5f3b83)return _0x39e9e9[_0x2c4e54(0xce)](0x190)[_0x2c4e54(0xdf)]({'status':0x0,'message':_0x2c4e54(0xcc)});_0x35115f[_0x2c4e54(0xa0)]=_0x5f3b83[_0x2c4e54(0xa0)];const _0x5878c1=yield this['productDiscountService'][_0x2c4e54(0x73)]({'select':[_0x2c4e54(0xa0)],'where':{'productId':_0x35115f[_0x2c4e54(0xaf)],'skuId':_0x5f3b83['id']}}),_0x5ddc65=yield this[_0x2c4e54(0x79)][_0x2c4e54(0x73)]({'select':[_0x2c4e54(0xa0)],'where':{'productId':_0x35115f['productId'],'skuId':_0x5f3b83['id']}});_0x35115f[_0x2c4e54(0x82)]=yield this[_0x2c4e54(0xcf)][_0x2c4e54(0x73)]({'where':{'refId':_0x35115f[_0x2c4e54(0xaf)],'seoType':_0x2c4e54(0x7e)}});if(_0x5ddc65&&_0x5ddc65[_0x2c4e54(0xa0)]!==null)_0x35115f[_0x2c4e54(0xc9)]=_0x5ddc65[_0x2c4e54(0xa0)],_0x35115f[_0x2c4e54(0xab)]=0x1;else _0x5878c1&&_0x5878c1[_0x2c4e54(0xa0)]!==null?(_0x35115f['pricerefer']=_0x5878c1[_0x2c4e54(0xa0)],_0x35115f[_0x2c4e54(0xab)]=0x0):(_0x35115f['pricerefer']='',_0x35115f[_0x2c4e54(0xab)]='');const _0x26cd6c={'status':0x1,'message':'Successfully\x20got\x20Seo\x20details.\x20','data':_0x35115f};return _0x39e9e9[_0x2c4e54(0xce)](0xc8)[_0x2c4e54(0xdf)](_0x26cd6c);});}};tslib_1[a208_0xf30511(0x75)]([(0x0,routing_controllers_1[a208_0xf30511(0xaa)])(),(0x0,routing_controllers_1['Authorized'])([a208_0xf30511(0x8b)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a208_0xf30511(0x9b)])(a208_0xf30511(0xba))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a208_0xf30511(0x9b)])('offset')),tslib_1[a208_0xf30511(0x7c)](0x2,(0x0,routing_controllers_1['QueryParam'])('keyword')),tslib_1[a208_0xf30511(0x7c)](0x3,(0x0,routing_controllers_1['QueryParam'])(a208_0xf30511(0x8a))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a208_0xf30511(0x93)])()),tslib_1[a208_0xf30511(0x95)](a208_0xf30511(0xb3),Function),tslib_1[a208_0xf30511(0x95)](a208_0xf30511(0x8c),[Number,Number,String,Object,Object]),tslib_1[a208_0xf30511(0x95)]('design:returntype',Promise)],SeoProductController[a208_0xf30511(0xc3)],'productList',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a208_0xf30511(0x7b)])('/:productId'),(0x0,routing_controllers_1['Authorized'])(['admin',a208_0xf30511(0xd2)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1['Param'])('productId')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a208_0xf30511(0xe1)])({'validate':!![]})),tslib_1[a208_0xf30511(0x7c)](0x2,(0x0,routing_controllers_1[a208_0xf30511(0x93)])()),tslib_1[a208_0xf30511(0x95)](a208_0xf30511(0xb3),Function),tslib_1[a208_0xf30511(0x95)]('design:paramtypes',[Number,CreateSeoRequest_1[a208_0xf30511(0x94)],Object]),tslib_1[a208_0xf30511(0x95)](a208_0xf30511(0xbd),Promise)],SeoProductController[a208_0xf30511(0xc3)],'updateSeo',null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(a208_0xf30511(0xa2)),(0x0,routing_controllers_1[a208_0xf30511(0xa7)])(['admin',a208_0xf30511(0xa5)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a208_0xf30511(0x87)])('productId')),tslib_1[a208_0xf30511(0x7c)](0x1,(0x0,routing_controllers_1[a208_0xf30511(0x93)])()),tslib_1['__metadata'](a208_0xf30511(0xb3),Function),tslib_1[a208_0xf30511(0x95)](a208_0xf30511(0x8c),[Number,Object]),tslib_1[a208_0xf30511(0x95)](a208_0xf30511(0xbd),Promise)],SeoProductController[a208_0xf30511(0xc3)],a208_0xf30511(0xd9),null),SeoProductController=tslib_1[a208_0xf30511(0x75)]([(0x0,routing_controllers_1[a208_0xf30511(0xc5)])(AddonValidationMiddleware_1[a208_0xf30511(0x78)]),(0x0,routing_controllers_1[a208_0xf30511(0xb4)])(a208_0xf30511(0x9d)),tslib_1[a208_0xf30511(0x95)]('design:paramtypes',[ProductService_1['ProductService'],MSeoMetaService_1['MSeoMetaService'],ProductImageService_1[a208_0xf30511(0xc6)],SkuService_1['SkuService'],ProductDiscountService_1[a208_0xf30511(0x9f)],ProductSpecialService_1[a208_0xf30511(0xc2)]])],SeoProductController),exports[a208_0xf30511(0xcb)]=SeoProductController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SeoProductController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const ProductService_1 = require("../../../../src/api/core/services/ProductService");
+const MSeoMetaService_1 = require("../../services/MSeoMetaService");
+const class_transformer_1 = require("class-transformer");
+const MSeoMetaModel_1 = require("../../models/MSeoMetaModel");
+const CreateSeoRequest_1 = require("./requests/CreateSeoRequest");
+const ProductImageService_1 = require("../../../../src/api/core/services/ProductImageService");
+const SkuService_1 = require("../../../../src/api/core/services/SkuService");
+const ProductDiscountService_1 = require("../../../../src/api/core/services/ProductDiscountService");
+const ProductSpecialService_1 = require("../../../../src/api/core/services/ProductSpecialService");
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+let SeoProductController = class SeoProductController {
+    constructor(productService, mSeoMetaService, productImageService, skuService, productDiscountService, productSpecialService) {
+        this.productService = productService;
+        this.mSeoMetaService = mSeoMetaService;
+        this.productImageService = productImageService;
+        this.skuService = skuService;
+        this.productDiscountService = productDiscountService;
+        this.productSpecialService = productSpecialService;
+    }
+    // Seo Product List
+    /**
+     * @api {get} /api/product-seo Seo Product List API
+     * @apiGroup Seo
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Product list",
+     *      "data": "{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/product-seo
+     * @apiErrorExample {json} Seo List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productList(limit, offset, keyword, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'Product.productId as productId',
+                'Product.sku as sku',
+                'Product.name as name',
+                'Product.quantity as quantity',
+                'Product.price as price',
+                'Product.skuId as skuId',
+                'Product.productSlug as productSlug',
+                'Product.isActive as isActive',
+                '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as image',
+                '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
+                '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
+                '(SELECT sku.sku_name as sku FROM sku WHERE sku.id = skuId) as sku',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as modifiedPrice',
+                '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+                    ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
+                '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
+            ];
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['Product.name'],
+                    value: keyword,
+                });
+            }
+            const sort = [{
+                    name: 'Product.createdDate',
+                    order: 'DESC',
+                }];
+            const productLists = yield this.productService.listByQueryBuilder(limit, offset, select, [], searchConditions, [], [], sort, false, true);
+            if (count) {
+                const productListCount = yield this.productService.listByQueryBuilder(limit, offset, select, [], searchConditions, [], [], sort, true, true);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got product lists count.',
+                    data: productListCount,
+                });
+            }
+            const productList = productLists.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                if (value.productSpecial !== null) {
+                    temp.pricerefer = value.productSpecial;
+                    temp.flag = 1;
+                }
+                else if (value.productDiscount !== null) {
+                    temp.pricerefer = value.productDiscount;
+                    temp.flag = 0;
+                }
+                else {
+                    temp.pricerefer = '';
+                    temp.flag = '';
+                }
+                return temp;
+            }));
+            const results = yield Promise.all(productList);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the  product list.',
+                data: (0, class_transformer_1.instanceToPlain)(results),
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Create/Update Seo  API
+    /**
+     * @api {Post} /api/product-seo/:productId Create/Update Seo API
+     * @apiGroup Seo
+     * @apiParam (Request body) {String} metaTagTitle metaTagTitle
+     * @apiParam (Request body) {String} metaTagDescription metaTagDescription
+     * @apiParam (Request body) {String} metaTagKeyword metaTagKeyword
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "metaTagTitle" : "",
+     *      "metaTagDescription": "",
+     *      "metaTagKeyword": ""
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "SEO Updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/product-seo/:productId
+     * @apiErrorExample {json} Seo  error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateSeo(productId, seo, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const product = yield this.productService.findOne(productId);
+            if (!product) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid product. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const updateSeo = yield this.mSeoMetaService.findOne({
+                where: {
+                    refId: productId,
+                    seoType: 'product',
+                },
+            });
+            if (updateSeo) {
+                updateSeo.metaTagTitle = seo.metaTagTitle ? seo.metaTagTitle : product.name;
+                updateSeo.metaTagDescription = seo.metaTagDescription ? yield this.mSeoMetaService.escapeChar(seo.metaTagDescription) : '';
+                updateSeo.metaTagKeyword = seo.metaTagKeyword;
+                updateSeo.refId = productId;
+                updateSeo.seoType = 'product';
+                yield this.mSeoMetaService.update(updateSeo.seoId, updateSeo);
+                const successResponse = {
+                    status: 1,
+                    message: 'Seo Updated successfully',
+                };
+                return response.status(200).send(successResponse);
+            }
+            const NewSeo = new MSeoMetaModel_1.MSeoMeta();
+            NewSeo.metaTagTitle = seo.metaTagTitle ? seo.metaTagTitle : product.name;
+            NewSeo.metaTagDescription = seo.metaTagDescription ? yield this.mSeoMetaService.escapeChar(seo.metaTagDescription) : '';
+            NewSeo.metaTagKeyword = seo.metaTagKeyword;
+            NewSeo.refId = productId;
+            NewSeo.seoType = 'product';
+            const createSeo = yield this.mSeoMetaService.create(NewSeo);
+            if (createSeo) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Seo created Successfully. ',
+                    data: createSeo,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to create Seo. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Seo Detail API
+    /**
+     * @api {get} /api/product-seo/:productId Seo Detail API
+     * @apiGroup seo
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *    "message": "Successfully get product Seo Detail. ",
+     *    "data":"{}"
+     *    "status": "1"
+     *  }
+     * @apiSampleRequest /api/product-seo/:productId
+     * @apiErrorExample {json} Seo error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    seoDetail(productId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const product = yield this.productService.findOne({
+                select: ['productId', 'name', 'sku', 'productSlug'],
+                where: {
+                    productId,
+                },
+            });
+            if (!product) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid product. ',
+                });
+            }
+            product.productImage = yield this.productImageService.findOne({
+                select: ['image', 'containerName'],
+                where: {
+                    productId: product.productId,
+                    defaultImage: 1,
+                },
+            });
+            const sku = yield this.skuService.findOne({
+                select: ['id', 'price'],
+                where: {
+                    skuName: product.sku,
+                },
+            });
+            if (!sku) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'SKU does not exist.',
+                });
+            }
+            product.price = sku.price;
+            const discountPrice = yield this.productDiscountService.findOne({
+                select: ['price'],
+                where: {
+                    productId: product.productId,
+                    skuId: sku.id,
+                },
+            });
+            const specialPrice = yield this.productSpecialService.findOne({
+                select: ['price'],
+                where: {
+                    productId: product.productId,
+                    skuId: sku.id,
+                },
+            });
+            product.seo = yield this.mSeoMetaService.findOne({
+                where: {
+                    refId: product.productId,
+                    seoType: 'product',
+                },
+            });
+            if (specialPrice && specialPrice.price !== null) {
+                product.pricerefer = specialPrice.price;
+                product.flag = 1;
+            }
+            else if (discountPrice && discountPrice.price !== null) {
+                product.pricerefer = discountPrice.price;
+                product.flag = 0;
+            }
+            else {
+                product.pricerefer = '';
+                product.flag = '';
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got Seo details. ',
+                data: product,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(['admin']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SeoProductController.prototype, "productList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/:productId'),
+    (0, routing_controllers_1.Authorized)(['admin', 'seo-update']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('productId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateSeoRequest_1.AddSeoRequest, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SeoProductController.prototype, "updateSeo", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/:productId'),
+    (0, routing_controllers_1.Authorized)(['admin', 'product-seo-detail']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('productId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SeoProductController.prototype, "seoDetail", null);
+SeoProductController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/product-seo'),
+    tslib_1.__metadata("design:paramtypes", [ProductService_1.ProductService,
+        MSeoMetaService_1.MSeoMetaService,
+        ProductImageService_1.ProductImageService,
+        SkuService_1.SkuService,
+        ProductDiscountService_1.ProductDiscountService,
+        ProductSpecialService_1.ProductSpecialService])
+], SeoProductController);
+exports.SeoProductController = SeoProductController;
+//# sourceMappingURL=ProductSeoController.js.map

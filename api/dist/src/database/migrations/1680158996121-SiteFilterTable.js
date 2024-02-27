@@ -1,1 +1,77 @@
-'use strict';const a960_0x1cddd2=a960_0x550e;function a960_0x3e7d(){const _0x4c92ce=['225','56195LDFhdL','SiteFilterTable1680158996121','Table','180JHhngm','filter_name','created_date','down','created_by','datetime','14629020VvlWTH','30093hZFTJF','createTable','372GqVWIX','3986794CwgPeH','hasTable','defineProperty','tslib','__awaiter','int','modified_by','CURRENT_TIMESTAMP','__esModule','214976xJhYeV','is_active','5253uUdKhH','228xXwvvS','site_filter','6678648CembhI','modified_date'];a960_0x3e7d=function(){return _0x4c92ce;};return a960_0x3e7d();}function a960_0x550e(_0xfbb91c,_0x3eee8f){const _0x3e7d4e=a960_0x3e7d();return a960_0x550e=function(_0x550e07,_0x46ae7e){_0x550e07=_0x550e07-0x98;let _0x5c2e8c=_0x3e7d4e[_0x550e07];return _0x5c2e8c;},a960_0x550e(_0xfbb91c,_0x3eee8f);}(function(_0x390da3,_0x104e51){const _0x454534=a960_0x550e,_0x541a9e=_0x390da3();while(!![]){try{const _0x2b7c75=parseInt(_0x454534(0xb4))/0x1+-parseInt(_0x454534(0xa5))/0x2*(parseInt(_0x454534(0xa4))/0x3)+-parseInt(_0x454534(0x98))/0x4*(-parseInt(_0x454534(0xaa))/0x5)+parseInt(_0x454534(0xa7))/0x6+parseInt(_0x454534(0x99))/0x7+-parseInt(_0x454534(0xa2))/0x8*(parseInt(_0x454534(0xad))/0x9)+-parseInt(_0x454534(0xb3))/0xa;if(_0x2b7c75===_0x104e51)break;else _0x541a9e['push'](_0x541a9e['shift']());}catch(_0x4dbb29){_0x541a9e['push'](_0x541a9e['shift']());}}}(a960_0x3e7d,0x883be));Object[a960_0x1cddd2(0x9b)](exports,a960_0x1cddd2(0xa1),{'value':!![]}),exports['SiteFilterTable1680158996121']=void 0x0;const tslib_1=require(a960_0x1cddd2(0x9c)),typeorm_1=require('typeorm');class SiteFilterTable1680158996121{['up'](_0x372416){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x281128=a960_0x550e,_0x3be7ed=new typeorm_1[(_0x281128(0xac))]({'name':'site_filter','columns':[{'name':'id','type':_0x281128(0x9e),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':'increment'},{'name':_0x281128(0xae),'type':'varchar','length':_0x281128(0xa9),'isPrimary':![],'isNullable':![]},{'name':_0x281128(0xa3),'type':_0x281128(0x9e),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x281128(0xaf),'type':_0x281128(0xb2),'isPrimary':![],'isNullable':!![],'default':_0x281128(0xa0)},{'name':_0x281128(0xa8),'type':_0x281128(0xb2),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':_0x281128(0xb1),'type':_0x281128(0x9e),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x281128(0x9f),'type':_0x281128(0x9e),'length':'11','isPrimary':![],'isNullable':!![]}]}),_0x584259=yield _0x372416[_0x281128(0x9a)](_0x281128(0xa6));!_0x584259&&(yield _0x372416[_0x281128(0xb5)](_0x3be7ed));});}[a960_0x1cddd2(0xb0)](_0x26c2ba){const _0x3cf534=a960_0x1cddd2;return tslib_1[_0x3cf534(0x9d)](this,void 0x0,void 0x0,function*(){});}}exports[a960_0x1cddd2(0xab)]=SiteFilterTable1680158996121;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SiteFilterTable1680158996121 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class SiteFilterTable1680158996121 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'site_filter',
+                columns: [{
+                        name: 'id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    },
+                    {
+                        name: 'filter_name',
+                        type: 'varchar',
+                        length: '225',
+                        isPrimary: false,
+                        isNullable: false,
+                    },
+                    {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                    {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                    {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('site_filter');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.SiteFilterTable1680158996121 = SiteFilterTable1680158996121;
+//# sourceMappingURL=1680158996121-SiteFilterTable.js.map

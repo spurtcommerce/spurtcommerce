@@ -1,1 +1,36 @@
-'use strict';const a757_0x39c0ea=a757_0x5413;function a757_0x195b(){const _0x9bb58e=['425864vJWKLe','dropForeignKey','page_group_id','getTable','1569428KSXaKr','455XQgbdA','__awaiter','TableForeignKey','find','AddPageRelationToPageGroupTable1546585572765','70dQUjkJ','tslib','page','CASCADE','9hdqYhW','createForeignKey','fk_page_page_group1','1009148wjQxxN','foreignKeys','tableForeignKey','down','3kslWxT','2213896DhwjyZ','page_group','__esModule','defineProperty','indexOf','2711608ociKyJ','22686UxEymd','2478289HBrwzd','columnNames'];a757_0x195b=function(){return _0x9bb58e;};return a757_0x195b();}(function(_0x4f3fea,_0x481586){const _0x3d9e0f=a757_0x5413,_0x45eea0=_0x4f3fea();while(!![]){try{const _0x276ce6=-parseInt(_0x3d9e0f(0xb6))/0x1+-parseInt(_0x3d9e0f(0xa8))/0x2*(parseInt(_0x3d9e0f(0xac))/0x3)+parseInt(_0x3d9e0f(0xad))/0x4+parseInt(_0x3d9e0f(0x9c))/0x5*(-parseInt(_0x3d9e0f(0xb3))/0x6)+-parseInt(_0x3d9e0f(0x9b))/0x7+-parseInt(_0x3d9e0f(0xb2))/0x8*(parseInt(_0x3d9e0f(0xa5))/0x9)+-parseInt(_0x3d9e0f(0xa1))/0xa*(-parseInt(_0x3d9e0f(0xb4))/0xb);if(_0x276ce6===_0x481586)break;else _0x45eea0['push'](_0x45eea0['shift']());}catch(_0x4abb0e){_0x45eea0['push'](_0x45eea0['shift']());}}}(a757_0x195b,0x47827));Object[a757_0x39c0ea(0xb0)](exports,a757_0x39c0ea(0xaf),{'value':!![]}),exports[a757_0x39c0ea(0xa0)]=void 0x0;const tslib_1=require(a757_0x39c0ea(0xa2)),typeorm_1=require('typeorm');class AddPageRelationToPageGroupTable1546585572765{constructor(){const _0x2cfd15=a757_0x39c0ea;this[_0x2cfd15(0xaa)]=new typeorm_1[(_0x2cfd15(0x9e))]({'name':_0x2cfd15(0xa7),'columnNames':[_0x2cfd15(0x99)],'referencedColumnNames':[_0x2cfd15(0x99)],'referencedTableName':_0x2cfd15(0xae),'onDelete':_0x2cfd15(0xa4)});}['up'](_0x2b9755){const _0x50b008=a757_0x39c0ea;return tslib_1[_0x50b008(0x9d)](this,void 0x0,void 0x0,function*(){const _0x5df07d=_0x50b008,_0x42f359=yield _0x2b9755['getTable'](_0x5df07d(0xa3)),_0x92238=_0x42f359[_0x5df07d(0xa9)][_0x5df07d(0x9f)](_0x42448b=>_0x42448b[_0x5df07d(0xb5)][_0x5df07d(0xb1)](_0x5df07d(0x99))!==-0x1);!_0x92238&&(yield _0x2b9755[_0x5df07d(0xa6)](_0x42f359,this['tableForeignKey']));});}[a757_0x39c0ea(0xab)](_0x10fc39){const _0x17df79=a757_0x39c0ea;return tslib_1[_0x17df79(0x9d)](this,void 0x0,void 0x0,function*(){const _0x4d45fb=_0x17df79,_0x4915b1=yield _0x10fc39[_0x4d45fb(0x9a)](_0x4d45fb(0xa3)),_0x652551=_0x4915b1['foreignKeys']['find'](_0x52a766=>_0x52a766[_0x4d45fb(0xb5)][_0x4d45fb(0xb1)](_0x4d45fb(0x99))!==-0x1);_0x652551&&(yield _0x10fc39[_0x4d45fb(0x98)](_0x4915b1,this['tableForeignKey']));});}}function a757_0x5413(_0x5a8afa,_0x34db74){const _0x195bd0=a757_0x195b();return a757_0x5413=function(_0x5413c1,_0x45d433){_0x5413c1=_0x5413c1-0x98;let _0x553846=_0x195bd0[_0x5413c1];return _0x553846;},a757_0x5413(_0x5a8afa,_0x34db74);}exports['AddPageRelationToPageGroupTable1546585572765']=AddPageRelationToPageGroupTable1546585572765;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddPageRelationToPageGroupTable1546585572765 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddPageRelationToPageGroupTable1546585572765 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_page_page_group1',
+            columnNames: ['page_group_id'],
+            referencedColumnNames: ['page_group_id'],
+            referencedTableName: 'page_group',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('page');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('page_group_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('page');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('page_group_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.AddPageRelationToPageGroupTable1546585572765 = AddPageRelationToPageGroupTable1546585572765;
+//# sourceMappingURL=1546585572765-AddPageRelationToPageGroupTable.js.map

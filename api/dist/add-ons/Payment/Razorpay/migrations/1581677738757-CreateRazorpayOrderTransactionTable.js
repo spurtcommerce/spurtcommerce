@@ -1,1 +1,97 @@
-'use strict';const a48_0x4d5434=a48_0x5254;(function(_0x12b421,_0x9eee68){const _0x5aa5e6=a48_0x5254,_0xa799=_0x12b421();while(!![]){try{const _0x595471=parseInt(_0x5aa5e6(0x102))/0x1+-parseInt(_0x5aa5e6(0x10c))/0x2*(parseInt(_0x5aa5e6(0x100))/0x3)+-parseInt(_0x5aa5e6(0x114))/0x4+-parseInt(_0x5aa5e6(0x120))/0x5*(-parseInt(_0x5aa5e6(0x116))/0x6)+-parseInt(_0x5aa5e6(0xfd))/0x7+parseInt(_0x5aa5e6(0x117))/0x8*(parseInt(_0x5aa5e6(0x108))/0x9)+-parseInt(_0x5aa5e6(0x11d))/0xa*(-parseInt(_0x5aa5e6(0x11b))/0xb);if(_0x595471===_0x9eee68)break;else _0xa799['push'](_0xa799['shift']());}catch(_0x5a7484){_0xa799['push'](_0xa799['shift']());}}}(a48_0xb892,0x505ff));function a48_0x5254(_0x501d81,_0x45f905){const _0xb892a0=a48_0xb892();return a48_0x5254=function(_0x5254a4,_0x3902b8){_0x5254a4=_0x5254a4-0xf8;let _0x54d51d=_0xb892a0[_0x5254a4];return _0x54d51d;},a48_0x5254(_0x501d81,_0x45f905);}Object[a48_0x4d5434(0x101)](exports,a48_0x4d5434(0xff),{'value':!![]}),exports[a48_0x4d5434(0x10b)]=void 0x0;function a48_0xb892(){const _0x38e409=['payment_data','CURRENT_TIMESTAMP','hasTable','razorpay_order_transaction','foreignKeys','2339855Hlxwsq','typeorm','__esModule','6DxlMiU','defineProperty','291879kNxeXa','indexOf','razorpay_order_id','razorpay_order','varchar','tslib','54IRMIFq','getTable','255','CreateRazorpayOrderTransactionTable1581677738757','284654qDjvFw','increment','payment_type','columnNames','dropTable','down','tableForeignKey','TableForeignKey','1099412XwLYKn','payment_status','6edkHHu','515752chZOKO','modified_by','__awaiter','text','947661oKlAJU','integer','30vNkVXC','createTable','datetime','1429205kOunnZ','modified_date','fk_tbl_razorpayOrderTransaction_tbl_razorpayOrder_foreignKey','Table'];a48_0xb892=function(){return _0x38e409;};return a48_0xb892();}const tslib_1=require(a48_0x4d5434(0x107)),typeorm_1=require(a48_0x4d5434(0xfe));class CreateRazorpayOrderTransactionTable1581677738757{constructor(){const _0x322df6=a48_0x4d5434;this['tableForeignKey']=new typeorm_1[(_0x322df6(0x113))]({'name':_0x322df6(0x122),'columnNames':['razorpay_order_id'],'referencedColumnNames':['id'],'referencedTableName':_0x322df6(0x105),'onDelete':'CASCADE'});}['up'](_0x4de55e){const _0x333be7=a48_0x4d5434;return tslib_1[_0x333be7(0x119)](this,void 0x0,void 0x0,function*(){const _0x27cbf8=_0x333be7,_0x35d5be=new typeorm_1[(_0x27cbf8(0x123))]({'name':_0x27cbf8(0xfb),'columns':[{'name':'id','type':_0x27cbf8(0x11c),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x27cbf8(0x10d)},{'name':_0x27cbf8(0x104),'type':_0x27cbf8(0x11c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x27cbf8(0x10e),'type':_0x27cbf8(0x106),'length':_0x27cbf8(0x10a),'isPrimary':![],'isNullable':!![]},{'name':_0x27cbf8(0xf8),'type':_0x27cbf8(0x11a),'isPrimary':![],'isNullable':!![]},{'name':_0x27cbf8(0x115),'type':_0x27cbf8(0x11c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_by','type':_0x27cbf8(0x11c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0x27cbf8(0x11f),'isPrimary':![],'isNullable':!![],'default':_0x27cbf8(0xf9)},{'name':_0x27cbf8(0x118),'type':_0x27cbf8(0x11c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x27cbf8(0x121),'type':_0x27cbf8(0x11f),'isPrimary':![],'isNullable':!![],'default':_0x27cbf8(0xf9)}]}),_0x9ae164=yield _0x4de55e[_0x27cbf8(0xfa)]('razorpay_order_transaction');!_0x9ae164&&(yield _0x4de55e[_0x27cbf8(0x11e)](_0x35d5be));const _0x557705=yield _0x4de55e[_0x27cbf8(0x109)](_0x27cbf8(0xfb)),_0x1d80ab=_0x557705[_0x27cbf8(0xfc)]['find'](_0x3b0f73=>_0x3b0f73[_0x27cbf8(0x10f)][_0x27cbf8(0x103)](_0x27cbf8(0x104))!==-0x1);!_0x1d80ab&&(yield _0x4de55e['createForeignKey'](_0x35d5be,this[_0x27cbf8(0x112)]));});}[a48_0x4d5434(0x111)](_0x50a751){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x38a9c0=a48_0x5254;yield _0x50a751[_0x38a9c0(0x110)](_0x38a9c0(0xfb),!![]);});}}exports['CreateRazorpayOrderTransactionTable1581677738757']=CreateRazorpayOrderTransactionTable1581677738757;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateRazorpayOrderTransactionTable1581677738757 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateRazorpayOrderTransactionTable1581677738757 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_razorpayOrderTransaction_tbl_razorpayOrder_foreignKey',
+            columnNames: ['razorpay_order_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'razorpay_order',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'razorpay_order_transaction',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'razorpay_order_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'payment_type',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'payment_data',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'payment_status',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('razorpay_order_transaction');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const getTable = yield queryRunner.getTable('razorpay_order_transaction');
+            const ifDataExsist = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('razorpay_order_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('razorpay_order_transaction', true);
+        });
+    }
+}
+exports.CreateRazorpayOrderTransactionTable1581677738757 = CreateRazorpayOrderTransactionTable1581677738757;
+//# sourceMappingURL=1581677738757-CreateRazorpayOrderTransactionTable.js.map

@@ -1,1 +1,182 @@
-'use strict';const a1002_0x1b3993=a1002_0x5be7;function a1002_0x5be7(_0x23daa7,_0x1db997){const _0x3b156c=a1002_0x3b15();return a1002_0x5be7=function(_0x5be7bc,_0x539c47){_0x5be7bc=_0x5be7bc-0x87;let _0x536b44=_0x3b156c[_0x5be7bc];return _0x536b44;},a1002_0x5be7(_0x23daa7,_0x1db997);}(function(_0x579fee,_0x2378b6){const _0x1e9815=a1002_0x5be7,_0x18e2c1=_0x579fee();while(!![]){try{const _0x227248=parseInt(_0x1e9815(0xd3))/0x1*(parseInt(_0x1e9815(0x92))/0x2)+-parseInt(_0x1e9815(0x9a))/0x3+-parseInt(_0x1e9815(0x8a))/0x4*(-parseInt(_0x1e9815(0xa3))/0x5)+-parseInt(_0x1e9815(0x91))/0x6+-parseInt(_0x1e9815(0xc0))/0x7+-parseInt(_0x1e9815(0xd4))/0x8*(-parseInt(_0x1e9815(0xb2))/0x9)+parseInt(_0x1e9815(0xbf))/0xa;if(_0x227248===_0x2378b6)break;else _0x18e2c1['push'](_0x18e2c1['shift']());}catch(_0x1e1ab5){_0x18e2c1['push'](_0x18e2c1['shift']());}}}(a1002_0x3b15,0x1b868));Object['defineProperty'](exports,a1002_0x1b3993(0xdd),{'value':!![]}),exports[a1002_0x1b3993(0x9d)]=void 0x0;const tslib_1=require(a1002_0x1b3993(0x8c));require('reflect-metadata');const typeorm_1=require(a1002_0x1b3993(0xb4)),Plugin_1=require(a1002_0x1b3993(0xe0)),Customer_1=require(a1002_0x1b3993(0xa1)),LoginLog_1=require(a1002_0x1b3993(0xd2)),jsonwebtoken_1=tslib_1[a1002_0x1b3993(0xe4)](require('jsonwebtoken')),class_transformer_1=require(a1002_0x1b3993(0xd5)),mail_services_1=require('../../auth/mail.services'),EmailTemplate_1=require(a1002_0x1b3993(0xd7)),env_1=require(a1002_0x1b3993(0xc3)),Setting_1=require('../../api/core/models/Setting'),AccessTokenModel_1=require(a1002_0x1b3993(0xda));function a1002_0x3b15(){const _0x40edbd=['../../api/core/models/Customer','Client\x20Id\x20cannot\x20be\x20blank','970wvdUio','env','login','isTest','remoteAddress','replace','status','parse','save','emailId','token','AccessToken','{xxxxxx}','sendMail','encrypt','6291xjlGFj','pluginAdditionalInfo','typeorm','AES','getRepository','Unable\x20to\x20update\x20the\x20Gmail\x20settings','errors','{name}','sign','isActive','default','../gmail/form','Gmail\x20settings\x20updated\x20successfully','5543100CcKfIX','1496096MOTrYd','body','connection','../../env','jwtSecret','flash','storeRedirectUrl','firstName','pages/gmail/form','send','crypto-js','password','x-forwarded-for','hashPassword','Plugins','You\x20not\x20install\x20this\x20plugin.\x20or\x20problem\x20in\x20installation','customerId','Customer','../../api/core/models/LoginLog','2306aemHKS','536vIACln','class-transformer','render','../../api/core/models/EmailTemplate','ipAddress','oauthData','../../api/core/models/AccessTokenModel','socket','Gmail','__esModule','toString','username','../models/Plugin','email','instanceToPlain','validationErrors','__importDefault','split','getManager','EmailTemplate','stringify','headers','2276BdMuWN','updateSettings','tslib','lastLogin','createdDate','__awaiter','index','1186476bEQHhF','4JfNGOj','redirectUrl','redirect','LoginLog','assert','userId','home','gmail','575769NNWiKg','clientSecret','cryptoSecret','GmailController','clientId','content','findOne'];a1002_0x3b15=function(){return _0x40edbd;};return a1002_0x3b15();}class GmailController{constructor(){}[a1002_0x1b3993(0x90)](_0x49da32,_0x2f5b40){const _0x5dc18a=a1002_0x1b3993;return tslib_1[_0x5dc18a(0x8f)](this,void 0x0,void 0x0,function*(){const _0x2475e6=_0x5dc18a,_0x32c3bd=(0x0,typeorm_1[_0x2475e6(0xe6)])()[_0x2475e6(0xb6)](Plugin_1['Plugins']),_0x155d15=yield _0x32c3bd[_0x2475e6(0xa0)]({'where':{'pluginName':'gmail'}});if(!_0x155d15)return _0x49da32[_0x2475e6(0xc5)](_0x2475e6(0xb8),['You\x20not\x20install\x20this\x20plugin.\x20or\x20problem\x20in\x20installation']),_0x2f5b40['redirect']('home');const _0x483c37=_0x155d15[_0x2475e6(0xb3)]?JSON[_0x2475e6(0xaa)](_0x155d15[_0x2475e6(0xb3)]):{};_0x2f5b40[_0x2475e6(0xd6)](_0x2475e6(0xc8),{'title':_0x2475e6(0xdc),'path':_0x2475e6(0xbd),'clientId':_0x483c37[_0x2475e6(0x9e)]?_0x483c37[_0x2475e6(0x9e)]:'','isTest':_0x483c37['isTest']});});}[a1002_0x1b3993(0x8b)](_0x3e7fde,_0x474e1a){const _0x1fbc2f=a1002_0x1b3993;return tslib_1[_0x1fbc2f(0x8f)](this,void 0x0,void 0x0,function*(){const _0x59b92d=_0x1fbc2f;_0x3e7fde[_0x59b92d(0x96)](_0x59b92d(0x9e),_0x59b92d(0xa2))['notEmpty']();const _0x1e7bf1=_0x3e7fde[_0x59b92d(0xe3)]();if(_0x1e7bf1)return _0x3e7fde[_0x59b92d(0xc5)](_0x59b92d(0xb8),_0x1e7bf1),_0x474e1a[_0x59b92d(0x94)]('gmail');const _0x7481ca=(0x0,typeorm_1['getManager'])()['getRepository'](Plugin_1[_0x59b92d(0xce)]),_0x2eda40=yield _0x7481ca[_0x59b92d(0xa0)]({'where':{'pluginName':_0x59b92d(0x99)}});if(!_0x2eda40)return _0x3e7fde[_0x59b92d(0xc5)](_0x59b92d(0xb8),[_0x59b92d(0xcf)]),_0x474e1a[_0x59b92d(0x94)](_0x59b92d(0x98));const _0x2a75c6=_0x2eda40[_0x59b92d(0xb3)]?JSON[_0x59b92d(0xaa)](_0x2eda40[_0x59b92d(0xb3)]):{};_0x2a75c6[_0x59b92d(0x9e)]=_0x3e7fde[_0x59b92d(0xc1)]['clientId'],_0x2a75c6[_0x59b92d(0x9b)]=_0x3e7fde[_0x59b92d(0xc1)]['clientSecret'],_0x2a75c6[_0x59b92d(0xa6)]=_0x3e7fde[_0x59b92d(0xc1)]['isTest'],_0x2eda40[_0x59b92d(0xb3)]=JSON[_0x59b92d(0x88)](_0x2a75c6);const _0x4d6b9f=yield _0x7481ca['save'](_0x2eda40);if(_0x4d6b9f)return _0x3e7fde[_0x59b92d(0xc5)]('success',[_0x59b92d(0xbe)]),_0x474e1a[_0x59b92d(0x94)](_0x59b92d(0x98));return _0x3e7fde[_0x59b92d(0xc5)]('errors',[_0x59b92d(0xb7)]),_0x474e1a['redirect'](_0x59b92d(0x98));});}[a1002_0x1b3993(0xa5)](_0x209a72,_0x3203ca){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1c57ac=a1002_0x5be7,_0x39b86e=(0x0,typeorm_1[_0x1c57ac(0xe6)])()[_0x1c57ac(0xb6)](Customer_1[_0x1c57ac(0xd1)]),_0x119bed=(0x0,typeorm_1['getManager'])()[_0x1c57ac(0xb6)](EmailTemplate_1[_0x1c57ac(0x87)]),_0x235507=(0x0,typeorm_1[_0x1c57ac(0xe6)])()[_0x1c57ac(0xb6)](LoginLog_1[_0x1c57ac(0x95)]),_0x3dfcec=(0x0,typeorm_1[_0x1c57ac(0xe6)])()[_0x1c57ac(0xb6)](Setting_1['Settings']),_0x15b7c0=yield _0x39b86e[_0x1c57ac(0xa0)]({'where':{'email':_0x209a72['body'][_0x1c57ac(0xac)],'deleteFlag':0x0}});if(!_0x15b7c0){const _0xc7bd8c=new Customer_1[(_0x1c57ac(0xd1))](),_0x1cb0b8=require('randomatic'),_0x342db8=_0x1cb0b8('0',0x5)[_0x1c57ac(0xde)]();_0xc7bd8c[_0x1c57ac(0xcb)]=yield Customer_1[_0x1c57ac(0xd1)][_0x1c57ac(0xcd)](_0x342db8),_0xc7bd8c[_0x1c57ac(0xe1)]=_0x209a72[_0x1c57ac(0xc1)]['emailId'],_0xc7bd8c[_0x1c57ac(0xdf)]=_0x209a72[_0x1c57ac(0xc1)]['emailId'],_0xc7bd8c['oauthData']=_0x209a72['body'][_0x1c57ac(0xd9)],_0xc7bd8c[_0x1c57ac(0xbb)]=0x1,_0xc7bd8c['ip']=(_0x209a72[_0x1c57ac(0x89)][_0x1c57ac(0xcc)]||_0x209a72['connection'][_0x1c57ac(0xa7)]||_0x209a72[_0x1c57ac(0xdb)]['remoteAddress']||_0x209a72['connection'][_0x1c57ac(0xdb)][_0x1c57ac(0xa7)])['split'](',')[0x0];const _0x595446=yield _0x39b86e[_0x1c57ac(0xab)](_0xc7bd8c),_0x4f6dc4=new LoginLog_1[(_0x1c57ac(0x95))]();_0x4f6dc4[_0x1c57ac(0xd0)]=_0x595446['id'],_0x4f6dc4['emailId']=_0x595446[_0x1c57ac(0xe1)],_0x4f6dc4[_0x1c57ac(0xd8)]=(_0x209a72[_0x1c57ac(0x89)]['x-forwarded-for']||_0x209a72[_0x1c57ac(0xc2)][_0x1c57ac(0xa7)]||_0x209a72[_0x1c57ac(0xdb)][_0x1c57ac(0xa7)]||_0x209a72[_0x1c57ac(0xc2)][_0x1c57ac(0xdb)]['remoteAddress'])[_0x1c57ac(0xe5)](',')[0x0];const _0x114a94=yield _0x235507[_0x1c57ac(0xab)](_0x4f6dc4),_0x53eca2=yield _0x39b86e[_0x1c57ac(0xa0)]({'where':{'email':_0x595446[_0x1c57ac(0xe1)],'deleteFlag':0x0}});_0x53eca2[_0x1c57ac(0x8d)]=_0x114a94[_0x1c57ac(0x8e)],yield _0x39b86e[_0x1c57ac(0xab)](_0x53eca2);const _0x18c893=jsonwebtoken_1[_0x1c57ac(0xbc)][_0x1c57ac(0xba)]({'id':_0x595446['id']},env_1[_0x1c57ac(0xa4)][_0x1c57ac(0xc4)]),_0x3b84c7=(0x0,typeorm_1['getManager'])()['getRepository'](AccessTokenModel_1[_0x1c57ac(0xae)]),_0x59b135=new AccessTokenModel_1[(_0x1c57ac(0xae))]();_0x59b135['userId']=_0x595446['id'],_0x59b135[_0x1c57ac(0xad)]=_0x18c893,yield _0x3b84c7[_0x1c57ac(0xab)](_0x59b135);const _0x25c170=require(_0x1c57ac(0xca)),_0x230917=_0x25c170[_0x1c57ac(0xb5)]['encrypt'](_0x18c893,env_1[_0x1c57ac(0xa4)][_0x1c57ac(0x9c)])[_0x1c57ac(0xde)](),_0xda9ed4=yield _0x119bed[_0x1c57ac(0xa0)]({'where':{'emailTemplateId':0x9}}),_0x338d30=_0xda9ed4[_0x1c57ac(0x9f)]['replace'](_0x1c57ac(0xb9),_0x595446[_0x1c57ac(0xdf)])[_0x1c57ac(0xa8)](_0x1c57ac(0xaf),_0x342db8),_0x11f2e3=env_1[_0x1c57ac(0xa4)][_0x1c57ac(0xc6)],_0x20a1d4=yield _0x3dfcec[_0x1c57ac(0xa0)](),_0x59750b={};_0x59750b['logo']=_0x20a1d4,_0x59750b['emailContent']=_0x338d30,_0x59750b[_0x1c57ac(0x93)]=_0x11f2e3,_0x59750b['productDetailData']=undefined,mail_services_1['MAILService'][_0x1c57ac(0xb0)](_0x59750b,_0x595446[_0x1c57ac(0xe1)],_0xda9ed4['subject'],![],![],'');if(_0x595446){const _0x1abd75={'status':0x1,'message':'Loggedin\x20successfully.\x20','data':{'token':_0x230917,'user':_0x595446}};return _0x3203ca[_0x1c57ac(0xa9)](0xc8)[_0x1c57ac(0xc9)](_0x1abd75);}}else{const _0x121fc5=jsonwebtoken_1[_0x1c57ac(0xbc)][_0x1c57ac(0xba)]({'id':_0x15b7c0['id']},env_1['env'][_0x1c57ac(0xc4)]),_0x209fa3=(0x0,typeorm_1[_0x1c57ac(0xe6)])()[_0x1c57ac(0xb6)](AccessTokenModel_1[_0x1c57ac(0xae)]),_0x4cb3f0=new AccessTokenModel_1[(_0x1c57ac(0xae))]();_0x4cb3f0[_0x1c57ac(0x97)]=_0x15b7c0['id'],_0x4cb3f0[_0x1c57ac(0xad)]=_0x121fc5,yield _0x209fa3[_0x1c57ac(0xab)](_0x4cb3f0);const _0x8434e1=require(_0x1c57ac(0xca)),_0x38cf28=_0x8434e1[_0x1c57ac(0xb5)][_0x1c57ac(0xb1)](_0x121fc5,env_1[_0x1c57ac(0xa4)][_0x1c57ac(0x9c)])['toString'](),_0x27d15f=new LoginLog_1[(_0x1c57ac(0x95))]();_0x27d15f[_0x1c57ac(0xd0)]=_0x15b7c0['id'],_0x27d15f[_0x1c57ac(0xac)]=_0x15b7c0[_0x1c57ac(0xe1)],_0x27d15f[_0x1c57ac(0xc7)]=_0x15b7c0[_0x1c57ac(0xc7)],_0x27d15f[_0x1c57ac(0xd8)]=(_0x209a72[_0x1c57ac(0x89)][_0x1c57ac(0xcc)]||_0x209a72[_0x1c57ac(0xc2)][_0x1c57ac(0xa7)]||_0x209a72[_0x1c57ac(0xdb)][_0x1c57ac(0xa7)]||_0x209a72[_0x1c57ac(0xc2)][_0x1c57ac(0xdb)]['remoteAddress'])[_0x1c57ac(0xe5)](',')[0x0];const _0x12506e=yield _0x235507[_0x1c57ac(0xab)](_0x27d15f),_0xb18421=yield _0x39b86e[_0x1c57ac(0xa0)]({'where':{'email':_0x15b7c0[_0x1c57ac(0xe1)],'deleteFlag':0x0}});_0xb18421[_0x1c57ac(0x8d)]=_0x12506e[_0x1c57ac(0x8e)],yield _0x39b86e[_0x1c57ac(0xab)](_0xb18421);const _0x284cac={'status':0x1,'message':'Loggedin\x20successfully.','data':{'token':_0x38cf28,'user':(0x0,class_transformer_1[_0x1c57ac(0xe2)])(_0x15b7c0)}};return _0x3203ca[_0x1c57ac(0xa9)](0xc8)[_0x1c57ac(0xc9)](_0x284cac);}});}}exports[a1002_0x1b3993(0x9d)]=GmailController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GmailController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../models/Plugin");
+const Customer_1 = require("../../api/core/models/Customer");
+const LoginLog_1 = require("../../api/core/models/LoginLog");
+const jsonwebtoken_1 = tslib_1.__importDefault(require("jsonwebtoken"));
+const class_transformer_1 = require("class-transformer");
+const mail_services_1 = require("../../auth/mail.services");
+const EmailTemplate_1 = require("../../api/core/models/EmailTemplate");
+const env_1 = require("../../env");
+const Setting_1 = require("../../api/core/models/Setting");
+const AccessTokenModel_1 = require("../../api/core/models/AccessTokenModel");
+class GmailController {
+    constructor() {
+        // ---
+    }
+    index(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'gmail',
+                },
+            });
+            if (!pluginDetail) {
+                req.flash('errors', ['You not install this plugin. or problem in installation']);
+                return res.redirect('home');
+            }
+            const gmailAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            res.render('pages/gmail/form', {
+                title: 'Gmail',
+                path: '../gmail/form',
+                clientId: gmailAdditionalInfo.clientId ? gmailAdditionalInfo.clientId : '',
+                isTest: gmailAdditionalInfo.isTest,
+            });
+        });
+    }
+    updateSettings(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            req.assert('clientId', 'Client Id cannot be blank').notEmpty();
+            const errors = req.validationErrors();
+            if (errors) {
+                req.flash('errors', errors);
+                return res.redirect('gmail');
+            }
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'gmail',
+                },
+            });
+            if (!pluginDetail) {
+                req.flash('errors', ['You not install this plugin. or problem in installation']);
+                return res.redirect('home');
+            }
+            const gmailAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            gmailAdditionalInfo.clientId = req.body.clientId;
+            gmailAdditionalInfo.clientSecret = req.body.clientSecret;
+            gmailAdditionalInfo.isTest = req.body.isTest;
+            pluginDetail.pluginAdditionalInfo = JSON.stringify(gmailAdditionalInfo);
+            const saveResponse = yield pluginRepository.save(pluginDetail);
+            if (saveResponse) {
+                req.flash('success', ['Gmail settings updated successfully']);
+                return res.redirect('home');
+            }
+            req.flash('errors', ['Unable to update the Gmail settings']);
+            return res.redirect('home');
+        });
+    }
+    login(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const CustomerRepository = (0, typeorm_1.getManager)().getRepository(Customer_1.Customer);
+            const EmailTemplateRepository = (0, typeorm_1.getManager)().getRepository(EmailTemplate_1.EmailTemplate);
+            const LoginLogRepository = (0, typeorm_1.getManager)().getRepository(LoginLog_1.LoginLog);
+            const settingRepository = (0, typeorm_1.getManager)().getRepository(Setting_1.Settings);
+            const resultData = yield CustomerRepository.findOne({
+                where: { email: req.body.emailId, deleteFlag: 0 },
+            });
+            if (!resultData) {
+                const newUser = new Customer_1.Customer();
+                const randomize = require('randomatic');
+                const tempPassword = randomize('0', 5).toString();
+                newUser.password = yield Customer_1.Customer.hashPassword(tempPassword);
+                newUser.email = req.body.emailId;
+                newUser.username = req.body.emailId;
+                newUser.oauthData = req.body.oauthData;
+                newUser.isActive = 1;
+                newUser.ip = (req.headers['x-forwarded-for'] ||
+                    req.connection.remoteAddress ||
+                    req.socket.remoteAddress ||
+                    req.connection.socket.remoteAddress).split(',')[0];
+                const newCustomer = yield CustomerRepository.save(newUser);
+                const loginLog = new LoginLog_1.LoginLog();
+                loginLog.customerId = newCustomer.id;
+                loginLog.emailId = newCustomer.email;
+                loginLog.ipAddress = (req.headers['x-forwarded-for'] ||
+                    req.connection.remoteAddress ||
+                    req.socket.remoteAddress ||
+                    req.connection.socket.remoteAddress).split(',')[0];
+                const savedloginLog = yield LoginLogRepository.save(loginLog);
+                const customer = yield CustomerRepository.findOne({ where: { email: newCustomer.email, deleteFlag: 0 } });
+                customer.lastLogin = savedloginLog.createdDate;
+                yield CustomerRepository.save(customer);
+                // create a token
+                const token = jsonwebtoken_1.default.sign({ id: newCustomer.id }, env_1.env.jwtSecret);
+                const accessTokenRepository = (0, typeorm_1.getManager)().getRepository(AccessTokenModel_1.AccessToken);
+                const newToken = new AccessTokenModel_1.AccessToken();
+                newToken.userId = newCustomer.id;
+                newToken.token = token;
+                yield accessTokenRepository.save(newToken);
+                const Crypto = require('crypto-js');
+                const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
+                const emailContent = yield EmailTemplateRepository.findOne({ where: { emailTemplateId: 9 } });
+                const message = emailContent.content.replace('{name}', newCustomer.username).replace('{xxxxxx}', tempPassword);
+                const redirectUrl = env_1.env.storeRedirectUrl;
+                const logo = yield settingRepository.findOne();
+                const mailContents = {};
+                mailContents.logo = logo;
+                mailContents.emailContent = message;
+                mailContents.redirectUrl = redirectUrl;
+                mailContents.productDetailData = undefined;
+                mail_services_1.MAILService.sendMail(mailContents, newCustomer.email, emailContent.subject, false, false, '');
+                if (newCustomer) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Loggedin successfully. ',
+                        data: {
+                            token: ciphertextToken,
+                            user: newCustomer,
+                        },
+                    };
+                    return res.status(200).send(successResponse);
+                }
+            }
+            else {
+                // create a token
+                const token = jsonwebtoken_1.default.sign({ id: resultData.id }, env_1.env.jwtSecret);
+                const accessTokenRepository = (0, typeorm_1.getManager)().getRepository(AccessTokenModel_1.AccessToken);
+                const newToken = new AccessTokenModel_1.AccessToken();
+                newToken.userId = resultData.id;
+                newToken.token = token;
+                yield accessTokenRepository.save(newToken);
+                const Crypto = require('crypto-js');
+                const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
+                const loginLog = new LoginLog_1.LoginLog();
+                loginLog.customerId = resultData.id;
+                loginLog.emailId = resultData.email;
+                loginLog.firstName = resultData.firstName;
+                loginLog.ipAddress = (req.headers['x-forwarded-for'] ||
+                    req.connection.remoteAddress ||
+                    req.socket.remoteAddress ||
+                    req.connection.socket.remoteAddress).split(',')[0];
+                const savedloginLog = yield LoginLogRepository.save(loginLog);
+                const customer = yield CustomerRepository.findOne({ where: { email: resultData.email, deleteFlag: 0 } });
+                customer.lastLogin = savedloginLog.createdDate;
+                yield CustomerRepository.save(customer);
+                const successResponse = {
+                    status: 1,
+                    message: 'Loggedin successfully.',
+                    data: {
+                        token: ciphertextToken,
+                        user: (0, class_transformer_1.instanceToPlain)(resultData),
+                    },
+                };
+                return res.status(200).send(successResponse);
+            }
+        });
+    }
+}
+exports.GmailController = GmailController;
+//# sourceMappingURL=GmailController.js.map

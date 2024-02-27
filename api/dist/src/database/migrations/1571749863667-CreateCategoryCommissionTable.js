@@ -1,1 +1,61 @@
-'use strict';const a816_0x4bd8ef=a816_0xb6f8;(function(_0x26d27d,_0x1c104e){const _0x23ea3c=a816_0xb6f8,_0xb5e1b4=_0x26d27d();while(!![]){try{const _0x473f37=-parseInt(_0x23ea3c(0x95))/0x1*(parseInt(_0x23ea3c(0x99))/0x2)+parseInt(_0x23ea3c(0x9c))/0x3+parseInt(_0x23ea3c(0xa9))/0x4*(-parseInt(_0x23ea3c(0x98))/0x5)+parseInt(_0x23ea3c(0xa7))/0x6+-parseInt(_0x23ea3c(0xa0))/0x7+-parseInt(_0x23ea3c(0xae))/0x8*(-parseInt(_0x23ea3c(0x97))/0x9)+-parseInt(_0x23ea3c(0x94))/0xa;if(_0x473f37===_0x1c104e)break;else _0xb5e1b4['push'](_0xb5e1b4['shift']());}catch(_0x50304a){_0xb5e1b4['push'](_0xb5e1b4['shift']());}}}(a816_0x5e5e,0x87cde));function a816_0xb6f8(_0x23e36d,_0x143bb5){const _0x5e5e6f=a816_0x5e5e();return a816_0xb6f8=function(_0xb6f872,_0x44c483){_0xb6f872=_0xb6f872-0x91;let _0x127c6a=_0x5e5e6f[_0xb6f872];return _0x127c6a;},a816_0xb6f8(_0x23e36d,_0x143bb5);}Object[a816_0x4bd8ef(0x9a)](exports,a816_0x4bd8ef(0xa3),{'value':!![]}),exports['CreateCategoryCommissionTable1571749863667']=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a816_0x4bd8ef(0x93));class CreateCategoryCommissionTable1571749863667{constructor(){const _0x3a8a0c=a816_0x4bd8ef;this[_0x3a8a0c(0x92)]=new typeorm_1['TableForeignKey']({'name':_0x3a8a0c(0xad),'columnNames':[_0x3a8a0c(0x96)],'referencedColumnNames':['category_id'],'referencedTableName':'category','onDelete':_0x3a8a0c(0xa6)});}['up'](_0x129955){const _0x670994=a816_0x4bd8ef;return tslib_1[_0x670994(0xa8)](this,void 0x0,void 0x0,function*(){const _0x26506e=_0x670994,_0x5f746e=new typeorm_1[(_0x26506e(0xa2))]({'name':_0x26506e(0x9b),'columns':[{'name':'category_commission_id','type':_0x26506e(0xa1),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x26506e(0x9e)},{'name':'category_id','type':_0x26506e(0xa1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'category_commission_value','type':_0x26506e(0xa1),'length':'11','isPrimary':![],'isNullable':!![]}]}),_0x5a763f=yield _0x129955[_0x26506e(0xab)]('category_commission');!_0x5a763f&&(yield _0x129955[_0x26506e(0x91)](_0x5f746e));const _0x3b297b=_0x5f746e[_0x26506e(0xaa)][_0x26506e(0x9f)](_0x47a2cf=>_0x47a2cf['columnNames'][_0x26506e(0xa4)]('category_id')!==-0x1);!_0x3b297b&&(yield _0x129955[_0x26506e(0xac)](_0x5f746e,this['CategoryCommissionToCategoryForeignKeys']));});}[a816_0x4bd8ef(0xa5)](_0x41e9fd){const _0x4cb338=a816_0x4bd8ef;return tslib_1[_0x4cb338(0xa8)](this,void 0x0,void 0x0,function*(){const _0x945d75=_0x4cb338;yield _0x41e9fd['dropTable'](_0x945d75(0x9b),!![]);});}}exports[a816_0x4bd8ef(0x9d)]=CreateCategoryCommissionTable1571749863667;function a816_0x5e5e(){const _0x5cf2c4=['indexOf','down','CASCADE','2718030jIzECU','__awaiter','24348iIoInp','foreignKeys','hasTable','createForeignKey','fk_tbl_category_commission_tbl_category_foreignKey','3472624yIHhQR','createTable','CategoryCommissionToCategoryForeignKeys','typeorm','9279550lkiyiX','46tBeVnc','category_id','9XaYhxd','15NwdDhA','7838TfBlfS','defineProperty','category_commission','2944968TREqIM','CreateCategoryCommissionTable1571749863667','increment','find','1301965oAPfyr','integer','Table','__esModule'];a816_0x5e5e=function(){return _0x5cf2c4;};return a816_0x5e5e();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCategoryCommissionTable1571749863667 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateCategoryCommissionTable1571749863667 {
+    constructor() {
+        this.CategoryCommissionToCategoryForeignKeys = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_category_commission_tbl_category_foreignKey',
+            columnNames: ['category_id'],
+            referencedColumnNames: ['category_id'],
+            referencedTableName: 'category',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'category_commission',
+                columns: [
+                    {
+                        name: 'category_commission_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'category_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'category_commission_value',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('category_commission');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('category_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.CategoryCommissionToCategoryForeignKeys);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('category_commission', true);
+        });
+    }
+}
+exports.CreateCategoryCommissionTable1571749863667 = CreateCategoryCommissionTable1571749863667;
+//# sourceMappingURL=1571749863667-CreateCategoryCommissionTable.js.map

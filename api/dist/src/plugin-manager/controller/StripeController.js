@@ -1,1 +1,397 @@
-'use strict';const a1006_0x585ecd=a1006_0x24bc;(function(_0x367389,_0x14e8dd){const _0x68b786=a1006_0x24bc,_0x4796aa=_0x367389();while(!![]){try{const _0x12a8ab=parseInt(_0x68b786(0x20a))/0x1*(parseInt(_0x68b786(0x19d))/0x2)+-parseInt(_0x68b786(0x19f))/0x3*(parseInt(_0x68b786(0x1c6))/0x4)+-parseInt(_0x68b786(0x184))/0x5*(-parseInt(_0x68b786(0x1e5))/0x6)+parseInt(_0x68b786(0x226))/0x7+parseInt(_0x68b786(0x1b1))/0x8+-parseInt(_0x68b786(0x179))/0x9*(-parseInt(_0x68b786(0x223))/0xa)+-parseInt(_0x68b786(0x22a))/0xb*(parseInt(_0x68b786(0x1b5))/0xc);if(_0x12a8ab===_0x14e8dd)break;else _0x4796aa['push'](_0x4796aa['shift']());}catch(_0x408090){_0x4796aa['push'](_0x4796aa['shift']());}}}(a1006_0x1930,0xa6b61));function a1006_0x1930(){const _0x698575=['../../api/core/models/Vendor','../../api/core/models/VendorInvoiceItem','discountedAmount','paidDate','subject','vendorProductCommission','shippingFirstname','notEmpty','model','imagePath','pages/stripe/form','taxValue','commissionAmount','Vendor','orderProductPrefixId','quantity','image','customerId','3434550SVsUrm','updateSettings','Order','find','isActive','pages/stripe/process','logo','vendorInvoiceId','discount','save','username','discountAmount','productImage','render','status','home','stripe','Invalid\x20Payment\x20Details','../../api/core/models/EmailTemplate','{name}','findOne','VendorGlobalSetting','name','paymentProcess','../../api/core/models/VendorProducts','../../api/core/models/VendorGlobalSettings','orderProductId','StripeOrderTransaction','../../api/core/models/OrderProduct','productName','error','VendorInvoiceItem','ProductImage','pages/layouts/auth','forEach','storeCurrencyId','../models/StripeOrder','2sSOnhy','../../api/core/models/Order','redirect','VendorGroup','dateAvailable','Client\x20Secret\x20cannot\x20be\x20blank','create','storeUrl','cancel','amount','paymentData','sessions','stripeOrderId','../../api/core/models/Setting','paymentAmount','moment','totalAmount','errors','parse','vendorOrderId','shippingLastname','paymentStatus','productDetailData','You\x20not\x20install\x20this\x20plugin.\x20or\x20problem\x20in\x20installation','../../api/core/models/PaymentItems','10dbiIMz','StripeOrder','replace','9171323fcFbHD','session_id','params','content','38066765ssyDtj','orderId','MAILService','isTest','Payment','amount_received','paymentType','adminRedirectUrl','paymentItemId','storeRedirectUrl','VendorInvoice','stripeRefId','VendorPayment','getMonth','defaultCommission','skuName','query','basePrice','productQuantity','format','paymentNumber','stringify','Admin','Settings','toString','PaymentItems','productPrice','../../api/core/models/VendorPayment','Customer','621576ZqtnWU','taxType','body','?session_id={CHECKOUT_SESSION_ID}','method','clientSecret','StripeController','Product','defineProperty','success','retrieve','5Vgmyey','symbolLeft','checkout','../../auth/mail.services','paymentInformation','length','__esModule','flash','VendorProducts','../../api/core/models/User','successRoute','validationErrors','Plugins','card','baseUrl','couponDiscountAmount','Already\x20Paid\x20for\x20this\x20Order','env','getManager','../models/StripeOrderTransaction','productInformationData','productDetail','Client\x20Id\x20cannot\x20be\x20blank','../../api/core/models/Payment','../../api/core/models/VendorOrders','1185832LrdnYX','productId','85455JHsDPW','succeeded','__awaiter','User','rating','YYYY-MM-DD\x20HH:mm:ss','vendorRedirectUrl','Razorpay','../../api/core/models/ProductImage','getRepository','../../api/core/models/ProductModel','index','companyName','{adminname}','paypal','typeorm','minimumQuantity','../../api/core/models/Currency','9187032pkaYoH','Stripe\x20settings\x20updated\x20successfully','paymentId','email','12HLfSfj','OrderProduct','symbolRight','currencyRight','getFullYear','map','push','reflect-metadata','total','paymentIntents','orderPrefixId','sendMail','price','today','Stripe','vendorId','cancelRoute','20anURbB','redirectUrl','pluginAdditionalInfo','round','paymentFlag','clientId','getDate','emailContent','orderData','commission','paymentDetails','pages/stripe/success','Invalid\x20Order\x20Id'];a1006_0x1930=function(){return _0x698575;};return a1006_0x1930();}function a1006_0x24bc(_0x572b55,_0x1eb77d){const _0x193044=a1006_0x1930();return a1006_0x24bc=function(_0x24bca3,_0x28c136){_0x24bca3=_0x24bca3-0x173;let _0x178799=_0x193044[_0x24bca3];return _0x178799;},a1006_0x24bc(_0x572b55,_0x1eb77d);}Object[a1006_0x585ecd(0x181)](exports,a1006_0x585ecd(0x18a),{'value':!![]}),exports[a1006_0x585ecd(0x17f)]=void 0x0;const tslib_1=require('tslib');require(a1006_0x585ecd(0x1bc));const typeorm_1=require(a1006_0x585ecd(0x1ae)),Plugin_1=require('../models/Plugin'),Order_1=require(a1006_0x585ecd(0x20b)),OrderProduct_1=require(a1006_0x585ecd(0x201)),ProductModel_1=require(a1006_0x585ecd(0x1a9)),StripeOrder_1=require(a1006_0x585ecd(0x209)),StripeOrderTransaction_1=require(a1006_0x585ecd(0x197)),EmailTemplate_1=require(a1006_0x585ecd(0x1f7)),ProductImage_1=require(a1006_0x585ecd(0x1a7)),Setting_1=require(a1006_0x585ecd(0x217)),Currency_1=require(a1006_0x585ecd(0x1b0)),User_1=require(a1006_0x585ecd(0x18d)),mail_services_1=require(a1006_0x585ecd(0x187)),env_1=require('../../env'),Payment_1=require(a1006_0x585ecd(0x19b)),PaymentItems_1=require(a1006_0x585ecd(0x222)),VendorPayment_1=require(a1006_0x585ecd(0x177)),VendorProducts_1=require(a1006_0x585ecd(0x1fd)),Vendor_1=require(a1006_0x585ecd(0x1d3)),VendorGlobalSettings_1=require(a1006_0x585ecd(0x1fe)),VendorOrders_1=require(a1006_0x585ecd(0x19c)),moment=require(a1006_0x585ecd(0x219)),VendorInvoice_1=require('../../api/core/models/VendorInvoice'),VendorInvoiceItem_1=require(a1006_0x585ecd(0x1d4)),Customer_1=require('../../api/core/models/Customer'),VendorGroup_1=require('../../api/core/models/VendorGroup');class StripeController{constructor(){}[a1006_0x585ecd(0x1aa)](_0x1f7b90,_0x1b2833){const _0x206972=a1006_0x585ecd;return tslib_1[_0x206972(0x1a1)](this,void 0x0,void 0x0,function*(){const _0x3e6dab=_0x206972,_0x3ef13f=(0x0,typeorm_1[_0x3e6dab(0x196)])()[_0x3e6dab(0x1a8)](Plugin_1['Plugins']),_0xb63023=yield _0x3ef13f['findOne']({'where':{'pluginName':'stripe'}});if(!_0xb63023)return _0x1f7b90[_0x3e6dab(0x18b)](_0x3e6dab(0x21b),[_0x3e6dab(0x221)]),_0x1b2833[_0x3e6dab(0x20c)](_0x3e6dab(0x1f4));const _0x383baa=_0xb63023[_0x3e6dab(0x1c8)]?JSON[_0x3e6dab(0x21c)](_0xb63023[_0x3e6dab(0x1c8)]):{};_0x1b2833[_0x3e6dab(0x1f2)](_0x3e6dab(0x1dd),{'title':_0x3e6dab(0x1c3),'path':'../stripe/form','clientId':_0x383baa[_0x3e6dab(0x1cb)]?_0x383baa[_0x3e6dab(0x1cb)]:'','clientSecret':_0x383baa[_0x3e6dab(0x17e)]?_0x383baa[_0x3e6dab(0x17e)]:'','isTest':_0x383baa[_0x3e6dab(0x22d)]});});}[a1006_0x585ecd(0x1e6)](_0x200bda,_0x2160cd){const _0x5de232=a1006_0x585ecd;return tslib_1[_0x5de232(0x1a1)](this,void 0x0,void 0x0,function*(){const _0x20583b=_0x5de232;_0x200bda['assert'](_0x20583b(0x1cb),_0x20583b(0x19a))[_0x20583b(0x1da)](),_0x200bda['assert'](_0x20583b(0x17e),_0x20583b(0x20f))['notEmpty']();const _0x2d4ea4=_0x200bda[_0x20583b(0x18f)]();if(_0x2d4ea4)return _0x200bda[_0x20583b(0x18b)]('errors',_0x2d4ea4),_0x2160cd[_0x20583b(0x20c)](_0x20583b(0x1ad));const _0x553a4d=(0x0,typeorm_1[_0x20583b(0x196)])()[_0x20583b(0x1a8)](Plugin_1[_0x20583b(0x190)]),_0xf7b5c4=yield _0x553a4d[_0x20583b(0x1f9)]({'where':{'pluginName':'stripe'}});if(!_0xf7b5c4)return _0x200bda[_0x20583b(0x18b)](_0x20583b(0x21b),[_0x20583b(0x221)]),_0x2160cd[_0x20583b(0x20c)](_0x20583b(0x1f4));const _0x5dc069=_0xf7b5c4['pluginAdditionalInfo']?JSON[_0x20583b(0x21c)](_0xf7b5c4['pluginAdditionalInfo']):{};_0x5dc069[_0x20583b(0x1cb)]=_0x200bda[_0x20583b(0x17b)][_0x20583b(0x1cb)],_0x5dc069[_0x20583b(0x17e)]=_0x200bda[_0x20583b(0x17b)][_0x20583b(0x17e)],_0x5dc069[_0x20583b(0x22d)]=_0x200bda['body'][_0x20583b(0x22d)],_0xf7b5c4[_0x20583b(0x1c8)]=JSON[_0x20583b(0x23f)](_0x5dc069);const _0x48c6e2=yield _0x553a4d[_0x20583b(0x1ee)](_0xf7b5c4);if(_0x48c6e2)return _0x200bda[_0x20583b(0x18b)](_0x20583b(0x182),[_0x20583b(0x1b2)]),_0x2160cd[_0x20583b(0x20c)](_0x20583b(0x1f4));return _0x200bda['flash'](_0x20583b(0x21b),['Unable\x20to\x20update\x20the\x20stripe\x20settings']),_0x2160cd[_0x20583b(0x20c)](_0x20583b(0x1f4));});}['process'](_0x3c67bc,_0x131b6a){const _0x3b9a5f=a1006_0x585ecd;return tslib_1[_0x3b9a5f(0x1a1)](this,void 0x0,void 0x0,function*(){const _0x4496fc=_0x3b9a5f,_0x6ef83b=_0x3c67bc[_0x4496fc(0x228)][_0x4496fc(0x1bf)],_0x5ee83b=(0x0,typeorm_1[_0x4496fc(0x196)])()[_0x4496fc(0x1a8)](Order_1[_0x4496fc(0x1e7)]),_0x547d6b=(0x0,typeorm_1[_0x4496fc(0x196)])()['getRepository'](OrderProduct_1[_0x4496fc(0x1b6)]),_0x2898c5=(0x0,typeorm_1[_0x4496fc(0x196)])()[_0x4496fc(0x1a8)](ProductModel_1[_0x4496fc(0x180)]),_0x2199b7=(0x0,typeorm_1[_0x4496fc(0x196)])()[_0x4496fc(0x1a8)](StripeOrder_1['StripeOrder']),_0x10ff83=yield _0x5ee83b[_0x4496fc(0x1f9)]({'where':{'orderPrefixId':_0x6ef83b},'select':[_0x4496fc(0x22b)]}),_0x118cd6=_0x10ff83[_0x4496fc(0x22b)],_0x4aac69=yield _0x5ee83b['findOne'](_0x118cd6);if(!_0x4aac69)return _0x3c67bc[_0x4496fc(0x18b)](_0x4496fc(0x21b),['Invalid\x20Order\x20Id']),_0x131b6a[_0x4496fc(0x20c)](_0x4496fc(0x203));const _0x1c905b=(0x0,typeorm_1[_0x4496fc(0x196)])()[_0x4496fc(0x1a8)](Plugin_1[_0x4496fc(0x190)]),_0x5e068d=yield _0x1c905b[_0x4496fc(0x1f9)]({'where':{'pluginName':_0x4496fc(0x1f5)}});if(!_0x5e068d)return _0x3c67bc[_0x4496fc(0x18b)](_0x4496fc(0x21b),['You\x20not\x20install\x20this\x20plugin.\x20or\x20problem\x20in\x20installation']),_0x131b6a[_0x4496fc(0x20c)](_0x4496fc(0x1f4));const _0x3e7cc1=_0x5e068d[_0x4496fc(0x1c8)]?JSON[_0x4496fc(0x21c)](_0x5e068d[_0x4496fc(0x1c8)]):{},_0x373fc9=yield _0x547d6b[_0x4496fc(0x1e8)]({'where':{'orderId':_0x4aac69[_0x4496fc(0x22b)]},'select':['orderProductId','orderId',_0x4496fc(0x19e),_0x4496fc(0x1fb),_0x4496fc(0x1db),'quantity',_0x4496fc(0x1bd),_0x4496fc(0x176),_0x4496fc(0x1d5),_0x4496fc(0x1f0)]}),_0x439c6c=_0x373fc9[_0x4496fc(0x1ba)](_0x3937b1=>tslib_1[_0x4496fc(0x1a1)](this,void 0x0,void 0x0,function*(){const _0x399e61=_0x4496fc,_0xa69606=yield _0x2898c5[_0x399e61(0x1f9)]({'where':{'productId':_0x3937b1[_0x399e61(0x19e)]},'select':['name',_0x399e61(0x1e2),_0x399e61(0x1af),_0x399e61(0x1e3),_0x399e61(0x1dc),'shipping',_0x399e61(0x1c1),_0x399e61(0x20e),_0x399e61(0x213),_0x399e61(0x1a3),_0x399e61(0x1ed),_0x399e61(0x1e9)]}),_0x15e5df=_0x3937b1;return _0x15e5df[_0x399e61(0x199)]=_0xa69606,_0x15e5df;})),_0x47bba0=yield Promise['all'](_0x439c6c),_0x56eaaa=[];_0x47bba0[_0x4496fc(0x207)](_0x23675c=>{const _0x1b61a9=_0x4496fc,_0x40af08=Math[_0x1b61a9(0x1c9)](_0x23675c['total']*0x64)/+_0x23675c['quantity'];_0x56eaaa['push']({'name':_0x23675c[_0x1b61a9(0x1fb)],'amount':_0x40af08[_0x1b61a9(0x174)](),'currency':_0x4aac69['currencyCode'],'quantity':_0x23675c[_0x1b61a9(0x1e2)]});});const _0x154ac9=Math[_0x4496fc(0x1c9)](_0x4aac69[_0x4496fc(0x1bd)]*0x64),_0x4ffed4={'payment_method_types':[_0x4496fc(0x191)],'line_items':_0x56eaaa,'success_url':env_1[_0x4496fc(0x195)][_0x4496fc(0x192)]+_0x3e7cc1[_0x4496fc(0x18e)]+_0x4496fc(0x17c),'cancel_url':env_1['env']['baseUrl']+_0x3e7cc1[_0x4496fc(0x1c5)]},_0x3f71a6=require(_0x4496fc(0x1f5))(_0x3e7cc1['clientSecret']),_0x398b44=yield _0x3f71a6[_0x4496fc(0x186)][_0x4496fc(0x215)][_0x4496fc(0x210)](_0x4ffed4);if(_0x398b44){const _0x459cd8=new StripeOrder_1[(_0x4496fc(0x224))]();_0x459cd8['orderId']=_0x4aac69[_0x4496fc(0x22b)],_0x459cd8[_0x4496fc(0x235)]=_0x398b44['id'],_0x459cd8[_0x4496fc(0x1bd)]=_0x154ac9[_0x4496fc(0x174)](),_0x459cd8['status']=0x0,yield _0x2199b7[_0x4496fc(0x1ee)](_0x459cd8),_0x131b6a['render'](_0x4496fc(0x1ea),{'title':_0x4496fc(0x1f5),'sessionId':_0x398b44['id'],'publishKey':_0x3e7cc1[_0x4496fc(0x1cb)],'layout':_0x4496fc(0x206)});}});}[a1006_0x585ecd(0x212)](_0x3b0f4b,_0x5168bc){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1c6f94=a1006_0x24bc;_0x5168bc[_0x1c6f94(0x1f2)]('pages/razorpay/cancel',{'title':_0x1c6f94(0x1a6),'layout':_0x1c6f94(0x206),'storeUrl':env_1[_0x1c6f94(0x195)]['cancelUrl']});});}[a1006_0x585ecd(0x182)](_0x159b6e,_0xe35a9e){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4ab3b3=a1006_0x24bc,_0x518703=_0x159b6e[_0x4ab3b3(0x23a)],_0x5b0533=(0x0,typeorm_1['getManager'])()[_0x4ab3b3(0x1a8)](Plugin_1[_0x4ab3b3(0x190)]),_0x3949ec=(0x0,typeorm_1[_0x4ab3b3(0x196)])()[_0x4ab3b3(0x1a8)](EmailTemplate_1['EmailTemplate']),_0x1fc0da=(0x0,typeorm_1[_0x4ab3b3(0x196)])()[_0x4ab3b3(0x1a8)](OrderProduct_1[_0x4ab3b3(0x1b6)]),_0x56725d=(0x0,typeorm_1[_0x4ab3b3(0x196)])()[_0x4ab3b3(0x1a8)](ProductImage_1[_0x4ab3b3(0x205)]),_0x4d6666=(0x0,typeorm_1[_0x4ab3b3(0x196)])()['getRepository'](ProductModel_1[_0x4ab3b3(0x180)]),_0x40d855=(0x0,typeorm_1['getManager'])()[_0x4ab3b3(0x1a8)](Setting_1[_0x4ab3b3(0x173)]),_0x45c743=(0x0,typeorm_1['getManager'])()[_0x4ab3b3(0x1a8)](Currency_1['Currency']),_0x924bc3=(0x0,typeorm_1['getManager'])()[_0x4ab3b3(0x1a8)](User_1[_0x4ab3b3(0x1a2)]),_0x5c222a=(0x0,typeorm_1['getManager'])()[_0x4ab3b3(0x1a8)](StripeOrder_1[_0x4ab3b3(0x224)]),_0x1237aa=(0x0,typeorm_1[_0x4ab3b3(0x196)])()[_0x4ab3b3(0x1a8)](StripeOrderTransaction_1[_0x4ab3b3(0x200)]),_0x312bb1=(0x0,typeorm_1['getManager'])()[_0x4ab3b3(0x1a8)](Payment_1[_0x4ab3b3(0x22e)]),_0x1c37b=(0x0,typeorm_1[_0x4ab3b3(0x196)])()[_0x4ab3b3(0x1a8)](PaymentItems_1[_0x4ab3b3(0x175)]),_0x117847=(0x0,typeorm_1[_0x4ab3b3(0x196)])()[_0x4ab3b3(0x1a8)](VendorPayment_1['VendorPayment']),_0x5da6b4=(0x0,typeorm_1[_0x4ab3b3(0x196)])()[_0x4ab3b3(0x1a8)](VendorProducts_1[_0x4ab3b3(0x18c)]),_0x54bf05=(0x0,typeorm_1[_0x4ab3b3(0x196)])()['getRepository'](Vendor_1[_0x4ab3b3(0x1e0)]),_0xeacea6=(0x0,typeorm_1[_0x4ab3b3(0x196)])()[_0x4ab3b3(0x1a8)](VendorGroup_1[_0x4ab3b3(0x20d)]),_0x5c715a=(0x0,typeorm_1[_0x4ab3b3(0x196)])()[_0x4ab3b3(0x1a8)](VendorGlobalSettings_1[_0x4ab3b3(0x1fa)]),_0x2964a0=(0x0,typeorm_1[_0x4ab3b3(0x196)])()[_0x4ab3b3(0x1a8)](VendorOrders_1['VendorOrders']),_0x543308=(0x0,typeorm_1[_0x4ab3b3(0x196)])()['getRepository'](VendorInvoice_1[_0x4ab3b3(0x234)]),_0x357675=(0x0,typeorm_1['getManager'])()[_0x4ab3b3(0x1a8)](VendorInvoiceItem_1[_0x4ab3b3(0x204)]),_0x16a486=(0x0,typeorm_1['getManager'])()[_0x4ab3b3(0x1a8)](Customer_1[_0x4ab3b3(0x178)]),_0x16728d=yield _0x5b0533[_0x4ab3b3(0x1f9)]({'where':{'pluginName':_0x4ab3b3(0x1f5)}});if(!_0x16728d)return _0x159b6e[_0x4ab3b3(0x18b)](_0x4ab3b3(0x21b),[_0x4ab3b3(0x221)]),_0xe35a9e[_0x4ab3b3(0x20c)](_0x4ab3b3(0x1f4));const _0x20b228=_0x16728d['pluginAdditionalInfo']?JSON[_0x4ab3b3(0x21c)](_0x16728d['pluginAdditionalInfo']):{},_0x2b1fff=require(_0x4ab3b3(0x1f5))(_0x20b228[_0x4ab3b3(0x17e)]),_0x375c45=yield _0x2b1fff[_0x4ab3b3(0x186)][_0x4ab3b3(0x215)]['retrieve'](_0x518703[_0x4ab3b3(0x227)]);if(_0x375c45){const _0x5f13a2=yield _0x2b1fff[_0x4ab3b3(0x1be)][_0x4ab3b3(0x183)](_0x375c45['payment_intent']),_0x2777a6=yield _0x5c222a[_0x4ab3b3(0x1f9)]({'where':{'stripeRefId':_0x518703[_0x4ab3b3(0x227)]}});if(!_0x2777a6)return _0x159b6e[_0x4ab3b3(0x18b)]('errors',[_0x4ab3b3(0x1f6)]),_0xe35a9e[_0x4ab3b3(0x20c)](_0x4ab3b3(0x203));const _0x324fe4=(0x0,typeorm_1[_0x4ab3b3(0x196)])()[_0x4ab3b3(0x1a8)](Order_1['Order']),_0x5284c5=yield _0x324fe4[_0x4ab3b3(0x1f9)](_0x2777a6[_0x4ab3b3(0x22b)]);if(!_0x5284c5)return _0x159b6e['flash'](_0x4ab3b3(0x21b),[_0x4ab3b3(0x1d2)]),_0xe35a9e['redirect'](_0x4ab3b3(0x203));const _0x587488=yield _0x40d855[_0x4ab3b3(0x1f9)](),_0x145af7=yield _0x45c743['findOne'](_0x587488[_0x4ab3b3(0x208)]);_0x5284c5[_0x4ab3b3(0x1b8)]=_0x145af7[_0x4ab3b3(0x1b7)],_0x5284c5['currencyLeft']=_0x145af7[_0x4ab3b3(0x185)];const _0x93f01e=yield _0x324fe4[_0x4ab3b3(0x1f9)]({'where':{'orderId':_0x2777a6['orderId'],'paymentFlag':0x1}});if(_0x93f01e)return _0x159b6e[_0x4ab3b3(0x18b)](_0x4ab3b3(0x21b),[_0x4ab3b3(0x194)]),_0xe35a9e[_0x4ab3b3(0x20c)]('error');const _0x149cb3=Math[_0x4ab3b3(0x1c9)](_0x5f13a2[_0x4ab3b3(0x22f)]);if(_0x5f13a2[_0x4ab3b3(0x1f3)]===_0x4ab3b3(0x1a0)&&_0x149cb3===+_0x2777a6[_0x4ab3b3(0x1bd)]){const _0x1605c3=new StripeOrderTransaction_1['StripeOrderTransaction']();_0x1605c3[_0x4ab3b3(0x230)]=_0x5f13a2[_0x4ab3b3(0x17d)],_0x1605c3[_0x4ab3b3(0x216)]=_0x2777a6['id'],_0x1605c3[_0x4ab3b3(0x214)]=JSON[_0x4ab3b3(0x23f)](_0x5f13a2),_0x1605c3['paymentStatus']=0x1,yield _0x1237aa[_0x4ab3b3(0x1ee)](_0x1605c3),_0x2777a6[_0x4ab3b3(0x1f3)]=0x1,yield _0x5c222a['save'](_0x2777a6),_0x5284c5[_0x4ab3b3(0x1ca)]=0x1,_0x5284c5[_0x4ab3b3(0x21f)]=0x1,_0x5284c5[_0x4ab3b3(0x1fc)]=0x1,_0x5284c5[_0x4ab3b3(0x230)]='stripe',_0x5284c5[_0x4ab3b3(0x1d0)]=_0x5f13a2['id'],yield _0x324fe4[_0x4ab3b3(0x1ee)](_0x5284c5);const _0x4db9b1=new Payment_1[(_0x4ab3b3(0x22e))]();_0x4db9b1[_0x4ab3b3(0x22b)]=_0x2777a6[_0x4ab3b3(0x22b)];const _0x28425b=new Date();_0x4db9b1[_0x4ab3b3(0x1d6)]=moment(_0x28425b)[_0x4ab3b3(0x23d)](_0x4ab3b3(0x1a4)),_0x4db9b1[_0x4ab3b3(0x23e)]=_0x5f13a2['id'],_0x4db9b1[_0x4ab3b3(0x218)]=_0x5284c5['total'],_0x4db9b1[_0x4ab3b3(0x188)]=JSON[_0x4ab3b3(0x23f)](_0x5f13a2);const _0x232329=yield _0x312bb1[_0x4ab3b3(0x1ee)](_0x4db9b1),_0x462382=[];let _0x4c1398;const _0x3053f9=yield _0x1fc0da[_0x4ab3b3(0x1e8)]({'where':{'orderId':_0x5284c5[_0x4ab3b3(0x22b)]},'select':[_0x4ab3b3(0x1ff),'orderId',_0x4ab3b3(0x19e),_0x4ab3b3(0x1fb),_0x4ab3b3(0x1db),_0x4ab3b3(0x1e2),_0x4ab3b3(0x1bd),_0x4ab3b3(0x176),_0x4ab3b3(0x1d5),_0x4ab3b3(0x1f0),'couponDiscountAmount','basePrice']});for(_0x4c1398=0x0;_0x4c1398<_0x3053f9['length'];_0x4c1398++){const _0x20646c=new PaymentItems_1['PaymentItems']();_0x20646c[_0x4ab3b3(0x1b3)]=_0x232329[_0x4ab3b3(0x1b3)],_0x20646c[_0x4ab3b3(0x1ff)]=_0x3053f9[_0x4c1398][_0x4ab3b3(0x1ff)],_0x20646c[_0x4ab3b3(0x21a)]=_0x3053f9[_0x4c1398][_0x4ab3b3(0x1bd)],_0x20646c[_0x4ab3b3(0x202)]=_0x3053f9[_0x4c1398][_0x4ab3b3(0x1fb)],_0x20646c[_0x4ab3b3(0x23c)]=_0x3053f9[_0x4c1398][_0x4ab3b3(0x1e2)],_0x20646c[_0x4ab3b3(0x176)]=_0x3053f9[_0x4c1398][_0x4ab3b3(0x176)];const _0x54bd68=yield _0x1c37b['save'](_0x20646c),_0x377d2c=yield _0x5da6b4[_0x4ab3b3(0x1f9)]({'where':{'productId':_0x3053f9[_0x4c1398][_0x4ab3b3(0x19e)]}});if(_0x377d2c){const _0x2bfb11=yield _0x54bf05[_0x4ab3b3(0x1f9)]({'where':{'vendorId':_0x377d2c['vendorId']}}),_0x54e8a9=yield _0xeacea6['findOne']({'where':{'groupId':_0x2bfb11['vendorGroupId']}}),_0x337cdd=yield _0x2964a0['findOne']({'where':{'vendorId':_0x377d2c[_0x4ab3b3(0x1c4)],'orderProductId':_0x3053f9[_0x4c1398]['orderProductId']}}),_0x426f3b=new VendorPayment_1[(_0x4ab3b3(0x236))]();_0x426f3b[_0x4ab3b3(0x1c4)]=_0x377d2c[_0x4ab3b3(0x1c4)],_0x426f3b[_0x4ab3b3(0x232)]=_0x54bd68['paymentItemId'],_0x426f3b[_0x4ab3b3(0x21d)]=_0x337cdd[_0x4ab3b3(0x21d)],_0x426f3b[_0x4ab3b3(0x213)]=_0x3053f9[_0x4c1398][_0x4ab3b3(0x1bd)];if(_0x377d2c[_0x4ab3b3(0x1d8)]>0x0)_0x426f3b[_0x4ab3b3(0x1df)]=_0x426f3b[_0x4ab3b3(0x213)]*(_0x377d2c[_0x4ab3b3(0x1d8)]/0x64);else{if(+_0x54e8a9[_0x4ab3b3(0x1cf)]>0x0)_0x426f3b[_0x4ab3b3(0x1df)]=_0x426f3b[_0x4ab3b3(0x213)]*(+_0x54e8a9[_0x4ab3b3(0x1cf)]/0x64);else{const _0xd7cff7=yield _0x5c715a['findOne'](),_0x99bdc2=_0xd7cff7[_0x4ab3b3(0x238)];_0x426f3b[_0x4ab3b3(0x1df)]=_0x426f3b[_0x4ab3b3(0x213)]*(_0x99bdc2/0x64);}}yield _0x117847[_0x4ab3b3(0x1ee)](_0x426f3b);}const _0x48eca1=yield _0x1fc0da[_0x4ab3b3(0x1f9)]({'where':{'orderProductId':_0x3053f9[_0x4c1398][_0x4ab3b3(0x1ff)]},'select':[_0x4ab3b3(0x1ff),_0x4ab3b3(0x22b),_0x4ab3b3(0x19e),_0x4ab3b3(0x1fb),'model',_0x4ab3b3(0x1e2),'total',_0x4ab3b3(0x176),'discountedAmount','discountAmount','basePrice','skuName',_0x4ab3b3(0x1de),_0x4ab3b3(0x17a),_0x4ab3b3(0x1e1),_0x4ab3b3(0x193),_0x4ab3b3(0x23b)]}),_0x48d7aa=yield _0x4d6666[_0x4ab3b3(0x1f9)](_0x48eca1[_0x4ab3b3(0x19e)]),_0x1acfc7=yield _0x56725d['findOne']({'where':{'productId':_0x48eca1[_0x4ab3b3(0x19e)]}});_0x48d7aa['productInformationData']=_0x48eca1,_0x48d7aa['productImage']=_0x1acfc7,_0x462382[_0x4ab3b3(0x1bb)](_0x48d7aa);}const _0x361b0c=yield _0x3949ec['findOne'](0x5),_0x45546c=yield _0x3949ec['findOne'](0x6),_0x405b8c=new Date(),_0x13ae62=('0'+_0x405b8c[_0x4ab3b3(0x1cc)]())['slice'](-0x2)+'.'+('0'+(_0x405b8c[_0x4ab3b3(0x237)]()+0x1))['slice'](-0x2)+'.'+_0x405b8c[_0x4ab3b3(0x1b9)](),_0x135bda=_0x5284c5[_0x4ab3b3(0x1d9)],_0x5d840f=_0x5284c5[_0x4ab3b3(0x21e)],_0x4f1638=_0x135bda+'\x20'+_0x5d840f,_0x3f5614=_0x45546c['content'][_0x4ab3b3(0x225)](_0x4ab3b3(0x1ac),_0x4ab3b3(0x240))[_0x4ab3b3(0x225)](_0x4ab3b3(0x1f8),_0x4f1638)[_0x4ab3b3(0x225)]('{orderId}',_0x5284c5['orderId']),_0x2f579b=_0x361b0c['content'][_0x4ab3b3(0x225)](_0x4ab3b3(0x1f8),_0x4f1638),_0x31afdd=[],_0x3f6e7a=yield _0x924bc3[_0x4ab3b3(0x1e8)]({'select':[_0x4ab3b3(0x1ef)],'where':{'userGroupId':0x1}});for(const _0x13f730 of _0x3f6e7a){const _0x102cd5=_0x13f730[_0x4ab3b3(0x1ef)];_0x31afdd[_0x4ab3b3(0x1bb)](_0x102cd5);}const _0x57dcc3=env_1[_0x4ab3b3(0x195)][_0x4ab3b3(0x231)],_0x46b3af=yield _0x40d855[_0x4ab3b3(0x1f9)](),_0x3f93f7=yield _0x543308['find']({'where':{'orderId':_0x5284c5[_0x4ab3b3(0x22b)]}});if(_0x3f93f7[_0x4ab3b3(0x189)]>0x0)for(const _0x273b8b of _0x3f93f7){const _0x89e2d7=[],_0x54bcec=yield _0x54bf05[_0x4ab3b3(0x1f9)]({'where':{'vendorId':_0x273b8b['vendorId']}}),_0x349456=yield _0x16a486['findOne']({'where':{'id':_0x54bcec[_0x4ab3b3(0x1e4)]}}),_0x376e3c=_0x45546c[_0x4ab3b3(0x229)][_0x4ab3b3(0x225)]('{adminname}',_0x54bcec[_0x4ab3b3(0x1ab)])[_0x4ab3b3(0x225)](_0x4ab3b3(0x1f8),_0x4f1638)[_0x4ab3b3(0x225)]('{orderId}',_0x5284c5[_0x4ab3b3(0x22b)]),_0x2479a6=yield _0x357675['find']({'where':{'vendorInvoiceId':_0x273b8b[_0x4ab3b3(0x1ec)]}});for(const _0x41dba9 of _0x2479a6){const _0x20cc5e=yield _0x1fc0da['findOne']({'where':{'orderProductId':_0x41dba9[_0x4ab3b3(0x1ff)]},'select':['orderProductId','orderId','productId','name',_0x4ab3b3(0x1db),_0x4ab3b3(0x1e2),_0x4ab3b3(0x1bd),_0x4ab3b3(0x176),_0x4ab3b3(0x23b),_0x4ab3b3(0x239),_0x4ab3b3(0x1de),_0x4ab3b3(0x17a),'orderProductPrefixId']}),_0xa1c6d4=yield _0x4d6666[_0x4ab3b3(0x1f9)](_0x20cc5e['productId']);let _0x137fdb;_0x137fdb=yield _0x56725d[_0x4ab3b3(0x1f9)]({'where':{'productId':_0x20cc5e[_0x4ab3b3(0x19e)],'defaultImage':0x1}}),_0xa1c6d4[_0x4ab3b3(0x198)]=_0x20cc5e,_0xa1c6d4[_0x4ab3b3(0x1f1)]=_0x137fdb,_0x89e2d7[_0x4ab3b3(0x1bb)](_0xa1c6d4);}const _0x12ab74=env_1[_0x4ab3b3(0x195)][_0x4ab3b3(0x1a5)],_0x20775b={};_0x20775b['logo']=_0x46b3af,_0x20775b[_0x4ab3b3(0x1cd)]=_0x376e3c,_0x20775b[_0x4ab3b3(0x1c7)]=_0x12ab74,_0x20775b[_0x4ab3b3(0x220)]=_0x89e2d7,_0x20775b[_0x4ab3b3(0x1c2)]=_0x13ae62,_0x20775b['orderData']=_0x5284c5,mail_services_1['MAILService']['sendMail'](_0x20775b,_0x349456[_0x4ab3b3(0x1b4)],_0x45546c[_0x4ab3b3(0x1d7)],![],![],'');}const _0x5f2c14={};_0x5f2c14[_0x4ab3b3(0x1eb)]=_0x46b3af,_0x5f2c14['redirectUrl']=_0x57dcc3,_0x5f2c14[_0x4ab3b3(0x1cd)]=_0x3f5614,_0x5f2c14[_0x4ab3b3(0x220)]=_0x462382,_0x5f2c14[_0x4ab3b3(0x1c2)]=_0x13ae62,_0x5f2c14[_0x4ab3b3(0x1ce)]=_0x5284c5,mail_services_1[_0x4ab3b3(0x22c)][_0x4ab3b3(0x1c0)](_0x5f2c14,_0x31afdd,_0x45546c[_0x4ab3b3(0x1d7)],![],![],'');const _0x12248e=env_1['env'][_0x4ab3b3(0x233)],_0x3e0ed1={};_0x3e0ed1['logo']=_0x46b3af,_0x3e0ed1[_0x4ab3b3(0x1cd)]=_0x2f579b,_0x3e0ed1[_0x4ab3b3(0x1ce)]=_0x5284c5,_0x3e0ed1['productDetailData']=_0x462382,_0x3e0ed1[_0x4ab3b3(0x1c2)]=_0x13ae62,_0x3e0ed1[_0x4ab3b3(0x1c7)]=_0x12248e,mail_services_1[_0x4ab3b3(0x22c)][_0x4ab3b3(0x1c0)](_0x3e0ed1,_0x5284c5,_0x361b0c[_0x4ab3b3(0x1d7)],![],![],'');}else{const _0x1c5286=new StripeOrderTransaction_1['StripeOrderTransaction']();_0x1c5286[_0x4ab3b3(0x230)]='FAILURE',_0x1c5286[_0x4ab3b3(0x216)]=_0x2777a6['id'],_0x1c5286[_0x4ab3b3(0x214)]=JSON[_0x4ab3b3(0x23f)](_0x5f13a2),_0x1c5286[_0x4ab3b3(0x21f)]=0x2,yield _0x1237aa[_0x4ab3b3(0x1ee)](_0x1c5286),_0x2777a6['status']=0x2,yield _0x5c222a[_0x4ab3b3(0x1ee)](_0x2777a6),_0x5284c5[_0x4ab3b3(0x1ca)]=0x2,_0x5284c5[_0x4ab3b3(0x21f)]=0x2,yield _0x324fe4['save'](_0x5284c5);}_0xe35a9e[_0x4ab3b3(0x1f2)](_0x4ab3b3(0x1d1),{'title':'Stripe','storeUrl':env_1[_0x4ab3b3(0x195)][_0x4ab3b3(0x211)],'layout':_0x4ab3b3(0x206)});}});}}exports[a1006_0x585ecd(0x17f)]=StripeController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StripeController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../models/Plugin");
+const Order_1 = require("../../api/core/models/Order");
+const OrderProduct_1 = require("../../api/core/models/OrderProduct");
+const ProductModel_1 = require("../../api/core/models/ProductModel");
+const StripeOrder_1 = require("../models/StripeOrder");
+const StripeOrderTransaction_1 = require("../models/StripeOrderTransaction");
+const EmailTemplate_1 = require("../../api/core/models/EmailTemplate");
+const ProductImage_1 = require("../../api/core/models/ProductImage");
+const Setting_1 = require("../../api/core/models/Setting");
+const Currency_1 = require("../../api/core/models/Currency");
+const User_1 = require("../../api/core/models/User");
+const mail_services_1 = require("../../auth/mail.services");
+const env_1 = require("../../env");
+const Payment_1 = require("../../api/core/models/Payment");
+const PaymentItems_1 = require("../../api/core/models/PaymentItems");
+const VendorPayment_1 = require("../../api/core/models/VendorPayment");
+const VendorProducts_1 = require("../../api/core/models/VendorProducts");
+const Vendor_1 = require("../../api/core/models/Vendor");
+const VendorGlobalSettings_1 = require("../../api/core/models/VendorGlobalSettings");
+const VendorOrders_1 = require("../../api/core/models/VendorOrders");
+const moment = require("moment");
+const VendorInvoice_1 = require("../../api/core/models/VendorInvoice");
+const VendorInvoiceItem_1 = require("../../api/core/models/VendorInvoiceItem");
+const Customer_1 = require("../../api/core/models/Customer");
+const VendorGroup_1 = require("../../api/core/models/VendorGroup");
+class StripeController {
+    constructor() {
+        // ---
+    }
+    index(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'stripe',
+                },
+            });
+            if (!pluginDetail) {
+                req.flash('errors', ['You not install this plugin. or problem in installation']);
+                return res.redirect('home');
+            }
+            const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            res.render('pages/stripe/form', {
+                title: 'Stripe',
+                path: '../stripe/form',
+                clientId: paypalAdditionalInfo.clientId ? paypalAdditionalInfo.clientId : '',
+                clientSecret: paypalAdditionalInfo.clientSecret ? paypalAdditionalInfo.clientSecret : '',
+                isTest: paypalAdditionalInfo.isTest,
+            });
+        });
+    }
+    updateSettings(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            req.assert('clientId', 'Client Id cannot be blank').notEmpty();
+            req.assert('clientSecret', 'Client Secret cannot be blank').notEmpty();
+            const errors = req.validationErrors();
+            if (errors) {
+                req.flash('errors', errors);
+                return res.redirect('paypal');
+            }
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'stripe',
+                },
+            });
+            if (!pluginDetail) {
+                req.flash('errors', ['You not install this plugin. or problem in installation']);
+                return res.redirect('home');
+            }
+            const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            paypalAdditionalInfo.clientId = req.body.clientId;
+            paypalAdditionalInfo.clientSecret = req.body.clientSecret;
+            paypalAdditionalInfo.isTest = req.body.isTest;
+            pluginDetail.pluginAdditionalInfo = JSON.stringify(paypalAdditionalInfo);
+            const saveResponse = yield pluginRepository.save(pluginDetail);
+            if (saveResponse) {
+                req.flash('success', ['Stripe settings updated successfully']);
+                return res.redirect('home');
+            }
+            req.flash('errors', ['Unable to update the stripe settings']);
+            return res.redirect('home');
+        });
+    }
+    process(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderPrefixId = req.params.orderPrefixId;
+            const orderRepository = (0, typeorm_1.getManager)().getRepository(Order_1.Order);
+            const orderProductRepository = (0, typeorm_1.getManager)().getRepository(OrderProduct_1.OrderProduct);
+            const productRepository = (0, typeorm_1.getManager)().getRepository(ProductModel_1.Product);
+            const stripeOrderRepository = (0, typeorm_1.getManager)().getRepository(StripeOrder_1.StripeOrder);
+            const order = yield orderRepository.findOne({ where: { orderPrefixId }, select: ['orderId'] });
+            const orderId = order.orderId;
+            const orderDetail = yield orderRepository.findOne(orderId);
+            if (!orderDetail) {
+                req.flash('errors', ['Invalid Order Id']);
+                return res.redirect('error');
+            }
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'stripe',
+                },
+            });
+            if (!pluginDetail) {
+                req.flash('errors', ['You not install this plugin. or problem in installation']);
+                return res.redirect('home');
+            }
+            const stripeAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            const product = yield orderProductRepository.find({ where: { orderId: orderDetail.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'discountedAmount', 'discountAmount'] });
+            const productVal = product.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const productDetail = yield productRepository.findOne({
+                    where: { productId: value.productId },
+                    select: ['name', 'quantity', 'minimumQuantity', 'image',
+                        'imagePath', 'shipping', 'price', 'dateAvailable', 'amount', 'rating', 'discount', 'isActive'],
+                });
+                const tempVal = value;
+                tempVal.productDetail = productDetail;
+                return tempVal;
+            }));
+            const results = yield Promise.all(productVal);
+            const items = [];
+            results.forEach((element) => {
+                const price = (Math.round(element.total * 100) / +element.quantity);
+                items.push({
+                    name: element.name,
+                    amount: price.toString(),
+                    currency: orderDetail.currencyCode,
+                    quantity: element.quantity,
+                });
+            });
+            const orderAmount = Math.round(orderDetail.total * 100);
+            const create_payment_json = {
+                payment_method_types: ['card'],
+                line_items: items,
+                success_url: env_1.env.baseUrl + stripeAdditionalInfo.successRoute + '?session_id={CHECKOUT_SESSION_ID}',
+                cancel_url: env_1.env.baseUrl + stripeAdditionalInfo.cancelRoute,
+            };
+            const stripe = require('stripe')(stripeAdditionalInfo.clientSecret);
+            const session = yield stripe.checkout.sessions.create(create_payment_json);
+            if (session) {
+                const stripeParams = new StripeOrder_1.StripeOrder();
+                stripeParams.orderId = orderDetail.orderId;
+                stripeParams.stripeRefId = session.id;
+                stripeParams.total = orderAmount.toString();
+                stripeParams.status = 0;
+                yield stripeOrderRepository.save(stripeParams);
+                res.render('pages/stripe/process', {
+                    title: 'stripe',
+                    sessionId: session.id,
+                    publishKey: stripeAdditionalInfo.clientId,
+                    layout: 'pages/layouts/auth',
+                });
+            }
+        });
+    }
+    cancel(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            res.render('pages/razorpay/cancel', {
+                title: 'Razorpay',
+                layout: 'pages/layouts/auth',
+                storeUrl: env_1.env.cancelUrl,
+            });
+        });
+    }
+    success(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const queryParams = req.query;
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const EmailTemplateRepository = (0, typeorm_1.getManager)().getRepository(EmailTemplate_1.EmailTemplate);
+            const orderProductRepository = (0, typeorm_1.getManager)().getRepository(OrderProduct_1.OrderProduct);
+            const productImageRepository = (0, typeorm_1.getManager)().getRepository(ProductImage_1.ProductImage);
+            const productRepository = (0, typeorm_1.getManager)().getRepository(ProductModel_1.Product);
+            const settingRepository = (0, typeorm_1.getManager)().getRepository(Setting_1.Settings);
+            const currencyRepository = (0, typeorm_1.getManager)().getRepository(Currency_1.Currency);
+            const userRepository = (0, typeorm_1.getManager)().getRepository(User_1.User);
+            const stripeOrderRepository = (0, typeorm_1.getManager)().getRepository(StripeOrder_1.StripeOrder);
+            const stripeOrderTransactionRepository = (0, typeorm_1.getManager)().getRepository(StripeOrderTransaction_1.StripeOrderTransaction);
+            const paymentRepository = (0, typeorm_1.getManager)().getRepository(Payment_1.Payment);
+            const paymentItemsRepository = (0, typeorm_1.getManager)().getRepository(PaymentItems_1.PaymentItems);
+            const vendorPaymentRepository = (0, typeorm_1.getManager)().getRepository(VendorPayment_1.VendorPayment);
+            const VendorProductsRepository = (0, typeorm_1.getManager)().getRepository(VendorProducts_1.VendorProducts);
+            const VendorRepository = (0, typeorm_1.getManager)().getRepository(Vendor_1.Vendor);
+            const VendorGroupRepository = (0, typeorm_1.getManager)().getRepository(VendorGroup_1.VendorGroup);
+            const VendorGlobalSettingRepository = (0, typeorm_1.getManager)().getRepository(VendorGlobalSettings_1.VendorGlobalSetting);
+            const VendorOrdersRepository = (0, typeorm_1.getManager)().getRepository(VendorOrders_1.VendorOrders);
+            const VendorInvoiceRepository = (0, typeorm_1.getManager)().getRepository(VendorInvoice_1.VendorInvoice);
+            const VendorInvoiceItemRepository = (0, typeorm_1.getManager)().getRepository(VendorInvoiceItem_1.VendorInvoiceItem);
+            const CustomerRepository = (0, typeorm_1.getManager)().getRepository(Customer_1.Customer);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'stripe',
+                },
+            });
+            if (!pluginDetail) {
+                req.flash('errors', ['You not install this plugin. or problem in installation']);
+                return res.redirect('home');
+            }
+            const stripeAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            const stripe = require('stripe')(stripeAdditionalInfo.clientSecret);
+            const session = yield stripe.checkout.sessions.retrieve(queryParams.session_id);
+            if (session) {
+                const paymentDetails = yield stripe.paymentIntents.retrieve(session.payment_intent);
+                const stripeDetail = yield stripeOrderRepository.findOne({
+                    where: {
+                        stripeRefId: queryParams.session_id,
+                    },
+                });
+                if (!stripeDetail) {
+                    req.flash('errors', ['Invalid Payment Details']);
+                    return res.redirect('error');
+                }
+                const orderRepository = (0, typeorm_1.getManager)().getRepository(Order_1.Order);
+                const orderData = yield orderRepository.findOne(stripeDetail.orderId);
+                if (!orderData) {
+                    req.flash('errors', ['Invalid Order Id']);
+                    return res.redirect('error');
+                }
+                const setting = yield settingRepository.findOne();
+                const currencySymbol = yield currencyRepository.findOne(setting.storeCurrencyId);
+                orderData.currencyRight = currencySymbol.symbolRight;
+                orderData.currencyLeft = currencySymbol.symbolLeft;
+                const orderStatus = yield orderRepository.findOne({ where: { orderId: stripeDetail.orderId, paymentFlag: 1 } });
+                if (orderStatus) {
+                    req.flash('errors', ['Already Paid for this Order']);
+                    return res.redirect('error');
+                }
+                const intvalue = Math.round(paymentDetails.amount_received);
+                if (paymentDetails.status === 'succeeded' && intvalue === +stripeDetail.total) {
+                    const transactionsParams = new StripeOrderTransaction_1.StripeOrderTransaction();
+                    transactionsParams.paymentType = paymentDetails.method;
+                    transactionsParams.stripeOrderId = stripeDetail.id;
+                    transactionsParams.paymentData = JSON.stringify(paymentDetails);
+                    transactionsParams.paymentStatus = 1;
+                    yield stripeOrderTransactionRepository.save(transactionsParams);
+                    stripeDetail.status = 1;
+                    yield stripeOrderRepository.save(stripeDetail);
+                    orderData.paymentFlag = 1;
+                    orderData.paymentStatus = 1;
+                    orderData.paymentProcess = 1;
+                    orderData.paymentType = 'stripe';
+                    orderData.paymentDetails = paymentDetails.id;
+                    yield orderRepository.save(orderData);
+                    const paymentParams = new Payment_1.Payment();
+                    paymentParams.orderId = stripeDetail.orderId;
+                    const date = new Date();
+                    paymentParams.paidDate = moment(date).format('YYYY-MM-DD HH:mm:ss');
+                    paymentParams.paymentNumber = paymentDetails.id;
+                    paymentParams.paymentAmount = orderData.total;
+                    paymentParams.paymentInformation = JSON.stringify(paymentDetails);
+                    const payments = yield paymentRepository.save(paymentParams);
+                    const productDetailData = [];
+                    let i;
+                    const orderProduct = yield orderProductRepository.find({ where: { orderId: orderData.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'discountedAmount', 'discountAmount', 'couponDiscountAmount', 'basePrice'] });
+                    for (i = 0; i < orderProduct.length; i++) {
+                        const paymentItems = new PaymentItems_1.PaymentItems();
+                        paymentItems.paymentId = payments.paymentId;
+                        paymentItems.orderProductId = orderProduct[i].orderProductId;
+                        paymentItems.totalAmount = orderProduct[i].total;
+                        paymentItems.productName = orderProduct[i].name;
+                        paymentItems.productQuantity = orderProduct[i].quantity;
+                        paymentItems.productPrice = orderProduct[i].productPrice;
+                        const payItem = yield paymentItemsRepository.save(paymentItems);
+                        const vendorProduct = yield VendorProductsRepository.findOne({ where: { productId: orderProduct[i].productId } });
+                        if (vendorProduct) {
+                            const vendor = yield VendorRepository.findOne({ where: { vendorId: vendorProduct.vendorId } });
+                            const vendorGroup = yield VendorGroupRepository.findOne({
+                                where: {
+                                    groupId: vendor.vendorGroupId,
+                                },
+                            });
+                            const vendorOrders = yield VendorOrdersRepository.findOne({ where: { vendorId: vendorProduct.vendorId, orderProductId: orderProduct[i].orderProductId } });
+                            const vendorPayments = new VendorPayment_1.VendorPayment();
+                            vendorPayments.vendorId = vendorProduct.vendorId;
+                            vendorPayments.paymentItemId = payItem.paymentItemId;
+                            vendorPayments.vendorOrderId = vendorOrders.vendorOrderId;
+                            vendorPayments.amount = orderProduct[i].total;
+                            if (vendorProduct.vendorProductCommission > 0) {
+                                vendorPayments.commissionAmount = vendorPayments.amount * (vendorProduct.vendorProductCommission / 100);
+                            }
+                            else if (+vendorGroup.commission > 0) {
+                                vendorPayments.commissionAmount = vendorPayments.amount * (+vendorGroup.commission / 100);
+                            }
+                            else {
+                                const defaultCommission = yield VendorGlobalSettingRepository.findOne();
+                                const defCommission = defaultCommission.defaultCommission;
+                                vendorPayments.commissionAmount = vendorPayments.amount * (defCommission / 100);
+                            }
+                            yield vendorPaymentRepository.save(vendorPayments);
+                        }
+                        const productInformation = yield orderProductRepository.findOne({ where: { orderProductId: orderProduct[i].orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'discountedAmount', 'discountAmount', 'basePrice', 'skuName', 'taxValue', 'taxType', 'orderProductPrefixId', 'couponDiscountAmount', 'basePrice'] });
+                        const productImageData = yield productRepository.findOne(productInformation.productId);
+                        const productImageDetail = yield productImageRepository.findOne({ where: { productId: productInformation.productId } });
+                        productImageData.productInformationData = productInformation;
+                        productImageData.productImage = productImageDetail;
+                        productDetailData.push(productImageData);
+                    }
+                    const emailContent = yield EmailTemplateRepository.findOne(5);
+                    const adminEmailContent = yield EmailTemplateRepository.findOne(6);
+                    const nowDate = new Date();
+                    const today = ('0' + nowDate.getDate()).slice(-2) + '.' + ('0' + (nowDate.getMonth() + 1)).slice(-2) + '.' + nowDate.getFullYear();
+                    const customerFirstName = orderData.shippingFirstname;
+                    const customerLastName = orderData.shippingLastname;
+                    const customerName = customerFirstName + ' ' + customerLastName;
+                    const adminMessage = adminEmailContent.content.replace('{adminname}', 'Admin').replace('{name}', customerName).replace('{orderId}', orderData.orderId);
+                    const customerMessage = emailContent.content.replace('{name}', customerName);
+                    const adminId = [];
+                    const adminUser = yield userRepository.find({ select: ['username'], where: { userGroupId: 1 } });
+                    for (const user of adminUser) {
+                        const val = user.username;
+                        adminId.push(val);
+                    }
+                    const adminRedirectUrl = env_1.env.adminRedirectUrl;
+                    const logo = yield settingRepository.findOne();
+                    const vendorInvoice = yield VendorInvoiceRepository.find({ where: { orderId: orderData.orderId } });
+                    if (vendorInvoice.length > 0) {
+                        for (const vendInvoice of vendorInvoice) {
+                            const vendorProductDetailData = [];
+                            const vendor = yield VendorRepository.findOne({ where: { vendorId: vendInvoice.vendorId } });
+                            const customer = yield CustomerRepository.findOne({ where: { id: vendor.customerId } });
+                            const vendorMessage = adminEmailContent.content.replace('{adminname}', vendor.companyName).replace('{name}', customerName).replace('{orderId}', orderData.orderId);
+                            const vendorInvoiceItem = yield VendorInvoiceItemRepository.find({ where: { vendorInvoiceId: vendInvoice.vendorInvoiceId } });
+                            for (const vendInvoiceItem of vendorInvoiceItem) {
+                                const vendorProductInformation = yield orderProductRepository.findOne({ where: { orderProductId: vendInvoiceItem.orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'skuName', 'taxValue', 'taxType', 'orderProductPrefixId'] });
+                                const vendorProductImageData = yield productRepository.findOne(vendorProductInformation.productId);
+                                let vendorProductImageDetail;
+                                vendorProductImageDetail = yield productImageRepository.findOne({ where: { productId: vendorProductInformation.productId, defaultImage: 1 } });
+                                vendorProductImageData.productInformationData = vendorProductInformation;
+                                vendorProductImageData.productImage = vendorProductImageDetail;
+                                vendorProductDetailData.push(vendorProductImageData);
+                            }
+                            const vendorRedirectUrl = env_1.env.vendorRedirectUrl;
+                            const mailContent = {};
+                            mailContent.logo = logo;
+                            mailContent.emailContent = vendorMessage;
+                            mailContent.redirectUrl = vendorRedirectUrl;
+                            mailContent.productDetailData = vendorProductDetailData;
+                            mailContent.today = today;
+                            mailContent.orderData = orderData;
+                            mail_services_1.MAILService.sendMail(mailContent, customer.email, adminEmailContent.subject, false, false, '');
+                        }
+                    }
+                    const adminMailContents = {};
+                    adminMailContents.logo = logo;
+                    adminMailContents.redirectUrl = adminRedirectUrl;
+                    adminMailContents.emailContent = adminMessage;
+                    adminMailContents.productDetailData = productDetailData;
+                    adminMailContents.today = today;
+                    adminMailContents.orderData = orderData;
+                    mail_services_1.MAILService.sendMail(adminMailContents, adminId, adminEmailContent.subject, false, false, '');
+                    const storeRedirectUrl = env_1.env.storeRedirectUrl;
+                    const mailContents = {};
+                    mailContents.logo = logo;
+                    mailContents.emailContent = customerMessage;
+                    mailContents.orderData = orderData;
+                    mailContents.productDetailData = productDetailData;
+                    mailContents.today = today;
+                    mailContents.redirectUrl = storeRedirectUrl;
+                    mail_services_1.MAILService.sendMail(mailContents, orderData, emailContent.subject, false, false, '');
+                }
+                else {
+                    const transactionsParams = new StripeOrderTransaction_1.StripeOrderTransaction();
+                    transactionsParams.paymentType = 'FAILURE';
+                    transactionsParams.stripeOrderId = stripeDetail.id;
+                    transactionsParams.paymentData = JSON.stringify(paymentDetails);
+                    transactionsParams.paymentStatus = 2;
+                    yield stripeOrderTransactionRepository.save(transactionsParams);
+                    stripeDetail.status = 2;
+                    yield stripeOrderRepository.save(stripeDetail);
+                    orderData.paymentFlag = 2;
+                    orderData.paymentStatus = 2;
+                    yield orderRepository.save(orderData);
+                }
+                res.render('pages/stripe/success', {
+                    title: 'Stripe',
+                    storeUrl: env_1.env.storeUrl,
+                    layout: 'pages/layouts/auth',
+                });
+            }
+        });
+    }
+}
+exports.StripeController = StripeController;
+//# sourceMappingURL=StripeController.js.map

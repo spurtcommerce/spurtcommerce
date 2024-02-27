@@ -1,1 +1,50 @@
-'use strict';const a237_0x41eb54=a237_0x4aff;(function(_0x8fa550,_0x5aaad0){const _0x373369=a237_0x4aff,_0xd36563=_0x8fa550();while(!![]){try{const _0x978e8b=-parseInt(_0x373369(0xeb))/0x1+parseInt(_0x373369(0xda))/0x2+parseInt(_0x373369(0xdc))/0x3*(-parseInt(_0x373369(0xea))/0x4)+parseInt(_0x373369(0xe9))/0x5*(parseInt(_0x373369(0xe5))/0x6)+parseInt(_0x373369(0xe0))/0x7*(-parseInt(_0x373369(0xde))/0x8)+-parseInt(_0x373369(0xdd))/0x9*(-parseInt(_0x373369(0xed))/0xa)+-parseInt(_0x373369(0xe2))/0xb;if(_0x978e8b===_0x5aaad0)break;else _0xd36563['push'](_0xd36563['shift']());}catch(_0x3399a5){_0xd36563['push'](_0xd36563['shift']());}}}(a237_0x3edd,0x90eec));Object[a237_0x41eb54(0xe8)](exports,'__esModule',{'value':!![]}),exports[a237_0x41eb54(0xdf)]=void 0x0;const tslib_1=require('tslib');require(a237_0x41eb54(0xe4));const class_validator_1=require(a237_0x41eb54(0xf0));class CreateWidget{}function a237_0x4aff(_0x5227b7,_0x49938a){const _0x3edda7=a237_0x3edd();return a237_0x4aff=function(_0x4affcc,_0x1180e3){_0x4affcc=_0x4affcc-0xd7;let _0x2e74d7=_0x3edda7[_0x4affcc];return _0x2e74d7;},a237_0x4aff(_0x5227b7,_0x49938a);}function a237_0x3edd(){const _0x1cae0e=['prototype','defineProperty','5QbojGE','240xaMfmf','930170udtDCH','metaTagTitle','11435020xzEBtW','__decorate','IsNotEmpty','class-validator','widgetLinkType','metaTagKeyword','title\x20should\x20be\x20maximum\x20255\x20characters','design:type','2226186UdaQFt','MaxLength','22875GUTGLy','9GLyZLe','72bAUuVp','CreateWidget','35749dkUuVe','title','8522877JPOzqK','metatagTitle\x20should\x20be\x20maximum\x2070\x20characters','reflect-metadata','3272934Colbrn','__metadata'];a237_0x3edd=function(){return _0x1cae0e;};return a237_0x3edd();}tslib_1[a237_0x41eb54(0xee)]([(0x0,class_validator_1[a237_0x41eb54(0xef)])(),(0x0,class_validator_1[a237_0x41eb54(0xdb)])(0xff,{'message':a237_0x41eb54(0xd8)}),tslib_1[a237_0x41eb54(0xe6)](a237_0x41eb54(0xd9),String)],CreateWidget[a237_0x41eb54(0xe7)],a237_0x41eb54(0xe1),void 0x0),tslib_1[a237_0x41eb54(0xee)]([(0x0,class_validator_1[a237_0x41eb54(0xef)])(),tslib_1[a237_0x41eb54(0xe6)](a237_0x41eb54(0xd9),Number)],CreateWidget[a237_0x41eb54(0xe7)],a237_0x41eb54(0xf1),void 0x0),tslib_1[a237_0x41eb54(0xee)]([(0x0,class_validator_1[a237_0x41eb54(0xdb)])(0x46,{'message':a237_0x41eb54(0xe3)}),tslib_1[a237_0x41eb54(0xe6)](a237_0x41eb54(0xd9),String)],CreateWidget['prototype'],a237_0x41eb54(0xec),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a237_0x41eb54(0xdb)])(0xa0,{'message':'metaTagDescription\x20should\x20be\x20maximum\x20160\x20character'}),tslib_1['__metadata']('design:type',String)],CreateWidget[a237_0x41eb54(0xe7)],'metaTagDescription',void 0x0),tslib_1[a237_0x41eb54(0xee)]([(0x0,class_validator_1[a237_0x41eb54(0xdb)])(0xff,{'message':'metaTagKeyword\x20should\x20be\x20maximum\x20255\x20character'}),tslib_1[a237_0x41eb54(0xe6)](a237_0x41eb54(0xd9),String)],CreateWidget['prototype'],a237_0x41eb54(0xd7),void 0x0),tslib_1[a237_0x41eb54(0xee)]([(0x0,class_validator_1[a237_0x41eb54(0xef)])(),tslib_1[a237_0x41eb54(0xe6)]('design:type',Number)],CreateWidget[a237_0x41eb54(0xe7)],'status',void 0x0),exports[a237_0x41eb54(0xdf)]=CreateWidget;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateWidget = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateWidget {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'title should be maximum 255 characters',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateWidget.prototype, "title", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateWidget.prototype, "widgetLinkType", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(70, {
+        message: 'metatagTitle should be maximum 70 characters',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateWidget.prototype, "metaTagTitle", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(160, {
+        message: 'metaTagDescription should be maximum 160 character',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateWidget.prototype, "metaTagDescription", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'metaTagKeyword should be maximum 255 character',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateWidget.prototype, "metaTagKeyword", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateWidget.prototype, "status", void 0);
+exports.CreateWidget = CreateWidget;
+//# sourceMappingURL=CreateWidgetRequest.js.map

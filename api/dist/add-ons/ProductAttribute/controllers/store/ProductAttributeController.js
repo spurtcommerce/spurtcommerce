@@ -1,1 +1,92 @@
-'use strict';const a68_0x57faec=a68_0x59e8;(function(_0x3ecffa,_0x3a6c9a){const _0x270d74=a68_0x59e8,_0x295404=_0x3ecffa();while(!![]){try{const _0x3080c2=parseInt(_0x270d74(0xf8))/0x1+-parseInt(_0x270d74(0x102))/0x2*(parseInt(_0x270d74(0xfc))/0x3)+-parseInt(_0x270d74(0x106))/0x4+-parseInt(_0x270d74(0xfe))/0x5*(-parseInt(_0x270d74(0xe7))/0x6)+-parseInt(_0x270d74(0x10b))/0x7*(parseInt(_0x270d74(0xfa))/0x8)+parseInt(_0x270d74(0xec))/0x9+parseInt(_0x270d74(0x100))/0xa;if(_0x3080c2===_0x3a6c9a)break;else _0x295404['push'](_0x295404['shift']());}catch(_0x531b1e){_0x295404['push'](_0x295404['shift']());}}}(a68_0x2353,0x95874));Object['defineProperty'](exports,a68_0x57faec(0xf4),{'value':!![]}),exports['StoreProductAttributesController']=void 0x0;const tslib_1=require(a68_0x57faec(0x10e));function a68_0x2353(){const _0x37724c=['ProductService','36lnFubg','productDetail','880zkDEUM','design:type','6238770LPwqeE','attributeGroupService','83618lCXYTc','Res','../../services/AttributeGroupService','productService','3942488NIUapq','all','../../services/AttributeService','__metadata','../../../../src/api/core/middlewares/AddonValidationMiddleware','14xSESlL','attributeService','/store-product-attributes','tslib','UseBefore','CheckAddonMiddleware','then','design:paramtypes','/product-detail/:id','attributeName','productId','16854WExypG','JsonController','__decorate','StoreProductAttributesController','text','7758801hglohH','productAttributeService','findOne','productAttributes','send','AttributeService','AttributeGroupService','status','__esModule','groupId','attributeId','__param','502898zOYDlW','attributeGroupName','1533800YTNETB'];a68_0x2353=function(){return _0x37724c;};return a68_0x2353();}require('reflect-metadata');const routing_controllers_1=require('routing-controllers'),ProductService_1=require('../../../../src/api/core/services/ProductService'),AttributeGroupService_1=require(a68_0x57faec(0x104)),ProductAttributeService_1=require('../../services/ProductAttributeService'),AttributeService_1=require(a68_0x57faec(0x108)),class_transformer_1=require('class-transformer'),AddonValidationMiddleware_1=require(a68_0x57faec(0x10a));let StoreProductAttributesController=class StoreProductAttributesController{constructor(_0x4468ec,_0xc46cab,_0x472db8,_0x31af48){const _0x227e83=a68_0x57faec;this['productService']=_0x4468ec,this[_0x227e83(0x101)]=_0xc46cab,this[_0x227e83(0x10c)]=_0x472db8,this[_0x227e83(0xed)]=_0x31af48;}['productDetail'](_0x2680ca,_0x425ca9){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5826e0=a68_0x59e8,_0x3b1eb7=yield this[_0x5826e0(0x105)][_0x5826e0(0xee)]({'where':{'productId':_0x2680ca}}),_0x55a0d4=(0x0,class_transformer_1['instanceToPlain'])(_0x3b1eb7);_0x55a0d4[_0x5826e0(0xef)]=yield this[_0x5826e0(0xed)]['findAll']({'select':['id',_0x5826e0(0xf6),_0x5826e0(0xeb)],'where':{'productId':_0x3b1eb7[_0x5826e0(0xe6)]}})[_0x5826e0(0x111)](_0x693cf3=>{const _0x553ded=_0x5826e0,_0x466dc3=_0x693cf3['map'](_0x1a30e6=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x10ba5d=a68_0x59e8,_0x24d4ae=yield this[_0x10ba5d(0x10c)][_0x10ba5d(0xee)]({'attributeId':_0x1a30e6['attributeId']}),_0x1fc8c8=yield this[_0x10ba5d(0x101)][_0x10ba5d(0xee)]({'groupId':_0x24d4ae[_0x10ba5d(0xf5)]}),_0x4872ed=_0x1a30e6;return _0x24d4ae!==undefined&&_0x1fc8c8!==undefined?(_0x4872ed[_0x10ba5d(0xe5)]=_0x24d4ae['attributeName'],_0x4872ed['attributeGroupName']=_0x1fc8c8[_0x10ba5d(0xf9)]):_0x4872ed['attributeName']='',_0x4872ed;})),_0x8ad30d=Promise[_0x553ded(0x107)](_0x466dc3);return _0x8ad30d;});const _0x4ea4f2={'status':0x1,'message':'Successfully\x20get\x20productDetail','data':_0x55a0d4};return _0x425ca9[_0x5826e0(0xf3)](0xc8)[_0x5826e0(0xf0)](_0x4ea4f2);});}};function a68_0x59e8(_0xaf11fc,_0x3384b5){const _0x23530d=a68_0x2353();return a68_0x59e8=function(_0x59e83f,_0x25c17e){_0x59e83f=_0x59e83f-0xe4;let _0x47112c=_0x23530d[_0x59e83f];return _0x47112c;},a68_0x59e8(_0xaf11fc,_0x3384b5);}tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(a68_0x57faec(0xe4)),tslib_1[a68_0x57faec(0xf7)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1[a68_0x57faec(0xf7)](0x1,(0x0,routing_controllers_1[a68_0x57faec(0x103)])()),tslib_1['__metadata'](a68_0x57faec(0xff),Function),tslib_1['__metadata'](a68_0x57faec(0x112),[Number,Object]),tslib_1[a68_0x57faec(0x109)]('design:returntype',Promise)],StoreProductAttributesController['prototype'],a68_0x57faec(0xfd),null),StoreProductAttributesController=tslib_1[a68_0x57faec(0xe9)]([(0x0,routing_controllers_1[a68_0x57faec(0x10f)])(AddonValidationMiddleware_1[a68_0x57faec(0x110)]),(0x0,routing_controllers_1[a68_0x57faec(0xe8)])(a68_0x57faec(0x10d)),tslib_1[a68_0x57faec(0x109)](a68_0x57faec(0x112),[ProductService_1[a68_0x57faec(0xfb)],AttributeGroupService_1[a68_0x57faec(0xf2)],AttributeService_1[a68_0x57faec(0xf1)],ProductAttributeService_1['ProductAttributeService']])],StoreProductAttributesController),exports[a68_0x57faec(0xea)]=StoreProductAttributesController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StoreProductAttributesController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+// import { ProductService } from '../../../../src/api/core/services/ProductService';
+// import { AttributeGroupService } from '../../services/AttributeGroupService';
+// import { AttributeService } from '../../services/AttributeService';
+// import { CheckAddonMiddleware } from '../../../../src/api/core/middlewares/AddonValidationMiddleware';
+const ProductToSpecificationService_1 = require("../../services/ProductToSpecificationService");
+const ProductService_1 = require("../../../../src/api/core/services/ProductService");
+// @UseBefore(CheckAddonMiddleware)
+let StoreProductAttributesController = class StoreProductAttributesController {
+    constructor(productToSpecService, productService) {
+        this.productToSpecService = productToSpecService;
+        this.productService = productService;
+        // ----
+    }
+    // Product Attributes Product Detail API
+    /**
+     * @api {get} /api/store-product-attributes/product-detail/:id Product Attributes Product Detail API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product Detail",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/store-product-attributes/product-detail/:id
+     * @apiErrorExample {json} productDetail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productDetail(productId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const product = yield this.productService.findOne({
+                where: {
+                    productId,
+                },
+            });
+            if (!product) {
+                return response.status(200).send({
+                    status: 0,
+                    message: `Invalid product Id`,
+                });
+            }
+            const productSpec = yield this.productToSpecService.find({
+                where: {
+                    productId: product.productId,
+                },
+                relations: [
+                    'attributeGroups',
+                    'productSpecToAttrGroup',
+                    'productSpecToAttrGroup.attributes',
+                    'productSpecToAttrGroup.productSpecAttrGrouptoAttr',
+                    'productSpecToAttrGroup.productSpecAttrGrouptoAttr.attributeValues',
+                    'productSpecToAttrGroup.productSpecAttrGrouptoAttr.productSpecAttrGrpAttrToAttrVal',
+                ],
+            });
+            const productSpecification = this.productToSpecService.getAttributeSimplified(productSpec);
+            return response.status(200).send({
+                status: 1,
+                message: `Successfully Got product Detail...!`,
+                data: Object.assign(Object.assign({}, product), { productSpecification }),
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/product/:id'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreProductAttributesController.prototype, "productDetail", null);
+StoreProductAttributesController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/store-product-attributes'),
+    tslib_1.__metadata("design:paramtypes", [ProductToSpecificationService_1.ProductToSpecificationService,
+        ProductService_1.ProductService])
+], StoreProductAttributesController);
+exports.StoreProductAttributesController = StoreProductAttributesController;
+//# sourceMappingURL=ProductAttributeController.js.map

@@ -1,1 +1,34 @@
-'use strict';const a355_0x17b8a8=a355_0x4968;(function(_0x3d4685,_0x7e44be){const _0x4037b5=a355_0x4968,_0x3fd3af=_0x3d4685();while(!![]){try{const _0x4c4410=-parseInt(_0x4037b5(0x115))/0x1+parseInt(_0x4037b5(0x10b))/0x2+-parseInt(_0x4037b5(0x101))/0x3+-parseInt(_0x4037b5(0x109))/0x4*(-parseInt(_0x4037b5(0x10e))/0x5)+-parseInt(_0x4037b5(0x117))/0x6*(parseInt(_0x4037b5(0x112))/0x7)+parseInt(_0x4037b5(0x113))/0x8+parseInt(_0x4037b5(0x100))/0x9*(parseInt(_0x4037b5(0x10a))/0xa);if(_0x4c4410===_0x7e44be)break;else _0x3fd3af['push'](_0x3fd3af['shift']());}catch(_0x2f4dce){_0x3fd3af['push'](_0x3fd3af['shift']());}}}(a355_0x50c3,0xeba0f));function a355_0x50c3(){const _0x31f840=['2824875Hckicx','output','log','Logger','tslib','LogMiddleware','morgan','info','4748XOWrsv','13533270bSflie','101704RQPrqM','bind','env','1810IDrumo','default','__esModule','use','282702ejUeRA','4691080uOapvU','routing-controllers','695631AfeBaa','before','174XRGnaO','18VCSljM'];a355_0x50c3=function(){return _0x31f840;};return a355_0x50c3();}Object['defineProperty'](exports,a355_0x17b8a8(0x110),{'value':!![]}),exports[a355_0x17b8a8(0x106)]=void 0x0;const tslib_1=require(a355_0x17b8a8(0x105)),morgan_1=tslib_1['__importDefault'](require(a355_0x17b8a8(0x107))),routing_controllers_1=require(a355_0x17b8a8(0x114)),env_1=require('../../../env'),logger_1=require('../../../lib/logger');function a355_0x4968(_0x5ae9e8,_0x421b26){const _0x50c33e=a355_0x50c3();return a355_0x4968=function(_0x49682e,_0x38bc53){_0x49682e=_0x49682e-0x100;let _0x487189=_0x50c33e[_0x49682e];return _0x487189;},a355_0x4968(_0x5ae9e8,_0x421b26);}let LogMiddleware=class LogMiddleware{constructor(){const _0x499c2a=a355_0x17b8a8;this[_0x499c2a(0x103)]=new logger_1[(_0x499c2a(0x104))](__dirname);}[a355_0x17b8a8(0x111)](_0x3022f0,_0x4d8837,_0x3230f3){const _0x2f698c=a355_0x17b8a8;return(0x0,morgan_1[_0x2f698c(0x10f)])(env_1[_0x2f698c(0x10d)][_0x2f698c(0x103)][_0x2f698c(0x102)],{'stream':{'write':this[_0x2f698c(0x103)][_0x2f698c(0x108)][_0x2f698c(0x10c)](this[_0x2f698c(0x103)])}})(_0x3022f0,_0x4d8837,_0x3230f3);}};LogMiddleware=tslib_1['__decorate']([(0x0,routing_controllers_1['Middleware'])({'type':a355_0x17b8a8(0x116)})],LogMiddleware),exports[a355_0x17b8a8(0x106)]=LogMiddleware;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LogMiddleware = void 0;
+const tslib_1 = require("tslib");
+const morgan_1 = tslib_1.__importDefault(require("morgan"));
+const routing_controllers_1 = require("routing-controllers");
+const env_1 = require("../../../env");
+const logger_1 = require("../../../lib/logger");
+let LogMiddleware = class LogMiddleware {
+    constructor() {
+        this.log = new logger_1.Logger(__dirname);
+    }
+    use(req, res, next) {
+        return (0, morgan_1.default)(env_1.env.log.output, {
+            stream: {
+                write: this.log.info.bind(this.log),
+            },
+        })(req, res, next);
+    }
+};
+LogMiddleware = tslib_1.__decorate([
+    (0, routing_controllers_1.Middleware)({ type: 'before' })
+], LogMiddleware);
+exports.LogMiddleware = LogMiddleware;
+//# sourceMappingURL=LogMiddleware.js.map

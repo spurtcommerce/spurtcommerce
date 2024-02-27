@@ -1,1 +1,27 @@
-'use strict';const a993_0x2b5326=a993_0x4f57;(function(_0x5cc016,_0x5eecc2){const _0x3b2165=a993_0x4f57,_0x47f09e=_0x5cc016();while(!![]){try{const _0x299d28=-parseInt(_0x3b2165(0x182))/0x1+parseInt(_0x3b2165(0x189))/0x2+-parseInt(_0x3b2165(0x18b))/0x3+-parseInt(_0x3b2165(0x18c))/0x4*(-parseInt(_0x3b2165(0x18d))/0x5)+parseInt(_0x3b2165(0x188))/0x6+parseInt(_0x3b2165(0x175))/0x7*(parseInt(_0x3b2165(0x180))/0x8)+parseInt(_0x3b2165(0x186))/0x9;if(_0x299d28===_0x5eecc2)break;else _0x47f09e['push'](_0x47f09e['shift']());}catch(_0x5b4409){_0x47f09e['push'](_0x47f09e['shift']());}}}(a993_0x5400,0xd9b7a));function a993_0x4f57(_0x3b6c61,_0x632d89){const _0x5400ca=a993_0x5400();return a993_0x4f57=function(_0x4f571b,_0x4ec87e){_0x4f571b=_0x4f571b-0x174;let _0x3d3ddb=_0x5400ca[_0x4f571b];return _0x3d3ddb;},a993_0x4f57(_0x3b6c61,_0x632d89);}Object[a993_0x2b5326(0x17d)](exports,a993_0x2b5326(0x187),{'value':!![]}),exports['publicLoader']=void 0x0;const tslib_1=require('tslib'),express=tslib_1['__importStar'](require('express')),path=tslib_1[a993_0x2b5326(0x176)](require(a993_0x2b5326(0x17c))),serve_favicon_1=tslib_1[a993_0x2b5326(0x174)](require(a993_0x2b5326(0x183))),publicLoader=_0x5c121f=>{const _0x4f598c=a993_0x2b5326;if(_0x5c121f){const _0x3efc39=_0x5c121f[_0x4f598c(0x181)](_0x4f598c(0x17b));_0x3efc39[_0x4f598c(0x185)](express[_0x4f598c(0x177)](path[_0x4f598c(0x17e)](__dirname,'..',_0x4f598c(0x178)),{'maxAge':0x758fac300}))['use'](express[_0x4f598c(0x177)](path[_0x4f598c(0x17e)](__dirname,_0x4f598c(0x179),_0x4f598c(0x17a)),{'maxAge':0x758fac300}))['use']((0x0,serve_favicon_1[_0x4f598c(0x17f)])(path[_0x4f598c(0x17e)](__dirname,'..',_0x4f598c(0x178),_0x4f598c(0x18a))));}};exports[a993_0x2b5326(0x184)]=publicLoader;function a993_0x5400(){const _0x447c77=['30PUwSbF','__importDefault','11753OpxGEu','__importStar','static','public','../../','views/assets','express_app','path','defineProperty','join','default','4520cdmGJO','getData','1514809jaLEfB','serve-favicon','publicLoader','use','926730RRlwaG','__esModule','4059180ZDtZLW','839568mAvUGZ','favicon.ico','2383326IKVlkQ','702068jFpBIg'];a993_0x5400=function(){return _0x447c77;};return a993_0x5400();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.publicLoader = void 0;
+const tslib_1 = require("tslib");
+const express = tslib_1.__importStar(require("express"));
+const path = tslib_1.__importStar(require("path"));
+const serve_favicon_1 = tslib_1.__importDefault(require("serve-favicon"));
+const publicLoader = (settings) => {
+    if (settings) {
+        const expressApp = settings.getData('express_app');
+        expressApp
+            // Serve static filles like images from the public folder
+            .use(express.static(path.join(__dirname, '..', 'public'), { maxAge: 31557600000 }))
+            .use(express.static(path.join(__dirname, '../../../', 'views/assets'), { maxAge: 31557600000 }))
+            // A favicon is a visual cue that client software, like browsers, use to identify a site
+            .use((0, serve_favicon_1.default)(path.join(__dirname, '..', 'public', 'favicon.ico')));
+    }
+};
+exports.publicLoader = publicLoader;
+//# sourceMappingURL=publicLoader.js.map

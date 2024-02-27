@@ -1,1 +1,589 @@
-'use strict';function a156_0x4623(_0x585fdd,_0x2c98fc){const _0x5da310=a156_0x5da3();return a156_0x4623=function(_0x462336,_0x2adddb){_0x462336=_0x462336-0x144;let _0x3676c1=_0x5da310[_0x462336];return _0x3676c1;},a156_0x4623(_0x585fdd,_0x2c98fc);}function a156_0x5da3(){const _0x328b78=['Invalid\x20question\x20Id.','__esModule','all','Product.productSlug\x20as\x20productSlug','__awaiter','../../services/ProductAnswerService','instanceToPlain','type','delete','customerDetail','avatar','Successfully\x20updated\x20your\x20question.','pricerefer','update-question-status','Invalid\x20ProductId','QueryParam','DESC','design:paramtypes','admin','userService','delete-product-question','createdDate','status','Put','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20AS\x20productDiscount','Successfully\x20get\x20productDetail','avatarPath','tslib','CheckAddonMiddleware','update-product-question','customerId','Param','Body','userId','__decorate','12038580yyZmvo','Product.createdDate','1936492nRpGXg','(SELECT\x20pi.container_name\x20as\x20containerName\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20containerName','BodyParam','49uzrtRM','3259647txhBNp','questionproductList','routing-controllers','keyword','(SELECT\x20count(pq.question_id)\x20as\x20QuestionCount\x20FROM\x20product_question\x20as\x20pq\x20WHERE\x20pq.product_id\x20=\x20Product.productId)\x20as\x20questionCount','../../services/ProductQuestionService','Product.productId\x20as\x20productId','Successfully\x20got\x20product\x20lists\x20count.','findOne','prototype','(SELECT\x20pi.image\x20as\x20image\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20image','questionList','62BwryQu','(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','../../models/ProductAnswer','ProductQuestionController','where','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20modifiedPrice','defineProperty','ProductQuestion','productSpecial','questionId','productDiscount','customerService','Product.name\x20as\x20name','like','../../../../src/api/core/services/VendorService','87726xTuIuF','productDetail','limit','list','__param','Product.sku\x20as\x20sku','__metadata','productService','referenceId','Product.isActive\x20as\x20isActive','../../../../src/api/core/services/UserService','./requests/CreateQuestionRequest','Successfully\x20deleted\x20the\x20Question.','defaultAnswer','answer','class-transformer','productQuestionService','Product.price\x20as\x20price','Updated\x20Your\x20Question\x20Status','10PcoxzN','productAnswerService','32681627JfYstR','design:returntype','postedBy','Successfully\x20got\x20the\x20complete\x20product\x20list.','JsonController','ProductAnswerService','listByQueryBuilder','updateQuestion','design:type','city','1305568ptSqCZ','Successfully\x20get\x20count','VendorService','answerCount','productId','Successfully\x20get\x20all\x20question\x20List','/admin-product-question','../../../../src/api/core/middlewares/AddonValidationMiddleware','Unable\x20to\x20create\x20question.','adminuserDetail','32626WJjEdo','Unable\x20to\x20update\x20your\x20question.','ProductQuestionService','create','product-question-list','firstName','question','Get','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20AS\x20productSpecial','/product-detail-question-list/:id','send','CreateQuestion','Product.skuId\x20as\x20skuId','Product.name','offset','vendorService','../../../../src/api/core/services/CustomerService','Unable\x20to\x20delete\x20the\x20Question.','findAll','Authorized','isActive','flag','ProductService','reflect-metadata','updateQuestionStatus','/product-question-list','(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20\x20pd2.date_end\x20>=\x20CURDATE()))\x20','then','Res','9FtmOsb','user','Req','../../../../src/api/core/services/ProductService','Product.quantity\x20as\x20quantity','ProductAnswer','deleteQuestion'];a156_0x5da3=function(){return _0x328b78;};return a156_0x5da3();}const a156_0x309669=a156_0x4623;(function(_0x5beb62,_0x242d7d){const _0x8bd7c7=a156_0x4623,_0x3b260b=_0x5beb62();while(!![]){try{const _0x5a9aea=parseInt(_0x8bd7c7(0x17e))/0x1*(parseInt(_0x8bd7c7(0x146))/0x2)+-parseInt(_0x8bd7c7(0x1cb))/0x3+-parseInt(_0x8bd7c7(0x1c7))/0x4*(parseInt(_0x8bd7c7(0x168))/0x5)+parseInt(_0x8bd7c7(0x155))/0x6*(parseInt(_0x8bd7c7(0x1ca))/0x7)+-parseInt(_0x8bd7c7(0x174))/0x8+-parseInt(_0x8bd7c7(0x19b))/0x9*(parseInt(_0x8bd7c7(0x1c5))/0xa)+parseInt(_0x8bd7c7(0x16a))/0xb;if(_0x5a9aea===_0x242d7d)break;else _0x3b260b['push'](_0x3b260b['shift']());}catch(_0x542e07){_0x3b260b['push'](_0x3b260b['shift']());}}}(a156_0x5da3,0xa1db1));Object[a156_0x309669(0x14c)](exports,a156_0x309669(0x1a3),{'value':!![]}),exports[a156_0x309669(0x149)]=void 0x0;const tslib_1=require(a156_0x309669(0x1bd));require(a156_0x309669(0x195));const routing_controllers_1=require(a156_0x309669(0x1cd)),CreateQuestionRequest_1=require(a156_0x309669(0x160)),ProductQuestionService_1=require(a156_0x309669(0x1d0)),ProductService_1=require(a156_0x309669(0x19e)),ProductAnswerService_1=require(a156_0x309669(0x1a7)),CustomerService_1=require(a156_0x309669(0x18e)),UserService_1=require(a156_0x309669(0x15f)),ProductQuestion_1=require('../../models/ProductQuestion'),ProductAnswer_1=require(a156_0x309669(0x148)),class_transformer_1=require(a156_0x309669(0x164)),AddonValidationMiddleware_1=require(a156_0x309669(0x17b)),VendorService_1=require(a156_0x309669(0x154));let ProductQuestionController=class ProductQuestionController{constructor(_0x17f60d,_0x2db201,_0x561dd2,_0x373e64,_0x4a2f4d,_0x42ff86){const _0x11b701=a156_0x309669;this[_0x11b701(0x165)]=_0x17f60d,this[_0x11b701(0x151)]=_0x2db201,this[_0x11b701(0x1b5)]=_0x561dd2,this['productAnswerService']=_0x373e64,this[_0x11b701(0x18d)]=_0x4a2f4d,this[_0x11b701(0x15c)]=_0x42ff86;}['createQuestion'](_0x4db72d,_0x48235d,_0x14e2da){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2b9d7d=a156_0x4623,_0x560079=new ProductQuestion_1[(_0x2b9d7d(0x14d))]();_0x560079[_0x2b9d7d(0x184)]=_0x4db72d['question'],_0x560079['productId']=_0x4db72d[_0x2b9d7d(0x178)],_0x560079[_0x2b9d7d(0x1a9)]=0x1,_0x560079['referenceId']=_0x48235d[_0x2b9d7d(0x19c)]['userId'],_0x560079[_0x2b9d7d(0x192)]=0x1;const _0x1f9859=yield this[_0x2b9d7d(0x165)][_0x2b9d7d(0x181)](_0x560079);if(_0x4db72d['answer']){const _0x348010=new ProductAnswer_1[(_0x2b9d7d(0x1a0))]();_0x348010[_0x2b9d7d(0x163)]=_0x4db72d[_0x2b9d7d(0x163)],_0x348010[_0x2b9d7d(0x14f)]=+_0x1f9859[_0x2b9d7d(0x14f)],_0x348010[_0x2b9d7d(0x1a9)]=0x1,_0x348010['referenceId']=_0x48235d[_0x2b9d7d(0x19c)][_0x2b9d7d(0x1c3)],_0x348010[_0x2b9d7d(0x162)]=0x1,_0x348010[_0x2b9d7d(0x192)]=0x1,yield this[_0x2b9d7d(0x169)][_0x2b9d7d(0x181)](_0x348010);}if(_0x1f9859!==undefined){const _0x223518={'status':0x1,'message':'Question\x20Posted\x20Successfully.','data':_0x1f9859};return _0x14e2da['status'](0xc8)[_0x2b9d7d(0x188)](_0x223518);}else{const _0x347f84={'status':0x0,'message':_0x2b9d7d(0x17c)};return _0x14e2da['status'](0x190)[_0x2b9d7d(0x188)](_0x347f84);}});}[a156_0x309669(0x171)](_0x37a2c3,_0x32a5c5,_0x4aa93c){const _0x90c181=a156_0x309669;return tslib_1[_0x90c181(0x1a6)](this,void 0x0,void 0x0,function*(){const _0x5d3bb1=_0x90c181,_0x4739d6=yield this[_0x5d3bb1(0x165)]['findOne']({'where':{'questionId':_0x37a2c3}});if(!_0x4739d6){const _0x5f0ac4={'status':0x0,'message':'Invalid\x20Question\x20Id.'};return _0x4aa93c[_0x5d3bb1(0x1b8)](0x190)['send'](_0x5f0ac4);}_0x4739d6[_0x5d3bb1(0x184)]=_0x32a5c5;const _0x13b567=yield this['productQuestionService'][_0x5d3bb1(0x181)](_0x4739d6);if(_0x13b567){const _0x347982={'status':0x1,'message':_0x5d3bb1(0x1ad),'data':_0x13b567};return _0x4aa93c[_0x5d3bb1(0x1b8)](0xc8)[_0x5d3bb1(0x188)](_0x347982);}else{const _0x4d9e00={'status':0x0,'message':_0x5d3bb1(0x17f)};return _0x4aa93c[_0x5d3bb1(0x1b8)](0x190)['send'](_0x4d9e00);}});}[a156_0x309669(0x196)](_0x343ddd,_0x1ab698,_0x4df359){const _0x2f98a8=a156_0x309669;return tslib_1[_0x2f98a8(0x1a6)](this,void 0x0,void 0x0,function*(){const _0x415a78=_0x2f98a8,_0x58c2e3=yield this[_0x415a78(0x165)][_0x415a78(0x1d3)]({'where':{'questionId':_0x343ddd}});if(!_0x58c2e3){const _0x2c11f7={'status':0x0,'message':'Invalid\x20Question\x20Id.'};return _0x4df359[_0x415a78(0x1b8)](0x190)[_0x415a78(0x188)](_0x2c11f7);}_0x58c2e3[_0x415a78(0x192)]=_0x1ab698;const _0x3f39ad=yield this[_0x415a78(0x165)][_0x415a78(0x181)](_0x58c2e3);if(_0x3f39ad){const _0x2f2141={'status':0x1,'message':_0x415a78(0x167),'data':_0x3f39ad};return _0x4df359[_0x415a78(0x1b8)](0xc8)[_0x415a78(0x188)](_0x2f2141);}else{const _0x24c83e={'status':0x0,'message':'Unable\x20to\x20update\x20your\x20question\x20status.'};return _0x4df359[_0x415a78(0x1b8)](0x190)['send'](_0x24c83e);}});}[a156_0x309669(0x1a1)](_0x2c8aab,_0x5317bb,_0x584caa){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x34a282=a156_0x4623,_0x13ba09=yield this[_0x34a282(0x165)]['findOne']({'where':{'questionId':_0x2c8aab}});if(!_0x13ba09){const _0x23f174={'status':0x0,'message':_0x34a282(0x1a2)};return _0x5317bb[_0x34a282(0x1b8)](0x190)[_0x34a282(0x188)](_0x23f174);}const _0x12eee7=yield this['productQuestionService'][_0x34a282(0x1aa)](_0x13ba09);if(_0x12eee7){const _0xbba21e={'status':0x1,'message':_0x34a282(0x161)};return _0x5317bb['status'](0xc8)[_0x34a282(0x188)](_0xbba21e);}else{const _0x1a28c3={'status':0x0,'message':_0x34a282(0x18f)};return _0x5317bb[_0x34a282(0x1b8)](0x190)[_0x34a282(0x188)](_0x1a28c3);}});}[a156_0x309669(0x145)](_0x42889e,_0x17c81b,_0x5b0945,_0x5373e6,_0x589479,_0x55fafc){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x18c78e=a156_0x4623,_0x82c091=yield this[_0x18c78e(0x15c)][_0x18c78e(0x1d3)]({'where':{'productId':_0x5373e6}});if(!_0x82c091){const _0x4225cf={'status':0x1,'message':_0x18c78e(0x1b0)};return _0x55fafc[_0x18c78e(0x1b8)](0x190)[_0x18c78e(0x188)](_0x4225cf);}const _0x4f239b=[_0x18c78e(0x14f),_0x18c78e(0x178),_0x18c78e(0x184),_0x18c78e(0x15d),_0x18c78e(0x1a9),_0x18c78e(0x192)],_0x4593f3=[],_0x18aa78=[{'name':_0x18c78e(0x178),'op':_0x18c78e(0x14a),'value':_0x5373e6},{'name':'question','op':_0x18c78e(0x153),'value':_0x5b0945}],_0x2b0801=yield this[_0x18c78e(0x165)]['list'](_0x42889e,_0x17c81b,_0x4f239b,_0x18aa78,_0x4593f3,_0x589479);if(_0x589479)return _0x55fafc[_0x18c78e(0x1b8)](0xc8)[_0x18c78e(0x188)]({'status':0x1,'message':_0x18c78e(0x175),'data':_0x2b0801});const _0x1196a2=_0x2b0801['map'](_0xf61b90=>tslib_1[_0x18c78e(0x1a6)](this,void 0x0,void 0x0,function*(){const _0x34ca66=_0x18c78e,_0x268fcb=_0xf61b90['type'],_0x5b2582=_0xf61b90;if(_0x268fcb&&_0x268fcb===0x3){const _0x434a36=yield this[_0x34ca66(0x18d)]['findOne']({'where':{'vendorId':_0xf61b90[_0x34ca66(0x15d)]}}),_0xa06151=yield this[_0x34ca66(0x151)][_0x34ca66(0x1d3)]({'select':['id',_0x34ca66(0x183),_0x34ca66(0x1ac),_0x34ca66(0x1bc),_0x34ca66(0x173)],'where':{'id':_0x434a36[_0x34ca66(0x1c0)]}});_0xa06151!==undefined&&(_0x5b2582[_0x34ca66(0x16c)]=_0xa06151);}else{if(_0x268fcb&&_0x268fcb===0x2){const _0x541770=yield this[_0x34ca66(0x151)][_0x34ca66(0x1d3)]({'select':['id','firstName',_0x34ca66(0x1ac),_0x34ca66(0x1bc),_0x34ca66(0x173)],'where':{'id':_0xf61b90[_0x34ca66(0x15d)]}});_0x541770!==undefined&&(_0x5b2582['postedBy']=_0x541770);}else{if(_0x268fcb&&_0x268fcb===0x1){const _0xdb839=yield this['userService']['findOne']({'select':[_0x34ca66(0x1c3),_0x34ca66(0x183),_0x34ca66(0x1ac),_0x34ca66(0x1bc)],'where':{'userId':_0xf61b90[_0x34ca66(0x15d)]}});_0xdb839!==undefined&&(_0x5b2582[_0x34ca66(0x16c)]=_0xdb839);}}}const _0x3e599b=[{'name':_0x34ca66(0x14f),'op':_0x34ca66(0x14a),'value':_0xf61b90['questionId']}],_0x43a081=yield this[_0x34ca66(0x169)][_0x34ca66(0x158)](0x0,0x0,[],_0x3e599b,[],0x1);return _0x5b2582[_0x34ca66(0x177)]=_0x43a081,_0x5b2582;})),_0x507310=yield Promise[_0x18c78e(0x1a4)](_0x1196a2),_0x349cc7={'status':0x1,'message':_0x18c78e(0x179),'data':{'productDetail':_0x82c091,'questionList':_0x507310}};return _0x55fafc[_0x18c78e(0x1b8)](0xc8)[_0x18c78e(0x188)](_0x349cc7);});}[a156_0x309669(0x1cc)](_0x5bae3d,_0x4462e8,_0x32aac1,_0x2071a1,_0x1afac9){const _0x476c23=a156_0x309669;return tslib_1[_0x476c23(0x1a6)](this,void 0x0,void 0x0,function*(){const _0x244f86=_0x476c23,_0x5c2ad3=[_0x244f86(0x1d1),_0x244f86(0x15a),_0x244f86(0x152),_0x244f86(0x19f),_0x244f86(0x166),_0x244f86(0x18a),_0x244f86(0x1a5),_0x244f86(0x15e),_0x244f86(0x144),_0x244f86(0x1c8),'(SELECT\x20pi.default_image\x20as\x20defaultImage\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20defaultImage','(SELECT\x20sku.sku_name\x20as\x20sku\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20sku','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20price',_0x244f86(0x14b),_0x244f86(0x198)+_0x244f86(0x1ba),_0x244f86(0x147)+'\x20'+_0x244f86(0x186),_0x244f86(0x1cf)],_0x40f89d=[];_0x32aac1&&_0x32aac1!==''&&_0x40f89d['push']({'name':[_0x244f86(0x18b)],'value':_0x32aac1});const _0x13fe2d=[{'name':_0x244f86(0x1c6),'order':_0x244f86(0x1b2)}],_0x2fbece=yield this['productService'][_0x244f86(0x170)](_0x5bae3d,_0x4462e8,_0x5c2ad3,[],_0x40f89d,[],[],_0x13fe2d,![],!![]);if(_0x2071a1){const _0x79776e=yield this[_0x244f86(0x15c)]['listByQueryBuilder'](_0x5bae3d,_0x4462e8,_0x5c2ad3,[],_0x40f89d,[],[],_0x13fe2d,!![],!![]);return _0x1afac9['status'](0xc8)[_0x244f86(0x188)]({'status':0x1,'message':_0x244f86(0x1d2),'data':_0x79776e});}const _0x42413f=_0x2fbece['map'](_0xa6eb10=>tslib_1[_0x244f86(0x1a6)](this,void 0x0,void 0x0,function*(){const _0x2f2b1d=_0x244f86,_0x26fbf9=_0xa6eb10;if(_0xa6eb10[_0x2f2b1d(0x14e)]!==null)_0x26fbf9['pricerefer']=_0xa6eb10[_0x2f2b1d(0x14e)],_0x26fbf9[_0x2f2b1d(0x193)]=0x1;else _0xa6eb10[_0x2f2b1d(0x150)]!==null?(_0x26fbf9[_0x2f2b1d(0x1ae)]=_0xa6eb10['productDiscount'],_0x26fbf9[_0x2f2b1d(0x193)]=0x0):(_0x26fbf9[_0x2f2b1d(0x1ae)]='',_0x26fbf9[_0x2f2b1d(0x193)]='');return _0x26fbf9;})),_0x1eb23e=yield Promise[_0x244f86(0x1a4)](_0x42413f),_0x2713af={'status':0x1,'message':_0x244f86(0x16d),'data':(0x0,class_transformer_1[_0x244f86(0x1a8)])(_0x1eb23e)};return _0x1afac9['status'](0xc8)[_0x244f86(0x188)](_0x2713af);});}['productDetail'](_0x2fa49d,_0x5b4a51){const _0x505479=a156_0x309669;return tslib_1[_0x505479(0x1a6)](this,void 0x0,void 0x0,function*(){const _0x570179=_0x505479,_0x12354f=yield this[_0x570179(0x15c)][_0x570179(0x1d3)]({'where':{'productId':_0x2fa49d}}),_0x8c78b7=(0x0,class_transformer_1[_0x570179(0x1a8)])(_0x12354f);_0x8c78b7['questionList']=yield this[_0x570179(0x165)][_0x570179(0x190)]({'select':[_0x570179(0x14f),_0x570179(0x178),_0x570179(0x184),_0x570179(0x1a9),_0x570179(0x15d),_0x570179(0x1b7)],'where':{'productId':_0x12354f[_0x570179(0x178)]}})[_0x570179(0x199)](_0x5e26b3=>{const _0x269a79=_0x570179,_0xffd9e3=_0x5e26b3['map'](_0x3ec8bd=>tslib_1[_0x269a79(0x1a6)](this,void 0x0,void 0x0,function*(){const _0x337872=_0x269a79,_0x531f77=_0x3ec8bd[_0x337872(0x15d)],_0x56ce3d=_0x3ec8bd['type'],_0x4b715c=_0x3ec8bd;if(_0x56ce3d&&_0x56ce3d===0x2){const _0x600ce2=yield this[_0x337872(0x151)][_0x337872(0x1d3)]({'select':['id',_0x337872(0x183),'avatar',_0x337872(0x1bc),_0x337872(0x173)],'where':{'id':_0x531f77}});_0x600ce2!==undefined&&(_0x4b715c[_0x337872(0x1ab)]=_0x600ce2);}else{const _0x2e4187=yield this[_0x337872(0x1b5)]['findOne']({'select':['userId','firstName',_0x337872(0x1ac),'avatarPath'],'where':{'userId':_0x531f77}});_0x2e4187!==undefined&&(_0x4b715c[_0x337872(0x17d)]=_0x2e4187);}return _0x4b715c;})),_0x465845=Promise[_0x269a79(0x1a4)](_0xffd9e3);return _0x465845;});const _0x4e09dd={'status':0x1,'message':_0x570179(0x1bb),'data':_0x8c78b7};return _0x5b4a51[_0x570179(0x1b8)](0xc8)[_0x570179(0x188)](_0x4e09dd);});}};tslib_1[a156_0x309669(0x1c4)]([(0x0,routing_controllers_1['Post'])(),(0x0,routing_controllers_1[a156_0x309669(0x191)])([a156_0x309669(0x1b4),'create-product-question']),tslib_1[a156_0x309669(0x159)](0x0,(0x0,routing_controllers_1[a156_0x309669(0x1c2)])({'validate':!![]})),tslib_1[a156_0x309669(0x159)](0x1,(0x0,routing_controllers_1[a156_0x309669(0x19d)])()),tslib_1[a156_0x309669(0x159)](0x2,(0x0,routing_controllers_1[a156_0x309669(0x19a)])()),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x172),Function),tslib_1['__metadata'](a156_0x309669(0x1b3),[CreateQuestionRequest_1[a156_0x309669(0x189)],Object,Object]),tslib_1['__metadata'](a156_0x309669(0x16b),Promise)],ProductQuestionController[a156_0x309669(0x1d4)],'createQuestion',null),tslib_1[a156_0x309669(0x1c4)]([(0x0,routing_controllers_1[a156_0x309669(0x1b9)])('/update-question/:questionId'),(0x0,routing_controllers_1[a156_0x309669(0x191)])([a156_0x309669(0x1b4),a156_0x309669(0x1bf)]),tslib_1[a156_0x309669(0x159)](0x0,(0x0,routing_controllers_1['Param'])(a156_0x309669(0x14f))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a156_0x309669(0x1c9)])(a156_0x309669(0x184))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a156_0x309669(0x19a)])()),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x172),Function),tslib_1[a156_0x309669(0x15b)]('design:paramtypes',[Number,String,Object]),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x16b),Promise)],ProductQuestionController[a156_0x309669(0x1d4)],'updateQuestion',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a156_0x309669(0x1b9)])('/:questionId'),(0x0,routing_controllers_1[a156_0x309669(0x191)])([a156_0x309669(0x1b4),a156_0x309669(0x1af)]),tslib_1[a156_0x309669(0x159)](0x0,(0x0,routing_controllers_1[a156_0x309669(0x1c1)])(a156_0x309669(0x14f))),tslib_1[a156_0x309669(0x159)](0x1,(0x0,routing_controllers_1[a156_0x309669(0x1c9)])(a156_0x309669(0x1b8))),tslib_1[a156_0x309669(0x159)](0x2,(0x0,routing_controllers_1[a156_0x309669(0x19a)])()),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x172),Function),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x1b3),[Number,Number,Object]),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x16b),Promise)],ProductQuestionController[a156_0x309669(0x1d4)],a156_0x309669(0x196),null),tslib_1[a156_0x309669(0x1c4)]([(0x0,routing_controllers_1['Delete'])('/:questionId'),(0x0,routing_controllers_1[a156_0x309669(0x191)])([a156_0x309669(0x1b4),a156_0x309669(0x1b6)]),tslib_1[a156_0x309669(0x159)](0x0,(0x0,routing_controllers_1[a156_0x309669(0x1c1)])(a156_0x309669(0x14f))),tslib_1[a156_0x309669(0x159)](0x1,(0x0,routing_controllers_1[a156_0x309669(0x19a)])()),tslib_1[a156_0x309669(0x159)](0x2,(0x0,routing_controllers_1[a156_0x309669(0x19d)])()),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x172),Function),tslib_1['__metadata'](a156_0x309669(0x1b3),[Number,Object,Object]),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x16b),Promise)],ProductQuestionController[a156_0x309669(0x1d4)],a156_0x309669(0x1a1),null),tslib_1[a156_0x309669(0x1c4)]([(0x0,routing_controllers_1['Get'])(),(0x0,routing_controllers_1[a156_0x309669(0x191)])([a156_0x309669(0x1b4),a156_0x309669(0x182)]),tslib_1[a156_0x309669(0x159)](0x0,(0x0,routing_controllers_1['QueryParam'])(a156_0x309669(0x157))),tslib_1['__param'](0x1,(0x0,routing_controllers_1['QueryParam'])('offset')),tslib_1[a156_0x309669(0x159)](0x2,(0x0,routing_controllers_1[a156_0x309669(0x1b1)])(a156_0x309669(0x1ce))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a156_0x309669(0x1b1)])(a156_0x309669(0x178))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a156_0x309669(0x1b1)])('count')),tslib_1[a156_0x309669(0x159)](0x5,(0x0,routing_controllers_1[a156_0x309669(0x19a)])()),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x172),Function),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x1b3),[Number,Number,String,Number,Object,Object]),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x16b),Promise)],ProductQuestionController[a156_0x309669(0x1d4)],a156_0x309669(0x145),null),tslib_1[a156_0x309669(0x1c4)]([(0x0,routing_controllers_1['Get'])(a156_0x309669(0x197)),(0x0,routing_controllers_1[a156_0x309669(0x191)])([a156_0x309669(0x1b4)]),tslib_1[a156_0x309669(0x159)](0x0,(0x0,routing_controllers_1[a156_0x309669(0x1b1)])(a156_0x309669(0x157))),tslib_1[a156_0x309669(0x159)](0x1,(0x0,routing_controllers_1[a156_0x309669(0x1b1)])(a156_0x309669(0x18c))),tslib_1[a156_0x309669(0x159)](0x2,(0x0,routing_controllers_1[a156_0x309669(0x1b1)])('keyword')),tslib_1[a156_0x309669(0x159)](0x3,(0x0,routing_controllers_1[a156_0x309669(0x1b1)])('count')),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a156_0x309669(0x19a)])()),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x172),Function),tslib_1['__metadata'](a156_0x309669(0x1b3),[Number,Number,String,Object,Object]),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x16b),Promise)],ProductQuestionController[a156_0x309669(0x1d4)],'questionproductList',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a156_0x309669(0x185)])(a156_0x309669(0x187)),(0x0,routing_controllers_1[a156_0x309669(0x191)])(),tslib_1[a156_0x309669(0x159)](0x0,(0x0,routing_controllers_1[a156_0x309669(0x1c1)])('id')),tslib_1[a156_0x309669(0x159)](0x1,(0x0,routing_controllers_1[a156_0x309669(0x19a)])()),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x172),Function),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x1b3),[Number,Object]),tslib_1['__metadata'](a156_0x309669(0x16b),Promise)],ProductQuestionController['prototype'],a156_0x309669(0x156),null),ProductQuestionController=tslib_1[a156_0x309669(0x1c4)]([(0x0,routing_controllers_1['UseBefore'])(AddonValidationMiddleware_1[a156_0x309669(0x1be)]),(0x0,routing_controllers_1[a156_0x309669(0x16e)])(a156_0x309669(0x17a)),tslib_1[a156_0x309669(0x15b)](a156_0x309669(0x1b3),[ProductQuestionService_1[a156_0x309669(0x180)],CustomerService_1['CustomerService'],UserService_1['UserService'],ProductAnswerService_1[a156_0x309669(0x16f)],VendorService_1[a156_0x309669(0x176)],ProductService_1[a156_0x309669(0x194)]])],ProductQuestionController),exports[a156_0x309669(0x149)]=ProductQuestionController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductQuestionController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const CreateQuestionRequest_1 = require("./requests/CreateQuestionRequest");
+const ProductQuestionService_1 = require("../../services/ProductQuestionService");
+const ProductService_1 = require("../../../../src/api/core/services/ProductService");
+const ProductAnswerService_1 = require("../../services/ProductAnswerService");
+const CustomerService_1 = require("../../../../src/api/core/services/CustomerService");
+const UserService_1 = require("../../../../src/api/core/services/UserService");
+const ProductQuestion_1 = require("../../models/ProductQuestion");
+const ProductAnswer_1 = require("../../models/ProductAnswer");
+const class_transformer_1 = require("class-transformer");
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+const VendorService_1 = require("../../../../src/api/core/services/VendorService");
+let ProductQuestionController = class ProductQuestionController {
+    constructor(productQuestionService, customerService, userService, productAnswerService, vendorService, productService) {
+        this.productQuestionService = productQuestionService;
+        this.customerService = customerService;
+        this.userService = userService;
+        this.productAnswerService = productAnswerService;
+        this.vendorService = vendorService;
+        this.productService = productService;
+    }
+    // Create Question API
+    /**
+     * @api {post} /api/admin-product-question Add Question API
+     * @apiGroup Admin Product Question
+     * @apiParam (Request body) {String} question
+     * @apiParam (Request body) {Number} productId
+     * @apiParam (Request body) {String} [answer]
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "question" : "",
+     *      "productId" : "",
+     *      "answer" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Question created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-product-question
+     * @apiErrorExample {json} Question error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createQuestion(questionParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const question = new ProductQuestion_1.ProductQuestion();
+            question.question = questionParam.question;
+            question.productId = questionParam.productId;
+            question.type = 1;
+            question.referenceId = request.user.userId;
+            question.isActive = 1;
+            const questionSaved = yield this.productQuestionService.create(question);
+            if (questionParam.answer) {
+                const answer = new ProductAnswer_1.ProductAnswer();
+                answer.answer = questionParam.answer;
+                answer.questionId = +questionSaved.questionId;
+                answer.type = 1;
+                answer.referenceId = request.user.userId;
+                answer.defaultAnswer = 1;
+                answer.isActive = 1;
+                yield this.productAnswerService.create(answer);
+            }
+            if (questionSaved !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Question Posted Successfully.',
+                    data: questionSaved,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to create question.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update Question API
+    /**
+     * @api {put} /api/admin-product-question/update-question/:questionId Update Question API
+     * @apiGroup Admin Product Question
+     * @apiParam (Request body) {String} question question
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "question" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": " Question is updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-product-question/update-question/:questionId
+     * @apiErrorExample {json} updateQuestion error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateQuestion(questionId, question, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const findQuestion = yield this.productQuestionService.findOne({
+                where: {
+                    questionId,
+                },
+            });
+            if (!findQuestion) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Question Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            findQuestion.question = question;
+            const questionSave = yield this.productQuestionService.create(findQuestion);
+            if (questionSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated your question.',
+                    data: questionSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update your question.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update Question status API
+    /**
+     * @api {put} /api/admin-product-question/:questionId Update Question status API
+     * @apiGroup Admin Product Question
+     * @apiParam (Request body) {Number} status status should be 0 | 1
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": " status updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-product-question/:questionId
+     * @apiErrorExample {json} updateQuestion error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateQuestionStatus(questionId, status, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const question = yield this.productQuestionService.findOne({
+                where: {
+                    questionId,
+                },
+            });
+            if (!question) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Question Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            question.isActive = status;
+            const questionSave = yield this.productQuestionService.create(question);
+            if (questionSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Updated Your Question Status',
+                    data: questionSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update your question status.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // delete Question API
+    /**
+     * @api {delete} /api/admin-product-question/:questionId Delete Question API
+     * @apiGroup Admin Product Question
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Question.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-product-question/:questionId
+     * @apiErrorExample {json} Question error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteQuestion(questionId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const question = yield this.productQuestionService.findOne({
+                where: {
+                    questionId,
+                },
+            });
+            if (!question) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid question Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteQuestion = yield this.productQuestionService.delete(question);
+            if (deleteQuestion) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the Question.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the Question.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Question List API
+    /**
+     * @api {get} /api/admin-product-question Question List API
+     * @apiGroup Admin Product Question
+     * @apiParam (Request body) {Number} productId productId
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} count count in number or boolean
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *    "message": "Successfully get question list",
+     *    "data":"{}"
+     *    "status": "1"
+     *  }
+     * @apiSampleRequest /api/admin-product-question
+     * @apiErrorExample {json} question error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    questionList(limit, offset, keyword, productId, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const productDetail = yield this.productService.findOne({
+                where: { productId },
+            });
+            if (!productDetail) {
+                const errorResponse = {
+                    status: 1,
+                    message: 'Invalid ProductId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const select = ['questionId', 'productId', 'question', 'referenceId', 'type', 'isActive'];
+            const whereConditions = [];
+            const search = [
+                {
+                    name: 'productId',
+                    op: 'where',
+                    value: productId,
+                },
+                {
+                    name: 'question',
+                    op: 'like',
+                    value: keyword,
+                },
+            ];
+            const questionList = yield this.productQuestionService.list(limit, offset, select, search, whereConditions, count);
+            if (count) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully get count',
+                    data: questionList,
+                });
+            }
+            const promise = questionList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const type = result.type;
+                const temp = result;
+                if (type && type === 3) {
+                    const vendor = yield this.vendorService.findOne({ where: { vendorId: result.referenceId } });
+                    const customer = yield this.customerService.findOne({
+                        select: ['id', 'firstName', 'avatar', 'avatarPath', 'city'],
+                        where: { id: vendor.customerId },
+                    });
+                    if (customer !== undefined) {
+                        temp.postedBy = customer;
+                    }
+                }
+                else if (type && type === 2) {
+                    const customer = yield this.customerService.findOne({
+                        select: ['id', 'firstName', 'avatar', 'avatarPath', 'city'],
+                        where: { id: result.referenceId },
+                    });
+                    if (customer !== undefined) {
+                        temp.postedBy = customer;
+                    }
+                }
+                else if (type && type === 1) {
+                    const adminUser = yield this.userService.findOne({
+                        select: ['userId', 'firstName', 'avatar', 'avatarPath'],
+                        where: { userId: result.referenceId },
+                    });
+                    if (adminUser !== undefined) {
+                        temp.postedBy = adminUser;
+                    }
+                }
+                const searchQuestion = [
+                    {
+                        name: 'questionId',
+                        op: 'where',
+                        value: result.questionId,
+                    },
+                ];
+                const ansCount = yield this.productAnswerService.list(0, 0, [], searchQuestion, [], 1);
+                temp.answerCount = ansCount;
+                return temp;
+            }));
+            const value = yield Promise.all(promise);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get all question List',
+                data: {
+                    productDetail,
+                    questionList: value,
+                },
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Product Question List API
+    /**
+     * @api {get} /api/admin-product-question/product-question-list  Product Question List API
+     * @apiGroup Admin Product Question
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/admin-product-question/product-question-list
+     * @apiErrorExample {json} product question list error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    questionproductList(limit, offset, keyword, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'Product.productId as productId',
+                'Product.sku as sku',
+                'Product.name as name',
+                'Product.quantity as quantity',
+                'Product.price as price',
+                'Product.skuId as skuId',
+                'Product.productSlug as productSlug',
+                'Product.isActive as isActive',
+                '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as image',
+                '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
+                '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
+                '(SELECT sku.sku_name as sku FROM sku WHERE sku.id = skuId) as sku',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as modifiedPrice',
+                '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+                    ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
+                '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
+                '(SELECT count(pq.question_id) as QuestionCount FROM product_question as pq WHERE pq.product_id = Product.productId) as questionCount',
+            ];
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['Product.name'],
+                    value: keyword,
+                });
+            }
+            const sort = [{
+                    name: 'Product.createdDate',
+                    order: 'DESC',
+                }];
+            const productLists = yield this.productService.listByQueryBuilder(limit, offset, select, [], searchConditions, [], [], sort, false, true);
+            if (count) {
+                const productListCount = yield this.productService.listByQueryBuilder(limit, offset, select, [], searchConditions, [], [], sort, true, true);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got product lists count.',
+                    data: productListCount,
+                });
+            }
+            const productList = productLists.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                if (value.productSpecial !== null) {
+                    temp.pricerefer = value.productSpecial;
+                    temp.flag = 1;
+                }
+                else if (value.productDiscount !== null) {
+                    temp.pricerefer = value.productDiscount;
+                    temp.flag = 0;
+                }
+                else {
+                    temp.pricerefer = '';
+                    temp.flag = '';
+                }
+                return temp;
+            }));
+            const results = yield Promise.all(productList);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete product list.',
+                data: (0, class_transformer_1.instanceToPlain)(results),
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Product Detail API
+    /**
+     * @api {get} /api/admin-product-question/product-detail-question-list/:id Product Detail API
+     * @apiGroup Admin Product Question
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product Detail",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/admin-product-question/product-detail-question-list/:id
+     * @apiErrorExample {json} productDetail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productDetail(id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const productDetail = yield this.productService.findOne({
+                where: { productId: id },
+            });
+            const productDetails = (0, class_transformer_1.instanceToPlain)(productDetail);
+            productDetails.questionList = yield this.productQuestionService.findAll({
+                select: ['questionId', 'productId', 'question', 'type', 'referenceId', 'createdDate'],
+                where: { productId: productDetail.productId },
+            }).then((val) => {
+                const user = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const referenceId = value.referenceId;
+                    const type = value.type;
+                    const temp = value;
+                    if (type && type === 2) {
+                        const customer = yield this.customerService.findOne({
+                            select: ['id', 'firstName', 'avatar', 'avatarPath', 'city'],
+                            where: { id: referenceId },
+                        });
+                        if (customer !== undefined) {
+                            temp.customerDetail = customer;
+                        }
+                    }
+                    else {
+                        const adminUser = yield this.userService.findOne({
+                            select: ['userId', 'firstName', 'avatar', 'avatarPath'],
+                            where: { userId: referenceId },
+                        });
+                        if (adminUser !== undefined) {
+                            temp.adminuserDetail = adminUser;
+                        }
+                    }
+                    return temp;
+                }));
+                const resultData = Promise.all(user);
+                return resultData;
+            });
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get productDetail',
+                data: productDetails,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-product-question']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateQuestionRequest_1.CreateQuestion, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQuestionController.prototype, "createQuestion", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-question/:questionId'),
+    (0, routing_controllers_1.Authorized)(['admin', 'update-product-question']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('questionId')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('question')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQuestionController.prototype, "updateQuestion", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:questionId'),
+    (0, routing_controllers_1.Authorized)(['admin', 'update-question-status']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('questionId')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('status')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQuestionController.prototype, "updateQuestionStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/:questionId'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-product-question']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('questionId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQuestionController.prototype, "deleteQuestion", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'product-question-list']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('productId')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQuestionController.prototype, "questionList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/product-question-list'),
+    (0, routing_controllers_1.Authorized)(['admin']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQuestionController.prototype, "questionproductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/product-detail-question-list/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQuestionController.prototype, "productDetail", null);
+ProductQuestionController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/admin-product-question'),
+    tslib_1.__metadata("design:paramtypes", [ProductQuestionService_1.ProductQuestionService,
+        CustomerService_1.CustomerService,
+        UserService_1.UserService,
+        ProductAnswerService_1.ProductAnswerService,
+        VendorService_1.VendorService,
+        ProductService_1.ProductService])
+], ProductQuestionController);
+exports.ProductQuestionController = ProductQuestionController;
+//# sourceMappingURL=ProductQuestionController.js.map

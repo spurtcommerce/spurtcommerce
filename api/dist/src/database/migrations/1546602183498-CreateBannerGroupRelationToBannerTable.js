@@ -1,1 +1,36 @@
-'use strict';const a773_0x540952=a773_0x4471;function a773_0x273d(){const _0x21ae3f=['foreignKeys','20CoHoNM','904533YqGjDu','columnNames','banner_group','2211036lfEBFl','TableForeignKey','3jLRtaX','banner_group_id','find','__awaiter','fk_BannerGroup_Banner','defineProperty','6486466DccgsT','2843718aamgOT','indexOf','5150120jZjREb','tableForeignKey','5HMBkwj','typeorm','getTable','8zWESeA','165QaiAAz','createForeignKey','390446zYOYoR','__esModule','dropForeignKey','down','758421vbgzbq','tslib','banner','CreateBannerGroupRelationToBannerTable1546602183498'];a773_0x273d=function(){return _0x21ae3f;};return a773_0x273d();}(function(_0x4c5260,_0x4590db){const _0x1eb21c=a773_0x4471,_0x477760=_0x4c5260();while(!![]){try{const _0x1ff76f=parseInt(_0x1eb21c(0xdc))/0x1*(parseInt(_0x1eb21c(0xed))/0x2)+parseInt(_0x1eb21c(0xd7))/0x3+-parseInt(_0x1eb21c(0xe5))/0x4+-parseInt(_0x1eb21c(0xe7))/0x5*(parseInt(_0x1eb21c(0xe3))/0x6)+-parseInt(_0x1eb21c(0xe2))/0x7*(parseInt(_0x1eb21c(0xea))/0x8)+-parseInt(_0x1eb21c(0xd1))/0x9*(parseInt(_0x1eb21c(0xd6))/0xa)+parseInt(_0x1eb21c(0xeb))/0xb*(parseInt(_0x1eb21c(0xda))/0xc);if(_0x1ff76f===_0x4590db)break;else _0x477760['push'](_0x477760['shift']());}catch(_0x4fcb65){_0x477760['push'](_0x477760['shift']());}}}(a773_0x273d,0xc1ecc));Object[a773_0x540952(0xe1)](exports,a773_0x540952(0xee),{'value':!![]}),exports[a773_0x540952(0xd4)]=void 0x0;const tslib_1=require(a773_0x540952(0xd2)),typeorm_1=require(a773_0x540952(0xe8));function a773_0x4471(_0x2aa15b,_0x5a3a7b){const _0x273d41=a773_0x273d();return a773_0x4471=function(_0x44719f,_0x289f93){_0x44719f=_0x44719f-0xd1;let _0x35acfa=_0x273d41[_0x44719f];return _0x35acfa;},a773_0x4471(_0x2aa15b,_0x5a3a7b);}class CreateBannerGroupRelationToBannerTable1546602183498{constructor(){const _0x473200=a773_0x540952;this[_0x473200(0xe6)]=new typeorm_1[(_0x473200(0xdb))]({'name':_0x473200(0xe0),'columnNames':[_0x473200(0xdd)],'referencedColumnNames':[_0x473200(0xdd)],'referencedTableName':_0x473200(0xd9),'onDelete':'CASCADE'});}['up'](_0xfa8f17){const _0x565bed=a773_0x540952;return tslib_1[_0x565bed(0xdf)](this,void 0x0,void 0x0,function*(){const _0x2888e6=_0x565bed,_0xecaf8e=yield _0xfa8f17[_0x2888e6(0xe9)](_0x2888e6(0xd3)),_0x2c4e5b=_0xecaf8e[_0x2888e6(0xd5)]['find'](_0x111186=>_0x111186[_0x2888e6(0xd8)]['indexOf'](_0x2888e6(0xdd))!==-0x1);!_0x2c4e5b&&(yield _0xfa8f17[_0x2888e6(0xec)](_0xecaf8e,this['tableForeignKey']));});}[a773_0x540952(0xf0)](_0x3f36c5){const _0x46d27c=a773_0x540952;return tslib_1[_0x46d27c(0xdf)](this,void 0x0,void 0x0,function*(){const _0x484b1d=_0x46d27c,_0x6c99ee=yield _0x3f36c5['getTable'](_0x484b1d(0xd3)),_0x13852d=_0x6c99ee['foreignKeys'][_0x484b1d(0xde)](_0x48a9ff=>_0x48a9ff[_0x484b1d(0xd8)][_0x484b1d(0xe4)](_0x484b1d(0xdd))!==-0x1);_0x13852d&&(yield _0x3f36c5[_0x484b1d(0xef)](_0x6c99ee,this[_0x484b1d(0xe6)]));});}}exports[a773_0x540952(0xd4)]=CreateBannerGroupRelationToBannerTable1546602183498;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateBannerGroupRelationToBannerTable1546602183498 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateBannerGroupRelationToBannerTable1546602183498 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_BannerGroup_Banner',
+            columnNames: ['banner_group_id'],
+            referencedColumnNames: ['banner_group_id'],
+            referencedTableName: 'banner_group',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('banner');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('banner_group_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('banner');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('banner_group_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.CreateBannerGroupRelationToBannerTable1546602183498 = CreateBannerGroupRelationToBannerTable1546602183498;
+//# sourceMappingURL=1546602183498-CreateBannerGroupRelationToBannerTable.js.map

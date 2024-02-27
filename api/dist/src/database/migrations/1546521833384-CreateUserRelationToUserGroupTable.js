@@ -1,1 +1,36 @@
-'use strict';const a721_0x1cfeff=a721_0xd6e0;(function(_0x3b81ef,_0x154fe3){const _0x562ca3=a721_0xd6e0,_0x28b447=_0x3b81ef();while(!![]){try{const _0x2aae77=parseInt(_0x562ca3(0xf9))/0x1+-parseInt(_0x562ca3(0xf7))/0x2+-parseInt(_0x562ca3(0xeb))/0x3+-parseInt(_0x562ca3(0x100))/0x4*(-parseInt(_0x562ca3(0xf8))/0x5)+parseInt(_0x562ca3(0xf6))/0x6*(-parseInt(_0x562ca3(0xee))/0x7)+parseInt(_0x562ca3(0xed))/0x8*(parseInt(_0x562ca3(0xf0))/0x9)+parseInt(_0x562ca3(0xfc))/0xa*(parseInt(_0x562ca3(0x101))/0xb);if(_0x2aae77===_0x154fe3)break;else _0x28b447['push'](_0x28b447['shift']());}catch(_0x315296){_0x28b447['push'](_0x28b447['shift']());}}}(a721_0x2a67,0x5af8d));function a721_0xd6e0(_0x6411f3,_0x5219cc){const _0x2a6739=a721_0x2a67();return a721_0xd6e0=function(_0xd6e0d0,_0x13b73e){_0xd6e0d0=_0xd6e0d0-0xe7;let _0x3e8ebb=_0x2a6739[_0xd6e0d0];return _0x3e8ebb;},a721_0xd6e0(_0x6411f3,_0x5219cc);}function a721_0x2a67(){const _0x1963bf=['332823wJyCFd','user_group_id','users','812570YHpyVt','down','dropForeignKey','tslib','673576ecADJe','121BDhBhh','getTable','typeorm','find','tableForeignKey','indexOf','1170831jkjceV','CASCADE','176pCBeXk','49jJoLst','columnNames','27549LUWcSP','__esModule','CreateUserRelationToUserGroupTable1546521833384','createForeignKey','TableForeignKey','foreignKeys','261774hGePoI','788170RKUZhq','5eFqDCv'];a721_0x2a67=function(){return _0x1963bf;};return a721_0x2a67();}Object['defineProperty'](exports,a721_0x1cfeff(0xf1),{'value':!![]}),exports[a721_0x1cfeff(0xf2)]=void 0x0;const tslib_1=require(a721_0x1cfeff(0xff)),typeorm_1=require(a721_0x1cfeff(0xe7));class CreateUserRelationToUserGroupTable1546521833384{constructor(){const _0x26fa4d=a721_0x1cfeff;this['tableForeignKey']=new typeorm_1[(_0x26fa4d(0xf4))]({'name':'fk_users_usergroup','columnNames':[_0x26fa4d(0xfa)],'referencedColumnNames':['group_id'],'referencedTableName':'user_group','onDelete':_0x26fa4d(0xec)});}['up'](_0x27cda0){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1dca76=a721_0xd6e0,_0x335d61=yield _0x27cda0[_0x1dca76(0x102)](_0x1dca76(0xfb)),_0x4f7c63=_0x335d61[_0x1dca76(0xf5)][_0x1dca76(0xe8)](_0x4f679a=>_0x4f679a[_0x1dca76(0xef)][_0x1dca76(0xea)](_0x1dca76(0xfa))!==-0x1);!_0x4f7c63&&(yield _0x27cda0[_0x1dca76(0xf3)](_0x335d61,this[_0x1dca76(0xe9)]));});}[a721_0x1cfeff(0xfd)](_0x5219ec){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x53dabe=a721_0xd6e0,_0x489a89=yield _0x5219ec[_0x53dabe(0x102)](_0x53dabe(0xfb)),_0x4df2c8=_0x489a89[_0x53dabe(0xf5)][_0x53dabe(0xe8)](_0xded091=>_0xded091[_0x53dabe(0xef)]['indexOf'](_0x53dabe(0xfa))!==-0x1);_0x4df2c8&&(yield _0x5219ec[_0x53dabe(0xfe)](_0x489a89,this[_0x53dabe(0xe9)]));});}}exports[a721_0x1cfeff(0xf2)]=CreateUserRelationToUserGroupTable1546521833384;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateUserRelationToUserGroupTable1546521833384 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateUserRelationToUserGroupTable1546521833384 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_users_usergroup',
+            columnNames: ['user_group_id'],
+            referencedColumnNames: ['group_id'],
+            referencedTableName: 'user_group',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('users');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('user_group_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('users');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('user_group_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.CreateUserRelationToUserGroupTable1546521833384 = CreateUserRelationToUserGroupTable1546521833384;
+//# sourceMappingURL=1546521833384-CreateUserRelationToUserGroupTable.js.map

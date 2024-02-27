@@ -1,1 +1,75 @@
-'use strict';function a294_0x1e4e(){const _0x26868e=['confirmPassword','26854356tluaDk','13490UIYsBe','confirm\x20password\x20is\x20required','IsNotEmpty','9BtxzRc','96fjmRkM','__esModule','__decorate','395522ARGYFm','CreateCustomer','mailStatus','prototype','MinLength','Password\x20must\x20contain\x20at\x20least\x20one\x20number\x20or\x20one\x20symbol\x20and\x20one\x20uppercase\x20and\x20lowercase\x20letter,\x20and\x20at\x20least\x208\x20and\x20at\x20most\x20128\x20characters','Matches','design:type','class-validator','confirm\x20password\x20must\x20contain\x20minimum\x208\x20character','tslib','5GfDtUF','26QUuVAP','\x20username\x20should\x20be\x20maximum\x2032\x20characters','__metadata','455966LTULFJ','mobile\x20number\x20should\x20be\x20minimum\x206\x20character','MaxLength','mobileNumber','3337216TwsHeu','189153QLFpJZ','status','customerGroupId','4796EAoaBg','email','mobile\x20number\x20is\x20required','reflect-metadata','password','3187344BbYOQs'];a294_0x1e4e=function(){return _0x26868e;};return a294_0x1e4e();}const a294_0x407e1a=a294_0x1a01;(function(_0x1ec1f9,_0x4b70b0){const _0xf1e30e=a294_0x1a01,_0x405bef=_0x1ec1f9();while(!![]){try{const _0x30f602=parseInt(_0xf1e30e(0x1d8))/0x1+parseInt(_0xf1e30e(0x1be))/0x2*(parseInt(_0xf1e30e(0x1c6))/0x3)+parseInt(_0xf1e30e(0x1ce))/0x4*(-parseInt(_0xf1e30e(0x1bd))/0x5)+parseInt(_0xf1e30e(0x1d5))/0x6*(-parseInt(_0xf1e30e(0x1c1))/0x7)+-parseInt(_0xf1e30e(0x1c5))/0x8*(parseInt(_0xf1e30e(0x1d4))/0x9)+-parseInt(_0xf1e30e(0x1d1))/0xa*(parseInt(_0xf1e30e(0x1c9))/0xb)+parseInt(_0xf1e30e(0x1d0))/0xc;if(_0x30f602===_0x4b70b0)break;else _0x405bef['push'](_0x405bef['shift']());}catch(_0x19425c){_0x405bef['push'](_0x405bef['shift']());}}}(a294_0x1e4e,0x949b0));function a294_0x1a01(_0x66dfcd,_0x177737){const _0x1e4e53=a294_0x1e4e();return a294_0x1a01=function(_0x1a01da,_0x44e76e){_0x1a01da=_0x1a01da-0x1b7;let _0x447270=_0x1e4e53[_0x1a01da];return _0x447270;},a294_0x1a01(_0x66dfcd,_0x177737);}Object['defineProperty'](exports,a294_0x407e1a(0x1d6),{'value':!![]}),exports[a294_0x407e1a(0x1d9)]=void 0x0;const tslib_1=require(a294_0x407e1a(0x1bc));require(a294_0x407e1a(0x1cc));const class_validator_1=require(a294_0x407e1a(0x1ba));class CreateCustomer{}tslib_1['__decorate']([(0x0,class_validator_1[a294_0x407e1a(0x1d3)])(),tslib_1[a294_0x407e1a(0x1c0)]('design:type',Number)],CreateCustomer[a294_0x407e1a(0x1db)],a294_0x407e1a(0x1c8),void 0x0),tslib_1[a294_0x407e1a(0x1d7)]([(0x0,class_validator_1[a294_0x407e1a(0x1c3)])(0x20,{'message':a294_0x407e1a(0x1bf)}),(0x0,class_validator_1[a294_0x407e1a(0x1d3)])(),tslib_1[a294_0x407e1a(0x1c0)]('design:type',String)],CreateCustomer[a294_0x407e1a(0x1db)],'username',void 0x0),tslib_1[a294_0x407e1a(0x1d7)]([(0x0,class_validator_1[a294_0x407e1a(0x1c3)])(0x60,{'message':'email\x20should\x20be\x20maximum\x2096\x20characters'}),(0x0,class_validator_1[a294_0x407e1a(0x1d3)])(),tslib_1['__metadata']('design:type',String)],CreateCustomer[a294_0x407e1a(0x1db)],a294_0x407e1a(0x1ca),void 0x0),tslib_1[a294_0x407e1a(0x1d7)]([(0x0,class_validator_1[a294_0x407e1a(0x1c3)])(0xf,{'message':'mobile\x20number\x20should\x20be\x20maximum\x2015\x20characters'}),(0x0,class_validator_1[a294_0x407e1a(0x1d3)])({'message':a294_0x407e1a(0x1cb)}),(0x0,class_validator_1['MinLength'])(0x6,{'message':a294_0x407e1a(0x1c2)}),tslib_1[a294_0x407e1a(0x1c0)]('design:type',Number)],CreateCustomer[a294_0x407e1a(0x1db)],a294_0x407e1a(0x1c4),void 0x0),tslib_1[a294_0x407e1a(0x1d7)]([(0x0,class_validator_1[a294_0x407e1a(0x1dc)])(0x8,{'message':'password\x20must\x20contain\x20minimum\x208\x20character'}),(0x0,class_validator_1[a294_0x407e1a(0x1b8)])(/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/,{'message':a294_0x407e1a(0x1b7)}),(0x0,class_validator_1[a294_0x407e1a(0x1d3)])({'message':'password\x20is\x20required'}),tslib_1[a294_0x407e1a(0x1c0)](a294_0x407e1a(0x1b9),String)],CreateCustomer[a294_0x407e1a(0x1db)],a294_0x407e1a(0x1cd),void 0x0),tslib_1[a294_0x407e1a(0x1d7)]([(0x0,class_validator_1[a294_0x407e1a(0x1dc)])(0x8,{'message':a294_0x407e1a(0x1bb)}),(0x0,class_validator_1[a294_0x407e1a(0x1b8)])(/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/,{'message':a294_0x407e1a(0x1b7)}),(0x0,class_validator_1[a294_0x407e1a(0x1d3)])({'message':a294_0x407e1a(0x1d2)}),tslib_1[a294_0x407e1a(0x1c0)](a294_0x407e1a(0x1b9),String)],CreateCustomer['prototype'],a294_0x407e1a(0x1cf),void 0x0),tslib_1[a294_0x407e1a(0x1d7)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a294_0x407e1a(0x1c0)](a294_0x407e1a(0x1b9),Number)],CreateCustomer['prototype'],a294_0x407e1a(0x1da),void 0x0),tslib_1[a294_0x407e1a(0x1d7)]([(0x0,class_validator_1[a294_0x407e1a(0x1d3)])(),tslib_1[a294_0x407e1a(0x1c0)]('design:type',Number)],CreateCustomer[a294_0x407e1a(0x1db)],a294_0x407e1a(0x1c7),void 0x0),exports[a294_0x407e1a(0x1d9)]=CreateCustomer;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCustomer = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateCustomer {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateCustomer.prototype, "customerGroupId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(32, {
+        message: ' username should be maximum 32 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomer.prototype, "username", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(96, {
+        message: 'email should be maximum 96 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomer.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(15, {
+        message: 'mobile number should be maximum 15 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'mobile number is required',
+    }),
+    (0, class_validator_1.MinLength)(6, {
+        message: 'mobile number should be minimum 6 character',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateCustomer.prototype, "mobileNumber", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MinLength)(8, {
+        message: 'password must contain minimum 8 character',
+    }),
+    (0, class_validator_1.Matches)(/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/, { message: 'Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters' }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'password is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomer.prototype, "password", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MinLength)(8, {
+        message: 'confirm password must contain minimum 8 character',
+    }),
+    (0, class_validator_1.Matches)(/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/, { message: 'Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters' }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'confirm password is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomer.prototype, "confirmPassword", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateCustomer.prototype, "mailStatus", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateCustomer.prototype, "status", void 0);
+exports.CreateCustomer = CreateCustomer;
+//# sourceMappingURL=CreateCustomerRequest.js.map

@@ -1,1 +1,65 @@
-'use strict';function a395_0x2f5f(_0x3025c6,_0x30dada){const _0x27e5a7=a395_0x27e5();return a395_0x2f5f=function(_0x2f5ff5,_0x455815){_0x2f5ff5=_0x2f5ff5-0xd6;let _0x551f8e=_0x27e5a7[_0x2f5ff5];return _0x551f8e;},a395_0x2f5f(_0x3025c6,_0x30dada);}const a395_0x289061=a395_0x2f5f;(function(_0x53e4a2,_0x56e5c2){const _0x49a007=a395_0x2f5f,_0x314c33=_0x53e4a2();while(!![]){try{const _0x2b6a64=-parseInt(_0x49a007(0xdc))/0x1*(parseInt(_0x49a007(0xf5))/0x2)+-parseInt(_0x49a007(0xe5))/0x3+-parseInt(_0x49a007(0xf0))/0x4*(parseInt(_0x49a007(0xf6))/0x5)+-parseInt(_0x49a007(0xe2))/0x6+parseInt(_0x49a007(0xd7))/0x7+-parseInt(_0x49a007(0xec))/0x8*(-parseInt(_0x49a007(0xfb))/0x9)+-parseInt(_0x49a007(0xed))/0xa*(-parseInt(_0x49a007(0xe8))/0xb);if(_0x2b6a64===_0x56e5c2)break;else _0x314c33['push'](_0x314c33['shift']());}catch(_0x723d6c){_0x314c33['push'](_0x314c33['shift']());}}}(a395_0x27e5,0x5740a));Object[a395_0x289061(0xf8)](exports,a395_0x289061(0xf2),{'value':!![]}),exports[a395_0x289061(0xfe)]=void 0x0;function a395_0x27e5(){const _0x207ad0=['8532fcqZmm','format','__esModule','BaseModel','./Page','2hhubKg','1375ZuWAKZ','prototype','defineProperty','__decorate','typeorm','18AYjffx','BeforeInsert','pageGroup','PageGroup','class-transformer','IsNotEmpty','is_active','class-validator','groupId','Column','modifiedDate','moment','OneToMany','4784472jxlmKU','updateDetails','design:paramtypes','__metadata','Page','469488kwkxmB','YYYY-MM-DD\x20HH:mm:ss','design:type','group_id','page_group','createdDate','2027976lhUnMq','Entity','__importDefault','924783QPlGkE','Exclude','design:returntype','4398614LqlZqi','__awaiter','createDetails','group_name','2305848vFnITw','20iIvyIS','BeforeUpdate','PrimaryGeneratedColumn'];a395_0x27e5=function(){return _0x207ad0;};return a395_0x27e5();}const tslib_1=require('tslib'),typeorm_1=require(a395_0x289061(0xfa)),BaseModel_1=require('./BaseModel'),Page_1=require(a395_0x289061(0xf4)),class_transformer_1=require(a395_0x289061(0xff)),moment_1=tslib_1[a395_0x289061(0xe4)](require(a395_0x289061(0x106))),class_validator_1=require(a395_0x289061(0x102));let PageGroup=class PageGroup extends BaseModel_1[a395_0x289061(0xf3)]{[a395_0x289061(0xea)](){const _0x4c1fd3=a395_0x289061;return tslib_1[_0x4c1fd3(0xe9)](this,void 0x0,void 0x0,function*(){const _0x2c02a8=_0x4c1fd3;this[_0x2c02a8(0xe1)]=(0x0,moment_1['default'])()[_0x2c02a8(0xf1)](_0x2c02a8(0xdd));});}[a395_0x289061(0xd8)](){const _0x3c78e7=a395_0x289061;return tslib_1[_0x3c78e7(0xe9)](this,void 0x0,void 0x0,function*(){const _0x3b0263=_0x3c78e7;this[_0x3b0263(0x105)]=(0x0,moment_1['default'])()[_0x3b0263(0xf1)](_0x3b0263(0xdd));});}};tslib_1[a395_0x289061(0xf9)]([(0x0,class_validator_1[a395_0x289061(0x100)])(),(0x0,typeorm_1[a395_0x289061(0xef)])({'name':a395_0x289061(0xdf)}),tslib_1[a395_0x289061(0xda)](a395_0x289061(0xde),Number)],PageGroup[a395_0x289061(0xf7)],a395_0x289061(0x103),void 0x0),tslib_1[a395_0x289061(0xf9)]([(0x0,class_validator_1[a395_0x289061(0x100)])(),(0x0,typeorm_1['Column'])({'name':a395_0x289061(0xeb)}),tslib_1[a395_0x289061(0xda)](a395_0x289061(0xde),String)],PageGroup[a395_0x289061(0xf7)],'groupName',void 0x0),tslib_1[a395_0x289061(0xf9)]([(0x0,class_transformer_1[a395_0x289061(0xe6)])(),(0x0,typeorm_1[a395_0x289061(0x104)])({'name':a395_0x289061(0x101)}),tslib_1[a395_0x289061(0xda)](a395_0x289061(0xde),Number)],PageGroup['prototype'],'isActive',void 0x0),tslib_1[a395_0x289061(0xf9)]([(0x0,typeorm_1[a395_0x289061(0xd6)])(_0xfafe68=>Page_1[a395_0x289061(0xdb)],_0xaea6b5=>_0xaea6b5[a395_0x289061(0xfd)]),tslib_1[a395_0x289061(0xda)](a395_0x289061(0xde),Array)],PageGroup[a395_0x289061(0xf7)],'page',void 0x0),tslib_1[a395_0x289061(0xf9)]([(0x0,typeorm_1[a395_0x289061(0xfc)])(),tslib_1[a395_0x289061(0xda)](a395_0x289061(0xde),Function),tslib_1['__metadata']('design:paramtypes',[]),tslib_1['__metadata'](a395_0x289061(0xe7),Promise)],PageGroup[a395_0x289061(0xf7)],a395_0x289061(0xea),null),tslib_1['__decorate']([(0x0,typeorm_1[a395_0x289061(0xee)])(),tslib_1[a395_0x289061(0xda)]('design:type',Function),tslib_1['__metadata'](a395_0x289061(0xd9),[]),tslib_1[a395_0x289061(0xda)](a395_0x289061(0xe7),Promise)],PageGroup['prototype'],'updateDetails',null),PageGroup=tslib_1[a395_0x289061(0xf9)]([(0x0,typeorm_1[a395_0x289061(0xe3)])(a395_0x289061(0xe0))],PageGroup),exports[a395_0x289061(0xfe)]=PageGroup;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PageGroup = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const Page_1 = require("./Page");
+const class_transformer_1 = require("class-transformer");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const class_validator_1 = require("class-validator");
+let PageGroup = class PageGroup extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'group_id' }),
+    tslib_1.__metadata("design:type", Number)
+], PageGroup.prototype, "groupId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'group_name' }),
+    tslib_1.__metadata("design:type", String)
+], PageGroup.prototype, "groupName", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], PageGroup.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => Page_1.Page, page => page.pageGroup),
+    tslib_1.__metadata("design:type", Array)
+], PageGroup.prototype, "page", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], PageGroup.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], PageGroup.prototype, "updateDetails", null);
+PageGroup = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('page_group')
+], PageGroup);
+exports.PageGroup = PageGroup;
+//# sourceMappingURL=PageGroup.js.map

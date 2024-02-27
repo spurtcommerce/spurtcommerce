@@ -1,1 +1,78 @@
-'use strict';const a820_0x3af899=a820_0x428f;function a820_0x1bd4(){const _0x1e7a28=['42PWwcit','190589XoQeYv','29766nFAJtW','price_update_file_log','file_path','file','PriceUpdateFileLog1574661760239','tslib','2966843AvcmpT','15ZwuEEF','integer','2538952puAwHJ','modified_by','255','__esModule','1302525cLcWvM','8766YkhzvC','412916yEjMxP','down','40TjnfAs','14xAjcFX','modified_date','hasTable','createTable','Table','dropTable','title','created_by','created_date','defineProperty','CURRENT_TIMESTAMP','typeorm','varchar','DATETIME'];a820_0x1bd4=function(){return _0x1e7a28;};return a820_0x1bd4();}(function(_0x4509c2,_0x331b01){const _0x3d92c9=a820_0x428f,_0x37b64d=_0x4509c2();while(!![]){try{const _0x28c019=-parseInt(_0x3d92c9(0x173))/0x1+-parseInt(_0x3d92c9(0x186))/0x2*(-parseInt(_0x3d92c9(0x182))/0x3)+-parseInt(_0x3d92c9(0x183))/0x4*(parseInt(_0x3d92c9(0x17b))/0x5)+-parseInt(_0x3d92c9(0x174))/0x6*(-parseInt(_0x3d92c9(0x172))/0x7)+-parseInt(_0x3d92c9(0x17d))/0x8+-parseInt(_0x3d92c9(0x181))/0x9+-parseInt(_0x3d92c9(0x185))/0xa*(-parseInt(_0x3d92c9(0x17a))/0xb);if(_0x28c019===_0x331b01)break;else _0x37b64d['push'](_0x37b64d['shift']());}catch(_0x11abe4){_0x37b64d['push'](_0x37b64d['shift']());}}}(a820_0x1bd4,0x28b2e));function a820_0x428f(_0x5b7524,_0x4e9d42){const _0x1bd400=a820_0x1bd4();return a820_0x428f=function(_0x428f59,_0x3c9f43){_0x428f59=_0x428f59-0x167;let _0x4e730e=_0x1bd400[_0x428f59];return _0x4e730e;},a820_0x428f(_0x5b7524,_0x4e9d42);}Object[a820_0x3af899(0x16d)](exports,a820_0x3af899(0x180),{'value':!![]}),exports['PriceUpdateFileLog1574661760239']=void 0x0;const tslib_1=require(a820_0x3af899(0x179)),typeorm_1=require(a820_0x3af899(0x16f));class PriceUpdateFileLog1574661760239{['up'](_0x50224c){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5e946f=a820_0x428f,_0x284362=new typeorm_1[(_0x5e946f(0x168))]({'name':_0x5e946f(0x175),'columns':[{'name':'id','type':_0x5e946f(0x17c),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':'increment'},{'name':_0x5e946f(0x16a),'type':'varchar','length':_0x5e946f(0x17f),'isPrimary':![],'isNullable':!![]},{'name':_0x5e946f(0x177),'type':'varchar','length':_0x5e946f(0x17f),'isPrimary':![],'isNullable':!![]},{'name':_0x5e946f(0x176),'type':_0x5e946f(0x170),'length':_0x5e946f(0x17f),'isPrimary':![],'isNullable':!![]},{'name':_0x5e946f(0x16b),'type':_0x5e946f(0x17c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5e946f(0x17e),'type':_0x5e946f(0x17c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5e946f(0x16c),'type':_0x5e946f(0x171),'isPrimary':![],'isNullable':!![],'default':_0x5e946f(0x16e)},{'name':_0x5e946f(0x187),'type':_0x5e946f(0x171),'isPrimary':![],'isNullable':!![],'default':_0x5e946f(0x16e)}]}),_0x3fc912=yield _0x50224c[_0x5e946f(0x188)](_0x5e946f(0x175));!_0x3fc912&&(yield _0x50224c[_0x5e946f(0x167)](_0x284362));});}[a820_0x3af899(0x184)](_0x3c29bd){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4ceb60=a820_0x428f;yield _0x3c29bd[_0x4ceb60(0x169)](_0x4ceb60(0x175),!![]);});}}exports[a820_0x3af899(0x178)]=PriceUpdateFileLog1574661760239;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PriceUpdateFileLog1574661760239 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class PriceUpdateFileLog1574661760239 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'price_update_file_log',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'title',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'file',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'file_path',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('price_update_file_log');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('price_update_file_log', true);
+        });
+    }
+}
+exports.PriceUpdateFileLog1574661760239 = PriceUpdateFileLog1574661760239;
+//# sourceMappingURL=1574661760239-PriceUpdateFileLog.js.map

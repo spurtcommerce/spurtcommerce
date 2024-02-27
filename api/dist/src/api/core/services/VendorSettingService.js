@@ -1,1 +1,92 @@
-'use strict';const a634_0x5cff88=a634_0x1886;(function(_0x6ea756,_0x2fd3b2){const _0x695530=a634_0x1886,_0x303ba1=_0x6ea756();while(!![]){try{const _0x23c94f=parseInt(_0x695530(0x197))/0x1+-parseInt(_0x695530(0x1a5))/0x2+-parseInt(_0x695530(0x199))/0x3+parseInt(_0x695530(0x19a))/0x4+-parseInt(_0x695530(0x181))/0x5*(-parseInt(_0x695530(0x185))/0x6)+-parseInt(_0x695530(0x191))/0x7*(parseInt(_0x695530(0x1ad))/0x8)+-parseInt(_0x695530(0x194))/0x9*(parseInt(_0x695530(0x17e))/0xa);if(_0x23c94f===_0x2fd3b2)break;else _0x303ba1['push'](_0x303ba1['shift']());}catch(_0x4fd60c){_0x303ba1['push'](_0x303ba1['shift']());}}}(a634_0x5b41,0xb539f));function a634_0x5b41(){const _0x2f00ea=['__esModule','forEach','__awaiter','design:paramtypes','save','1728298LQLdWb','findOneData','__decorate','where','skip','create','VendorGlobalSettingRepository','Service','4624vnYjHo','__metadata','790GrvBFM','list','VendorGlobalSettingService','10SJAWHb','../repositories/VendorSettingRepository','OrmRepository','typeorm-typedi-extensions','3395652YkqUCU','tslib','select','delete','DESC','log','take','update','info','like','find','vendorGlobalSettingRepository','7994KSTImr','Create\x20a\x20new\x20page\x20','count','100377wfdYxn','typeorm/index','findOne','1385060XcKQwp','Logger','2225115MFAJby','5489504nrXgaE','length','name','defineProperty','value','__param'];a634_0x5b41=function(){return _0x2f00ea;};return a634_0x5b41();}Object[a634_0x5cff88(0x19d)](exports,a634_0x5cff88(0x1a0),{'value':!![]}),exports[a634_0x5cff88(0x180)]=void 0x0;const tslib_1=require(a634_0x5cff88(0x186)),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require(a634_0x5cff88(0x184)),Logger_1=require('../../../decorators/Logger'),index_1=require(a634_0x5cff88(0x195)),VendorSettingRepository_1=require(a634_0x5cff88(0x182));function a634_0x1886(_0x4a6633,_0x1166a4){const _0x5b417f=a634_0x5b41();return a634_0x1886=function(_0x188681,_0x1c4065){_0x188681=_0x188681-0x17d;let _0x27e60e=_0x5b417f[_0x188681];return _0x27e60e;},a634_0x1886(_0x4a6633,_0x1166a4);}let VendorGlobalSettingService=class VendorGlobalSettingService{constructor(_0x858921,_0x334abf){this['vendorGlobalSettingRepository']=_0x858921,this['log']=_0x334abf;}[a634_0x5cff88(0x1aa)](_0x2587be){const _0x51eeed=a634_0x5cff88;return tslib_1[_0x51eeed(0x1a2)](this,void 0x0,void 0x0,function*(){const _0x482a82=_0x51eeed;return this[_0x482a82(0x18a)][_0x482a82(0x18d)](_0x482a82(0x192)),this[_0x482a82(0x190)][_0x482a82(0x1a4)](_0x2587be);});}[a634_0x5cff88(0x196)](){const _0x11d854=a634_0x5cff88;return this[_0x11d854(0x190)][_0x11d854(0x196)]();}[a634_0x5cff88(0x1a6)](_0x407940){const _0xcd12a8=a634_0x5cff88;return this[_0xcd12a8(0x190)][_0xcd12a8(0x196)](_0x407940);}[a634_0x5cff88(0x18c)](_0x3b89ca,_0x1d7216){const _0x5bd2c0=a634_0x5cff88;return this['log']['info']('Update\x20a\x20page'),_0x1d7216['settingId']=_0x3b89ca,this['vendorGlobalSettingRepository'][_0x5bd2c0(0x1a4)](_0x1d7216);}[a634_0x5cff88(0x17f)](_0x18c23b,_0x378eb1,_0x1431a6=[],_0x2c4b86=[],_0x236c54=[],_0xa00046){const _0x418641=a634_0x5cff88,_0x27b48b={};return _0x1431a6&&_0x1431a6[_0x418641(0x19b)]>0x0&&(_0x27b48b[_0x418641(0x187)]=_0x1431a6),_0x27b48b[_0x418641(0x1a8)]={},_0x236c54&&_0x236c54[_0x418641(0x19b)]>0x0&&_0x236c54[_0x418641(0x1a1)](_0x39748d=>{const _0xfa23c=_0x418641;_0x27b48b[_0xfa23c(0x1a8)][_0x39748d['name']]=_0x39748d[_0xfa23c(0x19e)];}),_0x2c4b86&&_0x2c4b86['length']>0x0&&_0x2c4b86['forEach'](_0x2550d4=>{const _0x5dfbfe=_0x418641,_0x253283=_0x2550d4['op'];if(_0x253283===_0x5dfbfe(0x1a8)&&_0x2550d4[_0x5dfbfe(0x19e)]!==undefined)_0x27b48b[_0x5dfbfe(0x1a8)][_0x2550d4[_0x5dfbfe(0x19c)]]=_0x2550d4['value'];else _0x253283===_0x5dfbfe(0x18e)&&_0x2550d4[_0x5dfbfe(0x19e)]!==undefined&&(_0x27b48b[_0x5dfbfe(0x1a8)][_0x2550d4[_0x5dfbfe(0x19c)]]=(0x0,index_1['Like'])('%'+_0x2550d4[_0x5dfbfe(0x19e)]+'%'));}),_0x27b48b['order']={'createdDate':_0x418641(0x189)},_0x18c23b&&_0x18c23b>0x0&&(_0x27b48b[_0x418641(0x18b)]=_0x18c23b,_0x27b48b[_0x418641(0x1a9)]=_0x378eb1),_0xa00046?this[_0x418641(0x190)][_0x418641(0x193)](_0x27b48b):this[_0x418641(0x190)][_0x418641(0x18f)](_0x27b48b);}[a634_0x5cff88(0x188)](_0x401633){const _0x449098=a634_0x5cff88;return tslib_1[_0x449098(0x1a2)](this,void 0x0,void 0x0,function*(){const _0x1b754b=_0x449098;return yield this[_0x1b754b(0x190)][_0x1b754b(0x188)](_0x401633);});}};VendorGlobalSettingService=tslib_1[a634_0x5cff88(0x1a7)]([(0x0,typedi_1[a634_0x5cff88(0x1ac)])(),tslib_1['__param'](0x0,(0x0,typeorm_typedi_extensions_1[a634_0x5cff88(0x183)])()),tslib_1[a634_0x5cff88(0x19f)](0x1,(0x0,Logger_1[a634_0x5cff88(0x198)])(__filename)),tslib_1[a634_0x5cff88(0x17d)](a634_0x5cff88(0x1a3),[VendorSettingRepository_1[a634_0x5cff88(0x1ab)],Object])],VendorGlobalSettingService),exports[a634_0x5cff88(0x180)]=VendorGlobalSettingService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorGlobalSettingService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const index_1 = require("typeorm/index");
+const VendorSettingRepository_1 = require("../repositories/VendorSettingRepository");
+let VendorGlobalSettingService = class VendorGlobalSettingService {
+    constructor(vendorGlobalSettingRepository, log) {
+        this.vendorGlobalSettingRepository = vendorGlobalSettingRepository;
+        this.log = log;
+    }
+    // create page
+    create(setting) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new page ');
+            return this.vendorGlobalSettingRepository.save(setting);
+        });
+    }
+    // find one page
+    findOne() {
+        return this.vendorGlobalSettingRepository.findOne();
+    }
+    // find one page
+    findOneData(data) {
+        return this.vendorGlobalSettingRepository.findOne(data);
+    }
+    // update page
+    update(id, vendorGlobalSetting) {
+        this.log.info('Update a page');
+        vendorGlobalSetting.settingId = id;
+        return this.vendorGlobalSettingRepository.save(vendorGlobalSetting);
+    }
+    // page List
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        condition.order = { createdDate: 'DESC' };
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.vendorGlobalSettingRepository.count(condition);
+        }
+        else {
+            return this.vendorGlobalSettingRepository.find(condition);
+        }
+    }
+    // delete page
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.vendorGlobalSettingRepository.delete(id);
+        });
+    }
+};
+VendorGlobalSettingService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [VendorSettingRepository_1.VendorGlobalSettingRepository, Object])
+], VendorGlobalSettingService);
+exports.VendorGlobalSettingService = VendorGlobalSettingService;
+//# sourceMappingURL=VendorSettingService.js.map

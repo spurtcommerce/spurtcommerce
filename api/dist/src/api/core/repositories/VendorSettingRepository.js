@@ -1,1 +1,20 @@
-'use strict';const a545_0x220e3c=a545_0x3059;(function(_0x51155f,_0x254c9c){const _0x35e6e8=a545_0x3059,_0xd214cf=_0x51155f();while(!![]){try{const _0x2cf75d=parseInt(_0x35e6e8(0x18a))/0x1+parseInt(_0x35e6e8(0x18b))/0x2+parseInt(_0x35e6e8(0x187))/0x3*(parseInt(_0x35e6e8(0x185))/0x4)+-parseInt(_0x35e6e8(0x197))/0x5*(parseInt(_0x35e6e8(0x189))/0x6)+-parseInt(_0x35e6e8(0x194))/0x7+parseInt(_0x35e6e8(0x196))/0x8*(parseInt(_0x35e6e8(0x195))/0x9)+parseInt(_0x35e6e8(0x192))/0xa;if(_0x2cf75d===_0x254c9c)break;else _0xd214cf['push'](_0xd214cf['shift']());}catch(_0x3fc044){_0xd214cf['push'](_0xd214cf['shift']());}}}(a545_0x2673,0x2959e));function a545_0x2673(){const _0x501296=['../models/VendorGlobalSettings','EntityRepository','defineProperty','VendorGlobalSetting','typeorm','VendorGlobalSettingRepository','1920510ehavYu','Repository','2283113BFneKn','740412ePdVni','8eOZEKX','5wagixR','46396FatLxD','__decorate','3vrIqKh','tslib','731466xZcXct','152173IfoLhN','358706VvHosn'];a545_0x2673=function(){return _0x501296;};return a545_0x2673();}function a545_0x3059(_0x1364ba,_0x3f2dce){const _0x267313=a545_0x2673();return a545_0x3059=function(_0x3059c7,_0xf7c29b){_0x3059c7=_0x3059c7-0x185;let _0x15b9d4=_0x267313[_0x3059c7];return _0x15b9d4;},a545_0x3059(_0x1364ba,_0x3f2dce);}Object[a545_0x220e3c(0x18e)](exports,'__esModule',{'value':!![]}),exports['VendorGlobalSettingRepository']=void 0x0;const tslib_1=require(a545_0x220e3c(0x188)),typeorm_1=require(a545_0x220e3c(0x190)),VendorGlobalSettings_1=require(a545_0x220e3c(0x18c));let VendorGlobalSettingRepository=class VendorGlobalSettingRepository extends typeorm_1[a545_0x220e3c(0x193)]{};VendorGlobalSettingRepository=tslib_1[a545_0x220e3c(0x186)]([(0x0,typeorm_1[a545_0x220e3c(0x18d)])(VendorGlobalSettings_1[a545_0x220e3c(0x18f)])],VendorGlobalSettingRepository),exports[a545_0x220e3c(0x191)]=VendorGlobalSettingRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorGlobalSettingRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const VendorGlobalSettings_1 = require("../models/VendorGlobalSettings");
+let VendorGlobalSettingRepository = class VendorGlobalSettingRepository extends typeorm_1.Repository {
+};
+VendorGlobalSettingRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(VendorGlobalSettings_1.VendorGlobalSetting)
+], VendorGlobalSettingRepository);
+exports.VendorGlobalSettingRepository = VendorGlobalSettingRepository;
+//# sourceMappingURL=VendorSettingRepository.js.map

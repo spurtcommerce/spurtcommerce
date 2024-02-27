@@ -1,1 +1,99 @@
-'use strict';const a608_0x33217b=a608_0x8a13;(function(_0x226a49,_0x3f46d9){const _0xad27bd=a608_0x8a13,_0x421240=_0x226a49();while(!![]){try{const _0x761bba=-parseInt(_0xad27bd(0xea))/0x1+-parseInt(_0xad27bd(0x104))/0x2+-parseInt(_0xad27bd(0xe6))/0x3*(parseInt(_0xad27bd(0xf4))/0x4)+parseInt(_0xad27bd(0xd7))/0x5*(-parseInt(_0xad27bd(0xee))/0x6)+parseInt(_0xad27bd(0xda))/0x7+parseInt(_0xad27bd(0xde))/0x8+parseInt(_0xad27bd(0xf6))/0x9;if(_0x761bba===_0x3f46d9)break;else _0x421240['push'](_0x421240['shift']());}catch(_0x4c224e){_0x421240['push'](_0x421240['shift']());}}}(a608_0x4e36,0xbb707));function a608_0x4e36(){const _0x130a4f=['Service','length','count','__esModule','SiteFilterCategoryService','DESC','siteFilterCategoryRepository','update','../../../decorators/Logger','2222726CAOwsa','forEach','__metadata','where','design:paramtypes','typeorm-typedi-extensions','delete','name','1034285bPURos','typeorm','__awaiter','2510158ZToNHo','skip','typedi','defineProperty','9167136alACOy','__param','like','../repositories/SiteFilterCategoryRepository','select','findOne','findAll','Logger','6SwKacE','find','Find\x20all','findDuplicateCategory','1399772mnfpTo','create','Delete','info','12cWQnou','SiteFilterCategoryRepository','relations','list','order','OrmRepository','2752936AKjgnk','value','32081238TOqEpV','save','take','tslib','log'];a608_0x4e36=function(){return _0x130a4f;};return a608_0x4e36();}function a608_0x8a13(_0xfafc82,_0x50673d){const _0x4e361c=a608_0x4e36();return a608_0x8a13=function(_0x8a13c0,_0x42bc4e){_0x8a13c0=_0x8a13c0-0xd6;let _0x26535b=_0x4e361c[_0x8a13c0];return _0x26535b;},a608_0x8a13(_0xfafc82,_0x50673d);}Object[a608_0x33217b(0xdd)](exports,a608_0x33217b(0xfe),{'value':!![]}),exports[a608_0x33217b(0xff)]=void 0x0;const tslib_1=require(a608_0x33217b(0xf9)),typedi_1=require(a608_0x33217b(0xdc)),typeorm_typedi_extensions_1=require(a608_0x33217b(0x109)),Logger_1=require(a608_0x33217b(0x103)),SiteFilterCategoryRepository_1=require(a608_0x33217b(0xe1)),typeorm_1=require(a608_0x33217b(0xd8));let SiteFilterCategoryService=class SiteFilterCategoryService{constructor(_0x3d9797,_0x1ecac0){const _0x8dcf4e=a608_0x33217b;this[_0x8dcf4e(0x101)]=_0x3d9797,this[_0x8dcf4e(0xfa)]=_0x1ecac0;}[a608_0x33217b(0xe3)](_0x2de35f){const _0x5a54b9=a608_0x33217b;return this[_0x5a54b9(0x101)][_0x5a54b9(0xe3)](_0x2de35f);}[a608_0x33217b(0xe4)](_0x47e39f){const _0x241dde=a608_0x33217b;return this[_0x241dde(0xfa)][_0x241dde(0xed)](_0x241dde(0xe8)),this[_0x241dde(0x101)]['find'](_0x47e39f);}[a608_0x33217b(0xf1)](_0x38c7a5,_0x1ce30e,_0x7687d6=[],_0x429193=[],_0x122ee5=[],_0x331822){const _0x598d11=a608_0x33217b,_0x4024d2={};return _0x7687d6&&_0x7687d6[_0x598d11(0xfc)]>0x0&&(_0x4024d2[_0x598d11(0xe2)]=_0x7687d6),_0x429193&&_0x429193[_0x598d11(0xfc)]>0x0&&(_0x4024d2[_0x598d11(0xf0)]=_0x429193),_0x4024d2[_0x598d11(0x107)]={},_0x122ee5&&_0x122ee5[_0x598d11(0xfc)]>0x0&&_0x122ee5[_0x598d11(0x105)](_0x218786=>{const _0x40792b=_0x598d11,_0x52f0c6=_0x218786['op'];if(_0x52f0c6==='where'&&_0x218786['value']!==undefined)_0x4024d2[_0x40792b(0x107)][_0x218786['name']]=_0x218786['value'];else _0x52f0c6===_0x40792b(0xe0)&&_0x218786['value']!==undefined&&(_0x4024d2[_0x40792b(0x107)][_0x218786[_0x40792b(0xd6)]]=(0x0,typeorm_1['Like'])('%'+_0x218786[_0x40792b(0xf5)]+'%'));}),_0x4024d2[_0x598d11(0xf2)]={'createdDate':_0x598d11(0x100)},_0x38c7a5&&_0x38c7a5>0x0&&(_0x4024d2[_0x598d11(0xf8)]=_0x38c7a5,_0x4024d2[_0x598d11(0xdb)]=_0x1ce30e),_0x331822?this['siteFilterCategoryRepository'][_0x598d11(0xfd)](_0x4024d2):this['siteFilterCategoryRepository'][_0x598d11(0xe7)](_0x4024d2);}[a608_0x33217b(0xeb)](_0xebf617){const _0x1f9c1c=a608_0x33217b;return tslib_1[_0x1f9c1c(0xd9)](this,void 0x0,void 0x0,function*(){const _0x3f460b=_0x1f9c1c,_0x3f8847=yield this['siteFilterCategoryRepository'][_0x3f460b(0xf7)](_0xebf617);return _0x3f8847;});}[a608_0x33217b(0x102)](_0x11c8b7,_0x3ffaae){const _0x549456=a608_0x33217b;return this['log'][_0x549456(0xed)]('Update'),_0x3ffaae['id']=_0x11c8b7,this['siteFilterCategoryRepository'][_0x549456(0xf7)](_0x3ffaae);}['delete'](_0x338326){const _0x2ff717=a608_0x33217b;return tslib_1[_0x2ff717(0xd9)](this,void 0x0,void 0x0,function*(){const _0x320ee3=_0x2ff717;this['log'][_0x320ee3(0xed)](_0x320ee3(0xec));const _0x5652b6=yield this[_0x320ee3(0x101)][_0x320ee3(0x10a)](_0x338326);return _0x5652b6;});}['findDuplicateCategory'](_0xd7bd2e,_0x551236){const _0x9adf80=a608_0x33217b;return this[_0x9adf80(0x101)][_0x9adf80(0xe9)](_0xd7bd2e,_0x551236);}};SiteFilterCategoryService=tslib_1['__decorate']([(0x0,typedi_1[a608_0x33217b(0xfb)])(),tslib_1[a608_0x33217b(0xdf)](0x0,(0x0,typeorm_typedi_extensions_1[a608_0x33217b(0xf3)])()),tslib_1['__param'](0x1,(0x0,Logger_1[a608_0x33217b(0xe5)])(__filename)),tslib_1[a608_0x33217b(0x106)](a608_0x33217b(0x108),[SiteFilterCategoryRepository_1[a608_0x33217b(0xef)],Object])],SiteFilterCategoryService),exports[a608_0x33217b(0xff)]=SiteFilterCategoryService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SiteFilterCategoryService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const SiteFilterCategoryRepository_1 = require("../repositories/SiteFilterCategoryRepository");
+const typeorm_1 = require("typeorm");
+let SiteFilterCategoryService = class SiteFilterCategoryService {
+    constructor(siteFilterCategoryRepository, log) {
+        this.siteFilterCategoryRepository = siteFilterCategoryRepository;
+        this.log = log;
+    }
+    // find one condition
+    findOne(siteFilterCategory) {
+        return this.siteFilterCategoryRepository.findOne(siteFilterCategory);
+    }
+    // find all
+    findAll(siteFilterCategory) {
+        this.log.info('Find all');
+        return this.siteFilterCategoryRepository.find(siteFilterCategory);
+    }
+    // list
+    list(limit, offset, select = [], relation = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        if (relation && relation.length > 0) {
+            condition.relations = relation;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                const operator = item.op;
+                if (operator === 'where' && item.value !== undefined) {
+                    condition.where[item.name] = item.value;
+                }
+                else if (operator === 'like' && item.value !== undefined) {
+                    condition.where[item.name] = (0, typeorm_1.Like)('%' + item.value + '%');
+                }
+            });
+        }
+        condition.order = {
+            createdDate: 'DESC',
+        };
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.siteFilterCategoryRepository.count(condition);
+        }
+        else {
+            return this.siteFilterCategoryRepository.find(condition);
+        }
+    }
+    // create
+    create(siteFilterCategory) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newSiteFilterCategory = yield this.siteFilterCategoryRepository.save(siteFilterCategory);
+            return newSiteFilterCategory;
+        });
+    }
+    // update
+    update(id, siteFilterCategory) {
+        this.log.info('Update');
+        siteFilterCategory.id = id;
+        return this.siteFilterCategoryRepository.save(siteFilterCategory);
+    }
+    // delete
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete');
+            const newSiteFilter = yield this.siteFilterCategoryRepository.delete(id);
+            return newSiteFilter;
+        });
+    }
+    // find user
+    findDuplicateCategory(id, filterId) {
+        return this.siteFilterCategoryRepository.findDuplicateCategory(id, filterId);
+    }
+};
+SiteFilterCategoryService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [SiteFilterCategoryRepository_1.SiteFilterCategoryRepository, Object])
+], SiteFilterCategoryService);
+exports.SiteFilterCategoryService = SiteFilterCategoryService;
+//# sourceMappingURL=SiteFilterCategoryService.js.map

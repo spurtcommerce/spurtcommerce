@@ -1,1 +1,96 @@
-'use strict';const a621_0x277368=a621_0x177d;function a621_0x177d(_0x2c706b,_0x48308b){const _0x58dc43=a621_0x58dc();return a621_0x177d=function(_0x177dd1,_0x44b0f3){_0x177dd1=_0x177dd1-0x179;let _0x4bbe2b=_0x58dc43[_0x177dd1];return _0x4bbe2b;},a621_0x177d(_0x2c706b,_0x48308b);}function a621_0x58dc(){const _0x122074=['8Prhxhw','6242425MKgmCE','like','list','2905230HeJotJ','find','delete','../repositories/VendorGroupRepository','where','info','1WiwcYy','__decorate','356ZooAUZ','280152bbfEWZ','VendorGroupService','OrmRepository','defineProperty','Find\x20group','length','Like','typeorm','7554740FXbJwu','5dwOuXy','log','save','1737rErGKq','skip','create','__awaiter','vendorCount','vendorGroupRepository','__param','name','tslib','forEach','3841101LMyvZO','Service','relations','findOne','value','design:paramtypes','count','select','Delete\x20a\x20group','groupId','8797426EqpjYn','../../../decorators/Logger','update'];a621_0x58dc=function(){return _0x122074;};return a621_0x58dc();}(function(_0x25eb87,_0x261e7b){const _0xcb9828=a621_0x177d,_0x3c894e=_0x25eb87();while(!![]){try{const _0x53fc8f=parseInt(_0xcb9828(0x1a0))/0x1*(-parseInt(_0xcb9828(0x1a3))/0x2)+-parseInt(_0xcb9828(0x17f))/0x3*(parseInt(_0xcb9828(0x1a2))/0x4)+-parseInt(_0xcb9828(0x17c))/0x5*(-parseInt(_0xcb9828(0x19a))/0x6)+parseInt(_0xcb9828(0x197))/0x7*(-parseInt(_0xcb9828(0x196))/0x8)+-parseInt(_0xcb9828(0x189))/0x9+parseInt(_0xcb9828(0x17b))/0xa+parseInt(_0xcb9828(0x193))/0xb;if(_0x53fc8f===_0x261e7b)break;else _0x3c894e['push'](_0x3c894e['shift']());}catch(_0x3d77f7){_0x3c894e['push'](_0x3c894e['shift']());}}}(a621_0x58dc,0x8137a));Object[a621_0x277368(0x1a6)](exports,'__esModule',{'value':!![]}),exports[a621_0x277368(0x1a4)]=void 0x0;const tslib_1=require(a621_0x277368(0x187)),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require('typeorm-typedi-extensions'),Logger_1=require(a621_0x277368(0x194)),VendorGroupRepository_1=require(a621_0x277368(0x19d)),typeorm_1=require(a621_0x277368(0x17a));let VendorGroupService=class VendorGroupService{constructor(_0xfc2cf3,_0x3c0b72){const _0x2972cb=a621_0x277368;this[_0x2972cb(0x184)]=_0xfc2cf3,this['log']=_0x3c0b72;}[a621_0x277368(0x18c)](_0x166ac6){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2e4de7=a621_0x177d;return this[_0x2e4de7(0x17d)][_0x2e4de7(0x19f)](_0x2e4de7(0x1a7)),yield this[_0x2e4de7(0x184)][_0x2e4de7(0x18c)](_0x166ac6);});}[a621_0x277368(0x199)](_0x3c3c8f,_0x152b49,_0x5f3e2b=[],_0x8e4ae9=[],_0x53d245=[],_0x268898){const _0x249ab0=a621_0x277368;return tslib_1[_0x249ab0(0x182)](this,void 0x0,void 0x0,function*(){const _0x3fdb1b=_0x249ab0,_0x1ff967={};_0x5f3e2b&&_0x5f3e2b[_0x3fdb1b(0x1a8)]>0x0&&(_0x1ff967[_0x3fdb1b(0x190)]=_0x5f3e2b);_0x8e4ae9&&_0x8e4ae9[_0x3fdb1b(0x1a8)]>0x0&&(_0x1ff967[_0x3fdb1b(0x18b)]=_0x8e4ae9);_0x1ff967[_0x3fdb1b(0x19e)]={};_0x53d245&&_0x53d245[_0x3fdb1b(0x1a8)]>0x0&&_0x53d245[_0x3fdb1b(0x188)](_0x3871cf=>{const _0x103a03=_0x3fdb1b,_0x42d78d=_0x3871cf['op'];if(_0x42d78d===_0x103a03(0x19e)&&_0x3871cf[_0x103a03(0x18d)]!==undefined)_0x1ff967[_0x103a03(0x19e)][_0x3871cf['name']]=_0x3871cf['value'];else _0x42d78d===_0x103a03(0x198)&&_0x3871cf[_0x103a03(0x18d)]!==undefined&&(_0x1ff967['where'][_0x3871cf[_0x103a03(0x186)]]=(0x0,typeorm_1[_0x103a03(0x179)])('%'+_0x3871cf[_0x103a03(0x18d)]+'%'));});_0x3c3c8f&&_0x3c3c8f>0x0&&(_0x1ff967['take']=_0x3c3c8f,_0x1ff967[_0x3fdb1b(0x180)]=_0x152b49);if(_0x268898)return yield this[_0x3fdb1b(0x184)][_0x3fdb1b(0x18f)](_0x1ff967);return yield this[_0x3fdb1b(0x184)][_0x3fdb1b(0x19b)](_0x1ff967);});}[a621_0x277368(0x181)](_0x483c20){const _0x4ed302=a621_0x277368;return tslib_1[_0x4ed302(0x182)](this,void 0x0,void 0x0,function*(){const _0x1c2505=_0x4ed302;return yield this[_0x1c2505(0x184)][_0x1c2505(0x17e)](_0x483c20);});}[a621_0x277368(0x195)](_0x1157c8,_0x34db5d){const _0x3be58e=a621_0x277368;return tslib_1[_0x3be58e(0x182)](this,void 0x0,void 0x0,function*(){const _0x80a760=_0x3be58e;return this[_0x80a760(0x17d)][_0x80a760(0x19f)]('Update\x20a\x20group'),_0x34db5d[_0x80a760(0x192)]=_0x1157c8,yield this[_0x80a760(0x184)][_0x80a760(0x17e)](_0x34db5d);});}[a621_0x277368(0x19c)](_0x2a2d67){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x16ee75=a621_0x177d;this[_0x16ee75(0x17d)][_0x16ee75(0x19f)](_0x16ee75(0x191));const _0x142849=yield this[_0x16ee75(0x184)][_0x16ee75(0x19c)](_0x2a2d67);return _0x142849;});}[a621_0x277368(0x183)](_0x3b5b89){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x48b2a0=a621_0x177d;return yield this[_0x48b2a0(0x184)]['getVendorCount'](_0x3b5b89);});}};VendorGroupService=tslib_1[a621_0x277368(0x1a1)]([(0x0,typedi_1[a621_0x277368(0x18a)])(),tslib_1[a621_0x277368(0x185)](0x0,(0x0,typeorm_typedi_extensions_1[a621_0x277368(0x1a5)])()),tslib_1['__param'](0x1,(0x0,Logger_1['Logger'])(__filename)),tslib_1['__metadata'](a621_0x277368(0x18e),[VendorGroupRepository_1['VendorGroupRepository'],Object])],VendorGroupService),exports['VendorGroupService']=VendorGroupService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorGroupService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const VendorGroupRepository_1 = require("../repositories/VendorGroupRepository");
+const typeorm_1 = require("typeorm");
+let VendorGroupService = class VendorGroupService {
+    constructor(vendorGroupRepository, log) {
+        this.vendorGroupRepository = vendorGroupRepository;
+        this.log = log;
+    }
+    // find Group
+    findOne(findCondition) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Find group');
+            return yield this.vendorGroupRepository.findOne(findCondition);
+        });
+    }
+    // Group list
+    list(limit, offset, select = [], relation = [], whereConditions = [], count) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const condition = {};
+            if (select && select.length > 0) {
+                condition.select = select;
+            }
+            if (relation && relation.length > 0) {
+                condition.relations = relation;
+            }
+            condition.where = {};
+            if (whereConditions && whereConditions.length > 0) {
+                whereConditions.forEach((table) => {
+                    const operator = table.op;
+                    if (operator === 'where' && table.value !== undefined) {
+                        condition.where[table.name] = table.value;
+                    }
+                    else if (operator === 'like' && table.value !== undefined) {
+                        condition.where[table.name] = (0, typeorm_1.Like)('%' + table.value + '%');
+                    }
+                });
+            }
+            if (limit && limit > 0) {
+                condition.take = limit;
+                condition.skip = offset;
+            }
+            if (count) {
+                return yield this.vendorGroupRepository.count(condition);
+            }
+            return yield this.vendorGroupRepository.find(condition);
+        });
+    }
+    // create group
+    create(vendorGroup) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.vendorGroupRepository.save(vendorGroup);
+        });
+    }
+    // update group
+    update(id, vendorGroup) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Update a group');
+            vendorGroup.groupId = id;
+            return yield this.vendorGroupRepository.save(vendorGroup);
+        });
+    }
+    // delete group
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a group');
+            const deleteVendor = yield this.vendorGroupRepository.delete(id);
+            return deleteVendor;
+        });
+    }
+    vendorCount(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.vendorGroupRepository.getVendorCount(id);
+        });
+    }
+};
+VendorGroupService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [VendorGroupRepository_1.VendorGroupRepository, Object])
+], VendorGroupService);
+exports.VendorGroupService = VendorGroupService;
+//# sourceMappingURL=VendorGroupService.js.map

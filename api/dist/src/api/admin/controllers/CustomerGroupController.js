@@ -1,1 +1,319 @@
-'use strict';const a262_0x361b6d=a262_0x214c;(function(_0x809f2a,_0x57aef5){const _0x42fc2d=a262_0x214c,_0x14ad1a=_0x809f2a();while(!![]){try{const _0x3a15bd=parseInt(_0x42fc2d(0xa4))/0x1*(-parseInt(_0x42fc2d(0xb6))/0x2)+-parseInt(_0x42fc2d(0xcd))/0x3+-parseInt(_0x42fc2d(0xab))/0x4*(-parseInt(_0x42fc2d(0xcb))/0x5)+parseInt(_0x42fc2d(0x9a))/0x6*(parseInt(_0x42fc2d(0xb7))/0x7)+parseInt(_0x42fc2d(0x8d))/0x8+-parseInt(_0x42fc2d(0xa5))/0x9*(-parseInt(_0x42fc2d(0x8f))/0xa)+-parseInt(_0x42fc2d(0xc6))/0xb*(parseInt(_0x42fc2d(0xbc))/0xc);if(_0x3a15bd===_0x57aef5)break;else _0x14ad1a['push'](_0x14ad1a['shift']());}catch(_0x8c4c4b){_0x14ad1a['push'](_0x14ad1a['shift']());}}}(a262_0x397a,0x39767));function a262_0x214c(_0x2a2494,_0x2a28a1){const _0x397a4a=a262_0x397a();return a262_0x214c=function(_0x214c79,_0x5bbcb9){_0x214c79=_0x214c79-0x83;let _0x4650cf=_0x397a4a[_0x214c79];return _0x4650cf;},a262_0x214c(_0x2a2494,_0x2a28a1);}Object[a262_0x361b6d(0xba)](exports,a262_0x361b6d(0xa9),{'value':!![]}),exports[a262_0x361b6d(0xc3)]=void 0x0;function a262_0x397a(){const _0x5e5183=['create-customer-group','reflect-metadata','Get','admin','prototype','1233072EkiXiC','groupId','status','CustomerService','QueryParam','delete','./requests/DeleteCustomerGroupRequest','edit-customer-group','Customer\x20Group\x20updated\x20successfully.','__decorate','2BIHLVa','9CwhZyD','send','deleteGroup','colorCode','__esModule','You\x20cannot\x20delete\x20this\x20Customer\x20group\x20as\x20Users\x20are\x20mapped\x20to\x20it.','262684vTCsEa','customerService','name','default','CreateCustomerGroup','Customer\x20Group\x20Created\x20Successfully','updateCustomerRole','Post','findOne','isActive','description','272442AQUdei','7zZEfkA','CustomerGroupService','design:type','defineProperty','../../core/models/CustomerGroup','24xdVXHc','../../core/services/CustomerService','Authorized','create','createCustomerGroup','colorcode','list','CustomerGroupController','Successfully\x20got\x20all\x20customer\x20group\x20List','design:returntype','490457IGdUuN','tslib','You\x20cannot\x20delete\x20this\x20customer\x20group.','__metadata','Res','10OfksRO','like','816984rhZPcc','update','Body','/:id','Req','offset','keyword','__param','customerGroupService','__awaiter','Unable\x20to\x20delete\x20the\x20group.','Param','design:paramtypes','DeleteCustomerGroupRequest','Group\x20Deleted\x20Successfully.','667808TtcjOR','/customer-group','4489810eEpFhe','customergroupList','This\x20Customer\x20Group\x20already\x20exists.','Invalid\x20group\x20Id.','Unable\x20to\x20update\x20the\x20Customer\x20Group.','./requests/CreateCustomerGroupRequest'];a262_0x397a=function(){return _0x5e5183;};return a262_0x397a();}const tslib_1=require(a262_0x361b6d(0xc7));require(a262_0x361b6d(0x96));const routing_controllers_1=require('routing-controllers'),DeleteCustomerGroupRequest_1=require(a262_0x361b6d(0xa0)),CreateCustomerGroupRequest_1=require(a262_0x361b6d(0x94)),CustomerGroupService_1=require('../../core/services/CustomerGroupService'),CustomerService_1=require(a262_0x361b6d(0xbd)),CustomerGroup_1=require(a262_0x361b6d(0xbb));let CustomerGroupController=class CustomerGroupController{constructor(_0x2924ed,_0x1655af){const _0x59b0ed=a262_0x361b6d;this[_0x59b0ed(0x86)]=_0x2924ed,this[_0x59b0ed(0xac)]=_0x1655af;}[a262_0x361b6d(0xc0)](_0x42afce,_0x1540c8){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2dbe01=a262_0x214c,_0x4741f7=yield this[_0x2dbe01(0x86)][_0x2dbe01(0xb3)]({'where':{'name':_0x42afce[_0x2dbe01(0xad)]}});if(_0x4741f7){const _0x2bdc5f={'status':0x0,'message':_0x2dbe01(0x91)};return _0x1540c8[_0x2dbe01(0x9c)](0x190)[_0x2dbe01(0xa6)](_0x2bdc5f);}const _0x13aad5=new CustomerGroup_1['CustomerGroup']();_0x13aad5['name']=_0x42afce[_0x2dbe01(0xad)],_0x13aad5['description']=_0x42afce[_0x2dbe01(0xb5)],_0x13aad5[_0x2dbe01(0xa8)]=_0x42afce[_0x2dbe01(0xc1)],_0x13aad5[_0x2dbe01(0xb4)]=_0x42afce['status'];const _0x54cbf6=yield this[_0x2dbe01(0x86)][_0x2dbe01(0xbf)](_0x13aad5);if(_0x54cbf6){const _0x3ef97a={'status':0x1,'message':_0x2dbe01(0xb0),'data':_0x54cbf6};return _0x1540c8['status'](0xc8)[_0x2dbe01(0xa6)](_0x3ef97a);}else{const _0x54286a={'status':0x0,'message':'Unable\x20to\x20save\x20Customer\x20Group.'};return _0x1540c8[_0x2dbe01(0x9c)](0x190)['send'](_0x54286a);}});}[a262_0x361b6d(0xb1)](_0x55145c,_0x2a58d7,_0x1728cc){const _0x39afb7=a262_0x361b6d;return tslib_1[_0x39afb7(0x87)](this,void 0x0,void 0x0,function*(){const _0x1f4bff=_0x39afb7,_0x445562=yield this[_0x1f4bff(0x86)][_0x1f4bff(0xb3)]({'where':{'groupId':_0x55145c}});if(!_0x445562){const _0xf9fa7b={'status':0x0,'message':_0x1f4bff(0x92)};return _0x1728cc['status'](0x190)[_0x1f4bff(0xa6)](_0xf9fa7b);}const _0x32ec11=new CustomerGroup_1['CustomerGroup']();_0x32ec11['name']=_0x2a58d7[_0x1f4bff(0xad)],_0x32ec11[_0x1f4bff(0xb5)]=_0x2a58d7['description'],_0x32ec11[_0x1f4bff(0xa8)]=_0x2a58d7[_0x1f4bff(0xc1)],_0x32ec11[_0x1f4bff(0xb4)]=_0x2a58d7['status'];const _0x3ccc8a=yield this[_0x1f4bff(0x86)][_0x1f4bff(0xce)](_0x55145c,_0x32ec11);if(_0x3ccc8a){const _0xde2e8b={'status':0x1,'message':_0x1f4bff(0xa2),'data':_0x3ccc8a};return _0x1728cc[_0x1f4bff(0x9c)](0xc8)['send'](_0xde2e8b);}else{const _0x27beb6={'status':0x0,'message':_0x1f4bff(0x93)};return _0x1728cc[_0x1f4bff(0x9c)](0x190)[_0x1f4bff(0xa6)](_0x27beb6);}});}[a262_0x361b6d(0x90)](_0x3e9259,_0x337c65,_0x2e2148,_0x2677fe,_0x4df538,_0xb5d8bc){const _0x4295f9=a262_0x361b6d;return tslib_1[_0x4295f9(0x87)](this,void 0x0,void 0x0,function*(){const _0x30a8f8=_0x4295f9,_0x2b5590=[_0x30a8f8(0x9b),'name',_0x30a8f8(0xb5),_0x30a8f8(0xa8),_0x30a8f8(0xb4)],_0x568c81=[{'name':'name','op':_0x30a8f8(0xcc),'value':_0x2e2148},{'name':'isActive','op':_0x30a8f8(0xcc),'value':_0x2677fe}],_0x36463e=yield this[_0x30a8f8(0x86)][_0x30a8f8(0xc2)](_0x3e9259,_0x337c65,_0x2b5590,_0x568c81,_0x4df538),_0x550891={'status':0x1,'message':_0x30a8f8(0xc4),'data':_0x36463e};return _0xb5d8bc['status'](0xc8)[_0x30a8f8(0xa6)](_0x550891);});}[a262_0x361b6d(0xa7)](_0x3ec2f7,_0x50f3e8,_0x66c048){const _0x1f4911=a262_0x361b6d;return tslib_1[_0x1f4911(0x87)](this,void 0x0,void 0x0,function*(){const _0x2791b4=_0x1f4911,_0x2bcfa1=yield this['customerGroupService'][_0x2791b4(0xb3)]({'where':{'groupId':_0x3ec2f7[_0x2791b4(0x9b)]}});if(!_0x2bcfa1){const _0x2c4aa2={'status':0x0,'message':_0x2791b4(0x92)};return _0x50f3e8[_0x2791b4(0x9c)](0x190)[_0x2791b4(0xa6)](_0x2c4aa2);}const _0x59ee0e=yield this[_0x2791b4(0x86)][_0x2791b4(0xb3)]({'where':{'groupId':_0x3ec2f7[_0x2791b4(0x9b)],'name':_0x2791b4(0xae)}});if(_0x59ee0e){const _0x4dc17c={'status':0x0,'message':_0x2791b4(0xc8)};return _0x50f3e8[_0x2791b4(0x9c)](0x190)[_0x2791b4(0xa6)](_0x4dc17c);}const _0x59c921=yield this[_0x2791b4(0xac)][_0x2791b4(0xb3)]({'where':{'customerGroupId':_0x3ec2f7[_0x2791b4(0x9b)],'deleteFlag':0x0}});if(_0x59c921){const _0x4a940d={'status':0x0,'message':_0x2791b4(0xaa)};return _0x50f3e8[_0x2791b4(0x9c)](0x190)[_0x2791b4(0xa6)](_0x4a940d);}const _0x173332=yield this[_0x2791b4(0x86)][_0x2791b4(0x9f)](_0x3ec2f7[_0x2791b4(0x9b)]);if(_0x173332){const _0xeb86de={'status':0x1,'message':_0x2791b4(0x8c)};return _0x50f3e8[_0x2791b4(0x9c)](0xc8)[_0x2791b4(0xa6)](_0xeb86de);}else{const _0x44788c={'status':0x0,'message':_0x2791b4(0x88)};return _0x50f3e8[_0x2791b4(0x9c)](0x190)[_0x2791b4(0xa6)](_0x44788c);}});}};tslib_1[a262_0x361b6d(0xa3)]([(0x0,routing_controllers_1[a262_0x361b6d(0xb2)])(),(0x0,routing_controllers_1[a262_0x361b6d(0xbe)])([a262_0x361b6d(0x98),a262_0x361b6d(0x95)]),tslib_1[a262_0x361b6d(0x85)](0x0,(0x0,routing_controllers_1[a262_0x361b6d(0xcf)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a262_0x361b6d(0xca)])()),tslib_1[a262_0x361b6d(0xc9)](a262_0x361b6d(0xb9),Function),tslib_1['__metadata']('design:paramtypes',[CreateCustomerGroupRequest_1[a262_0x361b6d(0xaf)],Object]),tslib_1[a262_0x361b6d(0xc9)]('design:returntype',Promise)],CustomerGroupController[a262_0x361b6d(0x99)],'createCustomerGroup',null),tslib_1[a262_0x361b6d(0xa3)]([(0x0,routing_controllers_1['Put'])(a262_0x361b6d(0xd0)),(0x0,routing_controllers_1['Authorized'])([a262_0x361b6d(0x98),a262_0x361b6d(0xa1)]),tslib_1[a262_0x361b6d(0x85)](0x0,(0x0,routing_controllers_1[a262_0x361b6d(0x89)])('id')),tslib_1[a262_0x361b6d(0x85)](0x1,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a262_0x361b6d(0x85)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a262_0x361b6d(0xc9)](a262_0x361b6d(0xb9),Function),tslib_1[a262_0x361b6d(0xc9)](a262_0x361b6d(0x8a),[Number,CreateCustomerGroupRequest_1[a262_0x361b6d(0xaf)],Object]),tslib_1[a262_0x361b6d(0xc9)](a262_0x361b6d(0xc5),Promise)],CustomerGroupController[a262_0x361b6d(0x99)],a262_0x361b6d(0xb1),null),tslib_1[a262_0x361b6d(0xa3)]([(0x0,routing_controllers_1[a262_0x361b6d(0x97)])(),(0x0,routing_controllers_1[a262_0x361b6d(0xbe)])(),tslib_1[a262_0x361b6d(0x85)](0x0,(0x0,routing_controllers_1['QueryParam'])('limit')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a262_0x361b6d(0x9e)])(a262_0x361b6d(0x83))),tslib_1[a262_0x361b6d(0x85)](0x2,(0x0,routing_controllers_1[a262_0x361b6d(0x9e)])(a262_0x361b6d(0x84))),tslib_1[a262_0x361b6d(0x85)](0x3,(0x0,routing_controllers_1[a262_0x361b6d(0x9e)])('status')),tslib_1[a262_0x361b6d(0x85)](0x4,(0x0,routing_controllers_1['QueryParam'])('count')),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a262_0x361b6d(0xca)])()),tslib_1['__metadata'](a262_0x361b6d(0xb9),Function),tslib_1[a262_0x361b6d(0xc9)]('design:paramtypes',[Number,Number,String,String,Object,Object]),tslib_1[a262_0x361b6d(0xc9)](a262_0x361b6d(0xc5),Promise)],CustomerGroupController['prototype'],a262_0x361b6d(0x90),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Delete'])(a262_0x361b6d(0xd0)),(0x0,routing_controllers_1[a262_0x361b6d(0xbe)])([a262_0x361b6d(0x98),'delete-customer-group']),tslib_1[a262_0x361b6d(0x85)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a262_0x361b6d(0x85)](0x1,(0x0,routing_controllers_1[a262_0x361b6d(0xca)])()),tslib_1[a262_0x361b6d(0x85)](0x2,(0x0,routing_controllers_1[a262_0x361b6d(0xd1)])()),tslib_1[a262_0x361b6d(0xc9)](a262_0x361b6d(0xb9),Function),tslib_1[a262_0x361b6d(0xc9)]('design:paramtypes',[DeleteCustomerGroupRequest_1[a262_0x361b6d(0x8b)],Object,Object]),tslib_1['__metadata'](a262_0x361b6d(0xc5),Promise)],CustomerGroupController[a262_0x361b6d(0x99)],a262_0x361b6d(0xa7),null),CustomerGroupController=tslib_1['__decorate']([(0x0,routing_controllers_1['JsonController'])(a262_0x361b6d(0x8e)),tslib_1['__metadata'](a262_0x361b6d(0x8a),[CustomerGroupService_1[a262_0x361b6d(0xb8)],CustomerService_1[a262_0x361b6d(0x9d)]])],CustomerGroupController),exports[a262_0x361b6d(0xc3)]=CustomerGroupController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CustomerGroupController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const DeleteCustomerGroupRequest_1 = require("./requests/DeleteCustomerGroupRequest");
+const CreateCustomerGroupRequest_1 = require("./requests/CreateCustomerGroupRequest");
+const CustomerGroupService_1 = require("../../core/services/CustomerGroupService");
+const CustomerService_1 = require("../../core/services/CustomerService");
+const CustomerGroup_1 = require("../../core/models/CustomerGroup");
+let CustomerGroupController = class CustomerGroupController {
+    constructor(customerGroupService, customerService) {
+        this.customerGroupService = customerGroupService;
+        this.customerService = customerService;
+    }
+    // Create Customer Group API
+    /**
+     * @api {post} /api/customer-group Create customer group API
+     * @apiGroup CustomerGroup
+     * @apiParam (Request body) {String{..30}} name groupName
+     * @apiParam (Request body) {String} [description] groupDescription
+     * @apiParam (Request body) {String} colorcode colorcode
+     * @apiParam (Request body) {Number} status status
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "description" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "New Customer group is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer-group
+     * @apiErrorExample {json} createCustomer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createCustomerGroup(createCustomerGroup, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = yield this.customerGroupService.findOne({
+                where: {
+                    name: createCustomerGroup.name,
+                },
+            });
+            if (customer) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'This Customer Group already exists.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newGroupParams = new CustomerGroup_1.CustomerGroup();
+            newGroupParams.name = createCustomerGroup.name;
+            newGroupParams.description = createCustomerGroup.description;
+            newGroupParams.colorCode = createCustomerGroup.colorcode;
+            newGroupParams.isActive = createCustomerGroup.status;
+            const customerGroupSaveResponse = yield this.customerGroupService.create(newGroupParams);
+            if (customerGroupSaveResponse) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Customer Group Created Successfully',
+                    data: customerGroupSaveResponse,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to save Customer Group.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update Customer Group API
+    /**
+     * @api {put} /api/customer-group/:id Update Customer Group API
+     * @apiGroup CustomerGroup
+     * @apiParam (Request body) {String{..30}} name groupName
+     * @apiParam (Request body) {String} [description] groupDescription
+     * @apiParam (Request body) {String} colorcode colorcode
+     * @apiParam (Request body) {Number} status status
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "description" : "",
+     *      "colorcode" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": " Customer Group is updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer-group/:id
+     * @apiErrorExample {json} update-customer-group error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateCustomerRole(id, createRoleParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = yield this.customerGroupService.findOne({
+                where: {
+                    groupId: id,
+                },
+            });
+            if (!customer) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid group Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newCustomerGroup = new CustomerGroup_1.CustomerGroup();
+            newCustomerGroup.name = createRoleParam.name;
+            newCustomerGroup.description = createRoleParam.description;
+            newCustomerGroup.colorCode = createRoleParam.colorcode;
+            newCustomerGroup.isActive = createRoleParam.status;
+            const customerGroupSaveResponse = yield this.customerGroupService.update(id, newCustomerGroup);
+            if (customerGroupSaveResponse) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Customer Group updated successfully.',
+                    data: customerGroupSaveResponse,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the Customer Group.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Customer Group List API
+    /**
+     * @api {get} /api/customer-group customergroup-list API
+     * @apiGroup CustomerGroup
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {String} count count in number or boolean
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *    "message": "Successfully get customer group list",
+     *    "data":"{}"
+     *    "status": "1"
+     *  }
+     * @apiSampleRequest /api/customer-group
+     * @apiErrorExample {json} customergroup error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    customergroupList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['groupId', 'name', 'description', 'colorCode', 'isActive'];
+            const whereConditions = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                },
+                {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const customerGroupList = yield this.customerGroupService.list(limit, offset, select, whereConditions, count);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got all customer group List',
+                data: customerGroupList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // delete Customer Group API
+    /**
+     * @api {delete} /api/customer-group/:id Delete Customer Group API
+     * @apiGroup CustomerGroup
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} groupId  groupId
+     * @apiParamExample {json} Input
+     * {
+     *      "groupId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted customerGroup.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer-group/:id
+     * @apiErrorExample {json} CustomerGroup error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteGroup(group, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const groupId = yield this.customerGroupService.findOne({
+                where: {
+                    groupId: group.groupId,
+                },
+            });
+            if (!groupId) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid group Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const defaultGroupId = yield this.customerGroupService.findOne({
+                where: {
+                    groupId: group.groupId,
+                    name: 'default',
+                },
+            });
+            if (defaultGroupId) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You cannot delete this customer group.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const findCustomer = yield this.customerService.findOne({
+                where: {
+                    customerGroupId: group.groupId,
+                    deleteFlag: 0,
+                },
+            });
+            if (findCustomer) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You cannot delete this Customer group as Users are mapped to it.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteGroup = yield this.customerGroupService.delete(group.groupId);
+            if (deleteGroup) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Group Deleted Successfully.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the group.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-customer-group']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateCustomerGroupRequest_1.CreateCustomerGroup, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerGroupController.prototype, "createCustomerGroup", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-customer-group']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateCustomerGroupRequest_1.CreateCustomerGroup, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerGroupController.prototype, "updateCustomerRole", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerGroupController.prototype, "customergroupList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-customer-group']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [DeleteCustomerGroupRequest_1.DeleteCustomerGroupRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerGroupController.prototype, "deleteGroup", null);
+CustomerGroupController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/customer-group'),
+    tslib_1.__metadata("design:paramtypes", [CustomerGroupService_1.CustomerGroupService, CustomerService_1.CustomerService])
+], CustomerGroupController);
+exports.CustomerGroupController = CustomerGroupController;
+//# sourceMappingURL=CustomerGroupController.js.map

@@ -24,7 +24,7 @@
 <br />
 
 > [!IMPORTANT]
-> 🎉 <strong>Spurtcommerce 4.8.3 is now available!</strong> Read more in the <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"><strong>announcement post</strong></a>.
+> 🎉 <strong>Spurtcommerce 4.8.4 is now available!</strong> Read more in the <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"><strong>announcement post</strong></a>.
 <br />
 
 ## ❯  🚀 Easy to Deploy Spurtcommerce API on your server

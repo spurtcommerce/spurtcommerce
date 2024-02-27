@@ -1,1 +1,25 @@
-'use strict';const a335_0x25ef3a=a335_0x1ec3;(function(_0x16c45a,_0x5e1c1a){const _0x2c440f=a335_0x1ec3,_0x4645c4=_0x16c45a();while(!![]){try{const _0x5e4fbc=-parseInt(_0x2c440f(0x163))/0x1*(-parseInt(_0x2c440f(0x165))/0x2)+-parseInt(_0x2c440f(0x161))/0x3*(-parseInt(_0x2c440f(0x166))/0x4)+parseInt(_0x2c440f(0x160))/0x5*(-parseInt(_0x2c440f(0x16a))/0x6)+-parseInt(_0x2c440f(0x15f))/0x7*(parseInt(_0x2c440f(0x167))/0x8)+-parseInt(_0x2c440f(0x15c))/0x9*(parseInt(_0x2c440f(0x15b))/0xa)+parseInt(_0x2c440f(0x16b))/0xb*(parseInt(_0x2c440f(0x164))/0xc)+-parseInt(_0x2c440f(0x159))/0xd*(parseInt(_0x2c440f(0x16c))/0xe);if(_0x5e4fbc===_0x5e1c1a)break;else _0x4645c4['push'](_0x4645c4['shift']());}catch(_0x568efb){_0x4645c4['push'](_0x4645c4['shift']());}}}(a335_0x4271,0x56a11));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a335_0x25ef3a(0x15a)]=void 0x0;const tslib_1=require(a335_0x25ef3a(0x168));require('reflect-metadata');const class_validator_1=require('class-validator');class UpdateOrderChangeStatus{}function a335_0x1ec3(_0x5b3de3,_0x389c5b){const _0x42713b=a335_0x4271();return a335_0x1ec3=function(_0x1ec3c7,_0x10486b){_0x1ec3c7=_0x1ec3c7-0x159;let _0x3a0fc0=_0x42713b[_0x1ec3c7];return _0x3a0fc0;},a335_0x1ec3(_0x5b3de3,_0x389c5b);}tslib_1[a335_0x25ef3a(0x15e)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a335_0x25ef3a(0x15d)](a335_0x25ef3a(0x162),Number)],UpdateOrderChangeStatus['prototype'],'orderId',void 0x0),tslib_1[a335_0x25ef3a(0x15e)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a335_0x25ef3a(0x15d)](a335_0x25ef3a(0x162),Number)],UpdateOrderChangeStatus[a335_0x25ef3a(0x169)],'orderStatusId',void 0x0),exports[a335_0x25ef3a(0x15a)]=UpdateOrderChangeStatus;function a335_0x4271(){const _0x1648b6=['tslib','prototype','19146BqPsQC','3589806KZiCHm','3083234LWNFYx','13pQAjzV','UpdateOrderChangeStatus','10mSrWYz','1049922oBAvZR','__metadata','__decorate','1106525vsPfOi','965ChMCpt','11667JGjIZN','design:type','86rouLHy','24QIZdyF','3712ZtOswp','672AJkLeg','8QfBuJv'];a335_0x4271=function(){return _0x1648b6;};return a335_0x4271();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UpdateOrderChangeStatus = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class UpdateOrderChangeStatus {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateOrderChangeStatus.prototype, "orderId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateOrderChangeStatus.prototype, "orderStatusId", void 0);
+exports.UpdateOrderChangeStatus = UpdateOrderChangeStatus;
+//# sourceMappingURL=UpdateOrderChangeStatus.js.map

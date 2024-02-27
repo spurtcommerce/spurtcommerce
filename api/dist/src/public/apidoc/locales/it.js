@@ -1,1 +1,25 @@
-var a1032_0xb009a4=a1032_0x5586;function a1032_0x5586(_0x50d122,_0x4ee8b5){var _0x4a8884=a1032_0x4a88();return a1032_0x5586=function(_0x5586f2,_0x418cf5){_0x5586f2=_0x5586f2-0xb7;var _0x13a944=_0x4a8884[_0x5586f2];return _0x13a944;},a1032_0x5586(_0x50d122,_0x4ee8b5);}function a1032_0x4a88(){var _0xc5031b=['Permessi:','5oLRbvw','url','5044032xXTsBk','26aKfMRD','Creato\x20con','1210404buUPaY','333593gnIlAJ','Parametro','Descrizione','4103488wzsAQd','Valori\x20permessi:','mostra\x20alla\x20versione:','Risposta','Campo','Nome','111474xgcqLE','Nessun\x20valore\x20di\x20risposta.','2639805IylpbG','Tipo','4633842MQZGyP','Invia\x20una\x20richiesta\x20di\x20esempio','opzionale','Valore\x20predefinito:'];a1032_0x4a88=function(){return _0xc5031b;};return a1032_0x4a88();}(function(_0x49274d,_0x711688){var _0x1113e5=a1032_0x5586,_0x21a117=_0x49274d();while(!![]){try{var _0x2ac96c=parseInt(_0x1113e5(0xb9))/0x1+parseInt(_0x1113e5(0xce))/0x2*(parseInt(_0x1113e5(0xc2))/0x3)+parseInt(_0x1113e5(0xb8))/0x4+-parseInt(_0x1113e5(0xcb))/0x5*(-parseInt(_0x1113e5(0xc6))/0x6)+-parseInt(_0x1113e5(0xc4))/0x7+-parseInt(_0x1113e5(0xbc))/0x8+-parseInt(_0x1113e5(0xcd))/0x9;if(_0x2ac96c===_0x711688)break;else _0x21a117['push'](_0x21a117['shift']());}catch(_0x1a4425){_0x21a117['push'](_0x21a117['shift']());}}}(a1032_0x4a88,0x6bae0),define({'it':{'Allowed\x20values:':a1032_0xb009a4(0xbd),'Compare\x20all\x20with\x20predecessor':'Confronta\x20tutto\x20con\x20versioni\x20precedenti','compare\x20changes\x20to:':'confronta\x20modifiche\x20con:','compared\x20to':'confrontato\x20con','Default\x20value:':a1032_0xb009a4(0xc9),'Description':a1032_0xb009a4(0xbb),'Field':a1032_0xb009a4(0xc0),'General':'Generale','Generated\x20with':a1032_0xb009a4(0xb7),'Name':a1032_0xb009a4(0xc1),'No\x20response\x20values.':a1032_0xb009a4(0xc3),'optional':a1032_0xb009a4(0xc8),'Parameter':a1032_0xb009a4(0xba),'Permission:':a1032_0xb009a4(0xca),'Response':a1032_0xb009a4(0xbf),'Send':'Invia','Send\x20a\x20Sample\x20Request':a1032_0xb009a4(0xc7),'show\x20up\x20to\x20version:':a1032_0xb009a4(0xbe),'Size\x20range:':'Intervallo\x20dimensione:','Type':a1032_0xb009a4(0xc5),'url':a1032_0xb009a4(0xcc)}}));
+define({
+    it: {
+        'Allowed values:'             : 'Valori permessi:',
+        'Compare all with predecessor': 'Confronta tutto con versioni precedenti',
+        'compare changes to:'         : 'confronta modifiche con:',
+        'compared to'                 : 'confrontato con',
+        'Default value:'              : 'Valore predefinito:',
+        'Description'                 : 'Descrizione',
+        'Field'                       : 'Campo',
+        'General'                     : 'Generale',
+        'Generated with'              : 'Creato con',
+        'Name'                        : 'Nome',
+        'No response values.'         : 'Nessun valore di risposta.',
+        'optional'                    : 'opzionale',
+        'Parameter'                   : 'Parametro',
+        'Permission:'                 : 'Permessi:',
+        'Response'                    : 'Risposta',
+        'Send'                        : 'Invia',
+        'Send a Sample Request'       : 'Invia una richiesta di esempio',
+        'show up to version:'         : 'mostra alla versione:',
+        'Size range:'                 : 'Intervallo dimensione:',
+        'Type'                        : 'Tipo',
+        'url'                         : 'url'
+    }
+});

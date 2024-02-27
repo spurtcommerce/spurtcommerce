@@ -1,1 +1,58 @@
-'use strict';function a458_0x3de5(_0xa4cd10,_0x2739db){const _0x9084fc=a458_0x9084();return a458_0x3de5=function(_0x3de575,_0xb4edb0){_0x3de575=_0x3de575-0xa1;let _0x20b248=_0x9084fc[_0x3de575];return _0x20b248;},a458_0x3de5(_0xa4cd10,_0x2739db);}const a458_0x22d149=a458_0x3de5;(function(_0x31e8a2,_0x57eaf3){const _0x405afb=a458_0x3de5,_0x3c8f37=_0x31e8a2();while(!![]){try{const _0x1034e0=parseInt(_0x405afb(0xbe))/0x1*(parseInt(_0x405afb(0xc3))/0x2)+-parseInt(_0x405afb(0xa5))/0x3*(parseInt(_0x405afb(0xc1))/0x4)+parseInt(_0x405afb(0xbc))/0x5*(-parseInt(_0x405afb(0xaa))/0x6)+-parseInt(_0x405afb(0xb7))/0x7+-parseInt(_0x405afb(0xae))/0x8*(parseInt(_0x405afb(0xa3))/0x9)+parseInt(_0x405afb(0xba))/0xa*(parseInt(_0x405afb(0xa4))/0xb)+parseInt(_0x405afb(0xc4))/0xc;if(_0x1034e0===_0x57eaf3)break;else _0x3c8f37['push'](_0x3c8f37['shift']());}catch(_0x3b1190){_0x3c8f37['push'](_0x3c8f37['shift']());}}}(a458_0x9084,0x810fe));Object[a458_0x22d149(0xb6)](exports,a458_0x22d149(0xb0),{'value':!![]}),exports[a458_0x22d149(0xac)]=void 0x0;const tslib_1=require(a458_0x22d149(0xa8)),class_validator_1=require('class-validator'),typeorm_1=require(a458_0x22d149(0xc6)),BaseModel_1=require(a458_0x22d149(0xbd)),moment=require(a458_0x22d149(0xc8));let StockStatus=class StockStatus extends BaseModel_1['BaseModel']{[a458_0x22d149(0xb1)](){const _0x3864f5=a458_0x22d149;return tslib_1[_0x3864f5(0xab)](this,void 0x0,void 0x0,function*(){const _0x280296=_0x3864f5;this[_0x280296(0xa6)]=moment()[_0x280296(0xb4)]('YYYY-MM-DD\x20HH:mm:ss');});}[a458_0x22d149(0xbb)](){const _0x2ba135=a458_0x22d149;return tslib_1[_0x2ba135(0xab)](this,void 0x0,void 0x0,function*(){const _0x40d393=_0x2ba135;this['modifiedDate']=moment()[_0x40d393(0xb4)](_0x40d393(0xa9));});}};tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a458_0x22d149(0xaf)])({'name':a458_0x22d149(0xbf)}),tslib_1[a458_0x22d149(0xc2)](a458_0x22d149(0xa2),Number)],StockStatus[a458_0x22d149(0xc5)],a458_0x22d149(0xc0),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a458_0x22d149(0xa1)])(),(0x0,typeorm_1['Column'])({'name':'name'}),tslib_1['__metadata'](a458_0x22d149(0xa2),String)],StockStatus[a458_0x22d149(0xc5)],a458_0x22d149(0xa7),void 0x0),tslib_1[a458_0x22d149(0xb8)]([(0x0,typeorm_1[a458_0x22d149(0xb3)])({'name':'is_active'}),tslib_1[a458_0x22d149(0xc2)]('design:type',Number)],StockStatus['prototype'],'isActive',void 0x0),tslib_1[a458_0x22d149(0xb8)]([(0x0,typeorm_1[a458_0x22d149(0xc7)])(),tslib_1[a458_0x22d149(0xc2)]('design:type',Function),tslib_1[a458_0x22d149(0xc2)](a458_0x22d149(0xb2),[]),tslib_1[a458_0x22d149(0xc2)](a458_0x22d149(0xb9),Promise)],StockStatus['prototype'],a458_0x22d149(0xb1),null),tslib_1['__decorate']([(0x0,typeorm_1[a458_0x22d149(0xad)])(),tslib_1['__metadata'](a458_0x22d149(0xa2),Function),tslib_1['__metadata'](a458_0x22d149(0xb2),[]),tslib_1[a458_0x22d149(0xc2)](a458_0x22d149(0xb9),Promise)],StockStatus[a458_0x22d149(0xc5)],a458_0x22d149(0xbb),null),StockStatus=tslib_1['__decorate']([(0x0,typeorm_1[a458_0x22d149(0xb5)])('stock_status')],StockStatus),exports['StockStatus']=StockStatus;function a458_0x9084(){const _0xd4dec6=['856MCmCuw','PrimaryGeneratedColumn','__esModule','createDetails','design:paramtypes','Column','format','Entity','defineProperty','6744192qPwkDi','__decorate','design:returntype','3956060wsQvyE','updateDetails','1693435SpmYUr','./BaseModel','175ixKblo','stock_status_id','stockStatusId','12oelhSe','__metadata','3702IVUQHC','26291616KHENAj','prototype','typeorm','BeforeInsert','moment','IsNotEmpty','design:type','53433PhEIpo','22zooUcM','501378fTxWXD','createdDate','name','tslib','YYYY-MM-DD\x20HH:mm:ss','12ZgEXJn','__awaiter','StockStatus','BeforeUpdate'];a458_0x9084=function(){return _0xd4dec6;};return a458_0x9084();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StockStatus = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const moment = require("moment");
+let StockStatus = class StockStatus extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'stock_status_id' }),
+    tslib_1.__metadata("design:type", Number)
+], StockStatus.prototype, "stockStatusId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'name' }),
+    tslib_1.__metadata("design:type", String)
+], StockStatus.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], StockStatus.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], StockStatus.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], StockStatus.prototype, "updateDetails", null);
+StockStatus = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('stock_status')
+], StockStatus);
+exports.StockStatus = StockStatus;
+//# sourceMappingURL=stockStatus.js.map

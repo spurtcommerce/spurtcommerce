@@ -1,1 +1,78 @@
-'use strict';function a412_0xa6db(_0x506026,_0x4b5368){const _0x5e83db=a412_0x5e83();return a412_0xa6db=function(_0xa6dba5,_0x930dac){_0xa6dba5=_0xa6dba5-0x17d;let _0x197585=_0x5e83db[_0xa6dba5];return _0x197585;},a412_0xa6db(_0x506026,_0x4b5368);}const a412_0x1f57c0=a412_0xa6db;(function(_0xa74098,_0x31ea01){const _0x14c969=a412_0xa6db,_0x263a72=_0xa74098();while(!![]){try{const _0x4ae48c=-parseInt(_0x14c969(0x185))/0x1+-parseInt(_0x14c969(0x18a))/0x2+parseInt(_0x14c969(0x183))/0x3+-parseInt(_0x14c969(0x17d))/0x4+parseInt(_0x14c969(0x196))/0x5*(parseInt(_0x14c969(0x1a8))/0x6)+-parseInt(_0x14c969(0x1a5))/0x7*(parseInt(_0x14c969(0x19a))/0x8)+parseInt(_0x14c969(0x1aa))/0x9;if(_0x4ae48c===_0x31ea01)break;else _0x263a72['push'](_0x263a72['shift']());}catch(_0x592964){_0x263a72['push'](_0x263a72['shift']());}}}(a412_0x5e83,0xac70d));Object[a412_0x1f57c0(0x181)](exports,'__esModule',{'value':!![]}),exports['ProductToCategory']=void 0x0;function a412_0x5e83(){const _0x1aaca9=['productId','design:returntype','__decorate','Category','372676NovCsi','./CategoryModel','Entity','moment','Column','__importDefault','class-validator','Exclude','modifiedDate','./BaseModel','IsNotEmpty','ProductToCategory','36685logaRe','product_to_category_id','productToCategory','createDetails','4287376diFavt','createdDate','category','format','design:type','typeorm','Product','PrimaryGeneratedColumn','JoinColumn','default','productToCategoryId','14CURYWI','product_id','isActive','264aUvTvV','class-transformer','27036522WDWFDp','__metadata','design:paramtypes','prototype','./ProductModel','3250492kEAKqr','YYYY-MM-DD\x20HH:mm:ss','BeforeInsert','tslib','defineProperty','updateDetails','1381362JxNXmE','__awaiter','1010218huOJTL'];a412_0x5e83=function(){return _0x1aaca9;};return a412_0x5e83();}const tslib_1=require(a412_0x1f57c0(0x180)),class_validator_1=require(a412_0x1f57c0(0x190)),typeorm_1=require(a412_0x1f57c0(0x19f)),class_transformer_1=require(a412_0x1f57c0(0x1a9)),BaseModel_1=require(a412_0x1f57c0(0x193)),moment_1=tslib_1[a412_0x1f57c0(0x18f)](require(a412_0x1f57c0(0x18d))),ProductModel_1=require(a412_0x1f57c0(0x1ae)),CategoryModel_1=require(a412_0x1f57c0(0x18b));let ProductToCategory=class ProductToCategory extends BaseModel_1['BaseModel']{[a412_0x1f57c0(0x199)](){const _0x3ac932=a412_0x1f57c0;return tslib_1[_0x3ac932(0x184)](this,void 0x0,void 0x0,function*(){const _0x4dc804=_0x3ac932;this[_0x4dc804(0x19b)]=(0x0,moment_1[_0x4dc804(0x1a3)])()[_0x4dc804(0x19d)](_0x4dc804(0x17e));});}[a412_0x1f57c0(0x182)](){const _0x229b6c=a412_0x1f57c0;return tslib_1[_0x229b6c(0x184)](this,void 0x0,void 0x0,function*(){const _0x3590c9=_0x229b6c;this[_0x3590c9(0x192)]=(0x0,moment_1[_0x3590c9(0x1a3)])()['format'](_0x3590c9(0x17e));});}};tslib_1[a412_0x1f57c0(0x188)]([(0x0,typeorm_1[a412_0x1f57c0(0x1a1)])({'name':a412_0x1f57c0(0x197)}),(0x0,class_validator_1[a412_0x1f57c0(0x194)])(),tslib_1['__metadata']('design:type',Number)],ProductToCategory[a412_0x1f57c0(0x1ad)],a412_0x1f57c0(0x1a4),void 0x0),tslib_1[a412_0x1f57c0(0x188)]([(0x0,class_validator_1[a412_0x1f57c0(0x194)])(),(0x0,class_transformer_1[a412_0x1f57c0(0x191)])(),(0x0,typeorm_1[a412_0x1f57c0(0x18e)])({'name':'product_id'}),tslib_1[a412_0x1f57c0(0x1ab)](a412_0x1f57c0(0x19e),Number)],ProductToCategory['prototype'],a412_0x1f57c0(0x186),void 0x0),tslib_1[a412_0x1f57c0(0x188)]([(0x0,class_validator_1[a412_0x1f57c0(0x194)])(),(0x0,typeorm_1[a412_0x1f57c0(0x18e)])({'name':'category_id'}),tslib_1['__metadata'](a412_0x1f57c0(0x19e),Number)],ProductToCategory[a412_0x1f57c0(0x1ad)],'categoryId',void 0x0),tslib_1[a412_0x1f57c0(0x188)]([(0x0,class_transformer_1[a412_0x1f57c0(0x191)])(),(0x0,typeorm_1['Column'])({'name':'is_active'}),tslib_1[a412_0x1f57c0(0x1ab)]('design:type',Number)],ProductToCategory['prototype'],a412_0x1f57c0(0x1a7),void 0x0),tslib_1[a412_0x1f57c0(0x188)]([(0x0,typeorm_1['ManyToOne'])(_0x4febcb=>ProductModel_1[a412_0x1f57c0(0x1a0)],_0x3287cc=>_0x3287cc[a412_0x1f57c0(0x198)]),(0x0,typeorm_1[a412_0x1f57c0(0x1a2)])({'name':a412_0x1f57c0(0x1a6)}),tslib_1[a412_0x1f57c0(0x1ab)](a412_0x1f57c0(0x19e),ProductModel_1[a412_0x1f57c0(0x1a0)])],ProductToCategory[a412_0x1f57c0(0x1ad)],'product',void 0x0),tslib_1[a412_0x1f57c0(0x188)]([(0x0,typeorm_1['ManyToOne'])(_0x1ac4b8=>CategoryModel_1['Category'],_0x5c83db=>_0x5c83db[a412_0x1f57c0(0x198)]),(0x0,typeorm_1['JoinColumn'])({'name':'category_id'}),tslib_1['__metadata'](a412_0x1f57c0(0x19e),CategoryModel_1[a412_0x1f57c0(0x189)])],ProductToCategory[a412_0x1f57c0(0x1ad)],a412_0x1f57c0(0x19c),void 0x0),tslib_1[a412_0x1f57c0(0x188)]([(0x0,typeorm_1[a412_0x1f57c0(0x17f)])(),tslib_1['__metadata'](a412_0x1f57c0(0x19e),Function),tslib_1[a412_0x1f57c0(0x1ab)]('design:paramtypes',[]),tslib_1[a412_0x1f57c0(0x1ab)](a412_0x1f57c0(0x187),Promise)],ProductToCategory[a412_0x1f57c0(0x1ad)],a412_0x1f57c0(0x199),null),tslib_1[a412_0x1f57c0(0x188)]([(0x0,typeorm_1['BeforeUpdate'])(),tslib_1[a412_0x1f57c0(0x1ab)]('design:type',Function),tslib_1['__metadata'](a412_0x1f57c0(0x1ac),[]),tslib_1[a412_0x1f57c0(0x1ab)](a412_0x1f57c0(0x187),Promise)],ProductToCategory['prototype'],'updateDetails',null),ProductToCategory=tslib_1[a412_0x1f57c0(0x188)]([(0x0,typeorm_1[a412_0x1f57c0(0x18c)])('product_to_category')],ProductToCategory),exports[a412_0x1f57c0(0x195)]=ProductToCategory;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductToCategory = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+const typeorm_1 = require("typeorm");
+const class_transformer_1 = require("class-transformer");
+const BaseModel_1 = require("./BaseModel");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const ProductModel_1 = require("./ProductModel");
+const CategoryModel_1 = require("./CategoryModel");
+let ProductToCategory = class ProductToCategory extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'product_to_category_id' }),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], ProductToCategory.prototype, "productToCategoryId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_transformer_1.Exclude)(),
+    (0, typeorm_1.Column)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductToCategory.prototype, "productId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'category_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductToCategory.prototype, "categoryId", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductToCategory.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => ProductModel_1.Product, product => product.productToCategory),
+    (0, typeorm_1.JoinColumn)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", ProductModel_1.Product)
+], ProductToCategory.prototype, "product", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => CategoryModel_1.Category, category => category.productToCategory),
+    (0, typeorm_1.JoinColumn)({ name: 'category_id' }),
+    tslib_1.__metadata("design:type", CategoryModel_1.Category)
+], ProductToCategory.prototype, "category", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductToCategory.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductToCategory.prototype, "updateDetails", null);
+ProductToCategory = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('product_to_category')
+], ProductToCategory);
+exports.ProductToCategory = ProductToCategory;
+//# sourceMappingURL=ProductToCategory.js.map

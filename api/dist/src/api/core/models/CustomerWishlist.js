@@ -1,1 +1,78 @@
-'use strict';const a378_0x3aedf0=a378_0x32bc;(function(_0x518cca,_0x23b0bd){const _0x457c26=a378_0x32bc,_0x4f6241=_0x518cca();while(!![]){try{const _0x370434=parseInt(_0x457c26(0x7c))/0x1+-parseInt(_0x457c26(0x93))/0x2*(-parseInt(_0x457c26(0xa4))/0x3)+parseInt(_0x457c26(0x84))/0x4*(parseInt(_0x457c26(0x98))/0x5)+parseInt(_0x457c26(0x80))/0x6+-parseInt(_0x457c26(0x81))/0x7+parseInt(_0x457c26(0xa8))/0x8+parseInt(_0x457c26(0x88))/0x9*(-parseInt(_0x457c26(0x7a))/0xa);if(_0x370434===_0x23b0bd)break;else _0x4f6241['push'](_0x4f6241['shift']());}catch(_0x57a9d5){_0x4f6241['push'](_0x4f6241['shift']());}}}(a378_0x1745,0xb4aa1));function a378_0x32bc(_0x20f7d1,_0x36ca0a){const _0x1745de=a378_0x1745();return a378_0x32bc=function(_0x32bc42,_0x876fde){_0x32bc42=_0x32bc42-0x76;let _0x5800e8=_0x1745de[_0x32bc42];return _0x5800e8;},a378_0x32bc(_0x20f7d1,_0x36ca0a);}function a378_0x1745(){const _0x587811=['modifiedDate','PrimaryGeneratedColumn','__awaiter','product_option_value_id','19688110GdSIpL','format','894725rLMbCa','design:paramtypes','updateDetails','./BaseModel','566646bkEOvs','806764QDJAtp','CustomerWishlist','class-transformer','16cpybCH','Exclude','BeforeInsert','__decorate','9xtmegr','Entity','BeforeUpdate','prototype','product','productId','ManyToOne','defineProperty','createDetails','customerId','moment','10oGgmoA','YYYY-MM-DD\x20HH:mm:ss','__metadata','wishlistProductId','IsNotEmpty','417225thbTEi','design:type','JoinColumn','BaseModel','design:returntype','productOptionValueId','typeorm','product_id','./ProductModel','default','class-validator','Product','406665CGTCRY','is_active','Column','customer_id','6586744CVpsaH','__esModule'];a378_0x1745=function(){return _0x587811;};return a378_0x1745();}Object[a378_0x3aedf0(0x8f)](exports,a378_0x3aedf0(0xa9),{'value':!![]}),exports['CustomerWishlist']=void 0x0;const tslib_1=require('tslib'),class_validator_1=require(a378_0x3aedf0(0xa2)),typeorm_1=require(a378_0x3aedf0(0x9e)),class_transformer_1=require(a378_0x3aedf0(0x83)),ProductModel_1=require(a378_0x3aedf0(0xa0)),BaseModel_1=require(a378_0x3aedf0(0x7f)),moment_1=tslib_1['__importDefault'](require(a378_0x3aedf0(0x92)));let CustomerWishlist=class CustomerWishlist extends BaseModel_1[a378_0x3aedf0(0x9b)]{['createDetails'](){const _0x284010=a378_0x3aedf0;return tslib_1[_0x284010(0x78)](this,void 0x0,void 0x0,function*(){const _0x3a70e3=_0x284010;this['createdDate']=(0x0,moment_1[_0x3a70e3(0xa1)])()[_0x3a70e3(0x7b)](_0x3a70e3(0x94));});}[a378_0x3aedf0(0x7e)](){const _0x3a44de=a378_0x3aedf0;return tslib_1[_0x3a44de(0x78)](this,void 0x0,void 0x0,function*(){const _0x1d91bd=_0x3a44de;this[_0x1d91bd(0x76)]=(0x0,moment_1[_0x1d91bd(0xa1)])()[_0x1d91bd(0x7b)]('YYYY-MM-DD\x20HH:mm:ss');});}};tslib_1[a378_0x3aedf0(0x87)]([(0x0,class_validator_1[a378_0x3aedf0(0x97)])(),(0x0,typeorm_1[a378_0x3aedf0(0x77)])({'name':'id'}),tslib_1['__metadata'](a378_0x3aedf0(0x99),Number)],CustomerWishlist[a378_0x3aedf0(0x8b)],a378_0x3aedf0(0x96),void 0x0),tslib_1[a378_0x3aedf0(0x87)]([(0x0,class_transformer_1[a378_0x3aedf0(0x85)])(),(0x0,class_validator_1[a378_0x3aedf0(0x97)])(),(0x0,typeorm_1['Column'])({'name':a378_0x3aedf0(0xa7)}),tslib_1[a378_0x3aedf0(0x95)](a378_0x3aedf0(0x99),Number)],CustomerWishlist[a378_0x3aedf0(0x8b)],a378_0x3aedf0(0x91),void 0x0),tslib_1[a378_0x3aedf0(0x87)]([(0x0,class_transformer_1['Exclude'])(),(0x0,class_validator_1[a378_0x3aedf0(0x97)])(),(0x0,typeorm_1['Column'])({'name':a378_0x3aedf0(0x9f)}),tslib_1[a378_0x3aedf0(0x95)](a378_0x3aedf0(0x99),String)],CustomerWishlist[a378_0x3aedf0(0x8b)],a378_0x3aedf0(0x8d),void 0x0),tslib_1[a378_0x3aedf0(0x87)]([(0x0,class_transformer_1['Exclude'])(),(0x0,typeorm_1[a378_0x3aedf0(0xa6)])({'name':a378_0x3aedf0(0x79)}),tslib_1['__metadata'](a378_0x3aedf0(0x99),String)],CustomerWishlist['prototype'],a378_0x3aedf0(0x9d),void 0x0),tslib_1[a378_0x3aedf0(0x87)]([(0x0,class_transformer_1[a378_0x3aedf0(0x85)])(),(0x0,typeorm_1[a378_0x3aedf0(0xa6)])({'name':a378_0x3aedf0(0xa5)}),tslib_1[a378_0x3aedf0(0x95)](a378_0x3aedf0(0x99),Number)],CustomerWishlist[a378_0x3aedf0(0x8b)],'isActive',void 0x0),tslib_1[a378_0x3aedf0(0x87)]([(0x0,typeorm_1[a378_0x3aedf0(0x8e)])(_0x499d54=>ProductModel_1[a378_0x3aedf0(0xa3)],_0x9488c=>_0x9488c['wishlist']),(0x0,typeorm_1[a378_0x3aedf0(0x9a)])({'name':a378_0x3aedf0(0x9f)}),tslib_1['__metadata'](a378_0x3aedf0(0x99),ProductModel_1[a378_0x3aedf0(0xa3)])],CustomerWishlist[a378_0x3aedf0(0x8b)],a378_0x3aedf0(0x8c),void 0x0),tslib_1[a378_0x3aedf0(0x87)]([(0x0,typeorm_1[a378_0x3aedf0(0x86)])(),tslib_1[a378_0x3aedf0(0x95)]('design:type',Function),tslib_1[a378_0x3aedf0(0x95)](a378_0x3aedf0(0x7d),[]),tslib_1['__metadata'](a378_0x3aedf0(0x9c),Promise)],CustomerWishlist[a378_0x3aedf0(0x8b)],a378_0x3aedf0(0x90),null),tslib_1[a378_0x3aedf0(0x87)]([(0x0,typeorm_1[a378_0x3aedf0(0x8a)])(),tslib_1[a378_0x3aedf0(0x95)](a378_0x3aedf0(0x99),Function),tslib_1[a378_0x3aedf0(0x95)](a378_0x3aedf0(0x7d),[]),tslib_1[a378_0x3aedf0(0x95)](a378_0x3aedf0(0x9c),Promise)],CustomerWishlist[a378_0x3aedf0(0x8b)],'updateDetails',null),CustomerWishlist=tslib_1[a378_0x3aedf0(0x87)]([(0x0,typeorm_1[a378_0x3aedf0(0x89)])('customer_wishlist')],CustomerWishlist),exports[a378_0x3aedf0(0x82)]=CustomerWishlist;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CustomerWishlist = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+const typeorm_1 = require("typeorm");
+const class_transformer_1 = require("class-transformer");
+const ProductModel_1 = require("./ProductModel");
+const BaseModel_1 = require("./BaseModel");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+let CustomerWishlist = class CustomerWishlist extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'id' }),
+    tslib_1.__metadata("design:type", Number)
+], CustomerWishlist.prototype, "wishlistProductId", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'customer_id' }),
+    tslib_1.__metadata("design:type", Number)
+], CustomerWishlist.prototype, "customerId", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", String)
+], CustomerWishlist.prototype, "productId", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, typeorm_1.Column)({ name: 'product_option_value_id' }),
+    tslib_1.__metadata("design:type", String)
+], CustomerWishlist.prototype, "productOptionValueId", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], CustomerWishlist.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => ProductModel_1.Product, product => product.wishlist),
+    (0, typeorm_1.JoinColumn)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", ProductModel_1.Product)
+], CustomerWishlist.prototype, "product", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerWishlist.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerWishlist.prototype, "updateDetails", null);
+CustomerWishlist = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('customer_wishlist')
+], CustomerWishlist);
+exports.CustomerWishlist = CustomerWishlist;
+//# sourceMappingURL=CustomerWishlist.js.map

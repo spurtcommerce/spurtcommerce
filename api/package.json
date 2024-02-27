@@ -1,10 +1,26 @@
 {
     "name": "spurtcommerce-marketplace",
-    "version": "4.8.3",
+    "version": "4.8.4",
     "description": "Spurtcommerce RESTFUL API",
     "main": "src/app.ts",
     "scripts": {
-        "start": "node dist/src/app.js"
+        "start": "npm run create-index && nps",
+        "build": "npm start build",
+        "test:jest": "jest --setupFiles dotenv/config  --detectOpenHandles",
+        "storeBuild": "npm start storeBuild",
+        "adminBuild": "npm start adminBuild",
+        "vendorBuild": "npm start vendorBuild",
+        "presetup": "npm install",
+        "generatedoc": "apidoc -i src -i add-ons -o src/public/apidoc",
+        "setup": "npm start config && npm start setup.script",
+        "dbseed": "npm start dbseed.script",
+        "tslint": "tslint --project .",
+        "create-entities-index": "ts-node --pretty utils/create-entities-index.ts",
+        "create-controller-index": "ts-node --pretty utils/create-controller-index.ts",
+        "create-middleware-index": "ts-node --pretty utils/create-middleware-index.ts",
+        "create-migration-index": "ts-node --pretty utils/create-migration-index.ts",
+        "create-index": "npm run create-entities-index && npm run create-controller-index && npm run create-middleware-index && npm run create-migration-index",
+        "postbuild": "ts-node --pretty utils/copy-templates.ts"
     },
     "engines": {
         "node": ">=8.0.0",
@@ -21,8 +37,8 @@
         "express"
     ],
     "apidoc": {
-        "name": "SpurtCommerce-multivendor V4.8.3",
-        "version": "4.8.3",
+        "name": "spurtcommerce-multivendor V4.8.4",
+        "version": "4.8.4",
         "description": "Spurtcommerce Marketplace RESTFUL API Document",
         "title": "Spurtcommerce Marketplace RESTFUL API Document"
     },
@@ -78,10 +94,10 @@
         "@koa/router": "^12.0.0",
         "@spurtcommerce/auth": "^1.1.0",
         "@spurtcommerce/cart": "^1.0.5",
-        "@spurtcommerce/customer": "^1.0.3",
+        "@spurtcommerce/customer": "^1.0.5",
         "@spurtcommerce/marketplace": "^1.1.0",
-        "@spurtcommerce/order": "^1.1.8",
-        "@spurtcommerce/product": "^1.2.0",
+        "@spurtcommerce/order": "^1.2.1",
+        "@spurtcommerce/product": "1.2.4",
         "@types/express-ejs-layouts": "^2.3.1",
         "@types/express-session": "^1.15.12",
         "@types/lusca": "^1.6.0",

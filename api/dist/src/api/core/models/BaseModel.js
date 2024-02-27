@@ -1,1 +1,36 @@
-'use strict';const a366_0x4ff085=a366_0x1a1e;function a366_0x1a1e(_0x45ba83,_0x13c755){const _0x54601c=a366_0x5460();return a366_0x1a1e=function(_0x1a1e13,_0x3ba7d0){_0x1a1e13=_0x1a1e13-0x1a5;let _0x294426=_0x54601c[_0x1a1e13];return _0x294426;},a366_0x1a1e(_0x45ba83,_0x13c755);}(function(_0x3692da,_0x5481a0){const _0x37af59=a366_0x1a1e,_0x15feb9=_0x3692da();while(!![]){try{const _0x2239f2=parseInt(_0x37af59(0x1bf))/0x1*(parseInt(_0x37af59(0x1b2))/0x2)+parseInt(_0x37af59(0x1b0))/0x3*(parseInt(_0x37af59(0x1ac))/0x4)+-parseInt(_0x37af59(0x1a6))/0x5*(parseInt(_0x37af59(0x1b3))/0x6)+-parseInt(_0x37af59(0x1ad))/0x7*(-parseInt(_0x37af59(0x1c0))/0x8)+parseInt(_0x37af59(0x1ab))/0x9*(-parseInt(_0x37af59(0x1aa))/0xa)+parseInt(_0x37af59(0x1a7))/0xb+parseInt(_0x37af59(0x1ae))/0xc*(-parseInt(_0x37af59(0x1bc))/0xd);if(_0x2239f2===_0x5481a0)break;else _0x15feb9['push'](_0x15feb9['shift']());}catch(_0x5c076b){_0x15feb9['push'](_0x15feb9['shift']());}}}(a366_0x5460,0x31471));Object[a366_0x4ff085(0x1bd)](exports,a366_0x4ff085(0x1af),{'value':!![]}),exports[a366_0x4ff085(0x1b6)]=void 0x0;const tslib_1=require(a366_0x4ff085(0x1c2)),typeorm_1=require(a366_0x4ff085(0x1be)),class_transformer_1=require('class-transformer');class BaseModel{}tslib_1[a366_0x4ff085(0x1bb)]([(0x0,class_transformer_1[a366_0x4ff085(0x1b8)])(),(0x0,typeorm_1['Column'])({'name':'created_by'}),tslib_1['__metadata'](a366_0x4ff085(0x1a8),Number)],BaseModel[a366_0x4ff085(0x1b7)],a366_0x4ff085(0x1b9),void 0x0),tslib_1[a366_0x4ff085(0x1bb)]([(0x0,typeorm_1[a366_0x4ff085(0x1b4)])({'name':a366_0x4ff085(0x1b5)}),tslib_1[a366_0x4ff085(0x1b1)]('design:type',String)],BaseModel['prototype'],a366_0x4ff085(0x1ba),void 0x0),tslib_1[a366_0x4ff085(0x1bb)]([(0x0,class_transformer_1[a366_0x4ff085(0x1b8)])(),(0x0,typeorm_1[a366_0x4ff085(0x1b4)])({'name':a366_0x4ff085(0x1c1)}),tslib_1['__metadata'](a366_0x4ff085(0x1a8),Number)],BaseModel[a366_0x4ff085(0x1b7)],a366_0x4ff085(0x1a9),void 0x0),tslib_1[a366_0x4ff085(0x1bb)]([(0x0,class_transformer_1['Exclude'])(),(0x0,typeorm_1[a366_0x4ff085(0x1b4)])({'name':'modified_date'}),tslib_1[a366_0x4ff085(0x1b1)](a366_0x4ff085(0x1a8),String)],BaseModel[a366_0x4ff085(0x1b7)],a366_0x4ff085(0x1a5),void 0x0),exports[a366_0x4ff085(0x1b6)]=BaseModel;function a366_0x5460(){const _0x588fdb=['1882594eDkOgJ','1116vjybia','__esModule','12RnnuHI','__metadata','14SknFEG','8172LdGXMs','Column','created_date','BaseModel','prototype','Exclude','createdBy','createdDate','__decorate','29289PhfYZO','defineProperty','typeorm','19526ucBjvG','8PvmPco','modified_by','tslib','modifiedDate','240kkVEoU','3837328noPfVZ','design:type','modifiedBy','410kgkddX','68526obnytn','34448fWImkR'];a366_0x5460=function(){return _0x588fdb;};return a366_0x5460();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BaseModel = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const class_transformer_1 = require("class-transformer");
+class BaseModel {
+}
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, typeorm_1.Column)({ name: 'created_by' }),
+    tslib_1.__metadata("design:type", Number)
+], BaseModel.prototype, "createdBy", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'created_date' }),
+    tslib_1.__metadata("design:type", String)
+], BaseModel.prototype, "createdDate", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, typeorm_1.Column)({ name: 'modified_by' }),
+    tslib_1.__metadata("design:type", Number)
+], BaseModel.prototype, "modifiedBy", void 0);
+tslib_1.__decorate([
+    (0, class_transformer_1.Exclude)(),
+    (0, typeorm_1.Column)({ name: 'modified_date' }),
+    tslib_1.__metadata("design:type", String)
+], BaseModel.prototype, "modifiedDate", void 0);
+exports.BaseModel = BaseModel;
+//# sourceMappingURL=BaseModel.js.map

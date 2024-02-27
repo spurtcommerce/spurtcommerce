@@ -1,1 +1,87 @@
-'use strict';const a626_0x22f238=a626_0x4aaf;(function(_0x1111f0,_0x43c202){const _0x11f735=a626_0x4aaf,_0x213e62=_0x1111f0();while(!![]){try{const _0x14f8ab=-parseInt(_0x11f735(0x8d))/0x1*(-parseInt(_0x11f735(0x9f))/0x2)+-parseInt(_0x11f735(0x96))/0x3*(parseInt(_0x11f735(0x9c))/0x4)+-parseInt(_0x11f735(0xa1))/0x5*(-parseInt(_0x11f735(0xa3))/0x6)+parseInt(_0x11f735(0x8b))/0x7*(parseInt(_0x11f735(0x98))/0x8)+parseInt(_0x11f735(0x97))/0x9+parseInt(_0x11f735(0xa4))/0xa+-parseInt(_0x11f735(0xa7))/0xb;if(_0x14f8ab===_0x43c202)break;else _0x213e62['push'](_0x213e62['shift']());}catch(_0x1665ba){_0x213e62['push'](_0x213e62['shift']());}}}(a626_0x5b5f,0xb59af));function a626_0x4aaf(_0x1c67a8,_0x30a091){const _0x5b5fab=a626_0x5b5f();return a626_0x4aaf=function(_0x4aafcb,_0x1146d3){_0x4aafcb=_0x4aafcb-0x82;let _0x131a53=_0x5b5fab[_0x4aafcb];return _0x131a53;},a626_0x4aaf(_0x1c67a8,_0x30a091);}Object[a626_0x22f238(0x8e)](exports,a626_0x22f238(0x8f),{'value':!![]}),exports['VendorOrderLogService']=void 0x0;const tslib_1=require(a626_0x22f238(0x91)),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require(a626_0x22f238(0x90)),Logger_1=require(a626_0x22f238(0x89)),VendorOrderLogRepository_1=require('../repositories/VendorOrderLogRepository'),typeorm_1=require(a626_0x22f238(0xab));let VendorOrderLogService=class VendorOrderLogService{constructor(_0x5309d3,_0x149898){const _0xd41aef=a626_0x22f238;this[_0xd41aef(0x95)]=_0x5309d3,this['log']=_0x149898;}[a626_0x22f238(0xa8)](_0x7f8d95){const _0x57e8e0=a626_0x22f238;return this[_0x57e8e0(0x99)][_0x57e8e0(0xb0)](_0x57e8e0(0x93)),this['vendorOrderLogRepository']['findOne'](_0x7f8d95);}[a626_0x22f238(0xaa)](_0x2474ff,_0x52ee39,_0x3c148d=[],_0x5e87f8=[],_0x1cddef){const _0x20d152=a626_0x22f238,_0x50146f={};_0x3c148d&&_0x3c148d[_0x20d152(0x82)]>0x0&&(_0x50146f['select']=_0x3c148d);_0x50146f['where']={};_0x5e87f8&&_0x5e87f8[_0x20d152(0x82)]>0x0&&_0x5e87f8[_0x20d152(0x9b)](_0x3a8a80=>{const _0x55a72b=_0x20d152,_0x7bcb42=_0x3a8a80['op'];if(_0x7bcb42==='where'&&_0x3a8a80[_0x55a72b(0x8c)]!==undefined)_0x50146f['where'][_0x3a8a80[_0x55a72b(0x84)]]=_0x3a8a80[_0x55a72b(0x8c)];else _0x7bcb42==='like'&&_0x3a8a80[_0x55a72b(0x8c)]!==undefined&&(_0x50146f[_0x55a72b(0x87)][_0x3a8a80['name']]=(0x0,typeorm_1[_0x55a72b(0x9e)])('%'+_0x3a8a80[_0x55a72b(0x8c)]+'%'));});_0x2474ff&&_0x2474ff>0x0&&(_0x50146f['take']=_0x2474ff,_0x50146f[_0x20d152(0xa6)]=_0x52ee39);if(_0x1cddef)return this[_0x20d152(0x95)]['count'](_0x50146f);return this[_0x20d152(0x95)][_0x20d152(0xaf)](_0x50146f);}[a626_0x22f238(0xae)](_0x19cf74){const _0x35096d=a626_0x22f238;return tslib_1[_0x35096d(0xa2)](this,void 0x0,void 0x0,function*(){const _0x3b9a7c=_0x35096d,_0x11a225=yield this[_0x3b9a7c(0x95)][_0x3b9a7c(0x9a)](_0x19cf74);return _0x11a225;});}[a626_0x22f238(0xa0)](_0x884cf2,_0x4a6a48){const _0x28273d=a626_0x22f238;return this[_0x28273d(0x99)][_0x28273d(0xb0)](_0x28273d(0x88)),_0x4a6a48[_0x28273d(0xa5)]=_0x884cf2,this[_0x28273d(0x95)]['save'](_0x4a6a48);}[a626_0x22f238(0x86)](_0x108fec){const _0x1fb8c4=a626_0x22f238;return tslib_1[_0x1fb8c4(0xa2)](this,void 0x0,void 0x0,function*(){const _0x14e17f=_0x1fb8c4;this[_0x14e17f(0x99)]['info'](_0x14e17f(0xac));const _0x861b79=yield this[_0x14e17f(0x95)][_0x14e17f(0x86)](_0x108fec);return _0x861b79;});}[a626_0x22f238(0xaf)](_0x2a2447){const _0x3f138d=a626_0x22f238;return this[_0x3f138d(0x99)][_0x3f138d(0xb0)](_0x3f138d(0x92)),this[_0x3f138d(0x95)]['find'](_0x2a2447);}};VendorOrderLogService=tslib_1['__decorate']([(0x0,typedi_1[a626_0x22f238(0xa9)])(),tslib_1[a626_0x22f238(0x9d)](0x0,(0x0,typeorm_typedi_extensions_1['OrmRepository'])()),tslib_1[a626_0x22f238(0x9d)](0x1,(0x0,Logger_1[a626_0x22f238(0x85)])(__filename)),tslib_1[a626_0x22f238(0x83)](a626_0x22f238(0x8a),[VendorOrderLogRepository_1[a626_0x22f238(0xad)],Object])],VendorOrderLogService),exports[a626_0x22f238(0x94)]=VendorOrderLogService;function a626_0x5b5f(){const _0x241407=['forEach','64KIugdS','__param','Like','12hyOvte','update','100nCwgZR','__awaiter','124158QItSlL','362600oHdhAv','vendorOrderLogId','skip','11217789uymmbS','findOne','Service','list','typeorm','Delete\x20a\x20vendor\x20order\x20log','VendorOrderLogRepository','create','find','info','length','__metadata','name','Logger','delete','where','Update\x20a\x20vendor\x20order\x20log','../../../decorators/Logger','design:paramtypes','818419baMTMb','value','62119ssFYFM','defineProperty','__esModule','typeorm-typedi-extensions','tslib','Find\x20all\x20VendorProducts','Find\x20role','VendorOrderLogService','vendorOrderLogRepository','219873WLTFMx','9551007QdmqHJ','72XvcUiJ','log','save'];a626_0x5b5f=function(){return _0x241407;};return a626_0x5b5f();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorOrderLogService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const VendorOrderLogRepository_1 = require("../repositories/VendorOrderLogRepository");
+const typeorm_1 = require("typeorm");
+let VendorOrderLogService = class VendorOrderLogService {
+    constructor(vendorOrderLogRepository, log) {
+        this.vendorOrderLogRepository = vendorOrderLogRepository;
+        this.log = log;
+    }
+    // find one vendorOrderLog
+    findOne(findCondition) {
+        this.log.info('Find role');
+        return this.vendorOrderLogRepository.findOne(findCondition);
+    }
+    // vendorOrderLog list
+    list(limit, offset, select = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, typeorm_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.vendorOrderLogRepository.count(condition);
+        }
+        return this.vendorOrderLogRepository.find(condition);
+    }
+    // create vendor order log
+    create(vendorOrderLog) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newVendorOrderLog = yield this.vendorOrderLogRepository.save(vendorOrderLog);
+            return newVendorOrderLog;
+        });
+    }
+    // update vendor order log
+    update(id, vendorOrderLog) {
+        this.log.info('Update a vendor order log');
+        vendorOrderLog.vendorOrderLogId = id;
+        return this.vendorOrderLogRepository.save(vendorOrderLog);
+    }
+    // delete vendor order log
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a vendor order log');
+            const deleteVendorOrderLog = yield this.vendorOrderLogRepository.delete(id);
+            return deleteVendorOrderLog;
+        });
+    }
+    find(data) {
+        this.log.info('Find all VendorProducts');
+        return this.vendorOrderLogRepository.find(data);
+    }
+};
+VendorOrderLogService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [VendorOrderLogRepository_1.VendorOrderLogRepository, Object])
+], VendorOrderLogService);
+exports.VendorOrderLogService = VendorOrderLogService;
+//# sourceMappingURL=VendorOrderLogService.js.map

@@ -1,1 +1,381 @@
-'use strict';const a259_0x1aafec=a259_0x31ec;(function(_0x57e538,_0x4fe84a){const _0x57a82e=a259_0x31ec,_0x233cd7=_0x57e538();while(!![]){try{const _0x1b4fbc=parseInt(_0x57a82e(0x1f8))/0x1+parseInt(_0x57a82e(0x1d5))/0x2*(-parseInt(_0x57a82e(0x201))/0x3)+-parseInt(_0x57a82e(0x1e3))/0x4+parseInt(_0x57a82e(0x216))/0x5*(-parseInt(_0x57a82e(0x213))/0x6)+parseInt(_0x57a82e(0x1ea))/0x7*(-parseInt(_0x57a82e(0x20a))/0x8)+parseInt(_0x57a82e(0x214))/0x9*(parseInt(_0x57a82e(0x1fb))/0xa)+-parseInt(_0x57a82e(0x21d))/0xb*(-parseInt(_0x57a82e(0x1ce))/0xc);if(_0x1b4fbc===_0x4fe84a)break;else _0x233cd7['push'](_0x233cd7['shift']());}catch(_0x419d6b){_0x233cd7['push'](_0x233cd7['shift']());}}}(a259_0x30d0,0x53996));Object[a259_0x1aafec(0x215)](exports,a259_0x1aafec(0x1e1),{'value':!![]}),exports[a259_0x1aafec(0x1f1)]=void 0x0;const tslib_1=require(a259_0x1aafec(0x209));function a259_0x31ec(_0x33cc14,_0x5ff297){const _0x30d086=a259_0x30d0();return a259_0x31ec=function(_0x31ecfe,_0x1cd46a){_0x31ecfe=_0x31ecfe-0x1c7;let _0x4e1acc=_0x30d086[_0x31ecfe];return _0x4e1acc;},a259_0x31ec(_0x33cc14,_0x5ff297);}require(a259_0x1aafec(0x1c9));const routing_controllers_1=require(a259_0x1aafec(0x1f2)),CreateCountryRequest_1=require('./requests/CreateCountryRequest'),Country_1=require(a259_0x1aafec(0x202)),CountryService_1=require(a259_0x1aafec(0x205)),UpdateCountryRequest_1=require(a259_0x1aafec(0x1e5)),typeorm_1=require('typeorm');function a259_0x30d0(){const _0x3f4950=['addCountry','Body','__esModule','status','536780XPQyvn','getCountryId','./requests/UpdateCountryRequest','admin','Authorized','/add-country','prototype','2892869FChZxX','offset','create','/delete-country/:id','isoCode2','create-country','/countrylist','CountryController','routing-controllers','send','You\x20have\x20already\x20added\x20this\x20country.','LOWER(','countryService','Invalid\x20Country\x20Id.','201751mlMMsU','design:returntype',')\x20=\x20\x27','290WHfxcP','name','__metadata','CreateCountry','postcodeRequired','QueryParam','1613421LVrTup','../../core/models/Country','__awaiter','list','../../core/services/CountryService','Param','Country','delete','tslib','8aHQFsY','keyword','Successfully\x20got\x20country\x20Id','Invalid\x20country\x20Id.','Req','isActive','Unable\x20to\x20delete\x20the\x20country.','limit','Res','143976pfTKOa','180036McllOP','defineProperty','100zFDPtp','Raw','design:paramtypes','edit-country','Unable\x20to\x20add\x20the\x20country.\x20','UpdateCountry','Get','87824NWUvGP','like','JsonController','reflect-metadata','deleteCountry','__decorate','Successfully\x20deleted\x20the\x20country.','Successfully\x20got\x20country\x20List','1692KQhpoF','isoCode3','__param','unable\x20to\x20get\x20countryList','findOne','countryId','Put','2pzppTe','design:type','/country','Unable\x20to\x20update\x20the\x20country.','delete-country','CountryService','updateCountry','Delete','Successfully\x20updated\x20country.','/get-country-id'];a259_0x30d0=function(){return _0x3f4950;};return a259_0x30d0();}let CountryController=class CountryController{constructor(_0xaba893){this['countryService']=_0xaba893;}[a259_0x1aafec(0x1df)](_0x5ebb61,_0x2c0e2f){const _0x34809e=a259_0x1aafec;return tslib_1[_0x34809e(0x203)](this,void 0x0,void 0x0,function*(){const _0x497871=_0x34809e,_0x24a1c1=yield this['countryService'][_0x497871(0x1d2)]({'where':{'name':_0x5ebb61[_0x497871(0x1fc)],'isoCode2':_0x5ebb61['isoCode2'],'isoCode3':_0x5ebb61[_0x497871(0x1cf)]}});if(_0x24a1c1){const _0x2b2f62={'status':0x0,'message':_0x497871(0x1f4)};return _0x2c0e2f[_0x497871(0x1e2)](0x190)[_0x497871(0x1f3)](_0x2b2f62);}const _0x3f04be=yield this['countryService'][_0x497871(0x1d2)]({'where':{'name':(0x0,typeorm_1[_0x497871(0x217)])(_0x391d14=>_0x497871(0x1f5)+_0x391d14+_0x497871(0x1fa)+_0x5ebb61[_0x497871(0x1fc)]['toLowerCase']()+'\x27')}});if(_0x3f04be){const _0x3d3022={'status':0x0,'message':_0x497871(0x1f4)};return _0x2c0e2f[_0x497871(0x1e2)](0x190)[_0x497871(0x1f3)](_0x3d3022);}const _0x22fe62=new Country_1[(_0x497871(0x207))]();_0x22fe62[_0x497871(0x1fc)]=_0x5ebb61['name'],_0x22fe62['isoCode2']=_0x5ebb61[_0x497871(0x1ee)],_0x22fe62[_0x497871(0x1cf)]=_0x5ebb61[_0x497871(0x1cf)],_0x22fe62[_0x497871(0x1ff)]=_0x5ebb61[_0x497871(0x1ff)],_0x22fe62['isActive']=_0x5ebb61[_0x497871(0x1e2)];const _0x3b44ed=yield this[_0x497871(0x1f6)][_0x497871(0x1ec)](_0x22fe62);if(_0x3b44ed!==undefined){const _0x3b1b5d={'status':0x1,'message':'Successfully\x20added\x20new\x20country.','data':_0x3b44ed};return _0x2c0e2f['status'](0xc8)[_0x497871(0x1f3)](_0x3b1b5d);}else{const _0x2b4323={'status':0x0,'message':_0x497871(0x21a)};return _0x2c0e2f[_0x497871(0x1e2)](0x190)[_0x497871(0x1f3)](_0x2b4323);}});}[a259_0x1aafec(0x1db)](_0x371fa3,_0x292c5e){const _0x24c10d=a259_0x1aafec;return tslib_1[_0x24c10d(0x203)](this,void 0x0,void 0x0,function*(){const _0x6453eb=_0x24c10d,_0x266cdb=yield this['countryService'][_0x6453eb(0x1d2)]({'where':{'countryId':_0x371fa3[_0x6453eb(0x1d3)]}});if(!_0x266cdb){const _0xbfaa1d={'status':0x0,'message':_0x6453eb(0x20d)};return _0x292c5e['status'](0x190)[_0x6453eb(0x1f3)](_0xbfaa1d);}_0x266cdb[_0x6453eb(0x1fc)]=_0x371fa3['name'],_0x266cdb[_0x6453eb(0x1ee)]=_0x371fa3[_0x6453eb(0x1ee)],_0x266cdb[_0x6453eb(0x1cf)]=_0x371fa3['isoCode3'],_0x266cdb[_0x6453eb(0x1ff)]=_0x371fa3[_0x6453eb(0x1ff)],_0x266cdb[_0x6453eb(0x20f)]=_0x371fa3['status'];const _0x41193c=yield this[_0x6453eb(0x1f6)][_0x6453eb(0x1ec)](_0x266cdb);if(_0x41193c!==undefined){const _0x3019f6={'status':0x1,'message':_0x6453eb(0x1dd),'data':_0x41193c};return _0x292c5e['status'](0xc8)['send'](_0x3019f6);}else{const _0x13989e={'status':0x0,'message':_0x6453eb(0x1d8)};return _0x292c5e[_0x6453eb(0x1e2)](0x190)[_0x6453eb(0x1f3)](_0x13989e);}});}['countryList'](_0x50f909,_0xeb1831,_0x115f4d,_0x94703f,_0x3d2b95,_0x932801){const _0x47e43f=a259_0x1aafec;return tslib_1[_0x47e43f(0x203)](this,void 0x0,void 0x0,function*(){const _0xd49d44=_0x47e43f,_0xf8532b=['countryId',_0xd49d44(0x1fc),_0xd49d44(0x1ee),_0xd49d44(0x1cf),_0xd49d44(0x1ff),_0xd49d44(0x20f)],_0x3b053a=[{'name':_0xd49d44(0x1fc),'op':'like','value':_0x115f4d},{'name':_0xd49d44(0x20f),'op':_0xd49d44(0x1c7),'value':_0x94703f}],_0x3d882b=[],_0x16e285=yield this['countryService'][_0xd49d44(0x204)](_0x50f909,_0xeb1831,_0xf8532b,_0x3b053a,_0x3d882b,_0x3d2b95);if(_0x16e285){const _0x37fdf0={'status':0x1,'message':_0xd49d44(0x1cd),'data':_0x16e285};return _0x932801[_0xd49d44(0x1e2)](0xc8)['send'](_0x37fdf0);}else{const _0x933520={'status':0x0,'message':_0xd49d44(0x1d1)};return _0x932801[_0xd49d44(0x1e2)](0x190)['send'](_0x933520);}});}[a259_0x1aafec(0x1e4)](_0x537dcd,_0x4a2599,_0x53855b){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x508a12=a259_0x31ec,_0x307ba3=yield this[_0x508a12(0x1f6)][_0x508a12(0x1d2)]({'where':{'name':_0x537dcd},'select':[_0x508a12(0x1d3)]});if(!_0x307ba3){const _0x2409d8={'status':0x0,'message':'Enter\x20Valid\x20Country\x20Name\x20'};return _0x53855b[_0x508a12(0x1e2)](0xc8)[_0x508a12(0x1f3)](_0x2409d8);}const _0x3d8113={'status':0x1,'message':_0x508a12(0x20c),'data':_0x307ba3};return _0x53855b[_0x508a12(0x1e2)](0xc8)[_0x508a12(0x1f3)](_0x3d8113);});}['deleteCountry'](_0x51d009,_0x128be1,_0x984a69){const _0x326c81=a259_0x1aafec;return tslib_1[_0x326c81(0x203)](this,void 0x0,void 0x0,function*(){const _0x43ce39=_0x326c81,_0xf03d20=yield this[_0x43ce39(0x1f6)]['findOne']({'where':{'countryId':_0x51d009}});if(!_0xf03d20){const _0x2ffa17={'status':0x0,'message':_0x43ce39(0x1f7)};return _0x128be1['status'](0x190)[_0x43ce39(0x1f3)](_0x2ffa17);}const _0x3dc6ca=yield this[_0x43ce39(0x1f6)][_0x43ce39(0x208)](_0xf03d20);if(_0x3dc6ca){const _0x265ba8={'status':0x1,'message':_0x43ce39(0x1cc)};return _0x128be1[_0x43ce39(0x1e2)](0xc8)[_0x43ce39(0x1f3)](_0x265ba8);}else{const _0x10be2a={'status':0x0,'message':_0x43ce39(0x210)};return _0x128be1[_0x43ce39(0x1e2)](0x190)[_0x43ce39(0x1f3)](_0x10be2a);}});}};tslib_1[a259_0x1aafec(0x1cb)]([(0x0,routing_controllers_1['Post'])(a259_0x1aafec(0x1e8)),(0x0,routing_controllers_1['Authorized'])([a259_0x1aafec(0x1e6),a259_0x1aafec(0x1ef)]),tslib_1[a259_0x1aafec(0x1d0)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a259_0x1aafec(0x1d0)](0x1,(0x0,routing_controllers_1[a259_0x1aafec(0x212)])()),tslib_1[a259_0x1aafec(0x1fd)]('design:type',Function),tslib_1[a259_0x1aafec(0x1fd)]('design:paramtypes',[CreateCountryRequest_1[a259_0x1aafec(0x1fe)],Object]),tslib_1[a259_0x1aafec(0x1fd)](a259_0x1aafec(0x1f9),Promise)],CountryController['prototype'],'addCountry',null),tslib_1[a259_0x1aafec(0x1cb)]([(0x0,routing_controllers_1[a259_0x1aafec(0x1d4)])('/update-country/:id'),(0x0,routing_controllers_1[a259_0x1aafec(0x1e7)])([a259_0x1aafec(0x1e6),a259_0x1aafec(0x219)]),tslib_1[a259_0x1aafec(0x1d0)](0x0,(0x0,routing_controllers_1[a259_0x1aafec(0x1e0)])({'validate':!![]})),tslib_1[a259_0x1aafec(0x1d0)](0x1,(0x0,routing_controllers_1[a259_0x1aafec(0x212)])()),tslib_1[a259_0x1aafec(0x1fd)](a259_0x1aafec(0x1d6),Function),tslib_1[a259_0x1aafec(0x1fd)]('design:paramtypes',[UpdateCountryRequest_1[a259_0x1aafec(0x21b)],Object]),tslib_1[a259_0x1aafec(0x1fd)](a259_0x1aafec(0x1f9),Promise)],CountryController[a259_0x1aafec(0x1e9)],a259_0x1aafec(0x1db),null),tslib_1[a259_0x1aafec(0x1cb)]([(0x0,routing_controllers_1[a259_0x1aafec(0x21c)])(a259_0x1aafec(0x1f0)),(0x0,routing_controllers_1[a259_0x1aafec(0x1e7)])(),tslib_1[a259_0x1aafec(0x1d0)](0x0,(0x0,routing_controllers_1[a259_0x1aafec(0x200)])(a259_0x1aafec(0x211))),tslib_1[a259_0x1aafec(0x1d0)](0x1,(0x0,routing_controllers_1[a259_0x1aafec(0x200)])(a259_0x1aafec(0x1eb))),tslib_1[a259_0x1aafec(0x1d0)](0x2,(0x0,routing_controllers_1['QueryParam'])(a259_0x1aafec(0x20b))),tslib_1[a259_0x1aafec(0x1d0)](0x3,(0x0,routing_controllers_1[a259_0x1aafec(0x200)])('status')),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a259_0x1aafec(0x200)])('count')),tslib_1[a259_0x1aafec(0x1d0)](0x5,(0x0,routing_controllers_1['Res'])()),tslib_1[a259_0x1aafec(0x1fd)]('design:type',Function),tslib_1[a259_0x1aafec(0x1fd)](a259_0x1aafec(0x218),[Number,Number,String,String,Object,Object]),tslib_1[a259_0x1aafec(0x1fd)](a259_0x1aafec(0x1f9),Promise)],CountryController[a259_0x1aafec(0x1e9)],'countryList',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a259_0x1aafec(0x21c)])(a259_0x1aafec(0x1de)),(0x0,routing_controllers_1['Authorized'])([a259_0x1aafec(0x1e6)]),tslib_1[a259_0x1aafec(0x1d0)](0x0,(0x0,routing_controllers_1[a259_0x1aafec(0x200)])('countryName')),tslib_1[a259_0x1aafec(0x1d0)](0x1,(0x0,routing_controllers_1[a259_0x1aafec(0x20e)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata'](a259_0x1aafec(0x1d6),Function),tslib_1[a259_0x1aafec(0x1fd)](a259_0x1aafec(0x218),[String,Object,Object]),tslib_1[a259_0x1aafec(0x1fd)](a259_0x1aafec(0x1f9),Promise)],CountryController[a259_0x1aafec(0x1e9)],a259_0x1aafec(0x1e4),null),tslib_1[a259_0x1aafec(0x1cb)]([(0x0,routing_controllers_1[a259_0x1aafec(0x1dc)])(a259_0x1aafec(0x1ed)),(0x0,routing_controllers_1[a259_0x1aafec(0x1e7)])(['admin',a259_0x1aafec(0x1d9)]),tslib_1[a259_0x1aafec(0x1d0)](0x0,(0x0,routing_controllers_1[a259_0x1aafec(0x206)])('id')),tslib_1[a259_0x1aafec(0x1d0)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a259_0x1aafec(0x1d0)](0x2,(0x0,routing_controllers_1[a259_0x1aafec(0x20e)])()),tslib_1[a259_0x1aafec(0x1fd)]('design:type',Function),tslib_1[a259_0x1aafec(0x1fd)]('design:paramtypes',[Number,Object,Object]),tslib_1['__metadata'](a259_0x1aafec(0x1f9),Promise)],CountryController[a259_0x1aafec(0x1e9)],a259_0x1aafec(0x1ca),null),CountryController=tslib_1[a259_0x1aafec(0x1cb)]([(0x0,routing_controllers_1[a259_0x1aafec(0x1c8)])(a259_0x1aafec(0x1d7)),tslib_1['__metadata'](a259_0x1aafec(0x218),[CountryService_1[a259_0x1aafec(0x1da)]])],CountryController),exports[a259_0x1aafec(0x1f1)]=CountryController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CountryController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const CreateCountryRequest_1 = require("./requests/CreateCountryRequest");
+const Country_1 = require("../../core/models/Country");
+const CountryService_1 = require("../../core/services/CountryService");
+const UpdateCountryRequest_1 = require("./requests/UpdateCountryRequest");
+const typeorm_1 = require("typeorm");
+let CountryController = class CountryController {
+    constructor(countryService) {
+        this.countryService = countryService;
+    }
+    // Create Country API
+    /**
+     * @api {post} /api/country/add-country Add Country API
+     * @apiGroup Country
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..30}} name Country name
+     * @apiParam (Request body) {String{..2}} isoCode2 Country isoCode2
+     * @apiParam (Request body) {String{..3}} isoCode3 Country isoCode3
+     * @apiParam (Request body) {Number} postcodeRequired Country postcodeRequired
+     * @apiParam (Request body) {Number} status Country status field required
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "isoCode2" : "",
+     *      "isoCode3" : "",
+     *      "addressFormat" : "",
+     *      "postcodeRequired" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully created new Country.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/country/add-country
+     * @apiErrorExample {json} Country error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addCountry(countryParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const existCountry = yield this.countryService.findOne({
+                where: {
+                    name: countryParam.name,
+                    isoCode2: countryParam.isoCode2,
+                    isoCode3: countryParam.isoCode3,
+                },
+            });
+            if (existCountry) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You have already added this country.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const checkCountry = yield this.countryService.findOne({
+                where: {
+                    name: (0, typeorm_1.Raw)(alias => `LOWER(${alias}) = '${countryParam.name.toLowerCase()}'`),
+                },
+            });
+            if (checkCountry) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You have already added this country.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newCountry = new Country_1.Country();
+            newCountry.name = countryParam.name;
+            newCountry.isoCode2 = countryParam.isoCode2;
+            newCountry.isoCode3 = countryParam.isoCode3;
+            newCountry.postcodeRequired = countryParam.postcodeRequired;
+            newCountry.isActive = countryParam.status;
+            const countrySave = yield this.countryService.create(newCountry);
+            if (countrySave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully added new country.',
+                    data: countrySave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to add the country. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update Country API
+    /**
+     * @api {put} /api/country/update-country/:id Update Country API
+     * @apiGroup Country
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} countryId Country countryId
+     * @apiParam (Request body) {String{..30}} name Country name
+     * @apiParam (Request body) {String{..2}} isoCode2 Country isoCode2
+     * @apiParam (Request body) {String{..3}} isoCode3 Country isoCode3
+     * @apiParam (Request body) {Number} postcodeRequired Country postcodeRequired
+     * @apiParam (Request body) {Number} [status] status
+     * @apiParamExample {json} Input
+     * {
+     *      "countryId" : "",
+     *      "name" : "",
+     *      "isoCode2" : "",
+     *      "isoCode3" : "",
+     *      "addressFormat" : "",
+     *      "postcodeRequired" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated Country.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/country/update-country/:id
+     * @apiErrorExample {json} Country error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateCountry(countryParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const country = yield this.countryService.findOne({
+                where: {
+                    countryId: countryParam.countryId,
+                },
+            });
+            if (!country) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid country Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            country.name = countryParam.name;
+            country.isoCode2 = countryParam.isoCode2;
+            country.isoCode3 = countryParam.isoCode3;
+            country.postcodeRequired = countryParam.postcodeRequired;
+            country.isActive = countryParam.status;
+            const countrySave = yield this.countryService.create(country);
+            if (countrySave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated country.',
+                    data: countrySave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the country.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Country List API
+    /**
+     * @api {get} /api/country/countrylist Country List API
+     * @apiGroup Country
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got country list",
+     *      "data":{
+     *      "countryId"
+     *      "name"
+     *      "isoCode2"
+     *      "isoCode3"
+     *      "addressFormat"
+     *      "postcodeRequired"
+     *      "status"
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/country/countrylist
+     * @apiErrorExample {json} Country error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    countryList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['countryId', 'name', 'isoCode2', 'isoCode3', 'postcodeRequired', 'isActive'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const WhereConditions = [];
+            const countryList = yield this.countryService.list(limit, offset, select, search, WhereConditions, count);
+            if (countryList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got country List',
+                    data: countryList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to get countryList',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Get Country Id API
+    /**
+     * @api {get} /api/country/get-country-id/ Get Country Id API
+     * @apiGroup Country
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "countryName" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully  got country Id.",
+     *      "data": {
+     *                  "countryId"
+     *             }
+     * }
+     * @apiSampleRequest /api/country/delete-country/:id
+     * @apiErrorExample {json} Country error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    getCountryId(countryName, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const country = yield this.countryService.findOne({ where: { name: countryName }, select: ['countryId'] });
+            if (!country) {
+                const successResponses = {
+                    status: 0,
+                    message: 'Enter Valid Country Name ',
+                };
+                return response.status(200).send(successResponses);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got country Id',
+                data: country,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Delete Country API
+    /**
+     * @api {delete} /api/country/delete-country/:id Delete Country API
+     * @apiGroup Country
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "countryId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Country.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/country/delete-country/:id
+     * @apiErrorExample {json} Country error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteCountry(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const country = yield this.countryService.findOne({
+                where: {
+                    countryId: id,
+                },
+            });
+            if (!country) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Country Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteCountry = yield this.countryService.delete(country);
+            if (deleteCountry) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the country.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the country.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/add-country'),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-country']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateCountryRequest_1.CreateCountry, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CountryController.prototype, "addCountry", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-country/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-country']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [UpdateCountryRequest_1.UpdateCountry, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CountryController.prototype, "updateCountry", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/countrylist'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CountryController.prototype, "countryList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/get-country-id'),
+    (0, routing_controllers_1.Authorized)(['admin']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('countryName')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CountryController.prototype, "getCountryId", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-country/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-country']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CountryController.prototype, "deleteCountry", null);
+CountryController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/country'),
+    tslib_1.__metadata("design:paramtypes", [CountryService_1.CountryService])
+], CountryController);
+exports.CountryController = CountryController;
+//# sourceMappingURL=CountryController.js.map

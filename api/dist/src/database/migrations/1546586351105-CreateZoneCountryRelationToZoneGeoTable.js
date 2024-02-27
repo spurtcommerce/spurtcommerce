@@ -1,1 +1,36 @@
-'use strict';const a758_0x3f526c=a758_0x1a52;(function(_0x4cea4b,_0x2e15b8){const _0x2536d8=a758_0x1a52,_0x52b48f=_0x4cea4b();while(!![]){try{const _0xb55b7e=parseInt(_0x2536d8(0x12f))/0x1+-parseInt(_0x2536d8(0x12d))/0x2*(parseInt(_0x2536d8(0x132))/0x3)+-parseInt(_0x2536d8(0x128))/0x4*(parseInt(_0x2536d8(0x138))/0x5)+-parseInt(_0x2536d8(0x127))/0x6+parseInt(_0x2536d8(0x13d))/0x7*(parseInt(_0x2536d8(0x136))/0x8)+parseInt(_0x2536d8(0x12a))/0x9+-parseInt(_0x2536d8(0x12b))/0xa*(-parseInt(_0x2536d8(0x130))/0xb);if(_0xb55b7e===_0x2e15b8)break;else _0x52b48f['push'](_0x52b48f['shift']());}catch(_0x3f6296){_0x52b48f['push'](_0x52b48f['shift']());}}}(a758_0x4011,0x64dd9));function a758_0x1a52(_0x1f969f,_0xd86b27){const _0x401131=a758_0x4011();return a758_0x1a52=function(_0x1a52dc,_0x3a60f2){_0x1a52dc=_0x1a52dc-0x127;let _0x4f3e1b=_0x401131[_0x1a52dc];return _0x4f3e1b;},a758_0x1a52(_0x1f969f,_0xd86b27);}Object['defineProperty'](exports,a758_0x3f526c(0x13a),{'value':!![]}),exports['CreateZoneCountryRelationToZoneGeoTable1546586351105']=void 0x0;const tslib_1=require(a758_0x3f526c(0x134)),typeorm_1=require('typeorm');class CreateZoneCountryRelationToZoneGeoTable1546586351105{constructor(){const _0x1d679b=a758_0x3f526c;this[_0x1d679b(0x13c)]=new typeorm_1[(_0x1d679b(0x12c))]({'name':_0x1d679b(0x135),'columnNames':['zone_id'],'referencedColumnNames':[_0x1d679b(0x137)],'referencedTableName':_0x1d679b(0x13b),'onDelete':'CASCADE'});}['up'](_0x322c26){const _0x9d2eed=a758_0x3f526c;return tslib_1[_0x9d2eed(0x141)](this,void 0x0,void 0x0,function*(){const _0x84474c=_0x9d2eed,_0x27faae=yield _0x322c26[_0x84474c(0x140)](_0x84474c(0x13f)),_0x34d653=_0x27faae[_0x84474c(0x13e)]['find'](_0xf2babe=>_0xf2babe[_0x84474c(0x142)][_0x84474c(0x12e)]('zone_id')!==-0x1);!_0x34d653&&(yield _0x322c26[_0x84474c(0x131)](_0x27faae,this[_0x84474c(0x13c)]));});}[a758_0x3f526c(0x129)](_0x560f30){const _0x6ea5a0=a758_0x3f526c;return tslib_1[_0x6ea5a0(0x141)](this,void 0x0,void 0x0,function*(){const _0x40497e=_0x6ea5a0,_0x401b30=yield _0x560f30[_0x40497e(0x140)](_0x40497e(0x13f)),_0x568ce5=_0x401b30[_0x40497e(0x13e)][_0x40497e(0x133)](_0x3fa82b=>_0x3fa82b[_0x40497e(0x142)][_0x40497e(0x12e)](_0x40497e(0x137))!==-0x1);_0x568ce5&&(yield _0x560f30['dropForeignKey'](_0x401b30,this['tableForeignKey']));});}}exports[a758_0x3f526c(0x139)]=CreateZoneCountryRelationToZoneGeoTable1546586351105;function a758_0x4011(){const _0x4270da=['2MANajW','indexOf','123725PiQQjn','881001aLhnIu','createForeignKey','1107921fVKhkj','find','tslib','fk_Zone_ZoneGeo','8uVEUvC','zone_id','5VphHkb','CreateZoneCountryRelationToZoneGeoTable1546586351105','__esModule','zone','tableForeignKey','664615SiSfKu','foreignKeys','zone_to_geo_zone','getTable','__awaiter','columnNames','3583554wZoQjE','726272Jarztd','down','2712834VPrhiy','130jKBzQb','TableForeignKey'];a758_0x4011=function(){return _0x4270da;};return a758_0x4011();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateZoneCountryRelationToZoneGeoTable1546586351105 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateZoneCountryRelationToZoneGeoTable1546586351105 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_Zone_ZoneGeo',
+            columnNames: ['zone_id'],
+            referencedColumnNames: ['zone_id'],
+            referencedTableName: 'zone',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('zone_to_geo_zone');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('zone_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('zone_to_geo_zone');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('zone_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.CreateZoneCountryRelationToZoneGeoTable1546586351105 = CreateZoneCountryRelationToZoneGeoTable1546586351105;
+//# sourceMappingURL=1546586351105-CreateZoneCountryRelationToZoneGeoTable.js.map

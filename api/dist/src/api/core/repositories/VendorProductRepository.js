@@ -1,1 +1,161 @@
-'use strict';function a543_0x5f5b(_0x1e8195,_0x5d1545){const _0x23c796=a543_0x23c7();return a543_0x5f5b=function(_0x5f5b55,_0x138119){_0x5f5b55=_0x5f5b55-0x113;let _0x24cb6f=_0x23c796[_0x5f5b55];return _0x24cb6f;},a543_0x5f5b(_0x1e8195,_0x5d1545);}const a543_0x489e40=a543_0x5f5b;(function(_0x3431cf,_0x26ec7d){const _0x482e43=a543_0x5f5b,_0x50479e=_0x3431cf();while(!![]){try{const _0x22a04b=parseInt(_0x482e43(0x155))/0x1+parseInt(_0x482e43(0x115))/0x2+parseInt(_0x482e43(0x119))/0x3*(parseInt(_0x482e43(0x169))/0x4)+-parseInt(_0x482e43(0x130))/0x5*(parseInt(_0x482e43(0x149))/0x6)+-parseInt(_0x482e43(0x153))/0x7*(parseInt(_0x482e43(0x147))/0x8)+-parseInt(_0x482e43(0x160))/0x9+-parseInt(_0x482e43(0x118))/0xa*(-parseInt(_0x482e43(0x138))/0xb);if(_0x22a04b===_0x26ec7d)break;else _0x50479e['push'](_0x50479e['shift']());}catch(_0x5c77e5){_0x50479e['push'](_0x50479e['shift']());}}}(a543_0x23c7,0xaeb5b));function a543_0x23c7(){const _0x1e0a6e=['product.is_active\x20=\x20:id','vendorOrders.orderProduct','product.skuDetail','COUNT(DISTINCT(order.customer_id))\x20as\x20buyerCount','productToCategory.categoryId\x20=\x20:categoryId','vendorProducts.vendorId\x20=\x20:id','format','vendorProducts.product','outOfStockSBasedOnDuration','__decorate','24OUAMky','limit','6sgAUQV','vendorProducts.product_id\x20as\x20productsCount','MONTH(vendorOrders.modified_date)\x20=\x20MONTH(NOW())\x20AND\x20YEAR(vendorOrders.modified_date)\x20=\x20YEAR(NOW())','innerJoin','vendorProducts.sku','vendorOrders.order','skuDetail.quantity\x20=\x20:quantity','soldCount','vendorProducts.reuse\x20IS\x20NULL','WEEKOFYEAR(vendorProducts.created_date)\x20=\x20WEEKOFYEAR(NOW())','1820259DpadwD','vendorProducts.product_id\x20as\x20productId','817149WPgdrN','vendorProducts.reuse\x20=\x20:val','vendorProducts.reuseStatus\x20=\x201\x20AND\x20vendorProducts.reuse\x20=\x201','select','__awaiter','default','Repository','topProductSelling','moment','vendorProducts','findingProduct','8377128jvrTGK','vendorProducts.reuseStatus\x20=\x20:statusValue','vendorProducts.vendorId','sku','leftJoin','MIN(sku.price)\x20as\x20minimumPrice','VendorProducts','skuDetail','YEAR(vendorOrders.modified_date)\x20=\x20YEAR(NOW())','2021900TzhTFH','MONTH(vendorProducts.created_date)\x20=\x20MONTH(NOW())\x20AND\x20YEAR(vendorOrders.created_date)\x20=\x20YEAR(NOW())','product','offset','andWhere','2149844trWkfD','product.dateAvailable\x20<=\x20:currentDate\x20','manager','10ANgMlR','3ruasCh','COUNT(vendorProducts.vendorId)\x20as\x20vendorCount','vendorProductsCount','getCount','product.productToCategory','VendorProductsRepository','__importDefault','activeVendorProductCount','vendorProducts.product_id\x20=\x20:value','vendorProducts.vendor_id\x20=\x20:value','productToCategory','defineProperty','orderProduct.product_id\x20as\x20product','DESC','product.dateAvailable\x20<=\x20:dateValue','vendorOrders','DATE(vendorProducts.created_date)\x20=\x20CURDATE()','vendorProducts.vendor','orderProduct','YY-MM-DD','getRawOne','tslib','order.paymentProcess\x20=\x20:paymentProcess','5552005XAvlSR','vendorCountAndMinPrice','createQueryBuilder','vendorOrders.vendorId\x20=\x20:id','order','orderBy','EntityRepository','../models/VendorOrders','12533059ZXQVdI','WEEKOFYEAR(vendorOrders.modified_date)\x20=\x20WEEKOFYEAR(NOW())','where','vendor','YEAR(vendorProducts.created_date)\x20=\x20YEAR(NOW())'];a543_0x23c7=function(){return _0x1e0a6e;};return a543_0x23c7();}Object[a543_0x489e40(0x124)](exports,'__esModule',{'value':!![]}),exports[a543_0x489e40(0x11e)]=void 0x0;const tslib_1=require(a543_0x489e40(0x12e)),typeorm_1=require('typeorm'),VendorProducts_1=require('../models/VendorProducts'),VendorOrders_1=require(a543_0x489e40(0x137)),moment_1=tslib_1[a543_0x489e40(0x11f)](require(a543_0x489e40(0x15d)));let VendorProductsRepository=class VendorProductsRepository extends typeorm_1[a543_0x489e40(0x15b)]{[a543_0x489e40(0x15c)](_0x4fd05f,_0xc1c25d,_0x1f5646){const _0xb53c1b=a543_0x489e40;return tslib_1[_0xb53c1b(0x159)](this,void 0x0,void 0x0,function*(){const _0x329240=_0xb53c1b,_0x51db64=yield this[_0x329240(0x117)][_0x329240(0x132)](VendorOrders_1['VendorOrders'],_0x329240(0x128));_0x51db64[_0x329240(0x158)](['SUM(orderProduct.quantity)\x20as\x20soldCount',_0x329240(0x140),_0x329240(0x125)]),_0x51db64[_0x329240(0x164)](_0x329240(0x14e),_0x329240(0x134)),_0x51db64[_0x329240(0x164)](_0x329240(0x13e),_0x329240(0x12b)),_0x51db64[_0x329240(0x13a)](_0x329240(0x133),{'id':_0x4fd05f}),_0x51db64[_0x329240(0x114)](_0x329240(0x12f),{'paymentProcess':0x1});if(_0xc1c25d===0x1&&_0xc1c25d)_0x51db64[_0x329240(0x114)](_0x329240(0x139));else{if(_0xc1c25d===0x2&&_0xc1c25d)_0x51db64[_0x329240(0x114)](_0x329240(0x14b));else _0xc1c25d===0x3&&_0xc1c25d&&_0x51db64[_0x329240(0x114)](_0x329240(0x168));}return _0x51db64['groupBy']('product'),_0x51db64[_0x329240(0x135)](_0x329240(0x150),_0x329240(0x126)),_0x51db64[_0x329240(0x148)](_0x1f5646),_0x51db64['getRawMany']();});}['vendorActiveProduct'](_0x3b9fc4,_0xd11376,_0xa9e1d2){const _0x4611f9=a543_0x489e40;return tslib_1[_0x4611f9(0x159)](this,void 0x0,void 0x0,function*(){const _0x42581a=_0x4611f9,_0x1850b1=yield this['manager'][_0x42581a(0x132)](VendorProducts_1[_0x42581a(0x166)],_0x42581a(0x15e));return _0x1850b1[_0x42581a(0x158)]([_0x42581a(0x154),'product.is_active\x20as\x20isActive']),_0x1850b1[_0x42581a(0x164)](_0x42581a(0x144),'product'),_0x1850b1[_0x42581a(0x13a)](_0x42581a(0x142),{'id':_0x3b9fc4}),_0x1850b1[_0x42581a(0x114)]('product.isActive\x20=\x20:isActive',{'isActive':0x1}),_0x1850b1[_0x42581a(0x114)](_0x42581a(0x116),{'currentDate':(0x0,moment_1[_0x42581a(0x15a)])()[_0x42581a(0x143)]('YYYY-MM-DD')}),_0x1850b1[_0x42581a(0x148)](_0xd11376),_0x1850b1[_0x42581a(0x113)](_0xa9e1d2),_0x1850b1['getRawMany']();});}[a543_0x489e40(0x15f)](_0x3495ba){const _0x213127=a543_0x489e40;return tslib_1[_0x213127(0x159)](this,void 0x0,void 0x0,function*(){const _0x4d2f11=_0x213127,_0x257c78=yield this[_0x4d2f11(0x117)][_0x4d2f11(0x132)](VendorProducts_1[_0x4d2f11(0x166)],_0x4d2f11(0x15e));return _0x257c78[_0x4d2f11(0x158)]([_0x4d2f11(0x154)]),_0x257c78[_0x4d2f11(0x14c)]('vendorProducts.product',_0x4d2f11(0x16b)),_0x257c78[_0x4d2f11(0x14c)](_0x4d2f11(0x11d),_0x4d2f11(0x123)),_0x257c78['where'](_0x4d2f11(0x141),{'categoryId':_0x3495ba}),_0x257c78[_0x4d2f11(0x12d)]();});}['vendorProductBasedOnDuration'](_0x30224f,_0x19a04a){const _0x258654=a543_0x489e40;return tslib_1[_0x258654(0x159)](this,void 0x0,void 0x0,function*(){const _0x38a76b=_0x258654,_0x354a49=yield this[_0x38a76b(0x117)][_0x38a76b(0x132)](VendorProducts_1['VendorProducts'],'vendorProducts');_0x354a49[_0x38a76b(0x158)]([_0x38a76b(0x14a)]),_0x354a49[_0x38a76b(0x13a)](_0x38a76b(0x142),{'id':_0x30224f});if(_0x19a04a===0x2&&_0x19a04a)_0x354a49['andWhere'](_0x38a76b(0x152));else{if(_0x19a04a===0x3&&_0x19a04a)_0x354a49['andWhere'](_0x38a76b(0x16a));else{if(_0x19a04a===0x4&&_0x19a04a)_0x354a49[_0x38a76b(0x114)](_0x38a76b(0x13c));else _0x19a04a===0x1&&_0x19a04a&&_0x354a49[_0x38a76b(0x114)](_0x38a76b(0x129));}}return _0x354a49['getCount']();});}[a543_0x489e40(0x145)](_0x2aee35,_0x4ea7e5,_0x4c62c8){const _0x21bd61=a543_0x489e40;return tslib_1[_0x21bd61(0x159)](this,void 0x0,void 0x0,function*(){const _0x20b58e=_0x21bd61,_0x5abd77=yield this['manager'][_0x20b58e(0x132)](VendorProducts_1[_0x20b58e(0x166)],_0x20b58e(0x15e));_0x5abd77[_0x20b58e(0x158)](['vendorProducts.product_id\x20as\x20productsCount']),_0x5abd77[_0x20b58e(0x14c)](_0x20b58e(0x144),_0x20b58e(0x16b)),_0x5abd77['innerJoin'](_0x20b58e(0x13f),_0x20b58e(0x167)),_0x5abd77['where'](_0x20b58e(0x142),{'id':_0x2aee35});if(_0x4c62c8===0x1)_0x5abd77[_0x20b58e(0x114)](_0x20b58e(0x14f),{'quantity':0x0});else _0x4c62c8===0x2&&_0x5abd77[_0x20b58e(0x114)]('skuDetail.quantity\x20>=\x20:quantity',{'quantity':0x1});_0x5abd77[_0x20b58e(0x114)]('vendorProducts.approvalFlag\x20=\x20:approvalFlag',{'approvalFlag':0x1});if(_0x4ea7e5===0x2&&_0x4ea7e5)_0x5abd77[_0x20b58e(0x114)]('WEEKOFYEAR(vendorProducts.created_date)\x20=\x20WEEKOFYEAR(NOW())');else{if(_0x4ea7e5===0x3&&_0x4ea7e5)_0x5abd77[_0x20b58e(0x114)](_0x20b58e(0x16a));else{if(_0x4ea7e5===0x4&&_0x4ea7e5)_0x5abd77[_0x20b58e(0x114)](_0x20b58e(0x13c));else _0x4ea7e5===0x1&&_0x4ea7e5&&_0x5abd77[_0x20b58e(0x114)]('DATE(vendorProducts.created_date)\x20=\x20CURDATE()');}}return _0x5abd77[_0x20b58e(0x11c)]();});}[a543_0x489e40(0x11b)](_0x55bc96){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x40ec0e=a543_0x5f5b,_0x155b70=yield this[_0x40ec0e(0x117)][_0x40ec0e(0x132)](VendorProducts_1[_0x40ec0e(0x166)],_0x40ec0e(0x15e));return _0x155b70['select'](['vendorProducts.vendorId']),_0x155b70[_0x40ec0e(0x14c)](_0x40ec0e(0x12a),'vendor'),_0x155b70[_0x40ec0e(0x13a)](_0x40ec0e(0x122),{'value':_0x55bc96}),_0x155b70['getCount']();});}[a543_0x489e40(0x120)](_0x21c6bf){const _0x33db94=a543_0x489e40;return tslib_1[_0x33db94(0x159)](this,void 0x0,void 0x0,function*(){const _0x121a9d=_0x33db94,_0x39fcca=yield this[_0x121a9d(0x117)][_0x121a9d(0x132)](VendorProducts_1[_0x121a9d(0x166)],_0x121a9d(0x15e)),_0x592317=(0x0,moment_1['default'])()[_0x121a9d(0x143)](_0x121a9d(0x12c));return _0x39fcca[_0x121a9d(0x158)]([_0x121a9d(0x162)]),_0x39fcca[_0x121a9d(0x14c)]('vendorProducts.vendor',_0x121a9d(0x13b)),_0x39fcca[_0x121a9d(0x14c)]('vendorProducts.product',_0x121a9d(0x16b)),_0x39fcca[_0x121a9d(0x13a)](_0x121a9d(0x122),{'value':_0x21c6bf}),_0x39fcca[_0x121a9d(0x114)](_0x121a9d(0x13d),{'id':0x1}),_0x39fcca[_0x121a9d(0x114)](_0x121a9d(0x127),{'dateValue':_0x592317}),_0x39fcca[_0x121a9d(0x114)](_0x121a9d(0x151)+''),_0x39fcca[_0x121a9d(0x114)](_0x121a9d(0x161),{'statusValue':0x0}),_0x39fcca[_0x121a9d(0x11c)]();});}['vendorCount'](_0xb39306){const _0xe75c6f=a543_0x489e40;return tslib_1[_0xe75c6f(0x159)](this,void 0x0,void 0x0,function*(){const _0x48c75f=_0xe75c6f,_0x4b1c7a=yield this[_0x48c75f(0x117)]['createQueryBuilder'](VendorProducts_1[_0x48c75f(0x166)],_0x48c75f(0x15e));return _0x4b1c7a[_0x48c75f(0x158)]([_0x48c75f(0x11a)]),_0x4b1c7a[_0x48c75f(0x13a)]('vendorProducts.product_id\x20=\x20:value',{'value':_0xb39306}),_0x4b1c7a[_0x48c75f(0x114)](_0x48c75f(0x156),{'val':0x1}),_0x4b1c7a[_0x48c75f(0x12d)]();});}[a543_0x489e40(0x131)](_0x5eca45){const _0x952c34=a543_0x489e40;return tslib_1[_0x952c34(0x159)](this,void 0x0,void 0x0,function*(){const _0x30227a=_0x952c34,_0x320f54=yield this[_0x30227a(0x117)]['createQueryBuilder'](VendorProducts_1[_0x30227a(0x166)],_0x30227a(0x15e));return _0x320f54[_0x30227a(0x158)]([_0x30227a(0x11a),_0x30227a(0x165)]),_0x320f54[_0x30227a(0x164)](_0x30227a(0x14d),_0x30227a(0x163)),_0x320f54[_0x30227a(0x13a)](_0x30227a(0x121),{'value':_0x5eca45}),_0x320f54[_0x30227a(0x114)](_0x30227a(0x157)),_0x320f54['getRawOne']();});}};VendorProductsRepository=tslib_1[a543_0x489e40(0x146)]([(0x0,typeorm_1[a543_0x489e40(0x136)])(VendorProducts_1['VendorProducts'])],VendorProductsRepository),exports[a543_0x489e40(0x11e)]=VendorProductsRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorProductsRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const VendorProducts_1 = require("../models/VendorProducts");
+const VendorOrders_1 = require("../models/VendorOrders");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+let VendorProductsRepository = class VendorProductsRepository extends typeorm_1.Repository {
+    topProductSelling(id, duration, limit) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrders');
+            query.select(['SUM(orderProduct.quantity) as soldCount', 'COUNT(DISTINCT(order.customer_id)) as buyerCount', 'orderProduct.product_id as product']);
+            query.leftJoin('vendorOrders.order', 'order');
+            query.leftJoin('vendorOrders.orderProduct', 'orderProduct');
+            query.where('vendorOrders.vendorId = :id', { id });
+            query.andWhere('order.paymentProcess = :paymentProcess', { paymentProcess: 1 });
+            if (duration === 1 && duration) {
+                query.andWhere('WEEKOFYEAR(vendorOrders.modified_date) = WEEKOFYEAR(NOW())');
+            }
+            else if (duration === 2 && duration) {
+                query.andWhere('MONTH(vendorOrders.modified_date) = MONTH(NOW()) AND YEAR(vendorOrders.modified_date) = YEAR(NOW())');
+            }
+            else if (duration === 3 && duration) {
+                query.andWhere('YEAR(vendorOrders.modified_date) = YEAR(NOW())');
+            }
+            query.groupBy('product');
+            query.orderBy('soldCount', 'DESC');
+            query.limit(limit);
+            return query.getRawMany();
+        });
+    }
+    vendorActiveProduct(id, limit, offset) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorProducts_1.VendorProducts, 'vendorProducts');
+            query.select(['vendorProducts.product_id as productId', 'product.is_active as isActive']);
+            query.leftJoin('vendorProducts.product', 'product');
+            query.where('vendorProducts.vendorId = :id', { id });
+            query.andWhere('product.isActive = :isActive', { isActive: 1 });
+            query.andWhere('product.dateAvailable <= :currentDate ', { currentDate: (0, moment_1.default)().format('YYYY-MM-DD') });
+            query.limit(limit);
+            query.offset(offset);
+            return query.getRawMany();
+        });
+    }
+    // finding product for vendor category
+    findingProduct(categoryId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorProducts_1.VendorProducts, 'vendorProducts');
+            query.select(['vendorProducts.product_id as productId']);
+            query.innerJoin('vendorProducts.product', 'product');
+            query.innerJoin('product.productToCategory', 'productToCategory');
+            query.where('productToCategory.categoryId = :categoryId', { categoryId });
+            return query.getRawOne();
+        });
+    }
+    vendorProductBasedOnDuration(vendorId, duration) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorProducts_1.VendorProducts, 'vendorProducts');
+            query.select(['vendorProducts.product_id as productsCount']);
+            query.where('vendorProducts.vendorId = :id', { id: vendorId });
+            if (duration === 2 && duration) {
+                query.andWhere('WEEKOFYEAR(vendorProducts.created_date) = WEEKOFYEAR(NOW())');
+            }
+            else if (duration === 3 && duration) {
+                query.andWhere('MONTH(vendorProducts.created_date) = MONTH(NOW()) AND YEAR(vendorOrders.created_date) = YEAR(NOW())');
+            }
+            else if (duration === 4 && duration) {
+                query.andWhere('YEAR(vendorProducts.created_date) = YEAR(NOW())');
+            }
+            else if (duration === 1 && duration) {
+                query.andWhere('DATE(vendorProducts.created_date) = CURDATE()');
+            }
+            return query.getCount();
+        });
+    }
+    outOfStockSBasedOnDuration(vendorId, duration, stock) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorProducts_1.VendorProducts, 'vendorProducts');
+            query.select(['vendorProducts.product_id as productsCount']);
+            query.innerJoin('vendorProducts.product', 'product');
+            query.innerJoin('product.skuDetail', 'skuDetail');
+            query.where('vendorProducts.vendorId = :id', { id: vendorId });
+            if (stock === 1) {
+                query.andWhere('skuDetail.quantity = :quantity', { quantity: 0 });
+            }
+            else if (stock === 2) {
+                query.andWhere('skuDetail.quantity >= :quantity', { quantity: 1 });
+            }
+            query.andWhere('vendorProducts.approvalFlag = :approvalFlag', { approvalFlag: 1 });
+            if (duration === 2 && duration) {
+                query.andWhere('WEEKOFYEAR(vendorProducts.created_date) = WEEKOFYEAR(NOW())');
+            }
+            else if (duration === 3 && duration) {
+                query.andWhere('MONTH(vendorProducts.created_date) = MONTH(NOW()) AND YEAR(vendorOrders.created_date) = YEAR(NOW())');
+            }
+            else if (duration === 4 && duration) {
+                query.andWhere('YEAR(vendorProducts.created_date) = YEAR(NOW())');
+            }
+            else if (duration === 1 && duration) {
+                query.andWhere('DATE(vendorProducts.created_date) = CURDATE()');
+            }
+            return query.getCount();
+        });
+    }
+    vendorProductsCount(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorProducts_1.VendorProducts, 'vendorProducts');
+            query.select(['vendorProducts.vendorId']);
+            query.innerJoin('vendorProducts.vendor', 'vendor');
+            query.where('vendorProducts.vendor_id = :value', { value: id });
+            return query.getCount();
+        });
+    }
+    activeVendorProductCount(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorProducts_1.VendorProducts, 'vendorProducts');
+            const currentDate = (0, moment_1.default)().format('YY-MM-DD');
+            query.select(['vendorProducts.vendorId']);
+            query.innerJoin('vendorProducts.vendor', 'vendor');
+            query.innerJoin('vendorProducts.product', 'product');
+            query.where('vendorProducts.vendor_id = :value', { value: id });
+            query.andWhere('product.is_active = :id', { id: 1 });
+            query.andWhere('product.dateAvailable <= :dateValue', { dateValue: currentDate });
+            query.andWhere('vendorProducts.reuse IS NULL' + '');
+            query.andWhere('vendorProducts.reuseStatus = :statusValue', { statusValue: 0 });
+            return query.getCount();
+        });
+    }
+    vendorCount(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorProducts_1.VendorProducts, 'vendorProducts');
+            query.select(['COUNT(vendorProducts.vendorId) as vendorCount']);
+            query.where('vendorProducts.product_id = :value', { value: id });
+            query.andWhere('vendorProducts.reuse = :val', { val: 1 });
+            return query.getRawOne();
+        });
+    }
+    vendorCountAndMinPrice(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorProducts_1.VendorProducts, 'vendorProducts');
+            query.select(['COUNT(vendorProducts.vendorId) as vendorCount', 'MIN(sku.price) as minimumPrice']);
+            query.leftJoin('vendorProducts.sku', 'sku');
+            query.where('vendorProducts.product_id = :value', { value: id });
+            query.andWhere('vendorProducts.reuseStatus = 1 AND vendorProducts.reuse = 1');
+            return query.getRawOne();
+        });
+    }
+};
+VendorProductsRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(VendorProducts_1.VendorProducts)
+], VendorProductsRepository);
+exports.VendorProductsRepository = VendorProductsRepository;
+//# sourceMappingURL=VendorProductRepository.js.map

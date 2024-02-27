@@ -1,1 +1,57 @@
-'use strict';const a983_0x2877b4=a983_0x2be6;(function(_0x33b986,_0x4a217b){const _0x2301a5=a983_0x2be6,_0x1ffc7d=_0x33b986();while(!![]){try{const _0x2c1ea6=parseInt(_0x2301a5(0x115))/0x1*(-parseInt(_0x2301a5(0x11a))/0x2)+-parseInt(_0x2301a5(0x113))/0x3+parseInt(_0x2301a5(0x118))/0x4+parseInt(_0x2301a5(0x10e))/0x5+-parseInt(_0x2301a5(0x116))/0x6+-parseInt(_0x2301a5(0x109))/0x7*(-parseInt(_0x2301a5(0x11d))/0x8)+parseInt(_0x2301a5(0x111))/0x9;if(_0x2c1ea6===_0x4a217b)break;else _0x1ffc7d['push'](_0x1ffc7d['shift']());}catch(_0x725d72){_0x1ffc7d['push'](_0x1ffc7d['shift']());}}}(a983_0x32ca,0xb56f8));Object[a983_0x2877b4(0x107)](exports,a983_0x2877b4(0x121),{'value':!![]}),exports[a983_0x2877b4(0x11b)]=exports[a983_0x2877b4(0x104)]=exports['toNumber']=exports[a983_0x2877b4(0x10d)]=exports[a983_0x2877b4(0x119)]=exports['getOsPath']=exports[a983_0x2877b4(0x112)]=exports[a983_0x2877b4(0x10c)]=exports[a983_0x2877b4(0x122)]=exports['getOsEnv']=void 0x0;const path_1=require('path');function getOsEnv(_0x1a6034){const _0x4e08fe=a983_0x2877b4;if(typeof process[_0x4e08fe(0x11f)][_0x1a6034]===_0x4e08fe(0x106))throw new Error(_0x4e08fe(0x102)+_0x1a6034+_0x4e08fe(0x101));return process['env'][_0x1a6034];}function a983_0x32ca(){const _0x477a5a=['development','__esModule','getOsEnvOptional','\x20is\x20not\x20set.','Environment\x20variable\x20','map','toBool','.js','undefined','defineProperty','slice','54404YGiIgR','replace','getOsEnv','getPath','getOsEnvArray','146915dCDDcF','NODE_ENV','dist/','21152970wllAkt','getPaths','1530780mgukOW','join','2hDxJid','7402338xeuTeP','toNumber','1234640vmYiND','getOsPaths','457706krkIDq','normalizePort','split','264XFaftN','cwd','env'];a983_0x32ca=function(){return _0x477a5a;};return a983_0x32ca();}exports[a983_0x2877b4(0x10b)]=getOsEnv;function getOsEnvOptional(_0x1e350b){const _0x5c6c45=a983_0x2877b4;return process[_0x5c6c45(0x11f)][_0x1e350b];}exports[a983_0x2877b4(0x122)]=getOsEnvOptional;function getPath(_0x244c86){const _0x32cfc0=a983_0x2877b4;return process[_0x32cfc0(0x11f)]['NODE_ENV']==='production'||process[_0x32cfc0(0x11f)][_0x32cfc0(0x10f)]==='qa'||process[_0x32cfc0(0x11f)][_0x32cfc0(0x10f)]===_0x32cfc0(0x120)?(0x0,path_1[_0x32cfc0(0x114)])(process[_0x32cfc0(0x11e)](),_0x244c86[_0x32cfc0(0x10a)]('src/',_0x32cfc0(0x110))[_0x32cfc0(0x108)](0x0,-0x3)+_0x32cfc0(0x105)):(0x0,path_1[_0x32cfc0(0x114)])(process[_0x32cfc0(0x11e)](),_0x244c86);}exports[a983_0x2877b4(0x10c)]=getPath;function getPaths(_0x5f4533){const _0x2848e8=a983_0x2877b4;return _0x5f4533[_0x2848e8(0x103)](_0x4b0ab0=>getPath(_0x4b0ab0));}exports['getPaths']=getPaths;function getOsPath(_0x3b4ebe){return getPath(getOsEnv(_0x3b4ebe));}exports['getOsPath']=getOsPath;function getOsPaths(_0x159b98){return getPaths(getOsEnvArray(_0x159b98));}exports[a983_0x2877b4(0x119)]=getOsPaths;function getOsEnvArray(_0x1b7104,_0x3155af=','){const _0x40def0=a983_0x2877b4;return process['env'][_0x1b7104]&&process[_0x40def0(0x11f)][_0x1b7104][_0x40def0(0x11c)](_0x3155af)||[];}exports[a983_0x2877b4(0x10d)]=getOsEnvArray;function toNumber(_0x569d5f){return parseInt(_0x569d5f,0xa);}exports[a983_0x2877b4(0x117)]=toNumber;function a983_0x2be6(_0x1ac4d7,_0x65f401){const _0x32ca4e=a983_0x32ca();return a983_0x2be6=function(_0x2be6b3,_0x5204c7){_0x2be6b3=_0x2be6b3-0x101;let _0x14c573=_0x32ca4e[_0x2be6b3];return _0x14c573;},a983_0x2be6(_0x1ac4d7,_0x65f401);}function toBool(_0x503412){return _0x503412==='true';}exports['toBool']=toBool;function normalizePort(_0x2062f9){const _0x160663=parseInt(_0x2062f9,0xa);if(isNaN(_0x160663))return _0x2062f9;if(_0x160663>=0x0)return _0x160663;return![];}exports[a983_0x2877b4(0x11b)]=normalizePort;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.normalizePort = exports.toBool = exports.toNumber = exports.getOsEnvArray = exports.getOsPaths = exports.getOsPath = exports.getPaths = exports.getPath = exports.getOsEnvOptional = exports.getOsEnv = void 0;
+const path_1 = require("path");
+function getOsEnv(key) {
+    if (typeof process.env[key] === 'undefined') {
+        throw new Error(`Environment variable ${key} is not set.`);
+    }
+    return process.env[key];
+}
+exports.getOsEnv = getOsEnv;
+function getOsEnvOptional(key) {
+    return process.env[key];
+}
+exports.getOsEnvOptional = getOsEnvOptional;
+function getPath(path) {
+    return (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'qa' || process.env.NODE_ENV === 'development')
+        ? (0, path_1.join)(process.cwd(), path.replace('src/', 'dist/').slice(0, -3) + '.js')
+        : (0, path_1.join)(process.cwd(), path);
+}
+exports.getPath = getPath;
+function getPaths(paths) {
+    return paths.map(p => getPath(p));
+}
+exports.getPaths = getPaths;
+function getOsPath(key) {
+    return getPath(getOsEnv(key));
+}
+exports.getOsPath = getOsPath;
+function getOsPaths(key) {
+    return getPaths(getOsEnvArray(key));
+}
+exports.getOsPaths = getOsPaths;
+function getOsEnvArray(key, delimiter = ',') {
+    return process.env[key] && process.env[key].split(delimiter) || [];
+}
+exports.getOsEnvArray = getOsEnvArray;
+function toNumber(value) {
+    return parseInt(value, 10);
+}
+exports.toNumber = toNumber;
+function toBool(value) {
+    return value === 'true';
+}
+exports.toBool = toBool;
+function normalizePort(port) {
+    const parsedPort = parseInt(port, 10);
+    if (isNaN(parsedPort)) { // named pipe
+        return port;
+    }
+    if (parsedPort >= 0) { // port number
+        return parsedPort;
+    }
+    return false;
+}
+exports.normalizePort = normalizePort;
+//# sourceMappingURL=utils.js.map

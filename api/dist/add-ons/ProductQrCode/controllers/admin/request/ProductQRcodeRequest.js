@@ -1,1 +1,14 @@
-'use strict';const a89_0x8e74f0=a89_0x21e5;function a89_0xa78f(){const _0x2e980b=['21683583YtTCqx','IsNotEmpty','ProductQRcodeRequest','tslib','design:type','reflect-metadata','6795418ksBTRD','8175768HyPjyd','63864noNCFY','__esModule','138cMzAFM','prototype','30rMQDhE','productData','2318124pUxeUG','__decorate','786NciqbV','44545ENixpq','__metadata','1433762gxwBmZ'];a89_0xa78f=function(){return _0x2e980b;};return a89_0xa78f();}(function(_0x2798d5,_0x3bc981){const _0x2f4f37=a89_0x21e5,_0x3ca3a1=_0x2798d5();while(!![]){try{const _0x528929=-parseInt(_0x2f4f37(0x104))/0x1+-parseInt(_0x2f4f37(0xff))/0x2+parseInt(_0x2f4f37(0xfb))/0x3*(-parseInt(_0x2f4f37(0xf9))/0x4)+parseInt(_0x2f4f37(0x102))/0x5*(-parseInt(_0x2f4f37(0x101))/0x6)+-parseInt(_0x2f4f37(0xf7))/0x7+-parseInt(_0x2f4f37(0xf8))/0x8+-parseInt(_0x2f4f37(0x105))/0x9*(-parseInt(_0x2f4f37(0xfd))/0xa);if(_0x528929===_0x3bc981)break;else _0x3ca3a1['push'](_0x3ca3a1['shift']());}catch(_0x3f9344){_0x3ca3a1['push'](_0x3ca3a1['shift']());}}}(a89_0xa78f,0xb4da9));Object['defineProperty'](exports,a89_0x8e74f0(0xfa),{'value':!![]}),exports[a89_0x8e74f0(0x107)]=void 0x0;const tslib_1=require(a89_0x8e74f0(0x108));require(a89_0x8e74f0(0x10a));function a89_0x21e5(_0x4aa70a,_0x1cf6ff){const _0xa78f1c=a89_0xa78f();return a89_0x21e5=function(_0x21e56f,_0x120647){_0x21e56f=_0x21e56f-0xf7;let _0x5c9c95=_0xa78f1c[_0x21e56f];return _0x5c9c95;},a89_0x21e5(_0x4aa70a,_0x1cf6ff);}const class_validator_1=require('class-validator');class ProductQRcodeRequest{}tslib_1[a89_0x8e74f0(0x100)]([(0x0,class_validator_1[a89_0x8e74f0(0x106)])(),tslib_1[a89_0x8e74f0(0x103)](a89_0x8e74f0(0x109),Array)],ProductQRcodeRequest[a89_0x8e74f0(0xfc)],a89_0x8e74f0(0xfe),void 0x0),exports[a89_0x8e74f0(0x107)]=ProductQRcodeRequest;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductQRcodeRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class ProductQRcodeRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Array)
+], ProductQRcodeRequest.prototype, "productData", void 0);
+exports.ProductQRcodeRequest = ProductQRcodeRequest;
+//# sourceMappingURL=ProductQRcodeRequest.js.map

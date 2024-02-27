@@ -1,1 +1,37 @@
-'use strict';const a675_0x5be9da=a675_0xfcdc;(function(_0x11f341,_0x25495b){const _0x205de7=a675_0xfcdc,_0x31c32b=_0x11f341();while(!![]){try{const _0x2a9484=-parseInt(_0x205de7(0x93))/0x1+parseInt(_0x205de7(0x8b))/0x2+parseInt(_0x205de7(0x95))/0x3*(parseInt(_0x205de7(0x8e))/0x4)+parseInt(_0x205de7(0x8c))/0x5+parseInt(_0x205de7(0x8a))/0x6+parseInt(_0x205de7(0x90))/0x7*(parseInt(_0x205de7(0x9a))/0x8)+-parseInt(_0x205de7(0x9e))/0x9;if(_0x2a9484===_0x25495b)break;else _0x31c32b['push'](_0x31c32b['shift']());}catch(_0x4a00b0){_0x31c32b['push'](_0x31c32b['shift']());}}}(a675_0x544f,0x2da15));Object[a675_0x5be9da(0x8d)](exports,a675_0x5be9da(0x91),{'value':!![]}),exports['CreateDeliveryPersonRequest']=void 0x0;const tslib_1=require(a675_0x5be9da(0x92));require(a675_0x5be9da(0x88));function a675_0x544f(){const _0x4510ee=['3096450xfpZNm','reflect-metadata','status','1192380FUpRAm','686570iNZYZR','931985vVFGtL','defineProperty','5080kcEcZq','mobileNumber','77scogVy','__esModule','tslib','241950ltyKBB','password','69nvUzSR','emailId','design:type','__metadata','firstName','11112ObXJhg','IsNotEmpty','__decorate','prototype'];a675_0x544f=function(){return _0x4510ee;};return a675_0x544f();}const class_validator_1=require('class-validator');class CreateDeliveryPersonRequest{}function a675_0xfcdc(_0x574471,_0x910bad){const _0x544fc4=a675_0x544f();return a675_0xfcdc=function(_0xfcdcbf,_0x3e03cb){_0xfcdcbf=_0xfcdcbf-0x88;let _0xc612e=_0x544fc4[_0xfcdcbf];return _0xc612e;},a675_0xfcdc(_0x574471,_0x910bad);}tslib_1[a675_0x5be9da(0x9c)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a675_0x5be9da(0x98)](a675_0x5be9da(0x97),String)],CreateDeliveryPersonRequest['prototype'],a675_0x5be9da(0x99),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a675_0x5be9da(0x9b)])(),tslib_1[a675_0x5be9da(0x98)]('design:type',String)],CreateDeliveryPersonRequest['prototype'],a675_0x5be9da(0x8f),void 0x0),tslib_1[a675_0x5be9da(0x9c)]([(0x0,class_validator_1['IsEmail'])(),tslib_1[a675_0x5be9da(0x98)]('design:type',String)],CreateDeliveryPersonRequest[a675_0x5be9da(0x9d)],a675_0x5be9da(0x96),void 0x0),tslib_1[a675_0x5be9da(0x9c)]([(0x0,class_validator_1[a675_0x5be9da(0x9b)])(),tslib_1[a675_0x5be9da(0x98)](a675_0x5be9da(0x97),String)],CreateDeliveryPersonRequest[a675_0x5be9da(0x9d)],a675_0x5be9da(0x94),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a675_0x5be9da(0x9b)])(),tslib_1['__metadata'](a675_0x5be9da(0x97),Number)],CreateDeliveryPersonRequest[a675_0x5be9da(0x9d)],a675_0x5be9da(0x89),void 0x0),exports['CreateDeliveryPersonRequest']=CreateDeliveryPersonRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateDeliveryPersonRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateDeliveryPersonRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateDeliveryPersonRequest.prototype, "firstName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateDeliveryPersonRequest.prototype, "mobileNumber", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    tslib_1.__metadata("design:type", String)
+], CreateDeliveryPersonRequest.prototype, "emailId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateDeliveryPersonRequest.prototype, "password", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateDeliveryPersonRequest.prototype, "status", void 0);
+exports.CreateDeliveryPersonRequest = CreateDeliveryPersonRequest;
+//# sourceMappingURL=CreateDeliveryPersonRequest.js.map

@@ -1,1 +1,25 @@
-function a1030_0x2dd0(_0x3b50f7,_0x1d56ce){var _0x25a0e1=a1030_0x25a0();return a1030_0x2dd0=function(_0x2dd01d,_0x5cba40){_0x2dd01d=_0x2dd01d-0x153;var _0x4e882d=_0x25a0e1[_0x2dd01d];return _0x4e882d;},a1030_0x2dd0(_0x3b50f7,_0x1d56ce);}var a1030_0xd85de1=a1030_0x2dd0;function a1030_0x25a0(){var _0x258a26=['opcional','32858EPYTXA','comparado\x20con','192114NNTiMU','1453886JQyUOj','url','Sin\x20valores\x20en\x20la\x20respuesta.','General','Valor\x20por\x20defecto:','comparar\x20cambios\x20con:','905Vrjowa','4ngVspj','85568OCYvql','4524yypRVN','Respuesta','3997152BDIUFX','Comparar\x20todo\x20con\x20versión\x20anterior','2250852GEGOpe','Permisos:','Tipo','Campo','Nombre','Enviar\x20una\x20petición\x20de\x20ejemplo'];a1030_0x25a0=function(){return _0x258a26;};return a1030_0x25a0();}(function(_0x53a1e4,_0x3ba2e8){var _0x57631a=a1030_0x2dd0,_0x1f82b1=_0x53a1e4();while(!![]){try{var _0x9c3161=parseInt(_0x57631a(0x163))/0x1*(parseInt(_0x57631a(0x159))/0x2)+parseInt(_0x57631a(0x169))/0x3+-parseInt(_0x57631a(0x165))/0x4*(-parseInt(_0x57631a(0x162))/0x5)+parseInt(_0x57631a(0x15b))/0x6+-parseInt(_0x57631a(0x15c))/0x7+parseInt(_0x57631a(0x164))/0x8+-parseInt(_0x57631a(0x167))/0x9;if(_0x9c3161===_0x3ba2e8)break;else _0x1f82b1['push'](_0x1f82b1['shift']());}catch(_0x1ec3c3){_0x1f82b1['push'](_0x1f82b1['shift']());}}}(a1030_0x25a0,0x647d0),define({'es':{'Allowed\x20values:':'Valores\x20permitidos:','Compare\x20all\x20with\x20predecessor':a1030_0xd85de1(0x168),'compare\x20changes\x20to:':a1030_0xd85de1(0x161),'compared\x20to':a1030_0xd85de1(0x15a),'Default\x20value:':a1030_0xd85de1(0x160),'Description':'Descripción','Field':a1030_0xd85de1(0x155),'General':a1030_0xd85de1(0x15f),'Generated\x20with':'Generado\x20con','Name':a1030_0xd85de1(0x156),'No\x20response\x20values.':a1030_0xd85de1(0x15e),'optional':a1030_0xd85de1(0x158),'Parameter':'Parámetro','Permission:':a1030_0xd85de1(0x153),'Response':a1030_0xd85de1(0x166),'Send':'Enviar','Send\x20a\x20Sample\x20Request':a1030_0xd85de1(0x157),'show\x20up\x20to\x20version:':'mostrar\x20a\x20versión:','Size\x20range:':'Tamaño\x20de\x20rango:','Type':a1030_0xd85de1(0x154),'url':a1030_0xd85de1(0x15d)}}));
+define({
+    es: {
+        'Allowed values:'             : 'Valores permitidos:',
+        'Compare all with predecessor': 'Comparar todo con versión anterior',
+        'compare changes to:'         : 'comparar cambios con:',
+        'compared to'                 : 'comparado con',
+        'Default value:'              : 'Valor por defecto:',
+        'Description'                 : 'Descripción',
+        'Field'                       : 'Campo',
+        'General'                     : 'General',
+        'Generated with'              : 'Generado con',
+        'Name'                        : 'Nombre',
+        'No response values.'         : 'Sin valores en la respuesta.',
+        'optional'                    : 'opcional',
+        'Parameter'                   : 'Parámetro',
+        'Permission:'                 : 'Permisos:',
+        'Response'                    : 'Respuesta',
+        'Send'                        : 'Enviar',
+        'Send a Sample Request'       : 'Enviar una petición de ejemplo',
+        'show up to version:'         : 'mostrar a versión:',
+        'Size range:'                 : 'Tamaño de rango:',
+        'Type'                        : 'Tipo',
+        'url'                         : 'url'
+    }
+});

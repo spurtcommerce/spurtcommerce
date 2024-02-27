@@ -1,1 +1,36 @@
-'use strict';const a943_0x3d17e2=a943_0x31dc;(function(_0x3d718d,_0x30ff08){const _0x12372c=a943_0x31dc,_0x2d4797=_0x3d718d();while(!![]){try{const _0x51b288=parseInt(_0x12372c(0x88))/0x1+parseInt(_0x12372c(0x74))/0x2*(-parseInt(_0x12372c(0x82))/0x3)+-parseInt(_0x12372c(0x79))/0x4+-parseInt(_0x12372c(0x7d))/0x5+parseInt(_0x12372c(0x71))/0x6+-parseInt(_0x12372c(0x89))/0x7+-parseInt(_0x12372c(0x7c))/0x8*(-parseInt(_0x12372c(0x78))/0x9);if(_0x51b288===_0x30ff08)break;else _0x2d4797['push'](_0x2d4797['shift']());}catch(_0x444756){_0x2d4797['push'](_0x2d4797['shift']());}}}(a943_0x3baf,0x771ad));function a943_0x31dc(_0x13166f,_0x580b0f){const _0x3baf4e=a943_0x3baf();return a943_0x31dc=function(_0x31dcad,_0x4356b8){_0x31dcad=_0x31dcad-0x71;let _0x2da55a=_0x3baf4e[_0x31dcad];return _0x2da55a;},a943_0x31dc(_0x13166f,_0x580b0f);}Object[a943_0x3d17e2(0x81)](exports,a943_0x3d17e2(0x7e),{'value':!![]}),exports[a943_0x3d17e2(0x75)]=void 0x0;function a943_0x3baf(){const _0xf36424=['3575670WpckGS','__esModule','vendor_group_category','tslib','defineProperty','1697421ImuDrH','createForeignKey','vendor_group','vendor_group_id','CASCADE','columnNames','367383GGmwlu','3968776clNkSE','foreignKeys','4101288dspCut','fk_tbl_vendor_group_category_tbl_vendor_group','getTable','2nVKjaW','AddConstraintInVendorCategoryGroupTable1653559095446','find','indexOf','456804fGpkBa','1154420XqxJte','__awaiter','tableForeignKey1','248WsOnqO'];a943_0x3baf=function(){return _0xf36424;};return a943_0x3baf();}const tslib_1=require(a943_0x3d17e2(0x80)),typeorm_1=require('typeorm');class AddConstraintInVendorCategoryGroupTable1653559095446{constructor(){const _0x15ffc2=a943_0x3d17e2;this[_0x15ffc2(0x7b)]=new typeorm_1['TableForeignKey']({'name':_0x15ffc2(0x72),'columnNames':[_0x15ffc2(0x85)],'referencedColumnNames':['group_id'],'referencedTableName':_0x15ffc2(0x84),'onDelete':_0x15ffc2(0x86)});}['up'](_0x396348){const _0x2593d8=a943_0x3d17e2;return tslib_1[_0x2593d8(0x7a)](this,void 0x0,void 0x0,function*(){const _0x178cac=_0x2593d8,_0x51dff6=yield _0x396348['getTable']('vendor_group_category'),_0x14b434=_0x51dff6[_0x178cac(0x8a)][_0x178cac(0x76)](_0xcd2b32=>_0xcd2b32[_0x178cac(0x87)][_0x178cac(0x77)](_0x178cac(0x85))!==-0x1);!_0x14b434&&(yield _0x396348[_0x178cac(0x83)](_0x51dff6,this['tableForeignKey1']));});}['down'](_0x5c81f2){const _0x215376=a943_0x3d17e2;return tslib_1[_0x215376(0x7a)](this,void 0x0,void 0x0,function*(){const _0x115c19=_0x215376,_0xba63d8=yield _0x5c81f2[_0x115c19(0x73)](_0x115c19(0x7f)),_0x36c686=_0xba63d8[_0x115c19(0x8a)][_0x115c19(0x76)](_0x45b0e0=>_0x45b0e0[_0x115c19(0x87)][_0x115c19(0x77)](_0x115c19(0x85))!==-0x1);!_0x36c686&&(yield _0x5c81f2['createForeignKey'](_0xba63d8,this[_0x115c19(0x7b)]));});}}exports[a943_0x3d17e2(0x75)]=AddConstraintInVendorCategoryGroupTable1653559095446;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddConstraintInVendorCategoryGroupTable1653559095446 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddConstraintInVendorCategoryGroupTable1653559095446 {
+    constructor() {
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_vendor_group_category_tbl_vendor_group',
+            columnNames: ['vendor_group_id'],
+            referencedColumnNames: ['group_id'],
+            referencedTableName: 'vendor_group',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('vendor_group_category');
+            const ifDataExsist1 = table.foreignKeys.find(fk => fk.columnNames.indexOf('vendor_group_id') !== -1);
+            if (!ifDataExsist1) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('vendor_group_category');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('vendor_group_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+}
+exports.AddConstraintInVendorCategoryGroupTable1653559095446 = AddConstraintInVendorCategoryGroupTable1653559095446;
+//# sourceMappingURL=1653559095446-AddConstraintInVendorCategoryGroupTable.js.map

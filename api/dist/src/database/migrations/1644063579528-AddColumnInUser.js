@@ -1,1 +1,38 @@
-'use strict';const a924_0x5ec385=a924_0x144b;(function(_0x1ac858,_0x564759){const _0x57e22d=a924_0x144b,_0x9b3914=_0x1ac858();while(!![]){try{const _0x5e09c8=parseInt(_0x57e22d(0x12b))/0x1+-parseInt(_0x57e22d(0x130))/0x2*(-parseInt(_0x57e22d(0x122))/0x3)+parseInt(_0x57e22d(0x129))/0x4*(parseInt(_0x57e22d(0x120))/0x5)+-parseInt(_0x57e22d(0x12a))/0x6*(parseInt(_0x57e22d(0x12f))/0x7)+parseInt(_0x57e22d(0x11e))/0x8+-parseInt(_0x57e22d(0x128))/0x9+parseInt(_0x57e22d(0x132))/0xa*(parseInt(_0x57e22d(0x131))/0xb);if(_0x5e09c8===_0x564759)break;else _0x9b3914['push'](_0x9b3914['shift']());}catch(_0x512b55){_0x9b3914['push'](_0x9b3914['shift']());}}}(a924_0xbd19,0x86140));Object['defineProperty'](exports,a924_0x5ec385(0x126),{'value':!![]}),exports[a924_0x5ec385(0x11d)]=void 0x0;const tslib_1=require(a924_0x5ec385(0x124)),typeorm_1=require(a924_0x5ec385(0x12c));function a924_0x144b(_0x3e9e9d,_0x161b3a){const _0xbd193d=a924_0xbd19();return a924_0x144b=function(_0x144b44,_0x841f0c){_0x144b44=_0x144b44-0x11b;let _0x321e5e=_0xbd193d[_0x144b44];return _0x321e5e;},a924_0x144b(_0x3e9e9d,_0x161b3a);}class AddColumnInUser1644063579528{['up'](_0x2b8199){const _0x5dba46=a924_0x5ec385;return tslib_1[_0x5dba46(0x127)](this,void 0x0,void 0x0,function*(){const _0x377377=_0x5dba46,_0x87fa1d=yield _0x2b8199[_0x377377(0x11c)](_0x377377(0x12e),_0x377377(0x125));!_0x87fa1d&&(yield _0x2b8199[_0x377377(0x11b)](_0x377377(0x12e),new typeorm_1[(_0x377377(0x121))]({'name':_0x377377(0x125),'type':_0x377377(0x123),'isPrimary':![],'isNullable':!![]})));const _0x1e043e=yield _0x2b8199[_0x377377(0x11c)](_0x377377(0x12e),'forget_password_key');!_0x1e043e&&(yield _0x2b8199['addColumn'](_0x377377(0x12e),new typeorm_1[(_0x377377(0x121))]({'name':_0x377377(0x11f),'type':'varchar','length':'255','isPrimary':![],'isNullable':!![]})));});}['down'](_0xa3865c){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x597013=a924_0x144b;yield _0xa3865c[_0x597013(0x12d)](_0x597013(0x12e),_0x597013(0x125)),yield _0xa3865c[_0x597013(0x12d)](_0x597013(0x12e),_0x597013(0x11f));});}}exports[a924_0x5ec385(0x11d)]=AddColumnInUser1644063579528;function a924_0xbd19(){const _0x13bdef=['1494880THFZaQ','7356edQuwZ','116164SGHyNm','typeorm','dropColumn','users','2051myzLlK','4DsAdHW','11HExTEV','1816010ywRxsa','addColumn','hasColumn','AddColumnInUser1644063579528','570512upEpaA','forget_password_key','10phEiQq','TableColumn','436149LbMbZu','datetime','tslib','forget_password_link_expires','__esModule','__awaiter','4489947bSFMRx'];a924_0xbd19=function(){return _0x13bdef;};return a924_0xbd19();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInUser1644063579528 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInUser1644063579528 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('users', 'forget_password_link_expires');
+            if (!ifExist) {
+                yield queryRunner.addColumn('users', new typeorm_1.TableColumn({
+                    name: 'forget_password_link_expires',
+                    type: 'datetime',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist1 = yield queryRunner.hasColumn('users', 'forget_password_key');
+            if (!ifExist1) {
+                yield queryRunner.addColumn('users', new typeorm_1.TableColumn({
+                    name: 'forget_password_key',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('users', 'forget_password_link_expires');
+            yield queryRunner.dropColumn('users', 'forget_password_key');
+        });
+    }
+}
+exports.AddColumnInUser1644063579528 = AddColumnInUser1644063579528;
+//# sourceMappingURL=1644063579528-AddColumnInUser.js.map

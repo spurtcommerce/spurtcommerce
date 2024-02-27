@@ -1,1 +1,29 @@
-'use strict';const a953_0x46c541=a953_0x5e62;(function(_0x473194,_0x4fb3e8){const _0x3cf60a=a953_0x5e62,_0x29c550=_0x473194();while(!![]){try{const _0x20dec5=-parseInt(_0x3cf60a(0xc8))/0x1*(-parseInt(_0x3cf60a(0xc2))/0x2)+-parseInt(_0x3cf60a(0xc0))/0x3*(-parseInt(_0x3cf60a(0xca))/0x4)+-parseInt(_0x3cf60a(0xcc))/0x5*(-parseInt(_0x3cf60a(0xd0))/0x6)+parseInt(_0x3cf60a(0xc6))/0x7+parseInt(_0x3cf60a(0xc3))/0x8+parseInt(_0x3cf60a(0xce))/0x9+-parseInt(_0x3cf60a(0xd4))/0xa;if(_0x20dec5===_0x4fb3e8)break;else _0x29c550['push'](_0x29c550['shift']());}catch(_0x3b049c){_0x29c550['push'](_0x29c550['shift']());}}}(a953_0x27b5,0xbaba7));function a953_0x27b5(){const _0x4c60b5=['157996hQqUdx','integer','7435ZWbABQ','typeorm','9417717BEaryK','addColumn','5682mMCdFu','__awaiter','__esModule','down','45829210YJgyGg','tslib','93CBzvjg','plugins','1510estNKU','6228056FKaPLF','is_editable','hasColumn','1480059bJhXnO','AddColumnInPluginTable1666091900094','899jJURxz','TableColumn'];a953_0x27b5=function(){return _0x4c60b5;};return a953_0x27b5();}function a953_0x5e62(_0x12299e,_0x351820){const _0x27b5b8=a953_0x27b5();return a953_0x5e62=function(_0x5e624b,_0x136a37){_0x5e624b=_0x5e624b-0xc0;let _0x4ae47c=_0x27b5b8[_0x5e624b];return _0x4ae47c;},a953_0x5e62(_0x12299e,_0x351820);}Object['defineProperty'](exports,a953_0x46c541(0xd2),{'value':!![]}),exports[a953_0x46c541(0xc7)]=void 0x0;const tslib_1=require(a953_0x46c541(0xd5)),typeorm_1=require(a953_0x46c541(0xcd));class AddColumnInPluginTable1666091900094{['up'](_0x6b6e50){const _0x1cd15c=a953_0x46c541;return tslib_1[_0x1cd15c(0xd1)](this,void 0x0,void 0x0,function*(){const _0xae0889=_0x1cd15c,_0x9ff6b3=yield _0x6b6e50[_0xae0889(0xc5)](_0xae0889(0xc1),_0xae0889(0xc4));!_0x9ff6b3&&(yield _0x6b6e50[_0xae0889(0xcf)](_0xae0889(0xc1),new typeorm_1[(_0xae0889(0xc9))]({'name':'is_editable','type':_0xae0889(0xcb),'length':'11','isPrimary':![],'isNullable':!![],'default':0x0})));});}[a953_0x46c541(0xd3)](_0x407890){const _0xe42b1=a953_0x46c541;return tslib_1[_0xe42b1(0xd1)](this,void 0x0,void 0x0,function*(){});}}exports['AddColumnInPluginTable1666091900094']=AddColumnInPluginTable1666091900094;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInPluginTable1666091900094 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInPluginTable1666091900094 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('plugins', 'is_editable');
+            if (!ifExist) {
+                yield queryRunner.addColumn('plugins', new typeorm_1.TableColumn({
+                    name: 'is_editable',
+                    type: 'integer',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                    default: 0,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.AddColumnInPluginTable1666091900094 = AddColumnInPluginTable1666091900094;
+//# sourceMappingURL=1666091900094-AddColumnInPluginTable.js.map

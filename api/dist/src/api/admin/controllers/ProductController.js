@@ -1,1 +1,3495 @@
-'use strict';const a273_0x42614e=a273_0x9dfc;(function(_0x552bf4,_0x3fca8b){const _0x4e8759=a273_0x9dfc,_0xfc2ab4=_0x552bf4();while(!![]){try{const _0x24ace1=parseInt(_0x4e8759(0x2c9))/0x1+parseInt(_0x4e8759(0x2f9))/0x2+parseInt(_0x4e8759(0x34c))/0x3+-parseInt(_0x4e8759(0x219))/0x4*(parseInt(_0x4e8759(0x249))/0x5)+parseInt(_0x4e8759(0x1b4))/0x6+-parseInt(_0x4e8759(0x32b))/0x7*(parseInt(_0x4e8759(0x1c0))/0x8)+-parseInt(_0x4e8759(0x1eb))/0x9;if(_0x24ace1===_0x3fca8b)break;else _0xfc2ab4['push'](_0xfc2ab4['shift']());}catch(_0x488286){_0xfc2ab4['push'](_0xfc2ab4['shift']());}}}(a273_0x3957,0xbe0e2));Object[a273_0x42614e(0x3aa)](exports,a273_0x42614e(0x1f6),{'value':!![]}),exports['ProductController']=void 0x0;const tslib_1=require(a273_0x42614e(0x26b));require(a273_0x42614e(0x2cf));function a273_0x9dfc(_0x131093,_0x4f9697){const _0x39572b=a273_0x3957();return a273_0x9dfc=function(_0x9dfcc0,_0x2aa8eb){_0x9dfcc0=_0x9dfcc0-0x186;let _0x5b354f=_0x39572b[_0x9dfcc0];return _0x5b354f;},a273_0x9dfc(_0x131093,_0x4f9697);}const routing_controllers_1=require(a273_0x42614e(0x26a)),ProductService_1=require('../../core/services/ProductService'),ProductToCategoryService_1=require(a273_0x42614e(0x3a5)),ProductImageService_1=require(a273_0x42614e(0x27f)),ProductModel_1=require(a273_0x42614e(0x19d)),ProductDiscount_1=require(a273_0x42614e(0x1e0)),VendorProducts_1=require(a273_0x42614e(0x2ff)),ProductSpecial_1=require('../../core/models/ProductSpecial'),class_transformer_1=require(a273_0x42614e(0x1a9)),DeleteProductRequest_1=require(a273_0x42614e(0x3e5)),CreateProductRequest_1=require(a273_0x42614e(0x396)),UpdateProductRequest_1=require('./requests/UpdateProductRequest'),ProductToCategory_1=require('../../core/models/ProductToCategory'),ProductImage_1=require('../../core/models/ProductImage'),CategoryService_1=require('../../core/services/CategoryService'),OrderProductService_1=require(a273_0x42614e(0x3c9)),OrderService_1=require(a273_0x42614e(0x30a)),ProductTirePrice_1=require(a273_0x42614e(0x30b)),UpdateStockRequest_1=require(a273_0x42614e(0x2b9)),CreateTirePriceRequest_1=require(a273_0x42614e(0x387)),ProductViewLogService_1=require('../../core/services/ProductViewLogService'),ProductDiscountService_1=require(a273_0x42614e(0x3dd)),ProductSpecialService_1=require(a273_0x42614e(0x3a8)),moment=require(a273_0x42614e(0x280)),CustomerService_1=require(a273_0x42614e(0x33b)),fs=require('fs'),TaxService_1=require(a273_0x42614e(0x347)),PaymentService_1=require('../../core/services/PaymentService'),path=tslib_1['__importStar'](require('path')),ImageService_1=require(a273_0x42614e(0x28d)),CategoryPathService_1=require(a273_0x42614e(0x3d2)),ProductTirePriceService_1=require(a273_0x42614e(0x1d3)),SkuService_1=require(a273_0x42614e(0x1f2)),SkuModel_1=require(a273_0x42614e(0x22c)),env_1=require(a273_0x42614e(0x19e)),S3Service_1=require(a273_0x42614e(0x25c)),VendorProductService_1=require(a273_0x42614e(0x1bd)),ProductVideoService_1=require('../../core/services/ProductVideoService'),ProductVideo_1=require('../../core/models/ProductVideo'),VendorService_1=require('../../core/services/VendorService'),VendorPaymentService_1=require(a273_0x42614e(0x23a)),CustomerCartService_1=require(a273_0x42614e(0x27b)),pluginLoader_1=require(a273_0x42614e(0x342)),BulkImportRequest_1=require(a273_0x42614e(0x39a)),CategoryModel_1=require('../../core/models/CategoryModel'),CategoryPath_1=require('../../core/models/CategoryPath'),product_1=require(a273_0x42614e(0x23b)),PluginService_1=require(a273_0x42614e(0x21d)),uncino_1=tslib_1[a273_0x42614e(0x236)](require(a273_0x42614e(0x31a))),typeorm_1=require(a273_0x42614e(0x321)),hooks=(0x0,uncino_1[a273_0x42614e(0x18e)])();let ProductController=class ProductController{constructor(_0x1494dd,_0x173f05,_0x7d2cdf,_0x570d04,_0x5d9444,_0x289c62,_0x432cff,_0x4dca2b,_0x2f93ff,_0x40e353,_0x2f1d8b,_0x286aa0,_0x17b917,_0x297676,_0x5ca8fe,_0x4fbcb9,_0x44e9c3,_0x232e95,_0x51be10,_0xe22ded,_0x1e89e6,_0x13e5c0,_0x4101ae,_0x4fac33){const _0xed879f=a273_0x42614e;this[_0xed879f(0x22e)]=_0x1494dd,this['productToCategoryService']=_0x173f05,this[_0xed879f(0x27d)]=_0x7d2cdf,this[_0xed879f(0x23f)]=_0x570d04,this[_0xed879f(0x2a0)]=_0x5d9444,this[_0xed879f(0x27a)]=_0x289c62,this[_0xed879f(0x36b)]=_0x432cff,this[_0xed879f(0x2cc)]=_0x4dca2b,this[_0xed879f(0x1be)]=_0x2f93ff,this[_0xed879f(0x25a)]=_0x40e353,this['taxService']=_0x2f1d8b,this['paymentService']=_0x286aa0,this['categoryPathService']=_0x17b917,this['productTirePriceService']=_0x297676,this[_0xed879f(0x2a1)]=_0x5ca8fe,this[_0xed879f(0x3ed)]=_0x4fbcb9,this[_0xed879f(0x31b)]=_0x44e9c3,this[_0xed879f(0x239)]=_0x232e95,this[_0xed879f(0x190)]=_0x51be10,this['vendorServie']=_0xe22ded,this['vendorPaymentService']=_0x1e89e6,this[_0xed879f(0x1db)]=_0x13e5c0,this[_0xed879f(0x2d7)]=_0x4101ae,this['pluginService']=_0x4fac33;}['getProductList'](_0x42712c,_0x1c7d87,_0x139dd6,_0x5c7a41,_0x1ef418,_0x5d0530,_0x449779,_0x1d52ef,_0x57f8d6){const _0x71347a=a273_0x42614e;return tslib_1[_0x71347a(0x289)](this,void 0x0,void 0x0,function*(){const _0x2246f4=_0x71347a,_0xa55e68=yield(0x0,product_1['productList'])((0x0,typeorm_1['getConnection'])(),[_0x2246f4(0x352),'sku',_0x2246f4(0x2cd),'quantity',_0x2246f4(0x384),'productSlug',_0x2246f4(0x39d),_0x2246f4(0x3cf),_0x2246f4(0x262),_0x2246f4(0x28b),_0x2246f4(0x392),_0x2246f4(0x270),'defaultImage',_0x2246f4(0x1f8),_0x2246f4(0x326),_0x2246f4(0x256),_0x2246f4(0x2fb),_0x2246f4(0x194),_0x2246f4(0x231)],_0x42712c,_0x1c7d87,_0x139dd6,_0x5c7a41,_0x1ef418,_0x5d0530,_0x449779);return _0x1d52ef[_0x2246f4(0x2ea)](0xc8)[_0x2246f4(0x235)](_0xa55e68);});}[a273_0x42614e(0x386)](_0x9cf132,_0x158635,_0x5cb2fd){const _0x2626ce=a273_0x42614e;return tslib_1[_0x2626ce(0x289)](this,void 0x0,void 0x0,function*(){const _0xb96e2c=_0x2626ce,_0x4b3679=yield(0x0,product_1[_0xb96e2c(0x1c9)])(_0x9cf132,(0x0,typeorm_1[_0xb96e2c(0x2ae)])());if(_0x4b3679[_0xb96e2c(0x2ea)]===0x0)return _0x5cb2fd[_0xb96e2c(0x2ea)](0x190)[_0xb96e2c(0x235)]({'status':0x0,'message':_0x4b3679[_0xb96e2c(0x29b)]});return _0x5cb2fd[_0xb96e2c(0x2ea)](0xc8)[_0xb96e2c(0x235)]({'status':0x1,'message':_0x4b3679[_0xb96e2c(0x29b)],'data':_0x4b3679['data']});});}[a273_0x42614e(0x344)](_0x3b01c,_0x5af902,_0x21262f){const _0x2727a7=a273_0x42614e;return tslib_1[_0x2727a7(0x289)](this,void 0x0,void 0x0,function*(){const _0x5c1570=_0x2727a7,_0x1ce56c=_0x3b01c[_0x5c1570(0x395)];if(_0x1ce56c[_0x5c1570(0x28b)]===0x0)return _0x21262f[_0x5c1570(0x2ea)](0x190)[_0x5c1570(0x235)]({'status':0x0,'message':_0x5c1570(0x24f)});let _0x5f3e3d=![],_0x2bee35=![],_0x3f3ace=![];const _0x385d51=_0x3b01c[_0x5c1570(0x326)];_0x385d51[_0x5c1570(0x28b)]>0x0&&(_0x5f3e3d=_0x385d51[_0x5c1570(0x367)](_0x218bae=>_0x218bae[_0x5c1570(0x212)]<0x0));const _0x413f29=_0x3b01c[_0x5c1570(0x256)];_0x413f29[_0x5c1570(0x28b)]>0x0&&(_0x2bee35=_0x413f29[_0x5c1570(0x367)](_0x30a3fa=>_0x30a3fa[_0x5c1570(0x263)]<0x0));const _0x51d8ff=_0x3b01c['tirePrices'];_0x51d8ff[_0x5c1570(0x28b)]>0x0&&(_0x3f3ace=_0x51d8ff[_0x5c1570(0x367)](_0x2824d1=>_0x2824d1[_0x5c1570(0x194)]<0x0));if(_0x5f3e3d||_0x2bee35||_0x3f3ace||_0x3b01c[_0x5c1570(0x194)]<0x0){const _0xc10d68={'status':0x0,'message':_0x5c1570(0x334)};return _0x21262f[_0x5c1570(0x2ea)](0x190)['send'](_0xc10d68);}if(_0x3b01c['tax']<0x0){const _0x4f9a20={'status':0x0,'message':_0x5c1570(0x254)};return _0x21262f['status'](0x190)[_0x5c1570(0x235)](_0x4f9a20);}const _0x6d3893=yield this[_0x5c1570(0x22e)]['findOne']({'where':{'productId':_0x3b01c[_0x5c1570(0x352)]}});if(!_0x6d3893){const _0x5e7533={'status':0x0,'message':_0x5c1570(0x269)};return _0x21262f[_0x5c1570(0x2ea)](0x190)['send'](_0x5e7533);}const _0x222963=_0x3b01c[_0x5c1570(0x36c)]?_0x3b01c[_0x5c1570(0x36c)]:_0x3b01c['productName'],_0x489bec=_0x222963[_0x5c1570(0x305)](),_0x22e211=_0x489bec[_0x5c1570(0x1dc)](/\s+/g,'-')['replace'](/[&\/\\@#,+()$~%.'":*?<>{}]/g,'')[_0x5c1570(0x366)]();_0x6d3893['productSlug']=yield this[_0x5c1570(0x3cb)](_0x22e211,_0x3b01c[_0x5c1570(0x352)]),_0x6d3893['name']=_0x3b01c[_0x5c1570(0x2cd)],_0x6d3893[_0x5c1570(0x36f)]=_0x3b01c[_0x5c1570(0x220)]?yield this[_0x5c1570(0x239)][_0x5c1570(0x24b)](_0x3b01c[_0x5c1570(0x220)]):'',_0x6d3893[_0x5c1570(0x3df)]=_0x3b01c[_0x5c1570(0x3df)],_0x6d3893[_0x5c1570(0x205)]=_0x3b01c[_0x5c1570(0x205)],_0x6d3893['hsn']=_0x3b01c[_0x5c1570(0x273)],_0x6d3893[_0x5c1570(0x279)]=_0x3b01c[_0x5c1570(0x279)],_0x6d3893[_0x5c1570(0x1ef)]=_0x3b01c[_0x5c1570(0x1ef)]?_0x3b01c[_0x5c1570(0x1ef)]:0x0;const _0x1964a3={};_0x1964a3[_0x5c1570(0x209)]=_0x3b01c[_0x5c1570(0x194)],_0x1964a3[_0x5c1570(0x365)]=_0x3b01c[_0x5c1570(0x365)]?_0x3b01c[_0x5c1570(0x365)]:0x0,_0x1964a3[_0x5c1570(0x2e1)]=_0x3b01c['shippingCost']?_0x3b01c[_0x5c1570(0x2e1)]:0x0,_0x1964a3['tax']=0x0,_0x1964a3['others']=_0x3b01c[_0x5c1570(0x3ac)]?_0x3b01c[_0x5c1570(0x3ac)]:0x0,_0x6d3893['serviceCharges']=JSON[_0x5c1570(0x221)](_0x1964a3),_0x6d3893[_0x5c1570(0x194)]=_0x1964a3['productCost']+_0x1964a3[_0x5c1570(0x365)]+_0x1964a3[_0x5c1570(0x2e1)]+_0x1964a3[_0x5c1570(0x3ac)],_0x6d3893[_0x5c1570(0x1e2)]=_0x3b01c[_0x5c1570(0x1e2)]?_0x3b01c['taxType']:0x0,_0x6d3893['taxValue']=_0x3b01c['tax']?_0x3b01c[_0x5c1570(0x2fa)]:0x0;let _0x21b677;const _0x4153d2=yield this['skuService'][_0x5c1570(0x1bc)]({'where':{'skuName':_0x6d3893[_0x5c1570(0x3df)]}});if(_0x4153d2){const _0x3e32f9=yield this[_0x5c1570(0x22e)][_0x5c1570(0x378)](_0x3b01c['productId'],_0x3b01c[_0x5c1570(0x3df)],0x0);if(_0x3e32f9){const _0x10a906={'status':0x0,'message':_0x5c1570(0x295)};return _0x21262f[_0x5c1570(0x2ea)](0x190)['send'](_0x10a906);}else _0x4153d2['skuName']=_0x6d3893[_0x5c1570(0x3df)],_0x4153d2[_0x5c1570(0x194)]=_0x6d3893[_0x5c1570(0x194)],_0x4153d2[_0x5c1570(0x279)]=_0x3b01c['quantity'],_0x4153d2['isActive']=_0x3b01c[_0x5c1570(0x2ea)],_0x21b677=yield this[_0x5c1570(0x2a1)][_0x5c1570(0x397)](_0x4153d2);}else{const _0x239ba9=new SkuModel_1[(_0x5c1570(0x39b))]();_0x239ba9['skuName']=_0x6d3893[_0x5c1570(0x3df)],_0x239ba9[_0x5c1570(0x194)]=_0x6d3893['price'],_0x239ba9[_0x5c1570(0x279)]=_0x3b01c['quantity'],_0x239ba9[_0x5c1570(0x2fb)]=_0x3b01c['status'],_0x21b677=yield this[_0x5c1570(0x2a1)][_0x5c1570(0x397)](_0x239ba9);}_0x6d3893[_0x5c1570(0x364)]=_0x21b677['id'],_0x6d3893['stockStatusId']=_0x3b01c['outOfStockStatus']?_0x3b01c['outOfStockStatus']:0x0,_0x6d3893['shipping']=_0x3b01c[_0x5c1570(0x228)],_0x6d3893[_0x5c1570(0x39d)]=moment(_0x3b01c[_0x5c1570(0x39d)])[_0x5c1570(0x2c2)](),_0x6d3893[_0x5c1570(0x2fb)]=_0x3b01c[_0x5c1570(0x2ea)],_0x6d3893['sortOrder']=_0x3b01c[_0x5c1570(0x2b3)]?_0x3b01c[_0x5c1570(0x2b3)]:0x1,_0x6d3893[_0x5c1570(0x262)]=_0x3b01c[_0x5c1570(0x262)],_0x6d3893['weight']=_0x3b01c[_0x5c1570(0x392)],_0x6d3893['length']=_0x3b01c[_0x5c1570(0x28b)],_0x6d3893[_0x5c1570(0x3cf)]=_0x3b01c[_0x5c1570(0x3cf)],_0x6d3893['hasTirePrice']=_0x3b01c[_0x5c1570(0x282)];const _0x8ec3ca=[];if(_0x1ce56c[_0x5c1570(0x28b)]!==0x0){for(const _0x1ca28d of _0x1ce56c){const _0x469b8e=yield this['categoryService'][_0x5c1570(0x1bc)]({'where':{'categoryId':_0x1ca28d}}),_0x2708c2='~'+_0x469b8e['name']+'~';_0x8ec3ca['push'](_0x2708c2);}_0x8ec3ca[_0x5c1570(0x3e3)]('~'+_0x3b01c[_0x5c1570(0x2cd)]+'~');}const _0x14c7bb=_0x8ec3ca[_0x5c1570(0x1d2)]();_0x6d3893[_0x5c1570(0x384)]=_0x14c7bb,_0x6d3893[_0x5c1570(0x3e0)]=_0x5af902['user'][_0x5c1570(0x35e)];const _0x3724f0=yield this[_0x5c1570(0x190)][_0x5c1570(0x1bc)]({'where':{'productId':_0x6d3893[_0x5c1570(0x352)]}});if(_0x3724f0){const _0x4f6c3e=yield this['vendorServie'][_0x5c1570(0x1bc)]({'where':{'vendorId':_0x3724f0[_0x5c1570(0x39f)],'approvalFlag':0x1}});if(!_0x4f6c3e)return _0x21262f[_0x5c1570(0x2ea)](0x190)['send']({'status':0x0,'message':_0x5c1570(0x2f2)});_0x3724f0[_0x5c1570(0x1ef)]=_0x3b01c['quotationAvailable']?_0x3b01c[_0x5c1570(0x1ef)]:0x0,yield this['vendorProductService'][_0x5c1570(0x397)](_0x3724f0);}const _0x119099=yield this[_0x5c1570(0x22e)][_0x5c1570(0x397)](_0x6d3893);this['customerCartService']['delete']({'productId':_0x3b01c['productId']}),this[_0x5c1570(0x33a)][_0x5c1570(0x2f7)]({'productId':_0x119099[_0x5c1570(0x352)]});if(_0x1ce56c['length']!==0x0)for(const _0x3615d2 of _0x1ce56c){const _0x163d33=new ProductToCategory_1[(_0x5c1570(0x3c8))]();_0x163d33[_0x5c1570(0x352)]=_0x119099['productId'],_0x163d33[_0x5c1570(0x395)]=_0x3615d2,_0x163d33[_0x5c1570(0x2fb)]=0x1,this['productToCategoryService'][_0x5c1570(0x397)](_0x163d33);}this['productImageService'][_0x5c1570(0x2f7)]({'productId':_0x119099['productId']});if(_0x3b01c['image']){const _0x44714f=_0x3b01c[_0x5c1570(0x270)];for(const _0x45150e of _0x44714f){const _0x3687ca=JSON['stringify'](_0x45150e),_0x4c6d8d=JSON[_0x5c1570(0x1ae)](_0x3687ca),_0x5b4dc6=new ProductImage_1['ProductImage']();_0x5b4dc6[_0x5c1570(0x352)]=_0x119099['productId'],_0x5b4dc6[_0x5c1570(0x270)]=_0x4c6d8d[_0x5c1570(0x270)],_0x5b4dc6['containerName']=_0x4c6d8d[_0x5c1570(0x231)],_0x5b4dc6[_0x5c1570(0x265)]=_0x4c6d8d[_0x5c1570(0x265)],yield this['productImageService'][_0x5c1570(0x397)](_0x5b4dc6);}}if(_0x3b01c['productDiscount']){this[_0x5c1570(0x2cc)][_0x5c1570(0x2f7)]({'productId':_0x119099[_0x5c1570(0x352)]});const _0x7f811=_0x3b01c['productDiscount'],_0x5c25f2=[];for(const _0x4e32a5 of _0x7f811){const _0xf84ac8=new ProductDiscount_1[(_0x5c1570(0x3e9))]();_0xf84ac8['productId']=_0x119099['productId'],_0xf84ac8[_0x5c1570(0x279)]=0x1;if(_0x119099['price']<=_0x4e32a5[_0x5c1570(0x212)]){const _0x473437={'status':0x0,'message':'discount\x20price\x20should\x20be\x20less\x20than\x20original\x20price.'};return _0x21262f[_0x5c1570(0x2ea)](0x190)[_0x5c1570(0x235)](_0x473437);}const _0x155da7=yield this[_0x5c1570(0x2a1)][_0x5c1570(0x1bc)]({'where':{'skuName':_0x4e32a5[_0x5c1570(0x2b4)]}});if(_0x155da7)_0xf84ac8[_0x5c1570(0x364)]=_0x155da7['id'];else{const _0x451c12={'status':0x0,'message':_0x5c1570(0x1a6)};return _0x21262f[_0x5c1570(0x2ea)](0x190)[_0x5c1570(0x235)](_0x451c12);}_0xf84ac8[_0x5c1570(0x2fe)]=_0x4e32a5[_0x5c1570(0x1dd)],_0xf84ac8['price']=_0x4e32a5['discountPrice'],_0xf84ac8[_0x5c1570(0x201)]=moment(_0x4e32a5['discountDateStart'])[_0x5c1570(0x2c2)](),_0xf84ac8[_0x5c1570(0x2da)]=moment(_0x4e32a5['discountDateEnd'])[_0x5c1570(0x2c2)](),_0x5c25f2[_0x5c1570(0x3e3)](_0xf84ac8);}yield this[_0x5c1570(0x2cc)][_0x5c1570(0x397)](_0x5c25f2);}if(_0x3b01c[_0x5c1570(0x256)]){this[_0x5c1570(0x1be)]['delete']({'productId':_0x119099[_0x5c1570(0x352)]});const _0x2ca40c=_0x3b01c[_0x5c1570(0x256)],_0x5e2567=[];for(const _0x136b1d of _0x2ca40c){const _0xf3cb3a=new ProductSpecial_1[(_0x5c1570(0x377))]();_0xf3cb3a[_0x5c1570(0x352)]=_0x119099[_0x5c1570(0x352)];if(_0x119099[_0x5c1570(0x194)]<_0x136b1d['specialPrice']){const _0x87bc3e={'status':0x0,'message':_0x5c1570(0x2dd)};return _0x21262f[_0x5c1570(0x2ea)](0x190)[_0x5c1570(0x235)](_0x87bc3e);}_0xf3cb3a[_0x5c1570(0x226)]=_0x136b1d['customerGroupId'];const _0x442be3=yield this[_0x5c1570(0x2a1)][_0x5c1570(0x1bc)]({'where':{'skuName':_0x136b1d[_0x5c1570(0x2b4)]}});if(_0x442be3)_0xf3cb3a[_0x5c1570(0x364)]=_0x442be3['id'];else{const _0x37e1e3={'status':0x0,'message':_0x5c1570(0x39e)};return _0x21262f[_0x5c1570(0x2ea)](0x190)[_0x5c1570(0x235)](_0x37e1e3);}_0xf3cb3a[_0x5c1570(0x2fe)]=_0x136b1d[_0x5c1570(0x1fe)],_0xf3cb3a[_0x5c1570(0x194)]=_0x136b1d['specialPrice'],_0xf3cb3a[_0x5c1570(0x201)]=moment(_0x136b1d[_0x5c1570(0x339)])['toISOString'](),_0xf3cb3a['dateEnd']=moment(_0x136b1d[_0x5c1570(0x315)])[_0x5c1570(0x2c2)](),_0x5e2567[_0x5c1570(0x3e3)](_0xf3cb3a);}yield this[_0x5c1570(0x1be)][_0x5c1570(0x397)](_0x5e2567);}if(_0x3b01c[_0x5c1570(0x253)]){yield this[_0x5c1570(0x360)]['delete']({'productId':_0x119099[_0x5c1570(0x352)]});const _0x4e32f3=_0x3b01c[_0x5c1570(0x253)],_0x56dacf=[];for(const _0x12baf3 of _0x4e32f3){const _0x4a3ac8=new ProductTirePrice_1[(_0x5c1570(0x203))]();_0x4a3ac8[_0x5c1570(0x352)]=_0x119099[_0x5c1570(0x352)];const _0x2317e9=yield this['skuService'][_0x5c1570(0x1bc)]({'where':{'skuName':_0x12baf3[_0x5c1570(0x2b4)]}});if(_0x2317e9)_0x4a3ac8['skuId']=_0x2317e9['id'];else{const _0x558534={'status':0x0,'message':_0x5c1570(0x35a)};return _0x21262f[_0x5c1570(0x2ea)](0x190)[_0x5c1570(0x235)](_0x558534);}_0x4a3ac8['quantity']=_0x12baf3['quantity'],_0x4a3ac8[_0x5c1570(0x194)]=_0x12baf3['price'],_0x56dacf[_0x5c1570(0x3e3)](_0x4a3ac8);}yield this['productTirePriceService'][_0x5c1570(0x397)](_0x56dacf);}const _0x3ac727=_0x3b01c[_0x5c1570(0x1fb)];if(_0x3ac727){yield this[_0x5c1570(0x31b)]['delete']({'productId':_0x119099['productId']});const _0x105c6b=new ProductVideo_1[(_0x5c1570(0x3e2))]();_0x105c6b[_0x5c1570(0x352)]=_0x119099[_0x5c1570(0x352)],_0x105c6b[_0x5c1570(0x248)]=_0x3ac727[_0x5c1570(0x248)],_0x105c6b[_0x5c1570(0x325)]=_0x3ac727[_0x5c1570(0x325)],_0x105c6b[_0x5c1570(0x2dc)]=_0x3ac727[_0x5c1570(0x2dc)],yield this[_0x5c1570(0x31b)][_0x5c1570(0x397)](_0x105c6b);}yield this[_0x5c1570(0x22e)][_0x5c1570(0x397)](_0x119099);if(_0x119099){const _0x15a6bb={'status':0x1,'message':'Successfully\x20updated\x20the\x20Product.'};return _0x21262f[_0x5c1570(0x2ea)](0xc8)[_0x5c1570(0x235)](_0x15a6bb);}else{const _0x38c4a8={'status':0x0,'message':_0x5c1570(0x1ba)};return _0x21262f[_0x5c1570(0x2ea)](0x190)[_0x5c1570(0x235)](_0x38c4a8);}});}['productDetail'](_0x1b1b4d,_0x389de3){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x551435=a273_0x9dfc,_0x56c558=yield this[_0x551435(0x22e)][_0x551435(0x1bc)]({'where':{'productId':_0x1b1b4d}}),_0x28f7aa=(0x0,class_transformer_1[_0x551435(0x25d)])(_0x56c558);_0x28f7aa['quotationAvailable']=_0x56c558['quotationAvailable'];const _0x1d63af=_0x28f7aa[_0x551435(0x399)];if(_0x1d63af){const _0x160c02=JSON[_0x551435(0x1ae)](_0x28f7aa[_0x551435(0x399)]);_0x28f7aa['productCost']=_0x160c02[_0x551435(0x209)],_0x28f7aa['packingCost']=_0x160c02[_0x551435(0x365)],_0x28f7aa['shippingCost']=_0x160c02[_0x551435(0x2e1)],_0x28f7aa[_0x551435(0x3ac)]=_0x160c02[_0x551435(0x3ac)];}if(_0x28f7aa[_0x551435(0x1e2)]===0x2){const _0x3d7682=yield this[_0x551435(0x320)][_0x551435(0x1bc)]({'taxId':_0x28f7aa[_0x551435(0x29e)]});let _0x1d2c03;_0x3d7682?_0x1d2c03=_0x28f7aa[_0x551435(0x194)]*(_0x3d7682[_0x551435(0x2e0)]/0x64):_0x1d2c03=0x0;const _0x1509ba=+_0x28f7aa[_0x551435(0x194)]+_0x1d2c03;_0x28f7aa[_0x551435(0x2ce)]=_0x1509ba;}else{const _0x2e2cc6=_0x28f7aa[_0x551435(0x29e)]&&_0x28f7aa[_0x551435(0x29e)]>0x0?_0x28f7aa[_0x551435(0x29e)]:0x0,_0x19e53b=+_0x28f7aa['price']+_0x2e2cc6;_0x28f7aa['priceWithTax']=_0x19e53b;}const _0x35b727=yield this[_0x551435(0x2a1)]['findOne']({'id':_0x28f7aa[_0x551435(0x364)]});_0x28f7aa[_0x551435(0x279)]=_0x35b727?_0x35b727[_0x551435(0x279)]:_0x28f7aa['quantity'],_0x28f7aa[_0x551435(0x38b)]=yield this[_0x551435(0x27d)]['findAll']({'select':['productId',_0x551435(0x270),_0x551435(0x231),_0x551435(0x265)],'where':{'productId':_0x56c558[_0x551435(0x352)]}}),_0x28f7aa[_0x551435(0x1af)]=yield this[_0x551435(0x33a)]['findAll']({'select':[_0x551435(0x395),_0x551435(0x352)],'where':{'productId':_0x56c558[_0x551435(0x352)]}})[_0x551435(0x3c3)](_0x1880c1=>{const _0xfa5c16=_0x551435,_0xe743ee=_0x1880c1['map'](_0x168018=>tslib_1[_0xfa5c16(0x289)](this,void 0x0,void 0x0,function*(){const _0x24964e=_0xfa5c16,_0x4eb556=yield this[_0x24964e(0x23f)][_0x24964e(0x1bc)]({'where':{'categoryId':_0x168018[_0x24964e(0x395)]}}),_0x5eac53=yield this[_0x24964e(0x2c8)][_0x24964e(0x1c7)](_0x4eb556['categorySlug']);_0x4eb556['levels']=_0x5eac53[_0x24964e(0x293)];const _0x2ca9d0=_0x4eb556;return _0x2ca9d0;})),_0x302a1d=Promise[_0xfa5c16(0x1b9)](_0xe743ee);return _0x302a1d;}),_0x28f7aa[_0x551435(0x2d1)]=yield this['productSpecialService'][_0x551435(0x186)]({'select':[_0x551435(0x268),'priority',_0x551435(0x194),_0x551435(0x201),_0x551435(0x2da),_0x551435(0x364)],'where':{'productId':_0x56c558[_0x551435(0x352)]}})[_0x551435(0x3c3)](_0x32be6c=>{const _0x2cab76=_0x551435,_0x54fdd9=_0x32be6c[_0x2cab76(0x337)](_0x41eb47=>tslib_1[_0x2cab76(0x289)](this,void 0x0,void 0x0,function*(){const _0x3b9e32=_0x2cab76,_0x503dfc=yield this['skuService']['findOne']({'id':_0x41eb47[_0x3b9e32(0x364)]}),_0x168281=_0x41eb47;return _0x503dfc!==undefined?_0x168281[_0x3b9e32(0x2b4)]=_0x503dfc[_0x3b9e32(0x2b4)]:_0x168281[_0x3b9e32(0x2b4)]='',_0x168281;})),_0x4f2bbe=Promise['all'](_0x54fdd9);return _0x4f2bbe;}),_0x28f7aa['productDiscountData']=yield this[_0x551435(0x2cc)]['findAll']({'select':[_0x551435(0x2bf),_0x551435(0x279),'priority',_0x551435(0x194),'dateStart','dateEnd',_0x551435(0x364)],'where':{'productId':_0x56c558[_0x551435(0x352)]}})[_0x551435(0x3c3)](_0x3a7ed6=>{const _0x5e79ae=_0x551435,_0x10da2c=_0x3a7ed6[_0x5e79ae(0x337)](_0x328845=>tslib_1[_0x5e79ae(0x289)](this,void 0x0,void 0x0,function*(){const _0x358e16=_0x5e79ae,_0x779158=yield this[_0x358e16(0x2a1)][_0x358e16(0x1bc)]({'id':_0x328845[_0x358e16(0x364)]}),_0x5146e5=_0x328845;return _0x779158!==undefined?_0x5146e5[_0x358e16(0x2b4)]=_0x779158[_0x358e16(0x2b4)]:_0x5146e5[_0x358e16(0x2b4)]='',_0x5146e5;})),_0xb30664=Promise['all'](_0x10da2c);return _0xb30664;}),_0x28f7aa['productTirePrices']=yield this[_0x551435(0x360)][_0x551435(0x186)]({'select':['id',_0x551435(0x279),_0x551435(0x194),'skuId'],'where':{'productId':_0x56c558[_0x551435(0x352)]}})[_0x551435(0x3c3)](_0x411518=>{const _0x40cb50=_0x551435,_0xae21e6=_0x411518[_0x40cb50(0x337)](_0x14e0c3=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x8137e1=_0x40cb50,_0x46febd=yield this['skuService']['findOne']({'id':_0x14e0c3[_0x8137e1(0x364)]}),_0x47930b=_0x14e0c3;return _0x46febd!==undefined?_0x47930b[_0x8137e1(0x2b4)]=_0x46febd['skuName']:_0x47930b['skuName']='',_0x47930b;})),_0xa64665=Promise['all'](_0xae21e6);return _0xa64665;}),_0x28f7aa[_0x551435(0x1fb)]=yield this[_0x551435(0x31b)][_0x551435(0x1bc)]({'select':['id',_0x551435(0x248),'path',_0x551435(0x325),_0x551435(0x352)],'where':{'productId':_0x56c558[_0x551435(0x352)]}});const _0x1749b2={'status':0x1,'message':_0x551435(0x218),'data':_0x28f7aa};return _0x389de3[_0x551435(0x2ea)](0xc8)[_0x551435(0x235)](_0x1749b2);});}[a273_0x42614e(0x32a)](_0x493f10,_0x555902){const _0xbf0afb=a273_0x42614e;return tslib_1[_0xbf0afb(0x289)](this,void 0x0,void 0x0,function*(){const _0x5312a0=_0xbf0afb,_0x57dfd5=[_0x5312a0(0x1ff),'OrderProduct.skuName\x20as\x20skuName',_0x5312a0(0x350),_0x5312a0(0x193),'productInformationDetail.name\x20as\x20name','productInformationDetail.description\x20as\x20description',_0x5312a0(0x290),_0x5312a0(0x1a8),_0x5312a0(0x1b7),_0x5312a0(0x1cc)],_0x5b3001=[{'tableName':_0x5312a0(0x1a5),'aliasName':'productInformationDetail'},{'tableName':'OrderProduct.product','aliasName':_0x5312a0(0x2e2)}],_0x29a653=[{'name':_0x5312a0(0x3e7),'order':_0x5312a0(0x1ca)}],_0x51887e=[{'name':_0x5312a0(0x1e9)}],_0x3e6e5b=yield this['orderProductService'][_0x5312a0(0x2f8)](0x4,0x0,_0x57dfd5,[],[],_0x5b3001,_0x51887e,_0x29a653,![],!![]),_0x412506={'status':0x1,'message':'Successfully\x20get\x20Top\x20Selling\x20Product..!','data':_0x3e6e5b};return _0x555902[_0x5312a0(0x2ea)](0xc8)[_0x5312a0(0x235)](_0x412506);});}[a273_0x42614e(0x317)](_0x13a920,_0x321266){const _0x1b8948=a273_0x42614e;return tslib_1[_0x1b8948(0x289)](this,void 0x0,void 0x0,function*(){const _0x552eb4=_0x1b8948,_0x2a1c3c=0x5,_0x1a204=[_0x552eb4(0x330),_0x552eb4(0x373),_0x552eb4(0x382),'customer.avatar\x20as\x20avatar','customer.avatarPath\x20as\x20avatarPath',_0x552eb4(0x1aa),_0x552eb4(0x349)],_0x5996b9=[{'tableName':_0x552eb4(0x3c7),'aliasName':'customer'}],_0x3c9870=[{'name':'Order.paymentFlag','op':'and','value':0x1},{'name':_0x552eb4(0x224),'op':_0x552eb4(0x1b1),'value':0x1},{'name':_0x552eb4(0x309),'op':_0x552eb4(0x1b1),'value':0x0}],_0x3558ef=[{'name':_0x552eb4(0x2ca),'order':_0x552eb4(0x1ca)}],_0x19ef5d=[{'name':_0x552eb4(0x3be)}],_0xc68e25=yield this[_0x552eb4(0x27a)][_0x552eb4(0x2f8)](_0x2a1c3c,0x0,_0x1a204,_0x3c9870,[],_0x5996b9,_0x19ef5d,_0x3558ef,![],!![]);if(_0xc68e25)return _0x321266[_0x552eb4(0x2ea)](0xc8)[_0x552eb4(0x235)]({'status':0x1,'message':_0x552eb4(0x2cb),'data':_0xc68e25});});}['topPerformingProucts'](_0x30f48f,_0x44825e,_0x476061,_0x402fd6,_0x2e3d46,_0x3f4a0d){const _0x23a420=a273_0x42614e;return tslib_1[_0x23a420(0x289)](this,void 0x0,void 0x0,function*(){const _0x205bd7=_0x23a420,_0x51ee6c=yield this[_0x205bd7(0x2a0)][_0x205bd7(0x3da)](_0x30f48f,_0x44825e,_0x476061,_0x402fd6);return _0x51ee6c!==''&&_0x51ee6c!==undefined?_0x3f4a0d['status'](0xc8)['send']({'status':0x1,'message':_0x205bd7(0x2ef),'data':_0x51ee6c}):_0x3f4a0d[_0x205bd7(0x2ea)](0x190)[_0x205bd7(0x235)]({'status':0x0,'message':_0x205bd7(0x348)});});}[a273_0x42614e(0x26f)](_0x89ef98,_0x12958e,_0x16316e){const _0x15f31d=a273_0x42614e;return tslib_1[_0x15f31d(0x289)](this,void 0x0,void 0x0,function*(){const _0x5f022d=_0x15f31d,_0x5cd961=yield this[_0x5f022d(0x25a)][_0x5f022d(0x26f)](_0x89ef98);if(_0x5cd961!==''&&_0x5cd961!==undefined)return _0x16316e[_0x5f022d(0x2ea)](0xc8)[_0x5f022d(0x235)]({'status':0x1,'message':_0x5f022d(0x1c1),'data':_0x5cd961});});}['dashboardOrderCount'](_0x4df30d,_0x59c2ef,_0x5cebf7){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xe9b8cb=a273_0x9dfc,_0x1adb81=yield this[_0xe9b8cb(0x27a)][_0xe9b8cb(0x272)](_0x4df30d),_0x5c77b7={};return _0x5c77b7['ordersCount']=_0x1adb81['ordersCount']?_0x1adb81['ordersCount']:0x0,_0x5c77b7[_0xe9b8cb(0x1b3)]=_0x1adb81['vendorsCount']?_0x1adb81[_0xe9b8cb(0x1b3)]:0x0,_0x5cebf7[_0xe9b8cb(0x2ea)](0xc8)[_0xe9b8cb(0x235)]({'status':0x1,'message':'Successfully\x20got\x20dashboard\x20orders\x20and\x20vendors\x20count\x20based\x20on\x20orders','data':_0x5c77b7});});}[a273_0x42614e(0x362)](_0x36ec70,_0x53bf53,_0x49bb42){const _0x19cee6=a273_0x42614e;return tslib_1[_0x19cee6(0x289)](this,void 0x0,void 0x0,function*(){const _0x19c060=_0x19cee6,_0x237fa9=yield this[_0x19c060(0x2a0)]['dashboardOrderProductsTotal'](_0x36ec70),_0x17cfee=yield this[_0x19c060(0x192)][_0x19c060(0x343)](_0x36ec70),_0x3a1644=_0x237fa9[_0x19c060(0x2af)]?_0x237fa9[_0x19c060(0x2af)]:0x0,_0x1af421=_0x17cfee[_0x19c060(0x2c7)]?_0x17cfee[_0x19c060(0x2c7)]:0x0,_0x29007e=+_0x237fa9[_0x19c060(0x2c1)]+ +_0x17cfee[_0x19c060(0x37e)],_0x21d81f=_0x29007e!==0x0?(+_0x3a1644+ +_0x1af421)/+_0x29007e:0x0;return _0x49bb42[_0x19c060(0x2ea)](0xc8)[_0x19c060(0x235)]({'status':0x0,'message':'Successfully\x20got\x20the\x20average\x20order\x20value','data':_0x21d81f['toFixed'](0x2)});});}[a273_0x42614e(0x2b2)](_0x49632d,_0x591111,_0x896c6d){const _0x443bd7=a273_0x42614e;return tslib_1[_0x443bd7(0x289)](this,void 0x0,void 0x0,function*(){const _0x344643=_0x443bd7,_0x7073b9=yield this[_0x344643(0x2a0)]['dashboardOrderProductsTotal'](_0x49632d),_0x474af0=yield this[_0x344643(0x192)]['dashboardVendorCommissionTotal'](_0x49632d),_0x5291eb=_0x7073b9[_0x344643(0x2af)]?_0x7073b9[_0x344643(0x2af)]:0x0,_0x4a53ce=_0x474af0['vendorCommission']?_0x474af0['vendorCommission']:0x0,_0x2d8e53=+_0x5291eb+ +_0x4a53ce;return _0x896c6d[_0x344643(0x2ea)](0xc8)[_0x344643(0x235)]({'status':0x0,'message':_0x344643(0x233),'data':_0x2d8e53});});}[a273_0x42614e(0x242)](_0x2ed56b,_0x914c96,_0xb9d9c2){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x559cd5=a273_0x9dfc,_0x3efa22=yield this['orderService'][_0x559cd5(0x2c1)](_0x2ed56b),_0x1c4b78=yield this['customerService'][_0x559cd5(0x26f)](_0x2ed56b),_0x5575f3=+_0x1c4b78!==0x0?+_0x3efa22/+_0x1c4b78*0x64:0x0;return _0xb9d9c2['status'](0xc8)['send']({'status':0x1,'message':_0x559cd5(0x306),'data':_0x5575f3['toFixed'](0x2)});});}[a273_0x42614e(0x3d5)](_0x523ad4,_0x373f2c,_0x59a253){const _0x1d561b=a273_0x42614e;return tslib_1[_0x1d561b(0x289)](this,void 0x0,void 0x0,function*(){const _0xd9bd4d=_0x1d561b,_0x176eb7=_0x523ad4['split'](',');if(!(_0x176eb7[_0xd9bd4d(0x28b)]<=0x3))return _0x59a253[_0xd9bd4d(0x2ea)](0x190)[_0xd9bd4d(0x235)]({'status':0x0,'message':'length\x20of\x20productId\x20should\x20be\x20less\x20than\x20or\x20equal\x20to\x20three'});const _0x59a746=yield this[_0xd9bd4d(0x22e)][_0xd9bd4d(0x20c)](_0x176eb7),_0x489415=_0x59a746['map'](_0x3c5b58=>tslib_1[_0xd9bd4d(0x289)](this,void 0x0,void 0x0,function*(){const _0x3e144e=_0xd9bd4d,_0x5184f4=yield this['orderProductService']['topTenWeeklySalesList'](_0x3c5b58['productId']),_0x34a923=_0x3c5b58,_0x1450d2=[_0x3e144e(0x213),_0x3e144e(0x206),_0x3e144e(0x3bf),_0x3e144e(0x3cd),_0x3e144e(0x1d1),_0x3e144e(0x2c4),_0x3e144e(0x351)],_0x100756=[];for(const _0x4e96ea of _0x1450d2){const _0x519c1a=_0x5184f4[_0x3e144e(0x1c6)](_0xe024ca=>{const _0x11405c=_0x3e144e;return _0xe024ca[_0x11405c(0x2d8)]===_0x4e96ea;});_0x519c1a[_0x3e144e(0x28b)]===0x0?_0x100756['push']({'value':0x0,'days':_0x4e96ea}):_0x100756[_0x3e144e(0x3e3)](_0x519c1a[0x0]);}return _0x34a923['value']=_0x100756,_0x34a923;})),_0x42256d=yield Promise[_0xd9bd4d(0x1b9)](_0x489415);return _0x59a253[_0xd9bd4d(0x2ea)](0xc8)[_0xd9bd4d(0x235)]({'status':0x1,'message':_0xd9bd4d(0x211),'data':_0x42256d});});}[a273_0x42614e(0x33c)](_0x52e582,_0x4ca54f){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x25f073=a273_0x9dfc,_0x5c14b8=0x3,_0x39ca8f=['DISTINCT(OrderProduct.productId)\x20as\x20productId',_0x25f073(0x19a),_0x25f073(0x394),_0x25f073(0x29a),'OrderProduct.total\x20as\x20Total',_0x25f073(0x323),_0x25f073(0x1ed),_0x25f073(0x1b8),'product.invoicePrefix\x20as\x20invoicePrefix','product.orderStatusId\x20as\x20orderStatusId',_0x25f073(0x3d8),_0x25f073(0x202),'(SELECT\x20pi.container_name\x20as\x20containerName\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20OrderProduct.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20containerName',_0x25f073(0x204)],_0x2c2680=[{'tableName':_0x25f073(0x1a5),'aliasName':_0x25f073(0x200)},{'tableName':_0x25f073(0x1cf),'aliasName':_0x25f073(0x2e2)}],_0x1a8352=[],_0x29b3c4=[{'name':_0x25f073(0x20e),'order':'DESC'}],_0x5a50db=yield this[_0x25f073(0x2a0)][_0x25f073(0x2f8)](_0x5c14b8,0x0,_0x39ca8f,_0x1a8352,[],_0x2c2680,[],_0x29b3c4,![],!![]),_0x2f551c={'status':0x1,'message':_0x25f073(0x1d6),'data':_0x5a50db};return _0x4ca54f[_0x25f073(0x2ea)](0xc8)[_0x25f073(0x235)](_0x2f551c);});}['productViewLogList'](_0x23278c,_0x146f7a,_0x48abaf,_0x42bda5,_0x5fc1e4){const _0x10fd56=a273_0x42614e;return tslib_1[_0x10fd56(0x289)](this,void 0x0,void 0x0,function*(){const _0x597f38=_0x10fd56,_0x41f01f=[],_0x2662a8=[],_0x219fe8=[],_0x3d721d=yield this[_0x597f38(0x36b)]['list'](_0x23278c,_0x146f7a,_0x41f01f,_0x219fe8,_0x2662a8,0x0,_0x48abaf);if(_0x48abaf){const _0x217b01={'status':0x1,'message':'Successfully\x20got\x20view\x20log\x20count','data':_0x3d721d};return _0x5fc1e4[_0x597f38(0x2ea)](0xc8)[_0x597f38(0x235)](_0x217b01);}else{const _0x3b3b55={'status':0x1,'message':_0x597f38(0x1c5),'data':_0x3d721d};return _0x5fc1e4[_0x597f38(0x2ea)](0xc8)['send'](_0x3b3b55);}});}[a273_0x42614e(0x252)](_0x26b1bc,_0x32b5ed,_0x4beca3,_0x117aa3,_0x9381d7,_0x127967){const _0x5a0832=a273_0x42614e;return tslib_1[_0x5a0832(0x289)](this,void 0x0,void 0x0,function*(){const _0x3ec4d6=_0x5a0832,_0x578cf6=[],_0x24725b=[{'name':_0x3ec4d6(0x2b1),'value':_0x26b1bc}],_0x1a7cc0=[],_0x31bf69=yield this['productViewLogService'][_0x3ec4d6(0x37d)](_0x32b5ed,_0x4beca3,_0x578cf6,_0x1a7cc0,_0x24725b,0x0,_0x117aa3);if(_0x117aa3){const _0x470bb4={'status':0x1,'message':_0x3ec4d6(0x1df),'data':_0x31bf69};return _0x127967[_0x3ec4d6(0x2ea)](0xc8)[_0x3ec4d6(0x235)](_0x470bb4);}else{const _0x1f1b1b={'status':0x1,'message':'Successfully\x20got\x20view\x20log\x20List','data':_0x31bf69};return _0x127967['status'](0xc8)[_0x3ec4d6(0x235)](_0x1f1b1b);}});}[a273_0x42614e(0x38c)](_0x29c5ad,_0x5e5f77,_0x1ae606){const _0xe1c4f4=a273_0x42614e;return tslib_1[_0xe1c4f4(0x289)](this,void 0x0,void 0x0,function*(){const _0x58327c=_0xe1c4f4,_0x4a4186=_0x29c5ad?_0x29c5ad[_0x58327c(0x2a9)](',')[_0x58327c(0x337)](_0x35e063=>+_0x35e063):[],_0x2eb59f=yield(0x0,product_1[_0x58327c(0x302)])((0x0,typeorm_1[_0x58327c(0x2ae)])(),_0x4a4186);return new Promise((_0x2042e1,_0x2144ba)=>{_0x1ae606['download'](_0x2eb59f,(_0xba3bdf,_0x428ffb)=>{const _0x550bb5=a273_0x9dfc;if(_0xba3bdf)_0x2144ba(_0xba3bdf);else return fs[_0x550bb5(0x243)](_0x2eb59f),_0x1ae606['end']();});});});}['ExportAllProducts'](_0x1f5d24,_0x13d2a8){const _0x436b51=a273_0x42614e;return tslib_1[_0x436b51(0x289)](this,void 0x0,void 0x0,function*(){const _0x344983=_0x436b51,_0x591062=require('exceljs'),_0x3cfd00=new _0x591062['Workbook'](),_0x54a560=_0x3cfd00[_0x344983(0x286)](_0x344983(0x1d9)),_0x32ae4d=[],_0x1ea678=yield this[_0x344983(0x22e)]['findAll']();if(_0x1ea678===undefined){const _0xd683d1={'status':0x0,'message':_0x344983(0x37b)};return _0x13d2a8[_0x344983(0x2ea)](0x190)[_0x344983(0x235)](_0xd683d1);}_0x54a560[_0x344983(0x353)]=[{'header':_0x344983(0x1d4),'key':_0x344983(0x352),'size':0x10,'width':0xf},{'header':_0x344983(0x198),'key':_0x344983(0x248),'size':0x10,'width':0xf},{'header':_0x344983(0x1fd),'key':_0x344983(0x36f),'size':0x10,'width':0x1e},{'header':_0x344983(0x2c0),'key':'price','size':0x10,'width':0xf},{'header':_0x344983(0x2bc),'key':_0x344983(0x3df),'size':0x10,'width':0xf},{'header':_0x344983(0x284),'key':'upc','size':0x10,'width':0xf},{'header':_0x344983(0x238),'key':_0x344983(0x279),'size':0x10,'width':0xf},{'header':_0x344983(0x3eb),'key':_0x344983(0x35d),'size':0x10,'width':0x13},{'header':_0x344983(0x225),'key':'subtractstock','size':0x10,'width':0xf},{'header':_0x344983(0x3c1),'key':'manufactureId','size':0x10,'width':0xf},{'header':_0x344983(0x1a4),'key':'condition','size':0x10,'width':0xf},{'header':_0x344983(0x346),'key':_0x344983(0x346),'size':0x10,'width':0xf},{'header':_0x344983(0x1a7),'key':'relatedProducts','size':0x10,'width':0xf},{'header':_0x344983(0x376),'key':_0x344983(0x2fb),'size':0x10,'width':0xf}],_0x54a560[_0x344983(0x25b)]('A1')[_0x344983(0x23d)]={'top':{'style':'thin'},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':'thin'},'right':{'style':_0x344983(0x2d6)}},_0x54a560['getCell']('B1')['border']={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':'thin'},'right':{'style':'thin'}},_0x54a560[_0x344983(0x25b)]('C1')['border']={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':'thin'},'right':{'style':'thin'}},_0x54a560[_0x344983(0x25b)]('D1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x54a560[_0x344983(0x25b)]('E1')[_0x344983(0x23d)]={'top':{'style':'thin'},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x54a560[_0x344983(0x25b)]('F1')[_0x344983(0x23d)]={'top':{'style':'thin'},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':'thin'}},_0x54a560['getCell']('G1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x54a560['getCell']('H1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x54a560['getCell']('I1')['border']={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':'thin'},'right':{'style':'thin'}},_0x54a560[_0x344983(0x25b)]('J1')['border']={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x54a560[_0x344983(0x25b)]('K1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x54a560[_0x344983(0x25b)]('L1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':'thin'},'right':{'style':'thin'}},_0x54a560[_0x344983(0x25b)]('M1')['border']={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x54a560[_0x344983(0x25b)]('N1')[_0x344983(0x23d)]={'top':{'style':'thin'},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x54a560[_0x344983(0x25b)]('O1')['border']={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}};const _0x39806b=yield this[_0x344983(0x22e)][_0x344983(0x186)]();for(const _0x4b65bd of _0x39806b){const _0x398918=_0x4b65bd[_0x344983(0x36f)],_0x18bc47=_0x398918['replace'](/(&nbsp;|(<([^>]+)>))/ig,'');_0x32ae4d[_0x344983(0x3e3)]([_0x4b65bd[_0x344983(0x352)],_0x4b65bd[_0x344983(0x248)],_0x18bc47[_0x344983(0x305)](),_0x4b65bd[_0x344983(0x194)],_0x4b65bd[_0x344983(0x3df)],_0x4b65bd['upc'],_0x4b65bd[_0x344983(0x279)],_0x4b65bd[_0x344983(0x35d)],_0x4b65bd[_0x344983(0x3ee)],_0x4b65bd[_0x344983(0x1fc)],_0x4b65bd['rating'],_0x4b65bd[_0x344983(0x2fb)]]);}_0x54a560['addRows'](_0x32ae4d);const _0x1487d8=_0x3cfd00[_0x344983(0x286)](_0x344983(0x3a6));_0x1487d8['columns']=[{'header':_0x344983(0x23e),'key':_0x344983(0x268),'size':0x10,'width':0x1e},{'header':'product\x20Id','key':'productId','size':0x10,'width':0xf},{'header':'product\x20Name','key':'productName','size':0x10,'width':0xf},{'header':_0x344983(0x2fe),'key':_0x344983(0x2fe),'size':0x10,'width':0xf},{'header':'price','key':_0x344983(0x194),'size':0x10,'width':0x1e},{'header':_0x344983(0x3ab),'key':'startDate','size':0x10,'width':0xf},{'header':'end\x20date','key':_0x344983(0x328),'size':0x10,'width':0xf}],_0x1487d8[_0x344983(0x25b)]('A1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x1487d8[_0x344983(0x25b)]('B1')['border']={'top':{'style':'thin'},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':'thin'}},_0x1487d8[_0x344983(0x25b)]('C1')['border']={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':'thin'}},_0x1487d8[_0x344983(0x25b)]('D1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x1487d8[_0x344983(0x25b)]('E1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x1487d8['getCell']('F1')['border']={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x1487d8[_0x344983(0x25b)]('G1')['border']={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':'thin'},'right':{'style':_0x344983(0x2d6)}};const _0x567b7b=[],_0x2f1286=yield this[_0x344983(0x1be)]['find']();for(const _0x15bc80 of _0x2f1286){const _0x22d824=yield this[_0x344983(0x22e)][_0x344983(0x1bc)]({'where':{'productId':_0x15bc80['productId']}});_0x567b7b[_0x344983(0x3e3)]([_0x15bc80['productSpecialId'],_0x15bc80[_0x344983(0x352)],_0x22d824[_0x344983(0x248)],_0x15bc80[_0x344983(0x2fe)],_0x15bc80[_0x344983(0x194)],_0x15bc80[_0x344983(0x201)],_0x15bc80[_0x344983(0x2da)]]);}_0x1487d8[_0x344983(0x2a7)](_0x567b7b);const _0x47a27c=_0x3cfd00[_0x344983(0x286)](_0x344983(0x230));_0x47a27c['columns']=[{'header':_0x344983(0x24c),'key':_0x344983(0x2bf),'size':0x10,'width':0x1e},{'header':_0x344983(0x1b6),'key':_0x344983(0x352),'size':0x10,'width':0xf},{'header':_0x344983(0x31e),'key':'productName','size':0x10,'width':0x1e},{'header':_0x344983(0x2fe),'key':_0x344983(0x2fe),'size':0x10,'width':0xf},{'header':'price','key':_0x344983(0x194),'size':0x10,'width':0x1e},{'header':_0x344983(0x3ab),'key':_0x344983(0x23c),'size':0x10,'width':0xf},{'header':_0x344983(0x37f),'key':_0x344983(0x328),'size':0x10,'width':0xf}],_0x47a27c[_0x344983(0x25b)]('A1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':'thin'}},_0x47a27c['getCell']('B1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x47a27c[_0x344983(0x25b)]('C1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x47a27c['getCell']('D1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x47a27c[_0x344983(0x25b)]('E1')['border']={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':'thin'}},_0x47a27c[_0x344983(0x25b)]('F1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x47a27c[_0x344983(0x25b)]('F1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':'thin'},'right':{'style':_0x344983(0x2d6)}};const _0x425fd3=[],_0x6b14cf=yield this[_0x344983(0x2cc)][_0x344983(0x187)]();for(const _0x143368 of _0x6b14cf){const _0x364d4c=yield this[_0x344983(0x22e)][_0x344983(0x1bc)]({'where':{'productId':_0x143368[_0x344983(0x352)]}});_0x425fd3['push']([_0x143368[_0x344983(0x2bf)],_0x143368[_0x344983(0x352)],_0x364d4c[_0x344983(0x248)],_0x143368[_0x344983(0x2fe)],_0x143368['price'],_0x143368[_0x344983(0x201)],_0x143368[_0x344983(0x2da)]]);}_0x47a27c['addRows'](_0x425fd3);const _0x199857=_0x3cfd00['addWorksheet'](_0x344983(0x2d2));_0x199857['columns']=[{'header':_0x344983(0x1b6),'key':'productId','size':0x10,'width':0xf},{'header':'product\x20Name','key':_0x344983(0x2cd),'size':0x10,'width':0xf},{'header':_0x344983(0x246),'key':_0x344983(0x34a),'size':0x10,'width':0xf},{'header':_0x344983(0x375),'key':_0x344983(0x270),'size':0x10,'width':0x1e},{'header':_0x344983(0x3d0),'key':'defaultImage','size':0x10,'width':0x1e}],_0x199857[_0x344983(0x25b)]('A1')[_0x344983(0x23d)]={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':'thin'},'right':{'style':_0x344983(0x2d6)}},_0x199857['getCell']('B1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':'thin'}},_0x199857[_0x344983(0x25b)]('C1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':'thin'},'right':{'style':_0x344983(0x2d6)}},_0x199857[_0x344983(0x25b)]('D1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}},_0x199857['getCell']('E1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':'thin'},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':'thin'}};const _0x3c33df=[],_0x55c41e=yield this[_0x344983(0x27d)][_0x344983(0x187)]();for(const _0x3227bc of _0x55c41e){const _0x3cd809=yield this[_0x344983(0x22e)]['findOne']({'where':{'productId':_0x3227bc[_0x344983(0x352)]}});_0x3c33df[_0x344983(0x3e3)]([_0x3227bc[_0x344983(0x352)],_0x3cd809['name'],_0x3227bc[_0x344983(0x231)],_0x3227bc[_0x344983(0x270)],_0x3227bc[_0x344983(0x265)]]);}_0x199857['addRows'](_0x3c33df);const _0x2f7855=_0x3cfd00['addWorksheet'](_0x344983(0x383));_0x2f7855['columns']=[{'header':'product\x20Id','key':_0x344983(0x352),'size':0x10,'width':0xf},{'header':_0x344983(0x3ef),'key':_0x344983(0x395),'size':0x10,'width':0xf},{'header':'Category\x20Name','key':'CategoryName','size':0x10,'width':0x1e}],_0x2f7855[_0x344983(0x25b)]('A1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':'thin'}},_0x2f7855['getCell']('B1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':'thin'},'right':{'style':'thin'}},_0x2f7855['getCell']('C1')[_0x344983(0x23d)]={'top':{'style':_0x344983(0x2d6)},'left':{'style':_0x344983(0x2d6)},'bottom':{'style':_0x344983(0x2d6)},'right':{'style':_0x344983(0x2d6)}};const _0x2f556a=[],_0x3d7bce=yield this[_0x344983(0x33a)][_0x344983(0x187)]();for(const _0x3ab418 of _0x3d7bce){const _0x4a827a=yield this[_0x344983(0x23f)][_0x344983(0x1bc)]({'where':{'categoryId':_0x3ab418['categoryId']}});_0x2f556a[_0x344983(0x3e3)]([_0x3ab418[_0x344983(0x352)],_0x3ab418[_0x344983(0x395)],_0x4a827a['name']]);}_0x2f7855[_0x344983(0x2a7)](_0x2f556a);const _0x1d85d3='./ProductExcel_'+Date['now']()+'.xlsx';return yield _0x3cfd00[_0x344983(0x2ab)]['writeFile'](_0x1d85d3),new Promise((_0x495e47,_0x4d4a82)=>{const _0x5e2150=_0x344983;_0x13d2a8[_0x5e2150(0x38f)](_0x1d85d3,(_0x5ce8ce,_0x4d3c96)=>{if(_0x5ce8ce)_0x4d4a82(_0x5ce8ce);else return fs['unlinkSync'](_0x1d85d3),_0x13d2a8['end']();});});});}[a273_0x42614e(0x308)](_0x2b31f8,_0x17d028,_0x53028b){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5330a1=a273_0x9dfc;hooks[_0x5330a1(0x297)](_0x5330a1(0x260),_0x5330a1(0x2e3));function _0x5117df(_0x37c98a,_0xa1c5f1){const _0x105fc7=_0x5330a1;if(pluginLoader_1[_0x105fc7(0x2b8)][_0x105fc7(0x33f)](_0x105fc7(0x31f)))return hooks[_0x105fc7(0x2a5)](_0x105fc7(0x260),_0x105fc7(0x2e3),()=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2f5822=_0x105fc7,_0x17117f=_0x2f5822(0x2e7),_0x22c26a=yield require(_0x17117f);return yield _0x22c26a[_0x2f5822(0x338)](_0x37c98a,_0xa1c5f1);})),!![];return![];}const _0x3c5be8=yield this['productService'][_0x5330a1(0x1bc)](_0x2b31f8);if(_0x3c5be8===undefined){const _0x4c0fde={'status':0x0,'message':_0x5330a1(0x269)};return _0x17d028[_0x5330a1(0x2ea)](0x190)['send'](_0x4c0fde);}const _0x56d2fa=yield this['orderProductService'][_0x5330a1(0x255)](_0x2b31f8);if(_0x56d2fa){const _0x563cc4={'status':0x0,'message':_0x5330a1(0x250)};return _0x17d028[_0x5330a1(0x2ea)](0x190)['send'](_0x563cc4);}yield this['skuService'][_0x5330a1(0x2f7)]({'id':_0x3c5be8['skuId']});const _0x2d77f4=yield this[_0x5330a1(0x22e)][_0x5330a1(0x2f7)](_0x2b31f8),_0x180bdc=yield _0x5117df(_0x2b31f8,0x1);_0x180bdc&&(yield hooks['runHook'](_0x5330a1(0x260)));if(_0x2d77f4){const _0x317412={'status':0x1,'message':_0x5330a1(0x35c)};return _0x17d028[_0x5330a1(0x2ea)](0xc8)[_0x5330a1(0x235)](_0x317412);}else{const _0x375725={'status':0x0,'message':_0x5330a1(0x266)};return _0x17d028[_0x5330a1(0x2ea)](0x190)['send'](_0x375725);}});}['deleteMultipleProduct'](_0x48af3b,_0x56bef6,_0x4e0ba7){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x27df66=a273_0x9dfc;hooks[_0x27df66(0x297)]('coupon-delete',_0x27df66(0x2e3));function _0xc7db96(_0x2aba57,_0x401630){const _0x21357e=_0x27df66;if(pluginLoader_1[_0x21357e(0x2b8)]['includes'](_0x21357e(0x31f)))return hooks[_0x21357e(0x2a5)](_0x21357e(0x260),'CD1-namespace',()=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1fc845=_0x21357e,_0xa0e87a=_0x1fc845(0x2e7),_0x4fdacd=yield require(_0xa0e87a);return yield _0x4fdacd['CouponProccess'](_0x2aba57,_0x401630);})),!![];return![];}const _0x4f661b=_0x48af3b[_0x27df66(0x352)]['toString'](),_0x5338ab=_0x4f661b[_0x27df66(0x2a9)](',');for(const _0x5639b0 of _0x5338ab){const _0x52ef69=yield this['productService']['findOne'](_0x5639b0);if(_0x52ef69===undefined){const _0x43a8f6={'status':0x0,'message':_0x27df66(0x234)};return _0x56bef6[_0x27df66(0x2ea)](0x190)[_0x27df66(0x235)](_0x43a8f6);}}for(const _0x1b1aa5 of _0x5338ab){const _0x5b5730=yield this[_0x27df66(0x2a0)][_0x27df66(0x255)](+_0x1b1aa5);if(_0x5b5730){const _0x586deb={'status':0x0,'message':_0x27df66(0x294)};return _0x56bef6['status'](0x190)['send'](_0x586deb);}}for(const _0x1a5376 of _0x5338ab){const _0xc1fef5=parseInt(_0x1a5376,0xa),_0x32f735=yield this[_0x27df66(0x22e)][_0x27df66(0x1bc)](_0x1a5376);yield this[_0x27df66(0x2a1)][_0x27df66(0x2f7)]({'id':_0x32f735[_0x27df66(0x364)]});const _0x2ea8a9=yield _0xc7db96(_0xc1fef5,0x1);_0x2ea8a9&&(yield hooks['runHook']('coupon-delete')),yield this[_0x27df66(0x22e)]['delete'](_0xc1fef5);}const _0x286698={'status':0x1,'message':_0x27df66(0x391)};return _0x56bef6[_0x27df66(0x2ea)](0xc8)['send'](_0x286698);});}[a273_0x42614e(0x36e)](_0x3e8312){const _0x17a9ed=a273_0x42614e;return tslib_1[_0x17a9ed(0x289)](this,void 0x0,void 0x0,function*(){const _0x1492db=_0x17a9ed,_0x6854d4=[],_0x3b244c=yield this[_0x1492db(0x22e)]['findAll']();for(const _0x65926e of _0x3b244c){const _0x545847=_0x65926e[_0x1492db(0x257)];if(_0x545847){const _0x395805=_0x545847[_0x1492db(0x1dc)](/\s+/g,'-')[_0x1492db(0x1dc)](/[&\/\\#@,+()$~%.'":*?<>{}]/g,'')[_0x1492db(0x366)](),_0x4e4935=_0x395805[_0x1492db(0x1dc)](/--/gi,'-'),_0x3ac04b=yield this[_0x1492db(0x22e)][_0x1492db(0x34b)](_0x545847);if(_0x3ac04b[_0x1492db(0x28b)]===0x0||_0x3ac04b===''||_0x3ac04b===undefined)_0x65926e[_0x1492db(0x36c)]=_0x4e4935;else{if(_0x3ac04b[_0x1492db(0x28b)]===0x1&&_0x545847!==_0x3ac04b[_0x3ac04b[_0x1492db(0x28b)]-0x1][_0x1492db(0x257)])_0x65926e[_0x1492db(0x36c)]=_0x4e4935+'-'+0x1;else{if(_0x3ac04b[_0x1492db(0x28b)]>0x1&&_0x3ac04b!==undefined&&_0x3ac04b!==''){const _0x25e4c3=_0x3ac04b[_0x3ac04b[_0x1492db(0x28b)]-0x1],_0x438436=_0x25e4c3[_0x1492db(0x36c)],_0x1746c3=_0x438436['substring'](_0x438436[_0x1492db(0x32c)]('-')+0x1,_0x438436[_0x1492db(0x28b)]),_0xfcf7a4=parseInt(_0x1746c3,0x0);_0x65926e[_0x1492db(0x36c)]=_0x4e4935+'-'+(_0xfcf7a4+0x1);}}}}else{const _0x51bbac=_0x65926e['name'],_0x33a969=_0x51bbac[_0x1492db(0x1dc)](/\s+/g,'-')[_0x1492db(0x1dc)](/[&\/\\@#,+()$~%.'":*?<>{}]/g,'')['toLowerCase'](),_0xe91a2d=_0x33a969[_0x1492db(0x1dc)](/--/gi,'-'),_0x343029=yield this['productService'][_0x1492db(0x34b)](_0x51bbac);if(_0x343029===''||_0x343029===undefined||_0x343029[_0x1492db(0x28b)]===0x0)_0x65926e[_0x1492db(0x36c)]=_0xe91a2d;else{if(_0x343029[_0x1492db(0x28b)]===0x1&&_0x51bbac!==_0x343029[_0x343029[_0x1492db(0x28b)]-0x1][_0x1492db(0x2f0)])_0x65926e[_0x1492db(0x36c)]=_0xe91a2d+'-'+0x1;else{if(_0x343029[_0x1492db(0x28b)]>0x1&&_0x343029!==undefined&&_0x343029!==''){const _0x38e5ad=_0x343029[_0x343029['length']-0x1],_0x2cd369=_0x38e5ad[_0x1492db(0x36c)],_0x53e47d=_0x2cd369[_0x1492db(0x1f7)](_0x2cd369[_0x1492db(0x32c)]('-')+0x1,_0x2cd369['length']),_0x4152bc=parseInt(_0x53e47d,0x0);_0x65926e[_0x1492db(0x36c)]=_0xe91a2d+'-'+(_0x4152bc+0x1);}}}}_0x6854d4[_0x1492db(0x3e3)](_0x65926e);}yield this[_0x1492db(0x22e)]['create'](_0x6854d4);const _0x2d244a={'status':0x1,'message':_0x1492db(0x1b2)};return _0x3e8312['status'](0xc8)[_0x1492db(0x235)](_0x2d244a);});}[a273_0x42614e(0x22b)](_0x2f2177){const _0x69b1a1=a273_0x42614e;return tslib_1[_0x69b1a1(0x289)](this,void 0x0,void 0x0,function*(){const _0x451f4b=_0x69b1a1,_0x386ca2={},_0x1edf1b=[],_0x2f9f9f=[{'name':_0x451f4b(0x28f),'op':'where','value':0x1}],_0xbd181e=[],_0x2f07f8=[],_0x138ba0=[],_0x1caf32=yield this[_0x451f4b(0x27a)][_0x451f4b(0x37d)](0x0,0x0,_0x1edf1b,_0x2f9f9f,_0x2f07f8,_0xbd181e,0x1),_0x582715=yield this[_0x451f4b(0x2c5)][_0x451f4b(0x37d)](0x0,0x0,_0x1edf1b,_0x138ba0,_0x2f07f8,0x1),_0xe1614d=yield this['productService'][_0x451f4b(0x37d)](0x0,0x0,_0x1edf1b,_0xbd181e,_0x2f07f8,_0x138ba0,0x0,0x1),_0x57bccb=[{'name':_0x451f4b(0x3af),'op':'where','value':0x0}],_0x17db69=yield this[_0x451f4b(0x25a)][_0x451f4b(0x37d)](0x0,0x0,_0x138ba0,_0x57bccb,0x0,0x1);_0x386ca2[_0x451f4b(0x2ed)]=_0x1caf32,_0x386ca2[_0x451f4b(0x28e)]=_0x582715,_0x386ca2[_0x451f4b(0x31d)]=_0xe1614d,_0x386ca2[_0x451f4b(0x1d7)]=_0x17db69;const _0x373bb5={'status':0x1,'message':_0x451f4b(0x208),'data':_0x386ca2};return _0x2f2177[_0x451f4b(0x2ea)](0xc8)[_0x451f4b(0x235)](_0x373bb5);});}[a273_0x42614e(0x3a4)](_0x47d1c4){const _0x1f1b65=a273_0x42614e;return tslib_1[_0x1f1b65(0x289)](this,void 0x0,void 0x0,function*(){const _0x4e7f34=_0x1f1b65,_0x1f2a6f={},_0xc172ec=[],_0xa23c7=[{'name':_0x4e7f34(0x333),'op':_0x4e7f34(0x2e6),'value':0x0}],_0x1a42b9=[{'name':_0x4e7f34(0x3af),'value':0x0}],_0xf6f7d4=[],_0x17f366=yield this[_0x4e7f34(0x25a)]['list'](0x0,0x0,_0xf6f7d4,_0x1a42b9,0x0,!![]),_0x9b1351=yield this[_0x4e7f34(0x34d)][_0x4e7f34(0x1da)](0x0,0x0,_0xc172ec,[],_0xf6f7d4,_0xa23c7,!![]),_0x5293de=yield this[_0x4e7f34(0x22e)][_0x4e7f34(0x37d)](0x0,0x0,_0xc172ec,[],[],_0xf6f7d4,0x0,!![]);_0x1f2a6f[_0x4e7f34(0x1d7)]=_0x17f366,_0x1f2a6f[_0x4e7f34(0x296)]=_0x9b1351,_0x1f2a6f['products']=_0x5293de;const _0x5bc9d7={'status':0x1,'message':'successfully\x20got\x20the\x20dashboard\x20total\x20vendor\x20and\x20total\x20product\x20count.','data':_0x1f2a6f};return _0x47d1c4[_0x4e7f34(0x2ea)](0xc8)[_0x4e7f34(0x235)](_0x5bc9d7);});}[a273_0x42614e(0x3b1)](_0x13042b){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3ddfcd=a273_0x9dfc,_0x869080={},_0x271111=[],_0xef1a48=[],_0x3174c6=[],_0x152ba7=[],_0x586dfa=yield this[_0x3ddfcd(0x22e)]['list'](0x0,0x0,_0x271111,_0x3174c6,_0x152ba7,_0xef1a48,0x0,0x1),_0xd2df15=[{'name':'isActive','op':'where','value':0x1}],_0x57b5f7=yield this['productService'][_0x3ddfcd(0x37d)](0x0,0x0,_0x271111,_0x3174c6,_0xd2df15,_0xef1a48,0x0,0x1),_0x4b5aa0=[{'name':_0x3ddfcd(0x2fb),'op':'where','value':0x0}],_0x3da934=yield this[_0x3ddfcd(0x22e)]['list'](0x0,0x0,_0x271111,_0x3174c6,_0x4b5aa0,_0xef1a48,0x0,0x1),_0x4d091a=yield this[_0x3ddfcd(0x23f)][_0x3ddfcd(0x37d)](0x0,0x0,_0x271111,_0xef1a48,_0x152ba7,0x0,0x1);_0x869080['totalProduct']=_0x586dfa,_0x869080['activeProduct']=_0x57b5f7,_0x869080[_0x3ddfcd(0x292)]=_0x3da934,_0x869080[_0x3ddfcd(0x2db)]=_0x4d091a;const _0x3269c5={'status':0x1,'message':_0x3ddfcd(0x207),'data':_0x869080};return _0x13042b[_0x3ddfcd(0x2ea)](0xc8)[_0x3ddfcd(0x235)](_0x3269c5);});}[a273_0x42614e(0x244)](_0x26f249,_0x162b99,_0x15ec25){var _0x1bfd89,_0x3e62a5,_0x103ebf,_0x1e2f69;return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1d0b63=a273_0x9dfc,_0x3c6bcd=[],_0x8b92a8=[],_0x5d9aab=[],_0x386dc0=[];let _0x2e3cb0=0x0,_0x17b72b=0x0,_0x58a1b6=0x0;const _0x2f5e51=require(_0x1d0b63(0x3a7)),_0x458e92=Math[_0x1d0b63(0x3cc)](Math['random']()*0x64+0x1),_0x9263ed=_0x26f249[_0x1d0b63(0x301)],_0x4d20de=_0x9263ed[_0x1d0b63(0x2a9)]('.')[0x1],_0x193fb7=_0x1d0b63(0x30e)+_0x458e92+'.'+_0x4d20de;yield this[_0x1d0b63(0x239)][_0x1d0b63(0x18c)](_0x193fb7,_0x26f249[_0x1d0b63(0x26c)]);const _0x3ea4ff=new _0x2f5e51({'file':path[_0x1d0b63(0x37a)](process[_0x1d0b63(0x24e)](),_0x193fb7)}),_0x3eb473=[_0x1d0b63(0x2ab),_0x1d0b63(0x191)],_0x91ae48=yield new Promise((_0xda9b9b,_0x4e7337)=>{const _0x5c833=_0x1d0b63;_0x3ea4ff['on'](_0x5c833(0x2be),()=>{const _0x5d81da=_0x5c833,_0x4fd3db=[];for(const _0x46438f of Object[_0x5d81da(0x237)](_0x3ea4ff['entries']())){const _0x4526ab=Object[_0x5d81da(0x237)](_0x46438f)[0x10]['split']('.')[0x1];_0x3eb473[_0x5d81da(0x33f)](_0x4526ab)===![]&&_0x4fd3db[_0x5d81da(0x3e3)](_0x4526ab);}_0xda9b9b(_0x4fd3db),_0x3ea4ff[_0x5d81da(0x3b0)]();});});if(_0x91ae48[_0x1d0b63(0x28b)]>0x0)return fs[_0x1d0b63(0x243)](path[_0x1d0b63(0x37a)](process['cwd'](),_0x193fb7)),_0x15ec25[_0x1d0b63(0x2ea)](0x190)['send']({'status':0x0,'message':_0x1d0b63(0x21b)});const _0x38f580=require(_0x1d0b63(0x2dc))[_0x1d0b63(0x39c)],_0x5921ea=_0x38f580(_0x1d0b63(0x19c)+_0x458e92);yield this[_0x1d0b63(0x239)][_0x1d0b63(0x313)](_0x193fb7,_0x5921ea);const _0x2f834a=path[_0x1d0b63(0x37a)](process[_0x1d0b63(0x24e)](),'product_'+_0x458e92),_0x2be874=yield this[_0x1d0b63(0x2d5)](_0x2f834a),_0x1e3858=require('rimraf');for(const _0x538dae of _0x2be874){const _0x5ee7cf=_0x538dae['split']('.')[0x1];if(_0x5ee7cf===_0x1d0b63(0x191)){const _0x439f50=new _0x2f5e51({'file':path[_0x1d0b63(0x37a)](process[_0x1d0b63(0x24e)](),_0x1d0b63(0x19c)+_0x458e92+'/'+_0x538dae)}),_0x4def32=[_0x1d0b63(0x283),_0x1d0b63(0x1f9),'jpeg'],_0x15a8f1=yield new Promise((_0x5e7c17,_0x35c074)=>{const _0x5c3555=_0x1d0b63;_0x439f50['on'](_0x5c3555(0x2be),()=>{const _0x30bc59=_0x5c3555,_0x10044e=[];for(const _0xe2c56b of Object['values'](_0x439f50[_0x30bc59(0x27e)]())){const _0x300c5c=Object[_0x30bc59(0x237)](_0xe2c56b)[0x10][_0x30bc59(0x2a9)]('.')[0x1];_0x300c5c&&(_0x4def32[_0x30bc59(0x33f)](_0x300c5c)===![]&&_0x10044e[_0x30bc59(0x3e3)](_0x300c5c));}_0x5e7c17(_0x10044e),_0x439f50[_0x30bc59(0x3b0)]();});});if(_0x15a8f1[_0x1d0b63(0x28b)]>0x0)return fs[_0x1d0b63(0x243)](path['join'](process[_0x1d0b63(0x24e)](),_0x193fb7)),_0x15ec25[_0x1d0b63(0x2ea)](0x190)[_0x1d0b63(0x235)]({'status':0x0,'message':'The\x20file\x20you\x20uploaded\x20contains\x20some\x20invalid\x20extensions'});}}let _0x9b0562;try{for(const _0x3f6ceb of _0x2be874){const _0x50b0b0=_0x3f6ceb[_0x1d0b63(0x2a9)]('.')[0x1];if(_0x50b0b0===_0x1d0b63(0x2ab)){if(_0x3f6ceb===_0x1d0b63(0x1e3)){const _0x21e64b=path['join'](process[_0x1d0b63(0x24e)](),_0x1d0b63(0x19c)+_0x458e92+'/'+_0x3f6ceb),_0x33a90f=yield this[_0x1d0b63(0x239)]['xlsxToJson'](_0x21e64b);_0x3c6bcd[_0x1d0b63(0x3e3)](..._0x33a90f);const _0x52ff06=_0x33a90f['map'](_0x4df8ce=>_0x4df8ce['Name']),_0x16d0e0=_0x52ff06[_0x1d0b63(0x1c6)]((_0x2b216c,_0x19dc89)=>_0x52ff06['indexOf'](_0x2b216c)===_0x19dc89),_0x5622c0=yield this[_0x1d0b63(0x2d7)][_0x1d0b63(0x28c)](_0x16d0e0,_0x33a90f);for(const _0x3626ec of _0x5622c0){_0x8b92a8[_0x1d0b63(0x3e3)](_0x3626ec['category'][_0x1d0b63(0x28b)]);const _0xe328e8=_0x3626ec[_0x1d0b63(0x32f)][0x0][_0x1d0b63(0x18f)];_0x5d9aab[_0x1d0b63(0x3e3)](_0xe328e8['length']),_0x386dc0[_0x1d0b63(0x3e3)](_0x3626ec[_0x1d0b63(0x229)]['length']),_0x2e3cb0=_0x3626ec['totalDiscountLength'],_0x17b72b=_0x3626ec['totalSpecialLength'],_0x58a1b6=_0x3626ec[_0x1d0b63(0x20a)];}const _0x56458f=[];for(const _0x5a2a08 of _0x5622c0){const _0x53b4bd=[];for(const _0x6e505a of _0x5a2a08[_0x1d0b63(0x22d)]){const _0x2fc1e6=(_0x1bfd89=_0x6e505a[_0x1d0b63(0x22d)])===null||_0x1bfd89===void 0x0?void 0x0:_0x1bfd89['split']('>'),_0x3d1120=_0x2fc1e6;if(_0x3d1120===0x1){const _0x180f66=yield this['categoryService'][_0x1d0b63(0x3b5)](_0x2fc1e6[0x0],0x0);if(!_0x180f66){const _0x173d95=new CategoryModel_1[(_0x1d0b63(0x1af))](),_0x15b7e5=Math[_0x1d0b63(0x3cc)](Math['random']()*0x5a)+0xa;_0x173d95['name']=_0x2fc1e6[0x0],_0x173d95[_0x1d0b63(0x2b3)]=+_0x6e505a[_0x1d0b63(0x2b3)],_0x173d95[_0x1d0b63(0x288)]=0x0,_0x173d95[_0x1d0b63(0x2ee)]=_0x2fc1e6[0x0]+_0x15b7e5,_0x173d95[_0x1d0b63(0x2fb)]=0x1;const _0x58c2ba=yield this[_0x1d0b63(0x23f)][_0x1d0b63(0x397)](_0x173d95);_0x53b4bd[_0x1d0b63(0x3e3)](_0x58c2ba[_0x1d0b63(0x395)]);}else _0x53b4bd[_0x1d0b63(0x3e3)](_0x180f66[_0x1d0b63(0x395)]);}else{let _0x3eacb6=0x0,_0x53326d=0x0;for(const _0x4f4d3b of _0x2fc1e6){if(_0x3eacb6===0x0){const _0x4419a9=yield this[_0x1d0b63(0x23f)][_0x1d0b63(0x3b5)](_0x2fc1e6[_0x3eacb6],0x0);if(!_0x4419a9){const _0x4fd7cd=new CategoryModel_1[(_0x1d0b63(0x1af))](),_0x533c65=Math[_0x1d0b63(0x3cc)](Math[_0x1d0b63(0x310)]()*0x5a)+0xa;_0x4fd7cd[_0x1d0b63(0x248)]=_0x4f4d3b,_0x4fd7cd['sortOrder']=+_0x6e505a[_0x1d0b63(0x2b3)],_0x4fd7cd[_0x1d0b63(0x288)]=0x0,_0x4fd7cd[_0x1d0b63(0x2ee)]=_0x2fc1e6[0x0]+_0x533c65,_0x4fd7cd[_0x1d0b63(0x2fb)]=0x1;const _0x3ceef5=yield this[_0x1d0b63(0x23f)][_0x1d0b63(0x397)](_0x4fd7cd),_0x37f0f8=new CategoryPath_1[(_0x1d0b63(0x24d))]();_0x37f0f8[_0x1d0b63(0x395)]=_0x3ceef5['categoryId'],_0x37f0f8[_0x1d0b63(0x3a1)]=_0x3ceef5[_0x1d0b63(0x395)],_0x37f0f8[_0x1d0b63(0x18a)]=0x0,yield this[_0x1d0b63(0x2c8)]['create'](_0x37f0f8);}}else{const _0x2f027c=_0x2fc1e6[_0x3eacb6-0x1],_0x50b2dd=yield this[_0x1d0b63(0x23f)][_0x1d0b63(0x3b5)](_0x2f027c['toLowerCase'](),0x0),_0x173f9a=_0x50b2dd[_0x1d0b63(0x395)]?_0x50b2dd[_0x1d0b63(0x395)]:0x0,_0xa11a83=yield this[_0x1d0b63(0x23f)][_0x1d0b63(0x3b5)](_0x4f4d3b[_0x1d0b63(0x366)](),_0x173f9a);if(!_0xa11a83&&_0x50b2dd){const _0xd59119=new CategoryModel_1[(_0x1d0b63(0x1af))](),_0x63abdc=Math[_0x1d0b63(0x3cc)](Math[_0x1d0b63(0x310)]()*0x5a)+0xa;_0xd59119[_0x1d0b63(0x2ee)]=_0x2fc1e6[0x0]+_0x63abdc,_0xd59119[_0x1d0b63(0x248)]=_0x4f4d3b,_0xd59119[_0x1d0b63(0x2b3)]=+_0x6e505a[_0x1d0b63(0x2b3)],_0xd59119[_0x1d0b63(0x288)]=_0x50b2dd[_0x1d0b63(0x395)],_0xd59119[_0x1d0b63(0x2fb)]=0x1;const _0x1062c6=yield this[_0x1d0b63(0x23f)][_0x1d0b63(0x397)](_0xd59119);_0x53326d=_0x1062c6[_0x1d0b63(0x395)];const _0x4c2401=yield this[_0x1d0b63(0x2c8)][_0x1d0b63(0x187)]({'where':{'categoryId':_0x1062c6[_0x1d0b63(0x288)]},'order':{'level':_0x1d0b63(0x2b7)}});let _0x14eb26=0x0;for(const _0x14c3a2 of _0x4c2401){const _0x458b05=new CategoryPath_1[(_0x1d0b63(0x24d))]();_0x458b05[_0x1d0b63(0x395)]=_0x1062c6[_0x1d0b63(0x395)],_0x458b05['pathId']=_0x14c3a2[_0x1d0b63(0x3a1)],_0x458b05[_0x1d0b63(0x18a)]=_0x14eb26,yield this['categoryPathService'][_0x1d0b63(0x397)](_0x458b05),_0x14eb26++;}const _0x554188=new CategoryPath_1[(_0x1d0b63(0x24d))]();_0x554188[_0x1d0b63(0x395)]=_0x1062c6[_0x1d0b63(0x395)],_0x554188[_0x1d0b63(0x3a1)]=_0x1062c6[_0x1d0b63(0x395)],_0x554188[_0x1d0b63(0x18a)]=_0x14eb26,yield this['categoryPathService']['create'](_0x554188);}else _0x53326d=_0xa11a83[_0x1d0b63(0x395)];}_0x3eacb6++;}_0x6e505a['categoryId']=_0x53326d,_0x53b4bd[_0x1d0b63(0x3e3)](_0x6e505a);}}_0x5a2a08[_0x1d0b63(0x22d)]=_0x53b4bd,_0x56458f[_0x1d0b63(0x3e3)](_0x5a2a08);}for(const _0x2a384a of _0x56458f){if(_0x2a384a[_0x1d0b63(0x2c0)]===''||_0x2a384a['Name']===''){_0x1e3858(path[_0x1d0b63(0x37a)](process[_0x1d0b63(0x24e)](),_0x1d0b63(0x19c)+_0x458e92),_0x4d0b81=>{if(_0x4d0b81)throw _0x4d0b81;}),fs[_0x1d0b63(0x243)](_0x193fb7);throw new Error(_0x1d0b63(0x247));}const _0x4dac96=new ProductModel_1[(_0x1d0b63(0x356))]();_0x4dac96[_0x1d0b63(0x3df)]=_0x2a384a[_0x1d0b63(0x2bc)],_0x4dac96[_0x1d0b63(0x205)]=_0x2a384a['UPC'],_0x4dac96[_0x1d0b63(0x273)]=_0x2a384a[_0x1d0b63(0x215)],_0x4dac96[_0x1d0b63(0x279)]=_0x2a384a[_0x1d0b63(0x238)];const _0x47a9a3=((_0x3e62a5=_0x2a384a[_0x1d0b63(0x380)])===null||_0x3e62a5===void 0x0?void 0x0:_0x3e62a5[_0x1d0b63(0x366)]())==='percentage'?0x2:0x1;_0x4dac96[_0x1d0b63(0x1e2)]=_0x47a9a3,_0x4dac96[_0x1d0b63(0x29e)]=(_0x103ebf=_0x2a384a[_0x1d0b63(0x393)])!==null&&_0x103ebf!==void 0x0?_0x103ebf:0x0,_0x4dac96[_0x1d0b63(0x341)]=_0x2a384a[_0x1d0b63(0x33d)],_0x4dac96[_0x1d0b63(0x369)]=_0x2a384a[_0x1d0b63(0x2b0)];const _0x2e496a={};_0x2e496a[_0x1d0b63(0x209)]=_0x2a384a[_0x1d0b63(0x2c0)],_0x2e496a['packingCost']=_0x2a384a['PackageCost']?_0x2a384a[_0x1d0b63(0x18d)]:0x0,_0x2e496a[_0x1d0b63(0x2e1)]=_0x2a384a[_0x1d0b63(0x2a6)]?_0x2a384a[_0x1d0b63(0x2a6)]:0x0,_0x2e496a['others']=_0x4dac96[_0x1d0b63(0x3ac)]?_0x4dac96[_0x1d0b63(0x3ac)]:0x0,_0x4dac96[_0x1d0b63(0x399)]=JSON[_0x1d0b63(0x221)](_0x2e496a),_0x4dac96[_0x1d0b63(0x194)]=+_0x2e496a[_0x1d0b63(0x209)]+ +_0x2e496a[_0x1d0b63(0x365)]+ +_0x2e496a[_0x1d0b63(0x2e1)]+ +_0x2e496a['others'],_0x4dac96[_0x1d0b63(0x194)]=_0x2a384a['Price'],_0x4dac96[_0x1d0b63(0x39d)]=_0x2a384a[_0x1d0b63(0x278)];const _0x24b2b5=yield this[_0x1d0b63(0x2a1)][_0x1d0b63(0x1bc)]({'where':{'skuName':_0x4dac96[_0x1d0b63(0x3df)]}});if(_0x24b2b5){fs[_0x1d0b63(0x243)](_0x193fb7),fs[_0x1d0b63(0x30c)](_0x5921ea,{'recursive':!![]});throw new Error(_0x1d0b63(0x2a3));}const _0x4e3d4f=new SkuModel_1[(_0x1d0b63(0x39b))]();_0x4e3d4f['skuName']=_0x2a384a[_0x1d0b63(0x2bc)],_0x4e3d4f[_0x1d0b63(0x194)]=_0x2a384a[_0x1d0b63(0x2c0)],_0x4e3d4f[_0x1d0b63(0x279)]=_0x2a384a['Quantity']?Math[_0x1d0b63(0x1a3)](_0x2a384a[_0x1d0b63(0x238)]):0x1,_0x4e3d4f[_0x1d0b63(0x2fb)]=0x1,_0x9b0562=yield this[_0x1d0b63(0x2a1)]['create'](_0x4e3d4f),_0x4dac96[_0x1d0b63(0x364)]=_0x9b0562['id'],_0x4dac96[_0x1d0b63(0x248)]=_0x2a384a[_0x1d0b63(0x3e8)],_0x4dac96[_0x1d0b63(0x36f)]=_0x2a384a[_0x1d0b63(0x1fd)],_0x4dac96['shipping']=0x1,_0x4dac96[_0x1d0b63(0x341)]=0x1,_0x4dac96['isFeatured']=0x0,_0x4dac96[_0x1d0b63(0x3e4)]=0x0,_0x4dac96['isActive']=0x0,_0x4dac96[_0x1d0b63(0x2b3)]=0x1,_0x4dac96[_0x1d0b63(0x3d3)]=0x1;const _0x18068e=[];if(_0x2a384a['category'][_0x1d0b63(0x28b)]>0x0){const _0x410dfc=_0x2a384a[_0x1d0b63(0x22d)];for(const _0x492fd0 of _0x410dfc){const _0x2c24c1=yield this[_0x1d0b63(0x23f)][_0x1d0b63(0x1bc)]({'where':{'categoryId':_0x492fd0[_0x1d0b63(0x395)]}}),_0x2bac4e='~'+_0x2c24c1[_0x1d0b63(0x248)]+'~';_0x18068e[_0x1d0b63(0x3e3)](_0x2bac4e);}}_0x18068e[_0x1d0b63(0x3e3)]('~'+_0x2a384a[_0x1d0b63(0x3e8)]+'~');const _0x53112c=_0x18068e[_0x1d0b63(0x1d2)]();_0x4dac96[_0x1d0b63(0x384)]=_0x53112c;const _0x1e4db7=_0x2a384a[_0x1d0b63(0x3c4)]?_0x2a384a[_0x1d0b63(0x3c4)]:_0x2a384a[_0x1d0b63(0x3e8)],_0x2edf93=_0x1e4db7[_0x1d0b63(0x305)](),_0x512070=_0x2edf93[_0x1d0b63(0x1dc)](/\s+/g,'-')[_0x1d0b63(0x1dc)](/[&\/\\@#,+()$~%.'":*?<>{}]/g,'')[_0x1d0b63(0x366)]();_0x4dac96[_0x1d0b63(0x36c)]=yield this[_0x1d0b63(0x3cb)](_0x512070),_0x4dac96[_0x1d0b63(0x262)]=_0x2a384a[_0x1d0b63(0x1ab)],_0x4dac96[_0x1d0b63(0x392)]=_0x2a384a[_0x1d0b63(0x210)],_0x4dac96['width']=_0x2a384a[_0x1d0b63(0x199)],_0x4dac96['length']=_0x2a384a[_0x1d0b63(0x3b6)];const _0x31d11a=yield this[_0x1d0b63(0x22e)][_0x1d0b63(0x397)](_0x4dac96);if(_0x2a384a[_0x1d0b63(0x2ec)]){const _0x876a3=yield this[_0x1d0b63(0x34d)][_0x1d0b63(0x1bc)]({'where':{'vendorId':_0x2a384a[_0x1d0b63(0x2ec)]}});if(_0x876a3){const _0x805117=new VendorProducts_1['VendorProducts']();_0x805117[_0x1d0b63(0x39f)]=_0x2a384a[_0x1d0b63(0x2ec)],_0x805117[_0x1d0b63(0x352)]=_0x31d11a[_0x1d0b63(0x352)],_0x805117[_0x1d0b63(0x2d0)]=0x0,yield this[_0x1d0b63(0x190)]['create'](_0x805117);}}if(_0x2a384a[_0x1d0b63(0x2d2)]){const _0x4f3f8d=_0x2a384a['Images'],_0x2efb24=_0x4f3f8d[_0x1d0b63(0x1d2)]()['includes'](',');if(_0x2efb24===!![]){const _0x599f69=_0x2a384a[_0x1d0b63(0x2d2)]['split'](',');for(const _0x21abaf of _0x599f69){const _0x1e847f=new ProductImage_1[(_0x1d0b63(0x25e))]();_0x1e847f[_0x1d0b63(0x270)]=_0x21abaf,_0x1e847f[_0x1d0b63(0x231)]='',_0x1e847f[_0x1d0b63(0x352)]=_0x31d11a[_0x1d0b63(0x352)],yield this['productImageService'][_0x1d0b63(0x397)](_0x1e847f);}}else{const _0x109eea=new ProductImage_1[(_0x1d0b63(0x25e))]();_0x109eea['image']=_0x4f3f8d,_0x109eea[_0x1d0b63(0x231)]='',_0x109eea['productId']=_0x31d11a['productId'],yield this[_0x1d0b63(0x27d)][_0x1d0b63(0x397)](_0x109eea);}const _0x2e2d10=yield this[_0x1d0b63(0x27d)][_0x1d0b63(0x1bc)]({'productId':_0x31d11a[_0x1d0b63(0x352)]});_0x2e2d10['defaultImage']=0x1,yield this[_0x1d0b63(0x27d)]['create'](_0x2e2d10);}if(_0x2a384a[_0x1d0b63(0x22d)][_0x1d0b63(0x28b)]>=0x1)for(const _0x1c5a0e of _0x2a384a[_0x1d0b63(0x22d)]){const _0x537db4=new ProductToCategory_1[(_0x1d0b63(0x3c8))]();_0x537db4[_0x1d0b63(0x352)]=_0x31d11a['productId'],_0x537db4['categoryId']=_0x1c5a0e[_0x1d0b63(0x395)],_0x537db4[_0x1d0b63(0x2fb)]=0x1,this[_0x1d0b63(0x33a)][_0x1d0b63(0x397)](_0x537db4);}const _0x57261f=yield this[_0x1d0b63(0x22f)][_0x1d0b63(0x1bc)]({'where':{'pluginName':_0x1d0b63(0x319),'pluginStatus':0x1}});if(_0x2a384a[_0x1d0b63(0x32f)]['length']>0x0&&_0x2a384a[_0x1d0b63(0x32f)][0x0][_0x1d0b63(0x2bb)]!==''&&_0x57261f){const _0x44272b=_0x2a384a[_0x1d0b63(0x32f)];for(const _0x337a34 of _0x44272b){yield hooks[_0x1d0b63(0x297)]('product-variant',_0x1d0b63(0x2b5));if(pluginLoader_1[_0x1d0b63(0x2b8)][_0x1d0b63(0x33f)]('ProductVariants')){hooks[_0x1d0b63(0x2a5)](_0x1d0b63(0x3c0),_0x1d0b63(0x2b5),()=>tslib_1[_0x1d0b63(0x289)](this,void 0x0,void 0x0,function*(){const _0x3fae42=_0x1d0b63,_0x46967c=_0x3fae42(0x3dc),_0x5a8d40=yield require(_0x46967c);return yield _0x5a8d40['variantProcess'](_0x337a34,_0x31d11a[_0x3fae42(0x352)]);}));const _0x6c7cf0=yield hooks[_0x1d0b63(0x2a2)](_0x1d0b63(0x3c0));if(_0x33a90f&&_0x6c7cf0[_0x1d0b63(0x2ea)]===0x0)return _0x15ec25[_0x1d0b63(0x2ea)](0x190)[_0x1d0b63(0x235)]({'status':0x0,'message':'Invalid\x20varient\x20Sku\x20!!'});}}let _0x4e3e03=0x0;console[_0x1d0b63(0x3d9)](_0x44272b);for(const _0x36cccd of _0x44272b){_0x4e3e03=_0x4e3e03+((_0x1e2f69=_0x36cccd[_0x1d0b63(0x1f0)])!==null&&_0x1e2f69!==void 0x0?_0x1e2f69:0x0),console[_0x1d0b63(0x3d9)](_0x4e3e03);}if(_0x2a384a[_0x1d0b63(0x32f)]['length']>0x0&&pluginLoader_1[_0x1d0b63(0x2b8)][_0x1d0b63(0x33f)]('ProductVariants')){const _0x11b821=yield this[_0x1d0b63(0x2a1)][_0x1d0b63(0x1bc)]({'where':{'id':_0x31d11a[_0x1d0b63(0x364)]}});_0x11b821['quantity']=_0x4e3e03,yield this[_0x1d0b63(0x2a1)][_0x1d0b63(0x397)](_0x11b821),_0x31d11a[_0x1d0b63(0x3d3)]=0x0,yield this[_0x1d0b63(0x22e)][_0x1d0b63(0x397)](_0x31d11a);}}const _0x45c5be=yield this[_0x1d0b63(0x22f)][_0x1d0b63(0x1bc)]({'where':{'pluginName':_0x1d0b63(0x3b8),'pluginStatus':0x1}});_0x2a384a[_0x1d0b63(0x229)][_0x1d0b63(0x28b)]>0x0&&(yield hooks[_0x1d0b63(0x297)](_0x1d0b63(0x1e4),_0x1d0b63(0x1b5)),pluginLoader_1['pluginModule']['includes']('VendorProductAttribute')&&_0x45c5be&&(hooks['addHook'](_0x1d0b63(0x1e4),_0x1d0b63(0x1b5),()=>tslib_1[_0x1d0b63(0x289)](this,void 0x0,void 0x0,function*(){const _0x1850e5=_0x1d0b63,_0x3ebd22=_0x1850e5(0x38d),_0x4d7fea=yield require(_0x3ebd22);return yield _0x4d7fea['attributeProcess'](_0x2a384a[_0x1850e5(0x229)],_0x31d11a[_0x1850e5(0x352)]);})),yield hooks[_0x1d0b63(0x2a2)](_0x1d0b63(0x1e4))));const _0x998413=_0x2a384a['productDiscount'];if(_0x998413[_0x1d0b63(0x28b)]>0x0)for(const _0x35cba6 of _0x998413){const _0xf3b479=new ProductDiscount_1['ProductDiscount'](),_0x2ce10c=yield this[_0x1d0b63(0x2a1)][_0x1d0b63(0x1bc)]({'where':{'skuName':_0x35cba6['sku']}});_0xf3b479[_0x1d0b63(0x364)]=_0x2ce10c['id'],_0xf3b479['productId']=_0x31d11a[_0x1d0b63(0x352)],_0xf3b479['quantity']=0x1,_0xf3b479[_0x1d0b63(0x2fe)]=_0x35cba6[_0x1d0b63(0x1dd)],_0xf3b479[_0x1d0b63(0x194)]=_0x35cba6[_0x1d0b63(0x212)],_0xf3b479['dateStart']=moment(_0x35cba6[_0x1d0b63(0x371)])[_0x1d0b63(0x2c2)](),_0xf3b479[_0x1d0b63(0x2da)]=moment(_0x35cba6[_0x1d0b63(0x21a)])['toISOString'](),_0x35cba6[_0x1d0b63(0x1dd)]!==undefined&&_0x35cba6[_0x1d0b63(0x371)]!==undefined&&_0x35cba6[_0x1d0b63(0x21a)]!==undefined&&(yield this[_0x1d0b63(0x2cc)][_0x1d0b63(0x397)](_0xf3b479));}if(_0x2a384a['productSpecialPrice']['length']>0x0){const _0x2f0eff=_0x2a384a[_0x1d0b63(0x2d1)];for(const _0x2b9cfc of _0x2f0eff){const _0x41c400=new ProductSpecial_1['ProductSpecial'](),_0x2d62dd=yield this[_0x1d0b63(0x2a1)][_0x1d0b63(0x1bc)]({'where':{'skuName':_0x2b9cfc['sku']}});_0x41c400['skuId']=_0x2d62dd['id'],_0x41c400[_0x1d0b63(0x352)]=_0x31d11a[_0x1d0b63(0x352)],_0x41c400['priority']=_0x2b9cfc[_0x1d0b63(0x2fe)],_0x41c400[_0x1d0b63(0x194)]=_0x2b9cfc[_0x1d0b63(0x194)],_0x41c400['dateStart']=moment(_0x2b9cfc[_0x1d0b63(0x23c)])[_0x1d0b63(0x2c2)](),_0x41c400[_0x1d0b63(0x2da)]=moment(_0x2b9cfc['endDate'])[_0x1d0b63(0x2c2)](),_0x2b9cfc[_0x1d0b63(0x2fe)]!==undefined&&_0x2b9cfc[_0x1d0b63(0x194)]!==undefined&&_0x2b9cfc['startDate']!==undefined&&_0x2b9cfc[_0x1d0b63(0x23c)]!==undefined&&_0x2b9cfc[_0x1d0b63(0x328)]!==undefined&&(yield this[_0x1d0b63(0x1be)][_0x1d0b63(0x397)](_0x41c400));}}if(_0x2a384a[_0x1d0b63(0x340)][_0x1d0b63(0x28b)]>0x0){const _0x2048a5=_0x2a384a[_0x1d0b63(0x340)];for(const _0x56b2a7 of _0x2048a5){const _0x2af738=new ProductTirePrice_1[(_0x1d0b63(0x203))](),_0x51ce90=yield this[_0x1d0b63(0x2a1)]['findOne']({'where':{'skuName':_0x56b2a7[_0x1d0b63(0x3df)]}});_0x2af738[_0x1d0b63(0x364)]=_0x51ce90['id'],_0x2af738[_0x1d0b63(0x352)]=_0x31d11a[_0x1d0b63(0x352)],_0x2af738['quantity']=_0x56b2a7[_0x1d0b63(0x279)],_0x2af738[_0x1d0b63(0x194)]=_0x56b2a7[_0x1d0b63(0x194)],_0x56b2a7[_0x1d0b63(0x279)]!==undefined&&_0x56b2a7[_0x1d0b63(0x194)]!==undefined&&(yield this[_0x1d0b63(0x360)][_0x1d0b63(0x397)](_0x2af738));}}if(_0x2a384a[_0x1d0b63(0x20d)][_0x1d0b63(0x28b)]>0x0)for(const _0x19a04d of _0x2a384a[_0x1d0b63(0x20d)]){const _0x172c7c=new ProductVideo_1[(_0x1d0b63(0x3e2))]();_0x172c7c['productId']=_0x31d11a[_0x1d0b63(0x352)],_0x172c7c['path']=_0x19a04d,_0x172c7c[_0x1d0b63(0x325)]=0x2,yield this['productVideoService']['create'](_0x172c7c);}const _0x29579e=require(_0x1d0b63(0x1ec)),_0x5b53ec={'Authorization':_0x162b99[_0x1d0b63(0x1d0)][_0x1d0b63(0x2ac)],'Content-Type':_0x1d0b63(0x38e)},_0x41ea7f=_0x2a384a===null||_0x2a384a===void 0x0?void 0x0:_0x2a384a['RelatedProductId'][_0x1d0b63(0x2a9)](','),_0x5bc439=yield this[_0x1d0b63(0x22f)]['findOne']({'where':{'pluginName':_0x1d0b63(0x2d4),'pluginStatus':0x1}});if(_0x41ea7f[_0x1d0b63(0x28b)]>0x0&&pluginLoader_1[_0x1d0b63(0x2b8)][_0x1d0b63(0x33f)]('ProductRelated')&&_0x5bc439){const _0x3534fa={'productId':_0x31d11a[_0x1d0b63(0x352)],'relatedProductId':_0x41ea7f};yield _0x29579e[_0x1d0b63(0x3b4)](env_1[_0x1d0b63(0x196)][_0x1d0b63(0x1a2)]+'/product-related/update-product-related',_0x3534fa,{'headers':_0x5b53ec});}const _0x39ebba=yield this['pluginService'][_0x1d0b63(0x1bc)]({'where':{'pluginName':_0x1d0b63(0x3c2),'pluginStatus':0x1}});if(pluginLoader_1[_0x1d0b63(0x2b8)][_0x1d0b63(0x33f)]('Seo')&&_0x39ebba){const _0x366e70={'metaTagTitle':_0x2a384a['MetaTagTitle'],'metaTagDescription':_0x2a384a[_0x1d0b63(0x245)],'metaTagKeyword':_0x2a384a[_0x1d0b63(0x251)]};yield _0x29579e['post'](env_1[_0x1d0b63(0x196)][_0x1d0b63(0x1a2)]+_0x1d0b63(0x2ba)+_0x31d11a[_0x1d0b63(0x352)],_0x366e70,{'headers':_0x5b53ec});}}}}else{if(_0x3f6ceb===_0x1d0b63(0x18b)){const _0x5e6398=path[_0x1d0b63(0x37a)](process[_0x1d0b63(0x24e)](),'product_'+_0x458e92+'/'+_0x3f6ceb);yield this[_0x1d0b63(0x239)][_0x1d0b63(0x313)](_0x5e6398,_0x5921ea);const _0x11be26=path['join'](process[_0x1d0b63(0x24e)](),'product_'+_0x458e92+'/'+_0x1d0b63(0x270)),_0x122ad3=yield this[_0x1d0b63(0x2d5)](_0x11be26);for(const _0x2fd847 of _0x122ad3){const _0x24a019=require('image-to-base64'),_0x1e8f3a=_0x11be26+'/'+_0x2fd847,_0x3a52e5=_0x2fd847[_0x1d0b63(0x2a9)]('.')[0x1];_0x24a019(_0x1e8f3a)[_0x1d0b63(0x3c3)](_0x3094d6=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1f4ff6=_0x1d0b63,_0x192df5=Buffer[_0x1f4ff6(0x357)](_0x3094d6,_0x1f4ff6(0x32e));env_1[_0x1f4ff6(0x196)][_0x1f4ff6(0x311)]==='s3'?yield this['s3Service'][_0x1f4ff6(0x3b3)](_0x2fd847,_0x192df5,_0x3a52e5):yield this[_0x1f4ff6(0x239)][_0x1f4ff6(0x3b3)](_0x2fd847,_0x192df5);}))[_0x1d0b63(0x1a0)](_0x10e2fb=>{throw _0x10e2fb;});}}else{_0x1e3858(path[_0x1d0b63(0x37a)](process[_0x1d0b63(0x24e)](),_0x1d0b63(0x19c)+_0x458e92),_0x38a5c1=>{if(_0x38a5c1)throw _0x38a5c1;}),fs[_0x1d0b63(0x243)](_0x193fb7);throw new Error(_0x1d0b63(0x3a2));}}}_0x1e3858(path[_0x1d0b63(0x37a)](process[_0x1d0b63(0x24e)](),'product_'+_0x458e92),_0x34aab3=>{if(_0x34aab3)throw _0x34aab3;}),fs['unlinkSync'](_0x193fb7);const _0x5c1e96=_0x3c6bcd[_0x1d0b63(0x337)](_0x12185c=>tslib_1[_0x1d0b63(0x289)](this,void 0x0,void 0x0,function*(){const _0x5be772=_0x1d0b63,_0x55df26=_0x12185c,_0x3911e5=yield this[_0x5be772(0x22e)][_0x5be772(0x1bc)]({'where':{'sku':_0x55df26[_0x5be772(0x2bc)]}});_0x55df26[_0x5be772(0x352)]=_0x3911e5['productId'];if(pluginLoader_1[_0x5be772(0x2b8)][_0x5be772(0x33f)]('ProductVariants')&&_0x55df26['Variant_sku']!==''){const _0x5d4947=yield this[_0x5be772(0x2a1)]['findOne']({'where':{'skuName':_0x55df26['Variant_sku']}});_0x55df26[_0x5be772(0x364)]=_0x5d4947['id'];}else _0x55df26['skuId']=_0x3911e5[_0x5be772(0x364)];return _0x55df26;})),_0x434754=yield Promise[_0x1d0b63(0x1b9)](_0x5c1e96),_0x2e80d3=require(_0x1d0b63(0x30d)),_0x400ebf=new _0x2e80d3[(_0x1d0b63(0x227))](),_0x45a555=_0x400ebf[_0x1d0b63(0x286)](_0x1d0b63(0x1cd)),_0xa6cdfb=[{'header':'Import_Type','key':_0x1d0b63(0x324),'size':0x10,'width':0x1e},{'header':'productId','key':'productId','size':0x10,'width':0xf},{'header':_0x1d0b63(0x2bc),'key':_0x1d0b63(0x2bc),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x284),'key':_0x1d0b63(0x284),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x215),'key':_0x1d0b63(0x215),'size':0x10,'width':0x1e},{'header':_0x1d0b63(0x238),'key':'Quantity','size':0x10,'width':0xf},{'header':'Price','key':_0x1d0b63(0x2c0),'size':0x10,'width':0xf},{'header':'Tax_Type','key':_0x1d0b63(0x1f1),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x393),'key':_0x1d0b63(0x393),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x278),'key':_0x1d0b63(0x278),'size':0x10,'width':0x13},{'header':'Name','key':_0x1d0b63(0x3e8),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x1fd),'key':_0x1d0b63(0x1fd),'size':0x10,'width':0xf},{'header':'Model','key':_0x1d0b63(0x2d9),'size':0x10,'width':0xf},{'header':'Condition','key':_0x1d0b63(0x1a4),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x291),'key':_0x1d0b63(0x291),'size':0x10,'width':0x1e},{'header':'Manufacturer_Image','key':_0x1d0b63(0x1d5),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x381),'key':_0x1d0b63(0x381),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x299),'key':_0x1d0b63(0x299),'size':0x10,'width':0xf},{'header':'MetaTagTitle','key':'MetaTagTitle','size':0x10,'width':0xf},{'header':_0x1d0b63(0x245),'key':_0x1d0b63(0x245),'size':0x10,'width':0x13},{'header':'MetaTagKeyword','key':_0x1d0b63(0x251),'size':0x10,'width':0xf},{'header':'ProductSlug','key':_0x1d0b63(0x3c4),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x2d2),'key':_0x1d0b63(0x2d2),'size':0x10,'width':0xf},{'header':'Required_Shipping','key':_0x1d0b63(0x2b0),'size':0x10,'width':0xf},{'header':'Height','key':_0x1d0b63(0x1ab),'size':0x10,'width':0x1e},{'header':'Weight','key':_0x1d0b63(0x210),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x199),'key':_0x1d0b63(0x199),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x3b6),'key':_0x1d0b63(0x3b6),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x3a9),'key':_0x1d0b63(0x3a9),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x1ac),'key':_0x1d0b63(0x1ac),'size':0x10,'width':0x13},{'header':'VendorId','key':'VendorId','size':0x10,'width':0xf},{'header':_0x1d0b63(0x1b0),'key':_0x1d0b63(0x1b0),'size':0x10,'width':0xf},{'header':'Video_Link','key':_0x1d0b63(0x3e1),'size':0x10,'width':0xf},{'header':_0x1d0b63(0x364),'key':'skuId','size':0x10,'width':0x1e}],_0x58c9cf=_0x5d9aab[_0x1d0b63(0x35f)]((_0x5348d3,_0x36ac56)=>_0x36ac56-_0x5348d3)[0x0],_0x4c0bc5=_0x8b92a8[_0x1d0b63(0x35f)]((_0x54df54,_0x19cedf)=>_0x19cedf-_0x54df54)[0x0],_0x476a8d=_0x386dc0[_0x1d0b63(0x35f)]((_0x166059,_0x1134f8)=>_0x1134f8-_0x166059)[0x0],_0x5c2568=[];for(let _0x6ccf2b=0x1;_0x6ccf2b<=_0x4c0bc5;_0x6ccf2b++){const _0x4bd36d={'header':_0x1d0b63(0x1af)+_0x6ccf2b,'key':_0x1d0b63(0x1af)+_0x6ccf2b,'size':0x10,'width':0x1e},_0x5f2f78={'header':_0x1d0b63(0x1af)+_0x6ccf2b+_0x1d0b63(0x3b9),'key':_0x1d0b63(0x1af)+_0x6ccf2b+_0x1d0b63(0x3b9),'size':0x10,'width':0x1e};_0x5c2568[_0x1d0b63(0x3e3)](_0x4bd36d,_0x5f2f78);}_0xa6cdfb['push'](..._0x5c2568);const _0xcc36c4=[];for(let _0x4acc75=0x1;_0x4acc75<=_0x58c9cf;_0x4acc75++){const _0x154a2a={'header':_0x1d0b63(0x361)+_0x4acc75,'key':_0x1d0b63(0x361)+_0x4acc75,'size':0x10,'width':0x1e},_0x5bbc71={'header':_0x1d0b63(0x1ee)+_0x4acc75,'key':_0x1d0b63(0x1ee)+_0x4acc75,'size':0x10,'width':0x1e};_0xcc36c4[_0x1d0b63(0x3e3)](_0x154a2a,_0x5bbc71);}_0xa6cdfb[_0x1d0b63(0x3e3)](..._0xcc36c4);const _0x3bc4b1=[];for(let _0x3ab429=0x1;_0x3ab429<=_0x476a8d;_0x3ab429++){const _0x3efc4d={'header':_0x1d0b63(0x2de)+_0x3ab429,'key':_0x1d0b63(0x2de)+_0x3ab429,'size':0x10,'width':0x1e},_0xb897c4={'header':'Attribute_Name_'+_0x3ab429,'key':_0x1d0b63(0x370)+_0x3ab429,'size':0x10,'width':0x1e},_0x25bd6f={'header':_0x1d0b63(0x1c2)+_0x3ab429,'key':'Attribute_Value_'+_0x3ab429,'size':0x10,'width':0x1e};_0x3bc4b1[_0x1d0b63(0x3e3)](_0x3efc4d,_0xb897c4,_0x25bd6f);}_0xa6cdfb[_0x1d0b63(0x3e3)](..._0x3bc4b1);const _0x55f9ee=[];for(let _0x288194=0x1;_0x288194<=_0x2e3cb0;_0x288194++){const _0xe0213c={'header':'Discount_Quantity_'+_0x288194,'key':'Discount_Quantity_'+_0x288194,'size':0x10,'width':0x1e},_0x1d7795={'header':_0x1d0b63(0x3c6)+_0x288194,'key':'Discount_Priority_'+_0x288194,'size':0x10,'width':0x1e},_0x4d2e6b={'header':_0x1d0b63(0x2e4)+_0x288194,'key':_0x1d0b63(0x2e4)+_0x288194,'size':0x10,'width':0x1e},_0x11f8da={'header':_0x1d0b63(0x3a0)+_0x288194,'key':'Discount_Date_Start_'+_0x288194,'size':0x10,'width':0x1e},_0xd469bd={'header':_0x1d0b63(0x300)+_0x288194,'key':_0x1d0b63(0x300)+_0x288194,'size':0x10,'width':0x1e};_0x55f9ee['push'](_0xe0213c,_0x1d7795,_0x4d2e6b,_0x11f8da,_0xd469bd);}_0xa6cdfb['push'](..._0x55f9ee);const _0x60d161=[];for(let _0x3dbf22=0x1;_0x3dbf22<=_0x17b72b;_0x3dbf22++){const _0xe7f1cd={'header':_0x1d0b63(0x327)+_0x3dbf22,'key':'Product_Special_Priority_'+_0x3dbf22,'size':0x10,'width':0x1e},_0x14494f={'header':'Product_Special_Price_'+_0x3dbf22,'key':_0x1d0b63(0x1c4)+_0x3dbf22,'size':0x10,'width':0x1e},_0x3f0f89={'header':_0x1d0b63(0x3ae)+_0x3dbf22,'key':_0x1d0b63(0x3ae)+_0x3dbf22,'size':0x10,'width':0x1e},_0x3c7f7c={'header':_0x1d0b63(0x331)+_0x3dbf22,'key':_0x1d0b63(0x331)+_0x3dbf22,'size':0x10,'width':0x1e};_0x60d161['push'](_0xe7f1cd,_0x14494f,_0x3f0f89,_0x3c7f7c);}_0xa6cdfb[_0x1d0b63(0x3e3)](..._0x60d161);const _0x4d252f=[];for(let _0x197037=0x1;_0x197037<=_0x58a1b6;_0x197037++){const _0x14283c={'header':_0x1d0b63(0x267)+_0x197037,'key':_0x1d0b63(0x267)+_0x197037,'size':0x10,'width':0x1e},_0x2e6ae6={'header':_0x1d0b63(0x1a1)+_0x197037,'key':_0x1d0b63(0x1a1)+_0x197037,'size':0x10,'width':0x1e};_0x4d252f[_0x1d0b63(0x3e3)](_0x14283c,_0x2e6ae6);}_0xa6cdfb[_0x1d0b63(0x3e3)](..._0x4d252f),_0x45a555['columns']=_0xa6cdfb;const _0x4667e4=[];for(const _0x32e1f7 of _0x434754){_0x4667e4['push'](Object[_0x1d0b63(0x237)](_0x32e1f7));}_0x434754[_0x1d0b63(0x3b2)]((_0x278754,_0x237e02)=>{const _0x2a1ff7=_0x1d0b63,_0x53b21b={};_0xa6cdfb['forEach'](_0x58c430=>{const _0x2f9809=a273_0x9dfc;_0x53b21b[_0x58c430[_0x2f9809(0x276)]]=_0x278754[_0x58c430[_0x2f9809(0x276)]];}),_0x45a555[_0x2a1ff7(0x34e)](_0x53b21b);});const _0xe05e68={'status':0x1,'message':'Product\x20Imported\x20Successfully'};return _0x15ec25[_0x1d0b63(0x2ea)](0xc8)[_0x1d0b63(0x235)](_0xe05e68);}catch(_0x456bef){return _0x9b0562&&(yield this[_0x1d0b63(0x2a1)][_0x1d0b63(0x2f7)](_0x9b0562)),_0x15ec25[_0x1d0b63(0x2ea)](0x190)[_0x1d0b63(0x235)]({'status':0x0,'message':_0x456bef[_0x1d0b63(0x29b)]});}});}[a273_0x42614e(0x329)](_0x1150e8){const _0x213f83=a273_0x42614e;return tslib_1[_0x213f83(0x289)](this,void 0x0,void 0x0,function*(){const _0x1a12ca=_0x213f83,_0x2752e2=require(_0x1a12ca(0x30d)),_0x1bac53=new _0x2752e2[(_0x1a12ca(0x227))](),_0x31bc20=_0x1bac53[_0x1a12ca(0x286)](_0x1a12ca(0x368)),_0x5b733f=[];_0x31bc20[_0x1a12ca(0x353)]=[{'header':_0x1a12ca(0x352),'key':'id','size':0x10,'width':0xf},{'header':_0x1a12ca(0x398),'key':_0x1a12ca(0x307),'size':0x10,'width':0xf}],_0x31bc20[_0x1a12ca(0x25b)]('A1')[_0x1a12ca(0x23d)]={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':'thin'},'right':{'style':_0x1a12ca(0x2d6)}},_0x31bc20[_0x1a12ca(0x25b)]('B1')[_0x1a12ca(0x23d)]={'top':{'style':_0x1a12ca(0x2d6)},'left':{'style':_0x1a12ca(0x2d6)},'bottom':{'style':_0x1a12ca(0x2d6)},'right':{'style':_0x1a12ca(0x2d6)}};const _0x436464=yield this[_0x1a12ca(0x22e)][_0x1a12ca(0x187)]({'select':['productId',_0x1a12ca(0x248)]});for(const _0x95d213 of _0x436464){_0x5b733f[_0x1a12ca(0x3e3)]([_0x95d213['productId'],_0x95d213['name']]);}_0x5b733f[_0x1a12ca(0x3e3)](['If\x20you\x20want\x20to\x20map\x20multiple\x20related\x20Product\x20to\x20product,you\x20have\x20to\x20give\x20relatedProductId\x20splitted\x20with\x20commas\x20(,)\x20']),_0x31bc20[_0x1a12ca(0x2a7)](_0x5b733f);const _0x4572d5=_0x1a12ca(0x3bd);yield _0x1bac53[_0x1a12ca(0x2ab)]['writeFile'](_0x4572d5);const _0x59ca29=new _0x2752e2['Workbook'](),_0x2b2510=_0x59ca29[_0x1a12ca(0x286)](_0x1a12ca(0x3c5)),_0x9efcf5=[];_0x2b2510['columns']=[{'header':_0x1a12ca(0x1e5),'key':'id','size':0x10,'width':0xf},{'header':'Levels','key':_0x1a12ca(0x307),'size':0x10,'width':0xf}],_0x2b2510['getCell']('A1')[_0x1a12ca(0x23d)]={'top':{'style':_0x1a12ca(0x2d6)},'left':{'style':'thin'},'bottom':{'style':_0x1a12ca(0x2d6)},'right':{'style':'thin'}},_0x2b2510['getCell']('B1')[_0x1a12ca(0x23d)]={'top':{'style':_0x1a12ca(0x2d6)},'left':{'style':_0x1a12ca(0x2d6)},'bottom':{'style':_0x1a12ca(0x2d6)},'right':{'style':'thin'}};const _0x5c1c19=[_0x1a12ca(0x3a3),_0x1a12ca(0x1ce),_0x1a12ca(0x20b)+'('+'path.name'+'\x20'+_0x1a12ca(0x31c)+'\x20'+_0x1a12ca(0x2fd)+'\x20'+'SEPARATOR'+_0x1a12ca(0x38a)+'>'+_0x1a12ca(0x38a)+')'+'\x20'+'as'+'\x20'+'levels'],_0x1511db=[{'tableName':_0x1a12ca(0x2f4),'aliasName':_0x1a12ca(0x22d)},{'tableName':_0x1a12ca(0x36d),'aliasName':_0x1a12ca(0x2dc)}],_0x2ce67a=[{'name':_0x1a12ca(0x287)}],_0x2e97f6=[],_0x170048=[],_0x380231=[],_0x1d3e6c=yield this['categoryPathService'][_0x1a12ca(0x2f8)](0x0,0x0,_0x5c1c19,_0x2e97f6,_0x170048,_0x1511db,_0x2ce67a,_0x380231,![],!![]);for(const _0xaed2e7 of _0x1d3e6c){_0x9efcf5['push']([_0xaed2e7[_0x1a12ca(0x395)],_0xaed2e7['levels']]);}_0x9efcf5[_0x1a12ca(0x3e3)]([_0x1a12ca(0x3ca)]),_0x2b2510[_0x1a12ca(0x2a7)](_0x9efcf5);const _0x3f7af0='./imports/Category.xlsx';yield _0x59ca29[_0x1a12ca(0x2ab)][_0x1a12ca(0x18c)](_0x3f7af0);const _0x366dae=require(_0x1a12ca(0x2c3));yield _0x366dae[_0x1a12ca(0x191)](path['join'](process['cwd'](),_0x1a12ca(0x3ba)),path[_0x1a12ca(0x37a)](process[_0x1a12ca(0x24e)](),_0x1a12ca(0x389)));const _0x2ea16a=path[_0x1a12ca(0x1ad)](_0x1a12ca(0x304));return new Promise(()=>{const _0x3ccf26=_0x1a12ca;_0x1150e8[_0x3ccf26(0x38f)](_0x2ea16a,_0x3ccf26(0x389));});});}['readDir'](_0x11be73){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){return new Promise((_0x28d44a,_0x3ac083)=>{const _0x32cd1b=a273_0x9dfc;fs[_0x32cd1b(0x271)](_0x11be73,(_0x4d3002,_0x262bc2)=>{_0x4d3002&&_0x3ac083(_0x4d3002),_0x28d44a(_0x262bc2);});});});}[a273_0x42614e(0x312)](_0x599622,_0x86840b){const _0x2bd3a3=a273_0x42614e;return tslib_1[_0x2bd3a3(0x289)](this,void 0x0,void 0x0,function*(){const _0x4be990=_0x2bd3a3,_0x1263bb=yield this[_0x4be990(0x22e)][_0x4be990(0x1bc)]({'where':{'productId':_0x599622[_0x4be990(0x352)]}});if(!_0x1263bb){const _0x4d782f={'status':0x0,'message':_0x4be990(0x269)};return _0x86840b[_0x4be990(0x2ea)](0x190)[_0x4be990(0x235)](_0x4d782f);}_0x1263bb[_0x4be990(0x21c)]=_0x599622['hasStock'];const _0x4d3254=_0x599622['productStock'],_0x43273f=[];for(const _0x5cb9f1 of _0x4d3254){const _0x2fc372=yield this[_0x4be990(0x2a1)][_0x4be990(0x1bc)]({'where':{'id':_0x5cb9f1[_0x4be990(0x364)]}});if(!_0x2fc372){const _0x524f7a={'status':0x0,'message':_0x4be990(0x1bb)};return _0x86840b[_0x4be990(0x2ea)](0x190)[_0x4be990(0x235)](_0x524f7a);}if(_0x2fc372[_0x4be990(0x279)]<_0x5cb9f1[_0x4be990(0x29d)]){const _0x511e3a={'status':0x0,'message':_0x4be990(0x1c8)};return _0x86840b[_0x4be990(0x2ea)](0x190)[_0x4be990(0x235)](_0x511e3a);}_0x2fc372[_0x4be990(0x29d)]=_0x5cb9f1[_0x4be990(0x29d)]?_0x5cb9f1[_0x4be990(0x29d)]:_0x2fc372[_0x4be990(0x29d)],_0x2fc372[_0x4be990(0x258)]=_0x5cb9f1['notifyMinQuantity']?_0x5cb9f1['notifyMinQuantity']:_0x2fc372[_0x4be990(0x258)],_0x2fc372[_0x4be990(0x3d6)]=_0x5cb9f1[_0x4be990(0x3d6)]?_0x5cb9f1[_0x4be990(0x3d6)]:_0x2fc372[_0x4be990(0x3d6)],_0x2fc372['maxQuantityAllowedCart']=_0x5cb9f1[_0x4be990(0x241)]?_0x5cb9f1['maxQuantityAllowedCart']:_0x2fc372[_0x4be990(0x241)],_0x2fc372[_0x4be990(0x3ce)]=_0x5cb9f1[_0x4be990(0x3ce)]?_0x5cb9f1[_0x4be990(0x3ce)]:_0x2fc372[_0x4be990(0x3ce)],_0x43273f[_0x4be990(0x3e3)](_0x2fc372);}yield this[_0x4be990(0x2a1)][_0x4be990(0x397)](_0x43273f);const _0x8de684=yield this[_0x4be990(0x22e)][_0x4be990(0x397)](_0x1263bb);if(_0x8de684){const _0x4a3b19={'status':0x1,'message':_0x4be990(0x30f),'data':_0x8de684};return _0x86840b['status'](0xc8)['send'](_0x4a3b19);}else{const _0x5515ae={'status':0x0,'message':_0x4be990(0x3ec)};return _0x86840b[_0x4be990(0x2ea)](0x190)['send'](_0x5515ae);}});}[a273_0x42614e(0x385)](_0x487c96,_0x3b364b){const _0x562dbe=a273_0x42614e;return tslib_1[_0x562dbe(0x289)](this,void 0x0,void 0x0,function*(){const _0x2d996e=_0x562dbe,_0x168462=yield this[_0x2d996e(0x22e)][_0x2d996e(0x1bc)]({'where':{'productId':_0x487c96[_0x2d996e(0x352)]}});if(!_0x168462){const _0x536fdc={'status':0x0,'message':_0x2d996e(0x269)};return _0x3b364b[_0x2d996e(0x2ea)](0x190)[_0x2d996e(0x235)](_0x536fdc);}_0x487c96[_0x2d996e(0x282)]&&(_0x168462[_0x2d996e(0x282)]=_0x487c96['hasTirePrice'],yield this[_0x2d996e(0x22e)][_0x2d996e(0x397)](_0x168462));const _0x6098b8=new ProductTirePrice_1[(_0x2d996e(0x203))]();_0x6098b8['productId']=_0x487c96[_0x2d996e(0x352)],_0x6098b8[_0x2d996e(0x279)]=_0x487c96[_0x2d996e(0x279)],_0x6098b8[_0x2d996e(0x194)]=_0x487c96['price'];const _0x308678=yield this[_0x2d996e(0x360)]['create'](_0x6098b8);if(_0x308678){const _0x37caa3={'status':0x1,'message':_0x2d996e(0x1fa),'data':_0x308678};return _0x3b364b[_0x2d996e(0x2ea)](0xc8)[_0x2d996e(0x235)](_0x37caa3);}else{const _0x2b1227={'status':0x0,'message':_0x2d996e(0x2aa)};return _0x3b364b[_0x2d996e(0x2ea)](0x190)[_0x2d996e(0x235)](_0x2b1227);}});}[a273_0x42614e(0x2f7)](_0x3dce64,_0x444d97,_0xc4c16a){const _0xa5533c=a273_0x42614e;return tslib_1[_0xa5533c(0x289)](this,void 0x0,void 0x0,function*(){const _0x2e89fe=_0xa5533c,_0x1300b5=yield this[_0x2e89fe(0x360)][_0x2e89fe(0x1bc)]({'where':{'id':_0x3dce64}});if(!_0x1300b5){const _0x312ba1={'status':0x0,'message':_0x2e89fe(0x345)};return _0x444d97[_0x2e89fe(0x2ea)](0x190)[_0x2e89fe(0x235)](_0x312ba1);}const _0x2b90ad=yield this['productTirePriceService'][_0x2e89fe(0x2f7)](_0x3dce64);if(_0x2b90ad){const _0x4f70e5={'status':0x1,'message':_0x2e89fe(0x277)};return _0x444d97[_0x2e89fe(0x2ea)](0xc8)[_0x2e89fe(0x235)](_0x4f70e5);}else{const _0x1a493b={'status':0x0,'message':_0x2e89fe(0x264)};return _0x444d97[_0x2e89fe(0x2ea)](0x190)[_0x2e89fe(0x235)](_0x1a493b);}});}[a273_0x42614e(0x223)](_0x346497,_0x166f56,_0x29e166,_0xc8387b,_0x4f385d,_0x26ee48){const _0x323a3c=a273_0x42614e;return tslib_1[_0x323a3c(0x289)](this,void 0x0,void 0x0,function*(){const _0x401678=_0x323a3c,_0x1ccfed=[{'name':_0x401678(0x352),'value':_0x346497}],_0x420f31=yield this[_0x401678(0x360)][_0x401678(0x37d)](_0x166f56,_0x29e166,_0x1ccfed,_0xc8387b),_0x55be3d={'status':0x1,'message':'Successfully\x20Get\x20product\x20tire\x20price','data':_0x420f31};return _0x26ee48[_0x401678(0x2ea)](0xc8)[_0x401678(0x235)](_0x55be3d);});}[a273_0x42614e(0x232)](_0x3461f9,_0x5d6386,_0x556ccd,_0x2473c6,_0x2fe61c,_0x56d598,_0x1d58e7,_0xb567a9){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x37fbfa=a273_0x9dfc,_0x36a856=[_0x37fbfa(0x352),_0x37fbfa(0x3df),_0x37fbfa(0x248),_0x37fbfa(0x279),'price',_0x37fbfa(0x36c),_0x37fbfa(0x2fb),_0x37fbfa(0x21c),_0x37fbfa(0x282),_0x37fbfa(0x29d),_0x37fbfa(0x258),_0x37fbfa(0x3d6),_0x37fbfa(0x241),'maxQuantityAllowedCart',_0x37fbfa(0x3ce),'modifiedDate',_0x37fbfa(0x3d3),'skuId'],_0x188f50=[],_0x4c44c3=[{'name':'name','op':_0x37fbfa(0x2e5),'value':_0x556ccd},{'name':_0x37fbfa(0x3df),'op':_0x37fbfa(0x2e5),'value':_0x2473c6},{'name':_0x37fbfa(0x2fb),'op':_0x37fbfa(0x2e5),'value':_0x2fe61c},{'name':'isSimplified','op':_0x37fbfa(0x2e6),'value':0x1}],_0x54c08b=yield this[_0x37fbfa(0x22e)][_0x37fbfa(0x37d)](_0x3461f9,_0x5d6386,_0x36a856,_0x188f50,_0x4c44c3,0x0,_0x56d598,_0x1d58e7);if(_0x1d58e7){const _0x2adeed={'status':0x1,'message':'Successfully\x20got\x20count\x20','data':_0x54c08b};return _0xb567a9[_0x37fbfa(0x2ea)](0xc8)[_0x37fbfa(0x235)](_0x2adeed);}const _0x4216a9=_0x54c08b[_0x37fbfa(0x337)](_0x11a332=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4a5e14=_0x37fbfa;let _0x28026c=undefined;_0x28026c=yield this[_0x4a5e14(0x2a1)]['findAll']({'where':{'id':_0x11a332[_0x4a5e14(0x364)]}});const _0x2d1267=_0x11a332;return _0x2d1267[_0x4a5e14(0x379)]=_0x28026c,_0x2d1267;})),_0x4bdde6=yield Promise[_0x37fbfa(0x1b9)](_0x4216a9),_0x3b7425={'status':0x1,'message':'Successfully\x20got\x20the\x20complete\x20product\x20list.\x20','data':_0x4bdde6};return _0xb567a9['status'](0xc8)[_0x37fbfa(0x235)](_0x3b7425);});}[a273_0x42614e(0x335)](_0x18d449,_0x29e8c5,_0x14a217){const _0x43065b=a273_0x42614e;return tslib_1[_0x43065b(0x289)](this,void 0x0,void 0x0,function*(){const _0x3f9529=_0x43065b,_0x22a993=yield this[_0x3f9529(0x22e)][_0x3f9529(0x187)]({'take':_0x18d449,'skip':_0x29e8c5});for(const _0x473bb6 of _0x22a993){const _0x884079=yield this[_0x3f9529(0x22e)][_0x3f9529(0x1bc)]({'where':{'productId':_0x473bb6[_0x3f9529(0x352)]}});let _0x59825d;const _0x26af9b=yield this[_0x3f9529(0x2a1)][_0x3f9529(0x1bc)]({'where':{'skuName':_0x473bb6[_0x3f9529(0x3df)]}});if(_0x26af9b){const _0x45e190=yield this[_0x3f9529(0x22e)][_0x3f9529(0x378)](_0x884079[_0x3f9529(0x352)],_0x884079[_0x3f9529(0x3df)],0x0);if(_0x45e190){const _0x536055={'status':0x0,'message':'Duplicate\x20sku\x20name,\x20give\x20some\x20other\x20name'};return _0x14a217[_0x3f9529(0x2ea)](0x190)['send'](_0x536055);}else _0x26af9b[_0x3f9529(0x2b4)]=_0x884079[_0x3f9529(0x3df)],_0x26af9b['price']=_0x884079['price'],_0x26af9b[_0x3f9529(0x279)]=_0x884079['quantity'],_0x26af9b[_0x3f9529(0x2fb)]=_0x884079[_0x3f9529(0x2fb)],_0x59825d=yield this[_0x3f9529(0x2a1)]['create'](_0x26af9b);}else{const _0x4a780a=new SkuModel_1[(_0x3f9529(0x39b))]();_0x4a780a[_0x3f9529(0x2b4)]=_0x884079[_0x3f9529(0x3df)],_0x4a780a[_0x3f9529(0x194)]=_0x884079[_0x3f9529(0x194)],_0x4a780a[_0x3f9529(0x279)]=_0x884079[_0x3f9529(0x279)],_0x4a780a[_0x3f9529(0x2fb)]=_0x884079['isActive'],_0x59825d=yield this[_0x3f9529(0x2a1)]['create'](_0x4a780a);}_0x884079[_0x3f9529(0x364)]=_0x59825d['id'],_0x884079[_0x3f9529(0x3d3)]=0x1,yield this['productService'][_0x3f9529(0x397)](_0x884079);}const _0x4ec4ca={'status':0x1,'message':_0x3f9529(0x2f1)};return _0x14a217['status'](0xc8)['send'](_0x4ec4ca);});}[a273_0x42614e(0x3cb)](_0x5e76e0,_0x23918c=0x0,_0x474add=0x0){const _0x43262e=a273_0x42614e;return tslib_1[_0x43262e(0x289)](this,void 0x0,void 0x0,function*(){const _0x47eb7c=_0x43262e,_0x151a91=yield this['productService']['checkSlug'](_0x5e76e0,_0x23918c,_0x474add);return _0x151a91?(!_0x474add?_0x474add=0x1:_0x474add++,yield this[_0x47eb7c(0x3cb)](_0x5e76e0,_0x23918c,_0x474add)):(_0x474add>0x0&&(_0x5e76e0=_0x5e76e0+_0x474add),_0x5e76e0);});}['updateProductList'](_0x20da3a,_0x47f87d,_0x1592cf,_0x366b55){const _0x27e570=a273_0x42614e;return tslib_1[_0x27e570(0x289)](this,void 0x0,void 0x0,function*(){const _0x81eefc=_0x27e570,_0x1e6718=[_0x81eefc(0x352)],_0x48cffe=[],_0x5effd9=[],_0xfacd0b=yield this['productService'][_0x81eefc(0x37d)](_0x20da3a,_0x47f87d,_0x1e6718,_0x48cffe,_0x5effd9,0x0,0x0,_0x1592cf);if(_0x1592cf){const _0xd9a666={'status':0x1,'message':_0x81eefc(0x1e6),'data':_0xfacd0b};return _0x366b55[_0x81eefc(0x2ea)](0xc8)['send'](_0xd9a666);}const _0x1a9901=_0xfacd0b[_0x81eefc(0x337)](_0x583673=>tslib_1[_0x81eefc(0x289)](this,void 0x0,void 0x0,function*(){const _0x3adfe0=_0x81eefc,_0x11bb33=yield this[_0x3adfe0(0x190)][_0x3adfe0(0x1bc)]({'where':{'productId':_0x583673[_0x3adfe0(0x352)]}}),_0x26b513=_0x583673,_0xc3a58b=yield this['productService'][_0x3adfe0(0x1bc)]({'where':{'productId':_0x583673['productId']}});return _0x11bb33?(_0xc3a58b['owner']=0x2,_0xc3a58b[_0x3adfe0(0x214)]=_0x11bb33[_0x3adfe0(0x39f)]):(_0xc3a58b[_0x3adfe0(0x2e9)]=0x1,_0xc3a58b[_0x3adfe0(0x214)]=0x50),yield this['productService'][_0x3adfe0(0x397)](_0xc3a58b),_0x26b513;})),_0x35707e=yield Promise[_0x81eefc(0x1b9)](_0x1a9901),_0x273637={'status':0x1,'message':_0x81eefc(0x217),'data':_0x35707e};return _0x366b55['status'](0xc8)['send'](_0x273637);});}[a273_0x42614e(0x37c)](_0x28b050,_0x182b37,_0x46d8b9,_0x27af27){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x16826a=a273_0x9dfc,_0x7292d3=[_0x16826a(0x3b7)],_0x2290ea=[],_0x213dcc=[],_0x2b0d56=yield this[_0x16826a(0x22e)]['listByQueryBuilder'](_0x28b050,_0x182b37,_0x7292d3,_0x213dcc,[],_0x2290ea,[],[],![],!![]),_0x32a3ad=_0x2b0d56[_0x16826a(0x337)](_0x35ede5=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x147e30=_0x16826a,_0x39dd20=yield this[_0x147e30(0x22e)][_0x147e30(0x1bc)]({'where':{'productId':_0x35ede5[_0x147e30(0x352)]}}),_0x5863b9=yield this[_0x147e30(0x190)][_0x147e30(0x1bc)]({'productId':_0x39dd20[_0x147e30(0x352)]});return console['log']('product.skuId:',_0x39dd20[_0x147e30(0x364)]),_0x5863b9['sku_id']=_0x39dd20[_0x147e30(0x364)],yield this['vendorProductService'][_0x147e30(0x2f5)](_0x5863b9['vendorProductId'],_0x5863b9),_0x5863b9;})),_0x1cd229=yield Promise[_0x16826a(0x1b9)](_0x32a3ad),_0x2c3b43={'status':0x1,'message':_0x16826a(0x217),'data':_0x1cd229};return _0x27af27[_0x16826a(0x2ea)](0xc8)[_0x16826a(0x235)](_0x2c3b43);});}};tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])(),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1['QueryParam'])(a273_0x42614e(0x1e1))),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x20f))),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1['QueryParam'])(a273_0x42614e(0x318))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x3df))),tslib_1[a273_0x42614e(0x359)](0x4,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x2ea))),tslib_1['__param'](0x5,(0x0,routing_controllers_1['QueryParam'])(a273_0x42614e(0x194))),tslib_1[a273_0x42614e(0x359)](0x6,(0x0,routing_controllers_1[a273_0x42614e(0x261)])('count')),tslib_1[a273_0x42614e(0x359)](0x7,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x359)](0x8,(0x0,routing_controllers_1['Req'])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Number,Number,String,String,String,Number,Object,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController['prototype'],a273_0x42614e(0x2a8),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x189)])(),(0x0,routing_controllers_1[a273_0x42614e(0x197)])([a273_0x42614e(0x188),a273_0x42614e(0x2c6)]),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[CreateProductRequest_1[a273_0x42614e(0x1cb)],Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x386),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x189)])('/update-product/:id'),(0x0,routing_controllers_1['Authorized'])(['admin','edit-product']),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x336)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)]('design:type',Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[UpdateProductRequest_1[a273_0x42614e(0x3d7)],Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x344),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1['Get'])(a273_0x42614e(0x2df)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x2d3)])('id')),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Number,Object]),tslib_1['__metadata']('design:returntype',Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x3bc),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])('/top-selling-productlist'),(0x0,routing_controllers_1['Authorized'])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1['__param'](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata'](a273_0x42614e(0x285),Function),tslib_1['__metadata'](a273_0x42614e(0x1de),[Object,Object]),tslib_1['__metadata'](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],'topSellingProductList',null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])(a273_0x42614e(0x281)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1['Req'])()),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1['__metadata'](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)]('design:paramtypes',[Object,Object]),tslib_1['__metadata'](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],'topFiveRepeatedlyPurchasedCustomers',null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1['Get'])(a273_0x42614e(0x3ad)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x1e1))),tslib_1['__param'](0x1,(0x0,routing_controllers_1['QueryParam'])(a273_0x42614e(0x20f))),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1['QueryParam'])(a273_0x42614e(0x34f))),tslib_1[a273_0x42614e(0x359)](0x3,(0x0,routing_controllers_1['QueryParam'])(a273_0x42614e(0x222))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1[a273_0x42614e(0x359)](0x5,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1['__metadata'](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Number,Number,Object,Number,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x26d),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])('/dashboard/admin-customers-count'),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1['QueryParam'])(a273_0x42614e(0x222))),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1['__metadata'](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Number,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x26f),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])(a273_0x42614e(0x1e8)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x222))),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1['__metadata']('design:paramtypes',[Number,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x322),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])(a273_0x42614e(0x2ad)),(0x0,routing_controllers_1['Authorized'])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1['QueryParam'])('duration')),tslib_1['__param'](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)]('design:type',Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Number,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController['prototype'],a273_0x42614e(0x362),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1['Get'])(a273_0x42614e(0x1f5)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x222))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata'](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)]('design:paramtypes',[Number,Object,Object]),tslib_1[a273_0x42614e(0x32d)]('design:returntype',Promise)],ProductController[a273_0x42614e(0x3ea)],'dashboardTotalRevenue',null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1['Get'])(a273_0x42614e(0x2f3)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x222))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a273_0x42614e(0x32d)]('design:type',Function),tslib_1['__metadata']('design:paramtypes',[Number,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x242),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1['Get'])(a273_0x42614e(0x1c3)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x352))),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1['__metadata'](a273_0x42614e(0x1de),[String,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x3d5),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1['Get'])(a273_0x42614e(0x314)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1['Req'])()),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a273_0x42614e(0x32d)]('design:type',Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Object,Object]),tslib_1[a273_0x42614e(0x32d)]('design:returntype',Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x33c),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])('/viewLog-list'),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x261)])('limit')),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x20f))),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x34f))),tslib_1[a273_0x42614e(0x359)](0x3,(0x0,routing_controllers_1['Req'])()),tslib_1[a273_0x42614e(0x359)](0x4,(0x0,routing_controllers_1['Res'])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Number,Number,Object,Object,Object]),tslib_1[a273_0x42614e(0x32d)]('design:returntype',Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x3d1),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(a273_0x42614e(0x29c)),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x2d3)])('id')),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x1e1))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x20f))),tslib_1[a273_0x42614e(0x359)](0x3,(0x0,routing_controllers_1[a273_0x42614e(0x261)])('count')),tslib_1[a273_0x42614e(0x359)](0x4,(0x0,routing_controllers_1['Req'])()),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Number,Number,Number,Object,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController['prototype'],a273_0x42614e(0x252),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])(a273_0x42614e(0x2f6)),(0x0,routing_controllers_1['Authorized'])([a273_0x42614e(0x188),a273_0x42614e(0x19b)]),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x352))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1['__metadata'](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)]('design:paramtypes',[String,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],'excelProductView',null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])('/allproduct-excel-list'),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(['admin',a273_0x42614e(0x19b)]),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1['Req'])()),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1['__metadata'](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController['prototype'],a273_0x42614e(0x1e7),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Delete'])(a273_0x42614e(0x24a)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])([a273_0x42614e(0x188),a273_0x42614e(0x332)]),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x2d3)])('id')),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)]('design:paramtypes',[Number,Object,Object]),tslib_1[a273_0x42614e(0x32d)]('design:returntype',Promise)],ProductController[a273_0x42614e(0x3ea)],'deleteProduct',null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x189)])(a273_0x42614e(0x275)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x336)])({'validate':!![]})),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1['__metadata']('design:type',Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[DeleteProductRequest_1['DeleteProductRequest'],Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x19f),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a273_0x42614e(0x3db)])(a273_0x42614e(0x27c)),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1['__metadata'](a273_0x42614e(0x1de),[Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x36e),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])(a273_0x42614e(0x2bd)),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)]('design:paramtypes',[Object]),tslib_1['__metadata'](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x22b),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])(a273_0x42614e(0x274)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],'dashboardAdminCount',null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1['Get'])(a273_0x42614e(0x216)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1['Res'])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1['__metadata'](a273_0x42614e(0x1de),[Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],'productCount',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a273_0x42614e(0x189)])(a273_0x42614e(0x29f)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])([a273_0x42614e(0x188),'import-product']),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x363)])(a273_0x42614e(0x2b6))),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Object,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x244),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1['Get'])(a273_0x42614e(0x1f3)),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1['__metadata'](a273_0x42614e(0x1de),[Object]),tslib_1[a273_0x42614e(0x32d)]('design:returntype',Promise)],ProductController['prototype'],a273_0x42614e(0x329),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x189)])(a273_0x42614e(0x33e)),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x336)])({'validate':!![]})),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[UpdateStockRequest_1[a273_0x42614e(0x2fc)],Object]),tslib_1[a273_0x42614e(0x32d)]('design:returntype',Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x312),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x189)])(a273_0x42614e(0x1bf)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x336)])({'validate':!![]})),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[CreateTirePriceRequest_1[a273_0x42614e(0x298)],Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController['prototype'],a273_0x42614e(0x385),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a273_0x42614e(0x3d4)])('/delete-tire-price/:id'),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x2d3)])('id')),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1['__metadata']('design:type',Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Number,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],'delete',null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])(a273_0x42614e(0x354)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(''),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x352))),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x1e1))),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1['QueryParam'])(a273_0x42614e(0x20f))),tslib_1[a273_0x42614e(0x359)](0x3,(0x0,routing_controllers_1['QueryParam'])(a273_0x42614e(0x34f))),tslib_1[a273_0x42614e(0x359)](0x4,(0x0,routing_controllers_1[a273_0x42614e(0x25f)])()),tslib_1[a273_0x42614e(0x359)](0x5,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1['__metadata'](a273_0x42614e(0x1de),[Number,Number,Number,Object,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x223),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])(a273_0x42614e(0x21e)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])([a273_0x42614e(0x188),'inventory-list']),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x1e1))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x20f))),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x318))),tslib_1['__param'](0x3,(0x0,routing_controllers_1['QueryParam'])('sku')),tslib_1[a273_0x42614e(0x359)](0x4,(0x0,routing_controllers_1['QueryParam'])(a273_0x42614e(0x2ea))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x194))),tslib_1[a273_0x42614e(0x359)](0x6,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x34f))),tslib_1[a273_0x42614e(0x359)](0x7,(0x0,routing_controllers_1['Res'])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Number,Number,String,String,String,Number,Object,Object]),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x35b),Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x232),null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1['Post'])(a273_0x42614e(0x1d8)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1[a273_0x42614e(0x359)](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x2eb)])(a273_0x42614e(0x1e1))),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1['BodyParam'])(a273_0x42614e(0x20f))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)]('design:type',Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Number,Number,Object]),tslib_1[a273_0x42614e(0x32d)]('design:returntype',Promise)],ProductController[a273_0x42614e(0x3ea)],'updateOrderProductShippingInformation',null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])(a273_0x42614e(0x1f4)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x1e1))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x20f))),tslib_1[a273_0x42614e(0x359)](0x2,(0x0,routing_controllers_1['QueryParam'])('count')),tslib_1['__param'](0x3,(0x0,routing_controllers_1['Res'])()),tslib_1[a273_0x42614e(0x32d)]('design:type',Function),tslib_1[a273_0x42614e(0x32d)]('design:paramtypes',[Number,Number,Object,Object]),tslib_1['__metadata'](a273_0x42614e(0x35b),Promise)],ProductController['prototype'],'updateProductList',null),tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x2e8)])(a273_0x42614e(0x355)),(0x0,routing_controllers_1[a273_0x42614e(0x197)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a273_0x42614e(0x261)])(a273_0x42614e(0x1e1))),tslib_1[a273_0x42614e(0x359)](0x1,(0x0,routing_controllers_1['QueryParam'])('offset')),tslib_1['__param'](0x2,(0x0,routing_controllers_1['QueryParam'])(a273_0x42614e(0x34f))),tslib_1[a273_0x42614e(0x359)](0x3,(0x0,routing_controllers_1[a273_0x42614e(0x26e)])()),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x285),Function),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[Number,Number,Object,Object]),tslib_1[a273_0x42614e(0x32d)]('design:returntype',Promise)],ProductController[a273_0x42614e(0x3ea)],a273_0x42614e(0x37c),null),ProductController=tslib_1[a273_0x42614e(0x22a)]([(0x0,routing_controllers_1[a273_0x42614e(0x21f)])(a273_0x42614e(0x388)),tslib_1[a273_0x42614e(0x32d)](a273_0x42614e(0x1de),[ProductService_1[a273_0x42614e(0x36a)],ProductToCategoryService_1[a273_0x42614e(0x28a)],ProductImageService_1['ProductImageService'],CategoryService_1[a273_0x42614e(0x1ea)],OrderProductService_1[a273_0x42614e(0x303)],OrderService_1[a273_0x42614e(0x3e6)],ProductViewLogService_1[a273_0x42614e(0x372)],ProductDiscountService_1[a273_0x42614e(0x259)],ProductSpecialService_1[a273_0x42614e(0x390)],CustomerService_1['CustomerService'],TaxService_1[a273_0x42614e(0x316)],PaymentService_1['PaymentService'],CategoryPathService_1[a273_0x42614e(0x2a4)],ProductTirePriceService_1['ProductTirePriceService'],SkuService_1['SkuService'],S3Service_1['S3Service'],ProductVideoService_1[a273_0x42614e(0x374)],ImageService_1['ImageService'],VendorProductService_1[a273_0x42614e(0x358)],VendorService_1['VendorService'],VendorPaymentService_1['VendorPaymentService'],CustomerCartService_1[a273_0x42614e(0x3de)],BulkImportRequest_1[a273_0x42614e(0x3bb)],PluginService_1[a273_0x42614e(0x240)]])],ProductController),exports[a273_0x42614e(0x195)]=ProductController;function a273_0x3957(){const _0xf558c9=['Quantity','imageService','../../core/services/VendorPaymentService','@spurtcommerce/product','startDate','border','product\x20Special\x20Id','categoryService','PluginService','maxQuantityAllowedCart','averageConversionRatio','unlinkSync','ImportProductPrice','MetaTagDescription','Image\x20Path','Product\x20Price\x20or\x20Product\x20Name\x20should\x20not\x20empty','name','130bUZfnc','/:id','escapeChar','product\x20dicount\x20Id','CategoryPath','cwd','Category\x20should\x20not\x20be\x20empty','Product\x20is\x20already\x20ordered\x20so\x20you\x20cannot\x20delete\x20the\x20product\x20','MetaTagKeyword','customerProductView','tirePrices','tax\x20should\x20not\x20be\x20in\x20negative','productPaymentProcess','productSpecial','metaTagTitle','notifyMinQuantity','ProductDiscountService','customerService','getCell','../../core/services/S3Service','instanceToPlain','ProductImage','Req','coupon-delete','QueryParam','height','specialPrice','Unable\x20to\x20delete','defaultImage','Unable\x20to\x20delete\x20the\x20product.','Product_Tire_Quantity_','productSpecialId','Invalid\x20product\x20Id.','routing-controllers','tslib','buffer','topPerformingProucts','Res','dashboardCustomerCount','image','readdir','dashboardOrdersCount','hsn','/dashboard-admin-totalvendor-totalproduct-count','/delete-product','key','Successfully\x20deleted.','DateAvailable','quantity','orderService','../../core/services/CustomerCartService','/update-product-slug','productImageService','entries','../../core/services/ProductImageService','moment','/top-five-repeatedly-purchased-customers','hasTirePrice','png','UPC','design:type','addWorksheet','CategoryPath.category_id','parentInt','__awaiter','ProductToCategoryService','length','bulkImportRequest','../../core/services/ImageService','payments','paymentProcess','productInformationDetail.productSlug\x20as\x20productSlug','Manufacturer_Name','inActiveProduct','levels','You\x20cannot\x20delete\x20this\x20product\x20as\x20it\x20has\x20been\x20already\x20ordered.','Duplicate\x20sku\x20name.','vendors','removeHook','CreateTirePriceRequest','Stock_Status_Id','OrderProduct.quantity\x20as\x20Quantity','message','/customerProductView-list/:id','outOfStockThreshold','taxValue','/import-product-data','orderProductService','skuService','runHook','duplicate\x20sku\x20name,\x20give\x20some\x20other\x20name','CategoryPathService','addHook','ShippingCost','addRows','getProductList','split','Unable\x20to\x20add\x20tire\x20price.','xlsx','authorization','/dashboard-average-order-value','getConnection','orderProductsTotal','Required_Shipping','customerId','dashboardTotalRevenue','sortOrder','skuName','MPV-namespace','file','ASC','pluginModule','./requests/UpdateStockRequest','/product-seo/','variantSku','SKU','/dashboard-count','ready','productDiscountId','Price','ordersCount','toISOString','zip-a-folder','Friday','paymentService','create-product','vendorCommission','categoryPathService','1336540Xjbiqh','orderCount','Successfully\x20got\x20the\x20top\x205\x20repeatedly\x20purchased\x20customer..!','productDiscountService','productName','priceWithTax','reflect-metadata','approvalFlag','productSpecialPrice','Images','Param','ProductRelated','readDir','thin','bulkImport','days','Model','dateEnd','totalCategory','path','special\x20price\x20should\x20be\x20less\x20than\x20original\x20price.','Attribute_Group_','/product-detail/:id','taxPercentage','shippingCost','product','CD1-namespace','Discount_Price_','like','where','../../../../add-ons/Coupon/coupon','Get','owner','status','BodyParam','VendorId','orders','categorySlug','Successfully\x20got\x20the\x20top\x20performing\x20product\x20list','title','Successfully\x20updated\x20Sku','You\x20cannot\x20update\x20the\x20vendor\x20product\x20as\x20this\x20vendor\x20needs\x20approval.','/dashboard-average-conversion-ratio','CategoryPath.category','update','/product-excel-list','delete','listByQueryBuilder','709076anaOoa','tax','isActive','UpdateStockRequest','CategoryPath.level','priority','../../core/models/VendorProducts','Discount_Date_End_','originalname','excelExportProduct','OrderProductService','/imports.zip','trim','Successfully\x20got\x20average\x20conversion\x20ratio','first_name','deleteProduct','customer.deleteFlag','../../core/services/OrderService','../../core/models/ProductTirePrice','rmdirSync','exceljs','./product_','successfully\x20updated\x20stock\x20.','random','imageserver','manageStock','extractZip','/recent-selling-product','specialDateEnd','TaxService','topFiveRepeatedlyPurchasedCustomers','keyword','ProductVariants','uncino','productVideoService','ORDER\x20BY','products','product\x20name','Coupon','taxService','typeorm','dashboardOrderCount','OrderProduct.createdDate\x20as\x20CreatedDate','Import_Type','type','productDiscount','Product_Special_Priority_','endDate','downloadSample','topSellingProductList','1022KOgdjF','lastIndexOf','__metadata','base64','variant','MAX(Order.customerId)\x20as\x20customerId','Product_Special_End_Date_','delete-product','vendor.customerId','Price\x20should\x20not\x20be\x20in\x20negative','updateOrderProductShippingInformation','Body','map','CouponProccess','specialDateStart','productToCategoryService','../../core/services/CustomerService','sellingProduct','StockStatusId','/update-stock','includes','productTirePrice','stockStatusId','../../../loaders/pluginLoader','dashboardVendorCommissionTotal','updateProduct','Invalid\x20Id.','Rating','../../core/services/TaxService','Cannot\x20get\x20top\x20performing\x20product\x20list','COUNT(Order.orderId)\x20as\x20orderCount','imagePath','slug','3729180hYRbRI','vendorServie','addRow','count','productInformationDetail.productId\x20as\x20productId','Saturday','productId','columns','/get-product-tire-price-list','/update-vendor-sku-list','Product','from','VendorProductService','__param','Sku\x20does\x20not\x20exist\x20tire\x20price','design:returntype','Successfully\x20deleted\x20the\x20Product.','minimumQuantity','userId','sort','productTirePriceService','Variant_Name','averageOrderValue','UploadedFile','skuId','packingCost','toLowerCase','some','product\x20List','shipping','ProductService','productViewLogService','productSlug','CategoryPath.path','updateSlug','description','Attribute_Name_','discountStartDate','ProductViewLogService','customer.firstName\x20as\x20firstName','ProductVideoService','Image','IsActive','ProductSpecial','findSkuName','skuValue','join','Products\x20are\x20empty','updateVendorSku','list','vendorCommissionCount','end\x20date','TaxType','Manufacturer_Status','customer.lastName\x20as\x20lastName','Related\x20Category','keywords','addTirePrice','addProduct','./requests/CreateTirePriceRequest','/product','imports.zip','\x20\x27\x20','productImage','excelProductView','../../../../add-ons/ProductAttribute/BulkProductAttribute','application/json','download','ProductSpecialService','Successfully\x20deleted\x20the\x20Product','weight','Tax','OrderProduct.name\x20as\x20ProductName','categoryId','./requests/CreateProductRequest','create','ProductName','serviceCharges','./requests/BulkImportRequest','Sku','resolve','dateAvailable','Sku\x20does\x20not\x20exist\x20in\x20special\x20price','vendorId','Discount_Date_Start_','pathId','Only\x20xlsx\x20and\x20zip\x20file\x20are\x20accepted','CategoryPath.categoryId\x20as\x20categoryId','dashboardAdminCount','../../core/services/ProductToCategoryService','special\x20price','node-stream-zip','../../core/services/ProductSpecialService','Package_Cost','defineProperty','start\x20date','others','/top-performing-products','Product_Special_Start_Date_','deleteFlag','close','productCount','forEach','imageUpload','post','findCategory','Length','Product.productId\x20as\x20productId','ProductAttribute','_Sort_Order','imports','BulkImport','productDetail','./imports/Productlist.xlsx','Order.customerId','Tuesday','product-variant','Manufacture\x20Id','Seo','then','ProductSlug','Category\x20List','Discount_Priority_','Order.customer','ProductToCategory','../../core/services/OrderProductService','If\x20you\x20want\x20to\x20map\x20multiple\x20category\x20to\x20product,you\x20have\x20to\x20give\x20categoryId\x20splitted\x20with\x20commas\x20(,)\x20','validate_slug','floor','Wednesday','enableBackOrders','width','Default\x20Image','productViewLogList','../../core/services/CategoryPathService','isSimplified','Delete','topTenWeeklySales','minQuantityAllowedCart','UpdateProductRequest','product.orderPrefixId\x20as\x20orderPrefixId','log','topPerformingProducts','Put','../../../../add-ons/ProductVariants/BulkProductVariant','../../core/services/ProductDiscountService','CustomerCartService','sku','modifiedBy','Video_Link','ProductVideo','push','todayDeals','./requests/DeleteProductRequest','OrderService','ordercount','Name','ProductDiscount','prototype','Minimum\x20Quantity','unable\x20to\x20update','s3Service','subtractStock','Category\x20Id','findAll','find','admin','Post','level','image.zip','writeFile','PackageCost','default','variantOptions','vendorProductService','zip','vendorPaymentService','productInformationDetail.price\x20as\x20price','price','ProductController','env','Authorized','Product\x20Name','Width','OrderProduct.orderId\x20as\x20orderId','export-product','product_','../../core/models/ProductModel','../../../env','deleteMultipleProduct','catch','Product_Tire_Price_','baseUrl','round','Condition','OrderProduct.productInformationDetail','Sku\x20does\x20not\x20exist\x20in\x20discount\x20price.','Related\x20Products','(SELECT\x20pi.image\x20as\x20image\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20productInformationDetail.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20image','class-transformer','(SELECT\x20ca.city\x20as\x20paymentCity\x20FROM\x20address\x20ca\x20WHERE\x20ca.customer_id\x20=\x20MAX(Order.customerId)\x20LIMIT\x201)\x20as\x20paymentCity','Height','Shipping_Cost','basename','parse','Category','Has_Tire_Price','and','Successfully\x20updated\x20the\x20product\x20slug.','vendorsCount','4645218wskinj','MPA-namespace','product\x20Id','(SELECT\x20pi.container_name\x20as\x20containerName\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20productInformationDetail.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20containerName','product.invoiceNo\x20as\x20invoiceNo','all','Unable\x20to\x20update\x20the\x20Product.','Invalid\x20sku\x20Id.','findOne','../../core/services/VendorProductService','productSpecialService','/add-tire-price','55504tiQNYT','Successfully\x20got\x20dashboard\x20customers\x20count','Attribute_Value_','/dashboard/graph-weekly-saleslist','Product_Special_Price_','Successfully\x20got\x20view\x20log\x20List','filter','findCategoryLevel','outOfStockThreshold\x20should\x20be\x20less\x20than\x20original\x20quantity.','productCreate','DESC','AddProductRequest','(SELECT\x20pi.default_image\x20as\x20defaultImage\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20productInformationDetail.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20defaultImage','Products\x20Sheet','category.name\x20as\x20name','OrderProduct.product','headers','Thursday','toString','../../core/services/ProductTirePriceService','Product\x20Id','Manufacturer_Image','successfully\x20listed\x20recently\x20selling\x20products..!','customers','/update-sku','All\x20Product\x20Excel','vendorList','customerCartService','replace','discountPriority','design:paramtypes','Successfully\x20got\x20view\x20log\x20count','../../core/models/ProductDiscount','limit','taxType','productData.xlsx','product-attribute','CategoryId','Successfully\x20got\x20count\x20','ExportAllProducts','/dashboard-admin/orders-count','productInformationDetail.productId','CategoryService','4365027wyrukL','axios','OrderProduct.skuName\x20as\x20skuName','Variant_Value','quotationAvailable','variantQuantity','Tax_Type','../../core/services/SkuService','/download-product-sample','/update-owner-product-list','/dashboard-total-revenue','__esModule','substring','modifiedPrice','jpg','Successfully\x20added\x20tire\x20price\x20for\x20this\x20product.','productVideo','condition','Description','specialPriority','COUNT(OrderProduct.orderId)\x20as\x20ordercount','productInformationDetail','dateStart','(SELECT\x20pi.image\x20as\x20image\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20OrderProduct.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20image','ProductTirePrice','(SELECT\x20pi.default_image\x20as\x20defaultImage\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20OrderProduct.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20defaultImage','upc','Monday','successfully\x20got\x20the\x20product\x20count.','successfully\x20got\x20the\x20dashboard\x20count.','productCost','totalTireLength','GROUP_CONCAT','findProducts','video','OrderProduct.createdDate','offset','Weight','Successfully\x20got\x20the\x20top\x20ten\x20weekly\x20sales\x20list','discountPrice','Sunday','createdBy','HSN','/product-count','Successfully\x20got\x20the\x20complete\x20product\x20list.\x20','Successfully\x20get\x20productDetail','220296sLBJke','discountEndDate','The\x20file\x20you\x20uploaded\x20contains\x20some\x20invalid\x20extensions','hasStock','../../core/services/PluginService','/inventory-product-list','JsonController','productDescription','stringify','duration','getCustomerAddress','Order.paymentStatus','Subtract\x20Stock','customerGroupId','Workbook','requiredShipping','attribute','__decorate','dashboardCount','../../core/models/SkuModel','category','productService','pluginService','discount\x20price','containerName','inventoryProductList','Successfully\x20got\x20the\x20total\x20revenue\x20amount','Please\x20choose\x20a\x20product\x20that\x20you\x20want\x20to\x20delete.','send','__importDefault','values'];a273_0x3957=function(){return _0xf558c9;};return a273_0x3957();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const ProductService_1 = require("../../core/services/ProductService");
+const ProductToCategoryService_1 = require("../../core/services/ProductToCategoryService");
+const ProductImageService_1 = require("../../core/services/ProductImageService");
+const ProductModel_1 = require("../../core/models/ProductModel");
+const ProductDiscount_1 = require("../../core/models/ProductDiscount");
+const VendorProducts_1 = require("../../core/models/VendorProducts");
+const ProductSpecial_1 = require("../../core/models/ProductSpecial");
+const class_transformer_1 = require("class-transformer");
+const DeleteProductRequest_1 = require("./requests/DeleteProductRequest");
+const CreateProductRequest_1 = require("./requests/CreateProductRequest");
+const UpdateProductRequest_1 = require("./requests/UpdateProductRequest");
+const ProductToCategory_1 = require("../../core/models/ProductToCategory");
+const ProductImage_1 = require("../../core/models/ProductImage");
+const CategoryService_1 = require("../../core/services/CategoryService");
+const OrderProductService_1 = require("../../core/services/OrderProductService");
+const OrderService_1 = require("../../core/services/OrderService");
+const ProductTirePrice_1 = require("../../core/models/ProductTirePrice");
+const UpdateStockRequest_1 = require("./requests/UpdateStockRequest");
+const CreateTirePriceRequest_1 = require("./requests/CreateTirePriceRequest");
+const ProductViewLogService_1 = require("../../core/services/ProductViewLogService");
+const ProductDiscountService_1 = require("../../core/services/ProductDiscountService");
+const ProductSpecialService_1 = require("../../core/services/ProductSpecialService");
+const moment = require("moment");
+const CustomerService_1 = require("../../core/services/CustomerService");
+const fs = require("fs");
+const TaxService_1 = require("../../core/services/TaxService");
+const PaymentService_1 = require("../../core/services/PaymentService");
+const path = tslib_1.__importStar(require("path"));
+const ImageService_1 = require("../../core/services/ImageService");
+const CategoryPathService_1 = require("../../core/services/CategoryPathService");
+const ProductTirePriceService_1 = require("../../core/services/ProductTirePriceService");
+const SkuService_1 = require("../../core/services/SkuService");
+const SkuModel_1 = require("../../core/models/SkuModel");
+const env_1 = require("../../../env");
+const S3Service_1 = require("../../core/services/S3Service");
+const VendorProductService_1 = require("../../core/services/VendorProductService");
+const ProductVideoService_1 = require("../../core/services/ProductVideoService");
+const ProductVideo_1 = require("../../core/models/ProductVideo");
+const VendorService_1 = require("../../core/services/VendorService");
+const VendorPaymentService_1 = require("../../core/services/VendorPaymentService");
+const CustomerCartService_1 = require("../../core/services/CustomerCartService");
+const pluginLoader_1 = require("../../../loaders/pluginLoader");
+const BulkImportRequest_1 = require("./requests/BulkImportRequest");
+const CategoryModel_1 = require("../../core/models/CategoryModel");
+const CategoryPath_1 = require("../../core/models/CategoryPath");
+const product_1 = require("@spurtcommerce/product");
+const PluginService_1 = require("../../core/services/PluginService");
+const ExportLog_1 = require("../../core/models/ExportLog");
+const ExportLogService_1 = require("../../core/services/ExportLogService");
+const uncino_1 = tslib_1.__importDefault(require("uncino"));
+const typeorm_1 = require("typeorm");
+const hooks = (0, uncino_1.default)();
+let ProductController = class ProductController {
+    constructor(productService, productToCategoryService, productImageService, categoryService, orderProductService, orderService, productViewLogService, productDiscountService, productSpecialService, customerService, taxService, paymentService, categoryPathService, productTirePriceService, skuService, s3Service, productVideoService, imageService, vendorProductService, vendorServie, vendorPaymentService, customerCartService, bulkImport, pluginService, exportLogService) {
+        this.productService = productService;
+        this.productToCategoryService = productToCategoryService;
+        this.productImageService = productImageService;
+        this.categoryService = categoryService;
+        this.orderProductService = orderProductService;
+        this.orderService = orderService;
+        this.productViewLogService = productViewLogService;
+        this.productDiscountService = productDiscountService;
+        this.productSpecialService = productSpecialService;
+        this.customerService = customerService;
+        this.taxService = taxService;
+        this.paymentService = paymentService;
+        this.categoryPathService = categoryPathService;
+        this.productTirePriceService = productTirePriceService;
+        this.skuService = skuService;
+        this.s3Service = s3Service;
+        this.productVideoService = productVideoService;
+        this.imageService = imageService;
+        this.vendorProductService = vendorProductService;
+        this.vendorServie = vendorServie;
+        this.vendorPaymentService = vendorPaymentService;
+        this.customerCartService = customerCartService;
+        this.bulkImport = bulkImport;
+        this.pluginService = pluginService;
+        this.exportLogService = exportLogService;
+    }
+    // Product List API
+    /**
+     * @api {get} /api/product Product List API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} sku sku
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {Number} price=1/2 if 1-> asc 2-> desc
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/product
+     * @apiErrorExample {json} productList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    getProductList(limit, offset, keyword, sku, status, price, count, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const list = yield (0, product_1.productList)((0, typeorm_1.getConnection)(), [
+                'productId',
+                'sku',
+                'productName',
+                'quantity',
+                'keywords',
+                'productSlug',
+                'dateAvailable',
+                'width',
+                'height',
+                'length',
+                'weight',
+                'image',
+                'defaultImage',
+                'modifiedPrice',
+                'productDiscount',
+                'productSpecial',
+                'isActive',
+                'price',
+                'containerName',
+            ], limit, offset, keyword, sku, status, price, count);
+            return response.status(200).send(list);
+        });
+    }
+    // Create Product API
+    /**
+     * @api {post} /api/product Add Product API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..255}} productName productName
+     * @apiParam (Request body) {String} [productDescription] productDescription
+     * @apiParam (Request body) {String{..64}} sku stock keeping unit
+     * @apiParam (Request body) {String{..12}} upc upc
+     * @apiParam (Request body) {String{..64}} hsn hsn
+     * @apiParam (Request body) {String} image product Image
+     * @apiParam (Request body) {String{..255}} [productSlug] productSlug
+     * @apiParam (Request body) {String} quantity quantity
+     * @apiParam (Request body) {Number} [packingCost] packingCost
+     * @apiParam (Request body) {Number} [shippingCost] shippingCost
+     * @apiParam (Request body) {Number} [tax] tax
+     * @apiParam (Request body) {Number} [taxType] taxType
+     * @apiParam (Request body) {Number} [others] others
+     * @apiParam (Request body) {String} categoryId CategoryId
+     * @apiParam (Request body) {String} [relatedProductId] relatedProductId
+     * @apiParam (Request body) {Number} price price
+     * @apiParam (Request body) {Number} [outOfStockStatus] outOfStockStatus
+     * @apiParam (Request body) {Number} [requiredShipping] requiredShipping
+     * @apiParam (Request body) {String} dateAvailable dateAvailable
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {Number{..9999}} sortOrder sortOrder
+     * @apiParam (Request body) {Number} [quotationAvailable] quotationAvailable
+     * @apiParam (Request body) {Number} [hasTirePrice] hasTirePrice
+     * @apiParam (Request body) {String} [productSpecial] productSpecial
+     * @apiParam (Request body) {String} [productDiscount] productDiscount
+     * @apiParam (Request body) {String} [tirePrices] tirePrices
+     * @apiParam (Request body) {String} [height] height
+     * @apiParam (Request body) {String} [weight] weight
+     * @apiParam (Request body) {String} [length] length
+     * @apiParam (Request body) {String} [width] width
+     * @apiParam (Request body) {Object} [productVideo] video
+     * @apiParam (Request body) {String} productVideo.name video name
+     * @apiParam (Request body) {String} productVideo.path for embedded have to pass path only
+     * @apiParam (Request body) {Number} productVideo.type 1 -> video 2 -> embedded
+     * @apiParamExample {json} Input
+     * {
+     *      "productName" : "",
+     *      "productDescription" : "",
+     *      "sku" : "",
+     *      "image" : "",
+     *      "categoryId" : [],
+     *      "productSlug" : "",
+     *      "upc" : "",
+     *      "hsn" : "",
+     *      "price" : "",
+     *      "packingCost" : "",
+     *      "shippingCost" : "",
+     *      "tax" : "",
+     *      "taxType" : "",
+     *      "others" : "",
+     *      "outOfStockStatus" : "",
+     *      "requiredShipping" : "",
+     *      "dateAvailable" : "",
+     *      "status" : "",
+     *      "outOfStockStatus" : "",
+     *      "sortOrder" : "",
+     *      "quotationAvailable" : "",
+     *      "hasTirePrice" : "",
+     *      "image":[
+     *      {
+     *      "image":""
+     *      "containerName":""
+     *      "defaultImage":""
+     *      }
+     *      ]
+     *      "tirePrices":[
+     *      {
+     *      "quantity":""
+     *      "price":""
+     *      }
+     *      ]
+     *     "relatedProductId":[ ]
+     *     "productSpecial":[
+     *      {
+     *     "customerGroupId":""
+     *     "specialPriority":""
+     *     "specialPrice":""
+     *     "specialDateStart":""
+     *     "specialDateEnd":""
+     *      }],
+     *     "productDiscount":[
+     *      {
+     *         "discountQuantity":""
+     *         "discountPriority":""
+     *         "discountPrice":""
+     *         "discountDateStart":""
+     *         "discountDateEnd"""
+     *      }],
+     *      "productVideo":{
+     *               "name": "",
+     *               "path": "",
+     *               "type": ""
+     *      }
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully created new product.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/product
+     * @apiErrorExample {json} AddProduct error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addProduct(product, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const productNpm = yield (0, product_1.productCreate)(product, (0, typeorm_1.getConnection)());
+            if (productNpm.status === 0) {
+                return response.status(400).send({
+                    status: 0,
+                    message: productNpm.message,
+                });
+            }
+            return response.status(200).send({
+                status: 1,
+                message: productNpm.message,
+                data: productNpm.data,
+            });
+        });
+    }
+    // update Product API
+    /**
+     * @api {post} /api/product/update-product/:id Update Product API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} productId productId
+     * @apiParam (Request body) {String{..255}} productName productName
+     * @apiParam (Request body) {String} [productDescription] productDescription
+     * @apiParam (Request body) {String{..64}} sku stock keeping unit
+     * @apiParam (Request body) {String{..12}} upc upc
+     * @apiParam (Request body) {String{..64}} hsn hsn
+     * @apiParam (Request body) {String} image product Image
+     * @apiParam (Request body) {String} quantity quantity
+     * @apiParam (Request body) {String{.255}} [productSlug] productSlug
+     * @apiParam (Request body) {String} categoryId CategoryId
+     * @apiParam (Request body) {String} [relatedProductId] relatedProductId
+     * @apiParam (Request body) {Number} price price
+     * @apiParam (Request body) {Number} [packingCost] packingCost
+     * @apiParam (Request body) {Number} [shippingCost] shippingCost
+     * @apiParam (Request body) {Number} [tax] tax
+     * @apiParam (Request body) {Number} [taxType] taxType
+     * @apiParam (Request body) {Number} [others] others
+     * @apiParam (Request body) {Number} [outOfStockStatus] outOfStockStatus
+     * @apiParam (Request body) {Number} [requiredShipping] requiredShipping
+     * @apiParam (Request body) {String} [dateAvailable] dateAvailable
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {Number{..9999}} [sortOrder] sortOrder
+     * @apiParam (Request body) {Number} quotationAvailable quotationAvailable
+     * @apiParam (Request body) {Number} hasTirePrice
+     * @apiParam (Request body) {String} [productSpecial] productSpecial
+     * @apiParam (Request body) {String} [productDiscount] productDiscount
+     * @apiParam (Request body) {String} [height] height
+     * @apiParam (Request body) {String} [weight] weight
+     * @apiParam (Request body) {String} [length] length
+     * @apiParam (Request body) {String} [width] width
+     * @apiParam (Request body) {String} [tirePrices] tirePrices
+     * @apiParam (Request body) {Object} [productVideo] video
+     * @apiParam (Request body) {String} productVideo.name video name
+     * @apiParam (Request body) {String} productVideo.path for embedded have to pass path only
+     * @apiParam (Request body) {Number} productVideo.type 1 -> video 2 -> embedded
+     * @apiParamExample {json} Input
+     * {
+     *      "productName" : "",
+     *      "productDescription" : "",
+     *      "sku" : "",
+     *      "image" : "",
+     *      "categoryId" : [],
+     *      "upc" : "",
+     *      "hsn" : "",
+     *      "price" : "",
+     *      "packingCost" : "",
+     *      "shippingCost" : "",
+     *      "tax" : "",
+     *      "taxType" : "",
+     *      "others" : "",
+     *      "outOfStockStatus" : "",
+     *      "requiredShipping" : "",
+     *      "dateAvailable" : "",
+     *      "status" : "",
+     *      "hasTirePrice" : "",
+     *      "outOfStockStatus" : "",
+     *      "sortOrder" : "",
+     *      "quotationAvailable" : "",
+     *      "tirePrices":[
+     *      {
+     *      "quantity":""
+     *      "price":"",
+     *      "skuName":""
+     *      }
+     *      ]
+     *      "image":[
+     *      {
+     *      "image":""
+     *      "containerName":""
+     *      "defaultImage":""
+     *      }
+     *      ],
+     *       "relatedProductId":[ "", ""],
+     *      "productSpecial":[
+     *      {
+     *     "customerGroupId":""
+     *     "specialPriority":""
+     *     "skuName":""
+     *     "specialPrice":""
+     *     "specialDateStart":""
+     *     "specialDateEnd":""
+     *      }],
+     *       "productDiscount":[
+     *      {
+     *         "discountPriority":""
+     *         "discountPrice":""
+     *         "skuName":""
+     *         "discountDateStart":""
+     *         "discountDateEnd"""
+     *      }],
+     *       "productVideo":{
+     *               "name": "",
+     *               "path": "",
+     *               "type": ""
+     *      }
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated product.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/product/update-product/:id
+     * @apiErrorExample {json} updateProduct error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateProduct(product, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const category = product.categoryId;
+            if (category.length === 0) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Category should not be empty',
+                });
+            }
+            let validatedDiscount = false;
+            let validatedSpecial = false;
+            let validatedTier = false;
+            const validateDiscountPrice = product.productDiscount;
+            if (validateDiscountPrice.length > 0) {
+                validatedDiscount = validateDiscountPrice.some(discData => discData.discountPrice < 0);
+            }
+            const validateSpecialPrice = product.productSpecial;
+            if (validateSpecialPrice.length > 0) {
+                validatedSpecial = validateSpecialPrice.some(specialData => specialData.specialPrice < 0);
+            }
+            const validateTierPrice = product.tirePrices;
+            if (validateTierPrice.length > 0) {
+                validatedTier = validateTierPrice.some(tireData => tireData.price < 0);
+            }
+            if (validatedDiscount || validatedSpecial || validatedTier || (product.price < 0)) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Price should not be in negative',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            if ((product.tax < 0)) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'tax should not be in negative',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const updateProduct = yield this.productService.findOne({
+                where: {
+                    productId: product.productId,
+                },
+            });
+            if (!updateProduct) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid product Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const metaTagTitle = product.productSlug ? product.productSlug : product.productName;
+            const slug = metaTagTitle.trim();
+            const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+            updateProduct.productSlug = yield this.validate_slug(data, product.productId);
+            updateProduct.name = product.productName;
+            updateProduct.description = product.productDescription ? yield this.imageService.escapeChar(product.productDescription) : '';
+            updateProduct.sku = product.sku;
+            updateProduct.upc = product.upc;
+            updateProduct.hsn = product.hsn;
+            updateProduct.quantity = product.quantity;
+            updateProduct.quotationAvailable = product.quotationAvailable ? product.quotationAvailable : 0;
+            //// special charges//////
+            const serviceCharge = {};
+            serviceCharge.productCost = product.price;
+            serviceCharge.packingCost = product.packingCost ? product.packingCost : 0;
+            serviceCharge.shippingCost = product.shippingCost ? product.shippingCost : 0;
+            serviceCharge.tax = 0;
+            serviceCharge.others = product.others ? product.others : 0;
+            updateProduct.serviceCharges = JSON.stringify(serviceCharge);
+            updateProduct.price = serviceCharge.productCost + serviceCharge.packingCost + serviceCharge.shippingCost + serviceCharge.others;
+            updateProduct.taxType = product.taxType ? product.taxType : 0;
+            updateProduct.taxValue = product.tax ? product.tax : 0;
+            // saving sku //
+            let saveSku;
+            const findSku = yield this.skuService.findOne({ where: { skuName: updateProduct.sku } });
+            if (findSku) {
+                const finddSku = yield this.productService.findSkuName(product.productId, product.sku, 0);
+                if (finddSku) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Duplicate sku name.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                else {
+                    findSku.skuName = updateProduct.sku;
+                    findSku.price = updateProduct.price;
+                    findSku.quantity = product.quantity;
+                    findSku.isActive = product.status;
+                    saveSku = yield this.skuService.create(findSku);
+                }
+            }
+            else {
+                const newSku = new SkuModel_1.Sku();
+                newSku.skuName = updateProduct.sku;
+                newSku.price = updateProduct.price;
+                newSku.quantity = product.quantity;
+                newSku.isActive = product.status;
+                saveSku = yield this.skuService.create(newSku);
+            }
+            // ending sku //
+            updateProduct.skuId = saveSku.id;
+            updateProduct.stockStatusId = product.outOfStockStatus ? product.outOfStockStatus : 0;
+            updateProduct.shipping = product.requiredShipping;
+            updateProduct.dateAvailable = moment(product.dateAvailable).toISOString();
+            updateProduct.isActive = product.status;
+            updateProduct.sortOrder = product.sortOrder ? product.sortOrder : 1;
+            updateProduct.height = product.height;
+            updateProduct.weight = product.weight;
+            updateProduct.length = product.length;
+            updateProduct.width = product.width;
+            updateProduct.hasTirePrice = product.hasTirePrice;
+            // adding category name and product name in keyword field for keyword search
+            const rows = [];
+            if (category.length !== 0) {
+                for (const categoryId of category) {
+                    const categoryNames = yield this.categoryService.findOne({
+                        where: {
+                            categoryId,
+                        },
+                    });
+                    const name = '~' + categoryNames.name + '~';
+                    rows.push(name);
+                }
+                rows.push('~' + product.productName + '~');
+            }
+            const values = rows.toString();
+            updateProduct.keywords = values;
+            updateProduct.modifiedBy = request.user.userId;
+            const vendorProductCheck = yield this.vendorProductService.findOne({
+                where: {
+                    productId: updateProduct.productId,
+                },
+            });
+            if (vendorProductCheck) {
+                const vendor = yield this.vendorServie.findOne({
+                    where: {
+                        vendorId: vendorProductCheck.vendorId,
+                        approvalFlag: 1,
+                    },
+                });
+                if (!vendor) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'You cannot update the vendor product as this vendor needs approval.',
+                    });
+                }
+                vendorProductCheck.quotationAvailable = product.quotationAvailable ? product.quotationAvailable : 0;
+                yield this.vendorProductService.create(vendorProductCheck);
+            }
+            const saveProduct = yield this.productService.create(updateProduct);
+            // delete customerCart
+            this.customerCartService.delete({ productId: product.productId });
+            // delete previous category
+            this.productToCategoryService.delete({ productId: saveProduct.productId });
+            // save category
+            if (category.length !== 0) {
+                for (const categoryId of category) {
+                    const newProductToCategory = new ProductToCategory_1.ProductToCategory();
+                    newProductToCategory.productId = saveProduct.productId;
+                    newProductToCategory.categoryId = categoryId;
+                    newProductToCategory.isActive = 1;
+                    this.productToCategoryService.create(newProductToCategory);
+                }
+            }
+            // Delete previous images
+            this.productImageService.delete({ productId: saveProduct.productId });
+            // Save products Image
+            if (product.image) {
+                const productImage = product.image;
+                for (const imageRow of productImage) {
+                    const imageData = JSON.stringify(imageRow);
+                    const imageResult = JSON.parse(imageData);
+                    const newProductImage = new ProductImage_1.ProductImage();
+                    newProductImage.productId = saveProduct.productId;
+                    newProductImage.image = imageResult.image;
+                    newProductImage.containerName = imageResult.containerName;
+                    newProductImage.defaultImage = imageResult.defaultImage;
+                    yield this.productImageService.create(newProductImage);
+                }
+            }
+            // Product Discount
+            if (product.productDiscount) {
+                // Delete the product discount
+                this.productDiscountService.delete({ productId: saveProduct.productId });
+                const productDiscount = product.productDiscount;
+                const distArr = [];
+                for (const discount of productDiscount) {
+                    const discountData = new ProductDiscount_1.ProductDiscount();
+                    discountData.productId = saveProduct.productId;
+                    discountData.quantity = 1;
+                    if (saveProduct.price <= discount.discountPrice) {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'discount price should be less than original price.',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    const skuValue = yield this.skuService.findOne({
+                        where: {
+                            skuName: discount.skuName,
+                        },
+                    });
+                    if (skuValue) {
+                        discountData.skuId = skuValue.id;
+                    }
+                    else {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'Sku does not exist in discount price.',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    discountData.priority = discount.discountPriority;
+                    discountData.price = discount.discountPrice;
+                    discountData.dateStart = moment(discount.discountDateStart).toISOString();
+                    discountData.dateEnd = moment(discount.discountDateEnd).toISOString();
+                    distArr.push(discountData);
+                }
+                yield this.productDiscountService.create(distArr);
+            }
+            // Product Special
+            if (product.productSpecial) {
+                this.productSpecialService.delete({ productId: saveProduct.productId });
+                const productSpecial = product.productSpecial;
+                const splArr = [];
+                for (const special of productSpecial) {
+                    const specialPriceData = new ProductSpecial_1.ProductSpecial();
+                    specialPriceData.productId = saveProduct.productId;
+                    if (saveProduct.price < special.specialPrice) {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'special price should be less than original price.',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    specialPriceData.customerGroupId = special.customerGroupId;
+                    const specialSkuValue = yield this.skuService.findOne({
+                        where: {
+                            skuName: special.skuName,
+                        },
+                    });
+                    if (specialSkuValue) {
+                        specialPriceData.skuId = specialSkuValue.id;
+                    }
+                    else {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'Sku does not exist in special price',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    specialPriceData.priority = special.specialPriority;
+                    specialPriceData.price = special.specialPrice;
+                    specialPriceData.dateStart = moment(special.specialDateStart).toISOString();
+                    specialPriceData.dateEnd = moment(special.specialDateEnd).toISOString();
+                    splArr.push(specialPriceData);
+                }
+                yield this.productSpecialService.create(splArr);
+            }
+            // Product tire price
+            if (product.tirePrices) {
+                yield this.productTirePriceService.delete({ productId: saveProduct.productId });
+                const tirePrice = product.tirePrices;
+                const tireArr = [];
+                for (const tire of tirePrice) {
+                    const productTirePrice = new ProductTirePrice_1.ProductTirePrice();
+                    productTirePrice.productId = saveProduct.productId;
+                    const tireSkuValue = yield this.skuService.findOne({
+                        where: {
+                            skuName: tire.skuName,
+                        },
+                    });
+                    if (tireSkuValue) {
+                        productTirePrice.skuId = tireSkuValue.id;
+                    }
+                    else {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'Sku does not exist tire price',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    productTirePrice.quantity = tire.quantity;
+                    productTirePrice.price = tire.price;
+                    tireArr.push(productTirePrice);
+                }
+                yield this.productTirePriceService.create(tireArr);
+            }
+            // update product Video
+            const video = product.productVideo;
+            if (video) {
+                yield this.productVideoService.delete({ productId: saveProduct.productId });
+                const newProductVideo = new ProductVideo_1.ProductVideo();
+                newProductVideo.productId = saveProduct.productId;
+                newProductVideo.name = video.name;
+                newProductVideo.type = video.type;
+                newProductVideo.path = video.path;
+                yield this.productVideoService.create(newProductVideo);
+            }
+            yield this.productService.create(saveProduct);
+            if (saveProduct) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated the Product.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the Product.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Product Detail API
+    /**
+     * @api {get} /api/product/product-detail/:id Product Detail API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product Detail",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/product/product-detail/:id
+     * @apiErrorExample {json} productDetail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productDetail(id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const productDetail = yield this.productService.findOne({
+                where: { productId: id },
+            });
+            const productDetails = (0, class_transformer_1.instanceToPlain)(productDetail);
+            productDetails.quotationAvailable = productDetail.quotationAvailable;
+            const serviceCharges = productDetails.serviceCharges;
+            if (serviceCharges) {
+                const specialCharge = JSON.parse(productDetails.serviceCharges);
+                productDetails.productCost = specialCharge.productCost;
+                productDetails.packingCost = specialCharge.packingCost;
+                productDetails.shippingCost = specialCharge.shippingCost;
+                productDetails.others = specialCharge.others;
+            }
+            if (productDetails.taxType === 2) {
+                const tax = yield this.taxService.findOne({ taxId: productDetails.taxValue });
+                let percentToAmount;
+                if (tax) {
+                    percentToAmount = productDetails.price * (tax.taxPercentage / 100);
+                }
+                else {
+                    percentToAmount = 0;
+                }
+                const val = +productDetails.price + percentToAmount;
+                productDetails.priceWithTax = val;
+            }
+            else {
+                const taxValue = (productDetails.taxValue && productDetails.taxValue > 0) ? productDetails.taxValue : 0;
+                const val = +productDetails.price + taxValue;
+                productDetails.priceWithTax = val;
+            }
+            const productSku = yield this.skuService.findOne({ id: productDetails.skuId });
+            productDetails.quantity = productSku ? productSku.quantity : productDetails.quantity;
+            productDetails.productImage = yield this.productImageService.findAll({
+                select: ['productId', 'image', 'containerName', 'defaultImage'],
+                where: {
+                    productId: productDetail.productId,
+                },
+            });
+            productDetails.Category = yield this.productToCategoryService.findAll({
+                select: ['categoryId', 'productId'],
+                where: { productId: productDetail.productId },
+            }).then((val) => {
+                const category = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const categoryValue = yield this.categoryService.findOne({ where: { categoryId: value.categoryId } });
+                    const categoryLevel = yield this.categoryPathService.findCategoryLevel(categoryValue.categorySlug);
+                    console.log(categoryLevel, 'categoryLevelcategoryLevel');
+                    categoryValue.levels = categoryLevel.levels;
+                    const temp = categoryValue;
+                    return temp;
+                }));
+                const results = Promise.all(category);
+                return results;
+            });
+            productDetails.productSpecialPrice = yield this.productSpecialService.findAll({
+                select: ['productSpecialId', 'priority', 'price', 'dateStart', 'dateEnd', 'skuId'],
+                where: { productId: productDetail.productId },
+            }).then((val) => {
+                const special = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const skuNames = yield this.skuService.findOne({ id: value.skuId });
+                    const temp = value;
+                    if (skuNames !== undefined) {
+                        temp.skuName = skuNames.skuName;
+                    }
+                    else {
+                        temp.skuName = '';
+                    }
+                    return temp;
+                }));
+                const results = Promise.all(special);
+                return results;
+            });
+            productDetails.productDiscountData = yield this.productDiscountService.findAll({
+                select: ['productDiscountId', 'quantity', 'priority', 'price', 'dateStart', 'dateEnd', 'skuId'],
+                where: { productId: productDetail.productId },
+            }).then((val) => {
+                const discount = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const discountSkuNames = yield this.skuService.findOne({ id: value.skuId });
+                    const temp = value;
+                    if (discountSkuNames !== undefined) {
+                        temp.skuName = discountSkuNames.skuName;
+                    }
+                    else {
+                        temp.skuName = '';
+                    }
+                    return temp;
+                }));
+                const results = Promise.all(discount);
+                return results;
+            });
+            productDetails.productTirePrices = yield this.productTirePriceService.findAll({
+                select: ['id', 'quantity', 'price', 'skuId'],
+                where: { productId: productDetail.productId },
+            }).then((val) => {
+                const tirePrice = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const tireSkuNames = yield this.skuService.findOne({ id: value.skuId });
+                    const temp = value;
+                    if (tireSkuNames !== undefined) {
+                        temp.skuName = tireSkuNames.skuName;
+                    }
+                    else {
+                        temp.skuName = '';
+                    }
+                    return temp;
+                }));
+                const results = Promise.all(tirePrice);
+                return results;
+            });
+            productDetails.productVideo = yield this.productVideoService.findOne({
+                select: ['id', 'name', 'path', 'type', 'productId'],
+                where: { productId: productDetail.productId },
+            });
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get productDetail',
+                data: productDetails,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    //  Top Selling Product List API
+    /**
+     * @api {get} /api/product/top-selling-productlist  Top selling ProductList API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get top selling product..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/top-selling-productlist
+     * @apiErrorExample {json} top selling product error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Detail Function
+    topSellingProductList(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'COUNT(OrderProduct.orderId) as ordercount',
+                'OrderProduct.skuName as skuName',
+                'productInformationDetail.productId as productId',
+                'productInformationDetail.price as price',
+                'productInformationDetail.name as name',
+                'productInformationDetail.description as description',
+                'productInformationDetail.productSlug as productSlug',
+                '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = productInformationDetail.productId AND pi.default_image = 1 LIMIT 1) as image',
+                '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = productInformationDetail.productId AND pi.default_image = 1 LIMIT 1) as containerName',
+                '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = productInformationDetail.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
+            ];
+            const relations = [
+                {
+                    tableName: 'OrderProduct.productInformationDetail',
+                    aliasName: 'productInformationDetail',
+                },
+                {
+                    tableName: 'OrderProduct.product',
+                    aliasName: 'product',
+                },
+            ];
+            const sort = [
+                {
+                    name: 'ordercount',
+                    order: 'DESC',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'productInformationDetail.productId',
+                },
+            ];
+            const productTopsellingList = yield this.orderProductService.listByQueryBuilder(4, 0, select, [], [], relations, groupBy, sort, false, true);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get Top Selling Product..!',
+                data: productTopsellingList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    //  Top Five Repeatedly Purchased Customer List API
+    /**
+     * @api {get} /api/product/top-five-repeatedly-purchased-customers  Top Five Repeatedly Purchased Customer List API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get top 5 repeatedly purchased customer list!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/top-five-repeatedly-purchased-customers
+     * @apiErrorExample {json} top five repeatedly purchased customer list error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    topFiveRepeatedlyPurchasedCustomers(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const limit = 5;
+            const select = [
+                'MAX(Order.customerId) as customerId',
+                'customer.firstName as firstName',
+                'customer.lastName as lastName',
+                'customer.avatar as avatar',
+                'customer.avatarPath as avatarPath',
+                '(SELECT ca.city as paymentCity FROM address ca WHERE ca.customer_id = MAX(Order.customerId) LIMIT 1) as paymentCity',
+                'COUNT(Order.orderId) as orderCount',
+            ];
+            const relations = [{
+                    tableName: 'Order.customer',
+                    aliasName: 'customer',
+                }];
+            const whereConditions = [{
+                    name: 'Order.paymentFlag',
+                    op: 'and',
+                    value: 1,
+                },
+                {
+                    name: 'Order.paymentStatus',
+                    op: 'and',
+                    value: 1,
+                },
+                {
+                    name: 'customer.deleteFlag',
+                    op: 'and',
+                    value: 0,
+                }];
+            const sort = [{
+                    name: 'orderCount',
+                    order: 'DESC',
+                }];
+            const groupBy = [{
+                    name: 'Order.customerId',
+                }];
+            const topFiveRepeatedlyPurchasedCustomer = yield this.orderService.listByQueryBuilder(limit, 0, select, whereConditions, [], relations, groupBy, sort, false, true);
+            if (topFiveRepeatedlyPurchasedCustomer) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got the top 5 repeatedly purchased customer..!',
+                    data: topFiveRepeatedlyPurchasedCustomer,
+                });
+            }
+        });
+    }
+    //  Top Performing Product List API
+    /**
+     * @api {get} /api/product/top-performing-products  Top Performing Product List API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get top performing product list!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/top-performing-products
+     * @apiErrorExample {json} top performing product list error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    topPerformingProucts(limit, offset, count, duration, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const topPerformingProducts = yield this.orderProductService.topPerformingProducts(limit, offset, count, duration);
+            if (topPerformingProducts !== '' && topPerformingProducts !== undefined) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got the top performing product list',
+                    data: topPerformingProducts,
+                });
+            }
+            else {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Cannot get top performing product list',
+                });
+            }
+        });
+    }
+    // Dashboard Customer Count API
+    /**
+     * @api {get} /api/product/dashboard/admin-customers-count Dashboard Customer Count API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get dashboard customers count",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/dashboard/admin-customers-count
+     * @apiErrorExample {json} dashboard customers count list error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    dashboardCustomerCount(duration, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customerCount = yield this.customerService.dashboardCustomerCount(duration);
+            if (customerCount !== '' && customerCount !== undefined) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got dashboard customers count',
+                    data: customerCount,
+                });
+            }
+        });
+    }
+    // Dashboard Orders Count API
+    /**
+     * @api {get} /api/product/dashboard-admin/orders-count Dashboard Orders Count API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get dashboard orders and vendor count based on orders",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/dashboard-admin/orders-count
+     * @apiErrorExample {json} dashboard orders count list error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    dashboardOrderCount(duration, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const countOfOrdersAndVendors = yield this.orderService.dashboardOrdersCount(duration);
+            const count = {};
+            count.ordersCount = countOfOrdersAndVendors.ordersCount ? countOfOrdersAndVendors.ordersCount : 0;
+            count.vendorsCount = countOfOrdersAndVendors.vendorsCount ? countOfOrdersAndVendors.vendorsCount : 0;
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully got dashboard orders and vendors count based on orders',
+                data: count,
+            });
+        });
+    }
+    // Dashboard Average Order Value API
+    /**
+     * @api {get} /api/product/dashboard-average-order-value Dashboard Average Order Value API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get average order value",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/dashboard-average-order-value
+     * @apiErrorExample {json} average order value error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    averageOrderValue(duration, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderproductstotal = yield this.orderProductService.dashboardOrderProductsTotal(duration);
+            const vendorcommission = yield this.vendorPaymentService.dashboardVendorCommissionTotal(duration);
+            const orderProductsTotal = orderproductstotal.orderProductsTotal ? orderproductstotal.orderProductsTotal : 0;
+            const vendorCommission = vendorcommission.vendorCommission ? vendorcommission.vendorCommission : 0;
+            const totalCount = +orderproductstotal.ordersCount + +vendorcommission.vendorCommissionCount;
+            const averageOrderValue = totalCount !== 0 ? (+orderProductsTotal + +vendorCommission) / +totalCount : 0;
+            return response.status(200).send({
+                status: 0,
+                message: 'Successfully got the average order value',
+                data: averageOrderValue.toFixed(2),
+            });
+        });
+    }
+    // Dashboard Get Total Revenue API
+    /**
+     * @api {get} /api/product/dashboard-total-revenue Dashboard Get Total Revenue API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get total revenue amount",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/dashboard-total-revenue
+     * @apiErrorExample {json} total revenue error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    dashboardTotalRevenue(duration, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderProductsTotal = yield this.orderProductService.dashboardOrderProductsTotal(duration);
+            const totalvendorCommission = yield this.vendorPaymentService.dashboardVendorCommissionTotal(duration);
+            const orderproductsTotal = orderProductsTotal.orderProductsTotal ? orderProductsTotal.orderProductsTotal : 0;
+            const vendorCommission = totalvendorCommission.vendorCommission ? totalvendorCommission.vendorCommission : 0;
+            const totalRevenue = +orderproductsTotal + +vendorCommission;
+            return response.status(200).send({
+                status: 0,
+                message: 'Successfully got the total revenue amount',
+                data: totalRevenue,
+            });
+        });
+    }
+    // Dashboard Average Conversion Ratio API
+    /**
+     * @api {get} /api/product/dashboard-average-conversion-ratio Dashboard Average Conversion Ratio API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get average conversion ratio",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/dashboard-average-conversion-ratio
+     * @apiErrorExample {json} average conversion ratio error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    averageConversionRatio(duration, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderscount = yield this.orderService.ordersCount(duration);
+            const customerscount = yield this.customerService.dashboardCustomerCount(duration);
+            const averageConversionRatio = +customerscount !== 0 ? (+orderscount / +customerscount * 100) : 0;
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully got average conversion ratio',
+                data: averageConversionRatio.toFixed(2),
+            });
+        });
+    }
+    // Dashboard Graph Weekly Sales List API
+    /**
+     * @api {get} /api/product/dashboard/graph-weekly-saleslist Dashboard Graph Weekly Sales List API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} productId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get top ten weekly sales list",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/dashboard/graph-weekly-saleslist
+     * @apiErrorExample {json} dashboard graph weekly sales list error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    topTenWeeklySales(productId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const productids = productId.split(',');
+            if (!(productids.length <= 3)) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'length of productId should be less than or equal to three',
+                });
+            }
+            const orderProductData = yield this.productService.findProducts(productids);
+            const list = orderProductData.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const data = yield this.orderProductService.topTenWeeklySalesList(result.productId);
+                const temp = result;
+                const weekOfdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const finaldata = [];
+                for (const day of weekOfdays) {
+                    const salesFilter = data.filter((val) => {
+                        return val.days === day;
+                    });
+                    if (salesFilter.length === 0) {
+                        finaldata.push({ value: 0, days: day });
+                    }
+                    else {
+                        finaldata.push(salesFilter[0]);
+                    }
+                }
+                temp.value = finaldata;
+                return temp;
+            }));
+            const weeklysaleslist = yield Promise.all(list);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully got the top ten weekly sales list',
+                data: weeklysaleslist,
+            });
+        });
+    }
+    // Recent Selling Product List
+    /**
+     * @api {get} /api/product/recent-selling-product  Recent Selling Product List API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "successfully listed recent product selling!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/product/recent-selling-product
+     * @apiErrorExample {json} Selling Product List error
+     * HTTP/1.1 500 Internal Server Errorproduct
+     */
+    // Recent selling product function
+    sellingProduct(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const limit = 3;
+            const select = [
+                'DISTINCT(OrderProduct.productId) as productId',
+                'OrderProduct.orderId as orderId',
+                'OrderProduct.name as ProductName',
+                'OrderProduct.quantity as Quantity',
+                'OrderProduct.total as Total',
+                'OrderProduct.createdDate as CreatedDate',
+                'OrderProduct.skuName as skuName',
+                'product.invoiceNo as invoiceNo',
+                'product.invoicePrefix as invoicePrefix',
+                'product.orderStatusId as orderStatusId',
+                'product.orderPrefixId as orderPrefixId',
+                '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = OrderProduct.productId AND pi.default_image = 1 LIMIT 1) as image',
+                '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = OrderProduct.productId AND pi.default_image = 1 LIMIT 1) as containerName',
+                '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = OrderProduct.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
+            ];
+            const relations = [
+                {
+                    tableName: 'OrderProduct.productInformationDetail',
+                    aliasName: 'productInformationDetail',
+                },
+                {
+                    tableName: 'OrderProduct.product',
+                    aliasName: 'product',
+                },
+            ];
+            const whereConditions = [];
+            const sort = [
+                {
+                    name: 'OrderProduct.createdDate',
+                    order: 'DESC',
+                },
+            ];
+            const recentSellingProductList = yield this.orderProductService.listByQueryBuilder(limit, 0, select, whereConditions, [], relations, [], sort, false, true);
+            const successResponse = {
+                status: 1,
+                message: 'successfully listed recently selling products..!',
+                data: recentSellingProductList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Recent viewLog list API
+    /**
+     * @api {get} /api/product/viewLog-list Product View Log List
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Product view Log List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/viewLog-list
+     * @apiErrorExample {json} ViewLog List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productViewLogList(limit, offset, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [];
+            const whereConditions = [];
+            const search = [];
+            const viewLogs = yield this.productViewLogService.list(limit, offset, select, search, whereConditions, 0, count);
+            if (count) {
+                const successresponse = {
+                    status: 1,
+                    message: 'Successfully got view log count',
+                    data: viewLogs,
+                };
+                return response.status(200).send(successresponse);
+            }
+            else {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got view log List',
+                    data: viewLogs,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Customer product view list API
+    /**
+     * @api {get} /api/product/customerProductView-list/:id Customer product View List
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Product view Log List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/customerProductView-list/:id
+     * @apiErrorExample {json} customerProductView List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    customerProductView(id, limit, offset, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [];
+            const whereConditions = [{
+                    name: 'customerId',
+                    value: id,
+                }];
+            const search = [];
+            const customerProductview = yield this.productViewLogService.list(limit, offset, select, search, whereConditions, 0, count);
+            if (count) {
+                const successresponse = {
+                    status: 1,
+                    message: 'Successfully got view log count',
+                    data: customerProductview,
+                };
+                return response.status(200).send(successresponse);
+            }
+            else {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got view log List',
+                    data: customerProductview,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Product Details Excel Document download
+    /**
+     * @api {get} /api/product/product-excel-list Product Excel
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} productId productId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the Product Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/product-excel-list
+     * @apiErrorExample {json} product Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    excelProductView(productId, keyword, sku, status, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            let list;
+            if (!productId || productId === '') {
+                list = yield (0, product_1.productList)((0, typeorm_1.getConnection)(), [
+                    'productId',
+                    'sku',
+                    'productName',
+                    'quantity',
+                    'keywords',
+                    'productSlug',
+                    'dateAvailable',
+                    'width',
+                    'height',
+                    'length',
+                    'weight',
+                    'image',
+                    'defaultImage',
+                    'modifiedPrice',
+                    'productDiscount',
+                    'productSpecial',
+                    'isActive',
+                    'price',
+                    'containerName',
+                ], 0, 0, '', sku, status, 0, false).then((value) => {
+                    console.log(value.data.map((data) => +data.productId));
+                    const productListIds = value.data.map((data) => +data.productId);
+                    return productListIds;
+                });
+            }
+            // let productListIds = list.map()
+            // if ()
+            const productIds = productId ? productId.split(',').map((id) => +id) : list.length > 0 ? list : [];
+            const excelFile = yield (0, product_1.excelExportProduct)((0, typeorm_1.getConnection)(), productIds);
+            // Add export log
+            const newExportLog = new ExportLog_1.ExportLog();
+            newExportLog.module = 'Manage Products';
+            newExportLog.recordAvailable = productIds.length;
+            newExportLog.createdBy = request.user.userId;
+            yield this.exportLogService.create(newExportLog);
+            return new Promise((resolve, reject) => {
+                response.download(excelFile, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(excelFile);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // ExportAllProducts
+    /**
+     * @api {get} /api/product/allproduct-excel-list AllProduct Excel sheet
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the All Product Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/allproduct-excel-list
+     * @apiErrorExample {json} Allproduct Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    ExportAllProducts(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('All Product Excel');
+            const rows = [];
+            const dataId = yield this.productService.findAll();
+            if (dataId === undefined) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Products are empty',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'Product Id', key: 'productId', size: 16, width: 15 },
+                { header: 'Product Name', key: 'name', size: 16, width: 15 },
+                { header: 'Description', key: 'description', size: 16, width: 30 },
+                { header: 'Price', key: 'price', size: 16, width: 15 },
+                { header: 'SKU', key: 'sku', size: 16, width: 15 },
+                { header: 'UPC', key: 'upc', size: 16, width: 15 },
+                { header: 'Quantity', key: 'quantity', size: 16, width: 15 },
+                { header: 'Minimum Quantity', key: 'minimumQuantity', size: 16, width: 19 },
+                { header: 'Subtract Stock', key: 'subtractstock', size: 16, width: 15 },
+                { header: 'Manufacture Id', key: 'manufactureId', size: 16, width: 15 },
+                { header: 'Condition', key: 'condition', size: 16, width: 15 },
+                { header: 'Rating', key: 'Rating', size: 16, width: 15 },
+                { header: 'Related Products', key: 'relatedProducts', size: 16, width: 15 },
+                { header: 'IsActive', key: 'isActive', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('H1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('I1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('J1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('K1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('L1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('M1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('N1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('O1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const product = yield this.productService.findAll();
+            for (const products of product) {
+                const productDescription = products.description;
+                const dataDescription = productDescription.replace(/(&nbsp;|(<([^>]+)>))/ig, '');
+                rows.push([products.productId, products.name, dataDescription.trim(), products.price, products.sku, products.upc, products.quantity, products.minimumQuantity, products.subtractStock, products.condition, products.rating, products.isActive]);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const worksheet1 = workbook.addWorksheet('special price');
+            worksheet1.columns = [
+                { header: 'product Special Id', key: 'productSpecialId', size: 16, width: 30 },
+                { header: 'product Id', key: 'productId', size: 16, width: 15 },
+                { header: 'product Name', key: 'productName', size: 16, width: 15 },
+                { header: 'priority', key: 'priority', size: 16, width: 15 },
+                { header: 'price', key: 'price', size: 16, width: 30 },
+                { header: 'start date', key: 'startDate', size: 16, width: 15 },
+                { header: 'end date', key: 'endDate', size: 16, width: 15 },
+            ];
+            worksheet1.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet1.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet1.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet1.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet1.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet1.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet1.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const special = [];
+            const specialPrices = yield this.productSpecialService.find();
+            for (const specialPrice of specialPrices) {
+                const productName = yield this.productService.findOne({ where: { productId: specialPrice.productId } });
+                special.push([specialPrice.productSpecialId, specialPrice.productId, productName.name, specialPrice.priority, specialPrice.price, specialPrice.dateStart, specialPrice.dateEnd]);
+            }
+            // Add all rows data in sheet
+            worksheet1.addRows(special);
+            const worksheet2 = workbook.addWorksheet('discount price');
+            worksheet2.columns = [
+                { header: 'product dicount Id', key: 'productDiscountId', size: 16, width: 30 },
+                { header: 'product Id', key: 'productId', size: 16, width: 15 },
+                { header: 'product name', key: 'productName', size: 16, width: 30 },
+                { header: 'priority', key: 'priority', size: 16, width: 15 },
+                { header: 'price', key: 'price', size: 16, width: 30 },
+                { header: 'start date', key: 'startDate', size: 16, width: 15 },
+                { header: 'end date', key: 'endDate', size: 16, width: 15 },
+            ];
+            worksheet2.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet2.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet2.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet2.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet2.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet2.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet2.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const discount = [];
+            const discountPrices = yield this.productDiscountService.find();
+            for (const discountPrice of discountPrices) {
+                const productName = yield this.productService.findOne({ where: { productId: discountPrice.productId } });
+                discount.push([discountPrice.productDiscountId, discountPrice.productId, productName.name, discountPrice.priority, discountPrice.price, discountPrice.dateStart, discountPrice.dateEnd]);
+            }
+            // Add all rows data in sheet
+            worksheet2.addRows(discount);
+            const worksheet3 = workbook.addWorksheet('Images');
+            worksheet3.columns = [
+                { header: 'product Id', key: 'productId', size: 16, width: 15 },
+                { header: 'product Name', key: 'productName', size: 16, width: 15 },
+                { header: 'Image Path', key: 'imagePath', size: 16, width: 15 },
+                { header: 'Image', key: 'image', size: 16, width: 30 },
+                { header: 'Default Image', key: 'defaultImage', size: 16, width: 30 },
+            ];
+            worksheet3.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet3.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet3.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet3.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet3.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const productimage = [];
+            const images = yield this.productImageService.find();
+            for (const image of images) {
+                const productName = yield this.productService.findOne({ where: { productId: image.productId } });
+                productimage.push([image.productId, productName.name, image.containerName, image.image, image.defaultImage]);
+            }
+            // Add all rows data in sheet
+            worksheet3.addRows(productimage);
+            const worksheet6 = workbook.addWorksheet('Related Category');
+            worksheet6.columns = [
+                { header: 'product Id', key: 'productId', size: 16, width: 15 },
+                { header: 'Category Id', key: 'categoryId', size: 16, width: 15 },
+                { header: 'Category Name', key: 'CategoryName', size: 16, width: 30 },
+            ];
+            worksheet6.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet6.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet6.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const relatedCategory = [];
+            const categories = yield this.productToCategoryService.find();
+            for (const category of categories) {
+                const categoryName = yield this.categoryService.findOne({ where: { categoryId: category.categoryId } });
+                relatedCategory.push([category.productId, category.categoryId, categoryName.name]);
+            }
+            // Add all rows data in sheet
+            worksheet6.addRows(relatedCategory);
+            const fileName = './ProductExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Delete Product API
+    /**
+     * @api {delete} /api/product/:id Delete Single Product API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "id" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully deleted Product.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/product/:id
+     * @apiErrorExample {json} productDelete error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteProduct(productid, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // Remove's Hook if in Memory
+            hooks.removeHook('coupon-delete', 'CD1-namespace');
+            // --
+            // Coupon Hook
+            function couponPlugin(productId, type) {
+                if (pluginLoader_1.pluginModule.includes('Coupon')) {
+                    hooks.addHook('coupon-delete', 'CD1-namespace', () => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                        const importPath = '../../../../add-ons/Coupon/coupon';
+                        const Coupon = yield require(importPath);
+                        return yield Coupon.CouponProccess(productId, type);
+                    }));
+                    return true;
+                }
+                return false;
+            }
+            // ---
+            const product = yield this.productService.findOne(productid);
+            if (product === undefined) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid product Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const orderProductId = yield this.orderProductService.productPaymentProcess(productid);
+            if (orderProductId) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Product is already ordered so you cannot delete the product ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            yield this.skuService.delete({ id: product.skuId });
+            const deleteProduct = yield this.productService.delete(productid);
+            const pluginExist = yield couponPlugin(productid, 1);
+            if (pluginExist) {
+                yield hooks.runHook('coupon-delete');
+            }
+            if (deleteProduct) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the Product.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the product.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete Multiple Product API
+    /**
+     * @api {post} /api/product/delete-product Delete Product API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} productId productId
+     * @apiParamExample {json} Input
+     * {
+     * "productId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully deleted Product.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/product/delete-product
+     * @apiErrorExample {json} productDelete error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteMultipleProduct(productDelete, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // Remove's Hook if in Memory
+            hooks.removeHook('coupon-delete', 'CD1-namespace');
+            // --
+            // Coupon PLugin
+            function couponPlugin(productId, type) {
+                if (pluginLoader_1.pluginModule.includes('Coupon')) {
+                    hooks.addHook('coupon-delete', 'CD1-namespace', () => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                        const importPath = '../../../../add-ons/Coupon/coupon';
+                        const Coupon = yield require(importPath);
+                        return yield Coupon.CouponProccess(productId, type);
+                    }));
+                    return true;
+                }
+                return false;
+            }
+            // ---
+            const productIdNo = productDelete.productId.toString();
+            const productid = productIdNo.split(',');
+            for (const id of productid) {
+                const dataId = yield this.productService.findOne(id);
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Please choose a product that you want to delete.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            for (const id of productid) {
+                const orderProductId = yield this.orderProductService.productPaymentProcess(+id);
+                if (orderProductId) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'You cannot delete this product as it has been already ordered.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            for (const id of productid) {
+                const deleteProductId = parseInt(id, 10);
+                const product = yield this.productService.findOne(id);
+                yield this.skuService.delete({ id: product.skuId });
+                const pluginExist = yield couponPlugin(deleteProductId, 1);
+                if (pluginExist) {
+                    yield hooks.runHook('coupon-delete');
+                }
+                yield this.productService.delete(deleteProductId);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully deleted the Product',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Update Product Slug API
+    /**
+     * @api {put} /api/product/update-product-slug Update Product Slug API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated Product Slug.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/product/update-product-slug
+     * @apiErrorExample {json} Product error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateSlug(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const arr = [];
+            const product = yield this.productService.findAll();
+            for (const val of product) {
+                const metaTagTitle = val.metaTagTitle;
+                if (metaTagTitle) {
+                    const dat = metaTagTitle.replace(/\s+/g, '-').replace(/[&\/\\#@,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+                    const data = dat.replace(/--/gi, '-');
+                    const getProductSlug = yield this.productService.slug(metaTagTitle);
+                    if (getProductSlug.length === 0 || getProductSlug === '' || getProductSlug === undefined) {
+                        val.productSlug = data;
+                    }
+                    else if (getProductSlug.length === 1 && (metaTagTitle !== getProductSlug[getProductSlug.length - 1].metaTagTitle)) {
+                        val.productSlug = data + '-' + 1;
+                    }
+                    else if (getProductSlug.length > 1 && getProductSlug !== undefined && getProductSlug !== '') {
+                        const slugVal = getProductSlug[getProductSlug.length - 1];
+                        const value = slugVal.productSlug;
+                        const getSlugInt = value.substring(value.lastIndexOf('-') + 1, value.length);
+                        const slugNumber = parseInt(getSlugInt, 0);
+                        val.productSlug = data + '-' + (slugNumber + 1);
+                    }
+                }
+                else {
+                    const title = val.name;
+                    const dat = title.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+                    const data = dat.replace(/--/gi, '-');
+                    const getProductSlug = yield this.productService.slug(title);
+                    if (getProductSlug === '' || getProductSlug === undefined || getProductSlug.length === 0) {
+                        val.productSlug = data;
+                    }
+                    else if (getProductSlug.length === 1 && (title !== getProductSlug[getProductSlug.length - 1].title)) {
+                        val.productSlug = data + '-' + 1;
+                    }
+                    else if (getProductSlug.length > 1 && getProductSlug !== undefined && getProductSlug !== '') {
+                        const slugVal = getProductSlug[getProductSlug.length - 1];
+                        const value = slugVal.productSlug;
+                        const getSlugInt = value.substring(value.lastIndexOf('-') + 1, value.length);
+                        const slugNumber = parseInt(getSlugInt, 0);
+                        val.productSlug = data + '-' + (slugNumber + 1);
+                    }
+                }
+                arr.push(val);
+            }
+            yield this.productService.create(arr);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully updated the product slug.',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Dashboard Count API
+    /**
+     * @api {get} /api/product/dashboard-count Dashboard Count API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get dashboard count",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/product/dashboard-count
+     * @apiErrorExample {json} product error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    dashboardCount(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const dashboard = {};
+            const select = [];
+            const searchOrder = [{
+                    name: 'paymentProcess',
+                    op: 'where',
+                    value: 1,
+                }];
+            const relation = [];
+            const WhereConditions = [];
+            const search = [];
+            const ordersCount = yield this.orderService.list(0, 0, select, searchOrder, WhereConditions, relation, 1);
+            const paymentsCount = yield this.paymentService.list(0, 0, select, search, WhereConditions, 1);
+            const productsCount = yield this.productService.list(0, 0, select, relation, WhereConditions, search, 0, 1);
+            const customerWhereConditions = [{
+                    name: 'deleteFlag',
+                    op: 'where',
+                    value: 0,
+                }];
+            const customersCount = yield this.customerService.list(0, 0, search, customerWhereConditions, 0, 1);
+            dashboard.orders = ordersCount;
+            dashboard.payments = paymentsCount;
+            dashboard.products = productsCount;
+            dashboard.customers = customersCount;
+            const successResponse = {
+                status: 1,
+                message: 'successfully got the dashboard count.',
+                data: dashboard,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Dashboard Admin Total Vendor and Total Product Count API
+    /**
+     * @api {get} /api/product/dashboard-admin-totalvendor-totalproduct-count Dashboard Admin Total Vendor and Total Product Count API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get total vendor and total product count",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/product/dashboard-admin-totalvendor-totalproduct-count
+     * @apiErrorExample {json} dashboard admin total vendor and total product count error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    dashboardAdminCount(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const dashboardAdmin = {};
+            const select = [];
+            const whereConditions = [{
+                    name: 'vendor.customerId',
+                    op: 'where',
+                    value: 0,
+                }];
+            const whereConditionsForCustomers = [{
+                    name: 'deleteFlag',
+                    value: 0,
+                }];
+            const search = [];
+            const totalCustomerCount = yield this.customerService.list(0, 0, search, whereConditionsForCustomers, 0, true);
+            const totalVendorCount = yield this.vendorServie.vendorList(0, 0, select, [], search, whereConditions, true);
+            const totalProductCount = yield this.productService.list(0, 0, select, [], [], search, 0, true);
+            dashboardAdmin.customers = totalCustomerCount;
+            dashboardAdmin.vendors = totalVendorCount;
+            dashboardAdmin.products = totalProductCount;
+            const successResponse = {
+                status: 1,
+                message: 'successfully got the dashboard total vendor and total product count.',
+                data: dashboardAdmin,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Product Count API
+    /**
+     * @api {get} /api/product/product-count Product Count API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product count",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/product/product-count
+     * @apiErrorExample {json} productCount error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productCount(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const product = {};
+            const select = [];
+            const search = [];
+            const relation = [];
+            const WhereConditions = [];
+            const allProductCount = yield this.productService.list(0, 0, select, relation, WhereConditions, search, 0, 1);
+            const whereConditionsActive = [
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 1,
+                },
+            ];
+            const activeProductCount = yield this.productService.list(0, 0, select, relation, whereConditionsActive, search, 0, 1);
+            const whereConditionsInActive = [
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 0,
+                },
+            ];
+            const inActiveProductCount = yield this.productService.list(0, 0, select, relation, whereConditionsInActive, search, 0, 1);
+            const allCategoryCount = yield this.categoryService.list(0, 0, select, search, WhereConditions, 0, 1);
+            product.totalProduct = allProductCount;
+            product.activeProduct = activeProductCount;
+            product.inActiveProduct = inActiveProductCount;
+            product.totalCategory = allCategoryCount;
+            const successResponse = {
+                status: 1,
+                message: 'successfully got the product count.',
+                data: product,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Import Product data
+    /**
+     * @api {post} /api/product/import-product-data Import product Data
+     * @apiGroup Product
+     * @apiParam (Request body) {String} file File
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully saved imported data..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/import-product-data
+     * @apiErrorExample {json} Import product Data
+     * HTTP/1.1 500 Internal Server Error
+     */
+    ImportProductPrice(files, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+            const StreamZip = require('node-stream-zip');
+            const random = Math.floor((Math.random() * 100) + 1);
+            const name = files.originalname;
+            const type = name.split('.')[1];
+            const mainFileName = './product_' + random + '.' + type;
+            yield this.imageService.writeFile(mainFileName, files.buffer);
+            const rimraf = require('rimraf');
+            // check zip contains invalid file
+            const zip = new StreamZip({ file: path.join(process.cwd(), mainFileName) });
+            const AcceptedFiles = ['xlsx', 'zip'];
+            const zipRead = yield new Promise((resolved, reject) => {
+                zip.on('ready', () => {
+                    const errExtension = [];
+                    for (const entry of Object.values(zip.entries())) {
+                        const fileNameEntries = (Object.values(entry)[16]).split('.')[1];
+                        if (AcceptedFiles.includes(fileNameEntries) === false) {
+                            errExtension.push(fileNameEntries);
+                        }
+                    }
+                    resolved(errExtension);
+                    // Do not forget to close the file once you're done
+                    zip.close();
+                });
+            });
+            if (zipRead.length > 0) {
+                rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                }));
+                fs.unlinkSync(path.join(process.cwd(), mainFileName));
+                return response.status(400).send({
+                    status: 0,
+                    message: 'The file you uploaded contains some invalid extensions',
+                });
+            }
+            const resolve = require('path').resolve;
+            const distPath = resolve('product_' + random);
+            yield this.imageService.extractZip(mainFileName, distPath);
+            const directoryPath = path.join(process.cwd(), 'product_' + random);
+            const mainFiles = yield this.readDir(directoryPath);
+            // check the image zip contains invalid data
+            for (const fileExtNames of mainFiles) {
+                const fileType = fileExtNames.split('.')[1];
+                if (fileType === 'zip') {
+                    const czip = new StreamZip({ file: path.join(process.cwd(), 'product_' + random + '/' + fileExtNames) });
+                    const cAcceptedFiles = ['png', 'jpg', 'jpeg'];
+                    const czipRead = yield new Promise((resolved, reject) => {
+                        czip.on('ready', () => {
+                            const cerrExtension = [];
+                            for (const entry of Object.values(czip.entries())) {
+                                const cfileNameEntries = (Object.values(entry)[16]).split('.')[1];
+                                if (cfileNameEntries) {
+                                    if (cAcceptedFiles.includes(cfileNameEntries) === false) {
+                                        cerrExtension.push(cfileNameEntries);
+                                    }
+                                }
+                            }
+                            resolved(cerrExtension);
+                            czip.close();
+                        });
+                    });
+                    if (czipRead.length > 0) {
+                        fs.unlinkSync(path.join(process.cwd(), mainFileName));
+                        return response.status(400).send({
+                            status: 0,
+                            message: 'The file you uploaded contains some invalid extensions',
+                        });
+                    }
+                }
+            }
+            try {
+                for (const fileNames of mainFiles) {
+                    const fileType = fileNames.split('.')[1];
+                    if (fileType === 'xlsx') {
+                        if (fileNames === 'productData.xlsx') {
+                            const directoryPathh = path.join(process.cwd(), 'product_' + random + '/' + fileNames);
+                            const result = yield this.imageService.xlsxToJson(directoryPathh);
+                            const forExport = yield this.bulkImport.validateAndFormatData(result);
+                            if (forExport.errorStatus) {
+                                const findDuplicateSku = forExport.data.find((obj) => obj.Error.includes('give some other name'));
+                                fs.unlinkSync(mainFileName);
+                                if (findDuplicateSku) {
+                                    throw new Error('Duplicate sku name, give some other name');
+                                }
+                                throw new Error('Oops! Data format mismatch detected');
+                            }
+                            const authorization = request.headers.authorization;
+                            const createProduct = yield this.bulkProductImport(result, authorization);
+                            return response.status(200).send({ status: 1, message: createProduct });
+                        }
+                    }
+                    else if (fileNames === 'image.zip') {
+                        const directPath = path.join(process.cwd(), 'product_' + random + '/' + fileNames);
+                        yield this.imageService.extractZip(directPath, distPath);
+                        const directoryPat = path.join(process.cwd(), 'product_' + random + '/' + 'image');
+                        const filesss = yield this.readDir(directoryPat);
+                        for (const fileNme of filesss) {
+                            const image2base64 = require('image-to-base64');
+                            const imagePath = directoryPat + '/' + fileNme;
+                            const imageType = fileNme.split('.')[1];
+                            image2base64(imagePath)
+                                .then((responsee) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                                const base64Data = Buffer.from(responsee, 'base64');
+                                if (env_1.env.imageserver === 's3') {
+                                    yield this.s3Service.imageUpload((fileNme), base64Data, imageType);
+                                }
+                                else {
+                                    yield this.imageService.imageUpload((fileNme), base64Data);
+                                }
+                            }))
+                                .catch((error) => {
+                                throw error;
+                            });
+                        }
+                    }
+                    else {
+                        rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
+                            if (err) {
+                                throw err;
+                            }
+                        }));
+                        fs.unlinkSync(mainFileName);
+                        throw new Error('Only xlsx and zip file are accepted');
+                    }
+                }
+                rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                }));
+                fs.unlinkSync(mainFileName);
+                const successResponse = {
+                    status: 1,
+                    message: 'Product Imported Successfully',
+                };
+                return response.status(200).send(successResponse);
+            }
+            catch (error) {
+                return response.status(400).send({
+                    status: 0,
+                    message: error.message,
+                });
+            }
+        });
+    }
+    bulkProductImport(jsonData, authorization) {
+        var _a, _b, _c, _d, _e, _f, _g, _h;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const productNames = jsonData.map(value => value.Name);
+            const filterName = productNames.filter((item, index) => productNames.indexOf(item) === index);
+            const productRequest = yield this.bulkImport.bulkImportRequest(filterName, jsonData);
+            // Create category data
+            const categoryProduct = [];
+            for (const categorydata of productRequest) {
+                const categoryIds = [];
+                for (const data of categorydata.category) {
+                    const categoryArr = (_a = data.category) === null || _a === void 0 ? void 0 : _a.split('>');
+                    console.log(categoryArr, 'categoryArrcategoryArr', categorydata.category);
+                    const length = categoryArr.length;
+                    if (length === 1) {
+                        const ifCategory = yield this.categoryService.findCategory(categoryArr[0], 0);
+                        if (!ifCategory) {
+                            const newCategory = new CategoryModel_1.Category();
+                            const randomNumber = Math.floor(Math.random() * 90) + 10;
+                            newCategory.name = categoryArr[0];
+                            newCategory.sortOrder = 1;
+                            newCategory.parentInt = 0;
+                            newCategory.categorySlug = categoryArr[0] + randomNumber;
+                            newCategory.isActive = 1;
+                            const createCategoryData = yield this.categoryService.create(newCategory);
+                            const newCategoryPath = new CategoryPath_1.CategoryPath();
+                            newCategoryPath.categoryId = createCategoryData.categoryId;
+                            newCategoryPath.pathId = createCategoryData.categoryId;
+                            newCategoryPath.level = 0;
+                            yield this.categoryPathService.create(newCategoryPath);
+                            data.categoryId = createCategoryData.categoryId;
+                            categoryIds.push(data);
+                            console.log(categoryIds, 'categoryIdscategoryIdscategoryIds');
+                        }
+                        else {
+                            data.categoryId = ifCategory.categoryId;
+                            categoryIds.push(data);
+                        }
+                    }
+                    else {
+                        let index = 0;
+                        let categoryIdss = 0;
+                        let sortOrder = 1;
+                        for (const value of categoryArr) {
+                            if (index === 0) {
+                                const ifCategory = yield this.categoryService.findCategory(categoryArr[index], 0);
+                                if (!ifCategory) {
+                                    const newCategory = new CategoryModel_1.Category();
+                                    const randomNumber = Math.floor(Math.random() * 90) + 10;
+                                    newCategory.name = value;
+                                    newCategory.sortOrder = sortOrder;
+                                    newCategory.parentInt = 0;
+                                    newCategory.categorySlug = categoryArr[0] + randomNumber;
+                                    newCategory.isActive = 1;
+                                    const createCategory = yield this.categoryService.create(newCategory);
+                                    categoryIdss = createCategory.categoryId;
+                                    const newCategoryPath = new CategoryPath_1.CategoryPath();
+                                    newCategoryPath.categoryId = createCategory.categoryId;
+                                    newCategoryPath.pathId = createCategory.categoryId;
+                                    newCategoryPath.level = 0;
+                                    yield this.categoryPathService.create(newCategoryPath);
+                                    sortOrder++;
+                                }
+                                else {
+                                    categoryIdss = ifCategory.categoryId;
+                                }
+                            }
+                            else {
+                                const parentCategoryName = categoryArr[index - 1];
+                                const ifCategory = yield this.categoryService.findCategory(parentCategoryName.toLowerCase(), 0);
+                                const paentInt = ifCategory.categoryId ? ifCategory.categoryId : 0;
+                                const checkCategory = yield this.categoryService.findCategory(value.toLowerCase(), paentInt);
+                                if (!checkCategory && ifCategory) {
+                                    const newCategory = new CategoryModel_1.Category();
+                                    const randomNumber = Math.floor(Math.random() * 90) + 10;
+                                    newCategory.categorySlug = categoryArr[0] + randomNumber;
+                                    newCategory.name = value;
+                                    newCategory.sortOrder = sortOrder;
+                                    newCategory.parentInt = ifCategory.categoryId;
+                                    newCategory.isActive = 1;
+                                    const createCategory = yield this.categoryService.create(newCategory);
+                                    categoryIdss = createCategory.categoryId;
+                                    // create category path
+                                    const getAllPath = yield this.categoryPathService.find({
+                                        where: { categoryId: createCategory.parentInt },
+                                        order: { level: 'ASC' },
+                                    });
+                                    let level = 0;
+                                    for (const paths of getAllPath) {
+                                        const CategoryPathLoop = new CategoryPath_1.CategoryPath();
+                                        CategoryPathLoop.categoryId = createCategory.categoryId;
+                                        CategoryPathLoop.pathId = paths.pathId;
+                                        CategoryPathLoop.level = level;
+                                        yield this.categoryPathService.create(CategoryPathLoop);
+                                        level++;
+                                        sortOrder++;
+                                    }
+                                    const newCategoryPath = new CategoryPath_1.CategoryPath();
+                                    newCategoryPath.categoryId = createCategory.categoryId;
+                                    newCategoryPath.pathId = createCategory.categoryId;
+                                    newCategoryPath.level = level;
+                                    yield this.categoryPathService.create(newCategoryPath);
+                                }
+                                else {
+                                    categoryIdss = checkCategory.categoryId;
+                                }
+                            }
+                            index++;
+                        }
+                        data.categoryId = categoryIdss;
+                        categoryIds.push(data);
+                    }
+                }
+                categorydata.category = categoryIds;
+                categoryProduct.push(categorydata);
+            }
+            // create product datas...
+            for (const data of categoryProduct) {
+                if (data.Price === '' || data.Name === '') {
+                    throw new Error('Product Price or Product Name should not empty');
+                }
+                const product = new ProductModel_1.Product();
+                product.sku = data.SKU;
+                product.upc = data.UPC;
+                product.hsn = data.HSN;
+                product.quantity = data.Quantity;
+                // const taxType = data.TaxType?.toLowerCase() === 'percentage' ? 2 : 1;
+                product.taxType = 1;
+                product.taxValue = (_b = data.Tax) !== null && _b !== void 0 ? _b : 0;
+                product.stockStatusId = data.StockStatusId;
+                product.shipping = data.Required_Shipping;
+                const serviceCharge = {};
+                serviceCharge.productCost = data.Price;
+                serviceCharge.packingCost = data.PackageCost ? data.PackageCost : 0;
+                serviceCharge.shippingCost = data.ShippingCost ? data.ShippingCost : 0;
+                serviceCharge.others = product.others ? product.others : 0;
+                product.serviceCharges = JSON.stringify(serviceCharge);
+                product.price = +serviceCharge.productCost + +serviceCharge.packingCost + +serviceCharge.shippingCost + +serviceCharge.others;
+                product.price = data.Price;
+                product.dateAvailable = data.DateAvailable;
+                // saving sku //
+                // const findSku = await this.skuService.findOne({ where: { skuName: product.sku } });
+                // if (findSku) {
+                //     throw new Error('duplicate sku name, give some other name');
+                // }
+                const newSku = new SkuModel_1.Sku();
+                newSku.skuName = data.SKU;
+                newSku.price = data.Price;
+                newSku.quantity = data.Quantity ? Math.round(data.Quantity) : 1;
+                newSku.isActive = 1;
+                const saveSku = yield this.skuService.create(newSku);
+                // ending sku //
+                product.skuId = saveSku.id;
+                product.name = data.Name;
+                product.description = data.Description;
+                product.shipping = 1;
+                product.stockStatusId = 1;
+                product.isFeatured = 0;
+                product.todayDeals = 0;
+                product.isActive = 0;
+                product.sortOrder = 1;
+                product.isSimplified = 1;
+                // adding category name and product name in keyword field for keyword search
+                const rowsArr = [];
+                if (data.category.length > 0) {
+                    const categories = data.category;
+                    for (const categorys of categories) {
+                        const categoryNames = yield this.categoryService.findOne({
+                            where: {
+                                categoryId: categorys.categoryId,
+                            },
+                        });
+                        const categoryName = '~' + categoryNames.name + '~';
+                        rowsArr.push(categoryName);
+                    }
+                }
+                rowsArr.push('~' + data.Name + '~');
+                const values = rowsArr.toString();
+                product.keywords = values;
+                const metaTagTitle = data.ProductSlug ? data.ProductSlug : data.Name;
+                const slug = metaTagTitle.trim();
+                const dataValue = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+                product.productSlug = yield this.validate_slug(dataValue);
+                product.height = (_c = data.Height !== '') !== null && _c !== void 0 ? _c : data.Height;
+                product.weight = (_d = data.Weight !== '') !== null && _d !== void 0 ? _d : data.Height;
+                product.width = (_e = data.Width !== '') !== null && _e !== void 0 ? _e : data.Width;
+                product.length = (_f = data.Length !== '') !== null && _f !== void 0 ? _f : data.Length;
+                const savedProduct = yield this.productService.create(product);
+                if (data.VendorId) {
+                    const vendor = yield this.vendorServie.findOne({
+                        where: {
+                            vendorId: data.VendorId,
+                        },
+                    });
+                    if (vendor) {
+                        const vendorProduct = new VendorProducts_1.VendorProducts();
+                        vendorProduct.vendorId = data.VendorId;
+                        vendorProduct.productId = savedProduct.productId;
+                        vendorProduct.approvalFlag = 0;
+                        yield this.vendorProductService.create(vendorProduct);
+                    }
+                }
+                if (data.Images) {
+                    const images = data.Images;
+                    const findI = images.toString().includes(',');
+                    if (findI === true) {
+                        const image = data.Images.split(',');
+                        for (const img of image) {
+                            const productImage = new ProductImage_1.ProductImage();
+                            productImage.image = img;
+                            productImage.containerName = '';
+                            productImage.productId = savedProduct.productId;
+                            yield this.productImageService.create(productImage);
+                        }
+                    }
+                    else {
+                        const productImage = new ProductImage_1.ProductImage();
+                        productImage.image = images;
+                        productImage.containerName = '';
+                        productImage.productId = savedProduct.productId;
+                        yield this.productImageService.create(productImage);
+                    }
+                    const findImage = yield this.productImageService.findOne({ productId: savedProduct.productId });
+                    findImage.defaultImage = 1;
+                    yield this.productImageService.create(findImage);
+                }
+                if (data.category.length >= 1) {
+                    for (const category of data.category) {
+                        const newProductToCategory = new ProductToCategory_1.ProductToCategory();
+                        newProductToCategory.productId = savedProduct.productId;
+                        newProductToCategory.categoryId = category.categoryId;
+                        newProductToCategory.isActive = 1;
+                        this.productToCategoryService.create(newProductToCategory);
+                    }
+                }
+                // Create Variant
+                const findProductVariantbuteStatus = yield this.pluginService.findOne({ where: { pluginName: 'ProductVariants', pluginStatus: 1 } });
+                if (data.variant.length > 0 && data.variant[0].variantSku !== '' && data.variant[0].variantSku && findProductVariantbuteStatus) {
+                    const variantData = data.variant;
+                    for (const datas of variantData) {
+                        yield hooks.removeHook('product-variant', 'MPV-namespace');
+                        if (pluginLoader_1.pluginModule.includes('ProductVariants')) {
+                            // Add variant hook
+                            hooks.addHook('product-variant', 'MPV-namespace', () => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                                const importPath = '../../../../add-ons/ProductVariants/BulkProductVariant';
+                                const variant = yield require(importPath);
+                                return yield variant.variantProcess(datas, savedProduct.productId);
+                            }));
+                            // Run variant hook
+                            // const results =
+                            yield hooks.runHook('product-variant');
+                            // if (jsonData && results.status === 0) {
+                            //     return ({ status: 0, message: 'Invalid varient Sku !!' });
+                            // }
+                        }
+                    }
+                    // update sku quantity
+                    let quantity = 0;
+                    console.log(variantData);
+                    for (const quadata of variantData) {
+                        quantity = quantity + ((_g = quadata.variantQuantity) !== null && _g !== void 0 ? _g : 0);
+                        console.log(quantity);
+                    }
+                    if (data.variant.length > 0 && pluginLoader_1.pluginModule.includes('ProductVariants')) {
+                        const findSkuValue = yield this.skuService.findOne({ where: { id: savedProduct.skuId } });
+                        findSkuValue.quantity = quantity;
+                        yield this.skuService.create(findSkuValue);
+                        savedProduct.isSimplified = 0;
+                        yield this.productService.create(savedProduct);
+                    }
+                }
+                // Create Attribute
+                // const findProductAttributeStatus = await this.pluginService.findOne({ where: { pluginName: 'ProductAttribute', pluginStatus: 1 } });
+                // if (data.attribute.length > 0) {
+                //     await hooks.removeHook('product-attribute', 'MPA-namespace');
+                //     if (pluginModule.includes('VendorProductAttribute') && findProductAttributeStatus) {
+                //         hooks.addHook('product-attribute', 'MPA-namespace', async () => {
+                //             const importPath = '../../../../add-ons/ProductAttribute/BulkProductAttribute';
+                //             const variant = await require(importPath);
+                //             return await variant.attributeProcess(data.attribute, savedProduct.productId);
+                //         });
+                //         await hooks.runHook('product-attribute');
+                //     }
+                // }
+                const discountData = data.productDiscount;
+                // Product Discount
+                if (discountData.length > 0) {
+                    for (const discount of discountData) {
+                        const newdiscountData = new ProductDiscount_1.ProductDiscount();
+                        const skuData = yield this.skuService.findOne({ where: { skuName: discount.sku } });
+                        newdiscountData.skuId = skuData.id;
+                        newdiscountData.productId = savedProduct.productId;
+                        newdiscountData.quantity = 1;
+                        newdiscountData.priority = discount.discountPriority;
+                        newdiscountData.price = discount.discountPrice;
+                        newdiscountData.dateStart = moment(discount.discountStartDate).toISOString();
+                        newdiscountData.dateEnd = moment(discount.discountEndDate).toISOString();
+                        if (discount.discountPriority !== undefined && discount.discountStartDate !== undefined && discount.discountEndDate !== undefined) {
+                            yield this.productDiscountService.create(newdiscountData);
+                        }
+                    }
+                }
+                // Product Special
+                if (data.productSpecialPrice.length > 0) {
+                    const productSpecials = data.productSpecialPrice;
+                    for (const special of productSpecials) {
+                        const specialPriceData = new ProductSpecial_1.ProductSpecial();
+                        const skuData = yield this.skuService.findOne({ where: { skuName: special.sku } });
+                        specialPriceData.skuId = skuData.id;
+                        specialPriceData.productId = savedProduct.productId;
+                        specialPriceData.priority = special.priority;
+                        specialPriceData.price = special.price;
+                        specialPriceData.dateStart = moment(special.startDate).toISOString();
+                        specialPriceData.dateEnd = moment(special.endDate).toISOString();
+                        if (special.priority !== undefined && special.price !== undefined && special.startDate !== undefined && special.startDate !== undefined && special.endDate !== undefined) {
+                            yield this.productSpecialService.create(specialPriceData);
+                        }
+                    }
+                }
+                // Product tire price
+                if (data.productTirePrice.length > 0) {
+                    const tirePrice = data.productTirePrice;
+                    for (const tire of tirePrice) {
+                        const productTirePrice = new ProductTirePrice_1.ProductTirePrice();
+                        const skuData = yield this.skuService.findOne({ where: { skuName: tire.sku } });
+                        productTirePrice.skuId = skuData.id;
+                        productTirePrice.productId = savedProduct.productId;
+                        productTirePrice.quantity = tire.quantity;
+                        productTirePrice.price = tire.price;
+                        if (tire.quantity !== undefined && tire.price !== undefined) {
+                            yield this.productTirePriceService.create(productTirePrice);
+                        }
+                    }
+                }
+                // product video
+                if (data.video.length > 0) {
+                    for (const videoData of data.video) {
+                        const productVideo = new ProductVideo_1.ProductVideo();
+                        productVideo.productId = savedProduct.productId;
+                        productVideo.path = videoData;
+                        productVideo.type = 2;
+                        yield this.productVideoService.create(productVideo);
+                    }
+                }
+                const axios = require('axios');
+                const headers = {
+                    'Authorization': authorization,
+                    'Content-Type': 'application/json',
+                };
+                // Create Related Product
+                const relatedProductsId = (_h = data === null || data === void 0 ? void 0 : data.RelatedProductId) === null || _h === void 0 ? void 0 : _h.split(',');
+                const findProductRelated = yield this.pluginService.findOne({ where: { pluginName: 'ProductRelated', pluginStatus: 1 } });
+                if ((relatedProductsId === null || relatedProductsId === void 0 ? void 0 : relatedProductsId.length) > 0 && pluginLoader_1.pluginModule.includes('ProductRelated') && findProductRelated && relatedProductsId[0] !== '') {
+                    const relatedProductObject = {
+                        productId: savedProduct.productId,
+                        relatedProductId: relatedProductsId,
+                    };
+                    yield axios.post(env_1.env.baseUrl + '/product-related/update-product-related', relatedProductObject, { headers });
+                }
+                // Create product Seo
+                const findSeo = yield this.pluginService.findOne({ where: { pluginName: 'Seo', pluginStatus: 1 } });
+                if ((data === null || data === void 0 ? void 0 : data.MetaTagTitle) && (data === null || data === void 0 ? void 0 : data.MetaTagDescription) && (data === null || data === void 0 ? void 0 : data.MetaTagKeyword) && (data === null || data === void 0 ? void 0 : data.MetaTagTitle) !== '' && (data === null || data === void 0 ? void 0 : data.MetaTagDescription) !== '' && (data === null || data === void 0 ? void 0 : data.MetaTagKeyword) !== '') {
+                    if (pluginLoader_1.pluginModule.includes('Seo') && findSeo) {
+                        const seoObject = {
+                            metaTagTitle: data === null || data === void 0 ? void 0 : data.MetaTagTitle,
+                            metaTagDescription: data === null || data === void 0 ? void 0 : data.MetaTagDescription,
+                            metaTagKeyword: data === null || data === void 0 ? void 0 : data.MetaTagKeyword,
+                        };
+                        const seoUpload = axios.post(env_1.env.baseUrl + '/product-seo/' + savedProduct.productId, seoObject, { headers });
+                        console.log(seoUpload, 'seoUploadseoUploadseoUpload');
+                    }
+                }
+            }
+            const successMessage = 'Bulk product data created successfully!';
+            return successMessage;
+        });
+    }
+    // Download sample zip for product import
+    /**
+     * @api {get} /api/product/download-product-sample Download Product Import Sample Zip
+     * @apiGroup Product
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the file..!!",
+     *      "status": "1",
+     * }
+     * @apiSampleRequest /api/product/download-product-sample
+     * @apiErrorExample {json} Download Data
+     * HTTP/1.1 500 Internal Server Error
+     */
+    downloadSample(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            // product list excel
+            const productWorkbook = new excel.Workbook();
+            const productWorksheet = productWorkbook.addWorksheet('product List');
+            const products = [];
+            // Excel sheet column define
+            productWorksheet.columns = [
+                { header: 'productId', key: 'id', size: 16, width: 15 },
+                { header: 'ProductName', key: 'first_name', size: 16, width: 15 },
+            ];
+            productWorksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            productWorksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const product = yield this.productService.find({ select: ['productId', 'name'] });
+            for (const prod of product) {
+                products.push([prod.productId, prod.name]);
+            }
+            products.push(['If you want to map multiple related Product to product,you have to give relatedProductId splitted with commas (,) ']);
+            productWorksheet.addRows(products);
+            const productFileName = './demo/Productlist.xlsx';
+            yield productWorkbook.xlsx.writeFile(productFileName);
+            // for category excel
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Category List');
+            const rows = [];
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'CategoryId', key: 'id', size: 16, width: 15 },
+                { header: 'Levels', key: 'first_name', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const select = [
+                'CategoryPath.categoryId as categoryId',
+                'category.name as name',
+                'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'CategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',
+            ];
+            const relations = [
+                {
+                    tableName: 'CategoryPath.category',
+                    aliasName: 'category',
+                },
+                {
+                    tableName: 'CategoryPath.path',
+                    aliasName: 'path',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'CategoryPath.category_id',
+                },
+            ];
+            const whereConditions = [];
+            const searchConditions = [];
+            const sort = [];
+            const vendorCategoryList = yield this.categoryPathService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            for (const id of vendorCategoryList) {
+                rows.push([id.categoryId, id.levels]);
+            }
+            rows.push(['If you want to map multiple category to product,you have to give categoryId splitted with commas (,) ']);
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './demo/Category.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            const zipfolder = require('zip-a-folder');
+            yield zipfolder.zip(path.join(process.cwd(), 'demo'), path.join(process.cwd(), 'demo.zip'));
+            const file = path.basename('/demo.zip');
+            return new Promise(() => {
+                response.download(file, 'demo.zip');
+            });
+        });
+    }
+    readDir(pathfile) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return new Promise((subresolve, subreject) => {
+                fs.readdir(pathfile, (error, files) => {
+                    if (error) {
+                        subreject(error);
+                    }
+                    subresolve(files);
+                });
+            });
+        });
+    }
+    // update stock  API
+    /**
+     * @api {post} /api/product/update-stock Update Stock API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} productId productId
+     * @apiParam (Request body) {number} [hasStock] send 0 or 1
+     * @apiParam (Request body) {object} [productStock]
+     * @apiParam (Request body) {number} productStock.skuId skuId
+     * @apiParam (Request body) {number} productStock.outOfStockThreshold for setting out of stock threshold
+     * @apiParam (Request body) {number} productStock.notifyMinQuantity notifyMinQuantity
+     * @apiParam (Request body) {number} productStock.minQuantityAllowedCart  minQuantityAllowedCart
+     * @apiParam (Request body) {number} productStock.maxQuantityAllowedCart maxQuantityAllowedCart
+     * @apiParam (Request body) {number} productStock.enableBackOrders enableBackOrders
+     * @apiParamExample {json} Input
+     * {
+     *      "hasStock" : "",
+     *      "productId" : "",
+     *      "productStock": [{
+     *      "skuId" : "",
+     *      "outOfStockThreshold" : "",
+     *      "notifyMinQuantity" : "",
+     *      "minQuantityAllowedCart" : "",
+     *      "maxQuantityAllowedCart" : "",
+     *      "enableBackOrders" : "",
+     *      }]
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated product stock.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/product/update-stock
+     * @apiErrorExample {json} stock error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    manageStock(updateStock, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const product = yield this.productService.findOne({
+                where: {
+                    productId: updateStock.productId,
+                },
+            });
+            if (!product) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid product Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            product.hasStock = updateStock.hasStock;
+            const productStock = updateStock.productStock;
+            const valArr = [];
+            for (const value of productStock) {
+                const sku = yield this.skuService.findOne({
+                    where: {
+                        id: value.skuId,
+                    },
+                });
+                if (!sku) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid sku Id.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                if (sku.quantity < value.outOfStockThreshold) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'outOfStockThreshold should be less than original quantity.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                sku.outOfStockThreshold = value.outOfStockThreshold ? value.outOfStockThreshold : sku.outOfStockThreshold;
+                sku.notifyMinQuantity = value.notifyMinQuantity ? value.notifyMinQuantity : sku.notifyMinQuantity;
+                sku.minQuantityAllowedCart = value.minQuantityAllowedCart ? value.minQuantityAllowedCart : sku.minQuantityAllowedCart;
+                sku.maxQuantityAllowedCart = value.maxQuantityAllowedCart ? value.maxQuantityAllowedCart : sku.maxQuantityAllowedCart;
+                sku.enableBackOrders = value.enableBackOrders ? value.enableBackOrders : sku.enableBackOrders;
+                valArr.push(sku);
+            }
+            yield this.skuService.create(valArr);
+            const productValue = yield this.productService.create(product);
+            if (productValue) {
+                const successResponse = {
+                    status: 1,
+                    message: 'successfully updated stock .',
+                    data: productValue,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to update',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // add tire price  API
+    /**
+     * @api {post} /api/product/add-tire-price Add tire price API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} [hasTirePrice] send 0 or 1
+     * @apiParam (Request body) {number} productId productId
+     * @apiParam (Request body) {number} quantity
+     * @apiParam (Request body) {number} price price
+     * @apiParamExample {json} Input
+     * {
+     *      "hasTirePrice" : "",
+     *      "productId" : "",
+     *      "price" : "",
+     *      "quantity" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully added tire price.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/product/add-tire-price
+     * @apiErrorExample {json} tire price error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addTirePrice(tirePrice, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const product = yield this.productService.findOne({
+                where: {
+                    productId: tirePrice.productId,
+                },
+            });
+            if (!product) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid product Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            if (tirePrice.hasTirePrice) {
+                product.hasTirePrice = tirePrice.hasTirePrice;
+                yield this.productService.create(product);
+            }
+            const tirePrices = new ProductTirePrice_1.ProductTirePrice();
+            tirePrices.productId = tirePrice.productId;
+            tirePrices.quantity = tirePrice.quantity;
+            tirePrices.price = tirePrice.price;
+            const productSave = yield this.productTirePriceService.create(tirePrices);
+            if (productSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully added tire price for this product.',
+                    data: productSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to add tire price.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete tire price API
+    /**
+     * @api {delete} /api/product/delete-tire-price/:id Delete Product Tire Price API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/product/delete-tire-price/:id
+     * @apiErrorExample {json} Product error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    delete(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const tire = yield this.productTirePriceService.findOne({
+                where: {
+                    id,
+                },
+            });
+            if (!tire) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteTirePrice = yield this.productTirePriceService.delete(id);
+            if (deleteTirePrice) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    //   Get Product Price List API
+    /**
+     * @api {get} /api/product/get-product-tire-price-list Get product tire price list API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} productId productId
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} count count
+     * @apiParamExample {json} Input
+     * {
+     *      "productId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get tire price list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/product/get-product-tire-price-list
+     * @apiErrorExample {json} product error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    getCustomerAddress(productId, limit, offset, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const WhereConditions = [
+                {
+                    name: 'productId',
+                    value: productId,
+                },
+            ];
+            const tire = yield this.productTirePriceService.list(limit, offset, WhereConditions, count);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully Get product tire price',
+                data: tire,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Inventory Product List API
+    /**
+     * @api {get} /api/product/inventory-product-list Invendory Product List API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} sku sku
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {Number} price=1/2 if 1->asc 2->desc
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/product/inventory-product-list
+     * @apiErrorExample {json} productList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    inventoryProductList(limit, offset, keyword, sku, status, price, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['productId', 'sku', 'name', 'quantity', 'price', 'productSlug', 'isActive', 'hasStock', 'hasTirePrice', 'outOfStockThreshold', 'notifyMinQuantity', 'minQuantityAllowedCart', 'maxQuantityAllowedCart', 'maxQuantityAllowedCart', 'enableBackOrders', 'modifiedDate', 'isSimplified', 'skuId'];
+            const relation = [];
+            const WhereConditions = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'sku',
+                    op: 'like',
+                    value: sku,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                }, {
+                    name: 'isSimplified',
+                    op: 'where',
+                    value: 1,
+                },
+            ];
+            const productLists = yield this.productService.list(limit, offset, select, relation, WhereConditions, 0, price, count);
+            if (count) {
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got count ',
+                    data: productLists,
+                };
+                return response.status(200).send(successRes);
+            }
+            const promise = productLists.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                let skuValue = undefined;
+                skuValue = yield this.skuService.findAll({ where: { id: result.skuId } });
+                const temp = result;
+                temp.skuValue = skuValue;
+                return temp;
+            }));
+            const value = yield Promise.all(promise);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete product list. ',
+                data: value,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    //  Update sku for product API
+    /**
+     * @api {post} /api/product/update-sku   update sku API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated sku.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/product/update-sku
+     * @apiErrorExample {json} product error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateOrderProductShippingInformation(limit, offset, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const products = yield this.productService.find({
+                take: limit,
+                skip: offset,
+            });
+            for (const product of products) {
+                const updateProduct = yield this.productService.findOne({ where: { productId: product.productId } });
+                let saveSku;
+                const findSku = yield this.skuService.findOne({ where: { skuName: product.sku } });
+                if (findSku) {
+                    const finddSku = yield this.productService.findSkuName(updateProduct.productId, updateProduct.sku, 0);
+                    if (finddSku) {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'Duplicate sku name, give some other name',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    else {
+                        findSku.skuName = updateProduct.sku;
+                        findSku.price = updateProduct.price;
+                        findSku.quantity = updateProduct.quantity;
+                        findSku.isActive = updateProduct.isActive;
+                        saveSku = yield this.skuService.create(findSku);
+                    }
+                }
+                else {
+                    const newSku = new SkuModel_1.Sku();
+                    newSku.skuName = updateProduct.sku;
+                    newSku.price = updateProduct.price;
+                    newSku.quantity = updateProduct.quantity;
+                    newSku.isActive = updateProduct.isActive;
+                    saveSku = yield this.skuService.create(newSku);
+                }
+                // ending sku //
+                updateProduct.skuId = saveSku.id;
+                updateProduct.isSimplified = 1;
+                yield this.productService.create(updateProduct);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully updated Sku',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    validate_slug($slug, $id = 0, $count = 0) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const slugCount = yield this.productService.checkSlug($slug, $id, $count);
+            if (slugCount) {
+                if (!$count) {
+                    $count = 1;
+                }
+                else {
+                    $count++;
+                }
+                return yield this.validate_slug($slug, $id, $count);
+            }
+            else {
+                if ($count > 0) {
+                    $slug = $slug + $count;
+                }
+                return $slug;
+            }
+        });
+    }
+    // Inventory Product List API
+    /**
+     * @api {get} /api/product/update-owner-product-list Invendory Product List API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/product/update-owner-product-list
+     * @apiErrorExample {json} productList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateProductList(limit, offset, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['productId'];
+            const relation = [];
+            const WhereConditions = [];
+            const productLists = yield this.productService.list(limit, offset, select, relation, WhereConditions, 0, 0, count);
+            if (count) {
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got count ',
+                    data: productLists,
+                };
+                return response.status(200).send(successRes);
+            }
+            const promise = productLists.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const vendorProduct = yield this.vendorProductService.findOne({ where: { productId: result.productId } });
+                const temp = result;
+                const product = yield this.productService.findOne({ where: { productId: result.productId } });
+                if (vendorProduct) {
+                    product.owner = 2;
+                    product.createdBy = vendorProduct.vendorId;
+                }
+                else {
+                    product.owner = 1;
+                    product.createdBy = 80;
+                }
+                yield this.productService.create(product);
+                return temp;
+            }));
+            const value = yield Promise.all(promise);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete product list. ',
+                data: value,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Update Vendor Product Sku
+    /**
+     * @api {get} /api/product/update-vendor-sku-list Update Vendor Product Sku
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/product/update-vendor-sku-list
+     * @apiErrorExample {json} productList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateVendorSku(limit, offset, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'Product.productId as productId',
+            ];
+            const relations = [];
+            const whereConditions = [];
+            const productLists = yield this.productService.listByQueryBuilder(limit, offset, select, whereConditions, [], relations, [], [], false, true);
+            const promise = productLists.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const product = yield this.productService.findOne({
+                    where: {
+                        productId: result.productId,
+                    },
+                });
+                const vendor = yield this.vendorProductService.findOne({
+                    productId: product.productId,
+                });
+                console.log('product.skuId:', product.skuId);
+                vendor.sku_id = product.skuId;
+                yield this.vendorProductService.update(vendor.vendorProductId, vendor);
+                return vendor;
+            }));
+            const value = yield Promise.all(promise);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete product list. ',
+                data: value,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sku')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('price')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "getProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-product']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateProductRequest_1.AddProductRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "addProduct", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/update-product/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-product']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [UpdateProductRequest_1.UpdateProductRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "updateProduct", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/product-detail/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "productDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/top-selling-productlist'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "topSellingProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/top-five-repeatedly-purchased-customers'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "topFiveRepeatedlyPurchasedCustomers", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/top-performing-products'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('duration')),
+    tslib_1.__param(4, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "topPerformingProucts", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/dashboard/admin-customers-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('duration')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "dashboardCustomerCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/dashboard-admin/orders-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('duration')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "dashboardOrderCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/dashboard-average-order-value'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('duration')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "averageOrderValue", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/dashboard-total-revenue'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('duration')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "dashboardTotalRevenue", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/dashboard-average-conversion-ratio'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('duration')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "averageConversionRatio", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/dashboard/graph-weekly-saleslist'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('productId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "topTenWeeklySales", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/recent-selling-product'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "sellingProduct", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/viewLog-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "productViewLogList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/customerProductView-list/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "customerProductView", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/product-excel-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'export-product']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('productId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('sku')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "excelProductView", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/allproduct-excel-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'export-product']),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "ExportAllProducts", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-product']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "deleteProduct", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/delete-product'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [DeleteProductRequest_1.DeleteProductRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "deleteMultipleProduct", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-product-slug'),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "updateSlug", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/dashboard-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "dashboardCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/dashboard-admin-totalvendor-totalproduct-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "dashboardAdminCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/product-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "productCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/import-product-data'),
+    (0, routing_controllers_1.Authorized)(['admin', 'import-product']),
+    tslib_1.__param(0, (0, routing_controllers_1.UploadedFile)('file')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "ImportProductPrice", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/download-product-sample'),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "downloadSample", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/update-stock'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [UpdateStockRequest_1.UpdateStockRequest, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "manageStock", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/add-tire-price'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateTirePriceRequest_1.CreateTirePriceRequest, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "addTirePrice", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-tire-price/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "delete", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/get-product-tire-price-list'),
+    (0, routing_controllers_1.Authorized)(''),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('productId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "getCustomerAddress", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/inventory-product-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'inventory-list']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sku')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('price')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "inventoryProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/update-sku'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "updateOrderProductShippingInformation", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/update-owner-product-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "updateProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/update-vendor-sku-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "updateVendorSku", null);
+ProductController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/product'),
+    tslib_1.__metadata("design:paramtypes", [ProductService_1.ProductService,
+        ProductToCategoryService_1.ProductToCategoryService,
+        ProductImageService_1.ProductImageService,
+        CategoryService_1.CategoryService,
+        OrderProductService_1.OrderProductService,
+        OrderService_1.OrderService,
+        ProductViewLogService_1.ProductViewLogService,
+        ProductDiscountService_1.ProductDiscountService,
+        ProductSpecialService_1.ProductSpecialService,
+        CustomerService_1.CustomerService,
+        TaxService_1.TaxService,
+        PaymentService_1.PaymentService,
+        CategoryPathService_1.CategoryPathService,
+        ProductTirePriceService_1.ProductTirePriceService,
+        SkuService_1.SkuService,
+        S3Service_1.S3Service,
+        ProductVideoService_1.ProductVideoService,
+        ImageService_1.ImageService,
+        VendorProductService_1.VendorProductService,
+        VendorService_1.VendorService,
+        VendorPaymentService_1.VendorPaymentService,
+        CustomerCartService_1.CustomerCartService,
+        BulkImportRequest_1.BulkImport,
+        PluginService_1.PluginService,
+        ExportLogService_1.ExportLogService])
+], ProductController);
+exports.ProductController = ProductController;
+//# sourceMappingURL=ProductController.js.map

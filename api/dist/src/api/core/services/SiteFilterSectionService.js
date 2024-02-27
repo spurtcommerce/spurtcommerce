@@ -1,1 +1,95 @@
-'use strict';const a610_0x5e0b53=a610_0x456f;function a610_0x456f(_0x51fb2d,_0x4110c6){const _0x2584b2=a610_0x2584();return a610_0x456f=function(_0x456fce,_0x40ba17){_0x456fce=_0x456fce-0x118;let _0x403401=_0x2584b2[_0x456fce];return _0x403401;},a610_0x456f(_0x51fb2d,_0x4110c6);}(function(_0x5ac21c,_0x384ba6){const _0x6f2c6c=a610_0x456f,_0x2cc55e=_0x5ac21c();while(!![]){try{const _0x37388e=-parseInt(_0x6f2c6c(0x13b))/0x1+parseInt(_0x6f2c6c(0x123))/0x2*(parseInt(_0x6f2c6c(0x122))/0x3)+-parseInt(_0x6f2c6c(0x130))/0x4+parseInt(_0x6f2c6c(0x13d))/0x5+parseInt(_0x6f2c6c(0x120))/0x6+-parseInt(_0x6f2c6c(0x11c))/0x7*(parseInt(_0x6f2c6c(0x11e))/0x8)+-parseInt(_0x6f2c6c(0x141))/0x9*(-parseInt(_0x6f2c6c(0x140))/0xa);if(_0x37388e===_0x384ba6)break;else _0x2cc55e['push'](_0x2cc55e['shift']());}catch(_0x45ea8b){_0x2cc55e['push'](_0x2cc55e['shift']());}}}(a610_0x2584,0xf05f1));function a610_0x2584(){const _0x26f71d=['__awaiter','../../../decorators/Logger','Delete','Find\x20all','info','list','design:paramtypes','findOne','Update','find','log','109776JEYYtT','like','__esModule','typeorm','siteFilterSectionRepository','OrmRepository','../repositories/SiteFilterSectionRepository','name','order','DESC','SiteFilterSectionService','514983VgoLxV','tslib','3232345tYbUET','length','typedi','4644550BccjCU','18GmJSbr','update','count','where','SiteFilterSectionRepository','__metadata','select','value','180306UcPPDe','relations','216Ezyeow','skip','2208540FmgsxH','delete','21lVjray','79710iFBxYE','save'];a610_0x2584=function(){return _0x26f71d;};return a610_0x2584();}Object['defineProperty'](exports,a610_0x5e0b53(0x132),{'value':!![]}),exports[a610_0x5e0b53(0x13a)]=void 0x0;const tslib_1=require(a610_0x5e0b53(0x13c)),typedi_1=require(a610_0x5e0b53(0x13f)),typeorm_typedi_extensions_1=require('typeorm-typedi-extensions'),Logger_1=require(a610_0x5e0b53(0x126)),SiteFilterSectionRepository_1=require(a610_0x5e0b53(0x136)),typeorm_1=require(a610_0x5e0b53(0x133));let SiteFilterSectionService=class SiteFilterSectionService{constructor(_0x24f149,_0x31419b){const _0x220b0=a610_0x5e0b53;this[_0x220b0(0x134)]=_0x24f149,this['log']=_0x31419b;}[a610_0x5e0b53(0x12c)](_0xf774f5){const _0xa6ac54=a610_0x5e0b53;return this['siteFilterSectionRepository'][_0xa6ac54(0x12c)](_0xf774f5);}['findAll'](_0x53ffc0){const _0x5c20f0=a610_0x5e0b53;return this[_0x5c20f0(0x12f)]['info'](_0x5c20f0(0x128)),this['siteFilterSectionRepository'][_0x5c20f0(0x12e)](_0x53ffc0);}[a610_0x5e0b53(0x12a)](_0x3f8fd0,_0x536f0b,_0x393bfb=[],_0x50a8c2=[],_0x5ab4be=[],_0x204877){const _0xd614c3=a610_0x5e0b53,_0x34580a={};return _0x393bfb&&_0x393bfb['length']>0x0&&(_0x34580a[_0xd614c3(0x11a)]=_0x393bfb),_0x50a8c2&&_0x50a8c2[_0xd614c3(0x13e)]>0x0&&(_0x34580a[_0xd614c3(0x11d)]=_0x50a8c2),_0x34580a[_0xd614c3(0x144)]={},_0x5ab4be&&_0x5ab4be[_0xd614c3(0x13e)]>0x0&&_0x5ab4be['forEach'](_0x5ea481=>{const _0x30d837=_0xd614c3,_0x251a62=_0x5ea481['op'];if(_0x251a62===_0x30d837(0x144)&&_0x5ea481[_0x30d837(0x11b)]!==undefined)_0x34580a['where'][_0x5ea481[_0x30d837(0x137)]]=_0x5ea481[_0x30d837(0x11b)];else _0x251a62===_0x30d837(0x131)&&_0x5ea481[_0x30d837(0x11b)]!==undefined&&(_0x34580a[_0x30d837(0x144)][_0x5ea481['name']]=(0x0,typeorm_1['Like'])('%'+_0x5ea481[_0x30d837(0x11b)]+'%'));}),_0x34580a[_0xd614c3(0x138)]={'createdDate':_0xd614c3(0x139)},_0x3f8fd0&&_0x3f8fd0>0x0&&(_0x34580a['take']=_0x3f8fd0,_0x34580a[_0xd614c3(0x11f)]=_0x536f0b),_0x204877?this[_0xd614c3(0x134)][_0xd614c3(0x143)](_0x34580a):this[_0xd614c3(0x134)][_0xd614c3(0x12e)](_0x34580a);}['create'](_0x1be996){const _0x1d6376=a610_0x5e0b53;return tslib_1[_0x1d6376(0x125)](this,void 0x0,void 0x0,function*(){const _0x542760=_0x1d6376,_0xc0d926=yield this[_0x542760(0x134)][_0x542760(0x124)](_0x1be996);return _0xc0d926;});}[a610_0x5e0b53(0x142)](_0x19aa67,_0x38a6b4){const _0x457e79=a610_0x5e0b53;return this['log'][_0x457e79(0x129)](_0x457e79(0x12d)),_0x38a6b4['id']=_0x19aa67,this[_0x457e79(0x134)][_0x457e79(0x124)](_0x38a6b4);}['delete'](_0x230e10){const _0x13be62=a610_0x5e0b53;return tslib_1[_0x13be62(0x125)](this,void 0x0,void 0x0,function*(){const _0x4653d4=_0x13be62;this[_0x4653d4(0x12f)][_0x4653d4(0x129)](_0x4653d4(0x127));const _0x3b4ed4=yield this[_0x4653d4(0x134)][_0x4653d4(0x121)](_0x230e10);return _0x3b4ed4;});}};SiteFilterSectionService=tslib_1['__decorate']([(0x0,typedi_1['Service'])(),tslib_1['__param'](0x0,(0x0,typeorm_typedi_extensions_1[a610_0x5e0b53(0x135)])()),tslib_1['__param'](0x1,(0x0,Logger_1['Logger'])(__filename)),tslib_1[a610_0x5e0b53(0x119)](a610_0x5e0b53(0x12b),[SiteFilterSectionRepository_1[a610_0x5e0b53(0x118)],Object])],SiteFilterSectionService),exports[a610_0x5e0b53(0x13a)]=SiteFilterSectionService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SiteFilterSectionService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const SiteFilterSectionRepository_1 = require("../repositories/SiteFilterSectionRepository");
+const typeorm_1 = require("typeorm");
+let SiteFilterSectionService = class SiteFilterSectionService {
+    constructor(siteFilterSectionRepository, log) {
+        this.siteFilterSectionRepository = siteFilterSectionRepository;
+        this.log = log;
+    }
+    // find one condition
+    findOne(siteFilterSection) {
+        return this.siteFilterSectionRepository.findOne(siteFilterSection);
+    }
+    // find all
+    findAll(siteFilterSection) {
+        this.log.info('Find all');
+        return this.siteFilterSectionRepository.find(siteFilterSection);
+    }
+    // list
+    list(limit, offset, select = [], relation = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        if (relation && relation.length > 0) {
+            condition.relations = relation;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                const operator = item.op;
+                if (operator === 'where' && item.value !== undefined) {
+                    condition.where[item.name] = item.value;
+                }
+                else if (operator === 'like' && item.value !== undefined) {
+                    condition.where[item.name] = (0, typeorm_1.Like)('%' + item.value + '%');
+                }
+            });
+        }
+        condition.order = {
+            createdDate: 'DESC',
+        };
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.siteFilterSectionRepository.count(condition);
+        }
+        else {
+            return this.siteFilterSectionRepository.find(condition);
+        }
+    }
+    // create
+    create(siteFilterSection) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newSiteFilterSection = yield this.siteFilterSectionRepository.save(siteFilterSection);
+            return newSiteFilterSection;
+        });
+    }
+    // update
+    update(id, siteFilterSection) {
+        this.log.info('Update');
+        siteFilterSection.id = id;
+        return this.siteFilterSectionRepository.save(siteFilterSection);
+    }
+    // delete
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete');
+            const newSiteFilter = yield this.siteFilterSectionRepository.delete(id);
+            return newSiteFilter;
+        });
+    }
+};
+SiteFilterSectionService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [SiteFilterSectionRepository_1.SiteFilterSectionRepository, Object])
+], SiteFilterSectionService);
+exports.SiteFilterSectionService = SiteFilterSectionService;
+//# sourceMappingURL=SiteFilterSectionService.js.map

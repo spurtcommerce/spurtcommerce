@@ -1,1 +1,2202 @@
-'use strict';const a687_0x4f0dfd=a687_0xf804;(function(_0x470b64,_0x2e4918){const _0x1a82e7=a687_0xf804,_0x1ea821=_0x470b64();while(!![]){try{const _0x518c92=-parseInt(_0x1a82e7(0x191))/0x1+parseInt(_0x1a82e7(0x15f))/0x2*(-parseInt(_0x1a82e7(0x1ce))/0x3)+parseInt(_0x1a82e7(0x18b))/0x4*(-parseInt(_0x1a82e7(0x10b))/0x5)+-parseInt(_0x1a82e7(0x1ee))/0x6*(-parseInt(_0x1a82e7(0x119))/0x7)+-parseInt(_0x1a82e7(0x171))/0x8+-parseInt(_0x1a82e7(0x1b2))/0x9+parseInt(_0x1a82e7(0x134))/0xa;if(_0x518c92===_0x2e4918)break;else _0x1ea821['push'](_0x1ea821['shift']());}catch(_0x1a74e8){_0x1ea821['push'](_0x1ea821['shift']());}}}(a687_0x3297,0xcc9a6));function a687_0x3297(){const _0x4a1f53=['findOne','orderStatus.colorCode\x20as\x20orderColorCode','YYYY-MM-DD\x20HH:mm:ss','.xlsx','`VendorOrders`.`created_date`','orderPrefixId','152whBcsp','Settlement.title','MAX(VendorOrders.vendorOrderId)\x20as\x20vendorOrderId','../../core/models/Settlement','basePrice','invoiceNo','967889EHNboF','Settlement.createdDate','VendorOrders.makeSettlement','vendorOrderId','VendorOrders.subOrderId\x20as\x20subOrderId','columns','keyword','Records','VendorOrders.orderStatus','makeSettlement','VendorOrders.vendorOrderId\x20as\x20vendorOrderId','/total-sales-report-excel','/settlement-report-excel','__importDefault','Title','totalSalesReportList','orderProduct.quantity\x20as\x20quantity','Res','vendorService','vendorId','Workbook','Tax\x20Type','OrderDate','orderProduct.orderProductPrefixId\x20as\x20orderProductPrefixId','VendorOrders.makeSettlement\x20as\x20makeSettlement','SettlementItemService','orderDetail.vendorInvoice','VendorOrders.orderProduct','commission','paymentZone','`Settlement`.`created_date`','__esModule','admin','2204676AqNHpJ','IGST','Invalid\x20settlementId','settlement-bulk-export','thin','/total-vendor-sales-report-excel','VendorOrders.vendorId\x20as\x20vendorId','createSettlement','./TotalSalesReportExcel_','amountTo','`Settlement`.`total_amount`','orderStatus.name\x20as\x20orderStatusName','vendorSalesReportList','format','vendorOrderDetails','taxTypeValue','QueryParam','orderStatus','Successfully\x20got\x20settlement\x20count.','Total\x20Vendor\x20Sales\x20Export\x20sheet','../../core/services/VendorOrderService','orderId','SettlementItem','orderDetail.currencySymbolLeft\x20as\x20currencySymbolLeft','VendorOrders.vendor','Grand\x20total','Settlement.noOfOrders\x20as\x20noOfOrders','orderProduct.productPrice\x20as\x20price','183165nHwyFU','Invalid\x20order\x20Id.','totalAmount','Settlement.totalAmount\x20as\x20totalAmount','getCell','__metadata','orderDetail.paymentZone\x20as\x20paymentZone','taxValue','Settlement\x20Date','eachCell','`VendorOrders`.`total`','Settlement\x20Status','unlinkSync','cancelRequestStatus','./TotalVendorSalesReportExcel_','vendorOrderService','orderProduct.taxValue\x20as\x20taxValue','orderDetail.currencySymbolRight\x20as\x20currencySymbolRight','listByQueryBuilder','settlementItemService','design:returntype','Successfully\x20deleted\x20the\x20settlement.','skuName','border','currencySymbolLeft','Settlement.createdDate\x20as\x20createdDate','Settlement.id\x20as\x20id','Total\x20Settlement\x20Value','Base\x20Value','Quantity','/settlement-report-list','findAll','9257016tHwlut','../../core/services/VendorService','__decorate','./SettlementExcel','currencySymbolRight','orderProduct.cancelRequestStatus\x20as\x20cancelRequestStatus','./requests/CreateSettlementRequest','Tax','DESC','Req','vendor.vendorId','Sub\x20total','Successfully\x20got\x20sales\x20report\x20count.','orderProductPrefixId','\x2000:00:00','/vendor-sales-report-list','orderDetail.paymentProcess','/settlement','VendorOrders.commission\x20as\x20commission','map','tslib','settlementexcelexport','values','orderDetail','routing-controllers','./SettlementReportExcel_','prototype','__param','VendorOrders.orderDetail','settlementService','Item','toLowerCase','vendor.companyState\x20as\x20companyState','../../core/services/OrderProductService','vendorsId','Settled','xlsx','includes','raw','split','eachRow','orderDetail.paymentStatus','netAmount','/delete-multiple-settlement','font','now','totalSalesExcelView','export-excel','vendorInvoice','minutes','getRow','Member','orderProduct','end','noOfOrders','vendorInvoice.invoicePrefix\x20as\x20invoicePrefix','VendorOrders.vendorId','Settlement\x20Export\x20sheet','exceljs','endDate','value','63815aQbXqQ','orderProduct.taxType\x20as\x20taxType','__importStar','length','title','orderDetail.orderId\x20as\x20orderId','vendorOrderCount','Order\x20No','COUNT(VendorOrders.vendorOrderId)\x20as\x20vendorOrderCount','Settlement.currencySymbolLeft\x20as\x20currencySymbolLeft','totalVendorSalesExcelView','defineProperty','settlementFlag','addRows','7WPBboF','limit','design:type','send','vendorInvoice.invoiceNo\x20as\x20invoiceNo','settlementDetails','Description','BUlk\x20Settlement\x20Excel','delete','VendorOrders.subOrderStatusId\x20as\x20subOrderStatusId','settlementBulkExport','Get','amountFrom','SettlementController','hours','total-sales-report','CreateSettlementRequest','allVendor','download','toFixed','sales-by-vendor-report','settlementStatus','VendorOrders.orderId','Successfully\x20got\x20settlement\x20report\x20list.','name','count','orderService','27531460pngszF','settlementReportView','vendor','list\x20is\x20empty','Invalid\x20settlement\x20Id.','Successfully\x20got\x20total\x20vendor\x20sales\x20list.','Total\x20Value','../../core/services/OrderService','items','Order\x20Line\x20No','VendorOrders.orderId\x20as\x20orderId','orderDetail.orderPrefixId\x20as\x20orderPrefixId','Successfully\x20got\x20settlement\x20list.','vendorInvoiceService','Total\x20Sales\x20Export\x20sheet','default','offset','create','taxType','VendorOrdersService','MAX(VendorOrders.subOrderStatusId)\x20as\x20subOrderStatusId','VendorOrders.total\x20as\x20total','VendorOrders.order_id','Post','VendorOrders.subOrderStatusId','companyState','Settlement\x20Detail\x20Sheet','settlementId','reflect-metadata','quantity','status','make-settlement','orderProductService','Invoice','orderProduct.name\x20as\x20name','Successfully\x20created\x20new\x20Settlement.','VendorOrders.vendor_id','subtract','vendorOrderDetailsCount','../../core/models/SettlementItem','total','Cancelled','Param','12fODnlo','\x2023:59:59','writeFile','companyName','vendor.companyName\x20as\x20companyName','Order\x20Status','all','Successfully\x20got\x20vendor\x20sales\x20list.','23:59:59','./SettlementBulkExport','orderProduct.basePrice\x20as\x20basePrice','invoicePrefix','Settlement','__awaiter','and','OrderService','/settlement/:id','SGST,CGST','11150008lSZVcK','addWorksheet','Settlement.title\x20as\x20title','startDate','design:paramtypes','/settlement-export-excel-download','orderStatusName','BodyParam','VendorOrders.createdDate\x20as\x20createdDate','vendor.vendorId\x20as\x20vendorId','orderProductId','../../core/services/SettlementService','orderProduct.name\x20as\x20productName','deleteMultipleSettlement','push','successfully\x20got\x20Settlement\x20details.\x20','Authorized','orderProduct.skuName\x20as\x20skuName','No\x20of\x20Orders','createdDate'];a687_0x3297=function(){return _0x4a1f53;};return a687_0x3297();}Object[a687_0x4f0dfd(0x116)](exports,a687_0x4f0dfd(0x1b0),{'value':!![]}),exports[a687_0x4f0dfd(0x126)]=void 0x0;function a687_0xf804(_0x3a2136,_0x1e596b){const _0x3297e6=a687_0x3297();return a687_0xf804=function(_0xf80418,_0x2c7122){_0xf80418=_0xf80418-0xe6;let _0x15342d=_0x3297e6[_0xf80418];return _0x15342d;},a687_0xf804(_0x3a2136,_0x1e596b);}const tslib_1=require(a687_0x4f0dfd(0x202));require(a687_0x4f0dfd(0x150));const routing_controllers_1=require(a687_0x4f0dfd(0xe6)),CreateSettlementRequest_1=require(a687_0x4f0dfd(0x1f4)),Settlement_1=require(a687_0x4f0dfd(0x18e)),SettlementItem_1=require(a687_0x4f0dfd(0x15b)),SettlementService_1=require(a687_0x4f0dfd(0x17c)),VendorOrderService_1=require(a687_0x4f0dfd(0x1c6)),SettlementItemService_1=require('../../core/services/SettlementItemService'),OrderProductService_1=require(a687_0x4f0dfd(0xef)),OrderService_1=require(a687_0x4f0dfd(0x13b)),VendorService_1=require(a687_0x4f0dfd(0x1ef)),VendorInvoiceService_1=require('../../core/services/VendorInvoiceService'),fs=tslib_1[a687_0x4f0dfd(0x10d)](require('fs')),moment_1=tslib_1[a687_0x4f0dfd(0x19e)](require('moment'));let SettlementController=class SettlementController{constructor(_0x51c0dd,_0x3b2640,_0x7640ab,_0x2d6d60,_0x2e1a32,_0x590fa9,_0x58abc8){const _0x346301=a687_0x4f0dfd;this[_0x346301(0x1e1)]=_0x51c0dd,this[_0x346301(0x1a3)]=_0x3b2640,this[_0x346301(0x141)]=_0x7640ab,this[_0x346301(0x133)]=_0x2d6d60,this['settlementService']=_0x2e1a32,this[_0x346301(0x154)]=_0x590fa9,this[_0x346301(0x1dd)]=_0x58abc8;}[a687_0x4f0dfd(0x1b9)](_0x33e781,_0x5e59e1){const _0x4e7ffd=a687_0x4f0dfd;return tslib_1[_0x4e7ffd(0x16c)](this,void 0x0,void 0x0,function*(){const _0x4404d1=_0x4e7ffd,_0x33a9e2=_0x33e781[_0x4404d1(0x194)];for(const _0x22bc04 of _0x33a9e2){const _0x2b50f3=yield this[_0x4404d1(0x1dd)][_0x4404d1(0x185)]({'where':{'vendorOrderId':_0x22bc04}});if(!_0x2b50f3){const _0x4a4e05={'status':0x0,'message':_0x4404d1(0x1cf)};return _0x5e59e1[_0x4404d1(0x152)](0x190)['send'](_0x4a4e05);}}const _0x5c711f=new Settlement_1[(_0x4404d1(0x16b))]();_0x5c711f['title']=_0x33e781[_0x4404d1(0x10f)],_0x5c711f['noOfOrders']=_0x33a9e2[_0x4404d1(0x10e)];const _0x4a29a6=yield this[_0x4404d1(0xeb)][_0x4404d1(0x145)](_0x5c711f);let _0x46011d=0x0,_0x6204d5=undefined,_0x2260d0=undefined;const _0x56a5d8=[];for(const _0x328d84 of _0x33a9e2){const _0xac26c8=new SettlementItem_1[(_0x4404d1(0x1c8))](),_0x587c28=yield this[_0x4404d1(0x1dd)][_0x4404d1(0x185)]({'where':{'vendorOrderId':_0x328d84}});_0x587c28[_0x4404d1(0x19a)]=0x1,yield this[_0x4404d1(0x1dd)]['create'](_0x587c28),_0xac26c8[_0x4404d1(0x1a4)]=_0x587c28['vendorId'],_0xac26c8[_0x4404d1(0x194)]=_0x587c28[_0x4404d1(0x194)],_0xac26c8[_0x4404d1(0x17b)]=_0x587c28[_0x4404d1(0x17b)],_0xac26c8['orderId']=_0x587c28[_0x4404d1(0x1c7)],_0xac26c8[_0x4404d1(0x15c)]=_0x587c28[_0x4404d1(0x15c)],_0xac26c8[_0x4404d1(0x14f)]=_0x4a29a6['id'];const _0x227e55=yield this['vendorService']['findOne']({'where':{'vendorId':_0x587c28[_0x4404d1(0x1a4)]}});_0xac26c8[_0x4404d1(0x162)]=_0x227e55?_0x227e55[_0x4404d1(0x162)]:'',_0xac26c8[_0x4404d1(0x1ad)]=_0x587c28?_0x587c28[_0x4404d1(0x1ad)]:'';const _0x1c1d04=_0x587c28[_0x4404d1(0x1ad)]&&_0x587c28[_0x4404d1(0x1ad)]>0x0?_0x587c28[_0x4404d1(0x1ad)]:0x0,_0x3119ec=_0x587c28['total']*(_0x1c1d04/0x64);_0xac26c8['CommissionAmount']=_0x3119ec;const _0x238f38=_0x587c28[_0x4404d1(0x15c)]-_0x3119ec;_0xac26c8[_0x4404d1(0xf8)]=_0x238f38,_0x46011d+=_0x238f38;const _0x226b27=yield this[_0x4404d1(0x154)][_0x4404d1(0x185)]({'where':{'orderProductId':_0x587c28[_0x4404d1(0x17b)]}});_0xac26c8[_0x4404d1(0x1fb)]=_0x226b27[_0x4404d1(0x1fb)];const _0x430924=yield this['orderService']['findOrder']({'where':{'orderId':_0x587c28[_0x4404d1(0x1c7)]}});_0x6204d5=_0x430924['currencySymbolLeft'],_0x2260d0=_0x430924['currencySymbolRight'],_0x56a5d8['push'](_0xac26c8);}yield this[_0x4404d1(0x1e1)][_0x4404d1(0x145)](_0x56a5d8),_0x5c711f[_0x4404d1(0x1d0)]=_0x46011d,_0x5c711f[_0x4404d1(0x1e6)]=_0x6204d5,_0x5c711f[_0x4404d1(0x1f2)]=_0x2260d0,yield this['settlementService']['create'](_0x5c711f);const _0x43a136={'status':0x1,'message':_0x4404d1(0x157)};return _0x5e59e1[_0x4404d1(0x152)](0xc8)[_0x4404d1(0x11c)](_0x43a136);});}['orderListtt'](_0x4d6414,_0x2c1e80,_0x2e0da6,_0x537680,_0x4889fa,_0x36d5fc,_0x3e111b,_0x4615a2,_0xf3736e,_0x5e3189){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2c23cc=a687_0xf804,_0x4a0e9f=[_0x2c23cc(0x1e8),_0x2c23cc(0x1e7),_0x2c23cc(0x173),_0x2c23cc(0x114),'Settlement.currencySymbolRight\x20as\x20currencySymbolRight',_0x2c23cc(0x1d1),_0x2c23cc(0x1cc)],_0x1b6588=[],_0x2cc60e=[],_0x2e84f3=[];_0x537680&&_0x537680!==''&&_0x2e84f3[_0x2c23cc(0x17f)]({'name':_0x2c23cc(0x1af),'op':'raw','sign':'>=','value':_0x537680+_0x2c23cc(0x1fc)});_0x4889fa&&_0x4889fa!==''&&_0x2e84f3['push']({'name':_0x2c23cc(0x1af),'op':'raw','sign':'<=','value':_0x4889fa+_0x2c23cc(0x160)});_0x36d5fc&&_0x36d5fc!==''&&_0x2e84f3[_0x2c23cc(0x17f)]({'name':_0x2c23cc(0x1bc),'op':_0x2c23cc(0xf4),'sign':'>=','value':_0x36d5fc});_0x3e111b&&_0x3e111b!==''&&_0x2e84f3[_0x2c23cc(0x17f)]({'name':'`Settlement`.`total_amount`','op':_0x2c23cc(0xf4),'sign':'<=','value':_0x3e111b});const _0x46698c=[];_0x2e0da6&&_0x2e0da6!==''&&_0x46698c['push']({'name':[_0x2c23cc(0x18c)],'value':_0x2e0da6[_0x2c23cc(0xed)]()});const _0x3b33af=[];_0x3b33af[_0x2c23cc(0x17f)]({'name':_0x2c23cc(0x192),'order':_0x2c23cc(0x1f6)});if(_0x4615a2){const _0xeb53ec=yield this[_0x2c23cc(0xeb)][_0x2c23cc(0x1e0)](_0x4d6414,_0x2c1e80,_0x4a0e9f,_0x2e84f3,_0x46698c,_0x1b6588,_0x2cc60e,_0x3b33af,!![],!![]),_0x536049={'status':0x1,'message':_0x2c23cc(0x1c4),'data':_0xeb53ec};return _0x5e3189[_0x2c23cc(0x152)](0xc8)[_0x2c23cc(0x11c)](_0x536049);}const _0x3dbb83=yield this['settlementService']['listByQueryBuilder'](_0x4d6414,_0x2c1e80,_0x4a0e9f,_0x2e84f3,_0x46698c,_0x1b6588,_0x2cc60e,_0x3b33af,![],!![]),_0x11b702={'status':0x1,'message':_0x2c23cc(0x140),'data':_0x3dbb83};return _0x5e3189[_0x2c23cc(0x152)](0xc8)['send'](_0x11b702);});}[a687_0x4f0dfd(0x203)](_0x2f5255,_0x4e3bf2,_0x127846){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2e0b58=a687_0xf804,_0x41003d=require(_0x2e0b58(0x108)),_0x238595=new _0x41003d[(_0x2e0b58(0x1a5))](),_0x6d34af=_0x238595[_0x2e0b58(0x172)](_0x2e0b58(0x14e)),_0x120bea=[],_0x389cab=_0x2f5255[_0x2e0b58(0xf5)](',');for(const _0x28a7b2 of _0x389cab){const _0x740b43=yield this[_0x2e0b58(0xeb)][_0x2e0b58(0x185)](_0x28a7b2);if(_0x740b43===undefined){const _0x2b61d8={'status':0x0,'message':_0x2e0b58(0x1b4)};return _0x127846[_0x2e0b58(0x152)](0x190)[_0x2e0b58(0x11c)](_0x2b61d8);}}_0x6d34af[_0x2e0b58(0x196)]=[{'header':_0x2e0b58(0x19f),'key':_0x2e0b58(0x10f),'size':0x10,'width':0x1e},{'header':_0x2e0b58(0x1d6),'key':_0x2e0b58(0x184),'size':0x10,'width':0xf},{'header':_0x2e0b58(0x183),'key':_0x2e0b58(0x104),'size':0x10,'width':0xf},{'header':'Total\x20Settlement\x20Value','key':'totalAmount','size':0x10,'width':0x1e}],_0x6d34af[_0x2e0b58(0x1d2)]('A1')[_0x2e0b58(0x1e5)]={'top':{'style':_0x2e0b58(0x1b6)},'left':{'style':_0x2e0b58(0x1b6)},'bottom':{'style':'thin'},'right':{'style':_0x2e0b58(0x1b6)}},_0x6d34af[_0x2e0b58(0x1d2)]('B1')['border']={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':'thin'},'right':{'style':_0x2e0b58(0x1b6)}},_0x6d34af[_0x2e0b58(0x1d2)]('C1')[_0x2e0b58(0x1e5)]={'top':{'style':_0x2e0b58(0x1b6)},'left':{'style':_0x2e0b58(0x1b6)},'bottom':{'style':_0x2e0b58(0x1b6)},'right':{'style':_0x2e0b58(0x1b6)}},_0x6d34af[_0x2e0b58(0x1d2)]('D1')[_0x2e0b58(0x1e5)]={'top':{'style':_0x2e0b58(0x1b6)},'left':{'style':'thin'},'bottom':{'style':_0x2e0b58(0x1b6)},'right':{'style':_0x2e0b58(0x1b6)}};for(const _0x30f000 of _0x389cab){const _0x41f639=yield this[_0x2e0b58(0xeb)][_0x2e0b58(0x185)](_0x30f000);_0x120bea['push']([_0x41f639[_0x2e0b58(0x10f)],_0x41f639[_0x2e0b58(0x184)],_0x41f639[_0x2e0b58(0x104)],_0x41f639['totalAmount']]);}_0x6d34af[_0x2e0b58(0x118)](_0x120bea);const _0x54ff2d=_0x2e0b58(0x1f1)+Date[_0x2e0b58(0xfb)]()+_0x2e0b58(0x188);return yield _0x238595[_0x2e0b58(0xf2)][_0x2e0b58(0x161)](_0x54ff2d),new Promise((_0x4d7c2c,_0x11a87b)=>{const _0x303988=_0x2e0b58;_0x127846[_0x303988(0x12b)](_0x54ff2d,(_0x35cd59,_0x2ca032)=>{const _0x13f543=_0x303988;if(_0x35cd59)_0x11a87b(_0x35cd59);else return fs[_0x13f543(0x1da)](_0x54ff2d),_0x127846[_0x13f543(0x103)]();});});});}[a687_0x4f0dfd(0x123)](_0x203b68,_0x2a63da,_0x23091a,_0x28a499,_0x4bfbe4,_0x327df3,_0x46a3f7){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x27566f=a687_0xf804,_0x153207=require(_0x27566f(0x108)),_0x16c7de=new _0x153207[(_0x27566f(0x1a5))](),_0x1e6d9=_0x16c7de[_0x27566f(0x172)](_0x27566f(0x120)),_0x57c14e=[],_0x18f861=['Settlement.id\x20as\x20id',_0x27566f(0x1e7),_0x27566f(0x173),_0x27566f(0x114),'Settlement.currencySymbolRight\x20as\x20currencySymbolRight',_0x27566f(0x1d1),_0x27566f(0x1cc)],_0x521867=[],_0x43d4ca=[],_0x250209=[];_0x2a63da&&_0x2a63da!==''&&_0x250209[_0x27566f(0x17f)]({'name':'`Settlement`.`created_date`','op':_0x27566f(0xf4),'sign':'>=','value':_0x2a63da+_0x27566f(0x1fc)});_0x23091a&&_0x23091a!==''&&_0x250209['push']({'name':'`Settlement`.`created_date`','op':_0x27566f(0xf4),'sign':'<=','value':_0x23091a+_0x27566f(0x160)});_0x28a499&&_0x28a499!==''&&_0x250209['push']({'name':_0x27566f(0x1bc),'op':_0x27566f(0xf4),'sign':'>=','value':_0x28a499});_0x4bfbe4&&_0x4bfbe4!==''&&_0x250209['push']({'name':_0x27566f(0x1bc),'op':_0x27566f(0xf4),'sign':'<=','value':_0x4bfbe4});const _0xdf2bfd=[];_0x203b68&&_0x203b68!==''&&_0xdf2bfd[_0x27566f(0x17f)]({'name':['Settlement.title'],'value':_0x203b68[_0x27566f(0xed)]()});const _0xf5f85e=[];_0xf5f85e[_0x27566f(0x17f)]({'name':'Settlement.createdDate','order':_0x27566f(0x1f6)});const _0x3aa646=yield this['settlementService'][_0x27566f(0x1e0)](0x0,0x0,_0x18f861,_0x250209,_0xdf2bfd,_0x521867,_0x43d4ca,_0xf5f85e,![],!![]);if(+_0x3aa646[_0x27566f(0x10e)]===0x0)return _0x46a3f7[_0x27566f(0x152)](0x190)['send']({'status':0x0,'message':_0x27566f(0x137)});_0x1e6d9[_0x27566f(0x196)]=[{'header':_0x27566f(0x19f),'key':_0x27566f(0x10f),'size':0x10,'width':0x1e},{'header':'Settlement\x20Date','key':'createdDate','size':0x10,'width':0xf},{'header':_0x27566f(0x183),'key':'noOfOrders','size':0x10,'width':0xf},{'header':_0x27566f(0x1e9),'key':'totalAmount','size':0x10,'width':0x1e}],_0x1e6d9[_0x27566f(0x1d2)]('A1')[_0x27566f(0x1e5)]={'top':{'style':_0x27566f(0x1b6)},'left':{'style':_0x27566f(0x1b6)},'bottom':{'style':_0x27566f(0x1b6)},'right':{'style':_0x27566f(0x1b6)}},_0x1e6d9[_0x27566f(0x1d2)]('B1')[_0x27566f(0x1e5)]={'top':{'style':_0x27566f(0x1b6)},'left':{'style':_0x27566f(0x1b6)},'bottom':{'style':_0x27566f(0x1b6)},'right':{'style':'thin'}},_0x1e6d9[_0x27566f(0x1d2)]('C1')[_0x27566f(0x1e5)]={'top':{'style':_0x27566f(0x1b6)},'left':{'style':_0x27566f(0x1b6)},'bottom':{'style':_0x27566f(0x1b6)},'right':{'style':_0x27566f(0x1b6)}},_0x1e6d9[_0x27566f(0x1d2)]('D1')[_0x27566f(0x1e5)]={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':_0x27566f(0x1b6)},'right':{'style':_0x27566f(0x1b6)}};for(const _0x1e6332 of _0x3aa646){_0x57c14e[_0x27566f(0x17f)]([_0x1e6332[_0x27566f(0x10f)],_0x1e6332['createdDate'],_0x1e6332[_0x27566f(0x104)],_0x1e6332[_0x27566f(0x1d0)]]);}_0x1e6d9['addRows'](_0x57c14e);const _0xaceb86=_0x27566f(0x168)+Date[_0x27566f(0xfb)]()+_0x27566f(0x188);return yield _0x16c7de['xlsx']['writeFile'](_0xaceb86),new Promise((_0x27e4c7,_0x3bc5db)=>{const _0x4c3e79=_0x27566f;_0x46a3f7[_0x4c3e79(0x12b)](_0xaceb86,(_0x27c477,_0x2df6b6)=>{const _0x4ab13d=_0x4c3e79;if(_0x27c477)_0x3bc5db(_0x27c477);else return fs[_0x4ab13d(0x1da)](_0xaceb86),_0x46a3f7[_0x4ab13d(0x103)]();});});});}[a687_0x4f0dfd(0x11e)](_0x2d89d8,_0x130b1c){const _0x5bbcde=a687_0x4f0dfd;return tslib_1[_0x5bbcde(0x16c)](this,void 0x0,void 0x0,function*(){const _0x5bfe47=_0x5bbcde,_0x457b43=yield this['settlementService'][_0x5bfe47(0x185)]({'where':{'id':_0x2d89d8}});_0x457b43[_0x5bfe47(0x13c)]=yield this[_0x5bfe47(0x1e1)][_0x5bfe47(0x1ed)]({'where':{'settlementId':_0x457b43['id']}});const _0x13aa9f={'status':0x1,'message':_0x5bfe47(0x180),'data':_0x457b43};return _0x130b1c[_0x5bfe47(0x152)](0xc8)['send'](_0x13aa9f);});}[a687_0x4f0dfd(0x17e)](_0x397030,_0x24bfe2,_0x168680){const _0x35b691=a687_0x4f0dfd;return tslib_1[_0x35b691(0x16c)](this,void 0x0,void 0x0,function*(){const _0x130f02=_0x35b691,_0x859e0a=_0x397030[_0x130f02(0xf5)](',');for(const _0x51c7e7 of _0x859e0a){const _0x5362ad=yield this['settlementService'][_0x130f02(0x185)](_0x51c7e7);if(!_0x5362ad){const _0x187e26={'status':0x0,'message':_0x130f02(0x138)};return _0x168680[_0x130f02(0x152)](0x190)['send'](_0x187e26);}else yield this[_0x130f02(0xeb)][_0x130f02(0x121)]({'id':_0x51c7e7});}const _0xec7a80={'status':0x1,'message':_0x130f02(0x1e3)};return _0x168680['status'](0xc8)['send'](_0xec7a80);});}[a687_0x4f0dfd(0x1be)](_0x1775ab,_0x138131,_0x5699da,_0x226719,_0x312d45,_0x5a5a33,_0x3998b0,_0x34d374,_0x2c7ad1){const _0xce4a31=a687_0x4f0dfd;return tslib_1[_0xce4a31(0x16c)](this,void 0x0,void 0x0,function*(){const _0x35786d=_0xce4a31,_0x5400c0=(0x0,moment_1[_0x35786d(0x143)])(_0x312d45)[_0x35786d(0x159)](0x5,_0x35786d(0x127))[_0x35786d(0x159)](0x1e,'minutes')[_0x35786d(0x1bf)](_0x35786d(0x187)),_0x57af16=_0x5a5a33+'\x2023:59:59',_0xff949a=(0x0,moment_1[_0x35786d(0x143)])(_0x57af16)[_0x35786d(0x159)](0x5,'hours')[_0x35786d(0x159)](0x1e,_0x35786d(0xff))[_0x35786d(0x1bf)](_0x35786d(0x187)),_0x4faf80=[_0x35786d(0x17a),_0x35786d(0x163),_0x35786d(0xee),_0x35786d(0x18d)],_0x408ac6=[{'tableName':_0x35786d(0x1ca),'aliasName':_0x35786d(0x136)},{'tableName':'VendorOrders.orderDetail','aliasName':_0x35786d(0x205)},{'tableName':_0x35786d(0x1ac),'aliasName':_0x35786d(0x102)}],_0xaa3626=[{'name':_0x35786d(0x106)}],_0x2881eb=[];_0x2881eb['push']({'name':_0x35786d(0x1fe),'op':_0x35786d(0x16d),'value':0x1},{'name':_0x35786d(0xf7),'op':'and','value':0x1});_0x226719&&_0x226719!==undefined&&_0x2881eb[_0x35786d(0x17f)]({'name':_0x35786d(0x1f8),'op':'IN','value':_0x226719[_0x35786d(0xf5)](',')});_0x312d45&&_0x312d45!==''&&_0x2881eb[_0x35786d(0x17f)]({'name':_0x35786d(0x189),'op':_0x35786d(0xf4),'sign':'>=','value':_0x5400c0});_0x5a5a33&&_0x5a5a33!==''&&_0x2881eb[_0x35786d(0x17f)]({'name':_0x35786d(0x189),'op':_0x35786d(0xf4),'sign':'<=','value':_0xff949a});const _0x5478c7=[],_0x468c9b=[{'name':_0x35786d(0x194),'order':'DESC'}];if(_0x3998b0){const _0x384c96=yield this[_0x35786d(0x1dd)][_0x35786d(0x1e0)](0x0,0x0,_0x4faf80,_0x2881eb,_0x5478c7,_0x408ac6,_0xaa3626,_0x468c9b,!![],!![]),_0xaefcc8={'status':0x1,'message':_0x35786d(0x1fa),'data':_0x384c96};return _0x2c7ad1['status'](0xc8)[_0x35786d(0x11c)](_0xaefcc8);}const _0x59e582=yield this['vendorOrderService'][_0x35786d(0x1e0)](0x0,0x0,_0x4faf80,_0x2881eb,_0x5478c7,_0x408ac6,_0xaa3626,_0x468c9b,![],!![]),_0xc2c070=_0x59e582[_0x35786d(0x201)](_0x411740=>tslib_1[_0x35786d(0x16c)](this,void 0x0,void 0x0,function*(){const _0x21d476=_0x35786d,_0x47620e=_0x411740,_0x29bb10=[_0x21d476(0x19b),_0x21d476(0x13e),_0x21d476(0x1b8),_0x21d476(0x1a8),_0x21d476(0x1a1),_0x21d476(0x156),'orderProduct.productPrice\x20as\x20price',_0x21d476(0x1a1),_0x21d476(0x169),_0x21d476(0x182),'orderProduct.taxType\x20as\x20taxType',_0x21d476(0x1de),'VendorOrders.total\x20as\x20total',_0x21d476(0x195),_0x21d476(0x200),'VendorOrders.createdDate\x20as\x20createdDate','orderDetail.currencySymbolLeft\x20as\x20currencySymbolLeft',_0x21d476(0x1df),_0x21d476(0x1f3),'orderDetail.paymentZone\x20as\x20paymentZone',_0x21d476(0x17d),'orderProduct.skuName\x20as\x20skuName',_0x21d476(0x1bd),_0x21d476(0x186)],_0x48953a=[{'tableName':_0x21d476(0x1ac),'aliasName':_0x21d476(0x102)},{'tableName':_0x21d476(0xea),'aliasName':_0x21d476(0x205)},{'tableName':_0x21d476(0x199),'aliasName':_0x21d476(0x1c3)}],_0xc3b5c=[];_0xc3b5c[_0x21d476(0x17f)]({'name':_0x21d476(0x158),'op':_0x21d476(0x16d),'value':_0x411740[_0x21d476(0x1a4)]},{'name':_0x21d476(0x1fe),'op':_0x21d476(0x16d),'value':0x1},{'name':_0x21d476(0xf7),'op':_0x21d476(0x16d),'value':0x1});_0x312d45&&_0x312d45!==''&&_0xc3b5c[_0x21d476(0x17f)]({'name':'`VendorOrders`.`created_date`','op':'raw','sign':'>=','value':_0x5400c0});_0x5a5a33&&_0x5a5a33!==''&&_0xc3b5c[_0x21d476(0x17f)]({'name':_0x21d476(0x189),'op':_0x21d476(0xf4),'sign':'<=','value':_0xff949a});const _0x1aab38=[{'name':_0x21d476(0x194),'order':_0x21d476(0x1f6)}],_0x3f6ce1=yield this[_0x21d476(0x1dd)][_0x21d476(0x1e0)](_0x1775ab,_0x138131,_0x29bb10,_0xc3b5c,[],_0x48953a,[],_0x1aab38,![],!![]),_0x5484f6=_0x3f6ce1[_0x21d476(0x201)](_0xdab8ba=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x7a560d=_0x21d476,_0x519ccc=_0xdab8ba;_0x519ccc['cancelRequestStatus']===0x1&&(_0x519ccc[_0x7a560d(0x177)]=_0x7a560d(0x15d));if(_0xdab8ba['taxType']!==0x0&&_0x411740[_0x7a560d(0x14d)]&&_0xdab8ba[_0x7a560d(0x1ae)]!==null){if(_0x411740[_0x7a560d(0x14d)][_0x7a560d(0xed)]()===_0xdab8ba['paymentZone'][_0x7a560d(0xed)]())_0x519ccc[_0x7a560d(0x1c1)]='SGST,CGST';else _0x411740[_0x7a560d(0x14d)][_0x7a560d(0xed)]()!==_0xdab8ba[_0x7a560d(0x1ae)][_0x7a560d(0xed)]()&&(_0x519ccc['taxTypeValue']='IGST');}else _0x519ccc['taxTypeValue']='';const _0x4bebea=yield this['vendorInvoiceService'][_0x7a560d(0x185)]({'select':['invoiceNo',_0x7a560d(0x16a)],'where':{'orderId':_0xdab8ba[_0x7a560d(0x1c7)],'vendorId':_0xdab8ba[_0x7a560d(0x1a4)]}});return _0x4bebea?(_0x519ccc[_0x7a560d(0x190)]=_0x4bebea[_0x7a560d(0x190)],_0x519ccc['invoicePrefix']=_0x4bebea[_0x7a560d(0x16a)]):(_0x519ccc[_0x7a560d(0x190)]='',_0x519ccc[_0x7a560d(0x16a)]=''),_0x519ccc;})),_0x26efa3=yield Promise[_0x21d476(0x165)](_0x5484f6);return _0x47620e[_0x21d476(0x1c0)]=_0x26efa3,_0x47620e[_0x21d476(0x15a)]=yield this['vendorOrderService']['listByQueryBuilder'](0x0,0x0,_0x29bb10,_0xc3b5c,[],_0x48953a,[],[],!![],!![]),_0x47620e;})),_0x516ea4=yield Promise[_0x35786d(0x165)](_0xc2c070),_0x1c9949={'status':0x1,'message':_0x35786d(0x166),'data':_0x516ea4};return _0x2c7ad1[_0x35786d(0x152)](0xc8)[_0x35786d(0x11c)](_0x1c9949);});}[a687_0x4f0dfd(0x1a0)](_0x175193,_0x3d860f,_0x411be2,_0x572bfd,_0x376d48,_0x1a5938,_0x14feb1,_0x2c80d0,_0x313854){const _0x55935d=a687_0x4f0dfd;return tslib_1[_0x55935d(0x16c)](this,void 0x0,void 0x0,function*(){const _0x76d7b6=_0x55935d,_0x2242dc=[_0x76d7b6(0x18d),_0x76d7b6(0x13f),_0x76d7b6(0x110)],_0x1e25f0=[{'tableName':'VendorOrders.vendor','aliasName':_0x76d7b6(0x136)},{'tableName':_0x76d7b6(0xea),'aliasName':_0x76d7b6(0x205)},{'tableName':_0x76d7b6(0x1ac),'aliasName':_0x76d7b6(0x102)},{'tableName':_0x76d7b6(0x199),'aliasName':'orderStatus'}],_0x5880bf=[{'name':'VendorOrders.orderId'}],_0x30c1ec=[];_0x30c1ec[_0x76d7b6(0x17f)]({'name':_0x76d7b6(0x1fe),'op':_0x76d7b6(0x16d),'value':0x1},{'name':_0x76d7b6(0xf7),'op':_0x76d7b6(0x16d),'value':0x1});_0x572bfd&&_0x572bfd!==''&&_0x30c1ec['push']({'name':'`VendorOrders`.`created_date`','op':_0x76d7b6(0xf4),'sign':'>=','value':_0x572bfd+_0x76d7b6(0x1fc)});_0x376d48&&_0x376d48!==''&&_0x30c1ec[_0x76d7b6(0x17f)]({'name':_0x76d7b6(0x189),'op':_0x76d7b6(0xf4),'sign':'<=','value':_0x376d48+_0x76d7b6(0x160)});_0x411be2&&_0x411be2!==''&&_0x30c1ec[_0x76d7b6(0x17f)]({'name':_0x76d7b6(0x1d8),'op':_0x76d7b6(0xf4),'sign':'>=','value':_0x411be2});_0x1a5938&&_0x1a5938!==''&&_0x30c1ec[_0x76d7b6(0x17f)]({'name':_0x76d7b6(0x1d8),'op':'raw','sign':'<=','value':_0x1a5938});const _0xc9cf0f=[],_0xa2d2d8=[{'name':'vendorOrderId','order':_0x76d7b6(0x1f6)}];if(_0x14feb1){const _0x42aee9=yield this[_0x76d7b6(0x1dd)][_0x76d7b6(0x1e0)](0x0,0x0,_0x2242dc,_0x30c1ec,_0xc9cf0f,_0x1e25f0,_0x5880bf,_0xa2d2d8,!![],!![]),_0x1ac6cc={'status':0x1,'message':'Successfully\x20got\x20sales\x20report\x20count.','data':_0x42aee9};return _0x313854[_0x76d7b6(0x152)](0xc8)['send'](_0x1ac6cc);}const _0x422058=yield this[_0x76d7b6(0x1dd)][_0x76d7b6(0x1e0)](0x0,0x0,_0x2242dc,_0x30c1ec,_0xc9cf0f,_0x1e25f0,_0x5880bf,_0xa2d2d8,![],!![]),_0x36ab9c=_0x422058[_0x76d7b6(0x201)](_0x29c313=>tslib_1[_0x76d7b6(0x16c)](this,void 0x0,void 0x0,function*(){const _0x5e9919=_0x76d7b6,_0x4f01a1=_0x29c313,_0xe741e3=[_0x5e9919(0x17a),'vendor.companyName\x20as\x20companyName',_0x5e9919(0xee),_0x5e9919(0x19b),'VendorOrders.orderId\x20as\x20orderId',_0x5e9919(0x1b8),_0x5e9919(0x1a8),_0x5e9919(0x1a1),'orderProduct.orderProductId\x20as\x20orderProductId',_0x5e9919(0x156),_0x5e9919(0x1cd),_0x5e9919(0x1a1),_0x5e9919(0x169),_0x5e9919(0x182),'orderProduct.taxType\x20as\x20taxType',_0x5e9919(0x1de),_0x5e9919(0x149),_0x5e9919(0x195),'VendorOrders.commission\x20as\x20commission',_0x5e9919(0x179),'orderDetail.currencySymbolLeft\x20as\x20currencySymbolLeft',_0x5e9919(0x1df),'orderDetail.orderPrefixId\x20as\x20orderPrefixId',_0x5e9919(0x1d4),_0x5e9919(0x17d),'orderProduct.skuName\x20as\x20skuName',_0x5e9919(0x1f3),_0x5e9919(0x1bd),_0x5e9919(0x186),_0x5e9919(0x11d),_0x5e9919(0x105)],_0x29986a=[{'tableName':_0x5e9919(0x1ca),'aliasName':'vendor'},{'tableName':_0x5e9919(0xea),'aliasName':_0x5e9919(0x205)},{'tableName':_0x5e9919(0x1ab),'aliasName':_0x5e9919(0xfe)},{'tableName':'VendorOrders.orderProduct','aliasName':_0x5e9919(0x102)},{'tableName':'VendorOrders.orderStatus','aliasName':_0x5e9919(0x1c3)}],_0x301f18=[],_0x2d7013=[];_0x2d7013[_0x5e9919(0x17f)]({'name':_0x5e9919(0x1fe),'op':_0x5e9919(0x16d),'value':0x1},{'name':_0x5e9919(0xf7),'op':_0x5e9919(0x16d),'value':0x1},{'name':'VendorOrders.orderId','op':_0x5e9919(0x16d),'value':_0x29c313[_0x5e9919(0x1c7)]});_0x572bfd&&_0x572bfd!==''&&_0x2d7013[_0x5e9919(0x17f)]({'name':_0x5e9919(0x189),'op':_0x5e9919(0xf4),'sign':'>=','value':_0x572bfd+_0x5e9919(0x1fc)});_0x376d48&&_0x376d48!==''&&_0x2d7013[_0x5e9919(0x17f)]({'name':'`VendorOrders`.`created_date`','op':_0x5e9919(0xf4),'sign':'<=','value':_0x376d48+_0x5e9919(0x160)});_0x411be2&&_0x411be2!==''&&_0x2d7013[_0x5e9919(0x17f)]({'name':_0x5e9919(0x1d8),'op':'raw','sign':'>=','value':_0x411be2});_0x1a5938&&_0x1a5938!==''&&_0x2d7013[_0x5e9919(0x17f)]({'name':_0x5e9919(0x1d8),'op':'raw','sign':'<=','value':_0x1a5938});const _0x31424c=[],_0x3babe5=[{'name':_0x5e9919(0x194),'order':_0x5e9919(0x1f6)}],_0x5c1586=yield this[_0x5e9919(0x1dd)][_0x5e9919(0x1e0)](_0x175193,_0x3d860f,_0xe741e3,_0x2d7013,_0x31424c,_0x29986a,_0x301f18,_0x3babe5,![],!![]),_0x9a4885=_0x5c1586[_0x5e9919(0x201)](_0x5aef7c=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x25ab3d=_0x5e9919,_0x5a1e62=_0x5aef7c;_0x5a1e62[_0x25ab3d(0x1db)]===0x1&&(_0x5a1e62[_0x25ab3d(0x177)]=_0x25ab3d(0x15d));if(_0x5aef7c[_0x25ab3d(0x146)]!==0x0&&_0x5aef7c[_0x25ab3d(0x14d)]&&_0x5aef7c[_0x25ab3d(0x1ae)]!==null){if(_0x5aef7c[_0x25ab3d(0x14d)]['toLowerCase']()===_0x5aef7c['paymentZone'][_0x25ab3d(0xed)]())_0x5a1e62['taxTypeValue']='SGST,CGST';else _0x5aef7c[_0x25ab3d(0x14d)][_0x25ab3d(0xed)]()!==_0x5aef7c[_0x25ab3d(0x1ae)]['toLowerCase']()&&(_0x5a1e62[_0x25ab3d(0x1c1)]=_0x25ab3d(0x1b3));}else _0x5a1e62[_0x25ab3d(0x1c1)]='';return _0x5a1e62;})),_0x401d09=yield Promise[_0x5e9919(0x165)](_0x9a4885);return _0x4f01a1['orderProduct']=_0x401d09,_0x4f01a1;})),_0x3b6afa=yield Promise['all'](_0x36ab9c),_0x397f51={'status':0x1,'message':_0x76d7b6(0x139),'data':_0x3b6afa};return _0x313854[_0x76d7b6(0x152)](0xc8)['send'](_0x397f51);});}['settlementReportList'](_0x20c70a,_0x31111c,_0x465d1f,_0x3624ea,_0x4c4f0e,_0x3bad02,_0x527d84,_0x167028,_0x36b7e0,_0x5ab438){const _0x58cc2b=a687_0x4f0dfd;return tslib_1[_0x58cc2b(0x16c)](this,void 0x0,void 0x0,function*(){const _0x5504e3=_0x58cc2b,_0x129eff=(0x0,moment_1['default'])(_0x3624ea)[_0x5504e3(0x159)](0x5,_0x5504e3(0x127))[_0x5504e3(0x159)](0x1e,_0x5504e3(0xff))[_0x5504e3(0x1bf)](_0x5504e3(0x187)),_0x29de03=_0x4c4f0e+'\x2023:59:59',_0x12ddcc=(0x0,moment_1[_0x5504e3(0x143)])(_0x29de03)[_0x5504e3(0x159)](0x5,'hours')[_0x5504e3(0x159)](0x1e,_0x5504e3(0xff))['format'](_0x5504e3(0x187)),_0x36f043=[_0x5504e3(0x17a),_0x5504e3(0x163),'vendor.companyState\x20as\x20companyState',_0x5504e3(0x148),_0x5504e3(0x18d)],_0x200b31=[{'tableName':'VendorOrders.vendor','aliasName':_0x5504e3(0x136)},{'tableName':_0x5504e3(0xea),'aliasName':_0x5504e3(0x205)},{'tableName':_0x5504e3(0x1ac),'aliasName':_0x5504e3(0x102)}],_0x1db699=[{'name':_0x5504e3(0x106)}],_0x3943df=[];_0x3943df[_0x5504e3(0x17f)]({'name':_0x5504e3(0x1fe),'op':_0x5504e3(0x16d),'value':0x1},{'name':_0x5504e3(0xf7),'op':_0x5504e3(0x16d),'value':0x1});_0x465d1f&&_0x465d1f!==undefined&&_0x3943df['push']({'name':'vendor.vendorId','op':'IN','value':_0x465d1f['split'](',')});if(+_0x3bad02===0x1)_0x3943df['push']({'name':_0x5504e3(0x193),'op':_0x5504e3(0x16d),'value':0x1});else+_0x3bad02===0x2&&_0x3943df[_0x5504e3(0x17f)]({'name':_0x5504e3(0x193),'op':'and','value':0x0});_0x3624ea&&_0x3624ea!==''&&_0x3943df[_0x5504e3(0x17f)]({'name':'`VendorOrders`.`created_date`','op':_0x5504e3(0xf4),'sign':'>=','value':_0x129eff});_0x4c4f0e&&_0x4c4f0e!==''&&_0x3943df[_0x5504e3(0x17f)]({'name':'`VendorOrders`.`created_date`','op':_0x5504e3(0xf4),'sign':'<=','value':_0x12ddcc});_0x527d84&&_0x527d84!==undefined&&_0x3943df[_0x5504e3(0x17f)]({'name':_0x5504e3(0x14c),'op':'IN','value':_0x527d84[_0x5504e3(0xf5)](',')});const _0x2427ff=[],_0x16f4e2=[{'name':_0x5504e3(0x194),'order':_0x5504e3(0x1f6)}];if(_0x167028){const _0x7c0e60=yield this['vendorOrderService'][_0x5504e3(0x1e0)](0x0,0x0,_0x36f043,_0x3943df,_0x2427ff,_0x200b31,_0x1db699,_0x16f4e2,!![],!![]),_0x4bf8a={'status':0x1,'message':'Successfully\x20got\x20sales\x20report\x20count.','data':_0x7c0e60};return _0x5ab438[_0x5504e3(0x152)](0xc8)['send'](_0x4bf8a);}const _0x2df8dc=yield this[_0x5504e3(0x1dd)]['listByQueryBuilder'](0x0,0x0,_0x36f043,_0x3943df,_0x2427ff,_0x200b31,_0x1db699,_0x16f4e2,![],!![]),_0xe8c1d6=_0x2df8dc['map'](_0x92cf83=>tslib_1[_0x5504e3(0x16c)](this,void 0x0,void 0x0,function*(){const _0xcaf8c4=_0x5504e3,_0x3325e2=_0x92cf83,_0x34e81b=[_0xcaf8c4(0x19b),_0xcaf8c4(0x13e),_0xcaf8c4(0x1b8),_0xcaf8c4(0x122),'orderProduct.orderProductPrefixId\x20as\x20orderProductPrefixId',_0xcaf8c4(0x1a1),'orderProduct.name\x20as\x20name',_0xcaf8c4(0x1cd),_0xcaf8c4(0x1a1),'orderProduct.basePrice\x20as\x20basePrice',_0xcaf8c4(0x182),'orderProduct.taxType\x20as\x20taxType',_0xcaf8c4(0x1de),_0xcaf8c4(0x149),'VendorOrders.subOrderId\x20as\x20subOrderId',_0xcaf8c4(0x200),'VendorOrders.createdDate\x20as\x20createdDate',_0xcaf8c4(0x1c9),_0xcaf8c4(0x1df),_0xcaf8c4(0x17d),_0xcaf8c4(0x182),'orderDetail.paymentZone\x20as\x20paymentZone',_0xcaf8c4(0x1f3),_0xcaf8c4(0x1bd),_0xcaf8c4(0x186),_0xcaf8c4(0x1a9),_0xcaf8c4(0x11d),_0xcaf8c4(0x105)],_0x19f98e=[{'tableName':'VendorOrders.vendor','aliasName':_0xcaf8c4(0x136)},{'tableName':_0xcaf8c4(0x1ac),'aliasName':_0xcaf8c4(0x102)},{'tableName':_0xcaf8c4(0xea),'aliasName':_0xcaf8c4(0x205)},{'tableName':_0xcaf8c4(0x1ab),'aliasName':_0xcaf8c4(0xfe)},{'tableName':'VendorOrders.orderStatus','aliasName':_0xcaf8c4(0x1c3)}],_0x12368b=[];_0x12368b[_0xcaf8c4(0x17f)]({'name':_0xcaf8c4(0x158),'op':_0xcaf8c4(0x16d),'value':_0x92cf83[_0xcaf8c4(0x1a4)]},{'name':_0xcaf8c4(0x1fe),'op':_0xcaf8c4(0x16d),'value':0x1},{'name':_0xcaf8c4(0xf7),'op':_0xcaf8c4(0x16d),'value':0x1});_0x465d1f&&_0x465d1f!==undefined&&_0x12368b[_0xcaf8c4(0x17f)]({'name':_0xcaf8c4(0x1f8),'op':'IN','value':_0x465d1f[_0xcaf8c4(0xf5)](',')});_0x527d84&&_0x527d84!==undefined&&_0x12368b['push']({'name':_0xcaf8c4(0x14c),'op':'IN','value':_0x527d84[_0xcaf8c4(0xf5)](',')});if(+_0x3bad02===0x1)_0x12368b['push']({'name':_0xcaf8c4(0x193),'op':'and','value':0x1});else+_0x3bad02===0x2&&_0x12368b[_0xcaf8c4(0x17f)]({'name':_0xcaf8c4(0x193),'op':_0xcaf8c4(0x16d),'value':0x0});_0x3624ea&&_0x3624ea!==''&&_0x12368b[_0xcaf8c4(0x17f)]({'name':_0xcaf8c4(0x189),'op':_0xcaf8c4(0xf4),'sign':'>=','value':_0x3624ea+_0xcaf8c4(0x1fc)});_0x4c4f0e&&_0x4c4f0e!==''&&_0x12368b['push']({'name':_0xcaf8c4(0x189),'op':_0xcaf8c4(0xf4),'sign':'<=','value':_0x4c4f0e+'\x2023:59:59'});const _0x4679d5=[{'name':_0xcaf8c4(0x194),'order':'DESC'}],_0x467327=yield this['vendorOrderService'][_0xcaf8c4(0x1e0)](_0x20c70a,_0x31111c,_0x34e81b,_0x12368b,[],_0x19f98e,[],_0x4679d5,![],!![]),_0x843ce7=_0x467327['map'](_0x27f1e8=>tslib_1[_0xcaf8c4(0x16c)](this,void 0x0,void 0x0,function*(){const _0x53e86b=_0xcaf8c4,_0x22c448=_0x27f1e8;_0x22c448[_0x53e86b(0x1db)]===0x1&&(_0x22c448[_0x53e86b(0x177)]=_0x53e86b(0x15d));if(_0x27f1e8['taxType']!==0x0&&_0x92cf83[_0x53e86b(0x14d)]&&_0x27f1e8['paymentZone']!==null){if(_0x92cf83[_0x53e86b(0x14d)][_0x53e86b(0xed)]()===_0x27f1e8['paymentZone'][_0x53e86b(0xed)]())_0x22c448['taxTypeValue']=_0x53e86b(0x170);else _0x92cf83['companyState'][_0x53e86b(0xed)]()!==_0x27f1e8[_0x53e86b(0x1ae)]['toLowerCase']()&&(_0x22c448['taxTypeValue']='IGST');}else _0x22c448['taxTypeValue']='';return _0x27f1e8['makeSettlement']===0x1?_0x22c448[_0x53e86b(0x12e)]=_0x53e86b(0xf1):_0x22c448['settlementStatus']='Not\x20Settled',_0x22c448;})),_0x4846d3=yield Promise[_0xcaf8c4(0x165)](_0x843ce7);return _0x3325e2['vendorOrderDetails']=_0x4846d3,_0x3325e2[_0xcaf8c4(0x15a)]=yield this[_0xcaf8c4(0x1dd)][_0xcaf8c4(0x1e0)](0x0,0x0,_0x34e81b,_0x12368b,[],_0x19f98e,[],[],!![],!![]),_0x3325e2;})),_0x5367a1=yield Promise[_0x5504e3(0x165)](_0xe8c1d6),_0x373fc1={'status':0x1,'message':_0x5504e3(0x130),'data':_0x5367a1};return _0x5ab438[_0x5504e3(0x152)](0xc8)[_0x5504e3(0x11c)](_0x373fc1);});}[a687_0x4f0dfd(0xfc)](_0x4a4d31,_0x283c10,_0x119bda,_0x138ad0,_0x380284,_0x3f8f6a){const _0xcb3a06=a687_0x4f0dfd;return tslib_1[_0xcb3a06(0x16c)](this,void 0x0,void 0x0,function*(){const _0x48b3c0=_0xcb3a06,_0x420ce1=require(_0x48b3c0(0x108)),_0x33a078=new _0x420ce1[(_0x48b3c0(0x1a5))](),_0x4ef3a7=_0x33a078[_0x48b3c0(0x172)](_0x48b3c0(0x142),{'properties':{'defaultColWidth':0x19}}),_0x2bd066=[],_0x386327=['MAX(VendorOrders.vendorOrderId)\x20as\x20vendorOrderId',_0x48b3c0(0x13f),_0x48b3c0(0x110)],_0x428580=[{'tableName':_0x48b3c0(0x1ca),'aliasName':_0x48b3c0(0x136)},{'tableName':'VendorOrders.orderDetail','aliasName':_0x48b3c0(0x205)},{'tableName':_0x48b3c0(0x1ac),'aliasName':_0x48b3c0(0x102)},{'tableName':'VendorOrders.orderStatus','aliasName':_0x48b3c0(0x1c3)}],_0x134a72=[{'name':_0x48b3c0(0x12f)}],_0x2a26cb=[];_0x2a26cb[_0x48b3c0(0x17f)]({'name':'orderDetail.paymentProcess','op':'and','value':0x1},{'name':_0x48b3c0(0xf7),'op':_0x48b3c0(0x16d),'value':0x1});_0x283c10&&_0x283c10!==''&&_0x2a26cb[_0x48b3c0(0x17f)]({'name':_0x48b3c0(0x189),'op':_0x48b3c0(0xf4),'sign':'>=','value':_0x283c10+_0x48b3c0(0x1fc)});_0x119bda&&_0x119bda!==''&&_0x2a26cb[_0x48b3c0(0x17f)]({'name':'`VendorOrders`.`created_date`','op':_0x48b3c0(0xf4),'sign':'<=','value':_0x119bda+_0x48b3c0(0x160)});const _0x3e19bf=[],_0xb8e17a=[{'name':'vendorOrderId','order':_0x48b3c0(0x1f6)}],_0xfe9a9d=yield this[_0x48b3c0(0x1dd)][_0x48b3c0(0x1e0)](0x0,0x0,_0x386327,_0x2a26cb,_0x3e19bf,_0x428580,_0x134a72,_0xb8e17a,![],!![]);let _0x53bf70=0x0,_0x5f052f=0x0,_0x4e7cfc=0x0,_0x373032=0x0,_0x545771,_0x5d08c7;for(const _0x250a57 of _0xfe9a9d){_0x2bd066[_0x48b3c0(0x17f)]([_0x48b3c0(0x112)]),_0x2bd066['push']([_0x250a57[_0x48b3c0(0x18a)]]),_0x2bd066['push'](['Order\x20Line\x20No',_0x48b3c0(0x1a7),'Invoice',_0x48b3c0(0xec),_0x48b3c0(0x11f),'Quantity',_0x48b3c0(0x1ea),_0x48b3c0(0x1f5),'Tax\x20Type',_0x48b3c0(0x13a),_0x48b3c0(0x164)]);const _0x5b388d=[_0x48b3c0(0x19b),_0x48b3c0(0x13e),_0x48b3c0(0x1b8),_0x48b3c0(0xee),_0x48b3c0(0x1a8),_0x48b3c0(0x1a1),_0x48b3c0(0x156),_0x48b3c0(0x1cd),_0x48b3c0(0x1a1),_0x48b3c0(0x169),_0x48b3c0(0x182),_0x48b3c0(0x10c),_0x48b3c0(0x1de),'VendorOrders.total\x20as\x20total',_0x48b3c0(0x195),'VendorOrders.commission\x20as\x20commission',_0x48b3c0(0x179),'orderDetail.currencySymbolLeft\x20as\x20currencySymbolLeft',_0x48b3c0(0x1df),_0x48b3c0(0x1d4),_0x48b3c0(0x1f3),'orderProduct.name\x20as\x20productName',_0x48b3c0(0x182),'orderStatus.name\x20as\x20orderStatusName','orderStatus.colorCode\x20as\x20orderColorCode'],_0x8ddd9f=[{'tableName':'VendorOrders.vendor','aliasName':'vendor'},{'tableName':_0x48b3c0(0xea),'aliasName':_0x48b3c0(0x205)},{'tableName':'VendorOrders.orderProduct','aliasName':_0x48b3c0(0x102)},{'tableName':'VendorOrders.orderStatus','aliasName':_0x48b3c0(0x1c3)}],_0x3c823d=[];_0x3c823d[_0x48b3c0(0x17f)]({'name':_0x48b3c0(0x14a),'op':'and','value':_0x250a57[_0x48b3c0(0x1c7)]},{'name':'orderDetail.paymentProcess','op':_0x48b3c0(0x16d),'value':0x1},{'name':_0x48b3c0(0xf7),'op':'and','value':0x1});_0x283c10&&_0x283c10!==''&&_0x3c823d[_0x48b3c0(0x17f)]({'name':_0x48b3c0(0x189),'op':_0x48b3c0(0xf4),'sign':'>=','value':_0x283c10+_0x48b3c0(0x1fc)});_0x119bda&&_0x119bda!==''&&_0x3c823d[_0x48b3c0(0x17f)]({'name':_0x48b3c0(0x189),'op':_0x48b3c0(0xf4),'sign':'<=','value':_0x119bda+_0x48b3c0(0x160)});const _0x25b7fe=[{'name':_0x48b3c0(0x194),'order':_0x48b3c0(0x1f6)}],_0x24561b=yield this[_0x48b3c0(0x1dd)][_0x48b3c0(0x1e0)](0x0,0x0,_0x5b388d,_0x3c823d,[],_0x8ddd9f,[],_0x25b7fe,![],!![]);let _0x215339=0x0,_0x213964=0x0,_0x4d70b1=0x0,_0x2eb674=0x0,_0x4666b0=undefined,_0x40b42d=undefined;for(const _0x42f38a of _0x24561b){_0x42f38a[_0x48b3c0(0x1db)]===0x1&&(_0x42f38a[_0x48b3c0(0x177)]=_0x48b3c0(0x15d));if(_0x42f38a[_0x48b3c0(0x146)]!==0x0&&_0x42f38a['companyState']&&_0x42f38a[_0x48b3c0(0x1ae)]!==null){if(_0x42f38a['companyState'][_0x48b3c0(0xed)]()===_0x42f38a[_0x48b3c0(0x1ae)][_0x48b3c0(0xed)]())_0x42f38a[_0x48b3c0(0x1c1)]=_0x48b3c0(0x170);else _0x42f38a[_0x48b3c0(0x14d)][_0x48b3c0(0xed)]()!==_0x42f38a[_0x48b3c0(0x1ae)][_0x48b3c0(0xed)]()&&(_0x42f38a[_0x48b3c0(0x1c1)]=_0x48b3c0(0x1b3));}else _0x42f38a[_0x48b3c0(0x1c1)]='';const _0x1f2706=yield this['vendorInvoiceService']['findOne']({'select':[_0x48b3c0(0x190),_0x48b3c0(0x16a)],'where':{'orderId':_0x42f38a[_0x48b3c0(0x1c7)],'vendorId':_0x42f38a[_0x48b3c0(0x1a4)]}});let _0x37c5e1;_0x42f38a[_0x48b3c0(0x146)]===0x2?_0x37c5e1=(_0x42f38a['basePrice']*(_0x42f38a['taxValue']/0x64))[_0x48b3c0(0x12c)](0x2):_0x37c5e1=_0x42f38a['taxValue'],_0x215339+=parseFloat(_0x42f38a['quantity']),_0x213964+=parseFloat(_0x42f38a[_0x48b3c0(0x18f)]),_0x4d70b1+=parseFloat(_0x37c5e1),_0x2eb674+=parseFloat(_0x42f38a[_0x48b3c0(0x15c)]),_0x4666b0=_0x42f38a[_0x48b3c0(0x1e6)],_0x40b42d=_0x42f38a['currencySymbolRight'],_0x2bd066[_0x48b3c0(0x17f)]([_0x42f38a[_0x48b3c0(0x1fb)],_0x42f38a[_0x48b3c0(0x184)],_0x1f2706?_0x1f2706['invoiceNo']:'',_0x42f38a['skuName'],_0x42f38a[_0x48b3c0(0x131)],_0x42f38a['quantity'],(_0x4666b0?_0x4666b0:'')+_0x42f38a[_0x48b3c0(0x18f)]+(_0x40b42d?_0x40b42d:''),(_0x4666b0?_0x4666b0:'')+_0x37c5e1+(_0x40b42d?_0x40b42d:''),_0x42f38a['taxTypeValue'],(_0x4666b0?_0x4666b0:'')+_0x42f38a['total']+(_0x40b42d?_0x40b42d:''),_0x42f38a[_0x48b3c0(0x177)]]);}_0x53bf70+=_0x215339,_0x5f052f+=_0x213964,_0x4e7cfc+=_0x4d70b1,_0x373032+=_0x2eb674,_0x545771=_0x4666b0!==undefined?_0x4666b0:'',_0x5d08c7=_0x40b42d!==undefined?_0x40b42d:'',_0x2bd066['push'](['','','','',_0x48b3c0(0x1f9),_0x215339,(_0x545771?_0x545771:'')+_0x213964[_0x48b3c0(0x12c)](0x2)+(_0x5d08c7?_0x5d08c7:''),(_0x545771?_0x545771:'')+_0x4d70b1[_0x48b3c0(0x12c)](0x2)+(_0x5d08c7?_0x5d08c7:''),'',(_0x545771?_0x545771:'')+_0x2eb674[_0x48b3c0(0x12c)](0x2)+(_0x5d08c7?_0x5d08c7:''),'']);}_0x2bd066[_0x48b3c0(0x17f)](['','','','','Grand\x20total',_0x53bf70,(_0x545771?_0x545771:'')+_0x5f052f[_0x48b3c0(0x12c)](0x2)+(_0x5d08c7?_0x5d08c7:''),(_0x545771?_0x545771:'')+_0x4e7cfc[_0x48b3c0(0x12c)](0x2)+(_0x5d08c7?_0x5d08c7:''),'',(_0x545771?_0x545771:'')+_0x373032[_0x48b3c0(0x12c)](0x2)+(_0x5d08c7?_0x5d08c7:''),'']),_0x4ef3a7[_0x48b3c0(0x118)](_0x2bd066),_0x4ef3a7[_0x48b3c0(0xf6)]({'includeEmpty':!![]},(_0x2e526f,_0x134bc8)=>{const _0x459c14=_0x48b3c0;_0x2e526f[_0x459c14(0x204)][_0x459c14(0xf3)](_0x459c14(0x112))||_0x2e526f[_0x459c14(0x204)][_0x459c14(0xf3)]('Order\x20Line\x20No')?_0x4ef3a7[_0x459c14(0x100)](_0x134bc8)[_0x459c14(0xfa)]={'bold':!![]}:_0x2e526f[_0x459c14(0x1d7)]({'includeEmpty':!![]},(_0x253baa,_0x2aca29)=>{const _0x498ce1=_0x459c14;(_0x253baa[_0x498ce1(0x10a)]===_0x498ce1(0x1f9)||_0x253baa[_0x498ce1(0x10a)]===_0x498ce1(0x1cb))&&(_0x253baa['font']={'bold':!![]});});});const _0x35a38f=_0x48b3c0(0x1ba)+Date[_0x48b3c0(0xfb)]()+_0x48b3c0(0x188);return yield _0x33a078[_0x48b3c0(0xf2)][_0x48b3c0(0x161)](_0x35a38f),new Promise((_0x4f0ebb,_0x59e366)=>{_0x3f8f6a['download'](_0x35a38f,(_0x767750,_0x46c5be)=>{const _0x7a9e77=a687_0xf804;if(_0x767750)_0x59e366(_0x767750);else return fs[_0x7a9e77(0x1da)](_0x35a38f),_0x3f8f6a['end']();});});});}[a687_0x4f0dfd(0x115)](_0xbd60fe,_0x38633a,_0x5a3318,_0x5e3381,_0x22dc62,_0x184677){const _0x43ede6=a687_0x4f0dfd;return tslib_1[_0x43ede6(0x16c)](this,void 0x0,void 0x0,function*(){const _0x469c0a=_0x43ede6,_0x31955d=(0x0,moment_1[_0x469c0a(0x143)])(_0x5a3318)[_0x469c0a(0x159)](0x5,_0x469c0a(0x127))[_0x469c0a(0x159)](0x1e,_0x469c0a(0xff))[_0x469c0a(0x1bf)]('YYYY-MM-DD\x20HH:mm:ss'),_0x3f64ac=_0x5e3381+'\x2023:59:59',_0x14abc8=(0x0,moment_1[_0x469c0a(0x143)])(_0x3f64ac)['subtract'](0x5,'hours')['subtract'](0x1e,_0x469c0a(0xff))[_0x469c0a(0x1bf)](_0x469c0a(0x187)),_0x5e0ee7=require(_0x469c0a(0x108)),_0x34f619=new _0x5e0ee7[(_0x469c0a(0x1a5))](),_0x429567=_0x34f619[_0x469c0a(0x172)](_0x469c0a(0x1c5),{'properties':{'defaultColWidth':0x23}}),_0x482886=[],_0x5da07b=['vendor.vendorId\x20as\x20vendorId',_0x469c0a(0x163),_0x469c0a(0xee),_0x469c0a(0x18d),_0x469c0a(0x113)],_0x566061=[{'tableName':_0x469c0a(0x1ca),'aliasName':_0x469c0a(0x136)},{'tableName':_0x469c0a(0xea),'aliasName':_0x469c0a(0x205)},{'tableName':_0x469c0a(0x1ac),'aliasName':_0x469c0a(0x102)}],_0x3ce2f9=[{'name':'VendorOrders.vendorId'}],_0x4e79f8=[];_0x4e79f8[_0x469c0a(0x17f)]({'name':_0x469c0a(0x1fe),'op':'and','value':0x1},{'name':_0x469c0a(0xf7),'op':_0x469c0a(0x16d),'value':0x1});_0x38633a&&_0x38633a!==undefined&&_0x4e79f8['push']({'name':'vendor.vendorId','op':'IN','value':_0x38633a['split'](',')});_0x5a3318&&_0x5a3318!==''&&_0x4e79f8[_0x469c0a(0x17f)]({'name':_0x469c0a(0x189),'op':_0x469c0a(0xf4),'sign':'>=','value':_0x31955d});_0x5e3381&&_0x5e3381!==''&&_0x4e79f8['push']({'name':_0x469c0a(0x189),'op':_0x469c0a(0xf4),'sign':'<=','value':_0x14abc8});const _0x16c813=[],_0x5807a0=[{'name':_0x469c0a(0x194),'order':_0x469c0a(0x1f6)}],_0x2f26a9=yield this[_0x469c0a(0x1dd)][_0x469c0a(0x1e0)](0x0,0x0,_0x5da07b,_0x4e79f8,_0x16c813,_0x566061,_0x3ce2f9,_0x5807a0,![],!![]);let _0x3edb04=0x0,_0x3c97a4=0x0,_0x42f066=0x0,_0x183349=0x0,_0x15212a,_0x2d3033;for(const _0x34ca04 of _0x2f26a9){_0x482886['push']([_0x469c0a(0x101),_0x469c0a(0x198)]),_0x482886['push']([_0x34ca04[_0x469c0a(0x162)],_0x34ca04[_0x469c0a(0x111)]]),_0x482886['push']([_0x469c0a(0x13d),_0x469c0a(0x1a7),_0x469c0a(0x155),_0x469c0a(0xec),_0x469c0a(0x11f),_0x469c0a(0x1eb),'Base\x20Value',_0x469c0a(0x1f5),_0x469c0a(0x1a6),_0x469c0a(0x13a),_0x469c0a(0x164)]);const _0x4016ac=['VendorOrders.vendorOrderId\x20as\x20vendorOrderId',_0x469c0a(0x13e),'VendorOrders.vendorId\x20as\x20vendorId',_0x469c0a(0x1a8),_0x469c0a(0x1a1),_0x469c0a(0x156),_0x469c0a(0x1cd),_0x469c0a(0x1a1),_0x469c0a(0x169),_0x469c0a(0x182),_0x469c0a(0x10c),_0x469c0a(0x1de),_0x469c0a(0x149),_0x469c0a(0x195),_0x469c0a(0x200),_0x469c0a(0x179),_0x469c0a(0x1c9),_0x469c0a(0x1df),'orderProduct.name\x20as\x20productName',_0x469c0a(0x1d4),_0x469c0a(0x1f3),_0x469c0a(0x182),'orderStatus.name\x20as\x20orderStatusName','orderStatus.colorCode\x20as\x20orderColorCode'],_0x38f346=[{'tableName':_0x469c0a(0x1ac),'aliasName':'orderProduct'},{'tableName':'VendorOrders.orderDetail','aliasName':'orderDetail'},{'tableName':_0x469c0a(0x199),'aliasName':_0x469c0a(0x1c3)}],_0x53b7ef=[];_0x53b7ef[_0x469c0a(0x17f)]({'name':_0x469c0a(0x158),'op':'and','value':_0x34ca04[_0x469c0a(0x1a4)]},{'name':_0x469c0a(0x1fe),'op':_0x469c0a(0x16d),'value':0x1},{'name':_0x469c0a(0xf7),'op':'and','value':0x1});_0x5a3318&&_0x5a3318!==''&&_0x53b7ef['push']({'name':_0x469c0a(0x189),'op':_0x469c0a(0xf4),'sign':'>=','value':_0x5a3318+_0x469c0a(0x1fc)});_0x5e3381&&_0x5e3381!==''&&_0x53b7ef[_0x469c0a(0x17f)]({'name':_0x469c0a(0x189),'op':_0x469c0a(0xf4),'sign':'<=','value':_0x5e3381+_0x469c0a(0x167)});const _0x35e223=[{'name':'vendorOrderId','order':'DESC'}],_0x293aef=yield this[_0x469c0a(0x1dd)][_0x469c0a(0x1e0)](0x0,0x0,_0x4016ac,_0x53b7ef,[],_0x38f346,[],_0x35e223,![],!![]);let _0x3b02d6=0x0,_0x422f27=0x0,_0x3a42d6=0x0,_0x5609de=0x0,_0x74b599=undefined,_0x422f4b=undefined;for(const _0x189d15 of _0x293aef){_0x189d15[_0x469c0a(0x1db)]===0x1&&(_0x189d15[_0x469c0a(0x177)]='Cancelled');if(_0x189d15[_0x469c0a(0x146)]!==0x0&&_0x34ca04['companyState']&&_0x189d15[_0x469c0a(0x1ae)]!==null){if(_0x34ca04['companyState'][_0x469c0a(0xed)]()===_0x189d15[_0x469c0a(0x1ae)][_0x469c0a(0xed)]())_0x189d15[_0x469c0a(0x1c1)]=_0x469c0a(0x170);else _0x34ca04[_0x469c0a(0x14d)][_0x469c0a(0xed)]()!==_0x189d15[_0x469c0a(0x1ae)][_0x469c0a(0xed)]()&&(_0x189d15[_0x469c0a(0x1c1)]=_0x469c0a(0x1b3));}else _0x189d15[_0x469c0a(0x1c1)]='';const _0x4aa9d3=yield this[_0x469c0a(0x141)]['findOne']({'select':['invoiceNo',_0x469c0a(0x16a)],'where':{'orderId':_0x189d15[_0x469c0a(0x1c7)],'vendorId':_0x189d15['vendorId']}}),_0x156af3=_0x4aa9d3?_0x4aa9d3[_0x469c0a(0x190)]:'';let _0x4ea0a3;_0x189d15['taxType']===0x2?_0x4ea0a3=(_0x189d15[_0x469c0a(0x18f)]*(_0x189d15[_0x469c0a(0x1d5)]/0x64))[_0x469c0a(0x12c)](0x2):_0x4ea0a3=_0x189d15['taxValue'],_0x3b02d6+=parseFloat(_0x189d15[_0x469c0a(0x151)]),_0x422f27+=parseFloat(_0x189d15[_0x469c0a(0x18f)]),_0x3a42d6+=parseFloat(_0x4ea0a3),_0x5609de+=parseFloat(_0x189d15[_0x469c0a(0x15c)]),_0x74b599=_0x189d15[_0x469c0a(0x1e6)],_0x422f4b=_0x189d15[_0x469c0a(0x1f2)],_0x482886[_0x469c0a(0x17f)]([_0x189d15['orderProductPrefixId'],_0x189d15[_0x469c0a(0x184)],_0x156af3,_0x189d15[_0x469c0a(0x1e4)],_0x189d15[_0x469c0a(0x131)],_0x189d15[_0x469c0a(0x151)],(_0x74b599?_0x74b599:'')+_0x189d15[_0x469c0a(0x18f)]+(_0x422f4b?_0x422f4b:''),(_0x74b599?_0x74b599:'')+_0x4ea0a3+(_0x422f4b?_0x422f4b:''),_0x189d15[_0x469c0a(0x1c1)],(_0x74b599?_0x74b599:'')+_0x189d15[_0x469c0a(0x15c)]+(_0x422f4b?_0x422f4b:''),_0x189d15['orderStatusName']]);}_0x3edb04+=_0x3b02d6,_0x3c97a4+=_0x422f27,_0x42f066+=_0x3a42d6,_0x183349+=_0x5609de,_0x15212a=_0x74b599!==undefined?_0x74b599:'',_0x2d3033=_0x422f4b!==undefined?_0x422f4b:'',_0x482886[_0x469c0a(0x17f)](['','','','',_0x469c0a(0x1f9),_0x3b02d6,(_0x15212a?_0x15212a:'')+_0x422f27[_0x469c0a(0x12c)](0x2)+(_0x2d3033?_0x2d3033:''),(_0x15212a?_0x15212a:'')+_0x3a42d6['toFixed'](0x2)+(_0x2d3033?_0x2d3033:''),'',(_0x15212a?_0x15212a:'')+_0x5609de['toFixed'](0x2)+(_0x2d3033?_0x2d3033:''),'']);}_0x482886['push'](['','','','',_0x469c0a(0x1cb),_0x3edb04,(_0x15212a?_0x15212a:'')+_0x3c97a4[_0x469c0a(0x12c)](0x2)+(_0x2d3033?_0x2d3033:''),(_0x15212a?_0x15212a:'')+_0x42f066[_0x469c0a(0x12c)](0x2)+(_0x2d3033?_0x2d3033:''),'',(_0x15212a?_0x15212a:'')+_0x183349['toFixed'](0x2)+(_0x2d3033?_0x2d3033:''),'']),_0x429567[_0x469c0a(0x118)](_0x482886),_0x429567[_0x469c0a(0xf6)]({'includeEmpty':!![]},(_0x59bd83,_0x3d5a00)=>{const _0x3106dd=_0x469c0a;_0x59bd83['values'][_0x3106dd(0xf3)](_0x3106dd(0x101))||_0x59bd83[_0x3106dd(0x204)][_0x3106dd(0xf3)](_0x3106dd(0x13d))?_0x429567['getRow'](_0x3d5a00)[_0x3106dd(0xfa)]={'bold':!![]}:_0x59bd83[_0x3106dd(0x1d7)]({'includeEmpty':!![]},(_0x2d39b1,_0x2362f2)=>{const _0x45e8fd=_0x3106dd;(_0x2d39b1[_0x45e8fd(0x10a)]===_0x45e8fd(0x1f9)||_0x2d39b1[_0x45e8fd(0x10a)]===_0x45e8fd(0x1cb))&&(_0x2d39b1[_0x45e8fd(0xfa)]={'bold':!![]});});});const _0x2564a3=_0x469c0a(0x1dc)+Date[_0x469c0a(0xfb)]()+_0x469c0a(0x188);return yield _0x34f619['xlsx'][_0x469c0a(0x161)](_0x2564a3),new Promise((_0x3b20aa,_0x544026)=>{const _0x5f5c21=_0x469c0a;_0x184677[_0x5f5c21(0x12b)](_0x2564a3,(_0x38d3b2,_0x481361)=>{const _0x1ca26b=_0x5f5c21;if(_0x38d3b2)_0x544026(_0x38d3b2);else return fs[_0x1ca26b(0x1da)](_0x2564a3),_0x184677['end']();});});});}[a687_0x4f0dfd(0x135)](_0x278308,_0x3c25ee,_0x2d135e,_0xab731b,_0x44a063,_0x5ec7e0,_0xc2484f,_0x300a10,_0x561489){const _0x3c761f=a687_0x4f0dfd;return tslib_1[_0x3c761f(0x16c)](this,void 0x0,void 0x0,function*(){const _0x2afcee=_0x3c761f,_0x556c63=require(_0x2afcee(0x108)),_0x48c011=new _0x556c63[(_0x2afcee(0x1a5))](),_0x2312e0=_0x48c011['addWorksheet'](_0x2afcee(0x107),{'properties':{'defaultColWidth':0x23}}),_0x16853a=[],_0x58e202=[_0x2afcee(0x17a),_0x2afcee(0x163),_0x2afcee(0xee),_0x2afcee(0x18d),_0x2afcee(0x113)],_0x58902e=[{'tableName':_0x2afcee(0x1ca),'aliasName':_0x2afcee(0x136)},{'tableName':'VendorOrders.orderDetail','aliasName':_0x2afcee(0x205)},{'tableName':'VendorOrders.orderProduct','aliasName':_0x2afcee(0x102)}],_0x1e8d8c=[{'name':_0x2afcee(0x106)}],_0x33da4d=[];_0x33da4d['push']({'name':_0x2afcee(0x1fe),'op':'and','value':0x1},{'name':_0x2afcee(0xf7),'op':_0x2afcee(0x16d),'value':0x1});_0xab731b&&_0xab731b!==undefined&&_0x33da4d['push']({'name':'VendorOrders.subOrderStatusId','op':'IN','value':_0xab731b['split'](',')});_0x2d135e&&_0x2d135e!==undefined&&_0x33da4d[_0x2afcee(0x17f)]({'name':_0x2afcee(0x1f8),'op':'IN','value':_0x2d135e[_0x2afcee(0xf5)](',')});if(+_0xc2484f===0x1)_0x33da4d[_0x2afcee(0x17f)]({'name':_0x2afcee(0x193),'op':_0x2afcee(0x16d),'value':0x1});else+_0xc2484f===0x2&&_0x33da4d[_0x2afcee(0x17f)]({'name':_0x2afcee(0x193),'op':'and','value':0x0});_0x44a063&&_0x44a063!==''&&_0x33da4d[_0x2afcee(0x17f)]({'name':_0x2afcee(0x189),'op':_0x2afcee(0xf4),'sign':'>=','value':_0x44a063+'\x2000:00:00'});_0x5ec7e0&&_0x5ec7e0!==''&&_0x33da4d[_0x2afcee(0x17f)]({'name':_0x2afcee(0x189),'op':_0x2afcee(0xf4),'sign':'<=','value':_0x5ec7e0+'\x2023:59:59'});const _0xa67e86=[],_0x496961=[{'name':'vendorOrderId','order':_0x2afcee(0x1f6)}],_0x377cc8=yield this[_0x2afcee(0x1dd)][_0x2afcee(0x1e0)](0x0,0x0,_0x58e202,_0x33da4d,_0xa67e86,_0x58902e,_0x1e8d8c,_0x496961,![],!![]);let _0x23f354=0x0,_0x3331a3=0x0,_0xb7da3=0x0,_0xa23a55=0x0,_0x4d96b7,_0x4dc6a1;for(const _0x52f3d7 of _0x377cc8){_0x16853a[_0x2afcee(0x17f)](['Member','Records']),_0x16853a['push']([_0x52f3d7[_0x2afcee(0x162)],_0x52f3d7[_0x2afcee(0x111)]]),_0x16853a[_0x2afcee(0x17f)]([_0x2afcee(0x13d),'OrderDate',_0x2afcee(0x155),_0x2afcee(0xec),_0x2afcee(0x11f),_0x2afcee(0x1d9),_0x2afcee(0x1eb),'Base\x20Value',_0x2afcee(0x1f5),'Tax\x20Type',_0x2afcee(0x13a),'Order\x20Status']);const _0x4e9a3c=['VendorOrders.vendorOrderId\x20as\x20vendorOrderId','VendorOrders.orderId\x20as\x20orderId',_0x2afcee(0x1b8),_0x2afcee(0x1a8),_0x2afcee(0x1a1),_0x2afcee(0x156),_0x2afcee(0x1cd),'orderProduct.quantity\x20as\x20quantity','orderProduct.basePrice\x20as\x20basePrice',_0x2afcee(0x182),'orderProduct.taxType\x20as\x20taxType',_0x2afcee(0x1de),_0x2afcee(0x149),_0x2afcee(0x195),'VendorOrders.commission\x20as\x20commission','VendorOrders.createdDate\x20as\x20createdDate',_0x2afcee(0x1c9),_0x2afcee(0x1df),_0x2afcee(0x17d),_0x2afcee(0x182),_0x2afcee(0x1bd),_0x2afcee(0x186),'VendorOrders.makeSettlement\x20as\x20makeSettlement',_0x2afcee(0x1d4),'orderProduct.cancelRequestStatus\x20as\x20cancelRequestStatus'],_0x1eca9b=[{'tableName':_0x2afcee(0x1ca),'aliasName':_0x2afcee(0x136)},{'tableName':_0x2afcee(0x1ac),'aliasName':_0x2afcee(0x102)},{'tableName':_0x2afcee(0xea),'aliasName':_0x2afcee(0x205)},{'tableName':_0x2afcee(0x199),'aliasName':_0x2afcee(0x1c3)}],_0x4be9ec=[];_0x4be9ec['push']({'name':_0x2afcee(0x158),'op':_0x2afcee(0x16d),'value':_0x52f3d7[_0x2afcee(0x1a4)]},{'name':_0x2afcee(0x1fe),'op':_0x2afcee(0x16d),'value':0x1},{'name':_0x2afcee(0xf7),'op':_0x2afcee(0x16d),'value':0x1});if(+_0xc2484f===0x1)_0x4be9ec[_0x2afcee(0x17f)]({'name':'VendorOrders.makeSettlement','op':_0x2afcee(0x16d),'value':0x1});else+_0xc2484f===0x2&&_0x4be9ec['push']({'name':_0x2afcee(0x193),'op':_0x2afcee(0x16d),'value':0x0});_0x44a063&&_0x44a063!==''&&_0x4be9ec[_0x2afcee(0x17f)]({'name':_0x2afcee(0x189),'op':_0x2afcee(0xf4),'sign':'>=','value':_0x44a063+'\x2000:00:00'});_0x5ec7e0&&_0x5ec7e0!==''&&_0x4be9ec[_0x2afcee(0x17f)]({'name':'`VendorOrders`.`created_date`','op':'raw','sign':'<=','value':_0x5ec7e0+_0x2afcee(0x160)});_0x2d135e&&_0x2d135e!==undefined&&_0x4be9ec[_0x2afcee(0x17f)]({'name':'vendor.vendorId','op':'IN','value':_0x2d135e[_0x2afcee(0xf5)](',')});_0xab731b&&_0xab731b!==undefined&&_0x4be9ec[_0x2afcee(0x17f)]({'name':'VendorOrders.subOrderStatusId','op':'IN','value':_0xab731b[_0x2afcee(0xf5)](',')});const _0x5affbd=[{'name':_0x2afcee(0x194),'order':_0x2afcee(0x1f6)}],_0x2d16a5=yield this[_0x2afcee(0x1dd)][_0x2afcee(0x1e0)](0x0,0x0,_0x4e9a3c,_0x4be9ec,[],_0x1eca9b,[],_0x5affbd,![],!![]);let _0x1d9fa4=0x0,_0x635bab=0x0,_0x5823d5=0x0,_0x2ecc19=0x0,_0x453219=undefined,_0x96d9b5=undefined;for(const _0x36997f of _0x2d16a5){_0x36997f['cancelRequestStatus']===0x1&&(_0x36997f[_0x2afcee(0x177)]=_0x2afcee(0x15d));if(_0x36997f['taxType']!==0x0&&_0x52f3d7[_0x2afcee(0x14d)]&&_0x36997f[_0x2afcee(0x1ae)]!==null){if(_0x52f3d7[_0x2afcee(0x14d)][_0x2afcee(0xed)]()===_0x36997f['paymentZone'][_0x2afcee(0xed)]())_0x36997f[_0x2afcee(0x1c1)]=_0x2afcee(0x170);else _0x52f3d7['companyState'][_0x2afcee(0xed)]()!==_0x36997f['paymentZone'][_0x2afcee(0xed)]()&&(_0x36997f[_0x2afcee(0x1c1)]=_0x2afcee(0x1b3));}else _0x36997f[_0x2afcee(0x1c1)]='';const _0x46bc6f=yield this['vendorInvoiceService']['findOne']({'select':[_0x2afcee(0x190),'invoicePrefix'],'where':{'orderId':_0x36997f[_0x2afcee(0x1c7)],'vendorId':_0x36997f[_0x2afcee(0x1a4)]}}),_0x120eb4=_0x46bc6f?_0x46bc6f[_0x2afcee(0x190)]:'';let _0x2fc2d9;_0x36997f[_0x2afcee(0x146)]===0x2?_0x2fc2d9=(_0x36997f[_0x2afcee(0x18f)]*(_0x36997f[_0x2afcee(0x1d5)]/0x64))['toFixed'](0x2):_0x2fc2d9=_0x36997f['taxValue'];_0x1d9fa4+=parseFloat(_0x36997f[_0x2afcee(0x151)]),_0x635bab+=parseFloat(_0x36997f[_0x2afcee(0x18f)]),_0x5823d5+=parseFloat(_0x2fc2d9),_0x2ecc19+=parseFloat(_0x36997f['total']),_0x453219=_0x36997f[_0x2afcee(0x1e6)],_0x96d9b5=_0x36997f[_0x2afcee(0x1f2)];let _0xeea5ca;_0x36997f['makeSettlement']===0x1?_0xeea5ca=_0x2afcee(0xf1):_0xeea5ca='Not\x20Settled',_0x16853a[_0x2afcee(0x17f)]([_0x36997f[_0x2afcee(0x1fb)],_0x36997f[_0x2afcee(0x184)],_0x120eb4,_0x36997f[_0x2afcee(0x1e4)],_0x36997f['name'],_0xeea5ca,_0x36997f[_0x2afcee(0x151)],(_0x453219?_0x453219:'')+_0x36997f[_0x2afcee(0x18f)]+(_0x96d9b5?_0x96d9b5:''),(_0x453219?_0x453219:'')+_0x2fc2d9+(_0x96d9b5?_0x96d9b5:''),_0x36997f[_0x2afcee(0x1c1)],(_0x453219?_0x453219:'')+_0x36997f[_0x2afcee(0x15c)]+(_0x96d9b5?_0x96d9b5:''),_0x36997f[_0x2afcee(0x177)]]);}_0x23f354+=_0x1d9fa4,_0x3331a3+=_0x635bab,_0xb7da3+=_0x5823d5,_0xa23a55+=_0x2ecc19,_0x4d96b7=_0x453219!==undefined?_0x453219:'',_0x4dc6a1=_0x96d9b5!==undefined?_0x96d9b5:'',_0x16853a[_0x2afcee(0x17f)](['','','','','',_0x2afcee(0x1f9),_0x1d9fa4,(_0x4d96b7?_0x4d96b7:'')+_0x635bab[_0x2afcee(0x12c)](0x2)+(_0x4dc6a1?_0x4dc6a1:''),(_0x4d96b7?_0x4d96b7:'')+_0x5823d5[_0x2afcee(0x12c)](0x2)+(_0x4dc6a1?_0x4dc6a1:''),'',(_0x4d96b7?_0x4d96b7:'')+_0x2ecc19[_0x2afcee(0x12c)](0x2)+(_0x4dc6a1?_0x4dc6a1:''),'']);}_0x16853a[_0x2afcee(0x17f)](['','','','','',_0x2afcee(0x1cb),_0x23f354,(_0x4d96b7?_0x4d96b7:'')+_0x3331a3[_0x2afcee(0x12c)](0x2)+(_0x4dc6a1?_0x4dc6a1:''),(_0x4d96b7?_0x4d96b7:'')+_0xb7da3[_0x2afcee(0x12c)](0x2)+(_0x4dc6a1?_0x4dc6a1:''),'',(_0x4d96b7?_0x4d96b7:'')+_0xa23a55[_0x2afcee(0x12c)](0x2)+(_0x4dc6a1?_0x4dc6a1:''),'']),_0x2312e0[_0x2afcee(0x118)](_0x16853a),_0x2312e0['eachRow']({'includeEmpty':!![]},(_0x1f44ba,_0x52a1a9)=>{const _0x5d711d=_0x2afcee;_0x1f44ba[_0x5d711d(0x204)][_0x5d711d(0xf3)](_0x5d711d(0x101))||_0x1f44ba['values'][_0x5d711d(0xf3)]('Order\x20Line\x20No')?_0x2312e0['getRow'](_0x52a1a9)[_0x5d711d(0xfa)]={'bold':!![]}:_0x1f44ba[_0x5d711d(0x1d7)]({'includeEmpty':!![]},(_0x459e6c,_0x245dc6)=>{const _0x1cbc38=_0x5d711d;(_0x459e6c[_0x1cbc38(0x10a)]===_0x1cbc38(0x1f9)||_0x459e6c['value']===_0x1cbc38(0x1cb))&&(_0x459e6c['font']={'bold':!![]});});});const _0x2b461a=_0x2afcee(0xe7)+Date['now']()+_0x2afcee(0x188);return yield _0x48c011['xlsx']['writeFile'](_0x2b461a),new Promise((_0x2880c9,_0x3bc5dc)=>{const _0x33f892=_0x2afcee;_0x561489[_0x33f892(0x12b)](_0x2b461a,(_0x5ee4f3,_0x2d9260)=>{if(_0x5ee4f3)_0x3bc5dc(_0x5ee4f3);else return fs['unlinkSync'](_0x2b461a),_0x561489['end']();});});});}};tslib_1[a687_0x4f0dfd(0x1f0)]([(0x0,routing_controllers_1[a687_0x4f0dfd(0x14b)])(),(0x0,routing_controllers_1[a687_0x4f0dfd(0x181)])([a687_0x4f0dfd(0x1b1),a687_0x4f0dfd(0x153)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a687_0x4f0dfd(0xe9)](0x1,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1a2)])()),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x11b),Function),tslib_1['__metadata'](a687_0x4f0dfd(0x175),[CreateSettlementRequest_1[a687_0x4f0dfd(0x129)],Object]),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x1e2),Promise)],SettlementController[a687_0x4f0dfd(0xe8)],a687_0x4f0dfd(0x1b9),null),tslib_1[a687_0x4f0dfd(0x1f0)]([(0x0,routing_controllers_1[a687_0x4f0dfd(0x124)])(),(0x0,routing_controllers_1[a687_0x4f0dfd(0x181)])([a687_0x4f0dfd(0x1b1),'settlement-history-list']),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])('limit')),tslib_1[a687_0x4f0dfd(0xe9)](0x1,(0x0,routing_controllers_1['QueryParam'])('offset')),tslib_1[a687_0x4f0dfd(0xe9)](0x2,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])('keyword')),tslib_1[a687_0x4f0dfd(0xe9)](0x3,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x174))),tslib_1[a687_0x4f0dfd(0xe9)](0x4,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x109))),tslib_1[a687_0x4f0dfd(0xe9)](0x5,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x125))),tslib_1[a687_0x4f0dfd(0xe9)](0x6,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x1bb))),tslib_1[a687_0x4f0dfd(0xe9)](0x7,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x132))),tslib_1[a687_0x4f0dfd(0xe9)](0x8,(0x0,routing_controllers_1['Req'])()),tslib_1[a687_0x4f0dfd(0xe9)](0x9,(0x0,routing_controllers_1['Res'])()),tslib_1[a687_0x4f0dfd(0x1d3)]('design:type',Function),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x175),[Number,Number,String,String,String,String,String,Object,Object,Object]),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x1e2),Promise)],SettlementController['prototype'],'orderListtt',null),tslib_1[a687_0x4f0dfd(0x1f0)]([(0x0,routing_controllers_1[a687_0x4f0dfd(0x124)])(a687_0x4f0dfd(0x176)),(0x0,routing_controllers_1[a687_0x4f0dfd(0x181)])(['admin',a687_0x4f0dfd(0xfd)]),tslib_1[a687_0x4f0dfd(0xe9)](0x0,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x14f))),tslib_1[a687_0x4f0dfd(0xe9)](0x1,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1f7)])()),tslib_1[a687_0x4f0dfd(0xe9)](0x2,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1a2)])()),tslib_1['__metadata'](a687_0x4f0dfd(0x11b),Function),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x175),[String,Object,Object]),tslib_1[a687_0x4f0dfd(0x1d3)]('design:returntype',Promise)],SettlementController[a687_0x4f0dfd(0xe8)],a687_0x4f0dfd(0x203),null),tslib_1[a687_0x4f0dfd(0x1f0)]([(0x0,routing_controllers_1['Get'])('/bulk-export-settlement-list'),(0x0,routing_controllers_1[a687_0x4f0dfd(0x181)])([a687_0x4f0dfd(0x1b1),a687_0x4f0dfd(0x1b5)]),tslib_1[a687_0x4f0dfd(0xe9)](0x0,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x197))),tslib_1['__param'](0x1,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x174))),tslib_1[a687_0x4f0dfd(0xe9)](0x2,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x109))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x125))),tslib_1[a687_0x4f0dfd(0xe9)](0x4,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x1bb))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1f7)])()),tslib_1[a687_0x4f0dfd(0xe9)](0x6,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1a2)])()),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x11b),Function),tslib_1[a687_0x4f0dfd(0x1d3)]('design:paramtypes',[String,String,String,String,String,Object,Object]),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x1e2),Promise)],SettlementController['prototype'],a687_0x4f0dfd(0x123),null),tslib_1[a687_0x4f0dfd(0x1f0)]([(0x0,routing_controllers_1['Get'])(a687_0x4f0dfd(0x16f)),(0x0,routing_controllers_1['Authorized'])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a687_0x4f0dfd(0x15e)])('id')),tslib_1[a687_0x4f0dfd(0xe9)](0x1,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1a2)])()),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x11b),Function),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x175),[Number,Object]),tslib_1['__metadata'](a687_0x4f0dfd(0x1e2),Promise)],SettlementController[a687_0x4f0dfd(0xe8)],a687_0x4f0dfd(0x11e),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a687_0x4f0dfd(0x14b)])(a687_0x4f0dfd(0xf9)),(0x0,routing_controllers_1[a687_0x4f0dfd(0x181)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a687_0x4f0dfd(0x178)])(a687_0x4f0dfd(0x14f))),tslib_1[a687_0x4f0dfd(0xe9)](0x1,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1f7)])()),tslib_1[a687_0x4f0dfd(0xe9)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata']('design:type',Function),tslib_1['__metadata'](a687_0x4f0dfd(0x175),[String,Object,Object]),tslib_1['__metadata'](a687_0x4f0dfd(0x1e2),Promise)],SettlementController[a687_0x4f0dfd(0xe8)],'deleteMultipleSettlement',null),tslib_1[a687_0x4f0dfd(0x1f0)]([(0x0,routing_controllers_1[a687_0x4f0dfd(0x124)])(a687_0x4f0dfd(0x1fd)),(0x0,routing_controllers_1[a687_0x4f0dfd(0x181)])([a687_0x4f0dfd(0x1b1),a687_0x4f0dfd(0x12d)]),tslib_1[a687_0x4f0dfd(0xe9)](0x0,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x11a))),tslib_1[a687_0x4f0dfd(0xe9)](0x1,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x144))),tslib_1[a687_0x4f0dfd(0xe9)](0x2,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])('allVendor')),tslib_1[a687_0x4f0dfd(0xe9)](0x3,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])('vendorsId')),tslib_1[a687_0x4f0dfd(0xe9)](0x4,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x174))),tslib_1['__param'](0x5,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x109))),tslib_1[a687_0x4f0dfd(0xe9)](0x6,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x132))),tslib_1[a687_0x4f0dfd(0xe9)](0x7,(0x0,routing_controllers_1['Req'])()),tslib_1['__param'](0x8,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1a2)])()),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x11b),Function),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x175),[Number,Number,Number,String,String,String,Object,Object,Object]),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x1e2),Promise)],SettlementController[a687_0x4f0dfd(0xe8)],a687_0x4f0dfd(0x1be),null),tslib_1[a687_0x4f0dfd(0x1f0)]([(0x0,routing_controllers_1[a687_0x4f0dfd(0x124)])('/total-sales-report-list'),(0x0,routing_controllers_1[a687_0x4f0dfd(0x181)])([a687_0x4f0dfd(0x1b1),a687_0x4f0dfd(0x128)]),tslib_1[a687_0x4f0dfd(0xe9)](0x0,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x11a))),tslib_1[a687_0x4f0dfd(0xe9)](0x1,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])('offset')),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])('amountFrom')),tslib_1[a687_0x4f0dfd(0xe9)](0x3,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x174))),tslib_1[a687_0x4f0dfd(0xe9)](0x4,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x109))),tslib_1[a687_0x4f0dfd(0xe9)](0x5,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x1bb))),tslib_1[a687_0x4f0dfd(0xe9)](0x6,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x132))),tslib_1[a687_0x4f0dfd(0xe9)](0x7,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1f7)])()),tslib_1[a687_0x4f0dfd(0xe9)](0x8,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1a2)])()),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x11b),Function),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x175),[Number,Number,String,String,String,String,Object,Object,Object]),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x1e2),Promise)],SettlementController[a687_0x4f0dfd(0xe8)],'totalSalesReportList',null),tslib_1[a687_0x4f0dfd(0x1f0)]([(0x0,routing_controllers_1[a687_0x4f0dfd(0x124)])(a687_0x4f0dfd(0x1ec)),(0x0,routing_controllers_1[a687_0x4f0dfd(0x181)])(['admin','settlement-report']),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])('limit')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x144))),tslib_1[a687_0x4f0dfd(0xe9)](0x2,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0xf0))),tslib_1[a687_0x4f0dfd(0xe9)](0x3,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x174))),tslib_1[a687_0x4f0dfd(0xe9)](0x4,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x109))),tslib_1[a687_0x4f0dfd(0xe9)](0x5,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])('settlementFlag')),tslib_1[a687_0x4f0dfd(0xe9)](0x6,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x1c3))),tslib_1[a687_0x4f0dfd(0xe9)](0x7,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x132))),tslib_1['__param'](0x8,(0x0,routing_controllers_1['Req'])()),tslib_1['__param'](0x9,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1a2)])()),tslib_1[a687_0x4f0dfd(0x1d3)]('design:type',Function),tslib_1['__metadata'](a687_0x4f0dfd(0x175),[Number,Number,String,String,String,String,String,Object,Object,Object]),tslib_1['__metadata'](a687_0x4f0dfd(0x1e2),Promise)],SettlementController[a687_0x4f0dfd(0xe8)],'settlementReportList',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a687_0x4f0dfd(0x124)])(a687_0x4f0dfd(0x19c)),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a687_0x4f0dfd(0xe9)](0x0,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x125))),tslib_1['__param'](0x1,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x174))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x109))),tslib_1[a687_0x4f0dfd(0xe9)](0x3,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x1bb))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1f7)])()),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1a2)])()),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x11b),Function),tslib_1['__metadata'](a687_0x4f0dfd(0x175),[String,String,String,String,Object,Object]),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x1e2),Promise)],SettlementController[a687_0x4f0dfd(0xe8)],a687_0x4f0dfd(0xfc),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a687_0x4f0dfd(0x124)])(a687_0x4f0dfd(0x1b7)),(0x0,routing_controllers_1[a687_0x4f0dfd(0x181)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x12a))),tslib_1[a687_0x4f0dfd(0xe9)](0x1,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])('vendorsId')),tslib_1['__param'](0x2,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x174))),tslib_1[a687_0x4f0dfd(0xe9)](0x3,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x109))),tslib_1[a687_0x4f0dfd(0xe9)](0x4,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1f7)])()),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1a2)])()),tslib_1[a687_0x4f0dfd(0x1d3)]('design:type',Function),tslib_1['__metadata'](a687_0x4f0dfd(0x175),[Number,String,String,String,Object,Object]),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x1e2),Promise)],SettlementController[a687_0x4f0dfd(0xe8)],a687_0x4f0dfd(0x115),null),tslib_1[a687_0x4f0dfd(0x1f0)]([(0x0,routing_controllers_1[a687_0x4f0dfd(0x124)])(a687_0x4f0dfd(0x19d)),(0x0,routing_controllers_1[a687_0x4f0dfd(0x181)])(),tslib_1[a687_0x4f0dfd(0xe9)](0x0,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x11a))),tslib_1[a687_0x4f0dfd(0xe9)](0x1,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x144))),tslib_1['__param'](0x2,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0xf0))),tslib_1[a687_0x4f0dfd(0xe9)](0x3,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x1c3))),tslib_1[a687_0x4f0dfd(0xe9)](0x4,(0x0,routing_controllers_1['QueryParam'])('startDate')),tslib_1[a687_0x4f0dfd(0xe9)](0x5,(0x0,routing_controllers_1['QueryParam'])(a687_0x4f0dfd(0x109))),tslib_1['__param'](0x6,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1c2)])(a687_0x4f0dfd(0x117))),tslib_1[a687_0x4f0dfd(0xe9)](0x7,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1f7)])()),tslib_1[a687_0x4f0dfd(0xe9)](0x8,(0x0,routing_controllers_1[a687_0x4f0dfd(0x1a2)])()),tslib_1[a687_0x4f0dfd(0x1d3)]('design:type',Function),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x175),[Number,Number,String,String,String,String,Number,Object,Object]),tslib_1[a687_0x4f0dfd(0x1d3)]('design:returntype',Promise)],SettlementController[a687_0x4f0dfd(0xe8)],a687_0x4f0dfd(0x135),null),SettlementController=tslib_1[a687_0x4f0dfd(0x1f0)]([(0x0,routing_controllers_1['JsonController'])(a687_0x4f0dfd(0x1ff)),tslib_1[a687_0x4f0dfd(0x1d3)](a687_0x4f0dfd(0x175),[SettlementItemService_1[a687_0x4f0dfd(0x1aa)],VendorService_1['VendorService'],VendorInvoiceService_1['VendorInvoiceService'],OrderService_1[a687_0x4f0dfd(0x16e)],SettlementService_1['SettlementService'],OrderProductService_1['OrderProductService'],VendorOrderService_1[a687_0x4f0dfd(0x147)]])],SettlementController),exports[a687_0x4f0dfd(0x126)]=SettlementController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SettlementController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const CreateSettlementRequest_1 = require("./requests/CreateSettlementRequest");
+const Settlement_1 = require("../../core/models/Settlement");
+const SettlementItem_1 = require("../../core/models/SettlementItem");
+const SettlementService_1 = require("../../core/services/SettlementService");
+const VendorOrderService_1 = require("../../core/services/VendorOrderService");
+const SettlementItemService_1 = require("../../core/services/SettlementItemService");
+const OrderProductService_1 = require("../../core/services/OrderProductService");
+const OrderService_1 = require("../../core/services/OrderService");
+const VendorService_1 = require("../../core/services/VendorService");
+const VendorInvoiceService_1 = require("../../core/services/VendorInvoiceService");
+const fs = tslib_1.__importStar(require("fs"));
+const moment_1 = tslib_1.__importDefault(require("moment"));
+let SettlementController = class SettlementController {
+    constructor(settlementItemService, vendorService, vendorInvoiceService, orderService, settlementService, orderProductService, vendorOrderService) {
+        this.settlementItemService = settlementItemService;
+        this.vendorService = vendorService;
+        this.vendorInvoiceService = vendorInvoiceService;
+        this.orderService = orderService;
+        this.settlementService = settlementService;
+        this.orderProductService = orderProductService;
+        this.vendorOrderService = vendorOrderService;
+    }
+    // Create Settlement API
+    /**
+     * @api {post} /api/settlement Create settlement API
+     * @apiGroup Settlement
+     * @apiParam (Request body) {String{..255}} title title
+     * @apiParam (Request body) {String} vendorOrderId vendorOrderId
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "title" : "",
+     *      "vendorOrderId" : [],
+     * }],
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "New settlement is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/settlement
+     * @apiErrorExample {json} settlement error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createSettlement(settlementParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorOrders = settlementParam.vendorOrderId;
+            for (const vendorOrder of vendorOrders) {
+                const findOrder = yield this.vendorOrderService.findOne({ where: { vendorOrderId: vendorOrder } });
+                if (!findOrder) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid order Id.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            const newSettlement = new Settlement_1.Settlement();
+            newSettlement.title = settlementParam.title;
+            newSettlement.noOfOrders = vendorOrders.length;
+            const settlement = yield this.settlementService.create(newSettlement);
+            let totalAmount = 0;
+            let currencySymbolLeft = undefined;
+            let currencySymbolRight = undefined;
+            const arr = [];
+            for (const vendorOrder of vendorOrders) {
+                const settlementItem = new SettlementItem_1.SettlementItem();
+                const vendOrder = yield this.vendorOrderService.findOne({ where: { vendorOrderId: vendorOrder } });
+                vendOrder.makeSettlement = 1;
+                yield this.vendorOrderService.create(vendOrder);
+                settlementItem.vendorId = vendOrder.vendorId;
+                settlementItem.vendorOrderId = vendOrder.vendorOrderId;
+                settlementItem.orderProductId = vendOrder.orderProductId;
+                settlementItem.orderId = vendOrder.orderId;
+                settlementItem.total = vendOrder.total;
+                settlementItem.settlementId = settlement.id;
+                const vendor = yield this.vendorService.findOne({ where: { vendorId: vendOrder.vendorId } });
+                settlementItem.companyName = vendor ? vendor.companyName : '';
+                settlementItem.commission = vendOrder ? vendOrder.commission : '';
+                const defCommission = (vendOrder.commission && vendOrder.commission > 0) ? vendOrder.commission : 0;
+                const commission = vendOrder.total * (defCommission / 100);
+                settlementItem.CommissionAmount = commission;
+                const amount = vendOrder.total - commission;
+                settlementItem.netAmount = amount;
+                totalAmount += amount;
+                const orderProduct = yield this.orderProductService.findOne({ where: { orderProductId: vendOrder.orderProductId } });
+                settlementItem.orderProductPrefixId = orderProduct.orderProductPrefixId;
+                const order = yield this.orderService.findOrder({ where: { orderId: vendOrder.orderId } });
+                currencySymbolLeft = order.currencySymbolLeft;
+                currencySymbolRight = order.currencySymbolRight;
+                arr.push(settlementItem);
+            }
+            yield this.settlementItemService.create(arr);
+            newSettlement.totalAmount = totalAmount;
+            newSettlement.currencySymbolLeft = currencySymbolLeft;
+            newSettlement.currencySymbolRight = currencySymbolRight;
+            yield this.settlementService.create(newSettlement);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully created new Settlement.',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Settlement List API
+    /**
+     * @api {get} /api/settlement  Settlement list API
+     * @apiGroup Settlement
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword search by title
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} amountFrom search by starting amount
+     * @apiParam (Request body) {String} amountTo search by ending Amount
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got order list",
+     *      "data":{
+     *      "orderId" : "",
+     *      "orderStatusId" : "",
+     *      "customerName" : "",
+     *      "totalAmount" : "",
+     *      "dateModified" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/settlement
+     * @apiErrorExample {json} settlement error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderListtt(limit, offset, keyword, startDate, endDate, amountFrom, amountTo, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'Settlement.id as id',
+                'Settlement.createdDate as createdDate',
+                'Settlement.title as title',
+                'Settlement.currencySymbolLeft as currencySymbolLeft',
+                'Settlement.currencySymbolRight as currencySymbolRight',
+                'Settlement.totalAmount as totalAmount',
+                'Settlement.noOfOrders as noOfOrders'
+            ];
+            const relations = [];
+            const groupBy = [];
+            const whereConditions = [];
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`Settlement`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDate + ' 00:00:00',
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`Settlement`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDate + ' 23:59:59',
+                });
+            }
+            if (amountFrom && amountFrom !== '') {
+                whereConditions.push({
+                    name: '`Settlement`.`total_amount`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: amountFrom,
+                });
+            }
+            if (amountTo && amountTo !== '') {
+                whereConditions.push({
+                    name: '`Settlement`.`total_amount`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: amountTo,
+                });
+            }
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['Settlement.title'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'Settlement.createdDate',
+                order: 'DESC',
+            });
+            if (count) {
+                const orderCount = yield this.settlementService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                const successCount = {
+                    status: 1,
+                    message: 'Successfully got settlement count.',
+                    data: orderCount,
+                };
+                return response.status(200).send(successCount);
+            }
+            const orderList = yield this.settlementService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got settlement list.',
+                data: orderList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Settlement Export Excel download
+    /**
+     * @api {get} /api/settlement/settlement-export-excel-download Settlement Export Excel Download API
+     * @apiGroup Settlement
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} settlementId settlementId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the Settement Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/settlement/settlement-export-excel-download
+     * @apiErrorExample {json} Settlement Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    settlementexcelexport(settlementId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Settlement Detail Sheet');
+            const rows = [];
+            const settlementid = settlementId.split(',');
+            for (const id of settlementid) {
+                const dataId = yield this.settlementService.findOne(id);
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid settlementId',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            worksheet.columns = [
+                { header: 'Title', key: 'title', size: 16, width: 30 },
+                { header: 'Settlement Date', key: 'createdDate', size: 16, width: 15 },
+                { header: 'No of Orders', key: 'noOfOrders', size: 16, width: 15 },
+                { header: 'Total Settlement Value', key: 'totalAmount', size: 16, width: 30 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const id of settlementid) {
+                const dataId = yield this.settlementService.findOne(id);
+                rows.push([dataId.title, dataId.createdDate, dataId.noOfOrders, dataId.totalAmount]);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './SettlementExcel' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Settlement Bulk Export API
+    /**
+     * @api {get} /api/settlement/bulk-export-settlement-list All Settlement Excel
+     * @apiGroup Settlement
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} startDate startDate
+     * @apiParam (Request body) {String} endDate endDate
+     * @apiParam (Request body) {String} amountFrom amountFrom
+     * @apiParam (Request body) {String} amountTo amountTo
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the All Settlement Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/settlement/bulk-export-settlement-list
+     * @apiErrorExample {json} All Settlement Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    settlementBulkExport(keyword, startDate, endDate, amountFrom, amountTo, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('BUlk Settlement Excel');
+            const rows = [];
+            const select = [
+                'Settlement.id as id',
+                'Settlement.createdDate as createdDate',
+                'Settlement.title as title',
+                'Settlement.currencySymbolLeft as currencySymbolLeft',
+                'Settlement.currencySymbolRight as currencySymbolRight',
+                'Settlement.totalAmount as totalAmount',
+                'Settlement.noOfOrders as noOfOrders'
+            ];
+            const relations = [];
+            const groupBy = [];
+            const whereConditions = [];
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`Settlement`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDate + ' 00:00:00',
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`Settlement`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDate + ' 23:59:59',
+                });
+            }
+            if (amountFrom && amountFrom !== '') {
+                whereConditions.push({
+                    name: '`Settlement`.`total_amount`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: amountFrom,
+                });
+            }
+            if (amountTo && amountTo !== '') {
+                whereConditions.push({
+                    name: '`Settlement`.`total_amount`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: amountTo,
+                });
+            }
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['Settlement.title'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'Settlement.createdDate',
+                order: 'DESC',
+            });
+            const orderList = yield this.settlementService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            if (+orderList.length === 0) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'list is empty',
+                });
+            }
+            worksheet.columns = [
+                { header: 'Title', key: 'title', size: 16, width: 30 },
+                { header: 'Settlement Date', key: 'createdDate', size: 16, width: 15 },
+                { header: 'No of Orders', key: 'noOfOrders', size: 16, width: 15 },
+                { header: 'Total Settlement Value', key: 'totalAmount', size: 16, width: 30 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const data of orderList) {
+                rows.push([data.title, data.createdDate, data.noOfOrders, data.totalAmount]);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './SettlementBulkExport' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Get Settlement Detail API
+    /**
+     * @api {get} /api/settlement/settlement/:id Settlement Detail API
+     * @apiGroup Settlement
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully get settlement detail",
+     * "data":{
+     * }
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/settlement/settlement/:id
+     * @apiErrorExample {json} settlement error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    settlementDetails(id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const settlement = yield this.settlementService.findOne({
+                where: { id },
+            });
+            settlement.items = yield this.settlementItemService.findAll({
+                where: { settlementId: settlement.id },
+            });
+            const successResponse = {
+                status: 1,
+                message: 'successfully got Settlement details. ',
+                data: settlement,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Delete Multiple Settlement API
+    /**
+     * @api {post} /api/settlement/delete-multiple-settlement Delete Multiple Settlement API
+     * @apiGroup Settlement
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} settlementId settlementId
+     * @apiParamExample {json} Input
+     * {
+     * "settlementId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully deleted settlement.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/settlement/delete-multiple-settlement
+     * @apiErrorExample {json} Settlement Delete error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteMultipleSettlement(settlementId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const settlements = settlementId.split(',');
+            for (const settlement of settlements) {
+                const dataId = yield this.settlementService.findOne(settlement);
+                if (!dataId) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid settlement Id.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                else {
+                    yield this.settlementService.delete({ id: settlement });
+                }
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully deleted the settlement.',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Vendor Report List API
+    /**
+     * @api {get} /api/settlement/vendor-sales-report-list  Vendor Sales Report list API
+     * @apiGroup Settlement
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} allVendor allVendor
+     * @apiParam (Request body) {String} vendorsId vendorsId
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got vendor sales report list",
+     *      "data":{
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/settlement/vendor-sales-report-list
+     * @apiErrorExample {json} settlement error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorSalesReportList(limit, offset, allVendor, vendorsId, startDate, endDate, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const date = endDate + ' 23:59:59';
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const select = [
+                'vendor.vendorId as vendorId',
+                'vendor.companyName as companyName',
+                'vendor.companyState as companyState',
+                'MAX(VendorOrders.vendorOrderId) as vendorOrderId',
+            ];
+            const relations = [{
+                    tableName: 'VendorOrders.vendor',
+                    aliasName: 'vendor',
+                }, {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                }, {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'VendorOrders.vendorId',
+                },
+            ];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderDetail.paymentStatus',
+                op: 'and',
+                value: 1,
+            });
+            if (vendorsId && vendorsId !== undefined) {
+                whereConditions.push({
+                    name: 'vendor.vendorId',
+                    op: 'IN',
+                    value: vendorsId.split(','),
+                });
+            }
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDateMin,
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDateMin,
+                });
+            }
+            const searchConditions = [];
+            const sort = [{
+                    name: 'vendorOrderId',
+                    order: 'DESC',
+                }];
+            if (count) {
+                const orderCount = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                const successCount = {
+                    status: 1,
+                    message: 'Successfully got sales report count.',
+                    data: orderCount,
+                };
+                return response.status(200).send(successCount);
+            }
+            const orderList = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const orderResponse = orderList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const vendorOrder = value;
+                const subOrderSelect = [
+                    'VendorOrders.vendorOrderId as vendorOrderId',
+                    'VendorOrders.orderId as orderId',
+                    'VendorOrders.vendorId as vendorId',
+                    'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.name as name',
+                    'orderProduct.productPrice as price',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.basePrice as basePrice',
+                    'orderProduct.skuName as skuName',
+                    'orderProduct.taxType as taxType',
+                    'orderProduct.taxValue as taxValue',
+                    'VendorOrders.total as total',
+                    'VendorOrders.subOrderId as subOrderId',
+                    'VendorOrders.commission as commission',
+                    'VendorOrders.createdDate as createdDate',
+                    'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                    'orderDetail.currencySymbolRight as currencySymbolRight',
+                    'orderProduct.cancelRequestStatus as cancelRequestStatus',
+                    'orderDetail.paymentZone as paymentZone',
+                    'orderProduct.name as productName',
+                    'orderProduct.skuName as skuName',
+                    'orderStatus.name as orderStatusName',
+                    'orderStatus.colorCode as orderColorCode',
+                ];
+                const subOrderRelations = [
+                    {
+                        tableName: 'VendorOrders.orderProduct',
+                        aliasName: 'orderProduct',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderDetail',
+                        aliasName: 'orderDetail',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderStatus',
+                        aliasName: 'orderStatus',
+                    },
+                ];
+                const subOrderWhereConditions = [];
+                subOrderWhereConditions.push({
+                    name: 'VendorOrders.vendor_id',
+                    op: 'and',
+                    value: value.vendorId,
+                }, {
+                    name: 'orderDetail.paymentProcess',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: 'orderDetail.paymentStatus',
+                    op: 'and',
+                    value: 1,
+                });
+                if (startDate && startDate !== '') {
+                    subOrderWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '>=',
+                        value: startDateMin,
+                    });
+                }
+                if (endDate && endDate !== '') {
+                    subOrderWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '<=',
+                        value: endDateMin,
+                    });
+                }
+                const sortOrder = [{
+                        name: 'vendorOrderId',
+                        order: 'DESC',
+                    }];
+                const vendorOrderList = yield this.vendorOrderService.listByQueryBuilder(limit, offset, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], sortOrder, false, true);
+                const val = vendorOrderList.map((element) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const temp = element;
+                    if (temp.cancelRequestStatus === 1) {
+                        temp.orderStatusName = 'Cancelled';
+                    }
+                    if (element.taxType !== 0 && (value.companyState) && element.paymentZone !== null) {
+                        if (value.companyState.toLowerCase() === element.paymentZone.toLowerCase()) {
+                            temp.taxTypeValue = 'SGST,CGST';
+                        }
+                        else if (value.companyState.toLowerCase() !== element.paymentZone.toLowerCase()) {
+                            temp.taxTypeValue = 'IGST';
+                        }
+                    }
+                    else {
+                        temp.taxTypeValue = '';
+                    }
+                    const invoice = yield this.vendorInvoiceService.findOne({ select: ['invoiceNo', 'invoicePrefix'], where: { orderId: element.orderId, vendorId: element.vendorId } });
+                    if (invoice) {
+                        temp.invoiceNo = invoice.invoiceNo;
+                        temp.invoicePrefix = invoice.invoicePrefix;
+                    }
+                    else {
+                        temp.invoiceNo = '';
+                        temp.invoicePrefix = '';
+                    }
+                    return temp;
+                }));
+                const product = yield Promise.all(val);
+                vendorOrder.vendorOrderDetails = product;
+                vendorOrder.vendorOrderDetailsCount = yield this.vendorOrderService.listByQueryBuilder(0, 0, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], [], true, true);
+                return vendorOrder;
+            }));
+            const orderListDetails = yield Promise.all(orderResponse);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got vendor sales list.',
+                data: orderListDetails,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Total Sales Report List API
+    /**
+     * @api {get} /api/settlement/total-sales-report-list  Total Sales Report list API
+     * @apiGroup Settlement
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} amountFrom search by amountFrom
+     * @apiParam (Request body) {String} amountTo search by amountTo
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got total sales report list",
+     *      "data":{
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/settlement/total-sales-report-list
+     * @apiErrorExample {json} settlement error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    totalSalesReportList(limit, offset, amountFrom, startDate, endDate, amountTo, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'MAX(VendorOrders.vendorOrderId) as vendorOrderId',
+                'orderDetail.orderPrefixId as orderPrefixId',
+                'orderDetail.orderId as orderId',
+            ];
+            const relations = [{
+                    tableName: 'VendorOrders.vendor',
+                    aliasName: 'vendor',
+                }, {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                }, {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                }, {
+                    tableName: 'VendorOrders.orderStatus',
+                    aliasName: 'orderStatus',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'VendorOrders.orderId',
+                },
+            ];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderDetail.paymentStatus',
+                op: 'and',
+                value: 1,
+            });
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDate + ' 00:00:00',
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDate + ' 23:59:59',
+                });
+            }
+            if (amountFrom && amountFrom !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`total`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: amountFrom,
+                });
+            }
+            if (amountTo && amountTo !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`total`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: amountTo,
+                });
+            }
+            const searchConditions = [];
+            const sort = [{
+                    name: 'vendorOrderId',
+                    order: 'DESC',
+                }];
+            if (count) {
+                const orderCount = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                const successCount = {
+                    status: 1,
+                    message: 'Successfully got sales report count.',
+                    data: orderCount,
+                };
+                return response.status(200).send(successCount);
+            }
+            const orderList = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const orderResponse = orderList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const vendorOrder = value;
+                const selectOrderProduct = [
+                    'vendor.vendorId as vendorId',
+                    'vendor.companyName as companyName',
+                    'vendor.companyState as companyState',
+                    'VendorOrders.vendorOrderId as vendorOrderId',
+                    'VendorOrders.orderId as orderId',
+                    'VendorOrders.vendorId as vendorId',
+                    'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.orderProductId as orderProductId',
+                    'orderProduct.name as name',
+                    'orderProduct.productPrice as price',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.basePrice as basePrice',
+                    'orderProduct.skuName as skuName',
+                    'orderProduct.taxType as taxType',
+                    'orderProduct.taxValue as taxValue',
+                    'VendorOrders.total as total',
+                    'VendorOrders.subOrderId as subOrderId',
+                    'VendorOrders.commission as commission',
+                    'VendorOrders.createdDate as createdDate',
+                    'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                    'orderDetail.currencySymbolRight as currencySymbolRight',
+                    'orderDetail.orderPrefixId as orderPrefixId',
+                    'orderDetail.paymentZone as paymentZone',
+                    'orderProduct.name as productName',
+                    'orderProduct.skuName as skuName',
+                    'orderProduct.cancelRequestStatus as cancelRequestStatus',
+                    'orderStatus.name as orderStatusName',
+                    'orderStatus.colorCode as orderColorCode',
+                    'vendorInvoice.invoiceNo as invoiceNo',
+                    'vendorInvoice.invoicePrefix as invoicePrefix',
+                ];
+                const orderProductrelations = [{
+                        tableName: 'VendorOrders.vendor',
+                        aliasName: 'vendor',
+                    }, {
+                        tableName: 'VendorOrders.orderDetail',
+                        aliasName: 'orderDetail',
+                    }, {
+                        tableName: 'orderDetail.vendorInvoice',
+                        aliasName: 'vendorInvoice',
+                    }, {
+                        tableName: 'VendorOrders.orderProduct',
+                        aliasName: 'orderProduct',
+                    }, {
+                        tableName: 'VendorOrders.orderStatus',
+                        aliasName: 'orderStatus',
+                    },
+                ];
+                const orderProductgroupBy = [];
+                const orderProductWhereConditions = [];
+                orderProductWhereConditions.push({
+                    name: 'orderDetail.paymentProcess',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: 'orderDetail.paymentStatus',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: 'VendorOrders.orderId',
+                    op: 'and',
+                    value: value.orderId,
+                });
+                if (startDate && startDate !== '') {
+                    orderProductWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '>=',
+                        value: startDate + ' 00:00:00',
+                    });
+                }
+                if (endDate && endDate !== '') {
+                    orderProductWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '<=',
+                        value: endDate + ' 23:59:59',
+                    });
+                }
+                if (amountFrom && amountFrom !== '') {
+                    orderProductWhereConditions.push({
+                        name: '`VendorOrders`.`total`',
+                        op: 'raw',
+                        sign: '>=',
+                        value: amountFrom,
+                    });
+                }
+                if (amountTo && amountTo !== '') {
+                    orderProductWhereConditions.push({
+                        name: '`VendorOrders`.`total`',
+                        op: 'raw',
+                        sign: '<=',
+                        value: amountTo,
+                    });
+                }
+                const orderProductSearchConditions = [];
+                const orderProductSort = [{
+                        name: 'vendorOrderId',
+                        order: 'DESC',
+                    }];
+                const orderProductList = yield this.vendorOrderService.listByQueryBuilder(limit, offset, selectOrderProduct, orderProductWhereConditions, orderProductSearchConditions, orderProductrelations, orderProductgroupBy, orderProductSort, false, true);
+                const val = orderProductList.map((element) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const temp = element;
+                    if (temp.cancelRequestStatus === 1) {
+                        temp.orderStatusName = 'Cancelled';
+                    }
+                    if (element.taxType !== 0 && (element.companyState) && element.paymentZone !== null) {
+                        if (element.companyState.toLowerCase() === element.paymentZone.toLowerCase()) {
+                            temp.taxTypeValue = 'SGST,CGST';
+                        }
+                        else if (element.companyState.toLowerCase() !== element.paymentZone.toLowerCase()) {
+                            temp.taxTypeValue = 'IGST';
+                        }
+                    }
+                    else {
+                        temp.taxTypeValue = '';
+                    }
+                    return temp;
+                }));
+                const orderProductDetails = yield Promise.all(val);
+                vendorOrder.orderProduct = orderProductDetails;
+                return vendorOrder;
+            }));
+            const orderListDetails = yield Promise.all(orderResponse);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got total vendor sales list.',
+                data: orderListDetails,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Settlement Report List API
+    /**
+     * @api {get} /api/settlement/settlement-report-list  Settlement Report list API
+     * @apiGroup Settlement
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} vendorsId vendorsId
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} settlementFlag 1->settled 2->not settled
+     * @apiParam (Request body) {String} orderStatus search by orderStatus
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Settlement report list",
+     *      "data":{
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/settlement/settlement-report-list
+     * @apiErrorExample {json} settlement error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    settlementReportList(limit, offset, vendorsId, startDate, endDate, settlementFlag, orderStatus, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const date = endDate + ' 23:59:59';
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const select = [
+                'vendor.vendorId as vendorId',
+                'vendor.companyName as companyName',
+                'vendor.companyState as companyState',
+                'MAX(VendorOrders.subOrderStatusId) as subOrderStatusId',
+                'MAX(VendorOrders.vendorOrderId) as vendorOrderId',
+            ];
+            const relations = [{
+                    tableName: 'VendorOrders.vendor',
+                    aliasName: 'vendor',
+                }, {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                }, {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'VendorOrders.vendorId',
+                },
+            ];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderDetail.paymentStatus',
+                op: 'and',
+                value: 1,
+            });
+            if (vendorsId && vendorsId !== undefined) {
+                whereConditions.push({
+                    name: 'vendor.vendorId',
+                    op: 'IN',
+                    value: vendorsId.split(','),
+                });
+            }
+            if (+(settlementFlag) === 1) {
+                whereConditions.push({
+                    name: 'VendorOrders.makeSettlement',
+                    op: 'and',
+                    value: 1,
+                });
+            }
+            else if (+(settlementFlag) === 2) {
+                whereConditions.push({
+                    name: 'VendorOrders.makeSettlement',
+                    op: 'and',
+                    value: 0,
+                });
+            }
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDateMin,
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDateMin,
+                });
+            }
+            if (orderStatus && orderStatus !== undefined) {
+                whereConditions.push({
+                    name: 'VendorOrders.subOrderStatusId',
+                    op: 'IN',
+                    value: orderStatus.split(','),
+                });
+            }
+            const searchConditions = [];
+            const sort = [{
+                    name: 'vendorOrderId',
+                    order: 'DESC',
+                }];
+            if (count) {
+                const orderCount = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                const successCount = {
+                    status: 1,
+                    message: 'Successfully got sales report count.',
+                    data: orderCount,
+                };
+                return response.status(200).send(successCount);
+            }
+            const orderList = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const orderResponse = orderList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const vendorOrder = value;
+                const subOrderSelect = [
+                    'VendorOrders.vendorOrderId as vendorOrderId',
+                    'VendorOrders.orderId as orderId',
+                    'VendorOrders.vendorId as vendorId',
+                    'VendorOrders.subOrderStatusId as subOrderStatusId',
+                    'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.name as name',
+                    'orderProduct.productPrice as price',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.basePrice as basePrice',
+                    'orderProduct.skuName as skuName',
+                    'orderProduct.taxType as taxType',
+                    'orderProduct.taxValue as taxValue',
+                    'VendorOrders.total as total',
+                    'VendorOrders.subOrderId as subOrderId',
+                    'VendorOrders.commission as commission',
+                    'VendorOrders.createdDate as createdDate',
+                    'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                    'orderDetail.currencySymbolRight as currencySymbolRight',
+                    'orderProduct.name as productName',
+                    'orderProduct.skuName as skuName',
+                    'orderDetail.paymentZone as paymentZone',
+                    'orderProduct.cancelRequestStatus as cancelRequestStatus',
+                    'orderStatus.name as orderStatusName',
+                    'orderStatus.colorCode as orderColorCode',
+                    'VendorOrders.makeSettlement as makeSettlement',
+                    'vendorInvoice.invoiceNo as invoiceNo',
+                    'vendorInvoice.invoicePrefix as invoicePrefix',
+                ];
+                const subOrderRelations = [
+                    {
+                        tableName: 'VendorOrders.vendor',
+                        aliasName: 'vendor',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderProduct',
+                        aliasName: 'orderProduct',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderDetail',
+                        aliasName: 'orderDetail',
+                    },
+                    {
+                        tableName: 'orderDetail.vendorInvoice',
+                        aliasName: 'vendorInvoice',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderStatus',
+                        aliasName: 'orderStatus',
+                    },
+                ];
+                const subOrderWhereConditions = [];
+                subOrderWhereConditions.push({
+                    name: 'VendorOrders.vendor_id',
+                    op: 'and',
+                    value: value.vendorId,
+                }, {
+                    name: 'orderDetail.paymentProcess',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: 'orderDetail.paymentStatus',
+                    op: 'and',
+                    value: 1,
+                });
+                if (vendorsId && vendorsId !== undefined) {
+                    subOrderWhereConditions.push({
+                        name: 'vendor.vendorId',
+                        op: 'IN',
+                        value: vendorsId.split(','),
+                    });
+                }
+                if (orderStatus && orderStatus !== undefined) {
+                    subOrderWhereConditions.push({
+                        name: 'VendorOrders.subOrderStatusId',
+                        op: 'IN',
+                        value: orderStatus.split(','),
+                    });
+                }
+                if (+(settlementFlag) === 1) {
+                    subOrderWhereConditions.push({
+                        name: 'VendorOrders.makeSettlement',
+                        op: 'and',
+                        value: 1,
+                    });
+                }
+                else if (+(settlementFlag) === 2) {
+                    subOrderWhereConditions.push({
+                        name: 'VendorOrders.makeSettlement',
+                        op: 'and',
+                        value: 0,
+                    });
+                }
+                if (startDate && startDate !== '') {
+                    subOrderWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '>=',
+                        value: startDate + ' 00:00:00',
+                    });
+                }
+                if (endDate && endDate !== '') {
+                    subOrderWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '<=',
+                        value: endDate + ' 23:59:59',
+                    });
+                }
+                const sortOrder = [{
+                        name: 'vendorOrderId',
+                        order: 'DESC',
+                    }];
+                const vendorOrderList = yield this.vendorOrderService.listByQueryBuilder(limit, offset, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], sortOrder, false, true);
+                const val = vendorOrderList.map((element) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const temp = element;
+                    if (temp.cancelRequestStatus === 1) {
+                        temp.orderStatusName = 'Cancelled';
+                    }
+                    if (element.taxType !== 0 && (value.companyState) && element.paymentZone !== null) {
+                        if (value.companyState.toLowerCase() === element.paymentZone.toLowerCase()) {
+                            temp.taxTypeValue = 'SGST,CGST';
+                        }
+                        else if (value.companyState.toLowerCase() !== element.paymentZone.toLowerCase()) {
+                            temp.taxTypeValue = 'IGST';
+                        }
+                    }
+                    else {
+                        temp.taxTypeValue = '';
+                    }
+                    if (element.makeSettlement === 1) {
+                        temp.settlementStatus = 'Settled';
+                    }
+                    else {
+                        temp.settlementStatus = 'Not Settled';
+                    }
+                    return temp;
+                }));
+                const product = yield Promise.all(val);
+                vendorOrder.vendorOrderDetails = product;
+                vendorOrder.vendorOrderDetailsCount = yield this.vendorOrderService.listByQueryBuilder(0, 0, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], [], true, true);
+                return vendorOrder;
+            }));
+            const orderListDetails = yield Promise.all(orderResponse);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got settlement report list.',
+                data: orderListDetails,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Total sales report Download
+    /**
+     * @api {get} /api/settlement/total-sales-report-excel Total sales report excel download
+     * @apiGroup Settlement
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} amountFrom search by amountFrom
+     * @apiParam (Request body) {String} amountTo search by amountTo
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download total sales report excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/settlement/total-sales-report-excel
+     * @apiErrorExample {json} Total sales report excel error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    totalSalesExcelView(amountFrom, startDate, endDate, amountTo, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Total Sales Export sheet', { properties: { defaultColWidth: 25 } });
+            const rows = [];
+            const select = [
+                'MAX(VendorOrders.vendorOrderId) as vendorOrderId',
+                'orderDetail.orderPrefixId as orderPrefixId',
+                'orderDetail.orderId as orderId',
+            ];
+            const relations = [{
+                    tableName: 'VendorOrders.vendor',
+                    aliasName: 'vendor',
+                }, {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                }, {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                }, {
+                    tableName: 'VendorOrders.orderStatus',
+                    aliasName: 'orderStatus',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'VendorOrders.orderId',
+                },
+            ];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderDetail.paymentStatus',
+                op: 'and',
+                value: 1,
+            });
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDate + ' 00:00:00',
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDate + ' 23:59:59',
+                });
+            }
+            const searchConditions = [];
+            const sort = [{
+                    name: 'vendorOrderId',
+                    order: 'DESC',
+                }];
+            const orderList = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            let grandQuantity = 0;
+            let grandBasePrice = 0;
+            let grandTax = 0;
+            let grandTotal = 0;
+            let left;
+            let right;
+            for (const orderData of orderList) {
+                rows.push(['Order No']);
+                rows.push([orderData.orderPrefixId]);
+                rows.push(['Order Line No', 'OrderDate', 'Invoice', 'Item', 'Description', 'Quantity', 'Base Value', 'Tax', 'Tax Type', 'Total Value', 'Order Status']);
+                const subOrderSelect = [
+                    'VendorOrders.vendorOrderId as vendorOrderId',
+                    'VendorOrders.orderId as orderId',
+                    'VendorOrders.vendorId as vendorId',
+                    'vendor.companyState as companyState',
+                    'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.name as name',
+                    'orderProduct.productPrice as price',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.basePrice as basePrice',
+                    'orderProduct.skuName as skuName',
+                    'orderProduct.taxType as taxType',
+                    'orderProduct.taxValue as taxValue',
+                    'VendorOrders.total as total',
+                    'VendorOrders.subOrderId as subOrderId',
+                    'VendorOrders.commission as commission',
+                    'VendorOrders.createdDate as createdDate',
+                    'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                    'orderDetail.currencySymbolRight as currencySymbolRight',
+                    'orderDetail.paymentZone as paymentZone',
+                    'orderProduct.cancelRequestStatus as cancelRequestStatus',
+                    'orderProduct.name as productName',
+                    'orderProduct.skuName as skuName',
+                    'orderStatus.name as orderStatusName',
+                    'orderStatus.colorCode as orderColorCode',
+                ];
+                const subOrderRelations = [
+                    {
+                        tableName: 'VendorOrders.vendor',
+                        aliasName: 'vendor',
+                    }, {
+                        tableName: 'VendorOrders.orderDetail',
+                        aliasName: 'orderDetail',
+                    }, {
+                        tableName: 'VendorOrders.orderProduct',
+                        aliasName: 'orderProduct',
+                    }, {
+                        tableName: 'VendorOrders.orderStatus',
+                        aliasName: 'orderStatus',
+                    },
+                ];
+                const subOrderWhereConditions = [];
+                subOrderWhereConditions.push({
+                    name: 'VendorOrders.order_id',
+                    op: 'and',
+                    value: orderData.orderId,
+                }, {
+                    name: 'orderDetail.paymentProcess',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: 'orderDetail.paymentStatus',
+                    op: 'and',
+                    value: 1,
+                });
+                if (startDate && startDate !== '') {
+                    subOrderWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '>=',
+                        value: startDate + ' 00:00:00',
+                    });
+                }
+                if (endDate && endDate !== '') {
+                    subOrderWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '<=',
+                        value: endDate + ' 23:59:59',
+                    });
+                }
+                const sortOrder = [{
+                        name: 'vendorOrderId',
+                        order: 'DESC',
+                    }];
+                const vendorOrderList = yield this.vendorOrderService.listByQueryBuilder(0, 0, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], sortOrder, false, true);
+                let quantity = 0;
+                let basePrice = 0;
+                let tax = 0;
+                let total = 0;
+                let currencySymbolLeft = undefined;
+                let currencySymbolRight = undefined;
+                for (const vendOrder of vendorOrderList) {
+                    if (vendOrder.cancelRequestStatus === 1) {
+                        vendOrder.orderStatusName = 'Cancelled';
+                    }
+                    if (vendOrder.taxType !== 0 && (vendOrder.companyState) && (vendOrder.paymentZone !== null)) {
+                        if (vendOrder.companyState.toLowerCase() === vendOrder.paymentZone.toLowerCase()) {
+                            vendOrder.taxTypeValue = 'SGST,CGST';
+                        }
+                        else if (vendOrder.companyState.toLowerCase() !== vendOrder.paymentZone.toLowerCase()) {
+                            vendOrder.taxTypeValue = 'IGST';
+                        }
+                    }
+                    else {
+                        vendOrder.taxTypeValue = '';
+                    }
+                    const invoice = yield this.vendorInvoiceService.findOne({ select: ['invoiceNo', 'invoicePrefix'], where: { orderId: vendOrder.orderId, vendorId: vendOrder.vendorId } });
+                    let taxValueInAmount;
+                    if (vendOrder.taxType === 2) {
+                        taxValueInAmount = (vendOrder.basePrice * (vendOrder.taxValue / 100)).toFixed(2);
+                    }
+                    else {
+                        taxValueInAmount = vendOrder.taxValue;
+                    }
+                    quantity += parseFloat(vendOrder.quantity);
+                    basePrice += parseFloat(vendOrder.basePrice);
+                    tax += parseFloat(taxValueInAmount);
+                    total += parseFloat(vendOrder.total);
+                    currencySymbolLeft = vendOrder.currencySymbolLeft;
+                    currencySymbolRight = vendOrder.currencySymbolRight;
+                    rows.push([vendOrder.orderProductPrefixId, vendOrder.createdDate, invoice ? invoice.invoiceNo : '', vendOrder.skuName, vendOrder.name, vendOrder.quantity, (currencySymbolLeft ? currencySymbolLeft : '') + vendOrder.basePrice + (currencySymbolRight ? currencySymbolRight : ''),
+                        (currencySymbolLeft ? currencySymbolLeft : '') + taxValueInAmount + (currencySymbolRight ? currencySymbolRight : ''), vendOrder.taxTypeValue, (currencySymbolLeft ? currencySymbolLeft : '') + vendOrder.total + (currencySymbolRight ? currencySymbolRight : ''), vendOrder.orderStatusName]);
+                }
+                grandQuantity += quantity;
+                grandBasePrice += basePrice;
+                grandTax += tax;
+                grandTotal += total;
+                left = (currencySymbolLeft !== undefined) ? currencySymbolLeft : '';
+                right = (currencySymbolRight !== undefined) ? currencySymbolRight : '';
+                rows.push(['', '', '', '', 'Sub total', quantity, (left ? left : '') + basePrice.toFixed(2) + (right ? right : ''), (left ? left : '') + tax.toFixed(2) + (right ? right : ''), '', (left ? left : '') + total.toFixed(2) + (right ? right : ''), '']);
+            }
+            rows.push(['', '', '', '', 'Grand total', grandQuantity, (left ? left : '') + grandBasePrice.toFixed(2) + (right ? right : ''), (left ? left : '') + grandTax.toFixed(2) + (right ? right : ''), '', (left ? left : '') + grandTotal.toFixed(2) + (right ? right : ''), '']);
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            worksheet.eachRow({ includeEmpty: true }, ((row, rowNumber) => {
+                if (row.values.includes('Order No') || row.values.includes('Order Line No')) {
+                    worksheet.getRow(rowNumber).font = { bold: true };
+                }
+                else {
+                    row.eachCell({ includeEmpty: true }, ((cell, colNumber) => {
+                        if (cell.value === 'Sub total' || cell.value === 'Grand total') {
+                            cell.font = { bold: true };
+                        }
+                    }));
+                }
+            }));
+            const fileName = './TotalSalesReportExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Total vendor sales report Download
+    /**
+     * @api {get} /api/settlement/total-vendor-sales-report-excel Total Vendor sales report excel download
+     * @apiGroup Settlement
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} allVendor allVendor
+     * @apiParam (Request body) {String} vendorsId vendorsId
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download total sales report excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/settlement/total-vendor-sales-report-excel
+     * @apiErrorExample {json} Total vendor sales report excel error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    totalVendorSalesExcelView(allVendor, vendorsId, startDate, endDate, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const date = endDate + ' 23:59:59';
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Total Vendor Sales Export sheet', { properties: { defaultColWidth: 35 } });
+            const rows = [];
+            const select = [
+                'vendor.vendorId as vendorId',
+                'vendor.companyName as companyName',
+                'vendor.companyState as companyState',
+                'MAX(VendorOrders.vendorOrderId) as vendorOrderId',
+                'COUNT(VendorOrders.vendorOrderId) as vendorOrderCount',
+            ];
+            const relations = [{
+                    tableName: 'VendorOrders.vendor',
+                    aliasName: 'vendor',
+                }, {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                }, {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'VendorOrders.vendorId',
+                },
+            ];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderDetail.paymentStatus',
+                op: 'and',
+                value: 1,
+            });
+            if (vendorsId && vendorsId !== undefined) {
+                whereConditions.push({
+                    name: 'vendor.vendorId',
+                    op: 'IN',
+                    value: vendorsId.split(','),
+                });
+            }
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDateMin,
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDateMin,
+                });
+            }
+            const searchConditions = [];
+            const sort = [{
+                    name: 'vendorOrderId',
+                    order: 'DESC',
+                }];
+            const orderList = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            let grandQuantity = 0;
+            let grandBasePrice = 0;
+            let grandTax = 0;
+            let grandTotal = 0;
+            let left;
+            let right;
+            for (const orderData of orderList) {
+                rows.push(['Member', 'Records']);
+                rows.push([orderData.companyName, orderData.vendorOrderCount]);
+                rows.push(['Order Line No', 'OrderDate', 'Invoice', 'Item', 'Description', 'Quantity', 'Base Value', 'Tax', 'Tax Type', 'Total Value', 'Order Status']);
+                const subOrderSelect = [
+                    'VendorOrders.vendorOrderId as vendorOrderId',
+                    'VendorOrders.orderId as orderId',
+                    'VendorOrders.vendorId as vendorId',
+                    'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.name as name',
+                    'orderProduct.productPrice as price',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.basePrice as basePrice',
+                    'orderProduct.skuName as skuName',
+                    'orderProduct.taxType as taxType',
+                    'orderProduct.taxValue as taxValue',
+                    'VendorOrders.total as total',
+                    'VendorOrders.subOrderId as subOrderId',
+                    'VendorOrders.commission as commission',
+                    'VendorOrders.createdDate as createdDate',
+                    'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                    'orderDetail.currencySymbolRight as currencySymbolRight',
+                    'orderProduct.name as productName',
+                    'orderDetail.paymentZone as paymentZone',
+                    'orderProduct.cancelRequestStatus as cancelRequestStatus',
+                    'orderProduct.skuName as skuName',
+                    'orderStatus.name as orderStatusName',
+                    'orderStatus.colorCode as orderColorCode',
+                ];
+                const subOrderRelations = [
+                    {
+                        tableName: 'VendorOrders.orderProduct',
+                        aliasName: 'orderProduct',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderDetail',
+                        aliasName: 'orderDetail',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderStatus',
+                        aliasName: 'orderStatus',
+                    },
+                ];
+                const subOrderWhereConditions = [];
+                subOrderWhereConditions.push({
+                    name: 'VendorOrders.vendor_id',
+                    op: 'and',
+                    value: orderData.vendorId,
+                }, {
+                    name: 'orderDetail.paymentProcess',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: 'orderDetail.paymentStatus',
+                    op: 'and',
+                    value: 1,
+                });
+                if (startDate && startDate !== '') {
+                    subOrderWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '>=',
+                        value: startDate + ' 00:00:00',
+                    });
+                }
+                if (endDate && endDate !== '') {
+                    subOrderWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '<=',
+                        value: endDate + '23:59:59',
+                    });
+                }
+                const sortOrder = [{
+                        name: 'vendorOrderId',
+                        order: 'DESC',
+                    }];
+                const vendorOrderList = yield this.vendorOrderService.listByQueryBuilder(0, 0, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], sortOrder, false, true);
+                let quantity = 0;
+                let basePrice = 0;
+                let tax = 0;
+                let total = 0;
+                let currencySymbolLeft = undefined;
+                let currencySymbolRight = undefined;
+                for (const vendOrder of vendorOrderList) {
+                    if (vendOrder.cancelRequestStatus === 1) {
+                        vendOrder.orderStatusName = 'Cancelled';
+                    }
+                    if (vendOrder.taxType !== 0 && (orderData.companyState) && vendOrder.paymentZone !== null) {
+                        if (orderData.companyState.toLowerCase() === vendOrder.paymentZone.toLowerCase()) {
+                            vendOrder.taxTypeValue = 'SGST,CGST';
+                        }
+                        else if (orderData.companyState.toLowerCase() !== vendOrder.paymentZone.toLowerCase()) {
+                            vendOrder.taxTypeValue = 'IGST';
+                        }
+                    }
+                    else {
+                        vendOrder.taxTypeValue = '';
+                    }
+                    const invoice = yield this.vendorInvoiceService.findOne({ select: ['invoiceNo', 'invoicePrefix'], where: { orderId: vendOrder.orderId, vendorId: vendOrder.vendorId } });
+                    const invoiceNo = invoice ? invoice.invoiceNo : '';
+                    let taxValueInAmount;
+                    if (vendOrder.taxType === 2) {
+                        taxValueInAmount = (vendOrder.basePrice * (vendOrder.taxValue / 100)).toFixed(2);
+                    }
+                    else {
+                        taxValueInAmount = vendOrder.taxValue;
+                    }
+                    quantity += parseFloat(vendOrder.quantity);
+                    basePrice += parseFloat(vendOrder.basePrice);
+                    tax += parseFloat(taxValueInAmount);
+                    total += parseFloat(vendOrder.total);
+                    currencySymbolLeft = vendOrder.currencySymbolLeft;
+                    currencySymbolRight = vendOrder.currencySymbolRight;
+                    rows.push([vendOrder.orderProductPrefixId, vendOrder.createdDate, invoiceNo, vendOrder.skuName, vendOrder.name, vendOrder.quantity, (currencySymbolLeft ? currencySymbolLeft : '') + vendOrder.basePrice + (currencySymbolRight ? currencySymbolRight : ''),
+                        (currencySymbolLeft ? currencySymbolLeft : '') + taxValueInAmount + (currencySymbolRight ? currencySymbolRight : ''), vendOrder.taxTypeValue, (currencySymbolLeft ? currencySymbolLeft : '') + vendOrder.total + (currencySymbolRight ? currencySymbolRight : ''), vendOrder.orderStatusName]);
+                }
+                grandQuantity += quantity;
+                grandBasePrice += basePrice;
+                grandTax += tax;
+                grandTotal += total;
+                left = (currencySymbolLeft !== undefined) ? currencySymbolLeft : '';
+                right = (currencySymbolRight !== undefined) ? currencySymbolRight : '';
+                rows.push(['', '', '', '', 'Sub total', quantity, (left ? left : '') + basePrice.toFixed(2) + (right ? right : ''), (left ? left : '') + tax.toFixed(2) + (right ? right : ''), '', (left ? left : '') + total.toFixed(2) + (right ? right : ''), '']);
+            }
+            rows.push(['', '', '', '', 'Grand total', grandQuantity, (left ? left : '') + grandBasePrice.toFixed(2) + (right ? right : ''), (left ? left : '') + grandTax.toFixed(2) + (right ? right : ''), '', (left ? left : '') + grandTotal.toFixed(2) + (right ? right : ''), '']);
+            worksheet.addRows(rows);
+            worksheet.eachRow({ includeEmpty: true }, ((row, rowNumber) => {
+                if (row.values.includes('Member') || row.values.includes('Order Line No')) {
+                    worksheet.getRow(rowNumber).font = { bold: true };
+                }
+                else {
+                    row.eachCell({ includeEmpty: true }, ((cell, colNumber) => {
+                        if (cell.value === 'Sub total' || cell.value === 'Grand total') {
+                            cell.font = { bold: true };
+                        }
+                    }));
+                }
+            }));
+            const fileName = './TotalVendorSalesReportExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Settlement report Download
+    /**
+     * @api {get} /api/settlement/settlement-report-excel Settlement Report excel download
+     * @apiGroup Settlement
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} vendorsId vendorsId
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {Number} settlementFlag 1->settled 2->not settled
+     * @apiParam (Request body) {String} orderStatus
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download total settlement report excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/settlement/settlement-report-excel
+     * @apiErrorExample {json} Settlement report excel error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    settlementReportView(limit, offset, vendorsId, orderStatus, startDate, endDate, settlementFlag, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Settlement Export sheet', { properties: { defaultColWidth: 35 } });
+            const rows = [];
+            const select = [
+                'vendor.vendorId as vendorId',
+                'vendor.companyName as companyName',
+                'vendor.companyState as companyState',
+                'MAX(VendorOrders.vendorOrderId) as vendorOrderId',
+                'COUNT(VendorOrders.vendorOrderId) as vendorOrderCount',
+            ];
+            const relations = [{
+                    tableName: 'VendorOrders.vendor',
+                    aliasName: 'vendor',
+                }, {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                }, {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'VendorOrders.vendorId',
+                },
+            ];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderDetail.paymentStatus',
+                op: 'and',
+                value: 1,
+            });
+            if (orderStatus && orderStatus !== undefined) {
+                whereConditions.push({
+                    name: 'VendorOrders.subOrderStatusId',
+                    op: 'IN',
+                    value: orderStatus.split(','),
+                });
+            }
+            if (vendorsId && vendorsId !== undefined) {
+                whereConditions.push({
+                    name: 'vendor.vendorId',
+                    op: 'IN',
+                    value: vendorsId.split(','),
+                });
+            }
+            if (+(settlementFlag) === 1) {
+                whereConditions.push({
+                    name: 'VendorOrders.makeSettlement',
+                    op: 'and',
+                    value: 1,
+                });
+            }
+            else if (+(settlementFlag) === 2) {
+                whereConditions.push({
+                    name: 'VendorOrders.makeSettlement',
+                    op: 'and',
+                    value: 0,
+                });
+            }
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDate + ' 00:00:00',
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDate + ' 23:59:59',
+                });
+            }
+            const searchConditions = [];
+            const sort = [{
+                    name: 'vendorOrderId',
+                    order: 'DESC',
+                }];
+            const orderList = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            let grandQuantity = 0;
+            let grandBasePrice = 0;
+            let grandTax = 0;
+            let grandTotal = 0;
+            let left;
+            let right;
+            for (const orderData of orderList) {
+                rows.push(['Member', 'Records']);
+                rows.push([orderData.companyName, orderData.vendorOrderCount]);
+                rows.push(['Order Line No', 'OrderDate', 'Invoice', 'Item', 'Description', 'Settlement Status', 'Quantity', 'Base Value', 'Tax', 'Tax Type', 'Total Value', 'Order Status']);
+                const subOrderSelect = [
+                    'VendorOrders.vendorOrderId as vendorOrderId',
+                    'VendorOrders.orderId as orderId',
+                    'VendorOrders.vendorId as vendorId',
+                    'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.name as name',
+                    'orderProduct.productPrice as price',
+                    'orderProduct.quantity as quantity',
+                    'orderProduct.basePrice as basePrice',
+                    'orderProduct.skuName as skuName',
+                    'orderProduct.taxType as taxType',
+                    'orderProduct.taxValue as taxValue',
+                    'VendorOrders.total as total',
+                    'VendorOrders.subOrderId as subOrderId',
+                    'VendorOrders.commission as commission',
+                    'VendorOrders.createdDate as createdDate',
+                    'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                    'orderDetail.currencySymbolRight as currencySymbolRight',
+                    'orderProduct.name as productName',
+                    'orderProduct.skuName as skuName',
+                    'orderStatus.name as orderStatusName',
+                    'orderStatus.colorCode as orderColorCode',
+                    'VendorOrders.makeSettlement as makeSettlement',
+                    'orderDetail.paymentZone as paymentZone',
+                    'orderProduct.cancelRequestStatus as cancelRequestStatus',
+                ];
+                const subOrderRelations = [
+                    {
+                        tableName: 'VendorOrders.vendor',
+                        aliasName: 'vendor',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderProduct',
+                        aliasName: 'orderProduct',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderDetail',
+                        aliasName: 'orderDetail',
+                    },
+                    {
+                        tableName: 'VendorOrders.orderStatus',
+                        aliasName: 'orderStatus',
+                    },
+                ];
+                const subOrderWhereConditions = [];
+                subOrderWhereConditions.push({
+                    name: 'VendorOrders.vendor_id',
+                    op: 'and',
+                    value: orderData.vendorId,
+                }, {
+                    name: 'orderDetail.paymentProcess',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: 'orderDetail.paymentStatus',
+                    op: 'and',
+                    value: 1,
+                });
+                if (+(settlementFlag) === 1) {
+                    subOrderWhereConditions.push({
+                        name: 'VendorOrders.makeSettlement',
+                        op: 'and',
+                        value: 1,
+                    });
+                }
+                else if (+(settlementFlag) === 2) {
+                    subOrderWhereConditions.push({
+                        name: 'VendorOrders.makeSettlement',
+                        op: 'and',
+                        value: 0,
+                    });
+                }
+                if (startDate && startDate !== '') {
+                    subOrderWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '>=',
+                        value: startDate + ' 00:00:00',
+                    });
+                }
+                if (endDate && endDate !== '') {
+                    subOrderWhereConditions.push({
+                        name: '`VendorOrders`.`created_date`',
+                        op: 'raw',
+                        sign: '<=',
+                        value: endDate + ' 23:59:59',
+                    });
+                }
+                if (vendorsId && vendorsId !== undefined) {
+                    subOrderWhereConditions.push({
+                        name: 'vendor.vendorId',
+                        op: 'IN',
+                        value: vendorsId.split(','),
+                    });
+                }
+                if (orderStatus && orderStatus !== undefined) {
+                    subOrderWhereConditions.push({
+                        name: 'VendorOrders.subOrderStatusId',
+                        op: 'IN',
+                        value: orderStatus.split(','),
+                    });
+                }
+                const sortOrder = [{
+                        name: 'vendorOrderId',
+                        order: 'DESC',
+                    }];
+                const vendorOrderList = yield this.vendorOrderService.listByQueryBuilder(0, 0, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], sortOrder, false, true);
+                let quantity = 0;
+                let basePrice = 0;
+                let tax = 0;
+                let total = 0;
+                let currencySymbolLeft = undefined;
+                let currencySymbolRight = undefined;
+                for (const vendOrder of vendorOrderList) {
+                    if (vendOrder.cancelRequestStatus === 1) {
+                        vendOrder.orderStatusName = 'Cancelled';
+                    }
+                    if (vendOrder.taxType !== 0 && (orderData.companyState) && vendOrder.paymentZone !== null) {
+                        if (orderData.companyState.toLowerCase() === vendOrder.paymentZone.toLowerCase()) {
+                            vendOrder.taxTypeValue = 'SGST,CGST';
+                        }
+                        else if (orderData.companyState.toLowerCase() !== vendOrder.paymentZone.toLowerCase()) {
+                            vendOrder.taxTypeValue = 'IGST';
+                        }
+                    }
+                    else {
+                        vendOrder.taxTypeValue = '';
+                    }
+                    const invoice = yield this.vendorInvoiceService.findOne({ select: ['invoiceNo', 'invoicePrefix'], where: { orderId: vendOrder.orderId, vendorId: vendOrder.vendorId } });
+                    const invoiceNo = invoice ? invoice.invoiceNo : '';
+                    let taxValueInAmount;
+                    if (vendOrder.taxType === 2) {
+                        taxValueInAmount = (vendOrder.basePrice * (vendOrder.taxValue / 100)).toFixed(2);
+                    }
+                    else {
+                        taxValueInAmount = vendOrder.taxValue;
+                    }
+                    quantity += parseFloat(vendOrder.quantity);
+                    basePrice += parseFloat(vendOrder.basePrice);
+                    tax += parseFloat(taxValueInAmount);
+                    total += parseFloat(vendOrder.total);
+                    currencySymbolLeft = vendOrder.currencySymbolLeft;
+                    currencySymbolRight = vendOrder.currencySymbolRight;
+                    let settlementStatus;
+                    if (vendOrder.makeSettlement === 1) {
+                        settlementStatus = 'Settled';
+                    }
+                    else {
+                        settlementStatus = 'Not Settled';
+                    }
+                    rows.push([vendOrder.orderProductPrefixId, vendOrder.createdDate, invoiceNo, vendOrder.skuName, vendOrder.name, settlementStatus, vendOrder.quantity, (currencySymbolLeft ? currencySymbolLeft : '') + vendOrder.basePrice + (currencySymbolRight ? currencySymbolRight : ''),
+                        (currencySymbolLeft ? currencySymbolLeft : '') + taxValueInAmount + (currencySymbolRight ? currencySymbolRight : ''), vendOrder.taxTypeValue, (currencySymbolLeft ? currencySymbolLeft : '') + vendOrder.total + (currencySymbolRight ? currencySymbolRight : ''), vendOrder.orderStatusName]);
+                }
+                grandQuantity += quantity;
+                grandBasePrice += basePrice;
+                grandTax += tax;
+                grandTotal += total;
+                left = (currencySymbolLeft !== undefined) ? currencySymbolLeft : '';
+                right = (currencySymbolRight !== undefined) ? currencySymbolRight : '';
+                rows.push(['', '', '', '', '', 'Sub total', quantity, (left ? left : '') + basePrice.toFixed(2) + (right ? right : ''), (left ? left : '') + tax.toFixed(2) + (right ? right : ''), '', (left ? left : '') + total.toFixed(2) + (right ? right : ''), '']);
+            }
+            rows.push(['', '', '', '', '', 'Grand total', grandQuantity, (left ? left : '') + grandBasePrice.toFixed(2) + (right ? right : ''), (left ? left : '') + grandTax.toFixed(2) + (right ? right : ''), '', (left ? left : '') + grandTotal.toFixed(2) + (right ? right : ''), '']);
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            worksheet.eachRow({ includeEmpty: true }, ((row, rowNumber) => {
+                if (row.values.includes('Member') || row.values.includes('Order Line No')) {
+                    worksheet.getRow(rowNumber).font = { bold: true };
+                }
+                else {
+                    row.eachCell({ includeEmpty: true }, ((cell, colNumber) => {
+                        if (cell.value === 'Sub total' || cell.value === 'Grand total') {
+                            cell.font = { bold: true };
+                        }
+                    }));
+                }
+            }));
+            const fileName = './SettlementReportExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'make-settlement']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateSettlementRequest_1.CreateSettlementRequest, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "createSettlement", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'settlement-history-list']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('amountFrom')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('amountTo')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "orderListtt", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/settlement-export-excel-download'),
+    (0, routing_controllers_1.Authorized)(['admin', 'export-excel']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('settlementId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "settlementexcelexport", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/bulk-export-settlement-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'settlement-bulk-export']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('amountFrom')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('amountTo')),
+    tslib_1.__param(5, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "settlementBulkExport", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/settlement/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "settlementDetails", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/delete-multiple-settlement'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('settlementId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "deleteMultipleSettlement", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-sales-report-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'sales-by-vendor-report']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('allVendor')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('vendorsId')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "vendorSalesReportList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/total-sales-report-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'total-sales-report']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('amountFrom')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('amountTo')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "totalSalesReportList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/settlement-report-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'settlement-report']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('vendorsId')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('settlementFlag')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('orderStatus')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "settlementReportList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/total-sales-report-excel'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('amountFrom')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('amountTo')),
+    tslib_1.__param(4, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "totalSalesExcelView", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/total-vendor-sales-report-excel'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('allVendor')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('vendorsId')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "totalVendorSalesExcelView", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/settlement-report-excel'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('vendorsId')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('orderStatus')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('settlementFlag')),
+    tslib_1.__param(7, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettlementController.prototype, "settlementReportView", null);
+SettlementController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/settlement'),
+    tslib_1.__metadata("design:paramtypes", [SettlementItemService_1.SettlementItemService, VendorService_1.VendorService, VendorInvoiceService_1.VendorInvoiceService, OrderService_1.OrderService, SettlementService_1.SettlementService, OrderProductService_1.OrderProductService, VendorOrderService_1.VendorOrdersService])
+], SettlementController);
+exports.SettlementController = SettlementController;
+//# sourceMappingURL=SettlementController.js.map

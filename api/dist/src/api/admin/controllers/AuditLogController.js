@@ -1,1 +1,248 @@
-'use strict';const a256_0x2b3b0c=a256_0x924f;function a256_0x924f(_0x3f2224,_0x5bc29b){const _0x5f4be1=a256_0x5f4b();return a256_0x924f=function(_0x924f09,_0x10b4fa){_0x924f09=_0x924f09-0x166;let _0x464b17=_0x5f4be1[_0x924f09];return _0x464b17;},a256_0x924f(_0x3f2224,_0x5bc29b);}(function(_0x4caf62,_0x58b1f5){const _0x2c7f03=a256_0x924f,_0x3f8720=_0x4caf62();while(!![]){try{const _0x309bd8=parseInt(_0x2c7f03(0x197))/0x1*(parseInt(_0x2c7f03(0x186))/0x2)+parseInt(_0x2c7f03(0x181))/0x3*(-parseInt(_0x2c7f03(0x19f))/0x4)+-parseInt(_0x2c7f03(0x1b4))/0x5*(parseInt(_0x2c7f03(0x17e))/0x6)+parseInt(_0x2c7f03(0x17c))/0x7+-parseInt(_0x2c7f03(0x180))/0x8+parseInt(_0x2c7f03(0x169))/0x9+parseInt(_0x2c7f03(0x1aa))/0xa*(parseInt(_0x2c7f03(0x173))/0xb);if(_0x309bd8===_0x58b1f5)break;else _0x3f8720['push'](_0x3f8720['shift']());}catch(_0x120d25){_0x3f8720['push'](_0x3f8720['shift']());}}}(a256_0x5f4b,0x1f2e2));Object[a256_0x2b3b0c(0x17f)](exports,a256_0x2b3b0c(0x18b),{'value':!![]}),exports[a256_0x2b3b0c(0x178)]=void 0x0;function a256_0x5f4b(){const _0x4c3c8a=['Dates\x20should\x20not\x20be\x20empty.','parse','974687VDpCWH','__param','6mgdegW','defineProperty','990264YFrtxQ','243666kNCnOH','Res','JsonController','MAX(created_date)','/auditlog','10baxIUA','BodyParam','AuditLogService','\x2023:59:59','QueryParam','__esModule','default','Successfully\x20got\x20a\x20audit\x20log\x20list.','AuditLog.module','actionBy','Successfully\x20got\x20a\x20module\x20log\x20list.','format','offset','Successfully\x20deleted\x20Audit\x20logs.','/delete-auditlog','auditLogService','__decorate','29005vszUhr','getMonth','auditLogList','push','__metadata','moment','Get','LIKE','12oWRkBS','created_date','split','toDate','moduleList','\x2000:00:00','moreThan','keyword','browserInfo','Authorized','design:type','1166690ThTgsj','MAX(AuditLog.module)\x20as\x20module','__awaiter','send','count','audit-log','design:paramtypes','getDate','YYYY-MM-DD','limit','553760FEBoRO','Successfully\x20got\x20a\x20module\x20log\x20count.','delete','all','module','routing-controllers','setMonth','794799tgJGug','__importDefault','deleteAuditLog','DESC','where','/module-list','AuditLog.userId','status','listByQueryBuilder','admin','22lgqzoG','reflect-metadata','Successfully\x20got\x20a\x20audit\x20log\x20count.','findAuditLogData','prototype','AdminAuditLogController','days'];a256_0x5f4b=function(){return _0x4c3c8a;};return a256_0x5f4b();}const tslib_1=require('tslib'),moment_1=tslib_1[a256_0x2b3b0c(0x16a)](require(a256_0x2b3b0c(0x19c)));require(a256_0x2b3b0c(0x174));const routing_controllers_1=require(a256_0x2b3b0c(0x167)),AuditLogService_1=require('../../core/services/AuditLogService');let AdminAuditLogController=class AdminAuditLogController{constructor(_0xf6f8c6){const _0x2a2ef0=a256_0x2b3b0c;this[_0x2a2ef0(0x195)]=_0xf6f8c6;}[a256_0x2b3b0c(0x199)](_0x496d11,_0x2021dc,_0x50b5c6,_0x2b4b3b,_0x4ec148,_0x3f736e,_0x194807){const _0xa28bc1=a256_0x2b3b0c;return tslib_1[_0xa28bc1(0x1ac)](this,void 0x0,void 0x0,function*(){const _0xf5aef1=_0xa28bc1,_0xbb1320=[],_0xcca02f=[],_0x4c6418=[],_0x27b40e=[{'name':_0xf5aef1(0x1a0),'order':_0xf5aef1(0x16c)}];if(_0x50b5c6){const _0x558b77=_0x50b5c6[_0xf5aef1(0x1a1)]('\x20'),_0x5150ed=new Date();if(_0x558b77[0x1]===_0xf5aef1(0x179)){_0x5150ed['setDate'](_0x5150ed[_0xf5aef1(0x1b1)]()-_0x558b77[0x0]);const _0x58e915=(0x0,moment_1[_0xf5aef1(0x18c)])(_0x5150ed)['format'](_0xf5aef1(0x1b2));_0x4c6418['push']({'name':'created_date','op':'moreThan','value':_0x58e915});}if(_0x558b77[0x1]==='month'){_0x5150ed[_0xf5aef1(0x168)](_0x5150ed[_0xf5aef1(0x198)]()-_0x558b77[0x0]);const _0x1c2ee3=(0x0,moment_1[_0xf5aef1(0x18c)])(_0x5150ed)[_0xf5aef1(0x191)](_0xf5aef1(0x1b2));_0x4c6418[_0xf5aef1(0x19a)]({'name':_0xf5aef1(0x1a0),'op':_0xf5aef1(0x1a5),'value':_0x1c2ee3});}}_0x2b4b3b&&_0x4c6418[_0xf5aef1(0x19a)]({'name':_0xf5aef1(0x18e),'op':_0xf5aef1(0x19e),'value':_0x2b4b3b});_0x4ec148&&_0x4ec148!==''&&_0x4c6418[_0xf5aef1(0x19a)]({'name':_0xf5aef1(0x16f),'op':_0xf5aef1(0x16d),'value':_0x4ec148});const _0x32665b=yield this['auditLogService'][_0xf5aef1(0x171)](_0x496d11,_0x2021dc,_0xbb1320,_0x4c6418,_0xcca02f,[],0x0,_0x27b40e,_0x3f736e);if(_0x3f736e){const _0x2ff17a={'status':0x1,'message':_0xf5aef1(0x175),'data':_0x32665b};return _0x194807[_0xf5aef1(0x170)](0xc8)['send'](_0x2ff17a);}else{const _0x1a58c3=yield _0x32665b['map'](_0x5c9875=>tslib_1[_0xf5aef1(0x1ac)](this,void 0x0,void 0x0,function*(){const _0x4d0cb3=_0xf5aef1;_0x5c9875[_0x4d0cb3(0x1a7)]=JSON[_0x4d0cb3(0x17b)](_0x5c9875[_0x4d0cb3(0x1a7)]);const _0x3816b0=_0x5c9875;return _0x3816b0;})),_0x25006c=yield Promise[_0xf5aef1(0x1b7)](_0x1a58c3),_0x381464={'status':0x1,'message':_0xf5aef1(0x18d),'data':_0x25006c};return _0x194807[_0xf5aef1(0x170)](0xc8)['send'](_0x381464);}});}[a256_0x2b3b0c(0x1a3)](_0x5a8511,_0x174d0f,_0x32b42f,_0x2f8943){const _0x29612b=a256_0x2b3b0c;return tslib_1[_0x29612b(0x1ac)](this,void 0x0,void 0x0,function*(){const _0x1fb1b5=_0x29612b,_0x485123=[_0x1fb1b5(0x1ab)],_0x2f39af=[],_0x2bbfde=[],_0x224db3=[{'name':_0x1fb1b5(0x184),'order':_0x1fb1b5(0x16c)}],_0x480f8b=[{'name':_0x1fb1b5(0x18e)}],_0x1e5c00=yield this[_0x1fb1b5(0x195)][_0x1fb1b5(0x171)](_0x5a8511,_0x174d0f,_0x485123,_0x2bbfde,_0x2f39af,[],_0x480f8b,_0x224db3,_0x32b42f);if(_0x32b42f){const _0x55b78c={'status':0x1,'message':_0x1fb1b5(0x1b5),'data':_0x1e5c00};return _0x2f8943['status'](0xc8)[_0x1fb1b5(0x1ad)](_0x55b78c);}else{const _0x399963={'status':0x1,'message':_0x1fb1b5(0x190),'data':_0x1e5c00};return _0x2f8943[_0x1fb1b5(0x170)](0xc8)[_0x1fb1b5(0x1ad)](_0x399963);}});}[a256_0x2b3b0c(0x16b)](_0x2b54bf,_0xb0a5a,_0x4b93ea,_0x2b0acc){const _0x421001=a256_0x2b3b0c;return tslib_1[_0x421001(0x1ac)](this,void 0x0,void 0x0,function*(){const _0x7ba551=_0x421001;if(_0x2b54bf===''||_0xb0a5a===''){const _0x54cb39={'status':0x0,'message':_0x7ba551(0x17a)};return _0x2b0acc[_0x7ba551(0x170)](0x190)['send'](_0x54cb39);}const _0x4605d6=_0x2b54bf+_0x7ba551(0x1a4),_0x167a5c=_0xb0a5a+_0x7ba551(0x189),_0x3eb8ee=yield this[_0x7ba551(0x195)][_0x7ba551(0x176)](_0x4605d6,_0x167a5c);if(_0x3eb8ee['length']===0x0){const _0x2f085e={'status':0x0,'message':'Data\x20not\x20found.'};return _0x2b0acc[_0x7ba551(0x170)](0x190)['send'](_0x2f085e);}return yield this[_0x7ba551(0x195)][_0x7ba551(0x1b6)](_0x3eb8ee),_0x2b0acc['status'](0xc8)[_0x7ba551(0x1ad)]({'status':0x1,'message':_0x7ba551(0x193)});});}};tslib_1[a256_0x2b3b0c(0x196)]([(0x0,routing_controllers_1[a256_0x2b3b0c(0x19d)])('/auditLog-list'),(0x0,routing_controllers_1[a256_0x2b3b0c(0x1a8)])([a256_0x2b3b0c(0x172),a256_0x2b3b0c(0x1af)]),tslib_1[a256_0x2b3b0c(0x17d)](0x0,(0x0,routing_controllers_1[a256_0x2b3b0c(0x18a)])('limit')),tslib_1[a256_0x2b3b0c(0x17d)](0x1,(0x0,routing_controllers_1[a256_0x2b3b0c(0x18a)])(a256_0x2b3b0c(0x192))),tslib_1[a256_0x2b3b0c(0x17d)](0x2,(0x0,routing_controllers_1[a256_0x2b3b0c(0x18a)])(a256_0x2b3b0c(0x1a6))),tslib_1[a256_0x2b3b0c(0x17d)](0x3,(0x0,routing_controllers_1[a256_0x2b3b0c(0x18a)])(a256_0x2b3b0c(0x166))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a256_0x2b3b0c(0x18a)])(a256_0x2b3b0c(0x18f))),tslib_1['__param'](0x5,(0x0,routing_controllers_1['QueryParam'])(a256_0x2b3b0c(0x1ae))),tslib_1[a256_0x2b3b0c(0x17d)](0x6,(0x0,routing_controllers_1[a256_0x2b3b0c(0x182)])()),tslib_1['__metadata'](a256_0x2b3b0c(0x1a9),Function),tslib_1[a256_0x2b3b0c(0x19b)](a256_0x2b3b0c(0x1b0),[Number,Number,String,String,String,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],AdminAuditLogController[a256_0x2b3b0c(0x177)],a256_0x2b3b0c(0x199),null),tslib_1[a256_0x2b3b0c(0x196)]([(0x0,routing_controllers_1[a256_0x2b3b0c(0x19d)])(a256_0x2b3b0c(0x16e)),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a256_0x2b3b0c(0x17d)](0x0,(0x0,routing_controllers_1[a256_0x2b3b0c(0x18a)])(a256_0x2b3b0c(0x1b3))),tslib_1[a256_0x2b3b0c(0x17d)](0x1,(0x0,routing_controllers_1[a256_0x2b3b0c(0x18a)])(a256_0x2b3b0c(0x192))),tslib_1[a256_0x2b3b0c(0x17d)](0x2,(0x0,routing_controllers_1['QueryParam'])('count')),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a256_0x2b3b0c(0x182)])()),tslib_1['__metadata'](a256_0x2b3b0c(0x1a9),Function),tslib_1[a256_0x2b3b0c(0x19b)](a256_0x2b3b0c(0x1b0),[Number,Number,Object,Object]),tslib_1[a256_0x2b3b0c(0x19b)]('design:returntype',Promise)],AdminAuditLogController['prototype'],a256_0x2b3b0c(0x1a3),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Post'])(a256_0x2b3b0c(0x194)),(0x0,routing_controllers_1['Authorized'])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1['BodyParam'])('fromDate')),tslib_1[a256_0x2b3b0c(0x17d)](0x1,(0x0,routing_controllers_1[a256_0x2b3b0c(0x187)])(a256_0x2b3b0c(0x1a2))),tslib_1[a256_0x2b3b0c(0x17d)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1[a256_0x2b3b0c(0x17d)](0x3,(0x0,routing_controllers_1[a256_0x2b3b0c(0x182)])()),tslib_1[a256_0x2b3b0c(0x19b)](a256_0x2b3b0c(0x1a9),Function),tslib_1[a256_0x2b3b0c(0x19b)](a256_0x2b3b0c(0x1b0),[String,String,Object,Object]),tslib_1[a256_0x2b3b0c(0x19b)]('design:returntype',Promise)],AdminAuditLogController[a256_0x2b3b0c(0x177)],'deleteAuditLog',null),AdminAuditLogController=tslib_1[a256_0x2b3b0c(0x196)]([(0x0,routing_controllers_1[a256_0x2b3b0c(0x183)])(a256_0x2b3b0c(0x185)),tslib_1[a256_0x2b3b0c(0x19b)](a256_0x2b3b0c(0x1b0),[AuditLogService_1[a256_0x2b3b0c(0x188)]])],AdminAuditLogController),exports[a256_0x2b3b0c(0x178)]=AdminAuditLogController;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AdminAuditLogController = void 0;
+const tslib_1 = require("tslib");
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+const moment_1 = tslib_1.__importDefault(require("moment"));
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const AuditLogService_1 = require("../../core/services/AuditLogService");
+let AdminAuditLogController = class AdminAuditLogController {
+    constructor(auditLogService) {
+        this.auditLogService = auditLogService;
+    }
+    /**
+     * @api {get} /api/auditlog/auditLog-list Audit Log list API
+     * @apiGroup Audit Log
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} module module
+     * @apiParam (Request body) {String} actionBy actionBy
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get Attribute Group list API",
+     * }
+     * @apiSampleRequest /api/auditlog/auditLog-list
+     * @apiErrorExample {json} Attribute Group error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    auditLogList(limit, offset, keyword, module, actionBy, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [];
+            const search = [];
+            const whereCondition = [];
+            const sort = [{
+                    name: 'created_date',
+                    order: 'DESC',
+                }];
+            if (keyword) {
+                const data = keyword.split(' ');
+                const today = new Date();
+                if (data[1] === 'days') {
+                    today.setDate(today.getDate() - data[0]);
+                    const date = (0, moment_1.default)(today).format('YYYY-MM-DD');
+                    whereCondition.push({
+                        name: 'created_date',
+                        op: 'moreThan',
+                        value: date,
+                    });
+                }
+                if (data[1] === 'month') {
+                    today.setMonth(today.getMonth() - data[0]);
+                    const month = (0, moment_1.default)(today).format('YYYY-MM-DD');
+                    whereCondition.push({
+                        name: 'created_date',
+                        op: 'moreThan',
+                        value: month,
+                    });
+                }
+            }
+            if (module) {
+                whereCondition.push({
+                    name: 'AuditLog.module',
+                    op: 'LIKE',
+                    value: module,
+                });
+            }
+            if (actionBy && actionBy !== '') {
+                whereCondition.push({
+                    name: 'AuditLog.userId',
+                    op: 'where',
+                    value: actionBy,
+                });
+            }
+            const auditLog = yield this.auditLogService.listByQueryBuilder(limit, offset, select, whereCondition, search, [], 0, sort, count);
+            if (count) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got a audit log count.',
+                    data: auditLog,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const log = yield auditLog.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    value.browserInfo = JSON.parse(value.browserInfo);
+                    const temp = value;
+                    return temp;
+                }));
+                const result = yield Promise.all(log);
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got a audit log list.',
+                    data: result,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    /**
+     * @api {get} /api/auditlog/module-list Module Log list API
+     * @apiGroup Audit Log
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get Attribute Group list API",
+     * }
+     * @apiSampleRequest /api/auditlog/module-list
+     * @apiErrorExample {json} Attribute Group error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    moduleList(limit, offset, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['MAX(AuditLog.module) as module'];
+            const search = [];
+            const whereCondition = [];
+            const sort = [{
+                    name: 'MAX(created_date)',
+                    order: 'DESC',
+                }];
+            const groupBy = [
+                {
+                    name: 'AuditLog.module',
+                },
+            ];
+            const moduleLog = yield this.auditLogService.listByQueryBuilder(limit, offset, select, whereCondition, search, [], groupBy, sort, count);
+            if (count) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got a module log count.',
+                    data: moduleLog,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got a module log list.',
+                    data: moduleLog,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    /**
+     * @api {post} /api/auditlog/delete-auditlog Delete Audit Log API
+     * @apiGroup Audit Log
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} fromDate createdDate
+     * @apiParam (Request body) {String} toDate createddate
+     * @apiParamExample {json} Input
+     * {
+     *  "fromDate" : "",
+     *  "toDate" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully deleted Audit log.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/auditlog/delete-auditlog
+     * @apiErrorExample {json} AuditLog error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteAuditLog(fromDate, toDate, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (fromDate === '' || toDate === '') {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Dates should not be empty.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const startDate = fromDate + ' 00:00:00';
+            const endDate = toDate + ' 23:59:59';
+            const deleteLog = yield this.auditLogService.findAuditLogData(startDate, endDate);
+            if (deleteLog.length === 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Data not found.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            yield this.auditLogService.delete(deleteLog);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully deleted Audit logs.',
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/auditLog-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'audit-log']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('module')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('actionBy')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminAuditLogController.prototype, "auditLogList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/module-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminAuditLogController.prototype, "moduleList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/delete-auditlog'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('fromDate')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('toDate')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminAuditLogController.prototype, "deleteAuditLog", null);
+AdminAuditLogController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/auditlog'),
+    tslib_1.__metadata("design:paramtypes", [AuditLogService_1.AuditLogService])
+], AdminAuditLogController);
+exports.AdminAuditLogController = AdminAuditLogController;
+//# sourceMappingURL=AuditLogController.js.map

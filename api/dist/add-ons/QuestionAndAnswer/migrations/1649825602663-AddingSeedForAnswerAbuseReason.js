@@ -1,1 +1,58 @@
-'use strict';const a174_0x426a57=a174_0x3378;(function(_0x555369,_0x4e334e){const _0x510566=a174_0x3378,_0x31fb16=_0x555369();while(!![]){try{const _0x4414a8=parseInt(_0x510566(0xad))/0x1*(parseInt(_0x510566(0xa8))/0x2)+-parseInt(_0x510566(0xa5))/0x3+parseInt(_0x510566(0xae))/0x4+parseInt(_0x510566(0xbb))/0x5*(parseInt(_0x510566(0xaf))/0x6)+-parseInt(_0x510566(0xb3))/0x7+-parseInt(_0x510566(0xb7))/0x8+parseInt(_0x510566(0xb9))/0x9*(parseInt(_0x510566(0xac))/0xa);if(_0x4414a8===_0x4e334e)break;else _0x31fb16['push'](_0x31fb16['shift']());}catch(_0x2afe7e){_0x31fb16['push'](_0x31fb16['shift']());}}}(a174_0x2549,0x30d1e));Object[a174_0x426a57(0xb6)](exports,a174_0x426a57(0xa9),{'value':!![]}),exports[a174_0x426a57(0xa6)]=void 0x0;const tslib_1=require(a174_0x426a57(0xab)),typeorm_1=require(a174_0x426a57(0xba)),moment=require(a174_0x426a57(0xb8));function a174_0x2549(){const _0x16ea0f=['16945bszAJV','__awaiter','Wrong\x20Content','format','AnswerAbuseReason','down','\x223\x22','query','YYYY-MM-DD\x20HH:mm:ss','1001796jcUgEv','AddingSeedForAnswerAbuseReason1649825602663','length','532706qJBbDO','__esModule','Illegal\x20Content','tslib','184430bMRrnU','1DlplGl','985404pawxth','222XLjOAG','\x222\x22','SELECT\x20*\x20FROM\x20`answer_abuse_reason`\x20WHERE\x20`id`\x20=\x20','getRepository','1814155sdLfMw','save','Inappropriate\x20Content','defineProperty','88168JrpIqd','moment/moment','81joHMTq','typeorm'];a174_0x2549=function(){return _0x16ea0f;};return a174_0x2549();}class AddingSeedForAnswerAbuseReason1649825602663{['up'](_0x5010f4){const _0x4a2746=a174_0x426a57;return tslib_1[_0x4a2746(0xbc)](this,void 0x0,void 0x0,function*(){const _0x339a74=_0x4a2746,_0x2a1246=_0x339a74(0xb5),_0x4815c2=yield _0x5010f4[_0x339a74(0xa3)](_0x339a74(0xb1)+'\x221\x22');if(_0x4815c2[_0x339a74(0xa7)]===0x0){const _0x3f31e0=[{'id':0x1,'reason':_0x2a1246,'isActive':0x1,'createdDate':''+moment()[_0x339a74(0x9f)](_0x339a74(0xa4)),'modifiedDate':''+moment()[_0x339a74(0x9f)](_0x339a74(0xa4))}];yield(0x0,typeorm_1['getRepository'])('AnswerAbuseReason')[_0x339a74(0xb4)](_0x3f31e0);}const _0xb3672=_0x339a74(0xaa),_0x3dd1c2=yield _0x5010f4['query'](_0x339a74(0xb1)+_0x339a74(0xb0));if(_0x3dd1c2[_0x339a74(0xa7)]===0x0){const _0x5d3043=[{'id':0x2,'reason':_0xb3672,'isActive':0x1,'createdDate':''+moment()[_0x339a74(0x9f)]('YYYY-MM-DD\x20HH:mm:ss'),'modifiedDate':''+moment()[_0x339a74(0x9f)]('YYYY-MM-DD\x20HH:mm:ss')}];yield(0x0,typeorm_1[_0x339a74(0xb2)])(_0x339a74(0xa0))['save'](_0x5d3043);}const _0x17016b=_0x339a74(0x9e),_0x4478c6=yield _0x5010f4[_0x339a74(0xa3)](_0x339a74(0xb1)+_0x339a74(0xa2));if(_0x4478c6[_0x339a74(0xa7)]===0x0){const _0x81c901=[{'id':0x3,'reason':_0x17016b,'isActive':0x1,'createdDate':''+moment()['format'](_0x339a74(0xa4)),'modifiedDate':''+moment()['format']('YYYY-MM-DD\x20HH:mm:ss')}];yield(0x0,typeorm_1[_0x339a74(0xb2)])(_0x339a74(0xa0))[_0x339a74(0xb4)](_0x81c901);}});}[a174_0x426a57(0xa1)](_0x2a30ec){const _0x58ae1d=a174_0x426a57;return tslib_1[_0x58ae1d(0xbc)](this,void 0x0,void 0x0,function*(){});}}function a174_0x3378(_0x93d0c2,_0x566517){const _0x25492a=a174_0x2549();return a174_0x3378=function(_0x3378e9,_0x30154a){_0x3378e9=_0x3378e9-0x9e;let _0x897160=_0x25492a[_0x3378e9];return _0x897160;},a174_0x3378(_0x93d0c2,_0x566517);}exports[a174_0x426a57(0xa6)]=AddingSeedForAnswerAbuseReason1649825602663;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddingSeedForAnswerAbuseReason1649825602663 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment = require("moment/moment");
+class AddingSeedForAnswerAbuseReason1649825602663 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const reason1 = 'Inappropriate Content';
+            const exist = yield queryRunner.query('SELECT * FROM `answer_abuse_reason` WHERE `id` = ' + '"1"');
+            if (exist.length === 0) {
+                const answerAbuseReasonSeed1 = [{
+                        id: 1,
+                        reason: reason1,
+                        isActive: 1,
+                        createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                        modifiedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                    },
+                ];
+                yield (0, typeorm_1.getRepository)('AnswerAbuseReason').save(answerAbuseReasonSeed1);
+            }
+            const reason2 = 'Illegal Content';
+            const exist1 = yield queryRunner.query('SELECT * FROM `answer_abuse_reason` WHERE `id` = ' + '"2"');
+            if (exist1.length === 0) {
+                const answerAbuseReasonSeed2 = [{
+                        id: 2,
+                        reason: reason2,
+                        isActive: 1,
+                        createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                        modifiedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                    },
+                ];
+                yield (0, typeorm_1.getRepository)('AnswerAbuseReason').save(answerAbuseReasonSeed2);
+            }
+            const reason3 = 'Wrong Content';
+            const exist2 = yield queryRunner.query('SELECT * FROM `answer_abuse_reason` WHERE `id` = ' + '"3"');
+            if (exist2.length === 0) {
+                const answerAbuseReasonSeed3 = [{
+                        id: 3,
+                        reason: reason3,
+                        isActive: 1,
+                        createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                        modifiedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                    },
+                ];
+                yield (0, typeorm_1.getRepository)('AnswerAbuseReason').save(answerAbuseReasonSeed3);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ---
+        });
+    }
+}
+exports.AddingSeedForAnswerAbuseReason1649825602663 = AddingSeedForAnswerAbuseReason1649825602663;
+//# sourceMappingURL=1649825602663-AddingSeedForAnswerAbuseReason.js.map

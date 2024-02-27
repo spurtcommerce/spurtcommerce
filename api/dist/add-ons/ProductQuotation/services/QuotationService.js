@@ -1,1 +1,215 @@
-'use strict';const a105_0x160aa9=a105_0x515e;(function(_0x1def2,_0x3dc3a5){const _0x4047fe=a105_0x515e,_0x5c94cd=_0x1def2();while(!![]){try{const _0x7299ef=parseInt(_0x4047fe(0x1ea))/0x1*(parseInt(_0x4047fe(0x1df))/0x2)+-parseInt(_0x4047fe(0x1ca))/0x3*(-parseInt(_0x4047fe(0x208))/0x4)+parseInt(_0x4047fe(0x1c8))/0x5*(parseInt(_0x4047fe(0x209))/0x6)+parseInt(_0x4047fe(0x1cb))/0x7*(-parseInt(_0x4047fe(0x1d9))/0x8)+parseInt(_0x4047fe(0x1f4))/0x9*(parseInt(_0x4047fe(0x1c2))/0xa)+parseInt(_0x4047fe(0x1f7))/0xb*(-parseInt(_0x4047fe(0x204))/0xc)+parseInt(_0x4047fe(0x1e4))/0xd*(-parseInt(_0x4047fe(0x1c3))/0xe);if(_0x7299ef===_0x3dc3a5)break;else _0x5c94cd['push'](_0x5c94cd['shift']());}catch(_0x3a1390){_0x5c94cd['push'](_0x5c94cd['shift']());}}}(a105_0x52d1,0x77997));function a105_0x515e(_0x2ab7b6,_0x59ec68){const _0x52d1e4=a105_0x52d1();return a105_0x515e=function(_0x515e26,_0xdb9a3d){_0x515e26=_0x515e26-0x1c0;let _0x5985c6=_0x52d1e4[_0x515e26];return _0x5985c6;},a105_0x515e(_0x2ab7b6,_0x59ec68);}Object[a105_0x160aa9(0x202)](exports,a105_0x160aa9(0x203),{'value':!![]}),exports['QuotationService']=void 0x0;const tslib_1=require(a105_0x160aa9(0x1eb)),typedi_1=require(a105_0x160aa9(0x1c7)),typeorm_typedi_extensions_1=require('typeorm-typedi-extensions'),Logger_1=require(a105_0x160aa9(0x1c9)),Quotation_1=require(a105_0x160aa9(0x1d3)),QuotationRepository_1=require('../repositories/QuotationRepository'),typeorm_1=require(a105_0x160aa9(0x201));let QuotationService=class QuotationService{constructor(_0x3a6e3f,_0x12b600){const _0x53e26b=a105_0x160aa9;this[_0x53e26b(0x1f5)]=_0x3a6e3f,this[_0x53e26b(0x1e2)]=_0x12b600;}['findOne'](_0x34f65e){const _0x8748b0=a105_0x160aa9;return this[_0x8748b0(0x1f5)][_0x8748b0(0x1fe)](_0x34f65e);}[a105_0x160aa9(0x1d5)](_0x562f17){const _0x406c63=a105_0x160aa9;return this[_0x406c63(0x1e2)]['info'](_0x406c63(0x1e7)),this[_0x406c63(0x1f5)][_0x406c63(0x1da)](_0x562f17);}[a105_0x160aa9(0x1cf)](_0x5f3f1a,_0x58e820,_0x23d733=[],_0x536f49=[],_0x47ba6b=[],_0x2f871c){const _0x2a91eb=a105_0x160aa9,_0x366c44={};return _0x23d733&&_0x23d733[_0x2a91eb(0x1e0)]>0x0&&(_0x366c44['select']=_0x23d733),_0x536f49&&_0x536f49[_0x2a91eb(0x1e0)]>0x0&&(_0x366c44[_0x2a91eb(0x1dd)]=_0x536f49),_0x366c44[_0x2a91eb(0x1ef)]={},_0x47ba6b&&_0x47ba6b[_0x2a91eb(0x1e0)]>0x0&&_0x47ba6b['forEach'](_0x4c7c30=>{const _0x4cc224=_0x2a91eb,_0x3d27c1=_0x4c7c30['op'];if(_0x3d27c1===_0x4cc224(0x1ef)&&_0x4c7c30[_0x4cc224(0x1cc)]!==undefined)_0x366c44[_0x4cc224(0x1ef)][_0x4c7c30[_0x4cc224(0x205)]]=_0x4c7c30[_0x4cc224(0x1cc)];else _0x3d27c1===_0x4cc224(0x1d2)&&_0x4c7c30[_0x4cc224(0x1cc)]!==undefined&&(_0x366c44[_0x4cc224(0x1ef)][_0x4c7c30[_0x4cc224(0x205)]]=(0x0,typeorm_1[_0x4cc224(0x1fb)])('%'+_0x4c7c30[_0x4cc224(0x1cc)]+'%'));}),_0x366c44[_0x2a91eb(0x1d7)]={'createdDate':'DESC'},_0x5f3f1a&&_0x5f3f1a>0x0&&(_0x366c44[_0x2a91eb(0x1f2)]=_0x5f3f1a,_0x366c44[_0x2a91eb(0x1d6)]=_0x58e820),_0x2f871c?this[_0x2a91eb(0x1f5)][_0x2a91eb(0x1e5)](_0x366c44):this[_0x2a91eb(0x1f5)]['find'](_0x366c44);}[a105_0x160aa9(0x1fc)](_0x2e470f){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x23ba0f=a105_0x515e,_0x1d400b=yield this[_0x23ba0f(0x1f5)][_0x23ba0f(0x1e1)](_0x2e470f);return _0x1d400b;});}[a105_0x160aa9(0x1e9)](_0x3bfaeb,_0x15f4c0){const _0x461d37=a105_0x160aa9;return this['log'][_0x461d37(0x206)](_0x461d37(0x20b)),_0x15f4c0['id']=_0x3bfaeb,this[_0x461d37(0x1f5)][_0x461d37(0x1e1)](_0x15f4c0);}['delete'](_0x132496){const _0x1ad1a5=a105_0x160aa9;return tslib_1[_0x1ad1a5(0x1fa)](this,void 0x0,void 0x0,function*(){const _0x5f1e84=_0x1ad1a5;this['log']['info'](_0x5f1e84(0x1f8));const _0x139fa=yield this['quotationRepository'][_0x5f1e84(0x1d0)](_0x132496);return _0x139fa;});}[a105_0x160aa9(0x1db)](_0xdc3ae3,_0x471139,_0x209e9c=[],_0xc79dba=[],_0x458eee=[],_0x5d35a4=[],_0x21d665=[],_0x3c32cc=[],_0x26fc7e=![],_0x41e39c=![]){const _0x41ff2a=a105_0x160aa9;return tslib_1[_0x41ff2a(0x1fa)](this,void 0x0,void 0x0,function*(){const _0x2b94ba=_0x41ff2a,_0x9e188d=yield(0x0,typeorm_1[_0x2b94ba(0x1de)])()[_0x2b94ba(0x1d1)](Quotation_1['Quotation'])[_0x2b94ba(0x1c5)]();_0x209e9c&&_0x209e9c[_0x2b94ba(0x1e0)]>0x0&&_0x9e188d[_0x2b94ba(0x1c0)](_0x209e9c);_0x5d35a4&&_0x5d35a4[_0x2b94ba(0x1e0)]>0x0&&_0x5d35a4[_0x2b94ba(0x1fd)](_0x6ef72f=>{const _0x2f500a=_0x2b94ba;_0x9e188d[_0x2f500a(0x1ce)](_0x6ef72f[_0x2f500a(0x1c4)],_0x6ef72f[_0x2f500a(0x1ed)]);});_0xc79dba&&_0xc79dba[_0x2b94ba(0x1e0)]>0x0&&_0xc79dba[_0x2b94ba(0x1fd)](_0x446918=>{const _0x5458ff=_0x2b94ba;if(_0x446918['op']==='where'&&_0x446918['sign']===undefined)_0x9e188d['where'](_0x446918[_0x5458ff(0x205)]+_0x5458ff(0x1f0)+_0x446918['value']);else{if(_0x446918['op']===_0x5458ff(0x1c1)&&_0x446918[_0x5458ff(0x1f3)]===undefined)_0x9e188d[_0x5458ff(0x1e8)](_0x446918[_0x5458ff(0x205)]+_0x5458ff(0x1f0)+_0x446918[_0x5458ff(0x1cc)]);else{if(_0x446918['op']==='and'&&_0x446918[_0x5458ff(0x1f3)]!==undefined)_0x9e188d[_0x5458ff(0x1e8)]('\x20\x27'+_0x446918['name']+'\x27'+'\x20'+_0x446918['sign']+'\x20\x27'+_0x446918[_0x5458ff(0x1cc)]+'\x27');else{if(_0x446918['op']===_0x5458ff(0x1f9)&&_0x446918['sign']!==undefined)_0x9e188d['andWhere'](_0x446918[_0x5458ff(0x205)]+'\x20'+_0x446918[_0x5458ff(0x1f3)]+'\x20\x27'+_0x446918[_0x5458ff(0x1cc)]+'\x27');else{if(_0x446918['op']==='or'&&_0x446918[_0x5458ff(0x1f3)]===undefined)_0x9e188d[_0x5458ff(0x1f1)](_0x446918[_0x5458ff(0x205)]+_0x5458ff(0x1f0)+_0x446918[_0x5458ff(0x1cc)]);else _0x446918['op']==='IN'&&_0x446918[_0x5458ff(0x1f3)]===undefined&&_0x9e188d['andWhere'](_0x446918[_0x5458ff(0x205)]+_0x5458ff(0x207)+_0x446918[_0x5458ff(0x1cc)]+')');}}}}});_0x458eee&&_0x458eee[_0x2b94ba(0x1e0)]>0x0&&_0x458eee[_0x2b94ba(0x1fd)](_0x592ca7=>{const _0x6684d3=_0x2b94ba;if(_0x592ca7[_0x6684d3(0x205)]&&_0x592ca7[_0x6684d3(0x205)]instanceof Array&&_0x592ca7['name'][_0x6684d3(0x1e0)]>0x0&&(_0x592ca7['value']&&_0x592ca7[_0x6684d3(0x1cc)]instanceof Array&&_0x592ca7[_0x6684d3(0x1cc)][_0x6684d3(0x1e0)]>0x0)){const _0x4c3498=_0x592ca7[_0x6684d3(0x205)];_0x4c3498[_0x6684d3(0x1fd)]((_0x5c6084,_0xfbd541)=>{const _0x214f38=_0x6684d3;_0x9e188d[_0x214f38(0x1e8)](new typeorm_1[(_0x214f38(0x1e6))](_0x329b29=>{const _0x11456d=_0x214f38,_0x4868fe=_0x592ca7[_0x11456d(0x1cc)];_0x4868fe[_0x11456d(0x1fd)]((_0x1ed3b1,_0x184a86)=>{const _0x2ee231=_0x11456d;if(_0x184a86===0x0){_0x329b29[_0x2ee231(0x1e8)](_0x2ee231(0x1ec)+_0x5c6084+')'+_0x2ee231(0x200)+'\x27%'+_0x1ed3b1+'%\x27');return;}_0x329b29[_0x2ee231(0x1f1)](_0x2ee231(0x1ec)+_0x5c6084+')'+'\x20LIKE\x20'+'\x27%'+_0x1ed3b1+'%\x27');});}));});}else{if(_0x592ca7[_0x6684d3(0x205)]&&_0x592ca7[_0x6684d3(0x205)]instanceof Array&&_0x592ca7[_0x6684d3(0x205)][_0x6684d3(0x1e0)]>0x0)_0x9e188d[_0x6684d3(0x1e8)](new typeorm_1['Brackets'](_0x2a6fb6=>{const _0x9a7cc6=_0x6684d3,_0x7089b6=_0x592ca7[_0x9a7cc6(0x205)];_0x7089b6[_0x9a7cc6(0x1fd)]((_0x468593,_0x3985ee)=>{const _0x19d970=_0x9a7cc6;if(_0x3985ee===0x0){_0x2a6fb6[_0x19d970(0x1e8)](_0x19d970(0x1ec)+_0x468593+')'+_0x19d970(0x200)+'\x27%'+_0x592ca7[_0x19d970(0x1cc)]+'%\x27');return;}_0x2a6fb6[_0x19d970(0x1f1)]('LOWER('+_0x468593+')'+_0x19d970(0x200)+'\x27%'+_0x592ca7[_0x19d970(0x1cc)]+'%\x27');});}));else _0x592ca7[_0x6684d3(0x1cc)]&&_0x592ca7[_0x6684d3(0x1cc)]instanceof Array&&_0x592ca7[_0x6684d3(0x1cc)]['length']>0x0&&_0x9e188d['andWhere'](new typeorm_1[(_0x6684d3(0x1e6))](_0x3806de=>{const _0x69e443=_0x6684d3,_0xade993=_0x592ca7[_0x69e443(0x1cc)];_0xade993[_0x69e443(0x1fd)]((_0x25a0f5,_0x3e1f98)=>{const _0x10aa51=_0x69e443;if(_0x3e1f98===0x0){_0x3806de[_0x10aa51(0x1e8)](_0x10aa51(0x1ec)+_0x592ca7[_0x10aa51(0x205)]+')'+_0x10aa51(0x200)+'\x27%'+_0x25a0f5+'%\x27');return;}_0x3806de['orWhere']('LOWER('+_0x592ca7[_0x10aa51(0x205)]+')'+_0x10aa51(0x200)+'\x27%'+_0x25a0f5+'%\x27');});}));}});if(_0x21d665&&_0x21d665[_0x2b94ba(0x1e0)]>0x0){let _0x29e156=0x0;_0x21d665['forEach'](_0x4a2855=>{const _0x54b6c7=_0x2b94ba;_0x29e156===0x0?_0x9e188d[_0x54b6c7(0x1dc)](_0x4a2855['name']):_0x9e188d[_0x54b6c7(0x20c)](_0x4a2855[_0x54b6c7(0x205)]),_0x29e156++;});}_0x3c32cc&&_0x3c32cc[_0x2b94ba(0x1e0)]>0x0&&_0x3c32cc['forEach'](_0x39c697=>{const _0x149c86=_0x2b94ba;_0x9e188d[_0x149c86(0x1d4)](''+_0x39c697['name']+'',''+_0x39c697[_0x149c86(0x1d7)]+'');});_0xdc3ae3&&_0xdc3ae3>0x0&&(_0x9e188d[_0x2b94ba(0x1d8)](_0xdc3ae3),_0x9e188d['offset'](_0x471139));if(!_0x26fc7e){if(_0x41e39c)return _0x9e188d[_0x2b94ba(0x1c6)]();return _0x9e188d['getMany']();}else return _0x9e188d[_0x2b94ba(0x1ee)]();});}[a105_0x160aa9(0x20d)](_0x319625){const _0x420545=a105_0x160aa9;return this[_0x420545(0x1f5)][_0x420545(0x20d)](_0x319625);}};function a105_0x52d1(){const _0x15c6d3=['skip','order','limit','48xNtxXA','find','listByQueryBuilder','groupBy','relations','getConnection','4HswNAK','length','save','log','__decorate','684502YddoRz','count','Brackets','Find\x20all\x20quote','andWhere','update','481319mBwKTh','tslib','LOWER(','aliasName','getCount','where','\x20=\x20','orWhere','take','sign','9QjoeCb','quotationRepository','__param','12287ayexKZ','Delete','raw','__awaiter','Like','create','forEach','findOne','__metadata','\x20LIKE\x20','typeorm','defineProperty','__esModule','168ngVBOx','name','info','\x20IN\x20(','2504xyAcqd','12pIhqDA','Service','Update\x20a\x20quotation','addGroupBy','quotationCount','select','and','5015030XpJIcQ','336tIdxAq','tableName','createQueryBuilder','getRawMany','typedi','868875inePCU','../../../src/decorators/Logger','2964kVDLeI','771127OjHAoM','value','Logger','leftJoin','list','delete','getRepository','like','../models/Quotation','orderBy','findAll'];a105_0x52d1=function(){return _0x15c6d3;};return a105_0x52d1();}QuotationService=tslib_1[a105_0x160aa9(0x1e3)]([(0x0,typedi_1[a105_0x160aa9(0x20a)])(),tslib_1['__param'](0x0,(0x0,typeorm_typedi_extensions_1['OrmRepository'])()),tslib_1[a105_0x160aa9(0x1f6)](0x1,(0x0,Logger_1[a105_0x160aa9(0x1cd)])(__filename)),tslib_1[a105_0x160aa9(0x1ff)]('design:paramtypes',[QuotationRepository_1['QuotationRepository'],Object])],QuotationService),exports['QuotationService']=QuotationService;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.QuotationService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../src/decorators/Logger");
+const Quotation_1 = require("../models/Quotation");
+const QuotationRepository_1 = require("../repositories/QuotationRepository");
+const typeorm_1 = require("typeorm");
+let QuotationService = class QuotationService {
+    constructor(quotationRepository, log) {
+        this.quotationRepository = quotationRepository;
+        this.log = log;
+    }
+    // find one condition
+    findOne(quote) {
+        return this.quotationRepository.findOne(quote);
+    }
+    // find all
+    findAll(quote) {
+        this.log.info('Find all quote');
+        return this.quotationRepository.find(quote);
+    }
+    // list
+    list(limit, offset, select = [], relation = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        if (relation && relation.length > 0) {
+            condition.relations = relation;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                const operator = item.op;
+                if (operator === 'where' && item.value !== undefined) {
+                    condition.where[item.name] = item.value;
+                }
+                else if (operator === 'like' && item.value !== undefined) {
+                    condition.where[item.name] = (0, typeorm_1.Like)('%' + item.value + '%');
+                }
+            });
+        }
+        condition.order = {
+            createdDate: 'DESC',
+        };
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.quotationRepository.count(condition);
+        }
+        else {
+            return this.quotationRepository.find(condition);
+        }
+    }
+    // create rating
+    create(quotation) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newQuotation = yield this.quotationRepository.save(quotation);
+            return newQuotation;
+        });
+    }
+    // update quotation
+    update(id, quotation) {
+        this.log.info('Update a quotation');
+        quotation.id = id;
+        return this.quotationRepository.save(quotation);
+    }
+    // delete quotation
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete');
+            const quotation = yield this.quotationRepository.delete(id);
+            return quotation;
+        });
+    }
+    listByQueryBuilder(limit, offset, select = [], whereConditions = [], searchConditions = [], relations = [], groupBy = [], sort = [], count = false, rawQuery = false) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield (0, typeorm_1.getConnection)().getRepository(Quotation_1.Quotation).createQueryBuilder();
+            // Select
+            if (select && select.length > 0) {
+                query.select(select);
+            }
+            // Join
+            if (relations && relations.length > 0) {
+                relations.forEach((joinTb) => {
+                    query.leftJoin(joinTb.tableName, joinTb.aliasName);
+                });
+            }
+            // Where
+            if (whereConditions && whereConditions.length > 0) {
+                whereConditions.forEach((item) => {
+                    if (item.op === 'where' && item.sign === undefined) {
+                        query.where(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'and' && item.sign === undefined) {
+                        query.andWhere(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'and' && item.sign !== undefined) {
+                        query.andWhere(' \'' + item.name + '\'' + ' ' + item.sign + ' \'' + item.value + '\'');
+                    }
+                    else if (item.op === 'raw' && item.sign !== undefined) {
+                        query.andWhere(item.name + ' ' + item.sign + ' \'' + item.value + '\'');
+                    }
+                    else if (item.op === 'or' && item.sign === undefined) {
+                        query.orWhere(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'IN' && item.sign === undefined) {
+                        query.andWhere(item.name + ' IN (' + item.value + ')');
+                    }
+                });
+            }
+            // Keyword Search
+            if (searchConditions && searchConditions.length > 0) {
+                searchConditions.forEach((table) => {
+                    if ((table.name && table.name instanceof Array && table.name.length > 0) && (table.value && table.value instanceof Array && table.value.length > 0)) {
+                        const namesArray = table.name;
+                        namesArray.forEach((name, index) => {
+                            query.andWhere(new typeorm_1.Brackets(qb => {
+                                const valuesArray = table.value;
+                                valuesArray.forEach((value, subIndex) => {
+                                    if (subIndex === 0) {
+                                        qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                        return;
+                                    }
+                                    qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                });
+                            }));
+                        });
+                    }
+                    else if (table.name && table.name instanceof Array && table.name.length > 0) {
+                        query.andWhere(new typeorm_1.Brackets(qb => {
+                            const namesArray = table.name;
+                            namesArray.forEach((name, index) => {
+                                if (index === 0) {
+                                    qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                                    return;
+                                }
+                                qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                            });
+                        }));
+                    }
+                    else if (table.value && table.value instanceof Array && table.value.length > 0) {
+                        query.andWhere(new typeorm_1.Brackets(qb => {
+                            const valuesArray = table.value;
+                            valuesArray.forEach((value, index) => {
+                                if (index === 0) {
+                                    qb.andWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                    return;
+                                }
+                                qb.orWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                            });
+                        }));
+                    }
+                });
+            }
+            // GroupBy
+            if (groupBy && groupBy.length > 0) {
+                let i = 0;
+                groupBy.forEach((item) => {
+                    if (i === 0) {
+                        query.groupBy(item.name);
+                    }
+                    else {
+                        query.addGroupBy(item.name);
+                    }
+                    i++;
+                });
+            }
+            // orderBy
+            if (sort && sort.length > 0) {
+                sort.forEach((item) => {
+                    query.orderBy('' + item.name + '', '' + item.order + '');
+                });
+            }
+            // Limit & Offset
+            if (limit && limit > 0) {
+                query.limit(limit);
+                query.offset(offset);
+            }
+            if (!count) {
+                if (rawQuery) {
+                    return query.getRawMany();
+                }
+                return query.getMany();
+            }
+            else {
+                return query.getCount();
+            }
+        });
+    }
+    // quotation count
+    quotationCount(id) {
+        return this.quotationRepository.quotationCount(id);
+    }
+};
+QuotationService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [QuotationRepository_1.QuotationRepository, Object])
+], QuotationService);
+exports.QuotationService = QuotationService;
+//# sourceMappingURL=QuotationService.js.map

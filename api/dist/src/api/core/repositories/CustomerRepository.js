@@ -1,1 +1,47 @@
-'use strict';const a472_0xc8a874=a472_0x5982;(function(_0x2ddbd1,_0x5db4a4){const _0x4eae0c=a472_0x5982,_0x2fae65=_0x2ddbd1();while(!![]){try{const _0x8c06b=-parseInt(_0x4eae0c(0x198))/0x1+parseInt(_0x4eae0c(0x1ab))/0x2*(parseInt(_0x4eae0c(0x197))/0x3)+parseInt(_0x4eae0c(0x195))/0x4*(-parseInt(_0x4eae0c(0x196))/0x5)+-parseInt(_0x4eae0c(0x1ae))/0x6*(parseInt(_0x4eae0c(0x1ac))/0x7)+-parseInt(_0x4eae0c(0x1a9))/0x8*(-parseInt(_0x4eae0c(0x1af))/0x9)+-parseInt(_0x4eae0c(0x1aa))/0xa*(parseInt(_0x4eae0c(0x19c))/0xb)+parseInt(_0x4eae0c(0x1a1))/0xc;if(_0x8c06b===_0x5db4a4)break;else _0x2fae65['push'](_0x2fae65['shift']());}catch(_0x127367){_0x2fae65['push'](_0x2fae65['shift']());}}}(a472_0x1842,0x56d41));function a472_0x1842(){const _0x1e2202=['EntityRepository','983004ovlLrf','defineProperty','MONTH(Customer.created_date)\x20=\x20MONTH(NOW())\x20AND\x20YEAR(Customer.created_date)\x20=\x20YEAR(NOW())','getCount','COUNT(customer.id)\x20as\x20customerCount','19581300aISLEw','select','where','Customer','tslib','CustomerRepository','dashboardCustomerCount','__decorate','3192648IseVCc','70PScGwd','995900JPJIaI','3255567OHlhqA','DATE(Customer.created_date)\x20=\x20DATE(NOW())','6yNrJnW','9ZmykKQ','getRawOne','andWhere','typeorm','__awaiter','350188VthZIl','25wXEThu','3MoCoFH','644793dewPNR','Repository','__esModule'];a472_0x1842=function(){return _0x1e2202;};return a472_0x1842();}function a472_0x5982(_0x56ea6d,_0x52866b){const _0x1842e4=a472_0x1842();return a472_0x5982=function(_0x598258,_0x35430e){_0x598258=_0x598258-0x191;let _0x46a659=_0x1842e4[_0x598258];return _0x46a659;},a472_0x5982(_0x56ea6d,_0x52866b);}Object[a472_0xc8a874(0x19d)](exports,a472_0xc8a874(0x19a),{'value':!![]}),exports[a472_0xc8a874(0x1a6)]=void 0x0;const tslib_1=require(a472_0xc8a874(0x1a5)),typeorm_1=require(a472_0xc8a874(0x193)),Customer_1=require('../models/Customer');let CustomerRepository=class CustomerRepository extends typeorm_1[a472_0xc8a874(0x199)]{['TodayCustomerCount'](_0x39ab74){const _0x56e0a4=a472_0xc8a874;return tslib_1[_0x56e0a4(0x194)](this,void 0x0,void 0x0,function*(){const _0x54590f=_0x56e0a4,_0x2291a7=yield this['manager']['createQueryBuilder'](Customer_1['Customer'],'customer');return _0x2291a7[_0x54590f(0x1a2)]([_0x54590f(0x1a0)]),_0x2291a7[_0x54590f(0x1a3)]('DATE(customer.createdDate)\x20=\x20:todaydate',{'todaydate':_0x39ab74}),_0x2291a7[_0x54590f(0x191)]();});}[a472_0xc8a874(0x1a7)](_0x4cd415){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x17e0d8=a472_0x5982,_0xcb7806=yield this['manager']['createQueryBuilder'](Customer_1[_0x17e0d8(0x1a4)],_0x17e0d8(0x1a4));_0xcb7806[_0x17e0d8(0x1a3)]('Customer.deleteFlag\x20=\x200');if(_0x4cd415===0x1&&_0x4cd415)_0xcb7806[_0x17e0d8(0x192)](_0x17e0d8(0x1ad));else{if(_0x4cd415===0x2&&_0x4cd415)_0xcb7806[_0x17e0d8(0x192)]('WEEK(Customer.created_date)\x20=\x20WEEK(NOW())\x20AND\x20MONTH(Customer.created_date)\x20=\x20MONTH(NOW())\x20AND\x20YEAR(Customer.created_date)\x20=\x20YEAR(NOW())');else{if(_0x4cd415===0x3&&_0x4cd415)_0xcb7806[_0x17e0d8(0x192)](_0x17e0d8(0x19e));else _0x4cd415===0x4&&_0x4cd415&&_0xcb7806['andWhere']('YEAR(Customer.created_date)\x20=\x20YEAR(NOW())');}}return _0xcb7806[_0x17e0d8(0x19f)]();});}};CustomerRepository=tslib_1[a472_0xc8a874(0x1a8)]([(0x0,typeorm_1[a472_0xc8a874(0x19b)])(Customer_1[a472_0xc8a874(0x1a4)])],CustomerRepository),exports[a472_0xc8a874(0x1a6)]=CustomerRepository;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CustomerRepository = void 0;
+const tslib_1 = require("tslib");
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+const typeorm_1 = require("typeorm");
+const Customer_1 = require("../models/Customer");
+let CustomerRepository = class CustomerRepository extends typeorm_1.Repository {
+    TodayCustomerCount(todaydate) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(Customer_1.Customer, 'customer');
+            query.select(['COUNT(customer.id) as customerCount']);
+            query.where('DATE(customer.createdDate) = :todaydate', { todaydate });
+            return query.getRawOne();
+        });
+    }
+    dashboardCustomerCount(duration) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(Customer_1.Customer, 'Customer');
+            query.where('Customer.deleteFlag = 0');
+            if (duration === 1 && duration) {
+                query.andWhere('DATE(Customer.created_date) = DATE(NOW())');
+            }
+            else if (duration === 2 && duration) {
+                query.andWhere('WEEK(Customer.created_date) = WEEK(NOW()) AND MONTH(Customer.created_date) = MONTH(NOW()) AND YEAR(Customer.created_date) = YEAR(NOW())');
+            }
+            else if (duration === 3 && duration) {
+                query.andWhere('MONTH(Customer.created_date) = MONTH(NOW()) AND YEAR(Customer.created_date) = YEAR(NOW())');
+            }
+            else if (duration === 4 && duration) {
+                query.andWhere('YEAR(Customer.created_date) = YEAR(NOW())');
+            }
+            return query.getCount();
+        });
+    }
+};
+CustomerRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(Customer_1.Customer)
+], CustomerRepository);
+exports.CustomerRepository = CustomerRepository;
+//# sourceMappingURL=CustomerRepository.js.map

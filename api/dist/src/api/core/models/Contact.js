@@ -1,1 +1,73 @@
-'use strict';const a370_0x14e9b5=a370_0x3671;(function(_0x32aaf5,_0x5cbe1a){const _0x5bc922=a370_0x3671,_0x2b6174=_0x32aaf5();while(!![]){try{const _0x18f73d=parseInt(_0x5bc922(0x163))/0x1+-parseInt(_0x5bc922(0x176))/0x2*(parseInt(_0x5bc922(0x15c))/0x3)+-parseInt(_0x5bc922(0x151))/0x4*(-parseInt(_0x5bc922(0x168))/0x5)+-parseInt(_0x5bc922(0x15e))/0x6+-parseInt(_0x5bc922(0x152))/0x7+-parseInt(_0x5bc922(0x175))/0x8*(parseInt(_0x5bc922(0x150))/0x9)+parseInt(_0x5bc922(0x158))/0xa;if(_0x18f73d===_0x5cbe1a)break;else _0x2b6174['push'](_0x2b6174['shift']());}catch(_0x30adf9){_0x2b6174['push'](_0x2b6174['shift']());}}}(a370_0x2023,0x8a66e));function a370_0x2023(){const _0x44d7d9=['__metadata','contact','Contact','design:type','updateDetails','PrimaryGeneratedColumn','BeforeInsert','BaseModel','__esModule','design:paramtypes','defineProperty','111064cHKDPo','94cuMNqa','typeorm','__decorate','is_active','711PsTQAc','2224KhsYrf','1646862DpBCCK','message','phone_number','tslib','isActive','__awaiter','17111970jKTpsl','design:returntype','IsNotEmpty','format','11856rOoPur','BeforeUpdate','4286814BSZDUc','Column','email','YYYY-MM-DD\x20HH:mm:ss','createDetails','79349KettUf','Entity','phoneNumber','name','class-validator','9070OXQlan','prototype'];a370_0x2023=function(){return _0x44d7d9;};return a370_0x2023();}function a370_0x3671(_0x1036d3,_0x4753f1){const _0x2023d1=a370_0x2023();return a370_0x3671=function(_0x36716c,_0x2ccf83){_0x36716c=_0x36716c-0x14d;let _0x5a3cf1=_0x2023d1[_0x36716c];return _0x5a3cf1;},a370_0x3671(_0x1036d3,_0x4753f1);}Object[a370_0x14e9b5(0x174)](exports,a370_0x14e9b5(0x172),{'value':!![]}),exports['Contact']=void 0x0;const tslib_1=require(a370_0x14e9b5(0x155)),typeorm_1=require(a370_0x14e9b5(0x14d)),BaseModel_1=require('./BaseModel'),moment=require('moment/moment'),class_validator_1=require(a370_0x14e9b5(0x167));let Contact=class Contact extends BaseModel_1[a370_0x14e9b5(0x171)]{[a370_0x14e9b5(0x162)](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x240f41=a370_0x3671;this['createdDate']=moment()['format'](_0x240f41(0x161));});}[a370_0x14e9b5(0x16e)](){const _0x47c24b=a370_0x14e9b5;return tslib_1[_0x47c24b(0x157)](this,void 0x0,void 0x0,function*(){const _0x534492=_0x47c24b;this['modifiedDate']=moment()[_0x534492(0x15b)]('YYYY-MM-DD\x20HH:mm:ss');});}};tslib_1[a370_0x14e9b5(0x14e)]([(0x0,class_validator_1[a370_0x14e9b5(0x15a)])(),(0x0,typeorm_1[a370_0x14e9b5(0x16f)])(),tslib_1[a370_0x14e9b5(0x16a)](a370_0x14e9b5(0x16d),Number)],Contact[a370_0x14e9b5(0x169)],'id',void 0x0),tslib_1[a370_0x14e9b5(0x14e)]([(0x0,class_validator_1[a370_0x14e9b5(0x15a)])(),(0x0,typeorm_1[a370_0x14e9b5(0x15f)])({'name':a370_0x14e9b5(0x166)}),tslib_1['__metadata'](a370_0x14e9b5(0x16d),String)],Contact[a370_0x14e9b5(0x169)],a370_0x14e9b5(0x166),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a370_0x14e9b5(0x15f)])({'name':a370_0x14e9b5(0x160)}),tslib_1[a370_0x14e9b5(0x16a)](a370_0x14e9b5(0x16d),String)],Contact['prototype'],'email',void 0x0),tslib_1[a370_0x14e9b5(0x14e)]([(0x0,class_validator_1[a370_0x14e9b5(0x15a)])(),(0x0,typeorm_1['Column'])({'name':a370_0x14e9b5(0x154)}),tslib_1['__metadata'](a370_0x14e9b5(0x16d),String)],Contact[a370_0x14e9b5(0x169)],a370_0x14e9b5(0x165),void 0x0),tslib_1[a370_0x14e9b5(0x14e)]([(0x0,class_validator_1[a370_0x14e9b5(0x15a)])(),(0x0,typeorm_1[a370_0x14e9b5(0x15f)])({'name':a370_0x14e9b5(0x153)}),tslib_1[a370_0x14e9b5(0x16a)](a370_0x14e9b5(0x16d),String)],Contact['prototype'],'message',void 0x0),tslib_1[a370_0x14e9b5(0x14e)]([(0x0,typeorm_1[a370_0x14e9b5(0x15f)])({'name':a370_0x14e9b5(0x14f)}),tslib_1[a370_0x14e9b5(0x16a)]('design:type',Number)],Contact['prototype'],a370_0x14e9b5(0x156),void 0x0),tslib_1[a370_0x14e9b5(0x14e)]([(0x0,typeorm_1[a370_0x14e9b5(0x170)])(),tslib_1['__metadata'](a370_0x14e9b5(0x16d),Function),tslib_1[a370_0x14e9b5(0x16a)](a370_0x14e9b5(0x173),[]),tslib_1['__metadata'](a370_0x14e9b5(0x159),Promise)],Contact['prototype'],a370_0x14e9b5(0x162),null),tslib_1[a370_0x14e9b5(0x14e)]([(0x0,typeorm_1[a370_0x14e9b5(0x15d)])(),tslib_1[a370_0x14e9b5(0x16a)](a370_0x14e9b5(0x16d),Function),tslib_1[a370_0x14e9b5(0x16a)]('design:paramtypes',[]),tslib_1[a370_0x14e9b5(0x16a)](a370_0x14e9b5(0x159),Promise)],Contact[a370_0x14e9b5(0x169)],'updateDetails',null),Contact=tslib_1[a370_0x14e9b5(0x14e)]([(0x0,typeorm_1[a370_0x14e9b5(0x164)])(a370_0x14e9b5(0x16b))],Contact),exports[a370_0x14e9b5(0x16c)]=Contact;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Contact = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const moment = require("moment/moment");
+const class_validator_1 = require("class-validator");
+let Contact = class Contact extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Contact.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'name' }),
+    tslib_1.__metadata("design:type", String)
+], Contact.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'email' }),
+    tslib_1.__metadata("design:type", String)
+], Contact.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'phone_number' }),
+    tslib_1.__metadata("design:type", String)
+], Contact.prototype, "phoneNumber", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'message' }),
+    tslib_1.__metadata("design:type", String)
+], Contact.prototype, "message", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], Contact.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Contact.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Contact.prototype, "updateDetails", null);
+Contact = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('contact')
+], Contact);
+exports.Contact = Contact;
+//# sourceMappingURL=Contact.js.map

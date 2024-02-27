@@ -1,1 +1,32 @@
-'use strict';const a111_0x4f8d5e=a111_0x1562;(function(_0xb42fa5,_0x51526b){const _0x6136fc=a111_0x1562,_0x5c168b=_0xb42fa5();while(!![]){try{const _0x3a241c=parseInt(_0x6136fc(0x12e))/0x1*(parseInt(_0x6136fc(0x141))/0x2)+-parseInt(_0x6136fc(0x12b))/0x3+parseInt(_0x6136fc(0x12c))/0x4*(parseInt(_0x6136fc(0x140))/0x5)+parseInt(_0x6136fc(0x143))/0x6*(parseInt(_0x6136fc(0x138))/0x7)+parseInt(_0x6136fc(0x134))/0x8*(-parseInt(_0x6136fc(0x12f))/0x9)+parseInt(_0x6136fc(0x130))/0xa*(-parseInt(_0x6136fc(0x13e))/0xb)+parseInt(_0x6136fc(0x13c))/0xc;if(_0x3a241c===_0x51526b)break;else _0x5c168b['push'](_0x5c168b['shift']());}catch(_0x1bacc9){_0x5c168b['push'](_0x5c168b['shift']());}}}(a111_0x5883,0x1d4c4));Object[a111_0x4f8d5e(0x133)](exports,a111_0x4f8d5e(0x135),{'value':!![]}),exports[a111_0x4f8d5e(0x132)]=void 0x0;function a111_0x1562(_0x4f990a,_0x1e5623){const _0x588369=a111_0x5883();return a111_0x1562=function(_0x15627e,_0x322fb1){_0x15627e=_0x15627e-0x129;let _0xddca10=_0x588369[_0x15627e];return _0xddca10;},a111_0x1562(_0x4f990a,_0x1e5623);}const tslib_1=require(a111_0x4f8d5e(0x139)),typeorm_1=require(a111_0x4f8d5e(0x136)),moment=require(a111_0x4f8d5e(0x142));class AddProductRelatedMenu1652090802906{['up'](_0x20b430){const _0x5dfb76=a111_0x4f8d5e;return tslib_1[_0x5dfb76(0x13f)](this,void 0x0,void 0x0,function*(){const _0x3b1191=_0x5dfb76,_0x3ea165=[{'menuName':_0x3b1191(0x144),'menuModule':_0x3b1191(0x13b),'path':_0x3b1191(0x137),'icon':'','parentId':0x0,'status':0x1,'createdDate':''+moment()[_0x3b1191(0x13d)](_0x3b1191(0x12a)),'updatedDate':''+moment()[_0x3b1191(0x13d)](_0x3b1191(0x12a))}];yield(0x0,typeorm_1[_0x3b1191(0x131)])(_0x3b1191(0x129))[_0x3b1191(0x13a)](_0x3ea165);});}[a111_0x4f8d5e(0x12d)](_0x5d1df1){const _0x1024bc=a111_0x4f8d5e;return tslib_1[_0x1024bc(0x13f)](this,void 0x0,void 0x0,function*(){});}}function a111_0x5883(){const _0x4c3e63=['2857920yZjPch','format','693NuiVms','__awaiter','30yPwKTG','201612KMdmXo','moment/moment','98586kCEqlN','Products\x20Related','PluginMenu','YYYY-MM-DD\x20HH:mm:ss','331530yjUtYc','13812tHamhg','down','1hslLgn','9rYwZhk','10940EPwvzr','getRepository','AddProductRelatedMenu1652090802906','defineProperty','876328LFFZQu','__esModule','typeorm','#/catalog/related_product','21ecRKdd','tslib','save','catalog'];a111_0x5883=function(){return _0x4c3e63;};return a111_0x5883();}exports[a111_0x4f8d5e(0x132)]=AddProductRelatedMenu1652090802906;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddProductRelatedMenu1652090802906 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment = require("moment/moment");
+class AddProductRelatedMenu1652090802906 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const BlogsSeed = [
+                {
+                    menuName: 'Products Related',
+                    menuModule: 'catalog',
+                    path: '#/catalog/related_product',
+                    icon: '',
+                    parentId: 0,
+                    status: 1,
+                    createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                },
+            ];
+            yield (0, typeorm_1.getRepository)('PluginMenu').save(BlogsSeed);
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ---
+        });
+    }
+}
+exports.AddProductRelatedMenu1652090802906 = AddProductRelatedMenu1652090802906;
+//# sourceMappingURL=1652090802906-AddProductRelatedMenu.js.map

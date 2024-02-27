@@ -1,1 +1,37 @@
-'use strict';const a21_0x5dbf17=a21_0x4c99;(function(_0x5a2698,_0xc72259){const _0x1bad1d=a21_0x4c99,_0x65e418=_0x5a2698();while(!![]){try{const _0x55e7a9=-parseInt(_0x1bad1d(0x148))/0x1*(-parseInt(_0x1bad1d(0x14a))/0x2)+parseInt(_0x1bad1d(0x153))/0x3+-parseInt(_0x1bad1d(0x154))/0x4+parseInt(_0x1bad1d(0x150))/0x5*(-parseInt(_0x1bad1d(0x152))/0x6)+parseInt(_0x1bad1d(0x149))/0x7*(parseInt(_0x1bad1d(0x15b))/0x8)+-parseInt(_0x1bad1d(0x144))/0x9+parseInt(_0x1bad1d(0x158))/0xa;if(_0x55e7a9===_0xc72259)break;else _0x65e418['push'](_0x65e418['shift']());}catch(_0x8c2edd){_0x65e418['push'](_0x65e418['shift']());}}}(a21_0x5e5c,0x57c17));function a21_0x5e5c(){const _0x13e9e=['2327176AKHcdT','category_description','defineProperty','down','1817690PsiOLv','TableColumn','dropColumn','8SWfxOw','3391191PVbgEv','AddingColumnInBlogCategory1651473763023','category_slug','hasColumn','30611oYtHrL','3301781OnxpQB','38jwumHt','__awaiter','__esModule','255','addColumn','blog_category','544090ifsuPK','tslib','18sawmdj','1228299NfUDBv'];a21_0x5e5c=function(){return _0x13e9e;};return a21_0x5e5c();}Object[a21_0x5dbf17(0x156)](exports,a21_0x5dbf17(0x14c),{'value':!![]}),exports[a21_0x5dbf17(0x145)]=void 0x0;function a21_0x4c99(_0x25241e,_0x257228){const _0x5e5cb9=a21_0x5e5c();return a21_0x4c99=function(_0x4c9903,_0x2be860){_0x4c9903=_0x4c9903-0x144;let _0x35e204=_0x5e5cb9[_0x4c9903];return _0x35e204;},a21_0x4c99(_0x25241e,_0x257228);}const tslib_1=require(a21_0x5dbf17(0x151)),typeorm_1=require('typeorm');class AddingColumnInBlogCategory1651473763023{['up'](_0x425d1b){const _0x5619c1=a21_0x5dbf17;return tslib_1[_0x5619c1(0x14b)](this,void 0x0,void 0x0,function*(){const _0xa82062=_0x5619c1,_0xae577c=yield _0x425d1b[_0xa82062(0x147)](_0xa82062(0x14f),_0xa82062(0x146));!_0xae577c&&(yield _0x425d1b[_0xa82062(0x14e)](_0xa82062(0x14f),new typeorm_1['TableColumn']({'name':_0xa82062(0x146),'type':'varchar','length':_0xa82062(0x14d),'isPrimary':![],'isNullable':!![]})));const _0x1cb24c=yield _0x425d1b[_0xa82062(0x147)]('blog_category',_0xa82062(0x155));!_0x1cb24c&&(yield _0x425d1b[_0xa82062(0x14e)]('blog_category',new typeorm_1[(_0xa82062(0x159))]({'name':'category_description','type':'text','isPrimary':![],'isNullable':!![]})));});}[a21_0x5dbf17(0x157)](_0xbab48b){const _0x457060=a21_0x5dbf17;return tslib_1[_0x457060(0x14b)](this,void 0x0,void 0x0,function*(){const _0x3776d9=_0x457060;yield _0xbab48b[_0x3776d9(0x15a)](_0x3776d9(0x14f),_0x3776d9(0x155));});}}exports['AddingColumnInBlogCategory1651473763023']=AddingColumnInBlogCategory1651473763023;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddingColumnInBlogCategory1651473763023 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddingColumnInBlogCategory1651473763023 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('blog_category', 'category_slug');
+            if (!ifExist) {
+                yield queryRunner.addColumn('blog_category', new typeorm_1.TableColumn({
+                    name: 'category_slug',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExists = yield queryRunner.hasColumn('blog_category', 'category_description');
+            if (!ifExists) {
+                yield queryRunner.addColumn('blog_category', new typeorm_1.TableColumn({
+                    name: 'category_description',
+                    type: 'text',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('blog_category', 'category_description');
+        });
+    }
+}
+exports.AddingColumnInBlogCategory1651473763023 = AddingColumnInBlogCategory1651473763023;
+//# sourceMappingURL=1651473763023-AddingColumnInBlogCategory.js.map

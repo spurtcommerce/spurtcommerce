@@ -1,1 +1,51 @@
-'use strict';const a22_0x30e76f=a22_0x29dd;(function(_0x3e96e1,_0x3d3da8){const _0x44892d=a22_0x29dd,_0x42c82d=_0x3e96e1();while(!![]){try{const _0x297e1e=parseInt(_0x44892d(0x132))/0x1*(parseInt(_0x44892d(0x144))/0x2)+-parseInt(_0x44892d(0x148))/0x3+-parseInt(_0x44892d(0x14b))/0x4+-parseInt(_0x44892d(0x149))/0x5*(-parseInt(_0x44892d(0x12f))/0x6)+parseInt(_0x44892d(0x138))/0x7+parseInt(_0x44892d(0x142))/0x8+-parseInt(_0x44892d(0x13f))/0x9;if(_0x297e1e===_0x3d3da8)break;else _0x42c82d['push'](_0x42c82d['shift']());}catch(_0x4595e8){_0x42c82d['push'](_0x42c82d['shift']());}}}(a22_0x5562,0xcd5c2));function a22_0x29dd(_0x5eab7d,_0x38643b){const _0x556214=a22_0x5562();return a22_0x29dd=function(_0x29dd35,_0x1f1793){_0x29dd35=_0x29dd35-0x12f;let _0x515e5b=_0x556214[_0x29dd35];return _0x515e5b;},a22_0x29dd(_0x5eab7d,_0x38643b);}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a22_0x30e76f(0x13d)]=void 0x0;function a22_0x5562(){const _0x556e4a=['718824BgYjqA','5367605UeMQfU','tslib','4135064fEWumv','6Riiabp','tableForeignKey','tableForeignKeys','294598wsUyCX','dropForeignKey','blog','find','blog_category_id','fk_blog_category','3378627risYsr','TableForeignKey','category','category_id','indexOf','AddConstraintInBlogTable1651491997947','createForeignKey','7879779YqhEvp','columnNames','foreignKeys','6757448StFrFR','getTable','4gsOJsk','__awaiter','CASCADE','fk_tbl_blog_blog_category'];a22_0x5562=function(){return _0x556e4a;};return a22_0x5562();}const tslib_1=require(a22_0x30e76f(0x14a)),typeorm_1=require('typeorm');class AddConstraintInBlogTable1651491997947{constructor(){const _0xd10c60=a22_0x30e76f;this[_0xd10c60(0x131)]=new typeorm_1[(_0xd10c60(0x139))]({'name':_0xd10c60(0x137),'columnNames':[_0xd10c60(0x13b)],'referencedColumnNames':[_0xd10c60(0x13b)],'referencedTableName':_0xd10c60(0x13a),'onDelete':'CASCADE'}),this[_0xd10c60(0x130)]=new typeorm_1[(_0xd10c60(0x139))]({'name':_0xd10c60(0x147),'columnNames':[_0xd10c60(0x136)],'referencedColumnNames':[_0xd10c60(0x136)],'referencedTableName':'blog_category','onDelete':_0xd10c60(0x146)});}['up'](_0x30ce1a){const _0x270fd3=a22_0x30e76f;return tslib_1[_0x270fd3(0x145)](this,void 0x0,void 0x0,function*(){const _0x3f295=_0x270fd3,_0x300584=yield _0x30ce1a[_0x3f295(0x143)]('blog'),_0x116e90=_0x300584[_0x3f295(0x141)]['find'](_0x4825af=>_0x4825af['columnNames'][_0x3f295(0x13c)](_0x3f295(0x13b))!==-0x1);_0x116e90&&(yield _0x30ce1a[_0x3f295(0x133)](_0x300584,this[_0x3f295(0x131)]));const _0x5ee480=_0x300584['foreignKeys'][_0x3f295(0x135)](_0x217f25=>_0x217f25['columnNames'][_0x3f295(0x13c)](_0x3f295(0x136))!==-0x1);_0x5ee480&&(yield _0x30ce1a[_0x3f295(0x13e)](_0x300584,this[_0x3f295(0x130)]));});}['down'](_0x4267b3){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x20081e=a22_0x29dd,_0x2b33dd=yield _0x4267b3[_0x20081e(0x143)](_0x20081e(0x134)),_0x4242cb=_0x2b33dd[_0x20081e(0x141)][_0x20081e(0x135)](_0x48c759=>_0x48c759[_0x20081e(0x140)][_0x20081e(0x13c)](_0x20081e(0x13b))!==-0x1);_0x4242cb&&(yield _0x4267b3[_0x20081e(0x133)](_0x2b33dd,this[_0x20081e(0x130)]));const _0x1b56eb=_0x2b33dd[_0x20081e(0x141)][_0x20081e(0x135)](_0x22d28c=>_0x22d28c[_0x20081e(0x140)][_0x20081e(0x13c)](_0x20081e(0x136))!==-0x1);_0x1b56eb&&(yield _0x4267b3['dropForeignKey'](_0x2b33dd,this[_0x20081e(0x130)]));});}}exports['AddConstraintInBlogTable1651491997947']=AddConstraintInBlogTable1651491997947;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddConstraintInBlogTable1651491997947 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddConstraintInBlogTable1651491997947 {
+    constructor() {
+        this.tableForeignKeys = new typeorm_1.TableForeignKey({
+            name: 'fk_blog_category',
+            columnNames: ['category_id'],
+            referencedColumnNames: ['category_id'],
+            referencedTableName: 'category',
+            onDelete: 'CASCADE',
+        });
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_blog_blog_category',
+            columnNames: ['blog_category_id'],
+            referencedColumnNames: ['blog_category_id'],
+            referencedTableName: 'blog_category',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('blog');
+            const ifDataExsists = table.foreignKeys.find(fk => fk.columnNames.indexOf('category_id') !== -1);
+            if (ifDataExsists) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKeys);
+            }
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('blog_category_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('blog');
+            const ifDataExsists = table.foreignKeys.find(fk => fk.columnNames.indexOf('category_id') !== -1);
+            if (ifDataExsists) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('blog_category_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.AddConstraintInBlogTable1651491997947 = AddConstraintInBlogTable1651491997947;
+//# sourceMappingURL=1651491997947-AddConstraintInBlogTable.js.map

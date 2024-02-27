@@ -1,1 +1,20 @@
-'use strict';const a480_0x272cf4=a480_0x7ccb;(function(_0x2ba940,_0x4e8882){const _0x2dca01=a480_0x7ccb,_0x490ca3=_0x2ba940();while(!![]){try{const _0xcddf17=parseInt(_0x2dca01(0x6a))/0x1*(parseInt(_0x2dca01(0x67))/0x2)+-parseInt(_0x2dca01(0x6e))/0x3+parseInt(_0x2dca01(0x6d))/0x4+-parseInt(_0x2dca01(0x70))/0x5*(-parseInt(_0x2dca01(0x68))/0x6)+-parseInt(_0x2dca01(0x71))/0x7*(parseInt(_0x2dca01(0x77))/0x8)+-parseInt(_0x2dca01(0x6f))/0x9+-parseInt(_0x2dca01(0x76))/0xa*(parseInt(_0x2dca01(0x69))/0xb);if(_0xcddf17===_0x4e8882)break;else _0x490ca3['push'](_0x490ca3['shift']());}catch(_0x15c72f){_0x490ca3['push'](_0x490ca3['shift']());}}}(a480_0x4157,0xe565d));function a480_0x7ccb(_0x5563f7,_0xd8cd63){const _0x41579d=a480_0x4157();return a480_0x7ccb=function(_0x7ccbce,_0x55e3b2){_0x7ccbce=_0x7ccbce-0x67;let _0x2b192f=_0x41579d[_0x7ccbce];return _0x2b192f;},a480_0x7ccb(_0x5563f7,_0xd8cd63);}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a480_0x272cf4(0x75)]=void 0x0;function a480_0x4157(){const _0x316297=['OrderCancelReasonRepository','921470WxebsB','584248utFkra','tslib','2351626gVLxGs','10790874MNUVnr','11giXhDh','1MtWJFK','OrderCancelReason','__decorate','6612168TNpGFN','1679664mfJlQg','14832873lmZpME','5MouQwn','133ZrYCah','Repository','../models/OrderCancelReason','typeorm'];a480_0x4157=function(){return _0x316297;};return a480_0x4157();}const tslib_1=require(a480_0x272cf4(0x78)),typeorm_1=require(a480_0x272cf4(0x74)),OrderCancelReason_1=require(a480_0x272cf4(0x73));let OrderCancelReasonRepository=class OrderCancelReasonRepository extends typeorm_1[a480_0x272cf4(0x72)]{};OrderCancelReasonRepository=tslib_1[a480_0x272cf4(0x6c)]([(0x0,typeorm_1['EntityRepository'])(OrderCancelReason_1[a480_0x272cf4(0x6b)])],OrderCancelReasonRepository),exports[a480_0x272cf4(0x75)]=OrderCancelReasonRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrderCancelReasonRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const OrderCancelReason_1 = require("../models/OrderCancelReason");
+let OrderCancelReasonRepository = class OrderCancelReasonRepository extends typeorm_1.Repository {
+};
+OrderCancelReasonRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(OrderCancelReason_1.OrderCancelReason)
+], OrderCancelReasonRepository);
+exports.OrderCancelReasonRepository = OrderCancelReasonRepository;
+//# sourceMappingURL=OrderCancelReasonRepository.js.map

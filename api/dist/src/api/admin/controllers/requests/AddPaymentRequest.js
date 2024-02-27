@@ -1,1 +1,36 @@
-'use strict';function a284_0x4085(){const _0x4b3163=['50988300MoaHxl','MaxLength','__decorate','692wiIjXW','paymentRefId','711SkpJJJ','paymentRefId\x20should\x20be\x20maximum\x20255\x20character','113814RsYIUf','21jHmPWw','paymentStatus','prototype','IsNotEmpty','14hkXmOC','__metadata','__esModule','188127IESuAV','2992970BzEiVR','design:type','tslib','22017fbbSrg','orderId','reflect-metadata','6799915oGpIcj','ValidateIf','11FtGYWU','AddPaymentRequest','64984YySMTW'];a284_0x4085=function(){return _0x4b3163;};return a284_0x4085();}const a284_0x2b9536=a284_0x4772;(function(_0x509cd7,_0x2f3931){const _0x3fd2d6=a284_0x4772,_0x57427c=_0x509cd7();while(!![]){try{const _0x4ca70f=-parseInt(_0x3fd2d6(0xf5))/0x1*(-parseInt(_0x3fd2d6(0xf2))/0x2)+parseInt(_0x3fd2d6(0xf9))/0x3*(parseInt(_0x3fd2d6(0x104))/0x4)+parseInt(_0x3fd2d6(0xfc))/0x5+parseInt(_0x3fd2d6(0xed))/0x6*(parseInt(_0x3fd2d6(0xee))/0x7)+parseInt(_0x3fd2d6(0x100))/0x8*(parseInt(_0x3fd2d6(0x106))/0x9)+parseInt(_0x3fd2d6(0xf6))/0xa*(parseInt(_0x3fd2d6(0xfe))/0xb)+-parseInt(_0x3fd2d6(0x101))/0xc;if(_0x4ca70f===_0x2f3931)break;else _0x57427c['push'](_0x57427c['shift']());}catch(_0x2538c0){_0x57427c['push'](_0x57427c['shift']());}}}(a284_0x4085,0xa9c77));Object['defineProperty'](exports,a284_0x2b9536(0xf4),{'value':!![]}),exports[a284_0x2b9536(0xff)]=void 0x0;const tslib_1=require(a284_0x2b9536(0xf8));require(a284_0x2b9536(0xfb));const class_validator_1=require('class-validator');class AddPaymentRequest{}function a284_0x4772(_0x3a5d6f,_0x1ae01c){const _0x408521=a284_0x4085();return a284_0x4772=function(_0x4772f5,_0x2b3474){_0x4772f5=_0x4772f5-0xec;let _0x301367=_0x408521[_0x4772f5];return _0x301367;},a284_0x4772(_0x3a5d6f,_0x1ae01c);}tslib_1[a284_0x2b9536(0x103)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a284_0x2b9536(0xf3)](a284_0x2b9536(0xf7),Number)],AddPaymentRequest[a284_0x2b9536(0xf0)],a284_0x2b9536(0xfa),void 0x0),tslib_1[a284_0x2b9536(0x103)]([(0x0,class_validator_1[a284_0x2b9536(0xf1)])(),tslib_1[a284_0x2b9536(0xf3)]('design:type',String)],AddPaymentRequest[a284_0x2b9536(0xf0)],'paymentMethod',void 0x0),tslib_1[a284_0x2b9536(0x103)]([(0x0,class_validator_1[a284_0x2b9536(0x102)])(0xff,{'message':a284_0x2b9536(0xec)}),(0x0,class_validator_1[a284_0x2b9536(0xfd)])(_0x1d11ea=>_0x1d11ea[a284_0x2b9536(0x105)]!==''),tslib_1[a284_0x2b9536(0xf3)](a284_0x2b9536(0xf7),String)],AddPaymentRequest[a284_0x2b9536(0xf0)],a284_0x2b9536(0x105),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a284_0x2b9536(0xf1)])(),tslib_1['__metadata']('design:type',Number)],AddPaymentRequest[a284_0x2b9536(0xf0)],a284_0x2b9536(0xef),void 0x0),exports[a284_0x2b9536(0xff)]=AddPaymentRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddPaymentRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class AddPaymentRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], AddPaymentRequest.prototype, "orderId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], AddPaymentRequest.prototype, "paymentMethod", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'paymentRefId should be maximum 255 character',
+    }),
+    (0, class_validator_1.ValidateIf)(o => o.paymentRefId !== ''),
+    tslib_1.__metadata("design:type", String)
+], AddPaymentRequest.prototype, "paymentRefId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], AddPaymentRequest.prototype, "paymentStatus", void 0);
+exports.AddPaymentRequest = AddPaymentRequest;
+//# sourceMappingURL=AddPaymentRequest.js.map

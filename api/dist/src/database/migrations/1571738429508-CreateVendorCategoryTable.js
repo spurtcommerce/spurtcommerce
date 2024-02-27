@@ -1,1 +1,78 @@
-'use strict';function a815_0x19de(){const _0x85e2dc=['VendorCategoryToVendorForeignKeys','18UWYriO','Table','CreateVendorCategoryTable1571738429508','2108790kXRnAU','vendor_category_id','vendor_id','CASCADE','fk_tbl_vendor_category_tbl_vendor_foreignKey','11375532VfubYg','find','foreignKeys','11121318IHXNUC','TableForeignKey','category','category_id','vendor_category','10316192tZOPTV','typeorm','33212ODtgzn','77jXkNOm','dropTable','hasTable','1198460KFHamJ','increment','vendor','__awaiter','columnNames','integer','down','4dIuKPH','createForeignKey','tslib','defineProperty','384kUjATa','VendorCategoryToCategoryForeignKeys','fk_tbl_vendor_category_tbl_category_foreignKey','177127OWiOdp','createTable'];a815_0x19de=function(){return _0x85e2dc;};return a815_0x19de();}const a815_0x481fc9=a815_0x5869;function a815_0x5869(_0x1b9f54,_0x179582){const _0x19de4f=a815_0x19de();return a815_0x5869=function(_0x586994,_0x249aa6){_0x586994=_0x586994-0x1d4;let _0x25a0e8=_0x19de4f[_0x586994];return _0x25a0e8;},a815_0x5869(_0x1b9f54,_0x179582);}(function(_0x976686,_0xba67cc){const _0xe8f028=a815_0x5869,_0x3a4f1e=_0x976686();while(!![]){try{const _0x4151b9=parseInt(_0xe8f028(0x1d8))/0x1*(-parseInt(_0xe8f028(0x1f8))/0x2)+parseInt(_0xe8f028(0x1d5))/0x3*(-parseInt(_0xe8f028(0x1ed))/0x4)+parseInt(_0xe8f028(0x1f1))/0x5*(-parseInt(_0xe8f028(0x1db))/0x6)+parseInt(_0xe8f028(0x1e3))/0x7+-parseInt(_0xe8f028(0x1eb))/0x8+parseInt(_0xe8f028(0x1e6))/0x9+parseInt(_0xe8f028(0x1de))/0xa*(parseInt(_0xe8f028(0x1ee))/0xb);if(_0x4151b9===_0xba67cc)break;else _0x3a4f1e['push'](_0x3a4f1e['shift']());}catch(_0x5eee5f){_0x3a4f1e['push'](_0x3a4f1e['shift']());}}}(a815_0x19de,0xde7bd));Object[a815_0x481fc9(0x1d4)](exports,'__esModule',{'value':!![]}),exports[a815_0x481fc9(0x1dd)]=void 0x0;const tslib_1=require(a815_0x481fc9(0x1fa)),typeorm_1=require(a815_0x481fc9(0x1ec));class CreateVendorCategoryTable1571738429508{constructor(){const _0x58cd3c=a815_0x481fc9;this['VendorCategoryToVendorForeignKeys']=new typeorm_1[(_0x58cd3c(0x1e7))]({'name':_0x58cd3c(0x1e2),'columnNames':[_0x58cd3c(0x1e0)],'referencedColumnNames':[_0x58cd3c(0x1e0)],'referencedTableName':_0x58cd3c(0x1f3),'onDelete':'CASCADE'}),this[_0x58cd3c(0x1d6)]=new typeorm_1['TableForeignKey']({'name':_0x58cd3c(0x1d7),'columnNames':['category_id'],'referencedColumnNames':['category_id'],'referencedTableName':_0x58cd3c(0x1e8),'onDelete':_0x58cd3c(0x1e1)});}['up'](_0x1bf999){const _0x326e07=a815_0x481fc9;return tslib_1[_0x326e07(0x1f4)](this,void 0x0,void 0x0,function*(){const _0x5e1fb2=_0x326e07,_0x26f314=new typeorm_1[(_0x5e1fb2(0x1dc))]({'name':'vendor_category','columns':[{'name':_0x5e1fb2(0x1df),'type':_0x5e1fb2(0x1f6),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x5e1fb2(0x1f2)},{'name':_0x5e1fb2(0x1e0),'type':_0x5e1fb2(0x1f6),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'category_id','type':_0x5e1fb2(0x1f6),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'vendor_category_commission','type':'integer','length':'11','isPrimary':![],'isNullable':!![]}]}),_0x43615f=yield _0x1bf999[_0x5e1fb2(0x1f0)](_0x5e1fb2(0x1ea));!_0x43615f&&(yield _0x1bf999[_0x5e1fb2(0x1d9)](_0x26f314));const _0x44410b=_0x26f314[_0x5e1fb2(0x1e5)]['find'](_0x520b2f=>_0x520b2f[_0x5e1fb2(0x1f5)]['indexOf'](_0x5e1fb2(0x1e0))!==-0x1);!_0x44410b&&(yield _0x1bf999['createForeignKey'](_0x26f314,this[_0x5e1fb2(0x1da)]));const _0x3c33de=_0x26f314[_0x5e1fb2(0x1e5)][_0x5e1fb2(0x1e4)](_0x506374=>_0x506374[_0x5e1fb2(0x1f5)]['indexOf'](_0x5e1fb2(0x1e9))!==-0x1);!_0x3c33de&&(yield _0x1bf999[_0x5e1fb2(0x1f9)](_0x26f314,this[_0x5e1fb2(0x1d6)]));});}[a815_0x481fc9(0x1f7)](_0x346506){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4096ab=a815_0x5869;yield _0x346506[_0x4096ab(0x1ef)]('vendor_category',!![]);});}}exports[a815_0x481fc9(0x1dd)]=CreateVendorCategoryTable1571738429508;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateVendorCategoryTable1571738429508 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateVendorCategoryTable1571738429508 {
+    constructor() {
+        this.VendorCategoryToVendorForeignKeys = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_vendor_category_tbl_vendor_foreignKey',
+            columnNames: ['vendor_id'],
+            referencedColumnNames: ['vendor_id'],
+            referencedTableName: 'vendor',
+            onDelete: 'CASCADE',
+        });
+        this.VendorCategoryToCategoryForeignKeys = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_vendor_category_tbl_category_foreignKey',
+            columnNames: ['category_id'],
+            referencedColumnNames: ['category_id'],
+            referencedTableName: 'category',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'vendor_category',
+                columns: [
+                    {
+                        name: 'vendor_category_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'vendor_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'category_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'vendor_category_commission',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('vendor_category');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('vendor_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.VendorCategoryToVendorForeignKeys);
+            }
+            const ifDataExist = table.foreignKeys.find(fk => fk.columnNames.indexOf('category_id') !== -1);
+            if (!ifDataExist) {
+                yield queryRunner.createForeignKey(table, this.VendorCategoryToCategoryForeignKeys);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('vendor_category', true);
+        });
+    }
+}
+exports.CreateVendorCategoryTable1571738429508 = CreateVendorCategoryTable1571738429508;
+//# sourceMappingURL=1571738429508-CreateVendorCategoryTable.js.map

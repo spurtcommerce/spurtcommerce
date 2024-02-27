@@ -1,1 +1,36 @@
-'use strict';const a869_0x16fd21=a869_0x5c8f;(function(_0x3d7198,_0x253284){const _0x38d496=a869_0x5c8f,_0x1a8053=_0x3d7198();while(!![]){try{const _0x2958d5=parseInt(_0x38d496(0xf8))/0x1+-parseInt(_0x38d496(0xf2))/0x2+parseInt(_0x38d496(0xe6))/0x3*(parseInt(_0x38d496(0xe5))/0x4)+-parseInt(_0x38d496(0xe1))/0x5*(-parseInt(_0x38d496(0xea))/0x6)+parseInt(_0x38d496(0xf9))/0x7*(-parseInt(_0x38d496(0xfb))/0x8)+-parseInt(_0x38d496(0xf0))/0x9*(parseInt(_0x38d496(0xee))/0xa)+parseInt(_0x38d496(0xeb))/0xb;if(_0x2958d5===_0x253284)break;else _0x1a8053['push'](_0x1a8053['shift']());}catch(_0x7b23f9){_0x1a8053['push'](_0x1a8053['shift']());}}}(a869_0x4bc7,0x9a225));function a869_0x5c8f(_0xa545fd,_0x445e23){const _0x4bc7c8=a869_0x4bc7();return a869_0x5c8f=function(_0x5c8f36,_0x3dc4e0){_0x5c8f36=_0x5c8f36-0xe1;let _0x1c43f9=_0x4bc7c8[_0x5c8f36];return _0x1c43f9;},a869_0x5c8f(_0xa545fd,_0x445e23);}Object[a869_0x16fd21(0xe8)](exports,a869_0x16fd21(0xf6),{'value':!![]}),exports[a869_0x16fd21(0xe4)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a869_0x16fd21(0xe9));class RemoveConstraintInVendorPaymentArchive1588825405897{constructor(){const _0x27c061=a869_0x16fd21;this['tableForeignKeyyy']=new typeorm_1['TableForeignKey']({'name':_0x27c061(0xf1),'columnNames':[_0x27c061(0xf3)],'referencedColumnNames':[_0x27c061(0xf3)],'referencedTableName':_0x27c061(0xef),'onDelete':'CASCADE'});}['up'](_0xaef303){const _0x5480be=a869_0x16fd21;return tslib_1[_0x5480be(0xf5)](this,void 0x0,void 0x0,function*(){const _0x9bf7ee=_0x5480be,_0x2f6c9b=yield _0xaef303['getTable'](_0x9bf7ee(0xe7)),_0x15ba95=_0x2f6c9b[_0x9bf7ee(0xec)][_0x9bf7ee(0xfa)](_0x5df7ff=>_0x5df7ff[_0x9bf7ee(0xf7)][_0x9bf7ee(0xf4)](_0x9bf7ee(0xf3))!==-0x1);_0x15ba95&&(yield _0xaef303[_0x9bf7ee(0xed)](_0x2f6c9b,this[_0x9bf7ee(0xe2)]));});}['down'](_0x4258be){const _0x2260c6=a869_0x16fd21;return tslib_1[_0x2260c6(0xf5)](this,void 0x0,void 0x0,function*(){const _0x188eb3=_0x2260c6,_0x11dfd2=yield _0x4258be[_0x188eb3(0xe3)]('vendor_payment_archive'),_0x3489f3=_0x11dfd2[_0x188eb3(0xec)]['find'](_0x1e2550=>_0x1e2550[_0x188eb3(0xf7)][_0x188eb3(0xf4)](_0x188eb3(0xf3))!==-0x1);_0x3489f3&&(yield _0x4258be[_0x188eb3(0xed)](_0x11dfd2,this[_0x188eb3(0xe2)]));});}}function a869_0x4bc7(){const _0x622479=['27PrbvaW','fk_tbl_vendorPaymentArchive_tbl_paymentItems_foreignKey','1559918CNsOFE','payment_item_id','indexOf','__awaiter','__esModule','columnNames','630602zXLHQn','329rwmTtU','find','112808Avlrop','4021715XRzmff','tableForeignKeyyy','getTable','RemoveConstraintInVendorPaymentArchive1588825405897','461432zcivou','15AnBBUF','vendor_payment_archive','defineProperty','typeorm','6yevZRP','4133019GIJUxz','foreignKeys','dropForeignKey','1044750ULAmHx','payment_items'];a869_0x4bc7=function(){return _0x622479;};return a869_0x4bc7();}exports['RemoveConstraintInVendorPaymentArchive1588825405897']=RemoveConstraintInVendorPaymentArchive1588825405897;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RemoveConstraintInVendorPaymentArchive1588825405897 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class RemoveConstraintInVendorPaymentArchive1588825405897 {
+    constructor() {
+        this.tableForeignKeyyy = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_vendorPaymentArchive_tbl_paymentItems_foreignKey',
+            columnNames: ['payment_item_id'],
+            referencedColumnNames: ['payment_item_id'],
+            referencedTableName: 'payment_items',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('vendor_payment_archive');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('payment_item_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKeyyy);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('vendor_payment_archive');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('payment_item_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKeyyy);
+            }
+        });
+    }
+}
+exports.RemoveConstraintInVendorPaymentArchive1588825405897 = RemoveConstraintInVendorPaymentArchive1588825405897;
+//# sourceMappingURL=1588825405897-RemoveConstraintInVendorPaymentArchive.js.map

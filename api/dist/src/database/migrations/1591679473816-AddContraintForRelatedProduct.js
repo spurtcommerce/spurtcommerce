@@ -1,1 +1,36 @@
-'use strict';const a880_0x142993=a880_0x48b0;(function(_0x388676,_0x1e2875){const _0x4166f4=a880_0x48b0,_0x5b23d6=_0x388676();while(!![]){try{const _0x8ceda2=-parseInt(_0x4166f4(0xeb))/0x1+-parseInt(_0x4166f4(0xe0))/0x2+-parseInt(_0x4166f4(0xe9))/0x3+-parseInt(_0x4166f4(0xe3))/0x4*(-parseInt(_0x4166f4(0xdd))/0x5)+-parseInt(_0x4166f4(0xd5))/0x6+parseInt(_0x4166f4(0xe7))/0x7*(parseInt(_0x4166f4(0xec))/0x8)+parseInt(_0x4166f4(0xdb))/0x9;if(_0x8ceda2===_0x1e2875)break;else _0x5b23d6['push'](_0x5b23d6['shift']());}catch(_0x2d893a){_0x5b23d6['push'](_0x5b23d6['shift']());}}}(a880_0x5c1a,0x2c546));function a880_0x48b0(_0x4101c3,_0x43ba89){const _0x5c1a48=a880_0x5c1a();return a880_0x48b0=function(_0x48b08e,_0x5b1b54){_0x48b08e=_0x48b08e-0xd5;let _0x52d11a=_0x5c1a48[_0x48b08e];return _0x52d11a;},a880_0x48b0(_0x4101c3,_0x43ba89);}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports['AddContraintForRelatedProduct1591679473816']=void 0x0;function a880_0x5c1a(){const _0x5a1fad=['tslib','664173GvCsnB','find','94061NgLYps','8SCzgXH','typeorm','AddContraintForRelatedProduct1591679473816','product','product_related','773286HIljYT','product_id','columnNames','related_product_id','tableForeignKey1','fk_tbl_product_related_tbl_product_foreignKey','4271526MAkPVk','createForeignKey','55NkRuWF','__awaiter','down','229972hSZiPw','getTable','foreignKeys','9772dAQGMj','TableForeignKey','CASCADE','indexOf','1675842wquSre'];a880_0x5c1a=function(){return _0x5a1fad;};return a880_0x5c1a();}const tslib_1=require(a880_0x142993(0xe8)),typeorm_1=require(a880_0x142993(0xed));class AddContraintForRelatedProduct1591679473816{constructor(){const _0x1b76ed=a880_0x142993;this[_0x1b76ed(0xd9)]=new typeorm_1[(_0x1b76ed(0xe4))]({'name':_0x1b76ed(0xda),'columnNames':[_0x1b76ed(0xd8)],'referencedColumnNames':[_0x1b76ed(0xd6)],'referencedTableName':_0x1b76ed(0xef),'onDelete':_0x1b76ed(0xe5)});}['up'](_0x2a1985){const _0x3a3b01=a880_0x142993;return tslib_1[_0x3a3b01(0xde)](this,void 0x0,void 0x0,function*(){const _0x38287f=_0x3a3b01,_0x4b3054=yield _0x2a1985['getTable']('product_related'),_0x206e0d=_0x4b3054[_0x38287f(0xe2)][_0x38287f(0xea)](_0x309286=>_0x309286[_0x38287f(0xd7)]['indexOf'](_0x38287f(0xd8))!==-0x1);!_0x206e0d&&(yield _0x2a1985[_0x38287f(0xdc)](_0x4b3054,this[_0x38287f(0xd9)]));});}[a880_0x142993(0xdf)](_0x2313b8){const _0x2fed06=a880_0x142993;return tslib_1[_0x2fed06(0xde)](this,void 0x0,void 0x0,function*(){const _0x8fae36=_0x2fed06,_0x4a4ad0=yield _0x2313b8[_0x8fae36(0xe1)](_0x8fae36(0xf0)),_0x411f02=_0x4a4ad0['foreignKeys'][_0x8fae36(0xea)](_0x423937=>_0x423937[_0x8fae36(0xd7)][_0x8fae36(0xe6)](_0x8fae36(0xd8))!==-0x1);!_0x411f02&&(yield _0x2313b8[_0x8fae36(0xdc)](_0x4a4ad0,this[_0x8fae36(0xd9)]));});}}exports[a880_0x142993(0xee)]=AddContraintForRelatedProduct1591679473816;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddContraintForRelatedProduct1591679473816 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddContraintForRelatedProduct1591679473816 {
+    constructor() {
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_product_related_tbl_product_foreignKey',
+            columnNames: ['related_product_id'],
+            referencedColumnNames: ['product_id'],
+            referencedTableName: 'product',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('product_related');
+            const ifDataExsist1 = table.foreignKeys.find(fk => fk.columnNames.indexOf('related_product_id') !== -1);
+            if (!ifDataExsist1) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('product_related');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('related_product_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+}
+exports.AddContraintForRelatedProduct1591679473816 = AddContraintForRelatedProduct1591679473816;
+//# sourceMappingURL=1591679473816-AddContraintForRelatedProduct.js.map

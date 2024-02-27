@@ -1,1 +1,32 @@
-'use strict';const a17_0x5c9183=a17_0x554c;(function(_0x290360,_0x1044bf){const _0x360802=a17_0x554c,_0x38b144=_0x290360();while(!![]){try{const _0x186815=-parseInt(_0x360802(0x160))/0x1*(parseInt(_0x360802(0x15e))/0x2)+-parseInt(_0x360802(0x161))/0x3*(-parseInt(_0x360802(0x16e))/0x4)+parseInt(_0x360802(0x15d))/0x5*(parseInt(_0x360802(0x167))/0x6)+parseInt(_0x360802(0x156))/0x7+-parseInt(_0x360802(0x157))/0x8+-parseInt(_0x360802(0x168))/0x9*(-parseInt(_0x360802(0x162))/0xa)+-parseInt(_0x360802(0x15a))/0xb*(parseInt(_0x360802(0x16d))/0xc);if(_0x186815===_0x1044bf)break;else _0x38b144['push'](_0x38b144['shift']());}catch(_0xa9a841){_0x38b144['push'](_0x38b144['shift']());}}}(a17_0x21a2,0xd1b6f));Object['defineProperty'](exports,a17_0x5c9183(0x166),{'value':!![]}),exports[a17_0x5c9183(0x16b)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a17_0x5c9183(0x16a)),moment=require(a17_0x5c9183(0x15f));function a17_0x554c(_0x384adf,_0x58beb7){const _0x21a2ae=a17_0x21a2();return a17_0x554c=function(_0x554cea,_0x598907){_0x554cea=_0x554cea-0x156;let _0x2bdeee=_0x21a2ae[_0x554cea];return _0x2bdeee;},a17_0x554c(_0x384adf,_0x58beb7);}class AddBlogsMenu1647264994076{['up'](_0x4c10a7){const _0x3b477e=a17_0x5c9183;return tslib_1[_0x3b477e(0x169)](this,void 0x0,void 0x0,function*(){const _0x2418a9=_0x3b477e,_0x321668=[{'menuName':_0x2418a9(0x159),'menuModule':'CMS','path':_0x2418a9(0x164),'icon':_0x2418a9(0x165),'parentId':0x0,'status':0x1,'createdDate':''+moment()[_0x2418a9(0x16c)]('YYYY-MM-DD\x20HH:mm:ss'),'updatedDate':''+moment()['format'](_0x2418a9(0x15b))}];yield(0x0,typeorm_1['getRepository'])(_0x2418a9(0x163))[_0x2418a9(0x158)](_0x321668);});}[a17_0x5c9183(0x15c)](_0x4995a2){const _0x5b9e79=a17_0x5c9183;return tslib_1[_0x5b9e79(0x169)](this,void 0x0,void 0x0,function*(){});}}exports[a17_0x5c9183(0x16b)]=AddBlogsMenu1647264994076;function a17_0x21a2(){const _0x3c171c=['__esModule','3156FkxBQO','9aSESWb','__awaiter','typeorm','AddBlogsMenu1647264994076','format','12iIteHp','780496HBbdfL','9494387voQvhL','11529304ydKZAK','save','Blogs','23836131pKMtOB','YYYY-MM-DD\x20HH:mm:ss','down','1130vcjcgS','10wpbxyk','moment/moment','49347UiKOts','24KeudTW','16776010ulJrUY','PluginMenu','#/cms/blogs','cms/cms-blog-on.svg'];a17_0x21a2=function(){return _0x3c171c;};return a17_0x21a2();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddBlogsMenu1647264994076 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment = require("moment/moment");
+class AddBlogsMenu1647264994076 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const BlogsSeed = [
+                {
+                    menuName: 'Blogs',
+                    menuModule: 'CMS',
+                    path: '#/cms/blogs',
+                    icon: 'cms/cms-blog-on.svg',
+                    parentId: 0,
+                    status: 1,
+                    createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                },
+            ];
+            yield (0, typeorm_1.getRepository)('PluginMenu').save(BlogsSeed);
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ----
+        });
+    }
+}
+exports.AddBlogsMenu1647264994076 = AddBlogsMenu1647264994076;
+//# sourceMappingURL=1647264994076-AddBlogsMenu.js.map

@@ -1,1 +1,289 @@
-'use strict';const a642_0x59febd=a642_0x1b60;(function(_0x27710d,_0x1929cc){const _0x50e5a1=a642_0x1b60,_0x35e66a=_0x27710d();while(!![]){try{const _0x33e6da=parseInt(_0x50e5a1(0x177))/0x1*(parseInt(_0x50e5a1(0x15d))/0x2)+parseInt(_0x50e5a1(0x183))/0x3+-parseInt(_0x50e5a1(0x156))/0x4+-parseInt(_0x50e5a1(0x15e))/0x5+-parseInt(_0x50e5a1(0x1a0))/0x6+parseInt(_0x50e5a1(0x153))/0x7+-parseInt(_0x50e5a1(0x169))/0x8*(-parseInt(_0x50e5a1(0x161))/0x9);if(_0x33e6da===_0x1929cc)break;else _0x35e66a['push'](_0x35e66a['shift']());}catch(_0x28fd69){_0x35e66a['push'](_0x35e66a['shift']());}}}(a642_0x4cdd,0xb3e52));Object[a642_0x59febd(0x15a)](exports,a642_0x59febd(0x19d),{'value':!![]}),exports[a642_0x59febd(0x1b9)]=void 0x0;const tslib_1=require(a642_0x59febd(0x16e));require(a642_0x59febd(0x14e));const routing_controllers_1=require('routing-controllers'),CustomerWishlist_1=require(a642_0x59febd(0x199)),ProductService_1=require(a642_0x59febd(0x176)),CustomerWishlistService_1=require(a642_0x59febd(0x14f)),ProductImageService_1=require('../../core/services/ProductImageService'),checkTokenMiddleware_1=require(a642_0x59febd(0x1a9));let StoreCustomerWishListController=class StoreCustomerWishListController{constructor(_0x49da06,_0x4cc37d,_0x4e71b9){const _0x1b3adb=a642_0x59febd;this['customerWishlistService']=_0x49da06,this[_0x1b3adb(0x18d)]=_0x4cc37d,this[_0x1b3adb(0x1aa)]=_0x4e71b9;}['addProductToWishlist'](_0x59239d,_0x173f9e){const _0x12c73d=a642_0x59febd;return tslib_1[_0x12c73d(0x190)](this,void 0x0,void 0x0,function*(){return new Promise(()=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4e3871=a642_0x1b60,_0x26e6f4=yield this[_0x4e3871(0x171)][_0x4e3871(0x16a)]({'where':{'productId':_0x59239d[_0x4e3871(0x189)][_0x4e3871(0x14d)],'customerId':_0x59239d['user']['id']}});if(_0x26e6f4){const _0x43b985={'status':0x1,'message':'Already\x20added\x20this\x20product\x20to\x20wishlist.'};return _0x173f9e[_0x4e3871(0x18b)](0x190)[_0x4e3871(0x164)](_0x43b985);}const _0x1bce7b=new CustomerWishlist_1['CustomerWishlist']();_0x1bce7b[_0x4e3871(0x1a4)]=_0x59239d['user']['id'],_0x1bce7b[_0x4e3871(0x14d)]=_0x59239d[_0x4e3871(0x189)][_0x4e3871(0x14d)],_0x1bce7b[_0x4e3871(0x1b2)]=0x1;const _0x1c64ea=yield this['customerWishlistService'][_0x4e3871(0x155)](_0x1bce7b),_0x5e25b4=_0x1c64ea[_0x4e3871(0x17f)],_0x10dfa3=yield this['productService'][_0x4e3871(0x16a)]({'where':{'productId':_0x1c64ea[_0x4e3871(0x14d)]}}),_0x8a6626=yield this[_0x4e3871(0x18d)][_0x4e3871(0x16a)]({'where':{'productId':_0x1c64ea[_0x4e3871(0x14d)],'defaultImage':0x1}}),_0x54f2e9={'status':0x1,'message':_0x4e3871(0x16d),'data':{'wishlistProductId':_0x5e25b4,'product':_0x10dfa3,'productImage':_0x8a6626}};return _0x173f9e[_0x4e3871(0x18b)](0xc8)[_0x4e3871(0x164)](_0x54f2e9);}));});}[a642_0x59febd(0x1b0)](_0x27ba14,_0x3cc9ba,_0x53f96b){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1dbb4f=a642_0x1b60,_0x5b94ac=yield this[_0x1dbb4f(0x171)]['findOne']({'where':{'productId':_0x27ba14,'customerId':_0x3cc9ba[_0x1dbb4f(0x17d)]['id']}});if(!_0x5b94ac){const _0x15d194={'status':0x1,'message':_0x1dbb4f(0x193)};return _0x53f96b[_0x1dbb4f(0x18b)](0xc8)[_0x1dbb4f(0x164)](_0x15d194);}yield this[_0x1dbb4f(0x171)][_0x1dbb4f(0x167)](_0x5b94ac[_0x1dbb4f(0x17f)]);const _0x463fa9={'status':0x1,'message':_0x1dbb4f(0x198)};return _0x53f96b[_0x1dbb4f(0x18b)](0xc8)[_0x1dbb4f(0x164)](_0x463fa9);});}[a642_0x59febd(0x19b)](_0x34f960,_0x27ca84,_0x5cecdf,_0x3b0348,_0xf9a8d9){const _0x277f4a=a642_0x59febd;return tslib_1[_0x277f4a(0x190)](this,void 0x0,void 0x0,function*(){const _0x562363=_0x277f4a,_0x13d58a=[_0x562363(0x1ae),_0x562363(0x172),_0x562363(0x1a1),_0x562363(0x151),'product.name\x20as\x20name',_0x562363(0x178),'product.taxType\x20as\x20taxType',_0x562363(0x16b),'product.description\x20as\x20description',_0x562363(0x17a),_0x562363(0x185),_0x562363(0x174),_0x562363(0x1ab),_0x562363(0x173),_0x562363(0x186),'product.rating\x20as\x20rating',_0x562363(0x19c),_0x562363(0x1a3),_0x562363(0x154),'product.outOfStockThreshold\x20as\x20outOfStockThreshold',_0x562363(0x1b6),'product.createdDate\x20as\x20createdDate','product.keywords\x20as\x20keywords',_0x562363(0x165),_0x562363(0x1a6),_0x562363(0x194),_0x562363(0x170),_0x562363(0x14c),_0x562363(0x180),_0x562363(0x1a7),'(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20price',_0x562363(0x184)+_0x562363(0x1b7),_0x562363(0x18c)+'\x20'+'ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20AS\x20productSpecial'],_0x43de6a=[],_0x5a7998=[],_0x52161f=[],_0x56098a=[];_0x5a7998[_0x562363(0x1ad)]({'tableName':_0x562363(0x158),'aliasName':_0x562363(0x197)},{'tableName':_0x562363(0x1a5),'op':_0x562363(0x19f),'aliasName':_0x562363(0x18f),'cond':'productImage.defaultImage\x20=\x201'}),_0x43de6a['push']({'name':_0x562363(0x18e),'op':_0x562363(0x1b8),'value':_0x3b0348[_0x562363(0x17d)]['id']}),_0x56098a[_0x562363(0x1ad)]({'name':'CustomerWishlist.createdDate','order':_0x562363(0x1af)});const _0x536d76=yield this[_0x562363(0x171)]['listByQueryBuilder'](_0x34f960,_0x27ca84,_0x13d58a,_0x43de6a,[],_0x5a7998,_0x52161f,_0x56098a,!![],!![]);if(_0x5cecdf){const _0x20e609={'status':0x1,'message':_0x562363(0x188),'data':_0x536d76};return _0xf9a8d9[_0x562363(0x18b)](0xc8)['send'](_0x20e609);}const _0x2c0503=yield this[_0x562363(0x171)][_0x562363(0x196)](_0x34f960,_0x27ca84,_0x13d58a,_0x43de6a,[],_0x5a7998,_0x52161f,_0x56098a,![],!![]),_0x4120ad=_0x2c0503['map'](_0x3deb04=>tslib_1[_0x562363(0x190)](this,void 0x0,void 0x0,function*(){const _0x4fe7b5=_0x562363,_0x38b7d2=_0x3deb04;if(_0x3deb04[_0x4fe7b5(0x18a)]!==null)_0x38b7d2[_0x4fe7b5(0x1a2)]=_0x3deb04[_0x4fe7b5(0x18a)],_0x38b7d2[_0x4fe7b5(0x150)]=0x1;else _0x3deb04[_0x4fe7b5(0x15f)]!==null?(_0x38b7d2[_0x4fe7b5(0x1a2)]=_0x3deb04[_0x4fe7b5(0x15f)],_0x38b7d2[_0x4fe7b5(0x150)]=0x0):(_0x38b7d2['pricerefer']='',_0x38b7d2[_0x4fe7b5(0x150)]='');return _0x3deb04[_0x4fe7b5(0x182)]===0x1?_0x3deb04[_0x4fe7b5(0x1a8)]<=_0x3deb04['outOfStockThreshold']?_0x38b7d2[_0x4fe7b5(0x160)]=_0x4fe7b5(0x1b4):_0x38b7d2[_0x4fe7b5(0x160)]=_0x4fe7b5(0x166):_0x38b7d2[_0x4fe7b5(0x160)]=_0x4fe7b5(0x166),_0x38b7d2;})),_0x1de6d0=yield Promise[_0x562363(0x175)](_0x4120ad),_0x23dbb0={'status':0x1,'message':_0x562363(0x19a),'data':_0x1de6d0};return _0xf9a8d9[_0x562363(0x18b)](0xc8)[_0x562363(0x164)](_0x23dbb0);});}};function a642_0x1b60(_0x1649dc,_0x2b3e58){const _0x4cdd0d=a642_0x4cdd();return a642_0x1b60=function(_0x1b609e,_0x19d2bb){_0x1b609e=_0x1b609e-0x14c;let _0x392e9c=_0x4cdd0d[_0x1b609e];return _0x392e9c;},a642_0x1b60(_0x1649dc,_0x2b3e58);}function a642_0x4cdd(){const _0x250636=['flag','product.taxValue\x20as\x20taxValue','prototype','890932hsGcYW','product.hasStock\x20as\x20hasStock','create','1621048PpOuoc','JsonController','CustomerWishlist.product','Delete','defineProperty','__metadata','CheckCustomerMiddleware','2twKqYz','4491145daCUlC','productDiscount','stockStatus','18890217nqRnoz','Post','QueryParam','send','productImage.containerName\x20as\x20containerName','inStock','delete','design:returntype','8MnLvWF','findOne','product.quantity\x20as\x20quantity','offset','You\x20have\x20Successfully\x20add\x20to\x20wishlist.\x20','tslib','Param','(SELECT\x20COUNT(pr.rating)\x20as\x20ratingCount\x20FROM\x20product_rating\x20pr\x20WHERE\x20pr.product_id\x20=\x20product.productId)\x20as\x20ratingCount','customerWishlistService','product.productId\x20as\x20productId','product.isSimplified\x20as\x20isSimplified','product.skuId\x20as\x20skuId','all','../../core/services/ProductService','911773JLQkLK','product.price\x20as\x20price','addProductToWishlist','product.dateAvailable\x20as\x20dateAvailable','__decorate','design:paramtypes','user','Get','wishlistProductId','IF(product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`product`.`tax_value`\x20LIMIT\x201),\x20(product.taxValue)\x20)\x20\x20as\x20taxValue','UseBefore','hasStock','28527nrlmmZ','(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20product.product_id\x20AND\x20pd2.sku_id\x20=\x20skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20\x20pd2.date_end\x20>=\x20CURDATE()))\x20','product.sku\x20as\x20sku','product.upc\x20as\x20upc','/wishlist-product-list','Successfully\x20get\x20count','body','productSpecial','status','(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20product.product_id\x20AND\x20ps.sku_id\x20=\x20skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','productImageService','CustomerWishlist.customerId','productImage','__awaiter','ProductService','ProductImageService','Invalid\x20Product','productImage.defaultImage\x20as\x20defaultImage','design:type','listByQueryBuilder','product','You\x20have\x20successfully\x20remove\x20from\x20wishlist.\x20','../../core/models/CustomerWishlist','Successfully\x20show\x20the\x20wishlist\x20Product\x20List','wishlistProductlist','product.isActive\x20as\x20isActive','__esModule','/customer','leftCond','6642780iZtWhW','product.taxType\x20as\x20taxType','pricerefer','product.productSlug\x20as\x20productSlug','customerId','product.productImage','productImage.image\x20as\x20image','(SELECT\x20sku.sku_name\x20as\x20skuName\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20skuName','quantity','../../core/middlewares/checkTokenMiddleware','productService','product.sortOrder\x20as\x20sortOrder','Res','push','CustomerWishlist.wishlistProductId\x20as\x20wishlistProductId','DESC','wishlistProductDelete','__param','isActive','Req','outOfStock','count','product.stockStatusId\x20as\x20stockStatusId','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20AS\x20productDiscount','where','StoreCustomerWishListController','(SELECT\x20COUNT(pr.review)\x20as\x20reviewCount\x20FROM\x20product_rating\x20pr\x20WHERE\x20pr.product_id\x20=\x20product.productId\x20AND\x20pr.review\x20IS\x20NOT\x20NULL)\x20as\x20reviewCount','productId','reflect-metadata','../../core/services/CustomerWishlistService'];a642_0x4cdd=function(){return _0x250636;};return a642_0x4cdd();}tslib_1[a642_0x59febd(0x17b)]([(0x0,routing_controllers_1[a642_0x59febd(0x162)])('/add-product-to-wishlist'),tslib_1[a642_0x59febd(0x1b1)](0x0,(0x0,routing_controllers_1[a642_0x59febd(0x1b3)])()),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a642_0x59febd(0x1ac)])()),tslib_1[a642_0x59febd(0x15b)](a642_0x59febd(0x195),Function),tslib_1[a642_0x59febd(0x15b)]('design:paramtypes',[Object,Object]),tslib_1[a642_0x59febd(0x15b)](a642_0x59febd(0x168),Promise)],StoreCustomerWishListController[a642_0x59febd(0x152)],a642_0x59febd(0x179),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a642_0x59febd(0x159)])('/wishlist-product-delete/:id'),tslib_1[a642_0x59febd(0x1b1)](0x0,(0x0,routing_controllers_1[a642_0x59febd(0x16f)])('id')),tslib_1[a642_0x59febd(0x1b1)](0x1,(0x0,routing_controllers_1[a642_0x59febd(0x1b3)])()),tslib_1[a642_0x59febd(0x1b1)](0x2,(0x0,routing_controllers_1[a642_0x59febd(0x1ac)])()),tslib_1['__metadata'](a642_0x59febd(0x195),Function),tslib_1[a642_0x59febd(0x15b)]('design:paramtypes',[Number,Object,Object]),tslib_1[a642_0x59febd(0x15b)](a642_0x59febd(0x168),Promise)],StoreCustomerWishListController['prototype'],a642_0x59febd(0x1b0),null),tslib_1[a642_0x59febd(0x17b)]([(0x0,routing_controllers_1[a642_0x59febd(0x17e)])(a642_0x59febd(0x187)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a642_0x59febd(0x163)])('limit')),tslib_1[a642_0x59febd(0x1b1)](0x1,(0x0,routing_controllers_1[a642_0x59febd(0x163)])(a642_0x59febd(0x16c))),tslib_1[a642_0x59febd(0x1b1)](0x2,(0x0,routing_controllers_1[a642_0x59febd(0x163)])(a642_0x59febd(0x1b5))),tslib_1[a642_0x59febd(0x1b1)](0x3,(0x0,routing_controllers_1['Req'])()),tslib_1[a642_0x59febd(0x1b1)](0x4,(0x0,routing_controllers_1[a642_0x59febd(0x1ac)])()),tslib_1[a642_0x59febd(0x15b)](a642_0x59febd(0x195),Function),tslib_1[a642_0x59febd(0x15b)](a642_0x59febd(0x17c),[Number,Number,Object,Object,Object]),tslib_1[a642_0x59febd(0x15b)](a642_0x59febd(0x168),Promise)],StoreCustomerWishListController[a642_0x59febd(0x152)],a642_0x59febd(0x19b),null),StoreCustomerWishListController=tslib_1[a642_0x59febd(0x17b)]([(0x0,routing_controllers_1[a642_0x59febd(0x181)])(checkTokenMiddleware_1[a642_0x59febd(0x15c)]),(0x0,routing_controllers_1[a642_0x59febd(0x157)])(a642_0x59febd(0x19e)),tslib_1['__metadata'](a642_0x59febd(0x17c),[CustomerWishlistService_1['CustomerWishlistService'],ProductImageService_1[a642_0x59febd(0x192)],ProductService_1[a642_0x59febd(0x191)]])],StoreCustomerWishListController),exports[a642_0x59febd(0x1b9)]=StoreCustomerWishListController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StoreCustomerWishListController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const CustomerWishlist_1 = require("../../core/models/CustomerWishlist");
+const ProductService_1 = require("../../core/services/ProductService");
+const CustomerWishlistService_1 = require("../../core/services/CustomerWishlistService");
+const ProductImageService_1 = require("../../core/services/ProductImageService");
+const checkTokenMiddleware_1 = require("../../core/middlewares/checkTokenMiddleware");
+let StoreCustomerWishListController = class StoreCustomerWishListController {
+    constructor(customerWishlistService, productImageService, productService) {
+        this.customerWishlistService = customerWishlistService;
+        this.productImageService = productImageService;
+        this.productService = productService;
+    }
+    // Add Product To Wishlist API
+    /**
+     * @api {post} /api/customer/add-product-to-wishlist Add Product To Wishlist
+     * @apiGroup Store wishlist
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} productId Product Id
+     * @apiParam (Request body) {String} productOptionValueId Product Option Value Id
+     * @apiParamExample {json} Input
+     * {
+     *      "productId" : "",
+     *      "ProductOptionValueId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Thank you product added to the wishlist successfully.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer/add-product-to-wishlist
+     * @apiErrorExample {json} Add Product To Wishlist error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Add Product To Wishlist Function
+    addProductToWishlist(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return new Promise(() => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const data = yield this.customerWishlistService.findOne({
+                    where: {
+                        productId: request.body.productId,
+                        customerId: request.user.id,
+                    },
+                });
+                if (data) {
+                    const errorResponse = {
+                        status: 1,
+                        message: 'Already added this product to wishlist.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                const newProduct = new CustomerWishlist_1.CustomerWishlist();
+                newProduct.customerId = request.user.id;
+                newProduct.productId = request.body.productId;
+                newProduct.isActive = 1;
+                const resultData = yield this.customerWishlistService.create(newProduct);
+                const id = resultData.wishlistProductId;
+                const product = yield this.productService.findOne({ where: { productId: resultData.productId } });
+                const image = yield this.productImageService.findOne({
+                    where: {
+                        productId: resultData.productId,
+                        defaultImage: 1,
+                    },
+                });
+                const successResponse = {
+                    status: 1,
+                    message: 'You have Successfully add to wishlist. ',
+                    data: {
+                        wishlistProductId: id,
+                        product,
+                        productImage: image,
+                    },
+                };
+                return response.status(200).send(successResponse);
+            }));
+        });
+    }
+    // Wish List Product Delete API
+    /**
+     * @api {delete} /api/customer/wishlist-product-delete/:id  Delete Product From Wishlist
+     * @apiGroup Store wishlist
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "wishlistProductId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Thank you deleted the product from wishlist successfully.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer/wishlist-product-delete/:id
+     * @apiErrorExample {json} Wishlist Product Delete error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Add Product Wishlist Function
+    wishlistProductDelete(wishlistId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customerwishlistId = yield this.customerWishlistService.findOne({ where: { productId: wishlistId, customerId: request.user.id } });
+            if (!customerwishlistId) {
+                const errResponse = {
+                    status: 1,
+                    message: 'Invalid Product',
+                };
+                return response.status(200).send(errResponse);
+            }
+            yield this.customerWishlistService.delete(customerwishlistId.wishlistProductId);
+            const successResponse = {
+                status: 1,
+                message: 'You have successfully remove from wishlist. ',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Wish List Product List API
+    /**
+     * @api {get} /api/customer/wishlist-product-list WishList Product List
+     * @apiGroup Store wishlist
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the wishlist Product List",
+     *      "status": "1",
+     *      "data": "{}"
+     * }
+     * @apiSampleRequest /api/customer/wishlist-product-list
+     * @apiErrorExample {json} Wishlist Product List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // View Product Wishlist Function
+    wishlistProductlist(limit, offset, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const selects = ['CustomerWishlist.wishlistProductId as wishlistProductId',
+                'product.productId as productId',
+                'product.taxType as taxType',
+                'product.taxValue as taxValue',
+                'product.name as name',
+                'product.price as price',
+                'product.taxType as taxType',
+                'product.quantity as quantity',
+                'product.description as description',
+                'product.dateAvailable as dateAvailable',
+                'product.sku as sku',
+                'product.skuId as skuId',
+                'product.sortOrder as sortOrder',
+                'product.isSimplified as isSimplified',
+                'product.upc as upc',
+                'product.rating as rating',
+                'product.isActive as isActive',
+                'product.productSlug as productSlug',
+                'product.hasStock as hasStock',
+                'product.outOfStockThreshold as outOfStockThreshold',
+                'product.stockStatusId as stockStatusId',
+                'product.createdDate as createdDate',
+                'product.keywords as keywords',
+                'productImage.containerName as containerName',
+                'productImage.image as image',
+                'productImage.defaultImage as defaultImage',
+                '(SELECT COUNT(pr.rating) as ratingCount FROM product_rating pr WHERE pr.product_id = product.productId) as ratingCount',
+                '(SELECT COUNT(pr.review) as reviewCount FROM product_rating pr WHERE pr.product_id = product.productId AND pr.review IS NOT NULL) as reviewCount',
+                'IF(product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `product`.`tax_value` LIMIT 1), (product.taxValue) )  as taxValue',
+                '(SELECT sku.sku_name as skuName FROM sku WHERE sku.id = skuId) as skuName',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
+                '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+                    ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
+                '(SELECT price FROM product_special ps WHERE ps.product_id = product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
+            ];
+            const whereCondition = [];
+            const relations = [];
+            const groupBy = [];
+            const sort = [];
+            relations.push({
+                tableName: 'CustomerWishlist.product',
+                aliasName: 'product',
+            }, {
+                tableName: 'product.productImage',
+                op: 'leftCond',
+                aliasName: 'productImage',
+                cond: 'productImage.defaultImage = 1',
+            });
+            whereCondition.push({
+                name: 'CustomerWishlist.customerId',
+                op: 'where',
+                value: request.user.id,
+            });
+            sort.push({
+                name: 'CustomerWishlist.createdDate',
+                order: 'DESC',
+            });
+            const productCount = yield this.customerWishlistService.listByQueryBuilder(limit, offset, selects, whereCondition, [], relations, groupBy, sort, true, true);
+            if (count) {
+                const successresponse = {
+                    status: 1,
+                    message: 'Successfully get count',
+                    data: productCount,
+                };
+                return response.status(200).send(successresponse);
+            }
+            const productList = yield this.customerWishlistService.listByQueryBuilder(limit, offset, selects, whereCondition, [], relations, groupBy, sort, false, true);
+            const promises = productList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = result;
+                if (result.productSpecial !== null) {
+                    temp.pricerefer = result.productSpecial;
+                    temp.flag = 1;
+                }
+                else if (result.productDiscount !== null) {
+                    temp.pricerefer = result.productDiscount;
+                    temp.flag = 0;
+                }
+                else {
+                    temp.pricerefer = '';
+                    temp.flag = '';
+                }
+                if (result.hasStock === 1) {
+                    if (result.quantity <= result.outOfStockThreshold) {
+                        temp.stockStatus = 'outOfStock';
+                    }
+                    else {
+                        temp.stockStatus = 'inStock';
+                    }
+                }
+                else {
+                    temp.stockStatus = 'inStock';
+                }
+                return temp;
+            }));
+            const finalResult = yield Promise.all(promises);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully show the wishlist Product List',
+                data: finalResult,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/add-product-to-wishlist'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerWishListController.prototype, "addProductToWishlist", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/wishlist-product-delete/:id'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerWishListController.prototype, "wishlistProductDelete", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/wishlist-product-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerWishListController.prototype, "wishlistProductlist", null);
+StoreCustomerWishListController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckCustomerMiddleware),
+    (0, routing_controllers_1.JsonController)('/customer'),
+    tslib_1.__metadata("design:paramtypes", [CustomerWishlistService_1.CustomerWishlistService,
+        ProductImageService_1.ProductImageService, ProductService_1.ProductService])
+], StoreCustomerWishListController);
+exports.StoreCustomerWishListController = StoreCustomerWishListController;
+//# sourceMappingURL=CustomerWishListController.js.map

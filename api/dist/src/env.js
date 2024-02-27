@@ -1,1 +1,139 @@
-'use strict';function a980_0x1dd7(_0x36a0fa,_0x42e2fc){const _0xc73527=a980_0xc735();return a980_0x1dd7=function(_0x1dd734,_0x1900ca){_0x1dd734=_0x1dd734-0x166;let _0x34fc21=_0xc73527[_0x1dd734];return _0x34fc21;},a980_0x1dd7(_0x36a0fa,_0x42e2fc);}function a980_0xc735(){const _0x11fc47=['../package.json','PEID','CONTROLLERS','TYPEORM_MIGRATIONS','TYPEORM_CONNECTION','SENDER_NAME','BASE_URL','STORE_REDIRECT_URL','MAIL_PASSWORD','STORE_URL','mail','245RAzgzX','AVAILABLE_ALLOW_TYPES','10CbPdXE','JWT_SECRET','TYPEORM_MIGRATIONS_DIR','CANCEL_URL','getOsEnvOptional','2411556ufgjFl','TYPEORM_ENTITIES','API_KEY','NODE_ENV','config','319324YvJQLt','.env','APP_HOST','__importStar','MAIL_DRIVER','getOsPaths','111732eXcdVD','toNumber','MAIL_FROM','APIDOC_ENABLED','SUBSCRIBERS','description','CATEGORY_REDIRECT_URL','getOsEnv','__esModule','TYPEORM_PASSWORD','VENDOR_REDIRECT_URL','299yflWST','MONITOR_USERNAME','8056554aRUVQV','MAIL_HOST','SWAGGER_PASSWORD','dotenv','18prPNPU','MONITOR_ENABLED','toBool','production','getOsPath','tslib','USER_NAME','APP_NAME','PLUGIN_HOME_REDIRECT_URL','TYPEORM_PORT','development','APP_ROUTE_PREFIX','ADMIN_REDIRECT_URL','test','SWAGGER_FILE','APIDOC_ROUTE','TYPEORM_SYNCHRONIZE','TYPEORM_LOGGING','FORGET_PASSWORD_URL','APP_PORT','TEMPLATE_ID','938569cvgTQP','LOGIN_ATTEPMTS_COUNT','AVAILABLE_IMAGE_TYPES','IMAGE_URL','3925352OxweBM','39ZmvPap','APP_BANNER','path','MFA_TEMP_TOKEN_SECRET','MIDDLEWARES','SMS_TYPE','mfa','PORT','AWS_SECRET_ACCESS_KEY','APP_SCHEMA','sms','STORE_FORGET_PASSWORD_URL','AWS_BUCKET','TYPEORM_USERNAME','2dZOtQM','HOST_NAME','aws_setup','TYPEORM_DATABASE','SOCKET_PORT','TYPEORM_ENTITIES_DIR','env','351732ZBFCRa','LOG_LEVEL'];a980_0xc735=function(){return _0x11fc47;};return a980_0xc735();}const a980_0x49507d=a980_0x1dd7;(function(_0x18e1e3,_0x4dd639){const _0x4bc1c4=a980_0x1dd7,_0x230666=_0x18e1e3();while(!![]){try{const _0x36fdfa=-parseInt(_0x4bc1c4(0x1a3))/0x1*(parseInt(_0x4bc1c4(0x1b6))/0x2)+-parseInt(_0x4bc1c4(0x1a8))/0x3*(parseInt(_0x4bc1c4(0x177))/0x4)+-parseInt(_0x4bc1c4(0x16b))/0x5*(-parseInt(_0x4bc1c4(0x17d))/0x6)+-parseInt(_0x4bc1c4(0x172))/0x7+-parseInt(_0x4bc1c4(0x1a7))/0x8*(-parseInt(_0x4bc1c4(0x18e))/0x9)+parseInt(_0x4bc1c4(0x16d))/0xa*(parseInt(_0x4bc1c4(0x18a))/0xb)+-parseInt(_0x4bc1c4(0x1bd))/0xc*(-parseInt(_0x4bc1c4(0x188))/0xd);if(_0x36fdfa===_0x4dd639)break;else _0x230666['push'](_0x230666['shift']());}catch(_0x35c3e4){_0x230666['push'](_0x230666['shift']());}}}(a980_0xc735,0xef22f));Object['defineProperty'](exports,a980_0x49507d(0x185),{'value':!![]}),exports[a980_0x49507d(0x1b2)]=exports[a980_0x49507d(0x1ae)]=exports[a980_0x49507d(0x1b8)]=exports[a980_0x49507d(0x16a)]=exports[a980_0x49507d(0x1bc)]=void 0x0;const tslib_1=require(a980_0x49507d(0x193)),dotenv=tslib_1[a980_0x49507d(0x17a)](require(a980_0x49507d(0x18d))),path=tslib_1[a980_0x49507d(0x17a)](require(a980_0x49507d(0x1aa))),pkg=tslib_1[a980_0x49507d(0x17a)](require(a980_0x49507d(0x1bf))),env_1=require('./lib/env');dotenv[a980_0x49507d(0x176)]({'path':path['join'](process['cwd'](),a980_0x49507d(0x178)+(!process[a980_0x49507d(0x1bc)][a980_0x49507d(0x175)]||process[a980_0x49507d(0x1bc)][a980_0x49507d(0x175)]===a980_0x49507d(0x198)?'':'.'+process[a980_0x49507d(0x1bc)]['NODE_ENV']))}),exports[a980_0x49507d(0x1bc)]={'node':process[a980_0x49507d(0x1bc)][a980_0x49507d(0x175)]||a980_0x49507d(0x198),'isProduction':process[a980_0x49507d(0x1bc)][a980_0x49507d(0x175)]===a980_0x49507d(0x191),'isTest':process[a980_0x49507d(0x1bc)][a980_0x49507d(0x175)]===a980_0x49507d(0x19b),'isDevelopment':process['env'][a980_0x49507d(0x175)]===a980_0x49507d(0x198),'app':{'name':(0x0,env_1['getOsEnv'])(a980_0x49507d(0x195)),'version':pkg['version'],'description':pkg[a980_0x49507d(0x182)],'host':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x179)),'schema':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1b1)),'routePrefix':(0x0,env_1['getOsEnv'])(a980_0x49507d(0x199)),'port':(0x0,env_1['normalizePort'])(process[a980_0x49507d(0x1bc)][a980_0x49507d(0x1af)]||(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1a1))),'banner':(0x0,env_1['toBool'])((0x0,env_1['getOsEnv'])(a980_0x49507d(0x1a9))),'dirs':{'migrations':(0x0,env_1[a980_0x49507d(0x17c)])(a980_0x49507d(0x1c2)),'migrationsDir':(0x0,env_1[a980_0x49507d(0x192)])(a980_0x49507d(0x16f)),'entities':(0x0,env_1[a980_0x49507d(0x17c)])(a980_0x49507d(0x173)),'entitiesDir':(0x0,env_1['getOsPath'])(a980_0x49507d(0x1bb)),'controllers':(0x0,env_1[a980_0x49507d(0x17c)])(a980_0x49507d(0x1c1)),'middlewares':(0x0,env_1[a980_0x49507d(0x17c)])(a980_0x49507d(0x1ac)),'interceptors':(0x0,env_1[a980_0x49507d(0x17c)])('INTERCEPTORS'),'subscribers':(0x0,env_1[a980_0x49507d(0x17c)])(a980_0x49507d(0x181)),'resolvers':(0x0,env_1['getOsPaths'])('RESOLVERS')},'socketPort':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1ba))},'log':{'level':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1be)),'json':(0x0,env_1[a980_0x49507d(0x190)])((0x0,env_1[a980_0x49507d(0x171)])('LOG_JSON')),'output':(0x0,env_1[a980_0x49507d(0x184)])('LOG_OUTPUT')},'db':{'type':(0x0,env_1['getOsEnv'])(a980_0x49507d(0x1c3)),'host':(0x0,env_1[a980_0x49507d(0x171)])('TYPEORM_HOST'),'port':(0x0,env_1[a980_0x49507d(0x17e)])((0x0,env_1['getOsEnvOptional'])(a980_0x49507d(0x197))),'username':(0x0,env_1[a980_0x49507d(0x171)])(a980_0x49507d(0x1b5)),'password':(0x0,env_1[a980_0x49507d(0x171)])(a980_0x49507d(0x186)),'database':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1b9)),'synchronize':(0x0,env_1[a980_0x49507d(0x190)])((0x0,env_1['getOsEnvOptional'])(a980_0x49507d(0x19e))),'logging':(0x0,env_1['toBool'])((0x0,env_1['getOsEnv'])(a980_0x49507d(0x19f)))},'apidoc':{'enabled':(0x0,env_1[a980_0x49507d(0x190)])((0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x180))),'route':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x19d))},'monitor':{'enabled':(0x0,env_1[a980_0x49507d(0x190)])((0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x18f))),'route':(0x0,env_1[a980_0x49507d(0x184)])('MONITOR_ROUTE'),'username':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x189)),'password':(0x0,env_1[a980_0x49507d(0x184)])('MONITOR_PASSWORD')},'swagger':{'enabled':(0x0,env_1[a980_0x49507d(0x190)])((0x0,env_1[a980_0x49507d(0x184)])('SWAGGER_ENABLED')),'route':(0x0,env_1['getOsEnv'])('SWAGGER_ROUTE'),'file':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x19c)),'username':(0x0,env_1[a980_0x49507d(0x184)])('SWAGGER_USERNAME'),'password':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x18c))},'imageserver':(0x0,env_1[a980_0x49507d(0x184)])('IMAGE_SERVER'),'storeUrl':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x169)),'cancelUrl':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x170)),'baseUrl':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x166)),'storeRedirectUrl':(0x0,env_1['getOsEnv'])(a980_0x49507d(0x167)),'adminRedirectUrl':(0x0,env_1['getOsEnv'])(a980_0x49507d(0x19a)),'vendorRedirectUrl':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x187)),'storeForgetPasswordLink':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1b3)),'vendorForgetPasswordLink':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1a0)),'adminForgetPasswordLink':(0x0,env_1['getOsEnv'])('ADMIN_FORGET_PASSWORD_URL'),'productRedirectUrl':(0x0,env_1['getOsEnv'])('PRODUCT_REDIRECT_URL'),'categoryRedirectUrl':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x183)),'imageUrl':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1a6)),'loginAttemptsCount':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1a4)),'loginAttemptsMinutes':(0x0,env_1[a980_0x49507d(0x184)])('LOGIN_ATTEPMTS_MINUTES'),'jwtSecret':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x16e)),'cryptoSecret':(0x0,env_1[a980_0x49507d(0x184)])('CRYPTO_SECRET'),'availImageTypes':(0x0,env_1['getOsEnv'])(a980_0x49507d(0x1a5)),'availAllowTypes':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x16c)),'pluginHomeRedirectUrl':(0x0,env_1['getOsEnv'])(a980_0x49507d(0x196)),'verificationCodeExpirationTime':(0x0,env_1[a980_0x49507d(0x184)])('VERIFICATION_CODE_EXPIRATION_TIME')},exports['mail']={'SERVICE':(0x0,env_1['getOsEnv'])(a980_0x49507d(0x17b)),'HOST':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x18b)),'PORT':(0x0,env_1[a980_0x49507d(0x184)])('MAIL_PORT'),'SECURE':(0x0,env_1[a980_0x49507d(0x184)])('MAIL_SECURE'),'FROM':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x17f)),'AUTH':{'user':(0x0,env_1[a980_0x49507d(0x184)])('MAIL_USERNAME'),'pass':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x168))}},exports[a980_0x49507d(0x1b8)]={'AWS_ACCESS_KEY_ID':(0x0,env_1[a980_0x49507d(0x184)])('AWS_ACCESS_KEY_ID'),'AWS_SECRET_ACCESS_KEY':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1b0)),'AWS_DEFAULT_REGION':(0x0,env_1['getOsEnv'])('AWS_DEFAULT_REGION'),'AWS_BUCKET':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1b4))},exports[a980_0x49507d(0x1ae)]={'TEMP_TOKEN_EXPIRY':(0x0,env_1[a980_0x49507d(0x184)])('MFA_TEMP_TOKEN_EXPIRY'),'TEMP_TOKEN_SECRET':(0x0,env_1[a980_0x49507d(0x184)])(a980_0x49507d(0x1ab))},exports[a980_0x49507d(0x1b2)]={'USER_NAME':(0x0,env_1['getOsEnvOptional'])(a980_0x49507d(0x194)),'SENDER_NAME':(0x0,env_1['getOsEnvOptional'])(a980_0x49507d(0x1c4)),'HOST_NAME':(0x0,env_1['getOsEnvOptional'])(a980_0x49507d(0x1b7)),'PEID':(0x0,env_1[a980_0x49507d(0x171)])(a980_0x49507d(0x1c0)),'SMS_TYPE':(0x0,env_1[a980_0x49507d(0x171)])(a980_0x49507d(0x1ad)),'API_KEY':(0x0,env_1['getOsEnvOptional'])(a980_0x49507d(0x174)),'TEMPLATE_ID':(0x0,env_1['getOsEnvOptional'])(a980_0x49507d(0x1a2))};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.sms = exports.mfa = exports.aws_setup = exports.mail = exports.env = void 0;
+const tslib_1 = require("tslib");
+/*
+ * SpurtCommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 PICCOSOFT
+ * Author piccosoft <support@spurtcommerce.com>
+ * Licensed under the MIT license.
+ */
+const dotenv = tslib_1.__importStar(require("dotenv"));
+const path = tslib_1.__importStar(require("path"));
+const pkg = tslib_1.__importStar(require("../package.json"));
+const env_1 = require("./lib/env");
+/**
+ * Load .env file or for tests the .env.test file.
+ */
+dotenv.config({
+    path: path.join(process.cwd(), `.env${((!process.env.NODE_ENV || process.env.NODE_ENV === 'development') ? '' : '.' + process.env.NODE_ENV)}`),
+});
+/**
+ * Environment variables
+ */
+exports.env = {
+    node: process.env.NODE_ENV || 'development',
+    isProduction: process.env.NODE_ENV === 'production',
+    isTest: process.env.NODE_ENV === 'test',
+    isDevelopment: process.env.NODE_ENV === 'development',
+    app: {
+        name: (0, env_1.getOsEnv)('APP_NAME'),
+        version: pkg.version,
+        description: pkg.description,
+        host: (0, env_1.getOsEnv)('APP_HOST'),
+        schema: (0, env_1.getOsEnv)('APP_SCHEMA'),
+        routePrefix: (0, env_1.getOsEnv)('APP_ROUTE_PREFIX'),
+        port: (0, env_1.normalizePort)(process.env.PORT || (0, env_1.getOsEnv)('APP_PORT')),
+        banner: (0, env_1.toBool)((0, env_1.getOsEnv)('APP_BANNER')),
+        dirs: {
+            migrations: (0, env_1.getOsPaths)('TYPEORM_MIGRATIONS'),
+            migrationsDir: (0, env_1.getOsPath)('TYPEORM_MIGRATIONS_DIR'),
+            entities: (0, env_1.getOsPaths)('TYPEORM_ENTITIES'),
+            entitiesDir: (0, env_1.getOsPath)('TYPEORM_ENTITIES_DIR'),
+            controllers: (0, env_1.getOsPaths)('CONTROLLERS'),
+            middlewares: (0, env_1.getOsPaths)('MIDDLEWARES'),
+            interceptors: (0, env_1.getOsPaths)('INTERCEPTORS'),
+            subscribers: (0, env_1.getOsPaths)('SUBSCRIBERS'),
+            resolvers: (0, env_1.getOsPaths)('RESOLVERS'),
+        },
+        socketPort: (0, env_1.getOsEnv)('SOCKET_PORT'),
+    },
+    log: {
+        level: (0, env_1.getOsEnv)('LOG_LEVEL'),
+        json: (0, env_1.toBool)((0, env_1.getOsEnvOptional)('LOG_JSON')),
+        output: (0, env_1.getOsEnv)('LOG_OUTPUT'),
+    },
+    db: {
+        type: (0, env_1.getOsEnv)('TYPEORM_CONNECTION'),
+        host: (0, env_1.getOsEnvOptional)('TYPEORM_HOST'),
+        port: (0, env_1.toNumber)((0, env_1.getOsEnvOptional)('TYPEORM_PORT')),
+        username: (0, env_1.getOsEnvOptional)('TYPEORM_USERNAME'),
+        password: (0, env_1.getOsEnvOptional)('TYPEORM_PASSWORD'),
+        database: (0, env_1.getOsEnv)('TYPEORM_DATABASE'),
+        synchronize: (0, env_1.toBool)((0, env_1.getOsEnvOptional)('TYPEORM_SYNCHRONIZE')),
+        logging: (0, env_1.toBool)((0, env_1.getOsEnv)('TYPEORM_LOGGING')),
+    },
+    apidoc: {
+        enabled: (0, env_1.toBool)((0, env_1.getOsEnv)('APIDOC_ENABLED')),
+        route: (0, env_1.getOsEnv)('APIDOC_ROUTE'),
+    },
+    monitor: {
+        enabled: (0, env_1.toBool)((0, env_1.getOsEnv)('MONITOR_ENABLED')),
+        route: (0, env_1.getOsEnv)('MONITOR_ROUTE'),
+        username: (0, env_1.getOsEnv)('MONITOR_USERNAME'),
+        password: (0, env_1.getOsEnv)('MONITOR_PASSWORD'),
+    },
+    swagger: {
+        enabled: (0, env_1.toBool)((0, env_1.getOsEnv)('SWAGGER_ENABLED')),
+        route: (0, env_1.getOsEnv)('SWAGGER_ROUTE'),
+        file: (0, env_1.getOsEnv)('SWAGGER_FILE'),
+        username: (0, env_1.getOsEnv)('SWAGGER_USERNAME'),
+        password: (0, env_1.getOsEnv)('SWAGGER_PASSWORD'),
+    },
+    imageserver: (0, env_1.getOsEnv)('IMAGE_SERVER'),
+    storeUrl: (0, env_1.getOsEnv)('STORE_URL'),
+    cancelUrl: (0, env_1.getOsEnv)('CANCEL_URL'),
+    baseUrl: (0, env_1.getOsEnv)('BASE_URL'),
+    storeRedirectUrl: (0, env_1.getOsEnv)('STORE_REDIRECT_URL'),
+    adminRedirectUrl: (0, env_1.getOsEnv)('ADMIN_REDIRECT_URL'),
+    vendorRedirectUrl: (0, env_1.getOsEnv)('VENDOR_REDIRECT_URL'),
+    storeForgetPasswordLink: (0, env_1.getOsEnv)('STORE_FORGET_PASSWORD_URL'),
+    vendorForgetPasswordLink: (0, env_1.getOsEnv)('FORGET_PASSWORD_URL'),
+    adminForgetPasswordLink: (0, env_1.getOsEnv)('ADMIN_FORGET_PASSWORD_URL'),
+    productRedirectUrl: (0, env_1.getOsEnv)('PRODUCT_REDIRECT_URL'),
+    categoryRedirectUrl: (0, env_1.getOsEnv)('CATEGORY_REDIRECT_URL'),
+    imageUrl: (0, env_1.getOsEnv)('IMAGE_URL'),
+    loginAttemptsCount: (0, env_1.getOsEnv)('LOGIN_ATTEPMTS_COUNT'),
+    loginAttemptsMinutes: (0, env_1.getOsEnv)('LOGIN_ATTEPMTS_MINUTES'),
+    jwtSecret: (0, env_1.getOsEnv)('JWT_SECRET'),
+    cryptoSecret: (0, env_1.getOsEnv)('CRYPTO_SECRET'),
+    availImageTypes: (0, env_1.getOsEnv)('AVAILABLE_IMAGE_TYPES'),
+    availAllowTypes: (0, env_1.getOsEnv)('AVAILABLE_ALLOW_TYPES'),
+    pluginHomeRedirectUrl: (0, env_1.getOsEnv)('PLUGIN_HOME_REDIRECT_URL'),
+    verificationCodeExpirationTime: (0, env_1.getOsEnv)('VERIFICATION_CODE_EXPIRATION_TIME'),
+};
+exports.mail = {
+    SERVICE: (0, env_1.getOsEnv)('MAIL_DRIVER'),
+    HOST: (0, env_1.getOsEnv)('MAIL_HOST'),
+    PORT: (0, env_1.getOsEnv)('MAIL_PORT'),
+    SECURE: (0, env_1.getOsEnv)('MAIL_SECURE'),
+    FROM: (0, env_1.getOsEnv)('MAIL_FROM'),
+    AUTH: {
+        user: (0, env_1.getOsEnv)('MAIL_USERNAME'),
+        pass: (0, env_1.getOsEnv)('MAIL_PASSWORD'),
+    },
+};
+// AWS S3 Access Key
+exports.aws_setup = {
+    AWS_ACCESS_KEY_ID: (0, env_1.getOsEnv)('AWS_ACCESS_KEY_ID'),
+    AWS_SECRET_ACCESS_KEY: (0, env_1.getOsEnv)('AWS_SECRET_ACCESS_KEY'),
+    AWS_DEFAULT_REGION: (0, env_1.getOsEnv)('AWS_DEFAULT_REGION'),
+    AWS_BUCKET: (0, env_1.getOsEnv)('AWS_BUCKET'),
+};
+// Mfa Config
+exports.mfa = {
+    TEMP_TOKEN_EXPIRY: (0, env_1.getOsEnv)('MFA_TEMP_TOKEN_EXPIRY'),
+    TEMP_TOKEN_SECRET: (0, env_1.getOsEnv)('MFA_TEMP_TOKEN_SECRET'),
+};
+// sms Config
+exports.sms = {
+    USER_NAME: (0, env_1.getOsEnvOptional)('USER_NAME'),
+    SENDER_NAME: (0, env_1.getOsEnvOptional)('SENDER_NAME'),
+    HOST_NAME: (0, env_1.getOsEnvOptional)('HOST_NAME'),
+    PEID: (0, env_1.getOsEnvOptional)('PEID'),
+    SMS_TYPE: (0, env_1.getOsEnvOptional)('SMS_TYPE'),
+    API_KEY: (0, env_1.getOsEnvOptional)('API_KEY'),
+    TEMPLATE_ID: (0, env_1.getOsEnvOptional)('TEMPLATE_ID'),
+};
+//# sourceMappingURL=env.js.map

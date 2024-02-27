@@ -1,1 +1,952 @@
-var a1043_0x448f28=a1043_0x351b;function a1043_0xd3de(){var _0x313e9f=['Object','.version','ajaxSetup','_hasTypeInSuccessFields','compare-version','li.version\x20a','#sidenav\x20li[data-group=\x27','focus','jQueryAjaxSetup','.show-api','#~#','push','#sidenav\x20li[data-version=\x27','.show-api-group','body-json','scrollspy','parents','_hasTypeInErrorFields','-init','article[data-group=\x27','#template-header','apiDoc:\x20','handlebars','lte','sort','handlebarsExtended','./vendor/semver.min','lodash','length','\x20article:visible','version','next','groupDescription','1464594KFogPp','6HNvYwt','some','indexOf','bootstrap','locales','data','top','#generator','sampleRequest','tab','name','parent','nav-list-url-item','-body','change','checked','#footer','#template-article','replace','setLanguage','strong','_hasTypeInParameterFields','semver','6KfwjTT','#template-footer','content','type','section#api-','addClass','fields','attr','#sidenav\x20li.nav-header[data-group=\x27','parameter','article\x20.versions\x20li.version\x20a','extend','webfontloader','./vendor/list.min','./vendor/handlebars.min','[\x5c?&amp;]','unshift','nextAll','./api_data','388550URHHuD','apiData','list','-fields','1272604UxEGvl','.show-group','scrollingNav','.sample-request-switch','info','find','compare','#compareAllWithPredecessor','has-modifications','270800xjUbMf','keyup','removeClass','search','article:visible\x20.versions','groupTitle','highlightAll','a:first','.versions\x20li.version\x20a','match','./utils/handlebars_helper','#header','first','./vendor/bootstrap.min','#template-sections','Source\x20Sans\x20Pro:n4,n6,n7','./vendor/lodash.custom.min','preventDefault','#template-sidenav','prev','384820KjMlOW','hash','animate','./locales/locale','footer','.nav-tabs-examples','423pJdceC','append','span.search-reset','error','aloneDisplay','url','diff_match_patch','General','keys','success','template','select[name=','substring','-group','filter','substr','offset','-select','each','_hasTypeInInfoFields','./vendor/prism','header','data-group','#scrollingNav','\x27][data-name=\x27','compile','#template-generator','remove','undefined','./vendor/diff_match_patch.min','#versions\x20li.version\x20a','forceLanguage','origin','#template-compare-article','hide','order','trigger','\x27][data-version=\x27','popover','field','group','\x27]:visible','#scrollingNav\x20.sidenav-search\x20input.search','load','after','forEach','article[data-version]','getTime','index','href','withGenerator','keyCode','#loader','button[data-toggle=\x22popover\x22]','split','9589811sPBgoA','urlParam','#project','#sections','title','\x20-\x20','refresh','location','html,body','prop','article','click','./vendor/jquery.min','splice','html','1.0','jquery','Handlebars','val','withCompare','config','hasOwnProperty','groupBy','13972780hvNpaE','.show-api-article','api','apiProject','utilsSampleRequest','#version\x20strong','prismjs','initDynamic','Source\x20Code\x20Pro'];a1043_0xd3de=function(){return _0x313e9f;};return a1043_0xd3de();}function a1043_0x351b(_0x9e709d,_0x3b375e){var _0xd3de02=a1043_0xd3de();return a1043_0x351b=function(_0x351b43,_0x1fbdb2){_0x351b43=_0x351b43-0xf1;var _0x446850=_0xd3de02[_0x351b43];return _0x446850;},a1043_0x351b(_0x9e709d,_0x3b375e);}(function(_0x14c9d7,_0x547518){var _0x3c6109=a1043_0x351b,_0x51789a=_0x14c9d7();while(!![]){try{var _0x1e0e8=-parseInt(_0x3c6109(0x18f))/0x1+parseInt(_0x3c6109(0x164))/0x2+-parseInt(_0x3c6109(0x165))/0x3*(parseInt(_0x3c6109(0x193))/0x4)+-parseInt(_0x3c6109(0x1b0))/0x5*(parseInt(_0x3c6109(0x17c))/0x6)+parseInt(_0x3c6109(0x123))/0x7+parseInt(_0x3c6109(0x19c))/0x8*(-parseInt(_0x3c6109(0x1b6))/0x9)+parseInt(_0x3c6109(0x13a))/0xa;if(_0x1e0e8===_0x547518)break;else _0x51789a['push'](_0x51789a['shift']());}catch(_0x7f29e){_0x51789a['push'](_0x51789a['shift']());}}}(a1043_0xd3de,0xc4f7e),require[a1043_0x448f28(0x137)]({'paths':{'bootstrap':a1043_0x448f28(0x1a9),'diffMatchPatch':a1043_0x448f28(0x109),'handlebars':a1043_0x448f28(0x18a),'handlebarsExtended':a1043_0x448f28(0x1a6),'jquery':a1043_0x448f28(0x12f),'locales':a1043_0x448f28(0x1b3),'lodash':a1043_0x448f28(0x1ac),'pathToRegexp':'./vendor/path-to-regexp/index','prismjs':a1043_0x448f28(0x100),'semver':a1043_0x448f28(0x15d),'utilsSampleRequest':'./utils/send_sample_request','webfontloader':'./vendor/webfontloader','list':a1043_0x448f28(0x189),'apiData':a1043_0x448f28(0x18e),'apiProject':'./api_project'},'shim':{'bootstrap':{'deps':[a1043_0x448f28(0x133)]},'diffMatchPatch':{'exports':a1043_0x448f28(0xf2)},'handlebars':{'exports':'Handlebars'},'handlebarsExtended':{'deps':[a1043_0x448f28(0x133),a1043_0x448f28(0x159)],'exports':a1043_0x448f28(0x134)},'prismjs':{'exports':'Prism'}},'urlArgs':'v='+new Date()[a1043_0x448f28(0x11b)](),'waitSeconds':0x96}),require([a1043_0x448f28(0x133),a1043_0x448f28(0x15e),a1043_0x448f28(0x169),a1043_0x448f28(0x15c),a1043_0x448f28(0x13d),a1043_0x448f28(0x190),a1043_0x448f28(0x140),a1043_0x448f28(0x13e),a1043_0x448f28(0x17b),a1043_0x448f28(0x188),a1043_0x448f28(0x168),'pathToRegexp',a1043_0x448f28(0x191)],function(_0x516b6d,_0x514be7,_0x212ebd,_0x25c637,_0x138cb5,_0x338266,_0x27203f,_0x5351b5,_0x2b15d,_0x10c83d){var _0x14cef5=a1043_0x448f28;_0x10c83d[_0x14cef5(0x117)]({'active':function(){init(_0x516b6d,_0x514be7,_0x212ebd,_0x25c637,_0x138cb5,_0x338266,_0x27203f,_0x5351b5,_0x2b15d);},'inactive':function(){init(_0x516b6d,_0x514be7,_0x212ebd,_0x25c637,_0x138cb5,_0x338266,_0x27203f,_0x5351b5,_0x2b15d);},'google':{'families':[_0x14cef5(0x142),_0x14cef5(0x1ab)]}});}));function init(_0x1c40ad,_0x1beaa8,_0x8dc6a5,_0x37474a,_0x5d3842,_0x4978c2,_0x516ae1,_0x40b10d,_0xd59a8e){var _0x4cb15e=a1043_0x448f28,_0x4fbb5d=_0x4978c2[_0x4cb15e(0x13c)],_0x379b9b=_0x37474a[_0x4cb15e(0x105)](_0x1c40ad(_0x4cb15e(0x157))[_0x4cb15e(0x131)]()),_0x3ee767=_0x37474a[_0x4cb15e(0x105)](_0x1c40ad(_0x4cb15e(0x17d))[_0x4cb15e(0x131)]()),_0x5aeaa2=_0x37474a[_0x4cb15e(0x105)](_0x1c40ad(_0x4cb15e(0x176))[_0x4cb15e(0x131)]()),_0x4e034e=_0x37474a[_0x4cb15e(0x105)](_0x1c40ad(_0x4cb15e(0x10d))[_0x4cb15e(0x131)]()),_0x5dab47=_0x37474a[_0x4cb15e(0x105)](_0x1c40ad(_0x4cb15e(0x106))[_0x4cb15e(0x131)]()),_0xba9dd5=_0x37474a[_0x4cb15e(0x105)](_0x1c40ad('#template-project')[_0x4cb15e(0x131)]()),_0x434d3a=_0x37474a[_0x4cb15e(0x105)](_0x1c40ad(_0x4cb15e(0x1aa))[_0x4cb15e(0x131)]()),_0x2c1fa2=_0x37474a[_0x4cb15e(0x105)](_0x1c40ad(_0x4cb15e(0x1ae))[_0x4cb15e(0x131)]()),_0x36f33d=window[_0x4cb15e(0x12a)][_0x4cb15e(0x10c)];if(!_0x5d3842[_0x4cb15e(0xf6)])_0x5d3842[_0x4cb15e(0xf6)]={};if(_0x5d3842[_0x4cb15e(0xf6)][_0x4cb15e(0x136)]==null)_0x5d3842[_0x4cb15e(0xf6)]['withCompare']=!![];if(_0x5d3842[_0x4cb15e(0xf6)][_0x4cb15e(0x11e)]==null)_0x5d3842[_0x4cb15e(0xf6)]['withGenerator']=!![];if(_0x5d3842['template'][_0x4cb15e(0x10b)])_0x8dc6a5[_0x4cb15e(0x178)](_0x5d3842[_0x4cb15e(0xf6)][_0x4cb15e(0x10b)]);if(_0x5d3842[_0x4cb15e(0xf6)][_0x4cb15e(0x1ba)]==null)_0x5d3842[_0x4cb15e(0xf6)][_0x4cb15e(0x1ba)]=![];_0x1c40ad[_0x4cb15e(0x145)](_0x5d3842[_0x4cb15e(0xf6)][_0x4cb15e(0x14b)]);var _0x1f6aef=_0x1beaa8[_0x4cb15e(0x139)](_0x4fbb5d,function(_0x19023b){return _0x19023b['group'];}),_0x23cabb={};_0x1c40ad[_0x4cb15e(0xfe)](_0x1f6aef,function(_0x3f16d7,_0x5a76d0){_0x23cabb[_0x3f16d7]=_0x1beaa8['groupBy'](_0x5a76d0,function(_0x360994){var _0x4769a7=a1043_0x351b;return _0x360994[_0x4769a7(0x16f)];});});var _0x13745a=[],_0x25f4bf={'ä':'ae','ü':'ue','ö':'oe','ß':'ss'};_0x1c40ad[_0x4cb15e(0xfe)](_0x23cabb,function(_0x37b688,_0x23b7ae){var _0x10dec7=_0x4cb15e,_0x26c354=[];_0x1c40ad[_0x10dec7(0xfe)](_0x23b7ae,function(_0x519e0c,_0x3b61fb){var _0x215e11=_0x10dec7,_0x57bb0b=_0x3b61fb[0x0][_0x215e11(0x127)];_0x57bb0b!==undefined&&(_0x57bb0b['toLowerCase']()[_0x215e11(0x177)](/[äöüß]/g,function(_0x39348e){return _0x25f4bf[_0x39348e];}),_0x26c354['push'](_0x57bb0b+_0x215e11(0x14d)+_0x519e0c));}),_0x26c354[_0x10dec7(0x15b)]();if(_0x5d3842[_0x10dec7(0x10f)])_0x26c354=_0x4f32e5(_0x26c354,_0x5d3842[_0x10dec7(0x10f)],'#~#');_0x26c354['forEach'](function(_0xf136ef){var _0x37d614=_0x10dec7,_0x331f59=_0xf136ef[_0x37d614(0x122)](_0x37d614(0x14d)),_0x50dad8=_0x331f59[0x1];_0x23b7ae[_0x50dad8][_0x37d614(0x119)](function(_0x2accd8){_0x13745a['push'](_0x2accd8);});});}),_0x4fbb5d=_0x13745a;var _0x59ff63={},_0x1c8358={},_0x474c65={};_0x474c65[_0x5d3842[_0x4cb15e(0x161)]]=0x1,_0x1c40ad[_0x4cb15e(0xfe)](_0x4fbb5d,function(_0x3036a5,_0x4c0e82){var _0x469096=_0x4cb15e;_0x59ff63[_0x4c0e82[_0x469096(0x114)]]=0x1,_0x1c8358[_0x4c0e82[_0x469096(0x114)]]=_0x4c0e82[_0x469096(0x1a1)]||_0x4c0e82[_0x469096(0x114)],_0x474c65[_0x4c0e82['version']]=0x1;}),_0x59ff63=Object[_0x4cb15e(0xf4)](_0x59ff63),_0x59ff63[_0x4cb15e(0x15b)]();if(_0x5d3842[_0x4cb15e(0x10f)])_0x59ff63=_0x4f32e5(_0x59ff63,_0x5d3842[_0x4cb15e(0x10f)]);_0x474c65=Object[_0x4cb15e(0xf4)](_0x474c65),_0x474c65[_0x4cb15e(0x15b)](_0xd59a8e['compare']),_0x474c65['reverse']();var _0x10142e=[];_0x59ff63['forEach'](function(_0x5a8ddd){var _0x85c8c5=_0x4cb15e;_0x10142e[_0x85c8c5(0x14e)]({'group':_0x5a8ddd,'isHeader':!![],'title':_0x1c8358[_0x5a8ddd]});var _0x3d6b6c='';_0x4fbb5d[_0x85c8c5(0x119)](function(_0x121a63){var _0x1ec045=_0x85c8c5;_0x121a63[_0x1ec045(0x114)]===_0x5a8ddd&&(_0x3d6b6c!==_0x121a63[_0x1ec045(0x16f)]?_0x10142e[_0x1ec045(0x14e)]({'title':_0x121a63[_0x1ec045(0x127)],'group':_0x5a8ddd,'name':_0x121a63[_0x1ec045(0x16f)],'type':_0x121a63[_0x1ec045(0x17f)],'version':_0x121a63['version'],'url':_0x121a63[_0x1ec045(0xf1)]}):_0x10142e['push']({'title':_0x121a63['title'],'group':_0x5a8ddd,'hidden':!![],'name':_0x121a63['name'],'type':_0x121a63[_0x1ec045(0x17f)],'version':_0x121a63[_0x1ec045(0x161)],'url':_0x121a63['url']}),_0x3d6b6c=_0x121a63[_0x1ec045(0x16f)]);});});function _0x35cdb9(_0x571534,_0x34450e,_0x4a02b9){var _0x7d9ed3=_0x4cb15e,_0x563420=![];if(!_0x34450e)return _0x563420;var _0x32ec14=_0x34450e['match'](/<h(1|2).*?>(.+?)<\/h(1|2)>/gi);return _0x32ec14&&_0x32ec14[_0x7d9ed3(0x119)](function(_0x1be343){var _0x599aa1=_0x7d9ed3,_0x16cef9=_0x1be343[_0x599aa1(0xf8)](0x2,0x3),_0x4608c9=_0x1be343['replace'](/<.+?>/g,''),_0x34dd18=_0x1be343[_0x599aa1(0x1a5)](/id="api-([^\-]+)(?:-(.+))?"/),_0x373b98=_0x34dd18?_0x34dd18[0x1]:null,_0x3551d0=_0x34dd18?_0x34dd18[0x2]:null;_0x16cef9==0x1&&_0x4608c9&&_0x373b98&&(_0x571534['splice'](_0x4a02b9,0x0,{'group':_0x373b98,'isHeader':!![],'title':_0x4608c9,'isFixed':!![]}),_0x4a02b9++,_0x563420=!![]),_0x16cef9==0x2&&_0x4608c9&&_0x373b98&&_0x3551d0&&(_0x571534[_0x599aa1(0x130)](_0x4a02b9,0x0,{'group':_0x373b98,'name':_0x3551d0,'isHeader':![],'title':_0x4608c9,'isFixed':![],'version':_0x599aa1(0x132)}),_0x4a02b9++);}),_0x563420;}if(_0x5d3842['header']){var _0x1f09ef=_0x35cdb9(_0x10142e,_0x5d3842[_0x4cb15e(0x101)][_0x4cb15e(0x17e)],0x0);!_0x1f09ef&&_0x10142e[_0x4cb15e(0x18c)]({'group':'_','isHeader':!![],'title':_0x5d3842[_0x4cb15e(0x101)][_0x4cb15e(0x127)]==null?_0x8dc6a5['__'](_0x4cb15e(0xf3)):_0x5d3842['header'][_0x4cb15e(0x127)],'isFixed':!![]});}if(_0x5d3842[_0x4cb15e(0x1b4)]){var _0x4e2b3f=_0x10142e[_0x4cb15e(0x15f)],_0x1f09ef=_0x35cdb9(_0x10142e,_0x5d3842[_0x4cb15e(0x1b4)][_0x4cb15e(0x17e)],_0x10142e[_0x4cb15e(0x15f)]);!_0x1f09ef&&_0x5d3842[_0x4cb15e(0x1b4)][_0x4cb15e(0x127)]!=null&&_0x10142e[_0x4cb15e(0x130)](_0x4e2b3f,0x0,{'group':'_footer','isHeader':!![],'title':_0x5d3842['footer'][_0x4cb15e(0x127)],'isFixed':!![]});}var _0x42c39d=_0x5d3842[_0x4cb15e(0x127)]?_0x5d3842[_0x4cb15e(0x127)]:_0x4cb15e(0x158)+_0x5d3842['name']+_0x4cb15e(0x128)+_0x5d3842['version'];_0x1c40ad(document)[_0x4cb15e(0x183)](_0x4cb15e(0x127),_0x42c39d),_0x1c40ad(_0x4cb15e(0x120))[_0x4cb15e(0x107)]();var _0x556359={'nav':_0x10142e};_0x1c40ad('#sidenav')['append'](_0x2c1fa2(_0x556359)),_0x1c40ad(_0x4cb15e(0x16c))[_0x4cb15e(0x1b7)](_0x5dab47(_0x5d3842)),_0x1beaa8[_0x4cb15e(0x187)](_0x5d3842,{'versions':_0x474c65}),_0x1c40ad(_0x4cb15e(0x125))[_0x4cb15e(0x1b7)](_0xba9dd5(_0x5d3842));if(_0x5d3842[_0x4cb15e(0x101)])_0x1c40ad(_0x4cb15e(0x1a7))[_0x4cb15e(0x1b7)](_0x379b9b(_0x5d3842[_0x4cb15e(0x101)]));if(_0x5d3842[_0x4cb15e(0x1b4)])_0x1c40ad(_0x4cb15e(0x175))[_0x4cb15e(0x1b7)](_0x3ee767(_0x5d3842[_0x4cb15e(0x1b4)]));var _0x217e83={},_0x4bdba0='';_0x59ff63[_0x4cb15e(0x119)](function(_0x4405c6){var _0x1edf51=_0x4cb15e,_0x5a146c=[],_0x1b376d='',_0x2bb6ff={},_0x14fa39=_0x4405c6,_0x55abe6='';_0x217e83[_0x4405c6]={},_0x4fbb5d[_0x1edf51(0x119)](function(_0x1475f0){var _0x3e11a8=_0x1edf51;if(_0x4405c6===_0x1475f0[_0x3e11a8(0x114)]){_0x1b376d!==_0x1475f0['name']?(_0x4fbb5d[_0x3e11a8(0x119)](function(_0x1eff7c){var _0x48ad0c=_0x3e11a8;_0x4405c6===_0x1eff7c[_0x48ad0c(0x114)]&&_0x1475f0[_0x48ad0c(0x16f)]===_0x1eff7c['name']&&(!_0x217e83[_0x1475f0['group']][_0x48ad0c(0x138)](_0x1475f0['name'])&&(_0x217e83[_0x1475f0[_0x48ad0c(0x114)]][_0x1475f0[_0x48ad0c(0x16f)]]=[]),_0x217e83[_0x1475f0['group']][_0x1475f0[_0x48ad0c(0x16f)]][_0x48ad0c(0x14e)](_0x1eff7c[_0x48ad0c(0x161)]));}),_0x2bb6ff={'article':_0x1475f0,'versions':_0x217e83[_0x1475f0[_0x3e11a8(0x114)]][_0x1475f0[_0x3e11a8(0x16f)]]}):_0x2bb6ff={'article':_0x1475f0,'hidden':!![],'versions':_0x217e83[_0x1475f0[_0x3e11a8(0x114)]][_0x1475f0[_0x3e11a8(0x16f)]]};_0x5d3842['sampleUrl']==![]&&(_0x2bb6ff[_0x3e11a8(0x12d)][_0x3e11a8(0x16d)]=[{'url':_0x36f33d+_0x2bb6ff[_0x3e11a8(0x12d)][_0x3e11a8(0xf1)]}]);_0x5d3842[_0x3e11a8(0xf1)]&&(_0x2bb6ff[_0x3e11a8(0x12d)]['url'][_0x3e11a8(0xfb)](0x0,0x4)['toLowerCase']()!=='http'&&(_0x2bb6ff[_0x3e11a8(0x12d)][_0x3e11a8(0xf1)]=_0x5d3842[_0x3e11a8(0xf1)]+_0x2bb6ff[_0x3e11a8(0x12d)][_0x3e11a8(0xf1)]));_0x2f50f1(_0x2bb6ff,_0x1475f0);if(_0x1475f0[_0x3e11a8(0x1a1)])_0x14fa39=_0x1475f0[_0x3e11a8(0x1a1)];if(_0x1475f0[_0x3e11a8(0x163)])_0x55abe6=_0x1475f0[_0x3e11a8(0x163)];_0x5a146c[_0x3e11a8(0x14e)]({'article':_0x5aeaa2(_0x2bb6ff),'group':_0x1475f0[_0x3e11a8(0x114)],'name':_0x1475f0['name'],'aloneDisplay':_0x5d3842[_0x3e11a8(0xf6)][_0x3e11a8(0x1ba)]}),_0x1b376d=_0x1475f0[_0x3e11a8(0x16f)];}});var _0x2bb6ff={'group':_0x4405c6,'title':_0x14fa39,'description':_0x55abe6,'articles':_0x5a146c,'aloneDisplay':_0x5d3842[_0x1edf51(0xf6)][_0x1edf51(0x1ba)]};_0x4bdba0+=_0x434d3a(_0x2bb6ff);}),_0x1c40ad(_0x4cb15e(0x126))[_0x4cb15e(0x1b7)](_0x4bdba0),_0x1c40ad(this)[_0x4cb15e(0x152)]({'target':_0x4cb15e(0x103)}),_0x1c40ad('.sidenav')['find']('a')['on'](_0x4cb15e(0x12e),function(_0x67eadf){var _0xf6b599=_0x4cb15e;_0x67eadf['preventDefault']();var _0x5d04b6=_0x1c40ad(this)[_0xf6b599(0x183)](_0xf6b599(0x11d));if(_0x1c40ad(_0x5d04b6)[_0xf6b599(0x15f)]>0x0)_0x1c40ad(_0xf6b599(0x12b))[_0xf6b599(0x1b2)]({'scrollTop':parseInt(_0x1c40ad(_0x5d04b6)[_0xf6b599(0xfc)]()[_0xf6b599(0x16b)])},0x190);window['location'][_0xf6b599(0x1b1)]=_0x1c40ad(this)[_0xf6b599(0x183)](_0xf6b599(0x11d));});function _0x5e909f(_0xa331cb){var _0x5817fb=![];return _0x1c40ad['each'](_0xa331cb,function(_0xf2608e){var _0x833f78=a1043_0x351b;_0x5817fb=_0x5817fb||_0x1beaa8[_0x833f78(0x166)](_0xa331cb[_0xf2608e],function(_0x3ec15b){var _0x367d7e=_0x833f78;return _0x3ec15b[_0x367d7e(0x17f)];});}),_0x5817fb;}function _0x2ba72a(){var _0xe6a745=_0x4cb15e;_0x1c40ad(_0xe6a745(0x121))[_0xe6a745(0x112)]()[_0xe6a745(0x12e)](function(_0x156ee2){_0x156ee2['preventDefault']();});var _0x5926ee=_0x1c40ad(_0xe6a745(0x13f))['html']();_0x1c40ad('#sidenav\x20li')[_0xe6a745(0x19e)]('is-new'),_0x5d3842[_0xe6a745(0xf6)][_0xe6a745(0x136)]&&_0x1c40ad(_0xe6a745(0x14f)+_0x5926ee+'\x27]')['each'](function(){var _0x544790=_0xe6a745,_0xe95378=_0x1c40ad(this)[_0x544790(0x16a)](_0x544790(0x114)),_0x46561a=_0x1c40ad(this)['data']('name'),_0x1a9880=_0x1c40ad('#sidenav\x20li[data-group=\x27'+_0xe95378+'\x27][data-name=\x27'+_0x46561a+'\x27]')[_0x544790(0x15f)],_0x5839b1=_0x1c40ad(_0x544790(0x149)+_0xe95378+_0x544790(0x104)+_0x46561a+'\x27]')[_0x544790(0x11c)](_0x1c40ad(this));if(_0x1a9880===0x1||_0x5839b1===_0x1a9880-0x1)_0x1c40ad(this)[_0x544790(0x181)]('is-new');}),_0x1c40ad('.nav-tabs-examples\x20a')['click'](function(_0x3f918f){var _0x50669f=_0xe6a745;_0x3f918f[_0x50669f(0x1ad)](),_0x1c40ad(this)[_0x50669f(0x16e)]('show');}),_0x1c40ad(_0xe6a745(0x1b5))[_0xe6a745(0x198)](_0xe6a745(0x1a3))[_0xe6a745(0x16e)]('show'),_0x1c40ad('.sample-header-content-type-switch')[_0xe6a745(0x173)](function(){var _0x291ffd=_0xe6a745,_0x5e09b7='.'+_0x1c40ad(this)[_0x291ffd(0x183)](_0x291ffd(0x16f))+_0x291ffd(0x192),_0x23b8e7='.'+_0x1c40ad(this)['attr'](_0x291ffd(0x16f))+_0x291ffd(0x172),_0x2e5806=_0x291ffd(0xf7)+_0x1c40ad(this)['attr']('name')+']';if(_0x1c40ad(this)[_0x291ffd(0x135)]()==_0x291ffd(0x151))_0x1c40ad(_0x2e5806)[_0x291ffd(0x135)](_0x291ffd(0x108)),_0x1c40ad(this)['val']('body-json'),_0x1c40ad(_0x5e09b7)[_0x291ffd(0x19e)](_0x291ffd(0x10e)),_0x1c40ad(this)[_0x291ffd(0x170)]()[_0x291ffd(0x18d)](_0x5e09b7)[_0x291ffd(0x1a8)]()[_0x291ffd(0x181)](_0x291ffd(0x10e)),_0x1c40ad(_0x23b8e7)[_0x291ffd(0x181)]('hide'),_0x1c40ad(this)[_0x291ffd(0x170)]()['nextAll'](_0x23b8e7)[_0x291ffd(0x1a8)]()[_0x291ffd(0x19e)]('hide');else _0x1c40ad(this)['val']()=='body-form-data'?(_0x1c40ad(_0x2e5806)['val'](_0x291ffd(0x108)),_0x1c40ad(this)['val']('body-form-data'),_0x1c40ad(_0x23b8e7)[_0x291ffd(0x181)](_0x291ffd(0x10e)),_0x1c40ad(_0x5e09b7)[_0x291ffd(0x19e)](_0x291ffd(0x10e))):(_0x1c40ad(this)['parent']()[_0x291ffd(0x18d)](_0x5e09b7)['first']()[_0x291ffd(0x19e)](_0x291ffd(0x10e)),_0x1c40ad(this)['parent']()[_0x291ffd(0x18d)](_0x23b8e7)['first']()['addClass']('hide'));_0x1c40ad(this)[_0x291ffd(0x1af)](_0x291ffd(0x196))['prop'](_0x291ffd(0x174),!![]);}),_0x1c40ad(_0xe6a745(0x196))[_0xe6a745(0x12e)](function(_0x1f612c){var _0x9c742e=_0xe6a745,_0x552b9e='.'+_0x1c40ad(this)[_0x9c742e(0x183)](_0x9c742e(0x16f))+_0x9c742e(0x192),_0x556f8b='.'+_0x1c40ad(this)[_0x9c742e(0x183)](_0x9c742e(0x16f))+_0x9c742e(0x172),_0x2fe945=_0x1c40ad(this)[_0x9c742e(0x162)]('.'+_0x1c40ad(this)[_0x9c742e(0x183)](_0x9c742e(0x16f))+_0x9c742e(0xfd))[_0x9c742e(0x135)]();_0x1c40ad(this)[_0x9c742e(0x12c)](_0x9c742e(0x174))?_0x2fe945=='body-json'?_0x1c40ad(this)[_0x9c742e(0x170)]()[_0x9c742e(0x18d)](_0x556f8b)[_0x9c742e(0x1a8)]()['removeClass'](_0x9c742e(0x10e)):_0x1c40ad(this)[_0x9c742e(0x170)]()[_0x9c742e(0x18d)](_0x552b9e)[_0x9c742e(0x1a8)]()[_0x9c742e(0x19e)](_0x9c742e(0x10e)):_0x2fe945==_0x9c742e(0x151)?_0x1c40ad(this)['parent']()['nextAll'](_0x556f8b)['first']()[_0x9c742e(0x181)](_0x9c742e(0x10e)):_0x1c40ad(this)[_0x9c742e(0x170)]()[_0x9c742e(0x18d)](_0x552b9e)[_0x9c742e(0x1a8)]()[_0x9c742e(0x181)](_0x9c742e(0x10e));}),_0x5d3842[_0xe6a745(0xf6)]['aloneDisplay']&&(_0x1c40ad(_0xe6a745(0x194))['click'](function(){var _0x321707=_0xe6a745,_0x524808='.'+_0x1c40ad(this)['attr'](_0x321707(0x102))+_0x321707(0xf9),_0x6d08c8='.'+_0x1c40ad(this)['attr'](_0x321707(0x102))+'-article';_0x1c40ad(_0x321707(0x150))[_0x321707(0x181)](_0x321707(0x10e)),_0x1c40ad(_0x524808)[_0x321707(0x19e)](_0x321707(0x10e)),_0x1c40ad('.show-api-article')[_0x321707(0x181)](_0x321707(0x10e)),_0x1c40ad(_0x6d08c8)[_0x321707(0x19e)](_0x321707(0x10e));}),_0x1c40ad(_0xe6a745(0x14c))[_0xe6a745(0x12e)](function(){var _0x5ef4ff=_0xe6a745,_0x187b24='.'+_0x1c40ad(this)[_0x5ef4ff(0x183)]('data-name')+'-article',_0x2cb49c='.'+_0x1c40ad(this)[_0x5ef4ff(0x183)]('data-group')+'-group';_0x1c40ad(_0x5ef4ff(0x150))[_0x5ef4ff(0x181)]('hide'),_0x1c40ad(_0x2cb49c)[_0x5ef4ff(0x19e)](_0x5ef4ff(0x10e)),_0x1c40ad(_0x5ef4ff(0x13b))[_0x5ef4ff(0x181)](_0x5ef4ff(0x10e)),_0x1c40ad(_0x187b24)[_0x5ef4ff(0x19e)](_0x5ef4ff(0x10e));})),_0x1c40ad(window)['scrollspy'](_0xe6a745(0x129)),_0x40b10d[_0xe6a745(0x141)](),_0x516ae1[_0xe6a745(0x1a2)]();}_0x2ba72a();if(_0x5d3842['template']['aloneDisplay']){var _0x18c972=window['location']['hash'];_0x18c972!=null&&_0x18c972[_0x4cb15e(0x15f)]!==0x0&&_0x1c40ad('.'+_0x18c972['slice'](0x1)+_0x4cb15e(0x155))[_0x4cb15e(0x12e)]();}function _0x57475c(_0x468172){var _0x33eb1d=_0x4cb15e;typeof _0x468172===_0x33eb1d(0x108)?_0x468172=_0x1c40ad(_0x33eb1d(0x13f))[_0x33eb1d(0x131)]():_0x1c40ad(_0x33eb1d(0x13f))[_0x33eb1d(0x131)](_0x468172);_0x1c40ad(_0x33eb1d(0x12d))[_0x33eb1d(0x181)](_0x33eb1d(0x10e)),_0x1c40ad('#sidenav\x20li:not(.nav-fixed)')['addClass']('hide'),_0x1c40ad(_0x33eb1d(0x11a))[_0x33eb1d(0xfe)](function(_0x41e8a6){var _0x209f28=_0x33eb1d,_0x26039c=_0x1c40ad(this)['data'](_0x209f28(0x114)),_0x4dce96=_0x1c40ad(this)[_0x209f28(0x16a)](_0x209f28(0x16f)),_0x49b43c=_0x1c40ad(this)[_0x209f28(0x16a)](_0x209f28(0x161));_0xd59a8e[_0x209f28(0x15a)](_0x49b43c,_0x468172)&&(_0x1c40ad(_0x209f28(0x156)+_0x26039c+'\x27][data-name=\x27'+_0x4dce96+'\x27]:visible')[_0x209f28(0x15f)]===0x0&&(_0x1c40ad(_0x209f28(0x156)+_0x26039c+'\x27][data-name=\x27'+_0x4dce96+'\x27][data-version=\x27'+_0x49b43c+'\x27]')[_0x209f28(0x19e)](_0x209f28(0x10e)),_0x1c40ad(_0x209f28(0x149)+_0x26039c+_0x209f28(0x104)+_0x4dce96+_0x209f28(0x111)+_0x49b43c+'\x27]')[_0x209f28(0x19e)](_0x209f28(0x10e)),_0x1c40ad(_0x209f28(0x184)+_0x26039c+'\x27]')[_0x209f28(0x19e)](_0x209f28(0x10e))));}),_0x1c40ad(_0x33eb1d(0x11a))['each'](function(_0x16ab18){var _0x17009a=_0x33eb1d,_0x33e0ea=_0x1c40ad(this)[_0x17009a(0x16a)](_0x17009a(0x114));_0x1c40ad(_0x17009a(0x180)+_0x33e0ea)[_0x17009a(0x19e)]('hide'),_0x1c40ad(_0x17009a(0x180)+_0x33e0ea+_0x17009a(0x160))[_0x17009a(0x15f)]===0x0?_0x1c40ad('section#api-'+_0x33e0ea)[_0x17009a(0x181)](_0x17009a(0x10e)):_0x1c40ad(_0x17009a(0x180)+_0x33e0ea)[_0x17009a(0x19e)](_0x17009a(0x10e));}),_0x2ba72a();return;}_0x57475c(),_0x1c40ad(_0x4cb15e(0x10a))['on'](_0x4cb15e(0x12e),function(_0x5ef8b9){var _0x727b7e=_0x4cb15e;_0x5ef8b9[_0x727b7e(0x1ad)](),_0x57475c(_0x1c40ad(this)['html']());}),_0x1c40ad(_0x4cb15e(0x19a))['on'](_0x4cb15e(0x12e),_0x16dc95),_0x1c40ad(_0x4cb15e(0x186))['on']('click',_0x323815),_0x1c40ad[_0x4cb15e(0x124)]=function(_0x13107e){var _0x3ac482=_0x4cb15e,_0xefe05d=new RegExp(_0x3ac482(0x18b)+_0x13107e+'=([^&amp;#]*)')['exec'](window[_0x3ac482(0x12a)][_0x3ac482(0x11d)]);return _0xefe05d&&_0xefe05d[0x1]?_0xefe05d[0x1]:null;};_0x1c40ad[_0x4cb15e(0x124)](_0x4cb15e(0x199))&&_0x1c40ad(_0x4cb15e(0x19a))[_0x4cb15e(0x110)]('click');if(window['location']['hash']){var _0x3500fc=decodeURI(window['location'][_0x4cb15e(0x1b1)]);if(_0x1c40ad(_0x3500fc)[_0x4cb15e(0x15f)]>0x0)_0x1c40ad(_0x4cb15e(0x12b))[_0x4cb15e(0x1b2)]({'scrollTop':parseInt(_0x1c40ad(_0x3500fc)[_0x4cb15e(0xfc)]()[_0x4cb15e(0x16b)])},0x0);}var _0x31febc={'valueNames':['nav-list-item',_0x4cb15e(0x171)]},_0xa981f5=new List(_0x4cb15e(0x195),_0x31febc);_0x1c40ad(_0x4cb15e(0x116))[_0x4cb15e(0x14a)](),_0x1c40ad(document)[_0x4cb15e(0x19d)](function(_0x65c559){var _0x28c003=_0x4cb15e;if(_0x65c559[_0x28c003(0x11f)]===0x1b)_0x1c40ad(_0x28c003(0x1b8))['click']();}),_0x1c40ad(_0x4cb15e(0x1b8))['on']('click',function(){var _0x2f2f5f=_0x4cb15e;_0x1c40ad('#scrollingNav\x20.sidenav-search\x20input.search')[_0x2f2f5f(0x135)]('')[_0x2f2f5f(0x14a)](),_0xa981f5[_0x2f2f5f(0x19f)]();});function _0x323815(_0x1069de){var _0x5bb2da=_0x4cb15e;_0x1069de[_0x5bb2da(0x1ad)]();var _0x591e99=_0x1c40ad(this)[_0x5bb2da(0x153)]('article'),_0x1651eb=_0x1c40ad(this)[_0x5bb2da(0x131)](),_0x9982cf=_0x591e99[_0x5bb2da(0x198)](_0x5bb2da(0x144)),_0x4487be=_0x9982cf[_0x5bb2da(0x198)](_0x5bb2da(0x179))['html']();_0x9982cf[_0x5bb2da(0x198)]('strong')[_0x5bb2da(0x131)](_0x1651eb);var _0x445cd4=_0x591e99['data']('group'),_0x4b4bc8=_0x591e99[_0x5bb2da(0x16a)](_0x5bb2da(0x16f)),_0x2d3a5f=_0x591e99[_0x5bb2da(0x16a)](_0x5bb2da(0x161)),_0x5ccb5b=_0x591e99[_0x5bb2da(0x16a)](_0x5bb2da(0x147));if(_0x5ccb5b===_0x1651eb)return;if(!_0x5ccb5b&&_0x2d3a5f==_0x1651eb)return;if(_0x5ccb5b&&_0x217e83[_0x445cd4][_0x4b4bc8][0x0]===_0x1651eb||_0x2d3a5f===_0x1651eb)_0x4bae33(_0x445cd4,_0x4b4bc8,_0x2d3a5f);else{var _0x1ad01f=_0x1c40ad(_0x5bb2da(0x156)+_0x445cd4+'\x27][data-name=\x27'+_0x4b4bc8+'\x27][data-version=\x27'+_0x1651eb+'\x27]'),_0x400653={},_0x2e1aee={};_0x1c40ad[_0x5bb2da(0xfe)](_0x23cabb[_0x445cd4][_0x4b4bc8],function(_0x1edc57,_0x2878d8){var _0x19ca89=_0x5bb2da;if(_0x2878d8[_0x19ca89(0x161)]===_0x2d3a5f)_0x400653=_0x2878d8;if(_0x2878d8['version']===_0x1651eb)_0x2e1aee=_0x2878d8;});var _0x19d682={'article':_0x400653,'compare':_0x2e1aee,'versions':_0x217e83[_0x445cd4][_0x4b4bc8]};_0x19d682[_0x5bb2da(0x12d)]['id']=_0x19d682[_0x5bb2da(0x12d)][_0x5bb2da(0x114)]+'-'+_0x19d682[_0x5bb2da(0x12d)][_0x5bb2da(0x16f)]+'-'+_0x19d682[_0x5bb2da(0x12d)][_0x5bb2da(0x161)],_0x19d682['article']['id']=_0x19d682[_0x5bb2da(0x12d)]['id'][_0x5bb2da(0x177)](/\./g,'_'),_0x19d682[_0x5bb2da(0x199)]['id']=_0x19d682[_0x5bb2da(0x199)][_0x5bb2da(0x114)]+'-'+_0x19d682[_0x5bb2da(0x199)]['name']+'-'+_0x19d682[_0x5bb2da(0x199)][_0x5bb2da(0x161)],_0x19d682[_0x5bb2da(0x199)]['id']=_0x19d682[_0x5bb2da(0x199)]['id'][_0x5bb2da(0x177)](/\./g,'_');var _0x269236=_0x400653;if(_0x269236[_0x5bb2da(0x185)]&&_0x269236['parameter'][_0x5bb2da(0x182)])_0x19d682[_0x5bb2da(0x17a)]=_0x5e909f(_0x269236[_0x5bb2da(0x185)][_0x5bb2da(0x182)]);if(_0x269236[_0x5bb2da(0x1b9)]&&_0x269236[_0x5bb2da(0x1b9)][_0x5bb2da(0x182)])_0x19d682['_hasTypeInErrorFields']=_0x5e909f(_0x269236[_0x5bb2da(0x1b9)]['fields']);if(_0x269236['success']&&_0x269236[_0x5bb2da(0xf5)][_0x5bb2da(0x182)])_0x19d682['_hasTypeInSuccessFields']=_0x5e909f(_0x269236[_0x5bb2da(0xf5)][_0x5bb2da(0x182)]);if(_0x269236[_0x5bb2da(0x197)]&&_0x269236[_0x5bb2da(0x197)][_0x5bb2da(0x182)])_0x19d682[_0x5bb2da(0xff)]=_0x5e909f(_0x269236[_0x5bb2da(0x197)][_0x5bb2da(0x182)]);var _0x269236=_0x2e1aee;if(_0x19d682[_0x5bb2da(0x17a)]!==!![]&&_0x269236[_0x5bb2da(0x185)]&&_0x269236[_0x5bb2da(0x185)][_0x5bb2da(0x182)])_0x19d682[_0x5bb2da(0x17a)]=_0x5e909f(_0x269236['parameter']['fields']);if(_0x19d682[_0x5bb2da(0x154)]!==!![]&&_0x269236[_0x5bb2da(0x1b9)]&&_0x269236[_0x5bb2da(0x1b9)]['fields'])_0x19d682['_hasTypeInErrorFields']=_0x5e909f(_0x269236['error'][_0x5bb2da(0x182)]);if(_0x19d682[_0x5bb2da(0x146)]!==!![]&&_0x269236[_0x5bb2da(0xf5)]&&_0x269236['success'][_0x5bb2da(0x182)])_0x19d682[_0x5bb2da(0x146)]=_0x5e909f(_0x269236[_0x5bb2da(0xf5)][_0x5bb2da(0x182)]);if(_0x19d682['_hasTypeInInfoFields']!==!![]&&_0x269236[_0x5bb2da(0x197)]&&_0x269236[_0x5bb2da(0x197)][_0x5bb2da(0x182)])_0x19d682[_0x5bb2da(0xff)]=_0x5e909f(_0x269236[_0x5bb2da(0x197)][_0x5bb2da(0x182)]);var _0x16ffb3=_0x4e034e(_0x19d682);_0x591e99[_0x5bb2da(0x118)](_0x16ffb3);var _0x36b07f=_0x591e99[_0x5bb2da(0x162)]();_0x36b07f[_0x5bb2da(0x198)](_0x5bb2da(0x1a4))['on'](_0x5bb2da(0x12e),_0x323815),_0x1c40ad('#sidenav\x20li[data-group=\x27'+_0x445cd4+_0x5bb2da(0x104)+_0x4b4bc8+'\x27][data-version=\x27'+_0x4487be+'\x27]')[_0x5bb2da(0x181)](_0x5bb2da(0x19b)),_0x591e99['remove']();}_0x2ba72a();}function _0x16dc95(_0x1d5833){var _0x305341=_0x4cb15e;_0x1d5833[_0x305341(0x1ad)](),_0x1c40ad(_0x305341(0x1a0))[_0x305341(0xfe)](function(){var _0xd3ff24=_0x305341,_0xeb876=_0x1c40ad(this)['parents']('article'),_0x4e1ae0=_0xeb876['data'](_0xd3ff24(0x161)),_0x18e94f=null;_0x1c40ad(this)[_0xd3ff24(0x198)](_0xd3ff24(0x148))[_0xd3ff24(0xfe)](function(){var _0x22a8c4=_0x1c40ad(this)['html']();if(_0x22a8c4<_0x4e1ae0&&!_0x18e94f)_0x18e94f=_0x1c40ad(this);});if(_0x18e94f)_0x18e94f[_0xd3ff24(0x110)](_0xd3ff24(0x12e));}),_0x2ba72a();}function _0xaabff1(_0x2ba773){var _0x14cd4f=_0x4cb15e;_0x1c40ad[_0x14cd4f(0xfe)](_0x2ba773,function(_0x4c54cc,_0x1c7da8){var _0xa24004=_0x14cd4f,_0x13805e=_0x1c7da8[_0xa24004(0xfa)](function(_0x526361){var _0x3650c=_0xa24004;return _0x526361[_0x3650c(0x17f)]===_0x3650c(0x143);});if(_0x13805e['length']===0x0)return;for(var _0x30af3f of _0x13805e){var _0x17ffee=_0x1c7da8[_0xa24004(0x167)](_0x30af3f),_0x10c830=_0x1c7da8[_0xa24004(0xfa)](function(_0x2ce4df){var _0x511d7e=_0xa24004;return _0x2ce4df[_0x511d7e(0x113)]['indexOf'](_0x30af3f[_0x511d7e(0x113)]+'.')>-0x1;}),_0x7d31a4=_0x1c7da8[_0xa24004(0x167)](_0x10c830[0x0]);_0x1c7da8['splice'](_0x17ffee,0x1),_0x1c7da8[_0xa24004(0x130)](_0x7d31a4,0x0,_0x30af3f);var _0x163eb2=_0x7d31a4;for(var _0x5b42ca of _0x10c830){_0x163eb2++;var _0x2e3f72=_0x1c7da8[_0xa24004(0x167)](_0x5b42ca);_0x1c7da8[_0xa24004(0x130)](_0x2e3f72,0x1),_0x1c7da8[_0xa24004(0x130)](_0x163eb2,0x0,_0x5b42ca);}}var _0x133a88=_0x1c7da8[_0xa24004(0x167)](_0x13805e[0x0]),_0x168899=_0x1c7da8['filter'](function(_0x9aa570){var _0x374c3c=_0xa24004;return _0x9aa570[_0x374c3c(0x113)][_0x374c3c(0x167)]('.')===-0x1&&_0x9aa570[_0x374c3c(0x17f)]!=='Object';});for(var _0x4dd48e of _0x168899){var _0x17ffee=_0x1c7da8[_0xa24004(0x167)](_0x4dd48e);_0x1c7da8[_0xa24004(0x130)](_0x17ffee,0x1),_0x1c7da8[_0xa24004(0x130)](_0x133a88,0x0,_0x4dd48e);}});}function _0x2f50f1(_0x5f042b,_0x129dea){var _0x3649b4=_0x4cb15e;_0x5f042b['id']=_0x5f042b[_0x3649b4(0x12d)][_0x3649b4(0x114)]+'-'+_0x5f042b[_0x3649b4(0x12d)][_0x3649b4(0x16f)]+'-'+_0x5f042b[_0x3649b4(0x12d)][_0x3649b4(0x161)],_0x5f042b['id']=_0x5f042b['id'][_0x3649b4(0x177)](/\./g,'_'),_0x129dea[_0x3649b4(0x101)]&&_0x129dea['header'][_0x3649b4(0x182)]&&(_0xaabff1(_0x129dea[_0x3649b4(0x101)][_0x3649b4(0x182)]),_0x5f042b['_hasTypeInHeaderFields']=_0x5e909f(_0x129dea[_0x3649b4(0x101)][_0x3649b4(0x182)])),_0x129dea[_0x3649b4(0x185)]&&_0x129dea[_0x3649b4(0x185)][_0x3649b4(0x182)]&&(_0xaabff1(_0x129dea[_0x3649b4(0x185)][_0x3649b4(0x182)]),_0x5f042b['_hasTypeInParameterFields']=_0x5e909f(_0x129dea[_0x3649b4(0x185)][_0x3649b4(0x182)])),_0x129dea[_0x3649b4(0x1b9)]&&_0x129dea[_0x3649b4(0x1b9)][_0x3649b4(0x182)]&&(_0xaabff1(_0x129dea[_0x3649b4(0x1b9)]['fields']),_0x5f042b[_0x3649b4(0x154)]=_0x5e909f(_0x129dea[_0x3649b4(0x1b9)][_0x3649b4(0x182)])),_0x129dea[_0x3649b4(0xf5)]&&_0x129dea[_0x3649b4(0xf5)]['fields']&&(_0xaabff1(_0x129dea[_0x3649b4(0xf5)][_0x3649b4(0x182)]),_0x5f042b[_0x3649b4(0x146)]=_0x5e909f(_0x129dea['success'][_0x3649b4(0x182)])),_0x129dea[_0x3649b4(0x197)]&&_0x129dea['info'][_0x3649b4(0x182)]&&(_0xaabff1(_0x129dea[_0x3649b4(0x197)][_0x3649b4(0x182)]),_0x5f042b[_0x3649b4(0xff)]=_0x5e909f(_0x129dea['info'][_0x3649b4(0x182)])),_0x5f042b['template']=_0x5d3842[_0x3649b4(0xf6)];}function _0x255266(_0x5893c9,_0x219dd6,_0x359d07){var _0xe2149d=_0x4cb15e,_0x4978d1={};_0x1c40ad[_0xe2149d(0xfe)](_0x23cabb[_0x5893c9][_0x219dd6],function(_0x1c3647,_0x56de24){var _0x2b9689=_0xe2149d;if(_0x56de24[_0x2b9689(0x161)]===_0x359d07)_0x4978d1=_0x56de24;});var _0x450e74={'article':_0x4978d1,'versions':_0x217e83[_0x5893c9][_0x219dd6]};return _0x2f50f1(_0x450e74,_0x4978d1),_0x5aeaa2(_0x450e74);}function _0x4bae33(_0x2db5f8,_0x4f580b,_0x33cc2f){var _0x4091ee=_0x4cb15e,_0x33d885=_0x1c40ad(_0x4091ee(0x156)+_0x2db5f8+_0x4091ee(0x104)+_0x4f580b+_0x4091ee(0x115)),_0x57626d=_0x255266(_0x2db5f8,_0x4f580b,_0x33cc2f);_0x33d885[_0x4091ee(0x118)](_0x57626d);var _0x4be6c8=_0x33d885[_0x4091ee(0x162)]();_0x4be6c8[_0x4091ee(0x198)](_0x4091ee(0x1a4))['on'](_0x4091ee(0x12e),_0x323815),_0x1c40ad(_0x4091ee(0x149)+_0x2db5f8+_0x4091ee(0x104)+_0x4f580b+_0x4091ee(0x111)+_0x33cc2f+'\x27]')[_0x4091ee(0x19e)](_0x4091ee(0x19b)),_0x33d885[_0x4091ee(0x107)]();return;}function _0x4f32e5(_0x5d5d78,_0xe7d3e2,_0x3cb4cb){var _0x5b3012=_0x4cb15e,_0x3be49b=[];return _0xe7d3e2['forEach'](function(_0x34a4f6){var _0x240aa6=a1043_0x351b;if(_0x3cb4cb)_0x5d5d78[_0x240aa6(0x119)](function(_0x4ba631){var _0x52bc90=_0x240aa6,_0xc383b6=_0x4ba631[_0x52bc90(0x122)](_0x3cb4cb),_0x164aff=_0xc383b6[0x0];if(_0x164aff==_0x34a4f6||_0xc383b6[0x1]==_0x34a4f6)_0x3be49b[_0x52bc90(0x14e)](_0x4ba631);});else _0x5d5d78[_0x240aa6(0x119)](function(_0x42e1a7){var _0x5de970=_0x240aa6;if(_0x42e1a7==_0x34a4f6)_0x3be49b[_0x5de970(0x14e)](_0x34a4f6);});}),_0x5d5d78[_0x5b3012(0x119)](function(_0x49639f){var _0x11dedf=_0x5b3012;if(_0x3be49b[_0x11dedf(0x167)](_0x49639f)===-0x1)_0x3be49b['push'](_0x49639f);}),_0x3be49b;}_0x516ae1[_0x4cb15e(0x1a2)]();}
+require.config({
+    paths: {
+        bootstrap: './vendor/bootstrap.min',
+        diffMatchPatch: './vendor/diff_match_patch.min',
+        handlebars: './vendor/handlebars.min',
+        handlebarsExtended: './utils/handlebars_helper',
+        jquery: './vendor/jquery.min',
+        locales: './locales/locale',
+        lodash: './vendor/lodash.custom.min',
+        pathToRegexp: './vendor/path-to-regexp/index',
+        prismjs: './vendor/prism',
+        semver: './vendor/semver.min',
+        utilsSampleRequest: './utils/send_sample_request',
+        webfontloader: './vendor/webfontloader',
+        list: './vendor/list.min',
+        apiData: './api_data',
+        apiProject: './api_project',
+    },
+    shim: {
+        bootstrap: {
+            deps: ['jquery']
+        },
+        diffMatchPatch: {
+            exports: 'diff_match_patch'
+        },
+        handlebars: {
+            exports: 'Handlebars'
+        },
+        handlebarsExtended: {
+            deps: ['jquery', 'handlebars'],
+            exports: 'Handlebars'
+        },
+        prismjs: {
+            exports: 'Prism'
+        },
+    },
+    urlArgs: 'v=' + (new Date()).getTime(),
+    waitSeconds: 150
+});
+
+require([
+    'jquery',
+    'lodash',
+    'locales',
+    'handlebarsExtended',
+    'apiProject',
+    'apiData',
+    'prismjs',
+    'utilsSampleRequest',
+    'semver',
+    'webfontloader',
+    'bootstrap',
+    'pathToRegexp',
+    'list'
+], function($, _, locale, Handlebars, apiProject, apiData, Prism, sampleRequest, semver, WebFont) {
+
+    // Load google web fonts.
+    WebFont.load({
+        active: function() {
+            // Only init after fonts are loaded.
+            init($, _, locale, Handlebars, apiProject, apiData, Prism, sampleRequest, semver);
+        },
+        inactive: function() {
+            // Run init, even if loading fonts fails
+            init($, _, locale, Handlebars, apiProject, apiData, Prism, sampleRequest, semver);
+        },
+        google: {
+            families: ['Source Code Pro', 'Source Sans Pro:n4,n6,n7']
+        }
+    });
+});
+
+function init($, _, locale, Handlebars, apiProject, apiData, Prism, sampleRequest, semver) {
+    var api = apiData.api;
+
+    //
+    // Templates
+    //
+    var templateHeader         = Handlebars.compile( $('#template-header').html() );
+    var templateFooter         = Handlebars.compile( $('#template-footer').html() );
+    var templateArticle        = Handlebars.compile( $('#template-article').html() );
+    var templateCompareArticle = Handlebars.compile( $('#template-compare-article').html() );
+    var templateGenerator      = Handlebars.compile( $('#template-generator').html() );
+    var templateProject        = Handlebars.compile( $('#template-project').html() );
+    var templateSections       = Handlebars.compile( $('#template-sections').html() );
+    var templateSidenav        = Handlebars.compile( $('#template-sidenav').html() );
+
+    //
+    // Default host url used if no sampleUrl is present in config
+    //
+    var baseURL = window.location.origin;
+
+    //
+    // apiProject defaults
+    //
+    if ( ! apiProject.template)
+        apiProject.template = {};
+
+    if (apiProject.template.withCompare == null)
+        apiProject.template.withCompare = true;
+
+    if (apiProject.template.withGenerator == null)
+        apiProject.template.withGenerator = true;
+
+    if (apiProject.template.forceLanguage)
+        locale.setLanguage(apiProject.template.forceLanguage);
+
+    if (apiProject.template.aloneDisplay == null)
+        apiProject.template.aloneDisplay = false;
+
+    // Setup jQuery Ajax
+    $.ajaxSetup(apiProject.template.jQueryAjaxSetup);
+
+    //
+    // Data transform
+    //
+    // grouped by group
+    var apiByGroup = _.groupBy(api, function(entry) {
+        return entry.group;
+    });
+
+    // grouped by group and name
+    var apiByGroupAndName = {};
+    $.each(apiByGroup, function(index, entries) {
+        apiByGroupAndName[index] = _.groupBy(entries, function(entry) {
+            return entry.name;
+        });
+    });
+
+    //
+    // sort api within a group by title ASC and custom order
+    //
+    var newList = [];
+    var umlauts = { 'ä': 'ae', 'ü': 'ue', 'ö': 'oe', 'ß': 'ss' }; // TODO: remove in version 1.0
+    $.each (apiByGroupAndName, function(index, groupEntries) {
+        // get titles from the first entry of group[].name[] (name has versioning)
+        var titles = [];
+        $.each (groupEntries, function(titleName, entries) {
+            var title = entries[0].title;
+            if(title !== undefined) {
+                title.toLowerCase().replace(/[äöüß]/g, function($0) { return umlauts[$0]; });
+                titles.push(title + '#~#' + titleName); // '#~#' keep reference to titleName after sorting
+            }
+        });
+        // sort by name ASC
+        titles.sort();
+
+        // custom order
+        if (apiProject.order)
+            titles = sortByOrder(titles, apiProject.order, '#~#');
+
+        // add single elements to the new list
+        titles.forEach(function(name) {
+            var values = name.split('#~#');
+            var key = values[1];
+            groupEntries[key].forEach(function(entry) {
+                newList.push(entry);
+            });
+        });
+    });
+    // api overwrite with ordered list
+    api = newList;
+
+    //
+    // Group- and Versionlists
+    //
+    var apiGroups = {};
+    var apiGroupTitles = {};
+    var apiVersions = {};
+    apiVersions[apiProject.version] = 1;
+
+    $.each(api, function(index, entry) {
+        apiGroups[entry.group] = 1;
+        apiGroupTitles[entry.group] = entry.groupTitle || entry.group;
+        apiVersions[entry.version] = 1;
+    });
+
+    // sort groups
+    apiGroups = Object.keys(apiGroups);
+    apiGroups.sort();
+
+    // custom order
+    if (apiProject.order)
+        apiGroups = sortByOrder(apiGroups, apiProject.order);
+
+    // sort versions DESC
+    apiVersions = Object.keys(apiVersions);
+    apiVersions.sort(semver.compare);
+    apiVersions.reverse();
+
+    //
+    // create Navigationlist
+    //
+    var nav = [];
+    apiGroups.forEach(function(group) {
+        // Mainmenu entry
+        nav.push({
+            group: group,
+            isHeader: true,
+            title: apiGroupTitles[group]
+        });
+
+        // Submenu
+        var oldName = '';
+        api.forEach(function(entry) {
+            if (entry.group === group) {
+                if (oldName !== entry.name) {
+                    nav.push({
+                        title: entry.title,
+                        group: group,
+                        name: entry.name,
+                        type: entry.type,
+                        version: entry.version,
+                        url: entry.url
+                    });
+                } else {
+                    nav.push({
+                        title: entry.title,
+                        group: group,
+                        hidden: true,
+                        name: entry.name,
+                        type: entry.type,
+                        version: entry.version,
+                        url: entry.url
+                    });
+                }
+                oldName = entry.name;
+            }
+        });
+    });
+
+    /**
+     * Add navigation items by analyzing the HTML content and searching for h1 and h2 tags
+     * @param nav Object the navigation array
+     * @param content string the compiled HTML content
+     * @param index where to insert items
+     * @return boolean true if any good-looking (i.e. with a group identifier) <h1> tag was found
+     */
+    function add_nav(nav, content, index) {
+        var found_level1 = false;
+        if ( ! content) {
+          return found_level1;
+        }
+        var topics = content.match(/<h(1|2).*?>(.+?)<\/h(1|2)>/gi);
+        if ( topics ) {
+          topics.forEach(function(entry) {
+              var level = entry.substring(2,3);
+              var title = entry.replace(/<.+?>/g, '');    // Remove all HTML tags for the title
+              var entry_tags = entry.match(/id="api-([^\-]+)(?:-(.+))?"/);    // Find the group and name in the id property
+              var group = (entry_tags ? entry_tags[1] : null);
+              var name = (entry_tags ? entry_tags[2] : null);
+              if (level==1 && title && group)  {
+                  nav.splice(index, 0, {
+                      group: group,
+                      isHeader: true,
+                      title: title,
+                      isFixed: true
+                  });
+                  index++;
+                  found_level1 = true;
+              }
+              if (level==2 && title && group && name)    {
+                  nav.splice(index, 0, {
+                      group: group,
+                      name: name,
+                      isHeader: false,
+                      title: title,
+                      isFixed: false,
+                      version: '1.0'
+                  });
+                  index++;
+              }
+          });
+        }
+        return found_level1;
+    }
+
+    // Mainmenu Header entry
+    if (apiProject.header) {
+        var found_level1 = add_nav(nav, apiProject.header.content, 0); // Add level 1 and 2 titles
+        if (!found_level1) {    // If no Level 1 tags were found, make a title
+            nav.unshift({
+                group: '_',
+                isHeader: true,
+                title: (apiProject.header.title == null) ? locale.__('General') : apiProject.header.title,
+                isFixed: true
+            });
+        }
+    }
+
+    // Mainmenu Footer entry
+    if (apiProject.footer) {
+        var last_nav_index = nav.length;
+        var found_level1 = add_nav(nav, apiProject.footer.content, nav.length); // Add level 1 and 2 titles
+        if (!found_level1 && apiProject.footer.title != null) {    // If no Level 1 tags were found, make a title
+            nav.splice(last_nav_index, 0, {
+                group: '_footer',
+                isHeader: true,
+                title: apiProject.footer.title,
+                isFixed: true
+            });
+        }
+    }
+
+    // render pagetitle
+    var title = apiProject.title ? apiProject.title : 'apiDoc: ' + apiProject.name + ' - ' + apiProject.version;
+    $(document).attr('title', title);
+
+    // remove loader
+    $('#loader').remove();
+
+    // render sidenav
+    var fields = {
+        nav: nav
+    };
+    $('#sidenav').append( templateSidenav(fields) );
+
+    // render Generator
+    $('#generator').append( templateGenerator(apiProject) );
+
+    // render Project
+    _.extend(apiProject, { versions: apiVersions});
+    $('#project').append( templateProject(apiProject) );
+
+    // render apiDoc, header/footer documentation
+    if (apiProject.header)
+        $('#header').append( templateHeader(apiProject.header) );
+
+    if (apiProject.footer)
+        $('#footer').append( templateFooter(apiProject.footer) );
+
+    //
+    // Render Sections and Articles
+    //
+    var articleVersions = {};
+    var content = '';
+    apiGroups.forEach(function(groupEntry) {
+        var articles = [];
+        var oldName = '';
+        var fields = {};
+        var title = groupEntry;
+        var description = '';
+        articleVersions[groupEntry] = {};
+
+        // render all articles of a group
+        api.forEach(function(entry) {
+            if(groupEntry === entry.group) {
+                if (oldName !== entry.name) {
+                    // determine versions
+                    api.forEach(function(versionEntry) {
+                        if (groupEntry === versionEntry.group && entry.name === versionEntry.name) {
+                            if ( ! articleVersions[entry.group].hasOwnProperty(entry.name) ) {
+                                articleVersions[entry.group][entry.name] = [];
+                            }
+                            articleVersions[entry.group][entry.name].push(versionEntry.version);
+                        }
+                    });
+                    fields = {
+                        article: entry,
+                        versions: articleVersions[entry.group][entry.name]
+                    };
+                } else {
+                    fields = {
+                        article: entry,
+                        hidden: true,
+                        versions: articleVersions[entry.group][entry.name]
+                    };
+                }
+
+                if (apiProject.sampleUrl == false) {
+                    fields.article.sampleRequest = [
+                        {
+                            "url": baseURL + fields.article.url
+                        }
+                    ];
+                }
+
+                // add prefix URL for endpoint unless it's already absolute
+                if (apiProject.url) {
+                    if (fields.article.url.substr(0, 4).toLowerCase() !== 'http') {
+                        fields.article.url = apiProject.url + fields.article.url;
+                    }
+                }
+
+                addArticleSettings(fields, entry);
+
+                if (entry.groupTitle)
+                    title = entry.groupTitle;
+
+                // TODO: make groupDescription compareable with older versions (not important for the moment)
+                if (entry.groupDescription)
+                    description = entry.groupDescription;
+
+                articles.push({
+                    article: templateArticle(fields),
+                    group: entry.group,
+                    name: entry.name,
+                    aloneDisplay: apiProject.template.aloneDisplay
+                });
+                oldName = entry.name;
+            }
+        });
+
+        // render Section with Articles
+        var fields = {
+            group: groupEntry,
+            title: title,
+            description: description,
+            articles: articles,
+            aloneDisplay: apiProject.template.aloneDisplay
+        };
+        content += templateSections(fields);
+    });
+    $('#sections').append( content );
+
+    // Bootstrap Scrollspy
+    $(this).scrollspy({ target: '#scrollingNav' });
+
+    // Content-Scroll on Navigation click.
+    $('.sidenav').find('a').on('click', function(e) {
+        e.preventDefault();
+        var id = $(this).attr('href');
+        if ($(id).length > 0)
+            $('html,body').animate({ scrollTop: parseInt($(id).offset().top) }, 400);
+        window.location.hash = $(this).attr('href');
+    });
+
+    /**
+     * Check if Parameter (sub) List has a type Field.
+     * Example: @apiSuccess          varname1 No type.
+     *          @apiSuccess {String} varname2 With type.
+     *
+     * @param {Object} fields
+     */
+    function _hasTypeInFields(fields) {
+        var result = false;
+        $.each(fields, function(name) {
+            result = result || _.some(fields[name], function(item) { return item.type; });
+        });
+        return result;
+    }
+
+    /**
+     * On Template changes, recall plugins.
+     */
+    function initDynamic() {
+        // Bootstrap popover
+        $('button[data-toggle="popover"]').popover().click(function(e) {
+            e.preventDefault();
+        });
+
+        var version = $('#version strong').html();
+        $('#sidenav li').removeClass('is-new');
+        if (apiProject.template.withCompare) {
+            $('#sidenav li[data-version=\'' + version + '\']').each(function(){
+                var group = $(this).data('group');
+                var name = $(this).data('name');
+                var length = $('#sidenav li[data-group=\'' + group + '\'][data-name=\'' + name + '\']').length;
+                var index  = $('#sidenav li[data-group=\'' + group + '\'][data-name=\'' + name + '\']').index($(this));
+                if (length === 1 || index === (length - 1))
+                    $(this).addClass('is-new');
+            });
+        }
+
+        // tabs
+        $('.nav-tabs-examples a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+        $('.nav-tabs-examples').find('a:first').tab('show');
+
+        // sample header-content-type switch
+        $('.sample-header-content-type-switch').change(function () {
+            var paramName = '.' + $(this).attr('name') + '-fields';
+            var bodyName = '.' + $(this).attr('name') + '-body';
+            var selectName = 'select[name=' + $(this).attr('name') + ']';
+            if ($(this).val() == 'body-json') {
+                $(selectName).val('undefined');
+                $(this).val('body-json');
+                $(paramName).removeClass('hide');
+                $(this).parent().nextAll(paramName).first().addClass('hide');
+                $(bodyName).addClass('hide');
+                $(this).parent().nextAll(bodyName).first().removeClass('hide');
+            } else if ($(this).val() == "body-form-data") {
+                $(selectName).val('undefined');
+                $(this).val('body-form-data');
+                $(bodyName).addClass('hide');
+                $(paramName).removeClass('hide');
+            } else {
+                $(this).parent().nextAll(paramName).first().removeClass('hide')
+                $(this).parent().nextAll(bodyName).first().addClass('hide');
+            }
+            $(this).prev('.sample-request-switch').prop('checked', true);
+        });
+
+        // sample request switch
+        $('.sample-request-switch').click(function (e) {
+            var paramName = '.' + $(this).attr('name') + '-fields';
+            var bodyName = '.' + $(this).attr('name') + '-body';
+            var select = $(this).next('.' + $(this).attr('name') + '-select').val();
+            if($(this).prop("checked")){
+                if (select == 'body-json'){
+                    $(this).parent().nextAll(bodyName).first().removeClass('hide');
+                }else {
+                    $(this).parent().nextAll(paramName).first().removeClass('hide');
+                }
+            }else {
+                if (select == 'body-json'){
+                    $(this).parent().nextAll(bodyName).first().addClass('hide');
+                }else {
+                    $(this).parent().nextAll(paramName).first().addClass('hide');
+                }
+            }
+        });
+
+        if (apiProject.template.aloneDisplay){
+            //show group
+            $('.show-group').click(function () {
+                var apiGroup = '.' + $(this).attr('data-group') + '-group';
+                var apiGroupArticle = '.' + $(this).attr('data-group') + '-article';
+                $(".show-api-group").addClass('hide');
+                $(apiGroup).removeClass('hide');
+                $(".show-api-article").addClass('hide');
+                $(apiGroupArticle).removeClass('hide');
+            });
+
+            //show api
+            $('.show-api').click(function () {
+                var apiName = '.' + $(this).attr('data-name') + '-article';
+                var apiGroup = '.' + $(this).attr('data-group') + '-group';
+                $(".show-api-group").addClass('hide');
+                $(apiGroup).removeClass('hide');
+                $(".show-api-article").addClass('hide');
+                $(apiName).removeClass('hide');
+            });
+        }
+
+        // call scrollspy refresh method
+        $(window).scrollspy('refresh');
+
+        // init modules
+        sampleRequest.initDynamic();
+        Prism.highlightAll()
+    }
+    initDynamic();
+
+    if (apiProject.template.aloneDisplay) {
+        var hashVal = window.location.hash;
+        if (hashVal != null && hashVal.length !== 0) {
+            $("." + hashVal.slice(1) + "-init").click();
+        }
+    }
+
+    //
+    // HTML-Template specific jQuery-Functions
+    //
+    // Change Main Version
+    function setMainVersion(selectedVersion) {
+        if (typeof(selectedVersion) === 'undefined') {
+            selectedVersion = $('#version strong').html();
+        }
+        else {
+            $('#version strong').html(selectedVersion);
+        }
+
+        // hide all
+        $('article').addClass('hide');
+        $('#sidenav li:not(.nav-fixed)').addClass('hide');
+
+        // show 1st equal or lower Version of each entry
+        $('article[data-version]').each(function(index) {
+            var group = $(this).data('group');
+            var name = $(this).data('name');
+            var version = $(this).data('version');
+
+            if (semver.lte(version, selectedVersion)) {
+                if ($('article[data-group=\'' + group + '\'][data-name=\'' + name + '\']:visible').length === 0) {
+                    // enable Article
+                    $('article[data-group=\'' + group + '\'][data-name=\'' + name + '\'][data-version=\'' + version + '\']').removeClass('hide');
+                    // enable Navigation
+                    $('#sidenav li[data-group=\'' + group + '\'][data-name=\'' + name + '\'][data-version=\'' + version + '\']').removeClass('hide');
+                    $('#sidenav li.nav-header[data-group=\'' + group + '\']').removeClass('hide');
+                }
+            }
+        });
+
+        // show 1st equal or lower Version of each entry
+        $('article[data-version]').each(function(index) {
+            var group = $(this).data('group');
+            $('section#api-' + group).removeClass('hide');
+            if ($('section#api-' + group + ' article:visible').length === 0) {
+                $('section#api-' + group).addClass('hide');
+            } else {
+                $('section#api-' + group).removeClass('hide');
+            }
+        });
+
+        initDynamic();
+        return;
+    }
+    setMainVersion();
+
+    $('#versions li.version a').on('click', function(e) {
+        e.preventDefault();
+
+        setMainVersion($(this).html());
+    });
+
+    // compare all article with their predecessor
+    $('#compareAllWithPredecessor').on('click', changeAllVersionCompareTo);
+
+    // change version of an article
+    $('article .versions li.version a').on('click', changeVersionCompareTo);
+
+    // compare url-parameter
+    $.urlParam = function(name) {
+        var results = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+        return (results && results[1]) ? results[1] : null;
+    };
+
+    if ($.urlParam('compare')) {
+        // URL Paramter ?compare=1 is set
+        $('#compareAllWithPredecessor').trigger('click');
+    }
+
+    // Quick jump on page load to hash position.
+    // Should happen after setting the main version
+    // and after triggering the click on the compare button,
+    // as these actions modify the content
+    // and would make it jump to the wrong position or not jump at all.
+    if (window.location.hash) {
+        var id = decodeURI(window.location.hash);
+        if ($(id).length > 0)
+            $('html,body').animate({ scrollTop: parseInt($(id).offset().top) }, 0);
+    }
+
+    /**
+     * Initialize search
+     */
+    var options = {
+      valueNames: [ 'nav-list-item','nav-list-url-item']
+    };
+    var endpointsList = new List('scrollingNav', options);
+
+    /**
+     * Set initial focus to search input
+     */
+    $('#scrollingNav .sidenav-search input.search').focus();
+
+    /**
+     * Detect ESC key to reset search
+     */
+    $(document).keyup(function(e) {
+      if (e.keyCode === 27) $('span.search-reset').click();
+    });
+
+    /**
+     * Search reset
+     */
+    $('span.search-reset').on('click', function() {
+      $('#scrollingNav .sidenav-search input.search')
+        .val("")
+        .focus()
+      ;
+      endpointsList.search();
+    });
+
+    /**
+     * Change version of an article to compare it to an other version.
+     */
+    function changeVersionCompareTo(e) {
+        e.preventDefault();
+
+        var $root = $(this).parents('article');
+        var selectedVersion = $(this).html();
+        var $button = $root.find('.version');
+        var currentVersion = $button.find('strong').html();
+        $button.find('strong').html(selectedVersion);
+
+        var group = $root.data('group');
+        var name = $root.data('name');
+        var version = $root.data('version');
+
+        var compareVersion = $root.data('compare-version');
+
+        if (compareVersion === selectedVersion)
+            return;
+
+        if ( ! compareVersion && version == selectedVersion)
+            return;
+
+        if (compareVersion && articleVersions[group][name][0] === selectedVersion || version === selectedVersion) {
+            // the version of the entry is set to the highest version (reset)
+            resetArticle(group, name, version);
+        } else {
+            var $compareToArticle = $('article[data-group=\'' + group + '\'][data-name=\'' + name + '\'][data-version=\'' + selectedVersion + '\']');
+
+            var sourceEntry = {};
+            var compareEntry = {};
+            $.each(apiByGroupAndName[group][name], function(index, entry) {
+                if (entry.version === version)
+                    sourceEntry = entry;
+                if (entry.version === selectedVersion)
+                    compareEntry = entry;
+            });
+
+            var fields = {
+                article: sourceEntry,
+                compare: compareEntry,
+                versions: articleVersions[group][name]
+            };
+
+            // add unique id
+            // TODO: replace all group-name-version in template with id.
+            fields.article.id = fields.article.group + '-' + fields.article.name + '-' + fields.article.version;
+            fields.article.id = fields.article.id.replace(/\./g, '_');
+
+            fields.compare.id = fields.compare.group + '-' + fields.compare.name + '-' + fields.compare.version;
+            fields.compare.id = fields.compare.id.replace(/\./g, '_');
+
+            var entry = sourceEntry;
+            if (entry.parameter && entry.parameter.fields)
+                fields._hasTypeInParameterFields = _hasTypeInFields(entry.parameter.fields);
+
+            if (entry.error && entry.error.fields)
+                fields._hasTypeInErrorFields = _hasTypeInFields(entry.error.fields);
+
+            if (entry.success && entry.success.fields)
+                fields._hasTypeInSuccessFields = _hasTypeInFields(entry.success.fields);
+
+            if (entry.info && entry.info.fields)
+                fields._hasTypeInInfoFields = _hasTypeInFields(entry.info.fields);
+
+            var entry = compareEntry;
+            if (fields._hasTypeInParameterFields !== true && entry.parameter && entry.parameter.fields)
+                fields._hasTypeInParameterFields = _hasTypeInFields(entry.parameter.fields);
+
+            if (fields._hasTypeInErrorFields !== true && entry.error && entry.error.fields)
+                fields._hasTypeInErrorFields = _hasTypeInFields(entry.error.fields);
+
+            if (fields._hasTypeInSuccessFields !== true && entry.success && entry.success.fields)
+                fields._hasTypeInSuccessFields = _hasTypeInFields(entry.success.fields);
+
+            if (fields._hasTypeInInfoFields !== true && entry.info && entry.info.fields)
+                fields._hasTypeInInfoFields = _hasTypeInFields(entry.info.fields);
+
+            var content = templateCompareArticle(fields);
+            $root.after(content);
+            var $content = $root.next();
+
+            // Event on.click re-assign
+            $content.find('.versions li.version a').on('click', changeVersionCompareTo);
+
+            // select navigation
+            $('#sidenav li[data-group=\'' + group + '\'][data-name=\'' + name + '\'][data-version=\'' + currentVersion + '\']').addClass('has-modifications');
+
+            $root.remove();
+            // TODO: on change main version or select the highest version re-render
+        }
+
+        initDynamic();
+    }
+
+    /**
+     * Compare all currently selected Versions with their predecessor.
+     */
+    function changeAllVersionCompareTo(e) {
+        e.preventDefault();
+        $('article:visible .versions').each(function(){
+            var $root = $(this).parents('article');
+            var currentVersion = $root.data('version');
+            var $foundElement = null;
+            $(this).find('li.version a').each(function() {
+                var selectVersion = $(this).html();
+                if (selectVersion < currentVersion && ! $foundElement)
+                    $foundElement = $(this);
+            });
+
+            if($foundElement)
+                $foundElement.trigger('click');
+        });
+        initDynamic();
+    }
+
+    /**
+     * Sort the fields.
+     */
+    function sortFields(fields_object) {
+        $.each(fields_object, function (key, fields) {
+            // Find only object fields
+            var objects = fields.filter(function(item) { return item.type === "Object"; });
+
+            // Check if has any object
+            if (objects.length === 0) {
+                return;
+            }
+
+            // Iterate over all objects
+            for(var object of objects) {
+                // Retrieve the index
+                var index = fields.indexOf(object);
+
+                // Find all child fields for this object
+                var objectFields = fields.filter(function(item) { return item.field.indexOf(object.field + ".") > -1; });
+
+                // Get the child index
+                var firstIndex = fields.indexOf(objectFields[0]);
+
+                // Put the object it before the first child index
+                fields.splice(index, 1);
+                fields.splice(firstIndex, 0, object);
+
+                // Startup the last index with the object index 
+                var lastIndex = firstIndex;
+
+                // Iterate over all children
+                for(var child of objectFields) {
+                    lastIndex++;
+
+                    // Retrieve the index
+                    var childIndex = fields.indexOf(child);
+
+                    // Put it after the object declaration
+                    fields.splice(childIndex, 1);
+                    fields.splice(lastIndex, 0, child);
+                }
+            }
+
+            // Retrieve the first object field index
+            var firstObjectIndex = fields.indexOf(objects[0]);
+
+            // Find all non-object fields that doesn't contain dot notation
+            var nonObjects = fields.filter(function(item) { return item.field.indexOf(".") === -1 && item.type !== "Object"; });
+
+            // Iterate over all non-objects
+            for(var nonObject of nonObjects) {
+                // Put it before the first object field
+                var index = fields.indexOf(nonObject);
+                fields.splice(index, 1);
+                fields.splice(firstObjectIndex, 0, nonObject);
+            }
+        });
+    }
+
+    /**
+     * Add article settings.
+     */
+    function addArticleSettings(fields, entry) {
+        // add unique id
+        // TODO: replace all group-name-version in template with id.
+        fields.id = fields.article.group + '-' + fields.article.name + '-' + fields.article.version;
+        fields.id = fields.id.replace(/\./g, '_');
+
+        if (entry.header && entry.header.fields) {
+            sortFields(entry.header.fields);
+            fields._hasTypeInHeaderFields = _hasTypeInFields(entry.header.fields);
+        }
+
+        if (entry.parameter && entry.parameter.fields) {
+            sortFields(entry.parameter.fields);
+            fields._hasTypeInParameterFields = _hasTypeInFields(entry.parameter.fields);
+        }
+
+        if (entry.error && entry.error.fields) {
+            sortFields(entry.error.fields);
+            fields._hasTypeInErrorFields = _hasTypeInFields(entry.error.fields);
+        }
+
+        if (entry.success && entry.success.fields) {
+            sortFields(entry.success.fields);
+            fields._hasTypeInSuccessFields = _hasTypeInFields(entry.success.fields);
+        }
+
+        if (entry.info && entry.info.fields) {
+            sortFields(entry.info.fields);
+            fields._hasTypeInInfoFields = _hasTypeInFields(entry.info.fields);
+        }
+
+        // add template settings
+        fields.template = apiProject.template;
+    }
+
+    /**
+     * Render Article.
+     */
+    function renderArticle(group, name, version) {
+        var entry = {};
+        $.each(apiByGroupAndName[group][name], function(index, currentEntry) {
+            if (currentEntry.version === version)
+                entry = currentEntry;
+        });
+        var fields = {
+            article: entry,
+            versions: articleVersions[group][name]
+        };
+
+        addArticleSettings(fields, entry);
+
+        return templateArticle(fields);
+    }
+
+    /**
+     * Render original Article and remove the current visible Article.
+     */
+    function resetArticle(group, name, version) {
+        var $root = $('article[data-group=\'' + group + '\'][data-name=\'' + name + '\']:visible');
+        var content = renderArticle(group, name, version);
+
+        $root.after(content);
+        var $content = $root.next();
+
+        // Event on.click needs to be reassigned (should actually work with on ... automatically)
+        $content.find('.versions li.version a').on('click', changeVersionCompareTo);
+
+        $('#sidenav li[data-group=\'' + group + '\'][data-name=\'' + name + '\'][data-version=\'' + version + '\']').removeClass('has-modifications');
+
+        $root.remove();
+        return;
+    }
+
+    /**
+     * Return ordered entries by custom order and append not defined entries to the end.
+     * @param  {String[]} elements
+     * @param  {String[]} order
+     * @param  {String}   splitBy
+     * @return {String[]} Custom ordered list.
+     */
+    function sortByOrder(elements, order, splitBy) {
+        var results = [];
+        order.forEach (function(name) {
+            if (splitBy)
+                elements.forEach (function(element) {
+                    var parts = element.split(splitBy);
+                    var key = parts[0]; // reference keep for sorting
+                    if (key == name || parts[1] == name)
+                        results.push(element);
+                });
+            else
+                elements.forEach (function(key) {
+                    if (key == name)
+                        results.push(name);
+                });
+        });
+        // Append all other entries that ar not defined in order
+        elements.forEach(function(element) {
+            if (results.indexOf(element) === -1)
+                results.push(element);
+        });
+        return results;
+    }
+    Prism.highlightAll()
+}

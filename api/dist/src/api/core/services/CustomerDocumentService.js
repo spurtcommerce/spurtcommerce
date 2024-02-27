@@ -1,1 +1,97 @@
-'use strict';function a558_0x277b(){const _0x2f8bf3=['design:paramtypes','2399688eYlcZt','../../../decorators/Logger','save','findOne','length','12LLGjvc','forEach','info','__awaiter','74548hezxCJ','31005QDLlDy','order','__metadata','name','log','tslib','find','__decorate','findAll','Like','__param','like','OrmRepository','2NiwqkL','typeorm/index','4720023DgPKLt','../repositories/CustomerDocumentRepository','value','__esModule','where','customerDocumentId','CustomerDocumentRepository','CustomerDocumentService','delete','take','110bpBwHr','update','Service','Logger','588503qDqOeA','33FLMbUk','create','typedi','1469022DWyaXL','10jcEFzP','select','14079758ddRWJi','DESC','defineProperty','customerDocumentRepository','Create\x20a\x20new\x20customer\x20document\x20'];a558_0x277b=function(){return _0x2f8bf3;};return a558_0x277b();}const a558_0x27148f=a558_0x4e91;(function(_0x5b95b4,_0x1e99e3){const _0x295a4e=a558_0x4e91,_0x57fddd=_0x5b95b4();while(!![]){try{const _0x3e0400=-parseInt(_0x295a4e(0xb1))/0x1*(-parseInt(_0x295a4e(0xd5))/0x2)+-parseInt(_0x295a4e(0xb2))/0x3*(-parseInt(_0x295a4e(0xc7))/0x4)+parseInt(_0x295a4e(0xb6))/0x5*(parseInt(_0x295a4e(0xb5))/0x6)+parseInt(_0x295a4e(0xd7))/0x7+-parseInt(_0x295a4e(0xbe))/0x8+-parseInt(_0x295a4e(0xc8))/0x9*(parseInt(_0x295a4e(0xad))/0xa)+-parseInt(_0x295a4e(0xb8))/0xb*(parseInt(_0x295a4e(0xc3))/0xc);if(_0x3e0400===_0x1e99e3)break;else _0x57fddd['push'](_0x57fddd['shift']());}catch(_0x4352d5){_0x57fddd['push'](_0x57fddd['shift']());}}}(a558_0x277b,0x52eb7));function a558_0x4e91(_0x5f3a00,_0x5f7327){const _0x277bb4=a558_0x277b();return a558_0x4e91=function(_0x4e9187,_0x257055){_0x4e9187=_0x4e9187-0xa9;let _0x2db41d=_0x277bb4[_0x4e9187];return _0x2db41d;},a558_0x4e91(_0x5f3a00,_0x5f7327);}Object[a558_0x27148f(0xba)](exports,a558_0x27148f(0xda),{'value':!![]}),exports['CustomerDocumentService']=void 0x0;const tslib_1=require(a558_0x27148f(0xcd)),typedi_1=require(a558_0x27148f(0xb4)),typeorm_typedi_extensions_1=require('typeorm-typedi-extensions'),Logger_1=require(a558_0x27148f(0xbf)),index_1=require(a558_0x27148f(0xd6)),CustomerDocumentRepository_1=require(a558_0x27148f(0xd8));let CustomerDocumentService=class CustomerDocumentService{constructor(_0x30c119,_0x32a98b){const _0x550d3e=a558_0x27148f;this[_0x550d3e(0xbb)]=_0x30c119,this[_0x550d3e(0xcc)]=_0x32a98b;}[a558_0x27148f(0xb3)](_0xb75d9c){const _0x411b7f=a558_0x27148f;return tslib_1[_0x411b7f(0xc6)](this,void 0x0,void 0x0,function*(){const _0x40adbd=_0x411b7f;return this[_0x40adbd(0xcc)][_0x40adbd(0xc5)](_0x40adbd(0xbc)),this[_0x40adbd(0xbb)][_0x40adbd(0xc0)](_0xb75d9c);});}['findOne'](_0x4c25f3){const _0x255957=a558_0x27148f;return this['customerDocumentRepository'][_0x255957(0xc1)](_0x4c25f3);}[a558_0x27148f(0xd0)](){const _0x26fe8b=a558_0x27148f;return this['customerDocumentRepository'][_0x26fe8b(0xce)]();}[a558_0x27148f(0xce)](_0x19f506){const _0x352565=a558_0x27148f;return this['customerDocumentRepository'][_0x352565(0xce)](_0x19f506);}[a558_0x27148f(0xae)](_0x20059d,_0x12bede){const _0x545bb8=a558_0x27148f;return _0x12bede[_0x545bb8(0xdc)]=_0x20059d,this[_0x545bb8(0xbb)][_0x545bb8(0xc0)](_0x12bede);}['list'](_0x5a9e6c,_0xe84016,_0x1d3fff=[],_0x3c343d=[],_0x89c089=[],_0x39f0d8){const _0x31f836=a558_0x27148f,_0x3d1037={};return _0x1d3fff&&_0x1d3fff[_0x31f836(0xc2)]>0x0&&(_0x3d1037[_0x31f836(0xb7)]=_0x1d3fff),_0x3d1037[_0x31f836(0xdb)]={},_0x89c089&&_0x89c089[_0x31f836(0xc2)]>0x0&&_0x89c089[_0x31f836(0xc4)](_0x3a186b=>{const _0x42495a=_0x31f836;_0x3d1037[_0x42495a(0xdb)][_0x3a186b[_0x42495a(0xcb)]]=_0x3a186b[_0x42495a(0xd9)];}),_0x3c343d&&_0x3c343d['length']>0x0&&_0x3c343d['forEach'](_0x1b7c87=>{const _0x50766b=_0x31f836,_0x1c04f6=_0x1b7c87['op'];if(_0x1c04f6===_0x50766b(0xdb)&&_0x1b7c87['value']!=='')_0x3d1037['where'][_0x1b7c87[_0x50766b(0xcb)]]=_0x1b7c87[_0x50766b(0xd9)];else _0x1c04f6===_0x50766b(0xd3)&&_0x1b7c87[_0x50766b(0xd9)]!==''&&(_0x3d1037[_0x50766b(0xdb)][_0x1b7c87[_0x50766b(0xcb)]]=(0x0,index_1[_0x50766b(0xd1)])('%'+_0x1b7c87[_0x50766b(0xd9)]+'%'));}),_0x3d1037[_0x31f836(0xc9)]={'createdDate':_0x31f836(0xb9)},_0x5a9e6c&&_0x5a9e6c>0x0&&(_0x3d1037[_0x31f836(0xac)]=_0x5a9e6c,_0x3d1037['skip']=_0xe84016),_0x39f0d8?this['customerDocumentRepository']['count'](_0x3d1037):this['customerDocumentRepository'][_0x31f836(0xce)](_0x3d1037);}['delete'](_0x2331e4){const _0x3cc727=a558_0x27148f;return tslib_1[_0x3cc727(0xc6)](this,void 0x0,void 0x0,function*(){const _0x14deb1=_0x3cc727;return yield this[_0x14deb1(0xbb)][_0x14deb1(0xab)](_0x2331e4);});}};CustomerDocumentService=tslib_1[a558_0x27148f(0xcf)]([(0x0,typedi_1[a558_0x27148f(0xaf)])(),tslib_1[a558_0x27148f(0xd2)](0x0,(0x0,typeorm_typedi_extensions_1[a558_0x27148f(0xd4)])()),tslib_1['__param'](0x1,(0x0,Logger_1[a558_0x27148f(0xb0)])(__filename)),tslib_1[a558_0x27148f(0xca)](a558_0x27148f(0xbd),[CustomerDocumentRepository_1[a558_0x27148f(0xa9)],Object])],CustomerDocumentService),exports[a558_0x27148f(0xaa)]=CustomerDocumentService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CustomerDocumentService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const index_1 = require("typeorm/index");
+const CustomerDocumentRepository_1 = require("../repositories/CustomerDocumentRepository");
+let CustomerDocumentService = class CustomerDocumentService {
+    constructor(customerDocumentRepository, log) {
+        this.customerDocumentRepository = customerDocumentRepository;
+        this.log = log;
+    }
+    // create customer document
+    create(customerDocument) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new customer document ');
+            return this.customerDocumentRepository.save(customerDocument);
+        });
+    }
+    // find Condition
+    findOne(customerDocument) {
+        return this.customerDocumentRepository.findOne(customerDocument);
+    }
+    // find all Condition
+    findAll() {
+        return this.customerDocumentRepository.find();
+    }
+    // find Condition
+    find(data) {
+        return this.customerDocumentRepository.find(data);
+    }
+    // update customer document
+    update(id, customerDocument) {
+        customerDocument.customerDocumentId = id;
+        return this.customerDocumentRepository.save(customerDocument);
+    }
+    // customer document List
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== '') {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== '') {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        condition.order = {
+            createdDate: 'DESC',
+        };
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.customerDocumentRepository.count(condition);
+        }
+        else {
+            return this.customerDocumentRepository.find(condition);
+        }
+    }
+    // delete customer document
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.customerDocumentRepository.delete(id);
+        });
+    }
+};
+CustomerDocumentService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [CustomerDocumentRepository_1.CustomerDocumentRepository, Object])
+], CustomerDocumentService);
+exports.CustomerDocumentService = CustomerDocumentService;
+//# sourceMappingURL=CustomerDocumentService.js.map

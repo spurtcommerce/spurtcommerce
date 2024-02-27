@@ -1,1 +1,67 @@
-'use strict';const a385_0x3e3917=a385_0x34f9;function a385_0x34f9(_0x50758c,_0x567ec7){const _0x3e228c=a385_0x3e22();return a385_0x34f9=function(_0x34f999,_0x3b9485){_0x34f999=_0x34f999-0x95;let _0x406041=_0x3e228c[_0x34f999];return _0x406041;},a385_0x34f9(_0x50758c,_0x567ec7);}(function(_0x7ab7f6,_0x228ea9){const _0x7625e2=a385_0x34f9,_0x1569e5=_0x7ab7f6();while(!![]){try{const _0x44c2ba=-parseInt(_0x7625e2(0xb9))/0x1+-parseInt(_0x7625e2(0x96))/0x2*(parseInt(_0x7625e2(0xba))/0x3)+parseInt(_0x7625e2(0xac))/0x4+parseInt(_0x7625e2(0xa6))/0x5+parseInt(_0x7625e2(0xa7))/0x6*(parseInt(_0x7625e2(0xad))/0x7)+-parseInt(_0x7625e2(0xb4))/0x8+parseInt(_0x7625e2(0xae))/0x9*(parseInt(_0x7625e2(0xa4))/0xa);if(_0x44c2ba===_0x228ea9)break;else _0x1569e5['push'](_0x1569e5['shift']());}catch(_0x45cbdc){_0x1569e5['push'](_0x1569e5['shift']());}}}(a385_0x3e22,0x61cb4));Object['defineProperty'](exports,a385_0x3e3917(0xb6),{'value':!![]}),exports[a385_0x3e3917(0x9b)]=void 0x0;const tslib_1=require(a385_0x3e3917(0xbc)),class_validator_1=require('class-validator'),typeorm_1=require(a385_0x3e3917(0xa9)),BaseModel_1=require(a385_0x3e3917(0xb8)),moment_1=tslib_1[a385_0x3e3917(0x99)](require(a385_0x3e3917(0xab)));let LoginLog=class LoginLog extends BaseModel_1['BaseModel']{[a385_0x3e3917(0xaf)](){const _0x505da6=a385_0x3e3917;return tslib_1[_0x505da6(0xb0)](this,void 0x0,void 0x0,function*(){const _0xf879f6=_0x505da6;this[_0xf879f6(0x98)]=(0x0,moment_1['default'])()[_0xf879f6(0x9d)](_0xf879f6(0xb1));});}[a385_0x3e3917(0xbb)](){const _0x46ab69=a385_0x3e3917;return tslib_1[_0x46ab69(0xb0)](this,void 0x0,void 0x0,function*(){const _0x290a12=_0x46ab69;this[_0x290a12(0x9a)]=(0x0,moment_1[_0x290a12(0xb7)])()[_0x290a12(0x9d)](_0x290a12(0xb1));});}};function a385_0x3e22(){const _0x3c6870=['default','./BaseModel','589294nFIzCT','5961GzzPrh','updateDetails','tslib','design:returntype','292eqBSfo','IsNotEmpty','createdDate','__importDefault','modifiedDate','LoginLog','__decorate','format','ip_address','design:paramtypes','first_name','Entity','firstName','ipAddress','1466770kDfLwZ','Column','1969410OCyQQQ','237426DWzMxC','prototype','typeorm','email_id','moment','2438512FVGZAg','49bnmJiY','18uiFQGw','hashPassword','__awaiter','YYYY-MM-DD\x20HH:mm:ss','__metadata','customerId','2351208rGBZFC','design:type','__esModule'];a385_0x3e22=function(){return _0x3c6870;};return a385_0x3e22();}tslib_1[a385_0x3e3917(0x9c)]([(0x0,class_validator_1[a385_0x3e3917(0x97)])(),(0x0,typeorm_1['PrimaryGeneratedColumn'])(),tslib_1['__metadata']('design:type',Number)],LoginLog[a385_0x3e3917(0xa8)],'id',void 0x0),tslib_1[a385_0x3e3917(0x9c)]([(0x0,class_validator_1[a385_0x3e3917(0x97)])(),(0x0,typeorm_1['Column'])({'name':'customer_id'}),tslib_1[a385_0x3e3917(0xb2)](a385_0x3e3917(0xb5),Number)],LoginLog['prototype'],a385_0x3e3917(0xb3),void 0x0),tslib_1[a385_0x3e3917(0x9c)]([(0x0,class_validator_1['IsEmail'])(),(0x0,typeorm_1['Column'])({'name':a385_0x3e3917(0xaa)}),tslib_1['__metadata'](a385_0x3e3917(0xb5),String)],LoginLog[a385_0x3e3917(0xa8)],'emailId',void 0x0),tslib_1[a385_0x3e3917(0x9c)]([(0x0,typeorm_1[a385_0x3e3917(0xa5)])({'name':a385_0x3e3917(0xa0)}),tslib_1[a385_0x3e3917(0xb2)](a385_0x3e3917(0xb5),String)],LoginLog[a385_0x3e3917(0xa8)],a385_0x3e3917(0xa2),void 0x0),tslib_1[a385_0x3e3917(0x9c)]([(0x0,typeorm_1[a385_0x3e3917(0xa5)])({'name':a385_0x3e3917(0x9e)}),tslib_1[a385_0x3e3917(0xb2)](a385_0x3e3917(0xb5),String)],LoginLog['prototype'],a385_0x3e3917(0xa3),void 0x0),tslib_1[a385_0x3e3917(0x9c)]([(0x0,typeorm_1['BeforeInsert'])(),tslib_1['__metadata'](a385_0x3e3917(0xb5),Function),tslib_1[a385_0x3e3917(0xb2)](a385_0x3e3917(0x9f),[]),tslib_1[a385_0x3e3917(0xb2)](a385_0x3e3917(0x95),Promise)],LoginLog['prototype'],a385_0x3e3917(0xaf),null),tslib_1[a385_0x3e3917(0x9c)]([(0x0,typeorm_1['BeforeUpdate'])(),tslib_1[a385_0x3e3917(0xb2)]('design:type',Function),tslib_1[a385_0x3e3917(0xb2)](a385_0x3e3917(0x9f),[]),tslib_1[a385_0x3e3917(0xb2)]('design:returntype',Promise)],LoginLog['prototype'],a385_0x3e3917(0xbb),null),LoginLog=tslib_1['__decorate']([(0x0,typeorm_1[a385_0x3e3917(0xa1)])('login_log')],LoginLog),exports['LoginLog']=LoginLog;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LoginLog = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+let LoginLog = class LoginLog extends BaseModel_1.BaseModel {
+    hashPassword() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], LoginLog.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'customer_id' }),
+    tslib_1.__metadata("design:type", Number)
+], LoginLog.prototype, "customerId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    (0, typeorm_1.Column)({ name: 'email_id' }),
+    tslib_1.__metadata("design:type", String)
+], LoginLog.prototype, "emailId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'first_name' }),
+    tslib_1.__metadata("design:type", String)
+], LoginLog.prototype, "firstName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'ip_address' }),
+    tslib_1.__metadata("design:type", String)
+], LoginLog.prototype, "ipAddress", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], LoginLog.prototype, "hashPassword", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], LoginLog.prototype, "updateDetails", null);
+LoginLog = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('login_log')
+], LoginLog);
+exports.LoginLog = LoginLog;
+//# sourceMappingURL=LoginLog.js.map

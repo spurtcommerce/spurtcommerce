@@ -1,1 +1,36 @@
-'use strict';function a762_0xf2a0(){const _0x5bc966=['down','1335838aDKQgH','48mCKeWy','874796lwbyiG','181730OKeNLA','2601440PWRpDR','929958zGXXVO','order','foreignKeys','27HJWqRR','fk_customer_transaction_order1','AddCustomerTransactionRelationToOrderTable1546592870823','dropForeignKey','indexOf','getTable','__esModule','columnNames','tslib','3706632mAbvio','customer_transaction','__awaiter','178005qzYgbX','find','order_id','typeorm','tableForeignKey'];a762_0xf2a0=function(){return _0x5bc966;};return a762_0xf2a0();}const a762_0x1a1520=a762_0x1e8f;function a762_0x1e8f(_0x5cdc1d,_0x3d0943){const _0xf2a05f=a762_0xf2a0();return a762_0x1e8f=function(_0x1e8f0d,_0x234456){_0x1e8f0d=_0x1e8f0d-0xb3;let _0x798534=_0xf2a05f[_0x1e8f0d];return _0x798534;},a762_0x1e8f(_0x5cdc1d,_0x3d0943);}(function(_0x12f21b,_0x5e0eb0){const _0xaae594=a762_0x1e8f,_0x4a7bef=_0x12f21b();while(!![]){try{const _0x4fb316=parseInt(_0xaae594(0xbc))/0x1+parseInt(_0xaae594(0xb9))/0x2+-parseInt(_0xaae594(0xcb))/0x3+parseInt(_0xaae594(0xbb))/0x4+-parseInt(_0xaae594(0xba))/0x5*(parseInt(_0xaae594(0xb8))/0x6)+parseInt(_0xaae594(0xb7))/0x7+-parseInt(_0xaae594(0xc8))/0x8*(parseInt(_0xaae594(0xbf))/0x9);if(_0x4fb316===_0x5e0eb0)break;else _0x4a7bef['push'](_0x4a7bef['shift']());}catch(_0x494a5c){_0x4a7bef['push'](_0x4a7bef['shift']());}}}(a762_0xf2a0,0x725ec));Object['defineProperty'](exports,a762_0x1a1520(0xc5),{'value':!![]}),exports[a762_0x1a1520(0xc1)]=void 0x0;const tslib_1=require(a762_0x1a1520(0xc7)),typeorm_1=require(a762_0x1a1520(0xb4));class AddCustomerTransactionRelationToOrderTable1546592870823{constructor(){const _0x4f86f7=a762_0x1a1520;this[_0x4f86f7(0xb5)]=new typeorm_1['TableForeignKey']({'name':_0x4f86f7(0xc0),'columnNames':[_0x4f86f7(0xb3)],'referencedColumnNames':['order_id'],'referencedTableName':_0x4f86f7(0xbd),'onDelete':'CASCADE'});}['up'](_0xb27fff){const _0x22d828=a762_0x1a1520;return tslib_1[_0x22d828(0xca)](this,void 0x0,void 0x0,function*(){const _0x298870=_0x22d828,_0x6997f8=yield _0xb27fff[_0x298870(0xc4)](_0x298870(0xc9)),_0x1909c5=_0x6997f8[_0x298870(0xbe)][_0x298870(0xcc)](_0x14b2d9=>_0x14b2d9[_0x298870(0xc6)]['indexOf']('order_id')!==-0x1);!_0x1909c5&&(yield _0xb27fff['createForeignKey'](_0x6997f8,this[_0x298870(0xb5)]));});}[a762_0x1a1520(0xb6)](_0x498631){const _0x1fa8aa=a762_0x1a1520;return tslib_1[_0x1fa8aa(0xca)](this,void 0x0,void 0x0,function*(){const _0x35bb32=_0x1fa8aa,_0x41456d=yield _0x498631[_0x35bb32(0xc4)](_0x35bb32(0xc9)),_0x173187=_0x41456d[_0x35bb32(0xbe)][_0x35bb32(0xcc)](_0x39e9bb=>_0x39e9bb[_0x35bb32(0xc6)][_0x35bb32(0xc3)](_0x35bb32(0xb3))!==-0x1);_0x173187&&(yield _0x498631[_0x35bb32(0xc2)](_0x41456d,this[_0x35bb32(0xb5)]));});}}exports['AddCustomerTransactionRelationToOrderTable1546592870823']=AddCustomerTransactionRelationToOrderTable1546592870823;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddCustomerTransactionRelationToOrderTable1546592870823 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddCustomerTransactionRelationToOrderTable1546592870823 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_customer_transaction_order1',
+            columnNames: ['order_id'],
+            referencedColumnNames: ['order_id'],
+            referencedTableName: 'order',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('customer_transaction');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('order_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('customer_transaction');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('order_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.AddCustomerTransactionRelationToOrderTable1546592870823 = AddCustomerTransactionRelationToOrderTable1546592870823;
+//# sourceMappingURL=1546592870823-AddCustomerTransactionRelationToOrderTable.js.map

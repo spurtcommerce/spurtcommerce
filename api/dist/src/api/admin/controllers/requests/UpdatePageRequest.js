@@ -1,1 +1,46 @@
-'use strict';const a336_0x5853d3=a336_0x5927;(function(_0x2bc44e,_0x314997){const _0x4ed2ad=a336_0x5927,_0x3ed46b=_0x2bc44e();while(!![]){try{const _0x37b53d=parseInt(_0x4ed2ad(0x195))/0x1+-parseInt(_0x4ed2ad(0x199))/0x2+parseInt(_0x4ed2ad(0x19e))/0x3+-parseInt(_0x4ed2ad(0x19f))/0x4+-parseInt(_0x4ed2ad(0x193))/0x5+-parseInt(_0x4ed2ad(0x19d))/0x6*(parseInt(_0x4ed2ad(0x18e))/0x7)+parseInt(_0x4ed2ad(0x1a5))/0x8*(parseInt(_0x4ed2ad(0x1a1))/0x9);if(_0x37b53d===_0x314997)break;else _0x3ed46b['push'](_0x3ed46b['shift']());}catch(_0x5775a6){_0x3ed46b['push'](_0x3ed46b['shift']());}}}(a336_0x23fc,0xdf7ce));function a336_0x23fc(){const _0x111492=['active','1805614BdPEYa','tslib','pageGroupId','__decorate','6DzLwHa','768984loOgyo','3124076hDHMPk','MaxLength','36276435LcTELG','__esModule','IsNotEmpty','pageId','8tjoSaL','prototype','12335855lVULUW','title','title\x20should\x20be\x20maximum\x20255\x20character','reflect-metadata','UpdatePage','160125Omgvww','content\x20is\x20required','106479urqvCU','__metadata','design:type'];a336_0x23fc=function(){return _0x111492;};return a336_0x23fc();}Object['defineProperty'](exports,a336_0x5853d3(0x1a2),{'value':!![]}),exports[a336_0x5853d3(0x192)]=void 0x0;const tslib_1=require(a336_0x5853d3(0x19a));require(a336_0x5853d3(0x191));const class_validator_1=require('class-validator');class UpdatePage{}function a336_0x5927(_0x158058,_0x205ff1){const _0x23fc48=a336_0x23fc();return a336_0x5927=function(_0x592701,_0x40eec1){_0x592701=_0x592701-0x18d;let _0x129989=_0x23fc48[_0x592701];return _0x129989;},a336_0x5927(_0x158058,_0x205ff1);}tslib_1[a336_0x5853d3(0x19c)]([(0x0,class_validator_1[a336_0x5853d3(0x1a3)])(),tslib_1[a336_0x5853d3(0x196)](a336_0x5853d3(0x197),Number)],UpdatePage['prototype'],a336_0x5853d3(0x1a4),void 0x0),tslib_1[a336_0x5853d3(0x19c)]([(0x0,class_validator_1[a336_0x5853d3(0x1a0)])(0xff,{'message':a336_0x5853d3(0x190)}),(0x0,class_validator_1[a336_0x5853d3(0x1a3)])({'message':'title\x20is\x20required'}),tslib_1['__metadata'](a336_0x5853d3(0x197),String)],UpdatePage[a336_0x5853d3(0x18d)],a336_0x5853d3(0x18f),void 0x0),tslib_1[a336_0x5853d3(0x19c)]([(0x0,class_validator_1[a336_0x5853d3(0x1a3)])({'message':a336_0x5853d3(0x194)}),tslib_1[a336_0x5853d3(0x196)](a336_0x5853d3(0x197),String)],UpdatePage[a336_0x5853d3(0x18d)],'content',void 0x0),tslib_1[a336_0x5853d3(0x19c)]([(0x0,class_validator_1[a336_0x5853d3(0x1a3)])(),tslib_1[a336_0x5853d3(0x196)](a336_0x5853d3(0x197),Number)],UpdatePage[a336_0x5853d3(0x18d)],a336_0x5853d3(0x198),void 0x0),tslib_1[a336_0x5853d3(0x19c)]([(0x0,class_validator_1['IsNotEmpty'])({'message':'pageGroupId\x20is\x20required'}),tslib_1[a336_0x5853d3(0x196)](a336_0x5853d3(0x197),Number)],UpdatePage['prototype'],a336_0x5853d3(0x19b),void 0x0),exports['UpdatePage']=UpdatePage;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UpdatePage = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class UpdatePage {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdatePage.prototype, "pageId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'title should be maximum 255 character',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'title is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], UpdatePage.prototype, "title", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'content is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], UpdatePage.prototype, "content", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdatePage.prototype, "active", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'pageGroupId is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], UpdatePage.prototype, "pageGroupId", void 0);
+exports.UpdatePage = UpdatePage;
+//# sourceMappingURL=UpdatePageRequest.js.map

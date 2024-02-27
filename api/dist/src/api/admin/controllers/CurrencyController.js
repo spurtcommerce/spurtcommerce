@@ -1,1 +1,329 @@
-'use strict';const a260_0x83ac64=a260_0x18bf;(function(_0x4ca22c,_0xf2428f){const _0x34db6d=a260_0x18bf,_0x2f33d8=_0x4ca22c();while(!![]){try{const _0x4e3409=-parseInt(_0x34db6d(0x17e))/0x1+-parseInt(_0x34db6d(0x1a5))/0x2*(parseInt(_0x34db6d(0x193))/0x3)+parseInt(_0x34db6d(0x1a0))/0x4*(parseInt(_0x34db6d(0x197))/0x5)+-parseInt(_0x34db6d(0x17c))/0x6+parseInt(_0x34db6d(0x19d))/0x7*(parseInt(_0x34db6d(0x1ad))/0x8)+-parseInt(_0x34db6d(0x194))/0x9+parseInt(_0x34db6d(0x18d))/0xa*(parseInt(_0x34db6d(0x187))/0xb);if(_0x4e3409===_0xf2428f)break;else _0x2f33d8['push'](_0x2f33d8['shift']());}catch(_0x55c585){_0x2f33d8['push'](_0x2f33d8['shift']());}}}(a260_0x1411,0xa3994));function a260_0x18bf(_0x250099,_0x4c9382){const _0x14110f=a260_0x1411();return a260_0x18bf=function(_0x18bf43,_0x13f317){_0x18bf43=_0x18bf43-0x179;let _0x386065=_0x14110f[_0x18bf43];return _0x386065;},a260_0x18bf(_0x250099,_0x4c9382);}Object['defineProperty'](exports,a260_0x83ac64(0x189),{'value':!![]}),exports[a260_0x83ac64(0x1b6)]=void 0x0;const tslib_1=require('tslib');require('reflect-metadata');const routing_controllers_1=require(a260_0x83ac64(0x19e)),Currency_1=require(a260_0x83ac64(0x1b7)),CreateCurrencyRequest_1=require(a260_0x83ac64(0x19b)),CurrencyService_1=require(a260_0x83ac64(0x1b0)),UpdateCurrenyRequest_1=require('./requests/UpdateCurrenyRequest'),typeorm_1=require('typeorm');let CurrencyController=class CurrencyController{constructor(_0x4bdb24){this['currencyService']=_0x4bdb24;}[a260_0x83ac64(0x182)](_0x2b118e,_0x509085){const _0x3c1077=a260_0x83ac64;return tslib_1[_0x3c1077(0x1c2)](this,void 0x0,void 0x0,function*(){const _0x11b768=_0x3c1077,_0x2eb3da=yield this[_0x11b768(0x1a9)][_0x11b768(0x1ba)]({'where':{'title':_0x2b118e[_0x11b768(0x1bd)],'code':_0x2b118e[_0x11b768(0x198)]}});if(_0x2eb3da){const _0x16cd9e={'status':0x0,'message':_0x11b768(0x191)};return _0x509085[_0x11b768(0x1a8)](0x190)[_0x11b768(0x1aa)](_0x16cd9e);}const _0x11c38b=new Currency_1[(_0x11b768(0x1a1))]();_0x11c38b['title']=_0x2b118e['title'],_0x11c38b[_0x11b768(0x198)]=_0x2b118e[_0x11b768(0x198)],_0x11c38b['symbolLeft']=_0x2b118e[_0x11b768(0x18a)]!==''?_0x2b118e['symbolLeft']:undefined,_0x11c38b[_0x11b768(0x18e)]=_0x2b118e[_0x11b768(0x18e)]!==''?_0x2b118e[_0x11b768(0x18e)]:undefined,_0x11c38b[_0x11b768(0x18b)]=_0x2b118e[_0x11b768(0x1a8)];const _0x1db7fd=yield this['currencyService']['create'](_0x11c38b);if(_0x1db7fd!==undefined){const _0x4c947e={'status':0x1,'message':'Successfully\x20added\x20new\x20currency.','data':_0x1db7fd};return _0x509085[_0x11b768(0x1a8)](0xc8)[_0x11b768(0x1aa)](_0x4c947e);}else{const _0x1f0529={'status':0x0,'message':_0x11b768(0x18c)};return _0x509085[_0x11b768(0x1a8)](0x190)[_0x11b768(0x1aa)](_0x1f0529);}});}[a260_0x83ac64(0x1a7)](_0x25f040,_0x10c6c9,_0x109aa4,_0x261caf,_0x10a1a4,_0x5ebf4b){const _0x289456=a260_0x83ac64;return tslib_1[_0x289456(0x1c2)](this,void 0x0,void 0x0,function*(){const _0x3255a6=_0x289456,_0x4fddb8=['currencyId',_0x3255a6(0x1bd),'code',_0x3255a6(0x18a),_0x3255a6(0x18e),_0x3255a6(0x195),_0x3255a6(0x180),_0x3255a6(0x18b)],_0x2159bc=[{'name':_0x3255a6(0x1bd),'op':_0x3255a6(0x190),'value':_0x109aa4}];_0x2159bc[_0x3255a6(0x184)]({'name':_0x3255a6(0x18b),'op':_0x3255a6(0x190),'value':_0x261caf});const _0x520bf7=[],_0x48f7bb=yield this['currencyService']['list'](_0x25f040,_0x10c6c9,_0x4fddb8,_0x2159bc,_0x520bf7,_0x10a1a4);if(_0x48f7bb){const _0x4170f0={'status':0x1,'message':_0x3255a6(0x188),'data':_0x48f7bb};return _0x5ebf4b['status'](0xc8)[_0x3255a6(0x1aa)](_0x4170f0);}else{const _0x146bff={'status':0x0,'message':'unable\x20to\x20list\x20currency'};return _0x5ebf4b['status'](0x190)['send'](_0x146bff);}});}[a260_0x83ac64(0x1b2)](_0x13cc75,_0x121827){const _0x10cb44=a260_0x83ac64;return tslib_1[_0x10cb44(0x1c2)](this,void 0x0,void 0x0,function*(){const _0xb0fa1=_0x10cb44,_0x36cab3=yield this['currencyService'][_0xb0fa1(0x1ba)]({'where':{'currencyId':_0x13cc75[_0xb0fa1(0x19c)]}});if(!_0x36cab3){const _0x42f29d={'status':0x0,'message':'Invalid\x20currency\x20Id.'};return _0x121827['status'](0x190)['send'](_0x42f29d);}const _0x4e4f8d=yield this[_0xb0fa1(0x1a9)][_0xb0fa1(0x1ba)]({'where':{'title':_0x13cc75[_0xb0fa1(0x1bd)],'code':_0x13cc75['code'],'currencyId':(0x0,typeorm_1['Not'])(_0x36cab3['currencyId'])}});if(_0x4e4f8d){const _0x37614d={'status':0x0,'message':_0xb0fa1(0x191)};return _0x121827['status'](0x190)[_0xb0fa1(0x1aa)](_0x37614d);}_0x36cab3['title']=_0x13cc75['title'],_0x36cab3['code']=_0x13cc75[_0xb0fa1(0x198)],_0x36cab3['symbolLeft']=_0x13cc75[_0xb0fa1(0x18a)]===undefined?undefined:_0x13cc75[_0xb0fa1(0x18a)],_0x36cab3['symbolRight']=_0x13cc75[_0xb0fa1(0x18e)]===undefined?undefined:_0x13cc75[_0xb0fa1(0x18e)],_0x36cab3[_0xb0fa1(0x18b)]=_0x13cc75['status'];const _0x25bc79=yield this['currencyService'][_0xb0fa1(0x1b5)](_0x36cab3);if(_0x25bc79!==undefined){const _0x5e9b97={'status':0x1,'message':_0xb0fa1(0x192),'data':_0x25bc79};return _0x121827[_0xb0fa1(0x1a8)](0xc8)[_0xb0fa1(0x1aa)](_0x5e9b97);}else{const _0x21f443={'status':0x0,'message':'Unable\x20to\x20update\x20the\x20currency.'};return _0x121827[_0xb0fa1(0x1a8)](0x190)[_0xb0fa1(0x1aa)](_0x21f443);}});}[a260_0x83ac64(0x1a6)](_0x552979,_0x43f61f,_0x5762fe){const _0x81c37e=a260_0x83ac64;return tslib_1[_0x81c37e(0x1c2)](this,void 0x0,void 0x0,function*(){const _0xc85a19=_0x81c37e,_0xdfe3f7=yield this[_0xc85a19(0x1a9)][_0xc85a19(0x1ba)]({'where':{'currencyId':_0x552979}});if(!_0xdfe3f7){const _0x106b58={'status':0x0,'message':_0xc85a19(0x1b3)};return _0x43f61f[_0xc85a19(0x1a8)](0x190)['send'](_0x106b58);}const _0x569a4f=yield this[_0xc85a19(0x1a9)][_0xc85a19(0x1a2)](_0xdfe3f7[_0xc85a19(0x19c)]);if(_0x569a4f===undefined){const _0x1a6ab2={'status':0x1,'message':_0xc85a19(0x183)};return _0x43f61f[_0xc85a19(0x1a8)](0xc8)[_0xc85a19(0x1aa)](_0x1a6ab2);}else{const _0x4835d3={'status':0x0,'message':_0xc85a19(0x1b8)};return _0x43f61f[_0xc85a19(0x1a8)](0x190)[_0xc85a19(0x1aa)](_0x4835d3);}});}};tslib_1[a260_0x83ac64(0x1af)]([(0x0,routing_controllers_1[a260_0x83ac64(0x19f)])('/add-currency'),(0x0,routing_controllers_1[a260_0x83ac64(0x1b4)])(['admin',a260_0x83ac64(0x1b9)]),tslib_1[a260_0x83ac64(0x1be)](0x0,(0x0,routing_controllers_1[a260_0x83ac64(0x199)])({'validate':!![]})),tslib_1[a260_0x83ac64(0x1be)](0x1,(0x0,routing_controllers_1[a260_0x83ac64(0x17f)])()),tslib_1[a260_0x83ac64(0x17d)](a260_0x83ac64(0x1bb),Function),tslib_1[a260_0x83ac64(0x17d)]('design:paramtypes',[CreateCurrencyRequest_1[a260_0x83ac64(0x196)],Object]),tslib_1[a260_0x83ac64(0x17d)]('design:returntype',Promise)],CurrencyController[a260_0x83ac64(0x1c3)],a260_0x83ac64(0x182),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a260_0x83ac64(0x1a4)])('/currencylist'),(0x0,routing_controllers_1['Authorized'])([a260_0x83ac64(0x1bf),a260_0x83ac64(0x19a)]),tslib_1[a260_0x83ac64(0x1be)](0x0,(0x0,routing_controllers_1[a260_0x83ac64(0x1c0)])(a260_0x83ac64(0x17b))),tslib_1[a260_0x83ac64(0x1be)](0x1,(0x0,routing_controllers_1[a260_0x83ac64(0x1c0)])(a260_0x83ac64(0x1bc))),tslib_1[a260_0x83ac64(0x1be)](0x2,(0x0,routing_controllers_1['QueryParam'])(a260_0x83ac64(0x1ac))),tslib_1[a260_0x83ac64(0x1be)](0x3,(0x0,routing_controllers_1['QueryParam'])(a260_0x83ac64(0x1a8))),tslib_1[a260_0x83ac64(0x1be)](0x4,(0x0,routing_controllers_1[a260_0x83ac64(0x1c0)])(a260_0x83ac64(0x1ae))),tslib_1[a260_0x83ac64(0x1be)](0x5,(0x0,routing_controllers_1[a260_0x83ac64(0x17f)])()),tslib_1[a260_0x83ac64(0x17d)](a260_0x83ac64(0x1bb),Function),tslib_1[a260_0x83ac64(0x17d)](a260_0x83ac64(0x1c1),[Number,Number,String,String,Object,Object]),tslib_1[a260_0x83ac64(0x17d)]('design:returntype',Promise)],CurrencyController[a260_0x83ac64(0x1c3)],a260_0x83ac64(0x1a7),null),tslib_1[a260_0x83ac64(0x1af)]([(0x0,routing_controllers_1[a260_0x83ac64(0x1b1)])(a260_0x83ac64(0x179)),(0x0,routing_controllers_1['Authorized'])([a260_0x83ac64(0x1bf),'edit-currency']),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a260_0x83ac64(0x199)])({'validate':!![]})),tslib_1[a260_0x83ac64(0x1be)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a260_0x83ac64(0x17d)](a260_0x83ac64(0x1bb),Function),tslib_1[a260_0x83ac64(0x17d)](a260_0x83ac64(0x1c1),[UpdateCurrenyRequest_1[a260_0x83ac64(0x181)],Object]),tslib_1[a260_0x83ac64(0x17d)](a260_0x83ac64(0x1ab),Promise)],CurrencyController[a260_0x83ac64(0x1c3)],a260_0x83ac64(0x1b2),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a260_0x83ac64(0x186)])('/delete-currency/:id'),(0x0,routing_controllers_1[a260_0x83ac64(0x1b4)])(['admin',a260_0x83ac64(0x18f)]),tslib_1[a260_0x83ac64(0x1be)](0x0,(0x0,routing_controllers_1[a260_0x83ac64(0x17a)])('id')),tslib_1[a260_0x83ac64(0x1be)](0x1,(0x0,routing_controllers_1[a260_0x83ac64(0x17f)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1['__metadata'](a260_0x83ac64(0x1bb),Function),tslib_1[a260_0x83ac64(0x17d)](a260_0x83ac64(0x1c1),[Number,Object,Object]),tslib_1['__metadata'](a260_0x83ac64(0x1ab),Promise)],CurrencyController[a260_0x83ac64(0x1c3)],a260_0x83ac64(0x1a6),null),CurrencyController=tslib_1[a260_0x83ac64(0x1af)]([(0x0,routing_controllers_1[a260_0x83ac64(0x185)])('/currency'),tslib_1[a260_0x83ac64(0x17d)](a260_0x83ac64(0x1c1),[CurrencyService_1[a260_0x83ac64(0x1a3)]])],CurrencyController),exports[a260_0x83ac64(0x1b6)]=CurrencyController;function a260_0x1411(){const _0x3ef118=['./requests/CreateCurrencyRequest','currencyId','469EQmMMc','routing-controllers','Post','60HhrpUk','Currency','delete','CurrencyService','Get','651702VBbZfR','deleteCurrency','currencyList','status','currencyService','send','design:returntype','keyword','72456MJwYgn','count','__decorate','../../core/services/CurrencyService','Put','updateCurrency','Invalid\x20currency\x20Id.','Authorized','create','CurrencyController','../../core/models/Currency','Unable\x20to\x20delete\x20the\x20currency.','create-currency','findOne','design:type','offset','title','__param','admin','QueryParam','design:paramtypes','__awaiter','prototype','/update-currency/:id','Param','limit','6951936lvoeYv','__metadata','1185791oSqTvn','Res','createdDate','UpdateCurrency','addCurrency','Successfullly\x20deleted\x20the\x20currency.','push','JsonController','Delete','26019158sNPdFc','Successfully\x20got\x20the\x20complete\x20currency\x20list.','__esModule','symbolLeft','isActive','Unable\x20to\x20create\x20currency.','10ymYQBk','symbolRight','delete-currency','like','You\x20already\x20added\x20this\x20Currency.','Successfully\x20updated\x20the\x20currency.','3qHWQbm','6998841kzfOtY','modifiedDate','CreateCurrency','381950kEZqZy','code','Body','list-currency'];a260_0x1411=function(){return _0x3ef118;};return a260_0x1411();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CurrencyController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const Currency_1 = require("../../core/models/Currency");
+const CreateCurrencyRequest_1 = require("./requests/CreateCurrencyRequest");
+const CurrencyService_1 = require("../../core/services/CurrencyService");
+const UpdateCurrenyRequest_1 = require("./requests/UpdateCurrenyRequest");
+const typeorm_1 = require("typeorm");
+let CurrencyController = class CurrencyController {
+    constructor(currencyService) {
+        this.currencyService = currencyService;
+    }
+    // Create Currency API
+    /**
+     * @api {post} /api/currency/add-currency Add Currency API
+     * @apiGroup Currency
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..30}} title Currency title
+     * @apiParam (Request body) {String{..4}} code Currency code
+     * @apiParam (Request body) {String{..4}} symbolLeft Currency symbolLeft
+     * @apiParam (Request body) {String{..4}} symbolRight Currency  symbolRight
+     * @apiParam (Request body) {Number} status Currency status
+     * @apiParamExample {json} Input
+     * {
+     *      "title" : "",
+     *      "code" : "",
+     *      "symbolLeft" : "",
+     *      "symbolRight" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully created new Currency.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/currency/add-currency
+     * @apiErrorExample {json} Currency error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addCurrency(currencyParameter, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const existsCurrency = yield this.currencyService.findOne({
+                where: {
+                    title: currencyParameter.title,
+                    code: currencyParameter.code,
+                },
+            });
+            if (existsCurrency) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You already added this Currency.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newCurrency = new Currency_1.Currency();
+            newCurrency.title = currencyParameter.title;
+            newCurrency.code = currencyParameter.code;
+            newCurrency.symbolLeft = currencyParameter.symbolLeft !== '' ? currencyParameter.symbolLeft : undefined;
+            newCurrency.symbolRight = currencyParameter.symbolRight !== '' ? currencyParameter.symbolRight : undefined;
+            newCurrency.isActive = currencyParameter.status;
+            const currencySave = yield this.currencyService.create(newCurrency);
+            if (currencySave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully added new currency.',
+                    data: currencySave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to create currency.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Currency List API
+    /**
+     * @api {get} /api/currency/currencylist Currency List API
+     * @apiGroup Currency
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get currency list",
+     *      "data":{
+     *       "currencyId" : "",
+     *       "title" : "",
+     *       "code" : "",
+     *       "value" : "",
+     *       "update" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/currency/currencylist
+     * @apiErrorExample {json} Currency error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    currencyList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['currencyId', 'title', 'code', 'symbolLeft', 'symbolRight', 'modifiedDate', 'createdDate', 'isActive'];
+            const search = [
+                {
+                    name: 'title',
+                    op: 'like',
+                    value: keyword,
+                },
+            ];
+            search.push({
+                name: 'isActive',
+                op: 'like',
+                value: status,
+            });
+            const WhereConditions = [];
+            const currencyList = yield this.currencyService.list(limit, offset, select, search, WhereConditions, count);
+            if (currencyList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the complete currency list.',
+                    data: currencyList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to list currency',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // update Currency
+    /**
+     * @api {put} /api/currency/update-currency/:id Update Currency API
+     * @apiGroup Currency
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} currencyId Currency currencyId
+     * @apiParam (Request body) {String{..30}} title Currency title
+     * @apiParam (Request body) {String{..3}} [code] Currency code
+     * @apiParam (Request body) {String{..4}} symbolLeft Currency symbolLeft
+     * @apiParam (Request body) {String{..4}} symbolRight Currency  symbolRight
+     * @apiParam (Request body) {Number} status Currency status
+     * @apiParamExample {json} Input
+     * {
+     *      "currencyId" : "",
+     *      "title" : "",
+     *      "code" : "",
+     *      "symbolLeft" : "",
+     *      "symbolRight" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated Currency.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/currency/update-currency/:id
+     * @apiErrorExample {json} Currency error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateCurrency(currencyParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const currency = yield this.currencyService.findOne({
+                where: {
+                    currencyId: currencyParam.currencyId,
+                },
+            });
+            if (!currency) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid currency Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const existsCurrency = yield this.currencyService.findOne({
+                where: {
+                    title: currencyParam.title,
+                    code: currencyParam.code,
+                    currencyId: (0, typeorm_1.Not)(currency.currencyId),
+                },
+            });
+            if (existsCurrency) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You already added this Currency.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            currency.title = currencyParam.title;
+            currency.code = currencyParam.code;
+            currency.symbolLeft = (currencyParam.symbolLeft === undefined) ? undefined : currencyParam.symbolLeft;
+            currency.symbolRight = (currencyParam.symbolRight === undefined) ? undefined : currencyParam.symbolRight;
+            currency.isActive = currencyParam.status;
+            const currencySave = yield this.currencyService.create(currency);
+            if (currencySave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated the currency.',
+                    data: currencySave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the currency.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // delete Currency API
+    /**
+     * @api {delete} /api/currency/delete-currency/:id Delete Currency API
+     * @apiGroup Currency
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "currencyId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted currency.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/currency/delete-currency/:id
+     * @apiErrorExample {json} Currency error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteCurrency(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const currency = yield this.currencyService.findOne({
+                where: {
+                    currencyId: id,
+                },
+            });
+            if (!currency) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid currency Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteCurrency = yield this.currencyService.delete(currency.currencyId);
+            if (deleteCurrency === undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfullly deleted the currency.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the currency.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/add-currency'),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-currency']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateCurrencyRequest_1.CreateCurrency, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CurrencyController.prototype, "addCurrency", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/currencylist'),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-currency']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CurrencyController.prototype, "currencyList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-currency/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-currency']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [UpdateCurrenyRequest_1.UpdateCurrency, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CurrencyController.prototype, "updateCurrency", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-currency/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-currency']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CurrencyController.prototype, "deleteCurrency", null);
+CurrencyController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/currency'),
+    tslib_1.__metadata("design:paramtypes", [CurrencyService_1.CurrencyService])
+], CurrencyController);
+exports.CurrencyController = CurrencyController;
+//# sourceMappingURL=CurrencyController.js.map

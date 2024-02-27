@@ -1,1 +1,21 @@
-'use strict';const a334_0x21415e=a334_0x52e8;(function(_0x4eed46,_0x4a6e53){const _0x5e3cab=a334_0x52e8,_0x5ccac9=_0x4eed46();while(!![]){try{const _0xb9fd1d=-parseInt(_0x5e3cab(0x90))/0x1+-parseInt(_0x5e3cab(0x8c))/0x2*(parseInt(_0x5e3cab(0x98))/0x3)+-parseInt(_0x5e3cab(0x8f))/0x4*(parseInt(_0x5e3cab(0x88))/0x5)+parseInt(_0x5e3cab(0x97))/0x6+-parseInt(_0x5e3cab(0x95))/0x7*(parseInt(_0x5e3cab(0x91))/0x8)+parseInt(_0x5e3cab(0x96))/0x9*(parseInt(_0x5e3cab(0x8a))/0xa)+parseInt(_0x5e3cab(0x9c))/0xb*(parseInt(_0x5e3cab(0x9b))/0xc);if(_0xb9fd1d===_0x4a6e53)break;else _0x5ccac9['push'](_0x5ccac9['shift']());}catch(_0x24934b){_0x5ccac9['push'](_0x5ccac9['shift']());}}}(a334_0x580f,0x1d6ad));Object[a334_0x21415e(0x9a)](exports,a334_0x21415e(0x94),{'value':!![]}),exports[a334_0x21415e(0x9d)]=void 0x0;const tslib_1=require(a334_0x21415e(0x99));function a334_0x580f(){const _0x59959f=['tslib','defineProperty','18840EagHBT','1485yiqWkZ','UpdateFullfillmentStatus','189085YqVlZz','__decorate','1242290PvUksW','__metadata','226SUCnHM','class-validator','IsNotEmpty','16hlZkGP','26539gEcsQc','400NDabnJ','reflect-metadata','prototype','__esModule','26824qvFLls','9fxtMQJ','1254546fkwlQG','1470ToTfzA'];a334_0x580f=function(){return _0x59959f;};return a334_0x580f();}require(a334_0x21415e(0x92));const class_validator_1=require(a334_0x21415e(0x8d));function a334_0x52e8(_0x403989,_0x10520b){const _0x580f61=a334_0x580f();return a334_0x52e8=function(_0x52e8aa,_0x280e58){_0x52e8aa=_0x52e8aa-0x88;let _0x4f3f58=_0x580f61[_0x52e8aa];return _0x4f3f58;},a334_0x52e8(_0x403989,_0x10520b);}class UpdateFullfillmentStatus{}tslib_1[a334_0x21415e(0x89)]([(0x0,class_validator_1[a334_0x21415e(0x8e)])(),tslib_1[a334_0x21415e(0x8b)]('design:type',Number)],UpdateFullfillmentStatus[a334_0x21415e(0x93)],'status',void 0x0),exports[a334_0x21415e(0x9d)]=UpdateFullfillmentStatus;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UpdateFullfillmentStatus = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class UpdateFullfillmentStatus {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateFullfillmentStatus.prototype, "status", void 0);
+exports.UpdateFullfillmentStatus = UpdateFullfillmentStatus;
+//# sourceMappingURL=UpdateFullfillmentStatus.js.map

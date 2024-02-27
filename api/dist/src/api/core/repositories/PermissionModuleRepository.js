@@ -1,1 +1,20 @@
-'use strict';const a494_0x12b451=a494_0x2529;(function(_0x38363b,_0x463e85){const _0x46a14f=a494_0x2529,_0x10a8e7=_0x38363b();while(!![]){try{const _0xbb3a86=parseInt(_0x46a14f(0x16a))/0x1*(parseInt(_0x46a14f(0x15f))/0x2)+parseInt(_0x46a14f(0x162))/0x3+-parseInt(_0x46a14f(0x16b))/0x4+-parseInt(_0x46a14f(0x15e))/0x5*(-parseInt(_0x46a14f(0x15d))/0x6)+-parseInt(_0x46a14f(0x160))/0x7+-parseInt(_0x46a14f(0x16c))/0x8*(-parseInt(_0x46a14f(0x161))/0x9)+parseInt(_0x46a14f(0x15b))/0xa;if(_0xbb3a86===_0x463e85)break;else _0x10a8e7['push'](_0x10a8e7['shift']());}catch(_0x40d262){_0x10a8e7['push'](_0x10a8e7['shift']());}}}(a494_0x58b5,0x2c941));Object[a494_0x12b451(0x15a)](exports,a494_0x12b451(0x168),{'value':!![]}),exports['PermissionModuleRepository']=void 0x0;function a494_0x2529(_0x2bf634,_0x3f64d9){const _0x58b570=a494_0x58b5();return a494_0x2529=function(_0x25291f,_0x4b39a6){_0x25291f=_0x25291f-0x159;let _0x17ccbc=_0x58b570[_0x25291f];return _0x17ccbc;},a494_0x2529(_0x2bf634,_0x3f64d9);}const tslib_1=require(a494_0x12b451(0x15c)),typeorm_1=require(a494_0x12b451(0x164)),PermissionModule_1=require(a494_0x12b451(0x167));function a494_0x58b5(){const _0x268983=['2PpKJab','1795878tlmgHm','198JYqUYH','820650JuwEgw','EntityRepository','typeorm','Repository','PermissionModuleRepository','../models/PermissionModule','__esModule','__decorate','121577UgnZee','413932qYEqNj','11752LFpHdd','PermissionModule','defineProperty','790840JKBZQx','tslib','16662ppKvlL','65KoivrC'];a494_0x58b5=function(){return _0x268983;};return a494_0x58b5();}let PermissionModuleRepository=class PermissionModuleRepository extends typeorm_1[a494_0x12b451(0x165)]{};PermissionModuleRepository=tslib_1[a494_0x12b451(0x169)]([(0x0,typeorm_1[a494_0x12b451(0x163)])(PermissionModule_1[a494_0x12b451(0x159)])],PermissionModuleRepository),exports[a494_0x12b451(0x166)]=PermissionModuleRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PermissionModuleRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const PermissionModule_1 = require("../models/PermissionModule");
+let PermissionModuleRepository = class PermissionModuleRepository extends typeorm_1.Repository {
+};
+PermissionModuleRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(PermissionModule_1.PermissionModule)
+], PermissionModuleRepository);
+exports.PermissionModuleRepository = PermissionModuleRepository;
+//# sourceMappingURL=PermissionModuleRepository.js.map

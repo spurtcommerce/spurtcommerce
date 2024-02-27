@@ -1,1 +1,36 @@
-'use strict';const a765_0x22004b=a765_0xb3a7;(function(_0x417505,_0x1befdd){const _0x3cd5ca=a765_0xb3a7,_0x1a07b7=_0x417505();while(!![]){try{const _0x2c6334=-parseInt(_0x3cd5ca(0xc7))/0x1*(-parseInt(_0x3cd5ca(0xd3))/0x2)+parseInt(_0x3cd5ca(0xca))/0x3*(parseInt(_0x3cd5ca(0xdb))/0x4)+-parseInt(_0x3cd5ca(0xd1))/0x5+-parseInt(_0x3cd5ca(0xd5))/0x6*(-parseInt(_0x3cd5ca(0xe0))/0x7)+-parseInt(_0x3cd5ca(0xda))/0x8+parseInt(_0x3cd5ca(0xd4))/0x9*(parseInt(_0x3cd5ca(0xe2))/0xa)+-parseInt(_0x3cd5ca(0xdd))/0xb*(parseInt(_0x3cd5ca(0xe4))/0xc);if(_0x2c6334===_0x1befdd)break;else _0x1a07b7['push'](_0x1a07b7['shift']());}catch(_0x402ddc){_0x1a07b7['push'](_0x1a07b7['shift']());}}}(a765_0x917e,0x486f8));function a765_0xb3a7(_0x224bdd,_0x37901c){const _0x917e8b=a765_0x917e();return a765_0xb3a7=function(_0xb3a78f,_0x3ba521){_0xb3a78f=_0xb3a78f-0xc7;let _0x106450=_0x917e8b[_0xb3a78f];return _0x106450;},a765_0xb3a7(_0x224bdd,_0x37901c);}Object[a765_0x22004b(0xd7)](exports,a765_0x22004b(0xc9),{'value':!![]}),exports[a765_0x22004b(0xcf)]=void 0x0;function a765_0x917e(){const _0x5530b0=['__awaiter','AddOrderProductRelationToOrderTable1546593359310','order_id','2891740PzzljC','dropForeignKey','802ZuETSX','1773CooPOU','42YXNERl','typeorm','defineProperty','CASCADE','down','1341384MKsTUm','55988HFQJPk','TableForeignKey','44vDFflW','tslib','tableForeignKey','13237kBAsRQ','createForeignKey','26420fEbzCD','columnNames','546396pFSdRX','order_product','indexOf','816WJAeTC','order','__esModule','78FLVoyS','getTable','foreignKeys','fk_order_product_order1'];a765_0x917e=function(){return _0x5530b0;};return a765_0x917e();}const tslib_1=require(a765_0x22004b(0xde)),typeorm_1=require(a765_0x22004b(0xd6));class AddOrderProductRelationToOrderTable1546593359310{constructor(){const _0x328272=a765_0x22004b;this['tableForeignKey']=new typeorm_1[(_0x328272(0xdc))]({'name':_0x328272(0xcd),'columnNames':[_0x328272(0xd0)],'referencedColumnNames':[_0x328272(0xd0)],'referencedTableName':_0x328272(0xc8),'onDelete':_0x328272(0xd8)});}['up'](_0x418ceb){const _0x10fa53=a765_0x22004b;return tslib_1[_0x10fa53(0xce)](this,void 0x0,void 0x0,function*(){const _0x48102a=_0x10fa53,_0x3a4da9=yield _0x418ceb[_0x48102a(0xcb)](_0x48102a(0xe5)),_0x57f35a=_0x3a4da9[_0x48102a(0xcc)]['find'](_0x2895ff=>_0x2895ff[_0x48102a(0xe3)][_0x48102a(0xe6)](_0x48102a(0xd0))!==-0x1);!_0x57f35a&&(yield _0x418ceb[_0x48102a(0xe1)](_0x3a4da9,this[_0x48102a(0xdf)]));});}[a765_0x22004b(0xd9)](_0x5d52d4){const _0xdb346a=a765_0x22004b;return tslib_1[_0xdb346a(0xce)](this,void 0x0,void 0x0,function*(){const _0x1acf3a=_0xdb346a,_0x3d481e=yield _0x5d52d4[_0x1acf3a(0xcb)](_0x1acf3a(0xe5)),_0x286711=_0x3d481e[_0x1acf3a(0xcc)]['find'](_0x461d70=>_0x461d70[_0x1acf3a(0xe3)][_0x1acf3a(0xe6)]('order_id')!==-0x1);_0x286711&&(yield _0x5d52d4[_0x1acf3a(0xd2)](_0x3d481e,this[_0x1acf3a(0xdf)]));});}}exports[a765_0x22004b(0xcf)]=AddOrderProductRelationToOrderTable1546593359310;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddOrderProductRelationToOrderTable1546593359310 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddOrderProductRelationToOrderTable1546593359310 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_order_product_order1',
+            columnNames: ['order_id'],
+            referencedColumnNames: ['order_id'],
+            referencedTableName: 'order',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('order_product');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('order_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('order_product');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('order_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.AddOrderProductRelationToOrderTable1546593359310 = AddOrderProductRelationToOrderTable1546593359310;
+//# sourceMappingURL=1546593359310-AddOrderProductRelationToOrderTable.js.map

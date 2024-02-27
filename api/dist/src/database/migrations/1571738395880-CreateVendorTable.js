@@ -1,1 +1,174 @@
-'use strict';const a813_0x5ced11=a813_0x256d;(function(_0x3e2d56,_0x2caa83){const _0x2bee89=a813_0x256d,_0xa619c4=_0x3e2d56();while(!![]){try{const _0x285f1f=parseInt(_0x2bee89(0x195))/0x1*(parseInt(_0x2bee89(0x179))/0x2)+parseInt(_0x2bee89(0x180))/0x3+parseInt(_0x2bee89(0x177))/0x4+parseInt(_0x2bee89(0x16e))/0x5+-parseInt(_0x2bee89(0x1a4))/0x6+-parseInt(_0x2bee89(0x189))/0x7+-parseInt(_0x2bee89(0x17c))/0x8*(parseInt(_0x2bee89(0x174))/0x9);if(_0x285f1f===_0x2caa83)break;else _0xa619c4['push'](_0xa619c4['shift']());}catch(_0x2fe9f8){_0xa619c4['push'](_0xa619c4['shift']());}}}(a813_0x3329,0x8fa59));function a813_0x256d(_0x4b8d15,_0x2071b8){const _0x3329e2=a813_0x3329();return a813_0x256d=function(_0x256db9,_0x499b5c){_0x256db9=_0x256db9-0x16e;let _0x2c1686=_0x3329e2[_0x256db9];return _0x2c1686;},a813_0x256d(_0x4b8d15,_0x2071b8);}function a813_0x3329(){const _0x4fd42e=['account_number','CURRENT_TIMESTAMP','company_location','874770uSgqxN','2605320jWhkVz','dropTable','payment_method','indexOf','createTable','company_name','1810881ehgTcQ','vendor_prefix_id','company_description','2663768xugqeq','createForeignKey','11438SQJrzG','customer','company_logo','32eeohZM','approved_date','512','DATETIME','2860629WRcwdK','integer','TableForeignKey','255','fk_tbl_vendor_tbl_customer_foreignKey','vendor_id','bank_name','__awaiter','foreignKeys','6652800rBHNDU','hasTable','cheque_payee_name','__esModule','modified_by','find','CreateVendorTable1571738395880','approval_flag','created_date','defineProperty','CASCADE','increment','61gCGbpd','tslib','VendorToCustomerForeignKeys','varchar','vendor','customer_id','Table','created_by','columnNames','company_logo_path','commission','DATE'];a813_0x3329=function(){return _0x4fd42e;};return a813_0x3329();}Object[a813_0x5ced11(0x192)](exports,a813_0x5ced11(0x18c),{'value':!![]}),exports[a813_0x5ced11(0x18f)]=void 0x0;const tslib_1=require(a813_0x5ced11(0x196)),typeorm_1=require('typeorm');class CreateVendorTable1571738395880{constructor(){const _0x2f1eb6=a813_0x5ced11;this[_0x2f1eb6(0x197)]=new typeorm_1[(_0x2f1eb6(0x182))]({'name':_0x2f1eb6(0x184),'columnNames':[_0x2f1eb6(0x19a)],'referencedColumnNames':['id'],'referencedTableName':_0x2f1eb6(0x17a),'onDelete':_0x2f1eb6(0x193)});}['up'](_0x615fa1){const _0x1210ed=a813_0x5ced11;return tslib_1[_0x1210ed(0x187)](this,void 0x0,void 0x0,function*(){const _0x8af592=_0x1210ed,_0x521609=new typeorm_1[(_0x8af592(0x19b))]({'name':_0x8af592(0x199),'columns':[{'name':_0x8af592(0x185),'type':_0x8af592(0x181),'length':'11','isGenerated':!![],'generationStrategy':_0x8af592(0x194),'isPrimary':!![],'isNullable':![]},{'name':_0x8af592(0x175),'type':_0x8af592(0x198),'length':_0x8af592(0x183),'isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x19a),'type':_0x8af592(0x181),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x19f),'type':_0x8af592(0x181),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x173),'type':_0x8af592(0x198),'length':_0x8af592(0x17e),'isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x1a3),'type':_0x8af592(0x198),'length':'255','isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x17b),'type':_0x8af592(0x198),'length':'255','isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x19e),'type':_0x8af592(0x198),'length':_0x8af592(0x183),'isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x176),'type':'varchar','length':_0x8af592(0x183),'isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x170),'type':_0x8af592(0x181),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x18b),'type':_0x8af592(0x198),'length':'255','isPrimary':![],'isNullable':!![]},{'name':'paypal_email_account','type':_0x8af592(0x198),'length':_0x8af592(0x183),'isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x186),'type':'varchar','length':_0x8af592(0x183),'isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x1a1),'type':_0x8af592(0x198),'length':_0x8af592(0x183),'isPrimary':![],'isNullable':!![]},{'name':'account_name','type':'varchar','length':_0x8af592(0x183),'isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x190),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':'approved_by','type':_0x8af592(0x181),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x17d),'type':_0x8af592(0x1a0),'isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x19c),'type':_0x8af592(0x181),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x18d),'type':_0x8af592(0x181),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x8af592(0x191),'type':_0x8af592(0x17f),'isPrimary':![],'isNullable':!![],'default':_0x8af592(0x1a2)},{'name':'modified_date','type':_0x8af592(0x17f),'isPrimary':![],'isNullable':!![],'default':_0x8af592(0x1a2)}]}),_0x5486f1=yield _0x615fa1[_0x8af592(0x18a)](_0x8af592(0x199));!_0x5486f1&&(yield _0x615fa1[_0x8af592(0x172)](_0x521609));const _0xaff1bf=_0x521609[_0x8af592(0x188)][_0x8af592(0x18e)](_0x1dc0f=>_0x1dc0f[_0x8af592(0x19d)][_0x8af592(0x171)](_0x8af592(0x19a))!==-0x1);!_0xaff1bf&&(yield _0x615fa1[_0x8af592(0x178)](_0x521609,this[_0x8af592(0x197)]));});}['down'](_0x4cd782){const _0x4779b5=a813_0x5ced11;return tslib_1[_0x4779b5(0x187)](this,void 0x0,void 0x0,function*(){const _0x4dff65=_0x4779b5;yield _0x4cd782[_0x4dff65(0x16f)](_0x4dff65(0x199),!![]);});}}exports['CreateVendorTable1571738395880']=CreateVendorTable1571738395880;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateVendorTable1571738395880 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateVendorTable1571738395880 {
+    constructor() {
+        this.VendorToCustomerForeignKeys = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_vendor_tbl_customer_foreignKey',
+            columnNames: ['customer_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'customer',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'vendor',
+                columns: [
+                    {
+                        name: 'vendor_id',
+                        type: 'integer',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'vendor_prefix_id',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'customer_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'commission',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'company_name',
+                        type: 'varchar',
+                        length: '512',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'company_location',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'company_logo',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'company_logo_path',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'company_description',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'payment_method',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'cheque_payee_name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'paypal_email_account',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'bank_name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'account_number',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'account_name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'approval_flag',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'approved_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'approved_date',
+                        type: 'DATE',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('vendor');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('customer_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.VendorToCustomerForeignKeys);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('vendor', true);
+        });
+    }
+}
+exports.CreateVendorTable1571738395880 = CreateVendorTable1571738395880;
+//# sourceMappingURL=1571738395880-CreateVendorTable.js.map

@@ -1,1 +1,72 @@
-'use strict';const a168_0x248cc2=a168_0x5a06;function a168_0x5a06(_0x3d00dc,_0x16c446){const _0x36a98f=a168_0x36a9();return a168_0x5a06=function(_0x5a0657,_0x37f0fb){_0x5a0657=_0x5a0657-0x10d;let _0x3d02f6=_0x36a98f[_0x5a0657];return _0x3d02f6;},a168_0x5a06(_0x3d00dc,_0x16c446);}(function(_0xd7910b,_0x547008){const _0x411e4c=a168_0x5a06,_0x2a2d83=_0xd7910b();while(!![]){try{const _0x418a46=-parseInt(_0x411e4c(0x10d))/0x1*(-parseInt(_0x411e4c(0x121))/0x2)+-parseInt(_0x411e4c(0x11c))/0x3+-parseInt(_0x411e4c(0x123))/0x4+parseInt(_0x411e4c(0x10f))/0x5+parseInt(_0x411e4c(0x126))/0x6*(parseInt(_0x411e4c(0x127))/0x7)+parseInt(_0x411e4c(0x120))/0x8+parseInt(_0x411e4c(0x116))/0x9*(-parseInt(_0x411e4c(0x11b))/0xa);if(_0x418a46===_0x547008)break;else _0x2a2d83['push'](_0x2a2d83['shift']());}catch(_0x25740d){_0x2a2d83['push'](_0x2a2d83['shift']());}}}(a168_0x36a9,0xb387a));Object[a168_0x248cc2(0x11d)](exports,a168_0x248cc2(0x122),{'value':!![]}),exports[a168_0x248cc2(0x119)]=void 0x0;const tslib_1=require(a168_0x248cc2(0x124)),typeorm_1=require('typeorm');function a168_0x36a9(){const _0x3214c5=['7459443NhESlP','created_by','down','CreateReportReason1587374669032','datetime','20JEQXXn','1697001weHdEN','defineProperty','hasTable','dropTable','3315200rQyQEr','680dvbKEm','__esModule','2261472NvoIGx','tslib','answer_abuse_reason','620868ANNphS','91tpuTMl','2342BkKRCC','Table','4840745WOCJIi','reason','modified_date','__awaiter','integer','CURRENT_TIMESTAMP','255'];a168_0x36a9=function(){return _0x3214c5;};return a168_0x36a9();}class CreateReportReason1587374669032{['up'](_0x28f115){const _0x549598=a168_0x248cc2;return tslib_1[_0x549598(0x112)](this,void 0x0,void 0x0,function*(){const _0x970fa5=_0x549598,_0x1fd6aa=new typeorm_1[(_0x970fa5(0x10e))]({'name':_0x970fa5(0x125),'columns':[{'name':'id','type':_0x970fa5(0x113),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':'increment'},{'name':_0x970fa5(0x110),'type':'varchar','length':_0x970fa5(0x115),'isPrimary':![],'isNullable':!![]},{'name':'is_active','type':_0x970fa5(0x113),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x970fa5(0x117),'type':_0x970fa5(0x113),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0x970fa5(0x11a),'isPrimary':![],'isNullable':!![],'default':_0x970fa5(0x114)},{'name':'modified_by','type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x970fa5(0x111),'type':'datetime','isPrimary':![],'isNullable':!![],'default':_0x970fa5(0x114)}]}),_0x466d33=yield _0x28f115[_0x970fa5(0x11e)]('answer_abuse_reason');!_0x466d33&&(yield _0x28f115['createTable'](_0x1fd6aa));});}[a168_0x248cc2(0x118)](_0x2fbbd3){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3c8710=a168_0x5a06;yield _0x2fbbd3[_0x3c8710(0x11f)]('answer_abuse_reason',!![]);});}}exports[a168_0x248cc2(0x119)]=CreateReportReason1587374669032;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateReportReason1587374669032 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateReportReason1587374669032 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'answer_abuse_reason',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'reason',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('answer_abuse_reason');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('answer_abuse_reason', true);
+        });
+    }
+}
+exports.CreateReportReason1587374669032 = CreateReportReason1587374669032;
+//# sourceMappingURL=1587374669032-CreateReportReason.js.map

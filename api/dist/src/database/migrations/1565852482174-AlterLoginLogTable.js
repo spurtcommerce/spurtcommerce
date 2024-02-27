@@ -1,1 +1,18 @@
-'use strict';const a804_0x183772=a804_0x2c0a;(function(_0x18e584,_0x37aa2c){const _0x3331d1=a804_0x2c0a,_0x10f1a3=_0x18e584();while(!![]){try{const _0x5ef7a1=-parseInt(_0x3331d1(0x193))/0x1*(-parseInt(_0x3331d1(0x196))/0x2)+parseInt(_0x3331d1(0x191))/0x3+parseInt(_0x3331d1(0x194))/0x4+parseInt(_0x3331d1(0x195))/0x5*(parseInt(_0x3331d1(0x198))/0x6)+-parseInt(_0x3331d1(0x18a))/0x7+-parseInt(_0x3331d1(0x18e))/0x8+-parseInt(_0x3331d1(0x190))/0x9;if(_0x5ef7a1===_0x37aa2c)break;else _0x10f1a3['push'](_0x10f1a3['shift']());}catch(_0x23bdf9){_0x10f1a3['push'](_0x10f1a3['shift']());}}}(a804_0xdcfb,0xc7848));Object[a804_0x183772(0x18f)](exports,'__esModule',{'value':!![]}),exports['AlterLoginLogTable1565852482174']=void 0x0;function a804_0xdcfb(){const _0x21b8cb=['5267906pjutiE','__awaiter','tslib','query','111048OVcOKR','defineProperty','18307674cUqecD','3847890IlQeTp','down','7vxctFr','6296828NiYcQQ','35uInqda','31802YEJeob','ALTER\x20TABLE\x20`login_log`\x20CHANGE\x20`first_name`\x20`first_name`\x20VARCHAR(255)\x20DEFAULT\x20NULL','556890BPtNuU','AlterLoginLogTable1565852482174'];a804_0xdcfb=function(){return _0x21b8cb;};return a804_0xdcfb();}function a804_0x2c0a(_0x2ec846,_0x5e825c){const _0xdcfbe9=a804_0xdcfb();return a804_0x2c0a=function(_0x2c0a0c,_0x4d3bc8){_0x2c0a0c=_0x2c0a0c-0x189;let _0x44de3c=_0xdcfbe9[_0x2c0a0c];return _0x44de3c;},a804_0x2c0a(_0x2ec846,_0x5e825c);}const tslib_1=require(a804_0x183772(0x18c));class AlterLoginLogTable1565852482174{['up'](_0x26001d){const _0x4b18d3=a804_0x183772;return tslib_1[_0x4b18d3(0x18b)](this,void 0x0,void 0x0,function*(){const _0x298555=_0x4b18d3;yield _0x26001d[_0x298555(0x18d)]('ALTER\x20TABLE\x20`login_log`\x20CHANGE\x20`first_name`\x20`first_name`\x20VARCHAR(255)\x20DEFAULT\x20NULL');});}[a804_0x183772(0x192)](_0x5f789){const _0x5bfcc9=a804_0x183772;return tslib_1[_0x5bfcc9(0x18b)](this,void 0x0,void 0x0,function*(){const _0x40996b=_0x5bfcc9;yield _0x5f789[_0x40996b(0x18d)](_0x40996b(0x197));});}}exports[a804_0x183772(0x189)]=AlterLoginLogTable1565852482174;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AlterLoginLogTable1565852482174 = void 0;
+const tslib_1 = require("tslib");
+class AlterLoginLogTable1565852482174 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `login_log` CHANGE `first_name` `first_name` VARCHAR(255) DEFAULT NULL');
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `login_log` CHANGE `first_name` `first_name` VARCHAR(255) DEFAULT NULL');
+        });
+    }
+}
+exports.AlterLoginLogTable1565852482174 = AlterLoginLogTable1565852482174;
+//# sourceMappingURL=1565852482174-AlterLoginLogTable.js.map

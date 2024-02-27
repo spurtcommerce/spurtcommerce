@@ -1,1 +1,154 @@
-'use strict';const a643_0x301c8f=a643_0x3061;(function(_0x486946,_0x435bb4){const _0x1a111a=a643_0x3061,_0x13ed20=_0x486946();while(!![]){try{const _0x2033ef=parseInt(_0x1a111a(0x1a9))/0x1+parseInt(_0x1a111a(0x1c7))/0x2+parseInt(_0x1a111a(0x1c5))/0x3*(parseInt(_0x1a111a(0x1ce))/0x4)+-parseInt(_0x1a111a(0x1b8))/0x5+-parseInt(_0x1a111a(0x1c8))/0x6+parseInt(_0x1a111a(0x1aa))/0x7*(-parseInt(_0x1a111a(0x1e8))/0x8)+parseInt(_0x1a111a(0x1b4))/0x9*(-parseInt(_0x1a111a(0x1e9))/0xa);if(_0x2033ef===_0x435bb4)break;else _0x13ed20['push'](_0x13ed20['shift']());}catch(_0x1b7540){_0x13ed20['push'](_0x13ed20['shift']());}}}(a643_0x3c91,0xbc1b0));Object[a643_0x301c8f(0x1e1)](exports,a643_0x301c8f(0x1a7),{'value':!![]}),exports[a643_0x301c8f(0x1ca)]=void 0x0;const tslib_1=require('tslib');require(a643_0x301c8f(0x1b7));function a643_0x3c91(){const _0x3e9b70=['subject','MAILService','password','socket','save','toString','defineProperty','Settings','__metadata','AES','__param','redirectUrl','remoteAddress','1352SZKKdI','20GupxPj','status','username','__decorate','routing-controllers','lastLogin','design:returntype','{xxxxxx}','token','design:paramtypes','randomatic','storeRedirectUrl','../../../../src/api/core/models/AccessTokenModel','connection','typeorm','__esModule','hashPassword','1263967bnWsPf','41097OTkWtK','AccessToken','EmailTemplate','../../../../src/env','Res','env','LoginLog','headers','prototype','encrypt','5364306wGzuuv','default','email','reflect-metadata','5935575ESxleV','../../../../src/api/core/models/Customer','userId','crypto-js','replace','Body','__importDefault','emailContent','Loggedin\x20successfully.\x20','emailId','jwtSecret','customerId','__awaiter','123GoYzlO','logo','2906016bQCydB','84048owuaIv','Customer','FacebookController','getRepository','oauthData','Login','140380mgufna','getManager','sign','../../../../src/auth/mail.services','send','{name}','findOne','design:type','../../../../src/api/core/models/Setting','../../../../src/api/core/models/EmailTemplate','x-forwarded-for','productDetailData','sendMail'];a643_0x3c91=function(){return _0x3e9b70;};return a643_0x3c91();}const routing_controllers_1=require(a643_0x301c8f(0x1ed)),typeorm_1=require(a643_0x301c8f(0x1a6)),Customer_1=require(a643_0x301c8f(0x1b9)),LoginLog_1=require('../../../../src/api/core/models/LoginLog'),jsonwebtoken_1=tslib_1[a643_0x301c8f(0x1be)](require('jsonwebtoken')),mail_services_1=require(a643_0x301c8f(0x1d1)),EmailTemplate_1=require(a643_0x301c8f(0x1d7)),env_1=require(a643_0x301c8f(0x1ad)),Setting_1=require(a643_0x301c8f(0x1d6)),AccessTokenModel_1=require(a643_0x301c8f(0x1a4));let FacebookController=class FacebookController{constructor(){}[a643_0x301c8f(0x1cd)](_0x1ddb28,_0x321124,_0x21eb92){const _0x53c873=a643_0x301c8f;return tslib_1[_0x53c873(0x1c4)](this,void 0x0,void 0x0,function*(){const _0x494a1e=_0x53c873,_0x305e4e=(0x0,typeorm_1[_0x494a1e(0x1cf)])()[_0x494a1e(0x1cb)](Customer_1[_0x494a1e(0x1c9)]),_0x332ff9=(0x0,typeorm_1[_0x494a1e(0x1cf)])()[_0x494a1e(0x1cb)](EmailTemplate_1[_0x494a1e(0x1ac)]),_0x3531e7=(0x0,typeorm_1['getManager'])()[_0x494a1e(0x1cb)](LoginLog_1['LoginLog']),_0x4f729a=(0x0,typeorm_1['getManager'])()['getRepository'](Setting_1[_0x494a1e(0x1e2)]),_0x102208=yield _0x305e4e[_0x494a1e(0x1d4)]({'where':{'email':_0x1ddb28[_0x494a1e(0x1c1)],'deleteFlag':0x0}});if(!_0x102208){const _0x87ca6c=new Customer_1[(_0x494a1e(0x1c9))](),_0x9a2de5=require(_0x494a1e(0x1a2)),_0x1e501b=_0x9a2de5('0',0x5)[_0x494a1e(0x1e0)]();_0x87ca6c[_0x494a1e(0x1dd)]=yield Customer_1[_0x494a1e(0x1c9)][_0x494a1e(0x1a8)](_0x1e501b),_0x87ca6c['email']=_0x1ddb28[_0x494a1e(0x1c1)],_0x87ca6c[_0x494a1e(0x1eb)]=_0x1ddb28[_0x494a1e(0x1c1)],_0x87ca6c['oauthData']=_0x1ddb28[_0x494a1e(0x1cc)],_0x87ca6c['isActive']=0x1,_0x87ca6c['ip']=(_0x321124[_0x494a1e(0x1b1)][_0x494a1e(0x1d8)]||_0x321124[_0x494a1e(0x1a5)][_0x494a1e(0x1e7)]||_0x321124[_0x494a1e(0x1de)][_0x494a1e(0x1e7)]||_0x321124[_0x494a1e(0x1a5)][_0x494a1e(0x1de)][_0x494a1e(0x1e7)])['split'](',')[0x0];const _0x3d23c0=yield _0x305e4e['save'](_0x87ca6c),_0x4546f9=new LoginLog_1[(_0x494a1e(0x1b0))]();_0x4546f9['customerId']=_0x3d23c0['id'],_0x4546f9[_0x494a1e(0x1c1)]=_0x3d23c0[_0x494a1e(0x1b6)],_0x4546f9['ipAddress']=(_0x321124['headers'][_0x494a1e(0x1d8)]||_0x321124[_0x494a1e(0x1a5)][_0x494a1e(0x1e7)]||_0x321124[_0x494a1e(0x1de)][_0x494a1e(0x1e7)]||_0x321124[_0x494a1e(0x1a5)]['socket'][_0x494a1e(0x1e7)])['split'](',')[0x0];const _0x2f815e=yield _0x3531e7['save'](_0x4546f9),_0x46e162=yield _0x305e4e['findOne']({'where':{'email':_0x3d23c0[_0x494a1e(0x1b6)],'deleteFlag':0x0}});_0x46e162[_0x494a1e(0x1ee)]=_0x2f815e['createdDate'],yield _0x305e4e[_0x494a1e(0x1df)](_0x46e162);const _0x572418=jsonwebtoken_1[_0x494a1e(0x1b5)][_0x494a1e(0x1d0)]({'id':_0x3d23c0['id']},env_1[_0x494a1e(0x1af)]['jwtSecret']),_0x3a6448=(0x0,typeorm_1[_0x494a1e(0x1cf)])()['getRepository'](AccessTokenModel_1[_0x494a1e(0x1ab)]),_0x313b1c=new AccessTokenModel_1[(_0x494a1e(0x1ab))]();_0x313b1c[_0x494a1e(0x1ba)]=_0x3d23c0['id'],_0x313b1c[_0x494a1e(0x1a0)]=_0x572418,yield _0x3a6448[_0x494a1e(0x1df)](_0x313b1c);const _0x94a25e=require(_0x494a1e(0x1bb)),_0x4607d8=_0x94a25e[_0x494a1e(0x1e4)][_0x494a1e(0x1b3)](_0x572418,env_1[_0x494a1e(0x1af)]['cryptoSecret'])[_0x494a1e(0x1e0)](),_0x3dfad2=yield _0x332ff9['findOne']({'where':{'emailTemplateId':0x9}}),_0x420e3e=_0x3dfad2['content'][_0x494a1e(0x1bc)](_0x494a1e(0x1d3),_0x3d23c0['username'])[_0x494a1e(0x1bc)](_0x494a1e(0x19f),_0x1e501b),_0x1d19fe=env_1['env'][_0x494a1e(0x1a3)],_0x53d17c=yield _0x4f729a[_0x494a1e(0x1d4)](),_0x4bec0f={};_0x4bec0f[_0x494a1e(0x1c6)]=_0x53d17c,_0x4bec0f[_0x494a1e(0x1bf)]=_0x420e3e,_0x4bec0f[_0x494a1e(0x1e6)]=_0x1d19fe,_0x4bec0f[_0x494a1e(0x1d9)]=undefined,mail_services_1[_0x494a1e(0x1dc)][_0x494a1e(0x1da)](_0x4bec0f,_0x3d23c0[_0x494a1e(0x1b6)],_0x3dfad2[_0x494a1e(0x1db)],![],![],'');if(_0x3d23c0){const _0x1637b4={'status':0x1,'message':_0x494a1e(0x1c0),'data':{'token':_0x4607d8,'user':_0x3d23c0}};return _0x21eb92[_0x494a1e(0x1ea)](0xc8)[_0x494a1e(0x1d2)](_0x1637b4);}}else{const _0x4951f6=jsonwebtoken_1[_0x494a1e(0x1b5)]['sign']({'id':_0x102208['id']},env_1[_0x494a1e(0x1af)][_0x494a1e(0x1c2)]),_0x2cfdf3=require(_0x494a1e(0x1bb)),_0x1e1705=_0x2cfdf3['AES'][_0x494a1e(0x1b3)](_0x4951f6,env_1['env']['cryptoSecret'])[_0x494a1e(0x1e0)](),_0x48057c=new LoginLog_1['LoginLog']();_0x48057c[_0x494a1e(0x1c3)]=_0x102208['id'],_0x48057c[_0x494a1e(0x1c1)]=_0x102208['email'],_0x48057c['firstName']=_0x102208['firstName'],_0x48057c['ipAddress']=(_0x321124[_0x494a1e(0x1b1)][_0x494a1e(0x1d8)]||_0x321124[_0x494a1e(0x1a5)][_0x494a1e(0x1e7)]||_0x321124[_0x494a1e(0x1de)]['remoteAddress']||_0x321124[_0x494a1e(0x1a5)][_0x494a1e(0x1de)][_0x494a1e(0x1e7)])['split'](',')[0x0];const _0x3833ee=yield _0x3531e7[_0x494a1e(0x1df)](_0x48057c),_0x59398e=yield _0x305e4e[_0x494a1e(0x1d4)]({'where':{'email':_0x102208[_0x494a1e(0x1b6)],'deleteFlag':0x0}});_0x59398e[_0x494a1e(0x1ee)]=_0x3833ee['createdDate'],yield _0x305e4e[_0x494a1e(0x1df)](_0x59398e);const _0x27da5f=(0x0,typeorm_1[_0x494a1e(0x1cf)])()[_0x494a1e(0x1cb)](AccessTokenModel_1[_0x494a1e(0x1ab)]),_0x1423a2=new AccessTokenModel_1[(_0x494a1e(0x1ab))]();_0x1423a2[_0x494a1e(0x1ba)]=_0x102208['id'],_0x1423a2[_0x494a1e(0x1a0)]=_0x4951f6,yield _0x27da5f[_0x494a1e(0x1df)](_0x1423a2);const _0x52f5ec={'status':0x1,'message':'Loggedin\x20successfully.','data':{'token':_0x1e1705,'user':_0x102208}};return _0x21eb92[_0x494a1e(0x1ea)](0xc8)[_0x494a1e(0x1d2)](_0x52f5ec);}});}};function a643_0x3061(_0xcf57b0,_0x500b76){const _0x3c9148=a643_0x3c91();return a643_0x3061=function(_0x306183,_0x1ff8ee){_0x306183=_0x306183-0x19e;let _0x3957df=_0x3c9148[_0x306183];return _0x3957df;},a643_0x3061(_0xcf57b0,_0x500b76);}tslib_1[a643_0x301c8f(0x1ec)]([(0x0,routing_controllers_1['Post'])('/'),tslib_1[a643_0x301c8f(0x1e5)](0x0,(0x0,routing_controllers_1[a643_0x301c8f(0x1bd)])({'validate':!![]})),tslib_1[a643_0x301c8f(0x1e5)](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1[a643_0x301c8f(0x1e5)](0x2,(0x0,routing_controllers_1[a643_0x301c8f(0x1ae)])()),tslib_1[a643_0x301c8f(0x1e3)](a643_0x301c8f(0x1d5),Function),tslib_1[a643_0x301c8f(0x1e3)]('design:paramtypes',[Object,Object,Object]),tslib_1[a643_0x301c8f(0x1e3)](a643_0x301c8f(0x19e),Promise)],FacebookController[a643_0x301c8f(0x1b2)],a643_0x301c8f(0x1cd),null),FacebookController=tslib_1['__decorate']([(0x0,routing_controllers_1['Controller'])('/facebook-login'),tslib_1[a643_0x301c8f(0x1e3)](a643_0x301c8f(0x1a1),[])],FacebookController),exports[a643_0x301c8f(0x1ca)]=FacebookController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FacebookController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const typeorm_1 = require("typeorm");
+const Customer_1 = require("../../../../src/api/core/models/Customer");
+const LoginLog_1 = require("../../../../src/api/core/models/LoginLog");
+const jsonwebtoken_1 = tslib_1.__importDefault(require("jsonwebtoken"));
+const mail_services_1 = require("../../../../src/auth/mail.services");
+const EmailTemplate_1 = require("../../../../src/api/core/models/EmailTemplate");
+const env_1 = require("../../../../src/env");
+const Setting_1 = require("../../../../src/api/core/models/Setting");
+const AccessTokenModel_1 = require("../../../../src/api/core/models/AccessTokenModel");
+let FacebookController = class FacebookController {
+    constructor() {
+        // ---
+    }
+    // Facebook Login API
+    /**
+     * @api {post} /api/facebook-login Facebook Login API
+     * @apiGroup Oauth
+     * @apiParam (Request body) {String{..255}} emailId emailId
+     * @apiParam (Request body) {String} oauthData oauthData
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 Ok
+     * @apiSampleRequest /api/facebook-login
+     * @apiErrorExample {json} Error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    Login(postParams, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ----
+            const CustomerRepository = (0, typeorm_1.getManager)().getRepository(Customer_1.Customer);
+            const EmailTemplateRepository = (0, typeorm_1.getManager)().getRepository(EmailTemplate_1.EmailTemplate);
+            const LoginLogRepository = (0, typeorm_1.getManager)().getRepository(LoginLog_1.LoginLog);
+            const SettingRepository = (0, typeorm_1.getManager)().getRepository(Setting_1.Settings);
+            const resultData = yield CustomerRepository.findOne({
+                where: { email: postParams.emailId, deleteFlag: 0 },
+            });
+            if (!resultData) {
+                const newUser = new Customer_1.Customer();
+                const randomize = require('randomatic');
+                const tempPassword = randomize('0', 5).toString();
+                newUser.password = yield Customer_1.Customer.hashPassword(tempPassword);
+                newUser.email = postParams.emailId;
+                newUser.username = postParams.emailId;
+                newUser.oauthData = postParams.oauthData;
+                newUser.isActive = 1;
+                newUser.ip = (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0];
+                const newCustomer = yield CustomerRepository.save(newUser);
+                const loginLog = new LoginLog_1.LoginLog();
+                loginLog.customerId = newCustomer.id;
+                loginLog.emailId = newCustomer.email;
+                loginLog.ipAddress = (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0];
+                const savedloginLog = yield LoginLogRepository.save(loginLog);
+                const customer = yield CustomerRepository.findOne({ where: { email: newCustomer.email, deleteFlag: 0 } });
+                customer.lastLogin = savedloginLog.createdDate;
+                yield CustomerRepository.save(customer);
+                // create a token
+                const token = jsonwebtoken_1.default.sign({ id: newCustomer.id }, env_1.env.jwtSecret);
+                const accessTokenRepository = (0, typeorm_1.getManager)().getRepository(AccessTokenModel_1.AccessToken);
+                const newToken = new AccessTokenModel_1.AccessToken();
+                newToken.userId = newCustomer.id;
+                newToken.token = token;
+                yield accessTokenRepository.save(newToken);
+                const Crypto = require('crypto-js');
+                const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
+                const emailContent = yield EmailTemplateRepository.findOne({ where: { emailTemplateId: 9 } });
+                const message = emailContent.content.replace('{name}', newCustomer.username).replace('{xxxxxx}', tempPassword);
+                const redirectUrl = env_1.env.storeRedirectUrl;
+                const logo = yield SettingRepository.findOne();
+                const mailContents = {};
+                mailContents.logo = logo;
+                mailContents.emailContent = message;
+                mailContents.redirectUrl = redirectUrl;
+                mailContents.productDetailData = undefined;
+                mail_services_1.MAILService.sendMail(mailContents, newCustomer.email, emailContent.subject, false, false, '');
+                if (newCustomer) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Loggedin successfully. ',
+                        data: {
+                            token: ciphertextToken,
+                            user: newCustomer,
+                        },
+                    };
+                    return response.status(200).send(successResponse);
+                }
+            }
+            else {
+                // create a token
+                const token = jsonwebtoken_1.default.sign({ id: resultData.id }, env_1.env.jwtSecret);
+                const Crypto = require('crypto-js');
+                const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
+                const loginLog = new LoginLog_1.LoginLog();
+                loginLog.customerId = resultData.id;
+                loginLog.emailId = resultData.email;
+                loginLog.firstName = resultData.firstName;
+                loginLog.ipAddress = (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0];
+                const savedloginLog = yield LoginLogRepository.save(loginLog);
+                const customer = yield CustomerRepository.findOne({ where: { email: resultData.email, deleteFlag: 0 } });
+                customer.lastLogin = savedloginLog.createdDate;
+                yield CustomerRepository.save(customer);
+                const accessTokenRepository = (0, typeorm_1.getManager)().getRepository(AccessTokenModel_1.AccessToken);
+                const newToken = new AccessTokenModel_1.AccessToken();
+                newToken.userId = resultData.id;
+                newToken.token = token;
+                yield accessTokenRepository.save(newToken);
+                const successResponse = {
+                    status: 1,
+                    message: 'Loggedin successfully.',
+                    data: {
+                        token: ciphertextToken,
+                        user: resultData,
+                    },
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], FacebookController.prototype, "Login", null);
+FacebookController = tslib_1.__decorate([
+    (0, routing_controllers_1.Controller)('/facebook-login'),
+    tslib_1.__metadata("design:paramtypes", [])
+], FacebookController);
+exports.FacebookController = FacebookController;
+//# sourceMappingURL=FacebookController.js.map

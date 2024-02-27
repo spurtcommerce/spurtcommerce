@@ -1,1 +1,118 @@
-'use strict';const a552_0x417b5b=a552_0x576a;function a552_0x1a76(){const _0x461166=['length','categorySlugData','ASC','findCategory','__metadata','Like','80872AgTdrS','Service','__param','categoryRepository','CategoryRepository','__decorate','416VPgsfR','findAll','__awaiter','11OLUHec','defineProperty','save','find','select','../repositories/CategoryRepository','2054885rUGzfs','typeorm/index','where','308984AbySmO','DESC','7570330wwvaqE','Find\x20all\x20setting','log','typedi','info','categoryCount','2364EXXKua','90tKqFza','Logger','order','__esModule','6123RhSwNB','categorySlug','count','delete','value','list','465978UJPwlx','tslib','OrmRepository','findOne','toString','slug','CategoryService','6286UjHHtK','forEach','name','../../../decorators/Logger'];a552_0x1a76=function(){return _0x461166;};return a552_0x1a76();}function a552_0x576a(_0x1d5355,_0x480dd5){const _0x1a764c=a552_0x1a76();return a552_0x576a=function(_0x576aa2,_0xcfbc5c){_0x576aa2=_0x576aa2-0x12a;let _0x4b4eca=_0x1a764c[_0x576aa2];return _0x4b4eca;},a552_0x576a(_0x1d5355,_0x480dd5);}(function(_0x265d9f,_0x31bd23){const _0x509f37=a552_0x576a,_0x19143a=_0x265d9f();while(!![]){try{const _0x109e68=-parseInt(_0x509f37(0x158))/0x1+-parseInt(_0x509f37(0x147))/0x2+parseInt(_0x509f37(0x141))/0x3*(parseInt(_0x509f37(0x15e))/0x4)+-parseInt(_0x509f37(0x131))/0x5+-parseInt(_0x509f37(0x13c))/0x6*(-parseInt(_0x509f37(0x14e))/0x7)+parseInt(_0x509f37(0x134))/0x8*(-parseInt(_0x509f37(0x13d))/0x9)+parseInt(_0x509f37(0x136))/0xa*(parseInt(_0x509f37(0x12b))/0xb);if(_0x109e68===_0x31bd23)break;else _0x19143a['push'](_0x19143a['shift']());}catch(_0x597fa5){_0x19143a['push'](_0x19143a['shift']());}}}(a552_0x1a76,0x33c49));Object[a552_0x417b5b(0x12c)](exports,a552_0x417b5b(0x140),{'value':!![]}),exports[a552_0x417b5b(0x14d)]=void 0x0;const tslib_1=require(a552_0x417b5b(0x148)),typedi_1=require(a552_0x417b5b(0x139)),typeorm_typedi_extensions_1=require('typeorm-typedi-extensions'),Logger_1=require(a552_0x417b5b(0x151)),CategoryRepository_1=require(a552_0x417b5b(0x130)),index_1=require(a552_0x417b5b(0x132));let CategoryService=class CategoryService{constructor(_0xae22ec,_0x3fe4c6){const _0x51dc2d=a552_0x417b5b;this[_0x51dc2d(0x15b)]=_0xae22ec,this['log']=_0x3fe4c6;}['create'](_0x15c8f1){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x284531=a552_0x576a;return this[_0x284531(0x138)][_0x284531(0x13a)]('Create\x20a\x20new\x20category\x20=>\x20',_0x15c8f1[_0x284531(0x14b)]()),this['categoryRepository'][_0x284531(0x12d)](_0x15c8f1);});}[a552_0x417b5b(0x14a)](_0x1a7da3){const _0x31ad74=a552_0x417b5b;return this[_0x31ad74(0x15b)][_0x31ad74(0x14a)](_0x1a7da3);}[a552_0x417b5b(0x144)](_0x18333d){const _0x4bff83=a552_0x417b5b;return tslib_1[_0x4bff83(0x12a)](this,void 0x0,void 0x0,function*(){const _0x196da6=_0x4bff83;this['log'][_0x196da6(0x13a)]('Delete\x20a\x20user'),yield this[_0x196da6(0x15b)][_0x196da6(0x144)](_0x18333d);return;});}[a552_0x417b5b(0x146)](_0x4a5bce,_0x350211,_0x3dbb02=[],_0x3d65b2=[],_0x4935b9=[],_0x2d6aef,_0xe024af){const _0xf24483=a552_0x417b5b,_0x47c0e4={};_0x3dbb02&&_0x3dbb02[_0xf24483(0x152)]>0x0&&(_0x47c0e4[_0xf24483(0x12f)]=_0x3dbb02);_0x47c0e4[_0xf24483(0x133)]={};_0x4935b9&&_0x4935b9['length']>0x0&&_0x4935b9[_0xf24483(0x14f)](_0x2d9381=>{const _0x4d943b=_0xf24483;_0x47c0e4['where'][_0x2d9381[_0x4d943b(0x150)]]=_0x2d9381['value'];});_0x3d65b2&&_0x3d65b2['length']>0x0&&_0x3d65b2[_0xf24483(0x14f)](_0x381075=>{const _0x3a93a2=_0xf24483,_0x25f838=_0x381075['op'];if(_0x25f838==='where'&&_0x381075['value']!==undefined)_0x47c0e4[_0x3a93a2(0x133)][_0x381075[_0x3a93a2(0x150)]]=_0x381075[_0x3a93a2(0x145)];else _0x25f838==='like'&&_0x381075[_0x3a93a2(0x145)]!==undefined&&(_0x47c0e4[_0x3a93a2(0x133)][_0x381075[_0x3a93a2(0x150)]]=(0x0,index_1[_0x3a93a2(0x157)])('%'+_0x381075[_0x3a93a2(0x145)]+'%'));});_0x4a5bce&&_0x4a5bce>0x0&&(_0x47c0e4['take']=_0x4a5bce,_0x47c0e4['skip']=_0x350211);_0x47c0e4[_0xf24483(0x13f)]={'sortOrder':_0x2d6aef===0x2?'DESC':_0xf24483(0x154),'createdDate':_0xf24483(0x135)};if(_0xe024af)return this[_0xf24483(0x15b)][_0xf24483(0x143)](_0x47c0e4);return this[_0xf24483(0x15b)]['find'](_0x47c0e4);}[a552_0x417b5b(0x12e)](_0x27889e){const _0x267e44=a552_0x417b5b;return this[_0x267e44(0x15b)][_0x267e44(0x12e)](_0x27889e);}['slugData'](_0x46c5e0){const _0x454cd3=a552_0x417b5b;return tslib_1[_0x454cd3(0x12a)](this,void 0x0,void 0x0,function*(){const _0x2dc1c3=_0x454cd3;return yield this[_0x2dc1c3(0x15b)][_0x2dc1c3(0x142)](_0x46c5e0);});}[a552_0x417b5b(0x15f)](){const _0x16352c=a552_0x417b5b;return this[_0x16352c(0x138)][_0x16352c(0x13a)](_0x16352c(0x137)),this[_0x16352c(0x15b)][_0x16352c(0x12e)]();}[a552_0x417b5b(0x14c)](_0x2b5e3a){const _0x528545=a552_0x417b5b;return tslib_1[_0x528545(0x12a)](this,void 0x0,void 0x0,function*(){const _0x5aeb8a=_0x528545;return yield this['categoryRepository'][_0x5aeb8a(0x153)](_0x2b5e3a);});}[a552_0x417b5b(0x13b)](_0x1efda1,_0x304512,_0x1ebf3a,_0x554dd9,_0xbdcf08){const _0x1bafa6=a552_0x417b5b;return tslib_1[_0x1bafa6(0x12a)](this,void 0x0,void 0x0,function*(){const _0x2d89c8=_0x1bafa6;return yield this['categoryRepository'][_0x2d89c8(0x13b)](_0x1efda1,_0x304512,_0x1ebf3a,_0x554dd9,_0xbdcf08);});}['checkSlug'](_0x53ba0d,_0xac6b6e,_0x6f7fc7=0x0){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x404e1c=a552_0x576a;return _0x6f7fc7>0x0&&(_0x53ba0d=_0x53ba0d+_0x6f7fc7),yield this[_0x404e1c(0x15b)]['checkSlugData'](_0x53ba0d,_0xac6b6e);});}[a552_0x417b5b(0x155)](_0x569d0b,_0x5b4fcb){const _0x324c97=a552_0x417b5b;return tslib_1[_0x324c97(0x12a)](this,void 0x0,void 0x0,function*(){const _0x2318ca=_0x324c97;return yield this[_0x2318ca(0x15b)]['findCategory'](_0x569d0b,_0x5b4fcb);});}};CategoryService=tslib_1[a552_0x417b5b(0x15d)]([(0x0,typedi_1[a552_0x417b5b(0x159)])(),tslib_1[a552_0x417b5b(0x15a)](0x0,(0x0,typeorm_typedi_extensions_1[a552_0x417b5b(0x149)])()),tslib_1[a552_0x417b5b(0x15a)](0x1,(0x0,Logger_1[a552_0x417b5b(0x13e)])(__filename)),tslib_1[a552_0x417b5b(0x156)]('design:paramtypes',[CategoryRepository_1[a552_0x417b5b(0x15c)],Object])],CategoryService),exports['CategoryService']=CategoryService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CategoryService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const CategoryRepository_1 = require("../repositories/CategoryRepository");
+const index_1 = require("typeorm/index");
+let CategoryService = class CategoryService {
+    constructor(categoryRepository, log) {
+        this.categoryRepository = categoryRepository;
+        this.log = log;
+    }
+    // create Category
+    create(category) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new category => ', category.toString());
+            return this.categoryRepository.save(category);
+        });
+    }
+    // findone category
+    findOne(category) {
+        return this.categoryRepository.findOne(category);
+    }
+    // delete Category
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a user');
+            yield this.categoryRepository.delete(id);
+            return;
+        });
+    }
+    // categoryList
+    list(limit, offset, select = [], search = [], whereConditions = [], sortOrder, count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        condition.order = { sortOrder: (sortOrder === 2) ? 'DESC' : 'ASC', createdDate: 'DESC' };
+        if (count) {
+            return this.categoryRepository.count(condition);
+        }
+        return this.categoryRepository.find(condition);
+    }
+    // find category
+    find(category) {
+        return this.categoryRepository.find(category);
+    }
+    slugData(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.categoryRepository.categorySlug(data);
+        });
+    }
+    findAll() {
+        this.log.info('Find all setting');
+        return this.categoryRepository.find();
+    }
+    slug(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.categoryRepository.categorySlugData(data);
+        });
+    }
+    categoryCount(limit, offset, keyword, sortOrder, status) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.categoryRepository.categoryCount(limit, offset, keyword, sortOrder, status);
+        });
+    }
+    checkSlug(slug, id, count = 0) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (count > 0) {
+                slug = slug + count;
+            }
+            return yield this.categoryRepository.checkSlugData(slug, id);
+        });
+    }
+    findCategory(categoryName, parentId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.categoryRepository.findCategory(categoryName, parentId);
+        });
+    }
+};
+CategoryService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [CategoryRepository_1.CategoryRepository, Object])
+], CategoryService);
+exports.CategoryService = CategoryService;
+//# sourceMappingURL=CategoryService.js.map

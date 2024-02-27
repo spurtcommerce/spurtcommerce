@@ -1,1 +1,95 @@
-'use strict';const a946_0x57815d=a946_0x1e81;(function(_0x3e839b,_0x1e8b11){const _0x3946e4=a946_0x1e81,_0x312edb=_0x3e839b();while(!![]){try{const _0x4634bb=-parseInt(_0x3946e4(0x10d))/0x1*(parseInt(_0x3946e4(0x106))/0x2)+-parseInt(_0x3946e4(0x10c))/0x3+parseInt(_0x3946e4(0x112))/0x4+-parseInt(_0x3946e4(0x103))/0x5+parseInt(_0x3946e4(0xfb))/0x6+-parseInt(_0x3946e4(0x108))/0x7*(parseInt(_0x3946e4(0x10e))/0x8)+-parseInt(_0x3946e4(0x110))/0x9*(-parseInt(_0x3946e4(0x111))/0xa);if(_0x4634bb===_0x1e8b11)break;else _0x312edb['push'](_0x312edb['shift']());}catch(_0x34222d){_0x312edb['push'](_0x312edb['shift']());}}}(a946_0x5d57,0x609c5));function a946_0x1e81(_0x4133ee,_0x2b6deb){const _0x5d5792=a946_0x5d57();return a946_0x1e81=function(_0x1e81e9,_0x1778ab){_0x1e81e9=_0x1e81e9-0xf4;let _0x775fcb=_0x5d5792[_0x1e81e9];return _0x775fcb;},a946_0x1e81(_0x4133ee,_0x2b6deb);}Object['defineProperty'](exports,a946_0x57815d(0x100),{'value':!![]}),exports['CreateTableVendorContact1656050135474']=void 0x0;const tslib_1=require(a946_0x57815d(0xf6)),typeorm_1=require('typeorm');function a946_0x5d57(){const _0xd92c2b=['tslib','createTable','country','vendor_contact','down','1303386vUCSnM','increment','CreateTableVendorContact1656050135474','requirement','email','__esModule','name','modified_date','967535EYkosr','varchar','Table','2IAutyZ','DATETIME','13601yWdNxE','TEXT','__awaiter','CURRENT_TIMESTAMP','1528608kZnKRk','321499qmZNfB','2168qqtecL','created_by','144Ezxtqv','620200WbbZYa','2949044zpuQOj','vendor_id','255','modified_by','int'];a946_0x5d57=function(){return _0xd92c2b;};return a946_0x5d57();}class CreateTableVendorContact1656050135474{['up'](_0x17180e){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x36ab1f=a946_0x1e81,_0x1fcdd6=new typeorm_1[(_0x36ab1f(0x105))]({'name':'vendor_contact','columns':[{'name':'id','type':_0x36ab1f(0xf5),'length':'11','isGenerated':!![],'generationStrategy':_0x36ab1f(0xfc),'isPrimary':!![],'isNullable':![]},{'name':_0x36ab1f(0x113),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x36ab1f(0x101),'type':_0x36ab1f(0x104),'length':_0x36ab1f(0x114),'isPrimary':![],'isNullable':!![]},{'name':_0x36ab1f(0xff),'type':'varchar','length':_0x36ab1f(0x114),'isPrimary':![],'isNullable':!![]},{'name':'phone_number','type':_0x36ab1f(0xf5),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x36ab1f(0xf8),'type':_0x36ab1f(0x104),'length':_0x36ab1f(0x114),'isPrimary':![],'isNullable':!![]},{'name':_0x36ab1f(0xfe),'type':_0x36ab1f(0x109),'isPrimary':![],'isNullable':!![]},{'name':_0x36ab1f(0x10f),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x36ab1f(0xf4),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':'DATETIME','isPrimary':![],'isNullable':!![],'default':_0x36ab1f(0x10b)},{'name':_0x36ab1f(0x102),'type':_0x36ab1f(0x107),'isPrimary':![],'isNullable':!![],'default':_0x36ab1f(0x10b)}]}),_0x25e0f=yield _0x17180e['hasTable'](_0x36ab1f(0xf9));!_0x25e0f&&(yield _0x17180e[_0x36ab1f(0xf7)](_0x1fcdd6));});}[a946_0x57815d(0xfa)](_0x315b1e){const _0x1043a8=a946_0x57815d;return tslib_1[_0x1043a8(0x10a)](this,void 0x0,void 0x0,function*(){yield _0x315b1e['dropTable']('vendor_contact');});}}exports[a946_0x57815d(0xfd)]=CreateTableVendorContact1656050135474;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateTableVendorContact1656050135474 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateTableVendorContact1656050135474 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'vendor_contact',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'int',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'vendor_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'email',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'phone_number',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'country',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'requirement',
+                        type: 'TEXT',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('vendor_contact');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('vendor_contact');
+        });
+    }
+}
+exports.CreateTableVendorContact1656050135474 = CreateTableVendorContact1656050135474;
+//# sourceMappingURL=1656050135474-CreateTableVendorContact.js.map

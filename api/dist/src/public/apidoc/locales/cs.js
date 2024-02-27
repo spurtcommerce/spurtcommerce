@@ -1,1 +1,25 @@
-function a1028_0x14f9(_0x5ec6ff,_0x502002){var _0xb632f8=a1028_0xb632();return a1028_0x14f9=function(_0x14f99d,_0x50061a){_0x14f99d=_0x14f99d-0x191;var _0x42b2fc=_0xb632f8[_0x14f99d];return _0x42b2fc;},a1028_0x14f9(_0x5ec6ff,_0x502002);}var a1028_0xd0e442=a1028_0x14f9;function a1028_0xb632(){var _0x472a78=['url','Typ','Parametr','zobrazit\x20po\x20verzi:','837096IWGaiD','890974mGQLXx','Odeslat','145716ZDnOQU','25YqGMuG','32tqhlsy','Oprávnění:','6623181IorXFn','Pole','volitelné','Popis','Odeslat\x20ukázkový\x20požadavek','Obecné','593131lHTGya','41495FxfkvR','122708hWlZmR','porovnat\x20změny\x20s:','Odpověď','Porovnat\x20vše\x20s\x20předchozími\x20verzemi','Povolené\x20hodnoty:','Rozsah\x20velikosti:','Výchozí\x20hodnota:'];a1028_0xb632=function(){return _0x472a78;};return a1028_0xb632();}(function(_0x4a4325,_0x2b0798){var _0x201a2b=a1028_0x14f9,_0x265977=_0x4a4325();while(!![]){try{var _0x308ab3=-parseInt(_0x201a2b(0x1a3))/0x1+-parseInt(_0x201a2b(0x196))/0x2+parseInt(_0x201a2b(0x198))/0x3+parseInt(_0x201a2b(0x1a4))/0x4*(parseInt(_0x201a2b(0x199))/0x5)+parseInt(_0x201a2b(0x195))/0x6+parseInt(_0x201a2b(0x1a2))/0x7*(-parseInt(_0x201a2b(0x19a))/0x8)+parseInt(_0x201a2b(0x19c))/0x9;if(_0x308ab3===_0x2b0798)break;else _0x265977['push'](_0x265977['shift']());}catch(_0x11aa22){_0x265977['push'](_0x265977['shift']());}}}(a1028_0xb632,0x3d64c),define({'cs':{'Allowed\x20values:':a1028_0xd0e442(0x1a8),'Compare\x20all\x20with\x20predecessor':a1028_0xd0e442(0x1a7),'compare\x20changes\x20to:':a1028_0xd0e442(0x1a5),'compared\x20to':'porovnat\x20s','Default\x20value:':a1028_0xd0e442(0x1aa),'Description':a1028_0xd0e442(0x19f),'Field':a1028_0xd0e442(0x19d),'General':a1028_0xd0e442(0x1a1),'Generated\x20with':'Vygenerováno\x20pomocí','Name':'Název','No\x20response\x20values.':'Nebyly\x20vráceny\x20žádné\x20hodnoty.','optional':a1028_0xd0e442(0x19e),'Parameter':a1028_0xd0e442(0x193),'Permission:':a1028_0xd0e442(0x19b),'Response':a1028_0xd0e442(0x1a6),'Send':a1028_0xd0e442(0x197),'Send\x20a\x20Sample\x20Request':a1028_0xd0e442(0x1a0),'show\x20up\x20to\x20version:':a1028_0xd0e442(0x194),'Size\x20range:':a1028_0xd0e442(0x1a9),'Type':a1028_0xd0e442(0x192),'url':a1028_0xd0e442(0x191)}}));
+define({
+    cs: {
+        'Allowed values:'             : 'Povolené hodnoty:',
+        'Compare all with predecessor': 'Porovnat vše s předchozími verzemi',
+        'compare changes to:'         : 'porovnat změny s:',
+        'compared to'                 : 'porovnat s',
+        'Default value:'              : 'Výchozí hodnota:',
+        'Description'                 : 'Popis',
+        'Field'                       : 'Pole',
+        'General'                     : 'Obecné',
+        'Generated with'              : 'Vygenerováno pomocí',
+        'Name'                        : 'Název',
+        'No response values.'         : 'Nebyly vráceny žádné hodnoty.',
+        'optional'                    : 'volitelné',
+        'Parameter'                   : 'Parametr',
+        'Permission:'                 : 'Oprávnění:',
+        'Response'                    : 'Odpověď',
+        'Send'                        : 'Odeslat',
+        'Send a Sample Request'       : 'Odeslat ukázkový požadavek',
+        'show up to version:'         : 'zobrazit po verzi:',
+        'Size range:'                 : 'Rozsah velikosti:',
+        'Type'                        : 'Typ',
+        'url'                         : 'url'
+    }
+});

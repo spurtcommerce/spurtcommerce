@@ -1,1 +1,108 @@
-'use strict';const a866_0x3acc15=a866_0xc43d;(function(_0x11ca37,_0x21bffb){const _0x25e52a=a866_0xc43d,_0x175ed9=_0x11ca37();while(!![]){try{const _0x48ac1a=parseInt(_0x25e52a(0x208))/0x1*(-parseInt(_0x25e52a(0x217))/0x2)+-parseInt(_0x25e52a(0x1f4))/0x3*(-parseInt(_0x25e52a(0x209))/0x4)+-parseInt(_0x25e52a(0x1ec))/0x5*(-parseInt(_0x25e52a(0x20e))/0x6)+-parseInt(_0x25e52a(0x1fa))/0x7+-parseInt(_0x25e52a(0x213))/0x8+-parseInt(_0x25e52a(0x1ef))/0x9+parseInt(_0x25e52a(0x211))/0xa*(parseInt(_0x25e52a(0x20a))/0xb);if(_0x48ac1a===_0x21bffb)break;else _0x175ed9['push'](_0x175ed9['shift']());}catch(_0x5ebe1c){_0x175ed9['push'](_0x175ed9['shift']());}}}(a866_0x1c2a,0x1d140));function a866_0xc43d(_0x220369,_0x1c6448){const _0x1c2a07=a866_0x1c2a();return a866_0xc43d=function(_0xc43d58,_0x1a537d){_0xc43d58=_0xc43d58-0x1ea;let _0x72afbb=_0x1c2a07[_0xc43d58];return _0x72afbb;},a866_0xc43d(_0x220369,_0x1c6448);}function a866_0x1c2a(){const _0xe586ed=['__esModule','order_id','down','varchar','1232469UmHOKL','tableForeignKey','createForeignKey','modified_by','paid_date','order','integer','fk_tbl_payment_archive_tbl_order_foreignKey','payment_number','created_date','foreignKeys','CreatePaymentArchive1588751152380','Table','DECIMAL','122yyOAes','44YnQVLT','51491dAvCEo','payment_archive','datetime','payment_information','42cUhpFs','find','10,2','410dInbte','payment_amount','53632OWCOus','defineProperty','TableForeignKey','increment','76etBAMp','255','modified_date','60305pOvjtc','__awaiter','CURRENT_TIMESTAMP','1475586OitmPr','created_by','CASCADE','payment_commission_amount','tslib','52941FkeyYv','createTable'];a866_0x1c2a=function(){return _0xe586ed;};return a866_0x1c2a();}Object[a866_0x3acc15(0x214)](exports,a866_0x3acc15(0x1f6),{'value':!![]}),exports[a866_0x3acc15(0x205)]=void 0x0;const tslib_1=require(a866_0x3acc15(0x1f3)),typeorm_1=require('typeorm');class CreatePaymentArchive1588751152380{constructor(){const _0x2376c5=a866_0x3acc15;this[_0x2376c5(0x1fb)]=new typeorm_1[(_0x2376c5(0x215))]({'name':_0x2376c5(0x201),'columnNames':['order_id'],'referencedColumnNames':[_0x2376c5(0x1f7)],'referencedTableName':_0x2376c5(0x1ff),'onDelete':_0x2376c5(0x1f1)});}['up'](_0xbf7ef8){const _0x27a69b=a866_0x3acc15;return tslib_1[_0x27a69b(0x1ed)](this,void 0x0,void 0x0,function*(){const _0x16dce2=_0x27a69b,_0x5cdf42=new typeorm_1[(_0x16dce2(0x206))]({'name':_0x16dce2(0x20b),'columns':[{'name':'payment_archive_id','type':_0x16dce2(0x200),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x16dce2(0x216)},{'name':'order_id','type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x16dce2(0x1fe),'type':'datetime','isPrimary':![],'isNullable':!![]},{'name':_0x16dce2(0x202),'type':_0x16dce2(0x1f9),'length':'255','isPrimary':![],'isNullable':!![]},{'name':_0x16dce2(0x20d),'type':_0x16dce2(0x1f9),'length':_0x16dce2(0x1ea),'isPrimary':![],'isNullable':!![]},{'name':_0x16dce2(0x212),'type':_0x16dce2(0x207),'length':'10,2','isPrimary':![],'isNullable':!![]},{'name':_0x16dce2(0x1f2),'type':_0x16dce2(0x207),'length':_0x16dce2(0x210),'isPrimary':![],'isNullable':!![]},{'name':_0x16dce2(0x1f0),'type':_0x16dce2(0x200),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x16dce2(0x203),'type':_0x16dce2(0x20c),'isPrimary':![],'isNullable':!![],'default':_0x16dce2(0x1ee)},{'name':_0x16dce2(0x1fd),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x16dce2(0x1eb),'type':_0x16dce2(0x20c),'isPrimary':![],'isNullable':!![],'default':_0x16dce2(0x1ee)}]}),_0xd82433=yield _0xbf7ef8['hasTable'](_0x16dce2(0x20b));!_0xd82433&&(yield _0xbf7ef8[_0x16dce2(0x1f5)](_0x5cdf42));const _0x39162a=_0x5cdf42[_0x16dce2(0x204)][_0x16dce2(0x20f)](_0x39142c=>_0x39142c['columnNames']['indexOf'](_0x16dce2(0x1f7))!==-0x1);!_0x39162a&&(yield _0xbf7ef8[_0x16dce2(0x1fc)](_0x5cdf42,this[_0x16dce2(0x1fb)]));});}[a866_0x3acc15(0x1f8)](_0x1770a1){const _0x319eef=a866_0x3acc15;return tslib_1[_0x319eef(0x1ed)](this,void 0x0,void 0x0,function*(){const _0x5e9d90=_0x319eef;yield _0x1770a1['dropTable'](_0x5e9d90(0x20b),!![]);});}}exports[a866_0x3acc15(0x205)]=CreatePaymentArchive1588751152380;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreatePaymentArchive1588751152380 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreatePaymentArchive1588751152380 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_payment_archive_tbl_order_foreignKey',
+            columnNames: ['order_id'],
+            referencedColumnNames: ['order_id'],
+            referencedTableName: 'order',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'payment_archive',
+                columns: [
+                    {
+                        name: 'payment_archive_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'order_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'paid_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'payment_number',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'payment_information',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'payment_amount',
+                        type: 'DECIMAL',
+                        length: '10,2',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'payment_commission_amount',
+                        type: 'DECIMAL',
+                        length: '10,2',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('payment_archive');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('order_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('payment_archive', true);
+        });
+    }
+}
+exports.CreatePaymentArchive1588751152380 = CreatePaymentArchive1588751152380;
+//# sourceMappingURL=1588751152380-CreatePaymentArchive.js.map

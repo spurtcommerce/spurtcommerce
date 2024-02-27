@@ -1,1 +1,204 @@
-function a1053_0x5b08(){var _0x277079=['([\x5c/.])?(?:\x5c:(\x5cw+)(?:\x5c(((?:\x5c\x5c.|[^)])*)\x5c))?|\x5c(((?:\x5c\x5c.|[^)])*)\x5c))([+*?])?','132672WsxcKO','slice','length','([.+*?=^!:${}()[\x5c]|\x5c/])','isArray','toString','keys','[object\x20Array]','end',']+?','169287yIyjQO','\x5c$1','join','(?:','prototype','push','match','(?:\x5c/(?=$))?','(\x5c\x5c.)','(?=\x5c/|$)','charAt','52912NtuvYp','replace','91rNzYIJ','strict','3824577NSpAcp','375049LWfEai','source','12miDvMO','10724EmXXWv','877380dpgcVD','call','sensitive','55gOKRgA'];a1053_0x5b08=function(){return _0x277079;};return a1053_0x5b08();}function a1053_0xfba2(_0x10ad47,_0x53d362){var _0x5b0856=a1053_0x5b08();return a1053_0xfba2=function(_0xfba2c5,_0x3c6700){_0xfba2c5=_0xfba2c5-0x8e;var _0x253720=_0x5b0856[_0xfba2c5];return _0x253720;},a1053_0xfba2(_0x10ad47,_0x53d362);}var a1053_0x2ff972=a1053_0xfba2;(function(_0x4d7f94,_0x32134c){var _0x239ccb=a1053_0xfba2,_0x9e419c=_0x4d7f94();while(!![]){try{var _0x130b1b=parseInt(_0x239ccb(0xad))/0x1+parseInt(_0x239ccb(0xaf))/0x2*(-parseInt(_0x239ccb(0x9d))/0x3)+-parseInt(_0x239ccb(0xb0))/0x4+-parseInt(_0x239ccb(0x91))/0x5*(parseInt(_0x239ccb(0x93))/0x6)+-parseInt(_0x239ccb(0xaa))/0x7*(-parseInt(_0x239ccb(0xa8))/0x8)+parseInt(_0x239ccb(0xac))/0x9+-parseInt(_0x239ccb(0x8e))/0xa;if(_0x130b1b===_0x32134c)break;else _0x9e419c['push'](_0x9e419c['shift']());}catch(_0x47d15c){_0x9e419c['push'](_0x9e419c['shift']());}}}(a1053_0x5b08,0x342ff));var isArray=Array[a1053_0x2ff972(0x97)]||function(_0x5532d4){var _0x429edc=a1053_0x2ff972;return Object[_0x429edc(0xa1)][_0x429edc(0x98)][_0x429edc(0x8f)](_0x5532d4)==_0x429edc(0x9a);},PATH_REGEXP=new RegExp([a1053_0x2ff972(0xa5),a1053_0x2ff972(0x92),a1053_0x2ff972(0x96)]['join']('|'),'g');function escapeGroup(_0x191508){var _0x13553f=a1053_0x2ff972;return _0x191508[_0x13553f(0xa9)](/([=!:$\/()])/g,_0x13553f(0x9e));}function attachKeys(_0x56fcf3,_0x5c3a8f){var _0x452b2b=a1053_0x2ff972;return _0x56fcf3[_0x452b2b(0x99)]=_0x5c3a8f,_0x56fcf3;}function flags(_0x4de0fe){var _0xef8230=a1053_0x2ff972;return _0x4de0fe[_0xef8230(0x90)]?'':'i';}function regexpToRegexp(_0x2eaf6a,_0xe02985){var _0x1f8931=a1053_0x2ff972,_0x252edd=_0x2eaf6a[_0x1f8931(0xae)][_0x1f8931(0xa3)](/\((?!\?)/g);if(_0x252edd)for(var _0x4bd179=0x0;_0x4bd179<_0x252edd['length'];_0x4bd179++){_0xe02985[_0x1f8931(0xa2)]({'name':_0x4bd179,'delimiter':null,'optional':![],'repeat':![]});}return attachKeys(_0x2eaf6a,_0xe02985);}function arrayToRegexp(_0x2bd18f,_0x1a8493,_0x269183){var _0x142440=a1053_0x2ff972,_0x183b65=[];for(var _0x2c06de=0x0;_0x2c06de<_0x2bd18f[_0x142440(0x95)];_0x2c06de++){_0x183b65[_0x142440(0xa2)](pathToRegexp(_0x2bd18f[_0x2c06de],_0x1a8493,_0x269183)[_0x142440(0xae)]);}var _0x119925=new RegExp(_0x142440(0xa0)+_0x183b65[_0x142440(0x9f)]('|')+')',flags(_0x269183));return attachKeys(_0x119925,_0x1a8493);}function replacePath(_0x35eeda,_0xd24110){var _0x14bf16=0x0;function _0x30dcaf(_0x126d54,_0x22be39,_0x30e729,_0x2cc8b5,_0x399c14,_0x84590d,_0x3b3d8a,_0x115366){var _0x11147e=a1053_0xfba2;if(_0x22be39)return _0x22be39;if(_0x115366)return'\x5c'+_0x115366;var _0x370fd7=_0x3b3d8a==='+'||_0x3b3d8a==='*',_0x4fe08f=_0x3b3d8a==='?'||_0x3b3d8a==='*';_0xd24110[_0x11147e(0xa2)]({'name':_0x2cc8b5||_0x14bf16++,'delimiter':_0x30e729||'/','optional':_0x4fe08f,'repeat':_0x370fd7}),_0x30e729=_0x30e729?'\x5c'+_0x30e729:'',_0x399c14=escapeGroup(_0x399c14||_0x84590d||'[^'+(_0x30e729||'\x5c/')+_0x11147e(0x9c));_0x370fd7&&(_0x399c14=_0x399c14+'(?:'+_0x30e729+_0x399c14+')*');if(_0x4fe08f)return _0x11147e(0xa0)+_0x30e729+'('+_0x399c14+'))?';return _0x30e729+'('+_0x399c14+')';}return _0x35eeda['replace'](PATH_REGEXP,_0x30dcaf);}function pathToRegexp(_0x4119a3,_0xd1cec7,_0x7e9c26){var _0x1ad3e6=a1053_0x2ff972;_0xd1cec7=_0xd1cec7||[];if(!isArray(_0xd1cec7))_0x7e9c26=_0xd1cec7,_0xd1cec7=[];else!_0x7e9c26&&(_0x7e9c26={});if(_0x4119a3 instanceof RegExp)return regexpToRegexp(_0x4119a3,_0xd1cec7,_0x7e9c26);if(isArray(_0x4119a3))return arrayToRegexp(_0x4119a3,_0xd1cec7,_0x7e9c26);var _0x22a762=_0x7e9c26[_0x1ad3e6(0xab)],_0x3368fc=_0x7e9c26[_0x1ad3e6(0x9b)]!==![],_0x441a97=replacePath(_0x4119a3,_0xd1cec7),_0x2cd734=_0x4119a3[_0x1ad3e6(0xa7)](_0x4119a3['length']-0x1)==='/';return!_0x22a762&&(_0x441a97=(_0x2cd734?_0x441a97[_0x1ad3e6(0x94)](0x0,-0x2):_0x441a97)+_0x1ad3e6(0xa4)),_0x3368fc?_0x441a97+='$':_0x441a97+=_0x22a762&&_0x2cd734?'':_0x1ad3e6(0xa6),attachKeys(new RegExp('^'+_0x441a97,flags(_0x7e9c26)),_0xd1cec7);}
+var isArray = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
+
+/**
+ * Expose `pathToRegexp`.
+ */
+// module.exports = pathToRegexp
+
+/**
+ * The main path matching regexp utility.
+ *
+ * @type {RegExp}
+ */
+var PATH_REGEXP = new RegExp([
+  // Match escaped characters that would otherwise appear in future matches.
+  // This allows the user to escape special characters that won't transform.
+  '(\\\\.)',
+  // Match Express-style parameters and un-named parameters with a prefix
+  // and optional suffixes. Matches appear as:
+  //
+  // "/:test(\\d+)?" => ["/", "test", "\d+", undefined, "?"]
+  // "/route(\\d+)" => [undefined, undefined, undefined, "\d+", undefined]
+  '([\\/.])?(?:\\:(\\w+)(?:\\(((?:\\\\.|[^)])*)\\))?|\\(((?:\\\\.|[^)])*)\\))([+*?])?',
+  // Match regexp special characters that are always escaped.
+  '([.+*?=^!:${}()[\\]|\\/])'
+].join('|'), 'g');
+
+/**
+ * Escape the capturing group by escaping special characters and meaning.
+ *
+ * @param  {String} group
+ * @return {String}
+ */
+function escapeGroup (group) {
+  return group.replace(/([=!:$\/()])/g, '\\$1');
+}
+
+/**
+ * Attach the keys as a property of the regexp.
+ *
+ * @param  {RegExp} re
+ * @param  {Array}  keys
+ * @return {RegExp}
+ */
+function attachKeys (re, keys) {
+  re.keys = keys;
+  return re;
+}
+
+/**
+ * Get the flags for a regexp from the options.
+ *
+ * @param  {Object} options
+ * @return {String}
+ */
+function flags (options) {
+  return options.sensitive ? '' : 'i';
+}
+
+/**
+ * Pull out keys from a regexp.
+ *
+ * @param  {RegExp} path
+ * @param  {Array}  keys
+ * @return {RegExp}
+ */
+function regexpToRegexp (path, keys) {
+  // Use a negative lookahead to match only capturing groups.
+  var groups = path.source.match(/\((?!\?)/g);
+
+  if (groups) {
+    for (var i = 0; i < groups.length; i++) {
+      keys.push({
+        name:      i,
+        delimiter: null,
+        optional:  false,
+        repeat:    false
+      });
+    }
+  }
+
+  return attachKeys(path, keys);
+}
+
+/**
+ * Transform an array into a regexp.
+ *
+ * @param  {Array}  path
+ * @param  {Array}  keys
+ * @param  {Object} options
+ * @return {RegExp}
+ */
+function arrayToRegexp (path, keys, options) {
+  var parts = [];
+
+  for (var i = 0; i < path.length; i++) {
+    parts.push(pathToRegexp(path[i], keys, options).source);
+  }
+
+  var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options));
+  return attachKeys(regexp, keys);
+}
+
+/**
+ * Replace the specific tags with regexp strings.
+ *
+ * @param  {String} path
+ * @param  {Array}  keys
+ * @return {String}
+ */
+function replacePath (path, keys) {
+  var index = 0;
+
+  function replace (_, escaped, prefix, key, capture, group, suffix, escape) {
+    if (escaped) {
+      return escaped;
+    }
+
+    if (escape) {
+      return '\\' + escape;
+    }
+
+    var repeat   = suffix === '+' || suffix === '*';
+    var optional = suffix === '?' || suffix === '*';
+
+    keys.push({
+      name:      key || index++,
+      delimiter: prefix || '/',
+      optional:  optional,
+      repeat:    repeat
+    });
+
+    prefix = prefix ? ('\\' + prefix) : '';
+    capture = escapeGroup(capture || group || '[^' + (prefix || '\\/') + ']+?');
+
+    if (repeat) {
+      capture = capture + '(?:' + prefix + capture + ')*';
+    }
+
+    if (optional) {
+      return '(?:' + prefix + '(' + capture + '))?';
+    }
+
+    // Basic parameter support.
+    return prefix + '(' + capture + ')';
+  }
+
+  return path.replace(PATH_REGEXP, replace);
+}
+
+/**
+ * Normalize the given path string, returning a regular expression.
+ *
+ * An empty array can be passed in for the keys, which will hold the
+ * placeholder key descriptions. For example, using `/user/:id`, `keys` will
+ * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.
+ *
+ * @param  {(String|RegExp|Array)} path
+ * @param  {Array}                 [keys]
+ * @param  {Object}                [options]
+ * @return {RegExp}
+ */
+function pathToRegexp (path, keys, options) {
+  keys = keys || [];
+
+  if (!isArray(keys)) {
+    options = keys;
+    keys = [];
+  } else if (!options) {
+    options = {};
+  }
+
+  if (path instanceof RegExp) {
+    return regexpToRegexp(path, keys, options);
+  }
+
+  if (isArray(path)) {
+    return arrayToRegexp(path, keys, options);
+  }
+
+  var strict = options.strict;
+  var end = options.end !== false;
+  var route = replacePath(path, keys);
+  var endsWithSlash = path.charAt(path.length - 1) === '/';
+
+  // In non-strict mode we allow a slash at the end of match. If the path to
+  // match already ends with a slash, we remove it for consistency. The slash
+  // is valid at the end of a path match, not in the middle. This is important
+  // in non-ending mode, where "/test/" shouldn't match "/test//route".
+  if (!strict) {
+    route = (endsWithSlash ? route.slice(0, -2) : route) + '(?:\\/(?=$))?';
+  }
+
+  if (end) {
+    route += '$';
+  } else {
+    // In non-ending mode, we need the capturing groups to match as much as
+    // possible by using a positive lookahead to the end or next path segment.
+    route += strict && endsWithSlash ? '' : '(?=\\/|$)';
+  }
+
+  return attachKeys(new RegExp('^' + route, flags(options)), keys);
+}

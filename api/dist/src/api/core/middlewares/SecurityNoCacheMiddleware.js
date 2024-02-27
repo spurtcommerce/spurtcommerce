@@ -1,1 +1,25 @@
-'use strict';const a359_0x2083f5=a359_0x867f;(function(_0x206090,_0x3908e2){const _0x28177d=a359_0x867f,_0x20b3c3=_0x206090();while(!![]){try{const _0x5624c8=-parseInt(_0x28177d(0xbe))/0x1*(parseInt(_0x28177d(0xbb))/0x2)+-parseInt(_0x28177d(0xb7))/0x3+parseInt(_0x28177d(0xc6))/0x4+-parseInt(_0x28177d(0xc1))/0x5+parseInt(_0x28177d(0xbd))/0x6+parseInt(_0x28177d(0xc2))/0x7*(parseInt(_0x28177d(0xbf))/0x8)+parseInt(_0x28177d(0xba))/0x9;if(_0x5624c8===_0x3908e2)break;else _0x20b3c3['push'](_0x20b3c3['shift']());}catch(_0x50ed73){_0x20b3c3['push'](_0x20b3c3['shift']());}}}(a359_0x4f56,0x91ca3));Object[a359_0x2083f5(0xb8)](exports,a359_0x2083f5(0xc7),{'value':!![]}),exports[a359_0x2083f5(0xc3)]=void 0x0;function a359_0x867f(_0x297357,_0x5a77f2){const _0x4f5600=a359_0x4f56();return a359_0x867f=function(_0x867f61,_0x4d0c3e){_0x867f61=_0x867f61-0xb7;let _0x3877a6=_0x4f5600[_0x867f61];return _0x3877a6;},a359_0x867f(_0x297357,_0x5a77f2);}const tslib_1=require(a359_0x2083f5(0xc5)),helmet=tslib_1[a359_0x2083f5(0xc0)](require('helmet')),routing_controllers_1=require('routing-controllers');let SecurityNoCacheMiddleware=class SecurityNoCacheMiddleware{['use'](_0x1b4aea,_0x472362,_0x25559d){const _0x1ea0f8=a359_0x2083f5;return helmet[_0x1ea0f8(0xb9)]()(_0x1b4aea,_0x472362,_0x25559d);}};SecurityNoCacheMiddleware=tslib_1[a359_0x2083f5(0xbc)]([(0x0,routing_controllers_1['Middleware'])({'type':a359_0x2083f5(0xc4)})],SecurityNoCacheMiddleware),exports[a359_0x2083f5(0xc3)]=SecurityNoCacheMiddleware;function a359_0x4f56(){const _0x29757c=['971588qqSXCn','__esModule','1571157VdUFAC','defineProperty','noCache','4082688SwGLLp','2QQtubR','__decorate','6784524SYhOLL','848938ljywPi','168856EQxzfs','__importStar','26100WiGwUr','49bsuDYt','SecurityNoCacheMiddleware','before','tslib'];a359_0x4f56=function(){return _0x29757c;};return a359_0x4f56();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SecurityNoCacheMiddleware = void 0;
+const tslib_1 = require("tslib");
+const helmet = tslib_1.__importStar(require("helmet"));
+const routing_controllers_1 = require("routing-controllers");
+let SecurityNoCacheMiddleware = class SecurityNoCacheMiddleware {
+    use(req, res, next) {
+        return helmet.noCache()(req, res, next);
+    }
+};
+SecurityNoCacheMiddleware = tslib_1.__decorate([
+    (0, routing_controllers_1.Middleware)({ type: 'before' })
+], SecurityNoCacheMiddleware);
+exports.SecurityNoCacheMiddleware = SecurityNoCacheMiddleware;
+//# sourceMappingURL=SecurityNoCacheMiddleware.js.map

@@ -1,1 +1,248 @@
-'use strict';const a422_0x24e07b=a422_0x1b6b;(function(_0x2b62c5,_0x2d5ec7){const _0x5d3c8d=a422_0x1b6b,_0x16f74e=_0x2b62c5();while(!![]){try{const _0x401f25=-parseInt(_0x5d3c8d(0x207))/0x1+-parseInt(_0x5d3c8d(0x1ce))/0x2*(parseInt(_0x5d3c8d(0x1d5))/0x3)+parseInt(_0x5d3c8d(0x1c7))/0x4*(parseInt(_0x5d3c8d(0x1cb))/0x5)+parseInt(_0x5d3c8d(0x202))/0x6*(-parseInt(_0x5d3c8d(0x1f2))/0x7)+parseInt(_0x5d3c8d(0x1eb))/0x8*(parseInt(_0x5d3c8d(0x1e1))/0x9)+-parseInt(_0x5d3c8d(0x1d0))/0xa*(-parseInt(_0x5d3c8d(0x1c0))/0xb)+parseInt(_0x5d3c8d(0x201))/0xc;if(_0x401f25===_0x2d5ec7)break;else _0x16f74e['push'](_0x16f74e['shift']());}catch(_0x533086){_0x16f74e['push'](_0x16f74e['shift']());}}}(a422_0x42d2,0x2d925));Object[a422_0x24e07b(0x1bc)](exports,a422_0x24e07b(0x1de),{'value':!![]}),exports[a422_0x24e07b(0x1ca)]=void 0x0;const tslib_1=require(a422_0x24e07b(0x209)),class_validator_1=require(a422_0x24e07b(0x1f1)),typeorm_1=require(a422_0x24e07b(0x20c)),BaseModel_1=require(a422_0x24e07b(0x1da)),moment_1=tslib_1[a422_0x24e07b(0x1df)](require(a422_0x24e07b(0x1d7)));let Settings=class Settings extends BaseModel_1[a422_0x24e07b(0x1d3)]{[a422_0x24e07b(0x1d2)](){const _0x284501=a422_0x24e07b;return tslib_1[_0x284501(0x203)](this,void 0x0,void 0x0,function*(){const _0x2351cf=_0x284501;this['createdDate']=(0x0,moment_1['default'])()[_0x2351cf(0x1f8)](_0x2351cf(0x1ec));});}['updateDetails'](){const _0x5d60f3=a422_0x24e07b;return tslib_1[_0x5d60f3(0x203)](this,void 0x0,void 0x0,function*(){const _0x49f6a1=_0x5d60f3;this[_0x49f6a1(0x1d4)]=(0x0,moment_1[_0x49f6a1(0x1c4)])()['format'](_0x49f6a1(0x1ec));});}};function a422_0x1b6b(_0x16c002,_0x27224b){const _0x42d22c=a422_0x42d2();return a422_0x1b6b=function(_0x1b6bd7,_0x4cdfd5){_0x1b6bd7=_0x1b6bd7-0x1b7;let _0x129746=_0x42d22c[_0x1b6bd7];return _0x129746;},a422_0x1b6b(_0x16c002,_0x27224b);}function a422_0x42d2(){const _0x3d6adb=['__esModule','__importDefault','orderStatus','718749EDfhkD','design:type','storeLanguageName','maintenance_mode','settingsId','categoryProductCount','twitter','store_name','url','category_product_count','16dYzSHE','YYYY-MM-DD\x20HH:mm:ss','store_fax','maintenanceMode','store_image','settings_id','class-validator','958307hOtUJj','meta_tag_title','Column','store_logo_path','invoice_logo_path','IsNotEmpty','format','instagram','__metadata','facebook','store_language_name','metaTagDescription','invoicePrefix','meta_tag_description','invoiceLogoPath','3619608AYObSK','6wMiyHt','__awaiter','storeLogo','invoice_logo','storeAddress','277621vQzwou','store_logo','tslib','PrimaryGeneratedColumn','storeLogoPath','typeorm','zone_id','items_per_page','design:returntype','storeTelephone','meta_tag_keywords','itemsPerPage','defineProperty','google','metaTagKeyword','updateDetails','11IdMzfx','invoiceLogo','invoice_prefix','storeImagePath','default','BeforeInsert','prototype','241492KDnOqn','emailLogo','addons','Settings','10cqCUQJ','design:paramtypes','storeName','2306JzGBax','store_owner','997910YEkHMb','Entity','createDetails','BaseModel','modifiedDate','210YIXfPi','store_telephone','moment','metaTagTitle','__decorate','./BaseModel','BeforeUpdate','countryId','store_image_path'];a422_0x42d2=function(){return _0x3d6adb;};return a422_0x42d2();}tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x20a)])({'name':a422_0x24e07b(0x1f0)}),(0x0,class_validator_1[a422_0x24e07b(0x1f7)])(),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),Number)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1e5),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1e9)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1e9),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1f3)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1d8),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1ff)}),tslib_1[a422_0x24e07b(0x1fa)]('design:type',String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1fd),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1['Column'])({'name':a422_0x24e07b(0x1ba)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1be),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,class_validator_1[a422_0x24e07b(0x1f7)])(),(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1e8)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1cd),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1cf)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],'storeOwner',void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':'store_address'}),tslib_1[a422_0x24e07b(0x1fa)]('design:type',String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x206),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':'country_id'}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),Number)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1dc),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x20d)}),tslib_1['__metadata'](a422_0x24e07b(0x1e2),Number)],Settings['prototype'],'zoneId',void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,class_validator_1[a422_0x24e07b(0x1f7)])(),(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':'order_status'}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),Number)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1e0),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':'store_email'}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],'storeEmail',void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1d6)}),tslib_1['__metadata']('design:type',String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1b9),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1ed)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],'storeFax',void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1['Column'])({'name':a422_0x24e07b(0x208)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x204),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1f5)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x20b),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':'email_logo'}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1c8),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':'email_logo_path'}),tslib_1['__metadata'](a422_0x24e07b(0x1e2),String)],Settings['prototype'],'emailLogoPath',void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x205)}),tslib_1['__metadata'](a422_0x24e07b(0x1e2),String)],Settings['prototype'],a422_0x24e07b(0x1c1),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1f6)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x200),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1e4)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),Number)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1ee),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1fc)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings['prototype'],a422_0x24e07b(0x1e3),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1['Column'])({'name':'store_currency_id'}),tslib_1['__metadata']('design:type',Number)],Settings[a422_0x24e07b(0x1c6)],'storeCurrencyId',void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1ef)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],'storeImage',void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1dd)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1c3),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1['Column'])({'name':'facebook'}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1fb),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1['Column'])({'name':a422_0x24e07b(0x1bd)}),tslib_1['__metadata'](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],'google',void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1e7)}),tslib_1['__metadata']('design:type',String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1e7),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1f9)}),tslib_1['__metadata'](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1f9),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1c2)}),tslib_1['__metadata'](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1fe),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1ea)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),Number)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1e6),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1b7)}),tslib_1['__metadata'](a422_0x24e07b(0x1e2),Number)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1bb),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':'is_active'}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],'isActive',void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a422_0x24e07b(0x1f4)])({'name':a422_0x24e07b(0x1c9)}),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),String)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1c9),void 0x0),tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1c5)])(),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1e2),Function),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1cc),[]),tslib_1['__metadata'](a422_0x24e07b(0x1b8),Promise)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1d2),null),tslib_1['__decorate']([(0x0,typeorm_1[a422_0x24e07b(0x1db)])(),tslib_1['__metadata'](a422_0x24e07b(0x1e2),Function),tslib_1[a422_0x24e07b(0x1fa)]('design:paramtypes',[]),tslib_1[a422_0x24e07b(0x1fa)](a422_0x24e07b(0x1b8),Promise)],Settings[a422_0x24e07b(0x1c6)],a422_0x24e07b(0x1bf),null),Settings=tslib_1[a422_0x24e07b(0x1d9)]([(0x0,typeorm_1[a422_0x24e07b(0x1d1)])('settings')],Settings),exports[a422_0x24e07b(0x1ca)]=Settings;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.1
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Settings = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+let Settings = class Settings extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'settings_id' }),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "settingsId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'site_url' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "siteUrl", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'meta_tag_title' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "metaTagTitle", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'meta_tag_description' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "metaTagDescription", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'meta_tag_keywords' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "metaTagKeyword", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'site_name' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "siteName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'business_name' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "businessName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_owner' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeOwner", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_description' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeDescription", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'access_key' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "accessKey", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'site_category' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "siteCategory", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_address1' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeAddress1", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_address2' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeAddress2", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_city' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeCity", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_postal_code' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storePostalCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'country_id' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "countryId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'zone_id' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "zoneId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'order_status' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "orderStatus", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'store_email' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeEmail", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_telephone' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeTelephone", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_fax' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeFax", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_logo' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeLogo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_logo_path' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeLogoPath", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'email_logo' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "emailLogo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'email_logo_path' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "emailLogoPath", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'invoice_logo' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "invoiceLogo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'invoice_logo_path' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "invoiceLogoPath", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'maintenance_mode' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "maintenanceMode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_language_name' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeLanguageName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_secondary_language_name' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeSecondaryLanguageName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_currency_id' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "storeCurrencyId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'currency_symbol' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "currencySymbol", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'currency_format' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "currencyFormat", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_image' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeImage", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_image_path' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeImagePath", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'date_format' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "dateFormat", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'time_format' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "timeFormat", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'default_country' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "defaultCountry", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'country' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "country", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'facebook' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "facebook", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'google' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "google", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'twitter' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "twitter", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'instagram' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "instagram", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'invoice_prefix' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "invoicePrefix", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'category_product_count' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "categoryProductCount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'items_per_page' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "itemsPerPage", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'addons' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "addons", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'pending_status' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "pendingStatus", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'default_website' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "defaultWebsite", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Settings.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Settings.prototype, "updateDetails", null);
+Settings = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('settings')
+], Settings);
+exports.Settings = Settings;
+//# sourceMappingURL=Setting.js.map

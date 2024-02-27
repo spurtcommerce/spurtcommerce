@@ -1,1 +1,273 @@
-'use strict';const a272_0x4d5b37=a272_0x46f8;(function(_0x50bd51,_0x1d58b5){const _0x5c0e0c=a272_0x46f8,_0x317630=_0x50bd51();while(!![]){try{const _0x4f6fdc=-parseInt(_0x5c0e0c(0xca))/0x1+parseInt(_0x5c0e0c(0xbe))/0x2+parseInt(_0x5c0e0c(0xac))/0x3+parseInt(_0x5c0e0c(0xa5))/0x4*(-parseInt(_0x5c0e0c(0xd6))/0x5)+-parseInt(_0x5c0e0c(0xcc))/0x6+-parseInt(_0x5c0e0c(0xd5))/0x7+parseInt(_0x5c0e0c(0x9e))/0x8;if(_0x4f6fdc===_0x1d58b5)break;else _0x317630['push'](_0x317630['shift']());}catch(_0x402bb6){_0x317630['push'](_0x317630['shift']());}}}(a272_0x2785,0x805a9));function a272_0x2785(){const _0x262e62=['value','422800lvmrpw','/list','JsonController','pluginService','Get','Successfully\x20got\x20the\x20plugin\x20list.','instanceToPlain','../../core/services/SettingService','Authorized','/plugins','name','Param','499441SWuqur','pluginAdditionalInfo','4900770pUokcu','Invalid\x20Plugin\x20Id','__esModule','PluginService','reflect-metadata','./requests/UpdatePluginStatus','parse','addons','log','2692641qvxCjR','748465qKhrBu','design:type','__metadata','updatePluginStatus','pluginList','Put','10431456PAQXiD','findOne','../../core/services/PluginService','__param','push','pluginFormInfo','list','4CKpJhq','__awaiter','pluginDetail','routing-controllers','map','SettingService','__decorate','2582991KDWfkF','tslib','Body','Res','design:returntype','send','UpdatePluginStatus','defineProperty','status','/detail/:id','slugName','pluginType','pluginStatus','class-transformer','design:paramtypes','create','prototype'];a272_0x2785=function(){return _0x262e62;};return a272_0x2785();}Object[a272_0x4d5b37(0xb3)](exports,a272_0x4d5b37(0xce),{'value':!![]}),exports['PluginController']=void 0x0;function a272_0x46f8(_0x338712,_0x3c10f5){const _0x278546=a272_0x2785();return a272_0x46f8=function(_0x46f893,_0x145593){_0x46f893=_0x46f893-0x9e;let _0x51f67e=_0x278546[_0x46f893];return _0x51f67e;},a272_0x46f8(_0x338712,_0x3c10f5);}const tslib_1=require(a272_0x4d5b37(0xad)),class_transformer_1=require(a272_0x4d5b37(0xb9));require(a272_0x4d5b37(0xd0));const routing_controllers_1=require(a272_0x4d5b37(0xa8)),PluginService_1=require(a272_0x4d5b37(0xa0)),SettingService_1=require(a272_0x4d5b37(0xc5)),UpdatePluginStatus_1=require(a272_0x4d5b37(0xd1));let PluginController=class PluginController{constructor(_0x36be2d,_0x2d8c62){const _0xb43cf9=a272_0x4d5b37;this[_0xb43cf9(0xc1)]=_0x36be2d,this['settingService']=_0x2d8c62;}['pluginList'](_0x3de224,_0x14cdf5){const _0x55aa00=a272_0x4d5b37;return tslib_1[_0x55aa00(0xa6)](this,void 0x0,void 0x0,function*(){const _0x2bce57=_0x55aa00,_0x4654cb=[];_0x3de224&&_0x3de224!==''&&_0x4654cb[_0x2bce57(0xa2)]({'name':_0x2bce57(0xb7),'value':_0x3de224});const _0x310fd1=yield this[_0x2bce57(0xc1)][_0x2bce57(0xa4)](0x0,0x0,[],[],_0x4654cb,![]),_0x14ea60={'status':0x1,'message':_0x2bce57(0xc3),'data':(0x0,class_transformer_1[_0x2bce57(0xc4)])(_0x310fd1)};return _0x14cdf5['status'](0xc8)[_0x2bce57(0xb1)](_0x14ea60);});}[a272_0x4d5b37(0xa7)](_0x131013,_0x2c5254){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2a2423=a272_0x46f8,_0x5a6128=yield this[_0x2a2423(0xc1)][_0x2a2423(0x9f)]({'id':_0x131013});if(!_0x5a6128)return _0x2c5254[_0x2a2423(0xb4)](0xc8)[_0x2a2423(0xb1)]({'status':0x1,'message':_0x2a2423(0xcd)});const _0x7db78=_0x5a6128[_0x2a2423(0xa3)]?JSON['parse'](_0x5a6128[_0x2a2423(0xa3)]):[],_0x19af79=_0x5a6128[_0x2a2423(0xcb)]?JSON[_0x2a2423(0xd2)](_0x5a6128['pluginAdditionalInfo']):{};_0x7db78['controls']=_0x7db78['controls'][_0x2a2423(0xa9)](_0x3ffd33=>{const _0xf4f48b=_0x2a2423;return _0x19af79[_0x3ffd33[_0xf4f48b(0xc8)]]&&(_0x3ffd33[_0xf4f48b(0xbd)]=_0x19af79[_0x3ffd33[_0xf4f48b(0xc8)]]),_0x3ffd33;});const _0x5e5aa0={'status':0x1,'message':'Successfully\x20got\x20the\x20complete\x20product\x20list.','data':_0x7db78};return _0x2c5254[_0x2a2423(0xb4)](0xc8)[_0x2a2423(0xb1)](_0x5e5aa0);});}[a272_0x4d5b37(0xd9)](_0x3c8951,_0x9bd508,_0x2639b2){const _0x1c3ee8=a272_0x4d5b37;return tslib_1[_0x1c3ee8(0xa6)](this,void 0x0,void 0x0,function*(){const _0x2a81ae=_0x1c3ee8,_0x4d7290=yield this[_0x2a81ae(0xc1)][_0x2a81ae(0x9f)]({'where':{'id':_0x3c8951}});if(!_0x4d7290)return _0x2639b2['status'](0x190)[_0x2a81ae(0xb1)]({'status':0x0,'message':_0x2a81ae(0xcd)});_0x4d7290[_0x2a81ae(0xb8)]=_0x9bd508['pluginStatus'],yield this[_0x2a81ae(0xc1)][_0x2a81ae(0xbb)](_0x4d7290);const _0x26d082=yield this['settingService'][_0x2a81ae(0x9f)](),_0x139912=_0x26d082[_0x2a81ae(0xd3)]?JSON[_0x2a81ae(0xd2)](_0x26d082[_0x2a81ae(0xd3)]):{};return+_0x9bd508[_0x2a81ae(0xb8)]===0x1?_0x139912[_0x4d7290[_0x2a81ae(0xb6)]]=!![]:(console[_0x2a81ae(0xd4)]('false'),_0x139912[_0x4d7290[_0x2a81ae(0xb6)]]=![]),_0x26d082['addons']=JSON['stringify'](_0x139912),yield this['settingService'][_0x2a81ae(0xbb)](_0x26d082),_0x2639b2[_0x2a81ae(0xb4)](0xc8)['send']({'status':0x1,'message':'Successfully\x20updated\x20the\x20plugin\x20status','data':_0x4d7290});});}};tslib_1[a272_0x4d5b37(0xab)]([(0x0,routing_controllers_1['Get'])(a272_0x4d5b37(0xbf)),(0x0,routing_controllers_1[a272_0x4d5b37(0xc6)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1['QueryParam'])('module')),tslib_1[a272_0x4d5b37(0xa1)](0x1,(0x0,routing_controllers_1[a272_0x4d5b37(0xaf)])()),tslib_1[a272_0x4d5b37(0xd8)](a272_0x4d5b37(0xd7),Function),tslib_1[a272_0x4d5b37(0xd8)](a272_0x4d5b37(0xba),[String,Object]),tslib_1[a272_0x4d5b37(0xd8)]('design:returntype',Promise)],PluginController[a272_0x4d5b37(0xbc)],a272_0x4d5b37(0xda),null),tslib_1[a272_0x4d5b37(0xab)]([(0x0,routing_controllers_1[a272_0x4d5b37(0xc2)])(a272_0x4d5b37(0xb5)),(0x0,routing_controllers_1[a272_0x4d5b37(0xc6)])(),tslib_1[a272_0x4d5b37(0xa1)](0x0,(0x0,routing_controllers_1[a272_0x4d5b37(0xc9)])('id')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a272_0x4d5b37(0xaf)])()),tslib_1[a272_0x4d5b37(0xd8)](a272_0x4d5b37(0xd7),Function),tslib_1[a272_0x4d5b37(0xd8)](a272_0x4d5b37(0xba),[Number,Object]),tslib_1[a272_0x4d5b37(0xd8)]('design:returntype',Promise)],PluginController[a272_0x4d5b37(0xbc)],a272_0x4d5b37(0xa7),null),tslib_1[a272_0x4d5b37(0xab)]([(0x0,routing_controllers_1[a272_0x4d5b37(0xdb)])('/update/plugin-status/:id'),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a272_0x4d5b37(0xa1)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1[a272_0x4d5b37(0xa1)](0x1,(0x0,routing_controllers_1[a272_0x4d5b37(0xae)])({'validate':!![]})),tslib_1[a272_0x4d5b37(0xa1)](0x2,(0x0,routing_controllers_1[a272_0x4d5b37(0xaf)])()),tslib_1['__metadata'](a272_0x4d5b37(0xd7),Function),tslib_1[a272_0x4d5b37(0xd8)](a272_0x4d5b37(0xba),[Number,UpdatePluginStatus_1[a272_0x4d5b37(0xb2)],Object]),tslib_1['__metadata'](a272_0x4d5b37(0xb0),Promise)],PluginController['prototype'],a272_0x4d5b37(0xd9),null),PluginController=tslib_1[a272_0x4d5b37(0xab)]([(0x0,routing_controllers_1[a272_0x4d5b37(0xc0)])(a272_0x4d5b37(0xc7)),tslib_1[a272_0x4d5b37(0xd8)](a272_0x4d5b37(0xba),[PluginService_1[a272_0x4d5b37(0xcf)],SettingService_1[a272_0x4d5b37(0xaa)]])],PluginController),exports['PluginController']=PluginController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PluginController = void 0;
+const tslib_1 = require("tslib");
+const class_transformer_1 = require("class-transformer");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const PluginService_1 = require("../../core/services/PluginService");
+const SettingService_1 = require("../../core/services/SettingService");
+const UpdatePluginStatus_1 = require("./requests/UpdatePluginStatus");
+const S3Service_1 = require("../../core/services/S3Service");
+const ImageService_1 = require("../../core/services/ImageService");
+const env_1 = require("../../../../src/env");
+let PluginController = class PluginController {
+    constructor(pluginService, settingService, s3Service, imageService) {
+        this.pluginService = pluginService;
+        this.settingService = settingService;
+        this.s3Service = s3Service;
+        this.imageService = imageService;
+    }
+    // Plugin List API
+    /**
+     * @api {get} /api/plugins/list Plugin List API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} module Module
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/plugins/list
+     * @apiErrorExample {json} productList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    pluginList(module, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const whereConditions = [];
+            if (module && module !== '') {
+                whereConditions.push({
+                    name: 'pluginType',
+                    value: module,
+                });
+            }
+            const pluginList = yield this.pluginService.list(0, 0, [], [], whereConditions, false);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the plugin list.',
+                data: (0, class_transformer_1.instanceToPlain)(pluginList),
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Plugin Detail API
+    /**
+     * @api {get} /api/plugins/detail/:id Plugin Detail API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} id Plugin Id
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/plugins/detail/:id
+     * @apiErrorExample {json} productList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    pluginDetail(pluginId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pluginDetail = yield this.pluginService.findOne({
+                id: pluginId,
+            });
+            if (!pluginDetail) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Invalid Plugin Id',
+                });
+            }
+            const pluginFormData = pluginDetail.pluginFormInfo ? JSON.parse(pluginDetail.pluginFormInfo) : undefined;
+            const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            if (pluginFormData) {
+                pluginFormData.controls = pluginFormData.controls.map((element) => {
+                    if (paypalAdditionalInfo[element.name]) {
+                        element.value = paypalAdditionalInfo[element.name];
+                    }
+                    return element;
+                });
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the plugin Detail.',
+                data: pluginFormData ? pluginFormData : pluginDetail,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Update Plugin Status API
+    /**
+     * @api {put} /api/plugins/update/plugin-status/:id Update Plugin Status API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} pluginStatus
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully updated plugin status",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/plugins/update/plugin-status/:id
+     * @apiErrorExample {json} productList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updatePluginStatus(pluginId, updateParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const plugin = yield this.pluginService.findOne({
+                where: {
+                    id: pluginId,
+                },
+            });
+            if (!plugin) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid Plugin Id',
+                });
+            }
+            plugin.pluginStatus = updateParam.pluginStatus;
+            yield this.pluginService.create(plugin);
+            const setting = yield this.settingService.findOne();
+            const addonPermissions = setting.addons ? JSON.parse(setting.addons) : {};
+            if (+updateParam.pluginStatus === 1) {
+                addonPermissions[plugin.slugName] = true;
+            }
+            else {
+                console.log('false');
+                addonPermissions[plugin.slugName] = false;
+            }
+            setting.addons = JSON.stringify(addonPermissions);
+            yield this.settingService.create(setting);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully updated the plugin status',
+                data: plugin,
+            });
+        });
+    }
+    updatePluginLogo(pluginId, updateParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const plugin = yield this.pluginService.findOne({
+                where: {
+                    id: pluginId,
+                },
+            });
+            if (!plugin) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid Plugin Id',
+                });
+            }
+            const mime = require('mime');
+            const mimeType = this.base64MimeType(updateParam.image);
+            const fileType = mime.getExtension(mimeType);
+            const availableTypes = env_1.env.availImageTypes.split(',');
+            if (!availableTypes.includes(fileType)) {
+                const errorTypeResponse = {
+                    status: 0,
+                    message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                };
+                return response.status(400).send(errorTypeResponse);
+            }
+            const name = 'Img_' + Date.now() + '.' + fileType;
+            const path = 'logo/';
+            const base64Only = updateParam.image.split(',')[1];
+            const base64Data = Buffer.from(base64Only, 'base64');
+            const stringLength = base64Only.length;
+            const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+            const sizeInKb = sizeInBytes / 1024;
+            if (+sizeInKb <= 2048) {
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload((path + name), base64Data, mimeType);
+                }
+                else {
+                    yield this.imageService.imageUpload((path + name), base64Data);
+                }
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Not able to upload as the file size is too large.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            plugin.pluginAvatar = name;
+            plugin.pluginAvatarPath = path;
+            const pluginSave = yield this.pluginService.create(plugin);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully updated the plugin image',
+                data: pluginSave,
+            });
+        });
+    }
+    base64MimeType(encoded) {
+        let result = undefined;
+        if (typeof encoded !== 'string') {
+            return result;
+        }
+        const mime = encoded.match(/data:([a-zA-Z0-9]+\/[a-zA-Z0-9-.+]+).*,.*/);
+        if (mime && mime.length) {
+            result = mime[1];
+        }
+        return result;
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('module')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PluginController.prototype, "pluginList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/detail/:id')
+    // @Authorized()
+    ,
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PluginController.prototype, "pluginDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update/plugin-status/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, UpdatePluginStatus_1.UpdatePluginStatus, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PluginController.prototype, "updatePluginStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/logo/:id'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PluginController.prototype, "updatePluginLogo", null);
+PluginController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/plugins'),
+    tslib_1.__metadata("design:paramtypes", [PluginService_1.PluginService,
+        SettingService_1.SettingService,
+        S3Service_1.S3Service,
+        ImageService_1.ImageService])
+], PluginController);
+exports.PluginController = PluginController;
+//# sourceMappingURL=PluginController.js.map

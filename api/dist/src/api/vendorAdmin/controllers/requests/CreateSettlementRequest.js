@@ -1,1 +1,30 @@
-'use strict';const a696_0x36193c=a696_0x79dc;(function(_0x5dc5c4,_0x2c6cfe){const _0x35c508=a696_0x79dc,_0x5a4ce5=_0x5dc5c4();while(!![]){try{const _0x19defc=-parseInt(_0x35c508(0x195))/0x1*(parseInt(_0x35c508(0x18a))/0x2)+parseInt(_0x35c508(0x187))/0x3*(parseInt(_0x35c508(0x180))/0x4)+parseInt(_0x35c508(0x196))/0x5+-parseInt(_0x35c508(0x191))/0x6*(-parseInt(_0x35c508(0x183))/0x7)+parseInt(_0x35c508(0x18e))/0x8+-parseInt(_0x35c508(0x193))/0x9+parseInt(_0x35c508(0x17f))/0xa*(-parseInt(_0x35c508(0x197))/0xb);if(_0x19defc===_0x2c6cfe)break;else _0x5a4ce5['push'](_0x5a4ce5['shift']());}catch(_0x21a5ed){_0x5a4ce5['push'](_0x5a4ce5['shift']());}}}(a696_0x21b6,0x8754f));function a696_0x79dc(_0x6a0f8f,_0x34737e){const _0x21b6a8=a696_0x21b6();return a696_0x79dc=function(_0x79dc71,_0x3d2def){_0x79dc71=_0x79dc71-0x17f;let _0x5e10dd=_0x21b6a8[_0x79dc71];return _0x5e10dd;},a696_0x79dc(_0x6a0f8f,_0x34737e);}function a696_0x21b6(){const _0x57948d=['1488600tYNQKU','title\x20is\x20required','title','6JpZyyh','__metadata','5845491PIarKF','__decorate','4550OsnUEA','4617905nmmaJL','4042093xJlnju','20BOyGhU','76wiweih','title\x20should\x20be\x20maximum\x20255\x20character','prototype','3274229xpjxLx','MaxLength','vendorOrderId','design:type','96567ZxaMiD','class-validator','reflect-metadata','110uKaQaX','tslib','CreateSettlementRequest','IsNotEmpty'];a696_0x21b6=function(){return _0x57948d;};return a696_0x21b6();}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a696_0x36193c(0x18c)]=void 0x0;const tslib_1=require(a696_0x36193c(0x18b));require(a696_0x36193c(0x189));const class_validator_1=require(a696_0x36193c(0x188));class CreateSettlementRequest{}tslib_1[a696_0x36193c(0x194)]([(0x0,class_validator_1[a696_0x36193c(0x18d)])({'message':a696_0x36193c(0x18f)}),(0x0,class_validator_1[a696_0x36193c(0x184)])(0xff,{'message':a696_0x36193c(0x181)}),tslib_1[a696_0x36193c(0x192)](a696_0x36193c(0x186),String)],CreateSettlementRequest[a696_0x36193c(0x182)],a696_0x36193c(0x190),void 0x0),tslib_1[a696_0x36193c(0x194)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1['__metadata'](a696_0x36193c(0x186),Array)],CreateSettlementRequest[a696_0x36193c(0x182)],a696_0x36193c(0x185),void 0x0),exports[a696_0x36193c(0x18c)]=CreateSettlementRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateSettlementRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateSettlementRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'title is required',
+    }),
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'title should be maximum 255 character',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateSettlementRequest.prototype, "title", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Array)
+], CreateSettlementRequest.prototype, "vendorOrderId", void 0);
+exports.CreateSettlementRequest = CreateSettlementRequest;
+//# sourceMappingURL=CreateSettlementRequest.js.map

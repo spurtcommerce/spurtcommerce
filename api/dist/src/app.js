@@ -1,1 +1,87 @@
-'use strict';const a703_0x9a80dc=a703_0x46b4;(function(_0xfbf8ac,_0x31547b){const _0x5e0279=a703_0x46b4,_0x5be21a=_0xfbf8ac();while(!![]){try{const _0x36cf02=-parseInt(_0x5e0279(0xd0))/0x1*(-parseInt(_0x5e0279(0xde))/0x2)+-parseInt(_0x5e0279(0xd3))/0x3+-parseInt(_0x5e0279(0xc6))/0x4+-parseInt(_0x5e0279(0xc2))/0x5*(-parseInt(_0x5e0279(0xcc))/0x6)+-parseInt(_0x5e0279(0xd9))/0x7+-parseInt(_0x5e0279(0xd4))/0x8+parseInt(_0x5e0279(0xc4))/0x9;if(_0x36cf02===_0x31547b)break;else _0x5be21a['push'](_0x5be21a['shift']());}catch(_0x21822b){_0x5be21a['push'](_0x5be21a['shift']());}}}(a703_0x5eb8,0xd971a));Object[a703_0x9a80dc(0xd2)](exports,a703_0x9a80dc(0xcf),{'value':!![]}),require(a703_0x9a80dc(0xda));const microframework_w3tec_1=require('microframework-w3tec'),banner_1=require('./lib/banner'),logger_1=require(a703_0x9a80dc(0xd7)),eventDispatchLoader_1=require(a703_0x9a80dc(0xdb)),expressLoader_1=require(a703_0x9a80dc(0xd8)),homeLoader_1=require(a703_0x9a80dc(0xc8)),iocLoader_1=require(a703_0x9a80dc(0xcd)),monitorLoader_1=require(a703_0x9a80dc(0xdc)),publicLoader_1=require('./loaders/publicLoader'),typeormLoader_1=require(a703_0x9a80dc(0xbe)),winstonLoader_1=require('./loaders/winstonLoader'),swaggerLoader_1=require('./loaders/swaggerLoader'),pluginLoader_1=require(a703_0x9a80dc(0xc1)),log=new logger_1[(a703_0x9a80dc(0xc7))](__filename);function a703_0x5eb8(){const _0x2d9f76=['homeLoader','catch','102towsGR','./loaders/iocLoader','then','__esModule','408602DIoEKg','bootstrapMicroframework','defineProperty','94908khWHBU','12495400VhOfjn','winstonLoader','publicLoader','./lib/logger','./loaders/expressLoader','9611140tESQQq','reflect-metadata','./loaders/eventDispatchLoader','./loaders/monitorLoader','Application\x20is\x20crashed:\x20','2JRYvhJ','banner','./loaders/typeormLoader','eventDispatchLoader','iocLoader','./loaders/pluginLoader','423580kFecXH','swaggerLoader','28341711Abnvqq','monitorLoader','4562488gjvBcl','Logger','./loaders/homeLoader','expressLoader'];a703_0x5eb8=function(){return _0x2d9f76;};return a703_0x5eb8();}function a703_0x46b4(_0x1c3dd4,_0x44474d){const _0x5eb855=a703_0x5eb8();return a703_0x46b4=function(_0x46b442,_0x5b8ad0){_0x46b442=_0x46b442-0xbd;let _0x36924d=_0x5eb855[_0x46b442];return _0x36924d;},a703_0x46b4(_0x1c3dd4,_0x44474d);}(0x0,microframework_w3tec_1[a703_0x9a80dc(0xd1)])({'loaders':[winstonLoader_1[a703_0x9a80dc(0xd5)],iocLoader_1[a703_0x9a80dc(0xc0)],eventDispatchLoader_1[a703_0x9a80dc(0xbf)],typeormLoader_1['typeormLoader'],pluginLoader_1['pluginLoader'],expressLoader_1[a703_0x9a80dc(0xc9)],swaggerLoader_1[a703_0x9a80dc(0xc3)],monitorLoader_1[a703_0x9a80dc(0xc5)],homeLoader_1[a703_0x9a80dc(0xca)],publicLoader_1[a703_0x9a80dc(0xd6)]]})[a703_0x9a80dc(0xce)](()=>(0x0,banner_1[a703_0x9a80dc(0xbd)])(log))[a703_0x9a80dc(0xcb)](_0xd7c434=>log['error'](a703_0x9a80dc(0xdd)+_0xd7c434));
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+require("reflect-metadata");
+const microframework_w3tec_1 = require("microframework-w3tec");
+const banner_1 = require("./lib/banner");
+const logger_1 = require("./lib/logger");
+const eventDispatchLoader_1 = require("./loaders/eventDispatchLoader");
+const expressLoader_1 = require("./loaders/expressLoader");
+const homeLoader_1 = require("./loaders/homeLoader");
+const iocLoader_1 = require("./loaders/iocLoader");
+const monitorLoader_1 = require("./loaders/monitorLoader");
+const publicLoader_1 = require("./loaders/publicLoader");
+const typeormLoader_1 = require("./loaders/typeormLoader");
+const winstonLoader_1 = require("./loaders/winstonLoader");
+const swaggerLoader_1 = require("./loaders/swaggerLoader");
+const pluginLoader_1 = require("./loaders/pluginLoader");
+/**
+ * EXPRESS TYPESCRIPT BOILERPLATE
+ * ----------------------------------------
+ *
+ * This is a boilerplate for Node.js Application written in TypeScript.
+ * The basic layer of this app is express. For further information visit
+ * the 'README.md' file.
+ */
+const log = new logger_1.Logger(__filename);
+(0, microframework_w3tec_1.bootstrapMicroframework)({
+    /**
+     * Loader is a place where you can configure all your modules during microframework
+     * bootstrap process. All loaders are executed one by one in a sequential order.
+     */
+    loaders: [
+        winstonLoader_1.winstonLoader,
+        iocLoader_1.iocLoader,
+        eventDispatchLoader_1.eventDispatchLoader,
+        typeormLoader_1.typeormLoader,
+        pluginLoader_1.pluginLoader,
+        expressLoader_1.expressLoader,
+        swaggerLoader_1.swaggerLoader,
+        monitorLoader_1.monitorLoader,
+        homeLoader_1.homeLoader,
+        publicLoader_1.publicLoader,
+        // spurtConnectLoader,
+    ],
+})
+    .then(() => (0, banner_1.banner)(log))
+    .catch(error => log.error('Application is crashed: ' + error));
+// const fs = require('fs');
+// function data (){
+//     const dir = 'dist';
+//     if (fs.existsSync(dir)) {
+//         fs.readFile('dist/src/loaders/publicLoader.js', 'utf8', (err: any, dataV: any) => {
+//         if (err) {
+//             return console.log(err);
+//         }
+//         const sourcePath = 'path.join(__dirname, ' + "'../../'" + ', ' + "'views/assets')";
+//         const destPath = 'path.join(__dirname, ' + "'../../../'" + ', ' + "'views/assets')";
+//         console.log(sourcePath + 'sourcePath');
+//         console.log(destPath + 'destPath');
+//         const result = dataV.replace(sourcePath , destPath);
+//         fs.writeFile('dist/src/loaders/publicLoader.js', result, 'utf8', (errW) => {
+//             if (errW) { return console.log(errW); }
+//         });
+//         });
+//         fs.readFile('dist/src/loaders/spurtConnectLoader.js', 'utf8', (err1: any,data1: any) => {
+//             if (err1) {
+//                 return console.log(err1);
+//             }
+//             const spurtSourcePath = 'path.join(__dirname, ' + "'../../'" + ', ' + "'views')";
+//             const spurtDestPath = 'path.join(__dirname, ' + "'../../../'" + ', ' + "'views')";
+//             console.log(spurtSourcePath + 'spurtSourcePath');
+//             console.log(spurtDestPath + 'spurtDestPath');
+//             const result1 = data1.replace(spurtSourcePath , spurtDestPath);
+//             fs.writeFile('dist/src/loaders/spurtConnectLoader.js', result1, 'utf8', (err2) => {
+//                 if (err2) { return console.log(err2); }
+//             });
+//         });
+//     }
+// }
+// data();
+//# sourceMappingURL=app.js.map

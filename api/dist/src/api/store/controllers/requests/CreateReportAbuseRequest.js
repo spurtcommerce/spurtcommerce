@@ -1,1 +1,31 @@
-'use strict';function a656_0x5538(_0x34eab8,_0x4586ed){const _0x410363=a656_0x4103();return a656_0x5538=function(_0x553849,_0x2e2803){_0x553849=_0x553849-0x19e;let _0x238a40=_0x410363[_0x553849];return _0x238a40;},a656_0x5538(_0x34eab8,_0x4586ed);}const a656_0x3e0b0b=a656_0x5538;(function(_0x52d5db,_0x26ed82){const _0x7d475f=a656_0x5538,_0xf12ec0=_0x52d5db();while(!![]){try{const _0x159cf6=parseInt(_0x7d475f(0x1a7))/0x1*(parseInt(_0x7d475f(0x1a5))/0x2)+-parseInt(_0x7d475f(0x1aa))/0x3+-parseInt(_0x7d475f(0x19e))/0x4+parseInt(_0x7d475f(0x1b1))/0x5*(-parseInt(_0x7d475f(0x1af))/0x6)+parseInt(_0x7d475f(0x1a2))/0x7+-parseInt(_0x7d475f(0x1a1))/0x8*(-parseInt(_0x7d475f(0x1a9))/0x9)+-parseInt(_0x7d475f(0x1a0))/0xa;if(_0x159cf6===_0x26ed82)break;else _0xf12ec0['push'](_0xf12ec0['shift']());}catch(_0x138c67){_0xf12ec0['push'](_0xf12ec0['shift']());}}}(a656_0x4103,0x6b6bd));Object[a656_0x3e0b0b(0x1b0)](exports,a656_0x3e0b0b(0x1ac),{'value':!![]}),exports['AbuseReportRequest']=void 0x0;const tslib_1=require('tslib');require('reflect-metadata');const class_validator_1=require(a656_0x3e0b0b(0x1ab));class AbuseReportRequest{}function a656_0x4103(){const _0x297600=['1900640zsteqS','1040EaShxN','2204244WcvtbM','prototype','__decorate','14mOPLUV','__metadata','100353DuZErO','answerId','7857dwVqBy','423768KGuprc','class-validator','__esModule','design:type','remark','412350KzDfNT','defineProperty','25RkTLgE','63644zkmngd','AbuseReportRequest'];a656_0x4103=function(){return _0x297600;};return a656_0x4103();}tslib_1[a656_0x3e0b0b(0x1a4)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a656_0x3e0b0b(0x1a6)]('design:type',Number)],AbuseReportRequest[a656_0x3e0b0b(0x1a3)],'reasonId',void 0x0),tslib_1[a656_0x3e0b0b(0x1a4)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a656_0x3e0b0b(0x1a6)](a656_0x3e0b0b(0x1ad),Number)],AbuseReportRequest[a656_0x3e0b0b(0x1a3)],a656_0x3e0b0b(0x1a8),void 0x0),tslib_1[a656_0x3e0b0b(0x1a4)]([(0x0,class_validator_1['MaxLength'])(0xff,{'message':'remark\x20should\x20be\x20maximum\x20255\x20character'}),tslib_1[a656_0x3e0b0b(0x1a6)](a656_0x3e0b0b(0x1ad),String)],AbuseReportRequest[a656_0x3e0b0b(0x1a3)],a656_0x3e0b0b(0x1ae),void 0x0),exports[a656_0x3e0b0b(0x19f)]=AbuseReportRequest;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AbuseReportRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class AbuseReportRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], AbuseReportRequest.prototype, "reasonId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], AbuseReportRequest.prototype, "answerId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'remark should be maximum 255 character',
+    }),
+    tslib_1.__metadata("design:type", String)
+], AbuseReportRequest.prototype, "remark", void 0);
+exports.AbuseReportRequest = AbuseReportRequest;
+//# sourceMappingURL=CreateReportAbuseRequest.js.map

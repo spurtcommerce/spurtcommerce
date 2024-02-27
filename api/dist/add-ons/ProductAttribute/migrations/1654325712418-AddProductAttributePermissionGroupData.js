@@ -1,1 +1,41 @@
-'use strict';function a73_0x5820(_0x2c05d9,_0x53049d){const _0x1b3fdc=a73_0x1b3f();return a73_0x5820=function(_0x582062,_0x13be30){_0x582062=_0x582062-0x14b;let _0x38dc5d=_0x1b3fdc[_0x582062];return _0x38dc5d;},a73_0x5820(_0x2c05d9,_0x53049d);}const a73_0x583cf3=a73_0x5820;(function(_0x496b1f,_0x19a108){const _0x41df75=a73_0x5820,_0x405a48=_0x496b1f();while(!![]){try{const _0x5199ff=-parseInt(_0x41df75(0x15d))/0x1+-parseInt(_0x41df75(0x150))/0x2+parseInt(_0x41df75(0x155))/0x3*(parseInt(_0x41df75(0x157))/0x4)+-parseInt(_0x41df75(0x158))/0x5*(-parseInt(_0x41df75(0x163))/0x6)+parseInt(_0x41df75(0x14f))/0x7*(-parseInt(_0x41df75(0x14e))/0x8)+parseInt(_0x41df75(0x154))/0x9+parseInt(_0x41df75(0x15a))/0xa;if(_0x5199ff===_0x19a108)break;else _0x405a48['push'](_0x405a48['shift']());}catch(_0x5f4d9f){_0x405a48['push'](_0x405a48['shift']());}}}(a73_0x1b3f,0x61297));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports['AddProductAttributePermissionGroupData1654325712418']=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a73_0x583cf3(0x164)),moment_1=tslib_1['__importDefault'](require('moment'));function a73_0x1b3f(){const _0x5dfc00=['format','219182EzUzlX','Product\x20Attribute\x20List','product-attribute-list','update-product-attribute','moduleGroupId','length','2212248FzRLpH','typeorm','default','YYYY-MM-DD\x20HH:mm:ss','PermissionModule','824zfRSII','53067xBqktq','303782RKXaEO','query','235','__awaiter','695529mqWyVK','5025BiwDta','down','692qyBsBY','5HKIGBD','AddProductAttributePermissionGroupData1654325712418','8141270pxvzQQ','236'];a73_0x1b3f=function(){return _0x5dfc00;};return a73_0x1b3f();}class AddProductAttributePermissionGroupData1654325712418{['up'](_0xcb10fd){const _0x2db409=a73_0x583cf3;return tslib_1[_0x2db409(0x153)](this,void 0x0,void 0x0,function*(){const _0x3f4a00=_0x2db409,_0x2a28d2=yield _0xcb10fd[_0x3f4a00(0x151)]('SELECT\x20*\x20FROM\x20`permission_module_group`\x20WHERE\x20`slug_name`\x20=\x20'+'\x22product\x22');if(_0x2a28d2[_0x3f4a00(0x162)]!==0x0){const _0x2db10f=[{'moduleGroupId':_0x2a28d2[0x0]['moduleGroupId'],'name':_0x3f4a00(0x15e),'slugName':_0x3f4a00(0x15f),'sortOrder':_0x3f4a00(0x152),'createdDate':''+(0x0,moment_1[_0x3f4a00(0x14b)])()[_0x3f4a00(0x15c)]('YYYY-MM-DD\x20HH:mm:ss'),'updatedDate':''+(0x0,moment_1[_0x3f4a00(0x14b)])()[_0x3f4a00(0x15c)](_0x3f4a00(0x14c))},{'moduleGroupId':_0x2a28d2[0x0][_0x3f4a00(0x161)],'name':'Add\x20Product\x20Attribute','slugName':_0x3f4a00(0x160),'sortOrder':_0x3f4a00(0x15b),'createdDate':''+(0x0,moment_1[_0x3f4a00(0x14b)])()['format'](_0x3f4a00(0x14c)),'updatedDate':''+(0x0,moment_1[_0x3f4a00(0x14b)])()[_0x3f4a00(0x15c)](_0x3f4a00(0x14c))}];yield(0x0,typeorm_1['getRepository'])(_0x3f4a00(0x14d))['save'](_0x2db10f);}});}[a73_0x583cf3(0x156)](_0x46f073){const _0x1682f4=a73_0x583cf3;return tslib_1[_0x1682f4(0x153)](this,void 0x0,void 0x0,function*(){});}}exports[a73_0x583cf3(0x159)]=AddProductAttributePermissionGroupData1654325712418;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddProductAttributePermissionGroupData1654325712418 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+class AddProductAttributePermissionGroupData1654325712418 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const exist = yield queryRunner.query('SELECT * FROM `permission_module_group` WHERE `slug_name` = ' + '"product"');
+            if ((exist.length !== 0)) {
+                const ProductAttributeSeed = [
+                    {
+                        moduleGroupId: exist[0].moduleGroupId,
+                        name: 'Product Attribute List',
+                        slugName: 'product-attribute-list',
+                        sortOrder: '235',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    },
+                    {
+                        moduleGroupId: exist[0].moduleGroupId,
+                        name: 'Add Product Attribute',
+                        slugName: 'update-product-attribute',
+                        sortOrder: '236',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    },
+                ];
+                yield (0, typeorm_1.getRepository)('PermissionModule').save(ProductAttributeSeed);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ----
+        });
+    }
+}
+exports.AddProductAttributePermissionGroupData1654325712418 = AddProductAttributePermissionGroupData1654325712418;
+//# sourceMappingURL=1654325712418-AddProductAttributePermissionGroupData.js.map

@@ -1,1 +1,25 @@
-var a1031_0x540256=a1031_0x5b91;(function(_0xd1d9f8,_0x3f0745){var _0x47e424=a1031_0x5b91,_0x2bb3d5=_0xd1d9f8();while(!![]){try{var _0x1cac54=-parseInt(_0x47e424(0x169))/0x1*(parseInt(_0x47e424(0x15c))/0x2)+parseInt(_0x47e424(0x162))/0x3*(parseInt(_0x47e424(0x173))/0x4)+parseInt(_0x47e424(0x16c))/0x5+parseInt(_0x47e424(0x16b))/0x6*(-parseInt(_0x47e424(0x15d))/0x7)+-parseInt(_0x47e424(0x15e))/0x8+-parseInt(_0x47e424(0x165))/0x9+-parseInt(_0x47e424(0x167))/0xa*(-parseInt(_0x47e424(0x163))/0xb);if(_0x1cac54===_0x3f0745)break;else _0x2bb3d5['push'](_0x2bb3d5['shift']());}catch(_0x243a12){_0x2bb3d5['push'](_0x2bb3d5['shift']());}}}(a1031_0x2f34,0x46714),define({'fr':{'Allowed\x20values:':a1031_0x540256(0x171),'Compare\x20all\x20with\x20predecessor':'Tout\x20comparer\x20avec\x20...','compare\x20changes\x20to:':a1031_0x540256(0x164),'compared\x20to':a1031_0x540256(0x15a),'Default\x20value:':a1031_0x540256(0x16f),'Description':a1031_0x540256(0x168),'Field':'Champ','General':'Général','Generated\x20with':a1031_0x540256(0x15f),'Name':a1031_0x540256(0x160),'No\x20response\x20values.':a1031_0x540256(0x16e),'optional':a1031_0x540256(0x172),'Parameter':a1031_0x540256(0x174),'Permission:':a1031_0x540256(0x16d),'Response':'Réponse','Send':a1031_0x540256(0x16a),'Send\x20a\x20Sample\x20Request':a1031_0x540256(0x166),'show\x20up\x20to\x20version:':a1031_0x540256(0x159),'Size\x20range:':a1031_0x540256(0x170),'Type':a1031_0x540256(0x15b),'url':a1031_0x540256(0x161)}}));function a1031_0x5b91(_0x39d721,_0x3d0ae1){var _0x2f34f8=a1031_0x2f34();return a1031_0x5b91=function(_0x5b91d4,_0x50d062){_0x5b91d4=_0x5b91d4-0x159;var _0x45bbf3=_0x2f34f8[_0x5b91d4];return _0x45bbf3;},a1031_0x5b91(_0x39d721,_0x3d0ae1);}function a1031_0x2f34(){var _0x502840=['url','90066sZLSqL','4614181zREYca','comparer\x20les\x20changements\x20à\x20:','1140912Lnecly','Envoyer\x20une\x20requête\x20représentative','10xTOXYU','Description','122597DvlOjg','Envoyer','65730eGZBlc','628035yFzDTr','Permission\x20:','Aucune\x20valeur\x20de\x20réponse.','Valeur\x20par\x20défaut\x20:','Ordre\x20de\x20grandeur\x20:','Valeurs\x20autorisées\x20:','optionnel','68ijpsgP','Paramètre','Montrer\x20à\x20partir\x20de\x20la\x20version\x20:','comparer\x20à','Type','2PkzrQg','112UqcBtp','2738200mwAJTM','Généré\x20avec','Nom'];a1031_0x2f34=function(){return _0x502840;};return a1031_0x2f34();}
+define({
+    fr: {
+        'Allowed values:'             : 'Valeurs autorisées :',
+        'Compare all with predecessor': 'Tout comparer avec ...',
+        'compare changes to:'         : 'comparer les changements à :',
+        'compared to'                 : 'comparer à',
+        'Default value:'              : 'Valeur par défaut :',
+        'Description'                 : 'Description',
+        'Field'                       : 'Champ',
+        'General'                     : 'Général',
+        'Generated with'              : 'Généré avec',
+        'Name'                        : 'Nom',
+        'No response values.'         : 'Aucune valeur de réponse.',
+        'optional'                    : 'optionnel',
+        'Parameter'                   : 'Paramètre',
+        'Permission:'                 : 'Permission :',
+        'Response'                    : 'Réponse',
+        'Send'                        : 'Envoyer',
+        'Send a Sample Request'       : 'Envoyer une requête représentative',
+        'show up to version:'         : 'Montrer à partir de la version :',
+        'Size range:'                 : 'Ordre de grandeur :',
+        'Type'                        : 'Type',
+        'url'                         : 'url'
+    }
+});

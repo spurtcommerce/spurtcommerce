@@ -1,1 +1,18 @@
-'use strict';const a950_0x45ed55=a950_0x2d9b;(function(_0x4f489f,_0x1c1101){const _0x268152=a950_0x2d9b,_0x41325c=_0x4f489f();while(!![]){try{const _0x5b9e00=-parseInt(_0x268152(0x86))/0x1+-parseInt(_0x268152(0x83))/0x2+-parseInt(_0x268152(0x82))/0x3*(parseInt(_0x268152(0x81))/0x4)+-parseInt(_0x268152(0x7f))/0x5+parseInt(_0x268152(0x7d))/0x6+-parseInt(_0x268152(0x88))/0x7+-parseInt(_0x268152(0x87))/0x8*(-parseInt(_0x268152(0x7e))/0x9);if(_0x5b9e00===_0x1c1101)break;else _0x41325c['push'](_0x41325c['shift']());}catch(_0x293be3){_0x41325c['push'](_0x41325c['shift']());}}}(a950_0x3fbb,0xbeb24));Object['defineProperty'](exports,a950_0x45ed55(0x80),{'value':!![]}),exports[a950_0x45ed55(0x89)]=void 0x0;function a950_0x2d9b(_0x3b0e6c,_0x22e8e){const _0x3fbb15=a950_0x3fbb();return a950_0x2d9b=function(_0x2d9bf2,_0x45a9b7){_0x2d9bf2=_0x2d9bf2-0x7b;let _0x3e844c=_0x3fbb15[_0x2d9bf2];return _0x3e844c;},a950_0x2d9b(_0x3b0e6c,_0x22e8e);}const tslib_1=require(a950_0x45ed55(0x85));function a950_0x3fbb(){const _0x2b32c8=['tslib','1502775PkmMud','528uxjMGc','10625139zVyYFn','AlterColumnInProductTable1657012922452','down','ALTER\x20TABLE\x20`product`\x20CHANGE\x20`has_stock`\x20`has_stock`\x20int\x20DEFAULT\x201','5390136ESnYGA','837351nJyRXh','2590645HjADmV','__esModule','5822164fZmQUn','3MatjoP','2527032pCeMhP','__awaiter'];a950_0x3fbb=function(){return _0x2b32c8;};return a950_0x3fbb();}class AlterColumnInProductTable1657012922452{['up'](_0x3e6564){const _0x1b9244=a950_0x45ed55;return tslib_1[_0x1b9244(0x84)](this,void 0x0,void 0x0,function*(){const _0x541b29=_0x1b9244;yield _0x3e6564['query'](_0x541b29(0x7c));});}[a950_0x45ed55(0x7b)](_0x11e265){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3e0813=a950_0x2d9b;yield _0x11e265['query'](_0x3e0813(0x7c));});}}exports[a950_0x45ed55(0x89)]=AlterColumnInProductTable1657012922452;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AlterColumnInProductTable1657012922452 = void 0;
+const tslib_1 = require("tslib");
+class AlterColumnInProductTable1657012922452 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `product` CHANGE `has_stock` `has_stock` int DEFAULT 1');
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `product` CHANGE `has_stock` `has_stock` int DEFAULT 1');
+        });
+    }
+}
+exports.AlterColumnInProductTable1657012922452 = AlterColumnInProductTable1657012922452;
+//# sourceMappingURL=1657012922452-AlterColumnInProductTable.js.map

@@ -1,1 +1,75 @@
-'use strict';const a310_0x43ffaf=a310_0x444b;function a310_0x444b(_0xf2625a,_0x378813){const _0x2875b0=a310_0x2875();return a310_0x444b=function(_0x444b11,_0xf0dff2){_0x444b11=_0x444b11-0x191;let _0xf1e4a5=_0x2875b0[_0x444b11];return _0xf1e4a5;},a310_0x444b(_0xf2625a,_0x378813);}(function(_0x102aa1,_0x1f2bcf){const _0x27dca1=a310_0x444b,_0x3373fa=_0x102aa1();while(!![]){try{const _0xbd6e48=parseInt(_0x27dca1(0x198))/0x1*(-parseInt(_0x27dca1(0x1a5))/0x2)+-parseInt(_0x27dca1(0x1b8))/0x3+-parseInt(_0x27dca1(0x1a1))/0x4+parseInt(_0x27dca1(0x1a6))/0x5*(-parseInt(_0x27dca1(0x191))/0x6)+-parseInt(_0x27dca1(0x1ac))/0x7*(parseInt(_0x27dca1(0x1b3))/0x8)+-parseInt(_0x27dca1(0x1b0))/0x9*(-parseInt(_0x27dca1(0x1ad))/0xa)+parseInt(_0x27dca1(0x1a8))/0xb*(parseInt(_0x27dca1(0x19c))/0xc);if(_0xbd6e48===_0x1f2bcf)break;else _0x3373fa['push'](_0x3373fa['shift']());}catch(_0x2efdfd){_0x3373fa['push'](_0x3373fa['shift']());}}}(a310_0x2875,0xdaa64));Object[a310_0x43ffaf(0x193)](exports,'__esModule',{'value':!![]}),exports[a310_0x43ffaf(0x197)]=void 0x0;function a310_0x2875(){const _0x490d41=['__metadata','8pAvpAs','MinLength','firstName','design:type','userGroupId','3451533rZXejL','1548438CKiNGL','email','defineProperty','reflect-metadata','IsEmail','Matches','CreateUser','2185KkgzOF','Please\x20provide\x20valid\x20email\x20Id','username','IsNotEmpty','32298564cfHsYi','First\x20name\x20is\x20maximum\x2032\x20character','User\x20Group\x20Id\x20is\x20required','Please\x20provide\x20username\x20as\x20emailId','__decorate','470420icTPxu','username\x20should\x20be\x20maximum\x2096\x20character','password\x20must\x20contain\x20minimum\x208\x20character','First\x20name\x20is\x20required','604mQkllv','15fGjzsC','tslib','11GPnZdC','Last\x20name\x20is\x20maximum\x2032\x20character','MaxLength','username\x20is\x20required','1170918ZXgnJW','238560caDKpE','password','class-validator','405WgNpFv','prototype'];a310_0x2875=function(){return _0x490d41;};return a310_0x2875();}const tslib_1=require(a310_0x43ffaf(0x1a7));require(a310_0x43ffaf(0x194));const class_validator_1=require(a310_0x43ffaf(0x1af));class CreateUser{}tslib_1[a310_0x43ffaf(0x1a0)]([(0x0,class_validator_1[a310_0x43ffaf(0x195)])({},{'message':a310_0x43ffaf(0x19f)}),(0x0,class_validator_1[a310_0x43ffaf(0x19b)])({'message':a310_0x43ffaf(0x1ab)}),(0x0,class_validator_1[a310_0x43ffaf(0x1aa)])(0x60,{'message':a310_0x43ffaf(0x1a2)}),tslib_1['__metadata'](a310_0x43ffaf(0x1b6),String)],CreateUser[a310_0x43ffaf(0x1b1)],a310_0x43ffaf(0x19a),void 0x0),tslib_1[a310_0x43ffaf(0x1a0)]([(0x0,class_validator_1[a310_0x43ffaf(0x1b4)])(0x8,{'message':a310_0x43ffaf(0x1a3)}),(0x0,class_validator_1[a310_0x43ffaf(0x196)])(/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/,{'message':'Password\x20must\x20contain\x20at\x20least\x20one\x20number\x20or\x20one\x20symbol\x20and\x20one\x20uppercase\x20and\x20lowercase\x20letter,\x20and\x20at\x20least\x208\x20and\x20at\x20most\x20128\x20characters'}),(0x0,class_validator_1[a310_0x43ffaf(0x19b)])({'message':'password\x20is\x20required'}),tslib_1['__metadata'](a310_0x43ffaf(0x1b6),String)],CreateUser['prototype'],a310_0x43ffaf(0x1ae),void 0x0),tslib_1[a310_0x43ffaf(0x1a0)]([(0x0,class_validator_1[a310_0x43ffaf(0x1aa)])(0x20,{'message':a310_0x43ffaf(0x19d)}),(0x0,class_validator_1[a310_0x43ffaf(0x19b)])({'message':a310_0x43ffaf(0x1a4)}),tslib_1[a310_0x43ffaf(0x1b2)](a310_0x43ffaf(0x1b6),String)],CreateUser['prototype'],a310_0x43ffaf(0x1b5),void 0x0),tslib_1[a310_0x43ffaf(0x1a0)]([(0x0,class_validator_1[a310_0x43ffaf(0x1aa)])(0x20,{'message':a310_0x43ffaf(0x1a9)}),(0x0,class_validator_1[a310_0x43ffaf(0x19b)])({'message':'Last\x20name\x20is\x20required'}),tslib_1[a310_0x43ffaf(0x1b2)](a310_0x43ffaf(0x1b6),String)],CreateUser['prototype'],'lastName',void 0x0),tslib_1[a310_0x43ffaf(0x1a0)]([(0x0,class_validator_1['MaxLength'])(0x60,{'message':'email\x20should\x20be\x20maximum\x2096\x20character'}),(0x0,class_validator_1[a310_0x43ffaf(0x195)])({},{'message':a310_0x43ffaf(0x199)}),(0x0,class_validator_1[a310_0x43ffaf(0x19b)])({'message':'Email\x20-\x20Id\x20is\x20required'}),tslib_1[a310_0x43ffaf(0x1b2)](a310_0x43ffaf(0x1b6),String)],CreateUser[a310_0x43ffaf(0x1b1)],a310_0x43ffaf(0x192),void 0x0),tslib_1[a310_0x43ffaf(0x1a0)]([(0x0,class_validator_1[a310_0x43ffaf(0x19b)])({'message':a310_0x43ffaf(0x19e)}),tslib_1['__metadata'](a310_0x43ffaf(0x1b6),Number)],CreateUser[a310_0x43ffaf(0x1b1)],a310_0x43ffaf(0x1b7),void 0x0),exports[a310_0x43ffaf(0x197)]=CreateUser;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateUser = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateUser {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)({}, {
+        message: 'Please provide username as emailId',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'username is required',
+    }),
+    (0, class_validator_1.MaxLength)(96, {
+        message: 'username should be maximum 96 character',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateUser.prototype, "username", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MinLength)(8, {
+        message: 'password must contain minimum 8 character',
+    }),
+    (0, class_validator_1.Matches)(/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/, { message: 'Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters' }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'password is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateUser.prototype, "password", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(32, {
+        message: 'First name is maximum 32 character',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'First name is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateUser.prototype, "firstName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(32, {
+        message: 'Last name is maximum 32 character',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Last name is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateUser.prototype, "lastName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(96, {
+        message: 'email should be maximum 96 character',
+    }),
+    (0, class_validator_1.IsEmail)({}, {
+        message: 'Please provide valid email Id',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Email - Id is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateUser.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'User Group Id is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateUser.prototype, "userGroupId", void 0);
+exports.CreateUser = CreateUser;
+//# sourceMappingURL=CreateUserRequest.js.map

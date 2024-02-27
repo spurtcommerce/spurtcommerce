@@ -1,1 +1,25 @@
-var a1039_0x748bb3=a1039_0x7403;function a1039_0x7403(_0x2e27e9,_0x1e094a){var _0x5a87e4=a1039_0x5a87();return a1039_0x7403=function(_0x740385,_0x14ef8e){_0x740385=_0x740385-0xcd;var _0x3a5318=_0x5a87e4[_0x740385];return _0x3a5318;},a1039_0x7403(_0x2e27e9,_0x1e094a);}function a1039_0x5a87(){var _0x20e611=['Genel','Dönüş','4BsRTLT','değişiklikleri\x20karşılaştır:','Varsayılan\x20değer:','852195boUWYJ','11COhAWF','İzin\x20verilen\x20değerler:','Oluşturan','365004CiuHlz','13KiURLQ','opsiyonel','8zNqAsi','11333zLFIEQ','İzin:','1628515pEmmsG','210tVajmo','37070sgmgAT','Alan','Açıklama','bu\x20versiyona\x20kadar\x20göster:','Örnek\x20istek\x20gönder','151908eHSNwT','karşılaştır','Tümünü\x20öncekiler\x20ile\x20karşılaştır','Boyut\x20aralığı:','Gönder','Tip','4755490hGRtVH','8sbaHES'];a1039_0x5a87=function(){return _0x20e611;};return a1039_0x5a87();}(function(_0x432e9f,_0x4a70ac){var _0x29a6bc=a1039_0x7403,_0x40bdb6=_0x432e9f();while(!![]){try{var _0x3d2716=parseInt(_0x29a6bc(0xe9))/0x1*(parseInt(_0x29a6bc(0xd7))/0x2)+-parseInt(_0x29a6bc(0xdd))/0x3*(-parseInt(_0x29a6bc(0xda))/0x4)+parseInt(_0x29a6bc(0xe7))/0x5+-parseInt(_0x29a6bc(0xe8))/0x6*(parseInt(_0x29a6bc(0xe5))/0x7)+parseInt(_0x29a6bc(0xe4))/0x8*(parseInt(_0x29a6bc(0xe1))/0x9)+parseInt(_0x29a6bc(0xd6))/0xa*(-parseInt(_0x29a6bc(0xde))/0xb)+-parseInt(_0x29a6bc(0xd0))/0xc*(parseInt(_0x29a6bc(0xe2))/0xd);if(_0x3d2716===_0x4a70ac)break;else _0x40bdb6['push'](_0x40bdb6['shift']());}catch(_0x28eefb){_0x40bdb6['push'](_0x40bdb6['shift']());}}}(a1039_0x5a87,0x3df23),define({'tr':{'Allowed\x20values:':a1039_0x748bb3(0xdf),'Compare\x20all\x20with\x20predecessor':a1039_0x748bb3(0xd2),'compare\x20changes\x20to:':a1039_0x748bb3(0xdb),'compared\x20to':a1039_0x748bb3(0xd1),'Default\x20value:':a1039_0x748bb3(0xdc),'Description':a1039_0x748bb3(0xcd),'Field':a1039_0x748bb3(0xea),'General':a1039_0x748bb3(0xd8),'Generated\x20with':a1039_0x748bb3(0xe0),'Name':'İsim','No\x20response\x20values.':'Dönüş\x20verisi\x20yok.','optional':a1039_0x748bb3(0xe3),'Parameter':'Parametre','Permission:':a1039_0x748bb3(0xe6),'Response':a1039_0x748bb3(0xd9),'Send':a1039_0x748bb3(0xd4),'Send\x20a\x20Sample\x20Request':a1039_0x748bb3(0xcf),'show\x20up\x20to\x20version:':a1039_0x748bb3(0xce),'Size\x20range:':a1039_0x748bb3(0xd3),'Type':a1039_0x748bb3(0xd5),'url':'url'}}));
+define({
+    tr: {
+        'Allowed values:'             : 'İzin verilen değerler:',
+        'Compare all with predecessor': 'Tümünü öncekiler ile karşılaştır',
+        'compare changes to:'         : 'değişiklikleri karşılaştır:',
+        'compared to'                 : 'karşılaştır',
+        'Default value:'              : 'Varsayılan değer:',
+        'Description'                 : 'Açıklama',
+        'Field'                       : 'Alan',
+        'General'                     : 'Genel',
+        'Generated with'              : 'Oluşturan',
+        'Name'                        : 'İsim',
+        'No response values.'         : 'Dönüş verisi yok.',
+        'optional'                    : 'opsiyonel',
+        'Parameter'                   : 'Parametre',
+        'Permission:'                 : 'İzin:',
+        'Response'                    : 'Dönüş',
+        'Send'                        : 'Gönder',
+        'Send a Sample Request'       : 'Örnek istek gönder',
+        'show up to version:'         : 'bu versiyona kadar göster:',
+        'Size range:'                 : 'Boyut aralığı:',
+        'Type'                        : 'Tip',
+        'url'                         : 'url'
+    }
+});

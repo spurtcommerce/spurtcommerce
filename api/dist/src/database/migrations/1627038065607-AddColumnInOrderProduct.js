@@ -1,1 +1,28 @@
-'use strict';const a917_0x131e97=a917_0x56fe;(function(_0x23d3e5,_0x368d12){const _0x1a95d2=a917_0x56fe,_0x1a9062=_0x23d3e5();while(!![]){try{const _0x3b521e=parseInt(_0x1a95d2(0xd6))/0x1+parseInt(_0x1a95d2(0xcd))/0x2*(-parseInt(_0x1a95d2(0xc0))/0x3)+-parseInt(_0x1a95d2(0xca))/0x4+-parseInt(_0x1a95d2(0xc1))/0x5*(parseInt(_0x1a95d2(0xc5))/0x6)+parseInt(_0x1a95d2(0xd1))/0x7*(-parseInt(_0x1a95d2(0xc2))/0x8)+-parseInt(_0x1a95d2(0xcc))/0x9*(parseInt(_0x1a95d2(0xcf))/0xa)+parseInt(_0x1a95d2(0xce))/0xb;if(_0x3b521e===_0x368d12)break;else _0x1a9062['push'](_0x1a9062['shift']());}catch(_0x58afc2){_0x1a9062['push'](_0x1a9062['shift']());}}}(a917_0x5292,0xd2a69));function a917_0x56fe(_0x3ffb32,_0x535029){const _0x5292a9=a917_0x5292();return a917_0x56fe=function(_0x56feb9,_0x3f9b82){_0x56feb9=_0x56feb9-0xbf;let _0x28841a=_0x5292a9[_0x56feb9];return _0x28841a;},a917_0x56fe(_0x3ffb32,_0x535029);}Object[a917_0x131e97(0xcb)](exports,a917_0x131e97(0xd0),{'value':!![]}),exports[a917_0x131e97(0xc7)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a917_0x131e97(0xc3));class AddColumnInOrderProduct1627038065607{['up'](_0x81740e){const _0x762ee9=a917_0x131e97;return tslib_1[_0x762ee9(0xc8)](this,void 0x0,void 0x0,function*(){const _0x1f94c7=_0x762ee9,_0xc6cc1d=yield _0x81740e['hasColumn'](_0x1f94c7(0xc6),_0x1f94c7(0xc4));!_0xc6cc1d&&(yield _0x81740e[_0x1f94c7(0xbf)](_0x1f94c7(0xc6),new typeorm_1[(_0x1f94c7(0xd4))]({'name':_0x1f94c7(0xc4),'type':_0x1f94c7(0xc9),'length':_0x1f94c7(0xd2),'isPrimary':![],'isNullable':!![]})));});}[a917_0x131e97(0xd3)](_0x2c0c72){const _0x134bbf=a917_0x131e97;return tslib_1[_0x134bbf(0xc8)](this,void 0x0,void 0x0,function*(){const _0x361e0c=_0x134bbf;yield _0x2c0c72[_0x361e0c(0xd5)](_0x361e0c(0xc6),_0x361e0c(0xc4));});}}function a917_0x5292(){const _0x522852=['57966403EHcDXa','2311970IApVai','__esModule','11498641PCpOkh','16,2','down','TableColumn','dropColumn','129827vNdHLd','addColumn','44511OBCuPZ','161515qFcirv','8JTgkjI','typeorm','coupon_discount_amount','102wtZGAh','order_product','AddColumnInOrderProduct1627038065607','__awaiter','decimal','2094632kFGLDc','defineProperty','27HQEAvN','152tLpINK'];a917_0x5292=function(){return _0x522852;};return a917_0x5292();}exports['AddColumnInOrderProduct1627038065607']=AddColumnInOrderProduct1627038065607;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInOrderProduct1627038065607 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInOrderProduct1627038065607 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExistCreatedDate = yield queryRunner.hasColumn('order_product', 'coupon_discount_amount');
+            if (!ifExistCreatedDate) {
+                yield queryRunner.addColumn('order_product', new typeorm_1.TableColumn({
+                    name: 'coupon_discount_amount',
+                    type: 'decimal',
+                    length: '16,2',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('order_product', 'coupon_discount_amount');
+        });
+    }
+}
+exports.AddColumnInOrderProduct1627038065607 = AddColumnInOrderProduct1627038065607;
+//# sourceMappingURL=1627038065607-AddColumnInOrderProduct.js.map

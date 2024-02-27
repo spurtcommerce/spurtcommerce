@@ -1,1 +1,36 @@
-'use strict';function a772_0x49fe(_0x1a3aa9,_0x188fd9){const _0x10cc46=a772_0x10cc();return a772_0x49fe=function(_0x49fe78,_0x5dcb67){_0x49fe78=_0x49fe78-0xfb;let _0x252b97=_0x10cc46[_0x49fe78];return _0x252b97;},a772_0x49fe(_0x1a3aa9,_0x188fd9);}const a772_0x16c770=a772_0x49fe;(function(_0x90bf36,_0xd95a43){const _0x2e3dd9=a772_0x49fe,_0x4ffca2=_0x90bf36();while(!![]){try{const _0x57a408=parseInt(_0x2e3dd9(0x10b))/0x1*(parseInt(_0x2e3dd9(0x105))/0x2)+-parseInt(_0x2e3dd9(0xfe))/0x3*(parseInt(_0x2e3dd9(0xfd))/0x4)+parseInt(_0x2e3dd9(0x109))/0x5*(parseInt(_0x2e3dd9(0x114))/0x6)+-parseInt(_0x2e3dd9(0x113))/0x7*(parseInt(_0x2e3dd9(0x104))/0x8)+-parseInt(_0x2e3dd9(0x102))/0x9*(parseInt(_0x2e3dd9(0x10a))/0xa)+-parseInt(_0x2e3dd9(0x115))/0xb*(-parseInt(_0x2e3dd9(0xfb))/0xc)+-parseInt(_0x2e3dd9(0x107))/0xd*(-parseInt(_0x2e3dd9(0x116))/0xe);if(_0x57a408===_0xd95a43)break;else _0x4ffca2['push'](_0x4ffca2['shift']());}catch(_0x26929f){_0x4ffca2['push'](_0x4ffca2['shift']());}}}(a772_0x10cc,0x37e01));Object['defineProperty'](exports,a772_0x16c770(0xfc),{'value':!![]}),exports[a772_0x16c770(0x108)]=void 0x0;const tslib_1=require(a772_0x16c770(0x111)),typeorm_1=require(a772_0x16c770(0x10d));class AddOrderRelationToCurrencyTable1546594852304{constructor(){const _0x29fc46=a772_0x16c770;this['tableForeignKey']=new typeorm_1['TableForeignKey']({'name':_0x29fc46(0x117),'columnNames':[_0x29fc46(0x103)],'referencedColumnNames':[_0x29fc46(0x103)],'referencedTableName':'currency','onDelete':_0x29fc46(0x100)});}['up'](_0x45d16b){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x429406=a772_0x49fe,_0x5023c8=yield _0x45d16b[_0x429406(0x110)](_0x429406(0x101)),_0x13dce9=_0x5023c8[_0x429406(0xff)]['find'](_0x2c858c=>_0x2c858c[_0x429406(0x10c)]['indexOf']('currency_id')!==-0x1);!_0x13dce9&&(yield _0x45d16b[_0x429406(0x10e)](_0x5023c8,this[_0x429406(0x118)]));});}[a772_0x16c770(0x112)](_0x222ed3){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x376d78=a772_0x49fe,_0x304785=yield _0x222ed3[_0x376d78(0x110)]('order'),_0xbdab0d=_0x304785[_0x376d78(0xff)]['find'](_0x1594d0=>_0x1594d0[_0x376d78(0x10c)][_0x376d78(0x106)](_0x376d78(0x103))!==-0x1);_0xbdab0d&&(yield _0x222ed3[_0x376d78(0x10f)](_0x304785,this[_0x376d78(0x118)]));});}}function a772_0x10cc(){const _0x1f044d=['2126222MbaErc','120PBLMpL','187gblATC','1775564NdPIaC','fk_order_currency1','tableForeignKey','322836EBQWyR','__esModule','93924riQQBH','21KgKyKQ','foreignKeys','CASCADE','order','9YOyFnP','currency_id','8OdOKav','38nnlTxg','indexOf','13lYgoPg','AddOrderRelationToCurrencyTable1546594852304','4880aSvHYp','2376800qlnLQT','17419aEZOdC','columnNames','typeorm','createForeignKey','dropForeignKey','getTable','tslib','down'];a772_0x10cc=function(){return _0x1f044d;};return a772_0x10cc();}exports[a772_0x16c770(0x108)]=AddOrderRelationToCurrencyTable1546594852304;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddOrderRelationToCurrencyTable1546594852304 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddOrderRelationToCurrencyTable1546594852304 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_order_currency1',
+            columnNames: ['currency_id'],
+            referencedColumnNames: ['currency_id'],
+            referencedTableName: 'currency',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('order');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('currency_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('order');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('currency_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.AddOrderRelationToCurrencyTable1546594852304 = AddOrderRelationToCurrencyTable1546594852304;
+//# sourceMappingURL=1546594852304-AddOrderRelationToCurrencyTable.js.map

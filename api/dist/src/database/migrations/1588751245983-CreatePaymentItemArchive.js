@@ -1,1 +1,120 @@
-'use strict';const a867_0x13eea4=a867_0x407d;(function(_0x2c5f65,_0x4c4a01){const _0x44af5a=a867_0x407d,_0x2c41c8=_0x2c5f65();while(!![]){try{const _0x56c222=parseInt(_0x44af5a(0x16a))/0x1+parseInt(_0x44af5a(0x16d))/0x2*(-parseInt(_0x44af5a(0x162))/0x3)+-parseInt(_0x44af5a(0x171))/0x4+parseInt(_0x44af5a(0x170))/0x5+-parseInt(_0x44af5a(0x157))/0x6*(-parseInt(_0x44af5a(0x166))/0x7)+-parseInt(_0x44af5a(0x175))/0x8+parseInt(_0x44af5a(0x16b))/0x9;if(_0x56c222===_0x4c4a01)break;else _0x2c41c8['push'](_0x2c41c8['shift']());}catch(_0x5791e5){_0x2c41c8['push'](_0x2c41c8['shift']());}}}(a867_0x1ac1,0x31dc2));Object[a867_0x13eea4(0x161)](exports,a867_0x13eea4(0x178),{'value':!![]}),exports[a867_0x13eea4(0x158)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a867_0x13eea4(0x177));function a867_0x407d(_0x4d757d,_0x528f6c){const _0x1ac19f=a867_0x1ac1();return a867_0x407d=function(_0x407d07,_0x460f6e){_0x407d07=_0x407d07-0x156;let _0x39e62f=_0x1ac19f[_0x407d07];return _0x39e62f;},a867_0x407d(_0x4d757d,_0x528f6c);}class CreatePaymentItemArchive1588751245983{constructor(){const _0x51e143=a867_0x13eea4;this[_0x51e143(0x181)]=new typeorm_1['TableForeignKey']({'name':_0x51e143(0x17b),'columnNames':[_0x51e143(0x159)],'referencedColumnNames':[_0x51e143(0x159)],'referencedTableName':_0x51e143(0x17d),'onDelete':_0x51e143(0x186)}),this[_0x51e143(0x169)]=new typeorm_1[(_0x51e143(0x17c))]({'name':_0x51e143(0x183),'columnNames':[_0x51e143(0x182)],'referencedColumnNames':['order_product_id'],'referencedTableName':_0x51e143(0x168),'onDelete':_0x51e143(0x186)});}['up'](_0x4fe31c){const _0x37832c=a867_0x13eea4;return tslib_1[_0x37832c(0x16f)](this,void 0x0,void 0x0,function*(){const _0x4a57f4=_0x37832c,_0x37c0d1=new typeorm_1[(_0x4a57f4(0x180))]({'name':'payment_items_archive','columns':[{'name':_0x4a57f4(0x16e),'type':'integer','length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x4a57f4(0x185)},{'name':_0x4a57f4(0x159),'type':_0x4a57f4(0x16c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4a57f4(0x182),'type':_0x4a57f4(0x16c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4a57f4(0x163),'type':_0x4a57f4(0x176),'length':_0x4a57f4(0x165),'isPrimary':![],'isNullable':!![]},{'name':_0x4a57f4(0x17e),'type':_0x4a57f4(0x15a),'length':_0x4a57f4(0x172),'isPrimary':![],'isNullable':!![]},{'name':'product_quantity','type':_0x4a57f4(0x16c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4a57f4(0x15b),'type':'DECIMAL','length':_0x4a57f4(0x165),'isPrimary':![],'isNullable':!![]},{'name':_0x4a57f4(0x17a),'type':_0x4a57f4(0x16c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4a57f4(0x15f),'type':_0x4a57f4(0x17f),'isPrimary':![],'isNullable':!![],'default':_0x4a57f4(0x173)},{'name':_0x4a57f4(0x15c),'type':_0x4a57f4(0x16c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'modified_date','type':'datetime','isPrimary':![],'isNullable':!![],'default':_0x4a57f4(0x173)}]}),_0x5a908d=yield _0x4fe31c['hasTable'](_0x4a57f4(0x174));!_0x5a908d&&(yield _0x4fe31c[_0x4a57f4(0x160)](_0x37c0d1));const _0x4f253c=_0x37c0d1[_0x4a57f4(0x179)][_0x4a57f4(0x156)](_0x2621d6=>_0x2621d6[_0x4a57f4(0x15d)][_0x4a57f4(0x184)](_0x4a57f4(0x159))!==-0x1);!_0x4f253c&&(yield _0x4fe31c[_0x4a57f4(0x167)](_0x37c0d1,this[_0x4a57f4(0x181)]));const _0x53234b=_0x37c0d1[_0x4a57f4(0x179)]['find'](_0x53675f=>_0x53675f[_0x4a57f4(0x15d)][_0x4a57f4(0x184)]('order_product_id')!==-0x1);!_0x53234b&&(yield _0x4fe31c[_0x4a57f4(0x167)](_0x37c0d1,this[_0x4a57f4(0x169)]));});}[a867_0x13eea4(0x15e)](_0xadc618){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x58f168=a867_0x407d;yield _0xadc618[_0x58f168(0x164)](_0x58f168(0x174),!![]);});}}exports[a867_0x13eea4(0x158)]=CreatePaymentItemArchive1588751245983;function a867_0x1ac1(){const _0x4bc690=['columnNames','down','created_date','createTable','defineProperty','2121bYzfNO','total_amount','dropTable','10,2','584864psckmQ','createForeignKey','order_product','tableForeignKeyy','405509zMQKzE','504495UYnKih','integer','374POLvYK','payment_item_archive_id','__awaiter','774330AFyUlI','1584092jcBKKg','255','CURRENT_TIMESTAMP','payment_items_archive','408608wMdIxN','DECIMAL','typeorm','__esModule','foreignKeys','created_by','fk_tbl_paymentItemsArchive_tbl_payment_foreignKey','TableForeignKey','payment_archive','product_name','datetime','Table','tableForeignKey','order_product_id','fk_tbl_paymentItemsArchive_tbl_orderProduct_foreignKey','indexOf','increment','CASCADE','find','12avzCwt','CreatePaymentItemArchive1588751245983','payment_archive_id','varchar','product_price','modified_by'];a867_0x1ac1=function(){return _0x4bc690;};return a867_0x1ac1();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreatePaymentItemArchive1588751245983 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreatePaymentItemArchive1588751245983 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_paymentItemsArchive_tbl_payment_foreignKey',
+            columnNames: ['payment_archive_id'],
+            referencedColumnNames: ['payment_archive_id'],
+            referencedTableName: 'payment_archive',
+            onDelete: 'CASCADE',
+        });
+        this.tableForeignKeyy = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_paymentItemsArchive_tbl_orderProduct_foreignKey',
+            columnNames: ['order_product_id'],
+            referencedColumnNames: ['order_product_id'],
+            referencedTableName: 'order_product',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'payment_items_archive',
+                columns: [
+                    {
+                        name: 'payment_item_archive_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'payment_archive_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'order_product_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'total_amount',
+                        type: 'DECIMAL',
+                        length: '10,2',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'product_name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'product_quantity',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'product_price',
+                        type: 'DECIMAL',
+                        length: '10,2',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('payment_items_archive');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('payment_archive_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+            const ifDataExsistt = table.foreignKeys.find(fk => fk.columnNames.indexOf('order_product_id') !== -1);
+            if (!ifDataExsistt) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKeyy);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('payment_items_archive', true);
+        });
+    }
+}
+exports.CreatePaymentItemArchive1588751245983 = CreatePaymentItemArchive1588751245983;
+//# sourceMappingURL=1588751245983-CreatePaymentItemArchive.js.map

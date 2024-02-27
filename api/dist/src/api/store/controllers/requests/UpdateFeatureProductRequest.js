@@ -1,1 +1,23 @@
-'use strict';const a666_0x2cbdf2=a666_0x2344;(function(_0x98998,_0x1acc07){const _0x597191=a666_0x2344,_0xac4409=_0x98998();while(!![]){try{const _0x32adc0=parseInt(_0x597191(0x77))/0x1+-parseInt(_0x597191(0x87))/0x2*(parseInt(_0x597191(0x7a))/0x3)+parseInt(_0x597191(0x7e))/0x4+parseInt(_0x597191(0x86))/0x5+parseInt(_0x597191(0x88))/0x6*(parseInt(_0x597191(0x85))/0x7)+-parseInt(_0x597191(0x7c))/0x8*(-parseInt(_0x597191(0x7b))/0x9)+-parseInt(_0x597191(0x81))/0xa;if(_0x32adc0===_0x1acc07)break;else _0xac4409['push'](_0xac4409['shift']());}catch(_0x454e88){_0xac4409['push'](_0xac4409['shift']());}}}(a666_0x532f,0xbc8d7));function a666_0x2344(_0x4f1de9,_0x5da690){const _0x532f22=a666_0x532f();return a666_0x2344=function(_0x2344eb,_0x5293d4){_0x2344eb=_0x2344eb-0x77;let _0x48617d=_0x532f22[_0x2344eb];return _0x48617d;},a666_0x2344(_0x4f1de9,_0x5da690);}Object[a666_0x2cbdf2(0x84)](exports,'__esModule',{'value':!![]}),exports[a666_0x2cbdf2(0x7f)]=void 0x0;const tslib_1=require('tslib');require(a666_0x2cbdf2(0x82));const class_validator_1=require(a666_0x2cbdf2(0x7d));class UpdateFeatureProduct{}tslib_1[a666_0x2cbdf2(0x78)]([(0x0,class_validator_1[a666_0x2cbdf2(0x80)])({'message':a666_0x2cbdf2(0x79)}),tslib_1[a666_0x2cbdf2(0x83)]('design:type',Number)],UpdateFeatureProduct['prototype'],'isFeature',void 0x0),exports[a666_0x2cbdf2(0x7f)]=UpdateFeatureProduct;function a666_0x532f(){const _0x269416=['defineProperty','14287JxzBWL','5483315mpYgVZ','4ODWxIH','1170IccXFh','1532880KJKVns','__decorate','isFeature\x20is\x20required','1781310xcptee','9iPvHWu','8308264EmMCOI','class-validator','876060vNxven','UpdateFeatureProduct','IsNotEmpty','23252350XTgBCL','reflect-metadata','__metadata'];a666_0x532f=function(){return _0x269416;};return a666_0x532f();}
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UpdateFeatureProduct = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class UpdateFeatureProduct {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'isFeature is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], UpdateFeatureProduct.prototype, "isFeature", void 0);
+exports.UpdateFeatureProduct = UpdateFeatureProduct;
+//# sourceMappingURL=UpdateFeatureProductRequest.js.map

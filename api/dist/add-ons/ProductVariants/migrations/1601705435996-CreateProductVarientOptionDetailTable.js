@@ -1,1 +1,109 @@
-'use strict';const a130_0x25038a=a130_0x151e;(function(_0x432c4a,_0x2828f0){const _0x336d45=a130_0x151e,_0x429565=_0x432c4a();while(!![]){try{const _0x7ee4c4=-parseInt(_0x336d45(0xde))/0x1+-parseInt(_0x336d45(0xf2))/0x2+parseInt(_0x336d45(0xdb))/0x3+-parseInt(_0x336d45(0xe9))/0x4*(parseInt(_0x336d45(0xdd))/0x5)+-parseInt(_0x336d45(0xf5))/0x6*(-parseInt(_0x336d45(0xe2))/0x7)+-parseInt(_0x336d45(0xe5))/0x8+-parseInt(_0x336d45(0xe7))/0x9*(-parseInt(_0x336d45(0xf1))/0xa);if(_0x7ee4c4===_0x2828f0)break;else _0x429565['push'](_0x429565['shift']());}catch(_0x44bf10){_0x429565['push'](_0x429565['shift']());}}}(a130_0x159e,0x3946c));function a130_0x159e(){const _0x56da5e=['down','product_varient_option_details','4618910grMrwS','178018wWlKgK','CASCADE','columnNames','1231842eUwHJj','createTable','product_varient_option_id','tableForeignKey','CURRENT_TIMESTAMP','increment','indexOf','modified_date','varients_value','__awaiter','getTable','createForeignKey','modified_by','tslib','created_by','fk_tbl_prdt_var_opt_Related_tbl_prdt_var_opt_det','157944avnqJU','varients_value_id','4045lqhbQO','159313KEsoRx','created_date','find','typeorm','7zvoCJY','__esModule','int','432688AtUYch','hasTable','9GBkJPJ','foreignKeys','904pCXaZL','datetime','CreateProductVarientOptionDetailTable1601705435996','is_active','product_varient_option','TableForeignKey'];a130_0x159e=function(){return _0x56da5e;};return a130_0x159e();}Object['defineProperty'](exports,a130_0x25038a(0xe3),{'value':!![]}),exports[a130_0x25038a(0xeb)]=void 0x0;const tslib_1=require(a130_0x25038a(0xd8)),typeorm_1=require(a130_0x25038a(0xe1));class CreateProductVarientOptionDetailTable1601705435996{constructor(){const _0x5c81c4=a130_0x25038a;this[_0x5c81c4(0xf8)]=new typeorm_1['TableForeignKey']({'name':'fk_tbl_var_val_Related_tbl_prdt_var_opt_dtl','columnNames':[_0x5c81c4(0xdc)],'referencedColumnNames':['id'],'referencedTableName':_0x5c81c4(0xfd),'onDelete':_0x5c81c4(0xf3)}),this['tableForeignKey1']=new typeorm_1[(_0x5c81c4(0xee))]({'name':_0x5c81c4(0xda),'columnNames':[_0x5c81c4(0xf7)],'referencedColumnNames':['id'],'referencedTableName':_0x5c81c4(0xed),'onDelete':_0x5c81c4(0xf3)});}['up'](_0x263229){const _0x204494=a130_0x25038a;return tslib_1[_0x204494(0xfe)](this,void 0x0,void 0x0,function*(){const _0x1bf344=_0x204494,_0x411378=new typeorm_1['Table']({'name':_0x1bf344(0xf0),'columns':[{'name':'id','type':'int','length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x1bf344(0xfa)},{'name':_0x1bf344(0xf7),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':'varients_value_id','type':_0x1bf344(0xe4),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1bf344(0xec),'type':_0x1bf344(0xe4),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1bf344(0xdf),'type':_0x1bf344(0xea),'isPrimary':![],'isNullable':!![],'default':_0x1bf344(0xf9)},{'name':_0x1bf344(0xfc),'type':'datetime','isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':_0x1bf344(0xd9),'type':_0x1bf344(0xe4),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1bf344(0xd7),'type':_0x1bf344(0xe4),'length':'11','isPrimary':![],'isNullable':!![]}]}),_0x2918e8=yield _0x263229[_0x1bf344(0xe6)](_0x1bf344(0xf0));!_0x2918e8&&(yield _0x263229[_0x1bf344(0xf6)](_0x411378));const _0x41ab1d=yield _0x263229[_0x1bf344(0xff)](_0x1bf344(0xf0)),_0x278304=_0x41ab1d[_0x1bf344(0xe8)]['find'](_0x11a704=>_0x11a704[_0x1bf344(0xf4)][_0x1bf344(0xfb)](_0x1bf344(0xdc))!==-0x1);!_0x278304&&(yield _0x263229[_0x1bf344(0x100)](_0x411378,this[_0x1bf344(0xf8)]));const _0x4b3f2a=_0x41ab1d['foreignKeys'][_0x1bf344(0xe0)](_0x86c667=>_0x86c667[_0x1bf344(0xf4)][_0x1bf344(0xfb)](_0x1bf344(0xf7))!==-0x1);!_0x4b3f2a&&(yield _0x263229[_0x1bf344(0x100)](_0x411378,this['tableForeignKey1']));});}[a130_0x25038a(0xef)](_0x585bba){const _0x2335cf=a130_0x25038a;return tslib_1[_0x2335cf(0xfe)](this,void 0x0,void 0x0,function*(){const _0x532c5f=_0x2335cf;yield _0x585bba['dropTable'](_0x532c5f(0xf0),!![]);});}}function a130_0x151e(_0x1001a7,_0x5e04a9){const _0x159ed7=a130_0x159e();return a130_0x151e=function(_0x151e3a,_0x13d807){_0x151e3a=_0x151e3a-0xd7;let _0x26a472=_0x159ed7[_0x151e3a];return _0x26a472;},a130_0x151e(_0x1001a7,_0x5e04a9);}exports[a130_0x25038a(0xeb)]=CreateProductVarientOptionDetailTable1601705435996;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateProductVarientOptionDetailTable1601705435996 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateProductVarientOptionDetailTable1601705435996 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_var_val_Related_tbl_prdt_var_opt_dtl',
+            columnNames: ['varients_value_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'variant_value',
+            onDelete: 'CASCADE',
+        });
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_prdt_var_opt_Related_tbl_prdt_var_opt_det',
+            columnNames: ['product_varient_option_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'product_varient_option',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'product_varient_option_details',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'product_varient_option_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'varients_value_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'product_variant_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('product_varient_option_details');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const getTable = yield queryRunner.getTable('product_varient_option_details');
+            const ifDataExsist = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('varients_value_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+            const ifDataExsist1 = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('product_varient_option_id') !== -1);
+            if (!ifDataExsist1) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('product_varient_option_details', true);
+        });
+    }
+}
+exports.CreateProductVarientOptionDetailTable1601705435996 = CreateProductVarientOptionDetailTable1601705435996;
+//# sourceMappingURL=1601705435996-CreateProductVarientOptionDetailTable.js.map

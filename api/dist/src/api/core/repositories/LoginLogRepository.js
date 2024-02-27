@@ -1,1 +1,42 @@
-'use strict';const a479_0x56a7b6=a479_0x687c;function a479_0x5679(){const _0xca7db1=['__esModule','__awaiter','COUNT(loginLog.id)\x20as\x20visitCount','createQueryBuilder','DATE(created_date)','createdDate','orderBy','getRawMany','LoginLogRepository','MONTH(loginLog.created_date)\x20=\x20:month\x20AND\x20YEAR(loginLog.created_date)\x20=\x20:year','__decorate','36276000ZUWBEQ','DATE(created_date)\x20as\x20createdDate','tslib','8560PrXqdl','manager','groupBy','logList','LoginLog','defineProperty','2459224EhnDxr','select','customerVisitList','8210181wQtCge','241356mBnNkC','2992124mgnLFO','MAX(DAYOFMONTH(created_date))\x20as\x20dayOfMonth','typeorm','MAX(YEAR(created_date))\x20as\x20year','1239569WrmVYj','DESC','Repository','loginLog','1908mAyDWv','EntityRepository','COUNT(LoginLog.id)\x20as\x20logcount','andWhere'];a479_0x5679=function(){return _0xca7db1;};return a479_0x5679();}(function(_0x2a4c6d,_0x5164b1){const _0x26e058=a479_0x687c,_0x42b4ba=_0x2a4c6d();while(!![]){try{const _0x34dea0=-parseInt(_0x26e058(0x1c7))/0x1+-parseInt(_0x26e058(0x1e8))/0x2+parseInt(_0x26e058(0x1e7))/0x3+parseInt(_0x26e058(0x1e3))/0x4+parseInt(_0x26e058(0x1dd))/0x5*(-parseInt(_0x26e058(0x1cb))/0x6)+-parseInt(_0x26e058(0x1e6))/0x7+parseInt(_0x26e058(0x1da))/0x8;if(_0x34dea0===_0x5164b1)break;else _0x42b4ba['push'](_0x42b4ba['shift']());}catch(_0x53fbab){_0x42b4ba['push'](_0x42b4ba['shift']());}}}(a479_0x5679,0xbda7c));function a479_0x687c(_0x24c2dc,_0x239100){const _0x567980=a479_0x5679();return a479_0x687c=function(_0x687ce3,_0x35af19){_0x687ce3=_0x687ce3-0x1c6;let _0x2d73b4=_0x567980[_0x687ce3];return _0x2d73b4;},a479_0x687c(_0x24c2dc,_0x239100);}Object[a479_0x56a7b6(0x1e2)](exports,a479_0x56a7b6(0x1cf),{'value':!![]}),exports[a479_0x56a7b6(0x1d7)]=void 0x0;const tslib_1=require(a479_0x56a7b6(0x1dc)),typeorm_1=require(a479_0x56a7b6(0x1ea)),LoginLog_1=require('../models/LoginLog');let LoginLogRepository=class LoginLogRepository extends typeorm_1[a479_0x56a7b6(0x1c9)]{[a479_0x56a7b6(0x1e0)](_0x381d3d){const _0x4abeb5=a479_0x56a7b6;return tslib_1[_0x4abeb5(0x1d0)](this,void 0x0,void 0x0,function*(){const _0xd2e57c=_0x4abeb5,_0x15919b=yield this[_0xd2e57c(0x1de)]['createQueryBuilder'](LoginLog_1['LoginLog'],_0xd2e57c(0x1e1));return _0x15919b[_0xd2e57c(0x1e4)]([_0xd2e57c(0x1cd),_0xd2e57c(0x1db)]),_0x15919b[_0xd2e57c(0x1df)](_0xd2e57c(0x1d4)),_0x15919b[_0xd2e57c(0x1d5)](_0xd2e57c(0x1d4),_0xd2e57c(0x1c8)),_0x15919b['limit'](_0x381d3d),_0x15919b[_0xd2e57c(0x1d6)]();});}[a479_0x56a7b6(0x1e5)](_0x469b2e,_0x6f09c5){const _0xc8eecc=a479_0x56a7b6;return tslib_1[_0xc8eecc(0x1d0)](this,void 0x0,void 0x0,function*(){const _0x5314c7=_0xc8eecc,_0x5bc362=yield this['manager'][_0x5314c7(0x1d2)](LoginLog_1[_0x5314c7(0x1e1)],_0x5314c7(0x1ca));return _0x5bc362['select']([_0x5314c7(0x1d1),_0x5314c7(0x1e9),'MAX(MONTH(created_date))\x20as\x20month',_0x5314c7(0x1c6)]),_0x469b2e&&_0x6f09c5&&_0x5bc362[_0x5314c7(0x1ce)](_0x5314c7(0x1d8),{'month':_0x469b2e,'year':_0x6f09c5}),_0x5bc362[_0x5314c7(0x1df)](_0x5314c7(0x1d3)),_0x5bc362[_0x5314c7(0x1d5)](_0x5314c7(0x1d3),'ASC'),_0x5bc362[_0x5314c7(0x1d6)]();});}};LoginLogRepository=tslib_1[a479_0x56a7b6(0x1d9)]([(0x0,typeorm_1[a479_0x56a7b6(0x1cc)])(LoginLog_1[a479_0x56a7b6(0x1e1)])],LoginLogRepository),exports[a479_0x56a7b6(0x1d7)]=LoginLogRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LoginLogRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const LoginLog_1 = require("../models/LoginLog");
+let LoginLogRepository = class LoginLogRepository extends typeorm_1.Repository {
+    logList(limit) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(LoginLog_1.LoginLog, 'LoginLog');
+            query.select(['COUNT(LoginLog.id) as logcount', 'DATE(created_date) as createdDate']);
+            query.groupBy('createdDate');
+            query.orderBy('createdDate', 'DESC');
+            query.limit(limit);
+            return query.getRawMany();
+        });
+    }
+    customerVisitList(month, year) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(LoginLog_1.LoginLog, 'loginLog');
+            query.select(['COUNT(loginLog.id) as visitCount', 'MAX(DAYOFMONTH(created_date)) as dayOfMonth', 'MAX(MONTH(created_date)) as month', 'MAX(YEAR(created_date)) as year']);
+            if (month && year) {
+                query.andWhere('MONTH(loginLog.created_date) = :month AND YEAR(loginLog.created_date) = :year', { month, year });
+            }
+            query.groupBy('DATE(created_date)');
+            query.orderBy('DATE(created_date)', 'ASC');
+            return query.getRawMany();
+        });
+    }
+};
+LoginLogRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(LoginLog_1.LoginLog)
+], LoginLogRepository);
+exports.LoginLogRepository = LoginLogRepository;
+//# sourceMappingURL=LoginLogRepository.js.map

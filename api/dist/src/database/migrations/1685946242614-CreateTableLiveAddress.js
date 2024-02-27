@@ -1,1 +1,144 @@
-'use strict';const a965_0x353a27=a965_0x4377;(function(_0x24543c,_0x5621da){const _0x4630cf=a965_0x4377,_0x3b2af8=_0x24543c();while(!![]){try{const _0x65a7bc=-parseInt(_0x4630cf(0xf8))/0x1*(parseInt(_0x4630cf(0xf5))/0x2)+-parseInt(_0x4630cf(0xe1))/0x3+parseInt(_0x4630cf(0xed))/0x4*(-parseInt(_0x4630cf(0x104))/0x5)+-parseInt(_0x4630cf(0xe4))/0x6*(parseInt(_0x4630cf(0xfa))/0x7)+parseInt(_0x4630cf(0xde))/0x8+-parseInt(_0x4630cf(0xe8))/0x9*(parseInt(_0x4630cf(0xdf))/0xa)+parseInt(_0x4630cf(0xf4))/0xb;if(_0x65a7bc===_0x5621da)break;else _0x3b2af8['push'](_0x3b2af8['shift']());}catch(_0x2454e9){_0x3b2af8['push'](_0x3b2af8['shift']());}}}(a965_0x2d92,0x75938));function a965_0x2d92(){const _0x160366=['typeorm','tslib','created_by','modified_date','2588644mTTWgZ','zone_id','down','last_name','postcode','first_name','hasTable','13526777zGbDVZ','4338bsrUcu','increment','__awaiter','43YTDuHV','integer','7BBsJco','DATETIME','company','state','city','CURRENT_TIMESTAMP','int','CreateTableLiveAddress1685946242614','255','live_address','5hhiFZU','512','3503064XAbUut','826510ipDQJq','is_active','129375LukHpU','varchar','128','1422858VIePaD','password','modified_by','Table','18tCFWsa'];a965_0x2d92=function(){return _0x160366;};return a965_0x2d92();}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports['CreateTableLiveAddress1685946242614']=void 0x0;const tslib_1=require(a965_0x353a27(0xea)),typeorm_1=require(a965_0x353a27(0xe9));class CreateTableLiveAddress1685946242614{['up'](_0x16b55f){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xe526b1=a965_0x4377,_0x4c0e9f=new typeorm_1[(_0xe526b1(0xe7))]({'name':_0xe526b1(0x103),'columns':[{'name':'id','type':_0xe526b1(0xf9),'length':'11','isGenerated':!![],'generationStrategy':_0xe526b1(0xf6),'isPrimary':!![],'isNullable':![]},{'name':'customer_id','type':'integer','length':'11','isPrimary':![],'isNullable':![]},{'name':'ip','type':'varchar','length':_0xe526b1(0x102),'isPrimary':![],'isNullable':!![]},{'name':_0xe526b1(0xf2),'type':_0xe526b1(0xe2),'length':'32','isPrimary':![],'isNullable':!![]},{'name':_0xe526b1(0xf0),'type':_0xe526b1(0xe2),'length':'32','isPrimary':![],'isNullable':!![]},{'name':_0xe526b1(0xfc),'type':_0xe526b1(0xe2),'length':'32','isPrimary':![],'isNullable':!![]},{'name':_0xe526b1(0xe5),'type':_0xe526b1(0xe2),'length':_0xe526b1(0x105),'isPrimary':![],'isNullable':!![]},{'name':'address_1','type':'varchar','length':_0xe526b1(0xe3),'isPrimary':![],'isNullable':!![]},{'name':'address_2','type':_0xe526b1(0xe2),'length':_0xe526b1(0xe3),'isPrimary':![],'isNullable':!![]},{'name':_0xe526b1(0xf1),'type':_0xe526b1(0xe2),'length':'10','isPrimary':![],'isNullable':!![]},{'name':_0xe526b1(0xee),'type':_0xe526b1(0xf9),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0xe526b1(0xfe),'type':_0xe526b1(0xe2),'length':_0xe526b1(0xe3),'isPrimary':![],'isNullable':!![]},{'name':_0xe526b1(0xfd),'type':'varchar','length':_0xe526b1(0xe3),'isPrimary':![],'isNullable':!![]},{'name':'country_id','type':_0xe526b1(0xf9),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0xe526b1(0xe0),'type':_0xe526b1(0x100),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0xe526b1(0xeb),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0xe526b1(0xe6),'type':_0xe526b1(0xf9),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0xe526b1(0xfb),'isPrimary':![],'isNullable':!![],'default':_0xe526b1(0xff)},{'name':_0xe526b1(0xec),'type':_0xe526b1(0xfb),'isPrimary':![],'isNullable':!![],'default':_0xe526b1(0xff)}]}),_0xec5e3e=yield _0x16b55f[_0xe526b1(0xf3)]('live_address');!_0xec5e3e&&(yield _0x16b55f['createTable'](_0x4c0e9f));});}[a965_0x353a27(0xef)](_0x3f50dc){const _0x16ebf6=a965_0x353a27;return tslib_1[_0x16ebf6(0xf7)](this,void 0x0,void 0x0,function*(){});}}function a965_0x4377(_0x245cd2,_0xdf5158){const _0x2d9216=a965_0x2d92();return a965_0x4377=function(_0x4377de,_0x2ed452){_0x4377de=_0x4377de-0xde;let _0x3ed3da=_0x2d9216[_0x4377de];return _0x3ed3da;},a965_0x4377(_0x245cd2,_0xdf5158);}exports[a965_0x353a27(0x101)]=CreateTableLiveAddress1685946242614;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateTableLiveAddress1685946242614 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateTableLiveAddress1685946242614 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'live_address',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'customer_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'ip',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'first_name',
+                        type: 'varchar',
+                        length: '32',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'last_name',
+                        type: 'varchar',
+                        length: '32',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'company',
+                        type: 'varchar',
+                        length: '32',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'password',
+                        type: 'varchar',
+                        length: '512',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'address_1',
+                        type: 'varchar',
+                        length: '128',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'address_2',
+                        type: 'varchar',
+                        length: '128',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'postcode',
+                        type: 'varchar',
+                        length: '10',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'zone_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'city',
+                        type: 'varchar',
+                        length: '128',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'state',
+                        type: 'varchar',
+                        length: '128',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'country_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const tableExist = yield queryRunner.hasTable('live_address');
+            if (!tableExist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.CreateTableLiveAddress1685946242614 = CreateTableLiveAddress1685946242614;
+//# sourceMappingURL=1685946242614-CreateTableLiveAddress.js.map

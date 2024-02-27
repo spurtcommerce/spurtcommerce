@@ -1,1 +1,320 @@
-'use strict';const a274_0x2aca82=a274_0x322c;(function(_0x649f91,_0x3eaace){const _0x231698=a274_0x322c,_0x426256=_0x649f91();while(!![]){try{const _0x13a919=-parseInt(_0x231698(0x1ab))/0x1*(parseInt(_0x231698(0x199))/0x2)+parseInt(_0x231698(0x19c))/0x3+parseInt(_0x231698(0x184))/0x4+parseInt(_0x231698(0x191))/0x5+-parseInt(_0x231698(0x189))/0x6+parseInt(_0x231698(0x186))/0x7+-parseInt(_0x231698(0x1a9))/0x8;if(_0x13a919===_0x3eaace)break;else _0x426256['push'](_0x426256['shift']());}catch(_0x392cf2){_0x426256['push'](_0x426256['shift']());}}}(a274_0x88b1,0xf271f));Object[a274_0x2aca82(0x195)](exports,a274_0x2aca82(0x19e),{'value':!![]}),exports[a274_0x2aca82(0x17c)]=void 0x0;const tslib_1=require(a274_0x2aca82(0x19b));require(a274_0x2aca82(0x1ae));function a274_0x88b1(){const _0x5e26be=['/rolelist','5869170Aliepl','DeleteRoleRequest','Invalid\x20role\x20Id.','__decorate','create-role','Get','JsonController','__metadata','1810220nwvpGd','Successfully\x20get\x20all\x20role\x20List','Put','Res','defineProperty','QueryParam','design:type','Unable\x20to\x20save\x20the\x20Role.','4Lvpvbm','__param','tslib','4100445NJkmUA','Role\x20updated\x20successfully','__esModule','/role','design:returntype','Body','../../core/services/UserService','routing-controllers','replace','userGroupService','design:paramtypes','isActive','This\x20role\x20already\x20exists.','17164688wyvOse','list-role','335758uvCIIl','keyword','name','reflect-metadata','Authorized','Successfully\x20deleted\x20the\x20role.','offset','create','status','update','limit','groupId','Unable\x20to\x20update\x20the\x20Role.','./requests/DeleteRoleRequest','UserService','deleteRole','prototype','delete','/delete-role/:id','__awaiter','UserGroup','like','CreateRole','../../core/services/UserGroupService','toLowerCase','edit-role','createRole','Role\x20saved\x20successfully.','RoleController','roleList','admin','findOne','../../core/models/UserGroup','send','/create-role','userService','4689584zlfxvj','slug','13209679KnNLTs','Cannot\x20update\x20admin'];a274_0x88b1=function(){return _0x5e26be;};return a274_0x88b1();}const routing_controllers_1=require(a274_0x2aca82(0x1a3)),DeleteRoleRequest_1=require(a274_0x2aca82(0x1b8)),CreateRoleRequest_1=require('./requests/CreateRoleRequest'),UserGroupService_1=require(a274_0x2aca82(0x1c2)),UserService_1=require(a274_0x2aca82(0x1a2)),UserGroup_1=require(a274_0x2aca82(0x180));function a274_0x322c(_0x5b3186,_0x3e21b1){const _0x88b14c=a274_0x88b1();return a274_0x322c=function(_0x322cb8,_0x3ac4dd){_0x322cb8=_0x322cb8-0x17a;let _0x20d01a=_0x88b14c[_0x322cb8];return _0x20d01a;},a274_0x322c(_0x5b3186,_0x3e21b1);}let RoleController=class RoleController{constructor(_0x8ccafb,_0x5d1f0a){const _0x210012=a274_0x2aca82;this[_0x210012(0x1a5)]=_0x8ccafb,this[_0x210012(0x183)]=_0x5d1f0a;}[a274_0x2aca82(0x17a)](_0x2ae4c8,_0xfd1047){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x485b7e=a274_0x322c,_0x2b2d6a=_0x2ae4c8['name'][_0x485b7e(0x1a4)](/\s+/g,'-')['replace'](/[&\/\\@#,+()$~%.'":*?<>{}]/g,'')[_0x485b7e(0x1c3)](),_0x41d483=yield this[_0x485b7e(0x1a5)]['findOne']({'where':{'slug':_0x2b2d6a}});if(_0x41d483){const _0x401099={'status':0x0,'message':_0x485b7e(0x1a8)};return _0xfd1047[_0x485b7e(0x1b3)](0x190)[_0x485b7e(0x181)](_0x401099);}const _0x52f903=new UserGroup_1['UserGroup']();_0x52f903[_0x485b7e(0x1ad)]=_0x2ae4c8[_0x485b7e(0x1ad)],_0x52f903['isActive']=_0x2ae4c8['status'],_0x52f903[_0x485b7e(0x185)]=_0x2b2d6a;const _0x3351c1=yield this[_0x485b7e(0x1a5)][_0x485b7e(0x1b2)](_0x52f903);if(_0x3351c1){const _0x329530={'status':0x1,'message':_0x485b7e(0x17b),'data':_0x3351c1};return _0xfd1047[_0x485b7e(0x1b3)](0xc8)['send'](_0x329530);}else{const _0x162fe8={'status':0x0,'message':_0x485b7e(0x198)};return _0xfd1047[_0x485b7e(0x1b3)](0x190)[_0x485b7e(0x181)](_0x162fe8);}});}['updateRole'](_0xf40ecb,_0x30aff8,_0x552262){const _0x138f49=a274_0x2aca82;return tslib_1[_0x138f49(0x1be)](this,void 0x0,void 0x0,function*(){const _0x37f308=_0x138f49,_0x498ab8=yield this['userGroupService'][_0x37f308(0x17f)]({'where':{'groupId':_0xf40ecb}});if(!_0x498ab8){const _0x5750ff={'status':0x0,'message':_0x37f308(0x18b)};return _0x552262[_0x37f308(0x1b3)](0x190)[_0x37f308(0x181)](_0x5750ff);}const _0x5269b9=new UserGroup_1[(_0x37f308(0x1bf))](),_0x46ff49=_0x30aff8[_0x37f308(0x1ad)]['replace'](/\s+/g,'-')['replace'](/[&\/\\@#,+()$~%.'":*?<>{}]/g,'')[_0x37f308(0x1c3)]();if(_0x498ab8[_0x37f308(0x185)]!=='admin'){_0x5269b9[_0x37f308(0x1ad)]=_0x30aff8[_0x37f308(0x1ad)],_0x5269b9[_0x37f308(0x1a7)]=_0x30aff8[_0x37f308(0x1b3)],_0x5269b9[_0x37f308(0x185)]=_0x46ff49;const _0x13caf4=yield this[_0x37f308(0x1a5)][_0x37f308(0x1b4)](_0xf40ecb,_0x5269b9);if(_0x13caf4){const _0x435103={'status':0x1,'message':_0x37f308(0x19d),'data':_0x13caf4};return _0x552262[_0x37f308(0x1b3)](0xc8)[_0x37f308(0x181)](_0x435103);}else{const _0x45b270={'status':0x0,'message':_0x37f308(0x1b7)};return _0x552262[_0x37f308(0x1b3)](0x190)[_0x37f308(0x181)](_0x45b270);}}else return _0x552262[_0x37f308(0x1b3)](0x190)['send']({'status':0x0,'message':_0x37f308(0x187)});});}[a274_0x2aca82(0x17d)](_0x2b63f3,_0x21f27f,_0x281496,_0x21570f,_0x25df05,_0x4c002b){const _0x35c0ce=a274_0x2aca82;return tslib_1[_0x35c0ce(0x1be)](this,void 0x0,void 0x0,function*(){const _0x551e97=_0x35c0ce,_0x50ec63=[_0x551e97(0x1b6),_0x551e97(0x1ad),_0x551e97(0x1a7)],_0x106e02=[{'name':'name','op':_0x551e97(0x1c0),'value':_0x281496},{'name':_0x551e97(0x1a7),'op':_0x551e97(0x1c0),'value':_0x21570f}],_0x19ac94=yield this[_0x551e97(0x1a5)]['list'](_0x2b63f3,_0x21f27f,_0x50ec63,_0x106e02,_0x25df05),_0x304f88={'status':0x1,'message':_0x551e97(0x192),'data':_0x19ac94};return _0x4c002b[_0x551e97(0x1b3)](0xc8)['send'](_0x304f88);});}[a274_0x2aca82(0x1ba)](_0x4c4899,_0x1276ea,_0x31ff2c){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x53d699=a274_0x322c,_0x3e4279=yield this[_0x53d699(0x1a5)][_0x53d699(0x17f)]({'where':{'groupId':_0x4c4899['groupId']}});if(!_0x3e4279){const _0x54c116={'status':0x0,'message':'Invalid\x20role\x20Id.'};return _0x1276ea[_0x53d699(0x1b3)](0x190)[_0x53d699(0x181)](_0x54c116);}const _0x45c6c8=yield this['userGroupService'][_0x53d699(0x17f)]({'where':{'groupId':_0x4c4899['groupId'],'slug':_0x53d699(0x17e)}});if(_0x45c6c8){const _0x5e6b67={'status':0x0,'message':'You\x20cannot\x20delete\x20default\x20role'};return _0x1276ea[_0x53d699(0x1b3)](0x190)[_0x53d699(0x181)](_0x5e6b67);}const _0x47b8e3=yield this[_0x53d699(0x183)][_0x53d699(0x17f)]({'where':{'userGroupId':_0x4c4899[_0x53d699(0x1b6)]}});if(_0x47b8e3){const _0x5a1966={'status':0x0,'message':'You\x20cannot\x20delete\x20this\x20role,\x20as\x20users\x20are\x20mapped\x20to\x20this\x20role.'};return _0x1276ea[_0x53d699(0x1b3)](0x190)[_0x53d699(0x181)](_0x5a1966);}const _0x1639dc=yield this['userGroupService'][_0x53d699(0x1bc)](_0x4c4899[_0x53d699(0x1b6)]);if(_0x1639dc){const _0x22509e={'status':0x1,'message':_0x53d699(0x1b0)};return _0x1276ea[_0x53d699(0x1b3)](0xc8)[_0x53d699(0x181)](_0x22509e);}else{const _0x225503={'status':0x0,'message':'Unable\x20to\x20delete\x20the\x20role.'};return _0x1276ea['status'](0x190)[_0x53d699(0x181)](_0x225503);}});}};tslib_1[a274_0x2aca82(0x18c)]([(0x0,routing_controllers_1['Post'])(a274_0x2aca82(0x182)),(0x0,routing_controllers_1['Authorized'])([a274_0x2aca82(0x17e),a274_0x2aca82(0x18d)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a274_0x2aca82(0x1a1)])({'validate':!![]})),tslib_1[a274_0x2aca82(0x19a)](0x1,(0x0,routing_controllers_1[a274_0x2aca82(0x194)])()),tslib_1[a274_0x2aca82(0x190)]('design:type',Function),tslib_1[a274_0x2aca82(0x190)](a274_0x2aca82(0x1a6),[CreateRoleRequest_1[a274_0x2aca82(0x1c1)],Object]),tslib_1[a274_0x2aca82(0x190)](a274_0x2aca82(0x1a0),Promise)],RoleController[a274_0x2aca82(0x1bb)],a274_0x2aca82(0x17a),null),tslib_1[a274_0x2aca82(0x18c)]([(0x0,routing_controllers_1[a274_0x2aca82(0x193)])('/update-role/:id'),(0x0,routing_controllers_1['Authorized'])(['admin',a274_0x2aca82(0x1c4)]),tslib_1[a274_0x2aca82(0x19a)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a274_0x2aca82(0x1a1)])({'validate':!![]})),tslib_1['__param'](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a274_0x2aca82(0x190)](a274_0x2aca82(0x197),Function),tslib_1['__metadata']('design:paramtypes',[Number,CreateRoleRequest_1['CreateRole'],Object]),tslib_1['__metadata'](a274_0x2aca82(0x1a0),Promise)],RoleController[a274_0x2aca82(0x1bb)],'updateRole',null),tslib_1[a274_0x2aca82(0x18c)]([(0x0,routing_controllers_1[a274_0x2aca82(0x18e)])(a274_0x2aca82(0x188)),(0x0,routing_controllers_1[a274_0x2aca82(0x1af)])(['admin',a274_0x2aca82(0x1aa)]),tslib_1[a274_0x2aca82(0x19a)](0x0,(0x0,routing_controllers_1[a274_0x2aca82(0x196)])(a274_0x2aca82(0x1b5))),tslib_1[a274_0x2aca82(0x19a)](0x1,(0x0,routing_controllers_1[a274_0x2aca82(0x196)])(a274_0x2aca82(0x1b1))),tslib_1[a274_0x2aca82(0x19a)](0x2,(0x0,routing_controllers_1[a274_0x2aca82(0x196)])(a274_0x2aca82(0x1ac))),tslib_1[a274_0x2aca82(0x19a)](0x3,(0x0,routing_controllers_1[a274_0x2aca82(0x196)])('status')),tslib_1[a274_0x2aca82(0x19a)](0x4,(0x0,routing_controllers_1[a274_0x2aca82(0x196)])('count')),tslib_1['__param'](0x5,(0x0,routing_controllers_1['Res'])()),tslib_1[a274_0x2aca82(0x190)](a274_0x2aca82(0x197),Function),tslib_1['__metadata'](a274_0x2aca82(0x1a6),[Number,Number,String,String,Object,Object]),tslib_1[a274_0x2aca82(0x190)](a274_0x2aca82(0x1a0),Promise)],RoleController[a274_0x2aca82(0x1bb)],a274_0x2aca82(0x17d),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Delete'])(a274_0x2aca82(0x1bd)),(0x0,routing_controllers_1['Authorized'])([a274_0x2aca82(0x17e),'delete-role']),tslib_1[a274_0x2aca82(0x19a)](0x0,(0x0,routing_controllers_1[a274_0x2aca82(0x1a1)])({'validate':!![]})),tslib_1[a274_0x2aca82(0x19a)](0x1,(0x0,routing_controllers_1[a274_0x2aca82(0x194)])()),tslib_1[a274_0x2aca82(0x19a)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1['__metadata'](a274_0x2aca82(0x197),Function),tslib_1['__metadata']('design:paramtypes',[DeleteRoleRequest_1[a274_0x2aca82(0x18a)],Object,Object]),tslib_1[a274_0x2aca82(0x190)]('design:returntype',Promise)],RoleController[a274_0x2aca82(0x1bb)],a274_0x2aca82(0x1ba),null),RoleController=tslib_1[a274_0x2aca82(0x18c)]([(0x0,routing_controllers_1[a274_0x2aca82(0x18f)])(a274_0x2aca82(0x19f)),tslib_1[a274_0x2aca82(0x190)]('design:paramtypes',[UserGroupService_1['UserGroupService'],UserService_1[a274_0x2aca82(0x1b9)]])],RoleController),exports[a274_0x2aca82(0x17c)]=RoleController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RoleController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const DeleteRoleRequest_1 = require("./requests/DeleteRoleRequest");
+const CreateRoleRequest_1 = require("./requests/CreateRoleRequest");
+const UserGroupService_1 = require("../../core/services/UserGroupService");
+const UserService_1 = require("../../core/services/UserService");
+const UserGroup_1 = require("../../core/models/UserGroup");
+let RoleController = class RoleController {
+    constructor(userGroupService, userService) {
+        this.userGroupService = userGroupService;
+        this.userService = userService;
+    }
+    // Create Role API
+    /**
+     * @api {post} /api/role/create-role Create Role API
+     * @apiGroup Role
+     * @apiParam (Request body) {String{..64}} name roleName
+     * @apiParam (Request body) {Number} status status
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "New Role is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/role/create-role
+     * @apiErrorExample {json} createRole error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createRole(createRoleParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const slugName = createRoleParam.name.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+            const role = yield this.userGroupService.findOne({
+                where: {
+                    slug: slugName,
+                },
+            });
+            if (role) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'This role already exists.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newRoleParams = new UserGroup_1.UserGroup();
+            newRoleParams.name = createRoleParam.name;
+            newRoleParams.isActive = createRoleParam.status;
+            newRoleParams.slug = slugName;
+            const userGroupSaveResponse = yield this.userGroupService.create(newRoleParams);
+            if (userGroupSaveResponse) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Role saved successfully.',
+                    data: userGroupSaveResponse,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to save the Role.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update Role API
+    /**
+     * @api {put} /api/role/update-role/:id Update Role API
+     * @apiGroup Role
+     * @apiParam (Request body) {String{..64}} name roleName
+     * @apiParam (Request body) {Number} status status
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "slug" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": " Role is updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/role/update-role/:id
+     * @apiErrorExample {json} updateRole error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateRole(id, createRoleParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const role = yield this.userGroupService.findOne({
+                where: {
+                    groupId: id,
+                },
+            });
+            if (!role) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid role Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newRoleParams = new UserGroup_1.UserGroup();
+            const slugName = createRoleParam.name.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+            if (role.slug !== 'admin') {
+                newRoleParams.name = createRoleParam.name;
+                newRoleParams.isActive = createRoleParam.status;
+                newRoleParams.slug = slugName;
+                const userGroupSaveResponse = yield this.userGroupService.update(id, newRoleParams);
+                if (userGroupSaveResponse) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Role updated successfully',
+                        data: userGroupSaveResponse,
+                    };
+                    return response.status(200).send(successResponse);
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Unable to update the Role.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            else {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Cannot update admin',
+                });
+            }
+        });
+    }
+    // Role List API
+    /**
+     * @api {get} /api/role/rolelist Role List API
+     * @apiGroup Role
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {String} count count in number or boolean
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *    "message": "Successfully get role list",
+     *    "data":"{}"
+     *    "status": "1"
+     *  }
+     * @apiSampleRequest /api/role/rolelist
+     * @apiErrorExample {json} role error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    roleList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['groupId', 'name', 'isActive'];
+            const whereConditions = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                },
+                {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const roleList = yield this.userGroupService.list(limit, offset, select, whereConditions, count);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get all role List',
+                data: roleList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // delete Role API
+    /**
+     * @api {delete} /api/role/delete-role/:id Delete Role API
+     * @apiGroup Role
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} groupId  groupId
+     * @apiParamExample {json} Input
+     * {
+     *      "roleId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Role.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/role/delete-role/:id
+     * @apiErrorExample {json} Role error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteRole(role, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const roleId = yield this.userGroupService.findOne({
+                where: {
+                    groupId: role.groupId,
+                },
+            });
+            if (!roleId) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid role Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const defaultRoleId = yield this.userGroupService.findOne({
+                where: {
+                    groupId: role.groupId,
+                    slug: 'admin',
+                },
+            });
+            if (defaultRoleId) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You cannot delete default role',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const finduser = yield this.userService.findOne({
+                where: {
+                    userGroupId: role.groupId,
+                },
+            });
+            if (finduser) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You cannot delete this role, as users are mapped to this role.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteRole = yield this.userGroupService.delete(role.groupId);
+            if (deleteRole) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the role.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the role.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/create-role'),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-role']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateRoleRequest_1.CreateRole, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], RoleController.prototype, "createRole", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-role/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-role']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateRoleRequest_1.CreateRole, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], RoleController.prototype, "updateRole", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/rolelist'),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-role']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], RoleController.prototype, "roleList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-role/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-role']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [DeleteRoleRequest_1.DeleteRoleRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], RoleController.prototype, "deleteRole", null);
+RoleController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/role'),
+    tslib_1.__metadata("design:paramtypes", [UserGroupService_1.UserGroupService, UserService_1.UserService])
+], RoleController);
+exports.RoleController = RoleController;
+//# sourceMappingURL=RoleController.js.map

@@ -1,1 +1,95 @@
-'use strict';function a596_0x23b2(){const _0x1517fb=['1163YegMeX','__esModule','3303052CBKuCi','relations','order','like','length','../../../decorators/Logger','productVideoRepository','value','delete','typeorm-typedi-extensions','Service','create','Delete\x20a\x20product\x20video','../repositories/ProductVideoRepository','list','forEach','1074JuIuFr','update','3409ZZlvnu','Logger','log','find','findAll','tslib','ProductVideoService','findOne','defineProperty','Like','__param','2428401QdvDob','ProductVideoRepository','1707150tzQHSy','where','__decorate','info','name','4327590AqHGTf','save','5BelFkX','4456jpsTqJ','5410809UsCFoC','typedi','OrmRepository'];a596_0x23b2=function(){return _0x1517fb;};return a596_0x23b2();}function a596_0x1b00(_0x5baffd,_0x20569b){const _0x23b297=a596_0x23b2();return a596_0x1b00=function(_0x1b0021,_0x4848d4){_0x1b0021=_0x1b0021-0x189;let _0x307d9d=_0x23b297[_0x1b0021];return _0x307d9d;},a596_0x1b00(_0x5baffd,_0x20569b);}const a596_0x280453=a596_0x1b00;(function(_0x44b1d0,_0x542ebd){const _0x43d727=a596_0x1b00,_0x102b4e=_0x44b1d0();while(!![]){try{const _0x119238=-parseInt(_0x43d727(0x193))/0x1*(-parseInt(_0x43d727(0x1a5))/0x2)+parseInt(_0x43d727(0x1b2))/0x3+parseInt(_0x43d727(0x195))/0x4*(-parseInt(_0x43d727(0x18e))/0x5)+parseInt(_0x43d727(0x1b4))/0x6+-parseInt(_0x43d727(0x1a7))/0x7*(parseInt(_0x43d727(0x18f))/0x8)+-parseInt(_0x43d727(0x190))/0x9+parseInt(_0x43d727(0x18c))/0xa;if(_0x119238===_0x542ebd)break;else _0x102b4e['push'](_0x102b4e['shift']());}catch(_0x361a81){_0x102b4e['push'](_0x102b4e['shift']());}}}(a596_0x23b2,0x6e9c3));Object[a596_0x280453(0x1af)](exports,a596_0x280453(0x194),{'value':!![]}),exports[a596_0x280453(0x1ad)]=void 0x0;const tslib_1=require(a596_0x280453(0x1ac)),typedi_1=require(a596_0x280453(0x191)),typeorm_typedi_extensions_1=require(a596_0x280453(0x19e)),Logger_1=require(a596_0x280453(0x19a)),ProductVideoRepository_1=require(a596_0x280453(0x1a2)),typeorm_1=require('typeorm');let ProductVideoService=class ProductVideoService{constructor(_0x40134c,_0x5d5d90){const _0x817c95=a596_0x280453;this['productVideoRepository']=_0x40134c,this[_0x817c95(0x1a9)]=_0x5d5d90;}[a596_0x280453(0x1ae)](_0x2b9f3b){const _0x43d16a=a596_0x280453;return this['productVideoRepository'][_0x43d16a(0x1ae)](_0x2b9f3b);}[a596_0x280453(0x1ab)](_0x2aa2cf){const _0x129438=a596_0x280453;return this[_0x129438(0x1a9)][_0x129438(0x18a)]('Find\x20all'),this[_0x129438(0x19b)][_0x129438(0x1aa)](_0x2aa2cf);}[a596_0x280453(0x1a3)](_0x3cefa0,_0xf69cc4,_0x5c4abb=[],_0x3bed1b=[],_0x2cd9df=[],_0x42f26d){const _0x1dd2e4=a596_0x280453,_0x4b0f3b={};return _0x5c4abb&&_0x5c4abb[_0x1dd2e4(0x199)]>0x0&&(_0x4b0f3b['select']=_0x5c4abb),_0x3bed1b&&_0x3bed1b[_0x1dd2e4(0x199)]>0x0&&(_0x4b0f3b[_0x1dd2e4(0x196)]=_0x3bed1b),_0x4b0f3b[_0x1dd2e4(0x1b5)]={},_0x2cd9df&&_0x2cd9df['length']>0x0&&_0x2cd9df[_0x1dd2e4(0x1a4)](_0x4a3aaf=>{const _0x3016da=_0x1dd2e4,_0x16bfc2=_0x4a3aaf['op'];if(_0x16bfc2==='where'&&_0x4a3aaf[_0x3016da(0x19c)]!==undefined)_0x4b0f3b[_0x3016da(0x1b5)][_0x4a3aaf['name']]=_0x4a3aaf[_0x3016da(0x19c)];else _0x16bfc2===_0x3016da(0x198)&&_0x4a3aaf[_0x3016da(0x19c)]!==undefined&&(_0x4b0f3b[_0x3016da(0x1b5)][_0x4a3aaf[_0x3016da(0x18b)]]=(0x0,typeorm_1[_0x3016da(0x1b0)])('%'+_0x4a3aaf[_0x3016da(0x19c)]+'%'));}),_0x4b0f3b[_0x1dd2e4(0x197)]={'createdDate':'DESC'},_0x3cefa0&&_0x3cefa0>0x0&&(_0x4b0f3b['take']=_0x3cefa0,_0x4b0f3b['skip']=_0xf69cc4),_0x42f26d?this['productVideoRepository']['count'](_0x4b0f3b):this[_0x1dd2e4(0x19b)][_0x1dd2e4(0x1aa)](_0x4b0f3b);}[a596_0x280453(0x1a0)](_0x4842f7){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1a9289=a596_0x1b00,_0x3fc53d=yield this[_0x1a9289(0x19b)][_0x1a9289(0x18d)](_0x4842f7);return _0x3fc53d;});}[a596_0x280453(0x1a6)](_0x5b0d79,_0x3212d9){const _0x59ffe6=a596_0x280453;return this['log']['info']('Update\x20a\x20product\x20video'),_0x3212d9['id']=_0x5b0d79,this[_0x59ffe6(0x19b)]['save'](_0x3212d9);}[a596_0x280453(0x19d)](_0x2db5bf){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5e1228=a596_0x1b00;this['log'][_0x5e1228(0x18a)](_0x5e1228(0x1a1));const _0x581b49=yield this['productVideoRepository'][_0x5e1228(0x19d)](_0x2db5bf);return _0x581b49;});}};ProductVideoService=tslib_1[a596_0x280453(0x189)]([(0x0,typedi_1[a596_0x280453(0x19f)])(),tslib_1[a596_0x280453(0x1b1)](0x0,(0x0,typeorm_typedi_extensions_1[a596_0x280453(0x192)])()),tslib_1[a596_0x280453(0x1b1)](0x1,(0x0,Logger_1[a596_0x280453(0x1a8)])(__filename)),tslib_1['__metadata']('design:paramtypes',[ProductVideoRepository_1[a596_0x280453(0x1b3)],Object])],ProductVideoService),exports['ProductVideoService']=ProductVideoService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductVideoService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const ProductVideoRepository_1 = require("../repositories/ProductVideoRepository");
+const typeorm_1 = require("typeorm");
+let ProductVideoService = class ProductVideoService {
+    constructor(productVideoRepository, log) {
+        this.productVideoRepository = productVideoRepository;
+        this.log = log;
+    }
+    // find one condition
+    findOne(data) {
+        return this.productVideoRepository.findOne(data);
+    }
+    // find all
+    findAll(data) {
+        this.log.info('Find all');
+        return this.productVideoRepository.find(data);
+    }
+    // list
+    list(limit, offset, select = [], relation = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        if (relation && relation.length > 0) {
+            condition.relations = relation;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                const operator = item.op;
+                if (operator === 'where' && item.value !== undefined) {
+                    condition.where[item.name] = item.value;
+                }
+                else if (operator === 'like' && item.value !== undefined) {
+                    condition.where[item.name] = (0, typeorm_1.Like)('%' + item.value + '%');
+                }
+            });
+        }
+        condition.order = {
+            createdDate: 'DESC',
+        };
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.productVideoRepository.count(condition);
+        }
+        else {
+            return this.productVideoRepository.find(condition);
+        }
+    }
+    // create
+    create(productVideo) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newVarient = yield this.productVideoRepository.save(productVideo);
+            return newVarient;
+        });
+    }
+    // update
+    update(id, productVideo) {
+        this.log.info('Update a product video');
+        productVideo.id = id;
+        return this.productVideoRepository.save(productVideo);
+    }
+    // delete
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a product video');
+            const newVideo = yield this.productVideoRepository.delete(id);
+            return newVideo;
+        });
+    }
+};
+ProductVideoService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [ProductVideoRepository_1.ProductVideoRepository, Object])
+], ProductVideoService);
+exports.ProductVideoService = ProductVideoService;
+//# sourceMappingURL=ProductVideoService.js.map

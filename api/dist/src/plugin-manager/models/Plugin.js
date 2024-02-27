@@ -1,1 +1,74 @@
-'use strict';const a1011_0x4b5779=a1011_0xdacd;(function(_0x33fa01,_0x2f16f2){const _0x76050b=a1011_0xdacd,_0x4f077d=_0x33fa01();while(!![]){try{const _0x24dcff=parseInt(_0x76050b(0x20c))/0x1*(parseInt(_0x76050b(0x20d))/0x2)+parseInt(_0x76050b(0x1fa))/0x3+parseInt(_0x76050b(0x201))/0x4+parseInt(_0x76050b(0x217))/0x5*(-parseInt(_0x76050b(0x1f1))/0x6)+-parseInt(_0x76050b(0x20f))/0x7*(parseInt(_0x76050b(0x211))/0x8)+-parseInt(_0x76050b(0x218))/0x9*(parseInt(_0x76050b(0x1fb))/0xa)+parseInt(_0x76050b(0x1fd))/0xb*(parseInt(_0x76050b(0x21c))/0xc);if(_0x24dcff===_0x2f16f2)break;else _0x4f077d['push'](_0x4f077d['shift']());}catch(_0x1ec9a1){_0x4f077d['push'](_0x4f077d['shift']());}}}(a1011_0x4cf2,0x49889));Object[a1011_0x4b5779(0x209)](exports,'__esModule',{'value':!![]}),exports[a1011_0x4b5779(0x213)]=void 0x0;const tslib_1=require(a1011_0x4b5779(0x214)),typeorm_1=require(a1011_0x4b5779(0x1fe)),index_1=require(a1011_0x4b5779(0x1f7)),BaseModel_1=require(a1011_0x4b5779(0x215)),moment=require(a1011_0x4b5779(0x1f9));function a1011_0xdacd(_0xa0309b,_0xb04ce4){const _0x4cf2e7=a1011_0x4cf2();return a1011_0xdacd=function(_0xdacd5e,_0x256e78){_0xdacd5e=_0xdacd5e-0x1f0;let _0x15414f=_0x4cf2e7[_0xdacd5e];return _0x15414f;},a1011_0xdacd(_0xa0309b,_0xb04ce4);}function a1011_0x4cf2(){const _0x29bbdd=['defineProperty','prototype','pluginAvatar','521bfDRwr','1220oGQtlD','plugin_status','533246xBuYTp','createDetails','16SWlFeg','plugin_avatar_path','Plugins','tslib','../../api/core/models/BaseModel','plugins','10oSURHA','504riQgvU','format','plugin_avatar','modifiedDate','300dYPTjK','__decorate','design:paramtypes','381096atdLEI','BeforeUpdate','BeforeInsert','design:type','plugin_type','pluginType','typeorm/index','plugin_name','moment','316104vsPQmk','103050OYImyJ','pluginAvatarPath','170797ZaAKsA','typeorm','createdDate','YYYY-MM-DD\x20HH:mm:ss','1385232KBcKAT','plugin_additional_info','updateDetails','pluginName','design:returntype','__metadata','pluginAdditionalInfo','Column'];a1011_0x4cf2=function(){return _0x29bbdd;};return a1011_0x4cf2();}let Plugins=class Plugins extends BaseModel_1['BaseModel']{[a1011_0x4b5779(0x210)](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x16f559=a1011_0xdacd;this[_0x16f559(0x1ff)]=moment()[_0x16f559(0x219)](_0x16f559(0x200));});}[a1011_0x4b5779(0x203)](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x16e7f5=a1011_0xdacd;this[_0x16e7f5(0x21b)]=moment()['format']('YYYY-MM-DD\x20HH:mm:ss');});}};tslib_1[a1011_0x4b5779(0x21d)]([(0x0,index_1['PrimaryGeneratedColumn'])({'name':'id'}),tslib_1[a1011_0x4b5779(0x206)](a1011_0x4b5779(0x1f4),Number)],Plugins[a1011_0x4b5779(0x20a)],'id',void 0x0),tslib_1[a1011_0x4b5779(0x21d)]([(0x0,typeorm_1[a1011_0x4b5779(0x208)])({'name':a1011_0x4b5779(0x1f8)}),tslib_1['__metadata'](a1011_0x4b5779(0x1f4),String)],Plugins[a1011_0x4b5779(0x20a)],a1011_0x4b5779(0x204),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a1011_0x4b5779(0x208)])({'name':a1011_0x4b5779(0x21a)}),tslib_1[a1011_0x4b5779(0x206)](a1011_0x4b5779(0x1f4),String)],Plugins[a1011_0x4b5779(0x20a)],a1011_0x4b5779(0x20b),void 0x0),tslib_1[a1011_0x4b5779(0x21d)]([(0x0,typeorm_1[a1011_0x4b5779(0x208)])({'name':a1011_0x4b5779(0x212)}),tslib_1[a1011_0x4b5779(0x206)]('design:type',String)],Plugins[a1011_0x4b5779(0x20a)],a1011_0x4b5779(0x1fc),void 0x0),tslib_1[a1011_0x4b5779(0x21d)]([(0x0,typeorm_1['Column'])({'name':a1011_0x4b5779(0x1f5)}),tslib_1['__metadata'](a1011_0x4b5779(0x1f4),String)],Plugins[a1011_0x4b5779(0x20a)],a1011_0x4b5779(0x1f6),void 0x0),tslib_1[a1011_0x4b5779(0x21d)]([(0x0,typeorm_1[a1011_0x4b5779(0x208)])({'name':a1011_0x4b5779(0x202)}),tslib_1['__metadata'](a1011_0x4b5779(0x1f4),String)],Plugins[a1011_0x4b5779(0x20a)],a1011_0x4b5779(0x207),void 0x0),tslib_1[a1011_0x4b5779(0x21d)]([(0x0,typeorm_1['Column'])({'name':a1011_0x4b5779(0x20e)}),tslib_1[a1011_0x4b5779(0x206)](a1011_0x4b5779(0x1f4),Number)],Plugins[a1011_0x4b5779(0x20a)],'pluginStatus',void 0x0),tslib_1[a1011_0x4b5779(0x21d)]([(0x0,typeorm_1[a1011_0x4b5779(0x1f3)])(),tslib_1[a1011_0x4b5779(0x206)](a1011_0x4b5779(0x1f4),Function),tslib_1[a1011_0x4b5779(0x206)](a1011_0x4b5779(0x1f0),[]),tslib_1[a1011_0x4b5779(0x206)](a1011_0x4b5779(0x205),Promise)],Plugins['prototype'],a1011_0x4b5779(0x210),null),tslib_1[a1011_0x4b5779(0x21d)]([(0x0,typeorm_1[a1011_0x4b5779(0x1f2)])(),tslib_1[a1011_0x4b5779(0x206)]('design:type',Function),tslib_1[a1011_0x4b5779(0x206)](a1011_0x4b5779(0x1f0),[]),tslib_1[a1011_0x4b5779(0x206)](a1011_0x4b5779(0x205),Promise)],Plugins['prototype'],a1011_0x4b5779(0x203),null),Plugins=tslib_1[a1011_0x4b5779(0x21d)]([(0x0,typeorm_1['Entity'])(a1011_0x4b5779(0x216))],Plugins),exports['Plugins']=Plugins;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Plugins = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const index_1 = require("typeorm/index");
+const BaseModel_1 = require("../../api/core/models/BaseModel");
+const moment = require("moment");
+let Plugins = class Plugins extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, index_1.PrimaryGeneratedColumn)({ name: 'id' }),
+    tslib_1.__metadata("design:type", Number)
+], Plugins.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'plugin_name' }),
+    tslib_1.__metadata("design:type", String)
+], Plugins.prototype, "pluginName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'plugin_avatar' }),
+    tslib_1.__metadata("design:type", String)
+], Plugins.prototype, "pluginAvatar", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'plugin_avatar_path' }),
+    tslib_1.__metadata("design:type", String)
+], Plugins.prototype, "pluginAvatarPath", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'plugin_type' }),
+    tslib_1.__metadata("design:type", String)
+], Plugins.prototype, "pluginType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'plugin_additional_info' }),
+    tslib_1.__metadata("design:type", String)
+], Plugins.prototype, "pluginAdditionalInfo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'plugin_status' }),
+    tslib_1.__metadata("design:type", Number)
+], Plugins.prototype, "pluginStatus", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Plugins.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Plugins.prototype, "updateDetails", null);
+Plugins = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('plugins')
+], Plugins);
+exports.Plugins = Plugins;
+//# sourceMappingURL=Plugin.js.map

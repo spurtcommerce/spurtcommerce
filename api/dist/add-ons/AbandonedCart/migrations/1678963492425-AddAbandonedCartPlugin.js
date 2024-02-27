@@ -1,1 +1,36 @@
-'use strict';function a4_0x47e2(){const _0x5a108d=['__awaiter','10XvOgdj','tslib','save','abandoned-cart','down','moment','35tztVtA','1581MhtEer','YYYY-MM-DD\x20HH:mm:ss','typeorm','329438DmvjIu','2838595rJfNiM','__importDefault','default','2749689eDvSxy','format','defineProperty','264222lbMtjc','5111504NEdmXn','1Wdjazz','5990787cMgdXr','AddAbandonedCartPlugin1678963492425','1864GVmQLg','getRepository'];a4_0x47e2=function(){return _0x5a108d;};return a4_0x47e2();}const a4_0x2fd3e7=a4_0x4156;(function(_0x5124da,_0x22332f){const _0x40f64a=a4_0x4156,_0x1199a4=_0x5124da();while(!![]){try{const _0x1c1510=parseInt(_0x40f64a(0xd2))/0x1*(parseInt(_0x40f64a(0xc9))/0x2)+-parseInt(_0x40f64a(0xdf))/0x3*(-parseInt(_0x40f64a(0xd5))/0x4)+parseInt(_0x40f64a(0xca))/0x5+-parseInt(_0x40f64a(0xd0))/0x6*(-parseInt(_0x40f64a(0xde))/0x7)+-parseInt(_0x40f64a(0xd1))/0x8+parseInt(_0x40f64a(0xcd))/0x9*(parseInt(_0x40f64a(0xd8))/0xa)+-parseInt(_0x40f64a(0xd3))/0xb;if(_0x1c1510===_0x22332f)break;else _0x1199a4['push'](_0x1199a4['shift']());}catch(_0x24d0f6){_0x1199a4['push'](_0x1199a4['shift']());}}}(a4_0x47e2,0x4e2ab));function a4_0x4156(_0x5956e7,_0x4b500e){const _0x47e2e6=a4_0x47e2();return a4_0x4156=function(_0x415672,_0xba3916){_0x415672=_0x415672-0xc7;let _0x2b084d=_0x47e2e6[_0x415672];return _0x2b084d;},a4_0x4156(_0x5956e7,_0x4b500e);}Object[a4_0x2fd3e7(0xcf)](exports,'__esModule',{'value':!![]}),exports[a4_0x2fd3e7(0xd4)]=void 0x0;const tslib_1=require(a4_0x2fd3e7(0xd9)),moment_1=tslib_1[a4_0x2fd3e7(0xcb)](require(a4_0x2fd3e7(0xdd))),Plugin_1=require('../../../src/api/core/models/Plugin'),typeorm_1=require(a4_0x2fd3e7(0xc8));class AddAbandonedCartPlugin1678963492425{['up'](_0x3ab8e9){const _0x2ef6fe=a4_0x2fd3e7;return tslib_1[_0x2ef6fe(0xd7)](this,void 0x0,void 0x0,function*(){const _0x128592=_0x2ef6fe,_0xca8075=[{'pluginName':'AbandonedCart','slugName':_0x128592(0xdb),'pluginAvatar':'','pluginAvatarPath':'','pluginType':'Marketplace','pluginTimestamp':0x186ea05c649,'pluginStatus':0x1,'isEditable':0x0,'routes':'~/api/admin-cart~,~/api/admin-cart/~,~/api/admin-cart/abandoned-cart-email~,~/api/guest-cart~,~/api/admin-cart/cart-export~','createdDate':''+(0x0,moment_1[_0x128592(0xcc)])()[_0x128592(0xce)]('YYYY-MM-DD\x20HH:mm:ss'),'updatedDate':''+(0x0,moment_1[_0x128592(0xcc)])()['format'](_0x128592(0xc7))}];yield(0x0,typeorm_1[_0x128592(0xd6)])(Plugin_1['Plugins'])[_0x128592(0xda)](_0xca8075);});}[a4_0x2fd3e7(0xdc)](_0x4e30b9){const _0x4929a3=a4_0x2fd3e7;return tslib_1[_0x4929a3(0xd7)](this,void 0x0,void 0x0,function*(){});}}exports[a4_0x2fd3e7(0xd4)]=AddAbandonedCartPlugin1678963492425;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddAbandonedCartPlugin1678963492425 = void 0;
+const tslib_1 = require("tslib");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const Plugin_1 = require("../../../src/api/core/models/Plugin");
+const typeorm_1 = require("typeorm");
+class AddAbandonedCartPlugin1678963492425 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const SeoSeed = [
+                {
+                    pluginName: 'AbandonedCart',
+                    slugName: 'abandoned-cart',
+                    pluginAvatar: '',
+                    pluginAvatarPath: '',
+                    pluginType: 'Marketplace',
+                    pluginTimestamp: 1678963492425,
+                    pluginStatus: 1,
+                    isEditable: 0,
+                    routes: '~/api/admin-cart~,~/api/admin-cart/~,~/api/admin-cart/abandoned-cart-email~,~/api/guest-cart~,~/api/admin-cart/cart-export~',
+                    createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                },
+            ];
+            yield (0, typeorm_1.getRepository)(Plugin_1.Plugins).save(SeoSeed);
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.AddAbandonedCartPlugin1678963492425 = AddAbandonedCartPlugin1678963492425;
+//# sourceMappingURL=1678963492425-AddAbandonedCartPlugin.js.map

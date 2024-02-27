@@ -1,1 +1,39 @@
-'use strict';const a969_0xd9ae8e=a969_0x526a;function a969_0x42b5(){const _0x4a0715=['186WUuNEV','4628995SQfZDm','255','AddVendorColumn1697697385554','hasColumn','TableColumn','12yxoTXG','whatsapp','12xjykpE','2913590dHlpkA','16eNxgdg','__awaiter','addColumn','defineProperty','3677031vDEnWw','16797qRIoqX','928132jBnzBc','dropColumn','6XZJriN','2410moenBc','down','__esModule','ifsc_code','8870BxOSRA','VARCHAR','vendor','1714648bOvfqs','typeorm'];a969_0x42b5=function(){return _0x4a0715;};return a969_0x42b5();}(function(_0x52fd31,_0x5ace61){const _0x534032=a969_0x526a,_0x27708a=_0x52fd31();while(!![]){try{const _0x4b1ea8=-parseInt(_0x534032(0x97))/0x1*(parseInt(_0x534032(0x92))/0x2)+parseInt(_0x534032(0x9d))/0x3*(parseInt(_0x534032(0x8b))/0x4)+-parseInt(_0x534032(0xa0))/0x5*(parseInt(_0x534032(0x8d))/0x6)+parseInt(_0x534032(0x98))/0x7+parseInt(_0x534032(0xa1))/0x8*(parseInt(_0x534032(0xa5))/0x9)+parseInt(_0x534032(0x8e))/0xa*(-parseInt(_0x534032(0x8a))/0xb)+-parseInt(_0x534032(0x9f))/0xc*(parseInt(_0x534032(0x95))/0xd);if(_0x4b1ea8===_0x5ace61)break;else _0x27708a['push'](_0x27708a['shift']());}catch(_0x251486){_0x27708a['push'](_0x27708a['shift']());}}}(a969_0x42b5,0x79d3c));function a969_0x526a(_0x222fd6,_0x484176){const _0x42b54c=a969_0x42b5();return a969_0x526a=function(_0x526adb,_0x10e112){_0x526adb=_0x526adb-0x8a;let _0x4afdc0=_0x42b54c[_0x526adb];return _0x4afdc0;},a969_0x526a(_0x222fd6,_0x484176);}Object[a969_0xd9ae8e(0xa4)](exports,a969_0xd9ae8e(0x90),{'value':!![]}),exports[a969_0xd9ae8e(0x9a)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a969_0xd9ae8e(0x96));class AddVendorColumn1697697385554{['up'](_0x15adbf){const _0x186dee=a969_0xd9ae8e;return tslib_1[_0x186dee(0xa2)](this,void 0x0,void 0x0,function*(){const _0x4e32e4=_0x186dee,_0x116d27=yield _0x15adbf[_0x4e32e4(0x9b)](_0x4e32e4(0x94),_0x4e32e4(0x9e));!_0x116d27&&(yield _0x15adbf[_0x4e32e4(0xa3)]('vendor',new typeorm_1[(_0x4e32e4(0x9c))]({'name':_0x4e32e4(0x9e),'type':_0x4e32e4(0x93),'length':_0x4e32e4(0x99),'isPrimary':![],'isNullable':!![]})));const _0x1d1702=yield _0x15adbf[_0x4e32e4(0x9b)](_0x4e32e4(0x94),_0x4e32e4(0x91));!_0x1d1702&&(yield _0x15adbf[_0x4e32e4(0xa3)](_0x4e32e4(0x94),new typeorm_1['TableColumn']({'name':_0x4e32e4(0x91),'type':_0x4e32e4(0x93),'length':_0x4e32e4(0x99),'isPrimary':![],'isNullable':!![]})));});}[a969_0xd9ae8e(0x8f)](_0x42ea40){const _0x1cee32=a969_0xd9ae8e;return tslib_1[_0x1cee32(0xa2)](this,void 0x0,void 0x0,function*(){const _0x54f278=_0x1cee32;yield _0x42ea40['dropColumn'](_0x54f278(0x94),_0x54f278(0x9e)),yield _0x42ea40[_0x54f278(0x8c)](_0x54f278(0x94),'ifsc_code');});}}exports[a969_0xd9ae8e(0x9a)]=AddVendorColumn1697697385554;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddVendorColumn1697697385554 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddVendorColumn1697697385554 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('vendor', 'whatsapp');
+            if (!ifExist) {
+                yield queryRunner.addColumn('vendor', new typeorm_1.TableColumn({
+                    name: 'whatsapp',
+                    type: 'VARCHAR',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExistColumn = yield queryRunner.hasColumn('vendor', 'ifsc_code');
+            if (!ifExistColumn) {
+                yield queryRunner.addColumn('vendor', new typeorm_1.TableColumn({
+                    name: 'ifsc_code',
+                    type: 'VARCHAR',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('vendor', 'whatsapp');
+            yield queryRunner.dropColumn('vendor', 'ifsc_code');
+        });
+    }
+}
+exports.AddVendorColumn1697697385554 = AddVendorColumn1697697385554;
+//# sourceMappingURL=1697697385554-AddVendorColumn.js.map

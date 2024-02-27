@@ -1,1 +1,87 @@
-'use strict';function a409_0xde31(){const _0x16a148=['date_start','27VXUjlg','ProductSpecial','createdDate','268832wMMsfD','product','design:type','__esModule','product_special_id','format','ManyToOne','Product','Column','4137490tzyOJp','4xhKwkj','product_id','./ProductModel','typeorm','8409344QyPgBD','1151256ydiikx','7442617ICFhxI','design:paramtypes','createDetails','design:returntype','3422934qLodvQ','1202390tlkTMx','modifiedDate','PrimaryGeneratedColumn','productId','customerGroupId','YYYY-MM-DD\x20HH:mm:ss','product_special','tslib','BaseModel','customer_group_id','typeorm/index','price','dateStart','__decorate','class-validator','productSpecial','JoinColumn','IsNotEmpty','Entity','date_end','BeforeUpdate','priority','prototype','__awaiter','__metadata'];a409_0xde31=function(){return _0x16a148;};return a409_0xde31();}const a409_0x586761=a409_0x3b82;(function(_0x1af490,_0x14e845){const _0x56820e=a409_0x3b82,_0x19d086=_0x1af490();while(!![]){try{const _0x58cc53=-parseInt(_0x56820e(0x10d))/0x1+-parseInt(_0x56820e(0xf0))/0x2+-parseInt(_0x56820e(0xef))/0x3+-parseInt(_0x56820e(0x117))/0x4*(-parseInt(_0x56820e(0x116))/0x5)+-parseInt(_0x56820e(0x11c))/0x6+-parseInt(_0x56820e(0xeb))/0x7+parseInt(_0x56820e(0x11b))/0x8*(parseInt(_0x56820e(0x10a))/0x9);if(_0x58cc53===_0x14e845)break;else _0x19d086['push'](_0x19d086['shift']());}catch(_0x3c8600){_0x19d086['push'](_0x19d086['shift']());}}}(a409_0xde31,0xae88a));function a409_0x3b82(_0x12c322,_0x10bff9){const _0xde3177=a409_0xde31();return a409_0x3b82=function(_0x3b82de,_0x3b7abb){_0x3b82de=_0x3b82de-0xeb;let _0xca271d=_0xde3177[_0x3b82de];return _0xca271d;},a409_0x3b82(_0x12c322,_0x10bff9);}Object['defineProperty'](exports,a409_0x586761(0x110),{'value':!![]}),exports[a409_0x586761(0x10b)]=void 0x0;const tslib_1=require(a409_0x586761(0xf7)),typeorm_1=require(a409_0x586761(0x11a)),index_1=require(a409_0x586761(0xfa)),BaseModel_1=require('./BaseModel'),moment=require('moment'),class_validator_1=require(a409_0x586761(0xfe)),ProductModel_1=require(a409_0x586761(0x119));let ProductSpecial=class ProductSpecial extends BaseModel_1[a409_0x586761(0xf8)]{[a409_0x586761(0xed)](){const _0x474989=a409_0x586761;return tslib_1[_0x474989(0x107)](this,void 0x0,void 0x0,function*(){const _0x11725c=_0x474989;this[_0x11725c(0x10c)]=moment()[_0x11725c(0x112)](_0x11725c(0xf5));});}['updateDetails'](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x555428=a409_0x3b82;this[_0x555428(0xf1)]=moment()[_0x555428(0x112)](_0x555428(0xf5));});}};tslib_1[a409_0x586761(0xfd)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,index_1[a409_0x586761(0xf2)])({'name':a409_0x586761(0x111)}),tslib_1[a409_0x586761(0x108)](a409_0x586761(0x10f),Number)],ProductSpecial[a409_0x586761(0x106)],'productSpecialId',void 0x0),tslib_1[a409_0x586761(0xfd)]([(0x0,class_validator_1[a409_0x586761(0x101)])(),(0x0,typeorm_1['Column'])({'name':a409_0x586761(0x118)}),tslib_1['__metadata'](a409_0x586761(0x10f),Number)],ProductSpecial[a409_0x586761(0x106)],a409_0x586761(0xf3),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a409_0x586761(0x115)])({'name':a409_0x586761(0xf9)}),tslib_1[a409_0x586761(0x108)](a409_0x586761(0x10f),Number)],ProductSpecial[a409_0x586761(0x106)],a409_0x586761(0xf4),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a409_0x586761(0x115)])({'name':'sku_id'}),tslib_1[a409_0x586761(0x108)](a409_0x586761(0x10f),Number)],ProductSpecial[a409_0x586761(0x106)],'skuId',void 0x0),tslib_1[a409_0x586761(0xfd)]([(0x0,typeorm_1['Column'])({'name':a409_0x586761(0x105)}),tslib_1[a409_0x586761(0x108)](a409_0x586761(0x10f),Number)],ProductSpecial[a409_0x586761(0x106)],a409_0x586761(0x105),void 0x0),tslib_1[a409_0x586761(0xfd)]([(0x0,class_validator_1[a409_0x586761(0x101)])(),(0x0,typeorm_1['Column'])({'name':a409_0x586761(0xfb)}),tslib_1['__metadata'](a409_0x586761(0x10f),Number)],ProductSpecial[a409_0x586761(0x106)],a409_0x586761(0xfb),void 0x0),tslib_1[a409_0x586761(0xfd)]([(0x0,typeorm_1[a409_0x586761(0x115)])({'name':a409_0x586761(0x109)}),tslib_1[a409_0x586761(0x108)]('design:type',Date)],ProductSpecial[a409_0x586761(0x106)],a409_0x586761(0xfc),void 0x0),tslib_1[a409_0x586761(0xfd)]([(0x0,typeorm_1[a409_0x586761(0x115)])({'name':a409_0x586761(0x103)}),tslib_1[a409_0x586761(0x108)]('design:type',Date)],ProductSpecial['prototype'],'dateEnd',void 0x0),tslib_1[a409_0x586761(0xfd)]([(0x0,typeorm_1[a409_0x586761(0x113)])(_0x6afbf6=>ProductModel_1[a409_0x586761(0x114)],_0x6c4c1b=>_0x6c4c1b[a409_0x586761(0xff)]),(0x0,typeorm_1[a409_0x586761(0x100)])({'name':'product_id'}),tslib_1['__metadata'](a409_0x586761(0x10f),ProductModel_1[a409_0x586761(0x114)])],ProductSpecial['prototype'],a409_0x586761(0x10e),void 0x0),tslib_1[a409_0x586761(0xfd)]([(0x0,typeorm_1['BeforeInsert'])(),tslib_1['__metadata'](a409_0x586761(0x10f),Function),tslib_1[a409_0x586761(0x108)](a409_0x586761(0xec),[]),tslib_1['__metadata'](a409_0x586761(0xee),Promise)],ProductSpecial[a409_0x586761(0x106)],'createDetails',null),tslib_1[a409_0x586761(0xfd)]([(0x0,typeorm_1[a409_0x586761(0x104)])(),tslib_1[a409_0x586761(0x108)](a409_0x586761(0x10f),Function),tslib_1['__metadata'](a409_0x586761(0xec),[]),tslib_1[a409_0x586761(0x108)]('design:returntype',Promise)],ProductSpecial[a409_0x586761(0x106)],'updateDetails',null),ProductSpecial=tslib_1['__decorate']([(0x0,typeorm_1[a409_0x586761(0x102)])(a409_0x586761(0xf6))],ProductSpecial),exports[a409_0x586761(0x10b)]=ProductSpecial;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductSpecial = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const index_1 = require("typeorm/index");
+const BaseModel_1 = require("./BaseModel");
+const moment = require("moment");
+const class_validator_1 = require("class-validator");
+const ProductModel_1 = require("./ProductModel");
+let ProductSpecial = class ProductSpecial extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, index_1.PrimaryGeneratedColumn)({ name: 'product_special_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductSpecial.prototype, "productSpecialId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductSpecial.prototype, "productId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'customer_group_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductSpecial.prototype, "customerGroupId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'sku_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductSpecial.prototype, "skuId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'priority' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductSpecial.prototype, "priority", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'price' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductSpecial.prototype, "price", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'date_start' }),
+    tslib_1.__metadata("design:type", Date)
+], ProductSpecial.prototype, "dateStart", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'date_end' }),
+    tslib_1.__metadata("design:type", Date)
+], ProductSpecial.prototype, "dateEnd", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => ProductModel_1.Product, product => product.productSpecial),
+    (0, typeorm_1.JoinColumn)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", ProductModel_1.Product)
+], ProductSpecial.prototype, "product", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductSpecial.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductSpecial.prototype, "updateDetails", null);
+ProductSpecial = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('product_special')
+], ProductSpecial);
+exports.ProductSpecial = ProductSpecial;
+//# sourceMappingURL=ProductSpecial.js.map

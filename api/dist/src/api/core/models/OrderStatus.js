@@ -1,1 +1,115 @@
-'use strict';const a392_0x29ed01=a392_0x1fd2;(function(_0x1d08d5,_0x436fc9){const _0x1f5817=a392_0x1fd2,_0x2a6252=_0x1d08d5();while(!![]){try{const _0x59b96f=parseInt(_0x1f5817(0x1f7))/0x1+parseInt(_0x1f5817(0x219))/0x2+-parseInt(_0x1f5817(0x1ff))/0x3+parseInt(_0x1f5817(0x220))/0x4+parseInt(_0x1f5817(0x1fe))/0x5*(parseInt(_0x1f5817(0x208))/0x6)+-parseInt(_0x1f5817(0x222))/0x7*(parseInt(_0x1f5817(0x1f8))/0x8)+-parseInt(_0x1f5817(0x215))/0x9;if(_0x59b96f===_0x436fc9)break;else _0x2a6252['push'](_0x2a6252['shift']());}catch(_0x4cf005){_0x2a6252['push'](_0x2a6252['shift']());}}}(a392_0x4e9b,0xe3ddf));Object[a392_0x29ed01(0x1f2)](exports,'__esModule',{'value':!![]}),exports[a392_0x29ed01(0x1fc)]=void 0x0;const tslib_1=require(a392_0x29ed01(0x205)),class_validator_1=require(a392_0x29ed01(0x212)),typeorm_1=require('typeorm'),BaseModel_1=require('./BaseModel'),moment=require(a392_0x29ed01(0x217)),Order_1=require(a392_0x29ed01(0x1f5)),VendorOrders_1=require(a392_0x29ed01(0x21a)),VendorOrderArchive_1=require(a392_0x29ed01(0x21b)),OrderProductLog_1=require(a392_0x29ed01(0x1ed)),VendorOrderArchiveLog_1=require(a392_0x29ed01(0x1fd));let OrderStatus=class OrderStatus extends BaseModel_1[a392_0x29ed01(0x216)]{[a392_0x29ed01(0x1f0)](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x476561=a392_0x1fd2;this[_0x476561(0x21e)]=moment()['format'](_0x476561(0x20d));});}[a392_0x29ed01(0x214)](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x130e20=a392_0x1fd2;this['modifiedDate']=moment()[_0x130e20(0x21c)](_0x130e20(0x20d));});}};function a392_0x4e9b(){const _0x344eaa=['is_api','PrimaryGeneratedColumn','class-validator','is_active','updateDetails','9886608WRTYwS','BaseModel','moment','__decorate','3034582iWghef','./VendorOrders','./VendorOrderArchive','format','design:paramtypes','createdDate','OrderProductLog','3469500VyaFdZ','OneToMany','1813063INIWrr','default_status','./OrderProductLog','BeforeUpdate','name','createDetails','vendorOrders','defineProperty','order_status','isBuyer','./Order','is_buyer','1056464AZAiVZ','32lsJLWR','is_admin','orderStatus','colorCode','OrderStatus','./VendorOrderArchiveLog','23545lpDQUc','3083370NvVgGv','prototype','Column','parent_id','priority','__metadata','tslib','isVendor','statusOfOrder','834DpMecs','design:type','vendorOrderArchive','design:returntype','isActive','YYYY-MM-DD\x20HH:mm:ss','color_code','BeforeInsert'];a392_0x4e9b=function(){return _0x344eaa;};return a392_0x4e9b();}function a392_0x1fd2(_0x9ca0bc,_0x238173){const _0x4e9bc4=a392_0x4e9b();return a392_0x1fd2=function(_0x1fd29e,_0x3fa0cc){_0x1fd29e=_0x1fd29e-0x1ed;let _0x3511d6=_0x4e9bc4[_0x1fd29e];return _0x3511d6;},a392_0x1fd2(_0x9ca0bc,_0x238173);}tslib_1[a392_0x29ed01(0x218)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a392_0x29ed01(0x211)])({'name':'order_status_id'}),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),Number)],OrderStatus[a392_0x29ed01(0x200)],'orderStatusId',void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a392_0x29ed01(0x201)])({'name':a392_0x29ed01(0x1ef)}),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),String)],OrderStatus['prototype'],'name',void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1[a392_0x29ed01(0x201)])({'name':a392_0x29ed01(0x213)}),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),Number)],OrderStatus['prototype'],a392_0x29ed01(0x20c),void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1[a392_0x29ed01(0x201)])({'name':a392_0x29ed01(0x203)}),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),Number)],OrderStatus['prototype'],a392_0x29ed01(0x203),void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1[a392_0x29ed01(0x201)])({'name':a392_0x29ed01(0x202)}),tslib_1['__metadata'](a392_0x29ed01(0x209),Number)],OrderStatus[a392_0x29ed01(0x200)],'parentId',void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1[a392_0x29ed01(0x201)])({'name':a392_0x29ed01(0x223)}),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),Number)],OrderStatus[a392_0x29ed01(0x200)],'defaultStatus',void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a392_0x29ed01(0x201)])({'name':a392_0x29ed01(0x1f9)}),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),Number)],OrderStatus[a392_0x29ed01(0x200)],'isAdmin',void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1[a392_0x29ed01(0x201)])({'name':'is_vendor'}),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),Number)],OrderStatus[a392_0x29ed01(0x200)],a392_0x29ed01(0x206),void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1['Column'])({'name':a392_0x29ed01(0x1f6)}),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),Number)],OrderStatus[a392_0x29ed01(0x200)],a392_0x29ed01(0x1f4),void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1[a392_0x29ed01(0x201)])({'name':a392_0x29ed01(0x210)}),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),Number)],OrderStatus[a392_0x29ed01(0x200)],'isApi',void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1['OneToMany'])(_0x2858dd=>Order_1['Order'],_0x519fb2=>_0x519fb2[a392_0x29ed01(0x1fa)]),tslib_1[a392_0x29ed01(0x204)]('design:type',Array)],OrderStatus['prototype'],a392_0x29ed01(0x207),void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1[a392_0x29ed01(0x221)])(_0x5a8b29=>VendorOrders_1['VendorOrders'],_0x7f4716=>_0x7f4716[a392_0x29ed01(0x1fa)]),tslib_1[a392_0x29ed01(0x204)]('design:type',Array)],OrderStatus[a392_0x29ed01(0x200)],a392_0x29ed01(0x1f1),void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1[a392_0x29ed01(0x221)])(_0x3564c2=>VendorOrderArchive_1['VendorOrderArchive'],_0x3f7c49=>_0x3f7c49[a392_0x29ed01(0x1fa)]),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),Array)],OrderStatus[a392_0x29ed01(0x200)],a392_0x29ed01(0x20a),void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1[a392_0x29ed01(0x221)])(_0x5b8920=>VendorOrderArchiveLog_1['VendorOrderArchiveLog'],_0x27d9da=>_0x27d9da[a392_0x29ed01(0x1fa)]),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),Array)],OrderStatus[a392_0x29ed01(0x200)],'vendorOrderArchiveLog',void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1['Column'])({'name':a392_0x29ed01(0x20e)}),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),String)],OrderStatus['prototype'],a392_0x29ed01(0x1fb),void 0x0),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1[a392_0x29ed01(0x221)])(_0x225daa=>OrderProductLog_1[a392_0x29ed01(0x21f)],_0x52fdfb=>_0x52fdfb[a392_0x29ed01(0x1fa)]),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x209),Array)],OrderStatus[a392_0x29ed01(0x200)],'orderProductLog',void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a392_0x29ed01(0x20f)])(),tslib_1['__metadata'](a392_0x29ed01(0x209),Function),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x21d),[]),tslib_1['__metadata']('design:returntype',Promise)],OrderStatus['prototype'],a392_0x29ed01(0x1f0),null),tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1[a392_0x29ed01(0x1ee)])(),tslib_1['__metadata'](a392_0x29ed01(0x209),Function),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x21d),[]),tslib_1[a392_0x29ed01(0x204)](a392_0x29ed01(0x20b),Promise)],OrderStatus['prototype'],a392_0x29ed01(0x214),null),OrderStatus=tslib_1[a392_0x29ed01(0x218)]([(0x0,typeorm_1['Entity'])(a392_0x29ed01(0x1f3))],OrderStatus),exports['OrderStatus']=OrderStatus;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrderStatus = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const moment = require("moment");
+const Order_1 = require("./Order");
+const VendorOrders_1 = require("./VendorOrders");
+const VendorOrderArchive_1 = require("./VendorOrderArchive");
+const OrderProductLog_1 = require("./OrderProductLog");
+const VendorOrderArchiveLog_1 = require("./VendorOrderArchiveLog");
+let OrderStatus = class OrderStatus extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'order_status_id' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderStatus.prototype, "orderStatusId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'name' }),
+    tslib_1.__metadata("design:type", String)
+], OrderStatus.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderStatus.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'priority' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderStatus.prototype, "priority", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'parent_id' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderStatus.prototype, "parentId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'default_status' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderStatus.prototype, "defaultStatus", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_admin' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderStatus.prototype, "isAdmin", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_vendor' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderStatus.prototype, "isVendor", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_buyer' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderStatus.prototype, "isBuyer", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_api' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderStatus.prototype, "isApi", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => Order_1.Order, order => order.orderStatus),
+    tslib_1.__metadata("design:type", Array)
+], OrderStatus.prototype, "statusOfOrder", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => VendorOrders_1.VendorOrders, vendorOrder => vendorOrder.orderStatus),
+    tslib_1.__metadata("design:type", Array)
+], OrderStatus.prototype, "vendorOrders", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => VendorOrderArchive_1.VendorOrderArchive, vendorOrderArchive => vendorOrderArchive.orderStatus),
+    tslib_1.__metadata("design:type", Array)
+], OrderStatus.prototype, "vendorOrderArchive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => VendorOrderArchiveLog_1.VendorOrderArchiveLog, vendorOrderArchiveLog => vendorOrderArchiveLog.orderStatus),
+    tslib_1.__metadata("design:type", Array)
+], OrderStatus.prototype, "vendorOrderArchiveLog", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'color_code' }),
+    tslib_1.__metadata("design:type", String)
+], OrderStatus.prototype, "colorCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => OrderProductLog_1.OrderProductLog, orderProductLog => orderProductLog.orderStatus),
+    tslib_1.__metadata("design:type", Array)
+], OrderStatus.prototype, "orderProductLog", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderStatus.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderStatus.prototype, "updateDetails", null);
+OrderStatus = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('order_status')
+], OrderStatus);
+exports.OrderStatus = OrderStatus;
+//# sourceMappingURL=OrderStatus.js.map

@@ -1,1 +1,36 @@
-'use strict';const a947_0x52fd59=a947_0x567f;(function(_0x270105,_0x153495){const _0x5cc118=a947_0x567f,_0x41e24c=_0x270105();while(!![]){try{const _0x334079=-parseInt(_0x5cc118(0x19b))/0x1*(parseInt(_0x5cc118(0x199))/0x2)+parseInt(_0x5cc118(0x1a4))/0x3*(parseInt(_0x5cc118(0x198))/0x4)+parseInt(_0x5cc118(0x1a2))/0x5*(parseInt(_0x5cc118(0x19e))/0x6)+-parseInt(_0x5cc118(0x1a0))/0x7+-parseInt(_0x5cc118(0x1ab))/0x8+-parseInt(_0x5cc118(0x1a6))/0x9+-parseInt(_0x5cc118(0x1a9))/0xa*(-parseInt(_0x5cc118(0x1aa))/0xb);if(_0x334079===_0x153495)break;else _0x41e24c['push'](_0x41e24c['shift']());}catch(_0xf74eb9){_0x41e24c['push'](_0x41e24c['shift']());}}}(a947_0x54a4,0x59f21));function a947_0x567f(_0x33fbbd,_0x463679){const _0x54a42f=a947_0x54a4();return a947_0x567f=function(_0x567f61,_0xfeff1e){_0x567f61=_0x567f61-0x198;let _0x3538f3=_0x54a42f[_0x567f61];return _0x3538f3;},a947_0x567f(_0x33fbbd,_0x463679);}Object['defineProperty'](exports,a947_0x52fd59(0x19d),{'value':!![]}),exports[a947_0x52fd59(0x1ac)]=void 0x0;const tslib_1=require(a947_0x52fd59(0x1b1)),typeorm_1=require(a947_0x52fd59(0x1b2));class AddingConstraintInVendorContactTable1656050689819{constructor(){const _0xad3c62=a947_0x52fd59;this['tableForeignKey1']=new typeorm_1[(_0xad3c62(0x1a5))]({'name':_0xad3c62(0x1b0),'columnNames':[_0xad3c62(0x1ae)],'referencedColumnNames':[_0xad3c62(0x1ae)],'referencedTableName':_0xad3c62(0x1a7),'onDelete':'CASCADE'});}['up'](_0x202a76){const _0x2bc083=a947_0x52fd59;return tslib_1[_0x2bc083(0x1a1)](this,void 0x0,void 0x0,function*(){const _0x4316f5=_0x2bc083,_0x391c6f=yield _0x202a76['getTable'](_0x4316f5(0x1ad)),_0x391ff6=_0x391c6f[_0x4316f5(0x19a)][_0x4316f5(0x1af)](_0x5e333a=>_0x5e333a[_0x4316f5(0x19c)][_0x4316f5(0x1a3)](_0x4316f5(0x1ae))!==-0x1);!_0x391ff6&&(yield _0x202a76[_0x4316f5(0x1a8)](_0x391c6f,this[_0x4316f5(0x19f)]));});}['down'](_0x3454ea){const _0x4a55fb=a947_0x52fd59;return tslib_1[_0x4a55fb(0x1a1)](this,void 0x0,void 0x0,function*(){const _0x2b7ae8=_0x4a55fb,_0x642eec=yield _0x3454ea['getTable'](_0x2b7ae8(0x1ad)),_0x307320=_0x642eec[_0x2b7ae8(0x19a)][_0x2b7ae8(0x1af)](_0x4fb4fc=>_0x4fb4fc[_0x2b7ae8(0x19c)]['indexOf'](_0x2b7ae8(0x1ae))!==-0x1);!_0x307320&&(yield _0x3454ea[_0x2b7ae8(0x1a8)](_0x642eec,this[_0x2b7ae8(0x19f)]));});}}exports[a947_0x52fd59(0x1ac)]=AddingConstraintInVendorContactTable1656050689819;function a947_0x54a4(){const _0x461864=['columnNames','__esModule','4638nyURvz','tableForeignKey1','2929976BsZHVh','__awaiter','4765RWrgaj','indexOf','428550izPuEi','TableForeignKey','133569ztGxIO','vendor','createForeignKey','23990IYLGxU','3971xLIJiz','4761568jozmMr','AddingConstraintInVendorContactTable1656050689819','vendor_contact','vendor_id','find','fk_tbl_vendor_contact_tbl_vendor','tslib','typeorm','8pQHtct','28PTTPOX','foreignKeys','35099ehCuzV'];a947_0x54a4=function(){return _0x461864;};return a947_0x54a4();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddingConstraintInVendorContactTable1656050689819 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddingConstraintInVendorContactTable1656050689819 {
+    constructor() {
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_vendor_contact_tbl_vendor',
+            columnNames: ['vendor_id'],
+            referencedColumnNames: ['vendor_id'],
+            referencedTableName: 'vendor',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('vendor_contact');
+            const ifDataExsist1 = table.foreignKeys.find(fk => fk.columnNames.indexOf('vendor_id') !== -1);
+            if (!ifDataExsist1) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('vendor_contact');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('vendor_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+}
+exports.AddingConstraintInVendorContactTable1656050689819 = AddingConstraintInVendorContactTable1656050689819;
+//# sourceMappingURL=1656050689819-AddingConstraintInVendorContactTable.js.map

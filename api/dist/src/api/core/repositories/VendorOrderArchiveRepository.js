@@ -1,1 +1,20 @@
-'use strict';const a536_0x3e5080=a536_0x3478;(function(_0x129acf,_0x1adb59){const _0x1b748c=a536_0x3478,_0x220414=_0x129acf();while(!![]){try{const _0x280cbc=-parseInt(_0x1b748c(0x1ac))/0x1+-parseInt(_0x1b748c(0x1a2))/0x2+parseInt(_0x1b748c(0x1a7))/0x3*(-parseInt(_0x1b748c(0x1a9))/0x4)+parseInt(_0x1b748c(0x1a0))/0x5*(parseInt(_0x1b748c(0x19f))/0x6)+-parseInt(_0x1b748c(0x19d))/0x7*(parseInt(_0x1b748c(0x19e))/0x8)+-parseInt(_0x1b748c(0x1a5))/0x9+-parseInt(_0x1b748c(0x1a3))/0xa*(-parseInt(_0x1b748c(0x1a1))/0xb);if(_0x280cbc===_0x1adb59)break;else _0x220414['push'](_0x220414['shift']());}catch(_0x3fcccd){_0x220414['push'](_0x220414['shift']());}}}(a536_0x205a,0x8cc60));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports['VendorOrderArchiveRepository']=void 0x0;function a536_0x3478(_0xf5dee3,_0x16293d){const _0x205a59=a536_0x205a();return a536_0x3478=function(_0x347843,_0x40481a){_0x347843=_0x347843-0x19c;let _0x576ff5=_0x205a59[_0x347843];return _0x576ff5;},a536_0x3478(_0xf5dee3,_0x16293d);}function a536_0x205a(){const _0x337916=['10gsJaEA','__decorate','5363946vcUdgD','typeorm','46773CQwjNa','VendorOrderArchive','284sPiFYZ','EntityRepository','../models/VendorOrderArchive','163910yHuNaH','tslib','7yDixLd','6582296LlzbSR','634236XTpxhW','5OqgdMo','40807591rbUSKH','1098454llwxox'];a536_0x205a=function(){return _0x337916;};return a536_0x205a();}const tslib_1=require(a536_0x3e5080(0x19c)),typeorm_1=require(a536_0x3e5080(0x1a6)),VendorOrderArchive_1=require(a536_0x3e5080(0x1ab));let VendorOrderArchiveRepository=class VendorOrderArchiveRepository extends typeorm_1['Repository']{};VendorOrderArchiveRepository=tslib_1[a536_0x3e5080(0x1a4)]([(0x0,typeorm_1[a536_0x3e5080(0x1aa)])(VendorOrderArchive_1[a536_0x3e5080(0x1a8)])],VendorOrderArchiveRepository),exports['VendorOrderArchiveRepository']=VendorOrderArchiveRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorOrderArchiveRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const VendorOrderArchive_1 = require("../models/VendorOrderArchive");
+let VendorOrderArchiveRepository = class VendorOrderArchiveRepository extends typeorm_1.Repository {
+};
+VendorOrderArchiveRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(VendorOrderArchive_1.VendorOrderArchive)
+], VendorOrderArchiveRepository);
+exports.VendorOrderArchiveRepository = VendorOrderArchiveRepository;
+//# sourceMappingURL=VendorOrderArchiveRepository.js.map

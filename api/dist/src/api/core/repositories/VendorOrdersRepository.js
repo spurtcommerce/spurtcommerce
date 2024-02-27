@@ -1,1 +1,236 @@
-'use strict';const a539_0x507983=a539_0x4061;(function(_0x42aca7,_0x21671d){const _0x36d928=a539_0x4061,_0x38fd55=_0x42aca7();while(!![]){try{const _0x3b43fe=parseInt(_0x36d928(0xe4))/0x1+-parseInt(_0x36d928(0xe3))/0x2*(-parseInt(_0x36d928(0x127))/0x3)+-parseInt(_0x36d928(0x11f))/0x4*(-parseInt(_0x36d928(0x10b))/0x5)+parseInt(_0x36d928(0xe1))/0x6+parseInt(_0x36d928(0x137))/0x7+-parseInt(_0x36d928(0x129))/0x8+-parseInt(_0x36d928(0x111))/0x9*(parseInt(_0x36d928(0xf3))/0xa);if(_0x3b43fe===_0x21671d)break;else _0x38fd55['push'](_0x38fd55['shift']());}catch(_0xdc0119){_0x38fd55['push'](_0x38fd55['shift']());}}}(a539_0x295e,0xf0c63));function a539_0x4061(_0x31f52c,_0x3cb732){const _0x295e21=a539_0x295e();return a539_0x4061=function(_0x40613e,_0x40a9ca){_0x40613e=_0x40613e-0xdd;let _0x12f05f=_0x295e21[_0x40613e];return _0x12f05f;},a539_0x4061(_0x31f52c,_0x3cb732);}function a539_0x295e(){const _0x92088d=['vendorOrders.vendorOrderId\x20as\x20vendorOrderId','COUNT(vendororder.vendorOrderId)\x20as\x20orderCount','vendorOrder.vendorId\x20=\x20:id','vendorOrders.order','YEAR(vendorOrders.created_date)\x20=\x20YEAR(NOW())','307932PPEJbd','__esModule','where','orderStatus','vendorOrder.vendorOrderId\x20=\x20:id','vendorOrder.createdDate','WEEKOFYEAR(vendorOrder.modified_date)\x20=\x20WEEKOFYEAR(NOW())','select','5394630AQorEi','vendorOrder','8992040stICei','vendorOrder.commission\x20as\x20commission','getTotalVendorRevenue','vendorOrder.total\x20as\x20total','DATE(vendorOrders.created_date)\x20=\x20CURDATE()','vendorOrders.vendorId\x20=\x20:id','orderProduct.discountedAmount\x20as\x20discountedAmount','groupBy','WEEKOFYEAR(vendorOrders.created_date)\x20=\x20WEEKOFYEAR(NOW())','getTotalBuyers','orderProduct','order.paymentProcess\x20=\x20:value1','Repository','COUNT(DISTINCT(vendorOrder.vendorId))\x20as\x20vendorCount','9094204hQIFLB','order.paymentStatus\x20=\x201\x20','vendorOrder.vendorId\x20as\x20vendorId','vendorOrder.subOrderId\x20as\x20subOrderId','vendorOrder.subOrderStatusId=\x20:value1','vendorOrder.subOrderId\x20LIKE\x20','searchOrderListt','COUNT(DISTINCT(vendorOrder.vendorId))\x20as\x20vendorCount,\x20vendorOrder.vendorId\x20as\x20vendorId','getRawMany','__awaiter','MONTH(vendorOrder.modified_date)\x20=\x20MONTH(NOW())\x20AND\x20YEAR(vendorOrder.modified_date)\x20=\x20YEAR(NOW())','vendorOrder.orderProductId\x20as\x20orderProductId','vendorOrder.subOrderStatusId\x20as\x20subOrderStatusId','findOrderCountBasedDuration','YEAR(vendorOrder.modified_date)\x20=\x20YEAR(NOW())','(order.shippingFirstname\x20LIKE\x20','orderStatus.name\x20as\x20orderStatusName','SUM(orderProduct.quantity)\x20as\x20soldCount','orderProduct.productId\x20=\x20:productId','vendororder.order','vendorOrder.orderId\x20=\x20:id','VendorOrdersRepository','order.shippingFirstname\x20as\x20customerFirstName','3433278bDgdMW','vendorOrder.orderProduct','2xpZVsO','510208DuKMTe','order.shippingCountry\x20as\x20shippingCountry','MONTH(vendorOrders.created_date)\x20=\x20MONTH(NOW())\x20AND\x20YEAR(vendorOrders.created_date)\x20=\x20YEAR(NOW())','vendorOrder.vendorId\x20=\x20:vendorId','orderBy','productSoldBasedOnDuration','order.currencySymbolLeft\x20as\x20currencySymbolLeft','findOrderCountBasedStatus','searchOrderList','order.paymentFlag\x20as\x20paymentFlag','DATE(vendororder.createdDate)\x20=\x20:todaydate','vendorOrders','findVendors','order','andWhere','23005360bJVSTA','order.shippingCity\x20as\x20shippingCity','getRawOne','orderProduct.discountAmount\x20as\x20discountAmount','order.payment_flag\x20=\x20:paymentFlag','SUM(vendorOrder.total)\x20as\x20total','getCount','tslib','vendorOrder.vendorOrderId\x20as\x20vendorOrderId','order.paymentProcess\x20=\x20:process','order.payment_status\x20=\x20:paymentStatus','VendorOrders','COUNT(vendorOrder.vendorOrderId)\x20as\x20orderCount','COUNT(DISTINCT(order.customer_id))\x20as\x20buyerCount','../models/VendorOrders','order.paymentProcess\x20as\x20paymentProcess','__decorate','vendorOrder.orderId\x20as\x20orderId','leftJoin','vendorOrder.order','defineProperty','deliveredOrderBasedOnDuration','manager','order.payment_process\x20=\x20:paymentProcess','15OXeJdd','vendorOrders.orderProduct','vendororder.vendorId\x20=\x20:vendorId','createQueryBuilder','order.paymentProcess\x20=\x20:paymentProcess','vendorOrders.sub_order_status_id\x20=\x20:status','9JcjUZU','DESC','order.paymentStatus\x20=\x20:value1','vendorOrder.vendorId','findSumOfAmount','DATE(vendorOrder.createdDate)\x20as\x20date','order.currencySymbolRight\x20as\x20currencySymbolRight','order.paymentMethod\x20as\x20paymentMethod','order.payment_process\x20=\x20:process'];a539_0x295e=function(){return _0x92088d;};return a539_0x295e();}Object[a539_0x507983(0x107)](exports,a539_0x507983(0x120),{'value':!![]}),exports['VendorOrdersRepository']=void 0x0;const tslib_1=require(a539_0x507983(0xfa)),typeorm_1=require('typeorm'),VendorOrders_1=require(a539_0x507983(0x101));let VendorOrdersRepository=class VendorOrdersRepository extends typeorm_1[a539_0x507983(0x135)]{[a539_0x507983(0xec)](_0x49280c,_0x4c8199,_0xe69ef2,_0xef4e9d,_0x56cf6e,_0x39f95a){const _0x234413=a539_0x507983;return tslib_1[_0x234413(0x140)](this,void 0x0,void 0x0,function*(){const _0x6cbcf3=_0x234413,_0x78579a=yield this['manager'][_0x6cbcf3(0x10e)](VendorOrders_1[_0x6cbcf3(0xfe)],_0x6cbcf3(0x128));return _0x78579a[_0x6cbcf3(0x126)]([_0x6cbcf3(0xfb),_0x6cbcf3(0x104),_0x6cbcf3(0xf6),'orderProduct.discountedAmount\x20as\x20discountedAmount',_0x6cbcf3(0x139),_0x6cbcf3(0x13a),_0x6cbcf3(0x12c),_0x6cbcf3(0x12a),'vendorOrder.orderProductId\x20as\x20orderProductId',_0x6cbcf3(0x102),_0x6cbcf3(0x143),_0x6cbcf3(0x116),_0x6cbcf3(0xe0),_0x6cbcf3(0x147),_0x6cbcf3(0xf4),_0x6cbcf3(0xe5),_0x6cbcf3(0xea),'order.currencySymbolRight\x20as\x20currencySymbolRight',_0x6cbcf3(0xed),_0x6cbcf3(0x118)]),_0x78579a[_0x6cbcf3(0x105)]('vendorOrder.order',_0x6cbcf3(0xf1)),_0x78579a[_0x6cbcf3(0x105)]('vendorOrder.orderStatus',_0x6cbcf3(0x122)),_0x78579a[_0x6cbcf3(0x105)]('vendorOrder.orderProduct',_0x6cbcf3(0x133)),_0x78579a[_0x6cbcf3(0x121)]('vendorOrder.vendorId\x20=\x20:id',{'id':_0x49280c}),_0x78579a['andWhere'](_0x6cbcf3(0xfc),{'process':0x1}),_0x4c8199!==undefined&&_0x4c8199!==''&&_0x78579a[_0x6cbcf3(0xf2)]('DATE(vendorOrder.createdDate)\x20=\x20:value',{'value':_0x4c8199}),_0xe69ef2&&_0xef4e9d&&_0x78579a[_0x6cbcf3(0xf2)]('DATE(vendorOrder.createdDate)\x20>=\x20:value1\x20AND\x20DATE(vendorOrder.createdDate)\x20<=\x20:value2',{'value1':_0xe69ef2,'value2':_0xef4e9d}),_0x39f95a&&_0x78579a[_0x6cbcf3(0xf2)](_0x6cbcf3(0x138)),_0x56cf6e!==undefined&&_0x56cf6e!==''&&(_0x78579a[_0x6cbcf3(0xf2)](_0x6cbcf3(0x146)+'\x27%'+_0x56cf6e+'%\x27'+'\x20'),_0x78579a['orWhere'](_0x6cbcf3(0x13c)+'\x27%'+_0x56cf6e+'%\x27'+')')),_0x78579a[_0x6cbcf3(0xe8)]('vendorOrder.createdDate',_0x6cbcf3(0x112)),_0x78579a['getRawMany']();});}['findVendorTodayOrderCount'](_0x833c6b,_0x1496e9){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x48c8cb=a539_0x4061,_0xcb5da5=yield this['manager']['createQueryBuilder'](VendorOrders_1[_0x48c8cb(0xfe)],'vendororder');return _0xcb5da5[_0x48c8cb(0x126)]([_0x48c8cb(0x11b)]),_0xcb5da5['leftJoin'](_0x48c8cb(0xdd),_0x48c8cb(0xf1)),_0xcb5da5[_0x48c8cb(0x121)](_0x48c8cb(0xee),{'todaydate':_0x1496e9}),_0xcb5da5['andWhere'](_0x48c8cb(0x10d),{'vendorId':_0x833c6b}),_0xcb5da5[_0x48c8cb(0xf2)](_0x48c8cb(0x119),{'process':0x1}),_0xcb5da5[_0x48c8cb(0xf5)]();});}[a539_0x507983(0x132)](_0x218c96){const _0x3f5d50=a539_0x507983;return tslib_1[_0x3f5d50(0x140)](this,void 0x0,void 0x0,function*(){const _0x1be8de=_0x3f5d50,_0x46fc26=yield this[_0x1be8de(0x109)]['createQueryBuilder'](VendorOrders_1[_0x1be8de(0xfe)],_0x1be8de(0x128));return _0x46fc26[_0x1be8de(0x126)](['COUNT(vendorOrder.orderId)\x20as\x20salesCount',_0x1be8de(0x100)]),_0x46fc26['leftJoin']('vendorOrder.order',_0x1be8de(0xf1)),_0x46fc26['leftJoin'](_0x1be8de(0xe2),_0x1be8de(0x133)),_0x46fc26['where'](_0x1be8de(0x11c),{'id':_0x218c96}),_0x46fc26[_0x1be8de(0xf2)](_0x1be8de(0xfc),{'process':0x1}),_0x46fc26[_0x1be8de(0xf2)](_0x1be8de(0x113),{'value1':0x1}),_0x46fc26[_0x1be8de(0xf5)]();});}['findVendorCount'](_0x4a47de){const _0x18481c=a539_0x507983;return tslib_1[_0x18481c(0x140)](this,void 0x0,void 0x0,function*(){const _0x4c769f=_0x18481c,_0xe5f678=yield this[_0x4c769f(0x109)]['createQueryBuilder'](VendorOrders_1[_0x4c769f(0xfe)],_0x4c769f(0x128));return _0xe5f678[_0x4c769f(0x126)]([_0x4c769f(0x136)]),_0xe5f678[_0x4c769f(0x121)]('vendorOrder.orderId\x20=\x20:id',{'id':_0x4a47de}),_0xe5f678[_0x4c769f(0xf5)]();});}[a539_0x507983(0xf0)](_0x759503){const _0x2fecdd=a539_0x507983;return tslib_1[_0x2fecdd(0x140)](this,void 0x0,void 0x0,function*(){const _0xf69797=_0x2fecdd,_0x2848d1=yield this[_0xf69797(0x109)][_0xf69797(0x10e)](VendorOrders_1['VendorOrders'],_0xf69797(0x128));return _0x2848d1[_0xf69797(0x126)]([_0xf69797(0x13e)]),_0x2848d1[_0xf69797(0x121)](_0xf69797(0xde),{'id':_0x759503}),_0x2848d1[_0xf69797(0x130)](_0xf69797(0x114)),_0x2848d1[_0xf69797(0x13f)]();});}[a539_0x507983(0x115)](_0x5b637f,_0x301f0){const _0x27d445=a539_0x507983;return tslib_1[_0x27d445(0x140)](this,void 0x0,void 0x0,function*(){const _0x50525d=_0x27d445,_0xb6fb6d=yield this[_0x50525d(0x109)]['createQueryBuilder'](VendorOrders_1[_0x50525d(0xfe)],_0x50525d(0x128));return _0xb6fb6d['select']([_0x50525d(0xf8)]),_0xb6fb6d[_0x50525d(0x121)]('vendorOrder.orderId\x20=\x20:id',{'id':_0x5b637f}),_0xb6fb6d[_0x50525d(0xf2)](_0x50525d(0xe7),{'vendorId':_0x301f0}),_0xb6fb6d[_0x50525d(0xf5)]();});}['getEachProductRevenue'](_0x6807aa,_0x132f25){const _0x37438d=a539_0x507983;return tslib_1[_0x37438d(0x140)](this,void 0x0,void 0x0,function*(){const _0x5c24f0=_0x37438d,_0x4cbf15=yield this[_0x5c24f0(0x109)][_0x5c24f0(0x10e)](VendorOrders_1['VendorOrders'],'vendorOrder');return _0x4cbf15[_0x5c24f0(0x126)]([_0x5c24f0(0x12c),_0x5c24f0(0x12a),_0x5c24f0(0xf6),'orderProduct.discountedAmount\x20as\x20discountedAmount']),_0x4cbf15[_0x5c24f0(0x105)]('vendorOrder.orderProduct',_0x5c24f0(0x133)),_0x4cbf15[_0x5c24f0(0x105)]('vendorOrder.order','order'),_0x4cbf15['where']('vendorOrder.vendorId\x20=\x20:id',{'id':_0x132f25}),_0x4cbf15['andWhere'](_0x5c24f0(0x149),{'productId':_0x6807aa}),_0x4cbf15[_0x5c24f0(0xf2)](_0x5c24f0(0x113),{'value1':0x1}),_0x4cbf15[_0x5c24f0(0x13f)]();});}[a539_0x507983(0x12b)](_0x3526a5){const _0x3daea4=a539_0x507983;return tslib_1[_0x3daea4(0x140)](this,void 0x0,void 0x0,function*(){const _0x2ad2d3=_0x3daea4,_0x5cba7f=yield this['manager'][_0x2ad2d3(0x10e)](VendorOrders_1[_0x2ad2d3(0xfe)],_0x2ad2d3(0x128));return _0x5cba7f[_0x2ad2d3(0x126)]([_0x2ad2d3(0x12c),_0x2ad2d3(0x12a),_0x2ad2d3(0xf6),_0x2ad2d3(0x12f)]),_0x5cba7f[_0x2ad2d3(0x105)]('vendorOrder.orderProduct',_0x2ad2d3(0x133)),_0x5cba7f[_0x2ad2d3(0x105)](_0x2ad2d3(0x106),_0x2ad2d3(0xf1)),_0x5cba7f[_0x2ad2d3(0x121)](_0x2ad2d3(0x11c),{'id':_0x3526a5}),_0x5cba7f['andWhere']('order.paymentStatus\x20=\x20:value1',{'value1':0x1}),_0x5cba7f['getRawMany']();});}[a539_0x507983(0xeb)](_0x1c9b98,_0x5366af,_0x4490e4){const _0x119331=a539_0x507983;return tslib_1[_0x119331(0x140)](this,void 0x0,void 0x0,function*(){const _0x200f12=_0x119331,_0x488b11=yield this[_0x200f12(0x109)][_0x200f12(0x10e)](VendorOrders_1[_0x200f12(0xfe)],_0x200f12(0x128));_0x488b11[_0x200f12(0x126)]([_0x200f12(0xff)]),_0x488b11[_0x200f12(0x105)](_0x200f12(0x106),_0x200f12(0xf1)),_0x488b11[_0x200f12(0x121)](_0x200f12(0x11c),{'id':_0x1c9b98}),_0x488b11[_0x200f12(0xf2)](_0x200f12(0x10f),{'paymentProcess':0x1}),_0x488b11[_0x200f12(0xf2)](_0x200f12(0x13b),{'value1':_0x4490e4});if(_0x5366af===0x1&&_0x5366af)_0x488b11[_0x200f12(0xf2)]('WEEKOFYEAR(vendorOrder.modified_date)\x20=\x20WEEKOFYEAR(NOW())');else{if(_0x5366af===0x2&&_0x5366af)_0x488b11[_0x200f12(0xf2)](_0x200f12(0x141));else _0x5366af===0x3&&_0x5366af&&_0x488b11[_0x200f12(0xf2)](_0x200f12(0x145));}return _0x488b11[_0x200f12(0xf5)]();});}[a539_0x507983(0x144)](_0x5d1b39,_0x404571){const _0x322e2f=a539_0x507983;return tslib_1[_0x322e2f(0x140)](this,void 0x0,void 0x0,function*(){const _0x5885e0=_0x322e2f,_0x93151a=yield this[_0x5885e0(0x109)]['createQueryBuilder'](VendorOrders_1['VendorOrders'],'vendorOrder');_0x93151a[_0x5885e0(0x126)]([_0x5885e0(0xff)]),_0x93151a['leftJoin'](_0x5885e0(0x106),'order'),_0x93151a[_0x5885e0(0x121)](_0x5885e0(0x11c),{'id':_0x5d1b39}),_0x93151a['andWhere'](_0x5885e0(0x10f),{'paymentProcess':0x1});if(_0x404571===0x1&&_0x404571)_0x93151a[_0x5885e0(0xf2)](_0x5885e0(0x125));else{if(_0x404571===0x2&&_0x404571)_0x93151a[_0x5885e0(0xf2)](_0x5885e0(0x141));else _0x404571===0x3&&_0x404571&&_0x93151a[_0x5885e0(0xf2)]('YEAR(vendorOrder.modified_date)\x20=\x20YEAR(NOW())');}return _0x93151a[_0x5885e0(0xf5)]();});}[a539_0x507983(0x13d)](_0x21f3d9,_0x12ddfe){const _0x223c51=a539_0x507983;return tslib_1[_0x223c51(0x140)](this,void 0x0,void 0x0,function*(){const _0x17c2f4=_0x223c51,_0x2a0a50=yield this[_0x17c2f4(0x109)][_0x17c2f4(0x10e)](VendorOrders_1[_0x17c2f4(0xfe)],_0x17c2f4(0x128));return _0x2a0a50['select'](['vendorOrder.vendorOrderId\x20as\x20vendorOrderId',_0x17c2f4(0x104),_0x17c2f4(0x139),_0x17c2f4(0x13a),'vendorOrder.total\x20as\x20total','vendorOrder.commission\x20as\x20commission',_0x17c2f4(0x142),_0x17c2f4(0x143),_0x17c2f4(0x116),_0x17c2f4(0xe0),_0x17c2f4(0x147),'orderProduct.discountAmount\x20as\x20discountAmount',_0x17c2f4(0x12f),'order.shippingCity\x20as\x20shippingCity',_0x17c2f4(0xe5),_0x17c2f4(0xea),_0x17c2f4(0x117),_0x17c2f4(0xed),_0x17c2f4(0x118)]),_0x2a0a50[_0x17c2f4(0x105)](_0x17c2f4(0x106),_0x17c2f4(0xf1)),_0x2a0a50[_0x17c2f4(0x105)]('vendorOrder.orderProduct',_0x17c2f4(0x133)),_0x2a0a50['leftJoin']('vendorOrder.orderStatus',_0x17c2f4(0x122)),_0x2a0a50[_0x17c2f4(0x121)](_0x17c2f4(0x123),{'id':_0x21f3d9}),_0x2a0a50[_0x17c2f4(0xf2)](_0x17c2f4(0x134),{'value1':0x1}),_0x12ddfe&&_0x2a0a50[_0x17c2f4(0xf2)](_0x17c2f4(0x138)),_0x2a0a50['orderBy'](_0x17c2f4(0x124),_0x17c2f4(0x112)),_0x2a0a50[_0x17c2f4(0xf5)]();});}[a539_0x507983(0xe9)](_0x2160aa,_0xd99e15){const _0x183805=a539_0x507983;return tslib_1[_0x183805(0x140)](this,void 0x0,void 0x0,function*(){const _0xa6b7b0=_0x183805,_0x51d531=yield this[_0xa6b7b0(0x109)][_0xa6b7b0(0x10e)](VendorOrders_1[_0xa6b7b0(0xfe)],_0xa6b7b0(0xef));_0x51d531['select']([_0xa6b7b0(0x148)]),_0x51d531['leftJoin'](_0xa6b7b0(0x11d),_0xa6b7b0(0xf1)),_0x51d531['leftJoin'](_0xa6b7b0(0x10c),_0xa6b7b0(0x133)),_0x51d531['where'](_0xa6b7b0(0x12e),{'id':_0x2160aa}),_0x51d531[_0xa6b7b0(0xf2)](_0xa6b7b0(0x10a),{'paymentProcess':0x1}),_0x51d531['andWhere'](_0xa6b7b0(0xfd),{'paymentStatus':0x1}),_0x51d531[_0xa6b7b0(0xf2)](_0xa6b7b0(0xf7),{'paymentFlag':0x1});if(_0xd99e15===0x2&&_0xd99e15)_0x51d531[_0xa6b7b0(0xf2)](_0xa6b7b0(0x131));else{if(_0xd99e15===0x3&&_0xd99e15)_0x51d531['andWhere'](_0xa6b7b0(0xe6));else{if(_0xd99e15===0x4&&_0xd99e15)_0x51d531[_0xa6b7b0(0xf2)](_0xa6b7b0(0x11e));else _0xd99e15===0x1&&_0xd99e15&&_0x51d531['andWhere'](_0xa6b7b0(0x12d));}}return _0x51d531[_0xa6b7b0(0x13f)]();});}[a539_0x507983(0x108)](_0x3e9752,_0x30b9aa){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x52121c=a539_0x4061,_0xc713b5=yield this[_0x52121c(0x109)][_0x52121c(0x10e)](VendorOrders_1[_0x52121c(0xfe)],'vendorOrders');_0xc713b5[_0x52121c(0x126)]([_0x52121c(0x11a)]),_0xc713b5['leftJoin']('vendorOrders.order',_0x52121c(0xf1)),_0xc713b5[_0x52121c(0x121)]('vendorOrders.vendorId\x20=\x20:id',{'id':_0x3e9752}),_0xc713b5[_0x52121c(0xf2)]('order.payment_process\x20=\x20:paymentProcess',{'paymentProcess':0x1}),_0xc713b5[_0x52121c(0xf2)]('order.payment_status\x20=\x20:paymentStatus',{'paymentStatus':0x1}),_0xc713b5[_0x52121c(0xf2)](_0x52121c(0xf7),{'paymentFlag':0x1}),_0xc713b5['andWhere'](_0x52121c(0x110),{'status':0x5});if(_0x30b9aa===0x2&&_0x30b9aa)_0xc713b5[_0x52121c(0xf2)]('WEEKOFYEAR(vendorOrders.created_date)\x20=\x20WEEKOFYEAR(NOW())');else{if(_0x30b9aa===0x3&&_0x30b9aa)_0xc713b5[_0x52121c(0xf2)](_0x52121c(0xe6));else{if(_0x30b9aa===0x4&&_0x30b9aa)_0xc713b5[_0x52121c(0xf2)](_0x52121c(0x11e));else _0x30b9aa===0x1&&_0x30b9aa&&_0xc713b5[_0x52121c(0xf2)](_0x52121c(0x12d));}}return _0xc713b5[_0x52121c(0xf9)]();});}};VendorOrdersRepository=tslib_1[a539_0x507983(0x103)]([(0x0,typeorm_1['EntityRepository'])(VendorOrders_1['VendorOrders'])],VendorOrdersRepository),exports[a539_0x507983(0xdf)]=VendorOrdersRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorOrdersRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const VendorOrders_1 = require("../models/VendorOrders");
+let VendorOrdersRepository = class VendorOrdersRepository extends typeorm_1.Repository {
+    searchOrderList(id, orderDate, startDate, endDate, keyword, deliverylist) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrder');
+            query.select(['vendorOrder.vendorOrderId as vendorOrderId', 'vendorOrder.orderId as orderId', 'orderProduct.discountAmount as discountAmount', 'orderProduct.discountedAmount as discountedAmount',
+                'vendorOrder.vendorId as vendorId', 'vendorOrder.subOrderId as subOrderId', 'vendorOrder.total as total',
+                'vendorOrder.commission as commission', 'vendorOrder.orderProductId as orderProductId', 'order.paymentProcess as paymentProcess',
+                'vendorOrder.subOrderStatusId as subOrderStatusId', 'DATE(vendorOrder.createdDate) as date',
+                'order.shippingFirstname as customerFirstName', 'orderStatus.name as orderStatusName', 'order.shippingCity as shippingCity', 'order.shippingCountry as shippingCountry', 'order.currencySymbolLeft as currencySymbolLeft', 'order.currencySymbolRight as currencySymbolRight', 'order.paymentFlag as paymentFlag', 'order.paymentMethod as paymentMethod']);
+            query.leftJoin('vendorOrder.order', 'order');
+            query.leftJoin('vendorOrder.orderStatus', 'orderStatus');
+            query.leftJoin('vendorOrder.orderProduct', 'orderProduct');
+            query.where('vendorOrder.vendorId = :id', { id });
+            query.andWhere('order.paymentProcess = :process', { process: 1 });
+            if (orderDate !== undefined && orderDate !== '') {
+                query.andWhere('DATE(vendorOrder.createdDate) = :value', { value: orderDate });
+            }
+            if (startDate && endDate) {
+                query.andWhere('DATE(vendorOrder.createdDate) >= :value1 AND DATE(vendorOrder.createdDate) <= :value2', { value1: startDate, value2: endDate });
+            }
+            if (deliverylist) {
+                query.andWhere('order.paymentStatus = 1 ');
+            }
+            if (keyword !== undefined && keyword !== '') {
+                query.andWhere('(order.shippingFirstname LIKE ' + "'%" + keyword + "%'" + ' ');
+                query.orWhere('vendorOrder.subOrderId LIKE ' + "'%" + keyword + "%'" + ')');
+            }
+            query.orderBy('vendorOrder.createdDate', 'DESC');
+            return query.getRawMany();
+        });
+    }
+    findVendorTodayOrderCount(vendorId, todaydate) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendororder');
+            query.select(['COUNT(vendororder.vendorOrderId) as orderCount']);
+            query.leftJoin('vendororder.order', 'order');
+            query.where('DATE(vendororder.createdDate) = :todaydate', { todaydate });
+            query.andWhere('vendororder.vendorId = :vendorId', { vendorId });
+            query.andWhere('order.payment_process = :process', { process: 1 });
+            return query.getRawOne();
+        });
+    }
+    // get buyers count , sale count and total revenue
+    getTotalBuyers(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrder');
+            query.select(['COUNT(vendorOrder.orderId) as salesCount', 'COUNT(DISTINCT(order.customer_id)) as buyerCount']);
+            query.leftJoin('vendorOrder.order', 'order');
+            query.leftJoin('vendorOrder.orderProduct', 'orderProduct');
+            query.where('vendorOrder.vendorId = :id', { id });
+            query.andWhere('order.paymentProcess = :process', { process: 1 });
+            query.andWhere('order.paymentStatus = :value1', { value1: 1 });
+            return query.getRawOne();
+        });
+    }
+    // find vendor count
+    findVendorCount(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrder');
+            query.select(['COUNT(DISTINCT(vendorOrder.vendorId)) as vendorCount']);
+            query.where('vendorOrder.orderId = :id', { id });
+            return query.getRawOne();
+        });
+    }
+    // find vendors
+    findVendors(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrder');
+            query.select(['COUNT(DISTINCT(vendorOrder.vendorId)) as vendorCount, vendorOrder.vendorId as vendorId']);
+            query.where('vendorOrder.orderId = :id', { id });
+            query.groupBy('vendorOrder.vendorId');
+            return query.getRawMany();
+        });
+    }
+    // find sun of amount
+    findSumOfAmount(orderId, vendorId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrder');
+            query.select(['SUM(vendorOrder.total) as total']);
+            query.where('vendorOrder.orderId = :id', { id: orderId });
+            query.andWhere('vendorOrder.vendorId = :vendorId', { vendorId });
+            return query.getRawOne();
+        });
+    }
+    // get each product revenue
+    getEachProductRevenue(productId, vendorId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrder');
+            query.select(['vendorOrder.total as total', 'vendorOrder.commission as commission', 'orderProduct.discountAmount as discountAmount', 'orderProduct.discountedAmount as discountedAmount']);
+            query.leftJoin('vendorOrder.orderProduct', 'orderProduct');
+            query.leftJoin('vendorOrder.order', 'order');
+            query.where('vendorOrder.vendorId = :id', { id: vendorId });
+            query.andWhere('orderProduct.productId = :productId', { productId });
+            query.andWhere('order.paymentStatus = :value1', { value1: 1 });
+            return query.getRawMany();
+        });
+    }
+    // get total vendor revenue
+    getTotalVendorRevenue(vendorId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrder');
+            query.select(['vendorOrder.total as total', 'vendorOrder.commission as commission', 'orderProduct.discountAmount as discountAmount', 'orderProduct.discountedAmount as discountedAmount']);
+            query.leftJoin('vendorOrder.orderProduct', 'orderProduct');
+            query.leftJoin('vendorOrder.order', 'order');
+            query.where('vendorOrder.vendorId = :id', { id: vendorId });
+            query.andWhere('order.paymentStatus = :value1', { value1: 1 });
+            return query.getRawMany();
+        });
+    }
+    // findOrderCountBasedStatus
+    findOrderCountBasedStatus(vendorId, duration, statusId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrder');
+            query.select(['COUNT(vendorOrder.vendorOrderId) as orderCount']);
+            query.leftJoin('vendorOrder.order', 'order');
+            query.where('vendorOrder.vendorId = :id', { id: vendorId });
+            query.andWhere('order.paymentProcess = :paymentProcess', { paymentProcess: 1 });
+            query.andWhere('vendorOrder.subOrderStatusId= :value1', { value1: statusId });
+            if (duration === 1 && duration) {
+                query.andWhere('WEEKOFYEAR(vendorOrder.modified_date) = WEEKOFYEAR(NOW())');
+            }
+            else if (duration === 2 && duration) {
+                query.andWhere('MONTH(vendorOrder.modified_date) = MONTH(NOW()) AND YEAR(vendorOrder.modified_date) = YEAR(NOW())');
+            }
+            else if (duration === 3 && duration) {
+                query.andWhere('YEAR(vendorOrder.modified_date) = YEAR(NOW())');
+            }
+            return query.getRawOne();
+        });
+    }
+    // findOrderCountBasedStatus
+    findOrderCountBasedDuration(vendorId, duration) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrder');
+            query.select(['COUNT(vendorOrder.vendorOrderId) as orderCount']);
+            query.leftJoin('vendorOrder.order', 'order');
+            query.where('vendorOrder.vendorId = :id', { id: vendorId });
+            query.andWhere('order.paymentProcess = :paymentProcess', { paymentProcess: 1 });
+            if (duration === 1 && duration) {
+                query.andWhere('WEEKOFYEAR(vendorOrder.modified_date) = WEEKOFYEAR(NOW())');
+            }
+            else if (duration === 2 && duration) {
+                query.andWhere('MONTH(vendorOrder.modified_date) = MONTH(NOW()) AND YEAR(vendorOrder.modified_date) = YEAR(NOW())');
+            }
+            else if (duration === 3 && duration) {
+                query.andWhere('YEAR(vendorOrder.modified_date) = YEAR(NOW())');
+            }
+            return query.getRawOne();
+        });
+    }
+    searchOrderListt(id, deliverylist) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrder');
+            query.select(['vendorOrder.vendorOrderId as vendorOrderId', 'vendorOrder.orderId as orderId', 'vendorOrder.vendorId as vendorId', 'vendorOrder.subOrderId as subOrderId', 'vendorOrder.total as total', 'vendorOrder.commission as commission', 'vendorOrder.orderProductId as orderProductId', 'vendorOrder.subOrderStatusId as subOrderStatusId', 'DATE(vendorOrder.createdDate) as date',
+                'order.shippingFirstname as customerFirstName', 'orderStatus.name as orderStatusName', 'orderProduct.discountAmount as discountAmount', 'orderProduct.discountedAmount as discountedAmount', 'order.shippingCity as shippingCity', 'order.shippingCountry as shippingCountry', 'order.currencySymbolLeft as currencySymbolLeft', 'order.currencySymbolRight as currencySymbolRight', 'order.paymentFlag as paymentFlag', 'order.paymentMethod as paymentMethod']);
+            query.leftJoin('vendorOrder.order', 'order');
+            query.leftJoin('vendorOrder.orderProduct', 'orderProduct');
+            query.leftJoin('vendorOrder.orderStatus', 'orderStatus');
+            query.where('vendorOrder.vendorOrderId = :id', { id });
+            query.andWhere('order.paymentProcess = :value1', { value1: 1 });
+            if (deliverylist) {
+                query.andWhere('order.paymentStatus = 1 ');
+            }
+            query.orderBy('vendorOrder.createdDate', 'DESC');
+            return query.getRawOne();
+        });
+    }
+    productSoldBasedOnDuration(id, duration) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrders');
+            query.select(['SUM(orderProduct.quantity) as soldCount']);
+            query.leftJoin('vendorOrders.order', 'order');
+            query.leftJoin('vendorOrders.orderProduct', 'orderProduct');
+            query.where('vendorOrders.vendorId = :id', { id });
+            query.andWhere('order.payment_process = :paymentProcess', { paymentProcess: 1 });
+            query.andWhere('order.payment_status = :paymentStatus', { paymentStatus: 1 });
+            query.andWhere('order.payment_flag = :paymentFlag', { paymentFlag: 1 });
+            if (duration === 2 && duration) {
+                query.andWhere('WEEKOFYEAR(vendorOrders.created_date) = WEEKOFYEAR(NOW())');
+            }
+            else if (duration === 3 && duration) {
+                query.andWhere('MONTH(vendorOrders.created_date) = MONTH(NOW()) AND YEAR(vendorOrders.created_date) = YEAR(NOW())');
+            }
+            else if (duration === 4 && duration) {
+                query.andWhere('YEAR(vendorOrders.created_date) = YEAR(NOW())');
+            }
+            else if (duration === 1 && duration) {
+                query.andWhere('DATE(vendorOrders.created_date) = CURDATE()');
+            }
+            return query.getRawMany();
+        });
+    }
+    deliveredOrderBasedOnDuration(id, duration) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorOrders_1.VendorOrders, 'vendorOrders');
+            query.select(['vendorOrders.vendorOrderId as vendorOrderId']);
+            query.leftJoin('vendorOrders.order', 'order');
+            query.where('vendorOrders.vendorId = :id', { id });
+            query.andWhere('order.payment_process = :paymentProcess', { paymentProcess: 1 });
+            query.andWhere('order.payment_status = :paymentStatus', { paymentStatus: 1 });
+            query.andWhere('order.payment_flag = :paymentFlag', { paymentFlag: 1 });
+            query.andWhere('vendorOrders.sub_order_status_id = :status', { status: 5 });
+            if (duration === 2 && duration) {
+                query.andWhere('WEEKOFYEAR(vendorOrders.created_date) = WEEKOFYEAR(NOW())');
+            }
+            else if (duration === 3 && duration) {
+                query.andWhere('MONTH(vendorOrders.created_date) = MONTH(NOW()) AND YEAR(vendorOrders.created_date) = YEAR(NOW())');
+            }
+            else if (duration === 4 && duration) {
+                query.andWhere('YEAR(vendorOrders.created_date) = YEAR(NOW())');
+            }
+            else if (duration === 1 && duration) {
+                query.andWhere('DATE(vendorOrders.created_date) = CURDATE()');
+            }
+            return query.getCount();
+        });
+    }
+};
+VendorOrdersRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(VendorOrders_1.VendorOrders)
+], VendorOrdersRepository);
+exports.VendorOrdersRepository = VendorOrdersRepository;
+//# sourceMappingURL=VendorOrdersRepository.js.map

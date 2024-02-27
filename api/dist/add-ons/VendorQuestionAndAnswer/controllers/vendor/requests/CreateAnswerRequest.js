@@ -1,1 +1,29 @@
-'use strict';function a229_0x35bc(_0x380161,_0x4b3515){const _0x3beed8=a229_0x3bee();return a229_0x35bc=function(_0x35bc67,_0x19661e){_0x35bc67=_0x35bc67-0x147;let _0x46823a=_0x3beed8[_0x35bc67];return _0x46823a;},a229_0x35bc(_0x380161,_0x4b3515);}const a229_0xe928d2=a229_0x35bc;(function(_0x28e9d5,_0x5e5e7c){const _0x428e74=a229_0x35bc,_0x8fae62=_0x28e9d5();while(!![]){try{const _0x1c2bce=parseInt(_0x428e74(0x147))/0x1*(-parseInt(_0x428e74(0x152))/0x2)+-parseInt(_0x428e74(0x149))/0x3+-parseInt(_0x428e74(0x14d))/0x4+-parseInt(_0x428e74(0x14b))/0x5+-parseInt(_0x428e74(0x14a))/0x6+parseInt(_0x428e74(0x14c))/0x7*(-parseInt(_0x428e74(0x154))/0x8)+parseInt(_0x428e74(0x14f))/0x9;if(_0x1c2bce===_0x5e5e7c)break;else _0x8fae62['push'](_0x8fae62['shift']());}catch(_0x19a929){_0x8fae62['push'](_0x8fae62['shift']());}}}(a229_0x3bee,0x1d6ba));function a229_0x3bee(){const _0x3b1040=['88bcZxWQ','prototype','CreateAnswer','class-validator','design:type','IsNotEmpty','__metadata','tslib','reflect-metadata','58747zjIXlH','__decorate','598608tmsuFr','448908ZTVbfU','153875LOOgtR','133119PwsfUJ','62336YOwUhz','QuestionId\x20is\x20required','6382377IVeCAf','defineProperty','__esModule','2DbukaO','questionId'];a229_0x3bee=function(){return _0x3b1040;};return a229_0x3bee();}Object[a229_0xe928d2(0x150)](exports,a229_0xe928d2(0x151),{'value':!![]}),exports[a229_0xe928d2(0x156)]=void 0x0;const tslib_1=require(a229_0xe928d2(0x15b));require(a229_0xe928d2(0x15c));const class_validator_1=require(a229_0xe928d2(0x157));class CreateAnswer{}tslib_1[a229_0xe928d2(0x148)]([(0x0,class_validator_1[a229_0xe928d2(0x159)])({'message':'Answer\x20is\x20required'}),tslib_1[a229_0xe928d2(0x15a)](a229_0xe928d2(0x158),String)],CreateAnswer[a229_0xe928d2(0x155)],'answer',void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a229_0xe928d2(0x159)])({'message':a229_0xe928d2(0x14e)}),tslib_1[a229_0xe928d2(0x15a)]('design:type',Number)],CreateAnswer['prototype'],a229_0xe928d2(0x153),void 0x0),exports[a229_0xe928d2(0x156)]=CreateAnswer;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateAnswer = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateAnswer {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Answer is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateAnswer.prototype, "answer", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'QuestionId is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateAnswer.prototype, "questionId", void 0);
+exports.CreateAnswer = CreateAnswer;
+//# sourceMappingURL=CreateAnswerRequest.js.map

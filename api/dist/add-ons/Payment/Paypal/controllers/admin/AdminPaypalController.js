@@ -1,1 +1,68 @@
-'use strict';const a38_0x5476aa=a38_0x4147;(function(_0x484ed7,_0x38a5ac){const _0x479054=a38_0x4147,_0x306347=_0x484ed7();while(!![]){try{const _0x2d4f67=parseInt(_0x479054(0x1b2))/0x1+parseInt(_0x479054(0x1b6))/0x2*(parseInt(_0x479054(0x199))/0x3)+-parseInt(_0x479054(0x1b4))/0x4+parseInt(_0x479054(0x198))/0x5*(parseInt(_0x479054(0x1b1))/0x6)+parseInt(_0x479054(0x1ba))/0x7*(-parseInt(_0x479054(0x1a1))/0x8)+-parseInt(_0x479054(0x1ad))/0x9+-parseInt(_0x479054(0x19a))/0xa*(-parseInt(_0x479054(0x1c1))/0xb);if(_0x2d4f67===_0x38a5ac)break;else _0x306347['push'](_0x306347['shift']());}catch(_0x182c44){_0x306347['push'](_0x306347['shift']());}}}(a38_0x351e,0xd7fd4));Object[a38_0x5476aa(0x1a8)](exports,'__esModule',{'value':!![]}),exports[a38_0x5476aa(0x19e)]=void 0x0;const tslib_1=require(a38_0x5476aa(0x1b5));require('reflect-metadata');const routing_controllers_1=require(a38_0x5476aa(0x1a5)),typeorm_1=require(a38_0x5476aa(0x19b)),Plugin_1=require(a38_0x5476aa(0x1be));let AdminPayPalController=class AdminPayPalController{constructor(){}[a38_0x5476aa(0x1b7)](_0x4b4c9f,_0x465b11,_0x544651){const _0x583522=a38_0x5476aa;return tslib_1[_0x583522(0x1a6)](this,void 0x0,void 0x0,function*(){const _0x357f57=_0x583522,_0x5cf9cd=(0x0,typeorm_1[_0x357f57(0x1ac)])()[_0x357f57(0x1c0)](Plugin_1[_0x357f57(0x1ae)]),_0x300501=yield _0x5cf9cd[_0x357f57(0x1a9)]({'where':{'pluginName':_0x357f57(0x1bf)}});if(!_0x300501)return _0x544651[_0x357f57(0x1b0)](0x190)['send']({'status':0x1,'message':_0x357f57(0x1a7)});const _0x377969=_0x300501[_0x357f57(0x1aa)]?JSON['parse'](_0x300501[_0x357f57(0x1aa)]):{};_0x377969[_0x357f57(0x197)]=_0x4b4c9f[_0x357f57(0x197)],_0x377969[_0x357f57(0x1a2)]=_0x4b4c9f[_0x357f57(0x1a2)],_0x377969[_0x357f57(0x19c)]=_0x4b4c9f[_0x357f57(0x19c)],_0x300501[_0x357f57(0x1aa)]=JSON[_0x357f57(0x1af)](_0x377969);const _0x171e74=yield _0x5cf9cd[_0x357f57(0x1b8)](_0x300501);if(_0x171e74)return _0x544651[_0x357f57(0x1b0)](0xc8)['send']({'status':0x1,'message':_0x357f57(0x1ab)});const _0x2f7611={'status':0x1,'message':_0x357f57(0x1bb)};return _0x544651[_0x357f57(0x1b0)](0x190)[_0x357f57(0x1c2)](_0x2f7611);});}};function a38_0x4147(_0x53d11d,_0x57ef54){const _0x351e9e=a38_0x351e();return a38_0x4147=function(_0x4147c6,_0x87b05f){_0x4147c6=_0x4147c6-0x195;let _0x2b3aae=_0x351e9e[_0x4147c6];return _0x2b3aae;},a38_0x4147(_0x53d11d,_0x57ef54);}tslib_1[a38_0x5476aa(0x1bc)]([(0x0,routing_controllers_1['Post'])(a38_0x5476aa(0x195)),tslib_1[a38_0x5476aa(0x1a4)](0x0,(0x0,routing_controllers_1[a38_0x5476aa(0x1a3)])({'validate':!![]})),tslib_1[a38_0x5476aa(0x1a4)](0x1,(0x0,routing_controllers_1[a38_0x5476aa(0x1b3)])()),tslib_1[a38_0x5476aa(0x1a4)](0x2,(0x0,routing_controllers_1[a38_0x5476aa(0x196)])()),tslib_1[a38_0x5476aa(0x1b9)]('design:type',Function),tslib_1[a38_0x5476aa(0x1b9)]('design:paramtypes',[Object,Object,Object]),tslib_1[a38_0x5476aa(0x1b9)](a38_0x5476aa(0x19f),Promise)],AdminPayPalController[a38_0x5476aa(0x1bd)],a38_0x5476aa(0x1b7),null),AdminPayPalController=tslib_1[a38_0x5476aa(0x1bc)]([(0x0,routing_controllers_1[a38_0x5476aa(0x19d)])(a38_0x5476aa(0x1a0)),tslib_1[a38_0x5476aa(0x1b9)]('design:paramtypes',[])],AdminPayPalController),exports['AdminPayPalController']=AdminPayPalController;function a38_0x351e(){const _0x962488=['../../../../../src/api/core/models/Plugin','paypal','getRepository','539eYfqyh','send','/update-setting','Res','clientId','98485VEirLF','669peBvNI','17690YbpCli','typeorm','isTest','Controller','AdminPayPalController','design:returntype','/admin-paypal-payment','38008ooaZjT','clientSecret','Body','__param','routing-controllers','__awaiter','You\x20not\x20install\x20this\x20plugin.\x20or\x20problem\x20in\x20installation','defineProperty','findOne','pluginAdditionalInfo','Paypal\x20settings\x20updated\x20successfully','getManager','9861849YDXugz','Plugins','stringify','status','192bGRzxk','1665058GapLhD','Req','1379372tkgTCH','tslib','14788GPERNg','updateSetting','save','__metadata','2513kwLDSo','Unable\x20to\x20update\x20the\x20paypal\x20settings','__decorate','prototype'];a38_0x351e=function(){return _0x962488;};return a38_0x351e();}
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AdminPayPalController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../../../../../src/api/core/models/Plugin");
+let AdminPayPalController = class AdminPayPalController {
+    constructor() {
+        // ---
+    }
+    updateSetting(postParams, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'paypal',
+                },
+            });
+            if (!pluginDetail) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'You not install this plugin. or problem in installation',
+                });
+            }
+            const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            paypalAdditionalInfo.clientId = postParams.clientId;
+            paypalAdditionalInfo.clientSecret = postParams.clientSecret;
+            paypalAdditionalInfo.isTest = postParams.isTest;
+            pluginDetail.pluginAdditionalInfo = JSON.stringify(paypalAdditionalInfo);
+            const saveResponse = yield pluginRepository.save(pluginDetail);
+            if (saveResponse) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Paypal settings updated successfully',
+                });
+            }
+            const errorResponse = {
+                status: 1,
+                message: 'Unable to update the paypal settings',
+            };
+            return response.status(400).send(errorResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/update-setting'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminPayPalController.prototype, "updateSetting", null);
+AdminPayPalController = tslib_1.__decorate([
+    (0, routing_controllers_1.Controller)('/admin-paypal-payment'),
+    tslib_1.__metadata("design:paramtypes", [])
+], AdminPayPalController);
+exports.AdminPayPalController = AdminPayPalController;
+//# sourceMappingURL=AdminPaypalController.js.map

@@ -1,1 +1,86 @@
-'use strict';function a909_0x5d9f(){const _0xd97a3f=['page_group','__awaiter','datetime','group_id','__esModule','Table','tableForeignKey1','createForeignKey','CreatePageGroupTable1606228347336','indexOf','columnNames','TableForeignKey','typeorm','dropTable','created_by','1357530dHBxAS','tslib','1503590LpjJTi','group_name','2445840UDSmat','1446741KJXrBA','196990jLkeYV','page','modified_date','increment','page_group_id','15tInjOg','is_active','2742747tBwZOy','down','CASCADE','getTable','4yJWFpr','int','varchar','CURRENT_TIMESTAMP','566281GsIHdb','255','foreignKeys','modified_by'];a909_0x5d9f=function(){return _0xd97a3f;};return a909_0x5d9f();}function a909_0x323c(_0x21524e,_0x28a3dd){const _0x5d9fe1=a909_0x5d9f();return a909_0x323c=function(_0x323cf7,_0xd5208b){_0x323cf7=_0x323cf7-0x162;let _0x338a9c=_0x5d9fe1[_0x323cf7];return _0x338a9c;},a909_0x323c(_0x21524e,_0x28a3dd);}const a909_0xc1d0d2=a909_0x323c;(function(_0xf918f8,_0x3b995c){const _0x348c68=a909_0x323c,_0x52ac34=_0xf918f8();while(!![]){try{const _0x4eaa85=parseInt(_0x348c68(0x162))/0x1+-parseInt(_0x348c68(0x17b))/0x2*(-parseInt(_0x348c68(0x180))/0x3)+-parseInt(_0x348c68(0x186))/0x4*(parseInt(_0x348c68(0x177))/0x5)+parseInt(_0x348c68(0x175))/0x6+-parseInt(_0x348c68(0x182))/0x7+-parseInt(_0x348c68(0x179))/0x8+parseInt(_0x348c68(0x17a))/0x9;if(_0x4eaa85===_0x3b995c)break;else _0x52ac34['push'](_0x52ac34['shift']());}catch(_0x19d61c){_0x52ac34['push'](_0x52ac34['shift']());}}}(a909_0x5d9f,0x6d403));Object['defineProperty'](exports,a909_0xc1d0d2(0x16a),{'value':!![]}),exports['CreatePageGroupTable1606228347336']=void 0x0;const tslib_1=require(a909_0xc1d0d2(0x176)),typeorm_1=require(a909_0xc1d0d2(0x172));class CreatePageGroupTable1606228347336{constructor(){const _0x256252=a909_0xc1d0d2;this[_0x256252(0x16c)]=new typeorm_1[(_0x256252(0x171))]({'name':'fk_tbl_page_related_tbl_page_group_foreignKey','columnNames':['page_group_id'],'referencedColumnNames':[_0x256252(0x169)],'referencedTableName':_0x256252(0x166),'onDelete':_0x256252(0x184)});}['up'](_0x3b67ab){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5db43d=a909_0x323c,_0x4c8f30=new typeorm_1[(_0x5db43d(0x16b))]({'name':'page_group','columns':[{'name':_0x5db43d(0x169),'type':_0x5db43d(0x187),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x5db43d(0x17e)},{'name':_0x5db43d(0x178),'type':_0x5db43d(0x188),'length':_0x5db43d(0x163),'isPrimary':![],'isNullable':!![]},{'name':_0x5db43d(0x181),'type':_0x5db43d(0x187),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0x5db43d(0x168),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':_0x5db43d(0x17d),'type':'datetime','isPrimary':![],'isNullable':!![],'default':_0x5db43d(0x189)},{'name':_0x5db43d(0x174),'type':_0x5db43d(0x187),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5db43d(0x165),'type':_0x5db43d(0x187),'length':'11','isPrimary':![],'isNullable':!![]}]}),_0x16e488=yield _0x3b67ab['hasTable']('page_group');!_0x16e488&&(yield _0x3b67ab['createTable'](_0x4c8f30));const _0x4ab586=yield _0x3b67ab[_0x5db43d(0x185)](_0x5db43d(0x17c)),_0x394386=_0x4ab586[_0x5db43d(0x164)]['find'](_0x7f9cbc=>_0x7f9cbc[_0x5db43d(0x170)][_0x5db43d(0x16f)](_0x5db43d(0x17f))!==-0x1);!_0x394386&&(yield _0x3b67ab[_0x5db43d(0x16d)](_0x4ab586,this[_0x5db43d(0x16c)]));});}[a909_0xc1d0d2(0x183)](_0x209a29){const _0x1ab859=a909_0xc1d0d2;return tslib_1[_0x1ab859(0x167)](this,void 0x0,void 0x0,function*(){const _0x3c148b=_0x1ab859;yield _0x209a29[_0x3c148b(0x173)](_0x3c148b(0x166),!![]);});}}exports[a909_0xc1d0d2(0x16e)]=CreatePageGroupTable1606228347336;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreatePageGroupTable1606228347336 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreatePageGroupTable1606228347336 {
+    constructor() {
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_page_related_tbl_page_group_foreignKey',
+            columnNames: ['page_group_id'],
+            referencedColumnNames: ['group_id'],
+            referencedTableName: 'page_group',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'page_group',
+                columns: [
+                    {
+                        name: 'group_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'group_name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('page_group');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const tables = yield queryRunner.getTable('page');
+            const ifDataExsist1 = tables.foreignKeys.find(fk => fk.columnNames.indexOf('page_group_id') !== -1);
+            if (!ifDataExsist1) {
+                yield queryRunner.createForeignKey(tables, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('page_group', true);
+        });
+    }
+}
+exports.CreatePageGroupTable1606228347336 = CreatePageGroupTable1606228347336;
+//# sourceMappingURL=1606228347336-CreatePageGroupTable.js.map

@@ -1,1 +1,282 @@
-'use strict';const a192_0x2af132=a192_0x18bc;(function(_0x1dcccf,_0x18c24a){const _0x34ef5a=a192_0x18bc,_0x1c8b37=_0x1dcccf();while(!![]){try{const _0x56cf2d=-parseInt(_0x34ef5a(0x9e))/0x1+-parseInt(_0x34ef5a(0x90))/0x2*(parseInt(_0x34ef5a(0x82))/0x3)+-parseInt(_0x34ef5a(0xaa))/0x4+parseInt(_0x34ef5a(0xb1))/0x5*(parseInt(_0x34ef5a(0x92))/0x6)+-parseInt(_0x34ef5a(0x9c))/0x7+parseInt(_0x34ef5a(0xcf))/0x8*(-parseInt(_0x34ef5a(0xd3))/0x9)+parseInt(_0x34ef5a(0xc2))/0xa;if(_0x56cf2d===_0x18c24a)break;else _0x1c8b37['push'](_0x1c8b37['shift']());}catch(_0x563489){_0x1c8b37['push'](_0x1c8b37['shift']());}}}(a192_0x3929,0x78d74));Object[a192_0x2af132(0x83)](exports,a192_0x2af132(0x87),{'value':!![]}),exports[a192_0x2af132(0xbf)]=void 0x0;const tslib_1=require(a192_0x2af132(0xaf));require('reflect-metadata');const routing_controllers_1=require('routing-controllers'),RatingService_1=require(a192_0x2af132(0xce)),ProductService_1=require('../../../../src/api/core/services/ProductService'),CustomerService_1=require('../../../../src/api/core/services/CustomerService'),UpdateRatingStatusRequest_1=require('./requests/UpdateRatingStatusRequest'),AddonValidationMiddleware_1=require('../../../../src/api/core/middlewares/AddonValidationMiddleware');function a192_0x18bc(_0x21e985,_0x5d1201){const _0x3929bd=a192_0x3929();return a192_0x18bc=function(_0x18bc4e,_0x2dd8b3){_0x18bc4e=_0x18bc4e-0x7d;let _0x343edc=_0x3929bd[_0x18bc4e];return _0x343edc;},a192_0x18bc(_0x21e985,_0x5d1201);}function a192_0x3929(){const _0x350935=['offset','Authorized','startDate','AdminRatingController','JsonController','create','23244700AgAXIy','status','Successfully\x20got\x20the\x20complete\x20product\x20rating\x20and\x20review.','design:paramtypes','ProductRating.firstName\x20as\x20firstName','and','isActive','Successfully\x20Updated\x20the\x20Rating\x20Status.\x20','Param','ProductRating.ratingId\x20as\x20ratingId','(SELECT\x20pi.image\x20as\x20image\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20image','firstName','../../services/RatingService','8uJNAZW','ProductRating.rating','(SELECT\x20p.name\x20as\x20name\x20from\x20product\x20p\x20where\x20p.product_id\x20=\x20product.productId\x20LIMIT\x201)\x20as\x20productName','ProductRating.isActive\x20as\x20isActive','78417TeVMVm','product.productId\x20as\x20productId','QueryParam','Unable\x20to\x20update\x20the\x20product\x20Rating.','__metadata','getProductRating','list-rating-review','customerId','raw','ProductRating.orderProductId\x20as\x20orderProductId','productRatingStatus','ProductRating.product','list','listByQueryBuilder','4164fnScOA','defineProperty','createdDate','design:type','productService','__esModule','ProductRating.email\x20as\x20email','lastName','admin','Res','prototype','map','orderProductId','product','1124kgdQul','__param','558ZOAQzp','where','limit','productRatingService','findOne','ProductService','productName','ratingId','ProductRating.createdDate','__decorate','5953353eJkuNp','ProductRating.review\x20as\x20review','888183NbYIkv','review','starCount','productRatinglist','endDate','Req','all','product.name','count','ProductRating.lastName\x20as\x20lastName','productId','push','36244QrFyyA','ProductRating.createdDate\x20as\x20createdDate','ProductRatingService','Successfully\x20got\x20count\x20','design:returntype','tslib','ProductRating.customer','38010CVkevt','__awaiter','CustomerService','Body','ProductRating.rating\x20as\x20rating','edit-rating-review','avatarPath','send','consolidateRating','UseBefore','customer'];a192_0x3929=function(){return _0x350935;};return a192_0x3929();}let AdminRatingController=class AdminRatingController{constructor(_0x51158c,_0x1dbd0f,_0x753cfe){const _0xd59fe8=a192_0x2af132;this[_0xd59fe8(0x86)]=_0x51158c,this[_0xd59fe8(0x95)]=_0x1dbd0f,this['customerService']=_0x753cfe;}[a192_0x2af132(0xd8)](_0xf654a2,_0x10f179,_0x52a61d,_0x3b3fd1,_0x4ab77e){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x306e46=a192_0x18bc,_0x77131c=[_0x306e46(0x99),_0x306e46(0x9f),'rating',_0x306e46(0x84),_0x306e46(0xcd),_0x306e46(0x89),_0x306e46(0xa8),_0x306e46(0xda),_0x306e46(0x8e),_0x306e46(0xc8)],_0x141a0e=[],_0x336b0b=[{'name':'productId','op':_0x306e46(0x93),'value':_0xf654a2}],_0x542c8c=yield this[_0x306e46(0x95)][_0x306e46(0x80)](_0x10f179,_0x52a61d,_0x77131c,_0x141a0e,_0x336b0b,_0x3b3fd1),_0x5833b0=_0x542c8c[_0x306e46(0x8d)](_0x63020=>tslib_1[_0x306e46(0xb2)](this,void 0x0,void 0x0,function*(){const _0x838acc=_0x306e46,_0x2421ed=_0x63020,_0x34fd9f=yield this['customerService'][_0x838acc(0x96)]({'select':['avatar',_0x838acc(0xb7)],'where':{'id':_0x63020[_0x838acc(0xda)]}}),_0x19f433=Object['assign']({},_0x2421ed,_0x34fd9f);return _0x19f433;})),_0x14a9ba=yield Promise[_0x306e46(0xa4)](_0x5833b0);if(_0x14a9ba){const _0x46d3d7={'status':0x1,'message':'successfully\x20got\x20the\x20product\x20Rating.\x20','data':_0x14a9ba};return _0x4ab77e[_0x306e46(0xc3)](0xc8)[_0x306e46(0xb8)](_0x46d3d7);}else{const _0x581861={'status':0x1,'message':'unable\x20to\x20get\x20product\x20Rating.'};return _0x4ab77e[_0x306e46(0xc3)](0x190)[_0x306e46(0xb8)](_0x581861);}});}[a192_0x2af132(0x7e)](_0x56f9b9,_0x4783a2,_0x5d4607,_0x436518){const _0x1dbe11=a192_0x2af132;return tslib_1[_0x1dbe11(0xb2)](this,void 0x0,void 0x0,function*(){const _0x5acc1b=_0x1dbe11,_0x1fa263=yield this[_0x5acc1b(0x95)][_0x5acc1b(0x96)]({'where':{'ratingId':_0x56f9b9}});_0x1fa263['isActive']=_0x4783a2[_0x5acc1b(0xc3)];const _0x5ba573=yield this[_0x5acc1b(0x95)][_0x5acc1b(0xc1)](_0x1fa263),_0x1b719e=yield this[_0x5acc1b(0x95)][_0x5acc1b(0xb9)](_0x1fa263[_0x5acc1b(0xa8)]),_0x491b8d=yield this[_0x5acc1b(0x86)][_0x5acc1b(0x96)]({'where':{'productId':_0x1fa263[_0x5acc1b(0xa8)]}});_0x491b8d['rating']=_0x1b719e!==undefined?_0x1b719e['RatingCount']:0x0,yield this[_0x5acc1b(0x86)][_0x5acc1b(0xc1)](_0x491b8d);if(_0x5ba573){const _0x15bddc={'status':0x1,'message':_0x5acc1b(0xc9),'data':_0x5ba573};return _0x5d4607[_0x5acc1b(0xc3)](0xc8)[_0x5acc1b(0xb8)](_0x15bddc);}else{const _0x4e5650={'status':0x1,'message':_0x5acc1b(0xd6)};return _0x5d4607[_0x5acc1b(0xc3)](0x190)[_0x5acc1b(0xb8)](_0x4e5650);}});}[a192_0x2af132(0xa1)](_0x1d144e,_0x189d81,_0x356d0a,_0x34d426,_0x159054,_0x10d2bc,_0x268df0,_0xc20d2d){const _0xa2cb88=a192_0x2af132;return tslib_1[_0xa2cb88(0xb2)](this,void 0x0,void 0x0,function*(){const _0x2b2306=_0xa2cb88,_0x536b97=[_0x2b2306(0xcb),_0x2b2306(0xd4),_0x2b2306(0x7d),'customer.id\x20as\x20customerId',_0x2b2306(0xc6),_0x2b2306(0xa7),_0x2b2306(0xb5),_0x2b2306(0x9d),_0x2b2306(0x88),_0x2b2306(0xd2),_0x2b2306(0xab),_0x2b2306(0xd1),_0x2b2306(0xcc),'(SELECT\x20pi.container_name\x20as\x20containerName\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20imagePath'],_0x44e432=[{'tableName':_0x2b2306(0x7f),'aliasName':_0x2b2306(0x8f)},{'tableName':_0x2b2306(0xb0),'aliasName':_0x2b2306(0xbb)}],_0x48b284=[];_0x34d426&&_0x34d426!==''&&_0x48b284[_0x2b2306(0xa9)]({'name':_0x2b2306(0x9a),'op':_0x2b2306(0xdb),'sign':'>=','value':_0x34d426});_0x159054&&_0x159054!==''&&_0x48b284['push']({'name':_0x2b2306(0x9a),'op':'raw','sign':'<=','value':_0x159054});_0x10d2bc&&_0x10d2bc!==''&&_0x48b284[_0x2b2306(0xa9)]({'name':_0x2b2306(0xd0),'op':_0x2b2306(0xc7),'value':+_0x10d2bc});const _0x1b00e9=[];_0x356d0a&&_0x356d0a!==''&&_0x1b00e9['push']({'name':[_0x2b2306(0xa5)],'value':_0x356d0a});const _0x3fb202=[{'name':_0x2b2306(0x9a),'order':'DESC'}],_0xa41b80=yield this[_0x2b2306(0x95)][_0x2b2306(0x81)](_0x1d144e,_0x189d81,_0x536b97,_0x48b284,_0x1b00e9,_0x44e432,[],_0x3fb202,![],!![]);if(_0x268df0){const _0x1e777e=yield this['productRatingService']['listByQueryBuilder'](_0x1d144e,_0x189d81,_0x536b97,_0x48b284,_0x1b00e9,_0x44e432,[],_0x3fb202,!![],!![]),_0x17b460={'status':0x1,'message':_0x2b2306(0xad),'data':_0x1e777e};return _0xc20d2d[_0x2b2306(0xc3)](0xc8)[_0x2b2306(0xb8)](_0x17b460);}const _0x4be001={'status':0x1,'message':_0x2b2306(0xc4),'data':_0xa41b80};return _0xc20d2d[_0x2b2306(0xc3)](0xc8)[_0x2b2306(0xb8)](_0x4be001);});}};tslib_1[a192_0x2af132(0x9b)]([(0x0,routing_controllers_1['Get'])('/Get-Product-rating'),(0x0,routing_controllers_1[a192_0x2af132(0xbd)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1['QueryParam'])(a192_0x2af132(0xa8))),tslib_1[a192_0x2af132(0x91)](0x1,(0x0,routing_controllers_1[a192_0x2af132(0xd5)])(a192_0x2af132(0x94))),tslib_1[a192_0x2af132(0x91)](0x2,(0x0,routing_controllers_1['QueryParam'])(a192_0x2af132(0xbc))),tslib_1[a192_0x2af132(0x91)](0x3,(0x0,routing_controllers_1[a192_0x2af132(0xd5)])(a192_0x2af132(0xa6))),tslib_1[a192_0x2af132(0x91)](0x4,(0x0,routing_controllers_1[a192_0x2af132(0x8b)])()),tslib_1[a192_0x2af132(0xd7)](a192_0x2af132(0x85),Function),tslib_1[a192_0x2af132(0xd7)]('design:paramtypes',[Number,Number,Number,Object,Object]),tslib_1[a192_0x2af132(0xd7)](a192_0x2af132(0xae),Promise)],AdminRatingController[a192_0x2af132(0x8c)],a192_0x2af132(0xd8),null),tslib_1[a192_0x2af132(0x9b)]([(0x0,routing_controllers_1['Put'])('/:id'),(0x0,routing_controllers_1[a192_0x2af132(0xbd)])(['admin',a192_0x2af132(0xb6)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a192_0x2af132(0xca)])('id')),tslib_1[a192_0x2af132(0x91)](0x1,(0x0,routing_controllers_1[a192_0x2af132(0xb4)])({'validate':!![]})),tslib_1[a192_0x2af132(0x91)](0x2,(0x0,routing_controllers_1[a192_0x2af132(0x8b)])()),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a192_0x2af132(0xa3)])()),tslib_1['__metadata'](a192_0x2af132(0x85),Function),tslib_1['__metadata'](a192_0x2af132(0xc5),[Number,UpdateRatingStatusRequest_1['UpdateRatingStatusRequest'],Object,Object]),tslib_1[a192_0x2af132(0xd7)](a192_0x2af132(0xae),Promise)],AdminRatingController[a192_0x2af132(0x8c)],a192_0x2af132(0x7e),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(),(0x0,routing_controllers_1[a192_0x2af132(0xbd)])([a192_0x2af132(0x8a),a192_0x2af132(0xd9)]),tslib_1[a192_0x2af132(0x91)](0x0,(0x0,routing_controllers_1['QueryParam'])(a192_0x2af132(0x94))),tslib_1[a192_0x2af132(0x91)](0x1,(0x0,routing_controllers_1[a192_0x2af132(0xd5)])(a192_0x2af132(0xbc))),tslib_1[a192_0x2af132(0x91)](0x2,(0x0,routing_controllers_1[a192_0x2af132(0xd5)])(a192_0x2af132(0x98))),tslib_1[a192_0x2af132(0x91)](0x3,(0x0,routing_controllers_1[a192_0x2af132(0xd5)])(a192_0x2af132(0xbe))),tslib_1[a192_0x2af132(0x91)](0x4,(0x0,routing_controllers_1[a192_0x2af132(0xd5)])(a192_0x2af132(0xa2))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a192_0x2af132(0xd5)])(a192_0x2af132(0xa0))),tslib_1[a192_0x2af132(0x91)](0x6,(0x0,routing_controllers_1[a192_0x2af132(0xd5)])(a192_0x2af132(0xa6))),tslib_1['__param'](0x7,(0x0,routing_controllers_1[a192_0x2af132(0x8b)])()),tslib_1[a192_0x2af132(0xd7)]('design:type',Function),tslib_1['__metadata'](a192_0x2af132(0xc5),[Number,Number,String,String,String,String,Object,Object]),tslib_1[a192_0x2af132(0xd7)](a192_0x2af132(0xae),Promise)],AdminRatingController[a192_0x2af132(0x8c)],a192_0x2af132(0xa1),null),AdminRatingController=tslib_1[a192_0x2af132(0x9b)]([(0x0,routing_controllers_1[a192_0x2af132(0xba)])(AddonValidationMiddleware_1['CheckAddonMiddleware']),(0x0,routing_controllers_1[a192_0x2af132(0xc0)])('/admin-product-rating'),tslib_1[a192_0x2af132(0xd7)](a192_0x2af132(0xc5),[ProductService_1[a192_0x2af132(0x97)],RatingService_1[a192_0x2af132(0xac)],CustomerService_1[a192_0x2af132(0xb3)]])],AdminRatingController),exports[a192_0x2af132(0xbf)]=AdminRatingController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AdminRatingController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+// Services
+const RatingService_1 = require("../../services/RatingService");
+const ProductService_1 = require("../../../../src/api/core/services/ProductService");
+const CustomerService_1 = require("../../../../src/api/core/services/CustomerService");
+const UpdateRatingStatusRequest_1 = require("./requests/UpdateRatingStatusRequest");
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+let AdminRatingController = class AdminRatingController {
+    constructor(productService, productRatingService, customerService) {
+        this.productService = productService;
+        this.productRatingService = productRatingService;
+        this.customerService = customerService;
+        // ---
+    }
+    // Get product rating/review API
+    /**
+     * @api {get} /api/admin-product-rating/Get-Product-rating Get product Rating API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} productId productId
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count in number
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "successfully got the product rating and review.",
+     *      "data":"{ }"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-product-rating/Get-Product-rating
+     * @apiErrorExample {json} Product error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    getProductRating(productId, limit, offset, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['ratingId', 'review', 'rating', 'createdDate', 'firstName', 'lastName', 'productId', 'customerId', 'orderProductId', 'isActive'];
+            const relation = [];
+            const WhereConditions = [
+                {
+                    name: 'productId',
+                    op: 'where',
+                    value: productId,
+                },
+            ];
+            const rating = yield this.productRatingService.list(limit, offset, select, relation, WhereConditions, count);
+            const promise = rating.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = result;
+                const customer = yield this.customerService.findOne({
+                    select: ['avatar', 'avatarPath'],
+                    where: { id: result.customerId },
+                });
+                const val = Object.assign({}, temp, customer);
+                return val;
+            }));
+            const value = yield Promise.all(promise);
+            if (value) {
+                const successResponse = {
+                    status: 1,
+                    message: 'successfully got the product Rating. ',
+                    data: value,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 1,
+                    message: 'unable to get product Rating.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Change Status rating/review API
+    /**
+     * @api {put} /api/admin-product-rating/:id Product Rating Status API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} status status should be 0-> In-Active or 1-> Active
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "successfully updated review status.",
+     *      "data":"{ }"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-product-rating/:id
+     * @apiErrorExample {json} Product error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productRatingStatus(id, updateRatingStatus, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const Rating = yield this.productRatingService.findOne({ where: { ratingId: id } });
+            Rating.isActive = updateRatingStatus.status;
+            const updateRating = yield this.productRatingService.create(Rating);
+            const RatingValue = yield this.productRatingService.consolidateRating(Rating.productId);
+            const ProductData = yield this.productService.findOne({ where: { productId: Rating.productId } });
+            ProductData.rating = RatingValue !== undefined ? RatingValue.RatingCount : 0;
+            yield this.productService.create(ProductData);
+            if (updateRating) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully Updated the Rating Status. ',
+                    data: updateRating,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 1,
+                    message: 'Unable to update the product Rating.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Product Rating List API
+    /**
+     * @api {get} /api/admin-product-rating Product Rating and review List API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limits
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} productName productName
+     * @apiParam (Request body) {String} startDate createDate
+     * @apiParam (Request body) {String} endDate createDate
+     * @apiParam (Request body) {String} starCount rating
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *       "status": "1"
+     *      "message": "Successfully get product rating list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/admin-product-rating
+     * @apiErrorExample {json} productRatingList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productRatinglist(limit, offset, productName, startDate, endDate, starCount, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'ProductRating.ratingId as ratingId',
+                'product.productId as productId',
+                'ProductRating.orderProductId as orderProductId',
+                'customer.id as customerId',
+                'ProductRating.firstName as firstName',
+                'ProductRating.lastName as lastName',
+                'ProductRating.rating as rating',
+                'ProductRating.review as review',
+                'ProductRating.email as email',
+                'ProductRating.isActive as isActive',
+                'ProductRating.createdDate as createdDate',
+                '(SELECT p.name as name from product p where p.product_id = product.productId LIMIT 1) as productName',
+                '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = product.productId AND pi.default_image = 1 LIMIT 1) as image',
+                '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = product.productId AND pi.default_image = 1 LIMIT 1) as imagePath',
+            ];
+            const relations = [
+                {
+                    tableName: 'ProductRating.product',
+                    aliasName: 'product',
+                },
+                {
+                    tableName: 'ProductRating.customer',
+                    aliasName: 'customer',
+                },
+            ];
+            const WhereConditions = [];
+            if (startDate && startDate !== '') {
+                WhereConditions.push({
+                    name: 'ProductRating.createdDate',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDate,
+                });
+            }
+            if (endDate && endDate !== '') {
+                WhereConditions.push({
+                    name: 'ProductRating.createdDate',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDate,
+                });
+            }
+            if (starCount && starCount !== '') {
+                WhereConditions.push({
+                    name: 'ProductRating.rating',
+                    op: 'and',
+                    value: +starCount,
+                });
+            }
+            const searchConditions = [];
+            if (productName && productName !== '') {
+                searchConditions.push({
+                    name: ['product.name'],
+                    value: productName,
+                });
+            }
+            const sort = [
+                {
+                    name: 'ProductRating.createdDate',
+                    order: 'DESC',
+                },
+            ];
+            const productLists = yield this.productRatingService.listByQueryBuilder(limit, offset, select, WhereConditions, searchConditions, relations, [], sort, false, true);
+            if (count) {
+                const productListCount = yield this.productRatingService.listByQueryBuilder(limit, offset, select, WhereConditions, searchConditions, relations, [], sort, true, true);
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got count ',
+                    data: productListCount,
+                };
+                return response.status(200).send(successRes);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete product rating and review.',
+                data: productLists,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/Get-Product-rating'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('productId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminRatingController.prototype, "getProductRating", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-rating-review']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, UpdateRatingStatusRequest_1.UpdateRatingStatusRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminRatingController.prototype, "productRatingStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-rating-review']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('productName')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('starCount')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminRatingController.prototype, "productRatinglist", null);
+AdminRatingController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/admin-product-rating'),
+    tslib_1.__metadata("design:paramtypes", [ProductService_1.ProductService,
+        RatingService_1.ProductRatingService,
+        CustomerService_1.CustomerService])
+], AdminRatingController);
+exports.AdminRatingController = AdminRatingController;
+//# sourceMappingURL=AdminRatingController.js.map

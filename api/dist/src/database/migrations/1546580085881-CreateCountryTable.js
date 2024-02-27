@@ -1,1 +1,95 @@
-'use strict';const a744_0x3db982=a744_0xe25c;function a744_0xac08(){const _0x1925fb=['638175QXVrld','7413819rghhYb','16435458LjwtvS','modified_by','CURRENT_TIMESTAMP','datetime','CreateCountryTable1546580085881','is_active','country','5791900DUcMmx','defineProperty','2FKOyRV','int','iso_code_3','down','dropTable','name','createTable','__esModule','address_format','656956SPEGQC','4610EBSJbr','varchar','increment','text','9966784fhvMnh','postcode_required','country_id','__awaiter','762RErcAs','typeorm','modified_date','128','iso_code_2','tinyint','created_by'];a744_0xac08=function(){return _0x1925fb;};return a744_0xac08();}(function(_0x35dd1a,_0xa1779b){const _0x3490f8=a744_0xe25c,_0xe6eb0c=_0x35dd1a();while(!![]){try{const _0x5ad659=parseInt(_0x3490f8(0x148))/0x1*(parseInt(_0x3490f8(0x13f))/0x2)+parseInt(_0x3490f8(0x134))/0x3+parseInt(_0x3490f8(0x13d))/0x4+-parseInt(_0x3490f8(0x149))/0x5*(-parseInt(_0x3490f8(0x12d))/0x6)+-parseInt(_0x3490f8(0x135))/0x7+parseInt(_0x3490f8(0x14d))/0x8+-parseInt(_0x3490f8(0x136))/0x9;if(_0x5ad659===_0xa1779b)break;else _0xe6eb0c['push'](_0xe6eb0c['shift']());}catch(_0x41a388){_0xe6eb0c['push'](_0xe6eb0c['shift']());}}}(a744_0xac08,0xc22b7));function a744_0xe25c(_0x12861f,_0x3f1d6b){const _0xac085c=a744_0xac08();return a744_0xe25c=function(_0xe25cab,_0x43a330){_0xe25cab=_0xe25cab-0x12a;let _0x179f83=_0xac085c[_0xe25cab];return _0x179f83;},a744_0xe25c(_0x12861f,_0x3f1d6b);}Object[a744_0x3db982(0x13e)](exports,a744_0x3db982(0x146),{'value':!![]}),exports['CreateCountryTable1546580085881']=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a744_0x3db982(0x12e));class CreateCountryTable1546580085881{['up'](_0x23a016){const _0x12b3bc=a744_0x3db982;return tslib_1[_0x12b3bc(0x12c)](this,void 0x0,void 0x0,function*(){const _0x1c8499=_0x12b3bc,_0x300112=new typeorm_1['Table']({'name':_0x1c8499(0x13c),'columns':[{'name':_0x1c8499(0x12b),'type':_0x1c8499(0x140),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x1c8499(0x14b)},{'name':_0x1c8499(0x144),'type':_0x1c8499(0x14a),'length':_0x1c8499(0x130),'isPrimary':![],'isNullable':!![]},{'name':_0x1c8499(0x131),'type':_0x1c8499(0x14a),'length':'2','isPrimary':![],'isNullable':!![]},{'name':_0x1c8499(0x141),'type':_0x1c8499(0x14a),'length':'3','isPrimary':![],'isNullable':!![]},{'name':_0x1c8499(0x147),'type':_0x1c8499(0x14c),'isPrimary':![],'isNullable':!![]},{'name':_0x1c8499(0x12a),'type':_0x1c8499(0x132),'length':'1','isPrimary':![],'isNullable':!![]},{'name':_0x1c8499(0x13b),'type':_0x1c8499(0x140),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0x1c8499(0x139),'isPrimary':![],'isNullable':!![],'default':_0x1c8499(0x138)},{'name':_0x1c8499(0x12f),'type':_0x1c8499(0x139),'isPrimary':![],'isNullable':!![],'default':_0x1c8499(0x138)},{'name':_0x1c8499(0x133),'type':_0x1c8499(0x140),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1c8499(0x137),'type':'int','length':'11','isPrimary':![],'isNullable':!![]}]}),_0x41cefa=yield _0x23a016['hasTable'](_0x1c8499(0x13c));!_0x41cefa&&(yield _0x23a016[_0x1c8499(0x145)](_0x300112));});}[a744_0x3db982(0x142)](_0xb8475a){const _0x48ae28=a744_0x3db982;return tslib_1[_0x48ae28(0x12c)](this,void 0x0,void 0x0,function*(){const _0x20dbe4=_0x48ae28;yield _0xb8475a[_0x20dbe4(0x143)](_0x20dbe4(0x13c),!![]);});}}exports[a744_0x3db982(0x13a)]=CreateCountryTable1546580085881;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCountryTable1546580085881 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateCountryTable1546580085881 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'country',
+                columns: [
+                    {
+                        name: 'country_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'name',
+                        type: 'varchar',
+                        length: '128',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'iso_code_2',
+                        type: 'varchar',
+                        length: '2',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'iso_code_3',
+                        type: 'varchar',
+                        length: '3',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'address_format',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'postcode_required',
+                        type: 'tinyint',
+                        length: '1',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('country');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('country', true);
+        });
+    }
+}
+exports.CreateCountryTable1546580085881 = CreateCountryTable1546580085881;
+//# sourceMappingURL=1546580085881-CreateCountryTable.js.map

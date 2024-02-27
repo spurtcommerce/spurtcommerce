@@ -1,1 +1,80 @@
-'use strict';const a255_0x3ce527=a255_0x3d8f;(function(_0x14bd69,_0x13ebeb){const _0x42cbf9=a255_0x3d8f,_0x580592=_0x14bd69();while(!![]){try{const _0x14b6c5=parseInt(_0x42cbf9(0xda))/0x1+-parseInt(_0x42cbf9(0xcf))/0x2*(parseInt(_0x42cbf9(0xd9))/0x3)+parseInt(_0x42cbf9(0xd2))/0x4*(parseInt(_0x42cbf9(0xbe))/0x5)+-parseInt(_0x42cbf9(0xdc))/0x6*(parseInt(_0x42cbf9(0xd7))/0x7)+parseInt(_0x42cbf9(0xe2))/0x8+-parseInt(_0x42cbf9(0xdf))/0x9+parseInt(_0x42cbf9(0xc3))/0xa*(parseInt(_0x42cbf9(0xdd))/0xb);if(_0x14b6c5===_0x13ebeb)break;else _0x580592['push'](_0x580592['shift']());}catch(_0x24c54c){_0x580592['push'](_0x580592['shift']());}}}(a255_0x3f08,0xdcea0));function a255_0x3d8f(_0x2817e8,_0x57bd00){const _0x3f0887=a255_0x3f08();return a255_0x3d8f=function(_0x3d8f91,_0xebdb86){_0x3d8f91=_0x3d8f91-0xb8;let _0x2e77f1=_0x3f0887[_0x3d8f91];return _0x2e77f1;},a255_0x3d8f(_0x2817e8,_0x57bd00);}Object[a255_0x3ce527(0xc1)](exports,a255_0x3ce527(0xbc),{'value':!![]}),exports[a255_0x3ce527(0xd4)]=void 0x0;const tslib_1=require(a255_0x3ce527(0xd6));require(a255_0x3ce527(0xde));const routing_controllers_1=require('routing-controllers'),typeorm_1=require(a255_0x3ce527(0xcd)),Plugin_1=require(a255_0x3ce527(0xbb));let AdminGmailController=class AdminGmailController{constructor(){}[a255_0x3ce527(0xca)](_0x1cd29d,_0x5bc402,_0x44e920){const _0x37e04f=a255_0x3ce527;return tslib_1[_0x37e04f(0xc2)](this,void 0x0,void 0x0,function*(){const _0x25533a=_0x37e04f,_0x54fa84=(0x0,typeorm_1['getManager'])()[_0x25533a(0xba)](Plugin_1[_0x25533a(0xce)]),_0x2626b3=yield _0x54fa84[_0x25533a(0xb9)]({'where':{'pluginName':_0x25533a(0xc9)}});if(!_0x2626b3)return _0x44e920['status'](0x190)[_0x25533a(0xd3)]({'status':0x1,'message':'You\x20not\x20install\x20this\x20plugin.\x20or\x20problem\x20in\x20installation'});const _0x3d094a=_0x2626b3['pluginAdditionalInfo']?JSON[_0x25533a(0xcc)](_0x2626b3['pluginAdditionalInfo']):{};_0x3d094a[_0x25533a(0xb8)]=_0x1cd29d[_0x25533a(0xb8)],_0x3d094a[_0x25533a(0xc8)]=_0x1cd29d[_0x25533a(0xc8)],_0x3d094a[_0x25533a(0xe0)]=_0x1cd29d[_0x25533a(0xe0)],_0x2626b3['pluginAdditionalInfo']=JSON[_0x25533a(0xc5)](_0x3d094a);const _0x155a2e=yield _0x54fa84[_0x25533a(0xcb)](_0x2626b3);if(_0x155a2e)return _0x44e920[_0x25533a(0xbd)](0xc8)[_0x25533a(0xd3)]({'status':0x1,'message':_0x25533a(0xe1)});const _0x37e8e4={'status':0x1,'message':_0x25533a(0xbf)};return _0x44e920[_0x25533a(0xbd)](0x190)['send'](_0x37e8e4);});}};function a255_0x3f08(){const _0x58e56c=['clientSecret','Gmail','updateSetting','save','parse','typeorm','Plugins','214QjHzGJ','design:paramtypes','__param','8544mcShaZ','send','AdminGmailController','Post','tslib','4697840JqYxzE','__decorate','18357QlRdMQ','819735VfitYr','design:returntype','12VtnjmJ','8645153krBNZv','reflect-metadata','5151357qgbOYn','isTest','Gmail\x20settings\x20updated\x20successfully','5515840ENTywj','clientId','findOne','getRepository','../../../../src/api/core/models/Plugin','__esModule','status','2760fSIrqd','Unable\x20to\x20update\x20the\x20gmail\x20settings','/update-setting','defineProperty','__awaiter','10iFOonC','design:type','stringify','Res','__metadata'];a255_0x3f08=function(){return _0x58e56c;};return a255_0x3f08();}tslib_1['__decorate']([(0x0,routing_controllers_1[a255_0x3ce527(0xd5)])(a255_0x3ce527(0xc0)),tslib_1['__param'](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1[a255_0x3ce527(0xd1)](0x2,(0x0,routing_controllers_1[a255_0x3ce527(0xc6)])()),tslib_1[a255_0x3ce527(0xc7)](a255_0x3ce527(0xc4),Function),tslib_1[a255_0x3ce527(0xc7)]('design:paramtypes',[Object,Object,Object]),tslib_1[a255_0x3ce527(0xc7)](a255_0x3ce527(0xdb),Promise)],AdminGmailController['prototype'],'updateSetting',null),AdminGmailController=tslib_1[a255_0x3ce527(0xd8)]([(0x0,routing_controllers_1['Controller'])('/admin-gmail'),tslib_1[a255_0x3ce527(0xc7)](a255_0x3ce527(0xd0),[])],AdminGmailController),exports['AdminGmailController']=AdminGmailController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AdminGmailController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../../../../src/api/core/models/Plugin");
+let AdminGmailController = class AdminGmailController {
+    constructor() {
+        // ---
+    }
+    /**
+     * @api {post} /api/admin-gmail/update-setting update Gmail Credential API
+     * @apiGroup Oauth
+     * @apiParam (Request body) {String{..255}} clientId clientId
+     * @apiParam (Request body) {String{..255}} clientSecret clientSecret
+     * @apiParam (Request body) {boolean} isTest isTest
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 Ok
+     * @apiSampleRequest /api/admin-gmail/update-setting
+     * @apiErrorExample {json} Error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateSetting(postParams, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'Gmail',
+                },
+            });
+            if (!pluginDetail) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'You not install this plugin. or problem in installation',
+                });
+            }
+            const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            paypalAdditionalInfo.clientId = postParams.clientId;
+            paypalAdditionalInfo.clientSecret = postParams.clientSecret;
+            paypalAdditionalInfo.isTest = postParams.isTest;
+            pluginDetail.pluginAdditionalInfo = JSON.stringify(paypalAdditionalInfo);
+            const saveResponse = yield pluginRepository.save(pluginDetail);
+            if (saveResponse) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Gmail settings updated successfully',
+                });
+            }
+            const errorResponse = {
+                status: 1,
+                message: 'Unable to update the gmail settings',
+            };
+            return response.status(400).send(errorResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/update-setting'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminGmailController.prototype, "updateSetting", null);
+AdminGmailController = tslib_1.__decorate([
+    (0, routing_controllers_1.Controller)('/admin-gmail'),
+    tslib_1.__metadata("design:paramtypes", [])
+], AdminGmailController);
+exports.AdminGmailController = AdminGmailController;
+//# sourceMappingURL=AdminGmailController.js.map

@@ -1,1 +1,27 @@
-'use strict';const a921_0x182859=a921_0x1a73;(function(_0x3e99b1,_0x234f39){const _0x2a1277=a921_0x1a73,_0x4e5caa=_0x3e99b1();while(!![]){try{const _0x48f993=-parseInt(_0x2a1277(0x12b))/0x1*(-parseInt(_0x2a1277(0x12d))/0x2)+parseInt(_0x2a1277(0x135))/0x3+-parseInt(_0x2a1277(0x128))/0x4*(parseInt(_0x2a1277(0x133))/0x5)+parseInt(_0x2a1277(0x137))/0x6+-parseInt(_0x2a1277(0x138))/0x7+parseInt(_0x2a1277(0x12f))/0x8*(-parseInt(_0x2a1277(0x130))/0x9)+-parseInt(_0x2a1277(0x13e))/0xa;if(_0x48f993===_0x234f39)break;else _0x4e5caa['push'](_0x4e5caa['shift']());}catch(_0x570ee7){_0x4e5caa['push'](_0x4e5caa['shift']());}}}(a921_0x59a3,0x8d746));function a921_0x1a73(_0x3bd630,_0x1629c1){const _0x59a3be=a921_0x59a3();return a921_0x1a73=function(_0x1a73a0,_0x1146b1){_0x1a73a0=_0x1a73a0-0x128;let _0x35474d=_0x59a3be[_0x1a73a0];return _0x35474d;},a921_0x1a73(_0x3bd630,_0x1629c1);}Object['defineProperty'](exports,a921_0x182859(0x132),{'value':!![]}),exports[a921_0x182859(0x129)]=void 0x0;const tslib_1=require(a921_0x182859(0x12c)),typeorm_1=require(a921_0x182859(0x134));function a921_0x59a3(){const _0x3dc161=['TableColumn','category_descrpition','dropColumn','2038820OxvUcb','648eeolvR','AddColumnInCategory1642745785011','addColumn','1007651prsrHS','tslib','2MMEmmn','category_description','16HQhZRM','628146Bhusph','__awaiter','__esModule','23500WneIqN','typeorm','1100307XEMvTd','category','1981824jZGQQh','143192VcKcWz','hasColumn','down'];a921_0x59a3=function(){return _0x3dc161;};return a921_0x59a3();}class AddColumnInCategory1642745785011{['up'](_0x1065c5){const _0x602d30=a921_0x182859;return tslib_1[_0x602d30(0x131)](this,void 0x0,void 0x0,function*(){const _0x37fdb4=_0x602d30,_0x395c98=yield _0x1065c5[_0x37fdb4(0x139)](_0x37fdb4(0x136),_0x37fdb4(0x12e));!_0x395c98&&(yield _0x1065c5[_0x37fdb4(0x12a)](_0x37fdb4(0x136),new typeorm_1[(_0x37fdb4(0x13b))]({'name':_0x37fdb4(0x12e),'type':'text','isPrimary':![],'isNullable':!![]})));});}[a921_0x182859(0x13a)](_0x447123){const _0x168ca0=a921_0x182859;return tslib_1[_0x168ca0(0x131)](this,void 0x0,void 0x0,function*(){const _0x20f5d2=_0x168ca0;yield _0x447123[_0x20f5d2(0x13d)](_0x20f5d2(0x136),_0x20f5d2(0x13c));});}}exports['AddColumnInCategory1642745785011']=AddColumnInCategory1642745785011;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInCategory1642745785011 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInCategory1642745785011 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('category', 'category_description');
+            if (!ifExist) {
+                yield queryRunner.addColumn('category', new typeorm_1.TableColumn({
+                    name: 'category_description',
+                    type: 'text',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('category', 'category_descrpition');
+        });
+    }
+}
+exports.AddColumnInCategory1642745785011 = AddColumnInCategory1642745785011;
+//# sourceMappingURL=1642745785011-AddColumnInCategory.js.map

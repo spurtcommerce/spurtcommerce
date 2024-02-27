@@ -1,1 +1,295 @@
-'use strict';function a598_0x11dc(){const _0x26f51a=['deleteFolder','2985060wnzMtd','AWS_BUCKET','deleteObject','getObject','locationArray\x20after\x20pop:','listBucker','Contents','toBuffer','listObjects','getFolder','pop','266922pEqblM','Service','fileUpload','103816tbnpGL','resizeImageBase64','5hpjzLQ','typedi','config','videoUpload','locationArray\x20before\x20pop:','update','7691517aAISaz','public-read','aws-sdk','join','base64','141TbhzVc','subClass','9310546DxfgtJ','__awaiter','createFolder','resizeImage','Body','defineProperty','locationPath:','S3Service','Location','resize','videoFileDownload','split','upload','fileDownload',';base64,','toString','deleteObjects','map','__decorate','data:image/','../../../env','log','9835304tKXgYA','AWS_ACCESS_KEY_ID','aws_setup','writeFileSync','8200014xPfnrq','imageUpload','AWS_SECRET_ACCESS_KEY','__importStar'];a598_0x11dc=function(){return _0x26f51a;};return a598_0x11dc();}const a598_0x3c0a92=a598_0x12b6;(function(_0x1270d0,_0x15363d){const _0x166c96=a598_0x12b6,_0xf7c276=_0x1270d0();while(!![]){try{const _0x53dcc1=parseInt(_0x166c96(0x12c))/0x1+parseInt(_0x166c96(0x121))/0x2+parseInt(_0x166c96(0x100))/0x3*(parseInt(_0x166c96(0x12f))/0x4)+parseInt(_0x166c96(0x131))/0x5*(parseInt(_0x166c96(0x11c))/0x6)+-parseInt(_0x166c96(0x102))/0x7+-parseInt(_0x166c96(0x118))/0x8+-parseInt(_0x166c96(0xfb))/0x9;if(_0x53dcc1===_0x15363d)break;else _0xf7c276['push'](_0xf7c276['shift']());}catch(_0x45e026){_0xf7c276['push'](_0xf7c276['shift']());}}}(a598_0x11dc,0xe380f));Object[a598_0x3c0a92(0x107)](exports,'__esModule',{'value':!![]}),exports[a598_0x3c0a92(0x109)]=void 0x0;const tslib_1=require('tslib'),AWS=tslib_1[a598_0x3c0a92(0x11f)](require(a598_0x3c0a92(0xfd))),typedi_1=require(a598_0x3c0a92(0x132)),env_1=require(a598_0x3c0a92(0x116)),fs=tslib_1[a598_0x3c0a92(0x11f)](require('fs')),s3=new AWS['S3']();let S3Service=class S3Service{[a598_0x3c0a92(0x126)](_0x13884c=0x0,_0x5b0f0b='',_0x50e082=''){const _0x138869=a598_0x3c0a92;AWS[_0x138869(0xf7)][_0x138869(0xfa)]({'accessKeyId':env_1['aws_setup'][_0x138869(0x119)],'secretAccessKey':env_1[_0x138869(0x11a)][_0x138869(0x11e)]});const _0x9a2b96={'Bucket':env_1['aws_setup'][_0x138869(0x122)],'MaxKeys':_0x13884c,'Delimiter':'/','Prefix':_0x50e082,'Marker':_0x5b0f0b};return new Promise((_0x45f671,_0x161a77)=>{const _0x31231d=_0x138869;return s3[_0x31231d(0x129)](_0x9a2b96,(_0x52da17,_0xc0657b)=>{_0x52da17&&_0x161a77(_0x52da17),_0x45f671(_0xc0657b);});});}[a598_0x3c0a92(0x104)](_0x4210f9=''){const _0xeee5d6=a598_0x3c0a92;AWS['config']['update']({'accessKeyId':env_1[_0xeee5d6(0x11a)][_0xeee5d6(0x119)],'secretAccessKey':env_1[_0xeee5d6(0x11a)][_0xeee5d6(0x11e)]});const _0x1e85cb={'Bucket':env_1[_0xeee5d6(0x11a)][_0xeee5d6(0x122)],'Key':_0x4210f9};return new Promise((_0x3fdd83,_0x402069)=>{return s3['putObject'](_0x1e85cb,(_0x567dc6,_0x55c4e5)=>{_0x567dc6&&_0x402069(_0x567dc6),_0x3fdd83(_0x55c4e5);});});}[a598_0x3c0a92(0x120)](_0x19f428=''){const _0x2608f5=a598_0x3c0a92;AWS[_0x2608f5(0xf7)][_0x2608f5(0xfa)]({'accessKeyId':env_1['aws_setup'][_0x2608f5(0x119)],'secretAccessKey':env_1[_0x2608f5(0x11a)][_0x2608f5(0x11e)]});const _0x5620a8={'Bucket':env_1[_0x2608f5(0x11a)][_0x2608f5(0x122)],'Prefix':_0x19f428};return new Promise((_0x2c3d1a,_0x360cd4)=>{s3['listObjects'](_0x5620a8,(_0x4a7bcc,_0xbbca8a)=>{const _0x2fc451=a598_0x12b6;_0x4a7bcc&&_0x360cd4(_0x4a7bcc);const _0x5a3702=_0xbbca8a[_0x2fc451(0x127)][_0x2fc451(0x113)](_0x531d59=>({'Key':_0x531d59['Key']}));return s3[_0x2fc451(0x112)]({'Bucket':env_1['aws_setup']['AWS_BUCKET'],'Delete':{'Objects':_0x5a3702,'Quiet':!![]}},(_0x3859fe,_0x2cdb03)=>{_0x3859fe&&_0x360cd4(_0x3859fe),_0x2c3d1a(_0x2cdb03);});});});}['deleteFile'](_0x5ca01b=''){const _0x740f35=a598_0x3c0a92;AWS[_0x740f35(0xf7)]['update']({'accessKeyId':env_1[_0x740f35(0x11a)]['AWS_ACCESS_KEY_ID'],'secretAccessKey':env_1[_0x740f35(0x11a)]['AWS_SECRET_ACCESS_KEY']});const _0x29912f={'Bucket':env_1[_0x740f35(0x11a)][_0x740f35(0x122)],'Key':_0x5ca01b};return new Promise((_0x3c2c0f,_0x5687f3)=>{const _0x29f0ca=_0x740f35;return s3[_0x29f0ca(0x123)](_0x29912f,(_0x3537c2,_0x4e13cd)=>{_0x3537c2&&_0x5687f3(_0x3537c2),_0x3c2c0f(_0x4e13cd);});});}[a598_0x3c0a92(0x105)](_0x19e4fd='',_0x4cbb13='',_0x4390a9='',_0xf62d92=''){const _0x17548b=a598_0x3c0a92;AWS[_0x17548b(0xf7)][_0x17548b(0xfa)]({'accessKeyId':env_1[_0x17548b(0x11a)][_0x17548b(0x119)],'secretAccessKey':env_1[_0x17548b(0x11a)][_0x17548b(0x11e)]});const _0x1eb4a9={'Bucket':env_1[_0x17548b(0x11a)][_0x17548b(0x122)],'Key':_0x4cbb13+_0x19e4fd};return new Promise((_0x2a22ac,_0x23ebd2)=>{const _0x2df985=_0x17548b;s3[_0x2df985(0x124)](_0x1eb4a9,(_0x866dfc,_0x28154d)=>{const _0x56ab81=_0x2df985;if(_0x866dfc)return _0x23ebd2(_0x866dfc);if(_0x28154d){const _0x375fa6=require('gm')[_0x56ab81(0x101)]({'imageMagick':!![]});return _0x375fa6(_0x28154d[_0x56ab81(0x106)])['resize'](_0x4390a9,_0xf62d92)[_0x56ab81(0x128)]((_0x274600,_0x452759)=>{if(_0x274600)throw _0x274600;else return _0x2a22ac(_0x452759);});}else return _0x2a22ac(![]);});});}[a598_0x3c0a92(0x130)](_0x494bd5='',_0x151495='',_0x352825,_0xd21603){const _0x537b88=a598_0x3c0a92;AWS['config'][_0x537b88(0xfa)]({'accessKeyId':env_1['aws_setup'][_0x537b88(0x119)],'secretAccessKey':env_1['aws_setup'][_0x537b88(0x11e)]});const _0x29f0cf=_0x494bd5[_0x537b88(0x10d)]('.'),_0xb62c93=_0x537b88(0x115)+_0x29f0cf[0x1]+_0x537b88(0x110),_0x27c6e6={'Bucket':env_1[_0x537b88(0x11a)][_0x537b88(0x122)],'Key':_0x151495+_0x494bd5};return new Promise((_0x5b3b43,_0x25c51f)=>{const _0x2d4ad1=_0x537b88;s3['getObject'](_0x27c6e6,(_0x50c5ba,_0x53c565)=>tslib_1[_0x2d4ad1(0x103)](this,void 0x0,void 0x0,function*(){const _0x5cdbe5=_0x2d4ad1;if(_0x50c5ba)return _0x25c51f(_0x50c5ba);if(_0x53c565){const _0x1997fa=require('gm')[_0x5cdbe5(0x101)]({'imageMagick':!![]});return _0x1997fa(_0x53c565['Body'])[_0x5cdbe5(0x10b)](_0x352825,_0xd21603)[_0x5cdbe5(0x128)]((_0x35cafc,_0xcdfed9)=>{const _0x5e71d0=_0x5cdbe5;if(_0x35cafc)throw _0x35cafc;else _0x5b3b43(_0xb62c93+_0xcdfed9[_0x5e71d0(0x111)](_0x5e71d0(0xff)));});}else return _0x5b3b43(![]);}));});}[a598_0x3c0a92(0x11d)](_0xfcf166='',_0x1cebcd,_0x156ea3){const _0x32fee7=a598_0x3c0a92;AWS[_0x32fee7(0xf7)]['update']({'accessKeyId':env_1[_0x32fee7(0x11a)][_0x32fee7(0x119)],'secretAccessKey':env_1[_0x32fee7(0x11a)][_0x32fee7(0x11e)]});const _0x3a3e4c={'Bucket':env_1[_0x32fee7(0x11a)][_0x32fee7(0x122)],'Key':_0xfcf166,'Body':_0x1cebcd,'ACL':_0x32fee7(0xfc),'ContentEncoding':_0x32fee7(0xff),'ContentType':_0x156ea3};return console[_0x32fee7(0x117)]('awsParams:',_0x3a3e4c),new Promise((_0x4365ba,_0x22935f)=>{const _0x322993=_0x32fee7;return s3[_0x322993(0x10e)](_0x3a3e4c,(_0x459f3c,_0x3d7ddb)=>{const _0x35e28d=_0x322993;if(_0x459f3c)return _0x22935f(_0x459f3c);console[_0x35e28d(0x117)]('data:',_0x3d7ddb);const _0x2c0328=_0x3d7ddb[_0x35e28d(0x10a)][_0x35e28d(0x10d)]('/');console[_0x35e28d(0x117)](_0x35e28d(0xf9),_0x2c0328),_0x2c0328[_0x35e28d(0x12b)](),console[_0x35e28d(0x117)](_0x35e28d(0x125),_0x2c0328);const _0x170a7f=_0x2c0328['join']('/');return console[_0x35e28d(0x117)](_0x35e28d(0x108),_0x170a7f),_0x4365ba({'path':_0x170a7f});});});}[a598_0x3c0a92(0xf8)](_0x3a076e='',_0x527fec,_0x58f5b6){const _0x44c3b1=a598_0x3c0a92;AWS['config'][_0x44c3b1(0xfa)]({'accessKeyId':env_1[_0x44c3b1(0x11a)][_0x44c3b1(0x119)],'secretAccessKey':env_1[_0x44c3b1(0x11a)][_0x44c3b1(0x11e)]});const _0x2eb446={'Bucket':env_1[_0x44c3b1(0x11a)][_0x44c3b1(0x122)],'Key':_0x3a076e,'Body':_0x527fec,'ACL':'public-read','ContentEncoding':_0x44c3b1(0xff),'ContentType':''+_0x58f5b6};return new Promise((_0x5a3632,_0xf8f29b)=>{const _0x2ee654=_0x44c3b1;return s3[_0x2ee654(0x10e)](_0x2eb446,(_0x157a6c,_0x3a9ac8)=>{const _0x119e21=_0x2ee654;if(_0x157a6c)return _0xf8f29b(_0x157a6c);const _0x20159a=_0x3a9ac8[_0x119e21(0x10a)][_0x119e21(0x10d)]('/');_0x20159a['pop']();const _0x489bb2=_0x20159a[_0x119e21(0xfe)]('/');return _0x5a3632({'path':_0x489bb2});});});}[a598_0x3c0a92(0x12a)](_0x46b66a=''){const _0x56f170=a598_0x3c0a92;AWS[_0x56f170(0xf7)][_0x56f170(0xfa)]({'accessKeyId':env_1[_0x56f170(0x11a)][_0x56f170(0x119)],'secretAccessKey':env_1[_0x56f170(0x11a)][_0x56f170(0x11e)]});const _0x41433f={'Bucket':env_1['aws_setup'][_0x56f170(0x122)],'Prefix':_0x46b66a,'Delimiter':'/'};return new Promise((_0x2ffaf2,_0x2b3695)=>{const _0x27c538=_0x56f170;return s3[_0x27c538(0x129)](_0x41433f,(_0x1fa10a,_0x992610)=>{_0x1fa10a&&_0x2b3695(_0x1fa10a),_0x2ffaf2(_0x992610);});});}[a598_0x3c0a92(0x12e)](_0x390c55='',_0x1f080b,_0x8dcf4f){const _0x14f579=a598_0x3c0a92;AWS[_0x14f579(0xf7)][_0x14f579(0xfa)]({'accessKeyId':env_1[_0x14f579(0x11a)][_0x14f579(0x119)],'secretAccessKey':env_1[_0x14f579(0x11a)][_0x14f579(0x11e)]});const _0x35feff={'Bucket':env_1[_0x14f579(0x11a)]['AWS_BUCKET'],'Key':_0x390c55,'Body':_0x1f080b,'ACL':'public-read','ContentEncoding':_0x14f579(0xff),'ContentType':_0x8dcf4f};return new Promise((_0x5c3546,_0x3d8f8e)=>{const _0x1cf0af=_0x14f579;return s3[_0x1cf0af(0x10e)](_0x35feff,(_0x225176,_0x736944)=>{const _0x60f72c=_0x1cf0af;if(_0x225176)return _0x3d8f8e(_0x225176);const _0x36821a=_0x736944[_0x60f72c(0x10a)][_0x60f72c(0x10d)]('/');_0x36821a['pop']();const _0x3c56e8=_0x36821a['join']('/');return _0x5c3546({'path':_0x3c56e8});});});}[a598_0x3c0a92(0x10f)](_0x105927='',_0x3c9c94){const _0x29ce2b=a598_0x3c0a92;AWS['config'][_0x29ce2b(0xfa)]({'accessKeyId':env_1[_0x29ce2b(0x11a)][_0x29ce2b(0x119)],'secretAccessKey':env_1[_0x29ce2b(0x11a)][_0x29ce2b(0x11e)]});const _0x1cebad={'Bucket':env_1[_0x29ce2b(0x11a)][_0x29ce2b(0x122)],'Key':_0x105927+_0x3c9c94};return new Promise((_0x31eca4,_0x18bddf)=>{const _0x115205=_0x29ce2b;s3[_0x115205(0x124)](_0x1cebad,(_0x556e49,_0x284cb4)=>{const _0x4bae36=_0x115205;if(_0x556e49)return _0x18bddf(_0x556e49);return fs['writeFileSync'](_0x3c9c94,_0x284cb4[_0x4bae36(0x106)]),_0x31eca4(_0x3c9c94);});});}[a598_0x3c0a92(0x10c)](_0x12f1a0='',_0x235948,_0x38baaa=''){const _0x1b6134=a598_0x3c0a92;AWS[_0x1b6134(0xf7)][_0x1b6134(0xfa)]({'accessKeyId':env_1['aws_setup'][_0x1b6134(0x119)],'secretAccessKey':env_1['aws_setup']['AWS_SECRET_ACCESS_KEY']});const _0x102c9a={'Bucket':env_1[_0x1b6134(0x11a)][_0x1b6134(0x122)],'Key':_0x12f1a0+'/'+_0x235948};return new Promise((_0x5358ed,_0x2ec9b4)=>{const _0x26ad62=_0x1b6134;s3[_0x26ad62(0x124)](_0x102c9a,(_0x3dd07,_0xee450a)=>{const _0x1a68bc=_0x26ad62;if(_0x3dd07)return _0x2ec9b4(_0x3dd07);return fs[_0x1a68bc(0x11b)](_0x38baaa,_0xee450a[_0x1a68bc(0x106)]),_0x5358ed(_0x38baaa);});});}};function a598_0x12b6(_0x4b4d92,_0x5aa2c1){const _0x11dcdc=a598_0x11dc();return a598_0x12b6=function(_0x12b6e5,_0x398345){_0x12b6e5=_0x12b6e5-0xf7;let _0x202199=_0x11dcdc[_0x12b6e5];return _0x202199;},a598_0x12b6(_0x4b4d92,_0x5aa2c1);}S3Service=tslib_1[a598_0x3c0a92(0x114)]([(0x0,typedi_1[a598_0x3c0a92(0x12d)])()],S3Service),exports[a598_0x3c0a92(0x109)]=S3Service;
+"use strict";
+/*
+ * SpurtCommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 PICCOSOFT
+ * Author piccosoft <support@spurtcommerce.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.S3Service = void 0;
+const tslib_1 = require("tslib");
+const AWS = tslib_1.__importStar(require("aws-sdk")); // Load the SDK for JavaScript
+const typedi_1 = require("typedi");
+const env_1 = require("../../../env");
+const fs = tslib_1.__importStar(require("fs"));
+const s3 = new AWS.S3();
+let S3Service = class S3Service {
+    // Bucket list
+    listBucker(limit = 0, marker = '', folderName = '') {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        // Create the parameters for calling createBucket
+        const bucketParams = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            MaxKeys: limit,
+            Delimiter: '/',
+            Prefix: folderName,
+            Marker: marker,
+        };
+        return new Promise((resolve, reject) => {
+            return s3.listObjects(bucketParams, (err, data) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(data);
+            });
+        });
+    }
+    // create folder
+    createFolder(folderName = '') {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        // Create the parameters for calling createBucket
+        const bucketParams = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            Key: folderName,
+        };
+        return new Promise((resolve, reject) => {
+            return s3.putObject(bucketParams, (err, data) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(data);
+            });
+        });
+    }
+    // delete folder
+    deleteFolder(folderName = '') {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        // Create the parameters for calling createBucket
+        const bucketParams = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            Prefix: folderName,
+        };
+        return new Promise((resolve, reject) => {
+            s3.listObjects(bucketParams, (err, data) => {
+                if (err) {
+                    reject(err);
+                }
+                const objects = data.Contents.map(object => ({ Key: object.Key }));
+                return s3.deleteObjects({
+                    Bucket: env_1.aws_setup.AWS_BUCKET,
+                    Delete: {
+                        Objects: objects,
+                        Quiet: true,
+                    },
+                }, (error, val) => {
+                    if (error) {
+                        reject(error);
+                    }
+                    resolve(val);
+                });
+            });
+        });
+    }
+    // delete file
+    deleteFile(fileName = '') {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        // Create the parameters for calling createBucket
+        const bucketParams = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            Key: fileName,
+        };
+        return new Promise((resolve, reject) => {
+            return s3.deleteObject(bucketParams, (err, data) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(data);
+            });
+        });
+    }
+    // Image resize
+    resizeImage(imgName = '', imgPath = '', widthString = '', heightString = '') {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        // Create the parameters for calling createBucket
+        const getParams = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            Key: imgPath + imgName, // path to the object you're looking for
+        };
+        return new Promise((resolve, reject) => {
+            s3.getObject(getParams, (err, data) => {
+                if (err) {
+                    return reject(err);
+                }
+                if (data) {
+                    const gm = require('gm').subClass({ imageMagick: true });
+                    return gm(data.Body)
+                        .resize(widthString, heightString)
+                        .toBuffer((error, buffer) => {
+                        if (error) {
+                            throw error;
+                        }
+                        else {
+                            return resolve(buffer);
+                        }
+                    });
+                }
+                else {
+                    return resolve(false);
+                }
+            });
+        });
+    }
+    // Image resize
+    resizeImageBase64(imgName = '', imgPath = '', widthString, heightString) {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        const ext = imgName.split('.');
+        const imagePrefix = 'data:image/' + ext[1] + ';base64,';
+        // Create the parameters for calling createBucket
+        const getParams = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            Key: imgPath + imgName, // path to the object you're looking for
+        };
+        return new Promise((resolve, reject) => {
+            s3.getObject(getParams, (err, data) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                if (err) {
+                    return reject(err);
+                }
+                if (data) {
+                    const gm = require('gm').subClass({ imageMagick: true });
+                    return gm(data.Body)
+                        .resize(widthString, heightString)
+                        .toBuffer((error, buffer) => {
+                        if (error) {
+                            throw error;
+                        }
+                        else {
+                            resolve(imagePrefix + buffer.toString('base64'));
+                        }
+                    });
+                }
+                else {
+                    return resolve(false);
+                }
+            }));
+        });
+    }
+    // delete file
+    imageUpload(folderName = '', base64Image, imageType) {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        const params = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            Key: folderName,
+            Body: base64Image,
+            ACL: 'public-read',
+            ContentEncoding: 'base64',
+            ContentType: imageType,
+        };
+        console.log('awsParams:', params);
+        return new Promise((resolve, reject) => {
+            return s3.upload(params, (err, data) => {
+                if (err) {
+                    return reject(err);
+                }
+                console.log('data:', data);
+                const locationArray = data.Location.split('/');
+                console.log('locationArray before pop:', locationArray);
+                locationArray.pop();
+                console.log('locationArray after pop:', locationArray);
+                const locationPath = locationArray.join('/');
+                console.log('locationPath:', locationPath);
+                return resolve({ path: locationPath });
+            });
+        });
+    }
+    // delete file
+    videoUpload(folderName = '', base64Image, imageType) {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        const params = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            Key: folderName,
+            Body: base64Image,
+            ACL: 'public-read',
+            ContentEncoding: 'base64',
+            ContentType: `${imageType}`,
+        };
+        return new Promise((resolve, reject) => {
+            return s3.upload(params, (err, data) => {
+                if (err) {
+                    return reject(err);
+                }
+                const locationArray = data.Location.split('/');
+                locationArray.pop();
+                const locationPath = locationArray.join('/');
+                return resolve({ path: locationPath });
+            });
+        });
+    }
+    // search folder
+    getFolder(folderName = '') {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        // Create the parameters for calling createBucket
+        const bucketParams = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            Prefix: folderName,
+            Delimiter: '/',
+        };
+        return new Promise((resolve, reject) => {
+            return s3.listObjects(bucketParams, (err, data) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(data);
+            });
+        });
+    }
+    fileUpload(folderName = '', base64Data, imageType) {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        const params = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            Key: folderName,
+            Body: base64Data,
+            ACL: 'public-read',
+            ContentEncoding: 'base64',
+            ContentType: imageType,
+        };
+        return new Promise((resolve, reject) => {
+            return s3.upload(params, (err, data) => {
+                if (err) {
+                    return reject(err);
+                }
+                const locationArray = data.Location.split('/');
+                locationArray.pop();
+                const locationPath = locationArray.join('/');
+                return resolve({ path: locationPath });
+            });
+        });
+    }
+    fileDownload(folderName = '', dataFile) {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        const params = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            Key: folderName + dataFile, // type is not required
+        };
+        return new Promise((resolve, reject) => {
+            s3.getObject(params, (err, data) => {
+                if (err) {
+                    return reject(err);
+                }
+                fs.writeFileSync(dataFile, data.Body);
+                return resolve(dataFile);
+            });
+        });
+    }
+    videoFileDownload(folderName = '', dataFile, directoryPath = '') {
+        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
+        const params = {
+            Bucket: env_1.aws_setup.AWS_BUCKET,
+            Key: folderName + '/' + dataFile, // type is not required
+        };
+        return new Promise((resolve, reject) => {
+            s3.getObject(params, (err, data) => {
+                if (err) {
+                    return reject(err);
+                }
+                fs.writeFileSync(directoryPath, data.Body);
+                return resolve(directoryPath);
+            });
+        });
+    }
+};
+S3Service = tslib_1.__decorate([
+    (0, typedi_1.Service)()
+], S3Service);
+exports.S3Service = S3Service;
+//# sourceMappingURL=S3Service.js.map

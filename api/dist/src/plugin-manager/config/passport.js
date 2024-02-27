@@ -1,1 +1,76 @@
-'use strict';const a998_0x300c4c=a998_0x1ec8;(function(_0x333938,_0x2e7b31){const _0x2bfa3b=a998_0x1ec8,_0x48bdfb=_0x333938();while(!![]){try{const _0x1c71c3=parseInt(_0x2bfa3b(0x1a6))/0x1*(-parseInt(_0x2bfa3b(0x19b))/0x2)+parseInt(_0x2bfa3b(0x191))/0x3*(-parseInt(_0x2bfa3b(0x194))/0x4)+parseInt(_0x2bfa3b(0x1a8))/0x5+-parseInt(_0x2bfa3b(0x193))/0x6*(parseInt(_0x2bfa3b(0x18f))/0x7)+parseInt(_0x2bfa3b(0x195))/0x8*(-parseInt(_0x2bfa3b(0x18c))/0x9)+-parseInt(_0x2bfa3b(0x1ab))/0xa*(parseInt(_0x2bfa3b(0x19a))/0xb)+parseInt(_0x2bfa3b(0x19f))/0xc*(parseInt(_0x2bfa3b(0x1b3))/0xd);if(_0x1c71c3===_0x2e7b31)break;else _0x48bdfb['push'](_0x48bdfb['shift']());}catch(_0x5c7021){_0x48bdfb['push'](_0x48bdfb['shift']());}}}(a998_0x4008,0x3df6e));function a998_0x4008(){const _0x1472ca=['slice','use','User','39383MjlEjZ','Strategy','974150neIZJl','userId','passport-local','4450110QTeHjO','serializeUser','passport','class-transformer','isActive','path','default','find','293852MqzkTG','__importDefault','getRepository','defineProperty','deserializeUser','lodash','findOne','18fEzmbI','__esModule','usergroup','1136401EAVyQG','tokens','2091cgRime','tslib','18kAQGDN','476jaxYMU','338680CnlWMQ','typeorm','comparePassword','Invalid\x20email\x20or\x20password.','isAuthorized','11tWJurk','2WeWuTv','redirect','\x20not\x20found.','getManager','636aijsDG','isAuthenticated','instanceToPlain','__awaiter'];a998_0x4008=function(){return _0x1472ca;};return a998_0x4008();}Object[a998_0x300c4c(0x1b6)](exports,a998_0x300c4c(0x18d),{'value':!![]}),exports[a998_0x300c4c(0x199)]=exports[a998_0x300c4c(0x1a0)]=void 0x0;const tslib_1=require(a998_0x300c4c(0x192)),passport_1=tslib_1[a998_0x300c4c(0x1b4)](require(a998_0x300c4c(0x1ad))),passport_local_1=tslib_1['__importDefault'](require(a998_0x300c4c(0x1aa))),lodash_1=tslib_1[a998_0x300c4c(0x1b4)](require(a998_0x300c4c(0x18a))),typeorm_1=require(a998_0x300c4c(0x196)),User_1=require('../../api/core/models/User'),class_transformer_1=require(a998_0x300c4c(0x1ae)),LocalStrategy=passport_local_1[a998_0x300c4c(0x1b1)][a998_0x300c4c(0x1a7)];passport_1[a998_0x300c4c(0x1b1)][a998_0x300c4c(0x1ac)]((_0x4b526f,_0x272a54)=>{const _0x46a28f=a998_0x300c4c;_0x272a54(undefined,_0x4b526f[_0x46a28f(0x1a9)]);}),passport_1[a998_0x300c4c(0x1b1)][a998_0x300c4c(0x189)]((_0x14d0e4,_0x195dcd)=>tslib_1[a998_0x300c4c(0x1a2)](void 0x0,void 0x0,void 0x0,function*(){const _0x3820d4=a998_0x300c4c,_0x265909=(0x0,typeorm_1[_0x3820d4(0x19e)])()[_0x3820d4(0x1b5)](User_1[_0x3820d4(0x1a5)]);try{const _0x5c62a1=yield _0x265909[_0x3820d4(0x18b)](_0x14d0e4);if(!_0x5c62a1)return _0x195dcd(new Error('user\x20not\x20found'));_0x195dcd(undefined,_0x5c62a1);}catch(_0x267d17){_0x195dcd(_0x267d17);}})),passport_1[a998_0x300c4c(0x1b1)][a998_0x300c4c(0x1a4)](new LocalStrategy({'usernameField':'email'},(_0x43ec2f,_0x416c4f,_0x41cd7f)=>tslib_1[a998_0x300c4c(0x1a2)](void 0x0,void 0x0,void 0x0,function*(){const _0x5bd39f=a998_0x300c4c,_0x3b0fad=(0x0,typeorm_1[_0x5bd39f(0x19e)])()[_0x5bd39f(0x1b5)](User_1[_0x5bd39f(0x1a5)]),_0x1d8406=yield _0x3b0fad['findOne']({'where':{'username':_0x43ec2f,'deleteFlag':0x0,'userGroupId':0x1},'relations':['usergroup']});if(!_0x1d8406)return _0x41cd7f(undefined,![],{'message':['Email\x20'+_0x43ec2f+_0x5bd39f(0x19d)]});if(yield User_1[_0x5bd39f(0x1a5)][_0x5bd39f(0x197)](_0x1d8406,_0x416c4f)){if(_0x1d8406[_0x5bd39f(0x18e)][_0x5bd39f(0x1af)]===0x0)return _0x41cd7f(new Error('Inactive\x20Role'));return _0x41cd7f(undefined,(0x0,class_transformer_1[_0x5bd39f(0x1a1)])(_0x1d8406));}else return _0x41cd7f(undefined,![],{'message':[_0x5bd39f(0x198)]});})));let isAuthenticated=(_0x4dd34f,_0x5f10c2,_0x12c1e5)=>{const _0xbc573a=a998_0x300c4c;if(_0x4dd34f[_0xbc573a(0x1a0)]())return _0x12c1e5();_0x5f10c2[_0xbc573a(0x19c)]('/login');};exports[a998_0x300c4c(0x1a0)]=isAuthenticated;function a998_0x1ec8(_0x316c53,_0x6e1321){const _0x40080b=a998_0x4008();return a998_0x1ec8=function(_0x1ec87e,_0x4a6243){_0x1ec87e=_0x1ec87e-0x189;let _0x1b3f79=_0x40080b[_0x1ec87e];return _0x1b3f79;},a998_0x1ec8(_0x316c53,_0x6e1321);}let isAuthorized=(_0xc4ad76,_0x2e0fdb,_0x287909)=>{const _0x580272=a998_0x300c4c,_0x4a677a=_0xc4ad76[_0x580272(0x1b0)]['split']('/')[_0x580272(0x1a3)](-0x1)[0x0];lodash_1[_0x580272(0x1b1)][_0x580272(0x1b2)](_0xc4ad76['user'][_0x580272(0x190)],{'kind':_0x4a677a})?_0x287909():_0x2e0fdb['redirect']('/auth/'+_0x4a677a);};exports[a998_0x300c4c(0x199)]=isAuthorized;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.isAuthorized = exports.isAuthenticated = void 0;
+const tslib_1 = require("tslib");
+const passport_1 = tslib_1.__importDefault(require("passport"));
+const passport_local_1 = tslib_1.__importDefault(require("passport-local"));
+const lodash_1 = tslib_1.__importDefault(require("lodash"));
+const typeorm_1 = require("typeorm");
+const User_1 = require("../../api/core/models/User");
+const class_transformer_1 = require("class-transformer");
+const LocalStrategy = passport_local_1.default.Strategy;
+passport_1.default.serializeUser((user, done) => {
+    done(undefined, user.userId);
+});
+passport_1.default.deserializeUser((id, done) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+    const userRepository = (0, typeorm_1.getManager)().getRepository(User_1.User);
+    try {
+        const user = yield userRepository.findOne(id);
+        if (!user) {
+            return done(new Error('user not found'));
+        }
+        done(undefined, user);
+    }
+    catch (e) {
+        done(e);
+    }
+}));
+/**
+ * Sign in using Email and Password.
+ */
+passport_1.default.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+    const userRepository = (0, typeorm_1.getManager)().getRepository(User_1.User);
+    const user = yield userRepository.findOne({
+        where: {
+            username: email,
+            deleteFlag: 0,
+            userGroupId: 1,
+        }, relations: ['usergroup'],
+    });
+    if (!user) {
+        return done(undefined, false, { message: [`Email ${email} not found.`] });
+    }
+    if (yield User_1.User.comparePassword(user, password)) {
+        if (user.usergroup.isActive === 0) {
+            return done(new Error('Inactive Role'));
+        }
+        return done(undefined, (0, class_transformer_1.instanceToPlain)(user));
+    }
+    else {
+        return done(undefined, false, { message: ['Invalid email or password.'] });
+    }
+})));
+/**
+ * Login Required middleware.
+ */
+let isAuthenticated = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/login');
+};
+exports.isAuthenticated = isAuthenticated;
+/**
+ * Authorization Required middleware.
+ */
+let isAuthorized = (req, res, next) => {
+    const provider = req.path.split('/').slice(-1)[0];
+    if (lodash_1.default.find(req.user.tokens, { kind: provider })) {
+        next();
+    }
+    else {
+        res.redirect(`/auth/${provider}`);
+    }
+};
+exports.isAuthorized = isAuthorized;
+//# sourceMappingURL=passport.js.map

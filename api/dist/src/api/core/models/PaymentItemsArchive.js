@@ -1,1 +1,88 @@
-'use strict';const a399_0x454d83=a399_0x5c60;(function(_0x2fed80,_0x1f872e){const _0x4156b8=a399_0x5c60,_0x2e791c=_0x2fed80();while(!![]){try{const _0x41daa9=parseInt(_0x4156b8(0x174))/0x1+-parseInt(_0x4156b8(0x14d))/0x2+-parseInt(_0x4156b8(0x16d))/0x3+-parseInt(_0x4156b8(0x179))/0x4*(parseInt(_0x4156b8(0x14e))/0x5)+-parseInt(_0x4156b8(0x164))/0x6+parseInt(_0x4156b8(0x15e))/0x7*(parseInt(_0x4156b8(0x151))/0x8)+parseInt(_0x4156b8(0x153))/0x9;if(_0x41daa9===_0x1f872e)break;else _0x2e791c['push'](_0x2e791c['shift']());}catch(_0x4d6ccc){_0x2e791c['push'](_0x2e791c['shift']());}}}(a399_0x238c,0x2d22d));function a399_0x238c(){const _0x2e8b15=['BeforeUpdate','createDetails','paymentArchiveId','design:type','./PaymentArchive','productName','payment_archive_id','301HJCfdD','defineProperty','PaymentItemsArchive','YYYY-MM-DD\x20HH:mm:ss','productQuantity','updateDetails','665736aSiuJq','__esModule','typeorm/index','product_price','design:paramtypes','__awaiter','Column','__metadata','OrderProduct','1013340ZBpYWg','moment','BeforeInsert','payment_items_archive','tslib','PaymentArchive','total_amount','55408HdcJYz','format','prototype','class-validator','IsNotEmpty','148SkJSnI','ManyToOne','design:returntype','PrimaryGeneratedColumn','totalAmount','__decorate','682742sfISfq','49430PAeDkV','productPrice','./BaseModel','5528BhQRRw','Entity','11300805rmjBWU','BaseModel','product_quantity','JoinColumn'];a399_0x238c=function(){return _0x2e8b15;};return a399_0x238c();}Object[a399_0x454d83(0x15f)](exports,a399_0x454d83(0x165),{'value':!![]}),exports['PaymentItemsArchive']=void 0x0;function a399_0x5c60(_0x51be7d,_0x43ae82){const _0x238c58=a399_0x238c();return a399_0x5c60=function(_0x5c6063,_0x143ad1){_0x5c6063=_0x5c6063-0x14a;let _0x5a4961=_0x238c58[_0x5c6063];return _0x5a4961;},a399_0x5c60(_0x51be7d,_0x43ae82);}const tslib_1=require(a399_0x454d83(0x171)),typeorm_1=require('typeorm'),index_1=require(a399_0x454d83(0x166)),BaseModel_1=require(a399_0x454d83(0x150)),PaymentArchive_1=require(a399_0x454d83(0x15b)),OrderProduct_1=require('./OrderProduct'),moment=require(a399_0x454d83(0x16e)),class_validator_1=require(a399_0x454d83(0x177));let PaymentItemsArchive=class PaymentItemsArchive extends BaseModel_1[a399_0x454d83(0x154)]{[a399_0x454d83(0x158)](){const _0x5c2585=a399_0x454d83;return tslib_1[_0x5c2585(0x169)](this,void 0x0,void 0x0,function*(){const _0x580322=_0x5c2585;this['createdDate']=moment()[_0x580322(0x175)](_0x580322(0x161));});}[a399_0x454d83(0x163)](){const _0x210d07=a399_0x454d83;return tslib_1[_0x210d07(0x169)](this,void 0x0,void 0x0,function*(){const _0x508332=_0x210d07;this['modifiedDate']=moment()[_0x508332(0x175)](_0x508332(0x161));});}};tslib_1[a399_0x454d83(0x14c)]([(0x0,class_validator_1[a399_0x454d83(0x178)])(),(0x0,index_1[a399_0x454d83(0x14a)])({'name':'payment_item_archive_id'}),tslib_1[a399_0x454d83(0x16b)](a399_0x454d83(0x15a),Number)],PaymentItemsArchive[a399_0x454d83(0x176)],'paymentItemArchiveId',void 0x0),tslib_1[a399_0x454d83(0x14c)]([(0x0,class_validator_1[a399_0x454d83(0x178)])(),(0x0,typeorm_1[a399_0x454d83(0x16a)])({'name':'order_product_id'}),tslib_1['__metadata'](a399_0x454d83(0x15a),Number)],PaymentItemsArchive['prototype'],'orderProductId',void 0x0),tslib_1[a399_0x454d83(0x14c)]([(0x0,typeorm_1[a399_0x454d83(0x16a)])({'name':a399_0x454d83(0x15d)}),tslib_1[a399_0x454d83(0x16b)](a399_0x454d83(0x15a),Number)],PaymentItemsArchive[a399_0x454d83(0x176)],a399_0x454d83(0x159),void 0x0),tslib_1[a399_0x454d83(0x14c)]([(0x0,class_validator_1[a399_0x454d83(0x178)])(),(0x0,typeorm_1['Column'])({'name':a399_0x454d83(0x173)}),tslib_1[a399_0x454d83(0x16b)](a399_0x454d83(0x15a),Number)],PaymentItemsArchive['prototype'],a399_0x454d83(0x14b),void 0x0),tslib_1[a399_0x454d83(0x14c)]([(0x0,typeorm_1['Column'])({'name':'product_name'}),tslib_1[a399_0x454d83(0x16b)]('design:type',String)],PaymentItemsArchive[a399_0x454d83(0x176)],a399_0x454d83(0x15c),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a399_0x454d83(0x16a)])({'name':a399_0x454d83(0x155)}),tslib_1[a399_0x454d83(0x16b)](a399_0x454d83(0x15a),Number)],PaymentItemsArchive[a399_0x454d83(0x176)],a399_0x454d83(0x162),void 0x0),tslib_1[a399_0x454d83(0x14c)]([(0x0,typeorm_1['Column'])({'name':a399_0x454d83(0x167)}),tslib_1[a399_0x454d83(0x16b)](a399_0x454d83(0x15a),Number)],PaymentItemsArchive[a399_0x454d83(0x176)],a399_0x454d83(0x14f),void 0x0),tslib_1[a399_0x454d83(0x14c)]([(0x0,typeorm_1[a399_0x454d83(0x17a)])(_0x446927=>OrderProduct_1[a399_0x454d83(0x16c)],_0x5893dd=>_0x5893dd['paymentItemsArchive']),(0x0,typeorm_1[a399_0x454d83(0x156)])({'name':'order_product_id'}),tslib_1[a399_0x454d83(0x16b)](a399_0x454d83(0x15a),OrderProduct_1[a399_0x454d83(0x16c)])],PaymentItemsArchive[a399_0x454d83(0x176)],'orderProduct',void 0x0),tslib_1['__decorate']([(0x0,typeorm_1['ManyToOne'])(_0x4aeba5=>PaymentArchive_1[a399_0x454d83(0x172)],_0x42f115=>_0x42f115['paymentItemsArchive']),(0x0,typeorm_1[a399_0x454d83(0x156)])({'name':a399_0x454d83(0x15d)}),tslib_1[a399_0x454d83(0x16b)](a399_0x454d83(0x15a),PaymentArchive_1['PaymentArchive'])],PaymentItemsArchive[a399_0x454d83(0x176)],'paymentArchive',void 0x0),tslib_1[a399_0x454d83(0x14c)]([(0x0,typeorm_1[a399_0x454d83(0x16f)])(),tslib_1[a399_0x454d83(0x16b)]('design:type',Function),tslib_1[a399_0x454d83(0x16b)](a399_0x454d83(0x168),[]),tslib_1[a399_0x454d83(0x16b)](a399_0x454d83(0x17b),Promise)],PaymentItemsArchive['prototype'],a399_0x454d83(0x158),null),tslib_1['__decorate']([(0x0,typeorm_1[a399_0x454d83(0x157)])(),tslib_1[a399_0x454d83(0x16b)]('design:type',Function),tslib_1[a399_0x454d83(0x16b)](a399_0x454d83(0x168),[]),tslib_1[a399_0x454d83(0x16b)](a399_0x454d83(0x17b),Promise)],PaymentItemsArchive[a399_0x454d83(0x176)],a399_0x454d83(0x163),null),PaymentItemsArchive=tslib_1['__decorate']([(0x0,typeorm_1[a399_0x454d83(0x152)])(a399_0x454d83(0x170))],PaymentItemsArchive),exports[a399_0x454d83(0x160)]=PaymentItemsArchive;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PaymentItemsArchive = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const index_1 = require("typeorm/index");
+const BaseModel_1 = require("./BaseModel");
+const PaymentArchive_1 = require("./PaymentArchive");
+const OrderProduct_1 = require("./OrderProduct");
+const moment = require("moment");
+const class_validator_1 = require("class-validator");
+let PaymentItemsArchive = class PaymentItemsArchive extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, index_1.PrimaryGeneratedColumn)({ name: 'payment_item_archive_id' }),
+    tslib_1.__metadata("design:type", Number)
+], PaymentItemsArchive.prototype, "paymentItemArchiveId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'order_product_id' }),
+    tslib_1.__metadata("design:type", Number)
+], PaymentItemsArchive.prototype, "orderProductId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'payment_archive_id' }),
+    tslib_1.__metadata("design:type", Number)
+], PaymentItemsArchive.prototype, "paymentArchiveId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'total_amount' }),
+    tslib_1.__metadata("design:type", Number)
+], PaymentItemsArchive.prototype, "totalAmount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'product_name' }),
+    tslib_1.__metadata("design:type", String)
+], PaymentItemsArchive.prototype, "productName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'product_quantity' }),
+    tslib_1.__metadata("design:type", Number)
+], PaymentItemsArchive.prototype, "productQuantity", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'product_price' }),
+    tslib_1.__metadata("design:type", Number)
+], PaymentItemsArchive.prototype, "productPrice", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => OrderProduct_1.OrderProduct, orderProduct => orderProduct.paymentItemsArchive),
+    (0, typeorm_1.JoinColumn)({ name: 'order_product_id' }),
+    tslib_1.__metadata("design:type", OrderProduct_1.OrderProduct)
+], PaymentItemsArchive.prototype, "orderProduct", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => PaymentArchive_1.PaymentArchive, paymentArchive => paymentArchive.paymentItemsArchive),
+    (0, typeorm_1.JoinColumn)({ name: 'payment_archive_id' }),
+    tslib_1.__metadata("design:type", PaymentArchive_1.PaymentArchive)
+], PaymentItemsArchive.prototype, "paymentArchive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], PaymentItemsArchive.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], PaymentItemsArchive.prototype, "updateDetails", null);
+PaymentItemsArchive = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('payment_items_archive')
+], PaymentItemsArchive);
+exports.PaymentItemsArchive = PaymentItemsArchive;
+//# sourceMappingURL=PaymentItemsArchive.js.map

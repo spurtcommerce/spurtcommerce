@@ -1,1 +1,21 @@
-'use strict';const a313_0x28eaf8=a313_0x1edc;(function(_0x1c3cdb,_0x41923f){const _0x394f63=a313_0x1edc,_0x299941=_0x1c3cdb();while(!![]){try{const _0x6fb374=-parseInt(_0x394f63(0x190))/0x1+parseInt(_0x394f63(0x194))/0x2*(parseInt(_0x394f63(0x187))/0x3)+-parseInt(_0x394f63(0x18c))/0x4+parseInt(_0x394f63(0x18d))/0x5+parseInt(_0x394f63(0x18a))/0x6*(parseInt(_0x394f63(0x188))/0x7)+-parseInt(_0x394f63(0x18f))/0x8*(parseInt(_0x394f63(0x189))/0x9)+parseInt(_0x394f63(0x195))/0xa;if(_0x6fb374===_0x41923f)break;else _0x299941['push'](_0x299941['shift']());}catch(_0x40f489){_0x299941['push'](_0x299941['shift']());}}}(a313_0x368d,0x38ef5));Object[a313_0x28eaf8(0x197)](exports,a313_0x28eaf8(0x186),{'value':!![]}),exports[a313_0x28eaf8(0x192)]=void 0x0;const tslib_1=require(a313_0x28eaf8(0x196));function a313_0x368d(){const _0x32de8b=['6499420BXWUtG','tslib','defineProperty','class-validator','__esModule','174yGaDds','7DAFPaX','54aPZLUp','836814DvIucV','bannerId','502396OXzTst','1481955XUuebt','__decorate','536392JddGsh','373308KgnLhb','design:type','DeleteBannerRequest','__metadata','1676KxMdbg'];a313_0x368d=function(){return _0x32de8b;};return a313_0x368d();}function a313_0x1edc(_0x1463ed,_0x164664){const _0x368d86=a313_0x368d();return a313_0x1edc=function(_0x1edc3c,_0x40eb2b){_0x1edc3c=_0x1edc3c-0x185;let _0x50cc60=_0x368d86[_0x1edc3c];return _0x50cc60;},a313_0x1edc(_0x1463ed,_0x164664);}require('reflect-metadata');const class_validator_1=require(a313_0x28eaf8(0x185));class DeleteBannerRequest{}tslib_1[a313_0x28eaf8(0x18e)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a313_0x28eaf8(0x193)](a313_0x28eaf8(0x191),Array)],DeleteBannerRequest['prototype'],a313_0x28eaf8(0x18b),void 0x0),exports[a313_0x28eaf8(0x192)]=DeleteBannerRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeleteBannerRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class DeleteBannerRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Array)
+], DeleteBannerRequest.prototype, "bannerId", void 0);
+exports.DeleteBannerRequest = DeleteBannerRequest;
+//# sourceMappingURL=DeleteBannerRequest.js.map

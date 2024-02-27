@@ -1,1 +1,32 @@
-'use strict';const a213_0x19ee4c=a213_0x2d37;function a213_0x2d37(_0x5e0570,_0x3127b3){const _0x481afd=a213_0x481a();return a213_0x2d37=function(_0x2d378b,_0x1ec1ad){_0x2d378b=_0x2d378b-0x108;let _0x170014=_0x481afd[_0x2d378b];return _0x170014;},a213_0x2d37(_0x5e0570,_0x3127b3);}(function(_0x4cd0e2,_0x4da16c){const _0x11f6a0=a213_0x2d37,_0x2ac832=_0x4cd0e2();while(!![]){try{const _0x3335d3=parseInt(_0x11f6a0(0x116))/0x1*(parseInt(_0x11f6a0(0x113))/0x2)+-parseInt(_0x11f6a0(0x111))/0x3+parseInt(_0x11f6a0(0x117))/0x4+parseInt(_0x11f6a0(0x112))/0x5+parseInt(_0x11f6a0(0x10e))/0x6+parseInt(_0x11f6a0(0x115))/0x7*(-parseInt(_0x11f6a0(0x11d))/0x8)+parseInt(_0x11f6a0(0x11e))/0x9;if(_0x3335d3===_0x4da16c)break;else _0x2ac832['push'](_0x2ac832['shift']());}catch(_0x348173){_0x2ac832['push'](_0x2ac832['shift']());}}}(a213_0x481a,0xd889e));Object[a213_0x19ee4c(0x114)](exports,a213_0x19ee4c(0x118),{'value':!![]}),exports[a213_0x19ee4c(0x108)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a213_0x19ee4c(0x119)),moment=require(a213_0x19ee4c(0x110));class AddSeoMenu1665120872278{['up'](_0x4e66d1){const _0x59b247=a213_0x19ee4c;return tslib_1[_0x59b247(0x11b)](this,void 0x0,void 0x0,function*(){const _0x47f14d=_0x59b247,_0x48feb3=[{'menuName':_0x47f14d(0x10b),'menuModule':'CMS','path':_0x47f14d(0x10f),'icon':'','parentId':0x0,'status':0x1,'createdDate':''+moment()[_0x47f14d(0x11c)](_0x47f14d(0x11a)),'updatedDate':''+moment()[_0x47f14d(0x11c)](_0x47f14d(0x11a))}];yield(0x0,typeorm_1[_0x47f14d(0x10d)])(_0x47f14d(0x10c))[_0x47f14d(0x10a)](_0x48feb3);});}[a213_0x19ee4c(0x109)](_0x4452e1){const _0x47a922=a213_0x19ee4c;return tslib_1[_0x47a922(0x11b)](this,void 0x0,void 0x0,function*(){});}}exports['AddSeoMenu1665120872278']=AddSeoMenu1665120872278;function a213_0x481a(){const _0x27f1a6=['1049696IbYITs','__esModule','typeorm','YYYY-MM-DD\x20HH:mm:ss','__awaiter','format','8HWQIgx','8452458GZFnFm','AddSeoMenu1665120872278','down','save','Seo','PluginMenu','getRepository','6885636rDnLMU','#/cms/manage-seo/seo','moment/moment','3178824erKYPC','4245275VdmENU','611012UIVvmV','defineProperty','10900421kSCmpv','1mpOpSw'];a213_0x481a=function(){return _0x27f1a6;};return a213_0x481a();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddSeoMenu1665120872278 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment = require("moment/moment");
+class AddSeoMenu1665120872278 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const SeoSeed = [
+                {
+                    menuName: 'Seo',
+                    menuModule: 'CMS',
+                    path: '#/cms/manage-seo/seo',
+                    icon: '',
+                    parentId: 0,
+                    status: 1,
+                    createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                },
+            ];
+            yield (0, typeorm_1.getRepository)('PluginMenu').save(SeoSeed);
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ----
+        });
+    }
+}
+exports.AddSeoMenu1665120872278 = AddSeoMenu1665120872278;
+//# sourceMappingURL=1665120872278-AddSeoMenu.js.map

@@ -1,1 +1,68 @@
-'use strict';const a54_0x2db734=a54_0x1f7e;(function(_0x113853,_0x2dcd8e){const _0x4d92fb=a54_0x1f7e,_0x353fc9=_0x113853();while(!![]){try{const _0x567e59=-parseInt(_0x4d92fb(0x10e))/0x1+parseInt(_0x4d92fb(0x112))/0x2+parseInt(_0x4d92fb(0x10b))/0x3+-parseInt(_0x4d92fb(0x109))/0x4*(parseInt(_0x4d92fb(0x127))/0x5)+-parseInt(_0x4d92fb(0x104))/0x6*(parseInt(_0x4d92fb(0x10c))/0x7)+parseInt(_0x4d92fb(0x107))/0x8*(parseInt(_0x4d92fb(0xfd))/0x9)+-parseInt(_0x4d92fb(0x11a))/0xa*(-parseInt(_0x4d92fb(0x124))/0xb);if(_0x567e59===_0x2dcd8e)break;else _0x353fc9['push'](_0x353fc9['shift']());}catch(_0x247cf4){_0x353fc9['push'](_0x353fc9['shift']());}}}(a54_0x2386,0xbb72c));function a54_0x1f7e(_0x425fe4,_0x19db55){const _0x238660=a54_0x2386();return a54_0x1f7e=function(_0x1f7eb6,_0x86b910){_0x1f7eb6=_0x1f7eb6-0xfa;let _0x46dd5b=_0x238660[_0x1f7eb6];return _0x46dd5b;},a54_0x1f7e(_0x425fe4,_0x19db55);}Object[a54_0x2db734(0x105)](exports,'__esModule',{'value':!![]}),exports[a54_0x2db734(0xfb)]=void 0x0;function a54_0x2386(){const _0x9ea906=['You\x20not\x20install\x20this\x20plugin.\x20or\x20problem\x20in\x20installation','pluginAdditionalInfo','save','Req','isTest','1422130hHjmjX','typeorm','design:type','Body','send','Res','__metadata','design:returntype','status','../../../../../src/api/core/models/Plugin','11GqvIAw','design:paramtypes','stringify','2200375XHbUyb','findOne','AdminStripeController','getRepository','36NHNZwL','Post','updateSetting','prototype','__decorate','/update-setting','Stripe','18bgvWsF','defineProperty','__param','2667824ThIEwK','clientSecret','12Bgwkyx','clientId','476394gdVoRV','1397137utqTIB','reflect-metadata','333215kXsMlP','Controller','parse','getManager','2770156iFnYYd','__awaiter','routing-controllers'];a54_0x2386=function(){return _0x9ea906;};return a54_0x2386();}const tslib_1=require('tslib');require(a54_0x2db734(0x10d));const routing_controllers_1=require(a54_0x2db734(0x114)),typeorm_1=require(a54_0x2db734(0x11b)),Plugin_1=require(a54_0x2db734(0x123));let AdminStripeController=class AdminStripeController{constructor(){}['updateSetting'](_0xc4b836,_0x44e387,_0x409a9d){const _0x1d00ca=a54_0x2db734;return tslib_1[_0x1d00ca(0x113)](this,void 0x0,void 0x0,function*(){const _0x1b39a5=_0x1d00ca,_0x289e5c=(0x0,typeorm_1[_0x1b39a5(0x111)])()[_0x1b39a5(0xfc)](Plugin_1['Plugins']),_0x34ed42=yield _0x289e5c[_0x1b39a5(0xfa)]({'where':{'pluginName':_0x1b39a5(0x103)}});if(!_0x34ed42)return _0x409a9d[_0x1b39a5(0x122)](0x190)[_0x1b39a5(0x11e)]({'status':0x1,'message':_0x1b39a5(0x115)});const _0x2305f5=_0x34ed42[_0x1b39a5(0x116)]?JSON[_0x1b39a5(0x110)](_0x34ed42[_0x1b39a5(0x116)]):{};_0x2305f5[_0x1b39a5(0x10a)]=_0xc4b836['clientId'],_0x2305f5[_0x1b39a5(0x108)]=_0xc4b836[_0x1b39a5(0x108)],_0x2305f5[_0x1b39a5(0x119)]=_0xc4b836[_0x1b39a5(0x119)],_0x34ed42['pluginAdditionalInfo']=JSON[_0x1b39a5(0x126)](_0x2305f5);const _0x1af9a7=yield _0x289e5c[_0x1b39a5(0x117)](_0x34ed42);if(_0x1af9a7)return _0x409a9d[_0x1b39a5(0x122)](0xc8)[_0x1b39a5(0x11e)]({'status':0x1,'message':'Stripe\x20settings\x20updated\x20successfully'});const _0x4bb89f={'status':0x1,'message':'Unable\x20to\x20update\x20the\x20paypal\x20settings'};return _0x409a9d['status'](0x190)[_0x1b39a5(0x11e)](_0x4bb89f);});}};tslib_1[a54_0x2db734(0x101)]([(0x0,routing_controllers_1[a54_0x2db734(0xfe)])(a54_0x2db734(0x102)),tslib_1[a54_0x2db734(0x106)](0x0,(0x0,routing_controllers_1[a54_0x2db734(0x11d)])({'validate':!![]})),tslib_1[a54_0x2db734(0x106)](0x1,(0x0,routing_controllers_1[a54_0x2db734(0x118)])()),tslib_1[a54_0x2db734(0x106)](0x2,(0x0,routing_controllers_1[a54_0x2db734(0x11f)])()),tslib_1[a54_0x2db734(0x120)](a54_0x2db734(0x11c),Function),tslib_1[a54_0x2db734(0x120)]('design:paramtypes',[Object,Object,Object]),tslib_1[a54_0x2db734(0x120)](a54_0x2db734(0x121),Promise)],AdminStripeController[a54_0x2db734(0x100)],a54_0x2db734(0xff),null),AdminStripeController=tslib_1['__decorate']([(0x0,routing_controllers_1[a54_0x2db734(0x10f)])('/admin-stripe-payment'),tslib_1[a54_0x2db734(0x120)](a54_0x2db734(0x125),[])],AdminStripeController),exports['AdminStripeController']=AdminStripeController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AdminStripeController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../../../../../src/api/core/models/Plugin");
+let AdminStripeController = class AdminStripeController {
+    constructor() {
+        // ---
+    }
+    updateSetting(postParams, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'Stripe',
+                },
+            });
+            if (!pluginDetail) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'You not install this plugin. or problem in installation',
+                });
+            }
+            const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            paypalAdditionalInfo.clientId = postParams.clientId;
+            paypalAdditionalInfo.clientSecret = postParams.clientSecret;
+            paypalAdditionalInfo.isTest = postParams.isTest;
+            pluginDetail.pluginAdditionalInfo = JSON.stringify(paypalAdditionalInfo);
+            const saveResponse = yield pluginRepository.save(pluginDetail);
+            if (saveResponse) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Stripe settings updated successfully',
+                });
+            }
+            const errorResponse = {
+                status: 1,
+                message: 'Unable to update the paypal settings',
+            };
+            return response.status(400).send(errorResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/update-setting'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminStripeController.prototype, "updateSetting", null);
+AdminStripeController = tslib_1.__decorate([
+    (0, routing_controllers_1.Controller)('/admin-stripe-payment'),
+    tslib_1.__metadata("design:paramtypes", [])
+], AdminStripeController);
+exports.AdminStripeController = AdminStripeController;
+//# sourceMappingURL=AdminStripeController.js.map

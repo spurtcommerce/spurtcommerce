@@ -1,1 +1,50 @@
-'use strict';function a893_0x38cb(_0x768d34,_0x23e57c){const _0x1de8be=a893_0x1de8();return a893_0x38cb=function(_0x38cbd1,_0x36da5){_0x38cbd1=_0x38cbd1-0x127;let _0x34545d=_0x1de8be[_0x38cbd1];return _0x34545d;},a893_0x38cb(_0x768d34,_0x23e57c);}const a893_0xc41701=a893_0x38cb;(function(_0x3dee09,_0x3db0bc){const _0x4877ae=a893_0x38cb,_0x34a560=_0x3dee09();while(!![]){try{const _0xa2c129=parseInt(_0x4877ae(0x12b))/0x1*(-parseInt(_0x4877ae(0x12c))/0x2)+parseInt(_0x4877ae(0x129))/0x3+-parseInt(_0x4877ae(0x13c))/0x4*(-parseInt(_0x4877ae(0x134))/0x5)+-parseInt(_0x4877ae(0x135))/0x6*(-parseInt(_0x4877ae(0x13e))/0x7)+-parseInt(_0x4877ae(0x13b))/0x8+-parseInt(_0x4877ae(0x138))/0x9+-parseInt(_0x4877ae(0x139))/0xa*(-parseInt(_0x4877ae(0x130))/0xb);if(_0xa2c129===_0x3db0bc)break;else _0x34a560['push'](_0x34a560['shift']());}catch(_0x1650df){_0x34a560['push'](_0x34a560['shift']());}}}(a893_0x1de8,0xefbca));function a893_0x1de8(){const _0xbe3741=['AddSkuColumn1603105123172','__esModule','64455ZIqQfe','30PdcuIJ','typeorm','product_special','15547941bJaLfY','20fTQJCZ','tslib','9370936yfBugS','236FKMzZW','hasColumn','241136rkGeAF','product_tire_price','int','addColumn','2245575JOvJEt','sku_id','242349XiXebO','4ycBIrV','__awaiter','product_discount','defineProperty','14763331WOAnyQ','TableColumn'];a893_0x1de8=function(){return _0xbe3741;};return a893_0x1de8();}Object[a893_0xc41701(0x12f)](exports,a893_0xc41701(0x133),{'value':!![]}),exports[a893_0xc41701(0x132)]=void 0x0;const tslib_1=require(a893_0xc41701(0x13a)),typeorm_1=require(a893_0xc41701(0x136));class AddSkuColumn1603105123172{['up'](_0x18b490){const _0x45f93a=a893_0xc41701;return tslib_1[_0x45f93a(0x12d)](this,void 0x0,void 0x0,function*(){const _0x40aaa4=_0x45f93a,_0x1d1245=yield _0x18b490[_0x40aaa4(0x13d)](_0x40aaa4(0x12e),_0x40aaa4(0x12a));!_0x1d1245&&(yield _0x18b490[_0x40aaa4(0x128)](_0x40aaa4(0x12e),new typeorm_1[(_0x40aaa4(0x131))]({'name':'sku_id','type':_0x40aaa4(0x127),'length':'11','isPrimary':![],'isNullable':!![]})));const _0x20373f=yield _0x18b490[_0x40aaa4(0x13d)](_0x40aaa4(0x137),_0x40aaa4(0x12a));!_0x20373f&&(yield _0x18b490[_0x40aaa4(0x128)](_0x40aaa4(0x137),new typeorm_1[(_0x40aaa4(0x131))]({'name':'sku_id','type':_0x40aaa4(0x127),'length':'11','isPrimary':![],'isNullable':!![]})));const _0x1a4d37=yield _0x18b490[_0x40aaa4(0x13d)](_0x40aaa4(0x13f),_0x40aaa4(0x12a));!_0x1a4d37&&(yield _0x18b490[_0x40aaa4(0x128)](_0x40aaa4(0x13f),new typeorm_1[(_0x40aaa4(0x131))]({'name':_0x40aaa4(0x12a),'type':'int','length':'11','isPrimary':![],'isNullable':!![]})));});}['down'](_0x2f64f6){const _0x1426c9=a893_0xc41701;return tslib_1[_0x1426c9(0x12d)](this,void 0x0,void 0x0,function*(){const _0x31a5ef=_0x1426c9;yield _0x2f64f6['dropColumn'](_0x31a5ef(0x12e),'sku_id'),yield _0x2f64f6['dropColumn'](_0x31a5ef(0x137),'sku_id'),yield _0x2f64f6['dropColumn']('product_tire_price','sku_id');});}}exports[a893_0xc41701(0x132)]=AddSkuColumn1603105123172;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddSkuColumn1603105123172 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddSkuColumn1603105123172 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('product_discount', 'sku_id');
+            if (!ifExist) {
+                yield queryRunner.addColumn('product_discount', new typeorm_1.TableColumn({
+                    name: 'sku_id',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist1 = yield queryRunner.hasColumn('product_special', 'sku_id');
+            if (!ifExist1) {
+                yield queryRunner.addColumn('product_special', new typeorm_1.TableColumn({
+                    name: 'sku_id',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist2 = yield queryRunner.hasColumn('product_tire_price', 'sku_id');
+            if (!ifExist2) {
+                yield queryRunner.addColumn('product_tire_price', new typeorm_1.TableColumn({
+                    name: 'sku_id',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('product_discount', 'sku_id');
+            yield queryRunner.dropColumn('product_special', 'sku_id');
+            yield queryRunner.dropColumn('product_tire_price', 'sku_id');
+        });
+    }
+}
+exports.AddSkuColumn1603105123172 = AddSkuColumn1603105123172;
+//# sourceMappingURL=1603105123172-AddSkuColumn.js.map

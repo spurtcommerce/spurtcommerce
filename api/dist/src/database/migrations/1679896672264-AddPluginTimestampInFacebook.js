@@ -1,1 +1,30 @@
-'use strict';const a958_0x16d473=a958_0x2ea7;(function(_0x46a572,_0x5d4ae7){const _0x293f9a=a958_0x2ea7,_0x500050=_0x46a572();while(!![]){try{const _0x6f7538=parseInt(_0x293f9a(0xb2))/0x1*(-parseInt(_0x293f9a(0xae))/0x2)+parseInt(_0x293f9a(0xb7))/0x3*(-parseInt(_0x293f9a(0xb1))/0x4)+-parseInt(_0x293f9a(0xa9))/0x5*(-parseInt(_0x293f9a(0xa3))/0x6)+parseInt(_0x293f9a(0xb8))/0x7*(parseInt(_0x293f9a(0xaa))/0x8)+parseInt(_0x293f9a(0xac))/0x9+-parseInt(_0x293f9a(0xb9))/0xa*(parseInt(_0x293f9a(0xb4))/0xb)+-parseInt(_0x293f9a(0xa5))/0xc*(-parseInt(_0x293f9a(0xad))/0xd);if(_0x6f7538===_0x5d4ae7)break;else _0x500050['push'](_0x500050['shift']());}catch(_0x211542){_0x500050['push'](_0x500050['shift']());}}}(a958_0x2238,0x9034c));function a958_0x2238(){const _0x53510f=['3009293UyjgDY','10737820jhZvGV','facebook','save','Facebook','AddPluginTimestampInFacebook1679896672264','1064556SmkFwN','__esModule','2082444tYTLEs','getRepository','__awaiter','down','15LzImDJ','16doVGLf','typeorm','10034613YdqJWZ','13hqRRyt','478CfNrQO','defineProperty','../../../src/api/core/models/Plugin','4053964MXeGBr','11waPaiq','pluginTimestamp','11rgpgRo','tslib','Plugins','3tYHqYx'];a958_0x2238=function(){return _0x53510f;};return a958_0x2238();}Object[a958_0x16d473(0xaf)](exports,a958_0x16d473(0xa4),{'value':!![]}),exports[a958_0x16d473(0xbd)]=void 0x0;const tslib_1=require(a958_0x16d473(0xb5)),typeorm_1=require(a958_0x16d473(0xab)),Plugin_1=require(a958_0x16d473(0xb0));function a958_0x2ea7(_0x5d2ff4,_0x57f7db){const _0x223821=a958_0x2238();return a958_0x2ea7=function(_0x2ea768,_0x413844){_0x2ea768=_0x2ea768-0xa3;let _0x5be9d9=_0x223821[_0x2ea768];return _0x5be9d9;},a958_0x2ea7(_0x5d2ff4,_0x57f7db);}class AddPluginTimestampInFacebook1679896672264{['up'](_0x5855e6){const _0x2337fb=a958_0x16d473;return tslib_1[_0x2337fb(0xa7)](this,void 0x0,void 0x0,function*(){const _0x5c5f70=_0x2337fb,_0x37864f=(0x0,typeorm_1[_0x5c5f70(0xa6)])(Plugin_1[_0x5c5f70(0xb6)]),_0x1de7e0=yield _0x37864f['findOne']({'where':{'pluginName':_0x5c5f70(0xbc)}});_0x1de7e0&&(_0x1de7e0['slugName']=_0x5c5f70(0xba),_0x1de7e0[_0x5c5f70(0xb3)]=0x17fc4bcd24e,yield _0x37864f[_0x5c5f70(0xbb)](_0x1de7e0));});}[a958_0x16d473(0xa8)](_0x1ca7f8){const _0x4102e4=a958_0x16d473;return tslib_1[_0x4102e4(0xa7)](this,void 0x0,void 0x0,function*(){});}}exports[a958_0x16d473(0xbd)]=AddPluginTimestampInFacebook1679896672264;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddPluginTimestampInFacebook1679896672264 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../../../src/api/core/models/Plugin");
+class AddPluginTimestampInFacebook1679896672264 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const repo = (0, typeorm_1.getRepository)(Plugin_1.Plugins);
+            const plugin = yield repo.findOne({
+                where: {
+                    pluginName: 'Facebook',
+                },
+            });
+            if (plugin) {
+                plugin.slugName = 'facebook';
+                plugin.pluginTimestamp = 1648273183310; // This Add-on's Plugin Migration Timestamp
+                yield repo.save(plugin);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.AddPluginTimestampInFacebook1679896672264 = AddPluginTimestampInFacebook1679896672264;
+//# sourceMappingURL=1679896672264-AddPluginTimestampInFacebook.js.map

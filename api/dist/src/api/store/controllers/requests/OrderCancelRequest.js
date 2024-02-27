@@ -1,1 +1,25 @@
-'use strict';const a665_0x4cd3a7=a665_0x5a59;function a665_0x5a59(_0x544977,_0x1aee0a){const _0x47de7f=a665_0x47de();return a665_0x5a59=function(_0x5a59b0,_0x11f7c2){_0x5a59b0=_0x5a59b0-0x1c9;let _0x4bda07=_0x47de7f[_0x5a59b0];return _0x4bda07;},a665_0x5a59(_0x544977,_0x1aee0a);}(function(_0x2cad16,_0x281463){const _0x4fb859=a665_0x5a59,_0x46b795=_0x2cad16();while(!![]){try{const _0x1a605f=-parseInt(_0x4fb859(0x1d8))/0x1*(-parseInt(_0x4fb859(0x1cb))/0x2)+-parseInt(_0x4fb859(0x1d7))/0x3*(parseInt(_0x4fb859(0x1dd))/0x4)+-parseInt(_0x4fb859(0x1d2))/0x5+parseInt(_0x4fb859(0x1da))/0x6+-parseInt(_0x4fb859(0x1c9))/0x7*(parseInt(_0x4fb859(0x1ca))/0x8)+parseInt(_0x4fb859(0x1dc))/0x9+parseInt(_0x4fb859(0x1df))/0xa*(parseInt(_0x4fb859(0x1d4))/0xb);if(_0x1a605f===_0x281463)break;else _0x46b795['push'](_0x46b795['shift']());}catch(_0x4cda7f){_0x46b795['push'](_0x46b795['shift']());}}}(a665_0x47de,0x2ae9f));Object[a665_0x4cd3a7(0x1ce)](exports,a665_0x4cd3a7(0x1cf),{'value':!![]}),exports[a665_0x4cd3a7(0x1d3)]=void 0x0;const tslib_1=require('tslib');require(a665_0x4cd3a7(0x1d5));const class_validator_1=require(a665_0x4cd3a7(0x1db));class OrderCancelRequest{}function a665_0x47de(){const _0x28cdce=['940944sPNSfD','class-validator','748197cnAREY','162548BsNiPb','reasonId','3330PHBeVL','14AIZInS','1237064kIJcvg','65650Yupeid','__decorate','prototype','defineProperty','__esModule','design:type','IsNotEmpty','1721025qLXkvD','OrderCancelRequest','23441bzrZsr','reflect-metadata','orderProductId','21Zouuqg','5skFvjP','__metadata'];a665_0x47de=function(){return _0x28cdce;};return a665_0x47de();}tslib_1[a665_0x4cd3a7(0x1cc)]([(0x0,class_validator_1[a665_0x4cd3a7(0x1d1)])(),tslib_1[a665_0x4cd3a7(0x1d9)](a665_0x4cd3a7(0x1d0),Number)],OrderCancelRequest[a665_0x4cd3a7(0x1cd)],a665_0x4cd3a7(0x1de),void 0x0),tslib_1[a665_0x4cd3a7(0x1cc)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1['__metadata']('design:type',Number)],OrderCancelRequest[a665_0x4cd3a7(0x1cd)],a665_0x4cd3a7(0x1d6),void 0x0),exports[a665_0x4cd3a7(0x1d3)]=OrderCancelRequest;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrderCancelRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class OrderCancelRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], OrderCancelRequest.prototype, "reasonId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], OrderCancelRequest.prototype, "orderProductId", void 0);
+exports.OrderCancelRequest = OrderCancelRequest;
+//# sourceMappingURL=OrderCancelRequest.js.map

@@ -1,1 +1,72 @@
-'use strict';const a732_0x3b3ca9=a732_0x31d8;(function(_0x3236cd,_0x3fb9f2){const _0x17f766=a732_0x31d8,_0x5d35be=_0x3236cd();while(!![]){try{const _0x4514db=-parseInt(_0x17f766(0x1f9))/0x1*(parseInt(_0x17f766(0x1ef))/0x2)+parseInt(_0x17f766(0x1ff))/0x3+-parseInt(_0x17f766(0x203))/0x4+parseInt(_0x17f766(0x1f2))/0x5*(-parseInt(_0x17f766(0x1fb))/0x6)+-parseInt(_0x17f766(0x1f4))/0x7*(parseInt(_0x17f766(0x204))/0x8)+parseInt(_0x17f766(0x1fa))/0x9+-parseInt(_0x17f766(0x1ed))/0xa*(-parseInt(_0x17f766(0x1fd))/0xb);if(_0x4514db===_0x3fb9f2)break;else _0x5d35be['push'](_0x5d35be['shift']());}catch(_0x28cfdb){_0x5d35be['push'](_0x5d35be['shift']());}}}(a732_0x33d3,0x362e9));Object[a732_0x3b3ca9(0x1e9)](exports,a732_0x3b3ca9(0x206),{'value':!![]}),exports['CreateStockStatusTable1546525833396']=void 0x0;const tslib_1=require(a732_0x3b3ca9(0x1f3)),typeorm_1=require('typeorm');class CreateStockStatusTable1546525833396{['up'](_0x320acb){const _0x1a8621=a732_0x3b3ca9;return tslib_1[_0x1a8621(0x1f8)](this,void 0x0,void 0x0,function*(){const _0x289528=_0x1a8621,_0xa85102=new typeorm_1[(_0x289528(0x1ee))]({'name':'stock_status','columns':[{'name':_0x289528(0x1e7),'type':'integer','length':'11','isGenerated':!![],'generationStrategy':_0x289528(0x1f6),'isPrimary':!![],'isNullable':![]},{'name':_0x289528(0x1fe),'type':_0x289528(0x1ea),'length':'32','isPrimary':![],'isNullable':!![]},{'name':_0x289528(0x1ec),'type':_0x289528(0x1e8),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x289528(0x1f7),'type':_0x289528(0x1f1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x289528(0x202),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x289528(0x1fc),'type':_0x289528(0x1f0),'isPrimary':![],'isNullable':!![],'default':_0x289528(0x200)},{'name':'modified_date','type':'DATETIME','isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'}]}),_0x3a4791=yield _0x320acb[_0x289528(0x1f5)](_0x289528(0x1eb));!_0x3a4791&&(yield _0x320acb[_0x289528(0x1e6)](_0xa85102));});}[a732_0x3b3ca9(0x205)](_0x3d1102){const _0x1aa3f3=a732_0x3b3ca9;return tslib_1[_0x1aa3f3(0x1f8)](this,void 0x0,void 0x0,function*(){const _0x3f98b5=_0x1aa3f3;yield _0x3d1102['dropTable'](_0x3f98b5(0x1eb),!![]);});}}function a732_0x31d8(_0x5bbab7,_0x3316dc){const _0x33d368=a732_0x33d3();return a732_0x31d8=function(_0x31d828,_0x1319bf){_0x31d828=_0x31d828-0x1e6;let _0x199cd2=_0x33d368[_0x31d828];return _0x199cd2;},a732_0x31d8(_0x5bbab7,_0x3316dc);}function a732_0x33d3(){const _0x2520e9=['62079dgkwhK','1908864lGvPim','471846cPLOlC','created_date','5786ITtVIX','name','689046tDuYjw','CURRENT_TIMESTAMP','CreateStockStatusTable1546525833396','modified_by','1618788KZCdtX','67488UsYeDk','down','__esModule','createTable','stock_status_id','int','defineProperty','varchar','stock_status','is_active','22870HkTiHt','Table','6nGZIBr','DATETIME','integer','25iGufam','tslib','364ahXJAM','hasTable','increment','created_by','__awaiter'];a732_0x33d3=function(){return _0x2520e9;};return a732_0x33d3();}exports[a732_0x3b3ca9(0x201)]=CreateStockStatusTable1546525833396;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateStockStatusTable1546525833396 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateStockStatusTable1546525833396 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'stock_status',
+                columns: [
+                    {
+                        name: 'stock_status_id',
+                        type: 'integer',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'name',
+                        type: 'varchar',
+                        length: '32',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('stock_status');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('stock_status', true);
+        });
+    }
+}
+exports.CreateStockStatusTable1546525833396 = CreateStockStatusTable1546525833396;
+//# sourceMappingURL=1546525833396-CreateStockStatusTable.js.map

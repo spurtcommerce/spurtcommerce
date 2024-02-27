@@ -1,1 +1,30 @@
-'use strict';function a1007_0x4f8a(){const _0x3063d1=['IsNotEmpty','__decorate','Password\x20is\x20required','6891950gFNgPU','15478728TJeHAx','3586374smFiQC','email','1652859QnUsxb','class-validator','907398RcErfe','404AtZGbR','password','__esModule','2801785vsGEsM','__metadata','defineProperty','reflect-metadata','tslib','177pDBGRR','Login','prototype','design:type'];a1007_0x4f8a=function(){return _0x3063d1;};return a1007_0x4f8a();}const a1007_0x3c8db0=a1007_0x3a65;(function(_0x3ee62e,_0x136f5b){const _0x33e999=a1007_0x3a65,_0x1a7e42=_0x3ee62e();while(!![]){try{const _0x2d24e2=parseInt(_0x33e999(0xea))/0x1+-parseInt(_0x33e999(0xd6))/0x2+parseInt(_0x33e999(0xdf))/0x3*(-parseInt(_0x33e999(0xd7))/0x4)+parseInt(_0x33e999(0xe6))/0x5+parseInt(_0x33e999(0xe8))/0x6+-parseInt(_0x33e999(0xda))/0x7+-parseInt(_0x33e999(0xe7))/0x8;if(_0x2d24e2===_0x136f5b)break;else _0x1a7e42['push'](_0x1a7e42['shift']());}catch(_0x6fe32){_0x1a7e42['push'](_0x1a7e42['shift']());}}}(a1007_0x4f8a,0xcbab0));Object[a1007_0x3c8db0(0xdc)](exports,a1007_0x3c8db0(0xd9),{'value':!![]}),exports[a1007_0x3c8db0(0xe0)]=void 0x0;function a1007_0x3a65(_0x2eaeeb,_0x4aafe){const _0x4f8a16=a1007_0x4f8a();return a1007_0x3a65=function(_0x3a65f0,_0x497963){_0x3a65f0=_0x3a65f0-0xd6;let _0x368451=_0x4f8a16[_0x3a65f0];return _0x368451;},a1007_0x3a65(_0x2eaeeb,_0x4aafe);}const tslib_1=require(a1007_0x3c8db0(0xde));require(a1007_0x3c8db0(0xdd));const class_validator_1=require(a1007_0x3c8db0(0xeb));class Login{}tslib_1[a1007_0x3c8db0(0xe4)]([(0x0,class_validator_1['IsEmail'])(),(0x0,class_validator_1[a1007_0x3c8db0(0xe3)])(),tslib_1[a1007_0x3c8db0(0xdb)](a1007_0x3c8db0(0xe2),String)],Login[a1007_0x3c8db0(0xe1)],a1007_0x3c8db0(0xe9),void 0x0),tslib_1[a1007_0x3c8db0(0xe4)]([(0x0,class_validator_1[a1007_0x3c8db0(0xe3)])({'message':a1007_0x3c8db0(0xe5)}),tslib_1[a1007_0x3c8db0(0xdb)]('design:type',String)],Login[a1007_0x3c8db0(0xe1)],a1007_0x3c8db0(0xd8),void 0x0),exports['Login']=Login;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Login = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class Login {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], Login.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Password is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], Login.prototype, "password", void 0);
+exports.Login = Login;
+//# sourceMappingURL=Login.js.map

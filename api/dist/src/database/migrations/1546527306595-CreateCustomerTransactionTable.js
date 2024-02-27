@@ -1,1 +1,88 @@
-'use strict';function a735_0x1fba(_0x1b33b2,_0x2a46e7){const _0x205afc=a735_0x205a();return a735_0x1fba=function(_0x1fba17,_0x197cab){_0x1fba17=_0x1fba17-0x109;let _0x39c503=_0x205afc[_0x1fba17];return _0x39c503;},a735_0x1fba(_0x1b33b2,_0x2a46e7);}const a735_0x17aa9f=a735_0x1fba;(function(_0x15f8fe,_0x5f43a9){const _0x15d351=a735_0x1fba,_0xb419bd=_0x15f8fe();while(!![]){try{const _0x32593=-parseInt(_0x15d351(0x112))/0x1+parseInt(_0x15d351(0x10a))/0x2+parseInt(_0x15d351(0x124))/0x3+-parseInt(_0x15d351(0x123))/0x4*(-parseInt(_0x15d351(0x10b))/0x5)+parseInt(_0x15d351(0x116))/0x6*(parseInt(_0x15d351(0x10f))/0x7)+-parseInt(_0x15d351(0x115))/0x8+-parseInt(_0x15d351(0x12a))/0x9*(parseInt(_0x15d351(0x111))/0xa);if(_0x32593===_0x5f43a9)break;else _0xb419bd['push'](_0xb419bd['shift']());}catch(_0x5c44a2){_0xb419bd['push'](_0xb419bd['shift']());}}}(a735_0x205a,0xb21af));Object[a735_0x17aa9f(0x110)](exports,a735_0x17aa9f(0x11f),{'value':!![]}),exports[a735_0x17aa9f(0x11e)]=void 0x0;const tslib_1=require(a735_0x17aa9f(0x117)),typeorm_1=require(a735_0x17aa9f(0x128));class CreateCustomerTransactionTable1546527306595{['up'](_0x5edd5d){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4751cc=a735_0x1fba,_0x15de80=new typeorm_1[(_0x4751cc(0x10c))]({'name':_0x4751cc(0x11c),'columns':[{'name':_0x4751cc(0x10d),'type':_0x4751cc(0x121),'length':'11','isGenerated':!![],'generationStrategy':_0x4751cc(0x120),'isPrimary':!![],'isNullable':![]},{'name':'customer_id','type':_0x4751cc(0x121),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'order_id','type':_0x4751cc(0x121),'length':'11','isPrimary':![],'isNullable':![]},{'name':_0x4751cc(0x125),'type':_0x4751cc(0x10e),'isPrimary':![],'isNullable':!![]},{'name':'amount','type':_0x4751cc(0x122),'isPrimary':![],'isNullable':!![]},{'name':_0x4751cc(0x118),'type':_0x4751cc(0x126),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_by','type':_0x4751cc(0x121),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4751cc(0x11d),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4751cc(0x11a),'type':_0x4751cc(0x109),'isPrimary':![],'isNullable':!![],'default':_0x4751cc(0x12b)},{'name':_0x4751cc(0x114),'type':_0x4751cc(0x109),'isPrimary':![],'isNullable':!![],'default':_0x4751cc(0x12b)}]}),_0x29cd2f=yield _0x5edd5d[_0x4751cc(0x11b)](_0x4751cc(0x11c));!_0x29cd2f&&(yield _0x5edd5d[_0x4751cc(0x129)](_0x15de80));});}[a735_0x17aa9f(0x119)](_0x4b2812){const _0x483329=a735_0x17aa9f;return tslib_1[_0x483329(0x113)](this,void 0x0,void 0x0,function*(){const _0x2dcf88=_0x483329;yield _0x4b2812[_0x2dcf88(0x127)](_0x2dcf88(0x11c),!![]);});}}exports[a735_0x17aa9f(0x11e)]=CreateCustomerTransactionTable1546527306595;function a735_0x205a(){const _0x35fd7b=['TEXT','1995vshtLr','defineProperty','1607890HgAJQB','550709gyZuUJ','__awaiter','modified_date','5855848JLMVnN','11010JEOcIC','tslib','is_active','down','created_date','hasTable','customer_transaction','modified_by','CreateCustomerTransactionTable1546527306595','__esModule','increment','integer','DECIMAL(15,4)','622588kAxZmW','3465450RVGgzO','description','int','dropTable','typeorm','createTable','63FfTpIe','CURRENT_TIMESTAMP','DATETIME','1051450WdnYTT','30xlacyz','Table','customer_transaction_id'];a735_0x205a=function(){return _0x35fd7b;};return a735_0x205a();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCustomerTransactionTable1546527306595 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateCustomerTransactionTable1546527306595 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'customer_transaction',
+                columns: [
+                    {
+                        name: 'customer_transaction_id',
+                        type: 'integer',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'customer_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'order_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'description',
+                        type: 'TEXT',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'amount',
+                        type: 'DECIMAL(15,4)',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('customer_transaction');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('customer_transaction', true);
+        });
+    }
+}
+exports.CreateCustomerTransactionTable1546527306595 = CreateCustomerTransactionTable1546527306595;
+//# sourceMappingURL=1546527306595-CreateCustomerTransactionTable.js.map

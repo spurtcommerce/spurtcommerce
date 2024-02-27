@@ -1,1 +1,28 @@
-'use strict';const a956_0xdd4353=a956_0x165f;(function(_0x30277f,_0x3a83a9){const _0x43b2f2=a956_0x165f,_0x218b3f=_0x30277f();while(!![]){try{const _0x110a30=-parseInt(_0x43b2f2(0xb5))/0x1+-parseInt(_0x43b2f2(0xbb))/0x2+parseInt(_0x43b2f2(0xa9))/0x3*(-parseInt(_0x43b2f2(0xa8))/0x4)+-parseInt(_0x43b2f2(0xb6))/0x5*(parseInt(_0x43b2f2(0xaa))/0x6)+-parseInt(_0x43b2f2(0xba))/0x7*(parseInt(_0x43b2f2(0xb7))/0x8)+-parseInt(_0x43b2f2(0xac))/0x9+parseInt(_0x43b2f2(0xb9))/0xa;if(_0x110a30===_0x3a83a9)break;else _0x218b3f['push'](_0x218b3f['shift']());}catch(_0x34582b){_0x218b3f['push'](_0x218b3f['shift']());}}}(a956_0x2656,0x38aeb));Object[a956_0xdd4353(0xab)](exports,a956_0xdd4353(0xb0),{'value':!![]}),exports[a956_0xdd4353(0xb3)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require('typeorm');function a956_0x165f(_0x2a8642,_0x4167d0){const _0x26563d=a956_0x2656();return a956_0x165f=function(_0x165f9e,_0x3d2537){_0x165f9e=_0x165f9e-0xa8;let _0xe98e7e=_0x26563d[_0x165f9e];return _0xe98e7e;},a956_0x165f(_0x2a8642,_0x4167d0);}function a956_0x2656(){const _0x12d7ef=['hasColumn','436006MUzgfI','8525cSpwXK','64112DYXTmd','show_home_page_widget','20395990xxQMJl','371FPQtbW','576892dNyCUK','__awaiter','14792FdtKeD','174HIiFSd','462VJnrNR','defineProperty','2812185rfjEwz','integer','down','widget','__esModule','TableColumn','addColumn','AddColumnShowHomePageWidgetInWidgetTable1674815408760'];a956_0x2656=function(){return _0x12d7ef;};return a956_0x2656();}class AddColumnShowHomePageWidgetInWidgetTable1674815408760{['up'](_0x142d56){const _0x472873=a956_0xdd4353;return tslib_1[_0x472873(0xbc)](this,void 0x0,void 0x0,function*(){const _0x3e318c=_0x472873,_0x3afacc=yield _0x142d56[_0x3e318c(0xb4)](_0x3e318c(0xaf),_0x3e318c(0xb8));!_0x3afacc&&(yield _0x142d56[_0x3e318c(0xb2)](_0x3e318c(0xaf),new typeorm_1[(_0x3e318c(0xb1))]({'name':'show_home_page_widget','type':_0x3e318c(0xad),'default':0x0,'isPrimary':![],'isNullable':!![]})));});}[a956_0xdd4353(0xae)](_0x591920){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){});}}exports[a956_0xdd4353(0xb3)]=AddColumnShowHomePageWidgetInWidgetTable1674815408760;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnShowHomePageWidgetInWidgetTable1674815408760 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnShowHomePageWidgetInWidgetTable1674815408760 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('widget', 'show_home_page_widget');
+            if (!ifExist) {
+                yield queryRunner.addColumn('widget', new typeorm_1.TableColumn({
+                    name: 'show_home_page_widget',
+                    type: 'integer',
+                    default: 0,
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.AddColumnShowHomePageWidgetInWidgetTable1674815408760 = AddColumnShowHomePageWidgetInWidgetTable1674815408760;
+//# sourceMappingURL=1674815408760-AddColumnShowHomePageWidgetInWidgetTable.js.map

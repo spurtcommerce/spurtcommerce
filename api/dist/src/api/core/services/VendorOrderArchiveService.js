@@ -1,1 +1,199 @@
-'use strict';const a625_0x4c7e4c=a625_0x94ae;(function(_0x2330d4,_0x1b7aac){const _0x3f3f55=a625_0x94ae,_0x4b91cb=_0x2330d4();while(!![]){try{const _0x628328=-parseInt(_0x3f3f55(0x1f7))/0x1*(parseInt(_0x3f3f55(0x1f1))/0x2)+-parseInt(_0x3f3f55(0x1c4))/0x3+-parseInt(_0x3f3f55(0x1fd))/0x4*(parseInt(_0x3f3f55(0x1f0))/0x5)+parseInt(_0x3f3f55(0x1ee))/0x6+parseInt(_0x3f3f55(0x1c7))/0x7*(parseInt(_0x3f3f55(0x1d1))/0x8)+parseInt(_0x3f3f55(0x1bf))/0x9*(parseInt(_0x3f3f55(0x1f3))/0xa)+parseInt(_0x3f3f55(0x1e1))/0xb*(parseInt(_0x3f3f55(0x1ed))/0xc);if(_0x628328===_0x1b7aac)break;else _0x4b91cb['push'](_0x4b91cb['shift']());}catch(_0x5635ec){_0x4b91cb['push'](_0x4b91cb['shift']());}}}(a625_0x21fa,0x46d38));function a625_0x94ae(_0x4b2be7,_0x1dace7){const _0x21fab1=a625_0x21fa();return a625_0x94ae=function(_0x94ae1d,_0x112615){_0x94ae1d=_0x94ae1d-0x1bf;let _0x269312=_0x21fab1[_0x94ae1d];return _0x269312;},a625_0x94ae(_0x4b2be7,_0x1dace7);}function a625_0x21fa(){const _0x539c26=['Update\x20a\x20vendor\x20order\x20archive','tslib','../repositories/VendorOrderArchiveRepository','create','innerJoin','Find\x20role','LOWER(','sign','typeorm-typedi-extensions','886404heRAFf','1628766ZqybDc','defineProperty','1224515PTGXLC','122OlPhwr','groupBy','10GlVAyv','raw','list','getMany','6823MUIxqm','log','\x20LIKE\x20','__metadata','OrmRepository','find','4ZBjasq','Delete\x20a\x20vendor\x20order\x20archive','Brackets','name','../../../decorators/Logger','count','4680405nMMArG','\x20=\x20','vendorOrderArchiveId','findOne','Like','1184145TbYphQ','limit','../models/VendorOrderArchive','323897pucyPd','VendorOrderArchive','delete','__esModule','take','createQueryBuilder','__param','andWhere','Service','aliasName','32zIvkHM','__awaiter','info','addGroupBy','and','vendorOrderArchiveRepository','orWhere','getCount','select','like','update','where','skip','VendorOrderArchiveRepository','length','__decorate','55CVoowk','value','forEach'];a625_0x21fa=function(){return _0x539c26;};return a625_0x21fa();}Object[a625_0x4c7e4c(0x1ef)](exports,a625_0x4c7e4c(0x1ca),{'value':!![]}),exports['VendorOrderArchiveService']=void 0x0;const tslib_1=require(a625_0x4c7e4c(0x1e5)),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require(a625_0x4c7e4c(0x1ec)),Logger_1=require(a625_0x4c7e4c(0x201)),VendorOrderArchive_1=require(a625_0x4c7e4c(0x1c6)),VendorOrderArchiveRepository_1=require(a625_0x4c7e4c(0x1e6)),typeorm_1=require('typeorm');let VendorOrderArchiveService=class VendorOrderArchiveService{constructor(_0x3ce428,_0x317542){this['vendorOrderArchiveRepository']=_0x3ce428,this['log']=_0x317542;}[a625_0x4c7e4c(0x1c2)](_0x13ced4){const _0x20bec3=a625_0x4c7e4c;return this[_0x20bec3(0x1f8)]['info'](_0x20bec3(0x1e9)),this[_0x20bec3(0x1d6)]['findOne'](_0x13ced4);}[a625_0x4c7e4c(0x1f5)](_0xdffd72,_0xf2157f,_0x2c20b0=[],_0x3e0d3c=[],_0x4fd1d8){const _0xaa2cc4=a625_0x4c7e4c,_0x36df98={};_0x2c20b0&&_0x2c20b0[_0xaa2cc4(0x1df)]>0x0&&(_0x36df98[_0xaa2cc4(0x1d9)]=_0x2c20b0);_0x36df98[_0xaa2cc4(0x1dc)]={};_0x3e0d3c&&_0x3e0d3c[_0xaa2cc4(0x1df)]>0x0&&_0x3e0d3c['forEach'](_0x1c246e=>{const _0x481fe6=_0xaa2cc4,_0xf1abe9=_0x1c246e['op'];if(_0xf1abe9===_0x481fe6(0x1dc)&&_0x1c246e[_0x481fe6(0x1e2)]!==undefined)_0x36df98[_0x481fe6(0x1dc)][_0x1c246e[_0x481fe6(0x200)]]=_0x1c246e[_0x481fe6(0x1e2)];else _0xf1abe9===_0x481fe6(0x1da)&&_0x1c246e[_0x481fe6(0x1e2)]!==undefined&&(_0x36df98[_0x481fe6(0x1dc)][_0x1c246e['name']]=(0x0,typeorm_1[_0x481fe6(0x1c3)])('%'+_0x1c246e[_0x481fe6(0x1e2)]+'%'));});_0xdffd72&&_0xdffd72>0x0&&(_0x36df98[_0xaa2cc4(0x1cb)]=_0xdffd72,_0x36df98[_0xaa2cc4(0x1dd)]=_0xf2157f);if(_0x4fd1d8)return this[_0xaa2cc4(0x1d6)][_0xaa2cc4(0x202)](_0x36df98);return this[_0xaa2cc4(0x1d6)][_0xaa2cc4(0x1fc)](_0x36df98);}[a625_0x4c7e4c(0x1e7)](_0x38e7d8){const _0x3c73b3=a625_0x4c7e4c;return tslib_1[_0x3c73b3(0x1d2)](this,void 0x0,void 0x0,function*(){const _0x5bf855=yield this['vendorOrderArchiveRepository']['save'](_0x38e7d8);return _0x5bf855;});}[a625_0x4c7e4c(0x1db)](_0x50eb31,_0x1cf0b7){const _0x37672e=a625_0x4c7e4c;return this[_0x37672e(0x1f8)][_0x37672e(0x1d3)](_0x37672e(0x1e4)),_0x1cf0b7[_0x37672e(0x1c1)]=_0x50eb31,this[_0x37672e(0x1d6)]['save'](_0x1cf0b7);}[a625_0x4c7e4c(0x1c9)](_0x168671){const _0x16faeb=a625_0x4c7e4c;return tslib_1[_0x16faeb(0x1d2)](this,void 0x0,void 0x0,function*(){const _0x126603=_0x16faeb;this['log'][_0x126603(0x1d3)](_0x126603(0x1fe));const _0x404e20=yield this['vendorOrderArchiveRepository'][_0x126603(0x1c9)](_0x168671);return _0x404e20;});}['listByQueryBuilder'](_0x11e7da,_0x2765d1,_0x799b7f=[],_0xb762c1=[],_0x4ff832=[],_0x2350e7=[],_0x2d9ce0=[],_0x2648bf=[],_0x28239c=![],_0x810a9c=![]){const _0x579ae2=a625_0x4c7e4c;return tslib_1[_0x579ae2(0x1d2)](this,void 0x0,void 0x0,function*(){const _0x429a6f=_0x579ae2,_0x5f752b=yield(0x0,typeorm_1['getConnection'])()['getRepository'](VendorOrderArchive_1[_0x429a6f(0x1c8)])[_0x429a6f(0x1cc)]();_0x799b7f&&_0x799b7f['length']>0x0&&_0x5f752b[_0x429a6f(0x1d9)](_0x799b7f);_0x2350e7&&_0x2350e7['length']>0x0&&_0x2350e7[_0x429a6f(0x1e3)](_0x198ffc=>{const _0x5473d9=_0x429a6f;_0x5f752b[_0x5473d9(0x1e8)](_0x198ffc['tableName'],_0x198ffc[_0x5473d9(0x1d0)]);});_0xb762c1&&_0xb762c1[_0x429a6f(0x1df)]>0x0&&_0xb762c1['forEach'](_0x4df421=>{const _0xdf9c94=_0x429a6f;if(_0x4df421['op']===_0xdf9c94(0x1dc)&&_0x4df421[_0xdf9c94(0x1eb)]===undefined)_0x5f752b[_0xdf9c94(0x1dc)](_0x4df421[_0xdf9c94(0x200)]+'\x20=\x20'+_0x4df421[_0xdf9c94(0x1e2)]);else{if(_0x4df421['op']==='and'&&_0x4df421['sign']===undefined)_0x5f752b[_0xdf9c94(0x1ce)](_0x4df421[_0xdf9c94(0x200)]+_0xdf9c94(0x1c0)+_0x4df421[_0xdf9c94(0x1e2)]);else{if(_0x4df421['op']===_0xdf9c94(0x1d5)&&_0x4df421[_0xdf9c94(0x1eb)]!==undefined)_0x5f752b[_0xdf9c94(0x1ce)]('\x20\x27'+_0x4df421[_0xdf9c94(0x200)]+'\x27'+'\x20'+_0x4df421['sign']+'\x20\x27'+_0x4df421[_0xdf9c94(0x1e2)]+'\x27');else{if(_0x4df421['op']===_0xdf9c94(0x1f4)&&_0x4df421[_0xdf9c94(0x1eb)]!==undefined)_0x5f752b['andWhere'](_0x4df421[_0xdf9c94(0x200)]+'\x20'+_0x4df421['sign']+'\x20\x27'+_0x4df421[_0xdf9c94(0x1e2)]+'\x27');else{if(_0x4df421['op']==='or'&&_0x4df421[_0xdf9c94(0x1eb)]===undefined)_0x5f752b[_0xdf9c94(0x1d7)](_0x4df421['name']+_0xdf9c94(0x1c0)+_0x4df421[_0xdf9c94(0x1e2)]);else _0x4df421['op']==='IN'&&_0x4df421[_0xdf9c94(0x1eb)]===undefined&&_0x5f752b[_0xdf9c94(0x1ce)](_0x4df421[_0xdf9c94(0x200)]+'\x20IN\x20('+_0x4df421[_0xdf9c94(0x1e2)]+')');}}}}});_0x4ff832&&_0x4ff832[_0x429a6f(0x1df)]>0x0&&_0x4ff832[_0x429a6f(0x1e3)](_0x22b21c=>{const _0x1f4faf=_0x429a6f;if(_0x22b21c[_0x1f4faf(0x200)]&&_0x22b21c[_0x1f4faf(0x200)]instanceof Array&&_0x22b21c[_0x1f4faf(0x200)][_0x1f4faf(0x1df)]>0x0&&(_0x22b21c[_0x1f4faf(0x1e2)]&&_0x22b21c[_0x1f4faf(0x1e2)]instanceof Array&&_0x22b21c[_0x1f4faf(0x1e2)]['length']>0x0)){const _0x2c3ddc=_0x22b21c[_0x1f4faf(0x200)];_0x2c3ddc['forEach']((_0x27988f,_0x22a70d)=>{const _0x349eb8=_0x1f4faf;_0x5f752b['andWhere'](new typeorm_1[(_0x349eb8(0x1ff))](_0x1cb7d6=>{const _0x29fd8c=_0x349eb8,_0x13cdad=_0x22b21c[_0x29fd8c(0x1e2)];_0x13cdad['forEach']((_0x50aa3e,_0x121499)=>{const _0x33bade=_0x29fd8c;if(_0x121499===0x0){_0x1cb7d6[_0x33bade(0x1ce)]('LOWER('+_0x27988f+')'+_0x33bade(0x1f9)+'\x27%'+_0x50aa3e+'%\x27');return;}_0x1cb7d6[_0x33bade(0x1d7)](_0x33bade(0x1ea)+_0x27988f+')'+_0x33bade(0x1f9)+'\x27%'+_0x50aa3e+'%\x27');});}));});}else{if(_0x22b21c[_0x1f4faf(0x200)]&&_0x22b21c[_0x1f4faf(0x200)]instanceof Array&&_0x22b21c[_0x1f4faf(0x200)][_0x1f4faf(0x1df)]>0x0)_0x5f752b[_0x1f4faf(0x1ce)](new typeorm_1[(_0x1f4faf(0x1ff))](_0x92fac7=>{const _0x5e37a4=_0x1f4faf,_0x5f3088=_0x22b21c[_0x5e37a4(0x200)];_0x5f3088[_0x5e37a4(0x1e3)]((_0x2e52f8,_0x278cbd)=>{const _0x573520=_0x5e37a4;if(_0x278cbd===0x0){_0x92fac7[_0x573520(0x1ce)](_0x573520(0x1ea)+_0x2e52f8+')'+_0x573520(0x1f9)+'\x27%'+_0x22b21c['value']+'%\x27');return;}_0x92fac7[_0x573520(0x1d7)](_0x573520(0x1ea)+_0x2e52f8+')'+_0x573520(0x1f9)+'\x27%'+_0x22b21c[_0x573520(0x1e2)]+'%\x27');});}));else _0x22b21c[_0x1f4faf(0x1e2)]&&_0x22b21c[_0x1f4faf(0x1e2)]instanceof Array&&_0x22b21c[_0x1f4faf(0x1e2)][_0x1f4faf(0x1df)]>0x0&&_0x5f752b['andWhere'](new typeorm_1[(_0x1f4faf(0x1ff))](_0x11cac2=>{const _0x23882a=_0x1f4faf,_0x3be7b1=_0x22b21c['value'];_0x3be7b1[_0x23882a(0x1e3)]((_0x553b54,_0x4815b0)=>{const _0x259610=_0x23882a;if(_0x4815b0===0x0){_0x11cac2[_0x259610(0x1ce)]('LOWER('+_0x22b21c[_0x259610(0x200)]+')'+_0x259610(0x1f9)+'\x27%'+_0x553b54+'%\x27');return;}_0x11cac2[_0x259610(0x1d7)](_0x259610(0x1ea)+_0x22b21c[_0x259610(0x200)]+')'+_0x259610(0x1f9)+'\x27%'+_0x553b54+'%\x27');});}));}});if(_0x2d9ce0&&_0x2d9ce0['length']>0x0){let _0x5d3e2b=0x0;_0x2d9ce0[_0x429a6f(0x1e3)](_0x3d1e5e=>{const _0x475798=_0x429a6f;_0x5d3e2b===0x0?_0x5f752b[_0x475798(0x1f2)](_0x3d1e5e['name']):_0x5f752b[_0x475798(0x1d4)](_0x3d1e5e[_0x475798(0x200)]),_0x5d3e2b++;});}_0x2648bf&&_0x2648bf['length']>0x0&&_0x2648bf[_0x429a6f(0x1e3)](_0x139aa5=>{_0x5f752b['orderBy'](''+_0x139aa5['name']+'',''+_0x139aa5['order']+'');});_0x11e7da&&_0x11e7da>0x0&&(_0x5f752b[_0x429a6f(0x1c5)](_0x11e7da),_0x5f752b['offset'](_0x2765d1));if(!_0x28239c){if(_0x810a9c)return _0x5f752b['getRawMany']();return _0x5f752b[_0x429a6f(0x1f6)]();}else return _0x5f752b[_0x429a6f(0x1d8)]();});}};VendorOrderArchiveService=tslib_1[a625_0x4c7e4c(0x1e0)]([(0x0,typedi_1[a625_0x4c7e4c(0x1cf)])(),tslib_1[a625_0x4c7e4c(0x1cd)](0x0,(0x0,typeorm_typedi_extensions_1[a625_0x4c7e4c(0x1fb)])()),tslib_1[a625_0x4c7e4c(0x1cd)](0x1,(0x0,Logger_1['Logger'])(__filename)),tslib_1[a625_0x4c7e4c(0x1fa)]('design:paramtypes',[VendorOrderArchiveRepository_1[a625_0x4c7e4c(0x1de)],Object])],VendorOrderArchiveService),exports['VendorOrderArchiveService']=VendorOrderArchiveService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorOrderArchiveService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const VendorOrderArchive_1 = require("../models/VendorOrderArchive");
+const VendorOrderArchiveRepository_1 = require("../repositories/VendorOrderArchiveRepository");
+const typeorm_1 = require("typeorm");
+let VendorOrderArchiveService = class VendorOrderArchiveService {
+    constructor(vendorOrderArchiveRepository, log) {
+        this.vendorOrderArchiveRepository = vendorOrderArchiveRepository;
+        this.log = log;
+    }
+    // find one vendorOrderArchive
+    findOne(findCondition) {
+        this.log.info('Find role');
+        return this.vendorOrderArchiveRepository.findOne(findCondition);
+    }
+    // vendorOrderArchive list
+    list(limit, offset, select = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, typeorm_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.vendorOrderArchiveRepository.count(condition);
+        }
+        return this.vendorOrderArchiveRepository.find(condition);
+    }
+    // create vendor order archive
+    create(vendorOrderArchive) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newVendorOrderArchive = yield this.vendorOrderArchiveRepository.save(vendorOrderArchive);
+            return newVendorOrderArchive;
+        });
+    }
+    // update vendor order archive
+    update(id, vendorOrderArchive) {
+        this.log.info('Update a vendor order archive');
+        vendorOrderArchive.vendorOrderArchiveId = id;
+        return this.vendorOrderArchiveRepository.save(vendorOrderArchive);
+    }
+    // delete vendor order archive
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a vendor order archive');
+            const deleteVendorOrderArchive = yield this.vendorOrderArchiveRepository.delete(id);
+            return deleteVendorOrderArchive;
+        });
+    }
+    listByQueryBuilder(limit, offset, select = [], whereConditions = [], searchConditions = [], relations = [], groupBy = [], sort = [], count = false, rawQuery = false) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield (0, typeorm_1.getConnection)().getRepository(VendorOrderArchive_1.VendorOrderArchive).createQueryBuilder();
+            // Select
+            if (select && select.length > 0) {
+                query.select(select);
+            }
+            // Join
+            if (relations && relations.length > 0) {
+                relations.forEach((joinTb) => {
+                    query.innerJoin(joinTb.tableName, joinTb.aliasName);
+                });
+            }
+            // Where
+            if (whereConditions && whereConditions.length > 0) {
+                whereConditions.forEach((item) => {
+                    if (item.op === 'where' && item.sign === undefined) {
+                        query.where(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'and' && item.sign === undefined) {
+                        query.andWhere(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'and' && item.sign !== undefined) {
+                        query.andWhere(' \'' + item.name + '\'' + ' ' + item.sign + ' \'' + item.value + '\'');
+                    }
+                    else if (item.op === 'raw' && item.sign !== undefined) {
+                        query.andWhere(item.name + ' ' + item.sign + ' \'' + item.value + '\'');
+                    }
+                    else if (item.op === 'or' && item.sign === undefined) {
+                        query.orWhere(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'IN' && item.sign === undefined) {
+                        query.andWhere(item.name + ' IN (' + item.value + ')');
+                    }
+                });
+            }
+            // Keyword Search
+            if (searchConditions && searchConditions.length > 0) {
+                searchConditions.forEach((table) => {
+                    if ((table.name && table.name instanceof Array && table.name.length > 0) && (table.value && table.value instanceof Array && table.value.length > 0)) {
+                        const namesArray = table.name;
+                        namesArray.forEach((name, index) => {
+                            query.andWhere(new typeorm_1.Brackets(qb => {
+                                const valuesArray = table.value;
+                                valuesArray.forEach((value, subIndex) => {
+                                    if (subIndex === 0) {
+                                        qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                        return;
+                                    }
+                                    qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                });
+                            }));
+                        });
+                    }
+                    else if (table.name && table.name instanceof Array && table.name.length > 0) {
+                        query.andWhere(new typeorm_1.Brackets(qb => {
+                            const namesArray = table.name;
+                            namesArray.forEach((name, index) => {
+                                if (index === 0) {
+                                    qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                                    return;
+                                }
+                                qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                            });
+                        }));
+                    }
+                    else if (table.value && table.value instanceof Array && table.value.length > 0) {
+                        query.andWhere(new typeorm_1.Brackets(qb => {
+                            const valuesArray = table.value;
+                            valuesArray.forEach((value, index) => {
+                                if (index === 0) {
+                                    qb.andWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                    return;
+                                }
+                                qb.orWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                            });
+                        }));
+                    }
+                });
+            }
+            // GroupBy
+            if (groupBy && groupBy.length > 0) {
+                let i = 0;
+                groupBy.forEach((item) => {
+                    if (i === 0) {
+                        query.groupBy(item.name);
+                    }
+                    else {
+                        query.addGroupBy(item.name);
+                    }
+                    i++;
+                });
+            }
+            // orderBy
+            if (sort && sort.length > 0) {
+                sort.forEach((item) => {
+                    query.orderBy('' + item.name + '', '' + item.order + '');
+                });
+            }
+            // Limit & Offset
+            if (limit && limit > 0) {
+                query.limit(limit);
+                query.offset(offset);
+            }
+            if (!count) {
+                if (rawQuery) {
+                    return query.getRawMany();
+                }
+                return query.getMany();
+            }
+            else {
+                return query.getCount();
+            }
+        });
+    }
+};
+VendorOrderArchiveService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [VendorOrderArchiveRepository_1.VendorOrderArchiveRepository, Object])
+], VendorOrderArchiveService);
+exports.VendorOrderArchiveService = VendorOrderArchiveService;
+//# sourceMappingURL=VendorOrderArchiveService.js.map

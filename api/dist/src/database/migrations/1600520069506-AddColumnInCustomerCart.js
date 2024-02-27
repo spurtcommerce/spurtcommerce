@@ -1,1 +1,28 @@
-'use strict';const a885_0x60221c=a885_0x4630;(function(_0x44298f,_0x14a177){const _0x321140=a885_0x4630,_0x571b3b=_0x44298f();while(!![]){try{const _0x47422d=parseInt(_0x321140(0xc6))/0x1*(parseInt(_0x321140(0xbf))/0x2)+parseInt(_0x321140(0xc8))/0x3*(parseInt(_0x321140(0xc3))/0x4)+-parseInt(_0x321140(0xbc))/0x5+parseInt(_0x321140(0xcb))/0x6*(parseInt(_0x321140(0xc5))/0x7)+parseInt(_0x321140(0xc0))/0x8+-parseInt(_0x321140(0xd2))/0x9+parseInt(_0x321140(0xcf))/0xa*(parseInt(_0x321140(0xca))/0xb);if(_0x47422d===_0x14a177)break;else _0x571b3b['push'](_0x571b3b['shift']());}catch(_0x2e4d43){_0x571b3b['push'](_0x571b3b['shift']());}}}(a885_0x4254,0xc459c));function a885_0x4630(_0x3cf745,_0x12255c){const _0x425429=a885_0x4254();return a885_0x4630=function(_0x463067,_0x2f912e){_0x463067=_0x463067-0xbc;let _0xf0c17c=_0x425429[_0x463067];return _0xf0c17c;},a885_0x4630(_0x3cf745,_0x12255c);}function a885_0x4254(){const _0x1df43d=['defineProperty','TableColumn','124rqJXiZ','2515424KDCdDa','customer_cart','down','3375952DqLBEt','255','5963881pRSZkb','327zBoYww','__awaiter','3kAuPye','AddColumnInCustomerCart1600520069506','11kPldmU','6IDKfiW','hasColumn','dropColumn','product_option_value_id','4485730yLsmyH','__esModule','tslib','6544809btecsh','varchar','4738965YMQVSi'];a885_0x4254=function(){return _0x1df43d;};return a885_0x4254();}Object[a885_0x60221c(0xbd)](exports,a885_0x60221c(0xd0),{'value':!![]}),exports[a885_0x60221c(0xc9)]=void 0x0;const tslib_1=require(a885_0x60221c(0xd1)),typeorm_1=require('typeorm');class AddColumnInCustomerCart1600520069506{['up'](_0x49bf8e){const _0x248168=a885_0x60221c;return tslib_1[_0x248168(0xc7)](this,void 0x0,void 0x0,function*(){const _0x4b984f=_0x248168,_0x426264=yield _0x49bf8e[_0x4b984f(0xcc)](_0x4b984f(0xc1),_0x4b984f(0xce));!_0x426264&&(yield _0x49bf8e['addColumn'](_0x4b984f(0xc1),new typeorm_1[(_0x4b984f(0xbe))]({'name':_0x4b984f(0xce),'type':_0x4b984f(0xd3),'length':_0x4b984f(0xc4),'isPrimary':![],'isNullable':!![]})));});}[a885_0x60221c(0xc2)](_0x460608){const _0x3b57fd=a885_0x60221c;return tslib_1[_0x3b57fd(0xc7)](this,void 0x0,void 0x0,function*(){const _0x56d2fb=_0x3b57fd;yield _0x460608[_0x56d2fb(0xcd)]('customer_cart',_0x56d2fb(0xce));});}}exports[a885_0x60221c(0xc9)]=AddColumnInCustomerCart1600520069506;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInCustomerCart1600520069506 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInCustomerCart1600520069506 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('customer_cart', 'product_option_value_id');
+            if (!ifExist) {
+                yield queryRunner.addColumn('customer_cart', new typeorm_1.TableColumn({
+                    name: 'product_option_value_id',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('customer_cart', 'product_option_value_id');
+        });
+    }
+}
+exports.AddColumnInCustomerCart1600520069506 = AddColumnInCustomerCart1600520069506;
+//# sourceMappingURL=1600520069506-AddColumnInCustomerCart.js.map

@@ -1,1 +1,18 @@
-'use strict';function a851_0x35f4(){const _0x340398=['3316645MWjqEn','391645lepTPF','query','1542gfZxHL','2374995VnaHfG','3944DKqHjM','557284UECkio','370JMKgmj','189630zqjqJs','down','defineProperty','229617AyrMXl','8SNBJBC','__esModule','AlterCustomerCartTable1582551346241','__awaiter'];a851_0x35f4=function(){return _0x340398;};return a851_0x35f4();}const a851_0x482a6c=a851_0x5c88;(function(_0x569ccc,_0x2f012f){const _0x94c632=a851_0x5c88,_0x5f0e3f=_0x569ccc();while(!![]){try{const _0x296c38=-parseInt(_0x94c632(0x1e8))/0x1+-parseInt(_0x94c632(0x1dd))/0x2+parseInt(_0x94c632(0x1da))/0x3*(parseInt(_0x94c632(0x1dc))/0x4)+-parseInt(_0x94c632(0x1e7))/0x5+parseInt(_0x94c632(0x1df))/0x6+parseInt(_0x94c632(0x1db))/0x7*(parseInt(_0x94c632(0x1e3))/0x8)+-parseInt(_0x94c632(0x1e2))/0x9*(-parseInt(_0x94c632(0x1de))/0xa);if(_0x296c38===_0x2f012f)break;else _0x5f0e3f['push'](_0x5f0e3f['shift']());}catch(_0x2f97c7){_0x5f0e3f['push'](_0x5f0e3f['shift']());}}}(a851_0x35f4,0x7727b));Object[a851_0x482a6c(0x1e1)](exports,a851_0x482a6c(0x1e4),{'value':!![]}),exports[a851_0x482a6c(0x1e5)]=void 0x0;const tslib_1=require('tslib');class AlterCustomerCartTable1582551346241{['up'](_0x4491ac){const _0x1b91fe=a851_0x482a6c;return tslib_1[_0x1b91fe(0x1e6)](this,void 0x0,void 0x0,function*(){yield _0x4491ac['query']('ALTER\x20TABLE\x20`customer_cart`\x20CHANGE\x20`option_name`\x20`option_name`\x20Text\x20DEFAULT\x20NULL');});}[a851_0x482a6c(0x1e0)](_0x4e0acc){const _0x1c0f03=a851_0x482a6c;return tslib_1[_0x1c0f03(0x1e6)](this,void 0x0,void 0x0,function*(){const _0x14be4b=_0x1c0f03;yield _0x4e0acc[_0x14be4b(0x1e9)]('ALTER\x20TABLE\x20`customer_cart`\x20CHANGE\x20`option_name`\x20`option_name`\x20Text\x20DEFAULT\x20NULL');});}}function a851_0x5c88(_0x2ebfab,_0x53138c){const _0x35f4dc=a851_0x35f4();return a851_0x5c88=function(_0x5c88fa,_0x58cc98){_0x5c88fa=_0x5c88fa-0x1da;let _0x39a087=_0x35f4dc[_0x5c88fa];return _0x39a087;},a851_0x5c88(_0x2ebfab,_0x53138c);}exports[a851_0x482a6c(0x1e5)]=AlterCustomerCartTable1582551346241;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AlterCustomerCartTable1582551346241 = void 0;
+const tslib_1 = require("tslib");
+class AlterCustomerCartTable1582551346241 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `customer_cart` CHANGE `option_name` `option_name` Text DEFAULT NULL');
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `customer_cart` CHANGE `option_name` `option_name` Text DEFAULT NULL');
+        });
+    }
+}
+exports.AlterCustomerCartTable1582551346241 = AlterCustomerCartTable1582551346241;
+//# sourceMappingURL=1582551346241-AlterCustomerCartTable.js.map

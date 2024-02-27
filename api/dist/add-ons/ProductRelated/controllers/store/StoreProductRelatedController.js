@@ -1,1 +1,209 @@
-'use strict';const a108_0x5e32b3=a108_0x9b28;(function(_0x32ca72,_0x250ecd){const _0x116ce0=a108_0x9b28,_0x10833a=_0x32ca72();while(!![]){try{const _0x5b2b40=-parseInt(_0x116ce0(0x201))/0x1*(parseInt(_0x116ce0(0x20e))/0x2)+-parseInt(_0x116ce0(0x20a))/0x3+parseInt(_0x116ce0(0x214))/0x4+-parseInt(_0x116ce0(0x21d))/0x5+parseInt(_0x116ce0(0x1db))/0x6*(parseInt(_0x116ce0(0x1e0))/0x7)+parseInt(_0x116ce0(0x1ff))/0x8+-parseInt(_0x116ce0(0x1ea))/0x9;if(_0x5b2b40===_0x250ecd)break;else _0x10833a['push'](_0x10833a['shift']());}catch(_0x435be6){_0x10833a['push'](_0x10833a['shift']());}}}(a108_0x1cb3,0x88ca9));Object[a108_0x5e32b3(0x238)](exports,'__esModule',{'value':!![]}),exports[a108_0x5e32b3(0x1fc)]=void 0x0;const tslib_1=require('tslib'),routing_controllers_1=require('routing-controllers'),ProductService_1=require(a108_0x5e32b3(0x1ef)),ProductRelatedService_1=require('../../services/ProductRelatedService'),checkTokenMiddleware_1=require(a108_0x5e32b3(0x20d)),ProductToCategoryService_1=require(a108_0x5e32b3(0x23a)),CategoryService_1=require('../../../../src/api/core/services/CategoryService'),class_transformer_1=require(a108_0x5e32b3(0x1f4)),moment_1=tslib_1[a108_0x5e32b3(0x205)](require(a108_0x5e32b3(0x236))),AddonValidationMiddleware_1=require(a108_0x5e32b3(0x1d7));let RelatedProductController=class RelatedProductController{constructor(_0x3d1276,_0x2066dd,_0x49b3d,_0x4786e0){const _0xbee389=a108_0x5e32b3;this[_0xbee389(0x221)]=_0x3d1276,this[_0xbee389(0x1f1)]=_0x2066dd,this[_0xbee389(0x21c)]=_0x49b3d,this[_0xbee389(0x209)]=_0x4786e0;}[a108_0x5e32b3(0x226)](_0x20efbc,_0x6ae8b9,_0x216583,_0x2c4221){const _0x365917=a108_0x5e32b3;return tslib_1[_0x365917(0x207)](this,void 0x0,void 0x0,function*(){const _0x3831d4=_0x365917,_0x4e4bc2=yield this[_0x3831d4(0x221)]['findOne']({'productSlug':_0x20efbc,'isActive':0x1});if(!_0x4e4bc2)return _0x2c4221[_0x3831d4(0x1f6)](0x190)[_0x3831d4(0x1df)]({'status':0x1,'message':_0x3831d4(0x22b)});const _0x519a44=(0x0,moment_1[_0x3831d4(0x227)])()['format'](_0x3831d4(0x234)),_0x209ea3=[_0x3831d4(0x1e5),_0x3831d4(0x1e7),'product.taxType\x20as\x20taxType',_0x3831d4(0x1fa),_0x3831d4(0x223),_0x3831d4(0x233),_0x3831d4(0x204),'product.isSimplified\x20as\x20isSimplified',_0x3831d4(0x1e8),'product.quantity\x20as\x20quantity',_0x3831d4(0x239),_0x3831d4(0x22c),_0x3831d4(0x1e9),'product.hasStock\x20as\x20hasStock',_0x3831d4(0x1f5),_0x3831d4(0x1dd),_0x3831d4(0x1d9),_0x3831d4(0x231),_0x3831d4(0x1ed),_0x3831d4(0x22f),'(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20price',_0x3831d4(0x1e3)+_0x3831d4(0x219),'(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20product.product_id\x20AND\x20ps.sku_id\x20=\x20skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))'+'\x20'+'ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20AS\x20productSpecial'],_0x5dc795=[],_0x181eb2=[],_0x46d197=[];_0x46d197['push']({'tableName':_0x3831d4(0x21e),'aliasName':_0x3831d4(0x20b)});_0x216583['id']&&(_0x209ea3[_0x3831d4(0x230)]('customerWishlist.wishlistProductId\x20as\x20wishlistProductId'),_0x46d197[_0x3831d4(0x230)]({'tableName':_0x3831d4(0x1ec),'op':_0x3831d4(0x200),'aliasName':_0x3831d4(0x225),'cond':_0x3831d4(0x20c)+_0x216583['id']}));_0x5dc795[_0x3831d4(0x230)]({'name':_0x3831d4(0x1e1),'op':'and','value':0x1},{'name':'ProductRelated.productId','op':_0x3831d4(0x229),'value':_0x4e4bc2['productId']},{'name':_0x3831d4(0x1fe),'op':'raw','sign':'<=','value':_0x519a44[_0x3831d4(0x1fd)]()});const _0x43ce1d=[],_0x4ac047=[];_0x4ac047['push']({'name':'ProductRelated.id','order':_0x3831d4(0x1fb)});if(_0x6ae8b9){const _0x412ba9=yield this[_0x3831d4(0x1f1)][_0x3831d4(0x218)](0x0,0x0,_0x209ea3,_0x5dc795,_0x181eb2,_0x46d197,_0x43ce1d,_0x4ac047,!![],!![]),_0x26142e={'status':0x1,'message':_0x3831d4(0x1e2),'data':_0x412ba9};return _0x2c4221[_0x3831d4(0x1f6)](0xc8)[_0x3831d4(0x1df)](_0x26142e);}const _0x72167=yield this[_0x3831d4(0x1f1)][_0x3831d4(0x218)](0x0,0x0,_0x209ea3,_0x5dc795,_0x181eb2,_0x46d197,_0x43ce1d,_0x4ac047,![],!![]),_0x49ca04=_0x72167[_0x3831d4(0x210)](_0x40c589=>tslib_1[_0x3831d4(0x207)](this,void 0x0,void 0x0,function*(){const _0x1ca6f4=_0x3831d4,_0x182a43=_0x40c589,_0x55d89f=yield this[_0x1ca6f4(0x21c)][_0x1ca6f4(0x237)]({'where':{'productId':_0x40c589[_0x1ca6f4(0x21a)]}}),_0x5e6f7d=_0x55d89f[_0x1ca6f4(0x210)](_0x203074=>tslib_1[_0x1ca6f4(0x207)](this,void 0x0,void 0x0,function*(){const _0x5bc8c6=_0x1ca6f4,_0x2d2f8c=yield this[_0x5bc8c6(0x209)]['findOne']({'categoryId':_0x203074['categoryId']}),_0x3e35f5=_0x203074;return _0x3e35f5[_0x5bc8c6(0x21f)]=_0x2d2f8c?_0x2d2f8c[_0x5bc8c6(0x1f7)]:'',_0x3e35f5['categoryId']=_0x2d2f8c?_0x2d2f8c[_0x5bc8c6(0x1eb)]:'',_0x3e35f5[_0x5bc8c6(0x20f)]=_0x2d2f8c?_0x2d2f8c[_0x5bc8c6(0x20f)]:'',_0x3e35f5[_0x5bc8c6(0x1f9)]=_0x2d2f8c?_0x2d2f8c[_0x5bc8c6(0x1f9)]:'',_0x3e35f5[_0x5bc8c6(0x22e)]=_0x2d2f8c?_0x2d2f8c[_0x5bc8c6(0x22e)]:'',_0x3e35f5;}));_0x182a43[_0x1ca6f4(0x208)]=yield Promise[_0x1ca6f4(0x224)](_0x5e6f7d);if(_0x40c589[_0x1ca6f4(0x1d8)]!==null)_0x182a43['pricerefer']=_0x40c589['productSpecial'],_0x182a43[_0x1ca6f4(0x22a)]=0x1;else _0x40c589['productDiscount']!==null?(_0x182a43[_0x1ca6f4(0x23b)]=_0x40c589[_0x1ca6f4(0x1f8)],_0x182a43[_0x1ca6f4(0x22a)]=0x0):(_0x182a43[_0x1ca6f4(0x23b)]='',_0x182a43['flag']='');return _0x40c589[_0x1ca6f4(0x1f0)]===0x1?_0x40c589['quantity']<=_0x40c589['outOfStockThreshold']?_0x182a43['stockStatus']=_0x1ca6f4(0x1f3):_0x182a43[_0x1ca6f4(0x222)]=_0x1ca6f4(0x213):_0x182a43[_0x1ca6f4(0x222)]=_0x1ca6f4(0x213),_0x40c589['wishlistProductId']!==null&&_0x40c589[_0x1ca6f4(0x1de)]?_0x182a43[_0x1ca6f4(0x211)]=0x1:_0x182a43[_0x1ca6f4(0x211)]=0x0,_0x182a43;})),_0x31cce8=yield Promise[_0x3831d4(0x224)](_0x49ca04),_0x9a8a64={'status':0x1,'message':_0x3831d4(0x1e2),'data':(0x0,class_transformer_1['instanceToPlain'])(_0x31cce8)};return _0x2c4221[_0x3831d4(0x1f6)](0xc8)[_0x3831d4(0x1df)](_0x9a8a64);});}};tslib_1[a108_0x5e32b3(0x1e4)]([(0x0,routing_controllers_1[a108_0x5e32b3(0x203)])(checkTokenMiddleware_1[a108_0x5e32b3(0x1f2)]),(0x0,routing_controllers_1['Get'])(a108_0x5e32b3(0x22d)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a108_0x5e32b3(0x1dc)])(a108_0x5e32b3(0x21a))),tslib_1[a108_0x5e32b3(0x235)](0x1,(0x0,routing_controllers_1['QueryParam'])(a108_0x5e32b3(0x215))),tslib_1[a108_0x5e32b3(0x235)](0x2,(0x0,routing_controllers_1[a108_0x5e32b3(0x220)])()),tslib_1[a108_0x5e32b3(0x235)](0x3,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata'](a108_0x5e32b3(0x212),Function),tslib_1[a108_0x5e32b3(0x228)](a108_0x5e32b3(0x216),[String,Object,Object,Object]),tslib_1[a108_0x5e32b3(0x228)](a108_0x5e32b3(0x1e6),Promise)],RelatedProductController[a108_0x5e32b3(0x1ee)],a108_0x5e32b3(0x226),null),RelatedProductController=tslib_1['__decorate']([(0x0,routing_controllers_1['UseBefore'])(AddonValidationMiddleware_1[a108_0x5e32b3(0x217)]),(0x0,routing_controllers_1[a108_0x5e32b3(0x232)])('/list'),tslib_1[a108_0x5e32b3(0x228)](a108_0x5e32b3(0x216),[ProductService_1[a108_0x5e32b3(0x1da)],ProductRelatedService_1[a108_0x5e32b3(0x206)],ProductToCategoryService_1[a108_0x5e32b3(0x202)],CategoryService_1[a108_0x5e32b3(0x21b)]])],RelatedProductController),exports[a108_0x5e32b3(0x1fc)]=RelatedProductController;function a108_0x9b28(_0x1eeffc,_0x588fab){const _0x1cb3ec=a108_0x1cb3();return a108_0x9b28=function(_0x9b2873,_0x568014){_0x9b2873=_0x9b2873-0x1d7;let _0x3b7b09=_0x1cb3ec[_0x9b2873];return _0x3b7b09;},a108_0x9b28(_0x1eeffc,_0x588fab);}function a108_0x1cb3(){const _0x54ab2b=['name','productDiscount','parentInt','product.taxValue\x20as\x20taxValue','ASC','RelatedProductController','toString','product.dateAvailable','7714264tmPCRA','leftCond','90960DayigK','ProductToCategoryService','UseBefore','product.name\x20as\x20name','__importDefault','ProductRelatedService','__awaiter','categoryLevels','categoryService','606990eyPKBV','product','customerWishlist.customerId\x20=\x20','../../../../src/api/core/middlewares/checkTokenMiddleware','4HLCLxf','categorySlug','map','wishListStatus','design:type','inStock','2304256IFTehK','count','design:paramtypes','CheckAddonMiddleware','listByQueryBuilder','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20AS\x20productDiscount','productId','CategoryService','productToCategoryService','2586465LgImAY','ProductRelated.productRelated','categoryName','Req','productService','stockStatus','product.skuId\x20as\x20skuId','all','customerWishlist','relatedProductList','default','__metadata','and','flag','Invalid\x20product.','product.rating\x20as\x20rating','/related-product-list','categoryDescription','(SELECT\x20sku.sku_name\x20as\x20skuName\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20skuName','push','(SELECT\x20pi.default_image\x20as\x20defaultImage\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20defaultImage','JsonController','product.price\x20as\x20price','YYYY-MM-DD','__param','moment','findAll','defineProperty','product.productId\x20as\x20productId','../../../../src/api/core/services/ProductToCategoryService','pricerefer','../../../../src/api/core/middlewares/AddonValidationMiddleware','productSpecial','(SELECT\x20pi.image\x20as\x20image\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20image','ProductService','6uBEqLl','QueryParam','(SELECT\x20pi.container_name\x20as\x20containerName\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20containerName','wishlistProductId','send','7027678aELxvM','product.isActive','Related\x20product\x20list\x20is\x20successfully\x20being\x20shown.\x20','(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20product.product_id\x20AND\x20pd2.sku_id\x20=\x20skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20\x20pd2.date_end\x20>=\x20CURDATE()))\x20','__decorate','ProductRelated.relatedProductId\x20as\x20productId','design:returntype','ProductRelated.id\x20as\x20id','product.description\x20as\x20description','product.productSlug\x20as\x20productSlug','9742149GnyRsC','categoryId','product.wishlist','IF(product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`product`.`tax_value`\x20AND\x20`product`.`tax_type`\x20=\x202\x20LIMIT\x201),\x20(product.taxValue)\x20)\x20\x20as\x20taxValue','prototype','../../../../src/api/core/services/ProductService','hasStock','productRelatedService','CheckTokenMiddleware','outOfStock','class-transformer','product.outOfStockThreshold\x20as\x20outOfStockThreshold','status'];a108_0x1cb3=function(){return _0x54ab2b;};return a108_0x1cb3();}
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RelatedProductController = void 0;
+const tslib_1 = require("tslib");
+const routing_controllers_1 = require("routing-controllers");
+const ProductService_1 = require("../../../../src/api/core/services/ProductService");
+const ProductRelatedService_1 = require("../../services/ProductRelatedService");
+const checkTokenMiddleware_1 = require("../../../../src/api/core/middlewares/checkTokenMiddleware");
+const ProductToCategoryService_1 = require("../../../../src/api/core/services/ProductToCategoryService");
+const CategoryService_1 = require("../../../../src/api/core/services/CategoryService");
+const class_transformer_1 = require("class-transformer");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+let RelatedProductController = class RelatedProductController {
+    constructor(productService, productRelatedService, productToCategoryService, categoryService) {
+        this.productService = productService;
+        this.productRelatedService = productRelatedService;
+        this.productToCategoryService = productToCategoryService;
+        this.categoryService = categoryService;
+    }
+    // Related Product Showing API
+    /**
+     * @api {get} /api/list/related-product-list  Related Product List
+     * @apiGroup Store List
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} productId Product Id
+     * @apiParam (Request body) {Number} count
+     * @apiParamExample {json} Input
+     * {
+     *      "productId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Related Product List Showing Successfully..!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/related-product-list
+     * @apiErrorExample {json} Related Product List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Category List Function
+    relatedProductList(productid, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const productDetail = yield this.productService.findOne({
+                productSlug: productid,
+                isActive: 1,
+            });
+            if (!productDetail) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'Invalid product.',
+                });
+            }
+            const currentDate = (0, moment_1.default)().format('YYYY-MM-DD');
+            const selects = ['ProductRelated.relatedProductId as productId',
+                'ProductRelated.id as id',
+                'product.taxType as taxType',
+                'product.taxValue as taxValue',
+                'product.skuId as skuId',
+                'product.price as price',
+                'product.name as name',
+                'product.isSimplified as isSimplified',
+                'product.description as description',
+                'product.quantity as quantity',
+                'product.productId as productId',
+                'product.rating as rating',
+                'product.productSlug as productSlug',
+                'product.hasStock as hasStock',
+                'product.outOfStockThreshold as outOfStockThreshold',
+                '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
+                '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = product.productId AND pi.default_image = 1 LIMIT 1) as image',
+                '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = product.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
+                'IF(product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `product`.`tax_value` AND `product`.`tax_type` = 2 LIMIT 1), (product.taxValue) )  as taxValue',
+                '(SELECT sku.sku_name as skuName FROM sku WHERE sku.id = skuId) as skuName',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
+                '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+                    ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
+                '(SELECT price FROM product_special ps WHERE ps.product_id = product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial'];
+            const whereCondition = [];
+            const searchConditions = [];
+            const relations = [];
+            relations.push({
+                tableName: 'ProductRelated.productRelated',
+                aliasName: 'product',
+            });
+            if (request.id) {
+                selects.push('customerWishlist.wishlistProductId as wishlistProductId');
+                relations.push({
+                    tableName: 'product.wishlist',
+                    op: 'leftCond',
+                    aliasName: 'customerWishlist',
+                    cond: 'customerWishlist.customerId = ' + request.id,
+                });
+            }
+            whereCondition.push({
+                name: 'product.isActive',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'ProductRelated.productId',
+                op: 'and',
+                value: productDetail.productId,
+            }, {
+                name: 'product.dateAvailable',
+                op: 'raw',
+                sign: '<=',
+                value: currentDate.toString(),
+            });
+            const groupBy = [];
+            const sort = [];
+            sort.push({
+                name: 'ProductRelated.id',
+                order: 'ASC',
+            });
+            if (count) {
+                const relatedDataCount = yield this.productRelatedService.listByQueryBuilder(0, 0, selects, whereCondition, searchConditions, relations, groupBy, sort, true, true);
+                const Response = {
+                    status: 1,
+                    message: 'Related product list is successfully being shown. ',
+                    data: relatedDataCount,
+                };
+                return response.status(200).send(Response);
+            }
+            const relatedData = yield this.productRelatedService.listByQueryBuilder(0, 0, selects, whereCondition, searchConditions, relations, groupBy, sort, false, true);
+            const promises = relatedData.map((results) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = results;
+                const product = yield this.productToCategoryService.findAll({
+                    where: {
+                        productId: results.productId,
+                    },
+                });
+                const categories = product.map((val) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const categoryData = yield this.categoryService.findOne({ categoryId: val.categoryId });
+                    const tempVal = val;
+                    tempVal.categoryName = categoryData ? categoryData.name : '';
+                    tempVal.categoryId = categoryData ? categoryData.categoryId : '';
+                    tempVal.categorySlug = categoryData ? categoryData.categorySlug : '';
+                    tempVal.parentInt = categoryData ? categoryData.parentInt : '';
+                    tempVal.categoryDescription = categoryData ? categoryData.categoryDescription : '';
+                    return tempVal;
+                }));
+                temp.categoryLevels = yield Promise.all(categories);
+                if (results.productSpecial !== null) {
+                    temp.pricerefer = results.productSpecial;
+                    temp.flag = 1;
+                }
+                else if (results.productDiscount !== null) {
+                    temp.pricerefer = results.productDiscount;
+                    temp.flag = 0;
+                }
+                else {
+                    temp.pricerefer = '';
+                    temp.flag = '';
+                }
+                if (results.hasStock === 1) {
+                    if (results.quantity <= results.outOfStockThreshold) {
+                        temp.stockStatus = 'outOfStock';
+                    }
+                    else {
+                        temp.stockStatus = 'inStock';
+                    }
+                }
+                else {
+                    temp.stockStatus = 'inStock';
+                }
+                if ((results.wishlistProductId !== null) && results.wishlistProductId) {
+                    temp.wishListStatus = 1;
+                }
+                else {
+                    temp.wishListStatus = 0;
+                }
+                return temp;
+            }));
+            const result = yield Promise.all(promises);
+            const successResponse = {
+                status: 1,
+                message: 'Related product list is successfully being shown. ',
+                data: (0, class_transformer_1.instanceToPlain)(result),
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckTokenMiddleware),
+    (0, routing_controllers_1.Get)('/related-product-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('productId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], RelatedProductController.prototype, "relatedProductList", null);
+RelatedProductController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/list'),
+    tslib_1.__metadata("design:paramtypes", [ProductService_1.ProductService, ProductRelatedService_1.ProductRelatedService, ProductToCategoryService_1.ProductToCategoryService, CategoryService_1.CategoryService])
+], RelatedProductController);
+exports.RelatedProductController = RelatedProductController;
+//# sourceMappingURL=StoreProductRelatedController.js.map

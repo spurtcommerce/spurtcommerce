@@ -1,1 +1,56 @@
-'use strict';const a651_0x2c19ec=a651_0x195f;function a651_0x21de(){const _0x5bccb0=['mobile\x20number\x20should\x20be\x20maximum\x2015\x20character','659770uODcYj','__decorate','prototype','36utlyUH','class-validator','name\x20is\x20required','2566188MxsuXE','tslib','mobile\x20number\x20should\x20be\x20minimum\x206\x20character','Email\x20Id\x20should\x20be\x20maximum\x2096\x20character','country','vendorId','mobileNumber','Email\x20Id\x20is\x20required','vendorId\x20is\x20required','MaxLength','__metadata','1806433iRTsel','ContactSeller','country\x20is\x20required','defineProperty','name','IsNotEmpty','5364968cXSxQI','10064418dOMloB','29264TEgOgG','design:type','name\x20should\x20be\x20maximum\x20255\x20character','reflect-metadata','6982712eByfTF'];a651_0x21de=function(){return _0x5bccb0;};return a651_0x21de();}(function(_0x559c18,_0x586567){const _0x229d2d=a651_0x195f,_0x428edb=_0x559c18();while(!![]){try{const _0x31b7dc=-parseInt(_0x229d2d(0xd4))/0x1+-parseInt(_0x229d2d(0xbd))/0x2*(-parseInt(_0x229d2d(0xc6))/0x3)+-parseInt(_0x229d2d(0xc9))/0x4+-parseInt(_0x229d2d(0xc3))/0x5+parseInt(_0x229d2d(0xbc))/0x6+parseInt(_0x229d2d(0xbb))/0x7+parseInt(_0x229d2d(0xc1))/0x8;if(_0x31b7dc===_0x586567)break;else _0x428edb['push'](_0x428edb['shift']());}catch(_0x506d1b){_0x428edb['push'](_0x428edb['shift']());}}}(a651_0x21de,0xdebbc));Object[a651_0x2c19ec(0xd7)](exports,'__esModule',{'value':!![]}),exports[a651_0x2c19ec(0xd5)]=void 0x0;const tslib_1=require(a651_0x2c19ec(0xca));require(a651_0x2c19ec(0xc0));const class_validator_1=require(a651_0x2c19ec(0xc7));class ContactSeller{}function a651_0x195f(_0x385711,_0x1c10e7){const _0x21de3c=a651_0x21de();return a651_0x195f=function(_0x195fb1,_0xe1e103){_0x195fb1=_0x195fb1-0xb9;let _0xcad77d=_0x21de3c[_0x195fb1];return _0xcad77d;},a651_0x195f(_0x385711,_0x1c10e7);}tslib_1['__decorate']([(0x0,class_validator_1[a651_0x2c19ec(0xba)])({'message':a651_0x2c19ec(0xd1)}),tslib_1[a651_0x2c19ec(0xd3)](a651_0x2c19ec(0xbe),Number)],ContactSeller[a651_0x2c19ec(0xc5)],a651_0x2c19ec(0xce),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1['MaxLength'])(0xff,{'message':a651_0x2c19ec(0xbf)}),(0x0,class_validator_1[a651_0x2c19ec(0xba)])({'message':a651_0x2c19ec(0xc8)}),tslib_1[a651_0x2c19ec(0xd3)](a651_0x2c19ec(0xbe),String)],ContactSeller[a651_0x2c19ec(0xc5)],a651_0x2c19ec(0xb9),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a651_0x2c19ec(0xd2)])(0x60,{'message':a651_0x2c19ec(0xcc)}),(0x0,class_validator_1[a651_0x2c19ec(0xba)])({'message':a651_0x2c19ec(0xd0)}),tslib_1['__metadata'](a651_0x2c19ec(0xbe),String)],ContactSeller[a651_0x2c19ec(0xc5)],'email',void 0x0),tslib_1[a651_0x2c19ec(0xc4)]([(0x0,class_validator_1['MinLength'])(0x6,{'message':a651_0x2c19ec(0xcb)}),(0x0,class_validator_1[a651_0x2c19ec(0xd2)])(0xf,{'message':a651_0x2c19ec(0xc2)}),tslib_1[a651_0x2c19ec(0xd3)]('design:type',String)],ContactSeller['prototype'],a651_0x2c19ec(0xcf),void 0x0),tslib_1[a651_0x2c19ec(0xc4)]([(0x0,class_validator_1[a651_0x2c19ec(0xba)])({'message':a651_0x2c19ec(0xd6)}),tslib_1[a651_0x2c19ec(0xd3)](a651_0x2c19ec(0xbe),String)],ContactSeller['prototype'],a651_0x2c19ec(0xcd),void 0x0),exports[a651_0x2c19ec(0xd5)]=ContactSeller;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ContactSeller = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class ContactSeller {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'vendorId is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], ContactSeller.prototype, "vendorId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'name should be maximum 255 character',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'name is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], ContactSeller.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(96, {
+        message: 'Email Id should be maximum 96 character',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Email Id is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], ContactSeller.prototype, "email", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MinLength)(6, {
+        message: 'mobile number should be minimum 6 character',
+    }),
+    (0, class_validator_1.MaxLength)(15, {
+        message: 'mobile number should be maximum 15 character',
+    }),
+    tslib_1.__metadata("design:type", String)
+], ContactSeller.prototype, "mobileNumber", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'country is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], ContactSeller.prototype, "country", void 0);
+exports.ContactSeller = ContactSeller;
+//# sourceMappingURL=ContactSeller.js.map

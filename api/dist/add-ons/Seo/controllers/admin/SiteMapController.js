@@ -1,1 +1,292 @@
-'use strict';const a209_0x5be05a=a209_0x1e45;(function(_0x502ce4,_0x5a62f7){const _0x121a05=a209_0x1e45,_0x308128=_0x502ce4();while(!![]){try{const _0x3d9126=-parseInt(_0x121a05(0x17d))/0x1+-parseInt(_0x121a05(0x17a))/0x2*(-parseInt(_0x121a05(0x137))/0x3)+-parseInt(_0x121a05(0x123))/0x4*(parseInt(_0x121a05(0x122))/0x5)+-parseInt(_0x121a05(0x12b))/0x6+parseInt(_0x121a05(0x157))/0x7*(parseInt(_0x121a05(0x13b))/0x8)+parseInt(_0x121a05(0x176))/0x9+-parseInt(_0x121a05(0x152))/0xa;if(_0x3d9126===_0x5a62f7)break;else _0x308128['push'](_0x308128['shift']());}catch(_0x1c953a){_0x308128['push'](_0x308128['shift']());}}}(a209_0x3bd7,0x87b90));function a209_0x1e45(_0xa0ccc3,_0x13dd29){const _0x3bd7ed=a209_0x3bd7();return a209_0x1e45=function(_0x1e450e,_0x9557e6){_0x1e450e=_0x1e450e-0x11f;let _0x454779=_0x3bd7ed[_0x1e450e];return _0x454779;},a209_0x1e45(_0xa0ccc3,_0x13dd29);}Object[a209_0x5be05a(0x16f)](exports,a209_0x5be05a(0x126),{'value':!![]}),exports[a209_0x5be05a(0x17c)]=void 0x0;function a209_0x3bd7(){const _0x48fa10=['__esModule','Get','Unable\x20to\x20Deleted\x20the\x20data\x20!!','../../models/SiteMapModel','Successfully\x20created\x20!!','1669980BDkLdb','env','/page-detail/','pipe','Param','pageService','../../../../src/api/core/services/CategoryService','writeFile','/wishlist','deleteSiteMap','userId','__param','1113enRTxD','map','offset','urlsToSitemap','16LicElw','SiteMap','sitemap_','design:type','createSiteMap','weekly','list','prototype','CategoryService','/get-sitemap','path','find','limit','userService','slugName','Successfully\x20got\x20the\x20count\x20!!','join','storeRedirectUrl','userName','../../../../src/api/core/services/ProductService','findOne','Res','log','2999980grrdDO','fileName','/:id','send','/products/productdetails/','1134658lEmyqc','__metadata','productSlug','SitemapStream','streamToPromise','../../services/SiteMapService','Post','PageService','__decorate','now','pathName','QueryParam','Req','SiteMapService','user','design:returntype','__awaiter','Authorized','sitemap\x20created','UserService','/auth/sign-up','Delete','delete','lastName','defineProperty','tslib','Successfully\x20Deleted\x20the\x20data\x20!!','siteMapService','/site-map','listSiteMap','toString','8506665rytFOe','Successfully\x20got\x20the\x20list\x20!!','push','/vendor','5884VtSxLj','ProductService','SiteMapController','248917oPMncb','from','getSitempap','status','__importStar','categorySlug','design:paramtypes','productService','cwd','stream','2444225CyREYl','8tGfwfN','categoryService','/products/'];a209_0x3bd7=function(){return _0x48fa10;};return a209_0x3bd7();}const tslib_1=require(a209_0x5be05a(0x170)),routing_controllers_1=require('routing-controllers'),SiteMapService_1=require(a209_0x5be05a(0x15c)),UserService_1=require('../../../../src/api/core/services/UserService'),SiteMapModel_1=require(a209_0x5be05a(0x129)),ProductService_1=require(a209_0x5be05a(0x14e)),CategoryService_1=require(a209_0x5be05a(0x131)),PageService_1=require('../../../../src/api/core/services/PageService'),sitemap_1=require('sitemap'),stream_1=require(a209_0x5be05a(0x121)),fs=tslib_1[a209_0x5be05a(0x181)](require('fs')),env_1=require('../../../../src/env'),path=tslib_1[a209_0x5be05a(0x181)](require(a209_0x5be05a(0x145)));let SiteMapController=class SiteMapController{constructor(_0x43355b,_0x330f3b,_0x273f23,_0x517c6b,_0x3d2d90){const _0x571aac=a209_0x5be05a;this['siteMapService']=_0x43355b,this[_0x571aac(0x148)]=_0x330f3b,this['productService']=_0x273f23,this['categoryService']=_0x517c6b,this[_0x571aac(0x130)]=_0x3d2d90;}['createSiteMap'](_0x3c18c4,_0x3e8a90){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x437226=a209_0x1e45,_0x33f85f=yield this[_0x437226(0x148)][_0x437226(0x14f)]({'where':{'userId':_0x3c18c4[_0x437226(0x165)][_0x437226(0x135)],'deleteFlag':0x0}});if(!_0x33f85f){const _0x46a66b={'status':0x0,'message':'Invalid\x20user\x20!!'};return _0x3e8a90[_0x437226(0x180)](0x190)['send'](_0x46a66b);}const _0x3efedf=[];_0x3efedf['push'](env_1['env'][_0x437226(0x14c)]);const _0xc5aaef=yield this[_0x437226(0x11f)][_0x437226(0x146)]({'select':[_0x437226(0x159)],'where':{'isActive':0x1}}),_0x45f17d=env_1[_0x437226(0x12c)]['storeRedirectUrl']+_0x437226(0x156);_0xc5aaef[_0x437226(0x138)](_0x31e41e=>{const _0xe406ce=_0x437226;if(_0x31e41e['productSlug']){const _0x584497=_0x45f17d+_0x31e41e[_0xe406ce(0x159)];_0x3efedf[_0xe406ce(0x178)](_0x584497);}});const _0x13c2a9=yield this[_0x437226(0x124)][_0x437226(0x146)]({'select':[_0x437226(0x182)],'where':{'isActive':0x1}}),_0x3f77c8=env_1[_0x437226(0x12c)][_0x437226(0x14c)]+_0x437226(0x125);_0x13c2a9[_0x437226(0x138)](_0x5cf44e=>{const _0x51cfd3=_0x437226;if(_0x5cf44e['categorySlug']){const _0x44cf6b=_0x3f77c8+_0x5cf44e['categorySlug'];_0x3efedf[_0x51cfd3(0x178)](_0x44cf6b);}});const _0x26638f=yield this[_0x437226(0x130)][_0x437226(0x146)]({'select':['slugName'],'where':{'isActive':0x1}}),_0x2fb4c6=env_1[_0x437226(0x12c)]['storeRedirectUrl']+_0x437226(0x12d);_0x26638f[_0x437226(0x138)](_0x8d5438=>{const _0x2183f9=_0x437226;if(_0x8d5438['slugName']){const _0x364111=_0x2fb4c6+_0x8d5438[_0x2183f9(0x149)];_0x3efedf[_0x2183f9(0x178)](_0x364111);}});const _0x10c1a0=['/auth/sign-in',_0x437226(0x16b),'/contact',_0x437226(0x179),_0x437226(0x133)];_0x10c1a0[_0x437226(0x138)](_0x54d836=>{const _0x3530bc=_0x437226;if(_0x54d836){const _0x1fb9b7=env_1['env'][_0x3530bc(0x14c)]+_0x54d836;_0x3efedf[_0x3530bc(0x178)](_0x1fb9b7);}});if(_0x3efedf){const _0x4df438=Date[_0x437226(0x160)](),_0x4ea9e0='sitemap/',_0x1fdbe3=_0x437226(0x13d)+_0x4df438+'.xml';yield this['urlsToSitemap'](env_1[_0x437226(0x12c)]['storeRedirectUrl'],_0x3efedf['sort'](),_0x4ea9e0,_0x1fdbe3);const _0x45b7d4=new SiteMapModel_1[(_0x437226(0x13c))]();_0x45b7d4[_0x437226(0x135)]=_0x33f85f['userId'],_0x45b7d4[_0x437226(0x14d)]=_0x33f85f['firstName']+'\x20'+_0x33f85f[_0x437226(0x16e)],_0x45b7d4[_0x437226(0x161)]=_0x4ea9e0,_0x45b7d4[_0x437226(0x153)]=_0x1fdbe3;const _0x4e3ec9=yield this[_0x437226(0x172)]['create'](_0x45b7d4);if(_0x4e3ec9){const _0x3e30cd={'status':0x1,'message':_0x437226(0x12a),'data':_0x4e3ec9};return _0x3e8a90[_0x437226(0x180)](0xc8)['send'](_0x3e30cd);}const _0x2ebe4f={'status':0x0,'message':'Unable\x20to\x20created\x20the\x20data\x20!!'};return _0x3e8a90[_0x437226(0x180)](0x190)['send'](_0x2ebe4f);}});}[a209_0x5be05a(0x174)](_0x37943e,_0x12ee36,_0xf08a0d,_0x3c87b8,_0x1c17a0){const _0x144489=a209_0x5be05a;return tslib_1[_0x144489(0x167)](this,void 0x0,void 0x0,function*(){const _0x1e7aae=_0x144489,_0x39e916=yield this[_0x1e7aae(0x172)][_0x1e7aae(0x141)](_0x37943e,_0x12ee36,[],[],[],_0xf08a0d);if(_0xf08a0d){const _0x11cf29={'status':0x1,'message':_0x1e7aae(0x14a),'count':_0x39e916};return _0x1c17a0['status'](0xc8)[_0x1e7aae(0x155)](_0x11cf29);}else{const _0x1f9bba={'status':0x1,'message':_0x1e7aae(0x177),'data':_0x39e916};return _0x1c17a0[_0x1e7aae(0x180)](0xc8)[_0x1e7aae(0x155)](_0x1f9bba);}});}[a209_0x5be05a(0x134)](_0x462e50,_0x12466e){const _0x58e2d1=a209_0x5be05a;return tslib_1[_0x58e2d1(0x167)](this,void 0x0,void 0x0,function*(){const _0x1f104e=_0x58e2d1,_0x4274f6=yield this['siteMapService'][_0x1f104e(0x16d)](_0x462e50);if(_0x4274f6){const _0x23087d={'status':0x1,'message':_0x1f104e(0x171)};return _0x12466e[_0x1f104e(0x180)](0xc8)['send'](_0x23087d);}const _0x438cd0={'status':0x0,'message':_0x1f104e(0x128)};return _0x12466e[_0x1f104e(0x180)](0x190)[_0x1f104e(0x155)](_0x438cd0);});}['getSitempap'](_0x492af6,_0x5a5b12,_0xebeb35){const _0x3568e1=a209_0x5be05a;return tslib_1[_0x3568e1(0x167)](this,void 0x0,void 0x0,function*(){return new Promise((_0x5edc83,_0x28fd65)=>{const _0x42374e=a209_0x1e45,_0x6b946a=path[_0x42374e(0x14b)](process[_0x42374e(0x120)](),_0x492af6);_0xebeb35['download'](_0x6b946a,(_0x8f18c6,_0xd5dfab)=>{if(_0x8f18c6)_0x28fd65(_0x8f18c6);else return _0xebeb35['end']();});});});}[a209_0x5be05a(0x13a)](_0x482f03,_0x5b8f1c,_0x4fb693,_0x42a532){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x47f5c5=a209_0x1e45,_0x2c2a94=_0x5b8f1c[_0x47f5c5(0x138)](_0x1ac1a9=>{const _0x47989d=_0x47f5c5;return{'url':_0x1ac1a9,'changefreq':_0x47989d(0x140),'priority':0.5};}),_0x290c68=new sitemap_1[(_0x47f5c5(0x15a))]({'hostname':_0x482f03}),_0x1e32e2=yield(0x0,sitemap_1[_0x47f5c5(0x15b)])(stream_1['Readable'][_0x47f5c5(0x17e)](_0x2c2a94)[_0x47f5c5(0x12e)](_0x290c68));return new Promise((_0x52c889,_0x43308d)=>{const _0x1d4b21=_0x47f5c5,_0x3b64f9=_0x4fb693+'/'+_0x42a532;fs[_0x1d4b21(0x132)](_0x3b64f9,_0x1e32e2[_0x1d4b21(0x175)](),_0x670095=>{const _0x29e08f=_0x1d4b21;if(_0x670095)throw _0x670095;console[_0x29e08f(0x151)](_0x29e08f(0x169)),_0x52c889(_0x29e08f(0x169));});});});}};tslib_1[a209_0x5be05a(0x15f)]([(0x0,routing_controllers_1[a209_0x5be05a(0x168)])(),(0x0,routing_controllers_1[a209_0x5be05a(0x15d)])(),tslib_1[a209_0x5be05a(0x136)](0x0,(0x0,routing_controllers_1[a209_0x5be05a(0x163)])()),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a209_0x5be05a(0x150)])()),tslib_1[a209_0x5be05a(0x158)]('design:type',Function),tslib_1[a209_0x5be05a(0x158)](a209_0x5be05a(0x183),[Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],SiteMapController[a209_0x5be05a(0x142)],a209_0x5be05a(0x13f),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a209_0x5be05a(0x168)])(),(0x0,routing_controllers_1[a209_0x5be05a(0x127)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a209_0x5be05a(0x162)])(a209_0x5be05a(0x147))),tslib_1[a209_0x5be05a(0x136)](0x1,(0x0,routing_controllers_1['QueryParam'])(a209_0x5be05a(0x139))),tslib_1[a209_0x5be05a(0x136)](0x2,(0x0,routing_controllers_1['QueryParam'])('count')),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a209_0x5be05a(0x163)])()),tslib_1[a209_0x5be05a(0x136)](0x4,(0x0,routing_controllers_1[a209_0x5be05a(0x150)])()),tslib_1[a209_0x5be05a(0x158)](a209_0x5be05a(0x13e),Function),tslib_1[a209_0x5be05a(0x158)]('design:paramtypes',[Number,Number,Object,Object,Object]),tslib_1[a209_0x5be05a(0x158)](a209_0x5be05a(0x166),Promise)],SiteMapController[a209_0x5be05a(0x142)],a209_0x5be05a(0x174),null),tslib_1[a209_0x5be05a(0x15f)]([(0x0,routing_controllers_1[a209_0x5be05a(0x168)])(),(0x0,routing_controllers_1[a209_0x5be05a(0x16c)])(a209_0x5be05a(0x154)),tslib_1[a209_0x5be05a(0x136)](0x0,(0x0,routing_controllers_1[a209_0x5be05a(0x12f)])('id')),tslib_1[a209_0x5be05a(0x136)](0x1,(0x0,routing_controllers_1[a209_0x5be05a(0x150)])()),tslib_1[a209_0x5be05a(0x158)](a209_0x5be05a(0x13e),Function),tslib_1['__metadata']('design:paramtypes',[Number,Object]),tslib_1[a209_0x5be05a(0x158)]('design:returntype',Promise)],SiteMapController[a209_0x5be05a(0x142)],'deleteSiteMap',null),tslib_1[a209_0x5be05a(0x15f)]([(0x0,routing_controllers_1[a209_0x5be05a(0x127)])(a209_0x5be05a(0x144)),(0x0,routing_controllers_1[a209_0x5be05a(0x168)])(),tslib_1[a209_0x5be05a(0x136)](0x0,(0x0,routing_controllers_1['QueryParam'])(a209_0x5be05a(0x161))),tslib_1[a209_0x5be05a(0x136)](0x1,(0x0,routing_controllers_1[a209_0x5be05a(0x163)])()),tslib_1[a209_0x5be05a(0x136)](0x2,(0x0,routing_controllers_1[a209_0x5be05a(0x150)])()),tslib_1['__metadata'](a209_0x5be05a(0x13e),Function),tslib_1[a209_0x5be05a(0x158)](a209_0x5be05a(0x183),[String,Object,Object]),tslib_1['__metadata'](a209_0x5be05a(0x166),Promise)],SiteMapController[a209_0x5be05a(0x142)],a209_0x5be05a(0x17f),null),SiteMapController=tslib_1['__decorate']([(0x0,routing_controllers_1['JsonController'])(a209_0x5be05a(0x173)),tslib_1[a209_0x5be05a(0x158)](a209_0x5be05a(0x183),[SiteMapService_1[a209_0x5be05a(0x164)],UserService_1[a209_0x5be05a(0x16a)],ProductService_1[a209_0x5be05a(0x17b)],CategoryService_1[a209_0x5be05a(0x143)],PageService_1[a209_0x5be05a(0x15e)]])],SiteMapController),exports[a209_0x5be05a(0x17c)]=SiteMapController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SiteMapController = void 0;
+const tslib_1 = require("tslib");
+const routing_controllers_1 = require("routing-controllers");
+const SiteMapService_1 = require("../../services/SiteMapService");
+const UserService_1 = require("../../../../src/api/core/services/UserService");
+const SiteMapModel_1 = require("../../models/SiteMapModel");
+const ProductService_1 = require("../../../../src/api/core/services/ProductService");
+const CategoryService_1 = require("../../../../src/api/core/services/CategoryService");
+const PageService_1 = require("../../../../src/api/core/services/PageService");
+const sitemap_1 = require("sitemap");
+const stream_1 = require("stream");
+const fs = tslib_1.__importStar(require("fs"));
+const env_1 = require("../../../../src/env");
+const path = tslib_1.__importStar(require("path"));
+let SiteMapController = class SiteMapController {
+    constructor(siteMapService, userService, productService, categoryService, pageService) {
+        this.siteMapService = siteMapService;
+        this.userService = userService;
+        this.productService = productService;
+        this.categoryService = categoryService;
+        this.pageService = pageService;
+    }
+    // Create site map
+    /**
+     * @api {Post} /api/site-map Create site map
+     * @apiGroup Site Map
+     * @apiHeader {string} Authorization
+     * @apiSuccessExample {json} Success
+     * {
+     *      "status": "1",
+     *      "message": "Successfully created !!"
+     * },
+     * HTTP/1.1 200 Ok
+     * @apiSampleRequest /api/site-map
+     * @apiErrorExample {json} Error
+     * HTTP/1.1 500 Internal server error
+     */
+    createSiteMap(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const userData = yield this.userService.findOne({
+                where: {
+                    userId: request.user.userId,
+                    deleteFlag: 0,
+                },
+            });
+            if (!userData) {
+                const errorMessage = {
+                    status: 0,
+                    message: 'Invalid user !!',
+                };
+                return response.status(400).send(errorMessage);
+            }
+            const allURLs = [];
+            allURLs.push(env_1.env.storeRedirectUrl);
+            const findProduct = yield this.productService.find({ select: ['productSlug'], where: { isActive: 1 } });
+            const productDefaultUrl = env_1.env.storeRedirectUrl + '/products/productdetails/';
+            findProduct.map((val) => {
+                if (val.productSlug) {
+                    const productUrl = productDefaultUrl + val.productSlug;
+                    allURLs.push(productUrl);
+                }
+            });
+            const findCategory = yield this.categoryService.find({ select: ['categorySlug'], where: { isActive: 1 } });
+            const categoryDefaultUrl = env_1.env.storeRedirectUrl + '/products/';
+            findCategory.map((val) => {
+                if (val.categorySlug) {
+                    const categoryUrl = categoryDefaultUrl + val.categorySlug;
+                    allURLs.push(categoryUrl);
+                }
+            });
+            const findPages = yield this.pageService.find({ select: ['slugName'], where: { isActive: 1 } });
+            const pageDefaultUrl = env_1.env.storeRedirectUrl + '/page-detail/';
+            findPages.map((val) => {
+                if (val.slugName) {
+                    const pagesUrl = pageDefaultUrl + val.slugName;
+                    allURLs.push(pagesUrl);
+                }
+            });
+            const arr = ['/auth/sign-in', '/auth/sign-up', '/contact', '/vendor', '/wishlist'];
+            arr.map((val) => {
+                if (val) {
+                    const staticUrl = env_1.env.storeRedirectUrl + val;
+                    allURLs.push(staticUrl);
+                }
+            });
+            if (allURLs) {
+                const currentDate = Date.now();
+                const pathName = 'sitemap/';
+                const fileName = 'sitemap_' + currentDate + '.xml';
+                yield this.urlsToSitemap(env_1.env.storeRedirectUrl, allURLs.sort(), pathName, fileName);
+                const newSiteMap = new SiteMapModel_1.SiteMap();
+                newSiteMap.userId = userData.userId;
+                newSiteMap.userName = userData.firstName + ' ' + userData.lastName;
+                newSiteMap.pathName = pathName;
+                newSiteMap.fileName = fileName;
+                const createSiteMap = yield this.siteMapService.create(newSiteMap);
+                if (createSiteMap) {
+                    const successExample = {
+                        status: 1,
+                        message: 'Successfully created !!',
+                        data: createSiteMap,
+                    };
+                    return response.status(200).send(successExample);
+                }
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to created the data !!',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // List the site map
+    /**
+     * @api {Get} /api/site-map Site map list
+     * @apiGroup Site Map
+     * @apiHeader {string} Authorization
+     * @apiSuccessExample {json} Success
+     * {
+     *      "status": "1",
+     *      "message": "Successfully got the list !!"
+     * },
+     * HTTP/1.1 200 Ok
+     * @apiSampleRequest /api/site-map
+     * @apiErrorExample {json} Error
+     * HTTP/1.1 500 Internal server error
+     */
+    listSiteMap(limit, offset, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const siteMapList = yield this.siteMapService.list(limit, offset, [], [], [], count);
+            if (count) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the count !!',
+                    count: siteMapList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the list !!',
+                    data: siteMapList,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Delete the site map
+    /**
+     * @api {Delete} /api/site-map/:id Delete site map
+     * @apiGroup Site Map
+     * @apiHeader {string} Authorization
+     * @apiSuccessExample {json} Success
+     * {
+     *      "status": "1",
+     *      "message": "Successfully Deleted the data !!"
+     * },
+     * HTTP/1.1 200 Ok
+     * @apiSampleRequest /api/site-map/:id
+     * @apiErrorExample {json} Error
+     * HTTP/1.1 500 Internal server error
+     */
+    deleteSiteMap(id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const deleteData = yield this.siteMapService.delete(id);
+            if (deleteData) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully Deleted the data !!',
+                };
+                return response.status(200).send(successResponse);
+            }
+            const errorResponse = {
+                status: 0,
+                message: 'Unable to Deleted the data !!',
+            };
+            return response.status(400).send(errorResponse);
+        });
+    }
+    // Download SiteMap API
+    /**
+     * @api {Get} /api/site-map/get-sitemap Get Sitemap API
+     * @apiGroup Site Map
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} pathName pathName
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Get the Sitemap..!",
+     *      "status": "1"
+     *       "data":{}
+     * }
+     * @apiSampleRequest /api/site-map/get-sitemap
+     * @apiErrorExample {json} Get Profile error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Get Profile Function
+    getSitempap(pathName, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return new Promise((resolve, reject) => {
+                const pathDir = path.join(process.cwd(), pathName);
+                response.download(pathDir, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    urlsToSitemap(URL, allURLs, pathName, fileName) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const links = allURLs.map((url) => {
+                return { url, changefreq: 'weekly', priority: 0.5 };
+            });
+            const stream = new sitemap_1.SitemapStream({ hostname: URL });
+            const data = yield (0, sitemap_1.streamToPromise)(stream_1.Readable.from(links).pipe(stream));
+            return new Promise((resolve, reject) => {
+                const filePath = pathName + '/' + fileName;
+                fs.writeFile(filePath, data.toString(), (err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    console.log('sitemap created');
+                    resolve('sitemap created');
+                });
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Authorized)(),
+    (0, routing_controllers_1.Post)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SiteMapController.prototype, "createSiteMap", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Authorized)(),
+    (0, routing_controllers_1.Get)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SiteMapController.prototype, "listSiteMap", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Authorized)(),
+    (0, routing_controllers_1.Delete)('/:id'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SiteMapController.prototype, "deleteSiteMap", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/get-sitemap'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('pathName')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SiteMapController.prototype, "getSitempap", null);
+SiteMapController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/site-map'),
+    tslib_1.__metadata("design:paramtypes", [SiteMapService_1.SiteMapService,
+        UserService_1.UserService,
+        ProductService_1.ProductService,
+        CategoryService_1.CategoryService,
+        PageService_1.PageService])
+], SiteMapController);
+exports.SiteMapController = SiteMapController;
+//# sourceMappingURL=SiteMapController.js.map

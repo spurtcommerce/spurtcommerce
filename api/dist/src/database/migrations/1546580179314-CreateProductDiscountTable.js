@@ -1,1 +1,99 @@
-'use strict';const a745_0x770d54=a745_0x2456;(function(_0x2aa186,_0x5a5e79){const _0x1c5ac8=a745_0x2456,_0x5775cf=_0x2aa186();while(!![]){try{const _0x13ceda=-parseInt(_0x1c5ac8(0x20f))/0x1+-parseInt(_0x1c5ac8(0x208))/0x2+-parseInt(_0x1c5ac8(0x1f4))/0x3+-parseInt(_0x1c5ac8(0x1f9))/0x4*(parseInt(_0x1c5ac8(0x1fe))/0x5)+parseInt(_0x1c5ac8(0x1f7))/0x6+-parseInt(_0x1c5ac8(0x1f0))/0x7+parseInt(_0x1c5ac8(0x206))/0x8*(parseInt(_0x1c5ac8(0x1f3))/0x9);if(_0x13ceda===_0x5a5e79)break;else _0x5775cf['push'](_0x5775cf['shift']());}catch(_0x4eef01){_0x5775cf['push'](_0x5775cf['shift']());}}}(a745_0x28d6,0xdd989));Object[a745_0x770d54(0x202)](exports,a745_0x770d54(0x1fa),{'value':!![]}),exports[a745_0x770d54(0x211)]=void 0x0;function a745_0x28d6(){const _0x188b08=['dropTable','3141438sqpxym','DATETIME','7101308MExMMD','__esModule','tslib','product_id','modified_by','5FaAtPm','integer','modified_date','created_by','defineProperty','DECIMAL(15,4)','price','is_active','30592120FDFRVH','DATE','486890wEByQd','increment','product_discount','product_discount_id','date_end','date_start','__awaiter','709243ZDWcot','hasTable','CreateProductDiscountTable1546580179314','createTable','1779589wbDhfb','created_date','CURRENT_TIMESTAMP','9CcQhdI','1373067pXPrxB','priority'];a745_0x28d6=function(){return _0x188b08;};return a745_0x28d6();}const tslib_1=require(a745_0x770d54(0x1fb)),typeorm_1=require('typeorm');class CreateProductDiscountTable1546580179314{['up'](_0x584578){const _0x29dd15=a745_0x770d54;return tslib_1[_0x29dd15(0x20e)](this,void 0x0,void 0x0,function*(){const _0x4f1fe4=_0x29dd15,_0x3e7b80=new typeorm_1['Table']({'name':'product_discount','columns':[{'name':_0x4f1fe4(0x20b),'type':_0x4f1fe4(0x1ff),'length':'11','isGenerated':!![],'generationStrategy':_0x4f1fe4(0x209),'isPrimary':!![],'isNullable':![]},{'name':_0x4f1fe4(0x1fc),'type':_0x4f1fe4(0x1ff),'length':'11','isPrimary':![],'isNullable':![]},{'name':'quantity','type':_0x4f1fe4(0x1ff),'length':'4','isPrimary':![],'isNullable':!![]},{'name':_0x4f1fe4(0x1f5),'type':_0x4f1fe4(0x1ff),'length':'5','isPrimary':![],'isNullable':!![]},{'name':_0x4f1fe4(0x204),'type':_0x4f1fe4(0x203),'isPrimary':![],'isNullable':!![]},{'name':_0x4f1fe4(0x20d),'type':_0x4f1fe4(0x207),'isPrimary':![],'isNullable':!![]},{'name':_0x4f1fe4(0x20c),'type':_0x4f1fe4(0x207),'isPrimary':![],'isNullable':!![]},{'name':_0x4f1fe4(0x205),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4f1fe4(0x201),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4f1fe4(0x1fd),'type':_0x4f1fe4(0x1ff),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4f1fe4(0x1f1),'type':_0x4f1fe4(0x1f8),'isPrimary':![],'isNullable':!![],'default':_0x4f1fe4(0x1f2)},{'name':_0x4f1fe4(0x200),'type':'DATETIME','isPrimary':![],'isNullable':!![],'default':_0x4f1fe4(0x1f2)}]}),_0x1cd42c=yield _0x584578[_0x4f1fe4(0x210)]('product_discount');!_0x1cd42c&&(yield _0x584578[_0x4f1fe4(0x212)](_0x3e7b80));});}['down'](_0x3111fe){const _0x57d444=a745_0x770d54;return tslib_1[_0x57d444(0x20e)](this,void 0x0,void 0x0,function*(){const _0x4bf2bd=_0x57d444;yield _0x3111fe[_0x4bf2bd(0x1f6)](_0x4bf2bd(0x20a),!![]);});}}function a745_0x2456(_0x278284,_0x16526c){const _0x28d6e4=a745_0x28d6();return a745_0x2456=function(_0x24561e,_0xda48dd){_0x24561e=_0x24561e-0x1f0;let _0x5cbe74=_0x28d6e4[_0x24561e];return _0x5cbe74;},a745_0x2456(_0x278284,_0x16526c);}exports[a745_0x770d54(0x211)]=CreateProductDiscountTable1546580179314;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateProductDiscountTable1546580179314 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateProductDiscountTable1546580179314 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'product_discount',
+                columns: [
+                    {
+                        name: 'product_discount_id',
+                        type: 'integer',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'product_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'quantity',
+                        type: 'integer',
+                        length: '4',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'priority',
+                        type: 'integer',
+                        length: '5',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'price',
+                        type: 'DECIMAL(15,4)',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'date_start',
+                        type: 'DATE',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'date_end',
+                        type: 'DATE',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('product_discount');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('product_discount', true);
+        });
+    }
+}
+exports.CreateProductDiscountTable1546580179314 = CreateProductDiscountTable1546580179314;
+//# sourceMappingURL=1546580179314-CreateProductDiscountTable.js.map

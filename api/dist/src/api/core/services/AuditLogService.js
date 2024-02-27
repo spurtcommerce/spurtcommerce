@@ -1,1 +1,215 @@
-'use strict';const a549_0x2425a3=a549_0x4958;(function(_0x191e9f,_0x31b464){const _0x22fd7d=a549_0x4958,_0x2a2cc4=_0x191e9f();while(!![]){try{const _0x33866c=-parseInt(_0x22fd7d(0x1ee))/0x1*(-parseInt(_0x22fd7d(0x1ed))/0x2)+parseInt(_0x22fd7d(0x220))/0x3+parseInt(_0x22fd7d(0x1e6))/0x4*(-parseInt(_0x22fd7d(0x1f4))/0x5)+-parseInt(_0x22fd7d(0x1f3))/0x6*(-parseInt(_0x22fd7d(0x1e5))/0x7)+parseInt(_0x22fd7d(0x20c))/0x8+-parseInt(_0x22fd7d(0x200))/0x9+-parseInt(_0x22fd7d(0x1f9))/0xa;if(_0x33866c===_0x31b464)break;else _0x2a2cc4['push'](_0x2a2cc4['shift']());}catch(_0x103003){_0x2a2cc4['push'](_0x2a2cc4['shift']());}}}(a549_0x4b6c,0x67ed6));function a549_0x4b6c(){const _0x5e66db=['property','leftJoin','Service','AuditLogRepository','LIKE','val','and','\x20LIKE\x20','findAuditLogData','skip','typeorm','7dULqlp','3244WhafFu','name1','design:paramtypes','select','log','save','createQueryBuilder','39566tLrrlX','5EsSoqF','tableName','orWhere','getConnection','delete','1367880nOXyBU','3505GAPpxX','name2','condition','ASC','typedi','679570cYxnRb','raw','list','symbol','left','AuditLog','getRawMany','2405952eTuvHl','\x20>\x20','innerJoin','sign','OrmRepository','AuditLogService','order','moreThan','LOWER(','where','AndOr','Logger','3245616zbECMS','aliasName','QueryBuilder','\x20=\x20','value','orderBy','forEach','../../../decorators/Logger','createOrUpdate','info','__awaiter','alias','\x20IN\x20(','value1','defineProperty','Brackets','tslib','leftJoinAndSelect','addGroupBy','find','1790655QsKxYr','offset','groupBy','length','getMany','name','andWhere','__param','getCount','auditLogRepository'];a549_0x4b6c=function(){return _0x5e66db;};return a549_0x4b6c();}function a549_0x4958(_0x5ba0f0,_0x1258a9){const _0x4b6cbd=a549_0x4b6c();return a549_0x4958=function(_0x495833,_0x9a7503){_0x495833=_0x495833-0x1de;let _0x20f7f7=_0x4b6cbd[_0x495833];return _0x20f7f7;},a549_0x4958(_0x5ba0f0,_0x1258a9);}Object[a549_0x2425a3(0x21a)](exports,'__esModule',{'value':!![]}),exports[a549_0x2425a3(0x205)]=void 0x0;const tslib_1=require(a549_0x2425a3(0x21c)),typedi_1=require(a549_0x2425a3(0x1f8)),typeorm_1=require(a549_0x2425a3(0x1e4)),typeorm_typedi_extensions_1=require('typeorm-typedi-extensions'),Logger_1=require(a549_0x2425a3(0x213)),AuditLog_1=require('../models/AuditLog'),AuditLogRepository_1=require('../repositories/AuditLogRepository');let AuditLogService=class AuditLogService{constructor(_0x34a8ab,_0x5da97f){this['auditLogRepository']=_0x34a8ab,this['log']=_0x5da97f;}[a549_0x2425a3(0x214)](_0x209e6d){const _0x5de813=a549_0x2425a3;return tslib_1[_0x5de813(0x216)](this,void 0x0,void 0x0,function*(){const _0x165d4e=_0x5de813,_0xaa9e25=yield this[_0x165d4e(0x229)][_0x165d4e(0x1eb)](_0x209e6d);return _0xaa9e25;});}[a549_0x2425a3(0x20e)](_0x5fedc8,_0x474db9,_0x48e060=[],_0x364b57=[],_0x320230=[],_0x3d899d,_0x4a7ae8){const _0x31cd42=a549_0x2425a3;return tslib_1[_0x31cd42(0x216)](this,void 0x0,void 0x0,function*(){const _0x592f3d=_0x31cd42;this[_0x592f3d(0x1ea)][_0x592f3d(0x215)](_0x592f3d(0x1fb));const _0x1fc880=yield this['auditLogRepository']['createQueryBuilder'](_0x592f3d(0x1fe));return _0x364b57&&_0x364b57['length']>0x0&&_0x364b57[_0x592f3d(0x212)](_0x367d72=>{const _0x3ea00e=_0x592f3d;_0x367d72[_0x3ea00e(0x1df)]===0x1&&_0x1fc880[_0x3ea00e(0x21d)](_0x367d72[_0x3ea00e(0x22a)],_0x367d72[_0x3ea00e(0x217)],_0x367d72[_0x3ea00e(0x1f6)]);}),_0x48e060&&_0x48e060['length']>0x0&&_0x48e060[_0x592f3d(0x212)](_0xa7a10e=>{const _0x4c8873=_0x592f3d;if(_0xa7a10e['op']==='And')_0x1fc880[_0x4c8873(0x226)](_0xa7a10e[_0x4c8873(0x225)]+_0x4c8873(0x20f)+_0xa7a10e[_0x4c8873(0x210)]);else _0xa7a10e['op']===_0x4c8873(0x20a)&&_0x1fc880[_0x4c8873(0x226)]('('+_0xa7a10e[_0x4c8873(0x1e7)]+'\x20=\x20'+_0xa7a10e[_0x4c8873(0x219)]+'\x20OR\x20'+_0xa7a10e[_0x4c8873(0x1f5)]+_0x4c8873(0x20f)+_0xa7a10e['value2']+')');}),_0x320230&&_0x320230[_0x592f3d(0x223)]>0x0&&_0x320230[_0x592f3d(0x212)](_0x1f1c1c=>{const _0x22fa4c=_0x592f3d;if(_0x1f1c1c['op']===_0x22fa4c(0x1e0))_0x1fc880[_0x22fa4c(0x226)]('(\x20'+_0x1f1c1c['name']+_0x22fa4c(0x1e1)+'\x27%'+_0x1f1c1c[_0x22fa4c(0x210)]+'%\x27'+_0x1f1c1c[_0x22fa4c(0x1fc)]);else _0x1f1c1c['op']==='or'&&_0x1fc880['orWhere'](_0x1f1c1c[_0x22fa4c(0x225)]+_0x22fa4c(0x1e1)+'\x27%'+_0x1f1c1c[_0x22fa4c(0x210)]+'%\x27'+_0x1f1c1c[_0x22fa4c(0x1fc)]);}),_0x4a7ae8&&_0x4a7ae8>0x0&&_0x1fc880[_0x592f3d(0x211)]('AuditLog.auditLogId',_0x4a7ae8===0x1?_0x592f3d(0x1f7):'DESC'),_0x5fedc8&&_0x5fedc8>0x0&&(_0x1fc880[_0x592f3d(0x1e3)](_0x474db9),_0x1fc880['take'](_0x5fedc8)),_0x3d899d?_0x1fc880[_0x592f3d(0x228)]():_0x1fc880[_0x592f3d(0x224)]();});}['listByQueryBuilder'](_0x1a62bf,_0x42684b,_0x15b94=[],_0x18964b=[],_0x12f1bc=[],_0x57781b=[],_0x50d296=[],_0x29f989=[],_0xb604c4=![],_0x40e209=![]){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5e6941=a549_0x4958,_0x2d60ee=yield(0x0,typeorm_1[_0x5e6941(0x1f1)])()['getRepository'](AuditLog_1[_0x5e6941(0x1fe)])[_0x5e6941(0x1ec)]();_0x15b94&&_0x15b94[_0x5e6941(0x223)]>0x0&&_0x2d60ee[_0x5e6941(0x1e9)](_0x15b94);_0x57781b&&_0x57781b[_0x5e6941(0x223)]>0x0&&_0x57781b[_0x5e6941(0x212)](_0x587169=>{const _0x4a24f1=_0x5e6941;_0x587169['op']===_0x4a24f1(0x1fd)?_0x2d60ee[_0x4a24f1(0x22b)](_0x587169['tableName'],_0x587169['aliasName']):_0x2d60ee[_0x4a24f1(0x202)](_0x587169[_0x4a24f1(0x1ef)],_0x587169[_0x4a24f1(0x20d)]);});_0x18964b&&_0x18964b['length']>0x0&&_0x18964b[_0x5e6941(0x212)](_0x2b6aaf=>{const _0x3b9ddf=_0x5e6941;if(_0x2b6aaf['op']===_0x3b9ddf(0x209)&&_0x2b6aaf['sign']===undefined)_0x2d60ee[_0x3b9ddf(0x209)](_0x2b6aaf[_0x3b9ddf(0x225)]+_0x3b9ddf(0x20f)+_0x2b6aaf['value']);else{if(_0x2b6aaf['op']==='and'&&_0x2b6aaf[_0x3b9ddf(0x203)]===undefined)_0x2d60ee['andWhere'](_0x2b6aaf['name']+_0x3b9ddf(0x20f)+_0x2b6aaf[_0x3b9ddf(0x210)]);else{if(_0x2b6aaf['op']===_0x3b9ddf(0x1e0)&&_0x2b6aaf[_0x3b9ddf(0x203)]!==undefined)_0x2d60ee[_0x3b9ddf(0x226)]('\x20\x27'+_0x2b6aaf['name']+'\x27'+'\x20'+_0x2b6aaf[_0x3b9ddf(0x203)]+'\x20\x27'+_0x2b6aaf[_0x3b9ddf(0x210)]+'\x27');else{if(_0x2b6aaf['op']===_0x3b9ddf(0x1fa)&&_0x2b6aaf['sign']!==undefined)_0x2d60ee['andWhere'](_0x2b6aaf['name']+'\x20'+_0x2b6aaf[_0x3b9ddf(0x203)]+'\x20\x27'+_0x2b6aaf[_0x3b9ddf(0x210)]+'\x27');else{if(_0x2b6aaf['op']==='or'&&_0x2b6aaf[_0x3b9ddf(0x203)]===undefined)_0x2d60ee['orWhere'](_0x2b6aaf[_0x3b9ddf(0x225)]+'\x20=\x20'+_0x2b6aaf['value']);else{if(_0x2b6aaf['op']==='IN'&&_0x2b6aaf[_0x3b9ddf(0x203)]===undefined)_0x2d60ee[_0x3b9ddf(0x226)](_0x2b6aaf['name']+_0x3b9ddf(0x218)+_0x2b6aaf[_0x3b9ddf(0x210)]+')');else{if(_0x2b6aaf['op']===_0x3b9ddf(0x207)&&_0x2b6aaf['sign']===undefined)_0x2d60ee[_0x3b9ddf(0x226)](_0x2b6aaf['name']+_0x3b9ddf(0x201)+'\x20\x27'+_0x2b6aaf[_0x3b9ddf(0x210)]+'\x27');else _0x2b6aaf['op']===_0x3b9ddf(0x1de)&&_0x2b6aaf[_0x3b9ddf(0x203)]===undefined&&_0x2d60ee['andWhere'](_0x2b6aaf[_0x3b9ddf(0x225)]+_0x3b9ddf(0x1e1)+'\x20\x27'+_0x2b6aaf['value']+'\x27');}}}}}}});_0x12f1bc&&_0x12f1bc['length']>0x0&&_0x12f1bc[_0x5e6941(0x212)](_0x149194=>{const _0x497591=_0x5e6941;if(_0x149194['name']&&_0x149194[_0x497591(0x225)]instanceof Array&&_0x149194['name']['length']>0x0&&(_0x149194['value']&&_0x149194[_0x497591(0x210)]instanceof Array&&_0x149194[_0x497591(0x210)][_0x497591(0x223)]>0x0)){const _0x23b653=_0x149194[_0x497591(0x225)];_0x23b653['forEach']((_0x3da187,_0x106416)=>{const _0x26ea0e=_0x497591;_0x2d60ee[_0x26ea0e(0x226)](new typeorm_1[(_0x26ea0e(0x21b))](_0x4d129e=>{const _0x593bf9=_0x26ea0e,_0x2422df=_0x149194['value'];_0x2422df[_0x593bf9(0x212)]((_0x2d2d32,_0x54c745)=>{const _0x2667c1=_0x593bf9;if(_0x54c745===0x0){_0x4d129e[_0x2667c1(0x226)]('LOWER('+_0x3da187+')'+_0x2667c1(0x1e1)+'\x27%'+_0x2d2d32+'%\x27');return;}_0x4d129e[_0x2667c1(0x1f0)](_0x2667c1(0x208)+_0x3da187+')'+_0x2667c1(0x1e1)+'\x27%'+_0x2d2d32+'%\x27');});}));});}else{if(_0x149194['name']&&_0x149194['name']instanceof Array&&_0x149194[_0x497591(0x225)][_0x497591(0x223)]>0x0)_0x2d60ee[_0x497591(0x226)](new typeorm_1['Brackets'](_0x4a9b9e=>{const _0x1a9080=_0x497591,_0x131ae9=_0x149194['name'];_0x131ae9[_0x1a9080(0x212)]((_0x4faf84,_0x424483)=>{const _0x5c38eb=_0x1a9080;if(_0x424483===0x0){_0x4a9b9e[_0x5c38eb(0x226)](_0x5c38eb(0x208)+_0x4faf84+')'+_0x5c38eb(0x1e1)+'\x27%'+_0x149194[_0x5c38eb(0x210)]+'%\x27');return;}_0x4a9b9e['orWhere'](_0x5c38eb(0x208)+_0x4faf84+')'+_0x5c38eb(0x1e1)+'\x27%'+_0x149194[_0x5c38eb(0x210)]+'%\x27');});}));else _0x149194[_0x497591(0x210)]&&_0x149194[_0x497591(0x210)]instanceof Array&&_0x149194[_0x497591(0x210)]['length']>0x0&&_0x2d60ee[_0x497591(0x226)](new typeorm_1[(_0x497591(0x21b))](_0x370b08=>{const _0x1aa55c=_0x497591,_0x361f38=_0x149194[_0x1aa55c(0x210)];_0x361f38[_0x1aa55c(0x212)]((_0x48df48,_0x2cf3a2)=>{const _0xdeb73b=_0x1aa55c;if(_0x2cf3a2===0x0){_0x370b08[_0xdeb73b(0x226)]('LOWER('+_0x149194[_0xdeb73b(0x225)]+')'+'\x20LIKE\x20'+'\x27%'+_0x48df48+'%\x27');return;}_0x370b08[_0xdeb73b(0x1f0)](_0xdeb73b(0x208)+_0x149194['name']+')'+'\x20LIKE\x20'+'\x27%'+_0x48df48+'%\x27');});}));}});if(_0x50d296&&_0x50d296[_0x5e6941(0x223)]>0x0){let _0xc0598f=0x0;_0x50d296['forEach'](_0x22d75e=>{const _0x1146e8=_0x5e6941;_0xc0598f===0x0?_0x2d60ee[_0x1146e8(0x222)](_0x22d75e[_0x1146e8(0x225)]):_0x2d60ee[_0x1146e8(0x21e)](_0x22d75e['name']),_0xc0598f++;});}_0x29f989&&_0x29f989['length']>0x0&&_0x29f989[_0x5e6941(0x212)](_0x143d49=>{const _0x4b2c24=_0x5e6941;_0x2d60ee[_0x4b2c24(0x211)](''+_0x143d49[_0x4b2c24(0x225)]+'',''+_0x143d49[_0x4b2c24(0x206)]+'');});_0x1a62bf&&_0x1a62bf>0x0&&(_0x2d60ee['limit'](_0x1a62bf),_0x2d60ee[_0x5e6941(0x221)](_0x42684b));if(!_0xb604c4){if(_0x40e209)return _0x2d60ee[_0x5e6941(0x1ff)]();return _0x2d60ee[_0x5e6941(0x224)]();}else return _0x2d60ee[_0x5e6941(0x228)]();});}['find'](_0x3aadb8){const _0x472e42=a549_0x2425a3;return this[_0x472e42(0x229)][_0x472e42(0x21f)](_0x3aadb8);}[a549_0x2425a3(0x1f2)](_0x17a9a9){const _0x1ce5e2=a549_0x2425a3;return tslib_1[_0x1ce5e2(0x216)](this,void 0x0,void 0x0,function*(){yield this['auditLogRepository']['delete'](_0x17a9a9);return;});}[a549_0x2425a3(0x1e2)](_0x3c99c2,_0x24cd81){const _0x3ed248=a549_0x2425a3;return this[_0x3ed248(0x229)][_0x3ed248(0x1e2)](_0x3c99c2,_0x24cd81);}};AuditLogService=tslib_1['__decorate']([(0x0,typedi_1[a549_0x2425a3(0x22c)])(),tslib_1[a549_0x2425a3(0x227)](0x0,(0x0,typeorm_typedi_extensions_1[a549_0x2425a3(0x204)])()),tslib_1[a549_0x2425a3(0x227)](0x1,(0x0,Logger_1[a549_0x2425a3(0x20b)])(__filename)),tslib_1['__metadata'](a549_0x2425a3(0x1e8),[AuditLogRepository_1[a549_0x2425a3(0x22d)],Object])],AuditLogService),exports[a549_0x2425a3(0x205)]=AuditLogService;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AuditLogService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_1 = require("typeorm");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const AuditLog_1 = require("../models/AuditLog");
+const AuditLogRepository_1 = require("../repositories/AuditLogRepository");
+let AuditLogService = class AuditLogService {
+    constructor(auditLogRepository, log) {
+        this.auditLogRepository = auditLogRepository;
+        this.log = log;
+    }
+    createOrUpdate(object) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const addedData = yield this.auditLogRepository.save(object);
+            return addedData;
+        });
+    }
+    QueryBuilder(limit, offset, whereCondition = [], relations = [], search = [], count, order) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('list');
+            const queryConditions = yield this.auditLogRepository.createQueryBuilder('AuditLog');
+            if (relations && relations.length > 0) {
+                relations.forEach((joinTb) => {
+                    if (joinTb.val === 1) {
+                        queryConditions.leftJoinAndSelect(joinTb.property, joinTb.alias, joinTb.condition);
+                    }
+                });
+            }
+            if (whereCondition && whereCondition.length > 0) {
+                whereCondition.forEach((item) => {
+                    if (item.op === 'And') {
+                        queryConditions.andWhere(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'AndOr') {
+                        queryConditions.andWhere('(' + item.name1 + ' = ' + item.value1 + ' OR ' + item.name2 + ' = ' + item.value2 + ')');
+                    }
+                });
+            }
+            if (search && search.length > 0) {
+                search.forEach((table) => {
+                    if (table.op === 'and') {
+                        queryConditions.andWhere('( ' + table.name + ' LIKE ' + "\'%" + table.value + "%\'" + table.symbol);
+                    }
+                    else if (table.op === 'or') {
+                        queryConditions.orWhere(table.name + ' LIKE ' + "\'%" + table.value + "%\'" + table.symbol);
+                    }
+                });
+            }
+            if (order && order > 0) {
+                queryConditions.orderBy('AuditLog.auditLogId', ((order === 1 ? 'ASC' : 'DESC')));
+            }
+            if (limit && limit > 0) {
+                queryConditions.skip(offset);
+                queryConditions.take(limit);
+            }
+            if (count) {
+                return queryConditions.getCount();
+            }
+            else {
+                return queryConditions.getMany();
+            }
+        });
+    }
+    listByQueryBuilder(limit, offset, select = [], whereConditions = [], searchConditions = [], relations = [], groupBy = [], sort = [], count = false, rawQuery = false) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield (0, typeorm_1.getConnection)().getRepository(AuditLog_1.AuditLog).createQueryBuilder();
+            // Select
+            if (select && select.length > 0) {
+                query.select(select);
+            }
+            // Join
+            if (relations && relations.length > 0) {
+                relations.forEach((joinTb) => {
+                    if (joinTb.op === 'left') {
+                        query.leftJoin(joinTb.tableName, joinTb.aliasName);
+                    }
+                    else {
+                        query.innerJoin(joinTb.tableName, joinTb.aliasName);
+                    }
+                });
+            }
+            // Where
+            if (whereConditions && whereConditions.length > 0) {
+                whereConditions.forEach((item) => {
+                    if (item.op === 'where' && item.sign === undefined) {
+                        query.where(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'and' && item.sign === undefined) {
+                        query.andWhere(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'and' && item.sign !== undefined) {
+                        query.andWhere(' \'' + item.name + '\'' + ' ' + item.sign + ' \'' + item.value + '\'');
+                    }
+                    else if (item.op === 'raw' && item.sign !== undefined) {
+                        query.andWhere(item.name + ' ' + item.sign + ' \'' + item.value + '\'');
+                    }
+                    else if (item.op === 'or' && item.sign === undefined) {
+                        query.orWhere(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'IN' && item.sign === undefined) {
+                        query.andWhere(item.name + ' IN (' + item.value + ')');
+                    }
+                    else if (item.op === 'moreThan' && item.sign === undefined) {
+                        query.andWhere(item.name + ' > ' + ' \'' + item.value + '\'');
+                    }
+                    else if (item.op === 'LIKE' && item.sign === undefined) {
+                        query.andWhere(item.name + ' LIKE ' + ' \'' + item.value + '\'');
+                    }
+                });
+            }
+            // Keyword Search
+            if (searchConditions && searchConditions.length > 0) {
+                searchConditions.forEach((table) => {
+                    if ((table.name && table.name instanceof Array && table.name.length > 0) && (table.value && table.value instanceof Array && table.value.length > 0)) {
+                        const namesArray = table.name;
+                        namesArray.forEach((name, index) => {
+                            query.andWhere(new typeorm_1.Brackets(qb => {
+                                const valuesArray = table.value;
+                                valuesArray.forEach((value, subIndex) => {
+                                    if (subIndex === 0) {
+                                        qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                        return;
+                                    }
+                                    qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                });
+                            }));
+                        });
+                    }
+                    else if (table.name && table.name instanceof Array && table.name.length > 0) {
+                        query.andWhere(new typeorm_1.Brackets(qb => {
+                            const namesArray = table.name;
+                            namesArray.forEach((name, index) => {
+                                if (index === 0) {
+                                    qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                                    return;
+                                }
+                                qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                            });
+                        }));
+                    }
+                    else if (table.value && table.value instanceof Array && table.value.length > 0) {
+                        query.andWhere(new typeorm_1.Brackets(qb => {
+                            const valuesArray = table.value;
+                            valuesArray.forEach((value, index) => {
+                                if (index === 0) {
+                                    qb.andWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                    return;
+                                }
+                                qb.orWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                            });
+                        }));
+                    }
+                });
+            }
+            // GroupBy
+            if (groupBy && groupBy.length > 0) {
+                let i = 0;
+                groupBy.forEach((item) => {
+                    if (i === 0) {
+                        query.groupBy(item.name);
+                    }
+                    else {
+                        query.addGroupBy(item.name);
+                    }
+                    i++;
+                });
+            }
+            // orderBy
+            if (sort && sort.length > 0) {
+                sort.forEach((item) => {
+                    query.orderBy('' + item.name + '', '' + item.order + '');
+                });
+            }
+            // Limit & Offset
+            if (limit && limit > 0) {
+                query.limit(limit);
+                query.offset(offset);
+            }
+            if (!count) {
+                if (rawQuery) {
+                    return query.getRawMany();
+                }
+                return query.getMany();
+            }
+            else {
+                return query.getCount();
+            }
+        });
+    }
+    find(condition) {
+        return this.auditLogRepository.find(condition);
+    }
+    delete(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield this.auditLogRepository.delete(data);
+            return;
+        });
+    }
+    // find One category level
+    findAuditLogData(fromDate, toDate) {
+        return this.auditLogRepository.findAuditLogData(fromDate, toDate);
+    }
+};
+AuditLogService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [AuditLogRepository_1.AuditLogRepository, Object])
+], AuditLogService);
+exports.AuditLogService = AuditLogService;
+//# sourceMappingURL=AuditLogService.js.map

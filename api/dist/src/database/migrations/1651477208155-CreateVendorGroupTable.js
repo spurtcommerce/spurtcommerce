@@ -1,1 +1,76 @@
-'use strict';function a936_0x3d37(_0x2edb31,_0x1ec977){const _0x5b34f9=a936_0x5b34();return a936_0x3d37=function(_0x3d3770,_0xe7b58a){_0x3d3770=_0x3d3770-0xd4;let _0x1a876f=_0x5b34f9[_0x3d3770];return _0x1a876f;},a936_0x3d37(_0x2edb31,_0x1ec977);}const a936_0x1293bd=a936_0x3d37;(function(_0x43c458,_0x180e8d){const _0x5038aa=a936_0x3d37,_0xe4a82c=_0x43c458();while(!![]){try{const _0x3af4f3=-parseInt(_0x5038aa(0xef))/0x1*(-parseInt(_0x5038aa(0xd5))/0x2)+parseInt(_0x5038aa(0xe5))/0x3*(parseInt(_0x5038aa(0xec))/0x4)+parseInt(_0x5038aa(0xd8))/0x5*(parseInt(_0x5038aa(0xdc))/0x6)+-parseInt(_0x5038aa(0xdf))/0x7*(parseInt(_0x5038aa(0xf2))/0x8)+-parseInt(_0x5038aa(0xf1))/0x9*(-parseInt(_0x5038aa(0xe0))/0xa)+-parseInt(_0x5038aa(0xf0))/0xb*(-parseInt(_0x5038aa(0xe2))/0xc)+-parseInt(_0x5038aa(0xea))/0xd;if(_0x3af4f3===_0x180e8d)break;else _0xe4a82c['push'](_0xe4a82c['shift']());}catch(_0x4c8ebe){_0xe4a82c['push'](_0xe4a82c['shift']());}}}(a936_0x5b34,0x4e67a));function a936_0x5b34(){const _0x2dd7ca=['created_date','int','created_by','__esModule','1375920pCrzPp','hasTable','4VliinO','description','DATETIME','128279BNRnnD','6402kbABNt','3528FBXFWX','25736kRwvcY','CURRENT_TIMESTAMP','typeorm','createTable','increment','6QLYBnY','vendor_group','CreateVendorGroupTable1651477208155','2435KdmjFk','varchar','Table','__awaiter','456ipzyIV','modified_by','dropTable','1134RRgCrK','6310LhqfKR','512','1740roKEYo','down','is_active','583647fBNyQt'];a936_0x5b34=function(){return _0x2dd7ca;};return a936_0x5b34();}Object['defineProperty'](exports,a936_0x1293bd(0xe9),{'value':!![]}),exports[a936_0x1293bd(0xd7)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a936_0x1293bd(0xf4));class CreateVendorGroupTable1651477208155{['up'](_0x1cd039){const _0x4d78d1=a936_0x1293bd;return tslib_1[_0x4d78d1(0xdb)](this,void 0x0,void 0x0,function*(){const _0x2f6de5=_0x4d78d1,_0x5c1d42=new typeorm_1[(_0x2f6de5(0xda))]({'name':_0x2f6de5(0xd6),'columns':[{'name':'id','type':'integer','length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x2f6de5(0xd4)},{'name':'name','type':_0x2f6de5(0xd9),'length':'512','isPrimary':![],'isNullable':![]},{'name':_0x2f6de5(0xed),'type':'varchar','length':_0x2f6de5(0xe1),'isPrimary':![],'isNullable':!![]},{'name':_0x2f6de5(0xe4),'type':_0x2f6de5(0xe7),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x2f6de5(0xe8),'type':'int','isPrimary':![],'isNullable':!![]},{'name':_0x2f6de5(0xdd),'type':'int','isPrimary':![],'isNullable':!![]},{'name':_0x2f6de5(0xe6),'type':_0x2f6de5(0xee),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':'modified_date','type':'DATETIME','isPrimary':![],'isNullable':!![],'default':_0x2f6de5(0xf3)}]}),_0x18496e=yield _0x1cd039[_0x2f6de5(0xeb)](_0x2f6de5(0xd6));!_0x18496e&&(yield _0x1cd039[_0x2f6de5(0xf5)](_0x5c1d42));});}[a936_0x1293bd(0xe3)](_0x37fa99){const _0x5a15d0=a936_0x1293bd;return tslib_1[_0x5a15d0(0xdb)](this,void 0x0,void 0x0,function*(){const _0x147e25=_0x5a15d0;yield _0x37fa99[_0x147e25(0xde)](_0x147e25(0xd6));});}}exports[a936_0x1293bd(0xd7)]=CreateVendorGroupTable1651477208155;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateVendorGroupTable1651477208155 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateVendorGroupTable1651477208155 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'vendor_group',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'name',
+                        type: 'varchar',
+                        length: '512',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'description',
+                        type: 'varchar',
+                        length: '512',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('vendor_group');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('vendor_group');
+        });
+    }
+}
+exports.CreateVendorGroupTable1651477208155 = CreateVendorGroupTable1651477208155;
+//# sourceMappingURL=1651477208155-CreateVendorGroupTable.js.map

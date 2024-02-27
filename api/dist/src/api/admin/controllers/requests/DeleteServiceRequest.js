@@ -1,1 +1,23 @@
-'use strict';const a323_0x39bfd2=a323_0x2b26;function a323_0x1e36(){const _0x2a0cff=['__decorate','324661SjsIWM','reflect-metadata','defineProperty','__metadata','218460mHPqFE','4949jaOcfs','16pQAkXd','__esModule','10074LhrWbK','1148jyfrNp','13245kqojxT','117291gvvlsB','1213890IwPiHF','5887089yUUSyw','860wXPENn','tslib','design:type','class-validator','DeleteService'];a323_0x1e36=function(){return _0x2a0cff;};return a323_0x1e36();}(function(_0x198393,_0x2d7199){const _0x2b3748=a323_0x2b26,_0x579b44=_0x198393();while(!![]){try{const _0xa5386d=-parseInt(_0x2b3748(0x161))/0x1+-parseInt(_0x2b3748(0x16d))/0x2+parseInt(_0x2b3748(0x16c))/0x3+-parseInt(_0x2b3748(0x16a))/0x4*(-parseInt(_0x2b3748(0x16b))/0x5)+-parseInt(_0x2b3748(0x169))/0x6*(-parseInt(_0x2b3748(0x166))/0x7)+parseInt(_0x2b3748(0x167))/0x8*(parseInt(_0x2b3748(0x16e))/0x9)+parseInt(_0x2b3748(0x16f))/0xa*(-parseInt(_0x2b3748(0x165))/0xb);if(_0xa5386d===_0x2d7199)break;else _0x579b44['push'](_0x579b44['shift']());}catch(_0x6a9591){_0x579b44['push'](_0x579b44['shift']());}}}(a323_0x1e36,0x9fef1));function a323_0x2b26(_0x1ef742,_0x1460a3){const _0x1e3615=a323_0x1e36();return a323_0x2b26=function(_0x2b260a,_0x404ede){_0x2b260a=_0x2b260a-0x15c;let _0x3a458a=_0x1e3615[_0x2b260a];return _0x3a458a;},a323_0x2b26(_0x1ef742,_0x1460a3);}Object[a323_0x39bfd2(0x163)](exports,a323_0x39bfd2(0x168),{'value':!![]}),exports[a323_0x39bfd2(0x15f)]=void 0x0;const tslib_1=require(a323_0x39bfd2(0x15c));require(a323_0x39bfd2(0x162));const class_validator_1=require(a323_0x39bfd2(0x15e));class DeleteService{}tslib_1[a323_0x39bfd2(0x160)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a323_0x39bfd2(0x164)](a323_0x39bfd2(0x15d),Array)],DeleteService['prototype'],'serviceId',void 0x0),exports['DeleteService']=DeleteService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeleteService = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class DeleteService {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Array)
+], DeleteService.prototype, "serviceId", void 0);
+exports.DeleteService = DeleteService;
+//# sourceMappingURL=DeleteServiceRequest.js.map

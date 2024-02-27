@@ -1,1 +1,21 @@
-'use strict';function a314_0x47e3(){const _0x74f593=['207666QGZzoy','24qCYFVT','1264945wmeYZK','2475739iZCaLL','2893cBzZnT','__esModule','reflect-metadata','IsNotEmpty','5164OLcGtK','4971724HAAhKg','DeleteCategoryRequest','defineProperty','50Fgihky','__metadata','class-validator','5BGGcaP','113220myAAdb','categoryId','prototype','10938656NyudFo','1143noJESb','design:type'];a314_0x47e3=function(){return _0x74f593;};return a314_0x47e3();}function a314_0x532a(_0x321b42,_0xf28fc9){const _0x47e39c=a314_0x47e3();return a314_0x532a=function(_0x532ad0,_0x3978ee){_0x532ad0=_0x532ad0-0x1ca;let _0x8f3446=_0x47e39c[_0x532ad0];return _0x8f3446;},a314_0x532a(_0x321b42,_0xf28fc9);}const a314_0x16932e=a314_0x532a;(function(_0x4161a,_0x5c70c6){const _0x5643d5=a314_0x532a,_0x87b675=_0x4161a();while(!![]){try{const _0x52351a=-parseInt(_0x5643d5(0x1d6))/0x1+parseInt(_0x5643d5(0x1dc))/0x2*(parseInt(_0x5643d5(0x1d2))/0x3)+-parseInt(_0x5643d5(0x1dd))/0x4*(parseInt(_0x5643d5(0x1cd))/0x5)+-parseInt(_0x5643d5(0x1d5))/0x6*(parseInt(_0x5643d5(0x1d7))/0x7)+parseInt(_0x5643d5(0x1d1))/0x8+-parseInt(_0x5643d5(0x1d4))/0x9*(parseInt(_0x5643d5(0x1ca))/0xa)+-parseInt(_0x5643d5(0x1d8))/0xb*(-parseInt(_0x5643d5(0x1ce))/0xc);if(_0x52351a===_0x5c70c6)break;else _0x87b675['push'](_0x87b675['shift']());}catch(_0x32ac4b){_0x87b675['push'](_0x87b675['shift']());}}}(a314_0x47e3,0xc1f9d));Object[a314_0x16932e(0x1df)](exports,a314_0x16932e(0x1d9),{'value':!![]}),exports[a314_0x16932e(0x1de)]=void 0x0;const tslib_1=require('tslib');require(a314_0x16932e(0x1da));const class_validator_1=require(a314_0x16932e(0x1cc));class DeleteCategoryRequest{}tslib_1['__decorate']([(0x0,class_validator_1[a314_0x16932e(0x1db)])(),tslib_1[a314_0x16932e(0x1cb)](a314_0x16932e(0x1d3),Number)],DeleteCategoryRequest[a314_0x16932e(0x1d0)],a314_0x16932e(0x1cf),void 0x0),exports[a314_0x16932e(0x1de)]=DeleteCategoryRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeleteCategoryRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class DeleteCategoryRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], DeleteCategoryRequest.prototype, "categoryId", void 0);
+exports.DeleteCategoryRequest = DeleteCategoryRequest;
+//# sourceMappingURL=DeleteCategoryRequest.js.map

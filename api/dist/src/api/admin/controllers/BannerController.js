@@ -1,1 +1,705 @@
-'use strict';function a257_0x36cb(){const _0x330127=['isActive','31840LuBjkT','143LzPiNm','addWorksheet','../../core/services/ImageService','ProductService','Get','map','totalBanner','border','imageUrl','__metadata','updateBanner','Banner','link','availImageTypes','/banner-excel-list','Post','link\x20is\x20required','replace','unlinkSync','./requests/CreateBannerRequest','all','Invalid\x20Banner\x20Id','__decorate','defineProperty','Delete','CategoryService','productService','design:type','image','DeleteBannerRequest','deleteMultipleBanner','writeFile','base64','Workbook','keyword','banner\x20excel\x20Sheet','bannerView','download','__param','14106048OmuOwm','52928SSlDQm','xlsx','Res','toString','&name=','s3Service','Unable\x20to\x20delete\x20banner.','deleteBanner','linkType','create','Successfully\x20created\x20new\x20banner.','?path=','7fDyKEb','124yPbHUB','push','inActiveBanner','exceljs','send','activeBanner','bannerId','image\x20url','concat','thin','../../core/models/Banner','Authorized','__esModule','delete','Successfully\x20got\x20banner\x20count','Unable\x20to\x20create\x20new\x20banner.\x20','design:returntype','limit','BannerController','categoryService','end','QueryParam','BannerDetail','split','status','../../core/services/ProductService','Successfully\x20got\x20the\x20banner\x20count','__importStar','Invalid\x20product\x20slug.','387dqKlxJ','createBanner','imagePath','bannerList','list','/delete-banner','admin','list-banners','position','../../../env','&width=100&height=100','\x20types\x20are\x20allowed','tslib','banner/','now','14311ShhXuy','design:paramtypes','Only\x20','title','__awaiter','Successfully\x20got\x20banner\x20list','Invalid\x20category\x20slug','imageserver','24gXEQAL','findOne','JsonController','routing-controllers','prototype','Img_','./requests/UpdateBannerRequest','count','Put','../../core/services/S3Service','Body','Please\x20choose\x20a\x20banner\x20that\x20you\x20want\x20to\x20delete.','edit-banners','from','productRedirectUrl','content','getCell','282470IlCgrv','choose\x20atleast\x20one\x20banner','Req','imageService','UpdateBanner','Invalid\x20Banner\x20Id.','bannerCount','imageUpload','./requests/DeleteBannerRequest','like','delete-banners','BannerService','columns','reflect-metadata','includes','2269734IXSonw','env','bannerService','3358131gzqByT','Successfully\x20got\x20banner\x20detail','Successfully\x20deleted\x20Banner.'];a257_0x36cb=function(){return _0x330127;};return a257_0x36cb();}const a257_0x2f3fa9=a257_0x2e0a;(function(_0x31b59d,_0x1fc2a1){const _0x3d820e=a257_0x2e0a,_0x46b119=_0x31b59d();while(!![]){try{const _0x138591=-parseInt(_0x3d820e(0x17d))/0x1*(-parseInt(_0x3d820e(0x1e2))/0x2)+parseInt(_0x3d820e(0x1a8))/0x3+-parseInt(_0x3d820e(0x185))/0x4*(-parseInt(_0x3d820e(0x1ac))/0x5)+-parseInt(_0x3d820e(0x1a5))/0x6*(-parseInt(_0x3d820e(0x1e1))/0x7)+parseInt(_0x3d820e(0x1d5))/0x8*(-parseInt(_0x3d820e(0x16e))/0x9)+-parseInt(_0x3d820e(0x196))/0xa*(parseInt(_0x3d820e(0x1ad))/0xb)+-parseInt(_0x3d820e(0x1d4))/0xc;if(_0x138591===_0x1fc2a1)break;else _0x46b119['push'](_0x46b119['shift']());}catch(_0x1a51c0){_0x46b119['push'](_0x46b119['shift']());}}}(a257_0x36cb,0x917f1));Object[a257_0x2f3fa9(0x1c4)](exports,a257_0x2f3fa9(0x15d),{'value':!![]}),exports[a257_0x2f3fa9(0x163)]=void 0x0;const tslib_1=require(a257_0x2f3fa9(0x17a));require(a257_0x2f3fa9(0x1a3));const routing_controllers_1=require(a257_0x2f3fa9(0x188)),BannerService_1=require('../../core/services/BannerService'),env_1=require(a257_0x2f3fa9(0x177)),Banner_1=require(a257_0x2f3fa9(0x15b)),CreateBannerRequest_1=require(a257_0x2f3fa9(0x1c0)),UpdateBannerRequest_1=require(a257_0x2f3fa9(0x18b)),S3Service_1=require(a257_0x2f3fa9(0x18e)),ImageService_1=require(a257_0x2f3fa9(0x1af)),DeleteBannerRequest_1=require(a257_0x2f3fa9(0x19e)),fs=tslib_1[a257_0x2f3fa9(0x16c)](require('fs')),ProductService_1=require(a257_0x2f3fa9(0x16a)),CategoryService_1=require('../../core/services/CategoryService');function a257_0x2e0a(_0xd7efa0,_0x28d24f){const _0x36cb04=a257_0x36cb();return a257_0x2e0a=function(_0x2e0aa8,_0x12b088){_0x2e0aa8=_0x2e0aa8-0x159;let _0xc4d049=_0x36cb04[_0x2e0aa8];return _0xc4d049;},a257_0x2e0a(_0xd7efa0,_0x28d24f);}let BannerController=class BannerController{constructor(_0x42f185,_0x3bf217,_0x1fed72,_0x1635f3,_0x4e8cf9){const _0x3e3065=a257_0x2f3fa9;this[_0x3e3065(0x1a7)]=_0x42f185,this['s3Service']=_0x3bf217,this[_0x3e3065(0x199)]=_0x1fed72,this[_0x3e3065(0x1c7)]=_0x1635f3,this[_0x3e3065(0x164)]=_0x4e8cf9;}[a257_0x2f3fa9(0x16f)](_0x3fe94e,_0x4a8055){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x14f837=a257_0x2e0a;if(+_0x3fe94e[_0x14f837(0x1dd)]!==0x1&&(_0x3fe94e[_0x14f837(0x1b9)]===undefined||_0x3fe94e[_0x14f837(0x1b9)]===''))return _0x4a8055['status'](0x190)['send']({'status':0x0,'message':_0x14f837(0x1bd)});const _0xedc274=_0x3fe94e[_0x14f837(0x1c9)];if(_0xedc274){const _0x41b8a5=_0xedc274['split'](';')[0x0][_0x14f837(0x168)]('/')[0x1],_0x53105a=env_1[_0x14f837(0x1a6)][_0x14f837(0x1ba)][_0x14f837(0x168)](',');if(!_0x53105a[_0x14f837(0x1a4)](_0x41b8a5)){const _0x3e40ac={'status':0x0,'message':_0x14f837(0x17f)+env_1[_0x14f837(0x1a6)][_0x14f837(0x1ba)]+_0x14f837(0x179)};return _0x4a8055[_0x14f837(0x169)](0x190)[_0x14f837(0x1e6)](_0x3e40ac);}const _0x37d16c=_0x14f837(0x18a)+Date[_0x14f837(0x17c)]()+'.'+_0x41b8a5,_0x2b2b33=_0x14f837(0x17b),_0x7d171f=Buffer[_0x14f837(0x192)](_0xedc274['replace'](/^data:image\/\w+;base64,/,''),'base64');env_1[_0x14f837(0x1a6)][_0x14f837(0x184)]==='s3'?yield this[_0x14f837(0x1da)]['imageUpload'](_0x2b2b33+_0x37d16c,_0x7d171f,_0x41b8a5):yield this[_0x14f837(0x199)][_0x14f837(0x19d)](_0x2b2b33+_0x37d16c,_0x7d171f);const _0x267bf4=new Banner_1[(_0x14f837(0x1b8))]();_0x267bf4[_0x14f837(0x180)]=_0x3fe94e[_0x14f837(0x180)],_0x267bf4[_0x14f837(0x194)]=_0x3fe94e[_0x14f837(0x194)],_0x267bf4[_0x14f837(0x1c9)]=_0x37d16c,_0x267bf4[_0x14f837(0x170)]=_0x2b2b33;let _0x1942fe;_0x1942fe=_0x3fe94e[_0x14f837(0x1b9)];if(+_0x3fe94e[_0x14f837(0x1dd)]===0x2){const _0x4b3385=yield this[_0x14f837(0x1c7)][_0x14f837(0x186)]({'where':{'productSlug':_0x1942fe}});if(!_0x4b3385)return _0x4a8055['status'](0x190)[_0x14f837(0x1e6)]({'status':0x0,'message':_0x14f837(0x16d)});_0x267bf4[_0x14f837(0x1dd)]=_0x3fe94e['linkType'];}else{if(+_0x3fe94e[_0x14f837(0x1dd)]===0x3){const _0x15264e=yield this[_0x14f837(0x164)][_0x14f837(0x186)]({'where':{'categorySlug':_0x1942fe}});if(!_0x15264e)return _0x4a8055[_0x14f837(0x169)](0x190)[_0x14f837(0x1e6)]({'status':0x0,'message':_0x14f837(0x183)});_0x267bf4[_0x14f837(0x1dd)]=_0x3fe94e[_0x14f837(0x1dd)];}else _0x267bf4[_0x14f837(0x1dd)]=_0x3fe94e[_0x14f837(0x1dd)];}_0x267bf4[_0x14f837(0x1b9)]=_0x1942fe,_0x267bf4[_0x14f837(0x176)]=_0x3fe94e[_0x14f837(0x176)],_0x267bf4[_0x14f837(0x1ab)]=_0x3fe94e[_0x14f837(0x169)];const _0x4872f5=yield this['bannerService'][_0x14f837(0x1de)](_0x267bf4);if(_0x4872f5){const _0xae620f={'status':0x1,'message':_0x14f837(0x1df),'data':_0x4872f5};return _0x4a8055[_0x14f837(0x169)](0xc8)[_0x14f837(0x1e6)](_0xae620f);}else{const _0x1cc806={'status':0x0,'message':_0x14f837(0x160)};return _0x4a8055[_0x14f837(0x169)](0x190)['send'](_0x1cc806);}}});}[a257_0x2f3fa9(0x171)](_0x27bce4,_0x1ee35d,_0x509397,_0xfb08c8,_0x2c5c26,_0x49fece){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1a3f1e=a257_0x2e0a,_0x5a4891=[_0x1a3f1e(0x1e8),_0x1a3f1e(0x180),_0x1a3f1e(0x1c9),_0x1a3f1e(0x170),_0x1a3f1e(0x194),_0x1a3f1e(0x1b9),_0x1a3f1e(0x176),_0x1a3f1e(0x1ab),_0x1a3f1e(0x1dd)],_0x56b7a3=[{'name':'title','op':_0x1a3f1e(0x19f),'value':_0x509397},{'name':'isActive','op':'like','value':_0xfb08c8}],_0xe592ce=[],_0x456e60=yield this[_0x1a3f1e(0x1a7)][_0x1a3f1e(0x172)](_0x27bce4,_0x1ee35d,_0x5a4891,_0x56b7a3,_0xe592ce,_0x2c5c26);if(_0x2c5c26){const _0x4a34be={'status':0x1,'message':_0x1a3f1e(0x15f),'data':_0x456e60};return _0x49fece[_0x1a3f1e(0x169)](0xc8)[_0x1a3f1e(0x1e6)](_0x4a34be);}const _0x4e94f1=_0x456e60[_0x1a3f1e(0x1b2)](_0x44fe6f=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xf0ba39=_0x1a3f1e,_0x1e9b8a=_0x44fe6f;if(+_0x1e9b8a['linkType']===0x2){const _0x23dac1=env_1['env'][_0xf0ba39(0x193)];_0x1e9b8a['link']=_0x23dac1[_0xf0ba39(0x159)](_0x1e9b8a[_0xf0ba39(0x1b9)]);}else{if(+_0x1e9b8a[_0xf0ba39(0x1dd)]===0x3){const _0xb36a27=env_1[_0xf0ba39(0x1a6)]['categoryRedirectUrl'];_0x1e9b8a['link']=_0xb36a27[_0xf0ba39(0x159)](_0x1e9b8a[_0xf0ba39(0x1b9)]);}else _0x1e9b8a[_0xf0ba39(0x1b9)]=_0x1e9b8a[_0xf0ba39(0x1b9)];}return _0x1e9b8a;})),_0x18abbe=yield Promise[_0x1a3f1e(0x1c1)](_0x4e94f1),_0x1a3c9f={'status':0x1,'message':_0x1a3f1e(0x182),'data':_0x18abbe};return _0x49fece[_0x1a3f1e(0x169)](0xc8)['send'](_0x1a3c9f);});}[a257_0x2f3fa9(0x1dc)](_0x41b43f,_0x24ed25,_0x552655){const _0x24aa89=a257_0x2f3fa9;return tslib_1[_0x24aa89(0x181)](this,void 0x0,void 0x0,function*(){const _0x1c2f32=_0x24aa89,_0xb76c35=yield this[_0x1c2f32(0x1a7)][_0x1c2f32(0x186)]({'where':{'bannerId':_0x41b43f}});if(!_0xb76c35){const _0x5f48e4={'status':0x0,'message':_0x1c2f32(0x19b)};return _0x24ed25[_0x1c2f32(0x169)](0x190)[_0x1c2f32(0x1e6)](_0x5f48e4);}const _0x4c50ea=yield this[_0x1c2f32(0x1a7)][_0x1c2f32(0x15e)](_0xb76c35);if(_0x4c50ea){const _0x809721={'status':0x1,'message':'Successfully\x20deleted\x20banner.'};return _0x24ed25[_0x1c2f32(0x169)](0xc8)[_0x1c2f32(0x1e6)](_0x809721);}else{const _0x334b8b={'status':0x0,'message':_0x1c2f32(0x1db)};return _0x24ed25['status'](0x190)[_0x1c2f32(0x1e6)](_0x334b8b);}});}[a257_0x2f3fa9(0x1b7)](_0x134b53,_0x54cfc6,_0x48559f){const _0x38043c=a257_0x2f3fa9;return tslib_1[_0x38043c(0x181)](this,void 0x0,void 0x0,function*(){const _0x309aa6=_0x38043c;if(+_0x134b53[_0x309aa6(0x1dd)]!==0x1&&(_0x134b53[_0x309aa6(0x1b9)]===undefined||_0x134b53[_0x309aa6(0x1b9)]===''))return _0x54cfc6['status'](0x190)[_0x309aa6(0x1e6)]({'status':0x0,'message':_0x309aa6(0x1bd)});const _0x244d9d=yield this[_0x309aa6(0x1a7)][_0x309aa6(0x186)]({'where':{'bannerId':_0x134b53[_0x309aa6(0x1e8)]}});if(!_0x244d9d){const _0x42d316={'status':0x0,'message':_0x309aa6(0x19b)};return _0x54cfc6[_0x309aa6(0x169)](0x190)[_0x309aa6(0x1e6)](_0x42d316);}const _0x57c41=_0x134b53[_0x309aa6(0x1c9)];if(_0x57c41){const _0xfb7e3d=_0x57c41['split'](';')[0x0]['split']('/')[0x1],_0xef4691=env_1[_0x309aa6(0x1a6)][_0x309aa6(0x1ba)][_0x309aa6(0x168)](',');if(!_0xef4691['includes'](_0xfb7e3d)){const _0x78d62a={'status':0x0,'message':_0x309aa6(0x17f)+env_1[_0x309aa6(0x1a6)][_0x309aa6(0x1ba)]+'\x20types\x20are\x20allowed'};return _0x54cfc6['status'](0x190)['send'](_0x78d62a);}const _0x569af0=_0x309aa6(0x18a)+Date[_0x309aa6(0x17c)]()+'.'+_0xfb7e3d,_0x4fd08a='banner/',_0x105414=Buffer[_0x309aa6(0x192)](_0x57c41[_0x309aa6(0x1be)](/^data:image\/\w+;base64,/,''),_0x309aa6(0x1cd));env_1[_0x309aa6(0x1a6)]['imageserver']==='s3'?yield this['s3Service'][_0x309aa6(0x19d)](_0x4fd08a+_0x569af0,_0x105414,_0xfb7e3d):yield this[_0x309aa6(0x199)]['imageUpload'](_0x4fd08a+_0x569af0,_0x105414),_0x244d9d[_0x309aa6(0x1c9)]=_0x569af0,_0x244d9d[_0x309aa6(0x170)]=_0x4fd08a;}_0x244d9d[_0x309aa6(0x180)]=_0x134b53[_0x309aa6(0x180)],_0x244d9d[_0x309aa6(0x194)]=_0x134b53['content'];let _0x2def19;_0x2def19=_0x134b53[_0x309aa6(0x1b9)];if(+_0x134b53[_0x309aa6(0x1dd)]===0x2){const _0x151d7c=yield this[_0x309aa6(0x1c7)][_0x309aa6(0x186)]({'where':{'productSlug':_0x2def19}});if(!_0x151d7c)return _0x54cfc6[_0x309aa6(0x169)](0x190)[_0x309aa6(0x1e6)]({'status':0x0,'message':_0x309aa6(0x16d)});_0x244d9d[_0x309aa6(0x1dd)]=_0x134b53[_0x309aa6(0x1dd)];}else{if(+_0x134b53[_0x309aa6(0x1dd)]===0x3){const _0x6ac07e=yield this[_0x309aa6(0x164)][_0x309aa6(0x186)]({'where':{'categorySlug':_0x2def19}});if(!_0x6ac07e)return _0x54cfc6['status'](0x190)[_0x309aa6(0x1e6)]({'status':0x0,'message':_0x309aa6(0x183)});_0x244d9d['linkType']=_0x134b53[_0x309aa6(0x1dd)];}else _0x244d9d[_0x309aa6(0x1dd)]=_0x134b53[_0x309aa6(0x1dd)];}_0x244d9d[_0x309aa6(0x1b9)]=_0x2def19,_0x244d9d['position']=_0x134b53[_0x309aa6(0x176)],_0x244d9d[_0x309aa6(0x1ab)]=_0x134b53[_0x309aa6(0x169)];const _0x5d46bf=yield this['bannerService'][_0x309aa6(0x1de)](_0x244d9d);if(_0x5d46bf){const _0xf2c777={'status':0x1,'message':'Successfully\x20updated\x20banner.','data':_0x5d46bf};return _0x54cfc6['status'](0xc8)['send'](_0xf2c777);}else{const _0x29ff5c={'status':0x0,'message':'Unable\x20to\x20update\x20the\x20banner.\x20'};return _0x54cfc6[_0x309aa6(0x169)](0x190)[_0x309aa6(0x1e6)](_0x29ff5c);}});}[a257_0x2f3fa9(0x1cb)](_0x11a21a,_0x294825,_0x8b4a5f){const _0x4ef23f=a257_0x2f3fa9;return tslib_1[_0x4ef23f(0x181)](this,void 0x0,void 0x0,function*(){const _0x2183ef=_0x4ef23f,_0x2f486=_0x11a21a[_0x2183ef(0x1e8)][_0x2183ef(0x1d8)](),_0x93a0e0=_0x2f486['split'](',');for(const _0x54dfec of _0x93a0e0){const _0x34f84b=yield this[_0x2183ef(0x1a7)][_0x2183ef(0x186)](_0x54dfec);if(_0x34f84b===undefined){const _0xf7e8c1={'status':0x0,'message':_0x2183ef(0x190)};return _0x294825[_0x2183ef(0x169)](0x190)[_0x2183ef(0x1e6)](_0xf7e8c1);}else{const _0x367b18=parseInt(_0x54dfec,0xa);yield this['bannerService']['delete'](_0x367b18);}}const _0x1751a5={'status':0x1,'message':_0x2183ef(0x1aa)};return _0x294825['status'](0xc8)[_0x2183ef(0x1e6)](_0x1751a5);});}[a257_0x2f3fa9(0x19c)](_0x46496a){const _0x10e488=a257_0x2f3fa9;return tslib_1[_0x10e488(0x181)](this,void 0x0,void 0x0,function*(){const _0x12f5b7=_0x10e488,_0xaf5250={},_0x563797=[],_0x3a432a=[],_0x56dd8d=[],_0x3897b6=yield this['bannerService'][_0x12f5b7(0x172)](0x0,0x0,_0x563797,_0x3a432a,_0x56dd8d,0x1),_0x215058=[{'name':_0x12f5b7(0x1ab),'op':_0x12f5b7(0x19f),'value':0x1}],_0x13384e=yield this[_0x12f5b7(0x1a7)][_0x12f5b7(0x172)](0x0,0x0,_0x563797,_0x3a432a,_0x215058,0x1),_0x432df1=[{'name':'isActive','op':'like','value':0x0}],_0x67b2e6=yield this['bannerService']['list'](0x0,0x0,_0x563797,_0x3a432a,_0x432df1,0x1);_0xaf5250[_0x12f5b7(0x1b3)]=_0x3897b6,_0xaf5250[_0x12f5b7(0x1e7)]=_0x13384e,_0xaf5250[_0x12f5b7(0x1e4)]=_0x67b2e6;const _0x5a953a={'status':0x1,'message':_0x12f5b7(0x16b),'data':_0xaf5250};return _0x46496a[_0x12f5b7(0x169)](0xc8)[_0x12f5b7(0x1e6)](_0x5a953a);});}[a257_0x2f3fa9(0x167)](_0x33a5be,_0x32536a){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1829a9=a257_0x2e0a,_0x27af2b=yield this['bannerService'][_0x1829a9(0x186)]({'where':{'bannerId':_0x33a5be}});if(!_0x27af2b){const _0x5e51c1={'status':0x0,'message':_0x1829a9(0x1c2)};return _0x32536a[_0x1829a9(0x169)](0x190)[_0x1829a9(0x1e6)](_0x5e51c1);}const _0x9272ed={'status':0x1,'message':_0x1829a9(0x1a9),'data':_0x27af2b};return _0x32536a[_0x1829a9(0x169)](0xc8)[_0x1829a9(0x1e6)](_0x9272ed);});}[a257_0x2f3fa9(0x1d1)](_0x11ff42,_0x3a6588,_0x4d9933){const _0x4db2fa=a257_0x2f3fa9;return tslib_1[_0x4db2fa(0x181)](this,void 0x0,void 0x0,function*(){const _0x135659=_0x4db2fa,_0xeb5be=require(_0x135659(0x1e5)),_0x50ce36=new _0xeb5be[(_0x135659(0x1ce))](),_0xe869b0=_0x50ce36[_0x135659(0x1ae)](_0x135659(0x1d0)),_0x431148=[];if(_0x11ff42===''){const _0x7cddb3={'status':0x0,'message':_0x135659(0x197)};return _0x4d9933['status'](0x190)[_0x135659(0x1e6)](_0x7cddb3);}const _0x3757e0=_0x11ff42[_0x135659(0x168)](',');for(const _0x53c1b9 of _0x3757e0){const _0x1ff5ab=yield this[_0x135659(0x1a7)][_0x135659(0x186)]({'where':{'bannerId':_0x53c1b9}});if(_0x1ff5ab===undefined){const _0xee23c={'status':0x0,'message':'Invalid\x20bannerId'};return _0x4d9933['status'](0x190)['send'](_0xee23c);}}_0xe869b0[_0x135659(0x1a2)]=[{'header':_0x135659(0x180),'key':_0x135659(0x180),'size':0x10,'width':0xf},{'header':'link','key':_0x135659(0x1b9),'size':0x10,'width':0xf},{'header':'position','key':_0x135659(0x176),'size':0x10,'width':0xf},{'header':_0x135659(0x1e9),'key':'image','size':0x10,'width':0xf}],_0xe869b0[_0x135659(0x195)]('A1')['border']={'top':{'style':_0x135659(0x15a)},'left':{'style':_0x135659(0x15a)},'bottom':{'style':_0x135659(0x15a)},'right':{'style':_0x135659(0x15a)}},_0xe869b0[_0x135659(0x195)]('B1')[_0x135659(0x1b4)]={'top':{'style':'thin'},'left':{'style':_0x135659(0x15a)},'bottom':{'style':_0x135659(0x15a)},'right':{'style':'thin'}},_0xe869b0[_0x135659(0x195)]('C1')[_0x135659(0x1b4)]={'top':{'style':'thin'},'left':{'style':_0x135659(0x15a)},'bottom':{'style':_0x135659(0x15a)},'right':{'style':_0x135659(0x15a)}},_0xe869b0[_0x135659(0x195)]('D1')[_0x135659(0x1b4)]={'top':{'style':_0x135659(0x15a)},'left':{'style':'thin'},'bottom':{'style':_0x135659(0x15a)},'right':{'style':'thin'}};for(const _0x57bdfa of _0x3757e0){const _0x9fb029=yield this['bannerService'][_0x135659(0x186)](_0x57bdfa),_0x42b22d=env_1['env'][_0x135659(0x1b5)]+_0x135659(0x1e0)+_0x9fb029[_0x135659(0x170)]+_0x135659(0x1d9)+_0x9fb029[_0x135659(0x1c9)]+_0x135659(0x178);_0x431148[_0x135659(0x1e3)]([_0x9fb029[_0x135659(0x180)],_0x9fb029[_0x135659(0x1b9)],_0x9fb029[_0x135659(0x176)],_0x42b22d]);}_0xe869b0['addRows'](_0x431148);const _0x32655e='./BannerExcel_'+Date[_0x135659(0x17c)]()+'.xlsx';return yield _0x50ce36[_0x135659(0x1d6)][_0x135659(0x1cc)](_0x32655e),new Promise((_0x60b449,_0x47b83d)=>{const _0x341e4c=_0x135659;_0x4d9933[_0x341e4c(0x1d2)](_0x32655e,(_0x2a69c7,_0x56ebed)=>{const _0x4ad50d=_0x341e4c;if(_0x2a69c7)_0x47b83d(_0x2a69c7);else return fs[_0x4ad50d(0x1bf)](_0x32655e),_0x4d9933[_0x4ad50d(0x165)]();});});});}};tslib_1[a257_0x2f3fa9(0x1c3)]([(0x0,routing_controllers_1[a257_0x2f3fa9(0x1bc)])(),(0x0,routing_controllers_1[a257_0x2f3fa9(0x15c)])([a257_0x2f3fa9(0x174),'create-banners']),tslib_1[a257_0x2f3fa9(0x1d3)](0x0,(0x0,routing_controllers_1[a257_0x2f3fa9(0x18f)])({'validate':!![]})),tslib_1[a257_0x2f3fa9(0x1d3)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x1c8),Function),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x17e),[CreateBannerRequest_1['CreateBanner'],Object]),tslib_1['__metadata'](a257_0x2f3fa9(0x161),Promise)],BannerController[a257_0x2f3fa9(0x189)],a257_0x2f3fa9(0x16f),null),tslib_1[a257_0x2f3fa9(0x1c3)]([(0x0,routing_controllers_1[a257_0x2f3fa9(0x1b1)])(),(0x0,routing_controllers_1[a257_0x2f3fa9(0x15c)])([a257_0x2f3fa9(0x174),a257_0x2f3fa9(0x175)]),tslib_1[a257_0x2f3fa9(0x1d3)](0x0,(0x0,routing_controllers_1[a257_0x2f3fa9(0x166)])(a257_0x2f3fa9(0x162))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a257_0x2f3fa9(0x166)])('offset')),tslib_1[a257_0x2f3fa9(0x1d3)](0x2,(0x0,routing_controllers_1[a257_0x2f3fa9(0x166)])(a257_0x2f3fa9(0x1cf))),tslib_1[a257_0x2f3fa9(0x1d3)](0x3,(0x0,routing_controllers_1['QueryParam'])(a257_0x2f3fa9(0x169))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a257_0x2f3fa9(0x166)])(a257_0x2f3fa9(0x18c))),tslib_1[a257_0x2f3fa9(0x1d3)](0x5,(0x0,routing_controllers_1[a257_0x2f3fa9(0x1d7)])()),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x1c8),Function),tslib_1['__metadata'](a257_0x2f3fa9(0x17e),[Number,Number,String,String,Object,Object]),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x161),Promise)],BannerController[a257_0x2f3fa9(0x189)],'bannerList',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a257_0x2f3fa9(0x1c5)])('/:id'),(0x0,routing_controllers_1[a257_0x2f3fa9(0x15c)])(),tslib_1[a257_0x2f3fa9(0x1d3)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1[a257_0x2f3fa9(0x1d3)](0x1,(0x0,routing_controllers_1[a257_0x2f3fa9(0x1d7)])()),tslib_1[a257_0x2f3fa9(0x1d3)](0x2,(0x0,routing_controllers_1[a257_0x2f3fa9(0x198)])()),tslib_1[a257_0x2f3fa9(0x1b6)]('design:type',Function),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x17e),[Number,Object,Object]),tslib_1['__metadata'](a257_0x2f3fa9(0x161),Promise)],BannerController['prototype'],a257_0x2f3fa9(0x1dc),null),tslib_1[a257_0x2f3fa9(0x1c3)]([(0x0,routing_controllers_1[a257_0x2f3fa9(0x18d)])('/:id'),(0x0,routing_controllers_1[a257_0x2f3fa9(0x15c)])([a257_0x2f3fa9(0x174),a257_0x2f3fa9(0x191)]),tslib_1[a257_0x2f3fa9(0x1d3)](0x0,(0x0,routing_controllers_1[a257_0x2f3fa9(0x18f)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a257_0x2f3fa9(0x1d7)])()),tslib_1[a257_0x2f3fa9(0x1d3)](0x2,(0x0,routing_controllers_1[a257_0x2f3fa9(0x198)])()),tslib_1['__metadata'](a257_0x2f3fa9(0x1c8),Function),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x17e),[UpdateBannerRequest_1[a257_0x2f3fa9(0x19a)],Object,Object]),tslib_1['__metadata'](a257_0x2f3fa9(0x161),Promise)],BannerController['prototype'],a257_0x2f3fa9(0x1b7),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a257_0x2f3fa9(0x1bc)])(a257_0x2f3fa9(0x173)),(0x0,routing_controllers_1[a257_0x2f3fa9(0x15c)])([a257_0x2f3fa9(0x174),a257_0x2f3fa9(0x1a0)]),tslib_1[a257_0x2f3fa9(0x1d3)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a257_0x2f3fa9(0x1d3)](0x1,(0x0,routing_controllers_1[a257_0x2f3fa9(0x1d7)])()),tslib_1[a257_0x2f3fa9(0x1d3)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x1c8),Function),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x17e),[DeleteBannerRequest_1[a257_0x2f3fa9(0x1ca)],Object,Object]),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x161),Promise)],BannerController[a257_0x2f3fa9(0x189)],a257_0x2f3fa9(0x1cb),null),tslib_1[a257_0x2f3fa9(0x1c3)]([(0x0,routing_controllers_1[a257_0x2f3fa9(0x1b1)])('/banner-count'),(0x0,routing_controllers_1[a257_0x2f3fa9(0x15c)])(),tslib_1[a257_0x2f3fa9(0x1d3)](0x0,(0x0,routing_controllers_1[a257_0x2f3fa9(0x1d7)])()),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x1c8),Function),tslib_1['__metadata'](a257_0x2f3fa9(0x17e),[Object]),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x161),Promise)],BannerController[a257_0x2f3fa9(0x189)],'bannerCount',null),tslib_1[a257_0x2f3fa9(0x1c3)]([(0x0,routing_controllers_1[a257_0x2f3fa9(0x1b1)])('/banner-detail'),(0x0,routing_controllers_1[a257_0x2f3fa9(0x15c)])(),tslib_1[a257_0x2f3fa9(0x1d3)](0x0,(0x0,routing_controllers_1[a257_0x2f3fa9(0x166)])(a257_0x2f3fa9(0x1e8))),tslib_1[a257_0x2f3fa9(0x1d3)](0x1,(0x0,routing_controllers_1[a257_0x2f3fa9(0x1d7)])()),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x1c8),Function),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x17e),[Number,Object]),tslib_1['__metadata'](a257_0x2f3fa9(0x161),Promise)],BannerController['prototype'],a257_0x2f3fa9(0x167),null),tslib_1[a257_0x2f3fa9(0x1c3)]([(0x0,routing_controllers_1[a257_0x2f3fa9(0x1b1)])(a257_0x2f3fa9(0x1bb)),tslib_1[a257_0x2f3fa9(0x1d3)](0x0,(0x0,routing_controllers_1[a257_0x2f3fa9(0x166)])(a257_0x2f3fa9(0x1e8))),tslib_1[a257_0x2f3fa9(0x1d3)](0x1,(0x0,routing_controllers_1[a257_0x2f3fa9(0x198)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x1c8),Function),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x17e),[String,Object,Object]),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x161),Promise)],BannerController[a257_0x2f3fa9(0x189)],a257_0x2f3fa9(0x1d1),null),BannerController=tslib_1[a257_0x2f3fa9(0x1c3)]([(0x0,routing_controllers_1[a257_0x2f3fa9(0x187)])('/banner'),tslib_1[a257_0x2f3fa9(0x1b6)](a257_0x2f3fa9(0x17e),[BannerService_1[a257_0x2f3fa9(0x1a1)],S3Service_1['S3Service'],ImageService_1['ImageService'],ProductService_1[a257_0x2f3fa9(0x1b0)],CategoryService_1[a257_0x2f3fa9(0x1c6)]])],BannerController),exports[a257_0x2f3fa9(0x163)]=BannerController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BannerController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const BannerService_1 = require("../../core/services/BannerService");
+const env_1 = require("../../../env");
+const Banner_1 = require("../../core/models/Banner");
+const CreateBannerRequest_1 = require("./requests/CreateBannerRequest");
+const UpdateBannerRequest_1 = require("./requests/UpdateBannerRequest");
+const S3Service_1 = require("../../core/services/S3Service");
+const ImageService_1 = require("../../core/services/ImageService");
+const DeleteBannerRequest_1 = require("./requests/DeleteBannerRequest");
+const fs = tslib_1.__importStar(require("fs"));
+const ProductService_1 = require("../../core/services/ProductService");
+const CategoryService_1 = require("../../core/services/CategoryService");
+let BannerController = class BannerController {
+    constructor(bannerService, s3Service, imageService, productService, categoryService) {
+        this.bannerService = bannerService;
+        this.s3Service = s3Service;
+        this.imageService = imageService;
+        this.productService = productService;
+        this.categoryService = categoryService;
+    }
+    // Create Banner
+    /**
+     * @api {post} /api/banner Add Banner API
+     * @apiGroup Banner
+     * @apiParam (Request body) {String{..255}} title title
+     * @apiParam (Request body) {String} [content] content
+     * @apiParam (Request body) {String} image image
+     * @apiParam (Request body) {String} [link] link
+     * @apiParam (Request body) {String} [position] position
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {Number} [linkType] linkType
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "title" : "",
+     *      "content" : "",
+     *      "image" : "",
+     *      "link" : "",
+     *      "position" : "",
+     *      "status" : "",
+     *      "linkType" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "New banner is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/banner
+     * @apiErrorExample {json} Banner error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createBanner(bannerParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (+bannerParam.linkType !== 1 && (bannerParam.link === undefined || bannerParam.link === '')) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'link is required',
+                });
+            }
+            const image = bannerParam.image;
+            if (image) {
+                const type = image.split(';')[0].split('/')[1];
+                const availableTypes = env_1.env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse = {
+                        status: 0,
+                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                const name = 'Img_' + Date.now() + '.' + type;
+                const path = 'banner/';
+                const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload((path + name), base64Data, type);
+                }
+                else {
+                    yield this.imageService.imageUpload((path + name), base64Data);
+                }
+                const newBanner = new Banner_1.Banner();
+                newBanner.title = bannerParam.title;
+                newBanner.content = bannerParam.content;
+                newBanner.image = name;
+                newBanner.imagePath = path;
+                let link;
+                link = bannerParam.link;
+                if (+bannerParam.linkType === 2) {
+                    const product = yield this.productService.findOne({
+                        where: {
+                            productSlug: link,
+                        },
+                    });
+                    if (!product) {
+                        return response.status(400).send({
+                            status: 0,
+                            message: 'Invalid product slug.',
+                        });
+                    }
+                    newBanner.linkType = bannerParam.linkType;
+                }
+                else if (+bannerParam.linkType === 3) {
+                    const category = yield this.categoryService.findOne({
+                        where: {
+                            categorySlug: link,
+                        },
+                    });
+                    if (!category) {
+                        return response.status(400).send({
+                            status: 0,
+                            message: 'Invalid category slug',
+                        });
+                    }
+                    newBanner.linkType = bannerParam.linkType;
+                }
+                else {
+                    newBanner.linkType = bannerParam.linkType;
+                }
+                newBanner.link = link;
+                newBanner.position = bannerParam.position;
+                newBanner.isActive = bannerParam.status;
+                const bannerSave = yield this.bannerService.create(newBanner);
+                if (bannerSave) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Successfully created new banner.',
+                        data: bannerSave,
+                    };
+                    return response.status(200).send(successResponse);
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Unable to create new banner. ',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+        });
+    }
+    // Banner List
+    /**
+     * @api {get} /api/banner Banner List API
+     * @apiGroup Banner
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got banner list",
+     *      "data":"{
+     *      "bannerId": "",
+     *      "title": "",
+     *      "content": "",
+     *      "image": "",
+     *      "imagePath": "",
+     *      "link": "",
+     *      "position": "",
+     *      }"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/banner
+     * @apiErrorExample {json} Banner error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    bannerList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['bannerId', 'title', 'image', 'imagePath', 'content', 'link', 'position', 'isActive', 'linkType'];
+            const search = [
+                {
+                    name: 'title',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const WhereConditions = [];
+            const bannerList = yield this.bannerService.list(limit, offset, select, search, WhereConditions, count);
+            if (count) {
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got banner count',
+                    data: bannerList,
+                };
+                return response.status(200).send(successRes);
+            }
+            const list = bannerList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                if (+temp.linkType === 2) {
+                    const productRedirectUrl = env_1.env.productRedirectUrl;
+                    temp.link = productRedirectUrl.concat(temp.link);
+                }
+                else if (+temp.linkType === 3) {
+                    const categoryRedirectUrl = env_1.env.categoryRedirectUrl;
+                    temp.link = categoryRedirectUrl.concat(temp.link);
+                }
+                else {
+                    temp.link = temp.link;
+                }
+                return temp;
+            }));
+            const result = yield Promise.all(list);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got banner list',
+                data: result,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Delete Banner
+    /**
+     * @api {delete} /api/banner/:id Delete Banner API
+     * @apiGroup Banner
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "bannerId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Banner.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/banner/:id
+     * @apiErrorExample {json} Banner error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteBanner(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const banner = yield this.bannerService.findOne({
+                where: {
+                    bannerId: id,
+                },
+            });
+            if (!banner) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Banner Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteBanner = yield this.bannerService.delete(banner);
+            if (deleteBanner) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted banner.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete banner.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update Banner
+    /**
+     * @api {put} /api/banner/:id Update Banner API
+     * @apiGroup Banner
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} bannerId Banner bannerId
+     * @apiParam (Request body) {String{..255}} title Banner title
+     * @apiParam (Request body) {String} image Banner image
+     * @apiParam (Request body) {String} [content] Banner content
+     * @apiParam (Request body) {String{..255}} [link] Banner link
+     * @apiParam (Request body) {Number} [position] Banner position
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {Number} [linkType] 1--> static 2--> product 3--> category
+     * @apiParamExample {json} Input
+     * {
+     *      "bannerId" : "",
+     *      "title" : "",
+     *      "image" : "",
+     *      "content" : "",
+     *      "link" : "",
+     *      "position" : "",
+     *      "status" : "",
+     *      "linkType" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated banner.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/banner/:id
+     * @apiErrorExample {json} Banner error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateBanner(bannerParam, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (+bannerParam.linkType !== 1 && (bannerParam.link === undefined || bannerParam.link === '')) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'link is required',
+                });
+            }
+            const banner = yield this.bannerService.findOne({
+                where: {
+                    bannerId: bannerParam.bannerId,
+                },
+            });
+            if (!banner) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Banner Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const image = bannerParam.image;
+            if (image) {
+                const type = image.split(';')[0].split('/')[1];
+                const availableTypes = env_1.env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse = {
+                        status: 0,
+                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                const name = 'Img_' + Date.now() + '.' + type;
+                const path = 'banner/';
+                const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload((path + name), base64Data, type);
+                }
+                else {
+                    yield this.imageService.imageUpload((path + name), base64Data);
+                }
+                banner.image = name;
+                banner.imagePath = path;
+            }
+            banner.title = bannerParam.title;
+            banner.content = bannerParam.content;
+            let link;
+            link = bannerParam.link;
+            if (+bannerParam.linkType === 2) {
+                const product = yield this.productService.findOne({
+                    where: {
+                        productSlug: link,
+                    },
+                });
+                if (!product) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'Invalid product slug.',
+                    });
+                }
+                banner.linkType = bannerParam.linkType;
+            }
+            else if (+bannerParam.linkType === 3) {
+                const category = yield this.categoryService.findOne({
+                    where: {
+                        categorySlug: link,
+                    },
+                });
+                if (!category) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'Invalid category slug',
+                    });
+                }
+                banner.linkType = bannerParam.linkType;
+            }
+            else {
+                banner.linkType = bannerParam.linkType;
+            }
+            banner.link = link;
+            banner.position = bannerParam.position;
+            banner.isActive = bannerParam.status;
+            const bannerSave = yield this.bannerService.create(banner);
+            if (bannerSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated banner.',
+                    data: bannerSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the banner. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete Multiple Banner API
+    /**
+     * @api {post} /api/banner/delete-banner Delete Multiple Banner API
+     * @apiGroup Banner
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} bannerId  bannerId
+     * @apiParamExample {json} Input
+     * {
+     * "bannerId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully deleted Banner.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/banner/delete-banner
+     * @apiErrorExample {json} bannerDelete error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteMultipleBanner(bannerDelete, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const bannerIdNo = bannerDelete.bannerId.toString();
+            const bannerid = bannerIdNo.split(',');
+            for (const id of bannerid) {
+                const dataId = yield this.bannerService.findOne(id);
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Please choose a banner that you want to delete.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                else {
+                    const deleteBannerId = parseInt(id, 10);
+                    yield this.bannerService.delete(deleteBannerId);
+                }
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully deleted Banner.',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Banner Count API
+    /**
+     * @api {get} /api/banner/banner-count Banner Count API
+     * @apiGroup Banner
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get banner count",
+     *      "data":{},
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/banner/banner-count
+     * @apiErrorExample {json} Banner error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    bannerCount(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const banner = {};
+            const select = [];
+            const search = [];
+            const WhereConditions = [];
+            const allBannerCount = yield this.bannerService.list(0, 0, select, search, WhereConditions, 1);
+            const whereConditionsActive = [
+                {
+                    name: 'isActive',
+                    op: 'like',
+                    value: 1,
+                },
+            ];
+            const activeBannerCount = yield this.bannerService.list(0, 0, select, search, whereConditionsActive, 1);
+            const whereConditionsInActive = [
+                {
+                    name: 'isActive',
+                    op: 'like',
+                    value: 0,
+                },
+            ];
+            const inActiveBannerCount = yield this.bannerService.list(0, 0, select, search, whereConditionsInActive, 1);
+            banner.totalBanner = allBannerCount;
+            banner.activeBanner = activeBannerCount;
+            banner.inActiveBanner = inActiveBannerCount;
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the banner count',
+                data: banner,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Blog Detail
+    /**
+     * @api {get} /api/banner/banner-detail Banner Detail API
+     * @apiGroup Banner
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} bannerId BannerId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Banner detail",
+     *      "data": "{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/banner/banner-detail
+     * @apiErrorExample {json} banner Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    BannerDetail(bannerId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const banner = yield this.bannerService.findOne({
+                where: {
+                    bannerId,
+                },
+            });
+            if (!banner) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Banner Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got banner detail',
+                data: banner,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Banner Excel Document download
+    /**
+     * @api {get} /api/banner/banner-excel-list Banner Excel
+     * @apiGroup Banner
+     * @apiParam (Request body) {String} bannerId bannerId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the Banner Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/banner/banner-excel-list
+     * @apiErrorExample {json} banner Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    bannerView(bannerId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('banner excel Sheet');
+            const rows = [];
+            if (bannerId === '') {
+                const errorResponse = {
+                    status: 0,
+                    message: 'choose atleast one banner',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const bannerid = bannerId.split(',');
+            for (const id of bannerid) {
+                const dataId = yield this.bannerService.findOne({ where: { bannerId: id } });
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid bannerId',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'title', key: 'title', size: 16, width: 15 },
+                { header: 'link', key: 'link', size: 16, width: 15 },
+                { header: 'position', key: 'position', size: 16, width: 15 },
+                { header: 'image url', key: 'image', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const id of bannerid) {
+                const dataId = yield this.bannerService.findOne(id);
+                const image = env_1.env.imageUrl + '?path=' + dataId.imagePath + '&name=' + dataId.image + '&width=100&height=100';
+                rows.push([dataId.title, dataId.link, dataId.position, image]);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './BannerExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-banners']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateBannerRequest_1.CreateBanner, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], BannerController.prototype, "createBanner", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-banners']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], BannerController.prototype, "bannerList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], BannerController.prototype, "deleteBanner", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-banners']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [UpdateBannerRequest_1.UpdateBanner, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], BannerController.prototype, "updateBanner", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/delete-banner'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-banners']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [DeleteBannerRequest_1.DeleteBannerRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], BannerController.prototype, "deleteMultipleBanner", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/banner-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], BannerController.prototype, "bannerCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/banner-detail'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('bannerId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], BannerController.prototype, "BannerDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/banner-excel-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('bannerId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], BannerController.prototype, "bannerView", null);
+BannerController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/banner'),
+    tslib_1.__metadata("design:paramtypes", [BannerService_1.BannerService, S3Service_1.S3Service,
+        ImageService_1.ImageService, ProductService_1.ProductService, CategoryService_1.CategoryService])
+], BannerController);
+exports.BannerController = BannerController;
+//# sourceMappingURL=BannerController.js.map

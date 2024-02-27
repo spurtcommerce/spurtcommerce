@@ -1,1 +1,36 @@
-'use strict';function a110_0x34e9(){const _0x50d921=['__awaiter','tslib','__esModule','1096474mXYqXZ','getTable','6904235ZpItxS','5487XJslqj','AddProductRelatedRelationToProductTable1546578412979','fk_product_related_product1','tableForeignKey','11555229wwGVvE','product_id','1313397MEgrya','7838730hfjkrR','typeorm','createForeignKey','product','find','2024RkZsvF','columnNames','CASCADE','foreignKeys','product_related','4817904JVoERb'];a110_0x34e9=function(){return _0x50d921;};return a110_0x34e9();}const a110_0x4e0225=a110_0x1628;(function(_0x16b5ec,_0x2426f4){const _0x34c093=a110_0x1628,_0x1067fc=_0x16b5ec();while(!![]){try{const _0xdd1627=-parseInt(_0x34c093(0x1da))/0x1+-parseInt(_0x34c093(0x1e9))/0x2+parseInt(_0x34c093(0x1ec))/0x3*(-parseInt(_0x34c093(0x1e0))/0x4)+parseInt(_0x34c093(0x1eb))/0x5+parseInt(_0x34c093(0x1db))/0x6+parseInt(_0x34c093(0x1d8))/0x7+-parseInt(_0x34c093(0x1e5))/0x8;if(_0xdd1627===_0x2426f4)break;else _0x1067fc['push'](_0x1067fc['shift']());}catch(_0x385249){_0x1067fc['push'](_0x1067fc['shift']());}}}(a110_0x34e9,0xe79df));function a110_0x1628(_0xdcf27c,_0x3a0ceb){const _0x34e964=a110_0x34e9();return a110_0x1628=function(_0x162810,_0x3cb367){_0x162810=_0x162810-0x1d8;let _0x1c1d36=_0x34e964[_0x162810];return _0x1c1d36;},a110_0x1628(_0xdcf27c,_0x3a0ceb);}Object['defineProperty'](exports,a110_0x4e0225(0x1e8),{'value':!![]}),exports[a110_0x4e0225(0x1ed)]=void 0x0;const tslib_1=require(a110_0x4e0225(0x1e7)),typeorm_1=require(a110_0x4e0225(0x1dc));class AddProductRelatedRelationToProductTable1546578412979{constructor(){const _0x5a583d=a110_0x4e0225;this[_0x5a583d(0x1ef)]=new typeorm_1['TableForeignKey']({'name':_0x5a583d(0x1ee),'columnNames':[_0x5a583d(0x1d9)],'referencedColumnNames':[_0x5a583d(0x1d9)],'referencedTableName':_0x5a583d(0x1de),'onDelete':_0x5a583d(0x1e2)});}['up'](_0x435a7b){const _0x3dde58=a110_0x4e0225;return tslib_1[_0x3dde58(0x1e6)](this,void 0x0,void 0x0,function*(){const _0x4ec44a=_0x3dde58,_0x150ac8=yield _0x435a7b['getTable'](_0x4ec44a(0x1e4)),_0x478f11=_0x150ac8[_0x4ec44a(0x1e3)][_0x4ec44a(0x1df)](_0x35c737=>_0x35c737[_0x4ec44a(0x1e1)]['indexOf'](_0x4ec44a(0x1d9))!==-0x1);!_0x478f11&&(yield _0x435a7b[_0x4ec44a(0x1dd)](_0x150ac8,this[_0x4ec44a(0x1ef)]));});}['down'](_0x3c8df4){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5b7e1a=a110_0x1628,_0x5e5fa7=yield _0x3c8df4[_0x5b7e1a(0x1ea)](_0x5b7e1a(0x1e4)),_0x9c1f3b=_0x5e5fa7[_0x5b7e1a(0x1e3)][_0x5b7e1a(0x1df)](_0x177e32=>_0x177e32[_0x5b7e1a(0x1e1)]['indexOf'](_0x5b7e1a(0x1d9))!==-0x1);_0x9c1f3b&&(yield _0x3c8df4['dropForeignKey'](_0x5e5fa7,this[_0x5b7e1a(0x1ef)]));});}}exports['AddProductRelatedRelationToProductTable1546578412979']=AddProductRelatedRelationToProductTable1546578412979;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddProductRelatedRelationToProductTable1546578412979 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddProductRelatedRelationToProductTable1546578412979 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_product_related_product1',
+            columnNames: ['product_id'],
+            referencedColumnNames: ['product_id'],
+            referencedTableName: 'product',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('product_related');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('product_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('product_related');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('product_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.AddProductRelatedRelationToProductTable1546578412979 = AddProductRelatedRelationToProductTable1546578412979;
+//# sourceMappingURL=1546578412979-AddProductRelatedRelationToProductTable.js.map

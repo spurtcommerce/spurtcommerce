@@ -1,1 +1,308 @@
-'use strict';const a95_0x123f63=a95_0x1320;(function(_0x2cea27,_0x145646){const _0x4ff0a7=a95_0x1320,_0x43a988=_0x2cea27();while(!![]){try{const _0xe092fa=-parseInt(_0x4ff0a7(0x1a6))/0x1+-parseInt(_0x4ff0a7(0x175))/0x2+-parseInt(_0x4ff0a7(0x177))/0x3*(parseInt(_0x4ff0a7(0x1a9))/0x4)+parseInt(_0x4ff0a7(0x1b9))/0x5+parseInt(_0x4ff0a7(0x1b7))/0x6+-parseInt(_0x4ff0a7(0x173))/0x7+parseInt(_0x4ff0a7(0x154))/0x8;if(_0xe092fa===_0x145646)break;else _0x43a988['push'](_0x43a988['shift']());}catch(_0x2ba82c){_0x43a988['push'](_0x43a988['shift']());}}}(a95_0xbbc7,0x4b988));function a95_0x1320(_0x16737e,_0x5aa858){const _0xbbc7d4=a95_0xbbc7();return a95_0x1320=function(_0x1320e8,_0x4543ef){_0x1320e8=_0x1320e8-0x14d;let _0x14c9c0=_0xbbc7d4[_0x1320e8];return _0x14c9c0;},a95_0x1320(_0x16737e,_0x5aa858);}Object[a95_0x123f63(0x168)](exports,a95_0x123f63(0x1a4),{'value':!![]}),exports['QuotationController']=void 0x0;const tslib_1=require(a95_0x123f63(0x1b0)),class_transformer_1=require(a95_0x123f63(0x18d));function a95_0xbbc7(){const _0x3a4626=['__decorate','price','__esModule','design:paramtypes','288547rpmHsW','productId','QuotationController','130164UaXPhO','productImage','design:returntype','limit','ProductImageService','Successfully\x20got\x20quotation\x20product\x20lists\x20count.','listByQueryBuilder','tslib','admin','Product.price\x20as\x20price','__metadata','push','instanceToPlain','quotation\x20status\x20updated\x20successfully\x20.','1759518TjpCDO','all','648780mAurRj','quotationAvailable','../../../../src/api/core/services/VendorProductService','prototype','vendorProductService','Res','findAll','productSpecial','productImageService','CheckAddonMiddleware','../../../../src/api/core/services/SkuService','flag','6278824GXkwVO','VendorProductService','Product.sku\x20as\x20sku','Product.productSlug\x20as\x20productSlug','reflect-metadata','create','mobileNumber','BodyParam','then','customerService','quotationRequest','Product.name','(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20\x20pd2.date_end\x20>=\x20CURDATE()))\x20','Put','../../../../src/api/core/services/ProductService','offset','Product.skuId\x20as\x20skuId','map','send','updateQuotationStatus','defineProperty','(SELECT\x20pi.container_name\x20as\x20containerName\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20containerName','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20price','IsNull','email','(SELECT\x20pi.default_image\x20as\x20defaultImage\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20defaultImage','Product.quotationAvailable\x20as\x20quotationStatus','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20AS\x20productSpecial','../../../../src/api/core/middlewares/AddonValidationMiddleware','__param','Req','118328nYkmdp','sku','860132SstVwk','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20modifiedPrice','15FfAXLH','productDiscount','Authorized','productService','routing-controllers','image','../../../../src/api/core/services/CustomerService','firstName','lastName','customerId','DESC','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20AS\x20productDiscount','/quotation-request-detail/:productId','typeorm','/product-list','avatarPath','Product.isActive\x20as\x20isActive','quotationProductDetail','(SELECT\x20pi.image\x20as\x20image\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20image','CustomerService','../../services/QuotationService','Successfully\x20got\x20the\x20complete\x20quotation\x20product\x20list.\x20','class-transformer','quotationCount','Get','QuotationService','Invalid\x20productId','QueryParam','Successfully\x20got\x20quotation\x20product\x20detail','adminQuotationProductList','Product.createdDate','design:type','Param','quotationService','findOne','__awaiter','city','Product.name\x20as\x20name','keyword','status','pricerefer','avatar','SkuService'];a95_0xbbc7=function(){return _0x3a4626;};return a95_0xbbc7();}require(a95_0x123f63(0x158));const routing_controllers_1=require(a95_0x123f63(0x17b)),VendorProductService_1=require(a95_0x123f63(0x1bb)),CustomerService_1=require(a95_0x123f63(0x17d)),ProductService_1=require(a95_0x123f63(0x162)),QuotationService_1=require(a95_0x123f63(0x18b)),ProductImageService_1=require('../../../../src/api/core/services/ProductImageService'),SkuService_1=require(a95_0x123f63(0x152)),typeorm_1=require(a95_0x123f63(0x184)),AddonValidationMiddleware_1=require(a95_0x123f63(0x170));let QuotationController=class QuotationController{constructor(_0x5e417b,_0x38b158,_0x9ed382,_0x384bd0,_0x394bbb,_0x407adc){const _0x3e8099=a95_0x123f63;this[_0x3e8099(0x198)]=_0x5e417b,this[_0x3e8099(0x17a)]=_0x38b158,this[_0x3e8099(0x15d)]=_0x9ed382,this['vendorProductService']=_0x384bd0,this[_0x3e8099(0x150)]=_0x394bbb,this['skuService']=_0x407adc;}[a95_0x123f63(0x194)](_0xa88bb8,_0x1fb4ad,_0x11e8ec,_0x40db72,_0x14e707,_0x8d34ec,_0x23bdf2,_0x5a5c85){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5404e0=a95_0x1320,_0x4a7440=['Product.productId\x20as\x20productId',_0x5404e0(0x156),_0x5404e0(0x19c),'Product.quantity\x20as\x20quantity',_0x5404e0(0x1b2),_0x5404e0(0x164),_0x5404e0(0x157),_0x5404e0(0x16e),_0x5404e0(0x187),_0x5404e0(0x189),_0x5404e0(0x169),_0x5404e0(0x16d),'(SELECT\x20sku.sku_name\x20as\x20sku\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20sku',_0x5404e0(0x16a),_0x5404e0(0x176),_0x5404e0(0x160)+_0x5404e0(0x182),'(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))'+'\x20'+_0x5404e0(0x16f)],_0x2d7c9c=[],_0x4cfbc4=[],_0x3da39d=[];_0x11e8ec!==''&&_0x3da39d[_0x5404e0(0x1b4)]({'name':[_0x5404e0(0x15f)],'value':_0x11e8ec});const _0x1f2824=[];_0x1f2824['push']({'name':_0x5404e0(0x195),'order':_0x5404e0(0x181)});const _0xb72eb7=yield this[_0x5404e0(0x17a)][_0x5404e0(0x1af)](_0xa88bb8,_0x1fb4ad,_0x4a7440,_0x4cfbc4,_0x3da39d,_0x2d7c9c,[],_0x1f2824,![],!![]);if(_0x23bdf2){const _0x33d132=yield this[_0x5404e0(0x17a)]['listByQueryBuilder'](_0xa88bb8,_0x1fb4ad,_0x4a7440,_0x4cfbc4,_0x3da39d,_0x2d7c9c,[],_0x1f2824,!![],!![]);return _0x5a5c85[_0x5404e0(0x19e)](0xc8)[_0x5404e0(0x166)]({'status':0x1,'message':_0x5404e0(0x1ae),'data':_0x33d132});}const _0x22fffb=_0xb72eb7[_0x5404e0(0x165)](_0x1c12f8=>tslib_1[_0x5404e0(0x19a)](this,void 0x0,void 0x0,function*(){const _0x16c560=_0x5404e0,_0x37c62d=_0x1c12f8,_0x481867=yield this[_0x16c560(0x198)][_0x16c560(0x18e)](_0x37c62d[_0x16c560(0x1a7)]);_0x37c62d[_0x16c560(0x18e)]=_0x481867;if(_0x1c12f8[_0x16c560(0x14f)]!==null)_0x37c62d['pricerefer']=_0x1c12f8[_0x16c560(0x14f)],_0x37c62d[_0x16c560(0x153)]=0x1;else _0x1c12f8[_0x16c560(0x178)]!==null?(_0x37c62d[_0x16c560(0x19f)]=_0x1c12f8[_0x16c560(0x178)],_0x37c62d['flag']=0x0):(_0x37c62d['pricerefer']='',_0x37c62d['flag']='');return _0x37c62d;})),_0x4b5f43=yield Promise['all'](_0x22fffb),_0x57fbdf={'status':0x1,'message':_0x5404e0(0x18c),'data':(0x0,class_transformer_1[_0x5404e0(0x1b5)])(_0x4b5f43)};return _0x5a5c85[_0x5404e0(0x19e)](0xc8)[_0x5404e0(0x166)](_0x57fbdf);});}[a95_0x123f63(0x167)](_0x26113b,_0x5806fd,_0x27a66b,_0x3f1e50){const _0x201dea=a95_0x123f63;return tslib_1[_0x201dea(0x19a)](this,void 0x0,void 0x0,function*(){const _0x553988=_0x201dea,_0x5e9381=yield this['productService'][_0x553988(0x199)]({'where':{'productId':_0x26113b}});if(!_0x5e9381){const _0x5a3ddb={'status':0x0,'message':_0x553988(0x191)};return _0x3f1e50[_0x553988(0x19e)](0x190)[_0x553988(0x166)](_0x5a3ddb);}_0x5e9381['quotationAvailable']=_0x5806fd?_0x5806fd:0x0;const _0x5debd6=yield this[_0x553988(0x1bd)][_0x553988(0x199)]({'where':{'productId':_0x26113b,'reuse':(0x0,typeorm_1[_0x553988(0x16b)])()}});_0x5debd6&&(_0x5debd6[_0x553988(0x1ba)]=_0x5806fd?_0x5806fd:0x0,yield this['vendorProductService'][_0x553988(0x159)](_0x5debd6));const _0x1ab436=yield this[_0x553988(0x17a)][_0x553988(0x159)](_0x5e9381);if(_0x1ab436){const _0x17695a={'status':0x1,'message':_0x553988(0x1b6),'data':_0x1ab436};return _0x3f1e50[_0x553988(0x19e)](0xc8)[_0x553988(0x166)](_0x17695a);}else{const _0x443f6d={'status':0x0,'message':'unable\x20to\x20update\x20successfully'};return _0x3f1e50[_0x553988(0x19e)](0x190)[_0x553988(0x166)](_0x443f6d);}});}[a95_0x123f63(0x188)](_0x25a5b4,_0xd11400){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x333b75=a95_0x1320,_0x51b57a=yield this['productService'][_0x333b75(0x199)]({'select':['productId','name',_0x333b75(0x174),'productSlug'],'where':{'productId':_0x25a5b4}});if(!_0x51b57a)return _0xd11400[_0x333b75(0x19e)](0x190)['send']({'status':0x0,'message':'Invalid\x20productId'});_0x51b57a[_0x333b75(0x1aa)]=yield this[_0x333b75(0x150)][_0x333b75(0x199)]({'select':[_0x333b75(0x17c),'containerName'],'where':{'productId':_0x51b57a[_0x333b75(0x1a7)],'defaultImage':0x1}}),_0x51b57a[_0x333b75(0x1a3)]=yield this['skuService']['findOne']({'select':[_0x333b75(0x1a3)],'where':{'skuName':_0x51b57a[_0x333b75(0x174)]}}),_0x51b57a[_0x333b75(0x18e)]=yield this[_0x333b75(0x198)][_0x333b75(0x18e)](_0x51b57a[_0x333b75(0x1a7)]),_0x51b57a[_0x333b75(0x15e)]=yield this[_0x333b75(0x198)][_0x333b75(0x14e)]({'where':{'productId':_0x51b57a['productId']}})[_0x333b75(0x15c)](_0x30ce01=>{const _0x6f4cd3=_0x333b75,_0x2e3a7b=_0x30ce01[_0x6f4cd3(0x165)](_0x1260e6=>tslib_1[_0x6f4cd3(0x19a)](this,void 0x0,void 0x0,function*(){const _0x279a47=_0x6f4cd3,_0x3e462a=_0x1260e6,_0x4715c6=yield this[_0x279a47(0x15d)][_0x279a47(0x199)]({'select':[_0x279a47(0x17e),_0x279a47(0x17f),_0x279a47(0x16c),_0x279a47(0x15a),'city',_0x279a47(0x1a0),'avatarPath'],'where':{'id':_0x3e462a[_0x279a47(0x180)]}});return _0x3e462a[_0x279a47(0x17e)]=_0x4715c6[_0x279a47(0x17e)],_0x3e462a[_0x279a47(0x17f)]=_0x4715c6[_0x279a47(0x17f)],_0x3e462a['email']=_0x4715c6['email'],_0x3e462a['mobileNumber']=_0x4715c6[_0x279a47(0x15a)],_0x3e462a[_0x279a47(0x19b)]=_0x4715c6['city'],_0x3e462a['avatar']=_0x4715c6['avatar'],_0x3e462a['avatarPath']=_0x4715c6[_0x279a47(0x186)],_0x3e462a;})),_0x434382=Promise[_0x6f4cd3(0x1b8)](_0x2e3a7b);return _0x434382;});const _0x32d77b={'status':0x1,'message':_0x333b75(0x193),'data':_0x51b57a};return _0xd11400['status'](0xc8)['send'](_0x32d77b);});}};tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(a95_0x123f63(0x185)),(0x0,routing_controllers_1[a95_0x123f63(0x179)])([a95_0x123f63(0x1b1),'product-quotation-list']),tslib_1['__param'](0x0,(0x0,routing_controllers_1['QueryParam'])(a95_0x123f63(0x1ac))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a95_0x123f63(0x192)])(a95_0x123f63(0x163))),tslib_1[a95_0x123f63(0x171)](0x2,(0x0,routing_controllers_1[a95_0x123f63(0x192)])(a95_0x123f63(0x19d))),tslib_1[a95_0x123f63(0x171)](0x3,(0x0,routing_controllers_1[a95_0x123f63(0x192)])(a95_0x123f63(0x174))),tslib_1[a95_0x123f63(0x171)](0x4,(0x0,routing_controllers_1[a95_0x123f63(0x192)])(a95_0x123f63(0x19e))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a95_0x123f63(0x192)])(a95_0x123f63(0x1a3))),tslib_1['__param'](0x6,(0x0,routing_controllers_1[a95_0x123f63(0x192)])('count')),tslib_1[a95_0x123f63(0x171)](0x7,(0x0,routing_controllers_1[a95_0x123f63(0x14d)])()),tslib_1['__metadata'](a95_0x123f63(0x196),Function),tslib_1['__metadata'](a95_0x123f63(0x1a5),[Number,Number,String,String,String,Number,Object,Object]),tslib_1[a95_0x123f63(0x1b3)](a95_0x123f63(0x1ab),Promise)],QuotationController[a95_0x123f63(0x1bc)],'adminQuotationProductList',null),tslib_1[a95_0x123f63(0x1a2)]([(0x0,routing_controllers_1[a95_0x123f63(0x161)])('/update-quotation-available/:id'),(0x0,routing_controllers_1[a95_0x123f63(0x179)])([a95_0x123f63(0x1b1),'update-quotation-status']),tslib_1[a95_0x123f63(0x171)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1[a95_0x123f63(0x171)](0x1,(0x0,routing_controllers_1[a95_0x123f63(0x15b)])(a95_0x123f63(0x1ba))),tslib_1[a95_0x123f63(0x171)](0x2,(0x0,routing_controllers_1[a95_0x123f63(0x172)])()),tslib_1[a95_0x123f63(0x171)](0x3,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata']('design:type',Function),tslib_1['__metadata'](a95_0x123f63(0x1a5),[Number,Number,Object,Object]),tslib_1[a95_0x123f63(0x1b3)]('design:returntype',Promise)],QuotationController['prototype'],'updateQuotationStatus',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a95_0x123f63(0x18f)])(a95_0x123f63(0x183)),(0x0,routing_controllers_1[a95_0x123f63(0x179)])([a95_0x123f63(0x1b1),'product-quotation-detail']),tslib_1[a95_0x123f63(0x171)](0x0,(0x0,routing_controllers_1[a95_0x123f63(0x197)])(a95_0x123f63(0x1a7))),tslib_1[a95_0x123f63(0x171)](0x1,(0x0,routing_controllers_1[a95_0x123f63(0x14d)])()),tslib_1[a95_0x123f63(0x1b3)]('design:type',Function),tslib_1[a95_0x123f63(0x1b3)](a95_0x123f63(0x1a5),[Number,Object]),tslib_1['__metadata'](a95_0x123f63(0x1ab),Promise)],QuotationController[a95_0x123f63(0x1bc)],'quotationProductDetail',null),QuotationController=tslib_1[a95_0x123f63(0x1a2)]([(0x0,routing_controllers_1['UseBefore'])(AddonValidationMiddleware_1[a95_0x123f63(0x151)]),(0x0,routing_controllers_1['JsonController'])('/admin-quotation'),tslib_1[a95_0x123f63(0x1b3)](a95_0x123f63(0x1a5),[QuotationService_1[a95_0x123f63(0x190)],ProductService_1['ProductService'],CustomerService_1[a95_0x123f63(0x18a)],VendorProductService_1[a95_0x123f63(0x155)],ProductImageService_1[a95_0x123f63(0x1ad)],SkuService_1[a95_0x123f63(0x1a1)]])],QuotationController),exports[a95_0x123f63(0x1a8)]=QuotationController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.QuotationController = void 0;
+const tslib_1 = require("tslib");
+const class_transformer_1 = require("class-transformer");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const VendorProductService_1 = require("../../../../src/api/core/services/VendorProductService");
+const CustomerService_1 = require("../../../../src/api/core/services/CustomerService");
+const ProductService_1 = require("../../../../src/api/core/services/ProductService");
+const QuotationService_1 = require("../../services/QuotationService");
+const ProductImageService_1 = require("../../../../src/api/core/services/ProductImageService");
+const SkuService_1 = require("../../../../src/api/core/services/SkuService");
+const typeorm_1 = require("typeorm");
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+let QuotationController = class QuotationController {
+    constructor(quotationService, productService, customerService, vendorProductService, productImageService, skuService) {
+        this.quotationService = quotationService;
+        this.productService = productService;
+        this.customerService = customerService;
+        this.vendorProductService = vendorProductService;
+        this.productImageService = productImageService;
+        this.skuService = skuService;
+    }
+    // Admin Quotation Product List API
+    /**
+     * @api {get} /api/admin-quotation/product-list Admin Quotation Product List API
+     * @apiGroup Quotation Status
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get Quotation product list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/admin-quotation/product-list
+     * @apiErrorExample {json} productList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    adminQuotationProductList(limit, offset, keyword, sku, status, price, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'Product.productId as productId',
+                'Product.sku as sku',
+                'Product.name as name',
+                'Product.quantity as quantity',
+                'Product.price as price',
+                'Product.skuId as skuId',
+                'Product.productSlug as productSlug',
+                'Product.quotationAvailable as quotationStatus',
+                'Product.isActive as isActive',
+                '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as image',
+                '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
+                '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
+                '(SELECT sku.sku_name as sku FROM sku WHERE sku.id = skuId) as sku',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as modifiedPrice',
+                '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+                    ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
+                '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
+            ];
+            const relations = [];
+            const WhereConditions = [];
+            const searchConditions = [];
+            if (keyword !== '') {
+                searchConditions.push({
+                    name: ['Product.name'],
+                    value: keyword,
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'Product.createdDate',
+                order: 'DESC',
+            });
+            const productLists = yield this.productService.listByQueryBuilder(limit, offset, select, WhereConditions, searchConditions, relations, [], sort, false, true);
+            if (count) {
+                const productListCount = yield this.productService.listByQueryBuilder(limit, offset, select, WhereConditions, searchConditions, relations, [], sort, true, true);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got quotation product lists count.',
+                    data: productListCount,
+                });
+            }
+            const productList = productLists.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const quotationCount = yield this.quotationService.quotationCount(temp.productId);
+                temp.quotationCount = quotationCount;
+                if (value.productSpecial !== null) {
+                    temp.pricerefer = value.productSpecial;
+                    temp.flag = 1;
+                }
+                else if (value.productDiscount !== null) {
+                    temp.pricerefer = value.productDiscount;
+                    temp.flag = 0;
+                }
+                else {
+                    temp.pricerefer = '';
+                    temp.flag = '';
+                }
+                return temp;
+            }));
+            const results = yield Promise.all(productList);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete quotation product list. ',
+                data: (0, class_transformer_1.instanceToPlain)(results),
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Update Quotation Available status API
+    /**
+     * @api {put} /api/admin-quotation/update-quotation-available/:id Update Quotation Available Status API
+     * @apiGroup Quotation Status
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} quotationAvailable quotationAvailable should be 0 or 1
+     * @apiParamExample {json} Input
+     * {
+     *      "quotationAvailable" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated the quotation status.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-quotation/update-quotation-available/:id
+     * @apiErrorExample {json} quotation error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateQuotationStatus(id, quotationAvailable, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const product = yield this.productService.findOne({
+                where: {
+                    productId: id,
+                },
+            });
+            if (!product) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid productId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            product.quotationAvailable = quotationAvailable ? quotationAvailable : 0;
+            const vendorProduct = yield this.vendorProductService.findOne({
+                where: {
+                    productId: id,
+                    reuse: (0, typeorm_1.IsNull)(),
+                },
+            });
+            if (vendorProduct) {
+                vendorProduct.quotationAvailable = quotationAvailable ? quotationAvailable : 0;
+                yield this.vendorProductService.create(vendorProduct);
+            }
+            const productSave = yield this.productService.create(product);
+            if (productSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'quotation status updated successfully .',
+                    data: productSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to update successfully',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Quotation Status Detail API
+    /**
+     * @api {get} /api/admin-quotation/quotation-request-detail/:productId Quotation Status Detail API
+     * @apiGroup Quotation Status
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Quotation Product detail",
+     *      "data": "{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-quotation/quotation-request-detail/:productId
+     * @apiErrorExample {json} quotation error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    quotationProductDetail(productId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const product = yield this.productService.findOne({
+                select: ['productId', 'name', 'sku', 'productSlug'],
+                where: {
+                    productId,
+                },
+            });
+            if (!product) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid productId',
+                });
+            }
+            product.productImage = yield this.productImageService.findOne({
+                select: ['image', 'containerName'],
+                where: {
+                    productId: product.productId,
+                    defaultImage: 1,
+                },
+            });
+            product.price = yield this.skuService.findOne({
+                select: ['price'],
+                where: {
+                    skuName: product.sku,
+                },
+            });
+            product.quotationCount = yield this.quotationService.quotationCount(product.productId);
+            product.quotationRequest = yield this.quotationService.findAll({
+                where: {
+                    productId: product.productId,
+                },
+            }).then((val) => {
+                const data = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const temp = value;
+                    const customer = yield this.customerService.findOne({
+                        select: ['firstName', 'lastName', 'email', 'mobileNumber', 'city', 'avatar', 'avatarPath'],
+                        where: {
+                            id: temp.customerId,
+                        },
+                    });
+                    temp.firstName = customer.firstName;
+                    temp.lastName = customer.lastName;
+                    temp.email = customer.email;
+                    temp.mobileNumber = customer.mobileNumber;
+                    temp.city = customer.city;
+                    temp.avatar = customer.avatar;
+                    temp.avatarPath = customer.avatarPath;
+                    return temp;
+                }));
+                const resultData = Promise.all(data);
+                return resultData;
+            });
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got quotation product detail',
+                data: product,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/product-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'product-quotation-list']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sku')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('price')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], QuotationController.prototype, "adminQuotationProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-quotation-available/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'update-quotation-status']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('quotationAvailable')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], QuotationController.prototype, "updateQuotationStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/quotation-request-detail/:productId'),
+    (0, routing_controllers_1.Authorized)(['admin', 'product-quotation-detail']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('productId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], QuotationController.prototype, "quotationProductDetail", null);
+QuotationController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/admin-quotation'),
+    tslib_1.__metadata("design:paramtypes", [QuotationService_1.QuotationService, ProductService_1.ProductService,
+        CustomerService_1.CustomerService, VendorProductService_1.VendorProductService,
+        ProductImageService_1.ProductImageService, SkuService_1.SkuService])
+], QuotationController);
+exports.QuotationController = QuotationController;
+//# sourceMappingURL=AdminQuotationController.js.map

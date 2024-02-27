@@ -1,1 +1,115 @@
-'use strict';function a166_0x39c1(_0x524f03,_0x5a1b33){const _0x4f223e=a166_0x4f22();return a166_0x39c1=function(_0x39c151,_0x5bbec3){_0x39c151=_0x39c151-0x1bf;let _0x29b783=_0x4f223e[_0x39c151];return _0x29b783;},a166_0x39c1(_0x524f03,_0x5a1b33);}const a166_0x3a07b8=a166_0x39c1;(function(_0xbe13a0,_0x252c5f){const _0x47d2d9=a166_0x39c1,_0x5e164f=_0xbe13a0();while(!![]){try{const _0x18bb70=parseInt(_0x47d2d9(0x1e9))/0x1*(parseInt(_0x47d2d9(0x1e1))/0x2)+parseInt(_0x47d2d9(0x1dc))/0x3*(-parseInt(_0x47d2d9(0x1c8))/0x4)+parseInt(_0x47d2d9(0x1e0))/0x5*(-parseInt(_0x47d2d9(0x1e3))/0x6)+-parseInt(_0x47d2d9(0x1d0))/0x7+-parseInt(_0x47d2d9(0x1c7))/0x8+parseInt(_0x47d2d9(0x1dd))/0x9*(-parseInt(_0x47d2d9(0x1c5))/0xa)+parseInt(_0x47d2d9(0x1e8))/0xb;if(_0x18bb70===_0x252c5f)break;else _0x5e164f['push'](_0x5e164f['shift']());}catch(_0x2d590b){_0x5e164f['push'](_0x5e164f['shift']());}}}(a166_0x4f22,0xd2309));Object[a166_0x3a07b8(0x1da)](exports,a166_0x3a07b8(0x1df),{'value':!![]}),exports[a166_0x3a07b8(0x1e2)]=void 0x0;function a166_0x4f22(){const _0x411298=['Table','columnNames','dropTable','foreignKeys','createTable','__awaiter','integer','getTable','defineProperty','is_active','3423270VYtNqr','153rgqLBv','find','__esModule','1390170MYBQzr','2DzOMkK','CreateProductAnswerLikeAndDislike1585290188288','6ROApVE','question_id','CASCADE','type','fk_tbl_ProductAnswer_tbl_ProductAnswerLike_foreignKey','46723732qTZZVn','944533ItJVFA','increment','product_answer','tableForeignKey1','created_by','created_date','down','tableForeignKey','typeorm','customer_id','170020qfBukt','tslib','11599800DitbHO','4vhZQrt','TableForeignKey','product_answer_like_dislike','customer','createForeignKey','modified_by','answer_id','hasTable','8211525neggXW','indexOf'];a166_0x4f22=function(){return _0x411298;};return a166_0x4f22();}const tslib_1=require(a166_0x3a07b8(0x1c6)),typeorm_1=require(a166_0x3a07b8(0x1c3));class CreateProductAnswerLikeAndDislike1585290188288{constructor(){const _0x534565=a166_0x3a07b8;this[_0x534565(0x1c2)]=new typeorm_1['TableForeignKey']({'name':_0x534565(0x1e7),'columnNames':[_0x534565(0x1ce)],'referencedColumnNames':['answer_id'],'referencedTableName':_0x534565(0x1eb),'onDelete':_0x534565(0x1e5)}),this[_0x534565(0x1ec)]=new typeorm_1[(_0x534565(0x1c9))]({'name':'fk_tbl_Customer_tbl_ProductAnswerLike_foreignKey','columnNames':[_0x534565(0x1c4)],'referencedColumnNames':['id'],'referencedTableName':_0x534565(0x1cb),'onDelete':'CASCADE'});}['up'](_0x2cbc97){const _0xcbc8fd=a166_0x3a07b8;return tslib_1[_0xcbc8fd(0x1d7)](this,void 0x0,void 0x0,function*(){const _0x31b08f=_0xcbc8fd,_0x294193=new typeorm_1[(_0x31b08f(0x1d2))]({'name':_0x31b08f(0x1ca),'columns':[{'name':'id','type':_0x31b08f(0x1d8),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x31b08f(0x1ea)},{'name':_0x31b08f(0x1e4),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x31b08f(0x1ce),'type':_0x31b08f(0x1d8),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x31b08f(0x1e6),'type':_0x31b08f(0x1d8),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'customer_id','type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x31b08f(0x1db),'type':_0x31b08f(0x1d8),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x31b08f(0x1bf),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x31b08f(0x1c0),'type':'datetime','isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':_0x31b08f(0x1cd),'type':_0x31b08f(0x1d8),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'modified_date','type':'datetime','isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'}]}),_0x5cdf5b=yield _0x2cbc97[_0x31b08f(0x1cf)](_0x31b08f(0x1ca));!_0x5cdf5b&&(yield _0x2cbc97[_0x31b08f(0x1d6)](_0x294193));const _0xf55387=yield _0x2cbc97[_0x31b08f(0x1d9)]('product_answer_like_dislike'),_0x405dfa=_0xf55387['foreignKeys'][_0x31b08f(0x1de)](_0x50e1ce=>_0x50e1ce[_0x31b08f(0x1d3)][_0x31b08f(0x1d1)](_0x31b08f(0x1ce))!==-0x1);!_0x405dfa&&(yield _0x2cbc97[_0x31b08f(0x1cc)](_0x294193,this[_0x31b08f(0x1c2)]));const _0x34f823=_0xf55387[_0x31b08f(0x1d5)][_0x31b08f(0x1de)](_0x4ca4be=>_0x4ca4be[_0x31b08f(0x1d3)]['indexOf']('customer_id')!==-0x1);!_0x34f823&&(yield _0x2cbc97['createForeignKey'](_0x294193,this['tableForeignKey1']));});}[a166_0x3a07b8(0x1c1)](_0x408e0f){const _0x12ef21=a166_0x3a07b8;return tslib_1[_0x12ef21(0x1d7)](this,void 0x0,void 0x0,function*(){const _0x45709f=_0x12ef21;yield _0x408e0f[_0x45709f(0x1d4)]('product_answer_like_dislike',!![]);});}}exports[a166_0x3a07b8(0x1e2)]=CreateProductAnswerLikeAndDislike1585290188288;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateProductAnswerLikeAndDislike1585290188288 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateProductAnswerLikeAndDislike1585290188288 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_ProductAnswer_tbl_ProductAnswerLike_foreignKey',
+            columnNames: ['answer_id'],
+            referencedColumnNames: ['answer_id'],
+            referencedTableName: 'product_answer',
+            onDelete: 'CASCADE',
+        });
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_Customer_tbl_ProductAnswerLike_foreignKey',
+            columnNames: ['customer_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'customer',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'product_answer_like_dislike',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'question_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'answer_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'type',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'customer_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('product_answer_like_dislike');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const getTable = yield queryRunner.getTable('product_answer_like_dislike');
+            const ifDataExsist = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('answer_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+            const ifDataExsistt = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('customer_id') !== -1);
+            if (!ifDataExsistt) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('product_answer_like_dislike', true);
+        });
+    }
+}
+exports.CreateProductAnswerLikeAndDislike1585290188288 = CreateProductAnswerLikeAndDislike1585290188288;
+//# sourceMappingURL=1585290188288-CreateProductAnswerLikeAndDislike.js.map

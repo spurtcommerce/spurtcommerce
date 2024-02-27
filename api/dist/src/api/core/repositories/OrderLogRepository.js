@@ -1,1 +1,20 @@
-'use strict';function a481_0x3961(){const _0x20bc30=['553800Ecckbu','EntityRepository','9ciOysO','tslib','350384WJFxfb','24zRccsd','44uqrbPu','57004GNwDnT','209503LQwrSk','OrderLogRepository','75620QjUpql','45FaeDnj','__decorate','839030JfSucH','238285Qggtex','OrderLog','defineProperty','Repository','../models/OrderLog'];a481_0x3961=function(){return _0x20bc30;};return a481_0x3961();}const a481_0x445586=a481_0x10b6;function a481_0x10b6(_0x2a3a70,_0xe7b974){const _0x3961f8=a481_0x3961();return a481_0x10b6=function(_0x10b6df,_0x5f15df){_0x10b6df=_0x10b6df-0x1e9;let _0x5ebeb9=_0x3961f8[_0x10b6df];return _0x5ebeb9;},a481_0x10b6(_0x2a3a70,_0xe7b974);}(function(_0x377e2f,_0x2cdf15){const _0x51fa25=a481_0x10b6,_0x11723b=_0x377e2f();while(!![]){try{const _0x4977cf=parseInt(_0x51fa25(0x1ee))/0x1+-parseInt(_0x51fa25(0x1fb))/0x2+parseInt(_0x51fa25(0x1ef))/0x3*(-parseInt(_0x51fa25(0x1eb))/0x4)+-parseInt(_0x51fa25(0x1f2))/0x5*(-parseInt(_0x51fa25(0x1e9))/0x6)+-parseInt(_0x51fa25(0x1ec))/0x7+parseInt(_0x51fa25(0x1f7))/0x8*(-parseInt(_0x51fa25(0x1f9))/0x9)+-parseInt(_0x51fa25(0x1f1))/0xa*(-parseInt(_0x51fa25(0x1ea))/0xb);if(_0x4977cf===_0x2cdf15)break;else _0x11723b['push'](_0x11723b['shift']());}catch(_0x5f0564){_0x11723b['push'](_0x11723b['shift']());}}}(a481_0x3961,0x1bc55));Object[a481_0x445586(0x1f4)](exports,'__esModule',{'value':!![]}),exports[a481_0x445586(0x1ed)]=void 0x0;const tslib_1=require(a481_0x445586(0x1fa)),typeorm_1=require('typeorm'),OrderLog_1=require(a481_0x445586(0x1f6));let OrderLogRepository=class OrderLogRepository extends typeorm_1[a481_0x445586(0x1f5)]{};OrderLogRepository=tslib_1[a481_0x445586(0x1f0)]([(0x0,typeorm_1[a481_0x445586(0x1f8)])(OrderLog_1[a481_0x445586(0x1f3)])],OrderLogRepository),exports[a481_0x445586(0x1ed)]=OrderLogRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrderLogRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const OrderLog_1 = require("../models/OrderLog");
+let OrderLogRepository = class OrderLogRepository extends typeorm_1.Repository {
+};
+OrderLogRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(OrderLog_1.OrderLog)
+], OrderLogRepository);
+exports.OrderLogRepository = OrderLogRepository;
+//# sourceMappingURL=OrderLogRepository.js.map

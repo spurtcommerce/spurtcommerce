@@ -1,1 +1,88 @@
-'use strict';function a215_0x5e87(_0x2bbc97,_0x1e86be){const _0x49ea99=a215_0x49ea();return a215_0x5e87=function(_0x5e873a,_0x1cb4a7){_0x5e873a=_0x5e873a-0x1f4;let _0x42e86b=_0x49ea99[_0x5e873a];return _0x42e86b;},a215_0x5e87(_0x2bbc97,_0x1e86be);}const a215_0x1d87ff=a215_0x5e87;(function(_0x3b9ba4,_0x307485){const _0x1de48f=a215_0x5e87,_0x3122e3=_0x3b9ba4();while(!![]){try{const _0xefea65=-parseInt(_0x1de48f(0x1f4))/0x1+-parseInt(_0x1de48f(0x1f5))/0x2*(parseInt(_0x1de48f(0x1fd))/0x3)+-parseInt(_0x1de48f(0x207))/0x4*(-parseInt(_0x1de48f(0x202))/0x5)+-parseInt(_0x1de48f(0x1fb))/0x6*(-parseInt(_0x1de48f(0x205))/0x7)+parseInt(_0x1de48f(0x1fc))/0x8+-parseInt(_0x1de48f(0x210))/0x9+parseInt(_0x1de48f(0x208))/0xa;if(_0xefea65===_0x307485)break;else _0x3122e3['push'](_0x3122e3['shift']());}catch(_0x19e277){_0x3122e3['push'](_0x3122e3['shift']());}}}(a215_0x49ea,0x897cd));function a215_0x49ea(){const _0x322de9=['18DwDaIi','6790032bWSfJI','402141gFqnLl','__awaiter','modified_date','typeorm','225','837475eUSZZC','created_date','INT','1357258VmjTaZ','created_by','12FGIgcn','13486490zTAILX','defineProperty','VARCHAR','path_name','CreateSiteMap1678774917380','user_name','__esModule','increment','7744203MByQVx','DATETIME','919625HUnnPC','14IMcjwn','dropTable','Table','site_map','user_id','hasTable'];a215_0x49ea=function(){return _0x322de9;};return a215_0x49ea();}Object[a215_0x1d87ff(0x209)](exports,a215_0x1d87ff(0x20e),{'value':!![]}),exports[a215_0x1d87ff(0x20c)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a215_0x1d87ff(0x200));class CreateSiteMap1678774917380{['up'](_0x3e9f9e){const _0x3b70b0=a215_0x1d87ff;return tslib_1[_0x3b70b0(0x1fe)](this,void 0x0,void 0x0,function*(){const _0x287e23=_0x3b70b0,_0x2f596e=new typeorm_1[(_0x287e23(0x1f7))]({'name':_0x287e23(0x1f8),'columns':[{'name':'id','type':_0x287e23(0x204),'isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x287e23(0x20f)},{'name':_0x287e23(0x1f9),'type':'INT','isPrimary':![],'isNullable':!![]},{'name':_0x287e23(0x20d),'type':_0x287e23(0x20a),'length':'225','isPrimary':![],'isNullable':!![]},{'name':_0x287e23(0x20b),'type':_0x287e23(0x20a),'length':_0x287e23(0x201),'isPrimary':![],'isNullable':!![]},{'name':'file_name','type':_0x287e23(0x20a),'length':_0x287e23(0x201),'isPrimary':![],'isNullable':!![]},{'name':_0x287e23(0x206),'type':_0x287e23(0x204),'isPrimary':![],'isNullable':!![]},{'name':_0x287e23(0x203),'type':_0x287e23(0x211),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':'modified_by','type':_0x287e23(0x204),'isPrimary':![],'isNullable':!![]},{'name':_0x287e23(0x1ff),'type':_0x287e23(0x211),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'}]}),_0x499aa8=yield _0x3e9f9e[_0x287e23(0x1fa)](_0x287e23(0x1f8));!_0x499aa8&&(yield _0x3e9f9e['createTable'](_0x2f596e));});}['down'](_0x77ebc0){const _0x103d11=a215_0x1d87ff;return tslib_1[_0x103d11(0x1fe)](this,void 0x0,void 0x0,function*(){const _0x59e810=_0x103d11;yield _0x77ebc0[_0x59e810(0x1f6)](_0x59e810(0x1f8),!![]);});}}exports[a215_0x1d87ff(0x20c)]=CreateSiteMap1678774917380;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateSiteMap1678774917380 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateSiteMap1678774917380 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'site_map',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'INT',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    },
+                    {
+                        name: 'user_id',
+                        type: 'INT',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'user_name',
+                        type: 'VARCHAR',
+                        length: '225',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'path_name',
+                        type: 'VARCHAR',
+                        length: '225',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'file_name',
+                        type: 'VARCHAR',
+                        length: '225',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'created_by',
+                        type: 'INT',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                    {
+                        name: 'modified_by',
+                        type: 'INT',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifSiteMap = yield queryRunner.hasTable('site_map');
+            if (!ifSiteMap) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('site_map', true);
+        });
+    }
+}
+exports.CreateSiteMap1678774917380 = CreateSiteMap1678774917380;
+//# sourceMappingURL=1678774917380-CreateSiteMap.js.map

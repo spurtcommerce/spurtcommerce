@@ -1,1 +1,75 @@
-'use strict';function a411_0x21c4(){const _0x409416=['./BaseModel','78004lDUyZX','productTirePrice','skuId','__importDefault','product','711480hwObPR','__awaiter','typeorm','27hqnwhN','price','YYYY-MM-DD\x20HH:mm:ss','moment','Product','createdDate','BaseModel','product_tire_price','104007dxDjvO','PrimaryGeneratedColumn','__esModule','3913091JAhEzl','updateDetails','__metadata','36WcgTXF','1383264IYBera','format','design:returntype','./ProductModel','product_id','IsNotEmpty','quantity','__decorate','createDetails','sku_id','ProductTirePrice','modifiedDate','prototype','2699346JuIBua','BeforeUpdate','Column','JoinColumn','25qNQLtF','tslib','237213HPHHVi','design:paramtypes','design:type'];a411_0x21c4=function(){return _0x409416;};return a411_0x21c4();}const a411_0x989aed=a411_0x3e8d;(function(_0x54a443,_0x52b733){const _0x54cd3d=a411_0x3e8d,_0xf5dca0=_0x54a443();while(!![]){try{const _0x59ce4a=parseInt(_0x54cd3d(0xff))/0x1+parseInt(_0x54cd3d(0xeb))/0x2*(-parseInt(_0x54cd3d(0xe5))/0x3)+parseInt(_0x54cd3d(0xd5))/0x4*(parseInt(_0x54cd3d(0xfd))/0x5)+-parseInt(_0x54cd3d(0xf9))/0x6+parseInt(_0x54cd3d(0xe8))/0x7+parseInt(_0x54cd3d(0xec))/0x8*(parseInt(_0x54cd3d(0xdd))/0x9)+parseInt(_0x54cd3d(0xda))/0xa;if(_0x59ce4a===_0x52b733)break;else _0xf5dca0['push'](_0xf5dca0['shift']());}catch(_0x2a9407){_0xf5dca0['push'](_0xf5dca0['shift']());}}}(a411_0x21c4,0x64046));Object['defineProperty'](exports,a411_0x989aed(0xe7),{'value':!![]}),exports['ProductTirePrice']=void 0x0;function a411_0x3e8d(_0x14ee94,_0x5c558f){const _0x21c46f=a411_0x21c4();return a411_0x3e8d=function(_0x3e8d64,_0x258b22){_0x3e8d64=_0x3e8d64-0xd2;let _0x2812bb=_0x21c46f[_0x3e8d64];return _0x2812bb;},a411_0x3e8d(_0x14ee94,_0x5c558f);}const tslib_1=require(a411_0x989aed(0xfe)),typeorm_1=require(a411_0x989aed(0xdc)),BaseModel_1=require(a411_0x989aed(0xd4)),moment_1=tslib_1[a411_0x989aed(0xd8)](require(a411_0x989aed(0xe0))),ProductModel_1=require(a411_0x989aed(0xef)),class_validator_1=require('class-validator');let ProductTirePrice=class ProductTirePrice extends BaseModel_1[a411_0x989aed(0xe3)]{[a411_0x989aed(0xf4)](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1b047a=a411_0x3e8d;this[_0x1b047a(0xe2)]=(0x0,moment_1['default'])()[_0x1b047a(0xed)](_0x1b047a(0xdf));});}[a411_0x989aed(0xe9)](){const _0x712c0d=a411_0x989aed;return tslib_1[_0x712c0d(0xdb)](this,void 0x0,void 0x0,function*(){const _0x3a88eb=_0x712c0d;this[_0x3a88eb(0xf7)]=(0x0,moment_1['default'])()[_0x3a88eb(0xed)](_0x3a88eb(0xdf));});}};tslib_1[a411_0x989aed(0xf3)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a411_0x989aed(0xe6)])({'name':'id'}),tslib_1[a411_0x989aed(0xea)]('design:type',Number)],ProductTirePrice['prototype'],'id',void 0x0),tslib_1[a411_0x989aed(0xf3)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a411_0x989aed(0xfb)])({'name':a411_0x989aed(0xf0)}),tslib_1[a411_0x989aed(0xea)](a411_0x989aed(0xd3),Number)],ProductTirePrice[a411_0x989aed(0xf8)],'productId',void 0x0),tslib_1[a411_0x989aed(0xf3)]([(0x0,class_validator_1[a411_0x989aed(0xf1)])(),(0x0,typeorm_1['Column'])({'name':a411_0x989aed(0xf5)}),tslib_1[a411_0x989aed(0xea)]('design:type',Number)],ProductTirePrice[a411_0x989aed(0xf8)],a411_0x989aed(0xd7),void 0x0),tslib_1[a411_0x989aed(0xf3)]([(0x0,class_validator_1[a411_0x989aed(0xf1)])(),(0x0,typeorm_1[a411_0x989aed(0xfb)])({'name':a411_0x989aed(0xf2)}),tslib_1[a411_0x989aed(0xea)](a411_0x989aed(0xd3),Number)],ProductTirePrice[a411_0x989aed(0xf8)],a411_0x989aed(0xf2),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a411_0x989aed(0xf1)])(),(0x0,typeorm_1[a411_0x989aed(0xfb)])({'name':'price'}),tslib_1[a411_0x989aed(0xea)](a411_0x989aed(0xd3),String)],ProductTirePrice[a411_0x989aed(0xf8)],a411_0x989aed(0xde),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1['ManyToOne'])(_0x4326d3=>ProductModel_1[a411_0x989aed(0xe1)],_0xae4bfd=>_0xae4bfd[a411_0x989aed(0xd6)]),(0x0,typeorm_1[a411_0x989aed(0xfc)])({'name':'product_id'}),tslib_1[a411_0x989aed(0xea)](a411_0x989aed(0xd3),ProductModel_1[a411_0x989aed(0xe1)])],ProductTirePrice[a411_0x989aed(0xf8)],a411_0x989aed(0xd9),void 0x0),tslib_1[a411_0x989aed(0xf3)]([(0x0,typeorm_1['BeforeInsert'])(),tslib_1[a411_0x989aed(0xea)](a411_0x989aed(0xd3),Function),tslib_1['__metadata'](a411_0x989aed(0xd2),[]),tslib_1[a411_0x989aed(0xea)](a411_0x989aed(0xee),Promise)],ProductTirePrice[a411_0x989aed(0xf8)],a411_0x989aed(0xf4),null),tslib_1['__decorate']([(0x0,typeorm_1[a411_0x989aed(0xfa)])(),tslib_1[a411_0x989aed(0xea)]('design:type',Function),tslib_1['__metadata'](a411_0x989aed(0xd2),[]),tslib_1[a411_0x989aed(0xea)](a411_0x989aed(0xee),Promise)],ProductTirePrice[a411_0x989aed(0xf8)],a411_0x989aed(0xe9),null),ProductTirePrice=tslib_1[a411_0x989aed(0xf3)]([(0x0,typeorm_1['Entity'])(a411_0x989aed(0xe4))],ProductTirePrice),exports[a411_0x989aed(0xf6)]=ProductTirePrice;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductTirePrice = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const ProductModel_1 = require("./ProductModel");
+const class_validator_1 = require("class-validator");
+let ProductTirePrice = class ProductTirePrice extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductTirePrice.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductTirePrice.prototype, "productId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'sku_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductTirePrice.prototype, "skuId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'quantity' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductTirePrice.prototype, "quantity", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'price' }),
+    tslib_1.__metadata("design:type", String)
+], ProductTirePrice.prototype, "price", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => ProductModel_1.Product, product => product.productTirePrice),
+    (0, typeorm_1.JoinColumn)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", ProductModel_1.Product)
+], ProductTirePrice.prototype, "product", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductTirePrice.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductTirePrice.prototype, "updateDetails", null);
+ProductTirePrice = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('product_tire_price')
+], ProductTirePrice);
+exports.ProductTirePrice = ProductTirePrice;
+//# sourceMappingURL=ProductTirePrice.js.map

@@ -1,1 +1,98 @@
-'use strict';const a127_0x45c7b9=a127_0xdd91;(function(_0x5b479e,_0x5e85e2){const _0x377719=a127_0xdd91,_0x371b8c=_0x5b479e();while(!![]){try{const _0x5d0870=-parseInt(_0x377719(0x174))/0x1*(-parseInt(_0x377719(0x178))/0x2)+parseInt(_0x377719(0x160))/0x3*(-parseInt(_0x377719(0x164))/0x4)+parseInt(_0x377719(0x167))/0x5*(parseInt(_0x377719(0x169))/0x6)+parseInt(_0x377719(0x16f))/0x7*(-parseInt(_0x377719(0x15e))/0x8)+parseInt(_0x377719(0x17c))/0x9*(-parseInt(_0x377719(0x15b))/0xa)+-parseInt(_0x377719(0x179))/0xb+parseInt(_0x377719(0x157))/0xc;if(_0x5d0870===_0x5e85e2)break;else _0x371b8c['push'](_0x371b8c['shift']());}catch(_0x13db53){_0x371b8c['push'](_0x371b8c['shift']());}}}(a127_0x740a,0xbc125));function a127_0x740a(){const _0x4d26c4=['18YiyToK','created_by','varients_id','24414120ExbNoI','createTable','DATETIME','TableForeignKey','5835720qYaaiM','255','indexOf','739416JoDmGv','foreignKeys','78VodcLi','integer','CASCADE','int','96028XqoGEA','find','increment','6025570MhpMKz','hasTable','6mSljaD','CreateVarientValueTable1601550886508','fk_tbl_varients_related_tbl_varients_value','tableForeignKey','varients_value','__esModule','42ialYDv','created_date','createForeignKey','varients','Table','13rJmLwV','is_active','CURRENT_TIMESTAMP','modified_date','136930jkbegR','11147840JwLFZs','typeorm','getTable'];a127_0x740a=function(){return _0x4d26c4;};return a127_0x740a();}Object['defineProperty'](exports,a127_0x45c7b9(0x16e),{'value':!![]}),exports[a127_0x45c7b9(0x16a)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a127_0x45c7b9(0x17a));function a127_0xdd91(_0x52bcea,_0x5e5ac7){const _0x740a76=a127_0x740a();return a127_0xdd91=function(_0xdd914f,_0x10ec61){_0xdd914f=_0xdd914f-0x157;let _0x33052f=_0x740a76[_0xdd914f];return _0x33052f;},a127_0xdd91(_0x52bcea,_0x5e5ac7);}class CreateVarientValueTable1601550886508{constructor(){const _0x4a5605=a127_0x45c7b9;this['tableForeignKey']=new typeorm_1[(_0x4a5605(0x15a))]({'name':_0x4a5605(0x16b),'columnNames':[_0x4a5605(0x17e)],'referencedColumnNames':['id'],'referencedTableName':_0x4a5605(0x172),'onDelete':_0x4a5605(0x162)});}['up'](_0x181bc8){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5d5350=a127_0xdd91,_0x2dca6e=new typeorm_1[(_0x5d5350(0x173))]({'name':_0x5d5350(0x16d),'columns':[{'name':'id','type':'int','length':'11','isGenerated':!![],'generationStrategy':_0x5d5350(0x166),'isPrimary':!![],'isNullable':![]},{'name':_0x5d5350(0x17e),'type':_0x5d5350(0x163),'length':'11','isPrimary':![],'isNullable':![]},{'name':'value_name','type':'varchar','length':_0x5d5350(0x15c),'isPrimary':![],'isNullable':!![]},{'name':'sort_order','type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5d5350(0x175),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5d5350(0x17d),'type':_0x5d5350(0x161),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'modified_by','type':_0x5d5350(0x161),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5d5350(0x170),'type':'DATETIME','isPrimary':![],'isNullable':!![],'default':_0x5d5350(0x176)},{'name':_0x5d5350(0x177),'type':_0x5d5350(0x159),'isPrimary':![],'isNullable':!![],'default':_0x5d5350(0x176)}]}),_0x60c738=yield _0x181bc8[_0x5d5350(0x168)](_0x5d5350(0x16d));!_0x60c738&&(yield _0x181bc8[_0x5d5350(0x158)](_0x2dca6e));const _0x3cf4a1=yield _0x181bc8[_0x5d5350(0x17b)]('varients_value'),_0x3e2cba=_0x3cf4a1[_0x5d5350(0x15f)][_0x5d5350(0x165)](_0x30c071=>_0x30c071['columnNames'][_0x5d5350(0x15d)](_0x5d5350(0x17e))!==-0x1);!_0x3e2cba&&(yield _0x181bc8[_0x5d5350(0x171)](_0x2dca6e,this[_0x5d5350(0x16c)]));});}['down'](_0x22ba07){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2d2a0f=a127_0xdd91;yield _0x22ba07['dropTable'](_0x2d2a0f(0x16d),!![]);});}}exports[a127_0x45c7b9(0x16a)]=CreateVarientValueTable1601550886508;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateVarientValueTable1601550886508 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateVarientValueTable1601550886508 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_variant_related_tbl_variant_value',
+            columnNames: ['variant_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'variant',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'variant_value',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'int',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'variant_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'value_name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'sort_order',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('variant_value');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const getTable = yield queryRunner.getTable('variant_value');
+            const ifDataExsist = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('variant_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('varients_value', true);
+        });
+    }
+}
+exports.CreateVarientValueTable1601550886508 = CreateVarientValueTable1601550886508;
+//# sourceMappingURL=1601550886508-CreateVarientValueTable.js.map

@@ -1,1 +1,24 @@
-'use strict';const a990_0x32e42b=a990_0x26a0;(function(_0x320777,_0x4806ef){const _0x3ad7f0=a990_0x26a0,_0x37c852=_0x320777();while(!![]){try{const _0x82c0a3=parseInt(_0x3ad7f0(0x1b0))/0x1*(parseInt(_0x3ad7f0(0x1b8))/0x2)+parseInt(_0x3ad7f0(0x1b3))/0x3+parseInt(_0x3ad7f0(0x1b2))/0x4+-parseInt(_0x3ad7f0(0x1ae))/0x5+parseInt(_0x3ad7f0(0x1ad))/0x6*(-parseInt(_0x3ad7f0(0x1af))/0x7)+-parseInt(_0x3ad7f0(0x1ac))/0x8*(parseInt(_0x3ad7f0(0x1b1))/0x9)+parseInt(_0x3ad7f0(0x1b4))/0xa*(parseInt(_0x3ad7f0(0x1b6))/0xb);if(_0x82c0a3===_0x4806ef)break;else _0x37c852['push'](_0x37c852['shift']());}catch(_0x27762f){_0x37c852['push'](_0x37c852['shift']());}}}(a990_0x5622,0xcc4e8));function a990_0x5622(){const _0x1ac336=['typedi','135848RKVASk','routing-controllers','useContainer','typeorm','defineProperty','3704NMsrVg','5296002muayVE','6931545wJksFf','7CieZrM','1CViMck','12249LEBjmb','1761768xigwXf','964776WWnIxb','210IBcSFs','class-validator','1522191hjLUpj'];a990_0x5622=function(){return _0x1ac336;};return a990_0x5622();}function a990_0x26a0(_0x5c427e,_0x50636c){const _0x562253=a990_0x5622();return a990_0x26a0=function(_0x26a0ae,_0x14c246){_0x26a0ae=_0x26a0ae-0x1ac;let _0x76157d=_0x562253[_0x26a0ae];return _0x76157d;},a990_0x26a0(_0x5c427e,_0x50636c);}Object[a990_0x32e42b(0x1bc)](exports,'__esModule',{'value':!![]}),exports['iocLoader']=void 0x0;const class_validator_1=require(a990_0x32e42b(0x1b5)),routing_controllers_1=require(a990_0x32e42b(0x1b9)),typedi_1=require(a990_0x32e42b(0x1b7)),typeorm_1=require(a990_0x32e42b(0x1bb)),iocLoader=_0x18216c=>{const _0x3e4859=a990_0x32e42b;(0x0,routing_controllers_1[_0x3e4859(0x1ba)])(typedi_1['Container']),(0x0,typeorm_1[_0x3e4859(0x1ba)])(typedi_1['Container']),(0x0,class_validator_1[_0x3e4859(0x1ba)])(typedi_1['Container']);};exports['iocLoader']=iocLoader;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.iocLoader = void 0;
+const class_validator_1 = require("class-validator");
+const routing_controllers_1 = require("routing-controllers");
+const typedi_1 = require("typedi");
+const typeorm_1 = require("typeorm");
+const iocLoader = (settings) => {
+    /**
+     * Setup routing-controllers to use typedi container.
+     */
+    (0, routing_controllers_1.useContainer)(typedi_1.Container);
+    (0, typeorm_1.useContainer)(typedi_1.Container);
+    (0, class_validator_1.useContainer)(typedi_1.Container);
+};
+exports.iocLoader = iocLoader;
+//# sourceMappingURL=iocLoader.js.map

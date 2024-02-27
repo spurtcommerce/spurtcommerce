@@ -1,1 +1,15 @@
-'use strict';const a978_0x325536=a978_0x1921;function a978_0x2a38(){const _0x23ea64=['648052xGPObD','2278568ZfmuMh','20VWlzba','14390RWHilp','__esModule','EventDispatcherInterface','event-dispatch','1269045mZjDOx','defineProperty','typedi','18892RtxScp','4815rJttBt','319805DGHAtc','EventDispatcher','6UIFBUN','registerHandler','Container','1915487ZIcjLJ'];a978_0x2a38=function(){return _0x23ea64;};return a978_0x2a38();}(function(_0x50a5bd,_0x20048d){const _0x42e55b=a978_0x1921,_0x540955=_0x50a5bd();while(!![]){try{const _0x1716bf=-parseInt(_0x42e55b(0x1c5))/0x1*(parseInt(_0x42e55b(0x1cf))/0x2)+-parseInt(_0x42e55b(0x1c2))/0x3+parseInt(_0x42e55b(0x1cd))/0x4+-parseInt(_0x42e55b(0x1c7))/0x5+-parseInt(_0x42e55b(0x1c9))/0x6*(-parseInt(_0x42e55b(0x1cc))/0x7)+-parseInt(_0x42e55b(0x1ce))/0x8+-parseInt(_0x42e55b(0x1c6))/0x9*(-parseInt(_0x42e55b(0x1d0))/0xa);if(_0x1716bf===_0x20048d)break;else _0x540955['push'](_0x540955['shift']());}catch(_0x49d927){_0x540955['push'](_0x540955['shift']());}}}(a978_0x2a38,0x3bc42));Object[a978_0x325536(0x1c3)](exports,a978_0x325536(0x1d1),{'value':!![]}),exports[a978_0x325536(0x1d2)]=exports['EventDispatcher']=void 0x0;const event_dispatch_1=require(a978_0x325536(0x1c1)),typedi_1=require(a978_0x325536(0x1c4));function a978_0x1921(_0x328231,_0xaae26e){const _0x2a3892=a978_0x2a38();return a978_0x1921=function(_0x1921d9,_0x281079){_0x1921d9=_0x1921d9-0x1c1;let _0x1296a6=_0x2a3892[_0x1921d9];return _0x1296a6;},a978_0x1921(_0x328231,_0xaae26e);}function EventDispatcher(){return(_0x1cf216,_0x559864,_0x35e695)=>{const _0x59d565=a978_0x1921,_0x35cf5b=new event_dispatch_1['EventDispatcher']();typedi_1[_0x59d565(0x1cb)][_0x59d565(0x1ca)]({'object':_0x1cf216,'propertyName':_0x559864,'index':_0x35e695,'value':()=>_0x35cf5b});};}exports[a978_0x325536(0x1c8)]=EventDispatcher;var event_dispatch_2=require('event-dispatch');Object['defineProperty'](exports,'EventDispatcherInterface',{'enumerable':!![],'get':function(){const _0x383051=a978_0x325536;return event_dispatch_2[_0x383051(0x1c8)];}});
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EventDispatcherInterface = exports.EventDispatcher = void 0;
+const event_dispatch_1 = require("event-dispatch");
+const typedi_1 = require("typedi");
+function EventDispatcher() {
+    return (object, propertyName, index) => {
+        const eventDispatcher = new event_dispatch_1.EventDispatcher();
+        typedi_1.Container.registerHandler({ object, propertyName, index, value: () => eventDispatcher });
+    };
+}
+exports.EventDispatcher = EventDispatcher;
+var event_dispatch_2 = require("event-dispatch");
+Object.defineProperty(exports, "EventDispatcherInterface", { enumerable: true, get: function () { return event_dispatch_2.EventDispatcher; } });
+//# sourceMappingURL=EventDispatcher.js.map

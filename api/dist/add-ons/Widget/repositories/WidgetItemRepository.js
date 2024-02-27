@@ -1,1 +1,40 @@
-'use strict';const a248_0x51ce6f=a248_0x5067;(function(_0x738df6,_0x218dd0){const _0x13eef6=a248_0x5067,_0x1bd75d=_0x738df6();while(!![]){try{const _0x4ddc6d=parseInt(_0x13eef6(0x102))/0x1+parseInt(_0x13eef6(0xf3))/0x2+-parseInt(_0x13eef6(0xf8))/0x3*(parseInt(_0x13eef6(0xf0))/0x4)+-parseInt(_0x13eef6(0xf2))/0x5*(parseInt(_0x13eef6(0x105))/0x6)+parseInt(_0x13eef6(0x100))/0x7*(-parseInt(_0x13eef6(0x10a))/0x8)+-parseInt(_0x13eef6(0x104))/0x9+parseInt(_0x13eef6(0xfe))/0xa*(parseInt(_0x13eef6(0xf6))/0xb);if(_0x4ddc6d===_0x218dd0)break;else _0x1bd75d['push'](_0x1bd75d['shift']());}catch(_0x1061b2){_0x1bd75d['push'](_0x1bd75d['shift']());}}}(a248_0x1956,0x9fd0c));function a248_0x1956(){const _0x26766b=['1243odtgRB','WidgetItemRepository','12SLpbSN','Repository','createQueryBuilder','widgetItem','widgetItem.refId\x20=\x20:categoryId','where','192520QJsPue','getRawMany','240023NaHqvA','widgetItem.widget','336585lpyujo','widget','3051207SRCTed','1811226ArDNGv','findCategory','widget.widgetLinkType\x20=\x20:value1','WidgetItem','manager','248zamRtq','andWhere','widgetItem.refId\x20=\x20:productId','select','findProduct','widgetItem.id\x20as\x20id','../models/WidgetItem','930464RblvAl','__awaiter','10NmmVRM','2157462doHKRi','__esModule','innerJoin'];a248_0x1956=function(){return _0x26766b;};return a248_0x1956();}Object['defineProperty'](exports,a248_0x51ce6f(0xf4),{'value':!![]}),exports['WidgetItemRepository']=void 0x0;const tslib_1=require('tslib'),typeorm_1=require('typeorm'),WidgetItem_1=require(a248_0x51ce6f(0x110));function a248_0x5067(_0x68e4aa,_0x236d3d){const _0x195695=a248_0x1956();return a248_0x5067=function(_0x506720,_0x554a5f){_0x506720=_0x506720-0xf0;let _0x5aa64e=_0x195695[_0x506720];return _0x5aa64e;},a248_0x5067(_0x68e4aa,_0x236d3d);}let WidgetItemRepository=class WidgetItemRepository extends typeorm_1[a248_0x51ce6f(0xf9)]{[a248_0x51ce6f(0x10e)](_0x58628a){const _0x392dac=a248_0x51ce6f;return tslib_1[_0x392dac(0xf1)](this,void 0x0,void 0x0,function*(){const _0x2fb628=_0x392dac,_0xf9e67a=yield this['manager'][_0x2fb628(0xfa)](WidgetItem_1['WidgetItem'],'widgetItem');return _0xf9e67a[_0x2fb628(0x10d)]([_0x2fb628(0x10f)]),_0xf9e67a['innerJoin']('widgetItem.widget',_0x2fb628(0x103)),_0xf9e67a[_0x2fb628(0xfd)](_0x2fb628(0x10c),{'productId':_0x58628a}),_0xf9e67a[_0x2fb628(0x10b)]('widget.widgetLinkType\x20=\x20:value1',{'value1':0x2}),_0xf9e67a[_0x2fb628(0xff)]();});}[a248_0x51ce6f(0x106)](_0xc9e41c){const _0x30b759=a248_0x51ce6f;return tslib_1[_0x30b759(0xf1)](this,void 0x0,void 0x0,function*(){const _0x523763=_0x30b759,_0x510d0c=yield this[_0x523763(0x109)][_0x523763(0xfa)](WidgetItem_1[_0x523763(0x108)],_0x523763(0xfb));return _0x510d0c[_0x523763(0x10d)]([_0x523763(0x10f)]),_0x510d0c[_0x523763(0xf5)](_0x523763(0x101),_0x523763(0x103)),_0x510d0c['where'](_0x523763(0xfc),{'categoryId':_0xc9e41c}),_0x510d0c['andWhere'](_0x523763(0x107),{'value1':0x1}),_0x510d0c[_0x523763(0xff)]();});}};WidgetItemRepository=tslib_1['__decorate']([(0x0,typeorm_1['EntityRepository'])(WidgetItem_1[a248_0x51ce6f(0x108)])],WidgetItemRepository),exports[a248_0x51ce6f(0xf7)]=WidgetItemRepository;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WidgetItemRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const WidgetItem_1 = require("../models/WidgetItem");
+let WidgetItemRepository = class WidgetItemRepository extends typeorm_1.Repository {
+    findProduct(productId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(WidgetItem_1.WidgetItem, 'widgetItem');
+            query.select(['widgetItem.id as id']);
+            query.innerJoin('widgetItem.widget', 'widget');
+            query.where('widgetItem.refId = :productId', { productId });
+            query.andWhere('widget.widgetLinkType = :value1', { value1: 2 });
+            return query.getRawMany();
+        });
+    }
+    findCategory(categoryId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(WidgetItem_1.WidgetItem, 'widgetItem');
+            query.select(['widgetItem.id as id']);
+            query.innerJoin('widgetItem.widget', 'widget');
+            query.where('widgetItem.refId = :categoryId', { categoryId });
+            query.andWhere('widget.widgetLinkType = :value1', { value1: 1 });
+            return query.getRawMany();
+        });
+    }
+};
+WidgetItemRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(WidgetItem_1.WidgetItem)
+], WidgetItemRepository);
+exports.WidgetItemRepository = WidgetItemRepository;
+//# sourceMappingURL=WidgetItemRepository.js.map

@@ -1,1 +1,41 @@
-'use strict';const a702_0x3a520e=a702_0x3efa;(function(_0x2a5a31,_0x40eb4b){const _0x3921cf=a702_0x3efa,_0x5ae0f0=_0x2a5a31();while(!![]){try{const _0x295e64=-parseInt(_0x3921cf(0x18b))/0x1+parseInt(_0x3921cf(0x186))/0x2+parseInt(_0x3921cf(0x19c))/0x3*(parseInt(_0x3921cf(0x190))/0x4)+parseInt(_0x3921cf(0x188))/0x5*(parseInt(_0x3921cf(0x191))/0x6)+-parseInt(_0x3921cf(0x196))/0x7*(-parseInt(_0x3921cf(0x18f))/0x8)+parseInt(_0x3921cf(0x185))/0x9*(parseInt(_0x3921cf(0x18e))/0xa)+parseInt(_0x3921cf(0x18c))/0xb*(-parseInt(_0x3921cf(0x18a))/0xc);if(_0x295e64===_0x40eb4b)break;else _0x5ae0f0['push'](_0x5ae0f0['shift']());}catch(_0x3bec25){_0x5ae0f0['push'](_0x5ae0f0['shift']());}}}(a702_0x1842,0xb1c27));Object[a702_0x3a520e(0x195)](exports,'__esModule',{'value':!![]}),exports[a702_0x3a520e(0x193)]=void 0x0;function a702_0x1842(){const _0x571301=['IsNotEmpty','__decorate','2106615HaDNwm','class-validator','lastName','bankDetails','41445yWDzAX','1707806JrXZFV','status','6176530shaHMB','__metadata','50453748fdEPPT','249917iqpFPA','11pahVWU','mailStatus','1310ZjEvMS','2895000AhVqEe','8McYDyI','6qzdlhE','firstName','UpdateVendor','mobileNumber','defineProperty','21SAeFFD','vendorGroupId','design:type','prototype'];a702_0x1842=function(){return _0x571301;};return a702_0x1842();}const tslib_1=require('tslib');require('reflect-metadata');const class_validator_1=require(a702_0x3a520e(0x182));function a702_0x3efa(_0x57e70a,_0x103798){const _0x18423d=a702_0x1842();return a702_0x3efa=function(_0x3efa89,_0xecf97f){_0x3efa89=_0x3efa89-0x182;let _0x371b8b=_0x18423d[_0x3efa89];return _0x371b8b;},a702_0x3efa(_0x57e70a,_0x103798);}class UpdateVendor{}tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a702_0x3a520e(0x189)](a702_0x3a520e(0x198),String)],UpdateVendor[a702_0x3a520e(0x199)],a702_0x3a520e(0x192),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a702_0x3a520e(0x19a)])(),tslib_1[a702_0x3a520e(0x189)](a702_0x3a520e(0x198),String)],UpdateVendor[a702_0x3a520e(0x199)],a702_0x3a520e(0x183),void 0x0),tslib_1[a702_0x3a520e(0x19b)]([(0x0,class_validator_1[a702_0x3a520e(0x19a)])(),tslib_1[a702_0x3a520e(0x189)](a702_0x3a520e(0x198),Number)],UpdateVendor[a702_0x3a520e(0x199)],a702_0x3a520e(0x194),void 0x0),tslib_1[a702_0x3a520e(0x19b)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a702_0x3a520e(0x189)](a702_0x3a520e(0x198),Number)],UpdateVendor[a702_0x3a520e(0x199)],a702_0x3a520e(0x18d),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1['__metadata'](a702_0x3a520e(0x198),Number)],UpdateVendor[a702_0x3a520e(0x199)],a702_0x3a520e(0x187),void 0x0),tslib_1[a702_0x3a520e(0x19b)]([(0x0,class_validator_1[a702_0x3a520e(0x19a)])(),tslib_1[a702_0x3a520e(0x189)](a702_0x3a520e(0x198),Number)],UpdateVendor[a702_0x3a520e(0x199)],a702_0x3a520e(0x197),void 0x0),tslib_1[a702_0x3a520e(0x19b)]([(0x0,class_validator_1[a702_0x3a520e(0x19a)])(),tslib_1[a702_0x3a520e(0x189)]('design:type',String)],UpdateVendor[a702_0x3a520e(0x199)],a702_0x3a520e(0x184),void 0x0),exports['UpdateVendor']=UpdateVendor;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UpdateVendor = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class UpdateVendor {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateVendor.prototype, "firstName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateVendor.prototype, "lastName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateVendor.prototype, "mobileNumber", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateVendor.prototype, "mailStatus", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateVendor.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateVendor.prototype, "vendorGroupId", void 0);
+exports.UpdateVendor = UpdateVendor;
+//# sourceMappingURL=UpdateVendorRequest.js.map

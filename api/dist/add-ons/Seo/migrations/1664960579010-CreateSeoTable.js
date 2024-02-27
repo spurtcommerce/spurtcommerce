@@ -1,1 +1,67 @@
-'use strict';const a212_0x46e41d=a212_0x16c4;(function(_0x3fc5f9,_0x30348a){const _0x503b6c=a212_0x16c4,_0x952adf=_0x3fc5f9();while(!![]){try{const _0x252fe3=parseInt(_0x503b6c(0x10a))/0x1*(parseInt(_0x503b6c(0xf8))/0x2)+-parseInt(_0x503b6c(0x105))/0x3*(-parseInt(_0x503b6c(0xfb))/0x4)+parseInt(_0x503b6c(0xfc))/0x5*(-parseInt(_0x503b6c(0x111))/0x6)+parseInt(_0x503b6c(0xff))/0x7+-parseInt(_0x503b6c(0x10e))/0x8+parseInt(_0x503b6c(0x10f))/0x9+-parseInt(_0x503b6c(0xfe))/0xa;if(_0x252fe3===_0x30348a)break;else _0x952adf['push'](_0x952adf['shift']());}catch(_0x5273e8){_0x952adf['push'](_0x952adf['shift']());}}}(a212_0x1cb0,0x7cbda));function a212_0x1cb0(){const _0x3c2b72=['meta_tag_description','meta_tag_title','hasTable','77516Tagfsi','__esModule','down','dropTable','416864UzufBU','3933054TgSKgh','seo_type','12ApVfYA','m_seo_meta','typeorm','24VBGPTn','__awaiter','int','1009492NpxhKX','2416180waOOOo','meta_tag_keyword','9102330pHpDei','2208038WqyALv','255','tslib','varchar','increment','createTable','9DoKcGq','CreateSeoTable1664960579010'];a212_0x1cb0=function(){return _0x3c2b72;};return a212_0x1cb0();}Object['defineProperty'](exports,a212_0x46e41d(0x10b),{'value':!![]}),exports['CreateSeoTable1664960579010']=void 0x0;const tslib_1=require(a212_0x46e41d(0x101)),typeorm_1=require(a212_0x46e41d(0xf7));function a212_0x16c4(_0x21c52c,_0x24d3f0){const _0x1cb07e=a212_0x1cb0();return a212_0x16c4=function(_0x16c4d5,_0x33d1c3){_0x16c4d5=_0x16c4d5-0xf7;let _0x7bcd1b=_0x1cb07e[_0x16c4d5];return _0x7bcd1b;},a212_0x16c4(_0x21c52c,_0x24d3f0);}class CreateSeoTable1664960579010{['up'](_0x19cf2b){const _0x4ad5f9=a212_0x46e41d;return tslib_1[_0x4ad5f9(0xf9)](this,void 0x0,void 0x0,function*(){const _0x3d01c5=_0x4ad5f9,_0x11423e=new typeorm_1['Table']({'name':_0x3d01c5(0x112),'columns':[{'name':'seo_id','type':_0x3d01c5(0xfa),'length':'11','isPrimary':!![],'isUnique':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x3d01c5(0x103)},{'name':_0x3d01c5(0x108),'type':'varchar','length':_0x3d01c5(0x100),'isPrimary':![],'isNullable':!![]},{'name':_0x3d01c5(0x107),'type':_0x3d01c5(0x102),'length':_0x3d01c5(0x100),'isPrimary':![],'isNullable':!![]},{'name':_0x3d01c5(0xfd),'type':_0x3d01c5(0x102),'length':'255','isPrimary':![],'isNullable':!![]},{'name':_0x3d01c5(0x110),'type':_0x3d01c5(0x102),'length':'255','isPrimary':![],'isNullable':!![]},{'name':'ref_id','type':_0x3d01c5(0xfa),'length':'11','isPrimary':![],'isNullable':!![]}]}),_0x3048be=yield _0x19cf2b[_0x3d01c5(0x109)]('m_seo_meta');!_0x3048be&&(yield _0x19cf2b[_0x3d01c5(0x104)](_0x11423e));});}[a212_0x46e41d(0x10c)](_0x465291){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5c6067=a212_0x16c4;yield _0x465291[_0x5c6067(0x10d)](_0x5c6067(0x112),!![]);});}}exports[a212_0x46e41d(0x106)]=CreateSeoTable1664960579010;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateSeoTable1664960579010 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateSeoTable1664960579010 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'm_seo_meta',
+                columns: [
+                    {
+                        name: 'seo_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isUnique: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'meta_tag_title',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_tag_description',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_tag_keyword',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'seo_type',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'ref_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('m_seo_meta');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('m_seo_meta', true);
+        });
+    }
+}
+exports.CreateSeoTable1664960579010 = CreateSeoTable1664960579010;
+//# sourceMappingURL=1664960579010-CreateSeoTable.js.map

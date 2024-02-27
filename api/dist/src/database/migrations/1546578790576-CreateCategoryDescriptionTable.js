@@ -1,1 +1,95 @@
-'use strict';const a739_0x4bf8e5=a739_0x48f0;function a739_0x44a9(){const _0x588bef=['dropTable','datetime','increment','varchar','tslib','255','CURRENT_TIMESTAMP','created_by','createTable','6509205MCyJcD','282201SVzLTc','9lfTCsL','typeorm','hasTable','3483956VIKuCD','__awaiter','is_active','CreateCategoryDescriptionTable1546578790576','9058prOQuA','created_date','212646bGVQln','__esModule','down','name','text','Table','int','modified_date','meta_keyword','modified_by','24011370EqMWur','2928HjzEYD','78uFqoJV','301105CXWDOq','meta_description','defineProperty','category_description'];a739_0x44a9=function(){return _0x588bef;};return a739_0x44a9();}function a739_0x48f0(_0x5e5c09,_0xaeae91){const _0x44a9f1=a739_0x44a9();return a739_0x48f0=function(_0x48f0c4,_0x24958a){_0x48f0c4=_0x48f0c4-0xc3;let _0x48b6a8=_0x44a9f1[_0x48f0c4];return _0x48b6a8;},a739_0x48f0(_0x5e5c09,_0xaeae91);}(function(_0x3b5c91,_0x1165e5){const _0x500f83=a739_0x48f0,_0x5ceaa0=_0x3b5c91();while(!![]){try{const _0x270316=parseInt(_0x500f83(0xd9))/0x1+-parseInt(_0x500f83(0xe3))/0x2*(parseInt(_0x500f83(0xda))/0x3)+-parseInt(_0x500f83(0xdd))/0x4+parseInt(_0x500f83(0xcb))/0x5*(-parseInt(_0x500f83(0xca))/0x6)+-parseInt(_0x500f83(0xe1))/0x7*(-parseInt(_0x500f83(0xc9))/0x8)+-parseInt(_0x500f83(0xd8))/0x9+parseInt(_0x500f83(0xc8))/0xa;if(_0x270316===_0x1165e5)break;else _0x5ceaa0['push'](_0x5ceaa0['shift']());}catch(_0x2f3b21){_0x5ceaa0['push'](_0x5ceaa0['shift']());}}}(a739_0x44a9,0x70842));Object[a739_0x4bf8e5(0xcd)](exports,a739_0x4bf8e5(0xe4),{'value':!![]}),exports[a739_0x4bf8e5(0xe0)]=void 0x0;const tslib_1=require(a739_0x4bf8e5(0xd3)),typeorm_1=require(a739_0x4bf8e5(0xdb));class CreateCategoryDescriptionTable1546578790576{['up'](_0x2a316d){const _0xe59500=a739_0x4bf8e5;return tslib_1[_0xe59500(0xde)](this,void 0x0,void 0x0,function*(){const _0x6fa140=_0xe59500,_0x234d96=new typeorm_1[(_0x6fa140(0xc3))]({'name':_0x6fa140(0xce),'columns':[{'name':'category_id','type':'int','length':'11','isPrimary':![],'isNullable':![]},{'name':_0x6fa140(0xe6),'type':'varchar','length':_0x6fa140(0xd4),'isPrimary':![],'isNullable':!![]},{'name':'description','type':_0x6fa140(0xe7),'isPrimary':![],'isNullable':!![]},{'name':_0x6fa140(0xcc),'type':_0x6fa140(0xd2),'length':'65','isPrimary':![],'isNullable':!![]},{'name':_0x6fa140(0xc6),'type':_0x6fa140(0xd2),'length':_0x6fa140(0xd4),'isPrimary':![],'isNullable':!![]},{'name':'category_description_id','type':_0x6fa140(0xc4),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x6fa140(0xd1)},{'name':_0x6fa140(0xdf),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x6fa140(0xe2),'type':_0x6fa140(0xd0),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':_0x6fa140(0xc5),'type':_0x6fa140(0xd0),'isPrimary':![],'isNullable':!![],'default':_0x6fa140(0xd5)},{'name':_0x6fa140(0xd6),'type':_0x6fa140(0xc4),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x6fa140(0xc7),'type':'int','length':'11','isPrimary':![],'isNullable':!![]}]}),_0x58e2fa=yield _0x2a316d[_0x6fa140(0xdc)](_0x6fa140(0xce));!_0x58e2fa&&(yield _0x2a316d[_0x6fa140(0xd7)](_0x234d96));});}[a739_0x4bf8e5(0xe5)](_0x26cf52){const _0x4f7ca0=a739_0x4bf8e5;return tslib_1[_0x4f7ca0(0xde)](this,void 0x0,void 0x0,function*(){const _0x4eca65=_0x4f7ca0;yield _0x26cf52[_0x4eca65(0xcf)](_0x4eca65(0xce),!![]);});}}exports[a739_0x4bf8e5(0xe0)]=CreateCategoryDescriptionTable1546578790576;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCategoryDescriptionTable1546578790576 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateCategoryDescriptionTable1546578790576 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'category_description',
+                columns: [
+                    {
+                        name: 'category_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'description',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_description',
+                        type: 'varchar',
+                        length: '65',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_keyword',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'category_description_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('category_description');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('category_description', true);
+        });
+    }
+}
+exports.CreateCategoryDescriptionTable1546578790576 = CreateCategoryDescriptionTable1546578790576;
+//# sourceMappingURL=1546578790576-CreateCategoryDescriptionTable.js.map

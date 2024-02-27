@@ -1,1 +1,39 @@
-'use strict';const a996_0x34e6eb=a996_0x36f0;(function(_0x596d73,_0x2ab0d4){const _0x30414a=a996_0x36f0,_0xfb7f0b=_0x596d73();while(!![]){try{const _0x334994=-parseInt(_0x30414a(0x1db))/0x1*(-parseInt(_0x30414a(0x1c4))/0x2)+parseInt(_0x30414a(0x1d9))/0x3+-parseInt(_0x30414a(0x1d7))/0x4+-parseInt(_0x30414a(0x1d6))/0x5*(-parseInt(_0x30414a(0x1cb))/0x6)+-parseInt(_0x30414a(0x1da))/0x7+parseInt(_0x30414a(0x1c7))/0x8+parseInt(_0x30414a(0x1de))/0x9*(parseInt(_0x30414a(0x1ca))/0xa);if(_0x334994===_0x2ab0d4)break;else _0xfb7f0b['push'](_0xfb7f0b['shift']());}catch(_0x16d6cf){_0xfb7f0b['push'](_0xfb7f0b['shift']());}}}(a996_0x1610,0x67def));Object[a996_0x34e6eb(0x1d4)](exports,'__esModule',{'value':!![]}),exports[a996_0x34e6eb(0x1d3)]=void 0x0;const tslib_1=require(a996_0x34e6eb(0x1c3)),typeorm_1=require('typeorm'),entities=tslib_1[a996_0x34e6eb(0x1d0)](require(a996_0x34e6eb(0x1d8))),migrations=tslib_1['__importStar'](require(a996_0x34e6eb(0x1e1))),env_1=require(a996_0x34e6eb(0x1d1)),typeormLoader=_0x497744=>tslib_1[a996_0x34e6eb(0x1cf)](void 0x0,void 0x0,void 0x0,function*(){const _0x3a004c=a996_0x34e6eb,_0x16a221=yield(0x0,typeorm_1['getConnectionOptions'])(),_0x59c198=Object[_0x3a004c(0x1cc)](_0x16a221,{'type':env_1[_0x3a004c(0x1dd)]['db'][_0x3a004c(0x1cd)],'host':env_1[_0x3a004c(0x1dd)]['db'][_0x3a004c(0x1c5)],'port':env_1[_0x3a004c(0x1dd)]['db']['port'],'username':env_1[_0x3a004c(0x1dd)]['db'][_0x3a004c(0x1c8)],'password':env_1[_0x3a004c(0x1dd)]['db'][_0x3a004c(0x1dc)],'database':env_1['env']['db'][_0x3a004c(0x1d5)],'synchronize':env_1[_0x3a004c(0x1dd)]['db'][_0x3a004c(0x1c9)],'logging':!![],'logger':_0x3a004c(0x1e0),'entities':Object[_0x3a004c(0x1d2)](entities),'migrations':Object[_0x3a004c(0x1d2)](migrations)}),_0x53a6ae=yield(0x0,typeorm_1['createConnection'])(_0x59c198);yield _0x53a6ae[_0x3a004c(0x1c6)](),_0x497744&&(_0x497744['setData'](_0x3a004c(0x1ce),_0x53a6ae),_0x497744['onShutdown'](()=>_0x53a6ae[_0x3a004c(0x1df)]()));});function a996_0x36f0(_0x1465ff,_0x3d8e96){const _0x1610e7=a996_0x1610();return a996_0x36f0=function(_0x36f003,_0x2e6447){_0x36f003=_0x36f003-0x1c3;let _0x1fb49d=_0x1610e7[_0x36f003];return _0x1fb49d;},a996_0x36f0(_0x1465ff,_0x3d8e96);}exports[a996_0x34e6eb(0x1d3)]=typeormLoader;function a996_0x1610(){const _0x534639=['790cqsqvU','6774FKBySY','assign','type','connection','__awaiter','__importStar','../env','values','typeormLoader','defineProperty','database','2675TzqsmH','1585260EvtBJX','../common/entities-index','830358fxrqtl','5095769UevIkD','11771BJukhw','password','env','7848xpKyQZ','close','advanced-console','../common/migrations-index','tslib','60USVyQP','host','runMigrations','1975344mymXEN','username','synchronize'];a996_0x1610=function(){return _0x534639;};return a996_0x1610();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.typeormLoader = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const entities = tslib_1.__importStar(require("../common/entities-index"));
+const migrations = tslib_1.__importStar(require("../common/migrations-index"));
+const env_1 = require("../env");
+const typeormLoader = (settings) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+    const loadedConnectionOptions = yield (0, typeorm_1.getConnectionOptions)();
+    const connectionOptions = Object.assign(loadedConnectionOptions, {
+        type: env_1.env.db.type,
+        host: env_1.env.db.host,
+        port: env_1.env.db.port,
+        username: env_1.env.db.username,
+        password: env_1.env.db.password,
+        database: env_1.env.db.database,
+        synchronize: env_1.env.db.synchronize,
+        logging: true,
+        logger: 'advanced-console',
+        entities: Object.values(entities),
+        migrations: Object.values(migrations),
+    });
+    const connection = yield (0, typeorm_1.createConnection)(connectionOptions);
+    yield connection.runMigrations();
+    if (settings) {
+        settings.setData('connection', connection);
+        settings.onShutdown(() => connection.close());
+    }
+});
+exports.typeormLoader = typeormLoader;
+//# sourceMappingURL=typeormLoader.js.map

@@ -1,1 +1,20 @@
-'use strict';const a949_0x24bcac=a949_0x589b;(function(_0x23421f,_0x349fe4){const _0x3fcbca=a949_0x589b,_0x1052c8=_0x23421f();while(!![]){try{const _0x4d2d59=parseInt(_0x3fcbca(0xf3))/0x1+-parseInt(_0x3fcbca(0xff))/0x2*(-parseInt(_0x3fcbca(0x102))/0x3)+-parseInt(_0x3fcbca(0xfc))/0x4*(parseInt(_0x3fcbca(0xf5))/0x5)+parseInt(_0x3fcbca(0x104))/0x6*(parseInt(_0x3fcbca(0xfd))/0x7)+parseInt(_0x3fcbca(0xf4))/0x8+-parseInt(_0x3fcbca(0xfa))/0x9*(-parseInt(_0x3fcbca(0x105))/0xa)+-parseInt(_0x3fcbca(0x103))/0xb*(parseInt(_0x3fcbca(0xfe))/0xc);if(_0x4d2d59===_0x349fe4)break;else _0x1052c8['push'](_0x1052c8['shift']());}catch(_0x17d65f){_0x1052c8['push'](_0x1052c8['shift']());}}}(a949_0x22af,0x86737));function a949_0x22af(){const _0x1ed86f=['query','9xStJAN','ALTER\x20TABLE\x20`sku`\x20CHANGE\x20`min_quantity_allowed_cart`\x20`min_quantity_allowed_cart`\x20int\x20DEFAULT\x201','21876XznnAN','12782RqflRE','1548YGhoeq','4WdZouY','tslib','AlterColumnsInSkuTable1657012239912','924702mFbzVz','37125JKpVFu','750jwDBAr','2427210TnJSOp','342670uOroGu','2835608YUShGe','730lxzyka','down','defineProperty','ALTER\x20TABLE\x20`sku`\x20CHANGE\x20`max_quantity_allowed_cart`\x20`max_quantity_allowed_cart`\x20int\x20DEFAULT\x205'];a949_0x22af=function(){return _0x1ed86f;};return a949_0x22af();}Object[a949_0x24bcac(0xf7)](exports,'__esModule',{'value':!![]}),exports[a949_0x24bcac(0x101)]=void 0x0;function a949_0x589b(_0x2db6fe,_0x2c29dc){const _0x22af69=a949_0x22af();return a949_0x589b=function(_0x589be5,_0x56939c){_0x589be5=_0x589be5-0xf3;let _0x46bf67=_0x22af69[_0x589be5];return _0x46bf67;},a949_0x589b(_0x2db6fe,_0x2c29dc);}const tslib_1=require(a949_0x24bcac(0x100));class AlterColumnsInSkuTable1657012239912{['up'](_0x3212a0){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2ee19a=a949_0x589b;yield _0x3212a0[_0x2ee19a(0xf9)]('ALTER\x20TABLE\x20`sku`\x20CHANGE\x20`min_quantity_allowed_cart`\x20`min_quantity_allowed_cart`\x20int\x20DEFAULT\x201'),yield _0x3212a0['query']('ALTER\x20TABLE\x20`sku`\x20CHANGE\x20`max_quantity_allowed_cart`\x20`max_quantity_allowed_cart`\x20int\x20DEFAULT\x205');});}[a949_0x24bcac(0xf6)](_0x30b53f){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4f8648=a949_0x589b;yield _0x30b53f[_0x4f8648(0xf9)](_0x4f8648(0xfb)),yield _0x30b53f[_0x4f8648(0xf9)](_0x4f8648(0xf8));});}}exports[a949_0x24bcac(0x101)]=AlterColumnsInSkuTable1657012239912;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AlterColumnsInSkuTable1657012239912 = void 0;
+const tslib_1 = require("tslib");
+class AlterColumnsInSkuTable1657012239912 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `sku` CHANGE `min_quantity_allowed_cart` `min_quantity_allowed_cart` int DEFAULT 1');
+            yield queryRunner.query('ALTER TABLE `sku` CHANGE `max_quantity_allowed_cart` `max_quantity_allowed_cart` int DEFAULT 5');
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `sku` CHANGE `min_quantity_allowed_cart` `min_quantity_allowed_cart` int DEFAULT 1');
+            yield queryRunner.query('ALTER TABLE `sku` CHANGE `max_quantity_allowed_cart` `max_quantity_allowed_cart` int DEFAULT 5');
+        });
+    }
+}
+exports.AlterColumnsInSkuTable1657012239912 = AlterColumnsInSkuTable1657012239912;
+//# sourceMappingURL=1657012239912-AlterColumnsInSkuTable.js.map

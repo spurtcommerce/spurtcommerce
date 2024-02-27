@@ -1,1 +1,22 @@
-'use strict';function a514_0x13eb(){const _0x5b35fc=['292285aAbjeh','ServiceToCategoryRepository','6pURuFV','182797uQeIFx','1037324Walzrw','__decorate','3NtiCST','775122BKYrZW','EntityRepository','__esModule','947832RuitaN','defineProperty','ServiceToCategory','../models/ServiceToCategory','Repository','3190995TBWqRs','1772050UAqBeT'];a514_0x13eb=function(){return _0x5b35fc;};return a514_0x13eb();}const a514_0x1fddcf=a514_0x2983;(function(_0x2d489b,_0x1703c8){const _0x2d017a=a514_0x2983,_0x1c9ef8=_0x2d489b();while(!![]){try{const _0x455ca5=-parseInt(_0x2d017a(0xf8))/0x1+-parseInt(_0x2d017a(0xfc))/0x2*(-parseInt(_0x2d017a(0xfb))/0x3)+parseInt(_0x2d017a(0xf9))/0x4+-parseInt(_0x2d017a(0xf4))/0x5+-parseInt(_0x2d017a(0xf7))/0x6*(parseInt(_0x2d017a(0xf5))/0x7)+-parseInt(_0x2d017a(0xff))/0x8+parseInt(_0x2d017a(0xf3))/0x9;if(_0x455ca5===_0x1703c8)break;else _0x1c9ef8['push'](_0x1c9ef8['shift']());}catch(_0x3b95d4){_0x1c9ef8['push'](_0x1c9ef8['shift']());}}}(a514_0x13eb,0x4a386));function a514_0x2983(_0x18acc5,_0x3c31d8){const _0x13ebea=a514_0x13eb();return a514_0x2983=function(_0x298361,_0x534777){_0x298361=_0x298361-0xf2;let _0x26b57a=_0x13ebea[_0x298361];return _0x26b57a;},a514_0x2983(_0x18acc5,_0x3c31d8);}Object[a514_0x1fddcf(0x100)](exports,a514_0x1fddcf(0xfe),{'value':!![]}),exports['ServiceToCategoryRepository']=void 0x0;const tslib_1=require('tslib'),typeorm_1=require('typeorm'),ServiceToCategory_1=require(a514_0x1fddcf(0x102));let ServiceToCategoryRepository=class ServiceToCategoryRepository extends typeorm_1[a514_0x1fddcf(0xf2)]{};ServiceToCategoryRepository=tslib_1[a514_0x1fddcf(0xfa)]([(0x0,typeorm_1[a514_0x1fddcf(0xfd)])(ServiceToCategory_1[a514_0x1fddcf(0x101)])],ServiceToCategoryRepository),exports[a514_0x1fddcf(0xf6)]=ServiceToCategoryRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ServiceToCategoryRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const ServiceToCategory_1 = require("../models/ServiceToCategory");
+let ServiceToCategoryRepository = class ServiceToCategoryRepository extends typeorm_1.Repository {
+};
+ServiceToCategoryRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(ServiceToCategory_1.ServiceToCategory)
+], ServiceToCategoryRepository);
+exports.ServiceToCategoryRepository = ServiceToCategoryRepository;
+//# sourceMappingURL=ServiceToCategoryRepository.js.map

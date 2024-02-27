@@ -1,1 +1,46 @@
-'use strict';const a631_0x5752c7=a631_0x4426;(function(_0x4119a6,_0x42970d){const _0x38a2db=a631_0x4426,_0x3de956=_0x4119a6();while(!![]){try{const _0x3e02ba=-parseInt(_0x38a2db(0x8a))/0x1+-parseInt(_0x38a2db(0x88))/0x2+parseInt(_0x38a2db(0x89))/0x3*(parseInt(_0x38a2db(0x92))/0x4)+parseInt(_0x38a2db(0x78))/0x5+-parseInt(_0x38a2db(0x76))/0x6*(parseInt(_0x38a2db(0x93))/0x7)+-parseInt(_0x38a2db(0x7c))/0x8*(parseInt(_0x38a2db(0x87))/0x9)+parseInt(_0x38a2db(0x82))/0xa;if(_0x3e02ba===_0x42970d)break;else _0x3de956['push'](_0x3de956['shift']());}catch(_0x280022){_0x3de956['push'](_0x3de956['shift']());}}}(a631_0x46cc,0x1bbb5));Object[a631_0x5752c7(0x8c)](exports,a631_0x5752c7(0x8b),{'value':!![]}),exports[a631_0x5752c7(0x94)]=void 0x0;function a631_0x46cc(){const _0x441079=['815435yktXaJ','OrmRepository','Logger','__awaiter','930088MsHxqr','__param','findOne','Delete\x20a\x20token','delete','__decorate','2032190btzuMl','vendorProductAdditionalFileRepository','typedi','create','typeorm-typedi-extensions','9bJazaB','12200TYNmvO','6JOQvSc','149767LDbBek','__esModule','defineProperty','../repositories/VendorProductAdditonalFileRepository','design:paramtypes','Service','tslib','info','149848qghleq','9037WZQnHP','VendorProductAdditionalFileService','__metadata','258CPrsGX','../../../decorators/Logger'];a631_0x46cc=function(){return _0x441079;};return a631_0x46cc();}const tslib_1=require(a631_0x5752c7(0x90)),typedi_1=require(a631_0x5752c7(0x84)),typeorm_typedi_extensions_1=require(a631_0x5752c7(0x86)),Logger_1=require(a631_0x5752c7(0x77)),VendorProductAdditonalFileRepository_1=require(a631_0x5752c7(0x8d));let VendorProductAdditionalFileService=class VendorProductAdditionalFileService{constructor(_0x423b4b,_0x3a86df){const _0x28edfd=a631_0x5752c7;this[_0x28edfd(0x83)]=_0x423b4b,this['log']=_0x3a86df;}['findOne'](_0x1e82de){const _0x71c43e=a631_0x5752c7;return this[_0x71c43e(0x83)][_0x71c43e(0x7e)](_0x1e82de);}[a631_0x5752c7(0x80)](_0x37f169){const _0x2a41bf=a631_0x5752c7;return tslib_1[_0x2a41bf(0x7b)](this,void 0x0,void 0x0,function*(){const _0x4dcf06=_0x2a41bf;this['log'][_0x4dcf06(0x91)](_0x4dcf06(0x7f)),yield this[_0x4dcf06(0x83)]['delete'](_0x37f169);return;});}[a631_0x5752c7(0x85)](_0x3923d4){const _0x25b99f=a631_0x5752c7;return tslib_1[_0x25b99f(0x7b)](this,void 0x0,void 0x0,function*(){return this['vendorProductAdditionalFileRepository']['save'](_0x3923d4);});}};function a631_0x4426(_0x1ffb47,_0x1dffc6){const _0x46cc32=a631_0x46cc();return a631_0x4426=function(_0x4426f5,_0x3aeb48){_0x4426f5=_0x4426f5-0x76;let _0x5e9478=_0x46cc32[_0x4426f5];return _0x5e9478;},a631_0x4426(_0x1ffb47,_0x1dffc6);}VendorProductAdditionalFileService=tslib_1[a631_0x5752c7(0x81)]([(0x0,typedi_1[a631_0x5752c7(0x8f)])(),tslib_1['__param'](0x0,(0x0,typeorm_typedi_extensions_1[a631_0x5752c7(0x79)])()),tslib_1[a631_0x5752c7(0x7d)](0x1,(0x0,Logger_1[a631_0x5752c7(0x7a)])(__filename)),tslib_1[a631_0x5752c7(0x95)](a631_0x5752c7(0x8e),[VendorProductAdditonalFileRepository_1['VendorProductAdditionalFileRepository'],Object])],VendorProductAdditionalFileService),exports[a631_0x5752c7(0x94)]=VendorProductAdditionalFileService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorProductAdditionalFileService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const VendorProductAdditonalFileRepository_1 = require("../repositories/VendorProductAdditonalFileRepository");
+let VendorProductAdditionalFileService = class VendorProductAdditionalFileService {
+    constructor(vendorProductAdditionalFileRepository, log) {
+        this.vendorProductAdditionalFileRepository = vendorProductAdditionalFileRepository;
+        this.log = log;
+    }
+    findOne(vendorProductAdditionalFile) {
+        return this.vendorProductAdditionalFileRepository.findOne(vendorProductAdditionalFile);
+    }
+    // delete token
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a token');
+            yield this.vendorProductAdditionalFileRepository.delete(id);
+            return;
+        });
+    }
+    // create token
+    create(vendorProductAdditionalFile) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return this.vendorProductAdditionalFileRepository.save(vendorProductAdditionalFile);
+        });
+    }
+};
+VendorProductAdditionalFileService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [VendorProductAdditonalFileRepository_1.VendorProductAdditionalFileRepository, Object])
+], VendorProductAdditionalFileService);
+exports.VendorProductAdditionalFileService = VendorProductAdditionalFileService;
+//# sourceMappingURL=VendorProductAdditionalFileService.js.map

@@ -1,1 +1,28 @@
-'use strict';const a991_0x16ec29=a991_0x241a;function a991_0x42f8(){const _0x43ab23=['use','2swBFfT','10BBKxNU','168729mEtcth','7744520rEGvSp','express_app','5151750cByXoG','express-status-monitor','../env','4642EQoCTi','default','__esModule','19719887OeSBCF','14184aYYSyc','env','28HgoQwe','password','express-basic-auth','monitor','defineProperty','2752bHuCrT','443874fwBVgX','monitorLoader','enabled','tslib'];a991_0x42f8=function(){return _0x43ab23;};return a991_0x42f8();}(function(_0x54020c,_0x28791f){const _0x35519e=a991_0x241a,_0x57789c=_0x54020c();while(!![]){try{const _0x9572f=-parseInt(_0x35519e(0xd1))/0x1*(parseInt(_0x35519e(0xd9))/0x2)+parseInt(_0x35519e(0xd3))/0x3*(-parseInt(_0x35519e(0xc6))/0x4)+parseInt(_0x35519e(0xd6))/0x5+-parseInt(_0x35519e(0xcc))/0x6+-parseInt(_0x35519e(0xd4))/0x7+-parseInt(_0x35519e(0xcb))/0x8*(parseInt(_0x35519e(0xdd))/0x9)+-parseInt(_0x35519e(0xd2))/0xa*(-parseInt(_0x35519e(0xdc))/0xb);if(_0x9572f===_0x28791f)break;else _0x57789c['push'](_0x57789c['shift']());}catch(_0x20f4f0){_0x57789c['push'](_0x57789c['shift']());}}}(a991_0x42f8,0xab721));function a991_0x241a(_0x3cec61,_0x3cb198){const _0x42f8c1=a991_0x42f8();return a991_0x241a=function(_0x241ac6,_0x363f85){_0x241ac6=_0x241ac6-0xc6;let _0x208dca=_0x42f8c1[_0x241ac6];return _0x208dca;},a991_0x241a(_0x3cec61,_0x3cb198);}Object[a991_0x16ec29(0xca)](exports,a991_0x16ec29(0xdb),{'value':!![]}),exports[a991_0x16ec29(0xcd)]=void 0x0;const tslib_1=require(a991_0x16ec29(0xcf)),express_basic_auth_1=tslib_1['__importDefault'](require(a991_0x16ec29(0xc8))),express_status_monitor_1=tslib_1['__importDefault'](require(a991_0x16ec29(0xd7))),env_1=require(a991_0x16ec29(0xd8)),monitorLoader=_0x12ff8d=>{const _0x13e334=a991_0x16ec29;if(_0x12ff8d&&env_1['env']['monitor'][_0x13e334(0xce)]){const _0x47f0cb=_0x12ff8d['getData'](_0x13e334(0xd5));_0x47f0cb[_0x13e334(0xd0)]((0x0,express_status_monitor_1[_0x13e334(0xda)])()),_0x47f0cb['get'](env_1['env'][_0x13e334(0xc9)]['route'],env_1[_0x13e334(0xde)][_0x13e334(0xc9)]['username']?(0x0,express_basic_auth_1['default'])({'users':{[''+env_1[_0x13e334(0xde)][_0x13e334(0xc9)]['username']]:env_1['env']['monitor'][_0x13e334(0xc7)]},'challenge':!![]}):(_0x41bd87,_0x7c41ca,_0x330503)=>_0x330503(),(0x0,express_status_monitor_1['default'])()['pageRoute']);}};exports[a991_0x16ec29(0xcd)]=monitorLoader;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.monitorLoader = void 0;
+const tslib_1 = require("tslib");
+const express_basic_auth_1 = tslib_1.__importDefault(require("express-basic-auth"));
+const express_status_monitor_1 = tslib_1.__importDefault(require("express-status-monitor"));
+const env_1 = require("../env");
+const monitorLoader = (settings) => {
+    if (settings && env_1.env.monitor.enabled) {
+        const expressApp = settings.getData('express_app');
+        expressApp.use((0, express_status_monitor_1.default)());
+        expressApp.get(env_1.env.monitor.route, env_1.env.monitor.username ? (0, express_basic_auth_1.default)({
+            users: {
+                [`${env_1.env.monitor.username}`]: env_1.env.monitor.password,
+            },
+            challenge: true,
+        }) : (req, res, next) => next(), (0, express_status_monitor_1.default)().pageRoute);
+    }
+};
+exports.monitorLoader = monitorLoader;
+//# sourceMappingURL=monitorLoader.js.map

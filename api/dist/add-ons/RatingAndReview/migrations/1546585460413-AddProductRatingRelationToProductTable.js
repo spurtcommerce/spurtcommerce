@@ -1,1 +1,36 @@
-'use strict';const a195_0x41dd44=a195_0xb87a;(function(_0x317c56,_0x5b647a){const _0x5940f6=a195_0xb87a,_0x2d6a2c=_0x317c56();while(!![]){try{const _0xaa09d=parseInt(_0x5940f6(0x17e))/0x1*(-parseInt(_0x5940f6(0x181))/0x2)+-parseInt(_0x5940f6(0x185))/0x3+-parseInt(_0x5940f6(0x195))/0x4*(parseInt(_0x5940f6(0x197))/0x5)+-parseInt(_0x5940f6(0x18b))/0x6+-parseInt(_0x5940f6(0x188))/0x7+-parseInt(_0x5940f6(0x190))/0x8*(-parseInt(_0x5940f6(0x193))/0x9)+parseInt(_0x5940f6(0x18d))/0xa;if(_0xaa09d===_0x5b647a)break;else _0x2d6a2c['push'](_0x2d6a2c['shift']());}catch(_0x11c588){_0x2d6a2c['push'](_0x2d6a2c['shift']());}}}(a195_0x1fef,0x437cc));Object[a195_0x41dd44(0x192)](exports,a195_0x41dd44(0x186),{'value':!![]}),exports[a195_0x41dd44(0x182)]=void 0x0;function a195_0xb87a(_0x55bf41,_0x114e61){const _0x1fef22=a195_0x1fef();return a195_0xb87a=function(_0xb87adf,_0x478736){_0xb87adf=_0xb87adf-0x17e;let _0x38a24f=_0x1fef22[_0xb87adf];return _0x38a24f;},a195_0xb87a(_0x55bf41,_0x114e61);}const tslib_1=require(a195_0x41dd44(0x19a)),typeorm_1=require('typeorm');class AddProductRatingRelationToProductTable1546585460413{constructor(){const _0x1fc97a=a195_0x41dd44;this[_0x1fc97a(0x18a)]=new typeorm_1[(_0x1fc97a(0x17f))]({'name':_0x1fc97a(0x198),'columnNames':[_0x1fc97a(0x194)],'referencedColumnNames':[_0x1fc97a(0x194)],'referencedTableName':'product','onDelete':_0x1fc97a(0x199)});}['up'](_0x18cd69){const _0x34cf77=a195_0x41dd44;return tslib_1[_0x34cf77(0x189)](this,void 0x0,void 0x0,function*(){const _0x370b54=_0x34cf77,_0x1e378a=yield _0x18cd69[_0x370b54(0x191)](_0x370b54(0x18c)),_0x14f066=_0x1e378a[_0x370b54(0x180)]['find'](_0x5935e6=>_0x5935e6[_0x370b54(0x18f)]['indexOf'](_0x370b54(0x194))!==-0x1);!_0x14f066&&(yield _0x18cd69[_0x370b54(0x184)](_0x1e378a,this[_0x370b54(0x18a)]));});}[a195_0x41dd44(0x187)](_0x36b218){const _0xc0d761=a195_0x41dd44;return tslib_1[_0xc0d761(0x189)](this,void 0x0,void 0x0,function*(){const _0x5b4342=_0xc0d761,_0x42ff10=yield _0x36b218['getTable']('product_rating'),_0x34151c=_0x42ff10['foreignKeys'][_0x5b4342(0x18e)](_0x59ca7d=>_0x59ca7d[_0x5b4342(0x18f)][_0x5b4342(0x196)](_0x5b4342(0x194))!==-0x1);_0x34151c&&(yield _0x36b218[_0x5b4342(0x183)](_0x42ff10,this[_0x5b4342(0x18a)]));});}}function a195_0x1fef(){const _0x27e367=['5RTemKB','fk_product_rating_product1','CASCADE','tslib','170127oPJxDN','TableForeignKey','foreignKeys','4XzpXwH','AddProductRatingRelationToProductTable1546585460413','dropForeignKey','createForeignKey','207708GiRKXv','__esModule','down','2855090gySZot','__awaiter','tableForeignKey','1408398NwVENU','product_rating','15643110aLXSdf','find','columnNames','104XyEPCw','getTable','defineProperty','3105ExXPqR','product_id','961100QBxVkE','indexOf'];a195_0x1fef=function(){return _0x27e367;};return a195_0x1fef();}exports[a195_0x41dd44(0x182)]=AddProductRatingRelationToProductTable1546585460413;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddProductRatingRelationToProductTable1546585460413 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddProductRatingRelationToProductTable1546585460413 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_product_rating_product1',
+            columnNames: ['product_id'],
+            referencedColumnNames: ['product_id'],
+            referencedTableName: 'product',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('product_rating');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('product_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('product_rating');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('product_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.AddProductRatingRelationToProductTable1546585460413 = AddProductRatingRelationToProductTable1546585460413;
+//# sourceMappingURL=1546585460413-AddProductRatingRelationToProductTable.js.map

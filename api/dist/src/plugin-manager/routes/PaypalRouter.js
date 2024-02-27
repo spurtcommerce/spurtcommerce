@@ -1,1 +1,16 @@
-'use strict';const a1021_0x5517f4=a1021_0x3777;(function(_0x2f365d,_0x37d9fa){const _0xc3adc4=a1021_0x3777,_0x383abd=_0x2f365d();while(!![]){try{const _0x47cc24=-parseInt(_0xc3adc4(0x19b))/0x1+parseInt(_0xc3adc4(0x1ae))/0x2*(-parseInt(_0xc3adc4(0x19f))/0x3)+parseInt(_0xc3adc4(0x1a6))/0x4+parseInt(_0xc3adc4(0x1a7))/0x5+-parseInt(_0xc3adc4(0x1aa))/0x6+parseInt(_0xc3adc4(0x1a3))/0x7+parseInt(_0xc3adc4(0x198))/0x8*(parseInt(_0xc3adc4(0x1a8))/0x9);if(_0x47cc24===_0x37d9fa)break;else _0x383abd['push'](_0x383abd['shift']());}catch(_0x3d3414){_0x383abd['push'](_0x383abd['shift']());}}}(a1021_0x487f,0xf2ac0));function a1021_0x487f(){const _0x1bff7f=['updateSettings','proceed','813aecSjw','defineProperty','process','Router','11478908junbHJ','success','/success','2555316FUmYJD','4666920hGknTK','97596fiRZEn','PaypalController','3945942OPRbbW','get','post','tslib','266lHvHju','/proceed/:orderId','PaypalNoAuthRoute','cancel','__esModule','56uzTTRp','/process/:orderPrefixId','express','1600281vHBXqu','index'];a1021_0x487f=function(){return _0x1bff7f;};return a1021_0x487f();}function a1021_0x3777(_0x447ee8,_0x599751){const _0x487f7b=a1021_0x487f();return a1021_0x3777=function(_0x37774a,_0x55e21c){_0x37774a=_0x37774a-0x198;let _0x37fe0f=_0x487f7b[_0x37774a];return _0x37fe0f;},a1021_0x3777(_0x447ee8,_0x599751);}Object[a1021_0x5517f4(0x1a0)](exports,a1021_0x5517f4(0x1b2),{'value':!![]}),exports[a1021_0x5517f4(0x1b0)]=exports['PaypalRoute']=void 0x0;const tslib_1=require(a1021_0x5517f4(0x1ad)),express=tslib_1['__importStar'](require(a1021_0x5517f4(0x19a))),PaypalController_1=require('../controller/PaypalController'),paypalController=new PaypalController_1[(a1021_0x5517f4(0x1a9))]();exports['PaypalRoute']=express[a1021_0x5517f4(0x1a2)]()['get']('/',paypalController[a1021_0x5517f4(0x19c)])[a1021_0x5517f4(0x1ac)]('/',paypalController[a1021_0x5517f4(0x19d)]),exports[a1021_0x5517f4(0x1b0)]=express['Router']()[a1021_0x5517f4(0x1ab)](a1021_0x5517f4(0x199),paypalController[a1021_0x5517f4(0x1a1)])['get'](a1021_0x5517f4(0x1af),paypalController[a1021_0x5517f4(0x19e)])[a1021_0x5517f4(0x1ab)](a1021_0x5517f4(0x1a5),paypalController[a1021_0x5517f4(0x1a4)])['get']('/cancel',paypalController[a1021_0x5517f4(0x1b1)]);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PaypalNoAuthRoute = exports.PaypalRoute = void 0;
+const tslib_1 = require("tslib");
+const express = tslib_1.__importStar(require("express"));
+const PaypalController_1 = require("../controller/PaypalController");
+const paypalController = new PaypalController_1.PaypalController();
+exports.PaypalRoute = express.Router()
+    .get('/', paypalController.index)
+    .post('/', paypalController.updateSettings);
+exports.PaypalNoAuthRoute = express.Router()
+    .get('/process/:orderPrefixId', paypalController.process)
+    .get('/proceed/:orderId', paypalController.proceed)
+    .get('/success', paypalController.success)
+    .get('/cancel', paypalController.cancel);
+//# sourceMappingURL=PaypalRouter.js.map

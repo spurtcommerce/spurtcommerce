@@ -1,1 +1,275 @@
-'use strict';function a279_0x5438(_0x1ac96f,_0x54c47b){const _0x2844f7=a279_0x2844();return a279_0x5438=function(_0x543808,_0x46b675){_0x543808=_0x543808-0xd3;let _0x9769aa=_0x2844f7[_0x543808];return _0x9769aa;},a279_0x5438(_0x1ac96f,_0x54c47b);}const a279_0x142d50=a279_0x5438;(function(_0x3c797d,_0x53f5b9){const _0x439623=a279_0x5438,_0x58865e=_0x3c797d();while(!![]){try{const _0x591329=-parseInt(_0x439623(0x111))/0x1+-parseInt(_0x439623(0xf1))/0x2*(parseInt(_0x439623(0x10a))/0x3)+parseInt(_0x439623(0x100))/0x4+parseInt(_0x439623(0xfd))/0x5*(-parseInt(_0x439623(0xec))/0x6)+-parseInt(_0x439623(0xfe))/0x7+parseInt(_0x439623(0x110))/0x8+parseInt(_0x439623(0xfb))/0x9;if(_0x591329===_0x53f5b9)break;else _0x58865e['push'](_0x58865e['shift']());}catch(_0x14ff14){_0x58865e['push'](_0x58865e['shift']());}}}(a279_0x2844,0x88c7b));Object[a279_0x142d50(0xf3)](exports,a279_0x142d50(0xe5),{'value':!![]}),exports[a279_0x142d50(0xdd)]=void 0x0;const tslib_1=require('tslib');require(a279_0x142d50(0xf0));const routing_controllers_1=require(a279_0x142d50(0xf2)),CreateStockStatusRequest_1=require('./requests/CreateStockStatusRequest'),stockStatus_1=require(a279_0x142d50(0x10b)),stockStatusService_1=require('../../core/services/stockStatusService');let StockStatusController=class StockStatusController{constructor(_0x28bfd5){this['stockStatusService']=_0x28bfd5;}[a279_0x142d50(0x10f)](_0x1e64f4,_0x42fdfc){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3cb5c9=a279_0x5438,_0xb27560=new stockStatus_1[(_0x3cb5c9(0xe9))]();_0xb27560[_0x3cb5c9(0x104)]=_0x1e64f4['name'],_0xb27560[_0x3cb5c9(0xdf)]=_0x1e64f4[_0x3cb5c9(0xd5)];const _0x5882b5=yield this[_0x3cb5c9(0x112)][_0x3cb5c9(0x107)](_0xb27560);if(_0x5882b5!==undefined){const _0x3613d5={'status':0x1,'message':'Successfully\x20created\x20a\x20new\x20StockStatus.','data':_0x5882b5};return _0x42fdfc[_0x3cb5c9(0xd5)](0xc8)[_0x3cb5c9(0x108)](_0x3613d5);}else{const _0x12e94a={'status':0x0,'message':_0x3cb5c9(0xff)};return _0x42fdfc[_0x3cb5c9(0xd5)](0x190)['send'](_0x12e94a);}});}[a279_0x142d50(0xef)](_0x4fd84e,_0x4ee736,_0xca27cf,_0x30853a){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x129212=a279_0x5438,_0x12c07f=yield this['stockStatusService'][_0x129212(0xe7)]({'where':{'stockStatusId':_0x4fd84e}});if(!_0x12c07f){const _0x40d190={'status':0x0,'message':_0x129212(0xdb)};return _0xca27cf[_0x129212(0xd5)](0x190)[_0x129212(0x108)](_0x40d190);}_0x12c07f[_0x129212(0x104)]=_0x4ee736[_0x129212(0x104)],_0x12c07f[_0x129212(0xdf)]=_0x4ee736[_0x129212(0xd5)];const _0x5b7cbe=yield this['stockStatusService'][_0x129212(0x107)](_0x12c07f);if(_0x5b7cbe!==undefined){const _0xffa29c={'status':0x1,'message':'Successfully\x20updated\x20the\x20stockStatus.','data':_0x5b7cbe};return _0xca27cf[_0x129212(0xd5)](0xc8)[_0x129212(0x108)](_0xffa29c);}else{const _0x33903c={'status':0x1,'message':_0x129212(0xe0)};return _0xca27cf[_0x129212(0xd5)](0x190)[_0x129212(0x108)](_0x33903c);}});}[a279_0x142d50(0xee)](_0x4e1144,_0x42daaf,_0x1111c8,_0x5549a1,_0x3445ef,_0x5740c6){const _0x4b901d=a279_0x142d50;return tslib_1[_0x4b901d(0x106)](this,void 0x0,void 0x0,function*(){const _0x34b9f0=_0x4b901d,_0x109586=[_0x34b9f0(0xd9),_0x34b9f0(0x104),_0x34b9f0(0xdf)],_0xa70175=[{'name':_0x34b9f0(0x104),'op':_0x34b9f0(0x102),'value':_0x1111c8},{'name':_0x34b9f0(0xdf),'op':'like','value':_0x5549a1}],_0x225f93=[],_0x3bbf19=yield this[_0x34b9f0(0x112)][_0x34b9f0(0xd4)](_0x4e1144,_0x42daaf,_0x109586,_0xa70175,_0x225f93,_0x3445ef);if(_0x3bbf19){const _0x489c22={'status':0x1,'message':'Successfully\x20got\x20all\x20stockStatus\x20List','data':_0x3bbf19};return _0x5740c6[_0x34b9f0(0xd5)](0xc8)[_0x34b9f0(0x108)](_0x489c22);}else{const _0x27bfb9={'status':0x0,'message':'unable\x20to\x20get\x20stockStatusList'};return _0x5740c6['status'](0x190)[_0x34b9f0(0x108)](_0x27bfb9);}});}[a279_0x142d50(0xd7)](_0x4f9497,_0x4756d6,_0xb7b3a0){const _0x478141=a279_0x142d50;return tslib_1[_0x478141(0x106)](this,void 0x0,void 0x0,function*(){const _0x3b4080=_0x478141,_0x29e883=yield this[_0x3b4080(0x112)][_0x3b4080(0xe7)]({'where':{'stockStatusId':_0x4f9497}});if(!_0x29e883){const _0x2129dd={'status':0x0,'message':_0x3b4080(0xe2)};return _0x4756d6['status'](0x190)[_0x3b4080(0x108)](_0x2129dd);}const _0x33d438=yield this[_0x3b4080(0x112)]['delete'](_0x29e883);if(_0x33d438){const _0x37d4a5={'status':0x1,'message':'Successfully\x20deleted\x20the\x20stockStatus.'};return _0x4756d6[_0x3b4080(0xd5)](0xc8)[_0x3b4080(0x108)](_0x37d4a5);}else{const _0x664d20={'status':0x0,'message':'Unable\x20to\x20delete\x20the\x20stockStatus'};return _0x4756d6[_0x3b4080(0xd5)](0x190)['send'](_0x664d20);}});}};function a279_0x2844(){const _0xbfe25f=['design:paramtypes','like','__metadata','name','Res','__awaiter','create','send','design:returntype','137817JcfGKo','../../core/models/stockStatus','delete-stock-status','__decorate','create-stock-status','createStockStatus','3893136XxZdPN','899437cUyDSF','stockStatusService','/create-stock-status','list','status','QueryParam','deleteStockStatus','admin','stockStatusId','keyword','Invalid\x20stockStatus','prototype','StockStatusController','count','isActive','Unable\x20to\x20update\x20the\x20stockStatus.','__param','Invalid\x20stock\x20Status\x20Id.','Get','/delete-stock-status/:id','__esModule','/update-stock-status/:id','findOne','Body','StockStatus','Param','Post','6CoSIDY','Put','stockStatusList','updateStockStatus','reflect-metadata','2LKsEHa','routing-controllers','defineProperty','Authorized','Delete','design:type','edit-stock-status','Req','offset','/stock-status','20339820FKieLm','CreateStockStatus','2666635zLAjOA','5711223QbNgxx','Unable\x20to\x20create\x20the\x20StockStatus.','432884TWXImg'];a279_0x2844=function(){return _0xbfe25f;};return a279_0x2844();}tslib_1['__decorate']([(0x0,routing_controllers_1[a279_0x142d50(0xeb)])(a279_0x142d50(0xd3)),(0x0,routing_controllers_1[a279_0x142d50(0xf4)])([a279_0x142d50(0xd8),a279_0x142d50(0x10e)]),tslib_1[a279_0x142d50(0xe1)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a279_0x142d50(0xe1)](0x1,(0x0,routing_controllers_1[a279_0x142d50(0x105)])()),tslib_1['__metadata']('design:type',Function),tslib_1[a279_0x142d50(0x103)](a279_0x142d50(0x101),[CreateStockStatusRequest_1['CreateStockStatus'],Object]),tslib_1[a279_0x142d50(0x103)]('design:returntype',Promise)],StockStatusController[a279_0x142d50(0xdc)],a279_0x142d50(0x10f),null),tslib_1[a279_0x142d50(0x10d)]([(0x0,routing_controllers_1[a279_0x142d50(0xed)])(a279_0x142d50(0xe6)),(0x0,routing_controllers_1[a279_0x142d50(0xf4)])([a279_0x142d50(0xd8),a279_0x142d50(0xf7)]),tslib_1[a279_0x142d50(0xe1)](0x0,(0x0,routing_controllers_1[a279_0x142d50(0xea)])('id')),tslib_1[a279_0x142d50(0xe1)](0x1,(0x0,routing_controllers_1[a279_0x142d50(0xe8)])({'validate':!![]})),tslib_1['__param'](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a279_0x142d50(0xf8)])()),tslib_1['__metadata'](a279_0x142d50(0xf6),Function),tslib_1[a279_0x142d50(0x103)](a279_0x142d50(0x101),[Number,CreateStockStatusRequest_1[a279_0x142d50(0xfc)],Object,Object]),tslib_1['__metadata'](a279_0x142d50(0x109),Promise)],StockStatusController[a279_0x142d50(0xdc)],a279_0x142d50(0xef),null),tslib_1[a279_0x142d50(0x10d)]([(0x0,routing_controllers_1[a279_0x142d50(0xe3)])('/stock-status-list'),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a279_0x142d50(0xe1)](0x0,(0x0,routing_controllers_1[a279_0x142d50(0xd6)])('limit')),tslib_1[a279_0x142d50(0xe1)](0x1,(0x0,routing_controllers_1[a279_0x142d50(0xd6)])(a279_0x142d50(0xf9))),tslib_1[a279_0x142d50(0xe1)](0x2,(0x0,routing_controllers_1[a279_0x142d50(0xd6)])(a279_0x142d50(0xda))),tslib_1[a279_0x142d50(0xe1)](0x3,(0x0,routing_controllers_1['QueryParam'])(a279_0x142d50(0xd5))),tslib_1[a279_0x142d50(0xe1)](0x4,(0x0,routing_controllers_1[a279_0x142d50(0xd6)])(a279_0x142d50(0xde))),tslib_1[a279_0x142d50(0xe1)](0x5,(0x0,routing_controllers_1[a279_0x142d50(0x105)])()),tslib_1[a279_0x142d50(0x103)](a279_0x142d50(0xf6),Function),tslib_1[a279_0x142d50(0x103)]('design:paramtypes',[Number,Number,String,String,Object,Object]),tslib_1['__metadata'](a279_0x142d50(0x109),Promise)],StockStatusController[a279_0x142d50(0xdc)],a279_0x142d50(0xee),null),tslib_1[a279_0x142d50(0x10d)]([(0x0,routing_controllers_1[a279_0x142d50(0xf5)])(a279_0x142d50(0xe4)),(0x0,routing_controllers_1['Authorized'])([a279_0x142d50(0xd8),a279_0x142d50(0x10c)]),tslib_1[a279_0x142d50(0xe1)](0x0,(0x0,routing_controllers_1[a279_0x142d50(0xea)])('id')),tslib_1[a279_0x142d50(0xe1)](0x1,(0x0,routing_controllers_1[a279_0x142d50(0x105)])()),tslib_1[a279_0x142d50(0xe1)](0x2,(0x0,routing_controllers_1[a279_0x142d50(0xf8)])()),tslib_1[a279_0x142d50(0x103)](a279_0x142d50(0xf6),Function),tslib_1['__metadata'](a279_0x142d50(0x101),[Number,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],StockStatusController[a279_0x142d50(0xdc)],a279_0x142d50(0xd7),null),StockStatusController=tslib_1[a279_0x142d50(0x10d)]([(0x0,routing_controllers_1['JsonController'])(a279_0x142d50(0xfa)),tslib_1['__metadata'](a279_0x142d50(0x101),[stockStatusService_1['StockStatusService']])],StockStatusController),exports[a279_0x142d50(0xdd)]=StockStatusController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StockStatusController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const CreateStockStatusRequest_1 = require("./requests/CreateStockStatusRequest");
+const stockStatus_1 = require("../../core/models/stockStatus");
+const stockStatusService_1 = require("../../core/services/stockStatusService");
+let StockStatusController = class StockStatusController {
+    constructor(stockStatusService) {
+        this.stockStatusService = stockStatusService;
+    }
+    // Create Stock Status API
+    /**
+     * @api {post} /api/stock-status/create-stock-status Create Stock Status API
+     * @apiGroup StockStatus
+     * @apiParam (Request body) {String{.255}} name name
+     * @apiParam (Request body) {Number} status status
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "New StockStatus is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/stock-status/create-stock-status
+     * @apiErrorExample {json} createStockStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createStockStatus(stockStatusParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newStockStatus = new stockStatus_1.StockStatus();
+            newStockStatus.name = stockStatusParam.name;
+            newStockStatus.isActive = stockStatusParam.status;
+            const StockStatusSave = yield this.stockStatusService.create(newStockStatus);
+            if (StockStatusSave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully created a new StockStatus.',
+                    data: StockStatusSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to create the StockStatus.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // update Stock Status API
+    /**
+     * @api {put} /api/stock-status/update-stock-status/:id Update Stock Status API
+     * @apiGroup StockStatus
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..255}} name StockStatus name
+     * @apiParam (Request body) {String} status StockStatus status
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated stockStatus.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/stock-status/update-stock-status/:id
+     * @apiErrorExample {json} StockStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateStockStatus(id, stockStatusParams, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const stockStatus = yield this.stockStatusService.findOne({
+                where: {
+                    stockStatusId: id,
+                },
+            });
+            if (!stockStatus) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid stockStatus',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            stockStatus.name = stockStatusParams.name;
+            stockStatus.isActive = stockStatusParams.status;
+            const stockStatusSave = yield this.stockStatusService.create(stockStatus);
+            if (stockStatusSave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated the stockStatus.',
+                    data: stockStatusSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 1,
+                    message: 'Unable to update the stockStatus.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Stock Status List API
+    /**
+     * @api {get} /api/stock-status/stock-status-list Stock Status List
+     * @apiGroup StockStatus
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {String} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get stockStatus list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/stock-status/stock-status-list
+     * @apiErrorExample {json} StockStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    stockStatusList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['stockStatusId', 'name', 'isActive'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const WhereConditions = [];
+            const stockStatusList = yield this.stockStatusService.list(limit, offset, select, search, WhereConditions, count);
+            if (stockStatusList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got all stockStatus List',
+                    data: stockStatusList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to get stockStatusList',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // delete StockStatus API
+    /**
+     * @api {delete} /api/stock-status/delete-stock-status/:id Delete Stock Status API
+     * @apiGroup StockStatus
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "stockStatusId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted stockStatus.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/stock-status/delete-stock-status/:id
+     * @apiErrorExample {json} StockStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteStockStatus(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const stockStatus = yield this.stockStatusService.findOne({
+                where: {
+                    stockStatusId: id,
+                },
+            });
+            if (!stockStatus) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid stock Status Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteStockStatus = yield this.stockStatusService.delete(stockStatus);
+            if (deleteStockStatus) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the stockStatus.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the stockStatus',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/create-stock-status'),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-stock-status']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateStockStatusRequest_1.CreateStockStatus, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StockStatusController.prototype, "createStockStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-stock-status/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-stock-status']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateStockStatusRequest_1.CreateStockStatus, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StockStatusController.prototype, "updateStockStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/stock-status-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StockStatusController.prototype, "stockStatusList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-stock-status/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-stock-status']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StockStatusController.prototype, "deleteStockStatus", null);
+StockStatusController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/stock-status'),
+    tslib_1.__metadata("design:paramtypes", [stockStatusService_1.StockStatusService])
+], StockStatusController);
+exports.StockStatusController = StockStatusController;
+//# sourceMappingURL=StockStatusController.js.map

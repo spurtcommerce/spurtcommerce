@@ -1,1 +1,36 @@
-'use strict';const a928_0x45d311=a928_0x3752;(function(_0x5361a3,_0x480f83){const _0x5c855a=a928_0x3752,_0x6a9559=_0x5361a3();while(!![]){try{const _0x5a1024=-parseInt(_0x5c855a(0xfb))/0x1+parseInt(_0x5c855a(0xf6))/0x2+-parseInt(_0x5c855a(0x104))/0x3+parseInt(_0x5c855a(0xff))/0x4+-parseInt(_0x5c855a(0xfc))/0x5+parseInt(_0x5c855a(0xf4))/0x6+-parseInt(_0x5c855a(0xf9))/0x7*(parseInt(_0x5c855a(0xf8))/0x8);if(_0x5a1024===_0x480f83)break;else _0x6a9559['push'](_0x6a9559['shift']());}catch(_0x30d2fe){_0x6a9559['push'](_0x6a9559['shift']());}}}(a928_0x48bf,0x3cc6a));Object['defineProperty'](exports,a928_0x45d311(0xfd),{'value':!![]}),exports['AddConstraintForVendorProduct1648191425392']=void 0x0;const tslib_1=require(a928_0x45d311(0xf2)),typeorm_1=require(a928_0x45d311(0xf7));class AddConstraintForVendorProduct1648191425392{constructor(){const _0x430f4e=a928_0x45d311;this[_0x430f4e(0xeb)]=new typeorm_1[(_0x430f4e(0xf0))]({'name':_0x430f4e(0xfa),'columnNames':[_0x430f4e(0xfe)],'referencedColumnNames':['id'],'referencedTableName':_0x430f4e(0xf3),'onDelete':_0x430f4e(0xf5)});}['up'](_0x33e78a){const _0x2154d9=a928_0x45d311;return tslib_1[_0x2154d9(0xf1)](this,void 0x0,void 0x0,function*(){const _0x11f41d=_0x2154d9,_0x4926de=yield _0x33e78a['getTable'](_0x11f41d(0x101)),_0x33fe38=_0x4926de[_0x11f41d(0x102)][_0x11f41d(0xec)](_0x16e9b5=>_0x16e9b5[_0x11f41d(0x100)][_0x11f41d(0x103)](_0x11f41d(0xfe))!==-0x1);!_0x33fe38&&(yield _0x33e78a[_0x11f41d(0xed)](_0x4926de,this[_0x11f41d(0xeb)]));});}['down'](_0x41fbf3){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x12bf36=a928_0x3752,_0x13f0f5=yield _0x41fbf3[_0x12bf36(0xef)](_0x12bf36(0x101)),_0x38b9b4=_0x13f0f5[_0x12bf36(0x102)][_0x12bf36(0xec)](_0x54dac1=>_0x54dac1[_0x12bf36(0x100)][_0x12bf36(0x103)](_0x12bf36(0xfe))!==-0x1);!_0x38b9b4&&(yield _0x41fbf3[_0x12bf36(0xed)](_0x13f0f5,this[_0x12bf36(0xeb)]));});}}exports[a928_0x45d311(0xee)]=AddConstraintForVendorProduct1648191425392;function a928_0x3752(_0x221700,_0xe0468f){const _0x48bf22=a928_0x48bf();return a928_0x3752=function(_0x375212,_0x540b3c){_0x375212=_0x375212-0xeb;let _0x17fb1c=_0x48bf22[_0x375212];return _0x17fb1c;},a928_0x3752(_0x221700,_0xe0468f);}function a928_0x48bf(){const _0x22b904=['createForeignKey','AddConstraintForVendorProduct1648191425392','getTable','TableForeignKey','__awaiter','tslib','sku','879066cwatBI','CASCADE','950920BgXzcQ','typeorm','32nVGumT','23583QVNVPL','fk_tbl_vendor_product_tbl_sku_foreignKey','26679Uufxte','1987555noizzV','__esModule','sku_id','1880976EwDVnt','columnNames','vendor_product','foreignKeys','indexOf','1216833WjMApR','tableForeignKey1','find'];a928_0x48bf=function(){return _0x22b904;};return a928_0x48bf();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddConstraintForVendorProduct1648191425392 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddConstraintForVendorProduct1648191425392 {
+    constructor() {
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_vendor_product_tbl_sku_foreignKey',
+            columnNames: ['sku_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'sku',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('vendor_product');
+            const ifDataExsist1 = table.foreignKeys.find(fk => fk.columnNames.indexOf('sku_id') !== -1);
+            if (!ifDataExsist1) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('vendor_product');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('sku_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+}
+exports.AddConstraintForVendorProduct1648191425392 = AddConstraintForVendorProduct1648191425392;
+//# sourceMappingURL=1648191425392-AddConstraintForVendorProduct.js.map

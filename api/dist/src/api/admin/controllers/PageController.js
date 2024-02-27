@@ -1,1 +1,504 @@
-'use strict';const a268_0x4d40b6=a268_0x46eb;(function(_0x255abb,_0x2443c1){const _0x25efc6=a268_0x46eb,_0x57d4b6=_0x255abb();while(!![]){try{const _0xdee903=parseInt(_0x25efc6(0x218))/0x1*(-parseInt(_0x25efc6(0x1d4))/0x2)+-parseInt(_0x25efc6(0x1d9))/0x3*(-parseInt(_0x25efc6(0x1e8))/0x4)+parseInt(_0x25efc6(0x223))/0x5*(-parseInt(_0x25efc6(0x21e))/0x6)+parseInt(_0x25efc6(0x227))/0x7+parseInt(_0x25efc6(0x1d2))/0x8+-parseInt(_0x25efc6(0x1e5))/0x9+parseInt(_0x25efc6(0x212))/0xa*(-parseInt(_0x25efc6(0x1dd))/0xb);if(_0xdee903===_0x2443c1)break;else _0x57d4b6['push'](_0x57d4b6['shift']());}catch(_0x2f0ece){_0x57d4b6['push'](_0x57d4b6['shift']());}}}(a268_0x5e5d,0x50978));Object[a268_0x4d40b6(0x226)](exports,a268_0x4d40b6(0x1fe),{'value':!![]}),exports[a268_0x4d40b6(0x1f9)]=void 0x0;const tslib_1=require(a268_0x4d40b6(0x1fb));require('reflect-metadata');const routing_controllers_1=require('routing-controllers'),Page_1=require(a268_0x4d40b6(0x1ec)),CreatePageRequest_1=require(a268_0x4d40b6(0x1c5)),PageService_1=require(a268_0x4d40b6(0x200)),ImageService_1=require(a268_0x4d40b6(0x1fa)),UpdatePageRequest_1=require('./requests/UpdatePageRequest'),DeletePageRequest_1=require('./requests/DeletePageRequest'),PageGroupService_1=require(a268_0x4d40b6(0x1f2));function a268_0x5e5d(){const _0x19aa7d=['list-pages','admin','like','design:returntype','PageController','../../core/services/ImageService','tslib','Invalid\x20pageId.','Please\x20choose\x20a\x20page\x20that\x20you\x20want\x20to\x20delete.','__esModule','QueryParam','../../core/services/PageService','/page','prototype','Successfully\x20deleted\x20the\x20page.','Body','split','PageDetail','Successfully\x20created\x20a\x20new\x20page.','/:id','isActive','limit','list','checkSlug','deleteMultiplePage','Invalid\x20Page\x20Id','Successfully\x20got\x20page\x20detail','escapeChar','__decorate','10wJVNkV','toLowerCase','__param','PageGroupService','Get','Successfully\x20got\x20the\x20page\x20count','1cTqGOz','deletePage','PageService','__awaiter','pageCount','replace','6108DxAyJO','Req','map','Successfully\x20got\x20the\x20complete\x20list\x20of\x20pages.','Post','15hdUJsW','design:type','count','defineProperty','2944445OdJZoV','findOne','Put','create','design:paramtypes','pageList','slugName','./requests/CreatePageRequest','edit-pages','pageGroupName','Delete','CreatePage','updatePage','Unable\x20to\x20update\x20the\x20page.','ImageService','all','pageId','Res','title','Successfully\x20updated\x20the\x20page.','2735720Hinfwd','Unable\x20to\x20create\x20page.','540810BPiSJK','pageGroupId','validate_slug','send','groupName','4734BLiYnl','__metadata','active','createPage','3670711RcsFzC','imageService','status','UpdatePage','Param','Unable\x20to\x20delete\x20the\x20page.','Authorized','pageSlug','4137228BDRgsA','inActivePage','/page-count','1608BVlwqQ','toString','offset','content','../../core/models/Page','keyword','delete','activePage','delete-pages','/page-detail','../../core/services/PageGroupService','pageService','Page'];a268_0x5e5d=function(){return _0x19aa7d;};return a268_0x5e5d();}function a268_0x46eb(_0x23e1f3,_0x4787c8){const _0x5e5ddf=a268_0x5e5d();return a268_0x46eb=function(_0x46eb54,_0xb1e724){_0x46eb54=_0x46eb54-0x1c4;let _0x2cbcd8=_0x5e5ddf[_0x46eb54];return _0x2cbcd8;},a268_0x46eb(_0x23e1f3,_0x4787c8);}let PageController=class PageController{constructor(_0x2b74eb,_0xe263d,_0x2655b6){this['pageService']=_0x2b74eb,this['pageGroupService']=_0xe263d,this['imageService']=_0x2655b6;}[a268_0x4d40b6(0x1dc)](_0xa5e4f1,_0xa7a35b){const _0x5a4706=a268_0x4d40b6;return tslib_1[_0x5a4706(0x21b)](this,void 0x0,void 0x0,function*(){const _0x4b65f9=_0x5a4706,_0x5959bf=new Page_1[(_0x4b65f9(0x1f4))]();_0x5959bf[_0x4b65f9(0x1d0)]=_0xa5e4f1[_0x4b65f9(0x1d0)],_0x5959bf[_0x4b65f9(0x1eb)]=_0xa5e4f1['content']?yield this[_0x4b65f9(0x1de)][_0x4b65f9(0x210)](_0xa5e4f1[_0x4b65f9(0x1eb)]):'',_0x5959bf['isActive']=_0xa5e4f1[_0x4b65f9(0x1db)],_0x5959bf[_0x4b65f9(0x1d5)]=_0xa5e4f1['pageGroupId'];const _0x4ad47c=_0xa5e4f1['pageSlug']?_0xa5e4f1[_0x4b65f9(0x1e4)]:_0xa5e4f1[_0x4b65f9(0x1d0)],_0x5d9283=_0x4ad47c['trim'](),_0x48128e=_0x5d9283[_0x4b65f9(0x21d)](/\s+/g,'-')['replace'](/[&\/\\@#,+()$~%.'":*?<>{}]/g,'')['toLowerCase']();_0x5959bf[_0x4b65f9(0x1c4)]=yield this[_0x4b65f9(0x1d6)](_0x48128e);const _0xac78ba=yield this[_0x4b65f9(0x1f3)][_0x4b65f9(0x22a)](_0x5959bf);if(_0xac78ba!==undefined){const _0x269aec={'status':0x1,'message':_0x4b65f9(0x207),'data':_0xac78ba};return _0xa7a35b['status'](0xc8)[_0x4b65f9(0x1d7)](_0x269aec);}else{const _0x120025={'status':0x0,'message':_0x4b65f9(0x1d3)};return _0xa7a35b[_0x4b65f9(0x1df)](0x190)[_0x4b65f9(0x1d7)](_0x120025);}});}[a268_0x4d40b6(0x22c)](_0x435c72,_0x4a29e9,_0xb34e44,_0x17f4ba,_0x5e08b4,_0x32820f){const _0x26e908=a268_0x4d40b6;return tslib_1[_0x26e908(0x21b)](this,void 0x0,void 0x0,function*(){const _0x4cb80d=_0x26e908,_0x2c913e=['pageId',_0x4cb80d(0x1d0),_0x4cb80d(0x1d5),_0x4cb80d(0x1eb),_0x4cb80d(0x209),_0x4cb80d(0x1c4)],_0x26de38=[{'name':_0x4cb80d(0x1d0),'op':_0x4cb80d(0x1f7),'value':_0xb34e44},{'name':_0x4cb80d(0x209),'op':_0x4cb80d(0x1f7),'value':_0x17f4ba}],_0x359333=[],_0x3c62dd=[],_0x839d4b=yield this[_0x4cb80d(0x1f3)][_0x4cb80d(0x20b)](_0x435c72,_0x4a29e9,_0x2c913e,_0x3c62dd,_0x26de38,_0x359333,_0x5e08b4);if(_0x5e08b4){const _0x33c464={'status':0x1,'message':'Successfully\x20got\x20pages\x20count','data':_0x839d4b};return _0x32820f[_0x4cb80d(0x1df)](0xc8)[_0x4cb80d(0x1d7)](_0x33c464);}const _0x5874dd=_0x839d4b[_0x4cb80d(0x220)](_0x1bc38c=>tslib_1[_0x4cb80d(0x21b)](this,void 0x0,void 0x0,function*(){const _0x59de19=_0x4cb80d,_0x277fc1=yield this['pageGroupService']['findOne']({'where':{'groupId':_0x1bc38c['pageGroupId']}}),_0x9b36e4=_0x1bc38c;return _0x277fc1?_0x9b36e4[_0x59de19(0x1c7)]=_0x277fc1[_0x59de19(0x1d8)]:_0x9b36e4[_0x59de19(0x1c7)]='',_0x9b36e4;})),_0x42396e=yield Promise[_0x4cb80d(0x1cd)](_0x5874dd),_0x3b2b9a={'status':0x1,'message':_0x4cb80d(0x221),'data':_0x42396e};return _0x32820f[_0x4cb80d(0x1df)](0xc8)[_0x4cb80d(0x1d7)](_0x3b2b9a);});}[a268_0x4d40b6(0x1ca)](_0x45acc7,_0x1e1d59){const _0x13facd=a268_0x4d40b6;return tslib_1[_0x13facd(0x21b)](this,void 0x0,void 0x0,function*(){const _0x101e1e=_0x13facd,_0x7b3037=yield this[_0x101e1e(0x1f3)][_0x101e1e(0x228)]({'where':{'pageId':_0x45acc7[_0x101e1e(0x1ce)]}});if(!_0x7b3037){const _0x5b3263={'status':0x0,'message':'Invalid\x20page\x20id.'};return _0x1e1d59[_0x101e1e(0x1df)](0x190)[_0x101e1e(0x1d7)](_0x5b3263);}_0x7b3037[_0x101e1e(0x1d0)]=_0x45acc7['title'],_0x7b3037[_0x101e1e(0x1eb)]=_0x45acc7['content']?yield this[_0x101e1e(0x1de)][_0x101e1e(0x210)](_0x45acc7[_0x101e1e(0x1eb)]):'',_0x7b3037[_0x101e1e(0x209)]=_0x45acc7[_0x101e1e(0x1db)],_0x7b3037[_0x101e1e(0x1d5)]=_0x45acc7[_0x101e1e(0x1d5)];const _0x3eaa2f=_0x45acc7['pageSlug']?_0x45acc7['pageSlug']:_0x45acc7[_0x101e1e(0x1d0)],_0x117a43=_0x3eaa2f['trim'](),_0x4764b7=_0x117a43[_0x101e1e(0x21d)](/\s+/g,'-')[_0x101e1e(0x21d)](/[&\/\\@#,+()$~%.'":*?<>{}]/g,'')[_0x101e1e(0x213)]();_0x7b3037[_0x101e1e(0x1c4)]=yield this[_0x101e1e(0x1d6)](_0x4764b7,_0x45acc7[_0x101e1e(0x1ce)]);const _0x5c6f6a=yield this['pageService'][_0x101e1e(0x22a)](_0x7b3037);if(_0x5c6f6a){const _0x23c720={'status':0x1,'message':_0x101e1e(0x1d1),'data':_0x5c6f6a};return _0x1e1d59[_0x101e1e(0x1df)](0xc8)[_0x101e1e(0x1d7)](_0x23c720);}else{const _0x229694={'status':0x0,'message':_0x101e1e(0x1cb)};return _0x1e1d59[_0x101e1e(0x1df)](0x190)[_0x101e1e(0x1d7)](_0x229694);}});}[a268_0x4d40b6(0x219)](_0x1dcde8,_0x2c4d86,_0x11eef5){const _0x468a21=a268_0x4d40b6;return tslib_1[_0x468a21(0x21b)](this,void 0x0,void 0x0,function*(){const _0x3ea8f9=_0x468a21,_0x5208b5=yield this[_0x3ea8f9(0x1f3)][_0x3ea8f9(0x228)]({'where':{'pageId':_0x1dcde8}});if(!_0x5208b5){const _0x1a8ad3={'status':0x0,'message':_0x3ea8f9(0x1fc)};return _0x2c4d86[_0x3ea8f9(0x1df)](0x190)['send'](_0x1a8ad3);}const _0x19d62e=yield this[_0x3ea8f9(0x1f3)]['delete'](_0x5208b5);if(_0x19d62e){const _0x300d66={'status':0x1,'message':_0x3ea8f9(0x203)};return _0x2c4d86['status'](0xc8)[_0x3ea8f9(0x1d7)](_0x300d66);}else{const _0x3d6865={'status':0x0,'message':_0x3ea8f9(0x1e2)};return _0x2c4d86[_0x3ea8f9(0x1df)](0x190)[_0x3ea8f9(0x1d7)](_0x3d6865);}});}[a268_0x4d40b6(0x20d)](_0xc05f16,_0x7c85b2,_0x24d1be){const _0x2c55c0=a268_0x4d40b6;return tslib_1[_0x2c55c0(0x21b)](this,void 0x0,void 0x0,function*(){const _0x5c696e=_0x2c55c0,_0x4543b5=_0xc05f16[_0x5c696e(0x1ce)][_0x5c696e(0x1e9)](),_0x35f41b=_0x4543b5[_0x5c696e(0x205)](',');for(const _0x21dfaf of _0x35f41b){const _0xbd4916=yield this[_0x5c696e(0x1f3)]['findOne'](_0x21dfaf);if(_0xbd4916===undefined){const _0x157d09={'status':0x0,'message':_0x5c696e(0x1fd)};return _0x7c85b2[_0x5c696e(0x1df)](0x190)[_0x5c696e(0x1d7)](_0x157d09);}else{const _0x245dca=parseInt(_0x21dfaf,0xa);yield this[_0x5c696e(0x1f3)][_0x5c696e(0x1ee)](_0x245dca);}}const _0x16e149={'status':0x1,'message':_0x5c696e(0x203)};return _0x7c85b2['status'](0xc8)[_0x5c696e(0x1d7)](_0x16e149);});}['pageCount'](_0x1cb3fd){const _0x5132e5=a268_0x4d40b6;return tslib_1[_0x5132e5(0x21b)](this,void 0x0,void 0x0,function*(){const _0x1a0ce0=_0x5132e5,_0x2cbc44={},_0x3c08ab=[],_0x4497a3=[],_0x32f2ef=[],_0x171e69=[],_0x35d0b5=yield this[_0x1a0ce0(0x1f3)][_0x1a0ce0(0x20b)](0x0,0x0,_0x3c08ab,_0x171e69,_0x4497a3,_0x32f2ef,0x1),_0x3801bb=[{'name':_0x1a0ce0(0x209),'op':_0x1a0ce0(0x1f7),'value':0x1}],_0x562bfd=yield this[_0x1a0ce0(0x1f3)][_0x1a0ce0(0x20b)](0x0,0x0,_0x3c08ab,_0x171e69,_0x4497a3,_0x3801bb,0x1),_0x3879d1=[{'name':_0x1a0ce0(0x209),'op':_0x1a0ce0(0x1f7),'value':0x0}],_0x366ae0=yield this[_0x1a0ce0(0x1f3)][_0x1a0ce0(0x20b)](0x0,0x0,_0x3c08ab,_0x171e69,_0x4497a3,_0x3879d1,0x1);_0x2cbc44['totalPage']=_0x35d0b5,_0x2cbc44[_0x1a0ce0(0x1ef)]=_0x562bfd,_0x2cbc44[_0x1a0ce0(0x1e6)]=_0x366ae0;const _0x7531bc={'status':0x1,'message':_0x1a0ce0(0x217),'data':_0x2cbc44};return _0x1cb3fd['status'](0xc8)['send'](_0x7531bc);});}[a268_0x4d40b6(0x206)](_0x489fbf,_0x74c7d7){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x28969d=a268_0x46eb,_0x3f320c=yield this['pageService']['findOne']({'where':{'pageId':_0x489fbf}});if(!_0x3f320c){const _0xbd6a0e={'status':0x0,'message':_0x28969d(0x20e)};return _0x74c7d7[_0x28969d(0x1df)](0x190)[_0x28969d(0x1d7)](_0xbd6a0e);}const _0x5b5cbc={'status':0x1,'message':_0x28969d(0x20f),'data':_0x3f320c};return _0x74c7d7[_0x28969d(0x1df)](0xc8)[_0x28969d(0x1d7)](_0x5b5cbc);});}[a268_0x4d40b6(0x1d6)](_0x53d41a,_0x328d0c=0x0,_0x3e8c77=0x0){const _0x5f5b52=a268_0x4d40b6;return tslib_1[_0x5f5b52(0x21b)](this,void 0x0,void 0x0,function*(){const _0x5260ad=_0x5f5b52,_0x90288b=yield this[_0x5260ad(0x1f3)][_0x5260ad(0x20c)](_0x53d41a,_0x328d0c,_0x3e8c77);return _0x90288b?(!_0x3e8c77?_0x3e8c77=0x1:_0x3e8c77++,yield this['validate_slug'](_0x53d41a,_0x328d0c,_0x3e8c77)):(_0x3e8c77>0x0&&(_0x53d41a=_0x53d41a+_0x3e8c77),_0x53d41a);});}};tslib_1[a268_0x4d40b6(0x211)]([(0x0,routing_controllers_1[a268_0x4d40b6(0x222)])(),(0x0,routing_controllers_1[a268_0x4d40b6(0x1e3)])([a268_0x4d40b6(0x1f6),'create-pages']),tslib_1[a268_0x4d40b6(0x214)](0x0,(0x0,routing_controllers_1[a268_0x4d40b6(0x204)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a268_0x4d40b6(0x1cf)])()),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x224),Function),tslib_1['__metadata'](a268_0x4d40b6(0x22b),[CreatePageRequest_1[a268_0x4d40b6(0x1c9)],Object]),tslib_1[a268_0x4d40b6(0x1da)]('design:returntype',Promise)],PageController[a268_0x4d40b6(0x202)],a268_0x4d40b6(0x1dc),null),tslib_1[a268_0x4d40b6(0x211)]([(0x0,routing_controllers_1[a268_0x4d40b6(0x216)])(),(0x0,routing_controllers_1[a268_0x4d40b6(0x1e3)])(['admin',a268_0x4d40b6(0x1f5)]),tslib_1[a268_0x4d40b6(0x214)](0x0,(0x0,routing_controllers_1[a268_0x4d40b6(0x1ff)])(a268_0x4d40b6(0x20a))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a268_0x4d40b6(0x1ff)])(a268_0x4d40b6(0x1ea))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a268_0x4d40b6(0x1ff)])(a268_0x4d40b6(0x1ed))),tslib_1[a268_0x4d40b6(0x214)](0x3,(0x0,routing_controllers_1[a268_0x4d40b6(0x1ff)])(a268_0x4d40b6(0x1df))),tslib_1['__param'](0x4,(0x0,routing_controllers_1['QueryParam'])(a268_0x4d40b6(0x225))),tslib_1[a268_0x4d40b6(0x214)](0x5,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata'](a268_0x4d40b6(0x224),Function),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x22b),[Number,Number,String,String,Object,Object]),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x1f8),Promise)],PageController['prototype'],a268_0x4d40b6(0x22c),null),tslib_1[a268_0x4d40b6(0x211)]([(0x0,routing_controllers_1[a268_0x4d40b6(0x229)])('/:id'),(0x0,routing_controllers_1[a268_0x4d40b6(0x1e3)])([a268_0x4d40b6(0x1f6),a268_0x4d40b6(0x1c6)]),tslib_1[a268_0x4d40b6(0x214)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a268_0x4d40b6(0x214)](0x1,(0x0,routing_controllers_1[a268_0x4d40b6(0x1cf)])()),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x224),Function),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x22b),[UpdatePageRequest_1[a268_0x4d40b6(0x1e0)],Object]),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x1f8),Promise)],PageController[a268_0x4d40b6(0x202)],a268_0x4d40b6(0x1ca),null),tslib_1[a268_0x4d40b6(0x211)]([(0x0,routing_controllers_1[a268_0x4d40b6(0x1c8)])(a268_0x4d40b6(0x208)),(0x0,routing_controllers_1[a268_0x4d40b6(0x1e3)])(['admin',a268_0x4d40b6(0x1f0)]),tslib_1[a268_0x4d40b6(0x214)](0x0,(0x0,routing_controllers_1[a268_0x4d40b6(0x1e1)])('id')),tslib_1[a268_0x4d40b6(0x214)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a268_0x4d40b6(0x214)](0x2,(0x0,routing_controllers_1[a268_0x4d40b6(0x21f)])()),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x224),Function),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x22b),[Number,Object,Object]),tslib_1['__metadata'](a268_0x4d40b6(0x1f8),Promise)],PageController[a268_0x4d40b6(0x202)],a268_0x4d40b6(0x219),null),tslib_1[a268_0x4d40b6(0x211)]([(0x0,routing_controllers_1['Post'])('/delete-page'),(0x0,routing_controllers_1[a268_0x4d40b6(0x1e3)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a268_0x4d40b6(0x204)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a268_0x4d40b6(0x1cf)])()),tslib_1[a268_0x4d40b6(0x214)](0x2,(0x0,routing_controllers_1[a268_0x4d40b6(0x21f)])()),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x224),Function),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x22b),[DeletePageRequest_1['DeletePageRequest'],Object,Object]),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x1f8),Promise)],PageController[a268_0x4d40b6(0x202)],a268_0x4d40b6(0x20d),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a268_0x4d40b6(0x216)])(a268_0x4d40b6(0x1e7)),(0x0,routing_controllers_1[a268_0x4d40b6(0x1e3)])(),tslib_1[a268_0x4d40b6(0x214)](0x0,(0x0,routing_controllers_1[a268_0x4d40b6(0x1cf)])()),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x224),Function),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x22b),[Object]),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x1f8),Promise)],PageController[a268_0x4d40b6(0x202)],a268_0x4d40b6(0x21c),null),tslib_1[a268_0x4d40b6(0x211)]([(0x0,routing_controllers_1[a268_0x4d40b6(0x216)])(a268_0x4d40b6(0x1f1)),(0x0,routing_controllers_1[a268_0x4d40b6(0x1e3)])(),tslib_1[a268_0x4d40b6(0x214)](0x0,(0x0,routing_controllers_1[a268_0x4d40b6(0x1ff)])('pageId')),tslib_1[a268_0x4d40b6(0x214)](0x1,(0x0,routing_controllers_1[a268_0x4d40b6(0x1cf)])()),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x224),Function),tslib_1['__metadata'](a268_0x4d40b6(0x22b),[Number,Object]),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x1f8),Promise)],PageController[a268_0x4d40b6(0x202)],a268_0x4d40b6(0x206),null),PageController=tslib_1[a268_0x4d40b6(0x211)]([(0x0,routing_controllers_1['JsonController'])(a268_0x4d40b6(0x201)),tslib_1[a268_0x4d40b6(0x1da)](a268_0x4d40b6(0x22b),[PageService_1[a268_0x4d40b6(0x21a)],PageGroupService_1[a268_0x4d40b6(0x215)],ImageService_1[a268_0x4d40b6(0x1cc)]])],PageController),exports[a268_0x4d40b6(0x1f9)]=PageController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PageController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const Page_1 = require("../../core/models/Page");
+const CreatePageRequest_1 = require("./requests/CreatePageRequest");
+const PageService_1 = require("../../core/services/PageService");
+const ImageService_1 = require("../../core/services/ImageService");
+const UpdatePageRequest_1 = require("./requests/UpdatePageRequest");
+const DeletePageRequest_1 = require("./requests/DeletePageRequest");
+const PageGroupService_1 = require("../../core/services/PageGroupService");
+let PageController = class PageController {
+    constructor(pageService, pageGroupService, imageService) {
+        this.pageService = pageService;
+        this.pageGroupService = pageGroupService;
+        this.imageService = imageService;
+    }
+    // Create Page API
+    /**
+     * @api {post} /api/page Add Page API
+     * @apiGroup Page
+     * @apiParam (Request body) {String{..255}} title title
+     * @apiParam (Request body) {String} content content
+     * @apiParam (Request body) {String} pageGroupId pageGroupId
+     * @apiParam (Request body) {String} [pageSlug] pageSlug
+     * @apiParam (Request body) {Number} active active
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "title" : "",
+     *      "content" : "",
+     *      "pageGroupId" : "",
+     *      "pageSlug" : "",
+     *      "active" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "New page is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/page
+     * @apiErrorExample {json} Page error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createPage(pageParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const page = new Page_1.Page();
+            page.title = pageParam.title;
+            page.content = pageParam.content ? yield this.imageService.escapeChar(pageParam.content) : '';
+            page.isActive = pageParam.active;
+            page.pageGroupId = pageParam.pageGroupId;
+            const metaTagTitle = pageParam.pageSlug ? pageParam.pageSlug : pageParam.title;
+            const slug = metaTagTitle.trim();
+            const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+            page.slugName = yield this.validate_slug(data);
+            const pageSave = yield this.pageService.create(page);
+            if (pageSave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully created a new page.',
+                    data: pageSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to create page.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Page List API
+    /**
+     * @api {get} /api/page Page List API
+     * @apiGroup Page
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get page list",
+     *      "data":{
+     *      "pageId" : "",
+     *      "title" : "",
+     *      "content" : "",
+     *      "active" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/page
+     * @apiErrorExample {json} Page error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    pageList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['pageId', 'title', 'pageGroupId', 'content', 'isActive', 'slugName'];
+            const search = [
+                {
+                    name: 'title',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const WhereConditions = [];
+            const relations = [];
+            const pageList = yield this.pageService.list(limit, offset, select, relations, search, WhereConditions, count);
+            if (count) {
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got pages count',
+                    data: pageList,
+                };
+                return response.status(200).send(successRes);
+            }
+            const promise = pageList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const data = yield this.pageGroupService.findOne({ where: { groupId: result.pageGroupId } });
+                const temp = result;
+                if (data) {
+                    temp.pageGroupName = data.groupName;
+                }
+                else {
+                    temp.pageGroupName = '';
+                }
+                return temp;
+            }));
+            const value = yield Promise.all(promise);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete list of pages.',
+                data: value,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Update Page API
+    /**
+     * @api {put} /api/page/:id Update Page API
+     * @apiGroup Page
+     * @apiParam (Request body) {Number} pageId pageId
+     * @apiParam (Request body) {String{..255}} title title
+     * @apiParam (Request body) {String} content content
+     * @apiParam (Request body) {Number} pageGroupId pageGroupId
+     * @apiParam (Request body) {Number} active active
+     * @apiParam (Request body) {String} pageSlug pageSlug
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "pageId" : "",
+     *      "title" : "",
+     *      "content" : "",
+     *      "pageGroupId" : "",
+     *      "active" : "",
+     *      "pageSlug" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": " Page is updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/page/:id
+     * @apiErrorExample {json} updatePage error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updatePage(pageParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const page = yield this.pageService.findOne({
+                where: {
+                    pageId: pageParam.pageId,
+                },
+            });
+            if (!page) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid page id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            page.title = pageParam.title;
+            page.content = pageParam.content ? yield this.imageService.escapeChar(pageParam.content) : '';
+            page.isActive = pageParam.active;
+            page.pageGroupId = pageParam.pageGroupId;
+            const metaTagTitle = pageParam.pageSlug ? pageParam.pageSlug : pageParam.title;
+            const slug = metaTagTitle.trim();
+            const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+            page.slugName = yield this.validate_slug(data, pageParam.pageId);
+            const pageSave = yield this.pageService.create(page);
+            if (pageSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated the page.',
+                    data: pageSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the page.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete Page API
+    /**
+     * @api {delete} /api/page/:id Delete Page API
+     * @apiGroup Page
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "pageId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted page.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/page/:id
+     * @apiErrorExample {json} Page error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deletePage(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const page = yield this.pageService.findOne({
+                where: {
+                    pageId: id,
+                },
+            });
+            if (!page) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid pageId.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deletePage = yield this.pageService.delete(page);
+            if (deletePage) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the page.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the page.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete Multiple Page API
+    /**
+     * @api {post} /api/page/delete-page Delete Multiple Page API
+     * @apiGroup Page
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} pageId  pageId
+     * @apiParamExample {json} Input
+     * {
+     * "pageId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully deleted Page.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/page/delete-page
+     * @apiErrorExample {json} pageDelete error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteMultiplePage(pageDelete, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pageIdNo = pageDelete.pageId.toString();
+            const pageid = pageIdNo.split(',');
+            for (const id of pageid) {
+                const dataId = yield this.pageService.findOne(id);
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Please choose a page that you want to delete.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                else {
+                    const deletePageId = parseInt(id, 10);
+                    yield this.pageService.delete(deletePageId);
+                }
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully deleted the page.',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Page Count API
+    /**
+     * @api {get} /api/page/page-count Page Count API
+     * @apiGroup Page
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get page count",
+     *      "data":{},
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/page/page-count
+     * @apiErrorExample {json} Page error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    pageCount(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const page = {};
+            const select = [];
+            const search = [];
+            const WhereConditions = [];
+            const relations = [];
+            const allPageCount = yield this.pageService.list(0, 0, select, relations, search, WhereConditions, 1);
+            const whereConditionsActive = [
+                {
+                    name: 'isActive',
+                    op: 'like',
+                    value: 1,
+                },
+            ];
+            const activePageCount = yield this.pageService.list(0, 0, select, relations, search, whereConditionsActive, 1);
+            const whereConditionsInActive = [
+                {
+                    name: 'isActive',
+                    op: 'like',
+                    value: 0,
+                },
+            ];
+            const inActivePageCount = yield this.pageService.list(0, 0, select, relations, search, whereConditionsInActive, 1);
+            page.totalPage = allPageCount;
+            page.activePage = activePageCount;
+            page.inActivePage = inActivePageCount;
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the page count',
+                data: page,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // page Detail
+    /**
+     * @api {get} /api/page/page-detail Page Detail API
+     * @apiGroup Page
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} pageId pageId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Page detail",
+     *      "data": "{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/page/page-detail
+     * @apiErrorExample {json} page Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    PageDetail(pageId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const page = yield this.pageService.findOne({
+                where: {
+                    pageId,
+                },
+            });
+            if (!page) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Page Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got page detail',
+                data: page,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    validate_slug($slug, $id = 0, $count = 0) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const slugCount = yield this.pageService.checkSlug($slug, $id, $count);
+            if (slugCount) {
+                if (!$count) {
+                    $count = 1;
+                }
+                else {
+                    $count++;
+                }
+                return yield this.validate_slug($slug, $id, $count);
+            }
+            else {
+                if ($count > 0) {
+                    $slug = $slug + $count;
+                }
+                return $slug;
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-pages']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreatePageRequest_1.CreatePage, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PageController.prototype, "createPage", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-pages']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PageController.prototype, "pageList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-pages']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [UpdatePageRequest_1.UpdatePage, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PageController.prototype, "updatePage", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-pages']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PageController.prototype, "deletePage", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/delete-page'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [DeletePageRequest_1.DeletePageRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PageController.prototype, "deleteMultiplePage", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/page-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PageController.prototype, "pageCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/page-detail'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('pageId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PageController.prototype, "PageDetail", null);
+PageController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/page'),
+    tslib_1.__metadata("design:paramtypes", [PageService_1.PageService, PageGroupService_1.PageGroupService, ImageService_1.ImageService])
+], PageController);
+exports.PageController = PageController;
+//# sourceMappingURL=PageController.js.map

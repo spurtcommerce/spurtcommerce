@@ -1,1 +1,63 @@
-'use strict';const a435_0x489763=a435_0x1e3b;function a435_0x1e3b(_0x2e98fd,_0x1bcba5){const _0x1ed110=a435_0x1ed1();return a435_0x1e3b=function(_0x1e3b7d,_0x594986){_0x1e3b7d=_0x1e3b7d-0xc0;let _0x79f2d4=_0x1ed110[_0x1e3b7d];return _0x79f2d4;},a435_0x1e3b(_0x2e98fd,_0x1bcba5);}(function(_0x160d53,_0xd01cf0){const _0x2cfc1a=a435_0x1e3b,_0x33f8a1=_0x160d53();while(!![]){try{const _0x157a3b=parseInt(_0x2cfc1a(0xd5))/0x1*(parseInt(_0x2cfc1a(0xcf))/0x2)+parseInt(_0x2cfc1a(0xe3))/0x3*(-parseInt(_0x2cfc1a(0xc0))/0x4)+-parseInt(_0x2cfc1a(0xc7))/0x5+parseInt(_0x2cfc1a(0xe5))/0x6+-parseInt(_0x2cfc1a(0xe0))/0x7*(parseInt(_0x2cfc1a(0xca))/0x8)+parseInt(_0x2cfc1a(0xcc))/0x9*(parseInt(_0x2cfc1a(0xcd))/0xa)+-parseInt(_0x2cfc1a(0xe1))/0xb;if(_0x157a3b===_0xd01cf0)break;else _0x33f8a1['push'](_0x33f8a1['shift']());}catch(_0x2a283f){_0x33f8a1['push'](_0x33f8a1['shift']());}}}(a435_0x1ed1,0x83e09));Object['defineProperty'](exports,a435_0x489763(0xd6),{'value':!![]}),exports[a435_0x489763(0xcb)]=void 0x0;function a435_0x1ed1(){const _0xa2c9c5=['__awaiter','tax_id','modifiedDate','__decorate','19627XfWvbL','__esModule','BeforeInsert','design:returntype','moment/moment','PrimaryGeneratedColumn','design:type','createDetails','format','taxName','Entity','2567243pbPqGB','3602258uzmRna','typeorm','11952nrZhax','tax_percentage','5247090iyAbyK','updateDetails','design:paramtypes','556GdxRUf','Column','taxPercentage','tax','IsNotEmpty','prototype','BaseModel','1748790KEXtIB','taxId','BeforeUpdate','8LynBiZ','Tax','3393RCcCNY','5920LCtnoA','__metadata','106rRNnlK','tax_status'];a435_0x1ed1=function(){return _0xa2c9c5;};return a435_0x1ed1();}const tslib_1=require('tslib'),typeorm_1=require(a435_0x489763(0xe2)),BaseModel_1=require('./BaseModel'),moment=require(a435_0x489763(0xd9)),class_validator_1=require('class-validator');let Tax=class Tax extends BaseModel_1[a435_0x489763(0xc6)]{[a435_0x489763(0xdc)](){const _0x14cf76=a435_0x489763;return tslib_1[_0x14cf76(0xd1)](this,void 0x0,void 0x0,function*(){const _0x40cc56=_0x14cf76;this['createdDate']=moment()[_0x40cc56(0xdd)]('YYYY-MM-DD\x20HH:mm:ss');});}['updateDetails'](){const _0x5ed4f5=a435_0x489763;return tslib_1[_0x5ed4f5(0xd1)](this,void 0x0,void 0x0,function*(){const _0x3737e9=_0x5ed4f5;this[_0x3737e9(0xd3)]=moment()['format']('YYYY-MM-DD\x20HH:mm:ss');});}};tslib_1[a435_0x489763(0xd4)]([(0x0,class_validator_1[a435_0x489763(0xc4)])(),(0x0,typeorm_1[a435_0x489763(0xda)])({'name':a435_0x489763(0xd2)}),tslib_1[a435_0x489763(0xce)](a435_0x489763(0xdb),Number)],Tax[a435_0x489763(0xc5)],a435_0x489763(0xc8),void 0x0),tslib_1[a435_0x489763(0xd4)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1['Column'])({'name':'tax_name'}),tslib_1['__metadata'](a435_0x489763(0xdb),String)],Tax['prototype'],a435_0x489763(0xde),void 0x0),tslib_1[a435_0x489763(0xd4)]([(0x0,typeorm_1[a435_0x489763(0xc1)])({'name':a435_0x489763(0xe4)}),tslib_1[a435_0x489763(0xce)](a435_0x489763(0xdb),Number)],Tax[a435_0x489763(0xc5)],a435_0x489763(0xc2),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a435_0x489763(0xc1)])({'name':a435_0x489763(0xd0)}),tslib_1[a435_0x489763(0xce)]('design:type',Number)],Tax[a435_0x489763(0xc5)],'taxStatus',void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a435_0x489763(0xd7)])(),tslib_1[a435_0x489763(0xce)]('design:type',Function),tslib_1['__metadata'](a435_0x489763(0xe7),[]),tslib_1['__metadata'](a435_0x489763(0xd8),Promise)],Tax['prototype'],a435_0x489763(0xdc),null),tslib_1[a435_0x489763(0xd4)]([(0x0,typeorm_1[a435_0x489763(0xc9)])(),tslib_1[a435_0x489763(0xce)](a435_0x489763(0xdb),Function),tslib_1['__metadata'](a435_0x489763(0xe7),[]),tslib_1[a435_0x489763(0xce)](a435_0x489763(0xd8),Promise)],Tax[a435_0x489763(0xc5)],a435_0x489763(0xe6),null),Tax=tslib_1[a435_0x489763(0xd4)]([(0x0,typeorm_1[a435_0x489763(0xdf)])(a435_0x489763(0xc3))],Tax),exports[a435_0x489763(0xcb)]=Tax;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Tax = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const moment = require("moment/moment");
+const class_validator_1 = require("class-validator");
+let Tax = class Tax extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'tax_id' }),
+    tslib_1.__metadata("design:type", Number)
+], Tax.prototype, "taxId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'tax_name' }),
+    tslib_1.__metadata("design:type", String)
+], Tax.prototype, "taxName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'tax_percentage' }),
+    tslib_1.__metadata("design:type", Number)
+], Tax.prototype, "taxPercentage", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'tax_status' }),
+    tslib_1.__metadata("design:type", Number)
+], Tax.prototype, "taxStatus", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Tax.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Tax.prototype, "updateDetails", null);
+Tax = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('tax')
+], Tax);
+exports.Tax = Tax;
+//# sourceMappingURL=Tax.js.map

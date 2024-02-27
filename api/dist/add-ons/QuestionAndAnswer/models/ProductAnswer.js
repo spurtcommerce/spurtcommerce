@@ -1,1 +1,101 @@
-'use strict';const a179_0x3f1bda=a179_0x5f43;(function(_0x3e302b,_0x4678f6){const _0x2075e1=a179_0x5f43,_0x7622aa=_0x3e302b();while(!![]){try{const _0x1fdb66=parseInt(_0x2075e1(0xb7))/0x1*(-parseInt(_0x2075e1(0xd7))/0x2)+parseInt(_0x2075e1(0xd4))/0x3+parseInt(_0x2075e1(0xd6))/0x4*(parseInt(_0x2075e1(0xb9))/0x5)+parseInt(_0x2075e1(0xb3))/0x6+parseInt(_0x2075e1(0xce))/0x7+parseInt(_0x2075e1(0xaf))/0x8+-parseInt(_0x2075e1(0xa1))/0x9;if(_0x1fdb66===_0x4678f6)break;else _0x7622aa['push'](_0x7622aa['shift']());}catch(_0xe3c7db){_0x7622aa['push'](_0x7622aa['shift']());}}}(a179_0x1f64,0x9c96c));Object[a179_0x3f1bda(0xcd)](exports,'__esModule',{'value':!![]}),exports[a179_0x3f1bda(0xb4)]=void 0x0;const tslib_1=require(a179_0x3f1bda(0xba)),typeorm_1=require(a179_0x3f1bda(0xd2)),BaseModel_1=require(a179_0x3f1bda(0xa9)),ProductQuestion_1=require(a179_0x3f1bda(0xa3)),moment=require(a179_0x3f1bda(0xb6)),ProductAnswerLikeDislike_1=require(a179_0x3f1bda(0xc6)),AnswerReportAbuse_1=require(a179_0x3f1bda(0xd5)),class_validator_1=require(a179_0x3f1bda(0xbb));let ProductAnswer=class ProductAnswer extends BaseModel_1[a179_0x3f1bda(0xd9)]{[a179_0x3f1bda(0xcc)](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5bae30=a179_0x5f43;this['createdDate']=moment()['format'](_0x5bae30(0xab));});}[a179_0x3f1bda(0xa8)](){const _0xa55fdb=a179_0x3f1bda;return tslib_1[_0xa55fdb(0xcb)](this,void 0x0,void 0x0,function*(){const _0x53e21d=_0xa55fdb;this[_0x53e21d(0xca)]=moment()[_0x53e21d(0xcf)](_0x53e21d(0xab));});}};function a179_0x5f43(_0x574bc3,_0x185061){const _0x1f6499=a179_0x1f64();return a179_0x5f43=function(_0x5f432d,_0x53c0de){_0x5f432d=_0x5f432d-0xa0;let _0x410df0=_0x1f6499[_0x5f432d];return _0x410df0;},a179_0x5f43(_0x574bc3,_0x185061);}tslib_1[a179_0x3f1bda(0xb0)]([(0x0,class_validator_1[a179_0x3f1bda(0xc0)])(),(0x0,typeorm_1[a179_0x3f1bda(0xc4)])({'name':a179_0x3f1bda(0xc3)}),tslib_1['__metadata'](a179_0x3f1bda(0xaa),Number)],ProductAnswer[a179_0x3f1bda(0xad)],a179_0x3f1bda(0xa6),void 0x0),tslib_1[a179_0x3f1bda(0xb0)]([(0x0,class_validator_1[a179_0x3f1bda(0xc0)])(),(0x0,typeorm_1[a179_0x3f1bda(0xc8)])({'name':a179_0x3f1bda(0xc7)}),tslib_1[a179_0x3f1bda(0xa0)](a179_0x3f1bda(0xaa),Number)],ProductAnswer['prototype'],a179_0x3f1bda(0xb1),void 0x0),tslib_1[a179_0x3f1bda(0xb0)]([(0x0,class_validator_1[a179_0x3f1bda(0xc0)])(),(0x0,typeorm_1[a179_0x3f1bda(0xc8)])({'name':a179_0x3f1bda(0xb5)}),tslib_1[a179_0x3f1bda(0xa0)]('design:type',String)],ProductAnswer['prototype'],a179_0x3f1bda(0xb5),void 0x0),tslib_1[a179_0x3f1bda(0xb0)]([(0x0,class_validator_1[a179_0x3f1bda(0xc0)])(),(0x0,typeorm_1[a179_0x3f1bda(0xc8)])({'name':'type'}),tslib_1[a179_0x3f1bda(0xa0)](a179_0x3f1bda(0xaa),Number)],ProductAnswer[a179_0x3f1bda(0xad)],a179_0x3f1bda(0xbf),void 0x0),tslib_1[a179_0x3f1bda(0xb0)]([(0x0,class_validator_1[a179_0x3f1bda(0xc0)])(),(0x0,typeorm_1[a179_0x3f1bda(0xc8)])({'name':'reference_id'}),tslib_1['__metadata'](a179_0x3f1bda(0xaa),Number)],ProductAnswer[a179_0x3f1bda(0xad)],a179_0x3f1bda(0xa5),void 0x0),tslib_1[a179_0x3f1bda(0xb0)]([(0x0,typeorm_1[a179_0x3f1bda(0xc8)])({'name':a179_0x3f1bda(0xc2)}),tslib_1[a179_0x3f1bda(0xa0)]('design:type',Number)],ProductAnswer[a179_0x3f1bda(0xad)],a179_0x3f1bda(0xd3),void 0x0),tslib_1[a179_0x3f1bda(0xb0)]([(0x0,typeorm_1[a179_0x3f1bda(0xc8)])({'name':a179_0x3f1bda(0xda)}),tslib_1[a179_0x3f1bda(0xa0)](a179_0x3f1bda(0xaa),Number)],ProductAnswer['prototype'],a179_0x3f1bda(0xda),void 0x0),tslib_1[a179_0x3f1bda(0xb0)]([(0x0,typeorm_1['Column'])({'name':a179_0x3f1bda(0xc9)}),tslib_1['__metadata'](a179_0x3f1bda(0xaa),Number)],ProductAnswer['prototype'],'dislikes',void 0x0),tslib_1[a179_0x3f1bda(0xb0)]([(0x0,typeorm_1[a179_0x3f1bda(0xc8)])({'name':a179_0x3f1bda(0xc1)}),tslib_1['__metadata'](a179_0x3f1bda(0xaa),Number)],ProductAnswer['prototype'],a179_0x3f1bda(0xa7),void 0x0),tslib_1[a179_0x3f1bda(0xb0)]([(0x0,typeorm_1[a179_0x3f1bda(0xb2)])(_0x58af90=>ProductQuestion_1['ProductQuestion'],_0x35f428=>_0x35f428[a179_0x3f1bda(0xd1)]),(0x0,typeorm_1['JoinColumn'])({'name':'question_id'}),tslib_1[a179_0x3f1bda(0xa0)]('design:type',ProductQuestion_1[a179_0x3f1bda(0xc5)])],ProductAnswer['prototype'],a179_0x3f1bda(0xa4),void 0x0),tslib_1[a179_0x3f1bda(0xb0)]([(0x0,typeorm_1[a179_0x3f1bda(0xbc)])(_0x452469=>ProductAnswerLikeDislike_1[a179_0x3f1bda(0xae)],_0x5013f9=>_0x5013f9[a179_0x3f1bda(0xd1)]),tslib_1[a179_0x3f1bda(0xa0)]('design:type',Array)],ProductAnswer[a179_0x3f1bda(0xad)],a179_0x3f1bda(0xd0),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a179_0x3f1bda(0xbc)])(_0x2dc2c3=>AnswerReportAbuse_1[a179_0x3f1bda(0xd8)],_0x2c01ff=>_0x2c01ff[a179_0x3f1bda(0xd1)]),tslib_1[a179_0x3f1bda(0xa0)](a179_0x3f1bda(0xaa),Array)],ProductAnswer[a179_0x3f1bda(0xad)],a179_0x3f1bda(0xb8),void 0x0),tslib_1[a179_0x3f1bda(0xb0)]([(0x0,typeorm_1[a179_0x3f1bda(0xac)])(),tslib_1['__metadata']('design:type',Function),tslib_1[a179_0x3f1bda(0xa0)]('design:paramtypes',[]),tslib_1[a179_0x3f1bda(0xa0)]('design:returntype',Promise)],ProductAnswer['prototype'],a179_0x3f1bda(0xcc),null),tslib_1['__decorate']([(0x0,typeorm_1[a179_0x3f1bda(0xa2)])(),tslib_1[a179_0x3f1bda(0xa0)](a179_0x3f1bda(0xaa),Function),tslib_1[a179_0x3f1bda(0xa0)](a179_0x3f1bda(0xbe),[]),tslib_1['__metadata'](a179_0x3f1bda(0xbd),Promise)],ProductAnswer[a179_0x3f1bda(0xad)],a179_0x3f1bda(0xa8),null),ProductAnswer=tslib_1[a179_0x3f1bda(0xb0)]([(0x0,typeorm_1['Entity'])('product_answer')],ProductAnswer),exports[a179_0x3f1bda(0xb4)]=ProductAnswer;function a179_0x1f64(){const _0x565fbd=['default_answer','answer_id','PrimaryGeneratedColumn','ProductQuestion','./ProductAnswerLikeDislike','question_id','Column','dislikes','modifiedDate','__awaiter','createDetails','defineProperty','8961386KDDnZC','format','productAnswerLike','productAnswer','typeorm','defaultAnswer','1678983ieZoYV','./AnswerReportAbuse','12016EnuNjA','2bFyTit','AnswerReportAbuse','BaseModel','likes','__metadata','19389303yLMRra','BeforeUpdate','./ProductQuestion','productQuestion','referenceId','answerId','isActive','updateDetails','../../../src/api/core/models/BaseModel','design:type','YYYY-MM-DD\x20HH:mm:ss','BeforeInsert','prototype','ProductAnswerLikeDislike','161840jNzsOP','__decorate','questionId','ManyToOne','3792366WYeIsq','ProductAnswer','answer','moment/moment','720759mpuqCa','answerReportAbuse','1705oHUVQW','tslib','class-validator','OneToMany','design:returntype','design:paramtypes','type','IsNotEmpty','is_active'];a179_0x1f64=function(){return _0x565fbd;};return a179_0x1f64();}
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductAnswer = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("../../../src/api/core/models/BaseModel");
+const ProductQuestion_1 = require("./ProductQuestion");
+const moment = require("moment/moment");
+const ProductAnswerLikeDislike_1 = require("./ProductAnswerLikeDislike");
+const AnswerReportAbuse_1 = require("./AnswerReportAbuse");
+const class_validator_1 = require("class-validator");
+let ProductAnswer = class ProductAnswer extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'answer_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductAnswer.prototype, "answerId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'question_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductAnswer.prototype, "questionId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'answer' }),
+    tslib_1.__metadata("design:type", String)
+], ProductAnswer.prototype, "answer", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'type' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductAnswer.prototype, "type", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'reference_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductAnswer.prototype, "referenceId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'default_answer' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductAnswer.prototype, "defaultAnswer", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'likes' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductAnswer.prototype, "likes", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'dislikes' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductAnswer.prototype, "dislikes", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductAnswer.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => ProductQuestion_1.ProductQuestion, productQuestion => productQuestion.productAnswer),
+    (0, typeorm_1.JoinColumn)({ name: 'question_id' }),
+    tslib_1.__metadata("design:type", ProductQuestion_1.ProductQuestion)
+], ProductAnswer.prototype, "productQuestion", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => ProductAnswerLikeDislike_1.ProductAnswerLikeDislike, productAnswerLike => productAnswerLike.productAnswer),
+    tslib_1.__metadata("design:type", Array)
+], ProductAnswer.prototype, "productAnswerLike", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => AnswerReportAbuse_1.AnswerReportAbuse, answerReportAbuse => answerReportAbuse.productAnswer),
+    tslib_1.__metadata("design:type", Array)
+], ProductAnswer.prototype, "answerReportAbuse", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductAnswer.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductAnswer.prototype, "updateDetails", null);
+ProductAnswer = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('product_answer')
+], ProductAnswer);
+exports.ProductAnswer = ProductAnswer;
+//# sourceMappingURL=ProductAnswer.js.map

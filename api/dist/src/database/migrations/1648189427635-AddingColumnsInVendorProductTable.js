@@ -1,1 +1,51 @@
-'use strict';const a927_0x235b45=a927_0x2165;(function(_0x244480,_0x36d77c){const _0x5b3d44=a927_0x2165,_0x405206=_0x244480();while(!![]){try{const _0xa8358e=parseInt(_0x5b3d44(0x18e))/0x1+parseInt(_0x5b3d44(0x18a))/0x2+-parseInt(_0x5b3d44(0x18b))/0x3+parseInt(_0x5b3d44(0x18f))/0x4*(parseInt(_0x5b3d44(0x190))/0x5)+-parseInt(_0x5b3d44(0x193))/0x6*(-parseInt(_0x5b3d44(0x186))/0x7)+-parseInt(_0x5b3d44(0x197))/0x8+parseInt(_0x5b3d44(0x19a))/0x9*(-parseInt(_0x5b3d44(0x185))/0xa);if(_0xa8358e===_0x36d77c)break;else _0x405206['push'](_0x405206['shift']());}catch(_0x4d1bc3){_0x405206['push'](_0x405206['shift']());}}}(a927_0xc291,0xea919));Object['defineProperty'](exports,a927_0x235b45(0x198),{'value':!![]}),exports[a927_0x235b45(0x194)]=void 0x0;function a927_0x2165(_0x5194fd,_0x3d8308){const _0xc2911a=a927_0xc291();return a927_0x2165=function(_0x21657d,_0x35b54a){_0x21657d=_0x21657d-0x185;let _0x2ded52=_0xc2911a[_0x21657d];return _0x2ded52;},a927_0x2165(_0x5194fd,_0x3d8308);}function a927_0xc291(){const _0x432221=['9261830MZBzRe','7JrWEbi','hasColumn','dropColumn','vendor_product','3165160srqupC','1422381RXJDHT','down','reuse','683191PpaJGS','4244eGQyLZ','8145bRaSWp','int','sku_id','5405826gyDLJP','AddingColumnsInVendorProductTable1648189427635','typeorm','reuse_status','5453136SbJAHb','__esModule','TableColumn','27oxhQoc','addColumn'];a927_0xc291=function(){return _0x432221;};return a927_0xc291();}const tslib_1=require('tslib'),typeorm_1=require(a927_0x235b45(0x195));class AddingColumnsInVendorProductTable1648189427635{['up'](_0xc036ce){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1e172a=a927_0x2165,_0x43aaf1=yield _0xc036ce[_0x1e172a(0x187)](_0x1e172a(0x189),_0x1e172a(0x192));!_0x43aaf1&&(yield _0xc036ce[_0x1e172a(0x19b)](_0x1e172a(0x189),new typeorm_1[(_0x1e172a(0x199))]({'name':'sku_id','type':_0x1e172a(0x191),'length':'11','isPrimary':![],'isNullable':!![]})));const _0x371059=yield _0xc036ce[_0x1e172a(0x187)]('vendor_product',_0x1e172a(0x18d));!_0x371059&&(yield _0xc036ce[_0x1e172a(0x19b)](_0x1e172a(0x189),new typeorm_1[(_0x1e172a(0x199))]({'name':_0x1e172a(0x18d),'type':'int','length':'11','isPrimary':![],'isNullable':!![]})));const _0x465068=yield _0xc036ce[_0x1e172a(0x187)]('vendor_product',_0x1e172a(0x196));!_0x465068&&(yield _0xc036ce[_0x1e172a(0x19b)](_0x1e172a(0x189),new typeorm_1[(_0x1e172a(0x199))]({'name':_0x1e172a(0x196),'type':_0x1e172a(0x191),'length':'11','isPrimary':![],'isNullable':!![],'default':0x0})));});}[a927_0x235b45(0x18c)](_0x678ea3){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x34d22b=a927_0x2165;yield _0x678ea3[_0x34d22b(0x188)](_0x34d22b(0x189),_0x34d22b(0x192)),yield _0x678ea3['dropColumn'](_0x34d22b(0x189),_0x34d22b(0x18d)),yield _0x678ea3['dropColumn']('vendor_product','reuse_status');});}}exports[a927_0x235b45(0x194)]=AddingColumnsInVendorProductTable1648189427635;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddingColumnsInVendorProductTable1648189427635 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddingColumnsInVendorProductTable1648189427635 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('vendor_product', 'sku_id');
+            if (!ifExist) {
+                yield queryRunner.addColumn('vendor_product', new typeorm_1.TableColumn({
+                    name: 'sku_id',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist1 = yield queryRunner.hasColumn('vendor_product', 'reuse');
+            if (!ifExist1) {
+                yield queryRunner.addColumn('vendor_product', new typeorm_1.TableColumn({
+                    name: 'reuse',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist2 = yield queryRunner.hasColumn('vendor_product', 'reuse_status');
+            if (!ifExist2) {
+                yield queryRunner.addColumn('vendor_product', new typeorm_1.TableColumn({
+                    name: 'reuse_status',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                    default: 0,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('vendor_product', 'sku_id');
+            yield queryRunner.dropColumn('vendor_product', 'reuse');
+            yield queryRunner.dropColumn('vendor_product', 'reuse_status');
+        });
+    }
+}
+exports.AddingColumnsInVendorProductTable1648189427635 = AddingColumnsInVendorProductTable1648189427635;
+//# sourceMappingURL=1648189427635-AddingColumnsInVendorProductTable.js.map

@@ -1,1 +1,400 @@
-'use strict';const a120_0x21bd18=a120_0x1a16;(function(_0xe72b3e,_0x51cd06){const _0x3dbb3a=a120_0x1a16,_0x265066=_0xe72b3e();while(!![]){try{const _0x1485e1=parseInt(_0x3dbb3a(0xc1))/0x1+parseInt(_0x3dbb3a(0x9a))/0x2+-parseInt(_0x3dbb3a(0xbd))/0x3+parseInt(_0x3dbb3a(0xe0))/0x4*(parseInt(_0x3dbb3a(0xd7))/0x5)+parseInt(_0x3dbb3a(0xa9))/0x6*(-parseInt(_0x3dbb3a(0xe5))/0x7)+parseInt(_0x3dbb3a(0xb1))/0x8+parseInt(_0x3dbb3a(0xe1))/0x9*(-parseInt(_0x3dbb3a(0xac))/0xa);if(_0x1485e1===_0x51cd06)break;else _0x265066['push'](_0x265066['shift']());}catch(_0x540df2){_0x265066['push'](_0x265066['shift']());}}}(a120_0x51d5,0xcbcba));Object[a120_0x21bd18(0xde)](exports,a120_0x21bd18(0xae),{'value':!![]}),exports[a120_0x21bd18(0xc2)]=void 0x0;function a120_0x1a16(_0x2b52ad,_0x12fd37){const _0x51d57d=a120_0x51d5();return a120_0x1a16=function(_0x1a1686,_0x2d3b58){_0x1a1686=_0x1a1686-0x98;let _0x3ec479=_0x51d57d[_0x1a1686];return _0x3ec479;},a120_0x1a16(_0x2b52ad,_0x12fd37);}function a120_0x51d5(){const _0x1ca17e=['productVarientOptionDetailService','__awaiter','__param','Successfully\x20created\x20varients.','UpdateVarients','Unable\x20to\x20create.','name','type','valueName','Varients','VarientsValueService','../../../../src/api/core/middlewares/AddonValidationMiddleware','../../services/VarientsValueService','VarientsService','Unable\x20to\x20delete\x20the\x20varient.','565kJRLfl','__decorate','CheckAddonMiddleware','./requests/UpdateVarientsRequest','map','Successfully\x20got\x20varients\x20detail','create','defineProperty','Res','52012WUhLuV','36nurzdS','all','routing-controllers','UseBefore','489349ffZRXF','QueryParam','ASC','prototype','variant-detail','Put','Body','push','JsonController','./requests/CreateVarientRequest','varientsValue','deleteVarients','createPage','Get','like','list','236572yeDpob','varientsList','updateVarients','find','../../models/VarientsValue','varientsDetail','../../services/VarientsService','admin','send','sortOrder','Invalid\x20varient\x20Id.','varientsService','delete','varientsValueService','/variants','78TqgUmz','reflect-metadata','limit','1549090vbmfeQ','productVarientService','__esModule','/:id','design:type','2846056bwUYFN','Param','offset','variant-edit','varientsId','status','design:returntype','CreateVarients','variant-add','Delete','../../models/Varients','VarientsValue','2784339yGUlzo','design:paramtypes','findOne','Authorized','1347904foWNOK','MasterVariantsController','Unable\x20to\x20update\x20the\x20varient.','__metadata','Successfully\x20got\x20the\x20complete\x20list\x20of\x20varients.\x20','../../services/ProductVarientService','../../services/ProductVarientOptionDetailService'];a120_0x51d5=function(){return _0x1ca17e;};return a120_0x51d5();}const tslib_1=require('tslib');require(a120_0x21bd18(0xaa));const routing_controllers_1=require(a120_0x21bd18(0xe3)),Varients_1=require(a120_0x21bd18(0xbb)),VarientsValue_1=require(a120_0x21bd18(0x9e)),VarientsService_1=require(a120_0x21bd18(0xa0)),VarientsValueService_1=require(a120_0x21bd18(0xd4)),UpdateVarientsRequest_1=require(a120_0x21bd18(0xda)),CreateVarientRequest_1=require(a120_0x21bd18(0xee)),ProductVarientService_1=require(a120_0x21bd18(0xc6)),ProductVarientOptionDetailService_1=require(a120_0x21bd18(0xc7)),AddonValidationMiddleware_1=require(a120_0x21bd18(0xd3));let MasterVariantsController=class MasterVariantsController{constructor(_0x3817a6,_0x137dde,_0x3076ef,_0x424c1c){const _0x24f82e=a120_0x21bd18;this[_0x24f82e(0xa5)]=_0x3817a6,this[_0x24f82e(0xa7)]=_0x137dde,this[_0x24f82e(0xc8)]=_0x3076ef,this[_0x24f82e(0xad)]=_0x424c1c;}[a120_0x21bd18(0xf1)](_0x248939,_0xbf06ed){const _0x24a2b9=a120_0x21bd18;return tslib_1[_0x24a2b9(0xc9)](this,void 0x0,void 0x0,function*(){const _0x51e8b3=_0x24a2b9,_0x460fa2=new Varients_1[(_0x51e8b3(0xd1))]();_0x460fa2[_0x51e8b3(0xce)]=_0x248939[_0x51e8b3(0xce)],_0x460fa2[_0x51e8b3(0xa3)]=_0x248939[_0x51e8b3(0xa3)],_0x460fa2[_0x51e8b3(0xcf)]=_0x248939[_0x51e8b3(0xcf)];const _0x513dd1=yield this[_0x51e8b3(0xa5)]['create'](_0x460fa2);if(_0x248939['varientsValue']){const _0x3a2f8c=_0x248939[_0x51e8b3(0xef)];for(const _0x421c8b of _0x3a2f8c){const _0x433c9e=new VarientsValue_1[(_0x51e8b3(0xbc))]();_0x433c9e[_0x51e8b3(0xd0)]=_0x421c8b['valueName'],_0x433c9e[_0x51e8b3(0xa3)]=_0x421c8b[_0x51e8b3(0xa3)]?_0x421c8b['sortOrder']:0x1,_0x433c9e[_0x51e8b3(0xb5)]=_0x513dd1['id'],yield this[_0x51e8b3(0xa7)][_0x51e8b3(0xdd)](_0x433c9e);}}if(_0x513dd1!==undefined){const _0x162532={'status':0x1,'message':_0x51e8b3(0xcb),'data':_0x513dd1};return _0xbf06ed[_0x51e8b3(0xb6)](0xc8)[_0x51e8b3(0xa2)](_0x162532);}else{const _0x5d6be5={'status':0x0,'message':_0x51e8b3(0xcd)};return _0xbf06ed[_0x51e8b3(0xb6)](0x190)[_0x51e8b3(0xa2)](_0x5d6be5);}});}[a120_0x21bd18(0x9b)](_0x442e4b,_0x5f40ce,_0x5e308a,_0x59ace7,_0x287560,_0x3204b8){const _0x612361=a120_0x21bd18;return tslib_1[_0x612361(0xc9)](this,void 0x0,void 0x0,function*(){const _0x25e159=_0x612361,_0x1a6af6=['id',_0x25e159(0xcf),_0x25e159(0xce),_0x25e159(0xa3)],_0x347599=[],_0x920318=[];(_0x5e308a===null||_0x5e308a===void 0x0?void 0x0:_0x5e308a['trim']())&&_0x920318[_0x25e159(0xec)]({'name':'name','op':_0x25e159(0x98),'value':_0x5e308a});const _0x5518ca=yield this[_0x25e159(0xa5)][_0x25e159(0x99)](_0x442e4b,_0x5f40ce,_0x1a6af6,_0x347599,_0x920318,_0x287560);if(_0x287560){const _0xb4adbd={'status':0x1,'message':'Successfully\x20got\x20count','data':_0x5518ca};return _0x3204b8['status'](0xc8)[_0x25e159(0xa2)](_0xb4adbd);}const _0x262625=_0x5518ca[_0x25e159(0xdb)](_0x4268fc=>tslib_1[_0x25e159(0xc9)](this,void 0x0,void 0x0,function*(){const _0x5db6e8=_0x25e159,_0xc450a=yield this[_0x5db6e8(0xa7)]['find']({'where':{'varientsId':_0x4268fc['id']},'order':{'sortOrder':_0x5db6e8(0xe7)}}),_0x21752f=_0x4268fc;if(_0xc450a){_0x21752f[_0x5db6e8(0xef)]=_0xc450a;const _0x1b048a=_0x21752f[_0x5db6e8(0xef)][_0x5db6e8(0xdb)](_0x395e3d=>tslib_1[_0x5db6e8(0xc9)](this,void 0x0,void 0x0,function*(){const _0x178e45=_0x5db6e8,_0x412161=yield this[_0x178e45(0xc8)][_0x178e45(0xbf)]({'where':{'varientsValueId':_0x395e3d['id']}});return _0x412161?Object['assign'](_0x395e3d,{'availedVarientValue':0x1}):Object['assign'](_0x395e3d,{'availedVarientValue':0x0}),_0x395e3d;}));yield Promise[_0x5db6e8(0xe2)](_0x1b048a);}else _0x21752f[_0x5db6e8(0xef)]=[];return _0x21752f;})),_0x195f07=yield Promise[_0x25e159(0xe2)](_0x262625),_0x863814={'status':0x1,'message':_0x25e159(0xc5),'data':_0x195f07};return _0x3204b8[_0x25e159(0xb6)](0xc8)[_0x25e159(0xa2)](_0x863814);});}['updateVarients'](_0x1b4acd,_0x28a551,_0x1870d8){const _0x500c79=a120_0x21bd18;return tslib_1[_0x500c79(0xc9)](this,void 0x0,void 0x0,function*(){const _0x15fed9=_0x500c79,_0x5e4752=yield this['varientsService'][_0x15fed9(0xbf)]({'where':{'id':_0x1b4acd}});if(!_0x5e4752){const _0x5636db={'status':0x0,'message':'Invalid\x20varient.'};return _0x1870d8[_0x15fed9(0xb6)](0x190)[_0x15fed9(0xa2)](_0x5636db);}_0x5e4752[_0x15fed9(0xcf)]=_0x28a551['type'],_0x5e4752['name']=_0x28a551[_0x15fed9(0xce)],_0x5e4752[_0x15fed9(0xa3)]=_0x28a551['sortOrder']?_0x28a551[_0x15fed9(0xa3)]:0x1;const _0x3c5bbb=yield this[_0x15fed9(0xa5)][_0x15fed9(0xdd)](_0x5e4752);if(_0x28a551[_0x15fed9(0xef)]){yield this[_0x15fed9(0xa7)][_0x15fed9(0xa6)]({'varientsId':_0x3c5bbb['id']});const _0x29f825=_0x28a551[_0x15fed9(0xef)];for(const _0x211721 of _0x29f825){const _0x5c4a42=new VarientsValue_1[(_0x15fed9(0xbc))]();_0x211721['id']!==undefined&&_0x211721['id']!==null?(_0x5c4a42['id']=_0x211721['id'],_0x5c4a42[_0x15fed9(0xb5)]=_0x3c5bbb['id'],_0x5c4a42[_0x15fed9(0xd0)]=_0x211721[_0x15fed9(0xd0)],_0x5c4a42[_0x15fed9(0xa3)]=_0x211721['sortOrder']?_0x211721['sortOrder']:0x1,yield this[_0x15fed9(0xa7)][_0x15fed9(0xdd)](_0x5c4a42)):(_0x5c4a42[_0x15fed9(0xd0)]=_0x211721['valueName'],_0x5c4a42['sortOrder']=_0x211721[_0x15fed9(0xa3)]?_0x211721[_0x15fed9(0xa3)]:0x1,_0x5c4a42[_0x15fed9(0xb5)]=_0x3c5bbb['id'],yield this[_0x15fed9(0xa7)]['create'](_0x5c4a42));}}if(_0x3c5bbb){const _0x22b446={'status':0x1,'message':'Successfully\x20updated\x20the\x20Varient.','data':_0x3c5bbb};return _0x1870d8[_0x15fed9(0xb6)](0xc8)[_0x15fed9(0xa2)](_0x22b446);}else{const _0x793b38={'status':0x0,'message':_0x15fed9(0xc3)};return _0x1870d8[_0x15fed9(0xb6)](0x190)[_0x15fed9(0xa2)](_0x793b38);}});}[a120_0x21bd18(0xf0)](_0x32de3a,_0x1cfd2e,_0x4a0765){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x588c71=a120_0x1a16,_0x1222f1=yield this[_0x588c71(0xa5)][_0x588c71(0xbf)]({'where':{'id':_0x32de3a}});if(!_0x1222f1){const _0x3c0043={'status':0x0,'message':_0x588c71(0xa4)};return _0x1cfd2e[_0x588c71(0xb6)](0x190)[_0x588c71(0xa2)](_0x3c0043);}const _0xe6ff62=yield this['productVarientService'][_0x588c71(0xbf)]({'where':{'varientsId':_0x32de3a}});if(_0xe6ff62){const _0x52af28={'status':0x0,'message':'You\x20cannot\x20delete\x20this\x20varient,\x20as\x20products\x20are\x20mapped\x20to\x20it.'};return _0x1cfd2e[_0x588c71(0xb6)](0x190)['send'](_0x52af28);}const _0x44c435=yield this['varientsService'][_0x588c71(0xa6)](_0x32de3a);if(!_0x44c435){const _0x1d5a7f={'status':0x1,'message':'Successfully\x20deleted\x20the\x20varient.'};return _0x1cfd2e[_0x588c71(0xb6)](0xc8)[_0x588c71(0xa2)](_0x1d5a7f);}else{const _0x18305b={'status':0x0,'message':_0x588c71(0xd6)};return _0x1cfd2e[_0x588c71(0xb6)](0x190)[_0x588c71(0xa2)](_0x18305b);}});}[a120_0x21bd18(0x9f)](_0x494b1d,_0x19af65){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x56d384=a120_0x1a16,_0x3c1f28=yield this[_0x56d384(0xa5)]['findOne']({'where':{'id':_0x494b1d}});if(!_0x3c1f28){const _0x116378={'status':0x0,'message':'Invalid\x20varients\x20Id'};return _0x19af65[_0x56d384(0xb6)](0x190)[_0x56d384(0xa2)](_0x116378);}_0x3c1f28[_0x56d384(0xef)]=yield this[_0x56d384(0xa7)][_0x56d384(0x9d)]({'where':{'varientsId':_0x3c1f28['id']},'order':{'sortOrder':_0x56d384(0xe7)}});const _0x30b6b5={'status':0x1,'message':_0x56d384(0xdc),'data':_0x3c1f28};return _0x19af65['status'](0xc8)[_0x56d384(0xa2)](_0x30b6b5);});}};tslib_1[a120_0x21bd18(0xd8)]([(0x0,routing_controllers_1['Post'])(),(0x0,routing_controllers_1[a120_0x21bd18(0xc0)])([a120_0x21bd18(0xa1),a120_0x21bd18(0xb9)]),tslib_1[a120_0x21bd18(0xca)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a120_0x21bd18(0xc4)]('design:type',Function),tslib_1[a120_0x21bd18(0xc4)](a120_0x21bd18(0xbe),[CreateVarientRequest_1[a120_0x21bd18(0xb8)],Object]),tslib_1[a120_0x21bd18(0xc4)](a120_0x21bd18(0xb7),Promise)],MasterVariantsController['prototype'],'createPage',null),tslib_1[a120_0x21bd18(0xd8)]([(0x0,routing_controllers_1[a120_0x21bd18(0xf2)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1['QueryParam'])(a120_0x21bd18(0xab))),tslib_1['__param'](0x1,(0x0,routing_controllers_1['QueryParam'])(a120_0x21bd18(0xb3))),tslib_1[a120_0x21bd18(0xca)](0x2,(0x0,routing_controllers_1[a120_0x21bd18(0xe6)])('keyword')),tslib_1[a120_0x21bd18(0xca)](0x3,(0x0,routing_controllers_1['QueryParam'])(a120_0x21bd18(0xb6))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a120_0x21bd18(0xe6)])('count')),tslib_1[a120_0x21bd18(0xca)](0x5,(0x0,routing_controllers_1[a120_0x21bd18(0xdf)])()),tslib_1[a120_0x21bd18(0xc4)]('design:type',Function),tslib_1[a120_0x21bd18(0xc4)](a120_0x21bd18(0xbe),[Number,Number,String,Number,Object,Object]),tslib_1[a120_0x21bd18(0xc4)](a120_0x21bd18(0xb7),Promise)],MasterVariantsController[a120_0x21bd18(0xe8)],a120_0x21bd18(0x9b),null),tslib_1[a120_0x21bd18(0xd8)]([(0x0,routing_controllers_1[a120_0x21bd18(0xea)])('/:id'),(0x0,routing_controllers_1[a120_0x21bd18(0xc0)])([a120_0x21bd18(0xa1),a120_0x21bd18(0xb4)]),tslib_1[a120_0x21bd18(0xca)](0x0,(0x0,routing_controllers_1[a120_0x21bd18(0xb2)])('id')),tslib_1[a120_0x21bd18(0xca)](0x1,(0x0,routing_controllers_1[a120_0x21bd18(0xeb)])({'validate':!![]})),tslib_1[a120_0x21bd18(0xca)](0x2,(0x0,routing_controllers_1[a120_0x21bd18(0xdf)])()),tslib_1[a120_0x21bd18(0xc4)]('design:type',Function),tslib_1[a120_0x21bd18(0xc4)](a120_0x21bd18(0xbe),[Number,UpdateVarientsRequest_1[a120_0x21bd18(0xcc)],Object]),tslib_1['__metadata']('design:returntype',Promise)],MasterVariantsController[a120_0x21bd18(0xe8)],a120_0x21bd18(0x9c),null),tslib_1[a120_0x21bd18(0xd8)]([(0x0,routing_controllers_1[a120_0x21bd18(0xba)])(a120_0x21bd18(0xaf)),(0x0,routing_controllers_1['Authorized'])(['admin','varient-delete']),tslib_1[a120_0x21bd18(0xca)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a120_0x21bd18(0xdf)])()),tslib_1[a120_0x21bd18(0xca)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1[a120_0x21bd18(0xc4)](a120_0x21bd18(0xb0),Function),tslib_1['__metadata'](a120_0x21bd18(0xbe),[Number,Object,Object]),tslib_1[a120_0x21bd18(0xc4)](a120_0x21bd18(0xb7),Promise)],MasterVariantsController[a120_0x21bd18(0xe8)],a120_0x21bd18(0xf0),null),tslib_1[a120_0x21bd18(0xd8)]([(0x0,routing_controllers_1[a120_0x21bd18(0xf2)])('/varients-detail'),(0x0,routing_controllers_1[a120_0x21bd18(0xc0)])(['admin',a120_0x21bd18(0xe9)]),tslib_1[a120_0x21bd18(0xca)](0x0,(0x0,routing_controllers_1[a120_0x21bd18(0xe6)])('id')),tslib_1[a120_0x21bd18(0xca)](0x1,(0x0,routing_controllers_1[a120_0x21bd18(0xdf)])()),tslib_1['__metadata'](a120_0x21bd18(0xb0),Function),tslib_1['__metadata'](a120_0x21bd18(0xbe),[Number,Object]),tslib_1[a120_0x21bd18(0xc4)](a120_0x21bd18(0xb7),Promise)],MasterVariantsController[a120_0x21bd18(0xe8)],a120_0x21bd18(0x9f),null),MasterVariantsController=tslib_1[a120_0x21bd18(0xd8)]([(0x0,routing_controllers_1[a120_0x21bd18(0xe4)])(AddonValidationMiddleware_1[a120_0x21bd18(0xd9)]),(0x0,routing_controllers_1[a120_0x21bd18(0xed)])(a120_0x21bd18(0xa8)),tslib_1['__metadata'](a120_0x21bd18(0xbe),[VarientsService_1[a120_0x21bd18(0xd5)],VarientsValueService_1[a120_0x21bd18(0xd2)],ProductVarientOptionDetailService_1['ProductVarientOptionDetailService'],ProductVarientService_1['ProductVarientService']])],MasterVariantsController),exports[a120_0x21bd18(0xc2)]=MasterVariantsController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MasterVariantsController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const Variant_1 = require("../../models/Variant");
+const VariantValue_1 = require("../../models/VariantValue");
+const VariantService_1 = require("../../services/VariantService");
+const VariantValueService_1 = require("../../services/VariantValueService");
+const UpdateVariantRequest_1 = require("./requests/UpdateVariantRequest");
+const CreateVariantRequest_1 = require("./requests/CreateVariantRequest");
+const ProductVarientService_1 = require("../../services/ProductVarientService");
+const ProductVarientOptionDetailService_1 = require("../../services/ProductVarientOptionDetailService");
+// import { CheckAddonMiddleware } from '../../../../src/api/core/middlewares/AddonValidationMiddleware';
+const typeorm_1 = require("typeorm");
+// @UseBefore(CheckAddonMiddleware)
+let MasterVariantsController = class MasterVariantsController {
+    constructor(variantService, variantValueService, productVarientOptionDetailService, productVarientService) {
+        this.variantService = variantService;
+        this.variantValueService = variantValueService;
+        this.productVarientOptionDetailService = productVarientOptionDetailService;
+        this.productVarientService = productVarientService;
+        // ----
+    }
+    // Create Variant API
+    /**
+     * @api {post} /api/variants Add Variant API
+     * @apiGroup Variants
+     * @apiParam (Request body) {String} [type] type
+     * @apiParam (Request body) {String{..255}} name name
+     * @apiParam (Request body) {String} sortOrder sortOrder
+     * @apiParam (Request body) {Object} [variantValue] variantValue
+     * @apiParam (Request body) {String}  variantValue.valueName valueName
+     * @apiParam (Request body) {String}  variantValue.sortOrder valueName
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "type" : "",
+     *      "name" : "",
+     *      "sortOrder" : "",
+     *      "variantValue" : [{
+     *      "valueName" : "",
+     *      "sortOrder" : "",
+     * }]
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "variant is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/variants
+     * @apiErrorExample {json} variants error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createPage(variantParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const variantValues = [];
+            for (const variantVal of variantParam.variantValue) {
+                const variantValue = new VariantValue_1.VariantValue();
+                variantValue.value = variantVal.value;
+                variantValue.sortOrder = variantVal.sortOrder;
+                variantValues.push(variantValue);
+            }
+            const variant = new Variant_1.Variant();
+            variant.name = variantParam.name;
+            variant.sortOrder = variantParam.sortOrder;
+            variant.type = variantParam.type;
+            variant.variantValue = variantValues;
+            const variantSave = yield this.variantService.create(variant);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully created Variant.',
+                data: variantSave,
+            });
+        });
+    }
+    // Variants List API
+    /**
+     * @api {get} /api/variants Variant List API
+     * @apiGroup Variants
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get varient list",
+     *      "data":{
+     *      "id" : "",
+     *      "name" : "",
+     *      "type" : "",
+     *      "sortOrder" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/variants
+     * @apiErrorExample {json} Variantlist error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    variantList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['id', 'type', 'name', 'sortOrder'];
+            const relation = [];
+            const WhereConditions = [];
+            if (keyword === null || keyword === void 0 ? void 0 : keyword.trim()) {
+                WhereConditions.push({
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                });
+            }
+            const variantList = yield this.variantService.list(limit, offset, select, relation, WhereConditions, count);
+            if (count) {
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got variant count',
+                    data: variantList,
+                };
+                return response.status(200).send(successRes);
+            }
+            const promise = variantList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const data = yield this.variantValueService.find({ where: { variantId: result.id }, order: { sortOrder: 'ASC' } });
+                const temp = result;
+                if (data) {
+                    temp.variantValues = data;
+                    const availablevarientVal = temp.variantValues.map((val) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                        const availableVarientValue = yield this.productVarientOptionDetailService.findOne({
+                            where: {
+                                variantValueId: val.id,
+                            },
+                        });
+                        if (availableVarientValue) {
+                            Object.assign(val, { availedVarientValue: 1 });
+                        }
+                        else {
+                            Object.assign(val, { availedVarientValue: 0 });
+                        }
+                        return val;
+                    }));
+                    yield Promise.all(availablevarientVal);
+                }
+                else {
+                    temp.variantValue = [];
+                }
+                return temp;
+            }));
+            const value = yield Promise.all(promise);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got variant list. ',
+                data: value,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Update Variants API
+    /**
+     * @api {put} /api/variants/:id Update Variant API
+     * @apiGroup Variants
+     * @apiParam (Request body) {String} [type] type
+     * @apiParam (Request body) {String} name name
+     * @apiParam (Request body) {Number{..9999}} sortOrder sortOrder
+     * @apiParam (Request body) {Object} [variantValue] variantValue
+     * @apiParam (Request body) {String} variantValue.valueName valueName
+     * @apiParam (Request body) {String} variantValue.sortOrder sortOrder
+     * @apiParam (Request body) {String} variantValue.id varient value id
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "type" : "",
+     *      "name" : "",
+     *      "sortOrder" : "",
+     *      "variantValue" : [{
+     *      "id" : "",
+     *      "valueName" : "",
+     *      "sortOrder" : "",
+     * }]
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": " Variant are updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/variants/:id
+     * @apiErrorExample {json} updateVariants error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateVariant(id, variantParam, response) {
+        var _a;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const variant = yield this.variantService.findOne({
+                where: {
+                    id,
+                },
+            });
+            if (!variant) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid varient Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            if ((_a = variantParam.deleteVariantValueIds) === null || _a === void 0 ? void 0 : _a.length) {
+                const variantValueProduct = yield this.productVarientOptionDetailService.findOne({
+                    where: {
+                        variantValueId: (0, typeorm_1.In)(variantParam.deleteVariantValueIds),
+                    },
+                });
+                if (variantValueProduct) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: `Variant Value Can't Be deleted As value are mapped to product.`,
+                        data: variantValueProduct.variantValueId,
+                    });
+                }
+                yield this.variantValueService.delete({ id: (0, typeorm_1.In)(variantParam.deleteVariantValueIds) });
+            }
+            const variantValues = [];
+            for (const variantVal of variantParam.variantValue) {
+                const variantValue = new VariantValue_1.VariantValue();
+                if (variantVal.id) {
+                    variantValue.id = variantVal.id;
+                }
+                variantValue.value = variantVal.value;
+                variantValue.sortOrder = variantVal.sortOrder;
+                variantValues.push(variantValue);
+            }
+            variant.name = variantParam.name;
+            variant.sortOrder = variantParam.sortOrder;
+            variant.type = variantParam.type;
+            variant.variantValue = variantValues;
+            const variantSave = yield this.variantService.create(variant);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully Updated variant.',
+                data: variantSave,
+            });
+        });
+    }
+    // Delete Varient API
+    /**
+     * @api {delete} /api/variants/:id Delete Varient API
+     * @apiGroup Variants
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted variant.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/variants/:id
+     * @apiErrorExample {json} Variant error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteVariant(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const variant = yield this.variantService.findOne({
+                where: {
+                    id,
+                },
+            });
+            if (!variant) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid varient Id.',
+                });
+            }
+            const productVariantExist = yield this.productVarientService.findOne({ where: { variantId: id } });
+            if (productVariantExist) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'You cannot delete this varient, as products are mapped to it.',
+                });
+            }
+            yield this.variantService.delete(id);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully deleted the varient.',
+            });
+        });
+    }
+    // variant Detail
+    /**
+     * @api {get} /api/variants/variant-detail Variant Detail API
+     * @apiGroup Variants
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} id id
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Variant detail",
+     *      "data": "{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/variants/variant-detail
+     * @apiErrorExample {json} variant Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    variantDetail(variantId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const variant = yield this.variantService.findOne({
+                where: {
+                    id: variantId,
+                },
+            });
+            if (!variant) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid variant Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            variant.variantValue = yield this.variantValueService.find({
+                where: {
+                    variantId: variant.id,
+                },
+                order: {
+                    sortOrder: 'ASC',
+                },
+            });
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got variant detail',
+                data: variant,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'variant-add']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateVariantRequest_1.CreateVariant, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], MasterVariantsController.prototype, "createPage", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], MasterVariantsController.prototype, "variantList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'variant-edit']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, UpdateVariantRequest_1.UpdateVariant, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], MasterVariantsController.prototype, "updateVariant", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'varient-delete']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], MasterVariantsController.prototype, "deleteVariant", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'variant-detail']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], MasterVariantsController.prototype, "variantDetail", null);
+MasterVariantsController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/variant'),
+    tslib_1.__metadata("design:paramtypes", [VariantService_1.VariantService,
+        VariantValueService_1.VariantValueService,
+        ProductVarientOptionDetailService_1.ProductVarientOptionDetailService,
+        ProductVarientService_1.ProductVarientService])
+], MasterVariantsController);
+exports.MasterVariantsController = MasterVariantsController;
+//# sourceMappingURL=MasterVariantsController.js.map

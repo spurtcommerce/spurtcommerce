@@ -1,1 +1,403 @@
-'use strict';const a227_0x3b697f=a227_0x662f;(function(_0x988315,_0x4c4ce2){const _0x42446d=a227_0x662f,_0x560df2=_0x988315();while(!![]){try{const _0x2e6a2c=-parseInt(_0x42446d(0x7f))/0x1*(parseInt(_0x42446d(0xc8))/0x2)+parseInt(_0x42446d(0xbb))/0x3+parseInt(_0x42446d(0x99))/0x4*(-parseInt(_0x42446d(0x80))/0x5)+-parseInt(_0x42446d(0xad))/0x6+parseInt(_0x42446d(0xab))/0x7*(-parseInt(_0x42446d(0x84))/0x8)+-parseInt(_0x42446d(0x7b))/0x9+parseInt(_0x42446d(0x83))/0xa*(parseInt(_0x42446d(0xc6))/0xb);if(_0x2e6a2c===_0x4c4ce2)break;else _0x560df2['push'](_0x560df2['shift']());}catch(_0x4b61d1){_0x560df2['push'](_0x560df2['shift']());}}}(a227_0x590b,0x7ed40));Object[a227_0x3b697f(0xa2)](exports,a227_0x3b697f(0xa5),{'value':!![]}),exports[a227_0x3b697f(0x72)]=void 0x0;const tslib_1=require(a227_0x3b697f(0xa3));require(a227_0x3b697f(0x7e));const routing_controllers_1=require('routing-controllers'),CreateAnswerRequest_1=require('./requests/CreateAnswerRequest'),ProductQuestionService_1=require(a227_0x3b697f(0x7d)),ProductAnswerService_1=require(a227_0x3b697f(0xbf)),CustomerService_1=require(a227_0x3b697f(0x9f)),ProductAnswer_1=require(a227_0x3b697f(0x6b)),VendorService_1=require('../../../../src/api/core/services/VendorService'),AddonValidationMiddleware_1=require(a227_0x3b697f(0x77)),UserService_1=require('../../../../src/api/core/services/UserService');let VendorProductAnswerController=class VendorProductAnswerController{constructor(_0x3e3fbc,_0x1deab1,_0x28bcd2,_0x12c4ea,_0x44badc){const _0x319949=a227_0x3b697f;this['productQuestionService']=_0x3e3fbc,this['productAnswerService']=_0x1deab1,this['customerService']=_0x28bcd2,this[_0x319949(0x90)]=_0x12c4ea,this[_0x319949(0x89)]=_0x44badc;}[a227_0x3b697f(0xa4)](_0x10a764,_0x3e2a7b,_0x6cde6e){const _0x5a0fbe=a227_0x3b697f;return tslib_1[_0x5a0fbe(0xa6)](this,void 0x0,void 0x0,function*(){const _0x844265=_0x5a0fbe,_0x39d669=new ProductAnswer_1[(_0x844265(0x8b))]();_0x39d669[_0x844265(0xb1)]=_0x10a764[_0x844265(0xb1)],_0x39d669[_0x844265(0xa8)]=+_0x10a764[_0x844265(0xa8)],_0x39d669['type']=0x3,_0x39d669['referenceId']=_0x3e2a7b[_0x844265(0x96)]['vendorId'],_0x39d669[_0x844265(0xc1)]=0x1;const _0x43436e=yield this[_0x844265(0x87)][_0x844265(0xc5)](_0x39d669);if(_0x43436e!==undefined){const _0x109056={'status':0x1,'message':_0x844265(0xb4),'data':_0x43436e};return _0x6cde6e['status'](0xc8)[_0x844265(0xa7)](_0x109056);}else{const _0x18d744={'status':0x0,'message':_0x844265(0x8d)};return _0x6cde6e[_0x844265(0x98)](0x190)[_0x844265(0xa7)](_0x18d744);}});}['updateAnswerStatus'](_0x39cc9f,_0x361ffe,_0x2fafea){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2255ac=a227_0x662f,_0x4ca264=yield this[_0x2255ac(0x87)][_0x2255ac(0x79)]({'where':{'answerId':_0x39cc9f}});if(!_0x4ca264){const _0x5d7a7c={'status':0x0,'message':_0x2255ac(0xa9)};return _0x2fafea['status'](0x190)[_0x2255ac(0xa7)](_0x5d7a7c);}_0x4ca264[_0x2255ac(0xc1)]=_0x361ffe;const _0x390936=yield this[_0x2255ac(0x87)][_0x2255ac(0xc5)](_0x4ca264);if(_0x390936){const _0x40b0b6={'status':0x1,'message':_0x2255ac(0x88),'data':_0x390936};return _0x2fafea['status'](0xc8)[_0x2255ac(0xa7)](_0x40b0b6);}else{const _0x1a75c8={'status':0x0,'message':_0x2255ac(0x8a)};return _0x2fafea[_0x2255ac(0x98)](0x190)['send'](_0x1a75c8);}});}['deleteAnswer'](_0x44e5bf,_0x356724,_0x18c3c7){const _0x56acbf=a227_0x3b697f;return tslib_1[_0x56acbf(0xa6)](this,void 0x0,void 0x0,function*(){const _0x352e30=_0x56acbf,_0x952088=yield this[_0x352e30(0x87)][_0x352e30(0x79)]({'where':{'answerId':_0x44e5bf}});if(!_0x952088){const _0x3aabc7={'status':0x0,'message':_0x352e30(0x7c)};return _0x356724[_0x352e30(0x98)](0x190)[_0x352e30(0xa7)](_0x3aabc7);}const _0x4b93bd=yield this[_0x352e30(0x87)][_0x352e30(0xb2)](_0x952088);if(_0x4b93bd){const _0xa38ba={'status':0x1,'message':_0x352e30(0xb8)};return _0x356724[_0x352e30(0x98)](0xc8)[_0x352e30(0xa7)](_0xa38ba);}else{const _0x39b15e={'status':0x0,'message':_0x352e30(0x9c)};return _0x356724[_0x352e30(0x98)](0x190)[_0x352e30(0xa7)](_0x39b15e);}});}[a227_0x3b697f(0x92)](_0xca28e0,_0x37ea31,_0x50a312,_0x1cd3c4,_0x3e39b7,_0x52d2cd){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x126306=a227_0x662f,_0x40212e=yield this[_0x126306(0x8e)][_0x126306(0x79)]({'where':{'questionId':_0x1cd3c4}});if(!_0x40212e){const _0x3d353f={'status':0x1,'message':_0x126306(0xbd)};return _0x52d2cd[_0x126306(0x98)](0x190)['send'](_0x3d353f);}const _0x5775b5=[_0x126306(0xa8),_0x126306(0xb6),_0x126306(0xb1),_0x126306(0x76),'defaultAnswer',_0x126306(0x81),'type','isActive'],_0x4b78fc=[],_0x53c119=[{'name':_0x126306(0xa8),'op':_0x126306(0xb0),'value':_0x1cd3c4},{'name':_0x126306(0xb1),'op':_0x126306(0x8c),'value':_0x50a312}],_0x4c82ac=yield this[_0x126306(0x87)]['list'](_0xca28e0,_0x37ea31,_0x5775b5,_0x53c119,_0x4b78fc,_0x3e39b7);if(_0x3e39b7)return _0x52d2cd[_0x126306(0x98)](0xc8)[_0x126306(0xa7)]({'status':0x1,'message':_0x126306(0xc3),'data':_0x4c82ac});const _0x200bee=_0x4c82ac[_0x126306(0xb7)](_0x31d0cb=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1ffe90=_0x126306,_0x1acd41=_0x31d0cb[_0x1ffe90(0xce)],_0x4769ce=_0x31d0cb;if(_0x1acd41&&_0x1acd41===0x1){const _0x1f55d1=yield this[_0x1ffe90(0x89)]['findOne']({'select':[_0x1ffe90(0x6f),'firstName',_0x1ffe90(0x78),_0x1ffe90(0x85)],'where':{'userId':_0x31d0cb[_0x1ffe90(0x76)]}});_0x1f55d1!==undefined&&(_0x4769ce['postedBy']=_0x1f55d1);}else{if(_0x1acd41&&_0x1acd41===0x2){const _0x23143e=yield this['customerService']['findOne']({'select':['id',_0x1ffe90(0xbe),'avatar','avatarPath',_0x1ffe90(0x6d)],'where':{'id':_0x31d0cb[_0x1ffe90(0x76)]}});_0x23143e!==undefined&&(_0x4769ce['postedBy']=_0x23143e);}else{if(_0x1acd41&&_0x1acd41===0x3){const _0x382e01=yield this[_0x1ffe90(0x90)][_0x1ffe90(0x79)]({'select':['customerId'],'where':{'vendorId':_0x31d0cb[_0x1ffe90(0x76)]}}),_0x4096bc=yield this['customerService'][_0x1ffe90(0x79)]({'select':['id',_0x1ffe90(0xbe),_0x1ffe90(0x78),_0x1ffe90(0x85),_0x1ffe90(0x6d)],'where':{'id':_0x382e01[_0x1ffe90(0x8f)]}});_0x4096bc!==undefined&&(_0x4769ce[_0x1ffe90(0xc7)]=_0x4096bc);}}}return _0x4769ce;})),_0x1400e6=yield Promise['all'](_0x200bee),_0x147309={'status':0x1,'message':_0x126306(0x86),'data':{'question':_0x40212e,'answerList':_0x1400e6}};return _0x52d2cd[_0x126306(0x98)](0xc8)[_0x126306(0xa7)](_0x147309);});}['updateDefaultAnswer'](_0x4f0415,_0x3881fa){const _0x35e28b=a227_0x3b697f;return tslib_1[_0x35e28b(0xa6)](this,void 0x0,void 0x0,function*(){const _0x340a08=_0x35e28b,_0x4680fd=yield this[_0x340a08(0x87)][_0x340a08(0x79)]({'where':{'answerId':_0x4f0415}});if(!_0x4680fd){const _0x42dbb9={'status':0x0,'message':_0x340a08(0xa9)};return _0x3881fa[_0x340a08(0x98)](0x190)[_0x340a08(0xa7)](_0x42dbb9);}const _0x52bc39=yield this[_0x340a08(0x87)][_0x340a08(0xae)]({'where':{'questionId':_0x4680fd[_0x340a08(0xa8)]}});if(_0x52bc39)for(const _0x30b5c1 of _0x52bc39){const _0x1cca27=yield this[_0x340a08(0x87)]['findOne']({'where':{'answerId':_0x30b5c1[_0x340a08(0xb6)]}});_0x1cca27[_0x340a08(0xca)]=0x0,yield this[_0x340a08(0x87)][_0x340a08(0xc5)](_0x1cca27);}_0x4680fd[_0x340a08(0xca)]=0x1;const _0x37e6e7=yield this['productAnswerService']['create'](_0x4680fd);if(_0x37e6e7){const _0x230f6a={'status':0x1,'message':_0x340a08(0xc9),'data':_0x37e6e7};return _0x3881fa['status'](0xc8)[_0x340a08(0xa7)](_0x230f6a);}else{const _0x57b686={'status':0x0,'message':_0x340a08(0xaf)};return _0x3881fa[_0x340a08(0x98)](0x190)[_0x340a08(0xa7)](_0x57b686);}});}};function a227_0x662f(_0x2a16ea,_0x292200){const _0x590be0=a227_0x590b();return a227_0x662f=function(_0x662f5c,_0x3a237e){_0x662f5c=_0x662f5c-0x6a;let _0x5c5279=_0x590be0[_0x662f5c];return _0x5c5279;},a227_0x662f(_0x2a16ea,_0x292200);}tslib_1[a227_0x3b697f(0x6e)]([(0x0,routing_controllers_1[a227_0x3b697f(0xb3)])(a227_0x3b697f(0x7a)),(0x0,routing_controllers_1[a227_0x3b697f(0xa0)])('vendor'),tslib_1[a227_0x3b697f(0x82)](0x0,(0x0,routing_controllers_1[a227_0x3b697f(0x95)])({'validate':!![]})),tslib_1[a227_0x3b697f(0x82)](0x1,(0x0,routing_controllers_1[a227_0x3b697f(0x9e)])()),tslib_1[a227_0x3b697f(0x82)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata'](a227_0x3b697f(0x71),Function),tslib_1[a227_0x3b697f(0xb9)](a227_0x3b697f(0x91),[CreateAnswerRequest_1[a227_0x3b697f(0x93)],Object,Object]),tslib_1[a227_0x3b697f(0xb9)](a227_0x3b697f(0x9b),Promise)],VendorProductAnswerController['prototype'],a227_0x3b697f(0xa4),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a227_0x3b697f(0x74)])(a227_0x3b697f(0xcd)),(0x0,routing_controllers_1[a227_0x3b697f(0xa0)])('vendor'),tslib_1[a227_0x3b697f(0x82)](0x0,(0x0,routing_controllers_1[a227_0x3b697f(0xc0)])('answerId')),tslib_1[a227_0x3b697f(0x82)](0x1,(0x0,routing_controllers_1[a227_0x3b697f(0x94)])(a227_0x3b697f(0x98))),tslib_1[a227_0x3b697f(0x82)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a227_0x3b697f(0xb9)](a227_0x3b697f(0x71),Function),tslib_1[a227_0x3b697f(0xb9)](a227_0x3b697f(0x91),[Number,Number,Object]),tslib_1[a227_0x3b697f(0xb9)](a227_0x3b697f(0x9b),Promise)],VendorProductAnswerController['prototype'],a227_0x3b697f(0x73),null),tslib_1[a227_0x3b697f(0x6e)]([(0x0,routing_controllers_1[a227_0x3b697f(0x75)])(a227_0x3b697f(0x97)),(0x0,routing_controllers_1[a227_0x3b697f(0xa0)])(a227_0x3b697f(0x9a)),tslib_1[a227_0x3b697f(0x82)](0x0,(0x0,routing_controllers_1[a227_0x3b697f(0xc0)])(a227_0x3b697f(0xb6))),tslib_1[a227_0x3b697f(0x82)](0x1,(0x0,routing_controllers_1[a227_0x3b697f(0x70)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a227_0x3b697f(0x9e)])()),tslib_1['__metadata'](a227_0x3b697f(0x71),Function),tslib_1[a227_0x3b697f(0xb9)]('design:paramtypes',[Number,Object,Object]),tslib_1[a227_0x3b697f(0xb9)](a227_0x3b697f(0x9b),Promise)],VendorProductAnswerController[a227_0x3b697f(0xbc)],'deleteAnswer',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a227_0x3b697f(0xba)])(a227_0x3b697f(0xcb)),(0x0,routing_controllers_1[a227_0x3b697f(0xa0)])(a227_0x3b697f(0x9a)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a227_0x3b697f(0xcc)])(a227_0x3b697f(0xac))),tslib_1[a227_0x3b697f(0x82)](0x1,(0x0,routing_controllers_1['QueryParam'])(a227_0x3b697f(0x6a))),tslib_1[a227_0x3b697f(0x82)](0x2,(0x0,routing_controllers_1[a227_0x3b697f(0xcc)])(a227_0x3b697f(0xaa))),tslib_1[a227_0x3b697f(0x82)](0x3,(0x0,routing_controllers_1['QueryParam'])(a227_0x3b697f(0xa8))),tslib_1[a227_0x3b697f(0x82)](0x4,(0x0,routing_controllers_1['QueryParam'])('count')),tslib_1[a227_0x3b697f(0x82)](0x5,(0x0,routing_controllers_1[a227_0x3b697f(0x70)])()),tslib_1[a227_0x3b697f(0xb9)](a227_0x3b697f(0x71),Function),tslib_1[a227_0x3b697f(0xb9)](a227_0x3b697f(0x91),[Number,Number,String,Number,Object,Object]),tslib_1[a227_0x3b697f(0xb9)](a227_0x3b697f(0x9b),Promise)],VendorProductAnswerController[a227_0x3b697f(0xbc)],a227_0x3b697f(0x92),null),tslib_1[a227_0x3b697f(0x6e)]([(0x0,routing_controllers_1[a227_0x3b697f(0x74)])('/make-default-answer/:answerId'),(0x0,routing_controllers_1[a227_0x3b697f(0xa0)])(a227_0x3b697f(0x9a)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a227_0x3b697f(0xc0)])(a227_0x3b697f(0xb6))),tslib_1[a227_0x3b697f(0x82)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a227_0x3b697f(0xb9)](a227_0x3b697f(0x71),Function),tslib_1['__metadata']('design:paramtypes',[Number,Object]),tslib_1['__metadata'](a227_0x3b697f(0x9b),Promise)],VendorProductAnswerController[a227_0x3b697f(0xbc)],'updateDefaultAnswer',null),VendorProductAnswerController=tslib_1[a227_0x3b697f(0x6e)]([(0x0,routing_controllers_1[a227_0x3b697f(0xa1)])(AddonValidationMiddleware_1['CheckAddonMiddleware']),(0x0,routing_controllers_1[a227_0x3b697f(0x9d)])(a227_0x3b697f(0xc4)),tslib_1[a227_0x3b697f(0xb9)](a227_0x3b697f(0x91),[ProductQuestionService_1[a227_0x3b697f(0x6c)],ProductAnswerService_1[a227_0x3b697f(0xb5)],CustomerService_1[a227_0x3b697f(0xc2)],VendorService_1['VendorService'],UserService_1['UserService']])],VendorProductAnswerController),exports[a227_0x3b697f(0x72)]=VendorProductAnswerController;function a227_0x590b(){const _0x225c14=['CreateAnswer','BodyParam','Body','user','/delete-answer/:answerId','status','706696FqqZdT','vendor','design:returntype','unable\x20to\x20delete\x20Question','JsonController','Req','../../../../src/api/core/services/CustomerService','Authorized','UseBefore','defineProperty','tslib','createAnswer','__esModule','__awaiter','send','questionId','invalid\x20AnswerId','keyword','2650354Zmcjyb','limit','3380850xPWvzN','findAll','unable\x20to\x20update','where','answer','delete','Post','Answer\x20Posted\x20Successfully','ProductAnswerService','answerId','map','Successfully\x20deleted\x20Answer','__metadata','Get','676821tuQiBC','prototype','Invalid\x20QuestionId','firstName','../../../QuestionAndAnswer/services/ProductAnswerService','Param','isActive','CustomerService','Successfully\x20get\x20count','/vendor-product-answer','create','1419tpGFPC','postedBy','4pUtHmt','Marked\x20as\x20default\x20Answer','defaultAnswer','/answer-list','QueryParam','/update-answer-status/:answerId','type','offset','../../../QuestionAndAnswer/models/ProductAnswer','ProductQuestionService','city','__decorate','userId','Res','design:type','VendorProductAnswerController','updateAnswerStatus','Put','Delete','referenceId','../../../../src/api/core/middlewares/AddonValidationMiddleware','avatar','findOne','/add-answer','4110129vJmfgW','Invalid\x20answerId','../../../QuestionAndAnswer/services/ProductQuestionService','reflect-metadata','490315GRfcGq','25yCXvib','createdDate','__param','275710usRVYn','8WLqeti','avatarPath','Successfully\x20get\x20all\x20question\x20List','productAnswerService','Updated\x20Your\x20Status','userService','unable\x20to\x20update\x20your\x20answer\x20status','ProductAnswer','like','unable\x20to\x20create','productQuestionService','customerId','vendorService','design:paramtypes','questionList'];a227_0x590b=function(){return _0x225c14;};return a227_0x590b();}
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorProductAnswerController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const CreateAnswerRequest_1 = require("./requests/CreateAnswerRequest");
+const ProductQuestionService_1 = require("../../../QuestionAndAnswer/services/ProductQuestionService");
+const ProductAnswerService_1 = require("../../../QuestionAndAnswer/services/ProductAnswerService");
+const CustomerService_1 = require("../../../../src/api/core/services/CustomerService");
+const ProductAnswer_1 = require("../../../QuestionAndAnswer/models/ProductAnswer");
+const VendorService_1 = require("../../../../src/api/core/services/VendorService");
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+const UserService_1 = require("../../../../src/api/core/services/UserService");
+let VendorProductAnswerController = class VendorProductAnswerController {
+    constructor(productQuestionService, productAnswerService, customerService, vendorService, userService) {
+        this.productQuestionService = productQuestionService;
+        this.productAnswerService = productAnswerService;
+        this.customerService = customerService;
+        this.vendorService = vendorService;
+        this.userService = userService;
+    }
+    // Create Answer API
+    /**
+     * @api {post} /api/vendor-product-answer/add-answer Add Answer API
+     * @apiGroup Vendor Product Answer
+     * @apiParam (Request body) {String} answer
+     * @apiParam (Request body) {Number} questionId
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "answer" : "",
+     *      "questionId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Answer created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-product-answer/add-answer
+     * @apiErrorExample {json} Answer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createAnswer(answerParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const answer = new ProductAnswer_1.ProductAnswer();
+            answer.answer = answerParam.answer;
+            answer.questionId = +answerParam.questionId;
+            answer.type = 3;
+            answer.referenceId = request.user.vendorId;
+            answer.isActive = 1;
+            const answerSaved = yield this.productAnswerService.create(answer);
+            if (answerSaved !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Answer Posted Successfully',
+                    data: answerSaved,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to create',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update Answer Status API
+    /**
+     * @api {put} /api/vendor-product-answer/update-answer-status/:answerId Update Answer status API
+     * @apiGroup Vendor Product Answer
+     * @apiParam (Request body) {Number} status status should be 0 | 1
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Status Updated Successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-product-answer/update-answer-status/:answerId
+     * @apiErrorExample {json} answer  error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateAnswerStatus(answerId, status, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const answer = yield this.productAnswerService.findOne({
+                where: {
+                    answerId,
+                },
+            });
+            if (!answer) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'invalid AnswerId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            answer.isActive = status;
+            const answerSave = yield this.productAnswerService.create(answer);
+            if (answerSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Updated Your Status',
+                    data: answerSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to update your answer status',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // delete Answer API
+    /**
+     * @api {delete} /api/vendor-product-answer/delete-answer/:answerId Delete Answer API
+     * @apiGroup Vendor Product Answer
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Question.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-product-answer/delete-answer/:answerId
+     * @apiErrorExample {json} Answer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteAnswer(answerId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const answer = yield this.productAnswerService.findOne({
+                where: {
+                    answerId,
+                },
+            });
+            if (!answer) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid answerId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteAnswer = yield this.productAnswerService.delete(answer);
+            if (deleteAnswer) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted Answer',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to delete Question',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Answer List API
+    /**
+     * @api {get} /api/vendor-product-answer/answer-list Answer List API
+     * @apiGroup Vendor Product Answer
+     * @apiParam (Request body) {Number} questionId questionId
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} count count in number or boolean
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *    "message": "Successfully get answer list",
+     *    "data":"{}"
+     *    "status": "1"
+     *  }
+     * @apiSampleRequest /api/vendor-product-answer/answer-list
+     * @apiErrorExample {json} answer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    questionList(limit, offset, keyword, questionId, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const question = yield this.productQuestionService.findOne({
+                where: { questionId },
+            });
+            if (!question) {
+                const errorResponse = {
+                    status: 1,
+                    message: 'Invalid QuestionId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const select = ['questionId', 'answerId', 'answer', 'referenceId', 'defaultAnswer', 'createdDate', 'type', 'isActive'];
+            const whereConditions = [];
+            const search = [
+                {
+                    name: 'questionId',
+                    op: 'where',
+                    value: questionId,
+                },
+                {
+                    name: 'answer',
+                    op: 'like',
+                    value: keyword,
+                },
+            ];
+            const answerList = yield this.productAnswerService.list(limit, offset, select, search, whereConditions, count);
+            if (count) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully get count',
+                    data: answerList,
+                });
+            }
+            const promise = answerList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const type = result.type;
+                const temp = result;
+                if (type && type === 1) {
+                    const adminUser = yield this.userService.findOne({
+                        select: ['userId', 'firstName', 'avatar', 'avatarPath'],
+                        where: { userId: result.referenceId },
+                    });
+                    if (adminUser !== undefined) {
+                        temp.postedBy = adminUser;
+                    }
+                }
+                else if (type && type === 2) {
+                    const customer = yield this.customerService.findOne({
+                        select: ['id', 'firstName', 'avatar', 'avatarPath', 'city'],
+                        where: { id: result.referenceId },
+                    });
+                    if (customer !== undefined) {
+                        temp.postedBy = customer;
+                    }
+                }
+                else if (type && type === 3) {
+                    const vendor = yield this.vendorService.findOne({
+                        select: ['customerId'],
+                        where: { vendorId: result.referenceId },
+                    });
+                    const customer = yield this.customerService.findOne({
+                        select: ['id', 'firstName', 'avatar', 'avatarPath', 'city'],
+                        where: { id: vendor.customerId },
+                    });
+                    if (customer !== undefined) {
+                        temp.postedBy = customer;
+                    }
+                }
+                return temp;
+            }));
+            const value = yield Promise.all(promise);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get all question List',
+                data: {
+                    question,
+                    answerList: value,
+                },
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Make Default Answer API
+    /**
+     * @api {put} /api/vendor-product-answer/make-default-answer/:answerId Make Default Answer API
+     * @apiGroup Vendor Product Answer
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Updated Successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-product-answer/make-default-answer/:answerId
+     * @apiErrorExample {json} answer  error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateDefaultAnswer(answerId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const answers = yield this.productAnswerService.findOne({
+                where: {
+                    answerId,
+                },
+            });
+            if (!answers) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'invalid AnswerId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const findAnswer = yield this.productAnswerService.findAll({ where: { questionId: answers.questionId } });
+            if (findAnswer) {
+                for (const answer of findAnswer) {
+                    const ans = yield this.productAnswerService.findOne({
+                        where: {
+                            answerId: answer.answerId,
+                        },
+                    });
+                    ans.defaultAnswer = 0;
+                    yield this.productAnswerService.create(ans);
+                }
+            }
+            answers.defaultAnswer = 1;
+            const answerSave = yield this.productAnswerService.create(answers);
+            if (answerSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Marked as default Answer',
+                    data: answerSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to update',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/add-answer'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateAnswerRequest_1.CreateAnswer, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductAnswerController.prototype, "createAnswer", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-answer-status/:answerId'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('answerId')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('status')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductAnswerController.prototype, "updateAnswerStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-answer/:answerId'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('answerId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductAnswerController.prototype, "deleteAnswer", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/answer-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('questionId')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductAnswerController.prototype, "questionList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/make-default-answer/:answerId'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('answerId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductAnswerController.prototype, "updateDefaultAnswer", null);
+VendorProductAnswerController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/vendor-product-answer'),
+    tslib_1.__metadata("design:paramtypes", [ProductQuestionService_1.ProductQuestionService,
+        ProductAnswerService_1.ProductAnswerService,
+        CustomerService_1.CustomerService,
+        VendorService_1.VendorService,
+        UserService_1.UserService])
+], VendorProductAnswerController);
+exports.VendorProductAnswerController = VendorProductAnswerController;
+//# sourceMappingURL=ProductAnswerController.js.map

@@ -1,1 +1,42 @@
-'use strict';const a889_0x37fc94=a889_0x5dcb;function a889_0x229b(){const _0x4c1101=['1388788sQfzQQ','find','tableForeignKey','integer','11731909MDLJEv','__awaiter','hasColumn','getTable','TableForeignKey','115693ZdkMhJ','AddColumnForSkuIdInProduct1601872052590','sku_id','dropColumn','indexOf','sku','typeorm','1584906jEqGwK','1060034WiFqee','513462pHbeiY','CASCADE','addColumn','createForeignKey','down','tslib','defineProperty','2692090RyBWpR','product'];a889_0x229b=function(){return _0x4c1101;};return a889_0x229b();}function a889_0x5dcb(_0x248003,_0x4f99e8){const _0x229b9f=a889_0x229b();return a889_0x5dcb=function(_0x5dcba2,_0x34eccd){_0x5dcba2=_0x5dcba2-0x11d;let _0x2ae0ed=_0x229b9f[_0x5dcba2];return _0x2ae0ed;},a889_0x5dcb(_0x248003,_0x4f99e8);}(function(_0x589cfb,_0x4a2054){const _0x58f6cc=a889_0x5dcb,_0x16adb4=_0x589cfb();while(!![]){try{const _0x1cc0a5=parseInt(_0x58f6cc(0x12f))/0x1+parseInt(_0x58f6cc(0x137))/0x2+parseInt(_0x58f6cc(0x11d))/0x3+parseInt(_0x58f6cc(0x126))/0x4+parseInt(_0x58f6cc(0x124))/0x5+parseInt(_0x58f6cc(0x136))/0x6+-parseInt(_0x58f6cc(0x12a))/0x7;if(_0x1cc0a5===_0x4a2054)break;else _0x16adb4['push'](_0x16adb4['shift']());}catch(_0x837f01){_0x16adb4['push'](_0x16adb4['shift']());}}}(a889_0x229b,0x46f53));Object[a889_0x37fc94(0x123)](exports,'__esModule',{'value':!![]}),exports[a889_0x37fc94(0x130)]=void 0x0;const tslib_1=require(a889_0x37fc94(0x122)),typeorm_1=require(a889_0x37fc94(0x135));class AddColumnForSkuIdInProduct1601872052590{constructor(){const _0x2b8f36=a889_0x37fc94;this[_0x2b8f36(0x128)]=new typeorm_1[(_0x2b8f36(0x12e))]({'name':'fk_tbl_sku_tbl_product_foreignKey','columnNames':['sku_id'],'referencedColumnNames':['id'],'referencedTableName':_0x2b8f36(0x134),'onDelete':_0x2b8f36(0x11e)});}['up'](_0x41c3fb){const _0x591eab=a889_0x37fc94;return tslib_1[_0x591eab(0x12b)](this,void 0x0,void 0x0,function*(){const _0x28286c=_0x591eab,_0x1ef5db=yield _0x41c3fb[_0x28286c(0x12c)]('product',_0x28286c(0x131));!_0x1ef5db&&(yield _0x41c3fb[_0x28286c(0x11f)](_0x28286c(0x125),new typeorm_1['TableColumn']({'name':_0x28286c(0x131),'type':_0x28286c(0x129),'length':'11','isPrimary':![],'isNullable':!![]})));const _0xe978f3=yield _0x41c3fb[_0x28286c(0x12d)]('product'),_0x3ab89f=_0xe978f3['foreignKeys'][_0x28286c(0x127)](_0x43b9bb=>_0x43b9bb['columnNames'][_0x28286c(0x133)](_0x28286c(0x131))!==-0x1);!_0x3ab89f&&(yield _0x41c3fb[_0x28286c(0x120)](_0xe978f3,this[_0x28286c(0x128)]));});}[a889_0x37fc94(0x121)](_0x421c18){const _0x570ca1=a889_0x37fc94;return tslib_1[_0x570ca1(0x12b)](this,void 0x0,void 0x0,function*(){const _0xd7529a=_0x570ca1;yield _0x421c18[_0xd7529a(0x132)]('product',_0xd7529a(0x131));});}}exports[a889_0x37fc94(0x130)]=AddColumnForSkuIdInProduct1601872052590;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnForSkuIdInProduct1601872052590 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnForSkuIdInProduct1601872052590 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_sku_tbl_product_foreignKey',
+            columnNames: ['sku_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'sku',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('product', 'sku_id');
+            if (!ifExist) {
+                yield queryRunner.addColumn('product', new typeorm_1.TableColumn({
+                    name: 'sku_id',
+                    type: 'integer',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const table = yield queryRunner.getTable('product');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('sku_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('product', 'sku_id');
+        });
+    }
+}
+exports.AddColumnForSkuIdInProduct1601872052590 = AddColumnForSkuIdInProduct1601872052590;
+//# sourceMappingURL=1601872052590-AddColumnForSkuIdInProduct.js.map

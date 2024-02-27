@@ -1,1 +1,25 @@
-function a1041_0x2567(_0x3025fb,_0x1b4d13){var _0x1caf56=a1041_0x1caf();return a1041_0x2567=function(_0x25673d,_0x116e46){_0x25673d=_0x25673d-0xa5;var _0x5451e8=_0x1caf56[_0x25673d];return _0x5451e8;},a1041_0x2567(_0x3025fb,_0x1b4d13);}var a1041_0x903511=a1041_0x2567;(function(_0x2fd0bf,_0x5d987a){var _0x580c3c=a1041_0x2567,_0x51df3f=_0x2fd0bf();while(!![]){try{var _0x43ff81=-parseInt(_0x580c3c(0xa8))/0x1*(-parseInt(_0x580c3c(0xa5))/0x2)+-parseInt(_0x580c3c(0xb1))/0x3*(-parseInt(_0x580c3c(0xa7))/0x4)+parseInt(_0x580c3c(0xab))/0x5*(parseInt(_0x580c3c(0xb2))/0x6)+-parseInt(_0x580c3c(0xb7))/0x7*(-parseInt(_0x580c3c(0xac))/0x8)+parseInt(_0x580c3c(0xa6))/0x9*(-parseInt(_0x580c3c(0xb6))/0xa)+-parseInt(_0x580c3c(0xae))/0xb+-parseInt(_0x580c3c(0xaf))/0xc;if(_0x43ff81===_0x5d987a)break;else _0x51df3f['push'](_0x51df3f['shift']());}catch(_0x3a9584){_0x51df3f['push'](_0x51df3f['shift']());}}}(a1041_0x1caf,0xb724f),define({'zh':{'Allowed\x20values​​:':'允許值:','Compare\x20all\x20with\x20predecessor':a1041_0x903511(0xb3),'compare\x20changes\x20to:':a1041_0x903511(0xb0),'compared\x20to':'對比','Default\x20value:':a1041_0x903511(0xb8),'Description':'描述','Field':'欄位','General':'概括','Generated\x20with':'生成工具','Name':'名稱','No\x20response\x20values​​.':a1041_0x903511(0xad),'optional':'選填','Parameter':'參數','Permission:':a1041_0x903511(0xb4),'Response':'回應','Send':'發送','Send\x20a\x20Sample\x20Request':a1041_0x903511(0xaa),'show\x20up\x20to\x20version:':a1041_0x903511(0xb5),'Size\x20range:':a1041_0x903511(0xa9),'Type':'類型','url':'網址'}}));function a1041_0x1caf(){var _0x56a185=['36590BJtQwh','8692616BjooJA','無對應資料.','9876328HjpxzU','6407160InJXlW','比較變更:','72246dADUPE','1014eGCVyh','預先比較所有','權限:','顯示到版本:','280sKeDdj','7YTFwoA','預設值:','384aAKNEo','191124TumGeM','52ltjpQe','730gPBjBK','區間:','發送試用需求'];a1041_0x1caf=function(){return _0x56a185;};return a1041_0x1caf();}
+define({
+    zh: {
+        'Allowed values​​:'             : '允許值:',
+        'Compare all with predecessor': '預先比較所有',
+        'compare changes to:'         : '比較變更:',
+        'compared to'                 : '對比',
+        'Default value:'              : '預設值:',
+        'Description'                 : '描述',
+        'Field'                       : '欄位',
+        'General'                     : '概括',
+        'Generated with'              : '生成工具',
+        'Name'                        : '名稱',
+        'No response values​​.'         : '無對應資料.',
+        'optional'                    : '選填',
+        'Parameter'                   : '參數',
+        'Permission:'                 : '權限:',
+        'Response'                    : '回應',
+        'Send'                        : '發送',
+        'Send a Sample Request'       : '發送試用需求',
+        'show up to version:'         : '顯示到版本:',
+        'Size range:'                 : '區間:',
+        'Type'                        : '類型',
+        'url'                         : '網址'
+    }
+});

@@ -1,1 +1,35 @@
-'use strict';const a113_0x4364ae=a113_0x1dad;(function(_0x25163e,_0x453e75){const _0x3501df=a113_0x1dad,_0x4a7005=_0x25163e();while(!![]){try{const _0x3c9b4f=-parseInt(_0x3501df(0xaf))/0x1+-parseInt(_0x3501df(0xac))/0x2+parseInt(_0x3501df(0xa6))/0x3+-parseInt(_0x3501df(0xb5))/0x4+-parseInt(_0x3501df(0xb1))/0x5*(-parseInt(_0x3501df(0xb2))/0x6)+-parseInt(_0x3501df(0xb3))/0x7+parseInt(_0x3501df(0xa4))/0x8;if(_0x3c9b4f===_0x453e75)break;else _0x4a7005['push'](_0x4a7005['shift']());}catch(_0x13ab7c){_0x4a7005['push'](_0x4a7005['shift']());}}}(a113_0x2c4a,0xf2823));Object['defineProperty'](exports,a113_0x4364ae(0xa7),{'value':!![]}),exports[a113_0x4364ae(0xb4)]=void 0x0;function a113_0x1dad(_0x43cb8d,_0x511947){const _0x2c4a8f=a113_0x2c4a();return a113_0x1dad=function(_0x1dadb0,_0x23d614){_0x1dadb0=_0x1dadb0-0xa4;let _0xf8830d=_0x2c4a8f[_0x1dadb0];return _0xf8830d;},a113_0x1dad(_0x43cb8d,_0x511947);}const tslib_1=require(a113_0x4364ae(0xb7)),typeorm_1=require(a113_0x4364ae(0xad)),moment=require(a113_0x4364ae(0xa8));class AddProductRelatedPlugin1665134575737{['up'](_0x56991c){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x212d07=a113_0x1dad,_0x3a8fc5=[{'pluginName':'ProductRelated','slugName':'product-related','pluginAvatar':'','pluginAvatarPath':'','pluginType':_0x212d07(0xb0),'pluginTimestamp':0x183b1c14079,'pluginStatus':0x1,'isEditable':0x0,'routes':_0x212d07(0xa9),'createdDate':''+moment()[_0x212d07(0xaa)](_0x212d07(0xb6)),'updatedDate':''+moment()[_0x212d07(0xaa)](_0x212d07(0xb6))}];yield(0x0,typeorm_1[_0x212d07(0xab)])('Plugins')[_0x212d07(0xa5)](_0x3a8fc5);});}['down'](_0x317ff4){const _0x223e15=a113_0x4364ae;return tslib_1[_0x223e15(0xae)](this,void 0x0,void 0x0,function*(){});}}function a113_0x2c4a(){const _0xde96ab=['format','getRepository','385908PUnDiY','typeorm','__awaiter','614608qPXbKW','Marketing','3160VbybQr','4032ZnIphT','8949136yVgGwN','AddProductRelatedPlugin1665134575737','5284760aQRfaP','YYYY-MM-DD\x20HH:mm:ss','tslib','24876128pagxCu','save','2598885bgglhG','__esModule','moment/moment','~/api/product-related~,~/api/list~,~/api/vendor-related-product~,~/api/product-related/update-product-related~,~/api/product-related/product-related-detail/~,~/api/product-related/product-list~,~/api/list/related-product-list~,~/api/vendor-related-product/update-vendor-related-product~,~/api/vendor-related-product/vendor-related-product-list~,~/api/vendor-related-product/vendor-related-product-details/~,'];a113_0x2c4a=function(){return _0xde96ab;};return a113_0x2c4a();}exports[a113_0x4364ae(0xb4)]=AddProductRelatedPlugin1665134575737;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddProductRelatedPlugin1665134575737 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment = require("moment/moment");
+class AddProductRelatedPlugin1665134575737 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const SeoSeed = [
+                {
+                    pluginName: 'ProductRelated',
+                    slugName: 'product-related',
+                    pluginAvatar: '',
+                    pluginAvatarPath: '',
+                    pluginType: 'Marketing',
+                    pluginTimestamp: 1665134575737,
+                    pluginStatus: 1,
+                    isEditable: 0,
+                    routes: '~/api/product-related~,~/api/list~,~/api/vendor-related-product~,~/api/product-related/update-product-related~,~/api/product-related/product-related-detail/~,~/api/product-related/product-list~,~/api/list/related-product-list~,~/api/vendor-related-product/update-vendor-related-product~,~/api/vendor-related-product/vendor-related-product-list~,~/api/vendor-related-product/vendor-related-product-details/~,',
+                    createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                },
+            ];
+            yield (0, typeorm_1.getRepository)('Plugins').save(SeoSeed);
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ---
+        });
+    }
+}
+exports.AddProductRelatedPlugin1665134575737 = AddProductRelatedPlugin1665134575737;
+//# sourceMappingURL=1665134575737-AddProductRelatedPlugin.js.map

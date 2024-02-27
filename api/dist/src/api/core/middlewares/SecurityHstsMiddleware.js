@@ -1,1 +1,28 @@
-'use strict';const a357_0x26ca0f=a357_0x289e;function a357_0x289e(_0xc52f5a,_0x25a63a){const _0x32ffe2=a357_0x32ff();return a357_0x289e=function(_0x289eb8,_0x1a0426){_0x289eb8=_0x289eb8-0xfd;let _0x15b073=_0x32ffe2[_0x289eb8];return _0x15b073;},a357_0x289e(_0xc52f5a,_0x25a63a);}(function(_0x27c970,_0x1e98cd){const _0x3b5e9d=a357_0x289e,_0x2e907f=_0x27c970();while(!![]){try{const _0x52cd8b=parseInt(_0x3b5e9d(0x112))/0x1*(parseInt(_0x3b5e9d(0x102))/0x2)+parseInt(_0x3b5e9d(0x10f))/0x3+-parseInt(_0x3b5e9d(0x105))/0x4*(parseInt(_0x3b5e9d(0xfe))/0x5)+parseInt(_0x3b5e9d(0x111))/0x6+-parseInt(_0x3b5e9d(0xfd))/0x7*(parseInt(_0x3b5e9d(0x10e))/0x8)+parseInt(_0x3b5e9d(0x106))/0x9+-parseInt(_0x3b5e9d(0x100))/0xa*(-parseInt(_0x3b5e9d(0x101))/0xb);if(_0x52cd8b===_0x1e98cd)break;else _0x2e907f['push'](_0x2e907f['shift']());}catch(_0x35f62c){_0x2e907f['push'](_0x2e907f['shift']());}}}(a357_0x32ff,0xbfa5b));Object[a357_0x26ca0f(0x109)](exports,a357_0x26ca0f(0x10b),{'value':!![]}),exports[a357_0x26ca0f(0x107)]=void 0x0;const tslib_1=require('tslib'),helmet=tslib_1[a357_0x26ca0f(0x108)](require(a357_0x26ca0f(0x110))),routing_controllers_1=require(a357_0x26ca0f(0x104));function a357_0x32ff(){const _0x33ec3d=['__importStar','defineProperty','before','__esModule','hsts','__decorate','11174448AxuWzf','567150BMgNXF','helmet','2366226wNEdZH','17035ZRSPMT','7DgIXIo','27035pycnbS','use','734960nFrwXk','110NWvfVd','52EHoicz','Middleware','routing-controllers','828Cjkjjt','13857759xxLZFj','SecurityHstsMiddleware'];a357_0x32ff=function(){return _0x33ec3d;};return a357_0x32ff();}let SecurityHstsMiddleware=class SecurityHstsMiddleware{[a357_0x26ca0f(0xff)](_0x49b9f1,_0x3fa11e,_0x19aae4){const _0x10fd3a=a357_0x26ca0f;return helmet[_0x10fd3a(0x10c)]({'maxAge':0x1e13380,'includeSubdomains':!![]})(_0x49b9f1,_0x3fa11e,_0x19aae4);}};SecurityHstsMiddleware=tslib_1[a357_0x26ca0f(0x10d)]([(0x0,routing_controllers_1[a357_0x26ca0f(0x103)])({'type':a357_0x26ca0f(0x10a)})],SecurityHstsMiddleware),exports['SecurityHstsMiddleware']=SecurityHstsMiddleware;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SecurityHstsMiddleware = void 0;
+const tslib_1 = require("tslib");
+const helmet = tslib_1.__importStar(require("helmet"));
+const routing_controllers_1 = require("routing-controllers");
+let SecurityHstsMiddleware = class SecurityHstsMiddleware {
+    use(req, res, next) {
+        return helmet.hsts({
+            maxAge: 31536000,
+            includeSubdomains: true,
+        })(req, res, next);
+    }
+};
+SecurityHstsMiddleware = tslib_1.__decorate([
+    (0, routing_controllers_1.Middleware)({ type: 'before' })
+], SecurityHstsMiddleware);
+exports.SecurityHstsMiddleware = SecurityHstsMiddleware;
+//# sourceMappingURL=SecurityHstsMiddleware.js.map

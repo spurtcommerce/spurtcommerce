@@ -1,1 +1,28 @@
-'use strict';function a802_0x499c(_0x341b59,_0x3cfdfd){const _0x46ca92=a802_0x46ca();return a802_0x499c=function(_0x499ca6,_0x4ae229){_0x499ca6=_0x499ca6-0xb3;let _0x56296d=_0x46ca92[_0x499ca6];return _0x56296d;},a802_0x499c(_0x341b59,_0x3cfdfd);}const a802_0x6aeda4=a802_0x499c;(function(_0x1edc86,_0x4cc127){const _0x550224=a802_0x499c,_0x55a097=_0x1edc86();while(!![]){try{const _0x2326a6=-parseInt(_0x550224(0xb3))/0x1+-parseInt(_0x550224(0xba))/0x2*(-parseInt(_0x550224(0xbd))/0x3)+-parseInt(_0x550224(0xb8))/0x4*(parseInt(_0x550224(0xc0))/0x5)+parseInt(_0x550224(0xbb))/0x6+-parseInt(_0x550224(0xc3))/0x7+parseInt(_0x550224(0xc5))/0x8+-parseInt(_0x550224(0xb6))/0x9*(-parseInt(_0x550224(0xbc))/0xa);if(_0x2326a6===_0x4cc127)break;else _0x55a097['push'](_0x55a097['shift']());}catch(_0x150be7){_0x55a097['push'](_0x55a097['shift']());}}}(a802_0x46ca,0x81cbc));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports['AddColumnInUser1565682493625']=void 0x0;const tslib_1=require(a802_0x6aeda4(0xbe)),typeorm_1=require('typeorm');class AddColumnInUser1565682493625{['up'](_0x2d7c77){const _0x2329e8=a802_0x6aeda4;return tslib_1[_0x2329e8(0xc4)](this,void 0x0,void 0x0,function*(){const _0x3e1646=_0x2329e8,_0x20f2c7=yield _0x2d7c77[_0x3e1646(0xb7)](_0x3e1646(0xc1),_0x3e1646(0xc2));!_0x20f2c7&&(yield _0x2d7c77[_0x3e1646(0xb9)](_0x3e1646(0xc1),new typeorm_1[(_0x3e1646(0xbf))]({'name':_0x3e1646(0xc2),'type':_0x3e1646(0xb4),'length':'11','isPrimary':![],'isNullable':!![]})));});}[a802_0x6aeda4(0xb5)](_0xb718dc){const _0x3f164c=a802_0x6aeda4;return tslib_1[_0x3f164c(0xc4)](this,void 0x0,void 0x0,function*(){const _0x140bc6=_0x3f164c;yield _0xb718dc['dropColumn'](_0x140bc6(0xc1),'delete_flag');});}}exports['AddColumnInUser1565682493625']=AddColumnInUser1565682493625;function a802_0x46ca(){const _0x2580e1=['87XMCNRM','tslib','TableColumn','650PWYiHe','users','delete_flag','844921mTPwtu','__awaiter','5137592OClLzR','193717yCSMTC','int','down','9uzaFsG','hasColumn','27784TrCZqy','addColumn','4882Okkfsx','3260442ICpdhH','4926490ZccaTc'];a802_0x46ca=function(){return _0x2580e1;};return a802_0x46ca();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInUser1565682493625 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInUser1565682493625 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('users', 'delete_flag');
+            if (!ifExist) {
+                yield queryRunner.addColumn('users', new typeorm_1.TableColumn({
+                    name: 'delete_flag',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('users', 'delete_flag');
+        });
+    }
+}
+exports.AddColumnInUser1565682493625 = AddColumnInUser1565682493625;
+//# sourceMappingURL=1565682493625-AddColumnInUser.js.map

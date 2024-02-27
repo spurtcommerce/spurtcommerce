@@ -1,1 +1,20 @@
-'use strict';function a805_0x5a14(_0x3cb1fd,_0x19c59e){const _0x2ae3b9=a805_0x2ae3();return a805_0x5a14=function(_0x5a1464,_0x447d0c){_0x5a1464=_0x5a1464-0x16d;let _0x32451d=_0x2ae3b9[_0x5a1464];return _0x32451d;},a805_0x5a14(_0x3cb1fd,_0x19c59e);}const a805_0x3d1f77=a805_0x5a14;(function(_0xf75ba5,_0xf74d6){const _0x1f208d=a805_0x5a14,_0x54eced=_0xf75ba5();while(!![]){try{const _0x803c21=-parseInt(_0x1f208d(0x175))/0x1+parseInt(_0x1f208d(0x178))/0x2+parseInt(_0x1f208d(0x173))/0x3*(-parseInt(_0x1f208d(0x179))/0x4)+parseInt(_0x1f208d(0x16d))/0x5+parseInt(_0x1f208d(0x17d))/0x6*(-parseInt(_0x1f208d(0x17c))/0x7)+parseInt(_0x1f208d(0x17a))/0x8*(-parseInt(_0x1f208d(0x16f))/0x9)+parseInt(_0x1f208d(0x176))/0xa;if(_0x803c21===_0xf74d6)break;else _0x54eced['push'](_0x54eced['shift']());}catch(_0x1bcaa5){_0x54eced['push'](_0x54eced['shift']());}}}(a805_0x2ae3,0x60a49));function a805_0x2ae3(){const _0x5b8bef=['ALTER\x20TABLE\x20`product_discount`\x20CHANGE\x20`price`\x20`price`\x20decimal(15,2)\x20DEFAULT\x20NULL','__awaiter','AlterProductColumn1565856125812','3arwcif','defineProperty','192192ehkaBH','7419210WKBjkk','query','1289180XULgzC','1609012tWJwyG','34096aajxBg','ALTER\x20TABLE\x20`currency`\x20CHANGE\x20`value`\x20`value`\x20float(15,2)\x20DEFAULT\x20NULL','14pKNYQK','1627194IQqMav','__esModule','down','1817715yfWNoc','tslib','459Mgjftq'];a805_0x2ae3=function(){return _0x5b8bef;};return a805_0x2ae3();}Object[a805_0x3d1f77(0x174)](exports,a805_0x3d1f77(0x17e),{'value':!![]}),exports[a805_0x3d1f77(0x172)]=void 0x0;const tslib_1=require(a805_0x3d1f77(0x16e));class AlterProductColumn1565856125812{['up'](_0x33a498){const _0x4dd38a=a805_0x3d1f77;return tslib_1[_0x4dd38a(0x171)](this,void 0x0,void 0x0,function*(){const _0x1577d0=_0x4dd38a;yield _0x33a498[_0x1577d0(0x177)](_0x1577d0(0x17b)),yield _0x33a498['query'](_0x1577d0(0x170));});}[a805_0x3d1f77(0x17f)](_0x205e28){const _0x2f4fec=a805_0x3d1f77;return tslib_1[_0x2f4fec(0x171)](this,void 0x0,void 0x0,function*(){const _0x1e7ee3=_0x2f4fec;yield _0x205e28[_0x1e7ee3(0x177)](_0x1e7ee3(0x17b)),yield _0x205e28['query'](_0x1e7ee3(0x170));});}}exports[a805_0x3d1f77(0x172)]=AlterProductColumn1565856125812;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AlterProductColumn1565856125812 = void 0;
+const tslib_1 = require("tslib");
+class AlterProductColumn1565856125812 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `currency` CHANGE `value` `value` float(15,2) DEFAULT NULL');
+            yield queryRunner.query('ALTER TABLE `product_discount` CHANGE `price` `price` decimal(15,2) DEFAULT NULL');
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `currency` CHANGE `value` `value` float(15,2) DEFAULT NULL');
+            yield queryRunner.query('ALTER TABLE `product_discount` CHANGE `price` `price` decimal(15,2) DEFAULT NULL');
+        });
+    }
+}
+exports.AlterProductColumn1565856125812 = AlterProductColumn1565856125812;
+//# sourceMappingURL=1565856125812-AlterProductColumn.js.map

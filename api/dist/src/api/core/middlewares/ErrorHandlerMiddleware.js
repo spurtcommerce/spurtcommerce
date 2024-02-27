@@ -1,1 +1,92 @@
-'use strict';function a354_0x10dd(_0x5de2c3,_0x3bbbde){const _0x4af6ca=a354_0x4af6();return a354_0x10dd=function(_0x10dde7,_0x262b2c){_0x10dde7=_0x10dde7-0xb8;let _0x485fb4=_0x4af6ca[_0x10dde7];return _0x485fb4;},a354_0x10dd(_0x5de2c3,_0x3bbbde);}function a354_0x4af6(){const _0x2d683a=['data','796335JLUobS','status','Unauthorized','every','httpCode','isArray','__decorate','1527620tjveIr','stack','481353RZwypY','isProduction','6PIdwgi','forEach','error','property\x20','Middleware','after','8beFKKC','9381470DCuxmk','defineProperty','env','json','tslib','You\x20have\x20an\x20error\x20in\x20your\x20request\x27s\x20body.\x20Check\x20\x27errors\x27\x20field\x20for\x20more\x20details!','__param','design:paramtypes','name','message','routing-controllers','keys','errors','ValidationError','push','__esModule','AuthorizationRequiredError','389125oooiEa','string','../../../decorators/Logger','class-validator','ErrorHandlerMiddleware','../../../env','constraints','log','1157317BCoBxT','2QQfNlV','3456306WUpOCu'];a354_0x4af6=function(){return _0x2d683a;};return a354_0x4af6();}const a354_0x5f0612=a354_0x10dd;(function(_0x28bf89,_0x488e40){const _0x64f42a=a354_0x10dd,_0x152f58=_0x28bf89();while(!![]){try{const _0x4d68f0=parseInt(_0x64f42a(0xe6))/0x1+-parseInt(_0x64f42a(0xc0))/0x2*(parseInt(_0x64f42a(0xcc))/0x3)+-parseInt(_0x64f42a(0xca))/0x4+parseInt(_0x64f42a(0xc3))/0x5+parseInt(_0x64f42a(0xce))/0x6*(-parseInt(_0x64f42a(0xbf))/0x7)+parseInt(_0x64f42a(0xd4))/0x8*(-parseInt(_0x64f42a(0xc1))/0x9)+parseInt(_0x64f42a(0xd5))/0xa;if(_0x4d68f0===_0x488e40)break;else _0x152f58['push'](_0x152f58['shift']());}catch(_0x32d86d){_0x152f58['push'](_0x152f58['shift']());}}}(a354_0x4af6,0x60642));Object[a354_0x5f0612(0xd6)](exports,a354_0x5f0612(0xe4),{'value':!![]}),exports[a354_0x5f0612(0xbb)]=void 0x0;const tslib_1=require(a354_0x5f0612(0xd9)),routing_controllers_1=require(a354_0x5f0612(0xdf)),class_validator_1=require(a354_0x5f0612(0xba)),Logger_1=require(a354_0x5f0612(0xb9)),env_1=require(a354_0x5f0612(0xbc));let ErrorHandlerMiddleware=class ErrorHandlerMiddleware{constructor(_0x1c1905){const _0x3006cc=a354_0x5f0612;this['log']=_0x1c1905,this['isProduction']=env_1[_0x3006cc(0xd7)][_0x3006cc(0xcd)];}[a354_0x5f0612(0xd0)](_0x3c6dba,_0x33a0df,_0x4052b8,_0x49987){const _0x28e3ab=a354_0x5f0612,_0x3456c8={};if(_0x3c6dba&&Array[_0x28e3ab(0xc8)](_0x3c6dba['errors'])&&_0x3c6dba[_0x28e3ab(0xe1)][_0x28e3ab(0xc6)](_0x228933=>_0x228933 instanceof class_validator_1[_0x28e3ab(0xe2)]))_0x4052b8['status'](0x1a6),_0x3456c8['message']=_0x28e3ab(0xda),_0x3456c8[_0x28e3ab(0xc4)]=0x0,_0x3456c8[_0x28e3ab(0xc2)]={},_0x3456c8['data'][_0x28e3ab(0xde)]=[],_0x3c6dba[_0x28e3ab(0xe1)]['forEach'](_0x4254da=>{const _0x472163=_0x28e3ab;Object[_0x472163(0xe0)](_0x4254da['constraints'])[_0x472163(0xcf)](_0x4bcf54=>{const _0x2582d2=_0x472163;_0x3456c8[_0x2582d2(0xc2)][_0x2582d2(0xde)][_0x2582d2(0xe3)](_0x2582d2(0xd1)+_0x4254da[_0x2582d2(0xbd)][_0x4bcf54]);});});else{_0x3c6dba instanceof routing_controllers_1['HttpError']&&_0x3c6dba[_0x28e3ab(0xc7)]?_0x4052b8['status'](_0x3c6dba['httpCode']):_0x4052b8[_0x28e3ab(0xc4)](0x1f4);if(_0x3c6dba instanceof Error){const _0x40019e=!this[_0x28e3ab(0xcd)];_0x3c6dba[_0x28e3ab(0xdd)]&&(_0x40019e||_0x3c6dba[_0x28e3ab(0xde)])&&(_0x3456c8[_0x28e3ab(0xdd)]=_0x3c6dba[_0x28e3ab(0xdd)]);switch(_0x3c6dba[_0x28e3ab(0xdd)]){case _0x28e3ab(0xe5):_0x3456c8[_0x28e3ab(0xde)]=_0x28e3ab(0xc5);break;default:_0x3456c8['message']=_0x3c6dba[_0x28e3ab(0xde)];break;}_0x3c6dba['stack']&&_0x40019e&&(_0x3456c8[_0x28e3ab(0xcb)]=_0x3c6dba[_0x28e3ab(0xcb)]);}else typeof _0x3c6dba===_0x28e3ab(0xb8)&&(_0x3456c8[_0x28e3ab(0xde)]=_0x3c6dba);}this[_0x28e3ab(0xcd)]?this[_0x28e3ab(0xbe)][_0x28e3ab(0xd0)](_0x3c6dba[_0x28e3ab(0xdd)],_0x3c6dba['message']):this[_0x28e3ab(0xbe)][_0x28e3ab(0xd0)](_0x3c6dba['name'],_0x3c6dba[_0x28e3ab(0xcb)]),_0x4052b8[_0x28e3ab(0xd8)](_0x3456c8);}};ErrorHandlerMiddleware=tslib_1[a354_0x5f0612(0xc9)]([(0x0,routing_controllers_1[a354_0x5f0612(0xd2)])({'type':a354_0x5f0612(0xd3)}),tslib_1[a354_0x5f0612(0xdb)](0x0,(0x0,Logger_1['Logger'])(__filename)),tslib_1['__metadata'](a354_0x5f0612(0xdc),[Object])],ErrorHandlerMiddleware),exports[a354_0x5f0612(0xbb)]=ErrorHandlerMiddleware;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ErrorHandlerMiddleware = void 0;
+const tslib_1 = require("tslib");
+const routing_controllers_1 = require("routing-controllers");
+const class_validator_1 = require("class-validator");
+const Logger_1 = require("../../../decorators/Logger");
+const env_1 = require("../../../env");
+let ErrorHandlerMiddleware = class ErrorHandlerMiddleware {
+    constructor(log) {
+        this.log = log;
+        this.isProduction = env_1.env.isProduction;
+    }
+    /**
+     * Error handler - sets response code and sends json with error message.
+     * Handle: standard node error, HttpError, ValidationError and string.
+     *
+     * @param {any} error An throwed object (error)
+     * @param {express.Request} req The Express request object
+     * @param {express.Response} res The Express response object
+     * @param {express.NextFunction} next The next Express middleware function
+     */
+    error(error, _req, res, _next) {
+        const responseObject = {};
+        // if its an array of ValidationError
+        if (error && Array.isArray(error.errors) && error.errors.every((element) => element instanceof class_validator_1.ValidationError)) {
+            res.status(422);
+            responseObject.message = "You have an error in your request's body. Check 'errors' field for more details!";
+            responseObject.status = 0;
+            responseObject.data = {};
+            responseObject.data.message = [];
+            error.errors.forEach((element) => {
+                Object.keys(element.constraints).forEach((type) => {
+                    responseObject.data.message.push(`property ${element.constraints[type]}`);
+                });
+            });
+        }
+        else {
+            // set http status
+            if (error instanceof routing_controllers_1.HttpError && error.httpCode) {
+                res.status(error.httpCode);
+            }
+            else {
+                res.status(500);
+            }
+            if (error instanceof Error) {
+                const developmentMode = !this.isProduction;
+                // set response error fields
+                if (error.name && (developmentMode || error.message)) { // show name only if in development mode and if error message exist too
+                    responseObject.name = error.name;
+                }
+                switch (error.name) {
+                    case 'AuthorizationRequiredError':
+                        responseObject.message = 'Unauthorized';
+                        break;
+                    default:
+                        responseObject.message = error.message;
+                        break;
+                }
+                if (error.stack && developmentMode) {
+                    responseObject.stack = error.stack;
+                }
+            }
+            else if (typeof error === 'string') {
+                responseObject.message = error;
+            }
+        }
+        if (this.isProduction) {
+            this.log.error(error.name, error.message);
+        }
+        else {
+            this.log.error(error.name, error.stack);
+        }
+        res.json(responseObject);
+    }
+};
+ErrorHandlerMiddleware = tslib_1.__decorate([
+    (0, routing_controllers_1.Middleware)({ type: 'after' }),
+    tslib_1.__param(0, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [Object])
+], ErrorHandlerMiddleware);
+exports.ErrorHandlerMiddleware = ErrorHandlerMiddleware;
+//# sourceMappingURL=ErrorHandlerMiddleware.js.map

@@ -1,1 +1,186 @@
-'use strict';const a729_0x37b525=a729_0x5968;function a729_0x4e28(){const _0x5e4704=['varchar','avatar','Table','896968rjaUGI','integer','typeorm','avatar_path','customer','6245890FWmVZH','modified_by','4373532Xuvzws','2265dgxlGE','last_name','pincode','newsletter','customer_group_id','1461459rFSgkc','created_date','DATETIME','is_active','mobile','int','dropTable','address','TEXT','email','modified_date','increment','12532zfjDrJ','zone_id','CURRENT_TIMESTAMP','396pxqlaS','CreateCustomerTable1546524561001','tslib','delete_flag','password','128','255','7ydWTVj','__esModule','mail_status','905hqJHiN','down','first_name','__awaiter','512','hasTable','777378msMnPr'];a729_0x4e28=function(){return _0x5e4704;};return a729_0x4e28();}(function(_0x18ab9f,_0x1dd81c){const _0x355c56=a729_0x5968,_0x4142c5=_0x18ab9f();while(!![]){try{const _0x76f766=parseInt(_0x355c56(0x78))/0x1*(parseInt(_0x355c56(0x8c))/0x2)+parseInt(_0x355c56(0x7d))/0x3+parseInt(_0x355c56(0x89))/0x4*(-parseInt(_0x355c56(0x96))/0x5)+parseInt(_0x355c56(0x9c))/0x6*(parseInt(_0x355c56(0x93))/0x7)+parseInt(_0x355c56(0xa0))/0x8+parseInt(_0x355c56(0x77))/0x9+-parseInt(_0x355c56(0x75))/0xa;if(_0x76f766===_0x1dd81c)break;else _0x4142c5['push'](_0x4142c5['shift']());}catch(_0x2e8e00){_0x4142c5['push'](_0x4142c5['shift']());}}}(a729_0x4e28,0x73229));Object['defineProperty'](exports,a729_0x37b525(0x94),{'value':!![]}),exports[a729_0x37b525(0x8d)]=void 0x0;const tslib_1=require(a729_0x37b525(0x8e)),typeorm_1=require(a729_0x37b525(0xa2));class CreateCustomerTable1546524561001{['up'](_0xf2ec46){const _0x2a7338=a729_0x37b525;return tslib_1[_0x2a7338(0x99)](this,void 0x0,void 0x0,function*(){const _0x37d327=_0x2a7338,_0x42baf3=new typeorm_1[(_0x37d327(0x9f))]({'name':_0x37d327(0x74),'columns':[{'name':'id','type':'integer','length':'11','isGenerated':!![],'generationStrategy':_0x37d327(0x88),'isPrimary':!![],'isNullable':![]},{'name':_0x37d327(0x98),'type':'varchar','length':'512','isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x79),'type':'varchar','length':_0x37d327(0x9a),'isPrimary':![],'isNullable':!![]},{'name':'username','type':_0x37d327(0x9d),'length':_0x37d327(0x9a),'isPrimary':![],'isNullable':![]},{'name':_0x37d327(0x86),'type':_0x37d327(0x9d),'length':_0x37d327(0x9a),'isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x90),'type':_0x37d327(0x9d),'length':_0x37d327(0x9a),'isPrimary':![],'isNullable':![]},{'name':_0x37d327(0x81),'type':_0x37d327(0x9d),'length':'10','isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x84),'type':_0x37d327(0x9d),'length':'128','isPrimary':![],'isNullable':!![]},{'name':'country_id','type':_0x37d327(0xa1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x8a),'type':_0x37d327(0xa1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'city','type':_0x37d327(0x9d),'length':_0x37d327(0x91),'isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x7a),'type':_0x37d327(0x9d),'length':'6','isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x9e),'type':_0x37d327(0x9d),'length':_0x37d327(0x92),'isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x73),'type':_0x37d327(0x85),'length':_0x37d327(0x91),'isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x7b),'type':_0x37d327(0x82),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x8f),'type':_0x37d327(0x82),'length':'11','isPrimary':![],'isNullable':!![],'default':0x0},{'name':_0x37d327(0x95),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x7c),'type':_0x37d327(0x82),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'safe','type':_0x37d327(0x82),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'last_login','type':_0x37d327(0x7f),'isPrimary':![],'isNullable':!![]},{'name':'ip','type':'varchar','length':'15','isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x80),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_by','type':_0x37d327(0xa1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x76),'type':_0x37d327(0xa1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x37d327(0x7e),'type':_0x37d327(0x7f),'isPrimary':![],'isNullable':!![],'default':_0x37d327(0x8b)},{'name':_0x37d327(0x87),'type':_0x37d327(0x7f),'isPrimary':![],'isNullable':!![],'default':_0x37d327(0x8b)}]}),_0x5dd23c=yield _0xf2ec46[_0x37d327(0x9b)](_0x37d327(0x74));!_0x5dd23c&&(yield _0xf2ec46['createTable'](_0x42baf3));});}[a729_0x37b525(0x97)](_0x5b4cae){const _0x29249a=a729_0x37b525;return tslib_1[_0x29249a(0x99)](this,void 0x0,void 0x0,function*(){const _0x554c90=_0x29249a;yield _0x5b4cae[_0x554c90(0x83)](_0x554c90(0x74),!![]);});}}function a729_0x5968(_0x294081,_0x2dd42e){const _0x4e2895=a729_0x4e28();return a729_0x5968=function(_0x596823,_0x12f028){_0x596823=_0x596823-0x73;let _0x36ea6f=_0x4e2895[_0x596823];return _0x36ea6f;},a729_0x5968(_0x294081,_0x2dd42e);}exports[a729_0x37b525(0x8d)]=CreateCustomerTable1546524561001;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCustomerTable1546524561001 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateCustomerTable1546524561001 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'customer',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'first_name',
+                        type: 'varchar',
+                        length: '512',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'last_name',
+                        type: 'varchar',
+                        length: '512',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'username',
+                        type: 'varchar',
+                        length: '512',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'email',
+                        type: 'varchar',
+                        length: '512',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'password',
+                        type: 'varchar',
+                        length: '512',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'mobile',
+                        type: 'varchar',
+                        length: '10',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'address',
+                        type: 'varchar',
+                        length: '128',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'country_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'zone_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'city',
+                        type: 'varchar',
+                        length: '128',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'pincode',
+                        type: 'varchar',
+                        length: '6',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'avatar',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'avatar_path',
+                        type: 'TEXT',
+                        length: '128',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'newsletter',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'delete_flag',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 0,
+                    }, {
+                        name: 'mail_status',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'customer_group_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'safe',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'last_login',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'ip',
+                        type: 'varchar',
+                        length: '15',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('customer');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('customer', true);
+        });
+    }
+}
+exports.CreateCustomerTable1546524561001 = CreateCustomerTable1546524561001;
+//# sourceMappingURL=1546524561001-CreateCustomerTable.js.map

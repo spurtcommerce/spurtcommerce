@@ -1,1 +1,28 @@
-'use strict';const a847_0x1a7275=a847_0x3a56;(function(_0x1f6592,_0x29a3a3){const _0x2652fa=a847_0x3a56,_0x4f3186=_0x1f6592();while(!![]){try{const _0x2d19bd=parseInt(_0x2652fa(0xc3))/0x1*(-parseInt(_0x2652fa(0xd8))/0x2)+-parseInt(_0x2652fa(0xcc))/0x3+-parseInt(_0x2652fa(0xd7))/0x4*(parseInt(_0x2652fa(0xd2))/0x5)+parseInt(_0x2652fa(0xd3))/0x6*(-parseInt(_0x2652fa(0xda))/0x7)+parseInt(_0x2652fa(0xcb))/0x8+-parseInt(_0x2652fa(0xca))/0x9*(-parseInt(_0x2652fa(0xd9))/0xa)+parseInt(_0x2652fa(0xcd))/0xb*(parseInt(_0x2652fa(0xc6))/0xc);if(_0x2d19bd===_0x29a3a3)break;else _0x4f3186['push'](_0x4f3186['shift']());}catch(_0x5405db){_0x4f3186['push'](_0x4f3186['shift']());}}}(a847_0x1cfc,0xbae5c));function a847_0x3a56(_0x42633b,_0x58eb69){const _0x1cfcbd=a847_0x1cfc();return a847_0x3a56=function(_0x3a56ae,_0x5ac074){_0x3a56ae=_0x3a56ae-0xc3;let _0x37f418=_0x1cfcbd[_0x3a56ae];return _0x37f418;},a847_0x3a56(_0x42633b,_0x58eb69);}Object['defineProperty'](exports,a847_0x1a7275(0xd4),{'value':!![]}),exports[a847_0x1a7275(0xd0)]=void 0x0;function a847_0x1cfc(){const _0x236483=['tslib','9JUwJtF','11770384SoTJNY','4249722TLBxYK','8056829hGGIJT','order_product_prefix_id','product','AddColumnInOrderProductTable1582207440112','down','3674785ehdxDo','724764ZXcOQM','__esModule','hasColumn','varchar','4QsfLGa','26LXYYaj','4767590wnqyJY','70RLxGOt','1567xjMFxg','TableColumn','__awaiter','36EPFwNS','addColumn','255'];a847_0x1cfc=function(){return _0x236483;};return a847_0x1cfc();}const tslib_1=require(a847_0x1a7275(0xc9)),typeorm_1=require('typeorm');class AddColumnInOrderProductTable1582207440112{['up'](_0x2019ee){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x20a789=a847_0x3a56,_0x5308ff=yield _0x2019ee[_0x20a789(0xd5)](_0x20a789(0xcf),_0x20a789(0xce));!_0x5308ff&&(yield _0x2019ee[_0x20a789(0xc7)]('product',new typeorm_1[(_0x20a789(0xc4))]({'name':_0x20a789(0xce),'type':_0x20a789(0xd6),'length':_0x20a789(0xc8),'isPrimary':![],'isNullable':!![]})));});}[a847_0x1a7275(0xd1)](_0x1de1e5){const _0x3c6085=a847_0x1a7275;return tslib_1[_0x3c6085(0xc5)](this,void 0x0,void 0x0,function*(){const _0x25ca5a=_0x3c6085;yield _0x1de1e5['dropColumn'](_0x25ca5a(0xcf),_0x25ca5a(0xce));});}}exports[a847_0x1a7275(0xd0)]=AddColumnInOrderProductTable1582207440112;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInOrderProductTable1582207440112 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInOrderProductTable1582207440112 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExistt = yield queryRunner.hasColumn('product', 'order_product_prefix_id');
+            if (!ifExistt) {
+                yield queryRunner.addColumn('product', new typeorm_1.TableColumn({
+                    name: 'order_product_prefix_id',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('product', 'order_product_prefix_id');
+        });
+    }
+}
+exports.AddColumnInOrderProductTable1582207440112 = AddColumnInOrderProductTable1582207440112;
+//# sourceMappingURL=1582207440112-AddColumnInOrderProductTable.js.map

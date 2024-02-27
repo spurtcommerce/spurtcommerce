@@ -1,1 +1,101 @@
-'use strict';const a589_0x22d38c=a589_0x2ec7;(function(_0x2ec454,_0xe444f1){const _0x331622=a589_0x2ec7,_0x2c0655=_0x2ec454();while(!![]){try{const _0x141198=-parseInt(_0x331622(0x167))/0x1*(-parseInt(_0x331622(0x181))/0x2)+-parseInt(_0x331622(0x166))/0x3+-parseInt(_0x331622(0x17d))/0x4+parseInt(_0x331622(0x16a))/0x5*(-parseInt(_0x331622(0x16e))/0x6)+-parseInt(_0x331622(0x15a))/0x7*(-parseInt(_0x331622(0x179))/0x8)+parseInt(_0x331622(0x161))/0x9+parseInt(_0x331622(0x156))/0xa;if(_0x141198===_0xe444f1)break;else _0x2c0655['push'](_0x2c0655['shift']());}catch(_0x2f57f6){_0x2c0655['push'](_0x2c0655['shift']());}}}(a589_0xe7f7,0xa2a20));Object[a589_0x22d38c(0x175)](exports,a589_0x22d38c(0x157),{'value':!![]}),exports[a589_0x22d38c(0x178)]=void 0x0;function a589_0x2ec7(_0xde35ce,_0x23855c){const _0xe7f756=a589_0xe7f7();return a589_0x2ec7=function(_0x2ec72b,_0x450d98){_0x2ec72b=_0x2ec72b-0x151;let _0x428f2f=_0xe7f756[_0x2ec72b];return _0x428f2f;},a589_0x2ec7(_0xde35ce,_0x23855c);}const tslib_1=require(a589_0x22d38c(0x173)),typedi_1=require(a589_0x22d38c(0x15c)),typeorm_typedi_extensions_1=require(a589_0x22d38c(0x152)),Logger_1=require(a589_0x22d38c(0x158)),index_1=require(a589_0x22d38c(0x17c)),ProductImageRepository_1=require(a589_0x22d38c(0x16d));let ProductImageService=class ProductImageService{constructor(_0xf6a431,_0x985bfb){const _0x4d2967=a589_0x22d38c;this['productImageRepository']=_0xf6a431,this[_0x4d2967(0x165)]=_0x985bfb;}[a589_0x22d38c(0x163)](_0x962358){const _0x5d8dab=a589_0x22d38c;return tslib_1[_0x5d8dab(0x171)](this,void 0x0,void 0x0,function*(){const _0xa2fb4a=_0x5d8dab;return this[_0xa2fb4a(0x165)][_0xa2fb4a(0x168)]('Create\x20a\x20new\x20productImage\x20'),this[_0xa2fb4a(0x17a)][_0xa2fb4a(0x182)](_0x962358);});}[a589_0x22d38c(0x17b)](_0x35526d){const _0x47c19b=a589_0x22d38c;return this['productImageRepository'][_0x47c19b(0x17b)](_0x35526d);}[a589_0x22d38c(0x162)](_0x421f3c){const _0x1c1bdf=a589_0x22d38c;return this[_0x1c1bdf(0x17a)][_0x1c1bdf(0x151)](_0x421f3c);}[a589_0x22d38c(0x151)](){const _0x45524e=a589_0x22d38c;return this[_0x45524e(0x17a)]['find']();}[a589_0x22d38c(0x177)](_0xb23d46,_0x3e07ba){const _0x547651=a589_0x22d38c;return this[_0x547651(0x165)][_0x547651(0x168)](_0x547651(0x172)),_0x3e07ba[_0x547651(0x16b)]=_0xb23d46,this[_0x547651(0x17a)][_0x547651(0x182)](_0x3e07ba);}[a589_0x22d38c(0x176)](_0x39ed0a,_0x5f5512,_0x49bf5b=[],_0x3ddab7=[],_0x26e408=[],_0x2d2f28){const _0x3d3acd=a589_0x22d38c,_0x5a4044={};return _0x49bf5b&&_0x49bf5b[_0x3d3acd(0x169)]>0x0&&(_0x5a4044[_0x3d3acd(0x15f)]=_0x49bf5b),_0x5a4044[_0x3d3acd(0x174)]={},_0x26e408&&_0x26e408[_0x3d3acd(0x169)]>0x0&&_0x26e408[_0x3d3acd(0x16c)](_0x1b50e9=>{const _0x59acf5=_0x3d3acd;_0x5a4044[_0x59acf5(0x174)][_0x1b50e9[_0x59acf5(0x155)]]=_0x1b50e9['value'];}),_0x3ddab7&&_0x3ddab7[_0x3d3acd(0x169)]>0x0&&_0x3ddab7[_0x3d3acd(0x16c)](_0x3493c2=>{const _0x4ad7a5=_0x3d3acd,_0x53679d=_0x3493c2['op'];if(_0x53679d==='where'&&_0x3493c2[_0x4ad7a5(0x16f)]!=='')_0x5a4044[_0x4ad7a5(0x174)][_0x3493c2[_0x4ad7a5(0x155)]]=_0x3493c2[_0x4ad7a5(0x16f)];else _0x53679d===_0x4ad7a5(0x160)&&_0x3493c2[_0x4ad7a5(0x16f)]!==''&&(_0x5a4044['where'][_0x3493c2['name']]=(0x0,index_1['Like'])('%'+_0x3493c2[_0x4ad7a5(0x16f)]+'%'));}),_0x39ed0a&&_0x39ed0a>0x0&&(_0x5a4044[_0x3d3acd(0x154)]=_0x39ed0a,_0x5a4044[_0x3d3acd(0x17e)]=_0x5f5512),_0x2d2f28?this['productImageRepository'][_0x3d3acd(0x180)](_0x5a4044):this[_0x3d3acd(0x17a)][_0x3d3acd(0x151)](_0x5a4044);}['delete'](_0x4e2352){const _0x2cdc2e=a589_0x22d38c;return tslib_1[_0x2cdc2e(0x171)](this,void 0x0,void 0x0,function*(){const _0x54ac18=_0x2cdc2e;return yield this[_0x54ac18(0x17a)][_0x54ac18(0x164)](_0x4e2352);});}[a589_0x22d38c(0x159)](_0x3ffbc0){const _0x4ff9f3=a589_0x22d38c;return tslib_1[_0x4ff9f3(0x171)](this,void 0x0,void 0x0,function*(){const _0x41c4af=_0x4ff9f3;return yield this[_0x41c4af(0x17a)][_0x41c4af(0x164)]({'productId':_0x3ffbc0});});}};ProductImageService=tslib_1[a589_0x22d38c(0x170)]([(0x0,typedi_1[a589_0x22d38c(0x15b)])(),tslib_1[a589_0x22d38c(0x15e)](0x0,(0x0,typeorm_typedi_extensions_1[a589_0x22d38c(0x183)])()),tslib_1[a589_0x22d38c(0x15e)](0x1,(0x0,Logger_1[a589_0x22d38c(0x15d)])(__filename)),tslib_1['__metadata'](a589_0x22d38c(0x153),[ProductImageRepository_1[a589_0x22d38c(0x17f)],Object])],ProductImageService),exports[a589_0x22d38c(0x178)]=ProductImageService;function a589_0xe7f7(){const _0x2d1738=['productImageId','forEach','../repositories/ProductImageRepository','5694504pAYYjl','value','__decorate','__awaiter','Update\x20a\x20productImage','tslib','where','defineProperty','list','update','ProductImageService','2250328nxEYhA','productImageRepository','findOne','typeorm/index','4707560PJrHDT','skip','ProductImageRepository','count','8JcRoXH','save','OrmRepository','find','typeorm-typedi-extensions','design:paramtypes','take','name','23133540ZGEbiG','__esModule','../../../decorators/Logger','deleteProduct','14MIVTre','Service','typedi','Logger','__param','select','like','5923728WZCDdJ','findAll','create','delete','log','2825934UCxwEu','49992SqkgBA','info','length','5bknWpS'];a589_0xe7f7=function(){return _0x2d1738;};return a589_0xe7f7();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductImageService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const index_1 = require("typeorm/index");
+const ProductImageRepository_1 = require("../repositories/ProductImageRepository");
+let ProductImageService = class ProductImageService {
+    constructor(productImageRepository, log) {
+        this.productImageRepository = productImageRepository;
+        this.log = log;
+    }
+    // create product
+    create(productImage) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new productImage ');
+            return this.productImageRepository.save(productImage);
+        });
+    }
+    // find one product image
+    findOne(productImage) {
+        return this.productImageRepository.findOne(productImage);
+    }
+    // find all product images
+    findAll(productImage) {
+        return this.productImageRepository.find(productImage);
+    }
+    // find all product images
+    find() {
+        return this.productImageRepository.find();
+    }
+    // update product images
+    update(id, productImage) {
+        this.log.info('Update a productImage');
+        productImage.productImageId = id;
+        return this.productImageRepository.save(productImage);
+    }
+    // ProductImage List
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== '') {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== '') {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.productImageRepository.count(condition);
+        }
+        else {
+            return this.productImageRepository.find(condition);
+        }
+    }
+    // delete product image
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.productImageRepository.delete(id);
+        });
+    }
+    // delete product
+    deleteProduct(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.productImageRepository.delete({ productId: id });
+        });
+    }
+};
+ProductImageService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [ProductImageRepository_1.ProductImageRepository, Object])
+], ProductImageService);
+exports.ProductImageService = ProductImageService;
+//# sourceMappingURL=ProductImageService.js.map

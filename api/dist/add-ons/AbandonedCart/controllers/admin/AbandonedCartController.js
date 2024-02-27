@@ -1,1 +1,526 @@
-'use strict';const a0_0x16c40=a0_0x3d2f;(function(_0x20b28e,_0x43d269){const _0xf3e9f3=a0_0x3d2f,_0x390f08=_0x20b28e();while(!![]){try{const _0x105ed5=-parseInt(_0xf3e9f3(0x154))/0x1+parseInt(_0xf3e9f3(0x189))/0x2+-parseInt(_0xf3e9f3(0x149))/0x3+-parseInt(_0xf3e9f3(0x16b))/0x4*(-parseInt(_0xf3e9f3(0x11a))/0x5)+-parseInt(_0xf3e9f3(0x13b))/0x6*(parseInt(_0xf3e9f3(0x17f))/0x7)+-parseInt(_0xf3e9f3(0x1b1))/0x8+parseInt(_0xf3e9f3(0x147))/0x9*(parseInt(_0xf3e9f3(0x12b))/0xa);if(_0x105ed5===_0x43d269)break;else _0x390f08['push'](_0x390f08['shift']());}catch(_0x541563){_0x390f08['push'](_0x390f08['shift']());}}}(a0_0x1762,0xec684));Object[a0_0x16c40(0x178)](exports,a0_0x16c40(0x148),{'value':!![]}),exports[a0_0x16c40(0x177)]=void 0x0;const tslib_1=require(a0_0x16c40(0x18e)),routing_controllers_1=require(a0_0x16c40(0x19e)),CustomerService_1=require('../../../../src/api/core/services/CustomerService'),CustomerCartService_1=require(a0_0x16c40(0x171)),mail_services_1=require(a0_0x16c40(0x164)),env_1=require(a0_0x16c40(0x1c1)),fs=tslib_1[a0_0x16c40(0x1ae)](require('fs')),excel=tslib_1['__importStar'](require(a0_0x16c40(0x162))),SettingService_1=require(a0_0x16c40(0x151)),EmailTemplateService_1=require(a0_0x16c40(0x194)),ProductImageService_1=require('../../../../src/api/core/services/ProductImageService'),moment_1=tslib_1[a0_0x16c40(0x150)](require('moment')),CreateExcelRequest_1=require(a0_0x16c40(0x144)),UpdateCartRequest_1=require(a0_0x16c40(0x119)),typeorm_1=require(a0_0x16c40(0x195)),AddonValidationMiddleware_1=require(a0_0x16c40(0x181)),CurrencyService_1=require(a0_0x16c40(0x1b8));function a0_0x3d2f(_0x5574af,_0x2127ef){const _0x1762f7=a0_0x1762();return a0_0x3d2f=function(_0x3d2f89,_0x11bc99){_0x3d2f89=_0x3d2f89-0x117;let _0x87645d=_0x1762f7[_0x3d2f89];return _0x87645d;},a0_0x3d2f(_0x5574af,_0x2127ef);}function a0_0x1762(){const _0x14859e=['__param','fill','leftCond','deleteCart','emailToCustomer','CustomerCart.customerId\x20=\x20cust.id','productPrice','__importStar','productImageService','UseBefore','2835784Jhknhw','env','prototype','currencyService','Authorized','trim','Param','../../../../src/api/core/services/CurrencyService','endDate','quantity','/admin-cart','IP\x20Address','__decorate','cust','unlinkSync','eachCell','../../../../src/env','\x20Cart..!!','logo','cartList','default','all','type','send','Not','push','like','UpdateCartRequest','Product\x20Price','JsonController','live','xlsx','find','Email\x20Id','.xlsx','/:type','fromDate','./requests/UpdateCartRequest','5VIQQfD','cust.lastName\x20AS\x20customerLastName','total','name','end','addWorksheet','/:customerId','liveCartList','length','CustomerCart.customerId','cartDetail','cartListExcelExport','columns','CheckAddonMiddleware','alignment','customerCartService','lastName','5470irjnFq','storeTelephone','\x20Cart\x20List\x20/\x20Count..!','storeName','createdDate','left','status','productDetailData','design:paramtypes','emailTemplateService','`CustomerCart`.`created_date`','YYYY-MM-DD\x20HH:mm:ss','{storeName}','Put','format','QueryParam','66EdMPPZ','{name}','CurrencyService','./CustomerCartExcel_','where','cust.email','totalProduct','Customer\x20Has\x20No\x20Product\x20In\x20','top','./requests/CreateExcelRequest','Get','addRow','28278cMyjCj','__esModule','2353194VQoQNY','MAX(CustomerCart.modifiedDate)\x20AS\x20lastModifiedDate','/abandoned-cart-email','cust.email\x20AS\x20email','YYYY-MM-DD','Abandoned','design:type','__importDefault','../../../../src/api/core/services/SettingService','Live','S.no','1381490ebkDnJ','solid','settingService','MAILService','Product\x20Name','count','<p>','Successfuly\x20got\x20Cart\x20Details','assign','storeEmail','email','Email\x20Sent\x20to\x20Customer','pattern','/cart-export','exceljs','productId','../../../../src/auth/mail.services','{supportNumber}','message','{cartDetail}','Customer\x20Name','findOne','keyword','7097420osXfrn','design:returntype','no_','templateName','storeCurrencyId','DESC','../../../../src/api/core/services/CustomerCartService','replace','guestIp','Invalid\x20customer\x20ID','SUM(CustomerCart.total)\x20AS\x20totalCost','raw','AbandonedCartController','defineProperty','__metadata','Total','EmailTemplateService','__awaiter','not\x20like','CustomerCart.ip','788662DhuSUu','ProductImageService','../../../../src/api/core/middlewares/AddonValidationMiddleware','image','customerId','firstName','symbolLeft','adminContent','Like','content','2469964fvIElG','MAX(CustomerCart.modifiedDate)','Body','delete','map','tslib','Req','containerName','cust.firstName','customerService','BodyParam','../../../../src/api/core/services/EmailTemplateService','typeorm','abandonedCartTemplate.ejs','cust.firstName\x20AS\x20customerName','CustomerService','listByQueryBuilder','subject','limit','FFFF00','font','routing-controllers','CustomerCart.ip\x20AS\x20customerIp','Post','Guest','CreateExcelRequest','symbolRight','CustomerCart.createdDate','Res','storeRedirectUrl'];a0_0x1762=function(){return _0x14859e;};return a0_0x1762();}let AbandonedCartController=class AbandonedCartController{constructor(_0x579a15,_0x201af3,_0x4cf7d1,_0x24fc07,_0x1ed017,_0x29a43e){const _0x1a3902=a0_0x16c40;this[_0x1a3902(0x129)]=_0x579a15,this[_0x1a3902(0x192)]=_0x201af3,this[_0x1a3902(0x156)]=_0x4cf7d1,this['emailTemplateService']=_0x24fc07,this[_0x1a3902(0x1af)]=_0x1ed017,this['currencyService']=_0x29a43e;}[a0_0x16c40(0x121)](_0x360e41,_0x3acdc5,_0x56d72c,_0x10d77c,_0x19ab35,_0x3e7aee,_0x3539f8,_0x4a3cb8){const _0x402f09=a0_0x16c40;return tslib_1[_0x402f09(0x17c)](this,void 0x0,void 0x0,function*(){const _0x1552d2=_0x402f09,_0x4f7a95=(0x0,moment_1[_0x1552d2(0x1c5)])(_0x19ab35)[_0x1552d2(0x139)](_0x1552d2(0x136)),_0x319e11=(0x0,moment_1[_0x1552d2(0x1c5)])(_0x3e7aee)['format'](_0x1552d2(0x136)),_0x9837de=['CustomerCart.customerId\x20AS\x20customerId',_0x1552d2(0x14a),_0x1552d2(0x197),_0x1552d2(0x11b),_0x1552d2(0x14c),'COUNT(1)\x20AS\x20productCount',_0x1552d2(0x175),_0x1552d2(0x19f)],_0x8a8af2=[{'op':_0x1552d2(0x1a9),'tableName':'CustomerCart.customer','aliasName':_0x1552d2(0x1be),'cond':_0x1552d2(0x1ac)}],_0x4b6b8f=[{'name':_0x1552d2(0x17e)},{'name':_0x1552d2(0x123)}],_0x1bc86a=[{'op':_0x1552d2(0x13f),'sign':_0x1552d2(0x1cb),'name':_0x1552d2(0x1a4),'value':(0x0,moment_1[_0x1552d2(0x1c5)])()[_0x1552d2(0x139)](_0x1552d2(0x14d))}],_0x5a7006=[{'op':'where','sign':_0x1552d2(0x17d),'name':_0x1552d2(0x1a4),'value':(0x0,moment_1['default'])()[_0x1552d2(0x139)](_0x1552d2(0x14d))}];_0x19ab35&&_0x5a7006[_0x1552d2(0x1ca)]({'op':_0x1552d2(0x176),'sign':'>=','name':_0x1552d2(0x135),'value':_0x4f7a95});_0x3e7aee&&_0x5a7006[_0x1552d2(0x1ca)]({'op':'raw','sign':'<=','name':_0x1552d2(0x135),'value':_0x319e11});const _0x27482d=[];_0x3acdc5&&_0x27482d[_0x1552d2(0x1ca)]({'name':[_0x1552d2(0x191),_0x1552d2(0x140),'CustomerCart.name'],'value':_0x3acdc5});const _0x2395b3=[];_0x2395b3[_0x1552d2(0x1ca)]({'name':_0x1552d2(0x18a),'order':_0x1552d2(0x170)});let _0x73b5ce={},_0x52ffa3={};_0x4a3cb8==='live'?_0x73b5ce=yield this[_0x1552d2(0x129)][_0x1552d2(0x199)](_0x56d72c,_0x10d77c,_0x9837de,_0x1bc86a,_0x27482d,_0x8a8af2,_0x4b6b8f,_0x2395b3,![],!![]):_0x52ffa3=yield this['customerCartService'][_0x1552d2(0x199)](_0x56d72c,_0x10d77c,_0x9837de,_0x5a7006,_0x27482d,_0x8a8af2,_0x4b6b8f,_0x2395b3,![],!![]);const _0x244a19=_0x4a3cb8==='live'?_0x73b5ce:_0x52ffa3,_0x3c77fb={'status':0x1,'message':'Successfuly\x20got\x20'+(_0x4a3cb8===_0x1552d2(0x1cf)?_0x1552d2(0x152):'Abandoned')+_0x1552d2(0x12d),'data':_0x3539f8?_0x244a19[_0x1552d2(0x122)]:_0x244a19};return _0x360e41[_0x1552d2(0x131)](0xc8)[_0x1552d2(0x1c8)](_0x3c77fb);});}[a0_0x16c40(0x124)](_0x4f27ec,_0x1389e1,_0x1eb6d0,_0x4d197c,_0x5d000a,_0x27039b){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2132d7=a0_0x3d2f;let _0x532491,_0x5d5827={};const _0x4bad9b={};_0x4bad9b[_0x2132d7(0x183)]=_0x4f27ec!==null&&_0x4f27ec!==void 0x0?_0x4f27ec:0x0;_0x1eb6d0===_0x2132d7(0x1cf)?_0x4bad9b[_0x2132d7(0x12f)]=(0x0,typeorm_1['Like'])('%'+(0x0,moment_1['default'])()['format']('YYYY-MM-DD')+'%'):_0x4bad9b[_0x2132d7(0x12f)]=(0x0,typeorm_1[_0x2132d7(0x1c9)])((0x0,typeorm_1[_0x2132d7(0x187)])('%'+(0x0,moment_1['default'])()['format'](_0x2132d7(0x14d))+'%'));if(_0x4f27ec===0x0){_0x4bad9b['ip']=_0x1389e1,_0x532491=yield this[_0x2132d7(0x129)][_0x2132d7(0x1d1)]({'select':[_0x2132d7(0x11d),_0x2132d7(0x11c),_0x2132d7(0x1ba),_0x2132d7(0x1ad),_0x2132d7(0x163),'ip',_0x2132d7(0x12f)],'where':_0x4bad9b});if(!_0x532491[_0x2132d7(0x122)])return _0x27039b[_0x2132d7(0x131)](0x194)[_0x2132d7(0x1c8)]({'status':0x0,'message':'Guest\x20Has\x20No\x20Product\x20In\x20'+(_0x1eb6d0===_0x2132d7(0x1cf)?'Live':_0x2132d7(0x14e))+'\x20Cart..!!'});_0x5d5827['firstName']=_0x2132d7(0x1a1);}else{_0x5d5827=yield this[_0x2132d7(0x192)][_0x2132d7(0x169)]({'select':[_0x2132d7(0x184),_0x2132d7(0x12a),_0x2132d7(0x15e),'ip'],'where':{'id':_0x4f27ec}});if(!_0x5d5827)return _0x27039b['status'](0x194)[_0x2132d7(0x1c8)]({'status':0x0,'message':'Invalid\x20Customer\x20Id/\x20No\x20customer\x20Found'});_0x532491=yield this[_0x2132d7(0x129)][_0x2132d7(0x1d1)]({'select':[_0x2132d7(0x11d),'total',_0x2132d7(0x1ba),_0x2132d7(0x1ad),_0x2132d7(0x163),_0x2132d7(0x12f)],'where':_0x4bad9b});if(!_0x532491[_0x2132d7(0x122)])return _0x27039b[_0x2132d7(0x131)](0xc8)[_0x2132d7(0x1c8)]({'status':0x1,'message':_0x2132d7(0x142)+(_0x1eb6d0==='live'?'Live':_0x2132d7(0x14e))+_0x2132d7(0x1c2)});}_0x5d5827[_0x2132d7(0x141)]=_0x532491[_0x2132d7(0x122)],_0x5d5827[_0x2132d7(0x1c4)]=yield Promise[_0x2132d7(0x1c6)](_0x532491[_0x2132d7(0x18d)](_0x1a3fae=>tslib_1[_0x2132d7(0x17c)](this,void 0x0,void 0x0,function*(){const _0xba7368=_0x2132d7,_0x350f7b=yield this[_0xba7368(0x1af)]['findAll']({'select':[_0xba7368(0x163),_0xba7368(0x182),_0xba7368(0x190)],'where':{'productId':_0x1a3fae['productId'],'defaultImage':0x1}});return _0x1a3fae['productImage']=_0x350f7b,_0x1a3fae;})));const _0x18119e={'status':0x1,'message':_0x2132d7(0x15b),'data':_0x5d5827};return _0x27039b[_0x2132d7(0x131)](0xc8)[_0x2132d7(0x1c8)](_0x18119e);});}['emailToCustomer'](_0x6f09e1,_0x4b5e50,_0x56d82e){const _0x3ebeee=a0_0x16c40;return tslib_1[_0x3ebeee(0x17c)](this,void 0x0,void 0x0,function*(){const _0x3edfdb=_0x3ebeee;let _0x19e5fe=[];const _0x3646ec=yield this[_0x3edfdb(0x192)]['findOne']({'select':['id',_0x3edfdb(0x184),_0x3edfdb(0x12a),_0x3edfdb(0x15e)],'where':{'id':_0x6f09e1}});if(!_0x3646ec)return _0x56d82e[_0x3edfdb(0x131)](0x194)[_0x3edfdb(0x1c8)]({'status':0x0,'message':_0x3edfdb(0x174)});_0x19e5fe=yield this[_0x3edfdb(0x129)]['find']({'where':{'customerId':_0x3646ec['id']}}),_0x19e5fe=yield Promise[_0x3edfdb(0x1c6)](_0x19e5fe[_0x3edfdb(0x18d)](_0x6081bb=>tslib_1[_0x3edfdb(0x17c)](this,void 0x0,void 0x0,function*(){const _0xee5b42=_0x3edfdb,_0x36e366=yield this[_0xee5b42(0x1af)][_0xee5b42(0x169)]({'select':[_0xee5b42(0x163),_0xee5b42(0x182),'containerName'],'where':{'productId':_0x6081bb['productId'],'defaultImage':0x1}});return _0x6081bb['productImage']=_0x36e366,_0x6081bb;})));const _0x24da1b=yield this[_0x3edfdb(0x134)][_0x3edfdb(0x169)](0x1e),_0x17daa6={};_0x17daa6[_0x3edfdb(0x1c3)]=yield this[_0x3edfdb(0x156)][_0x3edfdb(0x169)]();const _0x571337=yield this[_0x3edfdb(0x1b4)]['findOne'](_0x17daa6[_0x3edfdb(0x1c3)][_0x3edfdb(0x16f)]),_0x29a238=_0x24da1b[_0x3edfdb(0x188)]['replace'](_0x3edfdb(0x13c),_0x3646ec['firstName'])[_0x3edfdb(0x172)]('{supportEmail}',_0x17daa6[_0x3edfdb(0x1c3)][_0x3edfdb(0x15d)])[_0x3edfdb(0x172)](_0x3edfdb(0x165),_0x17daa6[_0x3edfdb(0x1c3)][_0x3edfdb(0x12c)])['replace'](_0x3edfdb(0x137),_0x17daa6[_0x3edfdb(0x1c3)][_0x3edfdb(0x12e)]),_0x440612=_0x29a238['split'](_0x3edfdb(0x167));_0x17daa6['emailContent1']=_0x440612[0x0],_0x17daa6['emailContent2']=_0x440612[0x1],_0x17daa6[_0x3edfdb(0x186)]='<p>'+(_0x4b5e50===null||_0x4b5e50===void 0x0?void 0x0:_0x4b5e50[_0x3edfdb(0x1b6)]())+_0x3edfdb(0x15a),_0x17daa6['redirectUrl']=env_1[_0x3edfdb(0x1b2)][_0x3edfdb(0x1a6)],_0x17daa6[_0x3edfdb(0x132)]=_0x19e5fe,_0x17daa6['orderData']={'currencyRight':_0x571337?_0x571337[_0x3edfdb(0x1a3)]:'','currencyLeft':_0x571337?_0x571337[_0x3edfdb(0x185)]:''},_0x17daa6[_0x3edfdb(0x16e)]=_0x3edfdb(0x196);const _0x559830=_0x24da1b[_0x3edfdb(0x19a)];return mail_services_1[_0x3edfdb(0x157)]['sendMail'](_0x17daa6,_0x3646ec[_0x3edfdb(0x15e)],_0x559830,![],![],''),_0x56d82e[_0x3edfdb(0x131)](0xc8)['send']({'status':0x1,'message':_0x3edfdb(0x15f)});});}[a0_0x16c40(0x125)](_0x4365ce,_0x1c807c,_0x2c5dca){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1fbf6e=a0_0x3d2f,_0x511cb2=new excel['Workbook'](),_0x35e7fd=_0x511cb2[_0x1fbf6e(0x11f)]('Bulk\x20Customer-Cart\x20Export'),_0x46ebd1=_0x4365ce['customerId'],_0x4184d4=_0x4365ce[_0x1fbf6e(0x173)],_0x371b0e=yield this[_0x1fbf6e(0x192)][_0x1fbf6e(0x1d1)]({'select':['firstName',_0x1fbf6e(0x12a),_0x1fbf6e(0x15e),'ip','id'],'where':{'id':(0x0,typeorm_1['In'])(_0x46ebd1)}});(_0x4184d4===null||_0x4184d4===void 0x0?void 0x0:_0x4184d4[_0x1fbf6e(0x122)])>0x0&&_0x371b0e[_0x1fbf6e(0x1ca)](..._0x4184d4[_0x1fbf6e(0x18d)](_0x390020=>({'firstName':'Guest','lastName':'','email':'NA','ip':_0x390020,'id':0x0,'cartList':[]})));for(const _0x1a68dd of _0x371b0e){!_0x1a68dd['id']?_0x1a68dd[_0x1fbf6e(0x1c4)]=yield this['customerCartService'][_0x1fbf6e(0x1d1)]({'where':{'ip':_0x1a68dd['ip']}}):_0x1a68dd[_0x1fbf6e(0x1c4)]=yield this[_0x1fbf6e(0x129)][_0x1fbf6e(0x1d1)]({'where':{'customerId':_0x1a68dd['id']}});}let _0x2c7f67=0x1;_0x35e7fd[_0x1fbf6e(0x146)]([_0x1fbf6e(0x153),_0x1fbf6e(0x168),_0x1fbf6e(0x1d2),_0x1fbf6e(0x1bc),'Customer\x20ID'])[_0x1fbf6e(0x1c0)](_0x559ded=>_0x559ded[_0x1fbf6e(0x19d)]={'bold':!![]});for(const _0x240b47 of _0x371b0e){let _0x2e3fd1=0x1;_0x35e7fd[_0x1fbf6e(0x126)]=[{'key':_0x1fbf6e(0x16d),'width':0xf},{'key':_0x1fbf6e(0x11d),'width':0x1e},{'key':_0x1fbf6e(0x15e),'width':0x14},{'key':'ip','width':0x14},{'key':'id','width':0x14}];const _0x4e0c11={'no_':_0x2c7f67,'name':_0x240b47['firstName']+''+_0x240b47[_0x1fbf6e(0x12a)],'email':_0x240b47['email'],'ip':_0x240b47['ip'],'id':_0x240b47['id']};_0x35e7fd[_0x1fbf6e(0x146)](_0x4e0c11)[_0x1fbf6e(0x1c0)](_0x479a7c=>(_0x479a7c[_0x1fbf6e(0x128)]={'vertical':'top','horizontal':_0x1fbf6e(0x130)},_0x479a7c[_0x1fbf6e(0x1a8)]={'type':_0x1fbf6e(0x160),'pattern':_0x1fbf6e(0x155),'fgColor':{'argb':_0x1fbf6e(0x19c)}})),_0x35e7fd['addRow'](['','No',_0x1fbf6e(0x158),'Quantity',_0x1fbf6e(0x1cd),_0x1fbf6e(0x17a)])['eachCell'](_0x5c9afd=>_0x5c9afd['font']={'bold':!![],'size':0xa}),_0x35e7fd[_0x1fbf6e(0x126)]=[{'key':'','width':0xf},{'key':'no_','width':0x1e},{'key':'name','width':0x2d},{'key':_0x1fbf6e(0x1ba),'width':0x1e},{'key':_0x1fbf6e(0x1ad),'width':0x14},{'key':'total','width':0x14}];for(const _0x2d8b81 of _0x240b47['cartList']){const _0x9baedd=Object[_0x1fbf6e(0x15c)]({'no_':_0x2e3fd1},_0x2d8b81);_0x35e7fd[_0x1fbf6e(0x146)](_0x9baedd)[_0x1fbf6e(0x1c0)](_0x5b19fe=>(_0x5b19fe[_0x1fbf6e(0x128)]={'vertical':_0x1fbf6e(0x143),'horizontal':_0x1fbf6e(0x130)},_0x5b19fe[_0x1fbf6e(0x19d)]={'size':0xa})),_0x2e3fd1++;}_0x2c7f67++;}const _0xfc7ae8=_0x1fbf6e(0x13e)+Date['now']()+_0x1fbf6e(0x1d3);return yield _0x511cb2[_0x1fbf6e(0x1d0)]['writeFile'](_0xfc7ae8),new Promise((_0x490729,_0x4f322a)=>{_0x1c807c['download'](_0xfc7ae8,(_0x22b9f3,_0x49526f)=>{const _0x26bf7d=a0_0x3d2f;if(_0x22b9f3)_0x4f322a(_0x22b9f3);else return fs[_0x26bf7d(0x1bf)](_0xfc7ae8),_0x1c807c[_0x26bf7d(0x11e)]();});});});}[a0_0x16c40(0x1aa)](_0x4f980c,_0xd6aef0,_0x3dd45c,_0x43f40b){const _0x183afa=a0_0x16c40;return tslib_1[_0x183afa(0x17c)](this,void 0x0,void 0x0,function*(){const _0x386729=_0x183afa,_0xefdb33=_0x4f980c[_0x386729(0x183)],_0x5a98cb=_0x4f980c['guestIp'],_0x4d22e7=[];let _0x7919a7;const _0x2ea765={};if(_0x4f980c['action'][_0x386729(0x1b6)]()===_0x386729(0x18c)){_0x2ea765[_0x386729(0x12f)]=(_0xd6aef0===null||_0xd6aef0===void 0x0?void 0x0:_0xd6aef0[_0x386729(0x1b6)]())==='live'?(0x0,typeorm_1[_0x386729(0x187)])('%'+(0x0,moment_1['default'])()['format']('YYYY-MM-DD')+'%'):(0x0,typeorm_1['Not'])((0x0,typeorm_1[_0x386729(0x187)])('%'+(0x0,moment_1[_0x386729(0x1c5)])()[_0x386729(0x139)](_0x386729(0x14d))+'%')),_0x2ea765['customerId']=(0x0,typeorm_1['In'])(_0xefdb33),_0x4d22e7['push'](...yield this['customerCartService'][_0x386729(0x1d1)](_0x2ea765)),_0x2ea765[_0x386729(0x183)]=0x0;(_0x5a98cb===null||_0x5a98cb===void 0x0?void 0x0:_0x5a98cb['length'])&&(_0x2ea765['ip']=(0x0,typeorm_1['In'])(_0x5a98cb),_0x4d22e7[_0x386729(0x1ca)](...yield this[_0x386729(0x129)][_0x386729(0x1d1)](_0x2ea765)));const _0x50ac1e=_0x4d22e7[_0x386729(0x18d)](_0x45571c=>_0x45571c['id']);_0x7919a7=yield this['customerCartService'][_0x386729(0x18c)]({'id':(0x0,typeorm_1['In'])(_0x50ac1e)});}return _0x3dd45c[_0x386729(0x131)](0xc8)[_0x386729(0x1c8)]({'status':0x1,'message':'Successfully\x20Deleted\x20Cart\x20List...!','data':_0x7919a7});});}};tslib_1[a0_0x16c40(0x1bd)]([(0x0,routing_controllers_1['Get'])(),(0x0,routing_controllers_1[a0_0x16c40(0x1b5)])(),tslib_1[a0_0x16c40(0x1a7)](0x0,(0x0,routing_controllers_1['Res'])()),tslib_1[a0_0x16c40(0x1a7)](0x1,(0x0,routing_controllers_1[a0_0x16c40(0x13a)])(a0_0x16c40(0x16a))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a0_0x16c40(0x13a)])(a0_0x16c40(0x19b))),tslib_1['__param'](0x3,(0x0,routing_controllers_1['QueryParam'])('offset')),tslib_1[a0_0x16c40(0x1a7)](0x4,(0x0,routing_controllers_1[a0_0x16c40(0x13a)])('startDate')),tslib_1[a0_0x16c40(0x1a7)](0x5,(0x0,routing_controllers_1[a0_0x16c40(0x13a)])(a0_0x16c40(0x1b9))),tslib_1[a0_0x16c40(0x1a7)](0x6,(0x0,routing_controllers_1[a0_0x16c40(0x13a)])(a0_0x16c40(0x159))),tslib_1[a0_0x16c40(0x1a7)](0x7,(0x0,routing_controllers_1[a0_0x16c40(0x13a)])(a0_0x16c40(0x1c7))),tslib_1[a0_0x16c40(0x179)]('design:type',Function),tslib_1['__metadata'](a0_0x16c40(0x133),[Object,String,Number,Number,String,String,Boolean,String]),tslib_1[a0_0x16c40(0x179)]('design:returntype',Promise)],AbandonedCartController[a0_0x16c40(0x1b3)],'liveCartList',null),tslib_1[a0_0x16c40(0x1bd)]([(0x0,routing_controllers_1[a0_0x16c40(0x145)])(a0_0x16c40(0x120)),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a0_0x16c40(0x1a7)](0x0,(0x0,routing_controllers_1[a0_0x16c40(0x1b7)])('customerId')),tslib_1[a0_0x16c40(0x1a7)](0x1,(0x0,routing_controllers_1['QueryParam'])('ip')),tslib_1[a0_0x16c40(0x1a7)](0x2,(0x0,routing_controllers_1['QueryParam'])(a0_0x16c40(0x1c7))),tslib_1[a0_0x16c40(0x1a7)](0x3,(0x0,routing_controllers_1[a0_0x16c40(0x13a)])(a0_0x16c40(0x118))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a0_0x16c40(0x13a)])('toDate')),tslib_1[a0_0x16c40(0x1a7)](0x5,(0x0,routing_controllers_1['Res'])()),tslib_1[a0_0x16c40(0x179)](a0_0x16c40(0x14f),Function),tslib_1['__metadata'](a0_0x16c40(0x133),[Number,String,String,String,String,Object]),tslib_1[a0_0x16c40(0x179)]('design:returntype',Promise)],AbandonedCartController[a0_0x16c40(0x1b3)],'cartDetail',null),tslib_1[a0_0x16c40(0x1bd)]([(0x0,routing_controllers_1[a0_0x16c40(0x1a0)])(a0_0x16c40(0x14b)),(0x0,routing_controllers_1[a0_0x16c40(0x1b5)])(),tslib_1[a0_0x16c40(0x1a7)](0x0,(0x0,routing_controllers_1[a0_0x16c40(0x193)])('id')),tslib_1[a0_0x16c40(0x1a7)](0x1,(0x0,routing_controllers_1['BodyParam'])(a0_0x16c40(0x166))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a0_0x16c40(0x1a5)])()),tslib_1[a0_0x16c40(0x179)]('design:type',Function),tslib_1[a0_0x16c40(0x179)](a0_0x16c40(0x133),[Number,String,Object]),tslib_1[a0_0x16c40(0x179)](a0_0x16c40(0x16c),Promise)],AbandonedCartController[a0_0x16c40(0x1b3)],a0_0x16c40(0x1ab),null),tslib_1[a0_0x16c40(0x1bd)]([(0x0,routing_controllers_1['Post'])(a0_0x16c40(0x161)),(0x0,routing_controllers_1[a0_0x16c40(0x1b5)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a0_0x16c40(0x1a7)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a0_0x16c40(0x18f)])()),tslib_1['__metadata'](a0_0x16c40(0x14f),Function),tslib_1[a0_0x16c40(0x179)](a0_0x16c40(0x133),[CreateExcelRequest_1[a0_0x16c40(0x1a2)],Object,Object]),tslib_1[a0_0x16c40(0x179)](a0_0x16c40(0x16c),Promise)],AbandonedCartController[a0_0x16c40(0x1b3)],'cartListExcelExport',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a0_0x16c40(0x138)])(a0_0x16c40(0x117)),(0x0,routing_controllers_1[a0_0x16c40(0x1b5)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a0_0x16c40(0x18b)])({'validate':!![]})),tslib_1[a0_0x16c40(0x1a7)](0x1,(0x0,routing_controllers_1[a0_0x16c40(0x1b7)])(a0_0x16c40(0x1c7))),tslib_1[a0_0x16c40(0x1a7)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a0_0x16c40(0x1a7)](0x3,(0x0,routing_controllers_1['Req'])()),tslib_1[a0_0x16c40(0x179)](a0_0x16c40(0x14f),Function),tslib_1[a0_0x16c40(0x179)](a0_0x16c40(0x133),[UpdateCartRequest_1[a0_0x16c40(0x1cc)],String,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],AbandonedCartController[a0_0x16c40(0x1b3)],a0_0x16c40(0x1aa),null),AbandonedCartController=tslib_1['__decorate']([(0x0,routing_controllers_1[a0_0x16c40(0x1b0)])(AddonValidationMiddleware_1[a0_0x16c40(0x127)]),(0x0,routing_controllers_1[a0_0x16c40(0x1ce)])(a0_0x16c40(0x1bb)),tslib_1[a0_0x16c40(0x179)](a0_0x16c40(0x133),[CustomerCartService_1['CustomerCartService'],CustomerService_1[a0_0x16c40(0x198)],SettingService_1['SettingService'],EmailTemplateService_1[a0_0x16c40(0x17b)],ProductImageService_1[a0_0x16c40(0x180)],CurrencyService_1[a0_0x16c40(0x13d)]])],AbandonedCartController),exports[a0_0x16c40(0x177)]=AbandonedCartController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AbandonedCartController = void 0;
+const tslib_1 = require("tslib");
+const routing_controllers_1 = require("routing-controllers");
+const CustomerService_1 = require("../../../../src/api/core/services/CustomerService");
+const CustomerCartService_1 = require("../../../../src/api/core/services/CustomerCartService");
+const mail_services_1 = require("../../../../src/auth/mail.services");
+const env_1 = require("../../../../src/env");
+const fs = tslib_1.__importStar(require("fs"));
+const excel = tslib_1.__importStar(require("exceljs"));
+const SettingService_1 = require("../../../../src/api/core/services/SettingService");
+const EmailTemplateService_1 = require("../../../../src/api/core/services/EmailTemplateService");
+const ProductImageService_1 = require("../../../../src/api/core/services/ProductImageService");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const CreateExcelRequest_1 = require("./requests/CreateExcelRequest");
+const UpdateCartRequest_1 = require("./requests/UpdateCartRequest");
+const typeorm_1 = require("typeorm");
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+const CurrencyService_1 = require("../../../../src/api/core/services/CurrencyService");
+let AbandonedCartController = class AbandonedCartController {
+    constructor(customerCartService, customerService, settingService, emailTemplateService, productImageService, currencyService) {
+        this.customerCartService = customerCartService;
+        this.customerService = customerService;
+        this.settingService = settingService;
+        this.emailTemplateService = emailTemplateService;
+        this.productImageService = productImageService;
+        this.currencyService = currencyService;
+    }
+    // Live/Abandoned Cart List
+    /**
+     * @api {get} /api/admin-cart Live-Cart API
+     * @apiGroup Admin Cart
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfuly got Live/Abandoned Cart List",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-cart
+     * @apiErrorExample {json} Admin Cart error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    liveCartList(response, keyword, limit, offset, startDate, endDate, count, type) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const startDateMin = (0, moment_1.default)(startDate).format('YYYY-MM-DD HH:mm:ss');
+            const endDateMin = (0, moment_1.default)(endDate).format('YYYY-MM-DD HH:mm:ss');
+            const select = [
+                'CustomerCart.customerId AS customerId',
+                'MAX(CustomerCart.modifiedDate) AS lastModifiedDate',
+                'cust.firstName AS customerName',
+                'cust.lastName AS customerLastName',
+                'cust.email AS email',
+                'COUNT(1) AS productCount',
+                'SUM(CustomerCart.total) AS totalCost',
+                'CustomerCart.ip AS customerIp',
+            ];
+            const relation = [
+                {
+                    op: 'leftCond',
+                    tableName: 'CustomerCart.customer',
+                    aliasName: 'cust',
+                    cond: 'CustomerCart.customerId = cust.id',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'CustomerCart.ip',
+                },
+                {
+                    name: 'CustomerCart.customerId',
+                },
+            ];
+            const whereConditionLive = [
+                {
+                    op: 'where',
+                    sign: 'like',
+                    name: 'CustomerCart.createdDate',
+                    value: (0, moment_1.default)().format('YYYY-MM-DD'),
+                },
+            ];
+            const whereConditionAbandoned = [
+                {
+                    op: 'where',
+                    sign: 'not like',
+                    name: 'CustomerCart.createdDate',
+                    value: (0, moment_1.default)().format('YYYY-MM-DD'),
+                },
+            ];
+            if (startDate) {
+                whereConditionAbandoned.push({
+                    op: 'raw',
+                    sign: '>=',
+                    name: '`CustomerCart`.`created_date`',
+                    value: startDateMin,
+                });
+            }
+            if (endDate) {
+                whereConditionAbandoned.push({
+                    op: 'raw',
+                    sign: '<=',
+                    name: '`CustomerCart`.`created_date`',
+                    value: endDateMin,
+                });
+            }
+            const searchAbandoned = [];
+            if (keyword) {
+                searchAbandoned.push({
+                    name: ['cust.firstName', 'cust.email', 'CustomerCart.name'],
+                    value: keyword,
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'MAX(CustomerCart.modifiedDate)',
+                order: 'DESC',
+            });
+            let liveCart = {};
+            let abandonedCart = {};
+            if (type === 'live') {
+                liveCart = yield this.customerCartService.listByQueryBuilder(limit, offset, select, whereConditionLive, searchAbandoned, relation, groupBy, sort, false, true);
+            }
+            else {
+                abandonedCart = yield this.customerCartService.listByQueryBuilder(limit, offset, select, whereConditionAbandoned, searchAbandoned, relation, groupBy, sort, false, true);
+            }
+            const data = type === 'live' ? liveCart : abandonedCart;
+            const successResponse = {
+                status: 1,
+                message: `Successfuly got ${type === 'live' ? 'Live' : 'Abandoned'} Cart List / Count..!`,
+                data: count ? data.length : data,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Live/Abandoned Cart Detail
+    /**
+     * @api {get} /api/admin-cart/:customerId Live-Cart Detail API
+     * @apiGroup Admin Cart
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} fromDate From Date
+     * @apiParam (Request body) {String} toDate To Date
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfuly got Cart Details",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-cart/:customerId
+     * @apiErrorExample {json} Admin Cart error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    cartDetail(id, ip, type, fromDate, toDate, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            let customerCart;
+            let customerCartDetails = {};
+            const whereCondition = {};
+            whereCondition.customerId = id !== null && id !== void 0 ? id : 0;
+            if (type === 'live') {
+                whereCondition.createdDate = (0, typeorm_1.Like)(`%${(0, moment_1.default)().format('YYYY-MM-DD')}%`);
+            }
+            else {
+                whereCondition.createdDate = (0, typeorm_1.Not)((0, typeorm_1.Like)(`%${(0, moment_1.default)().format('YYYY-MM-DD')}%`));
+            }
+            if (id === 0) {
+                whereCondition.ip = ip;
+                customerCart = yield this.customerCartService.find({
+                    select: ['name', 'total', 'quantity', 'productPrice', 'productId', 'ip', 'createdDate'],
+                    where: whereCondition,
+                });
+                if (!customerCart.length) {
+                    return response.status(404).send({
+                        status: 0,
+                        message: `Guest Has No Product In ${type === 'live' ? 'Live' : 'Abandoned'} Cart..!!`,
+                    });
+                }
+                customerCartDetails.firstName = 'Guest';
+            }
+            else {
+                customerCartDetails = yield this.customerService.findOne({
+                    select: ['firstName', 'lastName', 'email', 'ip'],
+                    where: { id },
+                });
+                if (!customerCartDetails) {
+                    return response.status(404).send({
+                        status: 0,
+                        message: 'Invalid Customer Id/ No customer Found',
+                    });
+                }
+                customerCart = yield this.customerCartService.find({
+                    select: ['name', 'total', 'quantity', 'productPrice', 'productId', 'createdDate'],
+                    where: whereCondition,
+                });
+                if (!customerCart.length) {
+                    return response.status(200).send({
+                        status: 1,
+                        message: `Customer Has No Product In ${type === 'live' ? 'Live' : 'Abandoned'} Cart..!!`,
+                    });
+                }
+            }
+            customerCartDetails.totalProduct = customerCart.length;
+            customerCartDetails.cartList = yield Promise.all(customerCart.map((cartDetails) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const productImage = yield this.productImageService.findAll({
+                    select: ['productId', 'image', 'containerName'],
+                    where: {
+                        productId: cartDetails.productId,
+                        defaultImage: 1,
+                    },
+                });
+                cartDetails.productImage = productImage;
+                return cartDetails;
+            })));
+            const successResponse = {
+                status: 1,
+                message: 'Successfuly got Cart Details',
+                data: customerCartDetails,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Send-E-mail
+    /**
+     * @api {get} /api/admin-cart/abandoned-cart-email Send E-mail API
+     * @apiGroup Admin Cart
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} id Customer ID
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Email Sent to Customer",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-cart/abandoned-cart-email
+     * @apiErrorExample {json} Admin Cart error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    emailToCustomer(customerId, message, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            let customerCartDetails = [];
+            const customer = yield this.customerService.findOne({
+                select: ['id', 'firstName', 'lastName', 'email'],
+                where: {
+                    id: customerId,
+                },
+            });
+            if (!customer) {
+                return response.status(404).send({
+                    status: 0,
+                    message: 'Invalid customer ID',
+                });
+            }
+            customerCartDetails = yield this.customerCartService.find({ where: { customerId: customer.id } });
+            customerCartDetails = yield Promise.all(customerCartDetails.map((cartDetails) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const productImage = yield this.productImageService.findOne({
+                    select: ['productId', 'image', 'containerName'],
+                    where: {
+                        productId: cartDetails.productId,
+                        defaultImage: 1,
+                    },
+                });
+                cartDetails.productImage = productImage;
+                return cartDetails;
+            })));
+            const emailContent = yield this.emailTemplateService.findOne(30);
+            const storeMailContents = {};
+            storeMailContents.logo = yield this.settingService.findOne();
+            const currencySymbol = yield this.currencyService.findOne(storeMailContents.logo.storeCurrencyId);
+            const emailContentText = emailContent.content.replace('{name}', (customer.firstName)).replace('{supportEmail}', storeMailContents.logo.storeEmail).replace('{supportNumber}', storeMailContents.logo.storeTelephone).replace('{storeName}', storeMailContents.logo.storeName);
+            const emailContentData = emailContentText.split('{cartDetail}');
+            storeMailContents.emailContent1 = emailContentData[0];
+            storeMailContents.emailContent2 = emailContentData[1];
+            storeMailContents.adminContent = `<p>${message === null || message === void 0 ? void 0 : message.trim()}<p>`;
+            storeMailContents.redirectUrl = env_1.env.storeRedirectUrl;
+            storeMailContents.productDetailData = customerCartDetails;
+            storeMailContents.orderData = {
+                currencyRight: currencySymbol ? currencySymbol.symbolRight : '',
+                currencyLeft: currencySymbol ? currencySymbol.symbolLeft : '',
+            };
+            storeMailContents.templateName = 'abandonedCartTemplate.ejs';
+            const subject = emailContent.subject;
+            mail_services_1.MAILService.sendMail(storeMailContents, customer.email, subject, false, false, '');
+            return response.status(200).send({
+                status: 1,
+                message: 'Email Sent to Customer',
+            });
+        });
+    }
+    // Excel export
+    /**
+     * @api {post} /api/admin-cart/cart-export To Export Excel
+     * @apiGroup Admin Cart
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} customerId Customer ID
+     * @apiParam (Request body) {String} guestIp Guest IP
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * @apiSampleRequest /api/admin-cart/cart-export
+     * @apiErrorExample {json} Admin Cart error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    cartListExcelExport(exportRequest, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Bulk Customer-Cart Export');
+            const customerIds = exportRequest.customerId;
+            const guestIp = exportRequest.guestIp;
+            const customers = yield this.customerService.find({
+                select: ['firstName', 'lastName', 'email', 'ip', 'id'],
+                where: {
+                    id: (0, typeorm_1.In)(customerIds),
+                },
+            });
+            if ((guestIp === null || guestIp === void 0 ? void 0 : guestIp.length) > 0) {
+                customers.push(...guestIp.map((guest) => ({
+                    firstName: 'Guest',
+                    lastName: '',
+                    email: 'NA',
+                    ip: guest,
+                    id: 0,
+                    cartList: [],
+                })));
+            }
+            for (const customer of customers) {
+                if (!customer.id) {
+                    customer.cartList = yield this.customerCartService.find({
+                        where: {
+                            ip: customer.ip,
+                        },
+                    });
+                }
+                else {
+                    customer.cartList = yield this.customerCartService.find({
+                        where: {
+                            customerId: customer.id,
+                        },
+                    });
+                }
+            }
+            let customerCount = 1;
+            worksheet.addRow(['S.no', 'Customer Name', 'Email Id', 'IP Address', 'Customer ID']).eachCell((cell) => cell.font = {
+                bold: true,
+            });
+            for (const customer of customers) {
+                let cartListCount = 1;
+                worksheet.columns = [
+                    { key: 'no_', width: 15 },
+                    { key: 'name', width: 30 },
+                    { key: 'email', width: 20 },
+                    { key: 'ip', width: 20 },
+                    { key: 'id', width: 20 },
+                ];
+                const customerExcel = {
+                    no_: customerCount,
+                    name: customer.firstName + '' + customer.lastName,
+                    email: customer.email,
+                    ip: customer.ip,
+                    id: customer.id,
+                };
+                worksheet.addRow(customerExcel).eachCell((cell) => (cell.alignment = {
+                    vertical: 'top',
+                    horizontal: 'left',
+                },
+                    cell.fill = {
+                        type: 'pattern',
+                        pattern: 'solid',
+                        fgColor: { argb: 'FFFF00' },
+                    }));
+                worksheet.addRow(['', 'No', 'Product Name', 'Quantity', 'Product Price', 'Total']).eachCell((cell) => (cell.font = {
+                    bold: true,
+                    size: 10,
+                }));
+                worksheet.columns = [
+                    { key: '', width: 15 },
+                    { key: 'no_', width: 30 },
+                    { key: 'name', width: 45 },
+                    { key: 'quantity', width: 30 },
+                    { key: 'productPrice', width: 20 },
+                    { key: 'total', width: 20 },
+                ];
+                for (const cartList of customer.cartList) {
+                    const customerExcelCartList = Object.assign({ no_: cartListCount }, cartList);
+                    worksheet.addRow(customerExcelCartList).eachCell((cell) => (cell.alignment = {
+                        vertical: 'top',
+                        horizontal: 'left',
+                    },
+                        cell.font = {
+                            size: 10,
+                        }));
+                    cartListCount++;
+                }
+                customerCount++;
+            }
+            const fileName = './CustomerCartExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Cart Update
+    /**
+     * @api {post} /api/admin-cart/:type To Update Cart
+     * @apiGroup Admin Cart
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} customerId Customer ID
+     * @apiParam (Request body) {String} guestIp Guest IP
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * @apiSampleRequest /api/admin-cart/:type
+     * @apiErrorExample {json} Admin Cart error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteCart(customerCartUpdate, type, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customerIds = customerCartUpdate.customerId;
+            const guestIp = customerCartUpdate.guestIp;
+            const cartList = [];
+            let cartDeleteResult;
+            const whereCondition = {};
+            if (customerCartUpdate.action.trim() === 'delete') {
+                whereCondition.createdDate = (type === null || type === void 0 ? void 0 : type.trim()) === 'live' ? (0, typeorm_1.Like)(`%${(0, moment_1.default)().format('YYYY-MM-DD')}%`) : (0, typeorm_1.Not)((0, typeorm_1.Like)(`%${(0, moment_1.default)().format('YYYY-MM-DD')}%`));
+                whereCondition.customerId = (0, typeorm_1.In)(customerIds);
+                cartList.push(...yield this.customerCartService.find(whereCondition));
+                whereCondition.customerId = 0;
+                if (guestIp === null || guestIp === void 0 ? void 0 : guestIp.length) {
+                    whereCondition.ip = (0, typeorm_1.In)(guestIp);
+                    cartList.push(...yield this.customerCartService.find(whereCondition));
+                }
+                const cartDeleteIds = cartList.map((cart) => cart.id);
+                cartDeleteResult = yield this.customerCartService.delete({ id: (0, typeorm_1.In)(cartDeleteIds) });
+            }
+            return response.status(200).send({
+                status: 1,
+                message: `Successfully Deleted Cart List...!`,
+                data: cartDeleteResult,
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('type')),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, String, Number, Number, String, String, Boolean, String]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AbandonedCartController.prototype, "liveCartList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/:customerId'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('customerId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('ip')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('type')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('fromDate')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('toDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, String, String, String, String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AbandonedCartController.prototype, "cartDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/abandoned-cart-email'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('message')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AbandonedCartController.prototype, "emailToCustomer", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/cart-export'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateExcelRequest_1.CreateExcelRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AbandonedCartController.prototype, "cartListExcelExport", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:type'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Param)('type')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [UpdateCartRequest_1.UpdateCartRequest, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AbandonedCartController.prototype, "deleteCart", null);
+AbandonedCartController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/admin-cart'),
+    tslib_1.__metadata("design:paramtypes", [CustomerCartService_1.CustomerCartService,
+        CustomerService_1.CustomerService,
+        SettingService_1.SettingService,
+        EmailTemplateService_1.EmailTemplateService,
+        ProductImageService_1.ProductImageService,
+        CurrencyService_1.CurrencyService])
+], AbandonedCartController);
+exports.AbandonedCartController = AbandonedCartController;
+//# sourceMappingURL=AbandonedCartController.js.map

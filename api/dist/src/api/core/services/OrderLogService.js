@@ -1,1 +1,99 @@
-'use strict';function a570_0x3bad(_0x148a4d,_0x2fa345){const _0x56f5c2=a570_0x56f5();return a570_0x3bad=function(_0x3badb6,_0x340378){_0x3badb6=_0x3badb6-0xd8;let _0x447c4a=_0x56f5c2[_0x3badb6];return _0x447c4a;},a570_0x3bad(_0x148a4d,_0x2fa345);}const a570_0x38f414=a570_0x3bad;(function(_0x4acf1,_0x18f753){const _0x3029f9=a570_0x3bad,_0x2e85dd=_0x4acf1();while(!![]){try{const _0x1c2907=-parseInt(_0x3029f9(0xf1))/0x1*(parseInt(_0x3029f9(0xe2))/0x2)+parseInt(_0x3029f9(0xe5))/0x3*(parseInt(_0x3029f9(0xea))/0x4)+parseInt(_0x3029f9(0xff))/0x5+-parseInt(_0x3029f9(0xdd))/0x6*(-parseInt(_0x3029f9(0xf0))/0x7)+-parseInt(_0x3029f9(0xee))/0x8*(parseInt(_0x3029f9(0xe9))/0x9)+-parseInt(_0x3029f9(0xf3))/0xa+parseInt(_0x3029f9(0xd8))/0xb*(parseInt(_0x3029f9(0x105))/0xc);if(_0x1c2907===_0x18f753)break;else _0x2e85dd['push'](_0x2e85dd['shift']());}catch(_0x2ceef4){_0x2e85dd['push'](_0x2e85dd['shift']());}}}(a570_0x56f5,0x49bf4));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports['OrderLogService']=void 0x0;const tslib_1=require(a570_0x38f414(0xeb)),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require(a570_0x38f414(0xf8)),Logger_1=require(a570_0x38f414(0xfb)),index_1=require('typeorm/index'),OrderLogRepository_1=require(a570_0x38f414(0xe4));let OrderLogService=class OrderLogService{constructor(_0x57958c,_0xd2e3a){const _0x4d79a6=a570_0x38f414;this[_0x4d79a6(0xf6)]=_0x57958c,this[_0x4d79a6(0xf9)]=_0xd2e3a;}['create'](_0x53e216){const _0x4ff117=a570_0x38f414;return tslib_1[_0x4ff117(0xe3)](this,void 0x0,void 0x0,function*(){const _0xe4f0d9=_0x4ff117;return this[_0xe4f0d9(0xf9)][_0xe4f0d9(0xde)](_0xe4f0d9(0xfd)),this['orderLogRepository'][_0xe4f0d9(0xe0)](_0x53e216);});}[a570_0x38f414(0xda)](_0x2924a0){const _0x5d5ce0=a570_0x38f414;this[_0x5d5ce0(0xf9)][_0x5d5ce0(0xde)](_0x5d5ce0(0xe6));const _0x314517={};return _0x2924a0&&_0x2924a0[_0x5d5ce0(0xdc)]>0x0?(_0x314517[_0x5d5ce0(0xfa)]=_0x2924a0[0x0],_0x314517['relations']=_0x2924a0[0x1][_0x5d5ce0(0xed)]):_0x314517['id']=_0x2924a0,this[_0x5d5ce0(0xf6)][_0x5d5ce0(0xda)](_0x314517);}['update'](_0x3cda2b,_0x57e5f0){const _0x425e21=a570_0x38f414;return _0x57e5f0[_0x425e21(0xec)]=_0x3cda2b,this[_0x425e21(0xf6)][_0x425e21(0xe0)](_0x57e5f0);}[a570_0x38f414(0xd9)](_0x510640,_0x1a457d,_0x44c12e=[],_0x5a21e3=[],_0x1b393e=[],_0x3a757e){const _0x3487eb=a570_0x38f414,_0x527ee2={};return _0x527ee2['where']={},_0x44c12e&&_0x44c12e[_0x3487eb(0xdc)]>0x0&&(_0x527ee2[_0x3487eb(0x103)]=_0x44c12e),_0x1b393e&&_0x1b393e['length']>0x0&&_0x1b393e[_0x3487eb(0xef)](_0x160e77=>{const _0x496c24=_0x3487eb;_0x527ee2[_0x496c24(0xfa)][_0x160e77[_0x496c24(0xf7)]]=_0x160e77['value'];}),_0x5a21e3&&_0x5a21e3[_0x3487eb(0xdc)]>0x0&&_0x5a21e3['forEach'](_0x2d2eb2=>{const _0x5110e7=_0x3487eb,_0x20ff9b=_0x2d2eb2['op'];if(_0x20ff9b==='where'&&_0x2d2eb2[_0x5110e7(0xf2)]!=='')_0x527ee2[_0x5110e7(0xfa)][_0x2d2eb2[_0x5110e7(0xf7)]]=_0x2d2eb2[_0x5110e7(0xf2)];else _0x20ff9b==='like'&&_0x2d2eb2[_0x5110e7(0xf2)]!==''&&(_0x527ee2[_0x5110e7(0xfa)][_0x2d2eb2[_0x5110e7(0xf7)]]=(0x0,index_1[_0x5110e7(0xfe)])('%'+_0x2d2eb2['value']+'%'));}),_0x510640&&_0x510640>0x0&&(_0x527ee2['take']=_0x510640,_0x527ee2[_0x3487eb(0xdf)]=_0x1a457d),_0x3a757e?this[_0x3487eb(0xf6)][_0x3487eb(0xf5)](_0x527ee2):this['orderLogRepository'][_0x3487eb(0xe1)](_0x527ee2);}[a570_0x38f414(0x104)](_0x360592){const _0x452efb=a570_0x38f414;return tslib_1[_0x452efb(0xe3)](this,void 0x0,void 0x0,function*(){const _0xae9d20=_0x452efb;return yield this[_0xae9d20(0xf6)]['delete'](_0x360592);});}[a570_0x38f414(0xe1)](){const _0x47348d=a570_0x38f414;return this[_0x47348d(0xf6)][_0x47348d(0xe1)]();}};function a570_0x56f5(){const _0x40ccab=['OrderLogService','36OHOkdl','462932xHVvBz','tslib','oderId','relation','77896TwNxQm','forEach','21mwHrUm','3491CmofUP','value','4458350DPhSAg','Service','count','orderLogRepository','name','typeorm-typedi-extensions','log','where','../../../decorators/Logger','__decorate','Create\x20a\x20new\x20orderLog\x20','Like','209980HyVEHc','__param','__metadata','OrmRepository','select','delete','5163816UkYmln','22wktZCw','list','findOne','design:paramtypes','length','32694UUQCAa','info','skip','save','find','142htGDQc','__awaiter','../repositories/OrderLogRepository','3LxQeNa','Find\x20orderLog\x20Detail','OrderLogRepository'];a570_0x56f5=function(){return _0x40ccab;};return a570_0x56f5();}OrderLogService=tslib_1[a570_0x38f414(0xfc)]([(0x0,typedi_1[a570_0x38f414(0xf4)])(),tslib_1['__param'](0x0,(0x0,typeorm_typedi_extensions_1[a570_0x38f414(0x102)])()),tslib_1[a570_0x38f414(0x100)](0x1,(0x0,Logger_1['Logger'])(__filename)),tslib_1[a570_0x38f414(0x101)](a570_0x38f414(0xdb),[OrderLogRepository_1[a570_0x38f414(0xe7)],Object])],OrderLogService),exports[a570_0x38f414(0xe8)]=OrderLogService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrderLogService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const index_1 = require("typeorm/index");
+const OrderLogRepository_1 = require("../repositories/OrderLogRepository");
+let OrderLogService = class OrderLogService {
+    constructor(orderLogRepository, log) {
+        this.orderLogRepository = orderLogRepository;
+        this.log = log;
+    }
+    // create orderLog
+    create(order) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new orderLog ');
+            return this.orderLogRepository.save(order);
+        });
+    }
+    // find Condition
+    findOne(whereCondition) {
+        this.log.info('Find orderLog Detail');
+        const condition = {};
+        if (whereCondition && whereCondition.length > 0) {
+            condition.where = whereCondition[0];
+            condition.relations = whereCondition[1].relation;
+        }
+        else {
+            condition.id = whereCondition;
+        }
+        return this.orderLogRepository.findOne(condition);
+    }
+    // update orderLog
+    update(id, order) {
+        order.oderId = id;
+        return this.orderLogRepository.save(order);
+    }
+    // orderLog List
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        condition.where = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== '') {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== '') {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.orderLogRepository.count(condition);
+        }
+        else {
+            return this.orderLogRepository.find(condition);
+        }
+    }
+    // delete orderLog
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.orderLogRepository.delete(id);
+        });
+    }
+    // orderLog count
+    find() {
+        return this.orderLogRepository.find();
+    }
+};
+OrderLogService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [OrderLogRepository_1.OrderLogRepository, Object])
+], OrderLogService);
+exports.OrderLogService = OrderLogService;
+//# sourceMappingURL=OrderLogService.js.map

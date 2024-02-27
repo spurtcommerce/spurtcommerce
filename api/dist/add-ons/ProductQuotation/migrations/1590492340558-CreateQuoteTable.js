@@ -1,1 +1,122 @@
-'use strict';const a97_0x274a03=a97_0x3acf;function a97_0x4065(){const _0x2edca1=['dropTable','140570DTWUrG','integer','product','CreateQuoteTable1590492340558','indexOf','CASCADE','2021870obUhVE','__awaiter','foreignKeys','tableForeignKey','order_value','669726PCzKHn','customer_id','CURRENT_TIMESTAMP','purpose','find','varchar','Table','40DiKkxL','datetime','down','getTable','hasTable','created_by','165iPfspU','createForeignKey','modified_date','createTable','increment','6DAZIpw','tableForeignKey1','fk_tbl_product_tbl_quotation_foreign','5621172cGAIvR','__esModule','customer','257723VOsfEl','columnNames','3149991uaVokN','8ANnpxu','fk_tbl_customer_tbl_quotation_foreign','2XJWKfL','created_date','product_id','211813QDMHoK','quotation'];a97_0x4065=function(){return _0x2edca1;};return a97_0x4065();}(function(_0x3e9c83,_0x4ac7d5){const _0x5ec210=a97_0x3acf,_0x4bc8b2=_0x3e9c83();while(!![]){try{const _0x36307b=parseInt(_0x5ec210(0x1b5))/0x1*(parseInt(_0x5ec210(0x1ba))/0x2)+-parseInt(_0x5ec210(0x1cb))/0x3*(-parseInt(_0x5ec210(0x1b8))/0x4)+-parseInt(_0x5ec210(0x1c6))/0x5*(-parseInt(_0x5ec210(0x1af))/0x6)+parseInt(_0x5ec210(0x1bd))/0x7*(parseInt(_0x5ec210(0x1a4))/0x8)+-parseInt(_0x5ec210(0x1b7))/0x9+-parseInt(_0x5ec210(0x1c0))/0xa*(parseInt(_0x5ec210(0x1aa))/0xb)+-parseInt(_0x5ec210(0x1b2))/0xc;if(_0x36307b===_0x4ac7d5)break;else _0x4bc8b2['push'](_0x4bc8b2['shift']());}catch(_0x24095e){_0x4bc8b2['push'](_0x4bc8b2['shift']());}}}(a97_0x4065,0x384bf));Object['defineProperty'](exports,a97_0x274a03(0x1b3),{'value':!![]}),exports[a97_0x274a03(0x1c3)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require('typeorm');class CreateQuoteTable1590492340558{constructor(){const _0x481df3=a97_0x274a03;this[_0x481df3(0x1c9)]=new typeorm_1['TableForeignKey']({'name':_0x481df3(0x1b1),'columnNames':[_0x481df3(0x1bc)],'referencedColumnNames':[_0x481df3(0x1bc)],'referencedTableName':_0x481df3(0x1c2),'onDelete':'CASCADE'}),this[_0x481df3(0x1b0)]=new typeorm_1['TableForeignKey']({'name':_0x481df3(0x1b9),'columnNames':[_0x481df3(0x1cc)],'referencedColumnNames':['id'],'referencedTableName':_0x481df3(0x1b4),'onDelete':_0x481df3(0x1c5)});}['up'](_0x2f6a30){const _0x408354=a97_0x274a03;return tslib_1[_0x408354(0x1c7)](this,void 0x0,void 0x0,function*(){const _0x1ff366=_0x408354,_0x4f9d3a=new typeorm_1[(_0x1ff366(0x1d1))]({'name':_0x1ff366(0x1be),'columns':[{'name':'id','type':'integer','length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x1ff366(0x1ae)},{'name':_0x1ff366(0x1bc),'type':_0x1ff366(0x1c1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1ff366(0x1cc),'type':_0x1ff366(0x1c1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'quantity','type':'integer','isPrimary':![],'isNullable':!![]},{'name':'quantity_unit','type':_0x1ff366(0x1d0),'isPrimary':![],'isNullable':!![]},{'name':_0x1ff366(0x1ca),'type':'varchar','isPrimary':![],'isNullable':!![]},{'name':'comments','type':'text','isPrimary':![],'isNullable':!![]},{'name':_0x1ff366(0x1ce),'type':_0x1ff366(0x1c1),'isPrimary':![],'isNullable':!![]},{'name':_0x1ff366(0x1a9),'type':_0x1ff366(0x1c1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1ff366(0x1bb),'type':'datetime','isPrimary':![],'isNullable':!![],'default':_0x1ff366(0x1cd)},{'name':'modified_by','type':_0x1ff366(0x1c1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1ff366(0x1ac),'type':_0x1ff366(0x1a5),'isPrimary':![],'isNullable':!![],'default':_0x1ff366(0x1cd)}]}),_0x5545ea=yield _0x2f6a30[_0x1ff366(0x1a8)]('quotation');!_0x5545ea&&(yield _0x2f6a30[_0x1ff366(0x1ad)](_0x4f9d3a));const _0x4227bf=yield _0x2f6a30[_0x1ff366(0x1a7)](_0x1ff366(0x1be)),_0x11b8ac=_0x4227bf[_0x1ff366(0x1c8)][_0x1ff366(0x1cf)](_0x481513=>_0x481513[_0x1ff366(0x1b6)][_0x1ff366(0x1c4)](_0x1ff366(0x1bc))!==-0x1);!_0x11b8ac&&(yield _0x2f6a30['createForeignKey'](_0x4f9d3a,this[_0x1ff366(0x1c9)]));const _0xaf4be9=_0x4227bf[_0x1ff366(0x1c8)][_0x1ff366(0x1cf)](_0x867bce=>_0x867bce[_0x1ff366(0x1b6)]['indexOf'](_0x1ff366(0x1cc))!==-0x1);!_0xaf4be9&&(yield _0x2f6a30[_0x1ff366(0x1ab)](_0x4f9d3a,this[_0x1ff366(0x1b0)]));});}[a97_0x274a03(0x1a6)](_0x3a3812){const _0x2560ec=a97_0x274a03;return tslib_1[_0x2560ec(0x1c7)](this,void 0x0,void 0x0,function*(){const _0x701d9f=_0x2560ec;yield _0x3a3812[_0x701d9f(0x1bf)](_0x701d9f(0x1be),!![]);});}}function a97_0x3acf(_0x5c01d3,_0x543dbf){const _0x406507=a97_0x4065();return a97_0x3acf=function(_0x3acf72,_0x5b8390){_0x3acf72=_0x3acf72-0x1a4;let _0x4bb74d=_0x406507[_0x3acf72];return _0x4bb74d;},a97_0x3acf(_0x5c01d3,_0x543dbf);}exports[a97_0x274a03(0x1c3)]=CreateQuoteTable1590492340558;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateQuoteTable1590492340558 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateQuoteTable1590492340558 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_product_tbl_quotation_foreign',
+            columnNames: ['product_id'],
+            referencedColumnNames: ['product_id'],
+            referencedTableName: 'product',
+            onDelete: 'CASCADE',
+        });
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_customer_tbl_quotation_foreign',
+            columnNames: ['customer_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'customer',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'quotation',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'product_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'customer_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'quantity',
+                        type: 'integer',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'quantity_unit',
+                        type: 'varchar',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'order_value',
+                        type: 'varchar',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'comments',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'purpose',
+                        type: 'integer',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('quotation');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const getTable = yield queryRunner.getTable('quotation');
+            const ifDataExsist = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('product_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+            const ifDataExsist1 = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('customer_id') !== -1);
+            if (!ifDataExsist1) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('quotation', true);
+        });
+    }
+}
+exports.CreateQuoteTable1590492340558 = CreateQuoteTable1590492340558;
+//# sourceMappingURL=1590492340558-CreateQuoteTable.js.map

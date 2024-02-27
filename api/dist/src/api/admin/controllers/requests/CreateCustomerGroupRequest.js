@@ -1,1 +1,38 @@
-'use strict';const a293_0x5177ff=a293_0x40d1;(function(_0x35da00,_0x3d6d32){const _0x58eef3=a293_0x40d1,_0xda5014=_0x35da00();while(!![]){try{const _0x19b723=parseInt(_0x58eef3(0x164))/0x1*(parseInt(_0x58eef3(0x155))/0x2)+parseInt(_0x58eef3(0x158))/0x3+parseInt(_0x58eef3(0x14e))/0x4*(parseInt(_0x58eef3(0x154))/0x5)+-parseInt(_0x58eef3(0x151))/0x6+parseInt(_0x58eef3(0x159))/0x7+parseInt(_0x58eef3(0x150))/0x8+-parseInt(_0x58eef3(0x14f))/0x9;if(_0x19b723===_0x3d6d32)break;else _0xda5014['push'](_0xda5014['shift']());}catch(_0x451f76){_0xda5014['push'](_0xda5014['shift']());}}}(a293_0x3223,0xa182f));function a293_0x40d1(_0x2fc2a8,_0x487051){const _0x322326=a293_0x3223();return a293_0x40d1=function(_0x40d155,_0x2eb90c){_0x40d155=_0x40d155-0x14e;let _0x33a0d5=_0x322326[_0x40d155];return _0x33a0d5;},a293_0x40d1(_0x2fc2a8,_0x487051);}Object[a293_0x5177ff(0x15a)](exports,a293_0x5177ff(0x15b),{'value':!![]}),exports['CreateCustomerGroup']=void 0x0;const tslib_1=require(a293_0x5177ff(0x15d));require('reflect-metadata');function a293_0x3223(){const _0x4a338a=['2497576soAJdq','prototype','__metadata','2403567WdErwP','1462685ZbAvtb','defineProperty','__esModule','IsNotEmpty','tslib','MaxLength','colorcode','name','__decorate','design:type','status','1EYryFo','16wnCKiE','19603458varNdF','7663744jbFOFe','6281274dgnWDC','name\x20is\x20required','CreateCustomerGroup','837115VVKKVL'];a293_0x3223=function(){return _0x4a338a;};return a293_0x3223();}const class_validator_1=require('class-validator');class CreateCustomerGroup{}tslib_1[a293_0x5177ff(0x161)]([(0x0,class_validator_1[a293_0x5177ff(0x15e)])(0x1e,{'message':'name\x20should\x20be\x20maximum\x2030\x20characters'}),(0x0,class_validator_1[a293_0x5177ff(0x15c)])({'message':a293_0x5177ff(0x152)}),tslib_1[a293_0x5177ff(0x157)]('design:type',String)],CreateCustomerGroup[a293_0x5177ff(0x156)],a293_0x5177ff(0x160),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a293_0x5177ff(0x15c)])({'message':'colorcode\x20is\x20required'}),tslib_1[a293_0x5177ff(0x157)](a293_0x5177ff(0x162),String)],CreateCustomerGroup[a293_0x5177ff(0x156)],a293_0x5177ff(0x15f),void 0x0),tslib_1[a293_0x5177ff(0x161)]([(0x0,class_validator_1[a293_0x5177ff(0x15c)])({'message':'status\x20is\x20required'}),tslib_1[a293_0x5177ff(0x157)]('design:type',Number)],CreateCustomerGroup[a293_0x5177ff(0x156)],a293_0x5177ff(0x163),void 0x0),exports[a293_0x5177ff(0x153)]=CreateCustomerGroup;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCustomerGroup = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateCustomerGroup {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(30, {
+        message: 'name should be maximum 30 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'name is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerGroup.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'colorcode is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateCustomerGroup.prototype, "colorcode", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'status is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateCustomerGroup.prototype, "status", void 0);
+exports.CreateCustomerGroup = CreateCustomerGroup;
+//# sourceMappingURL=CreateCustomerGroupRequest.js.map

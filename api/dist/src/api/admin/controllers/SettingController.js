@@ -1,1 +1,780 @@
-'use strict';const a277_0x525b5f=a277_0x13bf;function a277_0x13bf(_0x5b38d5,_0x19b560){const _0xab69bb=a277_0xab69();return a277_0x13bf=function(_0x13bf81,_0x4b0dd6){_0x13bf81=_0x13bf81-0xa7;let _0x30bb13=_0xab69bb[_0x13bf81];return _0x30bb13;},a277_0x13bf(_0x5b38d5,_0x19b560);}(function(_0x34c700,_0x24f265){const _0x19ee00=a277_0x13bf,_0x1b4947=_0x34c700();while(!![]){try{const _0x487599=parseInt(_0x19ee00(0xd9))/0x1*(parseInt(_0x19ee00(0xb0))/0x2)+-parseInt(_0x19ee00(0xce))/0x3*(parseInt(_0x19ee00(0x122))/0x4)+parseInt(_0x19ee00(0xd0))/0x5*(-parseInt(_0x19ee00(0xb6))/0x6)+parseInt(_0x19ee00(0xc2))/0x7*(parseInt(_0x19ee00(0xf6))/0x8)+parseInt(_0x19ee00(0x10f))/0x9*(parseInt(_0x19ee00(0xd5))/0xa)+-parseInt(_0x19ee00(0x105))/0xb*(parseInt(_0x19ee00(0xc4))/0xc)+parseInt(_0x19ee00(0x112))/0xd;if(_0x487599===_0x24f265)break;else _0x1b4947['push'](_0x1b4947['shift']());}catch(_0x1de179){_0x1b4947['push'](_0x1b4947['shift']());}}}(a277_0xab69,0x70294));function a277_0xab69(){const _0x2d43a9=['10YqngHo','orderStatus','log','env','2uziLfP','maintainance\x20mode\x20updated\x20successfully.','imageUpload','routing-controllers','storeCurrencyId','File\x20size\x20is\x20too\x20large,\x20give\x20less\x20than\x202\x20mb.\x20','availImageTypes','countryId','create','Settings\x20Updated\x20Successfully.','metaTagKeyword','Successfully\x20get\x20settings','design:type','./requests/CreateSettingRequest','\x20types\x20are\x20allowed','Res','invoicePrefix','split','send','tslib','maintenanceMode','Put','length','Post','S3Service','SettingController','createSettings','code','from','8eWMrtC','imageserver','s3Service','twitter','itemsPerPage','../../core/models/Setting','/create-settings','symbolRight','google','emailLogoPath','__awaiter','invoiceLogo','storeName','storeFax','Only\x20','3927Wnihye','design:returntype','__metadata','edit-general-settings','storeLogoPath','symbolLeft','storeImage','updateFeatureProduct','__param','metaTagDescription','1094193KuWLAJ','instagram','EmailLogo_','2176954sgdcWm','currencyCode','findOne','zoneId','kbbbb','../../core/services/ImageService','status','defineProperty','storeLanguageName','reflect-metadata','map','categoryProductCount','url','storeAddress','../../../env','invoiceLogoPath','32GWAnjW','../../core/services/SettingService','Get','mode','ceil','Settings\x20created\x20Successfully.','base64','Invalid\x20productId','isActive','facebook','InvoiceLogo_','admin','676096waeePu','design:paramtypes','settingsList','/settings','Authorized','now','18CCUnRM','settingService','list','__decorate','storeOwner','__esModule','storeLogo/','replace','Settings','storeLogo','includes','storeEmail','1483237yiHNfl','imageService','16644sbGepz','prototype','Body','../../core/services/S3Service','storeTelephone','../../core/services/CurrencyService','/get-settings','JsonController','currencyService','metaTagKeywords','72780PllFdK','CreateSettingRequest','47285uufITZ','ImageService','Img_','emailLogo','metaTagTitle'];a277_0xab69=function(){return _0x2d43a9;};return a277_0xab69();}Object[a277_0x525b5f(0x119)](exports,a277_0x525b5f(0xbb),{'value':!![]}),exports[a277_0x525b5f(0xf2)]=void 0x0;const tslib_1=require(a277_0x525b5f(0xec));require(a277_0x525b5f(0x11b));const routing_controllers_1=require(a277_0x525b5f(0xdc)),SettingService_1=require(a277_0x525b5f(0x123)),Setting_1=require(a277_0x525b5f(0xfb)),CreateSettingRequest_1=require(a277_0x525b5f(0xe6)),env_1=require(a277_0x525b5f(0x120)),S3Service_1=require(a277_0x525b5f(0xc7)),ImageService_1=require(a277_0x525b5f(0x117)),CurrencyService_1=require(a277_0x525b5f(0xc9));let SettingController=class SettingController{constructor(_0x37eb28,_0x3ef7ee,_0x2fc5d9,_0x426158){const _0x2b8950=a277_0x525b5f;this[_0x2b8950(0xb7)]=_0x37eb28,this[_0x2b8950(0xf8)]=_0x3ef7ee,this[_0x2b8950(0xc3)]=_0x2fc5d9,this[_0x2b8950(0xcc)]=_0x426158;}[a277_0x525b5f(0xb2)](_0x526c65){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5c9561=a277_0x13bf,_0x24838f='',_0x1442f8=[],_0x141443=[],_0x12087c=0x1,_0x58db42=yield this[_0x5c9561(0xb7)][_0x5c9561(0xb8)](_0x12087c,_0x24838f,_0x1442f8,_0x141443),_0x204bf0=_0x58db42[_0x5c9561(0x11c)](_0x15a5d9=>tslib_1[_0x5c9561(0x100)](this,void 0x0,void 0x0,function*(){const _0x4307b0=_0x5c9561,_0x24a311=yield this[_0x4307b0(0xcc)][_0x4307b0(0x114)]({'where':{'currencyId':_0x15a5d9[_0x4307b0(0xdd)]}}),_0x228e60=_0x15a5d9;return _0x24a311?(_0x228e60[_0x4307b0(0x113)]=_0x24a311[_0x4307b0(0xf4)],_0x228e60['symbolLeft']=_0x24a311[_0x4307b0(0x10a)],_0x228e60['symbolRight']=_0x24a311['symbolRight']):(_0x228e60[_0x4307b0(0x113)]='',_0x228e60[_0x4307b0(0x10a)]='',_0x228e60[_0x4307b0(0xfd)]=''),_0x228e60;})),_0xd49785=yield Promise['all'](_0x204bf0),_0x2b1175={'status':0x1,'message':_0x5c9561(0xe4),'data':_0xd49785};return _0x526c65[_0x5c9561(0x118)](0xc8)['send'](_0x2b1175);});}[a277_0x525b5f(0xf3)](_0x419135,_0x3dbcb2){const _0x257480=a277_0x525b5f;return tslib_1[_0x257480(0x100)](this,void 0x0,void 0x0,function*(){const _0x16994e=_0x257480,_0x2f5600=yield this[_0x16994e(0xb7)][_0x16994e(0x114)]();if(_0x2f5600===undefined){const _0x5a206c=new Setting_1[(_0x16994e(0xbe))]();_0x5a206c[_0x16994e(0x11e)]=_0x419135[_0x16994e(0x11e)],_0x5a206c[_0x16994e(0xd4)]=_0x419135[_0x16994e(0xd4)],_0x5a206c[_0x16994e(0x10e)]=_0x419135['metaTagDescription'],_0x5a206c[_0x16994e(0xe3)]=_0x419135[_0x16994e(0xcd)],_0x5a206c[_0x16994e(0x102)]=_0x419135['storeName'],_0x5a206c[_0x16994e(0xba)]=_0x419135[_0x16994e(0xba)],_0x5a206c[_0x16994e(0x11f)]=_0x419135[_0x16994e(0x11f)],_0x5a206c[_0x16994e(0xe0)]=_0x419135['countryId'],_0x5a206c[_0x16994e(0x115)]=_0x419135[_0x16994e(0x115)],_0x5a206c['storeEmail']=_0x419135['storeEmail'],_0x5a206c[_0x16994e(0xc8)]=_0x419135[_0x16994e(0xc8)],_0x5a206c[_0x16994e(0x103)]=_0x419135['storeFax'];if(_0x419135[_0x16994e(0xbf)]){const _0x57aec4=_0x419135[_0x16994e(0xbf)],_0x48f8ae=_0x57aec4[_0x16994e(0xea)](';')[0x0][_0x16994e(0xea)]('/')[0x1],_0x42ea50=env_1[_0x16994e(0xd8)][_0x16994e(0xdf)][_0x16994e(0xea)](',');if(!_0x42ea50[_0x16994e(0xc0)](_0x48f8ae)){const _0x4e5d64={'status':0x0,'message':_0x16994e(0x104)+env_1[_0x16994e(0xd8)][_0x16994e(0xdf)]+_0x16994e(0xe7)};return _0x3dbcb2[_0x16994e(0x118)](0x190)[_0x16994e(0xeb)](_0x4e5d64);}const _0x2f7d5c='Img_'+Date[_0x16994e(0xb5)]()+'.'+_0x48f8ae,_0x15e780=_0x16994e(0xbc),_0x5d2054=Buffer['from'](_0x57aec4[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,''),_0x16994e(0xaa)),_0x43902a=_0x57aec4[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,'')[_0x16994e(0xef)],_0x2a4bba=0x4*Math[_0x16994e(0xa8)](_0x43902a/0x3)*0.5624896334383812,_0x16e0e5=_0x2a4bba/0x400;console[_0x16994e(0xd7)](_0x16e0e5+'kbbbb');if(+_0x16e0e5<=0x800)env_1['env'][_0x16994e(0xf7)]==='s3'?yield this['s3Service'][_0x16994e(0xdb)](_0x15e780+_0x2f7d5c,_0x5d2054,_0x48f8ae):yield this['imageService'][_0x16994e(0xdb)](_0x15e780+_0x2f7d5c,_0x5d2054);else{const _0xfcbf5c={'status':0x0,'message':_0x16994e(0xde)};return _0x3dbcb2[_0x16994e(0x118)](0x190)[_0x16994e(0xeb)](_0xfcbf5c);}_0x5a206c[_0x16994e(0xbf)]=_0x2f7d5c,_0x5a206c[_0x16994e(0x109)]=_0x15e780;}if(_0x419135[_0x16994e(0xd3)]){const _0x5ce624=_0x419135['emailLogo'],_0x14f104=_0x5ce624[_0x16994e(0xea)](';')[0x0][_0x16994e(0xea)]('/')[0x1],_0x361875=env_1[_0x16994e(0xd8)][_0x16994e(0xdf)][_0x16994e(0xea)](',');if(!_0x361875[_0x16994e(0xc0)](_0x14f104)){const _0x46ea3e={'status':0x0,'message':'Only\x20'+env_1[_0x16994e(0xd8)][_0x16994e(0xdf)]+'\x20types\x20are\x20allowed'};return _0x3dbcb2[_0x16994e(0x118)](0x190)['send'](_0x46ea3e);}const _0x11e5a0=_0x16994e(0x111)+Date[_0x16994e(0xb5)]()+'.'+_0x14f104,_0x3e6dca=_0x16994e(0xbc),_0x4d805a=Buffer['from'](_0x5ce624[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,''),_0x16994e(0xaa)),_0x6317bf=_0x3e6dca[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,'')['length'],_0x20dfec=0x4*Math[_0x16994e(0xa8)](_0x6317bf/0x3)*0.5624896334383812,_0x3016d0=_0x20dfec/0x400;console[_0x16994e(0xd7)](_0x3016d0+_0x16994e(0x116));if(+_0x3016d0<=0x800)env_1[_0x16994e(0xd8)][_0x16994e(0xf7)]==='s3'?yield this[_0x16994e(0xf8)][_0x16994e(0xdb)](_0x3e6dca+_0x11e5a0,_0x4d805a,_0x14f104):yield this[_0x16994e(0xc3)][_0x16994e(0xdb)](_0x3e6dca+_0x11e5a0,_0x4d805a);else{const _0x9fe395={'status':0x0,'message':'File\x20size\x20is\x20too\x20large,\x20give\x20less\x20than\x202\x20mb.\x20'};return _0x3dbcb2[_0x16994e(0x118)](0x190)[_0x16994e(0xeb)](_0x9fe395);}_0x5a206c[_0x16994e(0xd3)]=_0x11e5a0,_0x5a206c[_0x16994e(0xff)]=_0x3e6dca;}if(_0x419135['invoiceLogo']){const _0x5af024=_0x419135[_0x16994e(0x101)],_0x12448d=_0x5af024['split'](';')[0x0][_0x16994e(0xea)]('/')[0x1],_0x41ae77=env_1[_0x16994e(0xd8)][_0x16994e(0xdf)][_0x16994e(0xea)](',');if(!_0x41ae77['includes'](_0x12448d)){const _0xb9b637={'status':0x0,'message':_0x16994e(0x104)+env_1[_0x16994e(0xd8)][_0x16994e(0xdf)]+_0x16994e(0xe7)};return _0x3dbcb2[_0x16994e(0x118)](0x190)['send'](_0xb9b637);}const _0x1bdf11='InvoiceLogo_'+Date[_0x16994e(0xb5)]()+'.'+_0x12448d,_0x1c6bcb='storeLogo/',_0x224c1c=Buffer[_0x16994e(0xf5)](_0x5af024[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,''),_0x16994e(0xaa)),_0x4a8330=_0x5af024[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,'')['length'],_0x7f1cc1=0x4*Math['ceil'](_0x4a8330/0x3)*0.5624896334383812,_0x33ca4e=_0x7f1cc1/0x400;console[_0x16994e(0xd7)](_0x33ca4e+_0x16994e(0x116));if(+_0x33ca4e<=0x800)env_1[_0x16994e(0xd8)][_0x16994e(0xf7)]==='s3'?yield this[_0x16994e(0xf8)]['imageUpload'](_0x1c6bcb+_0x1bdf11,_0x224c1c,_0x12448d):yield this[_0x16994e(0xc3)]['imageUpload'](_0x1c6bcb+_0x1bdf11,_0x224c1c);else{const _0x52a585={'status':0x0,'message':_0x16994e(0xde)};return _0x3dbcb2['status'](0x190)[_0x16994e(0xeb)](_0x52a585);}_0x5a206c['invoiceLogo']=_0x1bdf11,_0x5a206c['invoiceLogoPath']=_0x1c6bcb;}_0x5a206c['maintenanceMode']=_0x419135['maintenanceMode'],_0x5a206c[_0x16994e(0x11a)]=_0x419135[_0x16994e(0x11a)],_0x5a206c[_0x16994e(0xdd)]=_0x419135[_0x16994e(0xdd)],_0x5a206c['storeImage']=_0x419135[_0x16994e(0x10b)],_0x2f5600[_0x16994e(0xe9)]=_0x419135[_0x16994e(0xe9)],_0x2f5600['orderStatus']=_0x419135['orderStatus'],_0x2f5600['categoryProductCount']=_0x419135[_0x16994e(0x11d)],_0x2f5600['itemsPerPage']=_0x419135[_0x16994e(0xfa)],_0x5a206c[_0x16994e(0xfe)]=_0x419135[_0x16994e(0xfe)],_0x5a206c[_0x16994e(0xad)]=_0x419135[_0x16994e(0xad)],_0x5a206c[_0x16994e(0xf9)]=_0x419135[_0x16994e(0xf9)],_0x5a206c[_0x16994e(0x110)]=_0x419135[_0x16994e(0x110)],_0x5a206c[_0x16994e(0xac)]=_0x419135[_0x16994e(0x118)];const _0x444cbf=yield this[_0x16994e(0xb7)][_0x16994e(0xe1)](_0x5a206c),_0x314241={'status':0x1,'message':_0x16994e(0xa9),'data':_0x444cbf};return _0x3dbcb2[_0x16994e(0x118)](0xc8)[_0x16994e(0xeb)](_0x314241);}else{_0x2f5600['url']=_0x419135[_0x16994e(0x11e)],_0x2f5600[_0x16994e(0xd4)]=_0x419135[_0x16994e(0xd4)],_0x2f5600['metaTagDescription']=_0x419135[_0x16994e(0x10e)],_0x2f5600['metaTagKeyword']=_0x419135[_0x16994e(0xcd)],_0x2f5600['storeName']=_0x419135[_0x16994e(0x102)],_0x2f5600[_0x16994e(0xba)]=_0x419135[_0x16994e(0xba)],_0x2f5600[_0x16994e(0x11f)]=_0x419135[_0x16994e(0x11f)],_0x2f5600[_0x16994e(0xe0)]=_0x419135[_0x16994e(0xe0)],_0x2f5600[_0x16994e(0x115)]=_0x419135[_0x16994e(0x115)],_0x2f5600[_0x16994e(0xc1)]=_0x419135[_0x16994e(0xc1)],_0x2f5600[_0x16994e(0xc8)]=_0x419135[_0x16994e(0xc8)],_0x2f5600[_0x16994e(0x103)]=_0x419135[_0x16994e(0x103)],_0x2f5600[_0x16994e(0xbf)]=_0x419135[_0x16994e(0xbf)];if(_0x419135[_0x16994e(0xbf)]){const _0x430860=_0x419135[_0x16994e(0xbf)],_0x23b641=_0x430860[_0x16994e(0xea)](';')[0x0][_0x16994e(0xea)]('/')[0x1],_0x4b80d9=env_1['env']['availImageTypes'][_0x16994e(0xea)](',');if(!_0x4b80d9[_0x16994e(0xc0)](_0x23b641)){const _0x54d526={'status':0x0,'message':_0x16994e(0x104)+env_1[_0x16994e(0xd8)][_0x16994e(0xdf)]+_0x16994e(0xe7)};return _0x3dbcb2[_0x16994e(0x118)](0x190)[_0x16994e(0xeb)](_0x54d526);}const _0x226d4b=_0x16994e(0xd2)+Date[_0x16994e(0xb5)]()+'.'+_0x23b641,_0x19fa39=_0x16994e(0xbc),_0x4bdfb6=Buffer['from'](_0x430860[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,''),_0x16994e(0xaa)),_0x47cfb6=_0x430860[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,'')[_0x16994e(0xef)],_0x44488f=0x4*Math[_0x16994e(0xa8)](_0x47cfb6/0x3)*0.5624896334383812,_0x1dc72=_0x44488f/0x400;console[_0x16994e(0xd7)](_0x1dc72+_0x16994e(0x116));if(+_0x1dc72<=0x800)env_1[_0x16994e(0xd8)][_0x16994e(0xf7)]==='s3'?yield this[_0x16994e(0xf8)][_0x16994e(0xdb)](_0x19fa39+_0x226d4b,_0x4bdfb6,_0x23b641):yield this[_0x16994e(0xc3)][_0x16994e(0xdb)](_0x19fa39+_0x226d4b,_0x4bdfb6);else{const _0x126cdb={'status':0x0,'message':'File\x20size\x20is\x20too\x20large,\x20give\x20less\x20than\x202\x20mb.\x20'};return _0x3dbcb2[_0x16994e(0x118)](0x190)[_0x16994e(0xeb)](_0x126cdb);}_0x2f5600['storeLogo']=_0x226d4b,_0x2f5600['storeLogoPath']=_0x19fa39;}if(_0x419135[_0x16994e(0xd3)]){const _0x3159e7=_0x419135[_0x16994e(0xd3)],_0x2b4816=_0x3159e7[_0x16994e(0xea)](';')[0x0]['split']('/')[0x1],_0x364c81=env_1['env'][_0x16994e(0xdf)][_0x16994e(0xea)](',');if(!_0x364c81[_0x16994e(0xc0)](_0x2b4816)){const _0x3840c1={'status':0x0,'message':_0x16994e(0x104)+env_1['env'][_0x16994e(0xdf)]+_0x16994e(0xe7)};return _0x3dbcb2[_0x16994e(0x118)](0x190)[_0x16994e(0xeb)](_0x3840c1);}const _0x4a4919='EmailLogo_'+Date[_0x16994e(0xb5)]()+'.'+_0x2b4816,_0x3f1b66='storeLogo/',_0x47f775=Buffer['from'](_0x3159e7[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,''),'base64'),_0x8b28d6=_0x3159e7[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,'')[_0x16994e(0xef)],_0x304233=0x4*Math[_0x16994e(0xa8)](_0x8b28d6/0x3)*0.5624896334383812,_0x4c4d48=_0x304233/0x400;console[_0x16994e(0xd7)](_0x4c4d48+_0x16994e(0x116));if(+_0x4c4d48<=0x800)env_1[_0x16994e(0xd8)][_0x16994e(0xf7)]==='s3'?yield this['s3Service'][_0x16994e(0xdb)](_0x3f1b66+_0x4a4919,_0x47f775,_0x2b4816):yield this[_0x16994e(0xc3)]['imageUpload'](_0x3f1b66+_0x4a4919,_0x47f775);else{const _0x1ac6b8={'status':0x0,'message':_0x16994e(0xde)};return _0x3dbcb2[_0x16994e(0x118)](0x190)[_0x16994e(0xeb)](_0x1ac6b8);}_0x2f5600[_0x16994e(0xd3)]=_0x4a4919,_0x2f5600[_0x16994e(0xff)]=_0x3f1b66;}if(_0x419135[_0x16994e(0x101)]){const _0x35449f=_0x419135[_0x16994e(0x101)],_0x55cf0b=_0x35449f[_0x16994e(0xea)](';')[0x0]['split']('/')[0x1],_0x37103e=_0x16994e(0xae)+Date[_0x16994e(0xb5)]()+'.'+_0x55cf0b,_0x43bfce=_0x16994e(0xbc),_0x2d9d30=Buffer['from'](_0x35449f[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,''),_0x16994e(0xaa)),_0x1ed381=_0x35449f[_0x16994e(0xbd)](/^data:image\/\w+;base64,/,'')[_0x16994e(0xef)],_0x4f0c94=0x4*Math['ceil'](_0x1ed381/0x3)*0.5624896334383812,_0x5b9a8e=_0x4f0c94/0x400;console[_0x16994e(0xd7)](_0x5b9a8e+_0x16994e(0x116));if(+_0x5b9a8e<=0x800)env_1[_0x16994e(0xd8)]['imageserver']==='s3'?yield this[_0x16994e(0xf8)][_0x16994e(0xdb)](_0x43bfce+_0x37103e,_0x2d9d30,_0x55cf0b):yield this[_0x16994e(0xc3)][_0x16994e(0xdb)](_0x43bfce+_0x37103e,_0x2d9d30);else{const _0x2c3718={'status':0x0,'message':'File\x20size\x20is\x20too\x20large,\x20give\x20less\x20than\x202\x20mb.\x20'};return _0x3dbcb2[_0x16994e(0x118)](0x190)[_0x16994e(0xeb)](_0x2c3718);}_0x2f5600[_0x16994e(0x101)]=_0x37103e,_0x2f5600[_0x16994e(0x121)]=_0x43bfce;}_0x2f5600[_0x16994e(0xed)]=_0x419135[_0x16994e(0xed)],_0x2f5600[_0x16994e(0x11a)]=_0x419135[_0x16994e(0x11a)],_0x2f5600['storeCurrencyId']=_0x419135[_0x16994e(0xdd)],_0x2f5600[_0x16994e(0x10b)]=_0x419135['storeImage'],_0x2f5600[_0x16994e(0xe9)]=_0x419135[_0x16994e(0xe9)],_0x2f5600[_0x16994e(0xd6)]=_0x419135[_0x16994e(0xd6)],_0x2f5600['categoryProductCount']=_0x419135['categoryProductCount'],_0x2f5600[_0x16994e(0xfa)]=_0x419135[_0x16994e(0xfa)],_0x2f5600[_0x16994e(0xfe)]=_0x419135[_0x16994e(0xfe)],_0x2f5600['facebook']=_0x419135['facebook'],_0x2f5600[_0x16994e(0xf9)]=_0x419135['twitter'],_0x2f5600[_0x16994e(0x110)]=_0x419135[_0x16994e(0x110)],_0x2f5600[_0x16994e(0xac)]=_0x419135['status'];const _0x5c8f40=yield this[_0x16994e(0xb7)]['create'](_0x2f5600),_0x5ab042={'status':0x1,'message':_0x16994e(0xe2),'data':_0x5c8f40};return _0x3dbcb2[_0x16994e(0x118)](0xc8)['send'](_0x5ab042);}});}[a277_0x525b5f(0x10c)](_0x440df9,_0x5547a0){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1a45f2=a277_0x13bf,_0x37cf60=yield this[_0x1a45f2(0xb7)][_0x1a45f2(0x114)]();if(!_0x37cf60){const _0x550763={'status':0x0,'message':_0x1a45f2(0xab)};return _0x5547a0[_0x1a45f2(0x118)](0x190)[_0x1a45f2(0xeb)](_0x550763);}_0x37cf60[_0x1a45f2(0xed)]=_0x440df9?_0x440df9:0x0;const _0x57da97=yield this[_0x1a45f2(0xb7)][_0x1a45f2(0xe1)](_0x37cf60);if(_0x57da97){const _0x3e602a={'status':0x1,'message':_0x1a45f2(0xda),'data':_0x57da97};return _0x5547a0[_0x1a45f2(0x118)](0xc8)['send'](_0x3e602a);}else{const _0x5afbf4={'status':0x0,'message':'unable\x20to\x20updated\x20product'};return _0x5547a0[_0x1a45f2(0x118)](0x190)[_0x1a45f2(0xeb)](_0x5afbf4);}});}};tslib_1[a277_0x525b5f(0xb9)]([(0x0,routing_controllers_1[a277_0x525b5f(0x124)])(a277_0x525b5f(0xca)),tslib_1[a277_0x525b5f(0x10d)](0x0,(0x0,routing_controllers_1['Res'])()),tslib_1[a277_0x525b5f(0x107)](a277_0x525b5f(0xe5),Function),tslib_1[a277_0x525b5f(0x107)](a277_0x525b5f(0xb1),[Object]),tslib_1[a277_0x525b5f(0x107)](a277_0x525b5f(0x106),Promise)],SettingController[a277_0x525b5f(0xc5)],a277_0x525b5f(0xb2),null),tslib_1[a277_0x525b5f(0xb9)]([(0x0,routing_controllers_1[a277_0x525b5f(0xf0)])(a277_0x525b5f(0xfc)),(0x0,routing_controllers_1[a277_0x525b5f(0xb4)])([a277_0x525b5f(0xaf),a277_0x525b5f(0x108)]),tslib_1[a277_0x525b5f(0x10d)](0x0,(0x0,routing_controllers_1[a277_0x525b5f(0xc6)])({'validate':!![]})),tslib_1[a277_0x525b5f(0x10d)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a277_0x525b5f(0x107)](a277_0x525b5f(0xe5),Function),tslib_1[a277_0x525b5f(0x107)]('design:paramtypes',[CreateSettingRequest_1[a277_0x525b5f(0xcf)],Object]),tslib_1[a277_0x525b5f(0x107)](a277_0x525b5f(0x106),Promise)],SettingController[a277_0x525b5f(0xc5)],a277_0x525b5f(0xf3),null),tslib_1[a277_0x525b5f(0xb9)]([(0x0,routing_controllers_1[a277_0x525b5f(0xee)])('/update-maintainancemode'),(0x0,routing_controllers_1[a277_0x525b5f(0xb4)])(),tslib_1[a277_0x525b5f(0x10d)](0x0,(0x0,routing_controllers_1['BodyParam'])(a277_0x525b5f(0xa7))),tslib_1[a277_0x525b5f(0x10d)](0x1,(0x0,routing_controllers_1[a277_0x525b5f(0xe8)])()),tslib_1[a277_0x525b5f(0x107)](a277_0x525b5f(0xe5),Function),tslib_1[a277_0x525b5f(0x107)](a277_0x525b5f(0xb1),[Number,Object]),tslib_1[a277_0x525b5f(0x107)]('design:returntype',Promise)],SettingController[a277_0x525b5f(0xc5)],a277_0x525b5f(0x10c),null),SettingController=tslib_1[a277_0x525b5f(0xb9)]([(0x0,routing_controllers_1[a277_0x525b5f(0xcb)])(a277_0x525b5f(0xb3)),tslib_1[a277_0x525b5f(0x107)]('design:paramtypes',[SettingService_1['SettingService'],S3Service_1[a277_0x525b5f(0xf1)],ImageService_1[a277_0x525b5f(0xd1)],CurrencyService_1['CurrencyService']])],SettingController),exports['SettingController']=SettingController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SettingController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const SettingService_1 = require("../../core/services/SettingService");
+const Setting_1 = require("../../core/models/Setting");
+const CreateSettingRequest_1 = require("./requests/CreateSettingRequest");
+const env_1 = require("../../../env");
+const S3Service_1 = require("../../core/services/S3Service");
+const ImageService_1 = require("../../core/services/ImageService");
+const CurrencyService_1 = require("../../core/services/CurrencyService");
+const uuid_1 = require("uuid");
+const typeorm_1 = require("typeorm");
+let SettingController = class SettingController {
+    constructor(settingService, s3Service, imageService, currencyService
+    // private categoryService: CategoryService
+    ) {
+        this.settingService = settingService;
+        this.s3Service = s3Service;
+        this.imageService = imageService;
+        this.currencyService = currencyService;
+        // --
+    }
+    // Get Settings list API
+    /**
+     * @api {get} /api/settings Get Setting API
+     * @apiGroup Settings
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get settings",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/settings
+     * @apiErrorExample {json} getSettings error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    settingsList(response, defaultWebsite) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (defaultWebsite) {
+                const select = '';
+                const relation = [];
+                const WhereConditions = [{ name: 'defaultWebsite', value: defaultWebsite, op: 'where' }];
+                const limit = 1;
+                const settings = yield this.settingService.list(limit, select, relation, WhereConditions);
+                const promise = settings.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const currencyData = yield this.currencyService.findOne({ where: { currencyId: result.storeCurrencyId } });
+                    const temp = result;
+                    if (currencyData) {
+                        temp.currencyCode = currencyData.code;
+                        temp.symbolLeft = currencyData.symbolLeft;
+                        temp.symbolRight = currencyData.symbolRight;
+                    }
+                    else {
+                        temp.currencyCode = '';
+                        temp.symbolLeft = '';
+                        temp.symbolRight = '';
+                    }
+                    return temp;
+                }));
+                const value = yield Promise.all(promise);
+                return response.status(200).send({ status: 1, message: 'Successfully got settings', data: value });
+            }
+            const settingsList = yield this.settingService.findAll();
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got settings',
+                data: settingsList.map((settings) => ({
+                    id: settings.settingsId,
+                    storeName: settings.siteName,
+                    storeUrl: settings.siteUrl,
+                    isActive: settings.isActive,
+                    maintenance: settings.maintenanceMode,
+                    storeDescription: settings.storeDescription,
+                    pendingStatus: settings.pendingStatus,
+                })),
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    settingsListSpecific(response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const settings = yield this.settingService.findOne({
+                where: {
+                    accessKey: request.get('key'),
+                },
+            });
+            const currencyData = yield this.currencyService.findOne({ where: { currencyId: settings.storeCurrencyId } });
+            const temp = {};
+            if (currencyData) {
+                temp.currencyCode = currencyData.code;
+                temp.symbolLeft = currencyData.symbolLeft;
+                temp.symbolRight = currencyData.symbolRight;
+            }
+            else {
+                temp.currencyCode = '';
+                temp.symbolLeft = '';
+                temp.symbolRight = '';
+            }
+            return response.status(200).send({ status: 1, message: 'Successfully got settings', data: [Object.assign(Object.assign({}, settings), temp)] });
+        });
+    }
+    //  Settings API
+    /**
+     * @api {get} /api/settings/:id Get Setting API
+     * @apiGroup Settings
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *    "settingsId": "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get settings",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/settings/:id
+     * @apiErrorExample {json} getSettings error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    settingsDetail(settingsId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const settings = yield this.settingService.findOne({
+                where: {
+                    settingsId,
+                },
+            });
+            if (!settings) {
+                return response.status(400).send({
+                    status: 0,
+                    message: `Invalid Setting Id..!`,
+                });
+            }
+            const currencyData = yield this.currencyService.findOne({ where: { currencyId: settings.storeCurrencyId } });
+            const settingsDetail = Object.assign(Object.assign({ currencyCode: currencyData.code, symbolLeft: currencyData.symbolLeft, symbolRight: currencyData.symbolRight }, settings), { countryIds: settings.country.split(',') });
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get settings',
+                data: settingsDetail,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // create and update settings API
+    /**
+     * @api {post} /api/settings/create-settings Create Settings API
+     * @apiGroup Settings
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} siteUrl  store siteurl
+     * @apiParam (Request body) {String} metaTagTitle metaTagTitle
+     * @apiParam (Request body) {String} metaTagDescription metaTagDescription
+     * @apiParam (Request body) {String} metaTagKeywords metaTagKeywords
+     * @apiParam (Request body) {String} storeName storeName
+     * @apiParam (Request body) {String} storeOwner storeOwner
+     * @apiParam (Request body) {String} storeAddress storeAddress
+     * @apiParam (Request body) {Number} countryId countryId
+     * @apiParam (Request body) {String} zoneId zoneId
+     * @apiParam (Request body) {String} storeEmail storeEmail
+     * @apiParam (Request body) {String} storeTelephone storeTelephone
+     * @apiParam (Request body) {String} storeFax storeFax
+     * @apiParam (Request body) {String} storeLogo storeLogo
+     * @apiParam (Request body) {String} emailLogo emailLogo
+     * @apiParam (Request body) {String} invoiceLogo invoiceLogo
+     * @apiParam (Request body) {Number} maintenanceMode maintenanceMode
+     * @apiParam (Request body) {String} storeLanguageName storeLanguageName
+     * @apiParam (Request body) {Number} storeCurrencyId storeCurrencyId
+     * @apiParam (Request body) {String} storeImage storeImage
+     * @apiParam (Request body) {String} invoicePrefix invoicePrefix
+     * @apiParam (Request body) {Number} orderStatus orderStatus
+     * @apiParam (Request body) {Number} categoryProductCount productCount should be 0 or 1
+     * @apiParam (Request body) {Number} itemsPerPage ItemsPerPage
+     * @apiParam (Request body) {String} facebook facebook
+     * @apiParam (Request body) {String} twitter twitter
+     * @apiParam (Request body) {String} instagram instagram
+     * @apiParam (Request body) {String} google google
+     * @apiParam (Request body) {Number} status status
+     * @apiParamExample {json} Input
+     * {
+     *      "siteUrl" : "",
+     *      "metaTagTitle" : "",
+     *      "metaTagDescription" : "",
+     *      "metaTagKeywords" : "",
+     *      "storeName" : "",
+     *      "storeOwner" : "",
+     *      "storeAddress" : "",
+     *      "countryId" : "",
+     *      "zoneId" : "",
+     *      "storeEmail" : "",
+     *      "storeTelephone" : "",
+     *      "storeFax" : "",
+     *      "storeLogo" : "",
+     *      "invoiceLogo" : "",
+     *      "emailLogo" : "",
+     *      "maintenanceMode" : "",
+     *      "storeLanguageName" : "",
+     *      "storeCurrencyId" : "",
+     *      "storeImage" : "",
+     *      "invoicePrefix" : "",
+     *      "orderStatus" : "",
+     *      "categoryProductCount" : "",
+     *      "itemsPerPage" : "",
+     *      "google" : "",
+     *      "instagram" : "",
+     *      "facebook" : "",
+     *      "twitter" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully created setting.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/settings/create-settings
+     * @apiErrorExample {json} addSettings error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createSettings(settings, response, request) {
+        var _a, _b, _c;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const settingValue = yield this.settingService.findOne({
+                where: {
+                    settingsId: settings.settingId,
+                },
+            });
+            if (!settingValue) {
+                const duplicateSiteExist = yield this.settingService.findOne({
+                    where: {
+                        siteUrl: settings.siteUrl.trim(),
+                    },
+                });
+                if (duplicateSiteExist) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: `Url Already Exist..!`,
+                    });
+                }
+                const newSettings = new Setting_1.Settings();
+                newSettings.siteUrl = settings.siteUrl;
+                newSettings.businessName = settings.businessName;
+                newSettings.metaTagTitle = settings.metaTagTitle;
+                newSettings.metaTagDescription = settings.metaTagDescription;
+                newSettings.metaTagKeyword = settings.metaTagKeywords;
+                newSettings.siteName = settings.siteName;
+                newSettings.storeOwner = settings.storeOwner;
+                newSettings.storeAddress1 = settings.storeAddress1;
+                newSettings.storeAddress2 = settings.storeAddress2;
+                newSettings.storeDescription = settings.storeDescription;
+                newSettings.countryId = settings.countryId;
+                newSettings.zoneId = settings.zoneId;
+                newSettings.storeEmail = settings.storeEmail;
+                newSettings.storeTelephone = settings.storeTelephone;
+                newSettings.storeFax = settings.storeFax;
+                newSettings.storeCity = settings.storeCity;
+                newSettings.storePostalCode = settings.storePostalCode;
+                newSettings.storeSecondaryLanguageName = settings.storeSecondaryLanguageName;
+                newSettings.currencySymbol = settings.currencySymbol;
+                newSettings.currencyFormat = settings.currencyFormat;
+                newSettings.dateFormat = settings.dateFormat;
+                newSettings.timeFormat = settings.timeFormat;
+                newSettings.defaultCountry = settings.defaultCountry;
+                if (settings.defaultWebsite) {
+                    const settingsUpdate = new Setting_1.Settings();
+                    settingsUpdate.defaultWebsite = 0;
+                    yield this.settingService.update({}, settingsUpdate);
+                }
+                newSettings.defaultWebsite = settings.defaultWebsite;
+                newSettings.pendingStatus = settings.pendingStatus;
+                newSettings.country = settings.country.toString();
+                if (settings.siteCategory) {
+                    newSettings.siteCategory = settings.siteCategory;
+                }
+                if (settings.storeLogo) {
+                    const logo = settings.storeLogo;
+                    const type = logo.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const name = 'Img_' + Date.now() + '.' + type;
+                    const path = 'storeLogo/';
+                    const base64Data = new Buffer(logo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    const stringLength = logo.replace(/^data:image\/\w+;base64,/, '').length;
+                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                    const sizeInKb = sizeInBytes / 1024;
+                    if (+sizeInKb <= 2048) {
+                        if (env_1.env.imageserver === 's3') {
+                            yield this.s3Service.imageUpload((path + name), base64Data, type);
+                        }
+                        else {
+                            yield this.imageService.imageUpload((path + name), base64Data);
+                        }
+                    }
+                    else {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'File size is too large, give less than 2 mb. ',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    newSettings.storeLogo = name;
+                    newSettings.storeLogoPath = path;
+                }
+                if (settings.emailLogo) {
+                    const emaillogo = settings.emailLogo;
+                    const type = emaillogo.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const emailLogoName = 'EmailLogo_' + Date.now() + '.' + type;
+                    const emailLogoPath = 'storeLogo/';
+                    const base64Data = new Buffer(emaillogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    const stringLength = emailLogoPath.replace(/^data:image\/\w+;base64,/, '').length;
+                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                    const sizeInKb = sizeInBytes / 1024;
+                    if (+sizeInKb <= 2048) {
+                        if (env_1.env.imageserver === 's3') {
+                            yield this.s3Service.imageUpload((emailLogoPath + emailLogoName), base64Data, type);
+                        }
+                        else {
+                            yield this.imageService.imageUpload((emailLogoPath + emailLogoName), base64Data);
+                        }
+                    }
+                    else {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'File size is too large, give less than 2 mb. ',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    newSettings.emailLogo = emailLogoName;
+                    newSettings.emailLogoPath = emailLogoPath;
+                }
+                if (settings.invoiceLogo) {
+                    const invoiceLogo = settings.invoiceLogo;
+                    const type = invoiceLogo.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const InvoiceLogoName = 'InvoiceLogo_' + Date.now() + '.' + type;
+                    const InvoiceLogoPath = 'storeLogo/';
+                    const base64Data = new Buffer(invoiceLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    const stringLength = invoiceLogo.replace(/^data:image\/\w+;base64,/, '').length;
+                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                    const sizeInKb = sizeInBytes / 1024;
+                    if (+sizeInKb <= 2048) {
+                        if (env_1.env.imageserver === 's3') {
+                            yield this.s3Service.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data, type);
+                        }
+                        else {
+                            yield this.imageService.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data);
+                        }
+                    }
+                    else {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'File size is too large, give less than 2 mb. ',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    newSettings.invoiceLogo = InvoiceLogoName;
+                    newSettings.invoiceLogoPath = InvoiceLogoPath;
+                }
+                if (true) {
+                    newSettings.maintenanceMode = settings.maintenanceMode;
+                    newSettings.storeLanguageName = settings.storeLanguageName;
+                    newSettings.storeCurrencyId = settings.storeCurrencyId;
+                    newSettings.storeImage = settings.storeImage;
+                    newSettings.invoicePrefix = settings.invoicePrefix;
+                    newSettings.orderStatus = settings.orderStatus;
+                    newSettings.categoryProductCount = settings.categoryProductCount;
+                    newSettings.itemsPerPage = settings.itemsPerPage;
+                    newSettings.google = settings.google;
+                    newSettings.facebook = settings.facebook;
+                    newSettings.twitter = settings.twitter;
+                    newSettings.instagram = settings.instagram;
+                    newSettings.isActive = +settings.status;
+                    newSettings.accessKey = (_a = settings.accessKey) === null || _a === void 0 ? void 0 : _a.trim();
+                }
+                const createdData = yield this.settingService.create(newSettings);
+                if (createdData.defaultWebsite) {
+                    const settingsUpdate = new Setting_1.Settings();
+                    settingsUpdate.defaultWebsite = 0;
+                    yield this.settingService.update({ settingsId: (0, typeorm_1.Not)(createdData.settingsId) }, settingsUpdate);
+                }
+                const successResponse = {
+                    status: 1,
+                    message: 'Settings created Successfully.',
+                    data: createdData,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                if (settings.siteUrl) {
+                    const duplicateSiteExist = yield this.settingService.findOne({
+                        where: {
+                            siteUrl: settings.siteUrl.trim(),
+                        },
+                    });
+                    if (duplicateSiteExist && duplicateSiteExist.settingsId !== settings.settingId) {
+                        return response.status(400).send({
+                            status: 0,
+                            message: `Url Already Exist..!`,
+                        });
+                    }
+                }
+                settingValue.siteUrl = settings.siteUrl;
+                settingValue.businessName = settings.businessName;
+                settingValue.metaTagTitle = settings.metaTagTitle;
+                settingValue.metaTagDescription = settings.metaTagDescription;
+                settingValue.metaTagKeyword = settings.metaTagKeywords;
+                settingValue.siteName = settings.siteName;
+                settingValue.storeOwner = settings.storeOwner;
+                settingValue.storeAddress1 = settings.storeAddress1;
+                settingValue.storeAddress2 = settings.storeAddress2;
+                settingValue.storeDescription = settings.storeDescription;
+                settingValue.siteCategory = settings.siteCategory;
+                settingValue.countryId = settings.countryId;
+                settingValue.zoneId = settings.zoneId;
+                settingValue.storeEmail = settings.storeEmail;
+                settingValue.storeTelephone = settings.storeTelephone;
+                settingValue.storeFax = settings.storeFax;
+                settingValue.storeLogo = settings.storeLogo;
+                settingValue.storeCity = settings.storeCity;
+                settingValue.storePostalCode = settings.storePostalCode;
+                settingValue.storeSecondaryLanguageName = settings.storeSecondaryLanguageName;
+                settingValue.currencySymbol = settings.currencySymbol;
+                settingValue.currencyFormat = settings.currencyFormat;
+                settingValue.dateFormat = settings.dateFormat;
+                settingValue.timeFormat = settings.timeFormat;
+                settingValue.defaultCountry = settings.defaultCountry;
+                settingValue.country = (settings === null || settings === void 0 ? void 0 : settings.country) ? settings.country.toString() : settingValue.country;
+                settingValue.defaultWebsite = settings.defaultWebsite;
+                settingValue.pendingStatus = settings.pendingStatus;
+                settingValue.accessKey = (_b = settings.accessKey) === null || _b === void 0 ? void 0 : _b.trim();
+                if ((_c = settings.siteCategory) === null || _c === void 0 ? void 0 : _c.trim()) {
+                    // const error: string[] = [];
+                    // const masterCategoryList: string[] = (await this.categoryService.find({
+                    //     select: ['categorySlug'],
+                    // })).map((category) => { return `'${category.categorySlug}'`});
+                    // const oldCategory: string[] = settingValue.siteCategory.split(',');
+                    const newCategory = settings.siteCategory.split(',');
+                    // newCategory.map(category => {
+                    //     // if (!masterCategoryList.includes(`'${category}'`)) {
+                    //     //     return response.status(400).send({
+                    //     //         status: 0,
+                    //     //         message: `Category ${category} Does Not Exist..!`,
+                    //     //     });
+                    //     // }
+                    //     if (oldCategory.includes(category)) {
+                    //         error.push(category);
+                    //     }
+                    //     return category;
+                    // });
+                    // if (error?.length > 0) {
+                    //     return response.status(400).send({
+                    //         status: 0,
+                    //         message: `Category ${error.map((errorMessage: string) => errorMessage)} Already Mapped..!`,
+                    //     });
+                    // }
+                    settingValue.siteCategory = newCategory.toString();
+                }
+                if (settings.storeLogo) {
+                    const logo = settings.storeLogo;
+                    const type = logo.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const name = 'Img_' + Date.now() + '.' + type;
+                    const path = 'storeLogo/';
+                    const base64Data = new Buffer(logo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    const stringLength = logo.replace(/^data:image\/\w+;base64,/, '').length;
+                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                    const sizeInKb = sizeInBytes / 1024;
+                    if (+sizeInKb <= 2048) {
+                        if (env_1.env.imageserver === 's3') {
+                            yield this.s3Service.imageUpload((path + name), base64Data, type);
+                        }
+                        else {
+                            yield this.imageService.imageUpload((path + name), base64Data);
+                        }
+                    }
+                    else {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'File size is too large, give less than 2 mb. ',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    settingValue.storeLogo = name;
+                    settingValue.storeLogoPath = path;
+                }
+                if (settings.emailLogo) {
+                    const emaillogo = settings.emailLogo;
+                    const type = emaillogo.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const emailLogoName = 'EmailLogo_' + Date.now() + '.' + type;
+                    const emailLogoPath = 'storeLogo/';
+                    const base64Data = new Buffer(emaillogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    const stringLength = emaillogo.replace(/^data:image\/\w+;base64,/, '').length;
+                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                    const sizeInKb = sizeInBytes / 1024;
+                    if (+sizeInKb <= 2048) {
+                        if (env_1.env.imageserver === 's3') {
+                            yield this.s3Service.imageUpload((emailLogoPath + emailLogoName), base64Data, type);
+                        }
+                        else {
+                            yield this.imageService.imageUpload((emailLogoPath + emailLogoName), base64Data);
+                        }
+                    }
+                    else {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'File size is too large, give less than 2 mb. ',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    settingValue.emailLogo = emailLogoName;
+                    settingValue.emailLogoPath = emailLogoPath;
+                }
+                if (settings.invoiceLogo) {
+                    const invoiceLogo = settings.invoiceLogo;
+                    const extType = invoiceLogo.split(';')[0].split('/')[1];
+                    const InvoiceLogoName = 'InvoiceLogo_' + Date.now() + '.' + extType;
+                    const InvoiceLogoPath = 'storeLogo/';
+                    const base64Data = new Buffer(invoiceLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    const stringLength = invoiceLogo.replace(/^data:image\/\w+;base64,/, '').length;
+                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                    const sizeInKb = sizeInBytes / 1024;
+                    if (+sizeInKb <= 2048) {
+                        if (env_1.env.imageserver === 's3') {
+                            yield this.s3Service.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data, extType);
+                        }
+                        else {
+                            yield this.imageService.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data);
+                        }
+                    }
+                    else {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'File size is too large, give less than 2 mb. ',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    settingValue.invoiceLogo = InvoiceLogoName;
+                    settingValue.invoiceLogoPath = InvoiceLogoPath;
+                }
+                if (true) {
+                    settingValue.maintenanceMode = settings.maintenanceMode;
+                    settingValue.storeLanguageName = settings.storeLanguageName;
+                    settingValue.storeCurrencyId = settings.storeCurrencyId;
+                    settingValue.storeImage = settings.storeImage;
+                    settingValue.invoicePrefix = settings.invoicePrefix;
+                    settingValue.orderStatus = settings.orderStatus;
+                    settingValue.categoryProductCount = settings.categoryProductCount;
+                    settingValue.itemsPerPage = settings.itemsPerPage;
+                    settingValue.google = settings.google;
+                    settingValue.facebook = settings.facebook;
+                    settingValue.twitter = settings.twitter;
+                    settingValue.instagram = settings.instagram;
+                    settingValue.isActive = settings.status;
+                }
+                const updatedData = yield this.settingService.create(settingValue);
+                if (updatedData.defaultWebsite) {
+                    const settingsUpdate = new Setting_1.Settings();
+                    settingsUpdate.defaultWebsite = 0;
+                    yield this.settingService.update({ settingsId: (0, typeorm_1.Not)(updatedData.settingsId) }, settingsUpdate);
+                }
+                const successResponse = {
+                    status: 1,
+                    message: 'Settings Updated Successfully.',
+                    data: updatedData,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // update main API
+    /**
+     * @api {put} /api/settings/maintainance Update maintainance mode API
+     * @apiGroup Settings
+     * @apiParam (Request body) {number} mode mode should be 0 or 1
+     * @apiParamExample {json} Input
+     * {
+     *      "mode" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated maintainance mode.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/settings/maintainance
+     * @apiErrorExample {json} isFeature error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateFeatureProduct(mode, siteId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const setting = yield this.settingService.findOne({
+                where: {
+                    settingsId: siteId,
+                },
+            });
+            if (!setting) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Site Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            setting.maintenanceMode = mode ? mode : 0;
+            const settingSave = yield this.settingService.create(setting);
+            if (settingSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Maintainance mode updated successfully.',
+                    data: settingSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to updated maintainance',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Generate Access Key
+    /**
+     * @api {put} /api/settings/keygen Update maintainance mode API
+     * @apiGroup Settings
+     * @apiParam (Request body) {Number} siteId siteId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "AccessKey Generation Successful",
+     *      "status": "1",
+     *      "data": "{ accessKey: '' }"
+     * }
+     * @apiSampleRequest /api/settings/keygen
+     * @apiErrorExample {json} Error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    generateKeySite(response, siteId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            let settingsSave;
+            if (siteId) {
+                const settings = yield this.settingService.findOne({
+                    where: {
+                        settingsId: siteId,
+                    },
+                });
+                if (!settings) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: `Invalid Site Id`,
+                    });
+                }
+                settings.accessKey = (0, uuid_1.v4)();
+                settingsSave = yield this.settingService.create(settings);
+            }
+            return response.status(200).send({
+                status: 1,
+                message: `AccessKey ${siteId ? 'Updated..!' : 'Generated..!'}`,
+                data: {
+                    accessKey: siteId ? settingsSave.accessKey : (0, uuid_1.v4)(),
+                },
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/')
+    // @Authorized('admin')
+    ,
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('defaultWebsite')),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettingController.prototype, "settingsList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/store-setting')
+    // @Authorized('admin')
+    ,
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettingController.prototype, "settingsListSpecific", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/:id'),
+    (0, routing_controllers_1.Authorized)('admin'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettingController.prototype, "settingsDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-general-settings']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateSettingRequest_1.CreateSettingRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettingController.prototype, "createSettings", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/maintainance'),
+    (0, routing_controllers_1.Authorized)('admin'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('mode')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('id')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettingController.prototype, "updateFeatureProduct", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/keygen'),
+    (0, routing_controllers_1.Authorized)('admin'),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('id')),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettingController.prototype, "generateKeySite", null);
+SettingController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/settings'),
+    tslib_1.__metadata("design:paramtypes", [SettingService_1.SettingService,
+        S3Service_1.S3Service,
+        ImageService_1.ImageService,
+        CurrencyService_1.CurrencyService
+        // private categoryService: CategoryService
+    ])
+], SettingController);
+exports.SettingController = SettingController;
+//# sourceMappingURL=SettingController.js.map

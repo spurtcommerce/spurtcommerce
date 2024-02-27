@@ -1,1 +1,78 @@
-'use strict';const a19_0x52cf1f=a19_0x4c74;function a19_0x9eb8(){const _0x16f0d4=['4572080ZBMnLO','790599TMZOUo','defineProperty','Table','int','2654664nEQqFW','integer','4197537ZFinAU','tslib','282hYtMID','DATETIME','created_by','blog_category_id','path_id','createTable','70301VSpMyS','CURRENT_TIMESTAMP','CreateBlogCategoryPath1651295328465','__awaiter','blog_category_path','blog_category_path_id','hasTable','modified_by','1322871FKoULw','3599295AwxUpr','2zEjdzS','typeorm'];a19_0x9eb8=function(){return _0x16f0d4;};return a19_0x9eb8();}(function(_0x551dba,_0x15405d){const _0x437878=a19_0x4c74,_0x431ed5=_0x551dba();while(!![]){try{const _0xca370d=parseInt(_0x437878(0xc3))/0x1*(-parseInt(_0x437878(0xc0))/0x2)+parseInt(_0x437878(0xbe))/0x3+parseInt(_0x437878(0xc7))/0x4+parseInt(_0x437878(0xbf))/0x5+-parseInt(_0x437878(0xcb))/0x6*(parseInt(_0x437878(0xb6))/0x7)+-parseInt(_0x437878(0xc2))/0x8+parseInt(_0x437878(0xc9))/0x9;if(_0xca370d===_0x15405d)break;else _0x431ed5['push'](_0x431ed5['shift']());}catch(_0x311b5f){_0x431ed5['push'](_0x431ed5['shift']());}}}(a19_0x9eb8,0x6f829));Object[a19_0x52cf1f(0xc4)](exports,'__esModule',{'value':!![]}),exports[a19_0x52cf1f(0xb8)]=void 0x0;const tslib_1=require(a19_0x52cf1f(0xca)),typeorm_1=require(a19_0x52cf1f(0xc1));class CreateBlogCategoryPath1651295328465{['up'](_0x3076a9){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3b9c82=a19_0x4c74,_0x1caa30=new typeorm_1[(_0x3b9c82(0xc5))]({'name':_0x3b9c82(0xba),'columns':[{'name':_0x3b9c82(0xbb),'type':_0x3b9c82(0xc6),'length':'11','isGenerated':!![],'generationStrategy':'increment','isPrimary':!![],'isNullable':![]},{'name':_0x3b9c82(0xb3),'type':_0x3b9c82(0xc6),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3b9c82(0xb4),'type':_0x3b9c82(0xc6),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'level','type':_0x3b9c82(0xc6),'length':'11','isPrimary':![],'isNullable':![]},{'name':_0x3b9c82(0xcd),'type':_0x3b9c82(0xc8),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3b9c82(0xbd),'type':_0x3b9c82(0xc8),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0x3b9c82(0xcc),'isPrimary':![],'isNullable':!![],'default':_0x3b9c82(0xb7)},{'name':'modified_date','type':_0x3b9c82(0xcc),'isPrimary':![],'isNullable':!![],'default':_0x3b9c82(0xb7)}]}),_0x3dc3c0=yield _0x3076a9[_0x3b9c82(0xbc)](_0x3b9c82(0xba));!_0x3dc3c0&&(yield _0x3076a9[_0x3b9c82(0xb5)](_0x1caa30));});}['down'](_0x5ea995){const _0x5c164d=a19_0x52cf1f;return tslib_1[_0x5c164d(0xb9)](this,void 0x0,void 0x0,function*(){const _0x4fb3e6=_0x5c164d;yield _0x5ea995['dropTable'](_0x4fb3e6(0xba),!![]);});}}function a19_0x4c74(_0x57c1a6,_0x5763e4){const _0x9eb8f3=a19_0x9eb8();return a19_0x4c74=function(_0x4c74f3,_0x2cec22){_0x4c74f3=_0x4c74f3-0xb3;let _0x42460b=_0x9eb8f3[_0x4c74f3];return _0x42460b;},a19_0x4c74(_0x57c1a6,_0x5763e4);}exports['CreateBlogCategoryPath1651295328465']=CreateBlogCategoryPath1651295328465;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateBlogCategoryPath1651295328465 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateBlogCategoryPath1651295328465 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'blog_category_path',
+                columns: [
+                    {
+                        name: 'blog_category_path_id',
+                        type: 'int',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'blog_category_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'path_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'level',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('blog_category_path');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('blog_category_path', true);
+        });
+    }
+}
+exports.CreateBlogCategoryPath1651295328465 = CreateBlogCategoryPath1651295328465;
+//# sourceMappingURL=1651295328465-CreateBlogCategoryPath.js.map

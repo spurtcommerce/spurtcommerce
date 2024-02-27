@@ -1,1 +1,66 @@
-'use strict';function a287_0x2d4f(_0x3e77fb,_0x4aa2cd){const _0x4077dc=a287_0x4077();return a287_0x2d4f=function(_0x2d4ff3,_0x112469){_0x2d4ff3=_0x2d4ff3-0x13f;let _0x41f29f=_0x4077dc[_0x2d4ff3];return _0x41f29f;},a287_0x2d4f(_0x3e77fb,_0x4aa2cd);}function a287_0x4077(){const _0x2506a0=['__esModule','address1','customerId','countryId','state','address1\x20is\x20required','ValidateIf','10vUeoAz','1483999nlQDIL','7585713xqEVcW','city','153PuoOuX','484878ngraWr','CreateAddress','reflect-metadata','10utWKTF','class-validator','1890808mKaJFr','721794UtWkeR','14UoYqpv','__metadata','defineProperty','prototype','company','tslib','__decorate','1141596RkVAIo','state\x20is\x20required','9896qjMoYS','postcode','address2','MaxLength','addressType','design:type','city\x20should\x20be\x20maximum\x20128\x20characters','IsNotEmpty'];a287_0x4077=function(){return _0x2506a0;};return a287_0x4077();}const a287_0x83635e=a287_0x2d4f;(function(_0x1634dd,_0x2b6336){const _0x3f1c18=a287_0x2d4f,_0x5a3b1a=_0x1634dd();while(!![]){try{const _0x4757a7=-parseInt(_0x3f1c18(0x155))/0x1+parseInt(_0x3f1c18(0x13f))/0x2+-parseInt(_0x3f1c18(0x154))/0x3*(-parseInt(_0x3f1c18(0x141))/0x4)+-parseInt(_0x3f1c18(0x158))/0x5*(parseInt(_0x3f1c18(0x15b))/0x6)+-parseInt(_0x3f1c18(0x15c))/0x7*(parseInt(_0x3f1c18(0x15a))/0x8)+parseInt(_0x3f1c18(0x152))/0x9*(parseInt(_0x3f1c18(0x150))/0xa)+parseInt(_0x3f1c18(0x151))/0xb;if(_0x4757a7===_0x2b6336)break;else _0x5a3b1a['push'](_0x5a3b1a['shift']());}catch(_0x215f21){_0x5a3b1a['push'](_0x5a3b1a['shift']());}}}(a287_0x4077,0x74590));Object[a287_0x83635e(0x15e)](exports,a287_0x83635e(0x149),{'value':!![]}),exports[a287_0x83635e(0x156)]=void 0x0;const tslib_1=require(a287_0x83635e(0x161));require(a287_0x83635e(0x157));const class_validator_1=require(a287_0x83635e(0x159));class CreateAddress{}tslib_1[a287_0x83635e(0x162)]([(0x0,class_validator_1[a287_0x83635e(0x148)])(),tslib_1[a287_0x83635e(0x15d)](a287_0x83635e(0x146),Number)],CreateAddress[a287_0x83635e(0x15f)],a287_0x83635e(0x14b),void 0x0),tslib_1[a287_0x83635e(0x162)]([(0x0,class_validator_1['MaxLength'])(0x80,{'message':'address1\x20should\x20be\x20maximum\x20128\x20characters'}),(0x0,class_validator_1[a287_0x83635e(0x148)])({'message':a287_0x83635e(0x14e)}),tslib_1[a287_0x83635e(0x15d)](a287_0x83635e(0x146),String)],CreateAddress['prototype'],a287_0x83635e(0x14a),void 0x0),tslib_1[a287_0x83635e(0x162)]([(0x0,class_validator_1[a287_0x83635e(0x144)])(0x80,{'message':'address2\x20should\x20be\x20maximum\x20128\x20characters'}),tslib_1[a287_0x83635e(0x15d)](a287_0x83635e(0x146),String)],CreateAddress[a287_0x83635e(0x15f)],a287_0x83635e(0x143),void 0x0),tslib_1[a287_0x83635e(0x162)]([(0x0,class_validator_1[a287_0x83635e(0x144)])(0x80,{'message':a287_0x83635e(0x147)}),(0x0,class_validator_1[a287_0x83635e(0x148)])({'message':'city\x20is\x20required'}),tslib_1[a287_0x83635e(0x15d)]('design:type',String)],CreateAddress[a287_0x83635e(0x15f)],a287_0x83635e(0x153),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a287_0x83635e(0x148)])({'message':a287_0x83635e(0x140)}),tslib_1[a287_0x83635e(0x15d)](a287_0x83635e(0x146),String)],CreateAddress[a287_0x83635e(0x15f)],a287_0x83635e(0x14d),void 0x0),tslib_1[a287_0x83635e(0x162)]([(0x0,class_validator_1[a287_0x83635e(0x144)])(0xa,{'message':'postcode\x20should\x20be\x20maximum\x206\x20characters'}),(0x0,class_validator_1[a287_0x83635e(0x14f)])(_0x591b8e=>_0x591b8e[a287_0x83635e(0x142)]!==''),tslib_1[a287_0x83635e(0x15d)](a287_0x83635e(0x146),Number)],CreateAddress[a287_0x83635e(0x15f)],a287_0x83635e(0x142),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a287_0x83635e(0x148)])(),tslib_1[a287_0x83635e(0x15d)](a287_0x83635e(0x146),Number)],CreateAddress[a287_0x83635e(0x15f)],a287_0x83635e(0x145),void 0x0),tslib_1[a287_0x83635e(0x162)]([(0x0,class_validator_1['IsInt'])(),tslib_1[a287_0x83635e(0x15d)](a287_0x83635e(0x146),Number)],CreateAddress['prototype'],a287_0x83635e(0x14c),void 0x0),tslib_1[a287_0x83635e(0x162)]([(0x0,class_validator_1['MaxLength'])(0x20,{'message':'company\x20should\x20be\x20maximum\x2032\x20character'}),tslib_1[a287_0x83635e(0x15d)](a287_0x83635e(0x146),String)],CreateAddress[a287_0x83635e(0x15f)],a287_0x83635e(0x160),void 0x0),exports[a287_0x83635e(0x156)]=CreateAddress;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateAddress = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateAddress {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateAddress.prototype, "customerId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(128, {
+        message: 'address1 should be maximum 128 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'address1 is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateAddress.prototype, "address1", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(128, {
+        message: 'address2 should be maximum 128 characters',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateAddress.prototype, "address2", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(128, {
+        message: 'city should be maximum 128 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'city is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateAddress.prototype, "city", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(10, {
+        message: 'postcode should be maximum 6 characters',
+    }),
+    (0, class_validator_1.ValidateIf)(o => o.postcode !== ''),
+    tslib_1.__metadata("design:type", Number)
+], CreateAddress.prototype, "postcode", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateAddress.prototype, "addressType", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsInt)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateAddress.prototype, "countryId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(32, {
+        message: 'company should be maximum 32 character',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateAddress.prototype, "company", void 0);
+exports.CreateAddress = CreateAddress;
+//# sourceMappingURL=CreateAddressRequest.js.map

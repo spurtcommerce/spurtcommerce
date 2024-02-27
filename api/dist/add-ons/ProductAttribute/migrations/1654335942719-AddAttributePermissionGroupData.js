@@ -1,1 +1,83 @@
-'use strict';const a75_0x3cff02=a75_0x5cf8;(function(_0xa20a6b,_0x56ea7b){const _0x329e4b=a75_0x5cf8,_0x5e9ec9=_0xa20a6b();while(!![]){try{const _0x4fbc71=-parseInt(_0x329e4b(0x136))/0x1+parseInt(_0x329e4b(0x126))/0x2+parseInt(_0x329e4b(0x122))/0x3+-parseInt(_0x329e4b(0x123))/0x4*(parseInt(_0x329e4b(0x133))/0x5)+parseInt(_0x329e4b(0x11d))/0x6*(parseInt(_0x329e4b(0x120))/0x7)+parseInt(_0x329e4b(0x13b))/0x8*(-parseInt(_0x329e4b(0x141))/0x9)+parseInt(_0x329e4b(0x12e))/0xa;if(_0x4fbc71===_0x56ea7b)break;else _0x5e9ec9['push'](_0x5e9ec9['shift']());}catch(_0x2d397d){_0x5e9ec9['push'](_0x5e9ec9['shift']());}}}(a75_0x16b2,0x54900));function a75_0x16b2(){const _0x225e5b=['tslib','19502jDxUDx','moduleGroupId','149853OUMolv','16DxOZLl','__esModule','getRepository','639146bDglXF','format','SELECT\x20*\x20FROM\x20`permission_module_group`\x20WHERE\x20`slug_name`\x20=\x20','attribute-list','attribute-group-delete','AddAttributePermissionGroupData1654335942719','Attribute\x20Group','save','3178290UCJqjI','default','down','PermissionModule','PermissionModuleGroup','447040voybbk','YYYY-MM-DD\x20HH:mm:ss','\x22attribute\x22','204143eVxvqp','push','241','__awaiter','Delete\x20Attribute\x20Group','2914160pklREn','query','length','242','Add\x20Attribute\x20Group','moment','9rnSvfD','1260nVzYFU','attribute-group-add'];a75_0x16b2=function(){return _0x225e5b;};return a75_0x16b2();}Object['defineProperty'](exports,a75_0x3cff02(0x124),{'value':!![]}),exports[a75_0x3cff02(0x12b)]=void 0x0;const tslib_1=require(a75_0x3cff02(0x11f)),typeorm_1=require('typeorm'),moment_1=tslib_1['__importDefault'](require(a75_0x3cff02(0x140)));class AddAttributePermissionGroupData1654335942719{['up'](_0x1818d3){const _0x360a6e=a75_0x3cff02;return tslib_1[_0x360a6e(0x139)](this,void 0x0,void 0x0,function*(){const _0x51f329=_0x360a6e,_0x46287e=yield _0x1818d3[_0x51f329(0x13c)](_0x51f329(0x128)+_0x51f329(0x135)),_0x58a302=[];if(_0x46287e[_0x51f329(0x13d)]===0x0){const _0x23d324=[{'name':_0x51f329(0x12c),'slugName':'attribute','sortOrder':'68','createdDate':''+(0x0,moment_1[_0x51f329(0x12f)])()['format'](_0x51f329(0x134)),'updatedDate':''+(0x0,moment_1['default'])()[_0x51f329(0x127)](_0x51f329(0x134))}],_0x357de5=yield(0x0,typeorm_1[_0x51f329(0x125)])(_0x51f329(0x132))[_0x51f329(0x12d)](_0x23d324);_0x357de5&&_0x58a302[_0x51f329(0x137)]({'moduleGroupId':_0x357de5[0x0][_0x51f329(0x121)],'name':'Add\x20Attribute\x20Group','slugName':_0x51f329(0x11e),'sortOrder':_0x51f329(0x138),'createdDate':''+(0x0,moment_1[_0x51f329(0x12f)])()[_0x51f329(0x127)](_0x51f329(0x134)),'updatedDate':''+(0x0,moment_1[_0x51f329(0x12f)])()['format']('YYYY-MM-DD\x20HH:mm:ss')},{'moduleGroupId':_0x357de5[0x0]['moduleGroupId'],'name':'Attribute\x20List','slugName':_0x51f329(0x129),'sortOrder':'242','createdDate':''+(0x0,moment_1[_0x51f329(0x12f)])()[_0x51f329(0x127)](_0x51f329(0x134)),'updatedDate':''+(0x0,moment_1['default'])()[_0x51f329(0x127)](_0x51f329(0x134))},{'moduleGroupId':_0x357de5[0x0][_0x51f329(0x121)],'name':_0x51f329(0x13a),'slugName':_0x51f329(0x12a),'sortOrder':'243','createdDate':''+(0x0,moment_1[_0x51f329(0x12f)])()[_0x51f329(0x127)](_0x51f329(0x134)),'updatedDate':''+(0x0,moment_1[_0x51f329(0x12f)])()[_0x51f329(0x127)](_0x51f329(0x134))}),yield(0x0,typeorm_1[_0x51f329(0x125)])('PermissionModule')[_0x51f329(0x12d)](_0x58a302);}else _0x58a302[_0x51f329(0x137)]({'moduleGroupId':_0x46287e[0x0]['moduleGroupId'],'name':_0x51f329(0x13f),'slugName':_0x51f329(0x11e),'sortOrder':_0x51f329(0x138),'createdDate':''+(0x0,moment_1[_0x51f329(0x12f)])()['format'](_0x51f329(0x134)),'updatedDate':''+(0x0,moment_1[_0x51f329(0x12f)])()[_0x51f329(0x127)]('YYYY-MM-DD\x20HH:mm:ss')},{'moduleGroupId':_0x46287e[0x0][_0x51f329(0x121)],'name':'Attribute\x20List','slugName':_0x51f329(0x129),'sortOrder':_0x51f329(0x13e),'createdDate':''+(0x0,moment_1['default'])()['format'](_0x51f329(0x134)),'updatedDate':''+(0x0,moment_1[_0x51f329(0x12f)])()[_0x51f329(0x127)](_0x51f329(0x134))},{'moduleGroupId':_0x46287e[0x0][_0x51f329(0x121)],'name':_0x51f329(0x13a),'slugName':_0x51f329(0x12a),'sortOrder':'243','createdDate':''+(0x0,moment_1[_0x51f329(0x12f)])()[_0x51f329(0x127)](_0x51f329(0x134)),'updatedDate':''+(0x0,moment_1[_0x51f329(0x12f)])()[_0x51f329(0x127)]('YYYY-MM-DD\x20HH:mm:ss')}),yield(0x0,typeorm_1['getRepository'])(_0x51f329(0x131))[_0x51f329(0x12d)](_0x58a302);});}[a75_0x3cff02(0x130)](_0x24eb92){const _0x46eb48=a75_0x3cff02;return tslib_1[_0x46eb48(0x139)](this,void 0x0,void 0x0,function*(){});}}function a75_0x5cf8(_0x1ede53,_0x3043d7){const _0x16b2fc=a75_0x16b2();return a75_0x5cf8=function(_0x5cf87f,_0x5d095b){_0x5cf87f=_0x5cf87f-0x11d;let _0x39ce4=_0x16b2fc[_0x5cf87f];return _0x39ce4;},a75_0x5cf8(_0x1ede53,_0x3043d7);}exports[a75_0x3cff02(0x12b)]=AddAttributePermissionGroupData1654335942719;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddAttributePermissionGroupData1654335942719 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+class AddAttributePermissionGroupData1654335942719 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const exist = yield queryRunner.query('SELECT * FROM `permission_module_group` WHERE `slug_name` = ' + '"attribute"');
+            const AttributeGroupPermissionSeed = [];
+            if ((exist.length === 0)) {
+                const AttributePermissionGroupSeed = [
+                    {
+                        name: 'Attribute Group',
+                        slugName: 'attribute',
+                        sortOrder: '68',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    },
+                ];
+                const val = yield (0, typeorm_1.getRepository)('PermissionModuleGroup').save(AttributePermissionGroupSeed);
+                if (val) {
+                    AttributeGroupPermissionSeed.push({
+                        moduleGroupId: val[0].moduleGroupId,
+                        name: 'Add Attribute Group',
+                        slugName: 'attribute-group-add',
+                        sortOrder: '241',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    }, {
+                        moduleGroupId: val[0].moduleGroupId,
+                        name: 'Attribute List',
+                        slugName: 'attribute-list',
+                        sortOrder: '242',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    }, {
+                        moduleGroupId: val[0].moduleGroupId,
+                        name: 'Delete Attribute Group',
+                        slugName: 'attribute-group-delete',
+                        sortOrder: '243',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    });
+                }
+                yield (0, typeorm_1.getRepository)('PermissionModule').save(AttributeGroupPermissionSeed);
+            }
+            else {
+                AttributeGroupPermissionSeed.push({
+                    moduleGroupId: exist[0].moduleGroupId,
+                    name: 'Add Attribute Group',
+                    slugName: 'attribute-group-add',
+                    sortOrder: '241',
+                    createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                }, {
+                    moduleGroupId: exist[0].moduleGroupId,
+                    name: 'Attribute List',
+                    slugName: 'attribute-list',
+                    sortOrder: '242',
+                    createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                }, {
+                    moduleGroupId: exist[0].moduleGroupId,
+                    name: 'Delete Attribute Group',
+                    slugName: 'attribute-group-delete',
+                    sortOrder: '243',
+                    createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                });
+                yield (0, typeorm_1.getRepository)('PermissionModule').save(AttributeGroupPermissionSeed);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ----
+        });
+    }
+}
+exports.AddAttributePermissionGroupData1654335942719 = AddAttributePermissionGroupData1654335942719;
+//# sourceMappingURL=1654335942719-AddAttributePermissionGroupData.js.map

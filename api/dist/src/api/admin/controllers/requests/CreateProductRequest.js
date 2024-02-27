@@ -1,1 +1,77 @@
-'use strict';const a300_0x20aa0e=a300_0x591a;(function(_0x4e084d,_0x1de517){const _0x589223=a300_0x591a,_0xf131c5=_0x4e084d();while(!![]){try{const _0x48f353=parseInt(_0x589223(0x16f))/0x1+parseInt(_0x589223(0x172))/0x2+-parseInt(_0x589223(0x183))/0x3*(-parseInt(_0x589223(0x16b))/0x4)+-parseInt(_0x589223(0x170))/0x5*(parseInt(_0x589223(0x180))/0x6)+-parseInt(_0x589223(0x16d))/0x7+parseInt(_0x589223(0x184))/0x8*(parseInt(_0x589223(0x168))/0x9)+parseInt(_0x589223(0x182))/0xa*(-parseInt(_0x589223(0x17f))/0xb);if(_0x48f353===_0x1de517)break;else _0xf131c5['push'](_0xf131c5['shift']());}catch(_0x5a38f7){_0xf131c5['push'](_0xf131c5['shift']());}}}(a300_0x54ec,0x343a1));Object['defineProperty'](exports,a300_0x20aa0e(0x176),{'value':!![]}),exports[a300_0x20aa0e(0x17a)]=void 0x0;const tslib_1=require(a300_0x20aa0e(0x179));require('reflect-metadata');function a300_0x54ec(){const _0xc10967=['productSlug','hsn','__esModule','Max','prototype','tslib','AddProductRequest','Maximum\x20length\x20of\x20sortOrder\x20should\x20be\x204','productName\x20should\x20be\x20maximum\x20255\x20character','quantity','upc\x20should\x20be\x20maximum\x2012\x20characters','121KHydAf','12voAags','sku\x20should\x20be\x20maximum\x2064\x20character','67090gGHGiW','3OylrgP','368eddywV','design:type','__decorate','sortOrder','status','image','MaxLength','25443CneQfd','__metadata','upc','982188UDOwuZ','productSlug\x20should\x20be\x20maximum\x20255\x20characters','1645588uvyYmy','categoryId','298885tzNUhK','935455lKJUKZ','IsNotEmpty','445024EOpiHc','class-validator'];a300_0x54ec=function(){return _0xc10967;};return a300_0x54ec();}function a300_0x591a(_0x2d6be6,_0x41a37e){const _0x54ec2c=a300_0x54ec();return a300_0x591a=function(_0x591a35,_0x54eef6){_0x591a35=_0x591a35-0x162;let _0x2ff225=_0x54ec2c[_0x591a35];return _0x2ff225;},a300_0x591a(_0x2d6be6,_0x41a37e);}const class_validator_1=require(a300_0x20aa0e(0x173));class AddProductRequest{}tslib_1['__decorate']([(0x0,class_validator_1[a300_0x20aa0e(0x167)])(0xff,{'message':a300_0x20aa0e(0x17c)}),(0x0,class_validator_1[a300_0x20aa0e(0x171)])({'message':'productName\x20is\x20required'}),tslib_1[a300_0x20aa0e(0x169)](a300_0x20aa0e(0x162),String)],AddProductRequest[a300_0x20aa0e(0x178)],'productName',void 0x0),tslib_1[a300_0x20aa0e(0x163)]([(0x0,class_validator_1[a300_0x20aa0e(0x167)])(0x40,{'message':a300_0x20aa0e(0x181)}),(0x0,class_validator_1[a300_0x20aa0e(0x171)])(),tslib_1[a300_0x20aa0e(0x169)]('design:type',String)],AddProductRequest['prototype'],'sku',void 0x0),tslib_1[a300_0x20aa0e(0x163)]([(0x0,class_validator_1[a300_0x20aa0e(0x167)])(0xc,{'message':a300_0x20aa0e(0x17e)}),tslib_1[a300_0x20aa0e(0x169)](a300_0x20aa0e(0x162),String)],AddProductRequest[a300_0x20aa0e(0x178)],a300_0x20aa0e(0x16a),void 0x0),tslib_1[a300_0x20aa0e(0x163)]([(0x0,class_validator_1[a300_0x20aa0e(0x167)])(0x40,{'message':'hsn\x20should\x20be\x20maximum\x2064\x20characters'}),tslib_1[a300_0x20aa0e(0x169)]('design:type',String)],AddProductRequest[a300_0x20aa0e(0x178)],a300_0x20aa0e(0x175),void 0x0),tslib_1[a300_0x20aa0e(0x163)]([(0x0,class_validator_1[a300_0x20aa0e(0x167)])(0xff,{'message':a300_0x20aa0e(0x16c)}),tslib_1['__metadata'](a300_0x20aa0e(0x162),String)],AddProductRequest[a300_0x20aa0e(0x178)],a300_0x20aa0e(0x174),void 0x0),tslib_1[a300_0x20aa0e(0x163)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1['__metadata'](a300_0x20aa0e(0x162),Array)],AddProductRequest[a300_0x20aa0e(0x178)],a300_0x20aa0e(0x16e),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a300_0x20aa0e(0x171)])(),tslib_1[a300_0x20aa0e(0x169)]('design:type',String)],AddProductRequest['prototype'],a300_0x20aa0e(0x166),void 0x0),tslib_1[a300_0x20aa0e(0x163)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a300_0x20aa0e(0x169)]('design:type',String)],AddProductRequest[a300_0x20aa0e(0x178)],'price',void 0x0),tslib_1[a300_0x20aa0e(0x163)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a300_0x20aa0e(0x169)](a300_0x20aa0e(0x162),Number)],AddProductRequest[a300_0x20aa0e(0x178)],a300_0x20aa0e(0x17d),void 0x0),tslib_1[a300_0x20aa0e(0x163)]([(0x0,class_validator_1[a300_0x20aa0e(0x171)])(),tslib_1[a300_0x20aa0e(0x169)](a300_0x20aa0e(0x162),Number)],AddProductRequest['prototype'],a300_0x20aa0e(0x165),void 0x0),tslib_1[a300_0x20aa0e(0x163)]([(0x0,class_validator_1[a300_0x20aa0e(0x177)])(0x270f,{'message':a300_0x20aa0e(0x17b)}),tslib_1[a300_0x20aa0e(0x169)](a300_0x20aa0e(0x162),Number)],AddProductRequest[a300_0x20aa0e(0x178)],a300_0x20aa0e(0x164),void 0x0),exports[a300_0x20aa0e(0x17a)]=AddProductRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddProductRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class AddProductRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'productName should be maximum 255 character',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'productName is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], AddProductRequest.prototype, "productName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(64, {
+        message: 'sku should be maximum 64 character',
+    }),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], AddProductRequest.prototype, "sku", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(12, {
+        message: 'upc should be maximum 12 characters',
+    }),
+    tslib_1.__metadata("design:type", String)
+], AddProductRequest.prototype, "upc", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(64, {
+        message: 'hsn should be maximum 64 characters',
+    }),
+    tslib_1.__metadata("design:type", String)
+], AddProductRequest.prototype, "hsn", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'productSlug should be maximum 255 characters',
+    }),
+    tslib_1.__metadata("design:type", String)
+], AddProductRequest.prototype, "productSlug", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Array)
+], AddProductRequest.prototype, "categoryId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], AddProductRequest.prototype, "image", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], AddProductRequest.prototype, "price", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], AddProductRequest.prototype, "quantity", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], AddProductRequest.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.Max)(9999, {
+        message: 'Maximum length of sortOrder should be 4',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], AddProductRequest.prototype, "sortOrder", void 0);
+exports.AddProductRequest = AddProductRequest;
+//# sourceMappingURL=CreateProductRequest.js.map

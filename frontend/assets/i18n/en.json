@@ -1,4 +1,7 @@
 {
+    "languageKey": {
+        "languagedirection": "ltr"
+    },
     "ServerError401": "Access not allowed. Please login.",
     "ServerError403": "Access forbidden. Please provide correct credentials",
     "ServerError404": "An error occurred. Please contact your administrator",
@@ -19,8 +22,7 @@
         "CancelBtn": "No"
     },
     "Auth": {
-
-        "SearchedProducts":"Searched Products",
+        "SearchedProducts": "Searched Products",
         "username": "Username",
         "Password": "Password",
         "submit": "Submit",
@@ -100,27 +102,33 @@
         "Advertise": "Advertise",
         "help": "Help Center",
         "spurt": "© 2007-2020 Spurtcommerce.com",
-        "FirstName":"First Name",
-        "LastName":"Last Name",
-        "ContactPersonName":"Contact Person Name",
-        "EmailID":"Email ID",
-        "CompanyName":"Company Name",
-        "DisplayName":"Display Name",
-        "MobileNumber":"Mobile Number",
-        "Password":"Password",
-        "ConfirmPassword":"Confirm Password",
-        "displaynameisRequired":"display name is Required",
+        "FirstName": "First Name",
+        "LastName": "Last Name",
+        "ContactPersonName": "Contact Person Name",
+        "EmailID": "Email ID",
+        "CompanyName": "Company Name",
+        "DisplayName": "Display Name",
+        "MobileNumber": "Mobile Number",
+        "Password": "Password",
+        "ConfirmPassword": "Confirm Password",
+        "displaynameisRequired": "display name is Required",
         "companynameisRequired": "company name is Required",
-        "Confirmpasswordisrequired":"Confirm password is required",
-        "Vendornameisrequired":"Vendor name is required",
-        "Contactpersonnameisrequired":"Contact person name is required",
-        "Emailidisrequired":"Email id is required",
-        "Passwordsdonotmatch":"Passwords do not match"
-       
-
-
+        "PasswordIsRequired": "Password is required",
+        "Confirmpasswordisrequired": "Confirm password is required",
+        "Vendornameisrequired": "Vendor name is required",
+        "Contactpersonnameisrequired": "Contact person name is required",
+        "Emailidisrequired": "Email id is required",
+        "Passwordsdonotmatch": "Passwords do not match",
+        "Maximum32Characters": "Must be maximum 32 characters",
+        "Maximum96Characters": "Must be maximum 96 characters",
+        "ComapnyNameMustBeCharacter": "Comapny name must be character",
+        "SpecialCharactersNotAllowed": "special characters not allowed",
+        "Minimum10Numbers": "Must be minimum 10 numbers",
+        "Hello,SignIn": "Hello, sign in",
+        "Accounts&List": "Accounts & List",
+        "NoDataFound": "No Data Found",
+        "Account": "Account"
     },
-
     "account": {
         "order": "Ordered on",
         "orderid": "Order",
@@ -195,9 +203,6 @@
         "AddressType": "Address Type",
         "Edit": "Edit",
         "Delete": "Delete",
-
-
-
         "Reset": "Reset",
         "NoItem": "No Orders Found",
         "OrderPlaced": "Order Placed",
@@ -239,17 +244,16 @@
         "Countryrequired": "Country is required",
         "Address1required": "Address 1 is required",
         "staterequired": "State is required",
-        "countryStaterequired":"Please select country",
+        "countryStaterequired": "Please select country",
         "Address2required": "Address 2 is required",
         "Cityrequired": "City is required",
         "Pincoderequired": "Pincode is required",
-        "PostalCodeRequired": "Postal Code is required"
-
-
-
-
-
-
+        "PostalCodeRequired": "Postal Code is required",
+        "TrackingID": "Tracking ID",
+        "TrackingURL": "Tracking URL",
+        "AccountDashboard": "Account Dashboard",
+        "QuotationRequestList": "Quotation Request List",
+        "Logout": "Logout"
     },
     "whishlist": {
         "YOUHAVENOITEMS": "YOU HAVE NO ITEMS IN WISH LIST.",
@@ -327,10 +331,15 @@
         "Submit": "Submit",
         "Cancel": "Cancel",
         "OUTOFSTOCK": "OUT OF STOCK",
-        "NoSellersFound":"No Sellers Found"
-
-
-
+        "NoSellersFound": "No Sellers Found",
+        "AllSellers": "All Sellers",
+        "View": "View",
+        "MoreSellers": "more sellers",
+        "StartingFrom": "starting from",
+        "PriceLToH": "Price Low To High",
+        "PriceHToL": "Price High To Low",
+        "MoreAbout": "More About",
+        "PleaseEnterAnswer": "Please enter answer"
     },
     "cart": {
         "YOUHAVENOITEMSCART": "YOU HAVE NO ITEMS IN YOUR SHOPPING CART.",
@@ -350,8 +359,6 @@
         "EmptyCart": "Empty Cart",
         "NoItemsInYourCart": "You have no items in your Cart. Start adding!",
         "Checkout": "Checkout"
-
-
     },
     "contact": {
         "ADDRESS": "ADDRESS:",
@@ -363,8 +370,10 @@
         "Message": "Message",
         "Submit": "Submit",
         "Phone": "Phone",
-        "Phonenumberisrequired":"Phone number is required"
-        
+        "Phonenumberisrequired": "Phone number is required",
+        "Maximum30Characters": "Maximum 30 characters",
+        "Minimum10numbers": "Mobile number must be minimum 10 numbers",
+        "Minimum6Characters": "Message Should be Minimum 6 characters"
     },
     "trackOrder": {
         "trackOrder": "Track Order",
@@ -382,20 +391,24 @@
         "ONLINESUPPORT24/7": "ONLINE SUPPORT 24/7",
         "CallUs": "Call us: (+100) 123 456 7890",
         "FeaturedProducts": "Featured Products",
-        "30DaysMoneyGuarantee": "30 Days money return guarantee"
+        "30DaysMoneyGuarantee": "30 Days money return guarantee",
+        "UnderDeveloping": "Under Developing",
+        "PageNotExist": "Opps, it seems that this page does not exist",
+        "SearchForIt": "If you are sure it should, search for it.",
+        "Search": "Enter search keyword..."
     },
     "checkout": {
         "BillingAddress": "Billing Address",
         "FirstName": "First Name",
         "LastName": "Last Name",
-        "createAccount": "Create account",
+        "createAccount": "Create Account",
         "selectCountry": "--Select Country--",
         "Middle Name/Initial": "Middle Name/Initial",
         "Company": "Company",
         "payment": "Payment details",
         "Email": "Email",
         "Phone": "Phone",
-        "Password": "create account password",
+        "Password": "Create Account Password",
         "Address": "Address (street,apartment,suite,unit,etc)",
         "AddressLine1": "Address 1",
         "City": "City",
@@ -430,7 +443,7 @@
         "couponLabel": "Coupons and Promotional code",
         "AddNewAddress": "Add New Address",
         "AddGstNumber": "Add GST Number",
-        "TaxNumber": "Tax Number",
+        "TaxNumber": "Enter Tax Number",
         "AddTaxNumber": "Add Tax Number",
         "CreateAccount": "Create Account",
         "ShippingAddress": "Shipping Address",
@@ -446,10 +459,8 @@
         "ConsiderAddMoreItemsInYourCart": "You might want to consider adding a few more items to your cart.",
         "TotalAmountPayable": "Total amount payable",
         "CouponApplied": "Coupon Applied",
-        "ViewDiscountDetails": "View discount details"
-
-
-
+        "ViewDiscountDetails": "View discount details",
+        "RedirectedTo": "You are being automatically redirected to the home page"
     },
     "authentication": {
         "SignIn.": "Sign In",
@@ -466,7 +477,19 @@
         "ForgotAccount": "Forgot Password",
         "GoBackToLogin": "or Go back to Login",
         "FirstName": "First Name",
-        "LastName": "Last Name"
+        "LastName": "Last Name",
+        "ResetPassword": "Reset Password",
+        "LinkUsed": "Link have already been used",
+        "Submit": "submit",
+        "PasswordRequired": "Password is required",
+        "LeastCharacters": "Must be at least 8 characters long",
+        "MaximumCharacters": "Password should not more than 50 characters",
+        "ConfirmPasswordRequired": "Confirm password is required",
+        "PasswordNotMatch": "Password does not match",
+        "PasswordContainLowercaseUppercase": "Password must contain at least one lowercase and one uppercase letter",
+        "PasswordContainSymbolNumber": "Password must contain at least one symbol and one number",
+        "PasswordLinkExpired": "Your forgot password link has expired, try again.",
+        "RedirectToLogin": "It will automatically redirect to login page after some time."
     },
     "Error": {
         "NameIsRequired": "Name is required",
@@ -507,16 +530,13 @@
         "MobilNumberRequired": "Mobile number is required",
         "MobilNumberMaximumLength": "Must be maximum 15 numbers long",
         "MobilNumberMinimumLength": "Must be at least 4 numbers long",
-
         "GSTNumberIsRequired": "GST number is required",
         "SelectOneOfTheseAddress": "Select one of these address.",
         "PleaseAddShippingAddressFirst": "Please add your shipping address first.",
         "SelectOneOfThesePayment": "Select one of these payment method.",
         "PhoneNumberMinimumLength": "Must be at least 10 numbers long",
-        "CountryStateIsRequired":"Please select country"
-
-
-
+        "CountryStateIsRequired": "Please select country",
+        "MaximumCharacters": "Maximum 128 Characters"
     },
     "comapre": {
         "ComapreProduct": "Product Comapre",
@@ -539,6 +559,7 @@
         "BlogList": "Blog List",
         "NoBlogs": "No blogs found",
         "RelatedBlogs": "Related Blogs",
+        "Categories": "Categories",
         "Share": "Share",
         "Featured": "Featured posts",
         "ViewMore": "View More"
@@ -563,9 +584,7 @@
         "ConfrimPasswordisrequired": "Confirm Password is Required",
         "confirmpasswordandpasswordshouldbesame": "Passwords do not match",
         "PhoneNumberrequired": "Phone number is required"
-
     },
-
     "Forgot Password": {
         "Forgot Password": "Forgot Password",
         "Enter Email": "Enter your registered email id below. We will sent the link to",
@@ -574,9 +593,6 @@
         "Invalid Email": "Invalid Email Id ",
         "Submit": "Submit",
         "GoBack": "Go Back To Login"
-
-
-
     },
     "login": {
         "UserName": "Username",
@@ -589,10 +605,10 @@
         "registernow": "Register Now",
         "gmail": "Email",
         "password": "Password",
-        "yourEmailID":"Enter Your EmailID"
-
+        "yourEmailID": "Enter Your Email ID",
+        "SignInWithFacebook": "Sign in with Facebook",
+        "SignInWithGoogle": "Sign in with Google"
     },
-
     "verifyemail": {
         "Resendemail": "Resend email",
         "verifyyouremail": "Verify your email",
@@ -610,7 +626,6 @@
         "youremailid": "Your email ID",
         "hasbeenverifiedsuccessfully": "has been verified successfully",
         "login": "Login"
-
     },
     "registerdetail": {
         "identityverification": "Identity Verification",
@@ -689,11 +704,9 @@
         "uploadeddocument": "Uploaded Document",
         "Cancel": "Cancel"
     },
-
     "rating": {
         "Ratings": "Ratings",
         "Reviews": " Reviews"
-
     },
     "homePage": {
         "todaydeals": "Today's Deals",
@@ -702,7 +715,6 @@
     "controls": {
         "Addtocart": "Add to Cart"
     },
-
     "allproduct": {
         "sortby": "Sort By",
         "page": "Page",
@@ -710,9 +722,10 @@
         "of": "of",
         "result": "No Results Found",
         "Ratings": "Ratings",
-        "Reviews": "Reviews"
-
-
+        "Reviews": "Reviews",
+        "ViewAll": "View All",
+        "Prev": "Prev",
+        "EnableProductQuotation": "please enable the product quotation addon to view quotation request"
     },
     "filter": {
         "filter": "Filter",
@@ -726,7 +739,6 @@
         "item": "You have no items in your wishlist. Start adding!",
         "Addtocart": "Add to cart",
         "Clear": "Clear"
-
     },
     "CancelHistory": {
         "CancelHistory": "Cancel History",
@@ -740,7 +752,6 @@
         "Note": "Note",
         "rules": "There will be no refund as the order is purchased using Cash-On-Delivery",
         "entertext": "Please enter description"
-
     },
     "RequestQuote": {
         "ContactSeller": "Contact Seller by adding a few details of your requirement",
@@ -780,7 +791,7 @@
         "Clear": "Clear",
         "ViewCart": "View Cart",
         "Quickview": "Quick view",
-        "compare": "compare"
+        "compare": "Compare"
     },
     "StockCheckout": {
         "information": "Fill your information ",
@@ -804,10 +815,7 @@
         "Email": "Email",
         "Phone": "Phone",
         "AddaShipping": "Add a Shipping Address"
-
-
     },
-
     "ReportAbuse": {
         "ReportAbuse": "Report Abuse",
         "Reason": "Reason",
@@ -825,10 +833,10 @@
         "Question": "Question",
         "Answer": "Answer",
         "ReportAbuse": "Report Abuse",
-        "on": "on"
+        "on": "on",
+        "By": "By"
     },
     "vendorDetail": {
-
         "About": "About",
         "Products": "Products",
         "Reviews": "Reviews",
@@ -836,63 +844,124 @@
         "reviewed": "people reviewed",
         "Previous": "Previous",
         "Next": "Next",
-        "Noreviews": "No reviews found"
+        "Noreviews": "No reviews found",
+        "Ratings": "Ratings"
     },
     "placeholder": {
-        "coupon": "Enter Coupon"
-
+        "coupon": "Enter Coupon",
+        "SelectState": "Select State",
+        "EnterState": "Enter State",
+        "StateisRequired": "State is Required",
+        "NameisRequired": "Name is Required"
     },
-    "Vendor":{
-
-              "Filter":"Filter",
-              "Categories":"Categories",
-              "categoryName":"category Name",
-              "Products":"Products",
-              "Prev":"Prev",
-              "ALLCATEGORIES":"ALL CATEGORIES",
-              "VENDORS":"VENDORS",
-              "CONTACT":"CONTACT",
-              "Confirmlocation":"Confirm location",
-              "yourEmailID":"your Email ID",
-              "Deliverto":"Deliver to",
-              "ChooseLocation":"Choose Location",
-              "ViewCart":"View Cart",
-              "OUTOFSTOCK":"OUT OF STOCK",
-              "AddToCart":"Add To Cart",
-              "OrderNow":"ORDER NOW",
-              "BuyNow":"Buy Now",
-              "Description":"Description",
-              "Specifications":"Specifications",
-              "NotAvailable":"Not Available",
-              "Quantity":"Quantity",
-              "quantity":"quantity",
-              "Price":"Price",
-              "TirePriceChart":"Tier Price Chart",
-              "Perunit":"Perunit",
-              "Review":"Review",
-              "CustomerQuestionsAnswer":"Customer questions & answers",
-              "RelatedProducts":"Related Products",
-              "NoRelatedProductFound":"No related products found",
-              "NoQuestionFound":"No Questions Found",
-              "Question":"Question",
-              "PleaseChooseLocation":"Please Choose Location",
-              "NoReviewFound":"No reviews found",
-              "PostYourQuestion":"Post Your Question",
-              "questionhere":"question here",
-              "enteryourquestion":"Please enter your question ",
-              "Submit":"Submit",
-              "Cancel":"Cancel",
-              "NoSpecificationFound":"No specifications found",
-              "ReportAbuse":"Report Abuse",
-              "BLOGS":"BLOGS"
-        
-              
-        
-
-
+    "Vendor": {
+        "Filter": "Filter",
+        "Categories": "Categories",
+        "categoryName": "category Name",
+        "Products": "Products",
+        "Prev": "Prev",
+        "ALLCATEGORIES": "ALL CATEGORIES",
+        "VENDORS": "VENDORS",
+        "CONTACT": "CONTACT",
+        "Confirmlocation": "Confirm location",
+        "yourEmailID": "your Email ID",
+        "Deliverto": "Deliver to",
+        "ChooseLocation": "Choose Location",
+        "ViewCart": "View Cart",
+        "OUTOFSTOCK": "OUT OF STOCK",
+        "AddToCart": "Add To Cart",
+        "OrderNow": "ORDER NOW",
+        "BuyNow": "Buy Now",
+        "Description": "Description",
+        "Specifications": "Specifications",
+        "NotAvailable": "Not Available",
+        "Quantity": "Quantity",
+        "quantity": "quantity",
+        "Price": "Price",
+        "TirePriceChart": "Tier Price Chart",
+        "Perunit": "Perunit",
+        "Review": "Review",
+        "CustomerQuestionsAnswer": "Customer questions & answers",
+        "RelatedProducts": "Related Products",
+        "NoRelatedProductFound": "No related products found",
+        "NoQuestionFound": "No Questions Found",
+        "Question": "Question",
+        "PleaseChooseLocation": "Please Choose Location",
+        "NoReviewFound": "No reviews found",
+        "PostYourQuestion": "Post Your Question",
+        "questionhere": "question here",
+        "enteryourquestion": "Please enter your question ",
+        "Submit": "Submit",
+        "Cancel": "Cancel",
+        "NoSpecificationFound": "No specifications found",
+        "ReportAbuse": "Report Abuse",
+        "BLOGS": "BLOGS",
+        "SearchNearestLocation": "Search Nearest Location",
+        "Seller": "Seller",
+        "sku": "SKU",
+        "Off": "Off",
+        "ContactUs": "Contact Us"
+    },
+    "default": {
+        "oops": "Oops!",
+        "NoInternet": "No Internet connection found.",
+        "CheckYourConnection": "Check your connection or try again"
+    },
+    "breadcrumb": {
+        "Account": "Account",
+        "AccountDashboard": "Account Dashboard",
+        "AccountInformation": "AccountInformation",
+        "Address": "Address",
+        "AddAddress": "Add Address",
+        "EditAddress": "Edit Address",
+        "OrderHistory": "Order History",
+        "OrderDetails": "Order Details",
+        "ReviewThisProduct": "Review this product",
+        "TrackOrder": "Track Order",
+        "CancelHistory": "Cancel History",
+        "BlogDetail": "Blog detail",
+        "QuotationRequestList": "Quotation Request List",
+        "WidgetList": "Widget List",
+        "WidgetTitle": "Widget Title",
+        "Contact": "Contact",
+        "ProductDetail": "Product Detail",
+        "Blogs": "Blogs",
+        "AllProducts": "All Products",
+        "page-detail": "page-detail",
+        "SignIn": "Sign In",
+        "stock-checkout": "stock-checkout",
+        "UNDERDEVELOPING": "UNDER DEVELOPING",
+        "AccountSettings": "Account Settings",
+        "Wishlist": "Wishlist",
+        "ProductCompare": "Product Compare",
+        "Products": "Products",
+        "Cart": "Cart",
+        "Checkout": "Checkout",
+        "VendorSignUp": "Vendor Sign Up",
+        "VendorList": "Vendor List",
+        "LiveProduct": "Live Product",
+        "ProductDetails": "détails du produit"
+    },
+    "common": {
+        "OutOf": "out of",
+        "SupportFormat": "Support (.png .jpg .jpeg) Format & below 2MB Files allowed.",
+        "FormatFiles": "Support (.png .jpg .jpeg) Format Files",
+        "ImageSize": "Image size should be less than 2mb",
+        "MaximumCharacters": "Maximum 32 characters",
+        "MustCharacters": "Must be 128 characters",
+        "NotifyMe": "Notify me",
+        "DownloadApp": "Download App",
+        "ContactSeller": "Contact Seller",
+        "Name": "Name",
+        "NameRequired": "Name is required",
+        "EmailID": "Email ID",
+        "EmailRequired": "Email is required",
+        "InvalidEmail": "Invalid Email",
+        "MobileNumber": "Mobile Number",
+        "MobileNumberRequired": "Mobile number is required",
+        "Country": "Country",
+        "CountryRequired": "Country is required",
+        "Requirement": "Requirement",
+        "Submit": "Submit"
     }
-
-
-
-
 }

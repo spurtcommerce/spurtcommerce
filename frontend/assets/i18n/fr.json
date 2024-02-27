@@ -1,4 +1,7 @@
 {
+    "languageKey": {
+        "languagedirection": "ltr"
+    },
     "ServerError401": "Accès non autorisé. Veuillez vous connecter.",
     "ServerError403": "Accès interdit. S'il vous plaît fournir des informations d'identification correctes",
     "ServerError404": "Une erreur est survenue. Veuillez contacter votre administrateur",
@@ -19,7 +22,7 @@
         "CancelBtn": "Non"
     },
     "Auth": {
-        "SearchedProducts":"Produits recherchés",
+        "SearchedProducts": "Produits recherchés",
         "username": "Nom d'utilisateur",
         "Password": "Mot de passe",
         "submit": "Soumettre",
@@ -98,27 +101,99 @@
         "Advertise": "Afficher",
         "help": "Centre d'aide",
         "spurt": "© 2007-2022 Spurtcommerce.com",
-        "FirstName":"Prénom",
-        "LastName":"Nom de famille",
-        "ContactPersonName":"Nom de contacte d'une personne",
-        "EmailID":"Identifiant de messagerie",
-        "CompanyName":"Nom de l'entreprise",
-        "DisplayName":"Afficher un nom",
-        "MobileNumber":"Numéro de portable",
-        "Password":"Mot de passe",
-        "ConfirmPassword":"Confirmez le mot de passe",
-        "Vendor name is required":"Le nom du fournisseur est requis",
-        "Contactpersonnameisrequired":"Le nom de la personne à contacter est requis",
-        "Emailidisrequired":"Courrielid is required",
-        "companynameisRequired":"le nom de la société est requis",
-        "displaynameisRequired":"le nom d'affichage est requis",
-        "Confirmpasswordisrequired":"Confirmer le mot de passe est requis",
-        "Vendornameisrequired":"Le nom du fournisseur est requis",
-        "Passwordsdonotmatch":"Les mots de passe ne correspondent pas",
-       
-        
-
-    
+        "FirstName": "Prénom",
+        "LastName": "Nom de famille",
+        "ContactPersonName": "Nom de contacte d'une personne",
+        "EmailID": "Identifiant de messagerie",
+        "CompanyName": "Nom de l'entreprise",
+        "DisplayName": "Afficher un nom",
+        "MobileNumber": "Numéro de portable",
+        "Password": "Mot de passe",
+        "ConfirmPassword": "Confirmez le mot de passe",
+        "Vendor name is required": "Le nom du fournisseur est requis",
+        "Contactpersonnameisrequired": "Le nom de la personne à contacter est requis",
+        "Emailidisrequired": "Courrielid is required",
+        "companynameisRequired": "le nom de la société est requis",
+        "displaynameisRequired": "le nom d'affichage est requis",
+        "Confirmpasswordisrequired": "Confirmer le mot de passe est requis",
+        "Vendornameisrequired": "Le nom du fournisseur est requis",
+        "Passwordsdonotmatch": "Les mots de passe ne correspondent pas",
+        "Maximum32Characters": "Doit contenir au maximum 32 caractères",
+        "Maximum96Characters": "Doit contenir au maximum 96 caractères",
+        "ComapnyNameMustBeCharacter": "Le nom de l'entreprise doit être un caractère",
+        "SpecialCharactersNotAllowed": "Les caractères spéciaux ne sont pas autorisés",
+        "PasswordIsRequired": "Mot de passe requis",
+        "Description": "La description",
+        "Review": "La revue",
+        "RelatedProducts": "Produits connexes",
+        "CustomerQuestionsAnswer": "Questions et réponses des clients",
+        "NoQuestionFound": "Aucune question trouvée. Si vous avez des questions, postez votre question",
+        "NoReviewFound": "Aucun avis trouvé",
+        "NoRelatedProductFound": "Aucun produit connexe trouvé",
+        "BuyNow": "Acheter maintenant",
+        "Specifications": "Caractéristiques",
+        "NoSpecificationFound": "Aucune spécification trouvée",
+        "NotAvailable": "Indisponible",
+        "Available": "Disponible",
+        "Quantity": "Quantité",
+        "TirePriceChart": "Tableau des prix de niveau",
+        "CheckLocation": "Vérifiez Expédition et livraison à votre emplacement",
+        "DeliveryServiceAvailable": "Service de livraison disponible",
+        "DeliveryServiceNotAvailable": "Service de livraison non disponible",
+        "AvailableOptions": "Options disponibles",
+        "Stock": "En rupture de stock",
+        "Request": "Demander un devis",
+        "questionhere": "Écrivez votre question ici",
+        "enteryourquestion": "Veuillez saisir votre question",
+        "Submit": "Soumettre",
+        "OutofStock": "En rupture de stock",
+        "BLOGS": "BLOGS",
+        "Hello,SignIn": "Bonjour, connectez-vous",
+        "Accounts&List": "Comptes et liste",
+        "NoDataFound": "Aucune donnée disponible",
+        "Account": "Compte"
+    },
+    "products": {
+        "Categories": "Les catégories",
+        "Category": "Catégorie",
+        "Availibility": "Disponibilité",
+        "Price": "Prix",
+        "From": "De:",
+        "To": "À:",
+        "Brands": "Marques",
+        "Condition": "État",
+        "SeeProductAvailability": "Entrez un code PIN pour voir la disponibilité et la livraison du produit",
+        "CheckAvailability": "Voir les disponibilités",
+        "DeliveryNotAvailable": "Livraison non disponible",
+        "DeliveryAvailable": "Livraison disponible",
+        "Vendor": "Vendeur",
+        "QuestionAnswer": "Réponses aux questions",
+        "PostYourQuestion": "Postez votre question",
+        "Question": "Question",
+        "Answer": "Répondre",
+        "PostYourAnswer": "Postez votre réponse",
+        "ReadOtherAnswer": "Lire l'autre réponse",
+        "ReportAbuse": "Signaler un abus",
+        "ViewAllQuestions": "Voir toutes les questions",
+        "ViewPriceChart": "Voir le tableau des prix",
+        "AddToCart": "AJOUTER AU CHARIOT",
+        "OrderNow": "COMMANDEZ MAINTENANT",
+        "MakeQuotation": "FAIRE UN DEVIS",
+        "ContactSeller": "Contacter le vendeur",
+        "DetailsOfYourRequirement": "en ajoutant quelques détails de votre besoin",
+        "NoOfQuantity": "Nombre de quantité",
+        "EnterQuantity": "Veuillez saisir la quantité",
+        "SelectUnit": "Veuillez sélectionner l'unité",
+        "TotalOrderValue": "Valeur totale de la commande",
+        "SelectOrderValue": "Veuillez sélectionner la valeur de la commande",
+        "WhyYouNeedThis": "Pourquoi en avez-vous besoin (sélectionnez-en un seul)",
+        "ForReselling": "Pour la revente",
+        "ForBusiness": "Pour une utilisation professionnelle",
+        "ForHome": "Pour un usage domestique",
+        "ChooseOnlyOne": "Veuillez en choisir un",
+        "Comments": "commentaires",
+        "Search": "Search",
+        "DidNotGetAnswer": "Vous n'avez pas obtenu la bonne réponse que vous recherchiez",
         "Description": "La description",
         "Review": "La revue",
         "RelatedProducts": "Produits connexes",
@@ -144,15 +219,14 @@
         "Submit": "Soumettre",
         "Cancel": " Annuler",
         "OutofStock": "En rupture de stock",
-        "BLOGS":"BLOGS"
-
-
-
-
-
-
-
-
+        "AllSellers": "Tous les vendeurs",
+        "View": "Voir",
+        "MoreSellers": "Plus de vendeurs",
+        "StartingFrom": "a partir de",
+        "PriceLToH": "Prix ​​croissant",
+        "PriceHToL": "Prix ​​élevé à bas",
+        "MoreAbout": "Plus à propos",
+        "PleaseEnterAnswer": "Veuillez entrer la réponse"
     },
     "cart": {
         "YOUHAVENOITEMSCART": "VOUS N'AVEZ AUCUN OBJET DANS VOTRE PANIER.",
@@ -183,7 +257,10 @@
         "Message": "Un message",
         "Submit": "Soumettre",
         "Phone": "Téléphone",
-        "Phonenumberisrequired":"Le numéro de téléphone est requis"
+        "Phonenumberisrequired": "Le numéro de téléphone est requis",
+        "Maximum30Characters": "Maximum 30 caractères",
+        "Minimum10numbers": "Le numéro de mobile doit être composé d'au moins 10 numéros",
+        "Minimum6Characters": "Le message doit contenir au minimum 6 caractères"
     },
     "trackOrder": {
         "trackOrder": "Suivi de commande",
@@ -201,7 +278,11 @@
         "ONLINESUPPORT24/7": "SUPPORT EN LIGNE 24/7",
         "CallUs": "Appelez nous: (+100) 123 456 7890",
         "FeaturedProducts": "produits présentés",
-        "30DaysMoneyGuarantee": "30 Jours de garantie de remboursement"
+        "30DaysMoneyGuarantee": "30 Jours de garantie de remboursement",
+        "UnderDeveloping": "Sous-développement",
+        "PageNotExist": "Opps, il semble que cette page n'existe pas",
+        "SearchForIt": "Si vous êtes sûr que c'est le cas, recherchez-le.",
+        "Search": "Saisissez le mot-clé de recherche..."
     },
     "checkout": {
         "BillingAddress": "Adresse de facturation",
@@ -264,8 +345,8 @@
         "ConsiderAddMoreItemsInYourCart": "Vous voudrez peut-être envisager d'ajouter quelques articles supplémentaires à votre panier.",
         "TotalAmountPayable": "Montant total a payer",
         "CouponApplied": "Coupon appliqué",
-        "ViewDiscountDetails": "Afficher les détails de la réduction"
-
+        "ViewDiscountDetails": "Afficher les détails de la réduction",
+        "RedirectedTo": "Vous êtes automatiquement redirigé vers la page d'accueil"
     },
     "authentication": {
         "SignIn.": "Se connecter",
@@ -282,7 +363,19 @@
         "ForgotAccount": "Compte oublié",
         "GoBackToLogin": "ou retourner à la connexion",
         "FirstName": "Prénom",
-        "LastName": "Nom de famille"
+        "LastName": "Nom de famille",
+        "ResetPassword": "Réinitialiser le mot de passe",
+        "LinkUsed": "Le lien a déjà été utilisé",
+        "Submit": "Soumettre",
+        "PasswordRequired": "Le mot de passe est requis",
+        "LeastCharacters": "Doit comporter au moins 8 caractères",
+        "MaximumCharacters": "Le mot de passe ne doit pas dépasser 50 caractères",
+        "ConfirmPasswordRequired": "La confirmation du mot de passe est requise",
+        "PasswordNotMatch": "Les mots de passe ne correspondent pas",
+        "PasswordContainLowercaseUppercase": "Le mot de passe doit contenir au moins une lettre minuscule et une lettre majuscule",
+        "PasswordContainSymbolNumber": "Le mot de passe doit contenir au moins un symbole et un chiffre",
+        "PasswordLinkExpired": "Le lien de réinitialisation de votre mot de passe a expiré, veuillez réessayer.",
+        "RedirectToLogin": "Il redirigera automatiquement vers la page"
     },
     "Error": {
         "NameIsRequired": "Le nom est requis",
@@ -316,18 +409,17 @@
         "PasswordMustContainSmallCase": "Doit contenir au moins 1 dans la petite valise!",
         "PasswordMustContainNumberOrSymbol": "Doit avoir au moins 1 chiffre ou symbole!",
         "PasswordMustEightLetter": "Doit comporter au moins 8 caractères!",
-        "PostalCodeRequired": "Postal code is required",
-        "PostalCodeMaximumLength": "Must be maximum 6 numbers long",
-        "PostalCodeMinimumLength": "Must be at least 4 numbers long",
-        "MobilNumberRequired": "Mobile number is required",
-        "MobilNumberMaximumLength": "Must be maximum 15 numbers long",
-        "MobilNumberMinimumLength": "Must be at least 4 numbers long",
-
-
+        "PostalCodeRequired": "Le code postal est requis",
+        "PostalCodeMaximumLength": "Doit avoir une longueur maximale de 6 chiffres",
+        "PostalCodeMinimumLength": "Doit avoir au moins 4 chiffres de long",
+        "MobilNumberRequired": "Le numéro de téléphone mobile est requis",
+        "MobilNumberMaximumLength": "Doit avoir une longueur maximale de 15 chiffres",
+        "MobilNumberMinimumLength": "Doit avoir au moins 4 chiffres de long",
         "GSTNumberIsRequired": "Le numéro de TPS est requis",
         "SelectOneOfTheseAddress": "Sélectionnez l'une de ces adresses.",
         "PleaseAddShippingAddressFirst": "Veuillez d'abord ajouter votre adresse de livraison.",
-        "SelectOneOfThesePayment": "Sélectionnez l'un de ces modes de paiement."
+        "SelectOneOfThesePayment": "Sélectionnez l'un de ces modes de paiement.",
+        "MaximumCharacters": "Maximum 128 caractères"
     },
     "comapre": {
         "ComapreProduct": "Comparer les produits",
@@ -345,12 +437,12 @@
         "Review": "Revoir",
         "Description": "La description",
         "Action": "action"
-
     },
     "Blogs": {
         "BlogList": "Liste des blogs",
         "NoBlogs": "Aucun blog trouvé",
-        "RelatedBlogs": "Blogs associés",
+        "RelatedBlogs": "Blogs Connexes",
+        "Categories": "Catégories",
         "Share": "Partager",
         "Featured": "Postes en vedette",
         "ViewMore": "Voir plus"
@@ -376,19 +468,14 @@
         "confirmpasswordandpasswordshouldbesame": "confirmer le mot de passe et le mot de passe doivent être identiques",
         "PhoneNumberrequired": "Le numéro de téléphone est obligatoire"
     },
-
-
     "Forgot Password": {
         "Forgot Password": "Mot de passe oublié",
         "Enter Email": "Entrez votre identifiant e-mail enregistré ci-dessous. Nous enverrons le lien à",
         "Reset Password": "réinitialisez votre mot de passe",
         "Email Required": "L'identifiant de messagerie est requis",
         "Invalid Email": "Id e-mail non valide ",
-        "Submit": "Submit",
+        "Submit": "Soumettre",
         "GoBack": "Revenir à la connexion"
-
-
-
     },
     "login": {
         "UserName": "Nom d'utilisateur",
@@ -402,7 +489,9 @@
         "registernow": "S'inscrire maintenant",
         "gmail": "nomutilisateur@gmail.com",
         "password": "le mot de passe",
-        "yourEmailID":"Entrez votre identifiant de messagerie"
+        "yourEmailID": "Entrez votre identifiant de messagerie",
+        "SignInWithFacebook": "Connectez-vous avec Facebook",
+        "SignInWithGoogle": "Connectez-vous avec Google"
     },
     "verifyemail": {
         "verifyyouremail": "Vérifiez votre e-mail",
@@ -415,13 +504,11 @@
         "Signin": "S'identifier",
         "PleaseentertheverificationcodesenttoyouremailID": "Veuillez saisir le code de vérification envoyé à votre adresse e-mail",
         "Youwillneedtoverifyyouremailtocompleteverification": "Vous devrez vérifier votre adresse e-mail pour terminer la vérification"
-
     },
     "verifysucess": {
         "youremailid": "votre adresse e-mail",
         "hasbeenverifiedsuccessfully": "a été vérifié avec succès",
         "login": "connexion"
-
     },
     "registerdetail": {
         "identityverification": "vérification d'identité",
@@ -500,11 +587,9 @@
         "uploadeddocument": "Document téléchargé",
         "Cancel": "Annuler"
     },
-
     "rating": {
         "Ratings": "Évaluations",
-        "Reviews": " Commentaires"
-
+        "Reviews": "Commentaires"
     },
     "homePage": {
         "todaydeals": "Offres du jour",
@@ -512,7 +597,6 @@
     },
     "controls": {
         "Addtocart": "Ajouter au chariot"
-
     },
     "allproduct": {
         "sortby": "Trier par",
@@ -521,7 +605,10 @@
         "of": "de",
         "result": "Aucun résultat trouvé",
         "Ratings": "Évaluations",
-        "Reviews": "Commentaires"
+        "Reviews": "Commentaires",
+        "ViewAll": "Voir tout",
+        "Prev": "précédent",
+        "EnableProductQuotation": "veuillez activer le module complémentaire de devis de produit pour afficher la demande de devis"
     },
     "filter": {
         "filter": "Filtre",
@@ -535,7 +622,6 @@
         "item": "Vous n'avez aucun article dans votre liste de souhaits. Commencer à ajouter!",
         "Addtocart": "Ajouter au panier",
         "Clear": "Dégager"
-
     },
     "CancelHistory": {
         "CancelHistory": "Annuler l'historique",
@@ -549,7 +635,6 @@
         "Note": "Noter",
         "rules": "Il n'y aura pas de remboursement car la commande est achetée en utilisant le paiement à la livraison",
         "entertext": "Veuillez saisir une description"
-
     },
     "RequestQuote": {
         "ContactSeller": "Contactez le vendeur en ajoutant quelques détails de votre exigence",
@@ -569,12 +654,11 @@
         "Why": "Pourquoi as-tu besoin de ça",
         "Selectonly": "Sélectionnez un seul",
         "Reselling": "Pour la revente",
-        "Business": "Pour une utilisation professionnelle",
-        "Home": "Pour un usage domestique",
+        "Business": "Pour Entreprise",
+        "Home": "Pour usage Maison",
         "Selectanyone": "Sélectionnez l'un de ces",
         "Comments": "commentaires",
         "close": "Fermer"
-
     },
     "ViewCart": {
         "shopping": "VOUS N'AVEZ AUCUN ARTICLE DANS VOTRE PANIER",
@@ -614,8 +698,6 @@
         "Email": "Email",
         "Phone": "Téléphoner",
         "AddaShipping": "Ajouter une adresse de livraison"
-
-
     },
     "ReportAbuse": {
         "ReportAbuse": "Signaler un abus",
@@ -626,7 +708,6 @@
         "enterremark": "Veuillez saisir une remarque",
         "submit": "Soumettre",
         "cancel": "Annuler"
-
     },
     "Customerquestions": {
         "Customerquestions": " Questions des clients & réponses",
@@ -635,10 +716,10 @@
         "Question": "Question",
         "Answer": "Répondre",
         "ReportAbuse": "Signaler un abus",
-        "on": "au"
+        "on": "au",
+        "By": "Par"
     },
     "vendorDetail": {
-
         "About": "À propos",
         "Products": "Des produits",
         "Reviews": "Commentaires",
@@ -646,58 +727,59 @@
         "reviewed": "les gens ont examiné",
         "Previous": "Précédente",
         "Next": "Suivante",
-        "Noreviews": "Aucun avis trouvé"
+        "Noreviews": "Aucun avis trouvé",
+        "Ratings": "l'évaluation"
     },
     "placeholder": {
         "coupon": "Entrez le coupon"
-
     },
-    "Vendor":{
-
-        "Filter":"Filtrer",
-        "Categories":"Catégories",
-        "categoryName":"Nom de catégorie",
-        "Products":"Des produits",
-        "Prev":"Précédent",
-        "ALLCATEGORIES":"TOUTES CATÉGORIES",
-        "VENDORS":"VENDEURS",
-        "CONTACT":"CONTACT",
-        "Confirmlocation":"Confirmer l'emplacement",
-        "yourEmailID":"votre Email ID",
-        "Deliverto":"Livrer à",
-        "ChooseLocation":"Choisissez l'emplacement",
-        "ViewCart":"Voir le panier",
-       
-        "OUTOFSTOCK":"RUPTURE DE STOCK",
-        "AddToCart":"Ajouter au panier",
-        "OrderNow":"COMMANDEZ MAINTENANT",
-        "BuyNow":"Acheter maintenant",
-        "Description":"Description",
-        "Specifications":"Caractéristiques",
-        "NotAvailable":"Pas disponible",
-        "Quantity":"Quantité",
-        "quantity":"quantité",
-        "Price":"Prix",
-        "TirePriceChart":"Tableau des prix par niveau",
-        "Perunit":"Par unité",
-        "Review":"Examen",
-        "CustomerQuestionsAnswer":"Questions et réponses des clients",
-        "RelatedProducts":"Produits connexes",
-        "NoRelatedProductFound":"Aucun produit connexe trouvé",
-        "NoQuestionFound":"Aucune question trouvée. Si vous avez des questions, postez votre question",
-        "Question":"Question",
-        "PleaseChooseLocation":"Veuillez choisir l'emplacement",
-        "NoReviewFound":"Aucun avis trouvé",
-        "PostYourQuestion":"Posez votre question",
-        "questionhere":"Écrivez votre question ici",
-        "enteryourquestion":"Veuillez saisir votre question",
-        "Submit":"Créer un compte",
-        "Cancel":" Annuler",
-        "NoSpecificationFound":"Aucune spécification trouvée",
-        "ReportAbuse":"Signaler un abus",
-        "BLOGS":"BLOGS"
-
-       
+    "Vendor": {
+        "Filter": "Filtrer",
+        "Categories": "Catégories",
+        "categoryName": "Nom de catégorie",
+        "Products": "Des produits",
+        "Prev": "Précédent",
+        "ALLCATEGORIES": "TOUTES CATÉGORIES",
+        "VENDORS": "VENDEURS",
+        "CONTACT": "CONTACT",
+        "Confirmlocation": "Confirmer l'emplacement",
+        "yourEmailID": "votre Email ID",
+        "Deliverto": "Livrer à",
+        "ChooseLocation": "Choisissez l'emplacement",
+        "ViewCart": "Voir le panier",
+        "OUTOFSTOCK": "RUPTURE DE STOCK",
+        "AddToCart": "Ajouter au panier",
+        "OrderNow": "COMMANDEZ MAINTENANT",
+        "BuyNow": "Acheter maintenant",
+        "Description": "Description",
+        "Specifications": "Caractéristiques",
+        "NotAvailable": "Pas disponible",
+        "Quantity": "Quantité",
+        "quantity": "quantité",
+        "Price": "Prix",
+        "TirePriceChart": "Tableau des prix par niveau",
+        "Perunit": "Par unité",
+        "Review": "Examen",
+        "CustomerQuestionsAnswer": "Questions et réponses des clients",
+        "RelatedProducts": "Produits connexes",
+        "NoRelatedProductFound": "Aucun produit connexe trouvé",
+        "NoQuestionFound": "Aucune question trouvée. Si vous avez des questions, postez votre question",
+        "Question": "Question",
+        "PleaseChooseLocation": "Veuillez choisir l'emplacement",
+        "NoReviewFound": "Aucun avis trouvé",
+        "PostYourQuestion": "Posez votre question",
+        "questionhere": "Écrivez votre question ici",
+        "enteryourquestion": "Veuillez saisir votre question",
+        "Submit": "Créer un compte",
+        "Cancel": " Annuler",
+        "NoSpecificationFound": "Aucune spécification trouvée",
+        "ReportAbuse": "Signaler un abus",
+        "BLOGS": "BLOGS",
+        "SearchNearestLocation": "Rechercher l'emplacement le plus proche",
+        "Seller": "le vendeur",
+        "sku": "SKU",
+        "Off": "Désactivé",
+        "ContactUs": "Contactez"
     },
     "account": {
         "order": "Commandé le",
@@ -773,8 +855,6 @@
         "AddressType": "Type d'adresse",
         "Edit": "Modifier",
         "Delete": "Supprimer",
-
-
         "Reset": "Réinitialiser",
         "NoItem": "Aucune commande trouvée",
         "OrderPlaced": "Commande passée",
@@ -816,13 +896,77 @@
         "Countryrequired": "Le pays est requis",
         "Address1required": "L'adresse 1 est obligatoire",
         "staterequired": "L'état est requis",
-        "countryStaterequired":"Veuillez sélectionner le pays",
+        "countryStaterequired": "Veuillez sélectionner le pays",
         "Address2required": "L'adresse 2 est obligatoire",
         "Cityrequired": "La ville est obligatoire",
         "Pincoderequired": "Le code PIN est requis",
-        "PostalCodeRequired": "Le code postal est requis"
-
+        "PostalCodeRequired": "Le code postal est requis",
+        "TrackingID": "Identifiant de suivi",
+        "TrackingURL": "URL de suivi",
+        "AccountDashboard": "Tableau de bord du compte",
+        "QuotationRequestList": "Liste des demandes de devis",
+        "Logout": "Déconnexion"
+    },
+    "default": {
+        "oops": "Oops !",
+        "NoInternet": "Aucune connexion Internet trouvée.",
+        "CheckYourConnection": "Vérifiez votre connexion ou réessayez"
+    },
+    "breadcrumb": {
+        "Account": "Compte",
+        "AccountDashboard": "Tableau de bord du compte",
+        "AccountInformation": "Informations sur le compte",
+        "Address": "Adresse",
+        "AddAddress": "Ajouter une adresse",
+        "EditAddress": "Modifier l'adresse",
+        "OrderHistory": "Historique des commandes",
+        "OrderDetails": "Détails de la commande",
+        "ReviewThisProduct": "Donner un avis sur ce produit",
+        "TrackOrder": "Suivre la commande",
+        "CancelHistory": "Historique d'annulation",
+        "BlogDetail": "Détails du blog",
+        "QuotationRequestList": "Liste des demandes de devis",
+        "WidgetList": "Liste des widgets",
+        "WidgetTitle": "Titre du widget",
+        "Contact": "Contact",
+        "ProductDetail": "Détail du produit",
+        "Blogs": "Blogs",
+        "AllProducts": "Tous les produits",
+        "page-detail": "détail de la page",
+        "SignIn": "Se connecter",
+        "stock-checkout": "stock-checkout",
+        "UNDERDEVELOPING": "EN DÉVELOPPEMENT",
+        "AccountSettings": "Paramètres du compte",
+        "Wishlist": "Liste de souhaits",
+        "ProductCompare": "Comparaison de produits",
+        "Products": "Produits",
+        "Cart": "Panier",
+        "Checkout": "Paiement",
+        "VendorSignUp": "Inscription du vendeur",
+        "VendorList": "Liste des vendeurs",
+        "LiveProduct": "Produit en direct",
+        "ProductDetails": "Détails du produit"
+    },
+    "common": {
+        "OutOf": "en rupture de",
+        "SupportFormat": "Prise en charge des fichiers au format (.png .jpg .jpeg) et des fichiers inférieurs à 2 Mo.",
+        "FormatFiles": "Prise en charge des fichiers au format (.png .jpg .jpeg)",
+        "ImageSize": "La taille de l'image doit être inférieure à 2 Mo",
+        "MaximumCharacters": "Maximum 32 caractères",
+        "MustCharacters": "Doit comporter 128 caractères",
+        "NotifyMe": "Me notifier",
+        "DownloadApp": "Télécharger l'application",
+        "ContactSeller": "Contacter le vendeur",
+        "Name": "Nom",
+        "NameRequired": "Le nom est requis",
+        "EmailID": "Adresse e-mail",
+        "EmailRequired": "L'adresse e-mail est requise",
+        "InvalidEmail": "E-mail invalide",
+        "MobileNumber": "Numéro de téléphone mobile",
+        "MobileNumberRequired": "Le numéro de téléphone mobile est requis",
+        "Country": "Pays",
+        "CountryRequired": "Le pays est requis",
+        "Requirement": "Exigence",
+        "Submit": "Soumettre"
     }
-
-
 }

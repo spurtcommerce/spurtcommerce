@@ -1,1 +1,105 @@
-'use strict';function a36_0x29f3(){const _0x30a271=['list','1251752hWrNjk','Logger','45lKCzfu','36RjuYSv','../repositories/BlogRepository','forEach','save','log','Create\x20a\x20new\x20blog\x20','DESC','skip','info','findAll','OrmRepository','3577855HpyJCP','../../../src/decorators/Logger','select','value','take','4MVMzYs','order','7WKXkil','blogSlug','__awaiter','2072090OqKVuS','__decorate','820414jJwJIF','blogRepository','__metadata','Service','typedi','1322057CgRUtB','where','delete','81224EKUovF','find','Like','design:paramtypes','24rVedKg','findOne','like','typeorm/index','slugData','update','count','__param','name','checkSlug','1818888lfPKJC','length'];a36_0x29f3=function(){return _0x30a271;};return a36_0x29f3();}const a36_0x58938d=a36_0x5c96;(function(_0x9d1f91,_0x268404){const _0x322d53=a36_0x5c96,_0x508d7a=_0x9d1f91();while(!![]){try{const _0x5e2a04=-parseInt(_0x322d53(0x1ac))/0x1+-parseInt(_0x322d53(0x1b4))/0x2*(-parseInt(_0x322d53(0x1c7))/0x3)+-parseInt(_0x322d53(0x1d8))/0x4*(-parseInt(_0x322d53(0x1d3))/0x5)+-parseInt(_0x322d53(0x1c2))/0x6*(parseInt(_0x322d53(0x1da))/0x7)+-parseInt(_0x322d53(0x1c5))/0x8*(-parseInt(_0x322d53(0x1c8))/0x9)+-parseInt(_0x322d53(0x1aa))/0xa+-parseInt(_0x322d53(0x1b1))/0xb*(-parseInt(_0x322d53(0x1b8))/0xc);if(_0x5e2a04===_0x268404)break;else _0x508d7a['push'](_0x508d7a['shift']());}catch(_0x443558){_0x508d7a['push'](_0x508d7a['shift']());}}}(a36_0x29f3,0xd2046));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports['BlogService']=void 0x0;function a36_0x5c96(_0x31e7d9,_0x469e72){const _0x29f314=a36_0x29f3();return a36_0x5c96=function(_0x5c96ad,_0x50471d){_0x5c96ad=_0x5c96ad-0x1a9;let _0x4a86c7=_0x29f314[_0x5c96ad];return _0x4a86c7;},a36_0x5c96(_0x31e7d9,_0x469e72);}const tslib_1=require('tslib'),typedi_1=require(a36_0x58938d(0x1b0)),typeorm_typedi_extensions_1=require('typeorm-typedi-extensions'),Logger_1=require(a36_0x58938d(0x1d4)),index_1=require(a36_0x58938d(0x1bb)),BlogRepository_1=require(a36_0x58938d(0x1c9));let BlogService=class BlogService{constructor(_0x5c0e37,_0x3432d1){const _0x5ae2bc=a36_0x58938d;this[_0x5ae2bc(0x1ad)]=_0x5c0e37,this[_0x5ae2bc(0x1cc)]=_0x3432d1;}['create'](_0x1bf947){const _0x272c4a=a36_0x58938d;return tslib_1[_0x272c4a(0x1a9)](this,void 0x0,void 0x0,function*(){const _0x2a50bc=_0x272c4a;return this['log'][_0x2a50bc(0x1d0)](_0x2a50bc(0x1cd)),this[_0x2a50bc(0x1ad)][_0x2a50bc(0x1cb)](_0x1bf947);});}[a36_0x58938d(0x1b9)](_0x1cf1b0){const _0x529aaf=a36_0x58938d;return this[_0x529aaf(0x1ad)]['findOne'](_0x1cf1b0);}[a36_0x58938d(0x1d1)](_0x17b80b){const _0x1ccf50=a36_0x58938d;return this['blogRepository'][_0x1ccf50(0x1b5)](_0x17b80b);}[a36_0x58938d(0x1bd)](_0xb816fa){const _0x495588=a36_0x58938d;return this['blogRepository'][_0x495588(0x1cb)](_0xb816fa);}[a36_0x58938d(0x1c4)](_0x400d07,_0x487317,_0x20521a=[],_0x1b808b=[],_0x1fe032=[],_0xfdaf0b){const _0x554e87=a36_0x58938d;return tslib_1[_0x554e87(0x1a9)](this,void 0x0,void 0x0,function*(){const _0xbd1c5a=_0x554e87,_0x329a9f={};return _0x20521a&&_0x20521a['length']>0x0&&(_0x329a9f[_0xbd1c5a(0x1d5)]=_0x20521a),_0x329a9f[_0xbd1c5a(0x1b2)]={},_0x1fe032&&_0x1fe032['length']>0x0&&_0x1fe032[_0xbd1c5a(0x1ca)](_0x24d9e8=>{const _0x71563c=_0xbd1c5a;_0x329a9f[_0x71563c(0x1b2)][_0x24d9e8[_0x71563c(0x1c0)]]=_0x24d9e8[_0x71563c(0x1d6)];}),_0x1b808b&&_0x1b808b[_0xbd1c5a(0x1c3)]>0x0&&_0x1b808b[_0xbd1c5a(0x1ca)](_0x4232ef=>{const _0xe611f4=_0xbd1c5a,_0x224b9e=_0x4232ef['op'];if(_0x224b9e===_0xe611f4(0x1b2)&&_0x4232ef[_0xe611f4(0x1d6)]!==undefined)_0x329a9f[_0xe611f4(0x1b2)][_0x4232ef[_0xe611f4(0x1c0)]]=_0x4232ef[_0xe611f4(0x1d6)];else _0x224b9e===_0xe611f4(0x1ba)&&_0x4232ef[_0xe611f4(0x1d6)]!==undefined&&(_0x329a9f['where'][_0x4232ef[_0xe611f4(0x1c0)]]=(0x0,index_1[_0xe611f4(0x1b6)])('%'+_0x4232ef[_0xe611f4(0x1d6)]+'%'));}),_0x329a9f[_0xbd1c5a(0x1d9)]={'createdDate':_0xbd1c5a(0x1ce)},_0x400d07&&_0x400d07>0x0&&(_0x329a9f[_0xbd1c5a(0x1d7)]=_0x400d07,_0x329a9f[_0xbd1c5a(0x1cf)]=_0x487317),_0xfdaf0b?this[_0xbd1c5a(0x1ad)][_0xbd1c5a(0x1be)](_0x329a9f):this['blogRepository'][_0xbd1c5a(0x1b5)](_0x329a9f);});}['delete'](_0x591256){const _0x4196a6=a36_0x58938d;return tslib_1[_0x4196a6(0x1a9)](this,void 0x0,void 0x0,function*(){const _0x285e2a=_0x4196a6;return yield this[_0x285e2a(0x1ad)][_0x285e2a(0x1b3)](_0x591256);});}[a36_0x58938d(0x1bc)](_0x1b63b1){const _0x4835bc=a36_0x58938d;return tslib_1[_0x4835bc(0x1a9)](this,void 0x0,void 0x0,function*(){const _0x477c65=_0x4835bc;return yield this[_0x477c65(0x1ad)][_0x477c65(0x1db)](_0x1b63b1);});}[a36_0x58938d(0x1c1)](_0x44e3b8,_0x51bbcf,_0x15c657=0x0){const _0x168c23=a36_0x58938d;return tslib_1[_0x168c23(0x1a9)](this,void 0x0,void 0x0,function*(){const _0x123ec2=_0x168c23;return _0x15c657>0x0&&(_0x44e3b8=_0x44e3b8+_0x15c657),yield this[_0x123ec2(0x1ad)]['checkSlugData'](_0x44e3b8,_0x51bbcf);});}};BlogService=tslib_1[a36_0x58938d(0x1ab)]([(0x0,typedi_1[a36_0x58938d(0x1af)])(),tslib_1[a36_0x58938d(0x1bf)](0x0,(0x0,typeorm_typedi_extensions_1[a36_0x58938d(0x1d2)])()),tslib_1[a36_0x58938d(0x1bf)](0x1,(0x0,Logger_1[a36_0x58938d(0x1c6)])(__filename)),tslib_1[a36_0x58938d(0x1ae)](a36_0x58938d(0x1b7),[BlogRepository_1['BlogRepository'],Object])],BlogService),exports['BlogService']=BlogService;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BlogService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../src/decorators/Logger");
+const index_1 = require("typeorm/index");
+const BlogRepository_1 = require("../repositories/BlogRepository");
+let BlogService = class BlogService {
+    constructor(blogRepository, log) {
+        this.blogRepository = blogRepository;
+        this.log = log;
+    }
+    // create blog
+    create(blog) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new blog ');
+            return this.blogRepository.save(blog);
+        });
+    }
+    // find One blog
+    findOne(blog) {
+        return this.blogRepository.findOne(blog);
+    }
+    // findAll blog
+    findAll(blog) {
+        return this.blogRepository.find(blog);
+    }
+    // update blog
+    update(blog) {
+        return this.blogRepository.save(blog);
+    }
+    // blog List
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const condition = {};
+            if (select && select.length > 0) {
+                condition.select = select;
+            }
+            condition.where = {};
+            if (whereConditions && whereConditions.length > 0) {
+                whereConditions.forEach((item) => {
+                    condition.where[item.name] = item.value;
+                });
+            }
+            if (search && search.length > 0) {
+                search.forEach((table) => {
+                    const operator = table.op;
+                    if (operator === 'where' && table.value !== undefined) {
+                        condition.where[table.name] = table.value;
+                    }
+                    else if (operator === 'like' && table.value !== undefined) {
+                        condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                    }
+                });
+            }
+            condition.order = { createdDate: 'DESC' };
+            if (limit && limit > 0) {
+                condition.take = limit;
+                condition.skip = offset;
+            }
+            if (count) {
+                return this.blogRepository.count(condition);
+            }
+            else {
+                return this.blogRepository.find(condition);
+            }
+        });
+    }
+    // delete blog
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.blogRepository.delete(id);
+        });
+    }
+    slugData(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.blogRepository.blogSlug(data);
+        });
+    }
+    checkSlug(slug, id, count = 0) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (count > 0) {
+                slug = slug + count;
+            }
+            return yield this.blogRepository.checkSlugData(slug, id);
+        });
+    }
+};
+BlogService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [BlogRepository_1.BlogRepository, Object])
+], BlogService);
+exports.BlogService = BlogService;
+//# sourceMappingURL=BlogService.js.map

@@ -1,1 +1,672 @@
-'use strict';const a236_0x2861ec=a236_0x5f37;(function(_0x5df9dd,_0x126d0c){const _0x2abcc3=a236_0x5f37,_0x5b99c2=_0x5df9dd();while(!![]){try{const _0x3598e6=parseInt(_0x2abcc3(0xed))/0x1*(parseInt(_0x2abcc3(0x75))/0x2)+parseInt(_0x2abcc3(0xbf))/0x3+parseInt(_0x2abcc3(0xf2))/0x4*(parseInt(_0x2abcc3(0xe4))/0x5)+-parseInt(_0x2abcc3(0xca))/0x6*(-parseInt(_0x2abcc3(0x97))/0x7)+-parseInt(_0x2abcc3(0xaf))/0x8*(parseInt(_0x2abcc3(0x70))/0x9)+parseInt(_0x2abcc3(0x80))/0xa+-parseInt(_0x2abcc3(0xb4))/0xb;if(_0x3598e6===_0x126d0c)break;else _0x5b99c2['push'](_0x5b99c2['shift']());}catch(_0xd2266e){_0x5b99c2['push'](_0x5b99c2['shift']());}}}(a236_0xab29,0xd6843));function a236_0x5f37(_0x544605,_0x3e56e7){const _0xab2924=a236_0xab29();return a236_0x5f37=function(_0x5f37e4,_0x17dc7d){_0x5f37e4=_0x5f37e4-0x70;let _0xdbdcd5=_0xab2924[_0x5f37e4];return _0xdbdcd5;},a236_0x5f37(_0x544605,_0x3e56e7);}Object[a236_0x2861ec(0xda)](exports,'__esModule',{'value':!![]}),exports[a236_0x2861ec(0xab)]=void 0x0;function a236_0xab29(){const _0x5d32ae=['keyword','Successfully\x20deleted.','3838760VazpuF','widget-list','Delete','widgetService','isActive','49142731XgRGmy','delete','widgetTitle','refId','__metadata','todayDeals','metaTagDescription','activeWidget','\x20\x27\x20','Authorized','CategoryPath.level','4279566RDEIrr','content','ORDER\x20BY','QueryParam','design:type','productService','__param','../../../../src/api/core/services/CategoryPathService','CheckAddonMiddleware','MAX_LIMIT','Body','3229002upGkvt','productSlug','Successfully\x20got\x20Widget\x20list','Successfully\x20got\x20count','__awaiter','JsonController','WidgetItemService','../../../../src/api/core/services/ProductService','limit','Invalid\x20Widget\x20Id.','list','widget-delete','find','create','SEPARATOR','reflect-metadata','defineProperty','slugData','createWidget','push','Req','offset','substring','Successfully\x20got\x20the\x20complete\x20product\x20list.\x20','Invalid\x20widget\x20Id.','CategoryPath.category','1816785szAAhI','Invalid\x20widget\x20Id','__decorate','ProductService','WidgetDetail','quantity','/widget','Get','CategoryPath.category_id','283637ajrYCR','listByQueryBuilder','GROUP_CONCAT','count','inActiveWidget','4ZXXsJh','path','edit-widget','title','category.parentInt\x20as\x20parentInt','Widget','/widget-detail','9WWjQdM','Unable\x20to\x20create\x20the\x20Widget.','like','/widget-count','category.isActive\x20as\x20isActive','12WlPJIQ','findOne','status','widgetSlugName','ShowHomePageWidget','Successfully\x20got\x20count\x20',')..!','Param','widgetItemService','widgetLinkType','Successfully\x20got\x20widget\x20detail','7198230amOwaH','updateWidget','path.name','Put','productList','design:paramtypes','position','price','Unable\x20to\x20update\x20the\x20widget.','WidgetItem','tslib','isFeatured','Set-Home-Page\x20Widget\x20exceeds\x20the\x20Limit\x20(MAX\x20','category.image\x20as\x20image','sku','metaTagKeyword','Res','replace','admin','CategoryPath.categoryId\x20as\x20categoryId','send','Successfully\x20created\x20a\x20Widget.','/productlist','21GSLorV','../../models/WidgetItem','UseBefore','design:returntype','widgetId','WidgetService','CategoryPath.path','widgetDescription','../../services/WidgetItemService','lastIndexOf','metaTagTitle','Successfully\x20got\x20widget\x20count','name','productId','deleteWidget','prototype','CategoryPathService','category','length','categoryPathService','WidgetController','Post'];a236_0xab29=function(){return _0x5d32ae;};return a236_0xab29();}const tslib_1=require(a236_0x2861ec(0x8a));require(a236_0x2861ec(0xd9));const routing_controllers_1=require('routing-controllers'),WidgetService_1=require('../../services/WidgetService'),Widget_1=require('../../models/Widget'),CreateWidgetRequest_1=require('./requests/CreateWidgetRequest'),ProductService_1=require(a236_0x2861ec(0xd1)),WidgetItemService_1=require(a236_0x2861ec(0x9f)),WidgetItem_1=require(a236_0x2861ec(0x98)),CategoryPathService_1=require(a236_0x2861ec(0xc6)),AddonValidationMiddleware_1=require('../../../../src/api/core/middlewares/AddonValidationMiddleware');var HomePageWidget;(function(_0x8c1d2f){const _0x10b7c1=a236_0x2861ec;_0x8c1d2f[_0x8c1d2f[_0x10b7c1(0xc8)]=0x5]=_0x10b7c1(0xc8);}(HomePageWidget||(HomePageWidget={})));let WidgetController=class WidgetController{constructor(_0x278225,_0x5c256a,_0xe7e964,_0x3b2145){const _0x50496a=a236_0x2861ec;this[_0x50496a(0xb2)]=_0x278225,this[_0x50496a(0x7d)]=_0x5c256a,this[_0x50496a(0xc4)]=_0xe7e964,this[_0x50496a(0xaa)]=_0x3b2145;}['createWidget'](_0x314fa0,_0x336b90){const _0x29d6d2=a236_0x2861ec;return tslib_1[_0x29d6d2(0xce)](this,void 0x0,void 0x0,function*(){const _0x3515e2=_0x29d6d2,_0xd5ca95=new Widget_1[(_0x3515e2(0xf7))](),_0x19caf8=_0x314fa0[_0x3515e2(0xf5)],_0x1bbc30=yield this[_0x3515e2(0xb2)]['find']({'where':{'ShowHomePageWidget':0x1}});if(_0x314fa0[_0x3515e2(0x79)]&&_0x1bbc30[_0x3515e2(0xa9)]>=HomePageWidget[_0x3515e2(0xc8)])return _0x336b90['status'](0x190)[_0x3515e2(0x94)]({'status':0x0,'message':'Set-Home-Page\x20Widget\x20exceeds\x20the\x20Limit\x20(MAX\x20'+HomePageWidget[_0x3515e2(0xc8)]+_0x3515e2(0x7b)});if(_0x19caf8){const _0x286d9e=_0x19caf8[_0x3515e2(0x91)](/\s+/g,'-')[_0x3515e2(0x91)](/[&\/\\@#,+()$~%.'":*?<>{}]/g,'')['toLowerCase'](),_0x2888b6=yield this['widgetService'][_0x3515e2(0xdb)](_0x19caf8,0x0);if(_0x2888b6[_0x3515e2(0xa9)]===0x0)_0xd5ca95['widgetSlugName']=_0x286d9e;else{if(_0x2888b6[_0x3515e2(0xa9)]===0x1)_0xd5ca95[_0x3515e2(0x78)]=_0x286d9e+'-'+0x1;else{const _0x8112=_0x2888b6[_0x2888b6[_0x3515e2(0xa9)]-0x1],_0x49abc5=_0x8112['widgetSlugName'],_0x5acfdf=_0x49abc5[_0x3515e2(0xe0)](_0x49abc5['lastIndexOf']('-')+0x1,_0x49abc5['length']),_0x1d5928=parseInt(_0x5acfdf,0x0);_0xd5ca95['widgetSlugName']=_0x286d9e+'-'+(_0x1d5928+0x1);}}}_0xd5ca95[_0x3515e2(0xb6)]=_0x314fa0[_0x3515e2(0xf5)],_0xd5ca95[_0x3515e2(0x79)]=_0x314fa0[_0x3515e2(0x79)],_0xd5ca95[_0x3515e2(0x9e)]=_0x314fa0['content'],_0xd5ca95[_0x3515e2(0x7e)]=_0x314fa0['widgetLinkType'],_0xd5ca95[_0x3515e2(0xa1)]=_0x314fa0['metaTagTitle'],_0xd5ca95[_0x3515e2(0x8f)]=_0x314fa0['metaTagKeyword'],_0xd5ca95['metaTagDescription']=_0x314fa0[_0x3515e2(0xba)],_0xd5ca95[_0x3515e2(0x86)]=_0x314fa0[_0x3515e2(0x86)],_0xd5ca95[_0x3515e2(0xb3)]=_0x314fa0[_0x3515e2(0x77)];const _0x278050=yield this['widgetService']['create'](_0xd5ca95);if(_0x314fa0['refId']){const _0x2d46dd=_0x314fa0[_0x3515e2(0xb7)];for(const _0x14c1aa of _0x2d46dd){const _0x59c529=new WidgetItem_1[(_0x3515e2(0x89))]();_0x59c529[_0x3515e2(0x9b)]=_0x278050['widgetId'],_0x59c529[_0x3515e2(0xb7)]=_0x14c1aa,yield this[_0x3515e2(0x7d)]['create'](_0x59c529);}}if(_0x278050){const _0x4a4bb5={'status':0x1,'message':_0x3515e2(0x95),'data':_0x278050};return _0x336b90['status'](0xc8)[_0x3515e2(0x94)](_0x4a4bb5);}else{const _0xc38913={'status':0x0,'message':_0x3515e2(0x71)};return _0x336b90[_0x3515e2(0x77)](0x190)[_0x3515e2(0x94)](_0xc38913);}});}['widgetList'](_0x355bee,_0x1f9b72,_0x487010,_0x1b660d,_0x254ea1,_0xb535eb){const _0x29090d=a236_0x2861ec;return tslib_1[_0x29090d(0xce)](this,void 0x0,void 0x0,function*(){const _0x5e9a23=_0x29090d,_0x3942c6=[_0x5e9a23(0x9b),'widgetTitle',_0x5e9a23(0x9e),'widgetLinkType',_0x5e9a23(0x86),'isActive',_0x5e9a23(0x79),_0x5e9a23(0x78)],_0x5ca01a=[{'name':_0x5e9a23(0xb6),'op':_0x5e9a23(0x72),'value':_0x487010},{'name':_0x5e9a23(0xb3),'op':_0x5e9a23(0x72),'value':_0x1b660d}],_0x37b9fb=[],_0x5383b9=yield this[_0x5e9a23(0xb2)][_0x5e9a23(0xd4)](_0x355bee,_0x1f9b72,_0x3942c6,_0x5ca01a,_0x37b9fb,_0x254ea1);if(_0x254ea1){const _0x22e5ca={'status':0x1,'message':_0x5e9a23(0xa2),'data':_0x5383b9};return _0xb535eb[_0x5e9a23(0x77)](0xc8)[_0x5e9a23(0x94)](_0x22e5ca);}const _0xa98ae7={'status':0x1,'message':_0x5e9a23(0xcc),'data':_0x5383b9};return _0xb535eb[_0x5e9a23(0x77)](0xc8)[_0x5e9a23(0x94)](_0xa98ae7);});}[a236_0x2861ec(0xa5)](_0x6302b7,_0x2e6cef,_0x85f472){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5acd2b=a236_0x5f37,_0x22466d=yield this[_0x5acd2b(0xb2)]['findOne']({'where':{'widgetId':_0x6302b7}});if(!_0x22466d){const _0x1d8805={'status':0x0,'message':_0x5acd2b(0xd3)};return _0x2e6cef[_0x5acd2b(0x77)](0x190)[_0x5acd2b(0x94)](_0x1d8805);}const _0x2ee356=yield this[_0x5acd2b(0xb2)]['delete'](_0x22466d);if(_0x2ee356){const _0x311ebc={'status':0x1,'message':_0x5acd2b(0xae)};return _0x2e6cef[_0x5acd2b(0x77)](0xc8)[_0x5acd2b(0x94)](_0x311ebc);}else{const _0x710413={'status':0x0,'message':'Unable\x20to\x20delete.'};return _0x2e6cef[_0x5acd2b(0x77)](0x190)[_0x5acd2b(0x94)](_0x710413);}});}[a236_0x2861ec(0x81)](_0x30c70f,_0x5a2cf1,_0x475322,_0x18efeb){const _0x235cab=a236_0x2861ec;return tslib_1[_0x235cab(0xce)](this,void 0x0,void 0x0,function*(){const _0x175802=_0x235cab,_0x304390=yield this[_0x175802(0xb2)]['findOne']({'where':{'widgetId':_0x30c70f}});if(!_0x304390){const _0x1057e3={'status':0x0,'message':_0x175802(0xe2)};return _0x475322[_0x175802(0x77)](0x190)['send'](_0x1057e3);}const _0x57281a=yield this[_0x175802(0xb2)][_0x175802(0xd6)]({'where':{'ShowHomePageWidget':0x1}});if(_0x5a2cf1['ShowHomePageWidget']&&_0x304390[_0x175802(0x79)]!==0x1&&_0x57281a[_0x175802(0xa9)]>=HomePageWidget[_0x175802(0xc8)])return _0x475322['status'](0x190)[_0x175802(0x94)]({'status':0x0,'message':_0x175802(0x8c)+HomePageWidget[_0x175802(0xc8)]+')..!'});_0x304390[_0x175802(0xb6)]=_0x5a2cf1[_0x175802(0xf5)],_0x304390['widgetDescription']=_0x5a2cf1[_0x175802(0xc0)],_0x304390[_0x175802(0x7e)]=_0x5a2cf1[_0x175802(0x7e)],_0x304390['position']=_0x5a2cf1['position'],_0x304390[_0x175802(0x79)]=_0x5a2cf1['ShowHomePageWidget'],_0x304390[_0x175802(0xa1)]=_0x5a2cf1[_0x175802(0xa1)],_0x304390['metaTagDescription']=_0x5a2cf1[_0x175802(0xba)],_0x304390[_0x175802(0x8f)]=_0x5a2cf1['metaTagKeyword'],_0x304390[_0x175802(0xb3)]=_0x5a2cf1['status'];const _0x249cc3=_0x5a2cf1[_0x175802(0xf5)],_0x81cd32=_0x249cc3[_0x175802(0x91)](/\s+/g,'-')[_0x175802(0x91)](/[&\/\\@#,+()$~%.'":*?<>{}]/g,'')['toLowerCase'](),_0x50ab9b=yield this['widgetService'][_0x175802(0xdb)](_0x249cc3,_0x304390[_0x175802(0x9b)]);if(_0x50ab9b===''||_0x50ab9b===undefined||_0x50ab9b[_0x175802(0xa9)]===0x0)_0x304390[_0x175802(0x78)]=_0x81cd32;else{if(_0x50ab9b[_0x175802(0xa9)]===0x1&&_0x249cc3!==_0x50ab9b[_0x50ab9b['length']-0x1][_0x175802(0xa3)])_0x304390['widgetSlugName']=_0x81cd32+'-'+0x1;else{if(_0x50ab9b[_0x175802(0xa9)]>0x1&&_0x50ab9b!==undefined&&_0x50ab9b!==''){const _0x1342cc=_0x50ab9b[_0x50ab9b[_0x175802(0xa9)]-0x1],_0x347648=_0x1342cc[_0x175802(0x78)],_0x13eb11=_0x347648[_0x175802(0xe0)](_0x347648[_0x175802(0xa0)]('-')+0x1,_0x347648['length']),_0x14f4f0=parseInt(_0x13eb11,0x0);_0x304390[_0x175802(0x78)]=_0x81cd32+'-'+(_0x14f4f0+0x1);}}}const _0x550c71=yield this[_0x175802(0xb2)][_0x175802(0xd7)](_0x304390);if(_0x5a2cf1[_0x175802(0xb7)]){const _0x327105=yield this[_0x175802(0x7d)][_0x175802(0x76)]({'where':{'widgetId':_0x550c71[_0x175802(0x9b)]}});if(_0x327105){yield this[_0x175802(0x7d)][_0x175802(0xb5)]({'widgetId':_0x550c71['widgetId']});const _0x21afec=_0x5a2cf1[_0x175802(0xb7)];for(const _0x49c8f8 of _0x21afec){const _0x249a10=new WidgetItem_1['WidgetItem']();_0x249a10['widgetId']=_0x550c71[_0x175802(0x9b)],_0x249a10[_0x175802(0xb7)]=_0x49c8f8,yield this[_0x175802(0x7d)]['create'](_0x249a10);}}else{const _0x3f1223=_0x5a2cf1['refId'];for(const _0x3f6a23 of _0x3f1223){const _0x9286d6=new WidgetItem_1[(_0x175802(0x89))]();_0x9286d6[_0x175802(0x9b)]=_0x550c71[_0x175802(0x9b)],_0x9286d6[_0x175802(0xb7)]=_0x3f6a23,yield this[_0x175802(0x7d)][_0x175802(0xd7)](_0x9286d6);}}}if(_0x550c71){const _0x1e7c98={'status':0x1,'message':'Successfully\x20updated\x20the\x20widget.','data':_0x550c71};return _0x475322[_0x175802(0x77)](0xc8)['send'](_0x1e7c98);}else{const _0x5d22b9={'status':0x0,'message':_0x175802(0x88)};return _0x475322['status'](0x190)[_0x175802(0x94)](_0x5d22b9);}});}['widgetCount'](_0x1264ce){const _0x335222=a236_0x2861ec;return tslib_1[_0x335222(0xce)](this,void 0x0,void 0x0,function*(){const _0xdf4569=_0x335222,_0x4a2464={},_0x3034e0=[],_0x2205c9=[],_0x51a9bc=[],_0x463d41=yield this['widgetService']['list'](0x0,0x0,_0x3034e0,_0x2205c9,_0x51a9bc,0x1),_0x5c0899=[{'name':'isActive','op':'like','value':0x1}],_0x553913=yield this[_0xdf4569(0xb2)]['list'](0x0,0x0,_0x3034e0,_0x2205c9,_0x5c0899,0x1),_0x4fcd88=[{'name':'isActive','op':_0xdf4569(0x72),'value':0x0}],_0x102fc7=yield this[_0xdf4569(0xb2)][_0xdf4569(0xd4)](0x0,0x0,_0x3034e0,_0x2205c9,_0x4fcd88,0x1);_0x4a2464['totalWidget']=_0x463d41,_0x4a2464[_0xdf4569(0xbb)]=_0x553913,_0x4a2464[_0xdf4569(0xf1)]=_0x102fc7;const _0x2c93c2={'status':0x1,'message':_0xdf4569(0xcd),'data':_0x4a2464};return _0x1264ce[_0xdf4569(0x77)](0xc8)[_0xdf4569(0x94)](_0x2c93c2);});}[a236_0x2861ec(0xe8)](_0x51605d,_0x5a18d8){const _0x3823bb=a236_0x2861ec;return tslib_1[_0x3823bb(0xce)](this,void 0x0,void 0x0,function*(){const _0x254ac2=_0x3823bb,_0x5bfd85=yield this['widgetService'][_0x254ac2(0x76)]({'where':{'widgetId':_0x51605d}});if(!_0x5bfd85){const _0x563187={'status':0x0,'message':_0x254ac2(0xe5)};return _0x5a18d8[_0x254ac2(0x77)](0x190)[_0x254ac2(0x94)](_0x563187);}const _0xc2ee8c=yield this['widgetItemService'][_0x254ac2(0xd6)]({'where':{'widgetId':_0x51605d}}),_0x584f22=[];if(_0x5bfd85['widgetLinkType']===0x2)for(const _0x43a630 of _0xc2ee8c){const _0x4dad18=yield this[_0x254ac2(0xc4)][_0x254ac2(0x76)]({'select':['productId',_0x254ac2(0x8e),_0x254ac2(0xa3),_0x254ac2(0xe9),'price',_0x254ac2(0xcb),_0x254ac2(0xb3)],'where':{'productId':_0x43a630[_0x254ac2(0xb7)]}});_0x584f22[_0x254ac2(0xdd)](_0x4dad18);}else for(const _0x2b63f8 of _0xc2ee8c){const _0x42b92c=[_0x254ac2(0x93),'category.sortOrder\x20as\x20sortOrder',_0x254ac2(0xf6),'category.name\x20as\x20name',_0x254ac2(0x8d),_0x254ac2(0x74),'category.createdDate\x20as\x20createdDate',_0x254ac2(0xef)+'('+_0x254ac2(0x82)+'\x20'+_0x254ac2(0xc1)+'\x20'+_0x254ac2(0xbe)+'\x20'+_0x254ac2(0xd8)+_0x254ac2(0xbc)+'>'+_0x254ac2(0xbc)+')'+'\x20'+'as'+'\x20'+'levels'],_0x1dd0ae=[{'tableName':_0x254ac2(0xe3),'aliasName':_0x254ac2(0xa8)},{'tableName':_0x254ac2(0x9d),'aliasName':_0x254ac2(0xf3)}],_0x2e19f1=[{'name':_0x254ac2(0xec)}],_0x32fc60=[];_0x32fc60[_0x254ac2(0xdd)]({'name':'CategoryPath.categoryId','op':'or','value':_0x2b63f8[_0x254ac2(0xb7)]});const _0x29904d=[],_0x2a3d61=[],_0x95759c=yield this[_0x254ac2(0xaa)][_0x254ac2(0xee)](0x1,0x0,_0x42b92c,_0x32fc60,_0x29904d,_0x1dd0ae,_0x2e19f1,_0x2a3d61,![],!![]);_0x584f22[_0x254ac2(0xdd)](_0x95759c[0x0]);}_0x5bfd85['refId']=_0x584f22;const _0x2042f3={'status':0x1,'message':_0x254ac2(0x7f),'data':_0x5bfd85};return _0x5a18d8[_0x254ac2(0x77)](0xc8)[_0x254ac2(0x94)](_0x2042f3);});}['productList'](_0xaa7b74,_0x412311,_0x455281,_0x128d0e,_0x48950a,_0x320d68,_0x3f1e5e,_0x310c01){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x301711=a236_0x5f37,_0x136d79=[_0x301711(0xa4),_0x301711(0x8e),_0x301711(0xa3),_0x301711(0xe9),_0x301711(0x87),'image','imagePath',_0x301711(0x8b),_0x301711(0xb9),'productSlug',_0x301711(0xb3)],_0x11512f=[],_0x578c2f=[{'name':'name','op':_0x301711(0x72),'value':_0x455281},{'name':_0x301711(0x8e),'op':_0x301711(0x72),'value':_0x128d0e},{'name':'isActive','op':_0x301711(0x72),'value':_0x48950a}],_0x57016c=yield this[_0x301711(0xc4)][_0x301711(0xd4)](_0xaa7b74,_0x412311,_0x136d79,_0x11512f,_0x578c2f,0x0,_0x320d68,_0x3f1e5e);if(_0x3f1e5e){const _0x3c395d={'status':0x1,'message':_0x301711(0x7a),'data':_0x57016c};return _0x310c01[_0x301711(0x77)](0xc8)[_0x301711(0x94)](_0x3c395d);}const _0xe37c39={'status':0x1,'message':_0x301711(0xe1),'data':_0x57016c};return _0x310c01[_0x301711(0x77)](0xc8)['send'](_0xe37c39);});}};tslib_1['__decorate']([(0x0,routing_controllers_1[a236_0x2861ec(0xac)])(),(0x0,routing_controllers_1[a236_0x2861ec(0xbd)])(['admin','add-widget']),tslib_1[a236_0x2861ec(0xc5)](0x0,(0x0,routing_controllers_1[a236_0x2861ec(0xc9)])({'validate':!![]})),tslib_1[a236_0x2861ec(0xc5)](0x1,(0x0,routing_controllers_1[a236_0x2861ec(0x90)])()),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0xc3),Function),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0x85),[CreateWidgetRequest_1['CreateWidget'],Object]),tslib_1['__metadata'](a236_0x2861ec(0x9a),Promise)],WidgetController['prototype'],a236_0x2861ec(0xdc),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a236_0x2861ec(0xeb)])(),(0x0,routing_controllers_1[a236_0x2861ec(0xbd)])(['admin',a236_0x2861ec(0xb0)]),tslib_1[a236_0x2861ec(0xc5)](0x0,(0x0,routing_controllers_1[a236_0x2861ec(0xc2)])(a236_0x2861ec(0xd2))),tslib_1[a236_0x2861ec(0xc5)](0x1,(0x0,routing_controllers_1[a236_0x2861ec(0xc2)])('offset')),tslib_1[a236_0x2861ec(0xc5)](0x2,(0x0,routing_controllers_1['QueryParam'])('keyword')),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a236_0x2861ec(0xc2)])('status')),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a236_0x2861ec(0xc2)])(a236_0x2861ec(0xf0))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a236_0x2861ec(0x90)])()),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0xc3),Function),tslib_1['__metadata'](a236_0x2861ec(0x85),[Number,Number,String,String,Object,Object]),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0x9a),Promise)],WidgetController[a236_0x2861ec(0xa6)],'widgetList',null),tslib_1[a236_0x2861ec(0xe6)]([(0x0,routing_controllers_1[a236_0x2861ec(0xb1)])('/:id'),(0x0,routing_controllers_1['Authorized'])([a236_0x2861ec(0x92),a236_0x2861ec(0xd5)]),tslib_1[a236_0x2861ec(0xc5)](0x0,(0x0,routing_controllers_1[a236_0x2861ec(0x7c)])('id')),tslib_1[a236_0x2861ec(0xc5)](0x1,(0x0,routing_controllers_1[a236_0x2861ec(0x90)])()),tslib_1[a236_0x2861ec(0xc5)](0x2,(0x0,routing_controllers_1[a236_0x2861ec(0xde)])()),tslib_1['__metadata'](a236_0x2861ec(0xc3),Function),tslib_1[a236_0x2861ec(0xb8)]('design:paramtypes',[Number,Object,Object]),tslib_1[a236_0x2861ec(0xb8)]('design:returntype',Promise)],WidgetController[a236_0x2861ec(0xa6)],a236_0x2861ec(0xa5),null),tslib_1[a236_0x2861ec(0xe6)]([(0x0,routing_controllers_1[a236_0x2861ec(0x83)])('/:id'),(0x0,routing_controllers_1[a236_0x2861ec(0xbd)])([a236_0x2861ec(0x92),a236_0x2861ec(0xf4)]),tslib_1[a236_0x2861ec(0xc5)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1[a236_0x2861ec(0xc5)](0x1,(0x0,routing_controllers_1[a236_0x2861ec(0xc9)])({'validate':!![]})),tslib_1[a236_0x2861ec(0xc5)](0x2,(0x0,routing_controllers_1[a236_0x2861ec(0x90)])()),tslib_1[a236_0x2861ec(0xc5)](0x3,(0x0,routing_controllers_1[a236_0x2861ec(0xde)])()),tslib_1['__metadata'](a236_0x2861ec(0xc3),Function),tslib_1[a236_0x2861ec(0xb8)]('design:paramtypes',[Number,CreateWidgetRequest_1['CreateWidget'],Object,Object]),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0x9a),Promise)],WidgetController[a236_0x2861ec(0xa6)],'updateWidget',null),tslib_1[a236_0x2861ec(0xe6)]([(0x0,routing_controllers_1['Get'])(a236_0x2861ec(0x73)),(0x0,routing_controllers_1[a236_0x2861ec(0xbd)])(),tslib_1[a236_0x2861ec(0xc5)](0x0,(0x0,routing_controllers_1['Res'])()),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0xc3),Function),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0x85),[Object]),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0x9a),Promise)],WidgetController[a236_0x2861ec(0xa6)],'widgetCount',null),tslib_1[a236_0x2861ec(0xe6)]([(0x0,routing_controllers_1[a236_0x2861ec(0xeb)])(a236_0x2861ec(0xf8)),(0x0,routing_controllers_1[a236_0x2861ec(0xbd)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a236_0x2861ec(0xc2)])(a236_0x2861ec(0x9b))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a236_0x2861ec(0x90)])()),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0xc3),Function),tslib_1[a236_0x2861ec(0xb8)]('design:paramtypes',[Number,Object]),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0x9a),Promise)],WidgetController[a236_0x2861ec(0xa6)],a236_0x2861ec(0xe8),null),tslib_1[a236_0x2861ec(0xe6)]([(0x0,routing_controllers_1[a236_0x2861ec(0xeb)])(a236_0x2861ec(0x96)),(0x0,routing_controllers_1[a236_0x2861ec(0xbd)])(),tslib_1[a236_0x2861ec(0xc5)](0x0,(0x0,routing_controllers_1[a236_0x2861ec(0xc2)])('limit')),tslib_1[a236_0x2861ec(0xc5)](0x1,(0x0,routing_controllers_1[a236_0x2861ec(0xc2)])(a236_0x2861ec(0xdf))),tslib_1[a236_0x2861ec(0xc5)](0x2,(0x0,routing_controllers_1[a236_0x2861ec(0xc2)])(a236_0x2861ec(0xad))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a236_0x2861ec(0xc2)])(a236_0x2861ec(0x8e))),tslib_1[a236_0x2861ec(0xc5)](0x4,(0x0,routing_controllers_1[a236_0x2861ec(0xc2)])(a236_0x2861ec(0x77))),tslib_1[a236_0x2861ec(0xc5)](0x5,(0x0,routing_controllers_1['QueryParam'])('price')),tslib_1[a236_0x2861ec(0xc5)](0x6,(0x0,routing_controllers_1[a236_0x2861ec(0xc2)])('count')),tslib_1[a236_0x2861ec(0xc5)](0x7,(0x0,routing_controllers_1[a236_0x2861ec(0x90)])()),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0xc3),Function),tslib_1[a236_0x2861ec(0xb8)](a236_0x2861ec(0x85),[Number,Number,String,String,String,Number,Object,Object]),tslib_1[a236_0x2861ec(0xb8)]('design:returntype',Promise)],WidgetController['prototype'],a236_0x2861ec(0x84),null),WidgetController=tslib_1[a236_0x2861ec(0xe6)]([(0x0,routing_controllers_1[a236_0x2861ec(0x99)])(AddonValidationMiddleware_1[a236_0x2861ec(0xc7)]),(0x0,routing_controllers_1[a236_0x2861ec(0xcf)])(a236_0x2861ec(0xea)),tslib_1[a236_0x2861ec(0xb8)]('design:paramtypes',[WidgetService_1[a236_0x2861ec(0x9c)],WidgetItemService_1[a236_0x2861ec(0xd0)],ProductService_1[a236_0x2861ec(0xe7)],CategoryPathService_1[a236_0x2861ec(0xa7)]])],WidgetController),exports[a236_0x2861ec(0xab)]=WidgetController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WidgetController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const WidgetService_1 = require("../../services/WidgetService");
+const Widget_1 = require("../../models/Widget");
+const CreateWidgetRequest_1 = require("./requests/CreateWidgetRequest");
+const ProductService_1 = require("../../../../src/api/core/services/ProductService");
+const WidgetItemService_1 = require("../../services/WidgetItemService");
+const WidgetItem_1 = require("../../models/WidgetItem");
+const CategoryPathService_1 = require("../../../../src/api/core/services/CategoryPathService");
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+var HomePageWidget;
+(function (HomePageWidget) {
+    HomePageWidget[HomePageWidget["MAX_LIMIT"] = 5] = "MAX_LIMIT";
+})(HomePageWidget || (HomePageWidget = {}));
+let WidgetController = class WidgetController {
+    constructor(widgetService, widgetItemService, productService, categoryPathService) {
+        this.widgetService = widgetService;
+        this.widgetItemService = widgetItemService;
+        this.productService = productService;
+        this.categoryPathService = categoryPathService;
+    }
+    // Create Widget
+    /**
+     * @api {post} /api/widget Add Widget API
+     * @apiGroup Widget
+     * @apiParam (Request body) {String{..255}} title title
+     * @apiParam (Request body) {String} [content] content
+     * @apiParam (Request body) {String} widgetLinkType widgetLinkType 1-> catgeory 2-> product
+     * @apiParam (Request body) {String{..70}} [metaTagTitle] metaTagTitle
+     * @apiParam (Request body) {String{..160}} [metaTagDescription] metaTagDescription
+     * @apiParam (Request body) {String{..255}} [metaTagKeyword] metaTagKeyword
+     * @apiParam (Request body) {String} [refId] refId
+     * @apiParam (Request body) {String} [position] position
+     * @apiParam (Request body) {Number} status status
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "title" : "",
+     *      "content" : "",
+     *      "widgetLinkType" : "",
+     *      "metaTagTitle" : "",
+     *      "metaTagDescription" : "",
+     *      "metaTagKeyword" : "",
+     *      "ShowHomePageWidget": "",
+     *      "position" : "",
+     *      "refId" : [],
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Widget is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/widget
+     * @apiErrorExample {json} Banner error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createWidget(widgetParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newWidget = new Widget_1.Widget();
+            const widgetName = widgetParam.title;
+            const ShowWidgetFlag = yield this.widgetService.find({
+                where: {
+                    ShowHomePageWidget: 1,
+                },
+            });
+            if (widgetParam.ShowHomePageWidget && ShowWidgetFlag.length >= HomePageWidget.MAX_LIMIT) {
+                return response.status(400).send({
+                    status: 0,
+                    message: `Set-Home-Page Widget exceeds the Limit (MAX ${HomePageWidget.MAX_LIMIT})..!`,
+                });
+            }
+            if (widgetName) {
+                const data = widgetName.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+                const getCustomerSlug = yield this.widgetService.slugData(widgetName, 0);
+                if (getCustomerSlug.length === 0) {
+                    newWidget.widgetSlugName = data;
+                }
+                else if (getCustomerSlug.length === 1) {
+                    newWidget.widgetSlugName = data + '-' + 1;
+                }
+                else {
+                    const slugVal = getCustomerSlug[getCustomerSlug.length - 1];
+                    const value = slugVal.widgetSlugName;
+                    const getSlugInt = value.substring(value.lastIndexOf('-') + 1, value.length);
+                    const slugNumber = parseInt(getSlugInt, 0);
+                    newWidget.widgetSlugName = data + '-' + (slugNumber + 1);
+                }
+            }
+            newWidget.widgetTitle = widgetParam.title;
+            newWidget.ShowHomePageWidget = widgetParam.ShowHomePageWidget;
+            newWidget.widgetDescription = widgetParam.content;
+            newWidget.widgetLinkType = widgetParam.widgetLinkType;
+            newWidget.metaTagTitle = widgetParam.metaTagTitle;
+            newWidget.metaTagKeyword = widgetParam.metaTagKeyword;
+            newWidget.metaTagDescription = widgetParam.metaTagDescription;
+            newWidget.position = widgetParam.position;
+            newWidget.isActive = widgetParam.status;
+            const widgetSave = yield this.widgetService.create(newWidget);
+            // Add ref item
+            if (widgetParam.refId) {
+                const relatedItems = widgetParam.refId;
+                for (const relatedItem of relatedItems) {
+                    const newItem = new WidgetItem_1.WidgetItem();
+                    newItem.widgetId = widgetSave.widgetId;
+                    newItem.refId = relatedItem;
+                    yield this.widgetItemService.create(newItem);
+                }
+            }
+            if (widgetSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully created a Widget.',
+                    data: widgetSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to create the Widget.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Widget List
+    /**
+     * @api {get} /api/widget Widget List API
+     * @apiGroup Widget
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Widget list",
+     *      "data":"{
+     *      "widgetId": "",
+     *      "title": "",
+     *      "content": "",
+     *      "metaTagTitle": "",
+     *      "metaTagDescription": "",
+     *      "metaTagKeyword": "",
+     *      "widgetlinkType": "",
+     *      "position": "",
+     *      }"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/widget
+     * @apiErrorExample {json} widget error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    widgetList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['widgetId', 'widgetTitle', 'widgetDescription', 'widgetLinkType', 'position', 'isActive', 'ShowHomePageWidget', 'widgetSlugName'];
+            const search = [
+                {
+                    name: 'widgetTitle',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const WhereConditions = [];
+            const widgetList = yield this.widgetService.list(limit, offset, select, search, WhereConditions, count);
+            if (count) {
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got widget count',
+                    data: widgetList,
+                };
+                return response.status(200).send(successRes);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got Widget list',
+                data: widgetList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Delete widget
+    /**
+     * @api {delete} /api/widget/:id Delete widget API
+     * @apiGroup Widget
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "widgetId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Widget.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/widget/:id
+     * @apiErrorExample {json} widget error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteWidget(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const widget = yield this.widgetService.findOne({
+                where: {
+                    widgetId: id,
+                },
+            });
+            if (!widget) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Widget Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteWidget = yield this.widgetService.delete(widget);
+            if (deleteWidget) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update widget
+    /**
+     * @api {put} /api/widget/:id Update widget API
+     * @apiGroup Widget
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..255}} title widget title
+     * @apiParam (Request body) {String} [content] widget content
+     * @apiParam (Request body) {String{..70}} [metaTagTitle] metaTagTitle
+     * @apiParam (Request body) {String{..160}} [metaTagDescription] metaTagDescription
+     * @apiParam (Request body) {String{..255}} [metaTagKeyword] metaTagkeyword
+     * @apiParam (Request body) {String} widgetLinkType widgetLinkType
+     * @apiParam (Request body) {Number} [position] widget position
+     * @apiParam (Request body) {String} [refId] refId
+     * @apiParam (Request body) {Number} status status
+     * @apiParamExample {json} Input
+     * {
+     *      "title" : "",
+     *      "content" : "",
+     *      "widgetLinkType" : "",
+     *      "metaTagTitle" : "",
+     *      "metaTagKeyword" : "",
+     *      "metaTagDescription" : "",
+     *      "ShowHomePageWidget":"",
+     *      "position" : "",
+     *      "refId" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated widget.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/widget/:id
+     * @apiErrorExample {json} widget error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateWidget(id, widgetParam, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const widget = yield this.widgetService.findOne({
+                where: {
+                    widgetId: id,
+                },
+            });
+            if (!widget) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid widget Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const ShowWidgetFlag = yield this.widgetService.find({
+                where: {
+                    ShowHomePageWidget: 1,
+                },
+            });
+            if (widgetParam.ShowHomePageWidget && widget.ShowHomePageWidget !== 1 && ShowWidgetFlag.length >= HomePageWidget.MAX_LIMIT) {
+                return response.status(400).send({
+                    status: 0,
+                    message: `Set-Home-Page Widget exceeds the Limit (MAX ${HomePageWidget.MAX_LIMIT})..!`,
+                });
+            }
+            widget.widgetTitle = widgetParam.title;
+            widget.widgetDescription = widgetParam.content;
+            widget.widgetLinkType = widgetParam.widgetLinkType;
+            widget.position = widgetParam.position;
+            widget.ShowHomePageWidget = widgetParam.ShowHomePageWidget;
+            widget.metaTagTitle = widgetParam.metaTagTitle;
+            widget.metaTagDescription = widgetParam.metaTagDescription;
+            widget.metaTagKeyword = widgetParam.metaTagKeyword;
+            widget.isActive = widgetParam.status;
+            const title = widgetParam.title;
+            const data = title.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+            const getWidgetSlug = yield this.widgetService.slugData(title, widget.widgetId);
+            if (getWidgetSlug === '' || getWidgetSlug === undefined || getWidgetSlug.length === 0) {
+                widget.widgetSlugName = data;
+            }
+            else if (getWidgetSlug.length === 1 && (title !== getWidgetSlug[getWidgetSlug.length - 1].name)) {
+                widget.widgetSlugName = data + '-' + 1;
+            }
+            else if (getWidgetSlug.length > 1 && getWidgetSlug !== undefined && getWidgetSlug !== '') {
+                const slugVal = getWidgetSlug[getWidgetSlug.length - 1];
+                const val = slugVal.widgetSlugName;
+                const getSlugInt = val.substring(val.lastIndexOf('-') + 1, val.length);
+                const slugNumber = parseInt(getSlugInt, 0);
+                widget.widgetSlugName = data + '-' + (slugNumber + 1);
+            }
+            const widgetSave = yield this.widgetService.create(widget);
+            // Add ref item
+            if (widgetParam.refId) {
+                const findProduct = yield this.widgetItemService.findOne({
+                    where: {
+                        widgetId: widgetSave.widgetId,
+                    },
+                });
+                if (findProduct) {
+                    // delete previous related product
+                    yield this.widgetItemService.delete({ widgetId: widgetSave.widgetId });
+                    const relatedItems = widgetParam.refId;
+                    for (const relatedItem of relatedItems) {
+                        const newItem = new WidgetItem_1.WidgetItem();
+                        newItem.widgetId = widgetSave.widgetId;
+                        newItem.refId = relatedItem;
+                        yield this.widgetItemService.create(newItem);
+                    }
+                }
+                else {
+                    const relatedItems = widgetParam.refId;
+                    for (const relatedItem of relatedItems) {
+                        const newItem = new WidgetItem_1.WidgetItem();
+                        newItem.widgetId = widgetSave.widgetId;
+                        newItem.refId = relatedItem;
+                        yield this.widgetItemService.create(newItem);
+                    }
+                }
+            }
+            if (widgetSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated the widget.',
+                    data: widgetSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the widget.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Widget Count API
+    /**
+     * @api {get} /api/widget/widget-count Widget Count API
+     * @apiGroup Widget
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got widget count",
+     *      "data":{},
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/widget/widget-count
+     * @apiErrorExample {json} widget error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    widgetCount(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const banner = {};
+            const select = [];
+            const search = [];
+            const WhereConditions = [];
+            const allWidgetCount = yield this.widgetService.list(0, 0, select, search, WhereConditions, 1);
+            const whereConditionsActive = [
+                {
+                    name: 'isActive',
+                    op: 'like',
+                    value: 1,
+                },
+            ];
+            const activeWidgetCount = yield this.widgetService.list(0, 0, select, search, whereConditionsActive, 1);
+            const whereConditionsInActive = [
+                {
+                    name: 'isActive',
+                    op: 'like',
+                    value: 0,
+                },
+            ];
+            const inActiveWidgetCount = yield this.widgetService.list(0, 0, select, search, whereConditionsInActive, 1);
+            banner.totalWidget = allWidgetCount;
+            banner.activeWidget = activeWidgetCount;
+            banner.inActiveWidget = inActiveWidgetCount;
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got count',
+                data: banner,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Widget Detail
+    /**
+     * @api {get} /api/widget/widget-detail Widget Detail API
+     * @apiGroup Widget
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} widgetId widgetId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got widget detail",
+     *      "data": "{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/widget/widget-detail
+     * @apiErrorExample {json} widget Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    WidgetDetail(widgetId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const widget = yield this.widgetService.findOne({
+                where: {
+                    widgetId,
+                },
+            });
+            if (!widget) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid widget Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const value = yield this.widgetItemService.find({
+                where: {
+                    widgetId,
+                },
+            });
+            const arr = [];
+            if (widget.widgetLinkType === 2) {
+                for (const val of value) {
+                    const product = yield this.productService.findOne({
+                        select: ['productId', 'sku', 'name', 'quantity', 'price', 'productSlug', 'isActive'],
+                        where: {
+                            productId: val.refId,
+                        },
+                    });
+                    arr.push(product);
+                }
+            }
+            else {
+                for (const val of value) {
+                    const select = [
+                        'CategoryPath.categoryId as categoryId',
+                        'category.sortOrder as sortOrder',
+                        'category.parentInt as parentInt',
+                        'category.name as name',
+                        'category.image as image',
+                        'category.isActive as isActive',
+                        'category.createdDate as createdDate',
+                        'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'CategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',
+                    ];
+                    const relations = [
+                        {
+                            tableName: 'CategoryPath.category',
+                            aliasName: 'category',
+                        },
+                        {
+                            tableName: 'CategoryPath.path',
+                            aliasName: 'path',
+                        },
+                    ];
+                    const groupBy = [
+                        {
+                            name: 'CategoryPath.category_id',
+                        },
+                    ];
+                    const whereConditions = [];
+                    whereConditions.push({
+                        name: 'CategoryPath.categoryId',
+                        op: 'or',
+                        value: val.refId,
+                    });
+                    const searchConditions = [];
+                    const sort = [];
+                    const vendorCategoryList = yield this.categoryPathService.listByQueryBuilder(1, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+                    arr.push(vendorCategoryList[0]);
+                }
+            }
+            widget.refId = arr;
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got widget detail',
+                data: widget,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Product List for widget API
+    /**
+     * @api {get} /api/widget/productlist Product List for widget API
+     * @apiGroup Widget
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} sku sku
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {Number} price=1/2 if 1->asc 2->desc
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/widget/productlist
+     * @apiErrorExample {json} productList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productList(limit, offset, keyword, sku, status, price, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['productId', 'sku', 'name', 'quantity', 'price', 'image', 'imagePath', 'isFeatured', 'todayDeals', 'productSlug', 'isActive'];
+            const relation = [];
+            const WhereConditions = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'sku',
+                    op: 'like',
+                    value: sku,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const productLists = yield this.productService.list(limit, offset, select, relation, WhereConditions, 0, price, count);
+            if (count) {
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got count ',
+                    data: productLists,
+                };
+                return response.status(200).send(successRes);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete product list. ',
+                data: productLists,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'add-widget']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateWidgetRequest_1.CreateWidget, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], WidgetController.prototype, "createWidget", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'widget-list']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], WidgetController.prototype, "widgetList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'widget-delete']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], WidgetController.prototype, "deleteWidget", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-widget']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateWidgetRequest_1.CreateWidget, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], WidgetController.prototype, "updateWidget", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/widget-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], WidgetController.prototype, "widgetCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/widget-detail'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('widgetId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], WidgetController.prototype, "WidgetDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/productlist'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sku')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('price')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], WidgetController.prototype, "productList", null);
+WidgetController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/widget'),
+    tslib_1.__metadata("design:paramtypes", [WidgetService_1.WidgetService, WidgetItemService_1.WidgetItemService, ProductService_1.ProductService,
+        CategoryPathService_1.CategoryPathService])
+], WidgetController);
+exports.WidgetController = WidgetController;
+//# sourceMappingURL=WidgetController.js.map

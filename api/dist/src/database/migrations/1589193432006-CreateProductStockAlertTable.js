@@ -1,1 +1,84 @@
-'use strict';function a873_0x523c(){const _0x29eddc=['11096712bmtMcc','dropTable','hasTable','6MbSYUK','__esModule','defineProperty','datetime','product_id','1733229SZocAX','created_date','tableForeignKey1','2944915nciXQT','tslib','1964lJtvCG','162bViUKt','mail_flag','CreateProductStockAlertTable1589193432006','foreignKeys','indexOf','createTable','modified_by','increment','2267536cHROTT','columnNames','down','1431470xOVykB','__awaiter','9tZkAWa','integer','CURRENT_TIMESTAMP','fk_tbl_product_tbl_product_stock_alert_foreign_key','product','6584949RdqypM','modified_date'];a873_0x523c=function(){return _0x29eddc;};return a873_0x523c();}const a873_0x5c611b=a873_0x14d7;(function(_0x4b288c,_0x2564ff){const _0x4314df=a873_0x14d7,_0x39c631=_0x4b288c();while(!![]){try{const _0x2468ab=parseInt(_0x4314df(0x1ca))/0x1*(-parseInt(_0x4314df(0x1cb))/0x2)+parseInt(_0x4314df(0x1c5))/0x3+-parseInt(_0x4314df(0x1d3))/0x4+parseInt(_0x4314df(0x1c8))/0x5*(parseInt(_0x4314df(0x1c0))/0x6)+-parseInt(_0x4314df(0x1bb))/0x7+parseInt(_0x4314df(0x1bd))/0x8+parseInt(_0x4314df(0x1b6))/0x9*(-parseInt(_0x4314df(0x1d6))/0xa);if(_0x2468ab===_0x2564ff)break;else _0x39c631['push'](_0x39c631['shift']());}catch(_0x4107d0){_0x39c631['push'](_0x39c631['shift']());}}}(a873_0x523c,0xb5a39));Object[a873_0x5c611b(0x1c2)](exports,a873_0x5c611b(0x1c1),{'value':!![]}),exports[a873_0x5c611b(0x1cd)]=void 0x0;function a873_0x14d7(_0x353929,_0x3d31d0){const _0x523c44=a873_0x523c();return a873_0x14d7=function(_0x14d7ad,_0x55da42){_0x14d7ad=_0x14d7ad-0x1b6;let _0x48c9ef=_0x523c44[_0x14d7ad];return _0x48c9ef;},a873_0x14d7(_0x353929,_0x3d31d0);}const tslib_1=require(a873_0x5c611b(0x1c9)),typeorm_1=require('typeorm');class CreateProductStockAlertTable1589193432006{constructor(){const _0x53c66f=a873_0x5c611b;this[_0x53c66f(0x1c7)]=new typeorm_1['TableForeignKey']({'name':_0x53c66f(0x1b9),'columnNames':[_0x53c66f(0x1c4)],'referencedColumnNames':[_0x53c66f(0x1c4)],'referencedTableName':_0x53c66f(0x1ba),'onDelete':'CASCADE'});}['up'](_0x4cc169){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x502d11=a873_0x14d7,_0x574146=new typeorm_1['Table']({'name':'product_stock_alert','columns':[{'name':'id','type':_0x502d11(0x1b7),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x502d11(0x1d2)},{'name':'product_id','type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x502d11(0x1cc),'type':'integer','isPrimary':![],'isNullable':!![]},{'name':'created_by','type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x502d11(0x1c6),'type':'datetime','isPrimary':![],'isNullable':!![],'default':_0x502d11(0x1b8)},{'name':_0x502d11(0x1d1),'type':_0x502d11(0x1b7),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x502d11(0x1bc),'type':_0x502d11(0x1c3),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'}]}),_0x4a1baf=yield _0x4cc169[_0x502d11(0x1bf)]('product_stock_alert');!_0x4a1baf&&(yield _0x4cc169[_0x502d11(0x1d0)](_0x574146));const _0x3d12ce=_0x574146[_0x502d11(0x1ce)]['find'](_0x323fa5=>_0x323fa5[_0x502d11(0x1d4)][_0x502d11(0x1cf)]('product_id')!==-0x1);!_0x3d12ce&&(yield _0x4cc169['createForeignKey'](_0x574146,this[_0x502d11(0x1c7)]));});}[a873_0x5c611b(0x1d5)](_0x41e66a){const _0x4de386=a873_0x5c611b;return tslib_1[_0x4de386(0x1d7)](this,void 0x0,void 0x0,function*(){const _0x43a0b6=_0x4de386;yield _0x41e66a[_0x43a0b6(0x1be)]('product_stock_alert',!![]);});}}exports[a873_0x5c611b(0x1cd)]=CreateProductStockAlertTable1589193432006;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateProductStockAlertTable1589193432006 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateProductStockAlertTable1589193432006 {
+    constructor() {
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_product_tbl_product_stock_alert_foreign_key',
+            columnNames: ['product_id'],
+            referencedColumnNames: ['product_id'],
+            referencedTableName: 'product',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'product_stock_alert',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'product_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'mail_flag',
+                        type: 'integer',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('product_stock_alert');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const ifDataExsist1 = table.foreignKeys.find(fk => fk.columnNames.indexOf('product_id') !== -1);
+            if (!ifDataExsist1) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('product_stock_alert', true);
+        });
+    }
+}
+exports.CreateProductStockAlertTable1589193432006 = CreateProductStockAlertTable1589193432006;
+//# sourceMappingURL=1589193432006-CreateProductStockAlertTable.js.map

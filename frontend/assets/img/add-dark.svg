@@ -1,0 +1,15 @@
+<svg data-name="Icon / Add / Sharp" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+    <defs>
+        <clipPath id="cvzv8ppdba">
+            <path d="M6 0v6H0v2h6v6h2V8h6V6H8V0z" transform="translate(5 5)" style="fill:none"/>
+        </clipPath>
+    </defs>
+    <g data-name="Group 11">
+        <path data-name="Mask" d="M6 0v6H0v2h6v6h2V8h6V6H8V0z" style="fill:none"/>
+        <g data-name="Mask Group 11" style="clip-path:url(#cvzv8ppdba)" transform="translate(-5 -5)">
+            <g data-name="↳ Icon Color">
+                <path data-name="Rectangle 3" style="fill:rgba(0,0,0,.87)" d="M0 0h24v24H0z"/>
+            </g>
+        </g>
+    </g>
+</svg>

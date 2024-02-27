@@ -1,1 +1,91 @@
-'use strict';function a564_0x2b49(_0x50653b,_0x9b0ab7){const _0x2ef141=a564_0x2ef1();return a564_0x2b49=function(_0x2b49e0,_0x191229){_0x2b49e0=_0x2b49e0-0x15f;let _0xa59bb7=_0x2ef141[_0x2b49e0];return _0xa59bb7;},a564_0x2b49(_0x50653b,_0x9b0ab7);}const a564_0xe0020d=a564_0x2b49;(function(_0x424472,_0x255362){const _0x4e3520=a564_0x2b49,_0x319a7e=_0x424472();while(!![]){try{const _0x327c41=parseInt(_0x4e3520(0x17a))/0x1*(parseInt(_0x4e3520(0x17b))/0x2)+parseInt(_0x4e3520(0x169))/0x3+parseInt(_0x4e3520(0x182))/0x4*(-parseInt(_0x4e3520(0x18c))/0x5)+parseInt(_0x4e3520(0x177))/0x6*(parseInt(_0x4e3520(0x16f))/0x7)+-parseInt(_0x4e3520(0x17d))/0x8*(parseInt(_0x4e3520(0x17c))/0x9)+parseInt(_0x4e3520(0x179))/0xa+-parseInt(_0x4e3520(0x185))/0xb*(-parseInt(_0x4e3520(0x163))/0xc);if(_0x327c41===_0x255362)break;else _0x319a7e['push'](_0x319a7e['shift']());}catch(_0x1359db){_0x319a7e['push'](_0x319a7e['shift']());}}}(a564_0x2ef1,0x268e1));Object[a564_0xe0020d(0x180)](exports,a564_0xe0020d(0x166),{'value':!![]}),exports[a564_0xe0020d(0x17f)]=void 0x0;const tslib_1=require(a564_0xe0020d(0x165)),typedi_1=require(a564_0xe0020d(0x160)),typeorm_typedi_extensions_1=require('typeorm-typedi-extensions'),Logger_1=require(a564_0xe0020d(0x16c)),index_1=require(a564_0xe0020d(0x188)),JobsRepository_1=require(a564_0xe0020d(0x18d));let JobsService=class JobsService{constructor(_0x545afa,_0x559b22){const _0x3f2596=a564_0xe0020d;this[_0x3f2596(0x16b)]=_0x545afa,this['log']=_0x559b22;}[a564_0xe0020d(0x189)](_0x33dcce){const _0x50ee45=a564_0xe0020d;return tslib_1[_0x50ee45(0x183)](this,void 0x0,void 0x0,function*(){const _0x188db0=_0x50ee45;return this[_0x188db0(0x161)][_0x188db0(0x16a)](_0x188db0(0x168)),this[_0x188db0(0x16b)][_0x188db0(0x18a)](_0x33dcce);});}['findOne'](_0x459cbb){const _0xc4c5cc=a564_0xe0020d;return this[_0xc4c5cc(0x16b)][_0xc4c5cc(0x186)](_0x459cbb);}[a564_0xe0020d(0x18e)](_0x241605){const _0x2155aa=a564_0xe0020d;return this['jobsRepository'][_0x2155aa(0x18b)](_0x241605);}[a564_0xe0020d(0x187)](_0x13d44b){const _0xe39250=a564_0xe0020d;return this['jobsRepository'][_0xe39250(0x18a)](_0x13d44b);}[a564_0xe0020d(0x17e)](_0x330d41,_0x45589a,_0x3e7690=[],_0x4ad13d=[],_0x23e09d=[],_0x2bb658){const _0x5ce36c=a564_0xe0020d;return tslib_1[_0x5ce36c(0x183)](this,void 0x0,void 0x0,function*(){const _0x3d7087=_0x5ce36c,_0x22324c={};return _0x3e7690&&_0x3e7690[_0x3d7087(0x16e)]>0x0&&(_0x22324c[_0x3d7087(0x178)]=_0x3e7690),_0x22324c[_0x3d7087(0x184)]={},_0x23e09d&&_0x23e09d[_0x3d7087(0x16e)]>0x0&&_0x23e09d[_0x3d7087(0x16d)](_0x356c6c=>{const _0x4facd7=_0x3d7087;_0x22324c['where'][_0x356c6c[_0x4facd7(0x167)]]=_0x356c6c['value'];}),_0x4ad13d&&_0x4ad13d['length']>0x0&&_0x4ad13d[_0x3d7087(0x16d)](_0x2057a3=>{const _0x48db04=_0x3d7087,_0x52915d=_0x2057a3['op'];if(_0x52915d===_0x48db04(0x184)&&_0x2057a3[_0x48db04(0x171)]!==undefined)_0x22324c[_0x48db04(0x184)][_0x2057a3['name']]=_0x2057a3[_0x48db04(0x171)];else _0x52915d===_0x48db04(0x172)&&_0x2057a3[_0x48db04(0x171)]!==undefined&&(_0x22324c['where'][_0x2057a3[_0x48db04(0x167)]]=(0x0,index_1['Like'])('%'+_0x2057a3[_0x48db04(0x171)]+'%'));}),_0x330d41&&_0x330d41>0x0&&(_0x22324c[_0x3d7087(0x164)]=_0x330d41,_0x22324c[_0x3d7087(0x15f)]=_0x45589a),_0x2bb658?this[_0x3d7087(0x16b)]['count'](_0x22324c):this[_0x3d7087(0x16b)][_0x3d7087(0x18b)](_0x22324c);});}[a564_0xe0020d(0x170)](_0xf621b6){const _0x38ce97=a564_0xe0020d;return tslib_1[_0x38ce97(0x183)](this,void 0x0,void 0x0,function*(){return yield this['jobsRepository']['delete'](_0xf621b6);});}};function a564_0x2ef1(){const _0x51ac56=['../../../decorators/Logger','forEach','length','7PZtrQe','delete','value','like','Service','design:paramtypes','__decorate','__metadata','296214uLPecU','select','1729860XyDzje','811ngWXzW','430DhRMDu','7821ElcvJL','2496IoRfdM','list','JobsService','defineProperty','__param','144zSZvyC','__awaiter','where','77990tttnMZ','findOne','update','typeorm/index','create','save','find','22615BykMsK','../repositories/JobsRepository','findAll','skip','typedi','log','OrmRepository','12WJzTvl','take','tslib','__esModule','name','Create\x20a\x20new\x20job\x20','564201OrwAbK','info','jobsRepository'];a564_0x2ef1=function(){return _0x51ac56;};return a564_0x2ef1();}JobsService=tslib_1[a564_0xe0020d(0x175)]([(0x0,typedi_1[a564_0xe0020d(0x173)])(),tslib_1[a564_0xe0020d(0x181)](0x0,(0x0,typeorm_typedi_extensions_1[a564_0xe0020d(0x162)])()),tslib_1['__param'](0x1,(0x0,Logger_1['Logger'])(__filename)),tslib_1[a564_0xe0020d(0x176)](a564_0xe0020d(0x174),[JobsRepository_1['JobsRepository'],Object])],JobsService),exports[a564_0xe0020d(0x17f)]=JobsService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.JobsService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const index_1 = require("typeorm/index");
+const JobsRepository_1 = require("../repositories/JobsRepository");
+let JobsService = class JobsService {
+    constructor(jobsRepository, log) {
+        this.jobsRepository = jobsRepository;
+        this.log = log;
+    }
+    // create job
+    create(job) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new job ');
+            return this.jobsRepository.save(job);
+        });
+    }
+    // find One job
+    findOne(job) {
+        return this.jobsRepository.findOne(job);
+    }
+    // findAll job
+    findAll(job) {
+        return this.jobsRepository.find(job);
+    }
+    // update job
+    update(job) {
+        return this.jobsRepository.save(job);
+    }
+    // job List
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const condition = {};
+            if (select && select.length > 0) {
+                condition.select = select;
+            }
+            condition.where = {};
+            if (whereConditions && whereConditions.length > 0) {
+                whereConditions.forEach((item) => {
+                    condition.where[item.name] = item.value;
+                });
+            }
+            if (search && search.length > 0) {
+                search.forEach((table) => {
+                    const operator = table.op;
+                    if (operator === 'where' && table.value !== undefined) {
+                        condition.where[table.name] = table.value;
+                    }
+                    else if (operator === 'like' && table.value !== undefined) {
+                        condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                    }
+                });
+            }
+            if (limit && limit > 0) {
+                condition.take = limit;
+                condition.skip = offset;
+            }
+            if (count) {
+                return this.jobsRepository.count(condition);
+            }
+            else {
+                return this.jobsRepository.find(condition);
+            }
+        });
+    }
+    // delete job
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.jobsRepository.delete(id);
+        });
+    }
+};
+JobsService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [JobsRepository_1.JobsRepository, Object])
+], JobsService);
+exports.JobsService = JobsService;
+//# sourceMappingURL=JobsService.js.map

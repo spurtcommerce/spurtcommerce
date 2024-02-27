@@ -1,1 +1,1514 @@
-'use strict';const a637_0x54a611=a637_0x1339;(function(_0x5223c9,_0x193c84){const _0x148adc=a637_0x1339,_0x408047=_0x5223c9();while(!![]){try{const _0x2a8c31=parseInt(_0x148adc(0x25d))/0x1+parseInt(_0x148adc(0x249))/0x2+parseInt(_0x148adc(0x203))/0x3+parseInt(_0x148adc(0x272))/0x4+parseInt(_0x148adc(0x296))/0x5*(-parseInt(_0x148adc(0x1ee))/0x6)+-parseInt(_0x148adc(0x1f7))/0x7*(-parseInt(_0x148adc(0x266))/0x8)+-parseInt(_0x148adc(0x190))/0x9;if(_0x2a8c31===_0x193c84)break;else _0x408047['push'](_0x408047['shift']());}catch(_0xbb915e){_0x408047['push'](_0x408047['shift']());}}}(a637_0xd116,0xaf8c8));function a637_0xd116(){const _0x10bdb7=['attribute','CategoryService','phoneNumber','ListRequest','productService','vendor.companyName\x20as\x20vendorCompanyName','reflect-metadata','\x20WHEN\x20(((SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20Product.skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20pd2.date_end\x20>=\x20CURDATE()))\x20','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201))\x20WHEN\x20((SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20Product.skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','pluginAvatarPath','status','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201))\x20+\x20(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20Product.skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','title','./requests/ContactRequest','productRedirectUrl','categoryslug','Successfully\x20got\x20payment\x20List.','../../core/services/LanguageService','maximumProductPrice','outOfStockThreshold','productDetailData','/get-payment-setting','__importDefault','(SELECT\x20pi.default_image\x20as\x20defaultImage\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20defaultImage','../../../auth/mail.services','Thanks\x20for\x20reaching\x20out.\x20We\x20will\x20be\x20in\x20touch\x20soon','25VPwQeY','../../core/services/BannerService','routing-controllers','../../core/services/zoneService','toLowerCase','Product.price\x20as\x20price','design:returntype','vendor.customer','You\x20are\x20not\x20Installed\x20This\x20Plugin\x20/\x20Problem\x20In\x20Installation','forEach','username','code','moment','toString','IS\x20NULL','Get','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20IS\x20NOT\x20NULL)\x20THEN\x20(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20Product.skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','Product.dateAvailable','countryId','Product.sku\x20as\x20sku','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20WHEN\x20(`Product`.`tax_type`\x20=\x202\x20AND\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x200\x20||\x20IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x20NULL))\x20THEN\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)/100\x20*\x20(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20Product.skuId))\x20+\x20(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20','Product.skuId)\x20END)','limit','languageId','message','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20WHEN\x20(((SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20Product.skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','length','/get-addons','array-to-tree','UseBefore','../../core/services/OrderStatusService','Product.productSlug\x20as\x20productSlug','category','Product.isActive','Successfully\x20got\x20the\x20complete\x20list\x20of\x20products.','map','../../core/services/CountryService','Unable\x20to\x20get\x20the\x20plugin\x20list.\x20','wishListStatus','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)','../../core/services/CategoryService','categoryId','Successfully\x20get\x20the\x20related\x20category\x20List','createdDate','Product.rating\x20as\x20rating','Product.upc\x20as\x20upc','send','{phoneNumber}','total','category.category_slug','\x20WHEN\x20((SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20Product.skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20pd2.date_end\x20>=\x20CURDATE()))\x20','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20IS\x20NOT\x20NULL\x20AND\x20`Product`.`tax_type`\x20=\x201\x20AND\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x200\x20||\x20IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x20NULL))\x20THEN\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20+\x20(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20','/country-list','Product.hasStock\x20as\x20hasStock','productToCategory','28252026uLJxwg','/product-count','wishlistProductId','vendorProducts','Product.description\x20as\x20description','split','ASC','push','\x20Product.skuId)\x20WHEN\x20(`Product`.`tax_type`\x20=\x201\x20AND\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x200\x20||\x20IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x20NULL))\x20THEN\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20+\x20(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20','Product.taxType\x20as\x20taxType','(SELECT\x20COUNT(pr.rating)\x20as\x20ratingCount\x20FROM\x20product_rating\x20pr\x20WHERE\x20pr.product_id\x20=\x20Product.productId)\x20as\x20ratingCount','customer.isActive','PluginService','Max(product.price)\x20As\x20maximumProductPrice','LanguageService','QueryParam','Product.productId\x20as\x20productId','Res','(SELECT\x20COUNT(pr.review)\x20as\x20reviewCount\x20FROM\x20product_rating\x20pr\x20WHERE\x20pr.product_id\x20=\x20Product.productId\x20AND\x20pr.review\x20IS\x20NOT\x20NULL)\x20as\x20reviewCount','sortOrder','countryService','pluginService','Product.sortOrder','design:paramtypes','zoneService','bannerList','taxValue','QueryParams','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20modifiedPrice','\x20Product.skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','{email}','Invalid\x20OrderProductId','__awaiter','categoryService','image','findAll','pluginAdditionalInfo','offset','log','/banner-list','__decorate','orderStatusId','postcodeRequired','categoryName','baseUrl','productCount','../../core/models/Contact','DESC','Product.quantity\x20as\x20quantity','Product.keywords\x20as\x20keywords','Enter\x20Valid\x20Country\x20Name\x20','Product.dateAvailable\x20as\x20dateAvailable','tslib','successfully\x20got\x20the\x20complete\x20language\x20list.','categoryPathService','value','vendor','languageService','/custom-product-list','Product.isActive\x20as\x20isActive','EmailTemplateService','Product.attribute_keyword','orderStatusService','{message}','flag','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20IS\x20NOT\x20NULL)\x20AND\x20`Product`.`tax_type`\x20=\x202\x20AND\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x200\x20||\x20IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x20NULL))\x20THEN\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)/100\x20*\x20(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20','Product.skuId))\x20ELSE\x20(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20','like','keyword','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20AS\x20productDiscount','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201))\x20+\x20(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20Product.skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20pd2.date_end\x20>=\x20CURDATE()))\x20','link','Product.vendorProducts','Successfully\x20got\x20the\x20list\x20of\x20countries.','YYYY-MM-DD','__esModule','Product.wishlist','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20IS\x20NOT\x20NULL)\x20AND\x20`Product`.`tax_type`\x20=\x202\x20AND\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x200\x20||\x20IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x20NULL))\x20THEN\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)/100\x20*\x20(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20Product.skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','listOrderLog','linkType','ContactService','raw','count','\x20WHEN\x20((productDiscount\x20IS\x20NOT\x20NULL)\x20AND\x20`Product`.`tax_type`\x20=\x202\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(taxValue/100\x20*\x20productDiscount)\x20+\x20productDiscount\x20WHEN\x20(productDiscount\x20IS\x20NOT\x20NULL\x20AND\x20`Product`.`tax_type`\x20=\x201\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(taxValue\x20+\x20productDiscount)\x20WHEN\x20(productSpecial\x20IS\x20NOT\x20NULL)\x20THEN\x20productSpecial','Post','__metadata','MAX(customerWishlist.wishlistProductId)\x20as\x20wishlistProductId','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20+\x20IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20))\x20','gmap','SpecificcategoryList','(CASE\x20WHEN\x20(((SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20Product.skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','replace','../../core/services/PluginService','categorySlug','1187610garUYB','imagePath','listByQueryBuilder','storeRedirectUrl','logo','zonelist','subject','customProductList','Product.product_id','34979kZIlvl','../../core/services/CategoryPathService','latestArrival','/category-list','/orderLoglist','isActive','vendorProducts.vendor','pathId','price','design:type','where','ContactRequest','1881357RnOOcR','../../core/services/ProductService','priceFrom','customerWishlist.customerId\x20=\x20','hasStock','orderProductId','Product.createdDate\x20as\x20createdDate','then','vendor.vendorId\x20as\x20vendorId','country','Product.stockStatusId\x20as\x20stockStatusId','prototype','emailTemplateService','Product.name','gmapKey','Product.productToCategory','OrderProductService','orderProductLogService','create','../../core/middlewares/checkTokenMiddleware','customer.deleteFlag','../../../env','outOfStock','(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20IS\x20NOT\x20NULL)\x20THEN\x20(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20Product.skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20pd2.date_end\x20>=\x20CURDATE()))\x20','bannerService','Product.createdDate','env','IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20\x20as\x20taxValue','CategoryPathService','parse','name','pluginStatus','/list','Product.rating','/specific-category-list','concat','unable\x20to\x20show\x20language\x20list','userService','format','paymentSettingList','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20IS\x20NOT\x20NULL)\x20AND\x20`Product`.`tax_type`\x20=\x201\x20AND\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x200\x20||\x20IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x20NULL))\x20THEN\x20((SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20','userContact','contactService','MAILService','CommonListController','categoryRedirectUrl','./requests/ListRequest','ProductService','and','parentInt','Product.skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20pd2.date_end\x20>=\x20CURDATE()))\x20','findOne','Product.name\x20as\x20name','Product.taxValue\x20as\x20taxValue','leftCond','(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20\x20pd2.date_end\x20>=\x20CURDATE()))\x20','pluginName','content','level','productDiscount','../../core/services/ContactService','priceTo','Product.outOfStockThreshold\x20as\x20outOfStockThreshold','countryList','Mail\x20does\x20not\x20send','../../core/services/EmailTemplateService','stockStatus','variant','Product.isSimplified\x20as\x20isSimplified','1552688BUTawc','left','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20WHEN\x20((SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20Product.skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20pd2.date_end\x20>=\x20CURDATE()))\x20','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20price','Product.attributeKeyword\x20as\x20attributeKeyword','productToCategory.category','quantity','customer','ZoneService','byRating','Successfully\x20got\x20the\x20complete\x20order\x20Log\x20list.','MAX(customer.firstName)\x20as\x20vendorName','all','UserService','Contact','OrderProductLogService','orderProductService','customerWishlist.wishlistProductId\x20as\x20wishlistProductId','(SELECT\x20sku.sku_name\x20as\x20skuName\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20skuName','/gmap-key','1338769eZygSA','(SELECT\x20pi.image\x20as\x20image\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20image','Req','list','Product.keywords','(SELECT\x20pi.container_name\x20as\x20containerName\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20containerName','settingsService','ParentCategoryList','inStock','1656eldXBi','isoCode2','__param','categoryDescription','pricerefer','(CASE\x20WHEN\x20((productSpecial\x20IS\x20NOT\x20NULL)\x20AND\x20`Product`.`tax_type`\x20=\x202\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(taxValue/100\x20*\x20productSpecial)\x20+\x20productSpecial\x20WHEN\x20((productSpecial\x20IS\x20NOT\x20NULL)\x20AND\x20`Product`.`tax_type`\x20=\x201\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(productSpecial\x20+\x20taxValue)\x20','emailContent','isoCode3','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20AS\x20productSpecial','pluginType','/language-list','PluginList','4284904DOyDYA','email','../../core/services/SettingService','default','Product.skuId\x20as\x20skuId','productSpecial','languageList','/contact-us','customerWishlist','CheckTokenMiddleware'];a637_0xd116=function(){return _0x10bdb7;};return a637_0xd116();}Object['defineProperty'](exports,a637_0x54a611(0x1db),{'value':!![]}),exports[a637_0x54a611(0x230)]=void 0x0;const tslib_1=require(a637_0x54a611(0x1c4));require(a637_0x54a611(0x282));const routing_controllers_1=require(a637_0x54a611(0x298)),BannerService_1=require(a637_0x54a611(0x297)),mail_services_1=require(a637_0x54a611(0x294)),class_transformer_1=require('class-transformer'),CategoryService_1=require(a637_0x54a611(0x181)),ProductService_1=require(a637_0x54a611(0x204)),array_to_tree_1=tslib_1[a637_0x54a611(0x292)](require(a637_0x54a611(0x175))),CountryService_1=require(a637_0x54a611(0x17d)),ContactService_1=require(a637_0x54a611(0x240)),ContactRequest_1=require(a637_0x54a611(0x289)),Contact_1=require(a637_0x54a611(0x1be)),EmailTemplateService_1=require(a637_0x54a611(0x245)),zoneService_1=require(a637_0x54a611(0x299)),LanguageService_1=require(a637_0x54a611(0x28d)),CategoryPathService_1=require(a637_0x54a611(0x1f8)),PluginService_1=require(a637_0x54a611(0x1ec)),UserService_1=require('../../core/services/UserService'),OrderStatusService_1=require(a637_0x54a611(0x177)),OrderProductService_1=require('../../core/services/OrderProductService'),OrderProductLogService_1=require('../../core/services/OrderProductLogService'),SettingService_1=require(a637_0x54a611(0x274)),env_1=require(a637_0x54a611(0x218)),ListRequest_1=require(a637_0x54a611(0x232)),moment=require(a637_0x54a611(0x2a2)),checkTokenMiddleware_1=require(a637_0x54a611(0x216));function a637_0x1339(_0x5244e5,_0x5328cb){const _0xd11645=a637_0xd116();return a637_0x1339=function(_0x133903,_0x2b0475){_0x133903=_0x133903-0x174;let _0x1e3918=_0xd11645[_0x133903];return _0x1e3918;},a637_0x1339(_0x5244e5,_0x5328cb);}let CommonListController=class CommonListController{constructor(_0x34508e,_0x1ad08e,_0x50ed58,_0x32bab9,_0xeb8af1,_0x30b396,_0x2ca1fa,_0x10dc44,_0x19758c,_0x4880d2,_0x555216,_0x9877ed,_0xc7184b,_0xd71c4e,_0x4fd890){const _0x5bed3c=a637_0x54a611;this[_0x5bed3c(0x21c)]=_0x34508e,this[_0x5bed3c(0x1b1)]=_0x1ad08e,this[_0x5bed3c(0x280)]=_0x50ed58,this['languageService']=_0x32bab9,this[_0x5bed3c(0x1a4)]=_0xeb8af1,this[_0x5bed3c(0x22e)]=_0x30b396,this['emailTemplateService']=_0x2ca1fa,this[_0x5bed3c(0x1a8)]=_0x10dc44,this[_0x5bed3c(0x1c6)]=_0x19758c,this['pluginService']=_0x4880d2,this['userService']=_0x555216,this[_0x5bed3c(0x1ce)]=_0x9877ed,this[_0x5bed3c(0x263)]=_0xc7184b,this[_0x5bed3c(0x259)]=_0xd71c4e,this[_0x5bed3c(0x214)]=_0x4fd890;}['bannerList'](_0x5167da,_0xe0964b,_0xb3f09a,_0x5b7535,_0x16b0a0){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x33ca30=a637_0x1339,_0x3fd208=['bannerId',_0x33ca30(0x288),'image','imagePath',_0x33ca30(0x23d),_0x33ca30(0x1d7),'position',_0x33ca30(0x1fc),_0x33ca30(0x1df)],_0x3fa9ed=[{'name':_0x33ca30(0x288),'op':_0x33ca30(0x1d3),'value':_0xb3f09a}],_0x4103b4=[{'name':'isActive','value':0x1}],_0x14d0e8=yield this[_0x33ca30(0x21c)][_0x33ca30(0x260)](_0x5167da,_0xe0964b,_0x3fd208,_0x3fa9ed,_0x4103b4,_0x5b7535),_0x2166fa=_0x14d0e8['map'](_0x4ea51f=>tslib_1[_0x33ca30(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x3eb264=_0x33ca30,_0x2bc774=_0x4ea51f;if(+_0x2bc774[_0x3eb264(0x1df)]===0x2){const _0x2c2e47=env_1[_0x3eb264(0x21e)][_0x3eb264(0x28a)];_0x2bc774[_0x3eb264(0x1d7)]=_0x2c2e47[_0x3eb264(0x227)](_0x2bc774['link']);}else{if(+_0x2bc774[_0x3eb264(0x1df)]===0x3){const _0x4ffb3e=env_1[_0x3eb264(0x21e)][_0x3eb264(0x231)];_0x2bc774[_0x3eb264(0x1d7)]=_0x4ffb3e[_0x3eb264(0x227)](_0x2bc774['link']);}else _0x2bc774['link']=_0x2bc774['link'];}return _0x2bc774;})),_0x554368=yield Promise[_0x33ca30(0x255)](_0x2166fa),_0x1b8d26={'status':0x1,'message':'Successfully\x20got\x20banner\x20list','data':_0x554368};return _0x16b0a0[_0x33ca30(0x286)](0xc8)[_0x33ca30(0x187)](_0x1b8d26);});}[a637_0x54a611(0x264)](_0x2e7b09,_0x89419c,_0x15e7a7,_0x52c080,_0x5eb6fa,_0x12b859,_0x1eae7a){const _0x4d6f15=a637_0x54a611;return tslib_1[_0x4d6f15(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x2bb8fd=_0x4d6f15,_0x20506b=[_0x2bb8fd(0x182),_0x2bb8fd(0x222),_0x2bb8fd(0x1b2),_0x2bb8fd(0x1ef),'parentInt',_0x2bb8fd(0x1a3),'categorySlug',_0x2bb8fd(0x1fc)],_0x3a1391=[{'name':_0x2bb8fd(0x222),'op':'like','value':_0x15e7a7},{'name':_0x2bb8fd(0x1fc),'op':_0x2bb8fd(0x201),'value':0x1}],_0x5009e4=[],_0x2941ce=yield this[_0x2bb8fd(0x1b1)][_0x2bb8fd(0x260)](_0x2e7b09,_0x89419c,_0x20506b,_0x3a1391,_0x5009e4,_0x52c080,_0x5eb6fa);if(_0x5eb6fa){const _0x552f1d={'status':0x1,'message':'Successfully\x20get\x20All\x20category\x20List','data':_0x2941ce};return _0x1eae7a[_0x2bb8fd(0x286)](0xc8)[_0x2bb8fd(0x187)](_0x552f1d);}else{const _0x267475=(0x0,array_to_tree_1[_0x2bb8fd(0x275)])(_0x2941ce,{'parentProperty':_0x2bb8fd(0x235),'customID':'categoryId'}),_0x28d076={'status':0x1,'message':'Successfully\x20got\x20the\x20list\x20of\x20categories.','data':_0x267475};return _0x1eae7a[_0x2bb8fd(0x286)](0xc8)['send'](_0x28d076);}});}[a637_0x54a611(0x1f5)](_0x311bfb,_0x4ac6ca,_0x5b2833){const _0x1be990=a637_0x54a611;return tslib_1[_0x1be990(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x9d655a=_0x1be990;return new Promise(()=>tslib_1[_0x9d655a(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x283707=_0x9d655a;var _0x329657,_0x40e379,_0x2c50a3,_0x4f3a6f;const _0x5b0be8=[],_0x3b4bf5=[],_0x219295=(_0x40e379=(_0x329657=_0x311bfb[_0x283707(0x247)])===null||_0x329657===void 0x0?void 0x0:_0x329657['split'](','))!==null&&_0x40e379!==void 0x0?_0x40e379:[],_0x3b9070=(_0x4f3a6f=(_0x2c50a3=_0x311bfb['attribute'])===null||_0x2c50a3===void 0x0?void 0x0:_0x2c50a3[_0x283707(0x195)](','))!==null&&_0x4f3a6f!==void 0x0?_0x4f3a6f:[];(_0x219295===null||_0x219295===void 0x0?void 0x0:_0x219295[_0x283707(0x2b0)])>0x0&&_0x219295['forEach'](_0x52a2eb=>{const _0x483ddf=_0x283707,_0x3feb50={},_0x306543=_0x52a2eb[_0x483ddf(0x195)]('~');_0x3feb50['name']=_0x306543[0x0],_0x3feb50['value']=_0x306543[0x1],_0x5b0be8[_0x483ddf(0x197)](_0x3feb50);});(_0x3b9070===null||_0x3b9070===void 0x0?void 0x0:_0x3b9070[_0x283707(0x2b0)])>0x0&&_0x3b9070[_0x283707(0x29f)](_0x53610a=>{const _0x1a3561=_0x283707,_0x59e4b5={},_0xb1929a=_0x53610a['split']('~');_0x59e4b5[_0x1a3561(0x222)]=_0xb1929a[0x0],_0x59e4b5[_0x1a3561(0x1c7)]=_0xb1929a[0x1],_0x3b4bf5[_0x1a3561(0x197)](_0x59e4b5);});const _0x55362a=_0x311bfb[_0x283707(0x2ac)],_0x118df4=_0x311bfb['offset'],_0x4449e8=[_0x283707(0x1a0),'Product.taxType\x20as\x20taxType',_0x283707(0x239),_0x283707(0x238),_0x283707(0x29b),_0x283707(0x194),'Product.dateAvailable\x20as\x20dateAvailable',_0x283707(0x2a9),_0x283707(0x276),_0x283707(0x248),_0x283707(0x186),_0x283707(0x1c0),'Product.rating\x20as\x20rating',_0x283707(0x1cb),_0x283707(0x178),_0x283707(0x18e),_0x283707(0x242),'Product.stockStatusId\x20as\x20stockStatusId',_0x283707(0x209),_0x283707(0x1c1),_0x283707(0x24d),'MAX(vendor.vendorId)\x20as\x20vendorId',_0x283707(0x254),'MAX(vendor.companyName)\x20as\x20vendorCompanyName',_0x283707(0x262),_0x283707(0x25e),_0x283707(0x293),_0x283707(0x19a),_0x283707(0x1a2),_0x283707(0x21f),_0x283707(0x25b),_0x283707(0x24c),_0x283707(0x1ac),_0x283707(0x23b)+_0x283707(0x1d5),_0x283707(0x21a)+'\x20'+_0x283707(0x26e)],_0x23b952=[],_0x29f6b4=moment()[_0x283707(0x22a)](_0x283707(0x1da)),_0x28ca03=[],_0x492378=[];_0x492378[_0x283707(0x197)]({'name':'Product.productId'});_0x311bfb['categoryslug']===''||_0x311bfb[_0x283707(0x28b)]===undefined?(_0x28ca03[_0x283707(0x197)]({'tableName':_0x283707(0x1d8),'op':_0x283707(0x24a),'aliasName':_0x283707(0x193)},{'tableName':_0x283707(0x1fd),'op':_0x283707(0x24a),'aliasName':_0x283707(0x1c8)},{'tableName':_0x283707(0x29d),'op':_0x283707(0x24a),'aliasName':_0x283707(0x250)}),_0x23b952[_0x283707(0x197)]({'name':_0x283707(0x17a),'op':_0x283707(0x234),'value':0x1},{'name':_0x283707(0x2a7),'op':'raw','sign':'<=','value':_0x29f6b4[_0x283707(0x2a3)]()})):(_0x28ca03['push']({'tableName':'Product.productToCategory','op':_0x283707(0x24a),'aliasName':_0x283707(0x18f)},{'tableName':_0x283707(0x24e),'op':'left','aliasName':_0x283707(0x179)},{'tableName':_0x283707(0x1d8),'op':_0x283707(0x24a),'aliasName':_0x283707(0x193)},{'tableName':_0x283707(0x1fd),'op':_0x283707(0x24a),'aliasName':_0x283707(0x1c8)},{'tableName':_0x283707(0x29d),'op':_0x283707(0x24a),'aliasName':_0x283707(0x250)}),_0x23b952[_0x283707(0x197)]({'name':_0x283707(0x17a),'op':_0x283707(0x234),'value':0x1},{'name':_0x283707(0x18a),'op':'and','value':'\x22'+_0x311bfb['categoryslug']+'\x22'},{'name':_0x283707(0x2a7),'op':_0x283707(0x1e1),'sign':'<=','value':_0x29f6b4[_0x283707(0x2a3)]()}));_0x4ac6ca['id']&&(_0x4449e8[_0x283707(0x197)](_0x283707(0x1e6)),_0x28ca03['push']({'tableName':'Product.wishlist','op':'leftCond','aliasName':_0x283707(0x27a),'cond':'customerWishlist.customerId\x20=\x20'+_0x4ac6ca['id']}));const _0x35e899=[];_0x311bfb[_0x283707(0x1d4)]&&_0x35e899['push']({'name':[_0x283707(0x261),_0x283707(0x210)],'value':_0x311bfb[_0x283707(0x1d4)][_0x283707(0x29a)]()});_0x311bfb[_0x283707(0x205)]&&_0x23b952['push']({'name':'(CASE\x20WHEN\x20(((SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20Product.skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))'+'\x20'+_0x283707(0x1dd)+'\x20'+_0x283707(0x287)+'\x20'+_0x283707(0x2af)+'\x20'+_0x283707(0x22c)+_0x283707(0x1ad)+'\x20'+_0x283707(0x1e7)+_0x283707(0x283)+_0x283707(0x1d1)+_0x283707(0x236)+'\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201))\x20+\x20(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20Product.skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20pd2.date_end\x20>=\x20CURDATE()))\x20'+'\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20WHEN\x20((SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20Product.skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20pd2.date_end\x20>=\x20CURDATE()))\x20'+'\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20IS\x20NOT\x20NULL\x20AND\x20`Product`.`tax_type`\x20=\x201\x20AND\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x200\x20||\x20IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x20NULL))\x20THEN\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20+\x20(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20'+_0x283707(0x236)+_0x283707(0x284)+'\x20'+_0x283707(0x2a6)+'\x20'+_0x283707(0x180)+_0x283707(0x18b)+_0x283707(0x21b)+_0x283707(0x2aa)+_0x283707(0x198)+_0x283707(0x1d2)+_0x283707(0x2ab),'op':_0x283707(0x1e1),'sign':'>=','value':_0x311bfb[_0x283707(0x205)]});_0x311bfb['priceTo']&&_0x23b952[_0x283707(0x197)]({'name':_0x283707(0x1ea)+'\x20'+_0x283707(0x1dd)+'\x20'+_0x283707(0x287)+'\x20'+'ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20WHEN\x20(((SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20Product.skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))'+'\x20'+'ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20IS\x20NOT\x20NULL)\x20AND\x20`Product`.`tax_type`\x20=\x201\x20AND\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x200\x20||\x20IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x20NULL))\x20THEN\x20((SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20'+_0x283707(0x1ad)+'\x20'+_0x283707(0x1e7)+'\x20WHEN\x20(((SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20Product.skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20pd2.date_end\x20>=\x20CURDATE()))\x20'+_0x283707(0x1d1)+_0x283707(0x236)+_0x283707(0x1d6)+_0x283707(0x24b)+_0x283707(0x18c)+_0x283707(0x236)+'\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201))\x20WHEN\x20((SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20Product.skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))'+'\x20'+_0x283707(0x2a6)+'\x20'+'ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)'+_0x283707(0x18b)+_0x283707(0x21b)+_0x283707(0x2aa)+_0x283707(0x198)+_0x283707(0x1d2)+'Product.skuId)\x20END)','op':'raw','sign':'<=','value':_0x311bfb[_0x283707(0x241)]});_0x311bfb[_0x283707(0x27c)]&&_0x35e899[_0x283707(0x197)]({'name':[_0x283707(0x1cd)],'op':_0x283707(0x27c),'value':_0x3b4bf5});_0x311bfb['variant']&&_0x23b952[_0x283707(0x197)]({'name':_0x283707(0x1f6),'op':'IN','sign':_0x283707(0x247),'value':_0x5b0be8});const _0xa2679a=[];if(_0x311bfb[_0x283707(0x1ff)])_0xa2679a[_0x283707(0x197)]({'name':'(CASE\x20WHEN\x20((productSpecial\x20IS\x20NOT\x20NULL)\x20AND\x20`Product`.`tax_type`\x20=\x202\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(taxValue/100\x20*\x20productSpecial)\x20+\x20productSpecial\x20WHEN\x20((productSpecial\x20IS\x20NOT\x20NULL)\x20AND\x20`Product`.`tax_type`\x20=\x201\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(productSpecial\x20+\x20taxValue)\x20'+'\x20WHEN\x20((productDiscount\x20IS\x20NOT\x20NULL)\x20AND\x20`Product`.`tax_type`\x20=\x202\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(taxValue/100\x20*\x20productDiscount)\x20+\x20productDiscount\x20WHEN\x20(productDiscount\x20IS\x20NOT\x20NULL\x20AND\x20`Product`.`tax_type`\x20=\x201\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(taxValue\x20+\x20productDiscount)\x20WHEN\x20(productSpecial\x20IS\x20NOT\x20NULL)\x20THEN\x20productSpecial'+'\x20WHEN\x20(productDiscount\x20IS\x20NOT\x20NULL)\x20THEN\x20productDiscount\x20WHEN\x20(`Product`.`tax_type`\x20=\x202\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(taxValue/100\x20*\x20modifiedPrice)\x20+\x20modifiedPrice\x20WHEN\x20(`Product`.`tax_type`\x20=\x201\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(taxValue\x20+\x20modifiedPrice)\x20ELSE\x20modifiedPrice\x20END)','order':_0x311bfb['price']});else{if(+_0x311bfb[_0x283707(0x1f9)])_0xa2679a[_0x283707(0x197)]({'name':_0x283707(0x21d),'order':'DESC'});else+_0x311bfb[_0x283707(0x252)]?_0xa2679a['push']({'name':_0x283707(0x225),'order':_0x283707(0x1bf)}):_0xa2679a[_0x283707(0x197)]({'name':_0x283707(0x1a6),'order':_0x283707(0x196)});}const _0x5d23ee=yield this['productService']['listByQueryBuilder'](_0x55362a,_0x118df4,_0x4449e8,_0x23b952,_0x35e899,_0x28ca03,_0x492378,_0xa2679a,![],!![]),_0x42a055=_0x5d23ee[_0x283707(0x17c)](_0x41613c=>tslib_1[_0x283707(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x37e13b=_0x283707,_0x490ab4=_0x41613c;_0x490ab4[_0x37e13b(0x1aa)]=+_0x41613c[_0x37e13b(0x1aa)];if(_0x41613c['productSpecial']!==null)_0x490ab4[_0x37e13b(0x26a)]=_0x41613c[_0x37e13b(0x277)],_0x490ab4['flag']=0x1;else _0x41613c[_0x37e13b(0x23f)]!==null?(_0x490ab4[_0x37e13b(0x26a)]=_0x41613c[_0x37e13b(0x23f)],_0x490ab4[_0x37e13b(0x1d0)]=0x0):(_0x490ab4['pricerefer']='',_0x490ab4[_0x37e13b(0x1d0)]='');return _0x41613c[_0x37e13b(0x207)]===0x1?_0x41613c[_0x37e13b(0x24f)]<=_0x41613c[_0x37e13b(0x28f)]?_0x490ab4[_0x37e13b(0x246)]=_0x37e13b(0x219):_0x490ab4[_0x37e13b(0x246)]=_0x37e13b(0x265):_0x490ab4[_0x37e13b(0x246)]=_0x37e13b(0x265),_0x41613c[_0x37e13b(0x192)]!==null&&_0x41613c[_0x37e13b(0x192)]?_0x490ab4[_0x37e13b(0x17f)]=0x1:_0x490ab4['wishListStatus']=0x0,_0x490ab4;})),_0x456fb8=yield Promise[_0x283707(0x255)](_0x42a055);let _0x33dd36;if(_0x311bfb['categoryslug']){const _0xcdc421=yield this[_0x283707(0x1b1)][_0x283707(0x237)]({'categorySlug':_0x311bfb['categoryslug'],'isActive':0x1});if(_0xcdc421){const _0xf74af2=yield this[_0x283707(0x1c6)]['find']({'select':[_0x283707(0x23e),_0x283707(0x1fe)],'where':{'categoryId':_0xcdc421[_0x283707(0x182)]},'order':{'level':_0x283707(0x196)}})[_0x283707(0x20a)](_0x37320d=>{const _0x54cc75=_0x283707,_0x309231=_0x37320d['map'](_0x25c6e1=>tslib_1[_0x54cc75(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x28c4ea=_0x54cc75,_0x4b6c0f=yield this['categoryService']['findOne']({'categoryId':_0x25c6e1[_0x28c4ea(0x1fe)]}),_0x44f7b8=_0x25c6e1;return _0x44f7b8[_0x28c4ea(0x1bb)]=_0x4b6c0f?_0x4b6c0f[_0x28c4ea(0x222)]:'',_0x44f7b8[_0x28c4ea(0x182)]=_0x4b6c0f?_0x4b6c0f[_0x28c4ea(0x182)]:'',_0x44f7b8[_0x28c4ea(0x1ed)]=_0x4b6c0f?_0x4b6c0f[_0x28c4ea(0x1ed)]:'',_0x44f7b8[_0x28c4ea(0x235)]=_0x4b6c0f?_0x4b6c0f[_0x28c4ea(0x235)]:'',_0x44f7b8[_0x28c4ea(0x269)]=_0x4b6c0f?_0x4b6c0f[_0x28c4ea(0x269)]:'',_0x44f7b8;})),_0x1ab6ff=Promise[_0x54cc75(0x255)](_0x309231);return _0x1ab6ff;});_0x33dd36=_0xf74af2;}else{const _0x483d6e={'status':0x0,'message':'Invalid\x20category'};return _0x5b2833['status'](0x190)['send'](_0x483d6e);}}else _0x33dd36='';const _0x1bac13={'status':0x1,'message':_0x283707(0x17b),'data':_0x456fb8,'categoryLevel':_0x33dd36};return _0x5b2833[_0x283707(0x286)](0xc8)[_0x283707(0x187)](_0x1bac13);}));});}[a637_0x54a611(0x243)](_0x536272,_0x46304a,_0x44d5c3,_0x2611b1,_0x3b075e,_0x3e657f){const _0x4aedfc=a637_0x54a611;return tslib_1[_0x4aedfc(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x32e2b0=_0x4aedfc;if(_0x536272){const _0x3b7ae8=yield this[_0x32e2b0(0x1a4)][_0x32e2b0(0x237)]({'where':{'name':_0x536272}});if(!_0x3b7ae8){const _0x52347e={'status':0x0,'message':_0x32e2b0(0x1c2)};return _0x3e657f[_0x32e2b0(0x286)](0xc8)[_0x32e2b0(0x187)](_0x52347e);}const _0x5670e2={'status':0x1,'message':'Successfully\x20got\x20country\x20Id','data':_0x3b7ae8};return _0x3e657f[_0x32e2b0(0x286)](0xc8)[_0x32e2b0(0x187)](_0x5670e2);}const _0x36b696=[_0x32e2b0(0x2a8),_0x32e2b0(0x222),_0x32e2b0(0x267),_0x32e2b0(0x26d),_0x32e2b0(0x1ba),'isActive'],_0x389046=[{'name':'name','op':'like','value':_0x2611b1},{'name':_0x32e2b0(0x1fc),'op':'where','value':0x1}],_0x80c6a5=[],_0x230604=yield this['countryService'][_0x32e2b0(0x260)](_0x46304a,_0x44d5c3,_0x36b696,_0x389046,_0x80c6a5,_0x3b075e),_0x252ae2={'status':0x1,'message':_0x32e2b0(0x1d9),'data':_0x230604};return _0x3e657f[_0x32e2b0(0x286)](0xc8)[_0x32e2b0(0x187)](_0x252ae2);});}[a637_0x54a611(0x22d)](_0x171883,_0x1066e7,_0x5f48a5){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x545cb0=a637_0x1339,_0x5e6f19=new Contact_1[(_0x545cb0(0x257))]();_0x5e6f19['name']=_0x171883[_0x545cb0(0x222)],_0x5e6f19['email']=_0x171883[_0x545cb0(0x273)],_0x5e6f19[_0x545cb0(0x27e)]=_0x171883[_0x545cb0(0x27e)],_0x5e6f19[_0x545cb0(0x2ae)]=_0x171883[_0x545cb0(0x2ae)];const _0x1d0317=yield this[_0x545cb0(0x22e)][_0x545cb0(0x215)](_0x5e6f19),_0x12cf16=yield this[_0x545cb0(0x20f)][_0x545cb0(0x237)](0x3),_0x455d8c=yield this[_0x545cb0(0x263)][_0x545cb0(0x237)](),_0x157cad=_0x12cf16['content'][_0x545cb0(0x1eb)]('{name}',_0x1d0317[_0x545cb0(0x222)])[_0x545cb0(0x1eb)](_0x545cb0(0x1ae),_0x1d0317['email'])[_0x545cb0(0x1eb)](_0x545cb0(0x188),_0x1d0317[_0x545cb0(0x27e)])[_0x545cb0(0x1eb)](_0x545cb0(0x1cf),_0x1d0317[_0x545cb0(0x2ae)]),_0x308bc1=[],_0x1a9eb4=yield this[_0x545cb0(0x229)][_0x545cb0(0x1b3)]({'select':[_0x545cb0(0x2a0)],'where':{'userGroupId':0x1}});for(const _0x40bc3a of _0x1a9eb4){const _0x41ffb3=_0x40bc3a['username'];_0x308bc1['push'](_0x41ffb3);}const _0x364c9b=env_1[_0x545cb0(0x21e)][_0x545cb0(0x1f1)],_0x545a85={};_0x545a85[_0x545cb0(0x1f2)]=_0x455d8c,_0x545a85[_0x545cb0(0x26c)]=_0x157cad,_0x545a85['redirectUrl']=_0x364c9b,_0x545a85[_0x545cb0(0x290)]=undefined;const _0x7499af=mail_services_1[_0x545cb0(0x22f)]['sendMail'](_0x545a85,_0x308bc1,_0x12cf16[_0x545cb0(0x1f4)],![],![],'');if(_0x7499af){const _0x43f1c1={'status':0x1,'message':_0x545cb0(0x295)};return _0x5f48a5[_0x545cb0(0x286)](0xc8)['send'](_0x43f1c1);}else{const _0x339b8d={'status':0x0,'message':_0x545cb0(0x244)};return _0x5f48a5[_0x545cb0(0x286)](0x190)[_0x545cb0(0x187)](_0x339b8d);}});}['zonelist'](_0x486127,_0x4b5062,_0x157ce5,_0x512a9a,_0x465904,_0x527194){const _0x52b858=a637_0x54a611;return tslib_1[_0x52b858(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x17ec42=_0x52b858,_0x342f16=['zoneId',_0x17ec42(0x2a8),'code',_0x17ec42(0x222),_0x17ec42(0x1fc)],_0x8eb72f=[{'name':_0x17ec42(0x222),'op':_0x17ec42(0x1d3),'value':_0x512a9a},{'name':_0x17ec42(0x1fc),'op':_0x17ec42(0x201),'value':0x1}];_0x157ce5&&_0x8eb72f[_0x17ec42(0x197)]({'name':_0x17ec42(0x2a8),'op':_0x17ec42(0x201),'value':_0x157ce5});const _0x53f454=[],_0x4b36d6=[_0x17ec42(0x20c)],_0x121621=yield this[_0x17ec42(0x1a8)][_0x17ec42(0x260)](_0x486127,_0x4b5062,_0x342f16,_0x8eb72f,_0x53f454,_0x4b36d6,_0x465904);if(_0x121621){const _0xea7c5b={'status':0x1,'message':'Successfully\x20get\x20all\x20zone\x20List','data':(0x0,class_transformer_1['instanceToPlain'])(_0x121621)};return _0x527194[_0x17ec42(0x286)](0xc8)[_0x17ec42(0x187)](_0xea7c5b);}else{const _0x12e525={'status':0x1,'message':'unable\x20to\x20get\x20zone\x20List'};return _0x527194[_0x17ec42(0x286)](0x190)[_0x17ec42(0x187)](_0x12e525);}});}[a637_0x54a611(0x278)](_0x285972,_0x3ae46f,_0x55b7cb,_0x4dc449,_0x255a84){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4dd632=a637_0x1339,_0x3c3c92=[_0x4dd632(0x2ad),_0x4dd632(0x222),_0x4dd632(0x2a1),_0x4dd632(0x1b2),'imagePath',_0x4dd632(0x1fc),_0x4dd632(0x1a3),'isActive'],_0x13c369=[{'name':_0x4dd632(0x222),'op':_0x4dd632(0x1d3),'value':_0x55b7cb},{'name':_0x4dd632(0x1fc),'op':_0x4dd632(0x201),'value':0x1}],_0x354549=[],_0x3d972a=yield this[_0x4dd632(0x1c9)]['list'](_0x285972,_0x3ae46f,_0x3c3c92,_0x13c369,_0x354549,_0x4dc449);if(_0x3d972a){const _0x36fec1={'status':0x1,'message':_0x4dd632(0x1c5),'data':_0x3d972a};return _0x255a84[_0x4dd632(0x286)](0xc8)['send'](_0x36fec1);}else{const _0x507ba4={'status':0x0,'message':_0x4dd632(0x228)};return _0x255a84[_0x4dd632(0x286)](0x190)['send'](_0x507ba4);}});}['SpecificcategoryList'](_0x4d358b,_0x1b575e,_0x3e8cc8){const _0x29343b=a637_0x54a611;return tslib_1[_0x29343b(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x561677=_0x29343b,_0x51db82=yield this[_0x561677(0x1b1)][_0x561677(0x237)]({'where':{'categorySlug':_0x4d358b}});if(_0x51db82===undefined){const _0x41bd9a={'status':0x0,'message':'Invalid\x20categoryId'};return _0x3e8cc8[_0x561677(0x286)](0x190)['send'](_0x41bd9a);}const _0x3451e6=yield this['categoryPathService'][_0x561677(0x237)]({'categoryId':_0x51db82['categoryId'],'level':0x0}),_0x5bb376=['categoryId',_0x561677(0x222),'image',_0x561677(0x1ef),_0x561677(0x235),_0x561677(0x1a3),_0x561677(0x1ed)],_0x176966=[{'name':_0x561677(0x1fc),'op':_0x561677(0x201),'value':0x1}],_0x58ff67=yield this[_0x561677(0x1b1)][_0x561677(0x260)](0x0,0x0,_0x5bb376,_0x176966,0x0,0x0,0x0),_0x587319=(0x0,array_to_tree_1[_0x561677(0x275)])(_0x58ff67,{'parentProperty':'parentInt','customID':_0x561677(0x182)}),_0x484ad5=_0x3451e6[_0x561677(0x1fe)];let _0x1e4de8;const _0x5aa528=_0x561677(0x182);for(const _0x503eab of _0x587319){_0x503eab[_0x5aa528]===_0x484ad5&&(_0x1e4de8=_0x503eab);}const _0x2a92eb={'status':0x1,'message':_0x561677(0x183),'data':_0x1e4de8};return _0x3e8cc8[_0x561677(0x286)](0xc8)['send'](_0x2a92eb);});}[a637_0x54a611(0x22b)](_0x48b6b2,_0x56510d,_0x3e7a76,_0x5eb021,_0x5ab580){const _0x349794=a637_0x54a611;return tslib_1[_0x349794(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x907db4=_0x349794,_0x1ecf0e=['id',_0x907db4(0x23c),'pluginAvatar',_0x907db4(0x285),_0x907db4(0x26f),_0x907db4(0x1b4),_0x907db4(0x223)],_0x1d354a=[{'name':_0x907db4(0x26f),'op':_0x907db4(0x1d3),'value':_0x3e7a76},{'name':_0x907db4(0x223),'op':_0x907db4(0x201),'value':0x1}],_0xf2175a=[],_0x165d25=yield this[_0x907db4(0x1a5)][_0x907db4(0x260)](_0x48b6b2,_0x56510d,_0x1ecf0e,_0x1d354a,_0xf2175a,_0x5eb021),_0x32a43f={'status':0x1,'message':_0x907db4(0x28c),'data':_0x165d25};return _0x5ab580[_0x907db4(0x286)](0xc8)['send'](_0x32a43f);});}['productCount'](_0x2590ad,_0xfef095,_0x3adfe7){const _0x52e691=a637_0x54a611;return tslib_1[_0x52e691(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x342032=_0x52e691,_0x11d4c5=moment()[_0x342032(0x22a)](_0x342032(0x1da)),_0x4b02da=[_0x342032(0x19d)],_0x25a5b3=yield this[_0x342032(0x280)]['productMaxPrice'](_0x4b02da),_0x253fc5=_0x25a5b3[_0x342032(0x28e)],_0x160068=_0x2590ad['limit'],_0x5ef7ef=_0x2590ad[_0x342032(0x1b5)],_0x3e7084=[_0x342032(0x1a0),_0x342032(0x199),'Product.taxValue\x20as\x20taxValue',_0x342032(0x238),_0x342032(0x29b),_0x342032(0x194),_0x342032(0x1c3),'Product.sku\x20as\x20sku',_0x342032(0x276),_0x342032(0x248),_0x342032(0x186),'Product.quantity\x20as\x20quantity',_0x342032(0x185),_0x342032(0x1cb),_0x342032(0x178),'Product.hasStock\x20as\x20hasStock',_0x342032(0x242),_0x342032(0x20d),_0x342032(0x209),_0x342032(0x1c1),_0x342032(0x24d),_0x342032(0x20b),'customer.firstName\x20as\x20vendorName',_0x342032(0x281),_0x342032(0x262),_0x342032(0x25e),_0x342032(0x293),_0x342032(0x21f),_0x342032(0x25b),_0x342032(0x24c),_0x342032(0x1ac),_0x342032(0x23b)+'\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20AS\x20productDiscount',_0x342032(0x21a)+'\x20'+_0x342032(0x26e)],_0x393369=[],_0x30622b=[],_0x109cbb=[];_0x2590ad[_0x342032(0x28b)]===''||_0x2590ad['categoryslug']===undefined?(_0x30622b[_0x342032(0x197)]({'tableName':_0x342032(0x1d8),'op':_0x342032(0x24a),'aliasName':_0x342032(0x193)},{'tableName':_0x342032(0x1fd),'op':'left','aliasName':_0x342032(0x1c8)},{'tableName':'vendor.customer','op':'left','aliasName':'customer'}),_0x393369[_0x342032(0x197)]({'name':'Product.isActive','op':_0x342032(0x234),'value':0x1},{'name':'(('+'customer.isActive','op':_0x342032(0x234),'value':0x1},{'name':_0x342032(0x217),'op':_0x342032(0x234),'value':0x0+')'},{'name':'vendor.customer_id\x20','op':_0x342032(0x2a4),'value':')'},{'name':_0x342032(0x2a7),'op':_0x342032(0x1e1),'sign':'<=','value':_0x11d4c5['toString']()})):(_0x30622b[_0x342032(0x197)]({'tableName':_0x342032(0x212),'op':_0x342032(0x24a),'aliasName':_0x342032(0x18f)},{'tableName':_0x342032(0x24e),'op':_0x342032(0x24a),'aliasName':_0x342032(0x179)},{'tableName':_0x342032(0x1d8),'op':_0x342032(0x24a),'aliasName':_0x342032(0x193)},{'tableName':'vendorProducts.vendor','op':_0x342032(0x24a),'aliasName':_0x342032(0x1c8)},{'tableName':_0x342032(0x29d),'op':_0x342032(0x24a),'aliasName':_0x342032(0x250)}),_0x393369['push']({'name':'Product.isActive','op':'and','value':0x1},{'name':'(('+_0x342032(0x19b),'op':_0x342032(0x234),'value':0x1},{'name':_0x342032(0x217),'op':'and','value':0x0+')'},{'name':'vendor.customer_id\x20','op':_0x342032(0x2a4),'value':')'},{'name':_0x342032(0x18a),'op':'and','value':'\x22'+_0x2590ad['categoryslug']+'\x22'},{'name':_0x342032(0x2a7),'op':_0x342032(0x1e1),'sign':'<=','value':_0x11d4c5[_0x342032(0x2a3)]()}));_0xfef095['id']&&(_0x3e7084['push'](_0x342032(0x25a)),_0x30622b[_0x342032(0x197)]({'tableName':_0x342032(0x1dc),'op':_0x342032(0x23a),'aliasName':_0x342032(0x27a),'cond':_0x342032(0x206)+_0xfef095['id']}));const _0x21652d=[];_0x2590ad[_0x342032(0x1d4)]&&_0x21652d['push']({'name':['Product.keywords',_0x342032(0x210)],'value':_0x2590ad[_0x342032(0x1d4)][_0x342032(0x29a)]()});_0x2590ad[_0x342032(0x205)]&&_0x393369[_0x342032(0x197)]({'name':_0x342032(0x1ea)+'\x20'+_0x342032(0x1dd)+'\x20'+_0x342032(0x287)+'\x20'+'ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20WHEN\x20(((SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20Product.skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))'+'\x20'+_0x342032(0x22c)+_0x342032(0x1ad)+'\x20'+_0x342032(0x1e7)+_0x342032(0x283)+_0x342032(0x1d1)+_0x342032(0x236)+_0x342032(0x1d6)+'\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20WHEN\x20((SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20Product.skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20pd2.date_end\x20>=\x20CURDATE()))\x20'+'\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20IS\x20NOT\x20NULL\x20AND\x20`Product`.`tax_type`\x20=\x201\x20AND\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x200\x20||\x20IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20!=\x20NULL))\x20THEN\x20(IF(Product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`Product`.`tax_value`\x20\x20LIMIT\x201),\x20Product.taxValue\x20)\x20+\x20(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20'+_0x342032(0x236)+_0x342032(0x284)+'\x20'+_0x342032(0x2a6)+'\x20'+_0x342032(0x180)+_0x342032(0x18b)+_0x342032(0x21b)+_0x342032(0x2aa)+_0x342032(0x198)+_0x342032(0x1d2)+_0x342032(0x2ab),'op':_0x342032(0x1e1),'sign':'>=','value':_0x2590ad[_0x342032(0x205)]});_0x2590ad['priceTo']&&_0x393369['push']({'name':_0x342032(0x1ea)+'\x20'+_0x342032(0x1dd)+'\x20'+_0x342032(0x287)+'\x20'+_0x342032(0x2af)+'\x20'+_0x342032(0x22c)+_0x342032(0x1ad)+'\x20'+_0x342032(0x1e7)+'\x20WHEN\x20(((SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20Product.skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20pd2.date_end\x20>=\x20CURDATE()))\x20'+_0x342032(0x1d1)+_0x342032(0x236)+_0x342032(0x1d6)+_0x342032(0x24b)+_0x342032(0x18c)+_0x342032(0x236)+_0x342032(0x284)+'\x20'+_0x342032(0x2a6)+'\x20'+_0x342032(0x180)+_0x342032(0x18b)+_0x342032(0x21b)+_0x342032(0x2aa)+_0x342032(0x198)+_0x342032(0x1d2)+_0x342032(0x2ab),'op':_0x342032(0x1e1),'sign':'<=','value':_0x2590ad[_0x342032(0x241)]});const _0xfd33b9=[];_0x2590ad['price']?_0xfd33b9[_0x342032(0x197)]({'name':_0x342032(0x26b)+_0x342032(0x1e3)+'\x20WHEN\x20(productDiscount\x20IS\x20NOT\x20NULL)\x20THEN\x20productDiscount\x20WHEN\x20(`Product`.`tax_type`\x20=\x202\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(taxValue/100\x20*\x20modifiedPrice)\x20+\x20modifiedPrice\x20WHEN\x20(`Product`.`tax_type`\x20=\x201\x20AND\x20(taxValue\x20!=\x200\x20||\x20taxValue\x20!=\x20NULL))\x20THEN\x20(taxValue\x20+\x20modifiedPrice)\x20ELSE\x20modifiedPrice\x20END)','order':_0x2590ad[_0x342032(0x1ff)]}):_0xfd33b9[_0x342032(0x197)]({'name':'Product.sortOrder','order':_0x342032(0x196)});const _0x189064=yield this[_0x342032(0x280)][_0x342032(0x1f0)](_0x160068,_0x5ef7ef,_0x3e7084,_0x393369,_0x21652d,_0x30622b,_0x109cbb,_0xfd33b9,!![],!![]),_0x249bd9={'status':0x1,'message':'Successfully\x20get\x20Product\x20Count','data':{'productCount':_0x189064,'maximumProductPrice':_0x253fc5}};return _0x3adfe7[_0x342032(0x286)](0xc8)['send'](_0x249bd9);});}[a637_0x54a611(0x1de)](_0x5df7dc,_0x4c5014){const _0x531f67=a637_0x54a611;return tslib_1[_0x531f67(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x58a1bb=_0x531f67,_0x87e3f2=yield this[_0x58a1bb(0x259)]['findOne']({'where':{'orderProductPrefixId':_0x5df7dc}});if(!_0x87e3f2){const _0x57216d={'status':0x0,'message':_0x58a1bb(0x1af)};return _0x4c5014[_0x58a1bb(0x286)](0x190)[_0x58a1bb(0x187)](_0x57216d);}const _0x29c86d=_0x87e3f2[_0x58a1bb(0x208)],_0x4131f0=['orderProductId','orderStatusId',_0x58a1bb(0x189),'createdDate','modifiedDate'],_0x3cfa37=[],_0x2a9848=[{'name':'orderProductId','op':_0x58a1bb(0x201),'value':_0x29c86d}],_0x548b94=yield this[_0x58a1bb(0x214)]['list'](0x0,0x0,_0x4131f0,_0x3cfa37,_0x2a9848,0x0),_0x4ed6e5=yield this[_0x58a1bb(0x1ce)]['findAll']({'select':[_0x58a1bb(0x1b9),_0x58a1bb(0x222)],'where':{'isActive':0x1}}),_0x763e84=_0x4ed6e5[_0x58a1bb(0x17c)](_0x3b4628=>tslib_1[_0x58a1bb(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x131be6=_0x58a1bb,_0x3758a8=_0x548b94['find'](_0x152645=>_0x152645[_0x131be6(0x1b9)]===_0x3b4628[_0x131be6(0x1b9)]),_0x15d02b=_0x3b4628;return _0x3758a8===undefined?_0x15d02b['createdDate']='':_0x15d02b[_0x131be6(0x184)]=_0x3758a8[_0x131be6(0x184)],_0x15d02b;})),_0x5ce8ed=yield Promise[_0x58a1bb(0x255)](_0x763e84),_0x1e041f={'status':0x1,'message':_0x58a1bb(0x253),'data':_0x5ce8ed};return _0x4c5014[_0x58a1bb(0x286)](0xc8)[_0x58a1bb(0x187)](_0x1e041f);});}['PluginList'](_0xac9f98,_0xc93d2e,_0x457811,_0x1b716f){const _0x5d5154=a637_0x54a611;return tslib_1[_0x5d5154(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x471029=_0x5d5154,_0x192057=yield this[_0x471029(0x1a5)]['pluginList'](_0xac9f98,_0xc93d2e,_0x457811);if(!_0x192057){const _0x1b09b5={'status':0x0,'message':_0x471029(0x17e)};return _0x1b716f[_0x471029(0x286)](0x190)[_0x471029(0x187)](_0x1b09b5);}const _0x201eed={};console[_0x471029(0x1b6)](_0x192057);for(const _0x2748a2 of _0x192057){_0x201eed[_0x2748a2['slugName']]=_0x2748a2[_0x471029(0x223)];}return _0x1b716f['status'](0xc8)[_0x471029(0x187)]({'status':0x1,'message':'Successfully\x20get\x20the\x20list','data':_0x201eed});});}[a637_0x54a611(0x211)](_0x3acfce,_0x47f266){const _0xc45174=a637_0x54a611;return tslib_1[_0xc45174(0x1b0)](this,void 0x0,void 0x0,function*(){const _0x5bbea2=_0xc45174;if(_0x3acfce===_0x5bbea2(0x1e8)){const _0x4bd3f2=yield this[_0x5bbea2(0x1a5)][_0x5bbea2(0x237)]({'where':{'pluginName':_0x3acfce,'pluginStatus':0x1}});if(_0x4bd3f2){const _0x51db2c=JSON[_0x5bbea2(0x221)](_0x4bd3f2['pluginAdditionalInfo']),_0x439873=env_1[_0x5bbea2(0x21e)][_0x5bbea2(0x1bc)]+_0x51db2c['defaultRoute'],_0x261ce5={'status':0x1,'message':'Redirect\x20to\x20this\x20url.','data':{'returnPath':_0x439873,'clientId':_0x51db2c['clientId']}};return _0x47f266[_0x5bbea2(0x286)](0xc8)[_0x5bbea2(0x187)](_0x261ce5);}else{const _0x2aff2c={'status':0x0,'message':_0x5bbea2(0x29e)};return _0x47f266[_0x5bbea2(0x286)](0x190)[_0x5bbea2(0x187)](_0x2aff2c);}}});}};tslib_1[a637_0x54a611(0x1b8)]([(0x0,routing_controllers_1['Get'])(a637_0x54a611(0x1b7)),tslib_1[a637_0x54a611(0x268)](0x0,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x2ac))),tslib_1[a637_0x54a611(0x268)](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1b5))),tslib_1[a637_0x54a611(0x268)](0x2,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1d4))),tslib_1[a637_0x54a611(0x268)](0x3,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1e2))),tslib_1['__param'](0x4,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata']('design:type',Function),tslib_1[a637_0x54a611(0x1e5)]('design:paramtypes',[Number,Number,String,Object,Object]),tslib_1[a637_0x54a611(0x1e5)]('design:returntype',Promise)],CommonListController[a637_0x54a611(0x20e)],a637_0x54a611(0x1a9),null),tslib_1[a637_0x54a611(0x1b8)]([(0x0,routing_controllers_1['Get'])(a637_0x54a611(0x1fa)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x2ac))),tslib_1[a637_0x54a611(0x268)](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1b5))),tslib_1[a637_0x54a611(0x268)](0x2,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1d4))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1a3))),tslib_1[a637_0x54a611(0x268)](0x4,(0x0,routing_controllers_1['QueryParam'])(a637_0x54a611(0x1e2))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a637_0x54a611(0x25f)])()),tslib_1[a637_0x54a611(0x268)](0x6,(0x0,routing_controllers_1[a637_0x54a611(0x1a1)])()),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x200),Function),tslib_1['__metadata'](a637_0x54a611(0x1a7),[Number,Number,String,Number,Object,Object,Object]),tslib_1['__metadata'](a637_0x54a611(0x29c),Promise)],CommonListController[a637_0x54a611(0x20e)],a637_0x54a611(0x264),null),tslib_1[a637_0x54a611(0x1b8)]([(0x0,routing_controllers_1['UseBefore'])(checkTokenMiddleware_1[a637_0x54a611(0x27b)]),(0x0,routing_controllers_1[a637_0x54a611(0x2a5)])(a637_0x54a611(0x1ca)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a637_0x54a611(0x1ab)])()),tslib_1[a637_0x54a611(0x268)](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x25f)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a637_0x54a611(0x1a1)])()),tslib_1['__metadata'](a637_0x54a611(0x200),Function),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x1a7),[ListRequest_1[a637_0x54a611(0x27f)],Object,Object]),tslib_1['__metadata'](a637_0x54a611(0x29c),Promise)],CommonListController['prototype'],'customProductList',null),tslib_1[a637_0x54a611(0x1b8)]([(0x0,routing_controllers_1[a637_0x54a611(0x2a5)])(a637_0x54a611(0x18d)),tslib_1[a637_0x54a611(0x268)](0x0,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])('countryName')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x2ac))),tslib_1[a637_0x54a611(0x268)](0x2,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1b5))),tslib_1[a637_0x54a611(0x268)](0x3,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])('keyword')),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1e2))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a637_0x54a611(0x1a1)])()),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x200),Function),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x1a7),[String,Number,Number,String,Object,Object]),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x29c),Promise)],CommonListController[a637_0x54a611(0x20e)],'countryList',null),tslib_1[a637_0x54a611(0x1b8)]([(0x0,routing_controllers_1[a637_0x54a611(0x1e4)])(a637_0x54a611(0x279)),tslib_1[a637_0x54a611(0x268)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a637_0x54a611(0x268)](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x25f)])()),tslib_1[a637_0x54a611(0x268)](0x2,(0x0,routing_controllers_1[a637_0x54a611(0x1a1)])()),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x200),Function),tslib_1[a637_0x54a611(0x1e5)]('design:paramtypes',[ContactRequest_1[a637_0x54a611(0x202)],Object,Object]),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x29c),Promise)],CommonListController[a637_0x54a611(0x20e)],a637_0x54a611(0x22d),null),tslib_1[a637_0x54a611(0x1b8)]([(0x0,routing_controllers_1[a637_0x54a611(0x2a5)])('/zone-list'),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x2ac))),tslib_1[a637_0x54a611(0x268)](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1b5))),tslib_1[a637_0x54a611(0x268)](0x2,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])('countryId')),tslib_1[a637_0x54a611(0x268)](0x3,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1d4))),tslib_1[a637_0x54a611(0x268)](0x4,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1e2))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a637_0x54a611(0x1a1)])()),tslib_1[a637_0x54a611(0x1e5)]('design:type',Function),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x1a7),[Number,Number,Number,String,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],CommonListController['prototype'],a637_0x54a611(0x1f3),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(a637_0x54a611(0x270)),tslib_1[a637_0x54a611(0x268)](0x0,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])('limit')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1b5))),tslib_1[a637_0x54a611(0x268)](0x2,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])('keyword')),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1e2))),tslib_1[a637_0x54a611(0x268)](0x4,(0x0,routing_controllers_1[a637_0x54a611(0x1a1)])()),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x200),Function),tslib_1['__metadata'](a637_0x54a611(0x1a7),[Number,Number,String,Object,Object]),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x29c),Promise)],CommonListController[a637_0x54a611(0x20e)],a637_0x54a611(0x278),null),tslib_1[a637_0x54a611(0x1b8)]([(0x0,routing_controllers_1['Get'])(a637_0x54a611(0x226)),tslib_1[a637_0x54a611(0x268)](0x0,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1ed))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x25f)])()),tslib_1[a637_0x54a611(0x268)](0x2,(0x0,routing_controllers_1[a637_0x54a611(0x1a1)])()),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x200),Function),tslib_1[a637_0x54a611(0x1e5)]('design:paramtypes',[String,Object,Object]),tslib_1[a637_0x54a611(0x1e5)]('design:returntype',Promise)],CommonListController[a637_0x54a611(0x20e)],a637_0x54a611(0x1e9),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(a637_0x54a611(0x291)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x2ac))),tslib_1[a637_0x54a611(0x268)](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1b5))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])('keyword')),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1e2))),tslib_1[a637_0x54a611(0x268)](0x4,(0x0,routing_controllers_1[a637_0x54a611(0x1a1)])()),tslib_1['__metadata'](a637_0x54a611(0x200),Function),tslib_1[a637_0x54a611(0x1e5)]('design:paramtypes',[Number,Number,String,Object,Object]),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x29c),Promise)],CommonListController[a637_0x54a611(0x20e)],'paymentSettingList',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a637_0x54a611(0x176)])(checkTokenMiddleware_1[a637_0x54a611(0x27b)]),(0x0,routing_controllers_1[a637_0x54a611(0x2a5)])(a637_0x54a611(0x191)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a637_0x54a611(0x1ab)])()),tslib_1[a637_0x54a611(0x268)](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x25f)])()),tslib_1[a637_0x54a611(0x268)](0x2,(0x0,routing_controllers_1[a637_0x54a611(0x1a1)])()),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x200),Function),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x1a7),[ListRequest_1[a637_0x54a611(0x27f)],Object,Object]),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x29c),Promise)],CommonListController[a637_0x54a611(0x20e)],a637_0x54a611(0x1bd),null),tslib_1[a637_0x54a611(0x1b8)]([(0x0,routing_controllers_1['Get'])(a637_0x54a611(0x1fb)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])('orderPrefixId')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x1a1)])()),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x200),Function),tslib_1[a637_0x54a611(0x1e5)]('design:paramtypes',[String,Object]),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x29c),Promise)],CommonListController[a637_0x54a611(0x20e)],a637_0x54a611(0x1de),null),tslib_1[a637_0x54a611(0x1b8)]([(0x0,routing_controllers_1[a637_0x54a611(0x2a5)])(a637_0x54a611(0x174)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x2ac))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])(a637_0x54a611(0x1b5))),tslib_1[a637_0x54a611(0x268)](0x2,(0x0,routing_controllers_1[a637_0x54a611(0x19f)])('count')),tslib_1['__param'](0x3,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata'](a637_0x54a611(0x200),Function),tslib_1['__metadata']('design:paramtypes',[Number,Number,Object,Object]),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x29c),Promise)],CommonListController[a637_0x54a611(0x20e)],a637_0x54a611(0x271),null),tslib_1[a637_0x54a611(0x1b8)]([(0x0,routing_controllers_1[a637_0x54a611(0x2a5)])(a637_0x54a611(0x25c)),tslib_1[a637_0x54a611(0x268)](0x0,(0x0,routing_controllers_1['QueryParam'])(a637_0x54a611(0x23c))),tslib_1[a637_0x54a611(0x268)](0x1,(0x0,routing_controllers_1[a637_0x54a611(0x1a1)])()),tslib_1['__metadata'](a637_0x54a611(0x200),Function),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x1a7),[String,Object]),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x29c),Promise)],CommonListController[a637_0x54a611(0x20e)],a637_0x54a611(0x211),null),CommonListController=tslib_1[a637_0x54a611(0x1b8)]([(0x0,routing_controllers_1['JsonController'])(a637_0x54a611(0x224)),tslib_1[a637_0x54a611(0x1e5)](a637_0x54a611(0x1a7),[BannerService_1['BannerService'],CategoryService_1[a637_0x54a611(0x27d)],ProductService_1[a637_0x54a611(0x233)],LanguageService_1[a637_0x54a611(0x19e)],CountryService_1['CountryService'],ContactService_1[a637_0x54a611(0x1e0)],EmailTemplateService_1[a637_0x54a611(0x1cc)],zoneService_1[a637_0x54a611(0x251)],CategoryPathService_1[a637_0x54a611(0x220)],PluginService_1[a637_0x54a611(0x19c)],UserService_1[a637_0x54a611(0x256)],OrderStatusService_1['OrderStatusService'],SettingService_1['SettingService'],OrderProductService_1[a637_0x54a611(0x213)],OrderProductLogService_1[a637_0x54a611(0x258)]])],CommonListController),exports[a637_0x54a611(0x230)]=CommonListController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CommonListController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const BannerService_1 = require("../../core/services/BannerService");
+const mail_services_1 = require("../../../auth/mail.services");
+const class_transformer_1 = require("class-transformer");
+const CategoryService_1 = require("../../core/services/CategoryService");
+const ProductService_1 = require("../../core/services/ProductService");
+const array_to_tree_1 = tslib_1.__importDefault(require("array-to-tree"));
+const CountryService_1 = require("../../core/services/CountryService");
+const ContactService_1 = require("../../core/services/ContactService");
+const ContactRequest_1 = require("./requests/ContactRequest");
+const Contact_1 = require("../../core/models/Contact");
+const EmailTemplateService_1 = require("../../core/services/EmailTemplateService");
+const zoneService_1 = require("../../core/services/zoneService");
+const LanguageService_1 = require("../../core/services/LanguageService");
+const CategoryPathService_1 = require("../../core/services/CategoryPathService");
+const PluginService_1 = require("../../core/services/PluginService");
+const UserService_1 = require("../../core/services/UserService");
+const OrderStatusService_1 = require("../../core/services/OrderStatusService");
+const OrderProductService_1 = require("../../core/services/OrderProductService");
+const OrderProductLogService_1 = require("../../core/services/OrderProductLogService");
+const SettingService_1 = require("../../core/services/SettingService");
+const StoreCategoryValidatorMiddleware_1 = require("../../core/middlewares/StoreCategoryValidatorMiddleware");
+const env_1 = require("../../../env");
+const ListRequest_1 = require("./requests/ListRequest");
+const moment = require("moment");
+const checkTokenMiddleware_1 = require("../../core/middlewares/checkTokenMiddleware");
+const typeorm_1 = require("typeorm");
+let CommonListController = class CommonListController {
+    constructor(bannerService, categoryService, productService, languageService, countryService, contactService, emailTemplateService, zoneService, categoryPathService, pluginService, userService, orderStatusService, settingsService, orderProductService, orderProductLogService) {
+        this.bannerService = bannerService;
+        this.categoryService = categoryService;
+        this.productService = productService;
+        this.languageService = languageService;
+        this.countryService = countryService;
+        this.contactService = contactService;
+        this.emailTemplateService = emailTemplateService;
+        this.zoneService = zoneService;
+        this.categoryPathService = categoryPathService;
+        this.pluginService = pluginService;
+        this.userService = userService;
+        this.orderStatusService = orderStatusService;
+        this.settingsService = settingsService;
+        this.orderProductService = orderProductService;
+        this.orderProductLogService = orderProductLogService;
+    }
+    // Banner List API
+    /**
+     * @api {get} /api/list/banner-list Banner List
+     * @apiGroup Store List
+     * @apiParam (Request body) {Number} limit Limit
+     * @apiParam (Request body) {Number} offset Offset
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiParamExample {json} Input
+     * {
+     *      "limit" : "",
+     *      "offset": "",
+     *      "count": "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Thank you Banner list show successfully..!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/banner-list
+     * @apiErrorExample {json} Banner List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Product list Function
+    bannerList(limit, offset, keyword, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['bannerId', 'title', 'image', 'imagePath', 'content', 'link', 'position', 'isActive', 'linkType'];
+            const search = [
+                {
+                    name: 'title',
+                    op: 'like',
+                    value: keyword,
+                },
+            ];
+            const WhereConditions = [
+                {
+                    name: 'isActive',
+                    value: 1,
+                },
+            ];
+            const bannerList = yield this.bannerService.list(limit, offset, select, search, WhereConditions, count);
+            const list = bannerList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                if (+temp.linkType === 2) {
+                    const productRedirectUrl = env_1.env.productRedirectUrl;
+                    temp.link = productRedirectUrl.concat(temp.link);
+                }
+                else if (+temp.linkType === 3) {
+                    const categoryRedirectUrl = env_1.env.categoryRedirectUrl;
+                    temp.link = categoryRedirectUrl.concat(temp.link);
+                }
+                else {
+                    temp.link = temp.link;
+                }
+                return temp;
+            }));
+            const result = yield Promise.all(list);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got banner list',
+                data: result,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Category List Tree API
+    /**
+     * @api {get} /api/list/category-list Category List Tree API
+     * @apiGroup Store List
+     * @apiParam (Request body) {Number} limit Limit
+     * @apiParam (Request body) {Number} offset Offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} sortOrder sortOrder
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiParamExample {json} Input
+     * {
+     *      "limit" : "",
+     *      "offset": "",
+     *      "keyorder": "",
+     *      "sortOrder": "",
+     *      "count": "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "category list shown successfully..!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/category-list
+     * @apiErrorExample {json} Category List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Category List Function
+    ParentCategoryList(limit, offset, keyword, sortOrder, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['categoryId', 'name', 'image', 'imagePath', 'parentInt', 'sortOrder', 'categorySlug', 'isActive'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                },
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 1,
+                },
+                {
+                    name: 'categoryId',
+                    op: 'where',
+                    value: (0, typeorm_1.In)(request.store.siteCategoryIds),
+                },
+            ];
+            const WhereConditions = [];
+            const categoryData = yield this.categoryService.list(limit, offset, select, search, WhereConditions, sortOrder, count);
+            if (count) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully get All category List',
+                    data: categoryData,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const categoryList = (0, array_to_tree_1.default)(categoryData, {
+                    parentProperty: 'parentInt',
+                    customID: 'categoryId',
+                });
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the list of categories.',
+                    data: categoryList,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Custom Product List API
+    /**
+     * @api {get} /api/list/custom-product-list Custom Product List API
+     * @apiGroup Store List
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} categoryslug categoryslug
+     * @apiParam (Request body) {Number} priceFrom price from you want to list
+     * @apiParam (Request body) {Number} priceTo price to you want to list
+     * @apiParam (Request body) {String} price ASC OR DESC
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get product list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/list/custom-product-list
+     * @apiErrorExample {json} productList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    customProductList(params, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return new Promise(() => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c, _d;
+                const variant = [];
+                const attribute = [];
+                const tempVariant = (_b = (_a = params.variant) === null || _a === void 0 ? void 0 : _a.split(',')) !== null && _b !== void 0 ? _b : [];
+                const tempAttribute = (_d = (_c = params.attribute) === null || _c === void 0 ? void 0 : _c.split(',')) !== null && _d !== void 0 ? _d : [];
+                if ((tempVariant === null || tempVariant === void 0 ? void 0 : tempVariant.length) > 0) {
+                    tempVariant.forEach(element => {
+                        const temp = {};
+                        const value = element.split('~');
+                        temp.name = value[0];
+                        temp.value = value[1];
+                        variant.push(temp);
+                    });
+                }
+                if ((tempAttribute === null || tempAttribute === void 0 ? void 0 : tempAttribute.length) > 0) {
+                    tempAttribute.forEach(element => {
+                        const temp = {};
+                        const value = element.split('~');
+                        temp.name = value[0];
+                        temp.value = value[1];
+                        attribute.push(temp);
+                    });
+                }
+                const limit = params.limit;
+                const offset = params.offset;
+                const selects = ['Product.productId as productId',
+                    'Product.taxType as taxType',
+                    'Product.taxValue as taxValue',
+                    'Product.name as name',
+                    'Product.price as price',
+                    'Product.description as description',
+                    'Product.dateAvailable as dateAvailable',
+                    'Product.sku as sku',
+                    'Product.skuId as skuId',
+                    'Product.isSimplified as isSimplified',
+                    'Product.upc as upc',
+                    'Product.quantity as quantity',
+                    'Product.rating as rating',
+                    'Product.isActive as isActive',
+                    'Product.productSlug as productSlug',
+                    'Product.hasStock as hasStock',
+                    'Product.outOfStockThreshold as outOfStockThreshold',
+                    'Product.stockStatusId as stockStatusId',
+                    'Product.createdDate as createdDate',
+                    'Product.keywords as keywords',
+                    'Product.attributeKeyword as attributeKeyword',
+                    'MAX(vendor.vendorId) as vendorId',
+                    'MAX(customer.firstName) as vendorName',
+                    'MAX(vendor.companyName) as vendorCompanyName',
+                    '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
+                    '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as image',
+                    '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
+                    '(SELECT COUNT(pr.rating) as ratingCount FROM product_rating pr WHERE pr.product_id = Product.productId) as ratingCount',
+                    '(SELECT COUNT(pr.review) as reviewCount FROM product_rating pr WHERE pr.product_id = Product.productId AND pr.review IS NOT NULL) as reviewCount',
+                    'IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )  as taxValue',
+                    '(SELECT sku.sku_name as skuName FROM sku WHERE sku.id = skuId) as skuName',
+                    '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
+                    '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as modifiedPrice',
+                    '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
+                    '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
+                ];
+                const whereCondition = [];
+                const currentDate = moment().format('YYYY-MM-DD');
+                const relations = [];
+                const groupBy = [];
+                groupBy.push({
+                    name: 'Product.productId',
+                });
+                if (params.categoryslug === '' || params.categoryslug === undefined) {
+                    relations.push({
+                        tableName: 'Product.vendorProducts',
+                        op: 'left',
+                        aliasName: 'vendorProducts',
+                    }, {
+                        tableName: 'Product.productToCategory',
+                        op: 'left',
+                        aliasName: 'productToCategory',
+                    }, {
+                        tableName: 'productToCategory.category',
+                        op: 'left',
+                        aliasName: 'category',
+                    }, {
+                        tableName: 'vendorProducts.vendor',
+                        op: 'left',
+                        aliasName: 'vendor',
+                    }, {
+                        tableName: 'vendor.customer',
+                        op: 'left',
+                        aliasName: 'customer',
+                    });
+                    whereCondition.push({
+                        name: 'Product.isActive',
+                        op: 'and',
+                        value: 1,
+                    }, {
+                        name: 'category.category_slug',
+                        op: 'IN',
+                        value: request.store.siteCategorySlugList,
+                    }, {
+                        name: 'Product.dateAvailable',
+                        op: 'raw',
+                        sign: '<=',
+                        value: currentDate.toString(),
+                    });
+                }
+                else {
+                    relations.push({
+                        tableName: 'Product.productToCategory',
+                        op: 'left',
+                        aliasName: 'productToCategory',
+                    }, {
+                        tableName: 'productToCategory.category',
+                        op: 'left',
+                        aliasName: 'category',
+                    }, {
+                        tableName: 'Product.vendorProducts',
+                        op: 'left',
+                        aliasName: 'vendorProducts',
+                    }, {
+                        tableName: 'vendorProducts.vendor',
+                        op: 'left',
+                        aliasName: 'vendor',
+                    }, {
+                        tableName: 'vendor.customer',
+                        op: 'left',
+                        aliasName: 'customer',
+                    });
+                    whereCondition.push({
+                        name: 'Product.isActive',
+                        op: 'and',
+                        value: 1,
+                    }, {
+                        name: 'category.category_slug',
+                        op: 'and',
+                        value: '"' + params.categoryslug + '"',
+                    }, {
+                        name: 'Product.dateAvailable',
+                        op: 'raw',
+                        sign: '<=',
+                        value: currentDate.toString(),
+                    });
+                }
+                if (request.id) {
+                    selects.push('MAX(customerWishlist.wishlistProductId) as wishlistProductId');
+                    relations.push({
+                        tableName: 'Product.wishlist',
+                        op: 'leftCond',
+                        aliasName: 'customerWishlist',
+                        cond: 'customerWishlist.customerId = ' + request.id,
+                    });
+                }
+                const searchConditions = [];
+                if (params.keyword) {
+                    searchConditions.push({
+                        name: ['Product.keywords', 'Product.name'],
+                        value: params.keyword.toLowerCase(),
+                    });
+                }
+                if (params.priceFrom) {
+                    whereCondition.push({
+                        name: '(CASE WHEN (((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1)) + (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) WHEN (((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN ((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = ' +
+                            ' Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) + IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )) ' +
+                            ' WHEN (((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
+                            'Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1)) + (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) WHEN ((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) + (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
+                            'Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1)) WHEN ((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) THEN (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))'
+                            + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1)' +
+                            ' WHEN ((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL) THEN (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) WHEN (`Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT sku.price as price FROM sku WHERE sku.id = Product.skuId)) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                            ' Product.skuId) WHEN (`Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                            'Product.skuId)) ELSE (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                            'Product.skuId) END)',
+                        op: 'raw',
+                        sign: '>=',
+                        value: params.priceFrom,
+                    });
+                }
+                if (params.priceTo) {
+                    whereCondition.push({
+                        name: '(CASE WHEN (((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1)) + (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) WHEN (((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN ((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = ' +
+                            ' Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) + IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )) ' +
+                            ' WHEN (((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
+                            'Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1)) + (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) WHEN ((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) + (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
+                            'Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1)) WHEN ((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                            'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) THEN (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))'
+                            + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1)' +
+                            ' WHEN ((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL) THEN (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                            ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) WHEN (`Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT sku.price as price FROM sku WHERE sku.id = Product.skuId)) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                            ' Product.skuId) WHEN (`Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                            'Product.skuId)) ELSE (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                            'Product.skuId) END)',
+                        op: 'raw',
+                        sign: '<=',
+                        value: params.priceTo,
+                    });
+                }
+                if (params.attribute) {
+                    searchConditions.push({
+                        name: ['Product.attribute_keyword'],
+                        op: 'attribute',
+                        value: attribute,
+                    });
+                }
+                if (params.variant) {
+                    whereCondition.push({
+                        name: 'Product.product_id',
+                        op: 'IN',
+                        sign: 'variant',
+                        value: variant,
+                    });
+                }
+                const sort = [];
+                if (params.price) {
+                    sort.push({
+                        name: '(CASE WHEN ((productSpecial IS NOT NULL) AND `Product`.`tax_type` = 2 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue/100 * productSpecial) + productSpecial WHEN ((productSpecial IS NOT NULL) AND `Product`.`tax_type` = 1 AND (taxValue != 0 || taxValue != NULL)) THEN (productSpecial + taxValue) ' +
+                            ' WHEN ((productDiscount IS NOT NULL) AND `Product`.`tax_type` = 2 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue/100 * productDiscount) + productDiscount WHEN (productDiscount IS NOT NULL AND `Product`.`tax_type` = 1 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue + productDiscount) WHEN (productSpecial IS NOT NULL) THEN productSpecial' +
+                            ' WHEN (productDiscount IS NOT NULL) THEN productDiscount WHEN (`Product`.`tax_type` = 2 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue/100 * modifiedPrice) + modifiedPrice WHEN (`Product`.`tax_type` = 1 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue + modifiedPrice) ELSE modifiedPrice END)',
+                        order: params.price,
+                    });
+                }
+                else if (+params.latestArrival) {
+                    sort.push({
+                        name: 'Product.createdDate',
+                        order: 'DESC',
+                    });
+                }
+                else if (+params.byRating) {
+                    sort.push({
+                        name: 'Product.rating',
+                        order: 'DESC',
+                    });
+                }
+                else {
+                    sort.push({
+                        name: 'Product.sortOrder',
+                        order: 'ASC',
+                    });
+                }
+                const productList = yield this.productService.listByQueryBuilder(limit, offset, selects, whereCondition, searchConditions, relations, groupBy, sort, false, true);
+                const promises = productList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const temp = result;
+                    temp.taxValue = +result.taxValue;
+                    if (result.productSpecial !== null) {
+                        temp.pricerefer = result.productSpecial;
+                        temp.flag = 1;
+                    }
+                    else if (result.productDiscount !== null) {
+                        temp.pricerefer = result.productDiscount;
+                        temp.flag = 0;
+                    }
+                    else {
+                        temp.pricerefer = '';
+                        temp.flag = '';
+                    }
+                    if (result.hasStock === 1) {
+                        if (result.quantity <= result.outOfStockThreshold) {
+                            temp.stockStatus = 'outOfStock';
+                        }
+                        else {
+                            temp.stockStatus = 'inStock';
+                        }
+                    }
+                    else {
+                        temp.stockStatus = 'inStock';
+                    }
+                    if ((result.wishlistProductId !== null) && result.wishlistProductId) {
+                        temp.wishListStatus = 1;
+                    }
+                    else {
+                        temp.wishListStatus = 0;
+                    }
+                    return temp;
+                }));
+                const finalResult = yield Promise.all(promises);
+                let categoryLevel;
+                if (params.categoryslug) {
+                    const category = yield this.categoryService.findOne({ categorySlug: params.categoryslug, isActive: 1 });
+                    if (category) {
+                        const categoryLevels = yield this.categoryPathService.find({
+                            select: ['level', 'pathId'],
+                            where: { categoryId: category.categoryId },
+                            order: { level: 'ASC' },
+                        }).then((values) => {
+                            const categories = values.map((val) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                                const categoryData = yield this.categoryService.findOne({ categoryId: val.pathId });
+                                const tempVal = val;
+                                tempVal.categoryName = categoryData ? categoryData.name : '';
+                                tempVal.categoryId = categoryData ? categoryData.categoryId : '';
+                                tempVal.categorySlug = categoryData ? categoryData.categorySlug : '';
+                                tempVal.parentInt = categoryData ? categoryData.parentInt : '';
+                                tempVal.categoryDescription = categoryData ? categoryData.categoryDescription : '';
+                                return tempVal;
+                            }));
+                            const results = Promise.all(categories);
+                            return results;
+                        });
+                        categoryLevel = categoryLevels;
+                    }
+                    else {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'Invalid category',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                }
+                else {
+                    categoryLevel = '';
+                }
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the complete list of products.',
+                    data: finalResult,
+                    categoryLevel,
+                };
+                return response.status(200).send(successResponse);
+            }));
+        });
+    }
+    // Country List API
+    /**
+     * @api {get} /api/list/country-list Country List API
+     * @apiGroup Store List
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get country list",
+     *      "data":{
+     *      "countryId"
+     *      "name"
+     *      "isoCode2"
+     *      "isoCode3"
+     *      "addressFormat"
+     *      "postcodeRequired"
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/country-list
+     * @apiErrorExample {json} countryFront error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    countryList(countryName, limit, offset, keyword, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (countryName) {
+                const country = yield this.countryService.findOne({ where: { name: countryName } });
+                if (!country) {
+                    const successResponses = {
+                        status: 0,
+                        message: 'Enter Valid Country Name ',
+                    };
+                    return response.status(200).send(successResponses);
+                }
+                const successResponse1 = {
+                    status: 1,
+                    message: 'Successfully got country Id',
+                    data: country,
+                };
+                return response.status(200).send(successResponse1);
+            }
+            const select = ['countryId', 'name', 'isoCode2', 'isoCode3', 'postcodeRequired', 'isActive'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                },
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 1,
+                },
+            ];
+            const WhereConditions = [];
+            const countryList = yield this.countryService.list(limit, offset, select, search, WhereConditions, count);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the list of countries.',
+                data: countryList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Contact Us API
+    /**
+     * @api {post} /api/list/contact-us  Contact Us API
+     * @apiGroup Store List
+     * @apiParam (Request body) {String{..255}} name Name
+     * @apiParam (Request body) {String{..96}} email Email
+     * @apiParam (Request body) {String{..15}} phoneNumber Phone Number
+     * @apiParam (Request body) {String{..6}} message Message
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "email" : "",
+     *      "phoneNumber" : "",
+     *      "message" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Your mail send to admin..!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/contact-us
+     * @apiErrorExample {json} Contact error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // ContactUs Function
+    userContact(contactParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const contactInformation = new Contact_1.Contact();
+            contactInformation.name = contactParam.name;
+            contactInformation.email = contactParam.email;
+            contactInformation.phoneNumber = contactParam.phoneNumber;
+            contactInformation.message = contactParam.message;
+            const informationData = yield this.contactService.create(contactInformation);
+            const emailContent = yield this.emailTemplateService.findOne(3);
+            const logo = yield this.settingsService.findOne();
+            const message = emailContent.content.replace('{name}', informationData.name).replace('{email}', informationData.email).replace('{phoneNumber}', informationData.phoneNumber).replace('{message}', informationData.message);
+            const adminId = [];
+            const adminUser = yield this.userService.findAll({ select: ['username'], where: { userGroupId: 1 } });
+            for (const user of adminUser) {
+                const val = user.username;
+                adminId.push(val);
+            }
+            const redirectUrl = env_1.env.storeRedirectUrl;
+            const mailContent = {};
+            mailContent.logo = logo;
+            mailContent.emailContent = message;
+            mailContent.redirectUrl = redirectUrl;
+            mailContent.productDetailData = undefined;
+            const sendMailRes = mail_services_1.MAILService.sendMail(mailContent, adminId, emailContent.subject, false, false, '');
+            if (sendMailRes) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Thanks for reaching out. We will be in touch soon',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Mail does not send',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Zone List API
+    /**
+     * @api {get} /api/list/zone-list Zone List API
+     * @apiGroup Store List
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} countryId countryId
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get zone list",
+     *      "data":{
+     *      "countryId"
+     *      "code"
+     *      "name"
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/zone-list
+     * @apiErrorExample {json} Zone error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    zonelist(limit, offset, countryId, keyword, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['zoneId', 'countryId', 'code', 'name', 'isActive'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                },
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 1,
+                },
+            ];
+            if (countryId) {
+                search.push({
+                    name: 'countryId',
+                    op: 'where',
+                    value: countryId,
+                });
+            }
+            const WhereConditions = [];
+            const relation = ['country'];
+            const zoneList = yield this.zoneService.list(limit, offset, select, search, WhereConditions, relation, count);
+            if (zoneList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully get all zone List',
+                    data: (0, class_transformer_1.instanceToPlain)(zoneList),
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 1,
+                    message: 'unable to get zone List',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Language List API
+    /**
+     * @api {get} /api/list/language-list Language List API
+     * @apiGroup Store List
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got language list",
+     *      "data":{
+     *      "languageId"
+     *      "name"
+     *      "status"
+     *      "code"
+     *      "sortOrder"
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/language-list
+     * @apiErrorExample {json} Language error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    languageList(limit, offset, keyword, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['languageId', 'name', 'code', 'image', 'imagePath', 'isActive', 'sortOrder', 'isActive'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                },
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 1,
+                },
+            ];
+            const WhereConditions = [];
+            const languageList = yield this.languageService.list(limit, offset, select, search, WhereConditions, count);
+            if (languageList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'successfully got the complete language list.',
+                    data: languageList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to show language list',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Specific parent Category List API
+    /**
+     * @api {get} /api/list/specific-category-list Specific Category List
+     * @apiGroup Store List
+     * @apiParam (Request body) {String} categorySlug categorySlug
+     * @apiParamExample {json} Input
+     * {
+     *      "parentInt" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Category listed successfully..!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/specific-category-list
+     * @apiErrorExample {json} Category List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Category List Function
+    SpecificcategoryList(categorySlugParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const categoryDataId = yield this.categoryService.findOne({
+                where: {
+                    categorySlug: categorySlugParam,
+                },
+            });
+            // if (categoryDataId === undefined) {
+            //     const errorResponse: any = {
+            //         status: 0,
+            //         message: 'Invalid categoryId',
+            //     };
+            //     return response.status(400).send(errorResponse);
+            // }
+            // // const categoryDetailId = await this.categoryPathService.findOne({ categoryId: categoryDataId.categoryId, level: 0 });
+            // const select = ['categoryId', 'name', 'image', 'imagePath', 'parentInt', 'sortOrder', 'categorySlug'];
+            // const search = [
+            //     {
+            //         name: 'isActive',
+            //         op: 'where',
+            //         value: 1,
+            //     },
+            // ];
+            // const whereCondition = [
+            //     // {
+            //     //     name: 'categoryId',
+            //     //     value: In(request.store.siteCategoryIds),
+            //     // },
+            // ];
+            // const categoryData = await this.categoryService.list(0, 0, select, search, whereCondition, 0, 0);
+            const categories = [];
+            let tempParentId = [];
+            // const siteCategories: Category[] = await categoryService.find({
+            //     categorySlug: In(siteSettingCategories),
+            // });
+            // for (const siteCategory of siteCategories) {
+            tempParentId = [categoryDataId.categoryId];
+            categories.push(categoryDataId);
+            while (true) {
+                const chlidCategory = yield this.categoryService.find({
+                    where: {
+                        parentInt: (0, typeorm_1.In)(tempParentId),
+                    },
+                });
+                tempParentId = [];
+                if ((chlidCategory === null || chlidCategory === void 0 ? void 0 : chlidCategory.length) === 0) {
+                    break;
+                }
+                categories.push(...chlidCategory);
+                tempParentId = chlidCategory.map(category => category.categoryId);
+            }
+            // }
+            const categoryList = (0, array_to_tree_1.default)(categories, {
+                parentProperty: 'parentInt',
+                customID: 'categoryId',
+            });
+            // const mainCategoryId = categoryDataId.categoryId;
+            // let dataList = {};
+            // const key = 'categoryId';
+            // for (const data of categoryList) {
+            //     if (data[key] === mainCategoryId) {
+            //         dataList = data;
+            //     }
+            // }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get the related category List',
+                data: categoryList[0],
+                // category: categoryList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // get payment setting API
+    /**
+     * @api {get} /api/list/get-payment-setting Get payment setting API
+     * @apiGroup Store List
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got payment setting",
+     *      "data":{
+     *      "plugin_name"
+     *      "plugin_avatar"
+     *      "plugin_avatar_path"
+     *      "plugin_type"
+     *      "plugin_status"
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/get-payment-setting
+     * @apiErrorExample {json} get payment setting error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    paymentSettingList(limit, offset, keyword, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['id', 'pluginName', 'pluginAvatar', 'pluginAvatarPath', 'pluginType', 'pluginAdditionalInfo', 'pluginStatus'];
+            const search = [
+                {
+                    name: 'pluginType',
+                    op: 'like',
+                    value: keyword,
+                },
+                {
+                    name: 'pluginStatus',
+                    op: 'where',
+                    value: 1,
+                },
+            ];
+            const WhereConditions = [];
+            const paymentSettingList = yield this.pluginService.list(limit, offset, select, search, WhereConditions, count);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got payment List.',
+                data: paymentSettingList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Active product count API
+    /**
+     * @api {get} /api/list/product-count  Product Count API
+     * @apiGroup Store List
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword for search
+     * @apiParam (Request body) {String} categoryslug categoryslug
+     * @apiParam (Request body) {Number} priceFrom price from you want to list
+     * @apiParam (Request body) {Number} priceTo price to you want to list
+     * @apiParam (Request body) {String} variant
+     * @apiParam (Request body) {String} attribute
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get Product Count",
+     *      "data":{
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/product-count
+     * @apiErrorExample {json} product count error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productCount(params, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const currentDate = moment().format('YYYY-MM-DD');
+            const maximum = ['Max(product.price) As maximumProductPrice'];
+            const maximumPrice = yield this.productService.productMaxPrice(maximum);
+            const productPrice = maximumPrice.maximumProductPrice;
+            const limit = params.limit;
+            const offset = params.offset;
+            const selects = ['Product.productId as productId',
+                'Product.taxType as taxType',
+                'Product.taxValue as taxValue',
+                'Product.name as name',
+                'Product.price as price',
+                'Product.description as description',
+                'Product.dateAvailable as dateAvailable',
+                'Product.sku as sku',
+                'Product.skuId as skuId',
+                'Product.isSimplified as isSimplified',
+                'Product.upc as upc',
+                'Product.quantity as quantity',
+                'Product.rating as rating',
+                'Product.isActive as isActive',
+                'Product.productSlug as productSlug',
+                'Product.hasStock as hasStock',
+                'Product.outOfStockThreshold as outOfStockThreshold',
+                'Product.stockStatusId as stockStatusId',
+                'Product.createdDate as createdDate',
+                'Product.keywords as keywords',
+                'Product.attributeKeyword as attributeKeyword',
+                'vendor.vendorId as vendorId',
+                'customer.firstName as vendorName',
+                'vendor.companyName as vendorCompanyName',
+                '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
+                '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as image',
+                '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
+                'IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )  as taxValue',
+                '(SELECT sku.sku_name as skuName FROM sku WHERE sku.id = skuId) as skuName',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as modifiedPrice',
+                '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+                    ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
+                '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
+            ];
+            const whereCondition = [];
+            const relations = [];
+            const groupBy = [];
+            if (params.categoryslug === '' || params.categoryslug === undefined) {
+                relations.push({
+                    tableName: 'Product.vendorProducts',
+                    op: 'left',
+                    aliasName: 'vendorProducts',
+                }, {
+                    tableName: 'vendorProducts.vendor',
+                    op: 'left',
+                    aliasName: 'vendor',
+                }, {
+                    tableName: 'vendor.customer',
+                    op: 'left',
+                    aliasName: 'customer',
+                });
+                whereCondition.push({
+                    name: 'Product.isActive',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: '((' + 'customer.isActive',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: 'customer.deleteFlag',
+                    op: 'and',
+                    value: 0 + ')',
+                }, {
+                    name: 'vendor.customer_id ',
+                    op: 'IS NULL',
+                    value: ')',
+                }, {
+                    name: 'Product.dateAvailable',
+                    op: 'raw',
+                    sign: '<=',
+                    value: currentDate.toString(),
+                });
+            }
+            else {
+                relations.push({
+                    tableName: 'Product.productToCategory',
+                    op: 'left',
+                    aliasName: 'productToCategory',
+                }, {
+                    tableName: 'productToCategory.category',
+                    op: 'left',
+                    aliasName: 'category',
+                }, {
+                    tableName: 'Product.vendorProducts',
+                    op: 'left',
+                    aliasName: 'vendorProducts',
+                }, {
+                    tableName: 'vendorProducts.vendor',
+                    op: 'left',
+                    aliasName: 'vendor',
+                }, {
+                    tableName: 'vendor.customer',
+                    op: 'left',
+                    aliasName: 'customer',
+                });
+                whereCondition.push({
+                    name: 'Product.isActive',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: '((' + 'customer.isActive',
+                    op: 'and',
+                    value: 1,
+                }, {
+                    name: 'customer.deleteFlag',
+                    op: 'and',
+                    value: 0 + ')',
+                }, {
+                    name: 'vendor.customer_id ',
+                    op: 'IS NULL',
+                    value: ')',
+                }, {
+                    name: 'category.category_slug',
+                    op: 'and',
+                    value: '"' + params.categoryslug + '"',
+                }, {
+                    name: 'Product.dateAvailable',
+                    op: 'raw',
+                    sign: '<=',
+                    value: currentDate.toString(),
+                });
+            }
+            if (request.id) {
+                selects.push('customerWishlist.wishlistProductId as wishlistProductId');
+                relations.push({
+                    tableName: 'Product.wishlist',
+                    op: 'leftCond',
+                    aliasName: 'customerWishlist',
+                    cond: 'customerWishlist.customerId = ' + request.id,
+                });
+            }
+            const searchConditions = [];
+            if (params.keyword) {
+                searchConditions.push({
+                    name: ['Product.keywords', 'Product.name'],
+                    value: params.keyword.toLowerCase(),
+                });
+            }
+            if (params.priceFrom) {
+                whereCondition.push({
+                    name: '(CASE WHEN (((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1)) + (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) WHEN (((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN ((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = ' +
+                        ' Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) + IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )) ' +
+                        ' WHEN (((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
+                        'Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1)) + (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) WHEN ((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) + (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
+                        'Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1)) WHEN ((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) THEN (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))'
+                        + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1)' +
+                        ' WHEN ((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL) THEN (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) WHEN (`Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT sku.price as price FROM sku WHERE sku.id = Product.skuId)) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                        ' Product.skuId) WHEN (`Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                        'Product.skuId)) ELSE (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                        'Product.skuId) END)',
+                    op: 'raw',
+                    sign: '>=',
+                    value: params.priceFrom,
+                });
+            }
+            if (params.priceTo) {
+                whereCondition.push({
+                    name: '(CASE WHEN (((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1)) + (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) WHEN (((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN ((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = ' +
+                        ' Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) + IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )) ' +
+                        ' WHEN (((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
+                        'Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1)) + (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) WHEN ((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) + (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
+                        'Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1)) WHEN ((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                        'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) THEN (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))'
+                        + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1)' +
+                        ' WHEN ((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL) THEN (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
+                        ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) WHEN (`Product`.`tax_type` = 2 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue )/100 * (SELECT sku.price as price FROM sku WHERE sku.id = Product.skuId)) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                        ' Product.skuId) WHEN (`Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != 0 || IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `Product`.`tax_value`  LIMIT 1), Product.taxValue ) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                        'Product.skuId)) ELSE (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                        'Product.skuId) END)',
+                    op: 'raw',
+                    sign: '<=',
+                    value: params.priceTo,
+                });
+            }
+            const sort = [];
+            if (params.price) {
+                sort.push({
+                    name: '(CASE WHEN ((productSpecial IS NOT NULL) AND `Product`.`tax_type` = 2 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue/100 * productSpecial) + productSpecial WHEN ((productSpecial IS NOT NULL) AND `Product`.`tax_type` = 1 AND (taxValue != 0 || taxValue != NULL)) THEN (productSpecial + taxValue) ' +
+                        ' WHEN ((productDiscount IS NOT NULL) AND `Product`.`tax_type` = 2 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue/100 * productDiscount) + productDiscount WHEN (productDiscount IS NOT NULL AND `Product`.`tax_type` = 1 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue + productDiscount) WHEN (productSpecial IS NOT NULL) THEN productSpecial' +
+                        ' WHEN (productDiscount IS NOT NULL) THEN productDiscount WHEN (`Product`.`tax_type` = 2 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue/100 * modifiedPrice) + modifiedPrice WHEN (`Product`.`tax_type` = 1 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue + modifiedPrice) ELSE modifiedPrice END)',
+                    order: params.price,
+                });
+            }
+            else {
+                sort.push({
+                    name: 'Product.sortOrder',
+                    order: 'ASC',
+                });
+            }
+            const productList = yield this.productService.listByQueryBuilder(limit, offset, selects, whereCondition, searchConditions, relations, groupBy, sort, true, true);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get Product Count',
+                data: {
+                    productCount: productList,
+                    maximumProductPrice: productPrice,
+                },
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // order log List API
+    /**
+     * @api {get} /api/list/orderLoglist Order Log List API
+     * @apiGroup Store
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} orderPrefixId orderPrefixId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get order log list",
+     *      "data":{
+     *      "orderStatus" : "",
+     *      "createdDate" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/list/orderLoglist
+     * @apiErrorExample {json} order log error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    listOrderLog(orderProductPrefixId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderProductData = yield this.orderProductService.findOne({
+                where: {
+                    orderProductPrefixId,
+                },
+            });
+            if (!orderProductData) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid OrderProductId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const orderProductId = orderProductData.orderProductId;
+            const select = ['orderProductId', 'orderStatusId', 'total', 'createdDate', 'modifiedDate'];
+            const relation = [];
+            const WhereConditions = [
+                {
+                    name: 'orderProductId',
+                    op: 'where',
+                    value: orderProductId,
+                },
+            ];
+            const orderProductList = yield this.orderProductLogService.list(0, 0, select, relation, WhereConditions, 0);
+            const orderStatuss = yield this.orderStatusService.findAll({ select: ['orderStatusId', 'name'], where: { isActive: 1 } });
+            const orderProduct = orderStatuss.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const user = orderProductList.find(item => item.orderStatusId === value.orderStatusId);
+                const temp = value;
+                if (user === undefined) {
+                    temp.createdDate = '';
+                }
+                else {
+                    temp.createdDate = user.createdDate;
+                }
+                return temp;
+            }));
+            const result = yield Promise.all(orderProduct);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete order Log list.',
+                data: result,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Plugin list
+    /**
+     * @api /api/list/get-addons Plugin List
+     * @apiGroup Store
+     * @apiParam (Request Body) {number} limit limit
+     * @apiParam (Request Body) {number} offset offset
+     * @apiParam (Request Body) {number} count count
+     * @apiSuccessExample {json} success
+     * HTTP/1.1 200 Ok
+     * {
+     *      "status": "1",
+     *      "message": "Successfully get the plugin list. ",
+     *      "data": {}
+     * }
+     * @apiSampleRequest /api/list/get-addons
+     * @apiErrorExample {json} Error
+     * HTTP/1.1 500 Internal server error
+     */
+    PluginList(limit, offset, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pluginList = yield this.pluginService.pluginList(limit, offset, count);
+            if (!pluginList) {
+                const errorMessage = {
+                    status: 0,
+                    message: 'Unable to get the plugin list. ',
+                };
+                return response.status(400).send(errorMessage);
+            }
+            const values = {};
+            console.log(pluginList);
+            for (const value of pluginList) {
+                values[value.slugName] = value.pluginStatus;
+            }
+            return response.status(200).send({ status: 1, message: 'Successfully get the list', data: values });
+        });
+    }
+    // gmap redirect url
+    /**
+     * @api {Get} /api/list/gmap-key Get client id
+     * @apiGroup Store
+     * @apiParam (Request body) {string} pluginName pluginName
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 Ok
+     * @apiSampleRequest /api/list/gmap-key
+     * @apiErrorExample {json} Error
+     * HTTP/1.1 500 Internal server errorS
+     */
+    gmapKey(pluginName, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (pluginName === 'gmap') {
+                const plugin = yield this.pluginService.findOne({ where: { pluginName, pluginStatus: 1 } });
+                if (plugin) {
+                    const pluginInfo = JSON.parse(plugin.pluginAdditionalInfo);
+                    const route = env_1.env.baseUrl + pluginInfo.defaultRoute;
+                    const successResponse = {
+                        status: 1,
+                        message: 'Redirect to this url.',
+                        data: {
+                            returnPath: route,
+                            clientId: pluginInfo.clientId,
+                        },
+                    };
+                    return response.status(200).send(successResponse);
+                }
+                else {
+                    const successResponse = {
+                        status: 0,
+                        message: 'You are not Installed This Plugin / Problem In Installation',
+                    };
+                    return response.status(400).send(successResponse);
+                }
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/banner-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "bannerList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/category-list'),
+    (0, routing_controllers_1.UseBefore)(StoreCategoryValidatorMiddleware_1.StoreCategoryValidator),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "ParentCategoryList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckTokenMiddleware),
+    (0, routing_controllers_1.UseBefore)(StoreCategoryValidatorMiddleware_1.StoreCategoryValidator),
+    (0, routing_controllers_1.Get)('/custom-product-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParams)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [ListRequest_1.ListRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "customProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/country-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('countryName')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Number, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "countryList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/contact-us'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [ContactRequest_1.ContactRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "userContact", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/zone-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('countryId')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "zonelist", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/language-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "languageList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(StoreCategoryValidatorMiddleware_1.StoreCategoryValidator),
+    (0, routing_controllers_1.Get)('/specific-category-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('categorySlug')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "SpecificcategoryList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/get-payment-setting'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "paymentSettingList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckTokenMiddleware),
+    (0, routing_controllers_1.UseBefore)(StoreCategoryValidatorMiddleware_1.StoreCategoryValidator),
+    (0, routing_controllers_1.Get)('/product-count'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParams)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [ListRequest_1.ListRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "productCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/orderLoglist'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('orderPrefixId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "listOrderLog", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/get-addons'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "PluginList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/gmap-key'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('pluginName')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CommonListController.prototype, "gmapKey", null);
+CommonListController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/list'),
+    tslib_1.__metadata("design:paramtypes", [BannerService_1.BannerService, CategoryService_1.CategoryService,
+        ProductService_1.ProductService, LanguageService_1.LanguageService, CountryService_1.CountryService, ContactService_1.ContactService,
+        EmailTemplateService_1.EmailTemplateService,
+        zoneService_1.ZoneService,
+        CategoryPathService_1.CategoryPathService, PluginService_1.PluginService,
+        UserService_1.UserService, OrderStatusService_1.OrderStatusService, SettingService_1.SettingService,
+        OrderProductService_1.OrderProductService, OrderProductLogService_1.OrderProductLogService])
+], CommonListController);
+exports.CommonListController = CommonListController;
+//# sourceMappingURL=CommonListController.js.map

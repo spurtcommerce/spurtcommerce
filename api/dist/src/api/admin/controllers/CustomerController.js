@@ -1,1 +1,1309 @@
-'use strict';const a261_0x57605d=a261_0x14df;(function(_0x5d7ff0,_0xe4ac7e){const _0x287316=a261_0x14df,_0x352d2c=_0x5d7ff0();while(!![]){try{const _0x28fc40=parseInt(_0x287316(0x294))/0x1+parseInt(_0x287316(0x248))/0x2+-parseInt(_0x287316(0x2c3))/0x3*(parseInt(_0x287316(0x2e0))/0x4)+-parseInt(_0x287316(0x29e))/0x5*(parseInt(_0x287316(0x266))/0x6)+-parseInt(_0x287316(0x2b2))/0x7+parseInt(_0x287316(0x26a))/0x8+parseInt(_0x287316(0x244))/0x9;if(_0x28fc40===_0xe4ac7e)break;else _0x352d2c['push'](_0x352d2c['shift']());}catch(_0x4be81b){_0x352d2c['push'](_0x352d2c['shift']());}}}(a261_0x45df,0xe644e));Object[a261_0x57605d(0x257)](exports,a261_0x57605d(0x26e),{'value':!![]}),exports[a261_0x57605d(0x275)]=void 0x0;const tslib_1=require(a261_0x57605d(0x2bd));require(a261_0x57605d(0x2c0));function a261_0x14df(_0x3b256b,_0xe9a579){const _0x45df9d=a261_0x45df();return a261_0x14df=function(_0x14dfb2,_0xf8a64a){_0x14dfb2=_0x14dfb2-0x1f3;let _0x434bc7=_0x45df9d[_0x14dfb2];return _0x434bc7;},a261_0x14df(_0x3b256b,_0xe9a579);}const routing_controllers_1=require(a261_0x57605d(0x29c)),AWS=tslib_1['__importStar'](require(a261_0x57605d(0x245))),class_transformer_1=require(a261_0x57605d(0x2a0)),env_1=require(a261_0x57605d(0x24a)),CustomerService_1=require(a261_0x57605d(0x2b3)),Customer_1=require('../../core/models/Customer'),CreateCustomerRequest_1=require(a261_0x57605d(0x20e)),User_1=require('../../core/models/User'),mail_services_1=require('../../../auth/mail.services'),UpdateCustomerRequest_1=require(a261_0x57605d(0x1ff)),SettingService_1=require(a261_0x57605d(0x2d6)),CustomerGroupService_1=require(a261_0x57605d(0x20b)),OrderProductService_1=require(a261_0x57605d(0x235)),EmailTemplateService_1=require(a261_0x57605d(0x263)),VendorService_1=require(a261_0x57605d(0x206)),VendorProductService_1=require('../../core/services/VendorProductService'),ProductViewLogService_1=require(a261_0x57605d(0x288)),DeleteCustomerRequest_1=require(a261_0x57605d(0x2e4)),fs=tslib_1[a261_0x57605d(0x284)](require('fs')),VendorOrderService_1=require('../../core/services/VendorOrderService'),LoginLogService_1=require(a261_0x57605d(0x289)),customer_1=require('@spurtcommerce/customer'),typeorm_1=require('typeorm');let CustomerController=class CustomerController{constructor(_0xfabf82,_0x2449a1,_0x3d5da8,_0x3be9c4,_0x31e5e2,_0x496268,_0x522aba,_0x191a7b,_0x2d5c75,_0x2e94f2){const _0x1a57b8=a261_0x57605d;this[_0x1a57b8(0x2b1)]=_0xfabf82,this[_0x1a57b8(0x2b6)]=_0x2449a1,this[_0x1a57b8(0x236)]=_0x3d5da8,this[_0x1a57b8(0x25f)]=_0x3be9c4,this[_0x1a57b8(0x239)]=_0x31e5e2,this[_0x1a57b8(0x218)]=_0x496268,this[_0x1a57b8(0x211)]=_0x522aba,this[_0x1a57b8(0x1f7)]=_0x191a7b,this[_0x1a57b8(0x2eb)]=_0x2d5c75,this[_0x1a57b8(0x1f4)]=_0x2e94f2;}[a261_0x57605d(0x237)](_0x1c6736,_0x27e1ab){const _0x20595d=a261_0x57605d;return tslib_1[_0x20595d(0x2be)](this,void 0x0,void 0x0,function*(){const _0x51e3e8=_0x20595d,_0x3d8154=new Customer_1[(_0x51e3e8(0x22e))](),_0x5a2090=yield this[_0x51e3e8(0x2b1)]['findOne']({'where':{'email':_0x1c6736[_0x51e3e8(0x24d)],'deleteFlag':0x0}});if(_0x5a2090){const _0x4d74b9={'status':0x1,'message':_0x51e3e8(0x231)};return _0x27e1ab[_0x51e3e8(0x2ea)](0x190)[_0x51e3e8(0x209)](_0x4d74b9);}if(_0x1c6736[_0x51e3e8(0x298)]===_0x1c6736[_0x51e3e8(0x2bc)]){const _0xa3b79=yield User_1[_0x51e3e8(0x27a)][_0x51e3e8(0x24e)](_0x1c6736['password']);_0x3d8154[_0x51e3e8(0x22d)]=_0x1c6736['customerGroupId'],_0x3d8154[_0x51e3e8(0x2cd)]=_0x1c6736['username'];const _0x9e708f=_0x1c6736[_0x51e3e8(0x24d)];_0x3d8154[_0x51e3e8(0x214)]=_0x9e708f,_0x3d8154[_0x51e3e8(0x24d)]=_0x9e708f,_0x3d8154[_0x51e3e8(0x2e9)]=_0x1c6736['mobileNumber'],_0x3d8154[_0x51e3e8(0x298)]=_0xa3b79,_0x3d8154['mailStatus']=_0x1c6736[_0x51e3e8(0x2aa)],_0x3d8154['deleteFlag']=0x0,_0x3d8154['isActive']=_0x1c6736[_0x51e3e8(0x2ea)];const _0x1b13c6=yield this[_0x51e3e8(0x2b1)][_0x51e3e8(0x2ef)](_0x3d8154);if(_0x1b13c6){if(+_0x1c6736[_0x51e3e8(0x2aa)]===0x1){console['log'](_0x51e3e8(0x21b),_0x1c6736[_0x51e3e8(0x2aa)]);const _0x2fdabe=yield this[_0x51e3e8(0x1f4)][_0x51e3e8(0x2e7)](0x4),_0x1531df=yield this[_0x51e3e8(0x25f)][_0x51e3e8(0x2e7)](),_0x4ce7bb=_0x2fdabe[_0x51e3e8(0x259)][_0x51e3e8(0x21a)](_0x51e3e8(0x247),_0x1c6736[_0x51e3e8(0x214)])[_0x51e3e8(0x21a)](_0x51e3e8(0x253),_0x1c6736[_0x51e3e8(0x24d)])['replace'](_0x51e3e8(0x2e2),_0x1c6736[_0x51e3e8(0x298)]),_0x516656=env_1[_0x51e3e8(0x28a)][_0x51e3e8(0x285)],_0x2f0453={};_0x2f0453['logo']=_0x1531df,_0x2f0453[_0x51e3e8(0x216)]=_0x4ce7bb,_0x2f0453['redirectUrl']=_0x516656,_0x2f0453[_0x51e3e8(0x2a1)]=undefined,mail_services_1[_0x51e3e8(0x28f)][_0x51e3e8(0x22b)](_0x2f0453,_0x1c6736[_0x51e3e8(0x24d)],_0x2fdabe[_0x51e3e8(0x255)],![],![],'');const _0x2956b2={'status':0x1,'message':'Successfully\x20created\x20new\x20customer\x20with\x20email\x20Id\x20and\x20password\x20and\x20email\x20sent.','data':_0x1b13c6};return _0x27e1ab[_0x51e3e8(0x2ea)](0xc8)['send'](_0x2956b2);}else{const _0x2b6e5d={'status':0x1,'message':_0x51e3e8(0x269),'data':_0x1b13c6};return _0x27e1ab[_0x51e3e8(0x2ea)](0xc8)[_0x51e3e8(0x209)](_0x2b6e5d);}}}else{const _0x2a812d={'status':0x0,'message':_0x51e3e8(0x1f3)};return _0x27e1ab[_0x51e3e8(0x2ea)](0x190)[_0x51e3e8(0x209)](_0x2a812d);}});}['customerList'](_0x2f6a8e,_0x46c683,_0x2f4585,_0x379c0f,_0x214888,_0x210c11,_0x37326b,_0x267d42,_0x299568){const _0x1b7cad=a261_0x57605d;return tslib_1[_0x1b7cad(0x2be)](this,void 0x0,void 0x0,function*(){const _0x1813c8=_0x1b7cad,_0x7310c7=[_0x1813c8(0x293),_0x1813c8(0x233),_0x1813c8(0x286),_0x1813c8(0x23f),_0x1813c8(0x25c),_0x1813c8(0x2d3),'customerGroup.name\x20as\x20customerGroupName','Customer.lastName\x20as\x20lastName'],_0x873e7c=yield(0x0,customer_1['getCustomerList'])((0x0,typeorm_1['getConnection'])(),_0x7310c7,_0x2f6a8e,_0x46c683,_0x2f4585,_0x379c0f?0x1:0x0,_0x214888,_0x210c11,_0x37326b,_0x267d42?0x1:0x0);return _0x299568[_0x1813c8(0x2ea)](0xc8)[_0x1813c8(0x209)]({'status':_0x873e7c[_0x1813c8(0x2ea)],'message':_0x873e7c[_0x1813c8(0x221)],'data':_0x873e7c['data']});});}[a261_0x57605d(0x2c1)](_0x416147,_0x5d8b89,_0x1686c0){const _0x9a5596=a261_0x57605d;return tslib_1[_0x9a5596(0x2be)](this,void 0x0,void 0x0,function*(){const _0x3d95dd=_0x9a5596,_0x47cb75=yield this['customerService']['findOne']({'where':{'id':_0x416147}});if(!_0x47cb75){const _0x463a35={'status':0x0,'message':_0x3d95dd(0x25a)};return _0x5d8b89[_0x3d95dd(0x2ea)](0x190)[_0x3d95dd(0x209)](_0x463a35);}const _0x99b3ec=yield this[_0x3d95dd(0x218)][_0x3d95dd(0x2e7)]({'where':{'customerId':_0x416147}});if(_0x99b3ec){const _0x1e2136=yield this['vendorProductService'][_0x3d95dd(0x2e7)]({'where':{'vendorId':_0x99b3ec[_0x3d95dd(0x2b9)]}});if(_0x1e2136){const _0x3ba917={'status':0x0,'message':_0x3d95dd(0x249)};return _0x5d8b89[_0x3d95dd(0x2ea)](0x190)[_0x3d95dd(0x209)](_0x3ba917);}}_0x47cb75[_0x3d95dd(0x268)]=0x1;const _0x1d25af=yield this['customerService'][_0x3d95dd(0x2ef)](_0x47cb75);if(_0x1d25af){const _0x104a22={'status':0x1,'message':_0x3d95dd(0x2f0)};return _0x5d8b89[_0x3d95dd(0x2ea)](0xc8)[_0x3d95dd(0x209)](_0x104a22);}else{const _0x2e10f4={'status':0x0,'message':_0x3d95dd(0x227)};return _0x5d8b89[_0x3d95dd(0x2ea)](0x190)[_0x3d95dd(0x209)](_0x2e10f4);}});}['updateCustomer'](_0x9d2780,_0x11aeea,_0x2ee17e){const _0x591278=a261_0x57605d;return tslib_1[_0x591278(0x2be)](this,void 0x0,void 0x0,function*(){const _0x5adac9=_0x591278,_0x1a9c44=yield this[_0x5adac9(0x2b1)][_0x5adac9(0x2e7)]({'where':{'id':_0x9d2780}});if(!_0x1a9c44){const _0x259874={'status':0x0,'message':_0x5adac9(0x23a)};return _0x2ee17e['status'](0x190)[_0x5adac9(0x209)](_0x259874);}const _0x39927f=yield this['customerService'][_0x5adac9(0x2e7)]({'where':{'email':_0x11aeea[_0x5adac9(0x24d)],'deleteFlag':0x0,'id':(0x0,typeorm_1[_0x5adac9(0x200)])(_0x9d2780)}});if(_0x39927f!==undefined){const _0xcbd56b={'status':0x0,'message':_0x5adac9(0x27e)};return _0x2ee17e['status'](0x190)[_0x5adac9(0x209)](_0xcbd56b);}if(_0x11aeea[_0x5adac9(0x298)]===_0x11aeea[_0x5adac9(0x2bc)]){const _0x5966bb=_0x11aeea[_0x5adac9(0x223)];if(_0x5966bb){const _0x38fe53=_0x5966bb[_0x5adac9(0x26c)](';')[0x0][_0x5adac9(0x26c)]('/')[0x1],_0x28551a=env_1[_0x5adac9(0x28a)][_0x5adac9(0x2c8)]['split'](',');if(!_0x28551a[_0x5adac9(0x241)](_0x38fe53)){const _0x48c5f2={'status':0x0,'message':'Only\x20'+env_1[_0x5adac9(0x28a)]['availImageTypes']+_0x5adac9(0x265)};return _0x2ee17e[_0x5adac9(0x2ea)](0x190)[_0x5adac9(0x209)](_0x48c5f2);}const _0x29aeb2='Img_'+Date[_0x5adac9(0x240)]()+'.'+_0x38fe53,_0x1c7e7b=new AWS['S3'](),_0x22af5c=_0x5adac9(0x20c),_0x2e5c68=Buffer[_0x5adac9(0x297)](_0x5966bb[_0x5adac9(0x21a)](/^data:image\/\w+;base64,/,''),_0x5adac9(0x283)),_0x28ca3b={'Bucket':env_1['aws_setup'][_0x5adac9(0x24b)],'Key':_0x5adac9(0x20c)+_0x29aeb2,'Body':_0x2e5c68,'ACL':_0x5adac9(0x2e1),'ContentEncoding':_0x5adac9(0x283),'ContentType':'image/'+_0x38fe53};_0x1c7e7b[_0x5adac9(0x21e)](_0x28ca3b,(_0x2d4762,_0x4cb812)=>{if(_0x2d4762)throw _0x2d4762;}),_0x1a9c44[_0x5adac9(0x223)]=_0x29aeb2,_0x1a9c44[_0x5adac9(0x27c)]=_0x22af5c;}_0x1a9c44['customerGroupId']=_0x11aeea['customerGroupId'],_0x1a9c44['firstName']=_0x11aeea[_0x5adac9(0x214)],_0x1a9c44['username']=_0x11aeea['email'],_0x1a9c44[_0x5adac9(0x24d)]=_0x11aeea[_0x5adac9(0x24d)],_0x1a9c44[_0x5adac9(0x2e9)]=_0x11aeea[_0x5adac9(0x2e9)];if(_0x11aeea['password']){const _0x552382=/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,}$/;if(!_0x11aeea[_0x5adac9(0x298)][_0x5adac9(0x28b)](_0x552382)){const _0x5d37d2=[];_0x5d37d2['push']('Password\x20must\x20contain\x20at\x20least\x20one\x20number\x20and\x20one\x20uppercase\x20and\x20lowercase\x20letter,\x20and\x20at\x20least\x208\x20or\x20more\x20characters');const _0x10643b={'status':0x0,'message':'You\x20have\x20an\x20error\x20in\x20your\x20request\x27s\x20body.\x20Check\x20\x27errors\x27\x20field\x20for\x20more\x20details!','data':{'message':_0x5d37d2}};return _0x2ee17e[_0x5adac9(0x2ea)](0x1a6)[_0x5adac9(0x209)](_0x10643b);}const _0x5392b8=yield User_1['User'][_0x5adac9(0x24e)](_0x11aeea[_0x5adac9(0x298)]);_0x1a9c44[_0x5adac9(0x298)]=_0x5392b8;}_0x1a9c44[_0x5adac9(0x2aa)]=_0x11aeea[_0x5adac9(0x2aa)],_0x1a9c44[_0x5adac9(0x1f9)]=_0x11aeea[_0x5adac9(0x2ea)];const _0x3be626=yield this['customerService'][_0x5adac9(0x2ef)](_0x1a9c44);if(_0x3be626){const _0x237b5b={'status':0x1,'message':_0x5adac9(0x2de),'data':_0x3be626};return _0x2ee17e['status'](0xc8)[_0x5adac9(0x209)](_0x237b5b);}}else{const _0x5024f7={'status':0x0,'message':_0x5adac9(0x1f3)};return _0x2ee17e[_0x5adac9(0x2ea)](0x190)[_0x5adac9(0x209)](_0x5024f7);}});}[a261_0x57605d(0x2dc)](_0x4bb6db,_0x484b0a){const _0x342fb4=a261_0x57605d;return tslib_1[_0x342fb4(0x2be)](this,void 0x0,void 0x0,function*(){const _0x3b204a=_0x342fb4,_0x478a90=yield this[_0x3b204a(0x2b1)]['findOne']({'select':['id',_0x3b204a(0x2cd),_0x3b204a(0x24d),'mobileNumber',_0x3b204a(0x234),_0x3b204a(0x250),_0x3b204a(0x1f9),'mailStatus','customerGroupId','avatar',_0x3b204a(0x27c)],'where':{'id':_0x4bb6db}});if(!_0x478a90){const _0x4e24e4={'status':0x0,'message':'invalid\x20CustomerId'};return _0x484b0a[_0x3b204a(0x2ea)](0x190)[_0x3b204a(0x209)](_0x4e24e4);}const _0x47a73a=yield this['customerGroupService'][_0x3b204a(0x2e7)]({'where':{'groupId':_0x478a90[_0x3b204a(0x22d)]}});_0x478a90[_0x3b204a(0x25e)]=_0x47a73a&&_0x47a73a[_0x3b204a(0x203)]!==undefined?_0x47a73a[_0x3b204a(0x203)]:'';const _0x56b101={'status':0x1,'message':_0x3b204a(0x29b),'data':_0x478a90};return _0x484b0a[_0x3b204a(0x2ea)](0xc8)['send'](_0x56b101);});}['recentCustomerList'](_0x10e0ac){const _0xd38c2c=a261_0x57605d;return tslib_1[_0xd38c2c(0x2be)](this,void 0x0,void 0x0,function*(){const _0xd2aea5=_0xd38c2c,_0x31371d=0x1,_0x5ed583=[{'name':_0xd2aea5(0x268),'value':0x0}],_0x1d68e2=yield this[_0xd2aea5(0x2b1)][_0xd2aea5(0x252)](0x0,0x0,0x0,_0x5ed583,_0x31371d,0x0),_0x501006={'status':0x1,'message':_0xd2aea5(0x2ed),'data':(0x0,class_transformer_1[_0xd2aea5(0x28d)])(_0x1d68e2)};return _0x10e0ac['status'](0xc8)['send'](_0x501006);});}['customerCount'](_0x2426b1){const _0x28096e=a261_0x57605d;return tslib_1[_0x28096e(0x2be)](this,void 0x0,void 0x0,function*(){const _0x3bdf6f=_0x28096e,_0x3166ef=new Date(),_0x58a163=_0x3166ef[_0x3bdf6f(0x251)]()+'-'+(_0x3166ef[_0x3bdf6f(0x228)]()+0x1)+'-'+_0x3166ef[_0x3bdf6f(0x22a)](),_0x3bb201=yield this[_0x3bdf6f(0x2b1)][_0x3bdf6f(0x2ce)](_0x58a163),_0x3255c3={'status':0x1,'message':_0x3bdf6f(0x246),'data':_0x3bb201};return _0x2426b1[_0x3bdf6f(0x2ea)](0xc8)['send'](_0x3255c3);});}[a261_0x57605d(0x2d4)](_0x236552,_0x298d69,_0x51c8de){const _0x51ab10=a261_0x57605d;return tslib_1[_0x51ab10(0x2be)](this,void 0x0,void 0x0,function*(){const _0x4d9755=_0x51ab10,_0x4e62fe=_0x236552[_0x4d9755(0x2b0)][_0x4d9755(0x258)](),_0x3e7d1a=_0x4e62fe[_0x4d9755(0x26c)](','),_0x572938=_0x3e7d1a[_0x4d9755(0x2a8)](_0x52526c=>tslib_1[_0x4d9755(0x2be)](this,void 0x0,void 0x0,function*(){const _0x3e5b76=_0x4d9755,_0x442af8=yield this[_0x3e5b76(0x218)][_0x3e5b76(0x2e7)]({'where':{'customerId':_0x52526c}});if(_0x442af8){const _0x52174e=yield this[_0x3e5b76(0x211)]['findOne']({'where':{'vendorId':_0x442af8[_0x3e5b76(0x2b9)]}});if(_0x52174e){const _0x254463={'status':0x0,'message':'Choosen\x20customer\x20have\x20vendor\x20account,\x20you\x20have\x20to\x20first\x20delete\x20the\x20products\x20mapped\x20to\x20this\x20Vendor.'};return _0x51c8de[_0x3e5b76(0x2ea)](0x190)['send'](_0x254463);}}const _0x368271=yield this[_0x3e5b76(0x2b1)][_0x3e5b76(0x2e7)](_0x52526c);if(_0x368271===undefined){const _0x211981={'status':0x0,'message':_0x3e5b76(0x277)};return _0x51c8de[_0x3e5b76(0x2ea)](0x190)[_0x3e5b76(0x209)](_0x211981);}else return _0x368271['deleteFlag']=0x1,yield this[_0x3e5b76(0x2b1)][_0x3e5b76(0x2ef)](_0x368271);})),_0x2545e5=yield Promise[_0x4d9755(0x272)](_0x572938);if(_0x2545e5){const _0x173714={'status':0x1,'message':_0x4d9755(0x2ae)};return _0x51c8de[_0x4d9755(0x2ea)](0xc8)[_0x4d9755(0x209)](_0x173714);}});}['excelCustomerView'](_0x1cbdb1,_0x5d3029,_0xe2439c){const _0x16d315=a261_0x57605d;return tslib_1[_0x16d315(0x2be)](this,void 0x0,void 0x0,function*(){const _0x32bf87=_0x16d315,_0x2fa856=require(_0x32bf87(0x29a)),_0x1a3608=new _0x2fa856[(_0x32bf87(0x2cc))](),_0x2ef5f2=_0x1a3608[_0x32bf87(0x274)](_0x32bf87(0x2ba)),_0x3f9caf=[],_0x12e813=_0x1cbdb1[_0x32bf87(0x26c)](',');for(const _0x225965 of _0x12e813){const _0x3df422=yield this[_0x32bf87(0x2b1)][_0x32bf87(0x2e7)](_0x225965);if(_0x3df422===undefined){const _0x3ba243={'status':0x0,'message':_0x32bf87(0x299)};return _0xe2439c[_0x32bf87(0x2ea)](0x190)[_0x32bf87(0x209)](_0x3ba243);}}_0x2ef5f2[_0x32bf87(0x1f8)]=[{'header':_0x32bf87(0x2e5),'key':'id','size':0x10,'width':0xf},{'header':_0x32bf87(0x29f),'key':'first_name','size':0x10,'width':0xf},{'header':_0x32bf87(0x26f),'key':'username','size':0x10,'width':0x18},{'header':_0x32bf87(0x219),'key':_0x32bf87(0x24d),'size':0x10,'width':0xf},{'header':_0x32bf87(0x2e6),'key':'mobileNumber','size':0x10,'width':0xf},{'header':_0x32bf87(0x22f),'key':_0x32bf87(0x205),'size':0x10,'width':0xf}],_0x2ef5f2[_0x32bf87(0x26b)]('A1')[_0x32bf87(0x2b5)]={'top':{'style':_0x32bf87(0x21d)},'left':{'style':_0x32bf87(0x21d)},'bottom':{'style':_0x32bf87(0x21d)},'right':{'style':_0x32bf87(0x21d)}},_0x2ef5f2[_0x32bf87(0x26b)]('B1')[_0x32bf87(0x2b5)]={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':_0x32bf87(0x21d)},'right':{'style':_0x32bf87(0x21d)}},_0x2ef5f2['getCell']('C1')[_0x32bf87(0x2b5)]={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':_0x32bf87(0x21d)},'right':{'style':'thin'}},_0x2ef5f2[_0x32bf87(0x26b)]('D1')[_0x32bf87(0x2b5)]={'top':{'style':_0x32bf87(0x21d)},'left':{'style':_0x32bf87(0x21d)},'bottom':{'style':_0x32bf87(0x21d)},'right':{'style':'thin'}},_0x2ef5f2[_0x32bf87(0x26b)]('E1')[_0x32bf87(0x2b5)]={'top':{'style':'thin'},'left':{'style':_0x32bf87(0x21d)},'bottom':{'style':'thin'},'right':{'style':_0x32bf87(0x21d)}},_0x2ef5f2['getCell']('F1')[_0x32bf87(0x2b5)]={'top':{'style':_0x32bf87(0x21d)},'left':{'style':_0x32bf87(0x21d)},'bottom':{'style':_0x32bf87(0x21d)},'right':{'style':_0x32bf87(0x21d)}};for(const _0x4e4220 of _0x12e813){const _0x437f13=yield this[_0x32bf87(0x2b1)][_0x32bf87(0x2e7)](_0x4e4220);_0x437f13['lastName']===null&&(_0x437f13['lastName']=''),_0x3f9caf[_0x32bf87(0x2cb)]([_0x437f13['id'],_0x437f13[_0x32bf87(0x2cd)]+'\x20'+_0x437f13[_0x32bf87(0x2d9)],_0x437f13[_0x32bf87(0x214)],_0x437f13[_0x32bf87(0x24d)],_0x437f13[_0x32bf87(0x2e9)],_0x437f13[_0x32bf87(0x205)]]);}_0x2ef5f2[_0x32bf87(0x229)](_0x3f9caf);const _0x2dd437=_0x32bf87(0x226)+Date['now']()+_0x32bf87(0x2df);return yield _0x1a3608[_0x32bf87(0x238)][_0x32bf87(0x295)](_0x2dd437),new Promise((_0x464081,_0x26756c)=>{const _0x268e1a=_0x32bf87;_0xe2439c[_0x268e1a(0x2e8)](_0x2dd437,(_0x5d53c1,_0x2ef541)=>{const _0x219ff3=_0x268e1a;if(_0x5d53c1)_0x26756c(_0x5d53c1);else return fs[_0x219ff3(0x2f1)](_0x2dd437),_0xe2439c['end']();});});});}[a261_0x57605d(0x2c4)](_0x51ff9d,_0x1f350f,_0xebb5b1,_0xf0a9c0,_0x500c81,_0x3fcd01,_0x55cc5a){const _0x21dce0=a261_0x57605d;return tslib_1[_0x21dce0(0x2be)](this,void 0x0,void 0x0,function*(){const _0x53e385=_0x21dce0,_0x171ce6=require(_0x53e385(0x29a)),_0x20aae0=new _0x171ce6[(_0x53e385(0x2cc))](),_0x31cce5=_0x20aae0[_0x53e385(0x274)]('Bulk\x20Customer\x20Export'),_0x1c3ead=[],_0x1b3713=[];_0x51ff9d!==undefined&&_0x51ff9d!==''&&_0x1b3713[_0x53e385(0x2cb)]({'name':'firstName','op':_0x53e385(0x28e),'value':_0x51ff9d});_0xebb5b1!==undefined&&_0xebb5b1!==''&&_0x1b3713[_0x53e385(0x2cb)]({'name':_0x53e385(0x24d),'op':'like','value':_0xebb5b1});+_0xf0a9c0&&_0x1b3713[_0x53e385(0x2cb)]({'name':_0x53e385(0x22d),'op':_0x53e385(0x2ca),'value':_0xf0a9c0});+_0x1f350f&&_0x1b3713[_0x53e385(0x2cb)]({'name':_0x53e385(0x1f9),'op':_0x53e385(0x28e),'value':_0x1f350f});_0x500c81!==undefined&&_0x500c81!==''&&_0x1b3713[_0x53e385(0x2cb)]({'name':'createdDate','op':_0x53e385(0x28e),'value':_0x500c81});const _0x2d4221=[{'name':_0x53e385(0x268),'value':0x0}],_0x5aa2d0=yield this[_0x53e385(0x2b1)][_0x53e385(0x252)](0x0,0x0,_0x1b3713,_0x2d4221,0x0,![]);if(+_0x5aa2d0['length']===0x0)return _0x55cc5a['status'](0x190)[_0x53e385(0x209)]({'status':0x0,'message':'list\x20is\x20empty'});_0x31cce5[_0x53e385(0x1f8)]=[{'header':'Customer\x20Id','key':'id','size':0x10,'width':0xf},{'header':'Customer\x20Name','key':_0x53e385(0x2d1),'size':0x10,'width':0xf},{'header':_0x53e385(0x26f),'key':_0x53e385(0x214),'size':0x10,'width':0x18},{'header':_0x53e385(0x219),'key':_0x53e385(0x24d),'size':0x10,'width':0x1e},{'header':_0x53e385(0x2e6),'key':'mobile','size':0x10,'width':0x14},{'header':_0x53e385(0x22f),'key':'createdDate','size':0x10,'width':0x14}],_0x31cce5[_0x53e385(0x26b)]('A1')[_0x53e385(0x2b5)]={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':_0x53e385(0x21d)},'right':{'style':_0x53e385(0x21d)}},_0x31cce5[_0x53e385(0x26b)]('B1')['border']={'top':{'style':_0x53e385(0x21d)},'left':{'style':_0x53e385(0x21d)},'bottom':{'style':_0x53e385(0x21d)},'right':{'style':'thin'}},_0x31cce5['getCell']('C1')[_0x53e385(0x2b5)]={'top':{'style':'thin'},'left':{'style':_0x53e385(0x21d)},'bottom':{'style':_0x53e385(0x21d)},'right':{'style':_0x53e385(0x21d)}},_0x31cce5[_0x53e385(0x26b)]('D1')[_0x53e385(0x2b5)]={'top':{'style':_0x53e385(0x21d)},'left':{'style':'thin'},'bottom':{'style':_0x53e385(0x21d)},'right':{'style':'thin'}},_0x31cce5[_0x53e385(0x26b)]('E1')[_0x53e385(0x2b5)]={'top':{'style':_0x53e385(0x21d)},'left':{'style':'thin'},'bottom':{'style':_0x53e385(0x21d)},'right':{'style':_0x53e385(0x21d)}},_0x31cce5[_0x53e385(0x26b)]('F1')[_0x53e385(0x2b5)]={'top':{'style':_0x53e385(0x21d)},'left':{'style':'thin'},'bottom':{'style':_0x53e385(0x21d)},'right':{'style':'thin'}};for(const _0xe644a8 of _0x5aa2d0){console[_0x53e385(0x261)](_0x53e385(0x21f),_0xe644a8),_0xe644a8['lastName']===null&&(_0xe644a8[_0x53e385(0x2d9)]=''),_0x1c3ead[_0x53e385(0x2cb)]([_0xe644a8['id'],_0xe644a8['firstName']+'\x20'+_0xe644a8[_0x53e385(0x2d9)],_0xe644a8['username'],_0xe644a8[_0x53e385(0x24d)],_0xe644a8[_0x53e385(0x2e9)],_0xe644a8[_0x53e385(0x205)]]);}_0x31cce5[_0x53e385(0x229)](_0x1c3ead);const _0x324edf=_0x53e385(0x226)+Date[_0x53e385(0x240)]()+_0x53e385(0x2df);return yield _0x20aae0['xlsx'][_0x53e385(0x295)](_0x324edf),new Promise((_0x42adf2,_0x126a28)=>{const _0x330c40=_0x53e385;_0x55cc5a[_0x330c40(0x2e8)](_0x324edf,(_0x39f202,_0x14e075)=>{const _0x4eb9df=_0x330c40;if(_0x39f202)_0x126a28(_0x39f202);else return fs[_0x4eb9df(0x2f1)](_0x324edf),_0x55cc5a[_0x4eb9df(0x2d5)]();});});});}['customerCounts'](_0x306811){const _0x338069=a261_0x57605d;return tslib_1[_0x338069(0x2be)](this,void 0x0,void 0x0,function*(){const _0x226bc1=_0x338069,_0x1ec701={},_0x57449b=[],_0x141cfe=[],_0x4f2f24=[{'name':_0x226bc1(0x268),'op':'where','value':0x0}],_0x1bc840=yield this['customerService']['list'](0x0,0x0,_0x141cfe,_0x4f2f24,0x0,0x1),_0x3d3365=[{'name':_0x226bc1(0x1f9),'op':'where','value':0x1},{'name':_0x226bc1(0x268),'op':_0x226bc1(0x2ca),'value':0x0}],_0x5146c5=yield this[_0x226bc1(0x2b1)]['list'](0x0,0x0,_0x141cfe,_0x3d3365,0x0,0x1),_0x20100b=[{'name':_0x226bc1(0x1f9),'op':'where','value':0x0},{'name':_0x226bc1(0x268),'op':'where','value':0x0}],_0x4f08be=yield this['customerService'][_0x226bc1(0x252)](0x0,0x0,_0x141cfe,_0x20100b,0x0,0x1),_0x5804a5=[],_0x59422f=yield this[_0x226bc1(0x236)][_0x226bc1(0x252)](0x0,0x0,_0x57449b,_0x5804a5,0x1),_0x568337=[{'name':_0x226bc1(0x1f9),'op':_0x226bc1(0x2ca),'value':0x0}],_0x2eed1c=[{'name':_0x226bc1(0x1f9),'op':_0x226bc1(0x2ca),'value':0x1}],_0x49f967=yield this[_0x226bc1(0x236)][_0x226bc1(0x252)](0x0,0x0,_0x57449b,_0x2eed1c,0x1),_0x395fa0=yield this[_0x226bc1(0x236)][_0x226bc1(0x252)](0x0,0x0,_0x57449b,_0x568337,0x1);_0x1ec701[_0x226bc1(0x2ad)]=_0x1bc840,_0x1ec701[_0x226bc1(0x1f6)]=_0x5146c5,_0x1ec701[_0x226bc1(0x279)]=_0x4f08be,_0x1ec701['totalCustomerGroup']=_0x59422f,_0x1ec701['activeCustomerGroup']=_0x49f967,_0x1ec701['inActiveCustomerGroup']=_0x395fa0;const _0x2db5ad={'status':0x1,'message':_0x226bc1(0x256),'data':_0x1ec701};return _0x306811[_0x226bc1(0x2ea)](0xc8)['send'](_0x2db5ad);});}[a261_0x57605d(0x220)](_0x5f5d20,_0x2758b6,_0x535fc6,_0x49dde9,_0x1f5645){const _0x48d555=a261_0x57605d;return tslib_1[_0x48d555(0x2be)](this,void 0x0,void 0x0,function*(){const _0x45982c=_0x48d555,_0x519677=[_0x45982c(0x2db),'order.orderId\x20as\x20orderId',_0x45982c(0x24f),_0x45982c(0x1fb),_0x45982c(0x27f)],_0x1a769f=[{'tableName':_0x45982c(0x24c),'aliasName':_0x45982c(0x2c2)},{'tableName':_0x45982c(0x280),'aliasName':'productInformationDetail'},{'tableName':_0x45982c(0x2cf),'aliasName':_0x45982c(0x278)}],_0x289342=[];+_0x49dde9&&_0x289342['push']({'name':'order.customerId','op':_0x45982c(0x2a6),'value':+_0x49dde9});_0x289342[_0x45982c(0x2cb)]({'name':'productImage.defaultImage','op':_0x45982c(0x2a6),'value':0x1});const _0x3512cb=[];_0x3512cb[_0x45982c(0x2cb)]({'name':_0x45982c(0x2c5),'order':'DESC'});if(_0x535fc6){const _0x388ed3=yield this[_0x45982c(0x2b6)][_0x45982c(0x2ab)](_0x5f5d20,_0x2758b6,_0x519677,_0x289342,[],_0x1a769f,[],_0x3512cb,!![],!![]);return _0x1f5645[_0x45982c(0x2ea)](0xc8)[_0x45982c(0x209)]({'status':0x1,'message':_0x45982c(0x273),'data':_0x388ed3});}const _0x356114=yield this[_0x45982c(0x2b6)][_0x45982c(0x2ab)](_0x5f5d20,_0x2758b6,_0x519677,_0x289342,[],_0x1a769f,[],_0x3512cb,![],!![]);return _0x1f5645['status'](0xc8)[_0x45982c(0x209)]({'status':0x1,'message':_0x45982c(0x20d),'data':_0x356114});});}[a261_0x57605d(0x2bf)](_0x59b5cf,_0x499f92,_0xfe9bc1,_0x2aa3f8,_0x104c5e){const _0x5f3ab3=a261_0x57605d;return tslib_1[_0x5f3ab3(0x2be)](this,void 0x0,void 0x0,function*(){const _0x23287f=_0x5f3ab3,_0x1b0143=[_0x23287f(0x270),'ProductViewLog.createdDate\x20as\x20createdDate','product.name\x20as\x20productName',_0x23287f(0x1fb),'productImage.containerName\x20as\x20containerName'],_0x53950d=[{'tableName':_0x23287f(0x1fe),'aliasName':_0x23287f(0x230)},{'tableName':'product.productImage','aliasName':_0x23287f(0x278)}],_0x5eb1ab=[];+_0x2aa3f8&&_0x5eb1ab['push']({'name':_0x23287f(0x27d),'op':'and','value':+_0x2aa3f8});_0x5eb1ab[_0x23287f(0x2cb)]({'name':_0x23287f(0x215),'op':_0x23287f(0x2a6),'value':0x1});const _0x580455=[];_0x580455[_0x23287f(0x2cb)]({'name':_0x23287f(0x23d),'order':_0x23287f(0x2a3)});if(_0xfe9bc1){const _0x5a2d49=yield this[_0x23287f(0x239)][_0x23287f(0x2ab)](_0x59b5cf,_0x499f92,_0x1b0143,_0x5eb1ab,[],_0x53950d,[],_0x580455,!![],!![]);return _0x104c5e[_0x23287f(0x2ea)](0xc8)[_0x23287f(0x209)]({'status':0x1,'message':'Successfully\x20got\x20the\x20count\x20of\x20product\x20view\x20log\x20list','data':_0x5a2d49});}const _0x1d6662=yield this[_0x23287f(0x239)][_0x23287f(0x2ab)](_0x59b5cf,_0x499f92,_0x1b0143,_0x5eb1ab,[],_0x53950d,[],_0x580455,![],!![]);return _0x104c5e[_0x23287f(0x2ea)](0xc8)[_0x23287f(0x209)]({'status':0x1,'message':_0x23287f(0x242),'data':_0x1d6662});});}[a261_0x57605d(0x20f)](_0x546a98,_0x1e2b09,_0x2c19f9){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1c01f9=a261_0x14df;if(_0x546a98!==0x0){const _0x150cce=yield this['vendorService'][_0x1c01f9(0x2e7)]({'select':['companyName'],'where':{'vendorId':_0x546a98}});if(!_0x150cce){const _0x4aa376={'status':0x0,'message':_0x1c01f9(0x212)};return _0x2c19f9[_0x1c01f9(0x2ea)](0x190)[_0x1c01f9(0x209)](_0x4aa376);}const _0x2d17b6=yield this[_0x1c01f9(0x211)][_0x1c01f9(0x260)](_0x546a98,_0x1e2b09),_0xdba0e3=yield this[_0x1c01f9(0x2eb)][_0x1c01f9(0x2ac)](_0x546a98,_0x1e2b09),_0x262824=yield this[_0x1c01f9(0x2eb)][_0x1c01f9(0x21c)](_0x546a98,_0x1e2b09),_0x4e10d5=yield this[_0x1c01f9(0x211)][_0x1c01f9(0x2dd)](_0x546a98,_0x1e2b09,0x1),_0x16b922=yield this[_0x1c01f9(0x211)][_0x1c01f9(0x2dd)](_0x546a98,_0x1e2b09,0x2);_0x150cce['productCount']=_0x2d17b6!==undefined?_0x2d17b6:0x0,_0x150cce['productSoldCount']=_0xdba0e3[0x0][_0x1c01f9(0x210)]!==undefined&&_0xdba0e3[0x0][_0x1c01f9(0x210)]?_0xdba0e3[0x0][_0x1c01f9(0x210)]:0x0,_0x150cce[_0x1c01f9(0x2b4)]=_0x262824!==undefined?_0x262824:0x0,_0x150cce[_0x1c01f9(0x264)]=_0x4e10d5!==undefined?_0x4e10d5:0x0,_0x150cce[_0x1c01f9(0x290)]=_0x16b922!==undefined?_0x16b922:0x0;const _0x43a222={'status':0x1,'message':_0x1c01f9(0x22c),'data':_0x150cce};return _0x2c19f9[_0x1c01f9(0x2ea)](0xc8)['send'](_0x43a222);}const _0x4212aa={'status':0x1,'message':_0x1c01f9(0x22c),'data':{}};return _0x2c19f9[_0x1c01f9(0x2ea)](0xc8)[_0x1c01f9(0x209)](_0x4212aa);});}[a261_0x57605d(0x2d0)](_0x12fa93,_0xf56e05,_0x3ea458){const _0x2a7432=a261_0x57605d;return tslib_1[_0x2a7432(0x2be)](this,void 0x0,void 0x0,function*(){const _0x3ecf3a=_0x2a7432,_0x356619=yield this[_0x3ecf3a(0x1f7)][_0x3ecf3a(0x2d0)](_0x12fa93,_0xf56e05);return _0x3ea458[_0x3ecf3a(0x2ea)](0xc8)[_0x3ecf3a(0x209)]({'status':0x1,'message':_0x3ecf3a(0x213),'data':_0x356619});});}};function a261_0x45df(){const _0x42a726=['unlinkSync','Password\x20does\x20not\x20match.','emailTemplateService','Res','activeCustomer','loginLogService','columns','isActive','list-customer','productImage.image\x20as\x20image','Delete','CreateCustomer','ProductViewLog.product','./requests/UpdateCustomerRequest','Not','design:returntype','year','name','month','createdDate','../../core/services/VendorService','/admin-customer','Authorized','send','/allcustomer-excel-list','../../core/services/CustomerGroupService','customer/','Successfully\x20got\x20order\x20product\x20list','./requests/CreateCustomerRequest','vendorGraphList','soldCount','vendorProductService','Invalid\x20Vendor.','Successfully\x20got\x20the\x20customer\x20visit\x20list','username','productImage.defaultImage','emailContent','JsonController','vendorService','Email\x20Id','replace','mailStatus:','deliveredOrderBasedOnDuration','thin','upload','customer:','orderProductList','message','duration','avatar','VendorOrdersService','/product-view-log-list','./CustomerExcel_','Unable\x20to\x20change\x20delete\x20flag\x20status.','getMonth','addRows','getDate','sendMail','Successfully\x20got\x20the\x20vendor\x20graph\x20list','customerGroupId','Customer','Date\x20Of\x20Registration','product','A\x20Customer\x20is\x20already\x20registered\x20with\x20this\x20email\x20Id.','UpdateCustomer','Customer.firstName\x20as\x20firstName','address','../../core/services/OrderProductService','customerGroupService','addCustomer','xlsx','productViewLogService','Invalid\x20customer\x20id.','__param','__metadata','ProductViewLog.createdDate','create-customer','Customer.createdDate\x20as\x20createdDate','now','includes','Successfully\x20got\x20product\x20view\x20log\x20list','/recent-customerlist','10884762OwYBEx','aws-sdk','Successfully\x20get\x20customerCount','{name}','2240522HBaxdS','This\x20customer\x20have\x20vendor\x20account,\x20you\x20have\x20to\x20first\x20delete\x20the\x20products\x20mapped\x20to\x20this\x20Vendor.','../../../env','AWS_BUCKET','OrderProduct.order','email','hashPassword','order.createdDate\x20as\x20createdDate','lastLogin','getFullYear','list','{username}','/:id','subject','Successfully\x20got\x20the\x20Customer\x20Count','defineProperty','toString','content','Invalid\x20customer\x20Id.','VendorService','Customer.isActive\x20as\x20isActive','/order-product-list','customerGroupName','settingService','vendorProductBasedOnDuration','log','/delete-customer','../../core/services/EmailTemplateService','outOfStockCount','\x20types\x20are\x20allowed','1741764OXkFoB','Post','deleteFlag','Customer\x20Created\x20Successfully','13815424XSoALJ','getCell','split','date','__esModule','User\x20Name','product.productId\x20as\x20productId','Req','all','Successfully\x20got\x20the\x20count\x20of\x20order\x20product\x20count','addWorksheet','CustomerController','delete-customer','Please\x20choose\x20a\x20Customer\x20that\x20you\x20want\x20to\x20delete.','productImage','inActiveCustomer','User','/vendor-graph-list','avatarPath','ProductViewLog.customer','MailId\x20is\x20already\x20registered','productImage.containerName\x20as\x20containerName','OrderProduct.productInformationDetail','Put','excelCustomerView','base64','__importStar','storeRedirectUrl','Customer.email\x20as\x20email','customerCounts','../../core/services/ProductViewLogService','../../core/services/LoginLogService','env','match','LoginLogService','instanceToPlain','like','MAILService','pendingStockCount','/customer-visit-list','limit','Customer.id\x20as\x20id','218114sBnSUD','writeFile','VendorProductService','from','password','Invalid\x20customerId','exceljs','successfully\x20got\x20Customer\x20details.','routing-controllers','admin','5pdQIEX','Customer\x20Name','class-transformer','productDetailData','updateCustomer','DESC','QueryParam','CustomerService','and','export-all-customer','map','customerCount','mailStatus','listByQueryBuilder','productSoldBasedOnDuration','totalCustomer','Successfully\x20deleted\x20customer.','Body','customerId','customerService','11202919amVuOl','../../core/services/CustomerService','deliveryCount','border','orderProductService','__decorate','count','vendorId','Customer\x20Export\x20sheet','OrderProductService','confirmPassword','tslib','__awaiter','productViewLogList','reflect-metadata','deleteCustomer','order','26682bzMzWZ','AllCustomerExcel','order.createdDate','Get','customerGroup','availImageTypes','recentCustomerList','where','push','Workbook','firstName','todayCustomerCount','productInformationDetail.productImage','customerVisitList','first_name','/customer-excel-list','Customer.username\x20as\x20username','deleteMultipleCustomer','end','../../core/services/SettingService','Param','customerList','lastName','design:paramtypes','OrderProduct.name\x20as\x20productName','customerDetails','outOfStockBasedOnDuration','Customer\x20Updated\x20Successfully','.xlsx','648YnnVMe','public-read','{password}','design:type','./requests/DeleteCustomerRequest','Customer\x20Id','Mobile\x20Number','findOne','download','mobileNumber','status','vendorOrdersService','prototype','Successfully\x20got\x20Customer\x20list.','offset','create','Customer\x20Deleted\x20Successfully'];a261_0x45df=function(){return _0x42a726;};return a261_0x45df();}tslib_1[a261_0x57605d(0x2b7)]([(0x0,routing_controllers_1[a261_0x57605d(0x267)])(),(0x0,routing_controllers_1[a261_0x57605d(0x208)])([a261_0x57605d(0x29d),a261_0x57605d(0x23e)]),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x2af)])({'validate':!![]})),tslib_1[a261_0x57605d(0x23b)](0x1,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1['__metadata'](a261_0x57605d(0x2e3),Function),tslib_1['__metadata']('design:paramtypes',[CreateCustomerRequest_1[a261_0x57605d(0x1fd)],Object]),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x201),Promise)],CustomerController['prototype'],a261_0x57605d(0x237),null),tslib_1[a261_0x57605d(0x2b7)]([(0x0,routing_controllers_1[a261_0x57605d(0x2c6)])(),(0x0,routing_controllers_1[a261_0x57605d(0x208)])([a261_0x57605d(0x29d),a261_0x57605d(0x1fa)]),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])('limit')),tslib_1[a261_0x57605d(0x23b)](0x1,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])('offset')),tslib_1[a261_0x57605d(0x23b)](0x2,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x203))),tslib_1[a261_0x57605d(0x23b)](0x3,(0x0,routing_controllers_1['QueryParam'])('status')),tslib_1[a261_0x57605d(0x23b)](0x4,(0x0,routing_controllers_1['QueryParam'])('email')),tslib_1[a261_0x57605d(0x23b)](0x5,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x2c7))),tslib_1['__param'](0x6,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x26d))),tslib_1[a261_0x57605d(0x23b)](0x7,(0x0,routing_controllers_1['QueryParam'])(a261_0x57605d(0x2b8))),tslib_1[a261_0x57605d(0x23b)](0x8,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2e3),Function),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2da),[Number,Number,String,String,String,String,String,Object,Object]),tslib_1['__metadata'](a261_0x57605d(0x201),Promise)],CustomerController['prototype'],a261_0x57605d(0x2d8),null),tslib_1[a261_0x57605d(0x2b7)]([(0x0,routing_controllers_1[a261_0x57605d(0x1fc)])('/:id'),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x2d7)])('id')),tslib_1['__param'](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a261_0x57605d(0x23b)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2e3),Function),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2da),[Number,Object,Object]),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x201),Promise)],CustomerController[a261_0x57605d(0x2ec)],a261_0x57605d(0x2c1),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a261_0x57605d(0x281)])(a261_0x57605d(0x254)),(0x0,routing_controllers_1[a261_0x57605d(0x208)])(['admin','edit-customer']),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1[a261_0x57605d(0x23b)](0x1,(0x0,routing_controllers_1[a261_0x57605d(0x2af)])({'validate':!![]})),tslib_1[a261_0x57605d(0x23b)](0x2,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2e3),Function),tslib_1[a261_0x57605d(0x23c)]('design:paramtypes',[Number,UpdateCustomerRequest_1[a261_0x57605d(0x232)],Object]),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x201),Promise)],CustomerController[a261_0x57605d(0x2ec)],a261_0x57605d(0x2a2),null),tslib_1[a261_0x57605d(0x2b7)]([(0x0,routing_controllers_1[a261_0x57605d(0x2c6)])('/customer-detail/:id'),(0x0,routing_controllers_1[a261_0x57605d(0x208)])([a261_0x57605d(0x29d),'view-customer']),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x2d7)])('id')),tslib_1[a261_0x57605d(0x23b)](0x1,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)]('design:type',Function),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2da),[Number,Object]),tslib_1[a261_0x57605d(0x23c)]('design:returntype',Promise)],CustomerController[a261_0x57605d(0x2ec)],a261_0x57605d(0x2dc),null),tslib_1[a261_0x57605d(0x2b7)]([(0x0,routing_controllers_1[a261_0x57605d(0x2c6)])(a261_0x57605d(0x243)),(0x0,routing_controllers_1[a261_0x57605d(0x208)])(),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)]('design:type',Function),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2da),[Object]),tslib_1['__metadata'](a261_0x57605d(0x201),Promise)],CustomerController[a261_0x57605d(0x2ec)],a261_0x57605d(0x2c9),null),tslib_1[a261_0x57605d(0x2b7)]([(0x0,routing_controllers_1[a261_0x57605d(0x2c6)])('/today-customercount'),(0x0,routing_controllers_1[a261_0x57605d(0x208)])(),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2e3),Function),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2da),[Object]),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x201),Promise)],CustomerController[a261_0x57605d(0x2ec)],a261_0x57605d(0x2a9),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a261_0x57605d(0x267)])(a261_0x57605d(0x262)),(0x0,routing_controllers_1['Authorized'])([a261_0x57605d(0x29d),a261_0x57605d(0x276)]),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x2af)])({'validate':!![]})),tslib_1[a261_0x57605d(0x23b)](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1[a261_0x57605d(0x23b)](0x2,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2e3),Function),tslib_1['__metadata'](a261_0x57605d(0x2da),[DeleteCustomerRequest_1['DeleteCustomerRequest'],Object,Object]),tslib_1[a261_0x57605d(0x23c)]('design:returntype',Promise)],CustomerController[a261_0x57605d(0x2ec)],a261_0x57605d(0x2d4),null),tslib_1[a261_0x57605d(0x2b7)]([(0x0,routing_controllers_1[a261_0x57605d(0x2c6)])(a261_0x57605d(0x2d2)),(0x0,routing_controllers_1['Authorized'])(['admin','export-customer']),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x2b0))),tslib_1[a261_0x57605d(0x23b)](0x1,(0x0,routing_controllers_1[a261_0x57605d(0x271)])()),tslib_1[a261_0x57605d(0x23b)](0x2,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2e3),Function),tslib_1['__metadata'](a261_0x57605d(0x2da),[String,Object,Object]),tslib_1['__metadata'](a261_0x57605d(0x201),Promise)],CustomerController['prototype'],a261_0x57605d(0x282),null),tslib_1[a261_0x57605d(0x2b7)]([(0x0,routing_controllers_1[a261_0x57605d(0x2c6)])(a261_0x57605d(0x20a)),(0x0,routing_controllers_1['Authorized'])([a261_0x57605d(0x29d),a261_0x57605d(0x2a7)]),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])('name')),tslib_1[a261_0x57605d(0x23b)](0x1,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])('status')),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x24d))),tslib_1[a261_0x57605d(0x23b)](0x3,(0x0,routing_controllers_1['QueryParam'])(a261_0x57605d(0x2c7))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x26d))),tslib_1['__param'](0x5,(0x0,routing_controllers_1['Req'])()),tslib_1['__param'](0x6,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)]('design:type',Function),tslib_1['__metadata']('design:paramtypes',[String,String,String,String,String,Object,Object]),tslib_1[a261_0x57605d(0x23c)]('design:returntype',Promise)],CustomerController[a261_0x57605d(0x2ec)],'AllCustomerExcel',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a261_0x57605d(0x2c6)])('/customer-count'),(0x0,routing_controllers_1[a261_0x57605d(0x208)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2e3),Function),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2da),[Object]),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x201),Promise)],CustomerController[a261_0x57605d(0x2ec)],a261_0x57605d(0x287),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a261_0x57605d(0x2c6)])(a261_0x57605d(0x25d)),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x292))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x2ee))),tslib_1[a261_0x57605d(0x23b)](0x2,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x2b8))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x2b0))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2e3),Function),tslib_1[a261_0x57605d(0x23c)]('design:paramtypes',[Number,Number,Object,Number,Object]),tslib_1[a261_0x57605d(0x23c)]('design:returntype',Promise)],CustomerController['prototype'],a261_0x57605d(0x220),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a261_0x57605d(0x2c6)])(a261_0x57605d(0x225)),(0x0,routing_controllers_1[a261_0x57605d(0x208)])(),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1['QueryParam'])(a261_0x57605d(0x292))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x2ee))),tslib_1[a261_0x57605d(0x23b)](0x2,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x2b8))),tslib_1[a261_0x57605d(0x23b)](0x3,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x2b0))),tslib_1[a261_0x57605d(0x23b)](0x4,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2e3),Function),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2da),[Number,Number,Object,Number,Object]),tslib_1[a261_0x57605d(0x23c)]('design:returntype',Promise)],CustomerController[a261_0x57605d(0x2ec)],a261_0x57605d(0x2bf),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a261_0x57605d(0x2c6)])(a261_0x57605d(0x27b)),(0x0,routing_controllers_1['Authorized'])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x2b9))),tslib_1[a261_0x57605d(0x23b)](0x1,(0x0,routing_controllers_1[a261_0x57605d(0x2a4)])(a261_0x57605d(0x222))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2e3),Function),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2da),[Number,Number,Object]),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x201),Promise)],CustomerController[a261_0x57605d(0x2ec)],'vendorGraphList',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a261_0x57605d(0x2c6)])(a261_0x57605d(0x291)),(0x0,routing_controllers_1[a261_0x57605d(0x208)])(),tslib_1[a261_0x57605d(0x23b)](0x0,(0x0,routing_controllers_1['QueryParam'])(a261_0x57605d(0x204))),tslib_1['__param'](0x1,(0x0,routing_controllers_1['QueryParam'])(a261_0x57605d(0x202))),tslib_1[a261_0x57605d(0x23b)](0x2,(0x0,routing_controllers_1[a261_0x57605d(0x1f5)])()),tslib_1['__metadata'](a261_0x57605d(0x2e3),Function),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2da),[Number,Number,Object]),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x201),Promise)],CustomerController[a261_0x57605d(0x2ec)],'customerVisitList',null),CustomerController=tslib_1[a261_0x57605d(0x2b7)]([(0x0,routing_controllers_1[a261_0x57605d(0x217)])(a261_0x57605d(0x207)),tslib_1[a261_0x57605d(0x23c)](a261_0x57605d(0x2da),[CustomerService_1[a261_0x57605d(0x2a5)],OrderProductService_1[a261_0x57605d(0x2bb)],CustomerGroupService_1['CustomerGroupService'],SettingService_1['SettingService'],ProductViewLogService_1['ProductViewLogService'],VendorService_1[a261_0x57605d(0x25b)],VendorProductService_1[a261_0x57605d(0x296)],LoginLogService_1[a261_0x57605d(0x28c)],VendorOrderService_1[a261_0x57605d(0x224)],EmailTemplateService_1['EmailTemplateService']])],CustomerController),exports[a261_0x57605d(0x275)]=CustomerController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CustomerController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const AWS = tslib_1.__importStar(require("aws-sdk"));
+const class_transformer_1 = require("class-transformer");
+const env_1 = require("../../../env");
+const CustomerService_1 = require("../../core/services/CustomerService");
+const Customer_1 = require("../../core/models/Customer");
+const CreateCustomerRequest_1 = require("./requests/CreateCustomerRequest");
+const User_1 = require("../../core/models/User");
+const mail_services_1 = require("../../../auth/mail.services");
+const UpdateCustomerRequest_1 = require("./requests/UpdateCustomerRequest");
+const SettingService_1 = require("../../core/services/SettingService");
+const CustomerGroupService_1 = require("../../core/services/CustomerGroupService");
+const OrderProductService_1 = require("../../core/services/OrderProductService");
+const EmailTemplateService_1 = require("../../core/services/EmailTemplateService");
+const VendorService_1 = require("../../core/services/VendorService");
+const VendorProductService_1 = require("../../core/services/VendorProductService");
+const ProductViewLogService_1 = require("../../core/services/ProductViewLogService");
+const DeleteCustomerRequest_1 = require("./requests/DeleteCustomerRequest");
+const fs = tslib_1.__importStar(require("fs"));
+const VendorOrderService_1 = require("../../core/services/VendorOrderService");
+const LoginLogService_1 = require("../../core/services/LoginLogService");
+const customer_1 = require("@spurtcommerce/customer");
+const typeorm_1 = require("typeorm");
+const ExportLog_1 = require("../../core/models/ExportLog");
+const ExportLogService_1 = require("../../core/services/ExportLogService");
+let CustomerController = class CustomerController {
+    constructor(customerService, orderProductService, customerGroupService, settingService, productViewLogService, vendorService, vendorProductService, loginLogService, vendorOrdersService, emailTemplateService, exportLogService) {
+        this.customerService = customerService;
+        this.orderProductService = orderProductService;
+        this.customerGroupService = customerGroupService;
+        this.settingService = settingService;
+        this.productViewLogService = productViewLogService;
+        this.vendorService = vendorService;
+        this.vendorProductService = vendorProductService;
+        this.loginLogService = loginLogService;
+        this.vendorOrdersService = vendorOrdersService;
+        this.emailTemplateService = emailTemplateService;
+        this.exportLogService = exportLogService;
+        // --
+    }
+    // Create Customer API
+    /**
+     * @api {post} /api/admin-customer Add Customer API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} customerGroupId Customer customerGroupId
+     * @apiParam (Request body) {String{..32}} username Customer username
+     * @apiParam (Request body) {String{..96}} email Customer email
+     * @apiParam (Request body) {Number{6..15}} mobileNumber Customer mobileNumber
+     * @apiParam (Request body) {String{8..128}} password Customer password
+     * @apiParam (Request body) {String{8..128}} confirmPassword Customer confirmPassword
+     * @apiParam (Request body) {String} avatar Customer avatar
+     * @apiParam (Request body) {Number} mailStatus Customer mailStatus should be 1 or 0
+     * @apiParam (Request body) {Number} status Customer status
+     * @apiParamExample {json} Input
+     * {
+     *      "customerGroupId" : "",
+     *      "userName" : "",
+     *      "email" : "",
+     *      "mobileNumber" : "",
+     *      "password" : "",
+     *      "confirmPassword" : "",
+     *      "avatar" : "",
+     *      "mailStatus" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Customer Created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-customer
+     * @apiErrorExample {json} Customer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addCustomer(customerParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newCustomer = new Customer_1.Customer();
+            const resultUser = yield this.customerService.findOne({ where: { email: customerParam.email, deleteFlag: 0 } });
+            if (resultUser) {
+                const successResponse = {
+                    status: 1,
+                    message: 'A Customer is already registered with this email Id.',
+                };
+                return response.status(400).send(successResponse);
+            }
+            if (customerParam.password === customerParam.confirmPassword) {
+                const password = yield User_1.User.hashPassword(customerParam.password);
+                newCustomer.customerGroupId = customerParam.customerGroupId;
+                newCustomer.firstName = customerParam.username;
+                const emailId = customerParam.email;
+                newCustomer.username = emailId;
+                newCustomer.email = emailId;
+                newCustomer.mobileNumber = customerParam.mobileNumber;
+                newCustomer.password = password;
+                newCustomer.mailStatus = customerParam.mailStatus;
+                newCustomer.deleteFlag = 0;
+                newCustomer.isActive = customerParam.status;
+                newCustomer.siteId = customerParam.siteId;
+                const customerSave = yield this.customerService.create(newCustomer);
+                if (customerSave) {
+                    if (+customerParam.mailStatus === 1) {
+                        console.log('mailStatus:', customerParam.mailStatus);
+                        const emailContent = yield this.emailTemplateService.findOne(4);
+                        const logo = yield this.settingService.findOne();
+                        const message = emailContent.content.replace('{name}', customerParam.username).replace('{username}', customerParam.email).replace('{password}', customerParam.password);
+                        const redirectUrl = env_1.env.storeRedirectUrl;
+                        const mailContents = {};
+                        mailContents.logo = logo;
+                        mailContents.emailContent = message;
+                        mailContents.redirectUrl = redirectUrl;
+                        mailContents.productDetailData = undefined;
+                        mail_services_1.MAILService.sendMail(mailContents, customerParam.email, emailContent.subject, false, false, '');
+                        const successResponse = {
+                            status: 1,
+                            message: 'Successfully created new customer with email Id and password and email sent.',
+                            data: customerSave,
+                        };
+                        return response.status(200).send(successResponse);
+                    }
+                    else {
+                        const successResponse = {
+                            status: 1,
+                            message: 'Customer Created Successfully',
+                            data: customerSave,
+                        };
+                        return response.status(200).send(successResponse);
+                    }
+                }
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Password does not match.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Customer List API
+    /**
+     * @api {get} /api/admin-customer Customer List API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} name search by name
+     * @apiParam (Request body) {String} email search by email
+     * @apiParam (Request body) {Number} status 0->inactive 1-> active
+     * @apiParam (Request body) {String} customerGroup search by customerGroup
+     * @apiParam (Request body) {String} date search by date
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get customer list",
+     *      "data":{
+     *      "customerGroupId" : "",
+     *      "username" : "",
+     *      "email" : "",
+     *      "mobileNUmber" : "",
+     *      "password" : "",
+     *      "avatar" : "",
+     *      "avatarPath" : "",
+     *      "status" : "",
+     *      "safe" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-customer
+     * @apiErrorExample {json} customer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    customerList(limit, offset, name, status, email, customerGroup, date, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'Customer.id as id',
+                'Customer.firstName as firstName',
+                'Customer.email as email',
+                'Customer.createdDate as createdDate',
+                'Customer.isActive as isActive',
+                'Customer.username as username',
+                'customerGroup.name as customerGroupName',
+                'Customer.lastName as lastName',
+            ];
+            const customerList = yield (0, customer_1.getCustomerList)((0, typeorm_1.getConnection)(), select, limit, offset, name, status ? 1 : 0, email, customerGroup, date, count ? 1 : 0);
+            return response.status(200).send({
+                status: customerList.status,
+                message: customerList.message,
+                data: customerList.data,
+            });
+        });
+    }
+    // Delete Customer API
+    /**
+     * @api {delete} /api/admin-customer/:id Delete Customer API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "customerId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted customer.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-customer/:id
+     * @apiErrorExample {json} Customer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteCustomer(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = yield this.customerService.findOne({
+                where: {
+                    id,
+                },
+            });
+            if (!customer) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid customer Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const vendor = yield this.vendorService.findOne({
+                where: {
+                    customerId: id,
+                },
+            });
+            if (vendor) {
+                const product = yield this.vendorProductService.findOne({ where: { vendorId: vendor.vendorId } });
+                if (product) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'This customer have vendor account, you have to first delete the products mapped to this Vendor.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            customer.deleteFlag = 1;
+            const deleteCustomer = yield this.customerService.create(customer);
+            if (deleteCustomer) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Customer Deleted Successfully',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to change delete flag status.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update Customer API
+    /**
+     * @api {put} /api/admin-customer/:id Update Customer API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} customerGroupId Customer customerGroupId
+     * @apiParam (Request body) {String{..96}} username Customer username
+     * @apiParam (Request body) {String{..96}} email Customer email
+     * @apiParam (Request body) {Number{6..15}} mobileNumber Customer mobileNumber
+     * @apiParam (Request body) {String} [password] Customer password
+     * @apiParam (Request body) {String} [confirmPassword] Customer confirmPassword
+     * @apiParam (Request body) {String} [avatar] Customer avatar
+     * @apiParam (Request body) {Number} mailStatus Customer mailStatus should be 1 or 0
+     * @apiParam (Request body) {Number} status Customer status
+     * @apiParamExample {json} Input
+     * {
+     *      "customerGroupId" : "",
+     *      "userName" : "",
+     *      "email" : "",
+     *      "mobileNumber" : "",
+     *      "password" : "",
+     *      "confirmPassword" : "",
+     *      "avatar" : "",
+     *      "mailStatus" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": " Customer is updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-customer/:id
+     * @apiErrorExample {json} updateCustomer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateCustomer(id, customerParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = yield this.customerService.findOne({
+                where: {
+                    id,
+                },
+            });
+            if (!customer) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid customer id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const customerEmailId = yield this.customerService.findOne({
+                where: {
+                    email: customerParam.email,
+                    deleteFlag: 0,
+                    id: (0, typeorm_1.Not)(id),
+                },
+            });
+            if (customerEmailId !== undefined) {
+                const errorResponses = {
+                    status: 0,
+                    message: 'MailId is already registered',
+                };
+                return response.status(400).send(errorResponses);
+            }
+            if (customerParam.password === customerParam.confirmPassword) {
+                const avatar = customerParam.avatar;
+                if (avatar) {
+                    const type = avatar.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const name = 'Img_' + Date.now() + '.' + type;
+                    const s3 = new AWS.S3();
+                    const path = 'customer/';
+                    const base64Data = Buffer.from(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    const params = {
+                        Bucket: env_1.aws_setup.AWS_BUCKET,
+                        Key: 'customer/' + name,
+                        Body: base64Data,
+                        ACL: 'public-read',
+                        ContentEncoding: 'base64',
+                        ContentType: `image/${type}`,
+                    };
+                    s3.upload(params, (err, data) => {
+                        if (err) {
+                            throw err;
+                        }
+                    });
+                    customer.avatar = name;
+                    customer.avatarPath = path;
+                }
+                customer.customerGroupId = customerParam.customerGroupId;
+                customer.firstName = customerParam.username;
+                customer.username = customerParam.email;
+                customer.email = customerParam.email;
+                customer.mobileNumber = customerParam.mobileNumber;
+                if (customerParam.password) {
+                    const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,}$/;
+                    if (!customerParam.password.match(pattern)) {
+                        const passwordValidatingMessage = [];
+                        passwordValidatingMessage.push('Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters');
+                        const errResponse = {
+                            status: 0,
+                            message: "You have an error in your request's body. Check 'errors' field for more details!",
+                            data: { message: passwordValidatingMessage },
+                        };
+                        return response.status(422).send(errResponse);
+                    }
+                    const password = yield User_1.User.hashPassword(customerParam.password);
+                    customer.password = password;
+                }
+                customer.mailStatus = customerParam.mailStatus;
+                customer.isActive = customerParam.status;
+                customer.siteId = customerParam.siteId;
+                const customerSave = yield this.customerService.create(customer);
+                if (customerSave) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Customer Updated Successfully',
+                        data: customerSave,
+                    };
+                    return response.status(200).send(successResponse);
+                }
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Password does not match.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Get Customer Detail API
+    /**
+     * @api {get} /api/admin-customer/customer-detail/:id Customer Details API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully get customer Details",
+     * "data":{
+     * "customerGroupId" : "",
+     * "username" : "",
+     * "email" : "",
+     * "mobileNumber" : "",
+     * "password" : "",
+     * "avatar" : "",
+     * "avatarPath" : "",
+     * "newsletter" : "",
+     * "status" : "",
+     * "safe" : "",
+     * }
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-customer/customer-detail/:id
+     * @apiErrorExample {json} customer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    customerDetails(Id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = yield this.customerService.findOne({
+                select: ['id', 'firstName', 'email', 'mobileNumber', 'address', 'lastLogin', 'isActive', 'mailStatus', 'customerGroupId', 'avatar', 'avatarPath', 'siteId'],
+                where: { id: Id },
+            });
+            if (!customer) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'invalid CustomerId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const groupName = yield this.customerGroupService.findOne({
+                where: {
+                    groupId: customer.customerGroupId,
+                },
+            });
+            customer.customerGroupName = (groupName && groupName.name !== undefined) ? groupName.name : '';
+            const successResponse = {
+                status: 1,
+                message: 'successfully got Customer details.',
+                data: customer,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Recently Added Customer List API
+    /**
+     * @api {get} /api/admin-customer/recent-customerlist Recent Customer List API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get customer list",
+     *      "data":{
+     *      "location" : "",
+     *      "name" : "",
+     *      "created date" : "",
+     *      "isActive" : "",
+     *      }
+     * }
+     * @apiSampleRequest /api/admin-customer/recent-customerlist
+     * @apiErrorExample {json} customer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    recentCustomerList(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const order = 1;
+            const WhereConditions = [
+                {
+                    name: 'deleteFlag',
+                    value: 0,
+                },
+            ];
+            const customerList = yield this.customerService.list(0, 0, 0, WhereConditions, order, 0);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got Customer list.',
+                data: (0, class_transformer_1.instanceToPlain)(customerList),
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    //  Today Customer Count API
+    /**
+     * @api {get} /api/admin-customer/today-customercount Today Customer Count API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get Today customer count",
+     *      "data":{
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-customer/today-customercount
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    customerCount(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const nowDate = new Date();
+            const todaydate = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
+            const customerCount = yield this.customerService.todayCustomerCount(todaydate);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get customerCount',
+                data: customerCount,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Delete Multiple Customer API
+    /**
+     * @api {post} /api/admin-customer/delete-customer Delete Multiple Customer API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} customerId customerId
+     * @apiParamExample {json} Input
+     * {
+     * "customerId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully deleted customer.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-customer/delete-customer
+     * @apiErrorExample {json} customerDelete error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteMultipleCustomer(deleteCustomerId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customers = deleteCustomerId.customerId.toString();
+            const customer = customers.split(',');
+            const data = customer.map((id) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const vendor = yield this.vendorService.findOne({
+                    where: {
+                        customerId: id,
+                    },
+                });
+                if (vendor) {
+                    const product = yield this.vendorProductService.findOne({ where: { vendorId: vendor.vendorId } });
+                    if (product) {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'Choosen customer have vendor account, you have to first delete the products mapped to this Vendor.',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                }
+                const dataId = yield this.customerService.findOne(id);
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Please choose a Customer that you want to delete.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                else {
+                    dataId.deleteFlag = 1;
+                    return yield this.customerService.create(dataId);
+                }
+            }));
+            const deleteCustomer = yield Promise.all(data);
+            if (deleteCustomer) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted customer.',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Customer Details Excel Document Download
+    /**
+     * @api {get} /api/admin-customer/customer-excel-list Customer Excel
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} customerId customerId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the Customer Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/admin-customer/customer-excel-list
+     * @apiErrorExample {json} Customer Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    excelCustomerView(customerId, status, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Customer Export sheet');
+            const rows = [];
+            let customerAllIds;
+            if (!customerId || customerId === '') {
+                const select = [
+                    'Customer.id as id',
+                    'Customer.firstName as firstName',
+                    'Customer.email as email',
+                    'Customer.createdDate as createdDate',
+                    'Customer.isActive as isActive',
+                    'Customer.username as username',
+                    'customerGroup.name as customerGroupName',
+                    'Customer.lastName as lastName',
+                    'Customer.mobileNumber as mobileNumber',
+                ];
+                customerAllIds = yield (0, customer_1.getCustomerList)((0, typeorm_1.getConnection)(), select, 0, 0, '', status ? 1 : 0, '', '', '', 0).then((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const customerIds = value.data.map((data) => data.id);
+                    return customerIds;
+                }));
+            }
+            const customerid = customerId && customerId !== '' ? customerId.split(',') : customerAllIds;
+            for (const id of customerid) {
+                const dataId = yield this.customerService.findOne(id);
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid customerId',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'Customer Id', key: 'id', size: 16, width: 15 },
+                { header: 'Customer Name', key: 'first_name', size: 16, width: 15 },
+                { header: 'User Name', key: 'username', size: 16, width: 24 },
+                { header: 'Email Id', key: 'email', size: 16, width: 15 },
+                { header: 'Mobile Number', key: 'mobileNumber', size: 16, width: 15 },
+                { header: 'Date Of Registration', key: 'createdDate', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const id of customerid) {
+                const dataId = yield this.customerService.findOne(id);
+                if (dataId.lastName === null) {
+                    dataId.lastName = '';
+                }
+                rows.push([dataId.id, dataId.firstName + ' ' + dataId.lastName, dataId.username, dataId.email, dataId.mobileNumber, dataId.createdDate]);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './CustomerExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            // Add export log
+            const newExportLog = new ExportLog_1.ExportLog();
+            newExportLog.module = 'Manage Customers';
+            newExportLog.recordAvailable = customerid.length;
+            newExportLog.createdBy = request.user.userId;
+            yield this.exportLogService.create(newExportLog);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Customer Details Excel Document Download
+    /**
+     * @api {get} /api/admin-customer/allcustomer-excel-list All Customer Excel
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} name name
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {String} email email
+     * @apiParam (Request body) {String} customerGroup customerGroup
+     * @apiParam (Request body) {String} date date
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the All Customer Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/admin-customer/allcustomer-excel-list
+     * @apiErrorExample {json} All Customer Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    AllCustomerExcel(name, status, email, customerGroup, date, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Bulk Customer Export');
+            const rows = [];
+            const search = [];
+            if (name !== undefined && name !== '') {
+                search.push({
+                    name: 'firstName',
+                    op: 'like',
+                    value: name,
+                });
+            }
+            if (email !== undefined && email !== '') {
+                search.push({
+                    name: 'email',
+                    op: 'like',
+                    value: email,
+                });
+            }
+            if (+customerGroup) {
+                search.push({
+                    name: 'customerGroupId',
+                    op: 'where',
+                    value: customerGroup,
+                });
+            }
+            if (+status) {
+                search.push({
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                });
+            }
+            if (date !== undefined && date !== '') {
+                search.push({
+                    name: 'createdDate',
+                    op: 'like',
+                    value: date,
+                });
+            }
+            const WhereConditions = [
+                {
+                    name: 'deleteFlag',
+                    value: 0,
+                },
+            ];
+            const customerList = yield this.customerService.list(0, 0, search, WhereConditions, 0, false);
+            if (+customerList.length === 0) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'list is empty',
+                });
+            }
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'Customer Id', key: 'id', size: 16, width: 15 },
+                { header: 'Customer Name', key: 'first_name', size: 16, width: 15 },
+                { header: 'User Name', key: 'username', size: 16, width: 24 },
+                { header: 'Email Id', key: 'email', size: 16, width: 30 },
+                { header: 'Mobile Number', key: 'mobile', size: 16, width: 20 },
+                { header: 'Date Of Registration', key: 'createdDate', size: 16, width: 20 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const customer of customerList) {
+                console.log('customer:', customer);
+                if (customer.lastName === null) {
+                    customer.lastName = '';
+                }
+                rows.push([customer.id, customer.firstName + ' ' + customer.lastName, customer.username, customer.email, customer.mobileNumber, customer.createdDate]);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './CustomerExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Customer Count API
+    /**
+     * @api {get} /api/admin-customer/customer-count Customer Count API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get customer count",
+     *      "data":{},
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-customer/customer-count
+     * @apiErrorExample {json} customer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    customerCounts(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = {};
+            const select = [];
+            const search = [];
+            const WhereConditions = [{
+                    name: 'deleteFlag',
+                    op: 'where',
+                    value: 0,
+                }];
+            const allCustomerCount = yield this.customerService.list(0, 0, search, WhereConditions, 0, 1);
+            const whereConditionsActive = [
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 1,
+                },
+                {
+                    name: 'deleteFlag',
+                    op: 'where',
+                    value: 0,
+                },
+            ];
+            const activeCustomerCount = yield this.customerService.list(0, 0, search, whereConditionsActive, 0, 1);
+            const whereConditionsInActive = [
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 0,
+                },
+                {
+                    name: 'deleteFlag',
+                    op: 'where',
+                    value: 0,
+                },
+            ];
+            const inActiveCustomerCount = yield this.customerService.list(0, 0, search, whereConditionsInActive, 0, 1);
+            const WhereConditionss = [];
+            const allCustomerGroupCount = yield this.customerGroupService.list(0, 0, select, WhereConditionss, 1);
+            const whereConditionsGroupInActive = [
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 0,
+                },
+            ];
+            const whereConditionsGroupActive = [
+                {
+                    name: 'isActive',
+                    op: 'where',
+                    value: 1,
+                },
+            ];
+            const activeCustomerGroupCount = yield this.customerGroupService.list(0, 0, select, whereConditionsGroupActive, 1);
+            const inActiveCustomerGroupCount = yield this.customerGroupService.list(0, 0, select, whereConditionsGroupInActive, 1);
+            customer.totalCustomer = allCustomerCount;
+            customer.activeCustomer = activeCustomerCount;
+            customer.inActiveCustomer = inActiveCustomerCount;
+            customer.totalCustomerGroup = allCustomerGroupCount;
+            customer.activeCustomerGroup = activeCustomerGroupCount;
+            customer.inActiveCustomerGroup = inActiveCustomerGroupCount;
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the Customer Count',
+                data: customer,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Order Product List API
+    /**
+     * @api {get} /api/admin-customer/order-product-list Order Product List API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count
+     * @apiParam (Request body) {Number} customerId customerId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get order product list",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-customer/order-product-list
+     * @apiErrorExample {json} OrderProductList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderProductList(limit, offset, count, customerId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'OrderProduct.name as productName',
+                'order.orderId as orderId',
+                'order.createdDate as createdDate',
+                'productImage.image as image',
+                'productImage.containerName as containerName',
+            ];
+            const relations = [
+                {
+                    tableName: 'OrderProduct.order',
+                    aliasName: 'order',
+                },
+                {
+                    tableName: 'OrderProduct.productInformationDetail',
+                    aliasName: 'productInformationDetail',
+                },
+                {
+                    tableName: 'productInformationDetail.productImage',
+                    aliasName: 'productImage',
+                },
+            ];
+            const whereconditions = [];
+            if (+customerId) {
+                whereconditions.push({
+                    name: 'order.customerId',
+                    op: 'and',
+                    value: +customerId,
+                });
+            }
+            whereconditions.push({
+                name: 'productImage.defaultImage',
+                op: 'and',
+                value: 1,
+            });
+            const sort = [];
+            sort.push({
+                name: 'order.createdDate',
+                order: 'DESC',
+            });
+            if (count) {
+                const orderProductCount = yield this.orderProductService.listByQueryBuilder(limit, offset, select, whereconditions, [], relations, [], sort, true, true);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got the count of order product count',
+                    data: orderProductCount,
+                });
+            }
+            const orderProductList = yield this.orderProductService.listByQueryBuilder(limit, offset, select, whereconditions, [], relations, [], sort, false, true);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully got order product list',
+                data: orderProductList,
+            });
+        });
+    }
+    // Product View Log List API
+    /**
+     * @api {get} /api/admin-customer/product-view-log-list Product View Log List API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count
+     * @apiParam (Request body) {Number} customerId customerId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get product view log list",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-customer/product-view-log-list
+     * @apiErrorExample {json} ProductViewLogList error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productViewLogList(limit, offset, count, customerId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'product.productId as productId',
+                'ProductViewLog.createdDate as createdDate',
+                'product.name as productName',
+                'productImage.image as image',
+                'productImage.containerName as containerName',
+            ];
+            const relations = [
+                {
+                    tableName: 'ProductViewLog.product',
+                    aliasName: 'product',
+                },
+                {
+                    tableName: 'product.productImage',
+                    aliasName: 'productImage',
+                },
+            ];
+            const whereconditions = [];
+            if (+customerId) {
+                whereconditions.push({
+                    name: 'ProductViewLog.customer',
+                    op: 'and',
+                    value: +customerId,
+                });
+            }
+            whereconditions.push({
+                name: 'productImage.defaultImage',
+                op: 'and',
+                value: 1,
+            });
+            const sort = [];
+            sort.push({
+                name: 'ProductViewLog.createdDate',
+                order: 'DESC',
+            });
+            if (count) {
+                const productViewLogCount = yield this.productViewLogService.listByQueryBuilder(limit, offset, select, whereconditions, [], relations, [], sort, true, true);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got the count of product view log list',
+                    data: productViewLogCount,
+                });
+            }
+            const productViewLogList = yield this.productViewLogService.listByQueryBuilder(limit, offset, select, whereconditions, [], relations, [], sort, false, true);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully got product view log list',
+                data: productViewLogList,
+            });
+        });
+    }
+    // Dashboard vendor Graph List API
+    /**
+     * @api {get} /api/admin-customer/vendor-graph-list Vendor Graph List API
+     * @apiGroup Customer
+     * @apiParam (Request body) {Number} vendorId vendorId
+     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get vendor graph list",
+     *      "data":{
+     *      }
+     * }
+     * @apiSampleRequest /api/admin-customer/vendor-graph-list
+     * @apiErrorExample {json} sales error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorGraphList(vendorId, duration, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (vendorId !== 0) {
+                const vendor = yield this.vendorService.findOne({
+                    select: ['companyName'],
+                    where: {
+                        vendorId,
+                    },
+                });
+                if (!vendor) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid Vendor.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                const product = yield this.vendorProductService.vendorProductBasedOnDuration(vendorId, duration);
+                const productSold = yield this.vendorOrdersService.productSoldBasedOnDuration(vendorId, duration);
+                const delivery = yield this.vendorOrdersService.deliveredOrderBasedOnDuration(vendorId, duration);
+                const outOfStock = yield this.vendorProductService.outOfStockBasedOnDuration(vendorId, duration, 1);
+                const pendingStock = yield this.vendorProductService.outOfStockBasedOnDuration(vendorId, duration, 2);
+                vendor.productCount = product !== undefined ? product : 0;
+                vendor.productSoldCount = (productSold[0].soldCount !== undefined && productSold[0].soldCount) ? productSold[0].soldCount : 0;
+                vendor.deliveryCount = delivery !== undefined ? delivery : 0;
+                vendor.outOfStockCount = outOfStock !== undefined ? outOfStock : 0;
+                vendor.pendingStockCount = pendingStock !== undefined ? pendingStock : 0;
+                const successResponses = {
+                    status: 1,
+                    message: 'Successfully got the vendor graph list',
+                    data: vendor,
+                };
+                return response.status(200).send(successResponses);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the vendor graph list',
+                data: {},
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Dashboard Customer Visit List API
+    /**
+     * @api {get} /api/admin-customer/customer-visit-list Dashboard Customer Visit List API
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} month month
+     * @apiParam (Request body) {Number} year year
+     * @apiParamExample {json} Input
+     * {
+     *      "month": "",
+     *      "year" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get customer visit list",
+     *      "data":{
+     *      }
+     * }
+     * @apiSampleRequest /api/admin-customer/customer-visit-list
+     * @apiErrorExample {json} customer list error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    customerVisitList(month, year, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customervisitList = yield this.loginLogService.customerVisitList(month, year);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully got the customer visit list',
+                data: customervisitList,
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-customer']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateCustomerRequest_1.CreateCustomer, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "addCustomer", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-customer']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('name')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('email')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('customerGroup')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('date')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "customerList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "deleteCustomer", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-customer']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, UpdateCustomerRequest_1.UpdateCustomer, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "updateCustomer", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/customer-detail/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'view-customer']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "customerDetails", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/recent-customerlist'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "recentCustomerList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/today-customercount'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "customerCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/delete-customer'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-customer']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [DeleteCustomerRequest_1.DeleteCustomerRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "deleteMultipleCustomer", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/customer-excel-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'export-customer']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('customerId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "excelCustomerView", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/allcustomer-excel-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'export-all-customer']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('name')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('email')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('customerGroup')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('date')),
+    tslib_1.__param(5, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "AllCustomerExcel", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/customer-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "customerCounts", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-product-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('customerId')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "orderProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/product-view-log-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('customerId')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "productViewLogList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-graph-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('vendorId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('duration')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "vendorGraphList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/customer-visit-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('month')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('year')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "customerVisitList", null);
+CustomerController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/admin-customer'),
+    tslib_1.__metadata("design:paramtypes", [CustomerService_1.CustomerService,
+        OrderProductService_1.OrderProductService,
+        CustomerGroupService_1.CustomerGroupService,
+        SettingService_1.SettingService,
+        ProductViewLogService_1.ProductViewLogService,
+        VendorService_1.VendorService,
+        VendorProductService_1.VendorProductService,
+        LoginLogService_1.LoginLogService,
+        VendorOrderService_1.VendorOrdersService,
+        EmailTemplateService_1.EmailTemplateService,
+        ExportLogService_1.ExportLogService])
+], CustomerController);
+exports.CustomerController = CustomerController;
+//# sourceMappingURL=CustomerController.js.map

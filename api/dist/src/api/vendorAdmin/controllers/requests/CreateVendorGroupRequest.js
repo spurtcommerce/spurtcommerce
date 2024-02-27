@@ -1,1 +1,40 @@
-'use strict';const a698_0x3a7996=a698_0x217a;(function(_0x5d37f8,_0x1a1828){const _0x1a092c=a698_0x217a,_0x1e4b43=_0x5d37f8();while(!![]){try{const _0x4e2da5=parseInt(_0x1a092c(0x1a6))/0x1+parseInt(_0x1a092c(0x1ac))/0x2+-parseInt(_0x1a092c(0x196))/0x3+-parseInt(_0x1a092c(0x19e))/0x4*(-parseInt(_0x1a092c(0x1a7))/0x5)+-parseInt(_0x1a092c(0x1a1))/0x6+-parseInt(_0x1a092c(0x1aa))/0x7+-parseInt(_0x1a092c(0x1a3))/0x8;if(_0x4e2da5===_0x1a1828)break;else _0x1e4b43['push'](_0x1e4b43['shift']());}catch(_0x5c659c){_0x1e4b43['push'](_0x1e4b43['shift']());}}}(a698_0x2272,0x4485b));Object[a698_0x3a7996(0x194)](exports,a698_0x3a7996(0x1a2),{'value':!![]}),exports['CreateVendorGroup']=void 0x0;function a698_0x217a(_0x23bd3b,_0x42ee87){const _0x227277=a698_0x2272();return a698_0x217a=function(_0x217a0f,_0x15d776){_0x217a0f=_0x217a0f-0x194;let _0x4e5eb0=_0x227277[_0x217a0f];return _0x4e5eb0;},a698_0x217a(_0x23bd3b,_0x42ee87);}const tslib_1=require(a698_0x3a7996(0x1a8));require(a698_0x3a7996(0x199));const class_validator_1=require(a698_0x3a7996(0x1ab));function a698_0x2272(){const _0x4a06bc=['design:type','CreateVendorGroup','1112790pTNqSR','__esModule','2559304ewdeeg','__metadata','categoryIds','358970PysMmu','870470pXKDEL','tslib','name','549626kPdymC','class-validator','1089282aayWSU','defineProperty','prototype','1161708gnCroY','MaxLength','name\x20is\x20required','reflect-metadata','name\x20should\x20be\x20maximum\x2030\x20characters','IsNotEmpty','status\x20is\x20required','__decorate','8WAfqPv'];a698_0x2272=function(){return _0x4a06bc;};return a698_0x2272();}class CreateVendorGroup{}tslib_1[a698_0x3a7996(0x19d)]([(0x0,class_validator_1[a698_0x3a7996(0x197)])(0x1e,{'message':a698_0x3a7996(0x19a)}),(0x0,class_validator_1[a698_0x3a7996(0x19b)])({'message':a698_0x3a7996(0x198)}),tslib_1[a698_0x3a7996(0x1a4)](a698_0x3a7996(0x19f),String)],CreateVendorGroup[a698_0x3a7996(0x195)],a698_0x3a7996(0x1a9),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])({'message':a698_0x3a7996(0x19c)}),tslib_1[a698_0x3a7996(0x1a4)](a698_0x3a7996(0x19f),Number)],CreateVendorGroup[a698_0x3a7996(0x195)],'status',void 0x0),tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a698_0x3a7996(0x1a4)](a698_0x3a7996(0x19f),Number)],CreateVendorGroup[a698_0x3a7996(0x195)],'commission',void 0x0),tslib_1[a698_0x3a7996(0x19d)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a698_0x3a7996(0x1a4)](a698_0x3a7996(0x19f),Array)],CreateVendorGroup[a698_0x3a7996(0x195)],a698_0x3a7996(0x1a5),void 0x0),exports[a698_0x3a7996(0x1a0)]=CreateVendorGroup;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateVendorGroup = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateVendorGroup {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(30, {
+        message: 'name should be maximum 30 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'name is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateVendorGroup.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'status is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateVendorGroup.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateVendorGroup.prototype, "commission", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Array)
+], CreateVendorGroup.prototype, "categoryIds", void 0);
+exports.CreateVendorGroup = CreateVendorGroup;
+//# sourceMappingURL=CreateVendorGroupRequest.js.map

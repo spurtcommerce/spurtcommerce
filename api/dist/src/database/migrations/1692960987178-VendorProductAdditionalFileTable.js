@@ -1,1 +1,95 @@
-'use strict';const a968_0x2dddf1=a968_0x1a90;(function(_0x59fa3d,_0x4ee9fc){const _0x5c8f33=a968_0x1a90,_0x592aa7=_0x59fa3d();while(!![]){try{const _0x23470e=parseInt(_0x5c8f33(0x1c8))/0x1+parseInt(_0x5c8f33(0x1e2))/0x2+parseInt(_0x5c8f33(0x1d2))/0x3+parseInt(_0x5c8f33(0x1d3))/0x4+parseInt(_0x5c8f33(0x1d4))/0x5+-parseInt(_0x5c8f33(0x1da))/0x6*(-parseInt(_0x5c8f33(0x1d7))/0x7)+-parseInt(_0x5c8f33(0x1d6))/0x8;if(_0x23470e===_0x4ee9fc)break;else _0x592aa7['push'](_0x592aa7['shift']());}catch(_0x38432f){_0x592aa7['push'](_0x592aa7['shift']());}}}(a968_0x1011,0x56a85));function a968_0x1a90(_0x7b30d1,_0x5a70ae){const _0x1011ac=a968_0x1011();return a968_0x1a90=function(_0x1a90ec,_0x5da6c0){_0x1a90ec=_0x1a90ec-0x1c1;let _0x2ddabc=_0x1011ac[_0x1a90ec];return _0x2ddabc;},a968_0x1a90(_0x7b30d1,_0x5a70ae);}Object[a968_0x2dddf1(0x1ce)](exports,a968_0x2dddf1(0x1d0),{'value':!![]}),exports[a968_0x2dddf1(0x1ca)]=void 0x0;const tslib_1=require(a968_0x2dddf1(0x1c1)),typeorm_1=require(a968_0x2dddf1(0x1c2));function a968_0x1011(){const _0x2ffec6=['find','indexOf','file_name','512','createTable','date','353394DaQpZw','tslib','typeorm','increment','hasTable','__awaiter','product','int','470142VxhkUm','product_id','VendorProductAdditionalFileTable1692960987178','vendor_product_additional_file','created_date','tableForeignKey','defineProperty','modified_by','__esModule','container_name','1496262uQZLxK','1545384BYbZWw','645640dHSZHg','fk_vendor_product','13657640ROzSdR','7Dwzbeo','TableForeignKey','getTable','2406522IMITBP','varchar'];a968_0x1011=function(){return _0x2ffec6;};return a968_0x1011();}class VendorProductAdditionalFileTable1692960987178{constructor(){const _0x25b925=a968_0x2dddf1;this[_0x25b925(0x1cd)]=new typeorm_1[(_0x25b925(0x1d8))]({'name':_0x25b925(0x1d5),'columnNames':['product_id'],'referencedColumnNames':[_0x25b925(0x1c9)],'referencedTableName':_0x25b925(0x1c6),'onDelete':'CASCADE'});}['up'](_0x364f74){const _0x376123=a968_0x2dddf1;return tslib_1[_0x376123(0x1c5)](this,void 0x0,void 0x0,function*(){const _0x2163b6=_0x376123,_0x1c847d=new typeorm_1['Table']({'name':_0x2163b6(0x1cb),'columns':[{'name':'id','type':'integer','length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x2163b6(0x1c3)},{'name':_0x2163b6(0x1c9),'type':_0x2163b6(0x1c7),'length':'11','isPrimary':![],'isNullable':![]},{'name':_0x2163b6(0x1de),'type':_0x2163b6(0x1db),'length':_0x2163b6(0x1df),'isPrimary':![],'isNullable':!![]},{'name':_0x2163b6(0x1d1),'type':_0x2163b6(0x1db),'length':'512','isPrimary':![],'isNullable':!![]},{'name':'created_by','type':'int','isPrimary':![],'isNullable':!![]},{'name':_0x2163b6(0x1cf),'type':_0x2163b6(0x1c7),'isPrimary':![],'isNullable':!![]},{'name':_0x2163b6(0x1cc),'type':_0x2163b6(0x1e1),'isPrimary':![],'isNullable':!![]},{'name':'modified_date','type':_0x2163b6(0x1e1),'isPrimary':![],'isNullable':!![]}]}),_0x4de520=yield _0x364f74[_0x2163b6(0x1c4)](_0x2163b6(0x1cb));if(!_0x4de520){yield _0x364f74[_0x2163b6(0x1e0)](_0x1c847d);const _0x540e40=yield _0x364f74[_0x2163b6(0x1d9)]('vendor_product_additional_file'),_0x3a6320=_0x540e40['foreignKeys'][_0x2163b6(0x1dc)](_0x55033c=>_0x55033c['columnNames'][_0x2163b6(0x1dd)](_0x2163b6(0x1c9))!==-0x1);!_0x3a6320&&(yield _0x364f74['createForeignKey'](_0x540e40,this['tableForeignKey']));}});}['down'](_0x9fc92c){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x15a24b=a968_0x1a90;yield _0x9fc92c['dropTable'](_0x15a24b(0x1cb));});}}exports[a968_0x2dddf1(0x1ca)]=VendorProductAdditionalFileTable1692960987178;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorProductAdditionalFileTable1692960987178 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class VendorProductAdditionalFileTable1692960987178 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_vendor_product',
+            columnNames: ['product_id'],
+            referencedColumnNames: ['product_id'],
+            referencedTableName: 'product',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'vendor_product_additional_file',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    },
+                    {
+                        name: 'product_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    },
+                    {
+                        name: 'file_name',
+                        type: 'varchar',
+                        length: '512',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'container_name',
+                        type: 'varchar',
+                        length: '512',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'created_by',
+                        type: 'int',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'modified_by',
+                        type: 'int',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'created_date',
+                        type: 'date',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'modified_date',
+                        type: 'date',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('vendor_product_additional_file');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+                const getTable = yield queryRunner.getTable('vendor_product_additional_file');
+                const ifDataExsist = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('product_id') !== -1);
+                if (!ifDataExsist) {
+                    yield queryRunner.createForeignKey(getTable, this.tableForeignKey);
+                }
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('vendor_product_additional_file');
+        });
+    }
+}
+exports.VendorProductAdditionalFileTable1692960987178 = VendorProductAdditionalFileTable1692960987178;
+//# sourceMappingURL=1692960987178-VendorProductAdditionalFileTable.js.map

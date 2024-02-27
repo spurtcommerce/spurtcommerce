@@ -1,1 +1,68 @@
-'use strict';const a964_0x477998=a964_0x1476;function a964_0x110d(){const _0x17d708=['2672316uSXbKl','item_slug','site_filter_section_id','Table','4192uNbhUd','48HIOaVg','foreignKeys','fk_site_filter_section_item','site_filter_section','hasTable','TableForeignKey','createTable','typeorm','8819586gGrzLi','down','site_filter_section_item','varchar','getTable','1550232leTthD','__awaiter','createForeignKey','indexOf','__esModule','225','521QyDktE','2913904CUrquE','8630chUiiN','item_name','SiteFilterSectionItemTable1680168497836','tslib','columnNames','int','6470KrKlse','31642110CvHVFh','find'];a964_0x110d=function(){return _0x17d708;};return a964_0x110d();}(function(_0x445862,_0x8c4638){const _0x2cd43e=a964_0x1476,_0x16f804=_0x445862();while(!![]){try{const _0x26a2e6=parseInt(_0x2cd43e(0xd9))/0x1*(-parseInt(_0x2cd43e(0xe1))/0x2)+parseInt(_0x2cd43e(0xd3))/0x3+-parseInt(_0x2cd43e(0xc5))/0x4*(parseInt(_0x2cd43e(0xdb))/0x5)+-parseInt(_0x2cd43e(0xce))/0x6+parseInt(_0x2cd43e(0xda))/0x7+parseInt(_0x2cd43e(0xc6))/0x8*(parseInt(_0x2cd43e(0xe4))/0x9)+parseInt(_0x2cd43e(0xe2))/0xa;if(_0x26a2e6===_0x8c4638)break;else _0x16f804['push'](_0x16f804['shift']());}catch(_0x37dbaa){_0x16f804['push'](_0x16f804['shift']());}}}(a964_0x110d,0xdf47d));Object['defineProperty'](exports,a964_0x477998(0xd7),{'value':!![]}),exports[a964_0x477998(0xdd)]=void 0x0;const tslib_1=require(a964_0x477998(0xde)),typeorm_1=require(a964_0x477998(0xcd));class SiteFilterSectionItemTable1680168497836{constructor(){const _0x421e38=a964_0x477998;this['tableForeignKey']=new typeorm_1[(_0x421e38(0xcb))]({'name':_0x421e38(0xc8),'columnNames':[_0x421e38(0xc3)],'referencedColumnNames':['id'],'referencedTableName':_0x421e38(0xc9),'onDelete':'CASCADE'});}['up'](_0x2aa9f6){const _0xb6d673=a964_0x477998;return tslib_1[_0xb6d673(0xd4)](this,void 0x0,void 0x0,function*(){const _0x5c552d=_0xb6d673,_0x1c3892=new typeorm_1[(_0x5c552d(0xc4))]({'name':_0x5c552d(0xd0),'columns':[{'name':'id','type':_0x5c552d(0xe0),'length':'11','isGenerated':!![],'generationStrategy':'increment','isPrimary':!![],'isNullable':![]},{'name':'site_filter_section_id','type':_0x5c552d(0xe0),'length':'11','isPrimary':![],'isNullable':![]},{'name':_0x5c552d(0xdc),'type':_0x5c552d(0xd1),'length':_0x5c552d(0xd8),'isPrimary':![],'isNullable':![]},{'name':_0x5c552d(0xc2),'type':'varchar','length':_0x5c552d(0xd8),'isPrimary':![],'isNullable':!![]}]}),_0x5187a0=yield _0x2aa9f6[_0x5c552d(0xca)](_0x5c552d(0xd0));if(!_0x5187a0){yield _0x2aa9f6[_0x5c552d(0xcc)](_0x1c3892);const _0x5b9fe8=yield _0x2aa9f6[_0x5c552d(0xd2)]('site_filter_section_item'),_0xe87aad=_0x5b9fe8[_0x5c552d(0xc7)][_0x5c552d(0xe3)](_0x515301=>_0x515301[_0x5c552d(0xdf)][_0x5c552d(0xd6)](_0x5c552d(0xc3))!==-0x1);!_0xe87aad&&(yield _0x2aa9f6[_0x5c552d(0xd5)](_0x5b9fe8,this['tableForeignKey']));}});}[a964_0x477998(0xcf)](_0x469db6){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){});}}function a964_0x1476(_0x4980c1,_0x50a0a6){const _0x110dcf=a964_0x110d();return a964_0x1476=function(_0x1476de,_0x2b9fd4){_0x1476de=_0x1476de-0xc2;let _0x7201a8=_0x110dcf[_0x1476de];return _0x7201a8;},a964_0x1476(_0x4980c1,_0x50a0a6);}exports[a964_0x477998(0xdd)]=SiteFilterSectionItemTable1680168497836;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SiteFilterSectionItemTable1680168497836 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class SiteFilterSectionItemTable1680168497836 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_site_filter_section_item',
+            columnNames: ['site_filter_section_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'site_filter_section',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'site_filter_section_item',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'int',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'site_filter_section_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'item_name',
+                        type: 'varchar',
+                        length: '225',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'item_slug',
+                        type: 'varchar',
+                        length: '225',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('site_filter_section_item');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+                const getTable = yield queryRunner.getTable('site_filter_section_item');
+                const ifDataExsist = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('site_filter_section_id') !== -1);
+                if (!ifDataExsist) {
+                    yield queryRunner.createForeignKey(getTable, this.tableForeignKey);
+                }
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.SiteFilterSectionItemTable1680168497836 = SiteFilterSectionItemTable1680168497836;
+//# sourceMappingURL=1680168497836-SiteFilterSectionItemTable.js.map

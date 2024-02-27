@@ -1,1 +1,83 @@
-'use strict';const a556_0x3f654b=a556_0x206d;function a556_0x15fb(){const _0x36a347=['__decorate','865TWUcUz','typedi','__param','typeorm','like','customerActivityId','create','length','558ubRFFV','__metadata','save','__awaiter','Delete\x20a\x20activity','log','value','../repositories/CustomerActivityRepository','294429cAinVT','CustomerActivityRepository','list','624140WKaKWs','__esModule','CustomerActivityService','name','typeorm-typedi-extensions','2989104lwBwUN','2177wYBDZS','defineProperty','Like','forEach','3094460bdwYdb','info','9KvVnHL','10352JZlSmu','2138lALZhl','findOne','OrmRepository','where','delete','customerActivityRepository','Service','design:paramtypes','10672ObTWOo','take','tslib','update'];a556_0x15fb=function(){return _0x36a347;};return a556_0x15fb();}(function(_0x5db0f7,_0x3381b6){const _0x2ef56c=a556_0x206d,_0x121105=_0x5db0f7();while(!![]){try{const _0xf96f2e=-parseInt(_0x2ef56c(0x8f))/0x1+-parseInt(_0x2ef56c(0xa0))/0x2*(parseInt(_0x2ef56c(0xb5))/0x3)+-parseInt(_0x2ef56c(0xa8))/0x4*(parseInt(_0x2ef56c(0xad))/0x5)+parseInt(_0x2ef56c(0x97))/0x6+-parseInt(_0x2ef56c(0x98))/0x7*(-parseInt(_0x2ef56c(0x9f))/0x8)+-parseInt(_0x2ef56c(0x9e))/0x9*(-parseInt(_0x2ef56c(0x9c))/0xa)+parseInt(_0x2ef56c(0x92))/0xb;if(_0xf96f2e===_0x3381b6)break;else _0x121105['push'](_0x121105['shift']());}catch(_0x1a8be4){_0x121105['push'](_0x121105['shift']());}}}(a556_0x15fb,0x4c2a9));Object[a556_0x3f654b(0x99)](exports,a556_0x3f654b(0x93),{'value':!![]}),exports['CustomerActivityService']=void 0x0;const tslib_1=require(a556_0x3f654b(0xaa)),typedi_1=require(a556_0x3f654b(0xae)),typeorm_typedi_extensions_1=require(a556_0x3f654b(0x96)),Logger_1=require('../../../decorators/Logger'),CustomerActivityRepository_1=require(a556_0x3f654b(0x8e)),typeorm_1=require(a556_0x3f654b(0xb0));function a556_0x206d(_0x5aff74,_0x54c620){const _0x15fbf8=a556_0x15fb();return a556_0x206d=function(_0x206dee,_0x240df4){_0x206dee=_0x206dee-0x89;let _0xdde9b2=_0x15fbf8[_0x206dee];return _0xdde9b2;},a556_0x206d(_0x5aff74,_0x54c620);}let CustomerActivityService=class CustomerActivityService{constructor(_0x3370d7,_0x7155f2){const _0x102f65=a556_0x3f654b;this['customerActivityRepository']=_0x3370d7,this[_0x102f65(0x8c)]=_0x7155f2;}[a556_0x3f654b(0xa1)](_0x487a71){const _0x42434f=a556_0x3f654b;return this[_0x42434f(0x8c)][_0x42434f(0x9d)]('Find\x20role'),this[_0x42434f(0xa5)]['findOne'](_0x487a71);}[a556_0x3f654b(0x91)](_0x30ce59,_0xa68b8b,_0x5d0088=[],_0x20224f=[],_0x5b7954){const _0x5ba1fd=a556_0x3f654b,_0x168b1f={};_0x5d0088&&_0x5d0088[_0x5ba1fd(0xb4)]>0x0&&(_0x168b1f['select']=_0x5d0088);_0x168b1f['where']={};_0x20224f&&_0x20224f[_0x5ba1fd(0xb4)]>0x0&&_0x20224f[_0x5ba1fd(0x9b)](_0x5c1ab0=>{const _0x23fab2=_0x5ba1fd,_0x30aeb1=_0x5c1ab0['op'];if(_0x30aeb1===_0x23fab2(0xa3)&&_0x5c1ab0[_0x23fab2(0x8d)]!==undefined)_0x168b1f['where'][_0x5c1ab0[_0x23fab2(0x95)]]=_0x5c1ab0[_0x23fab2(0x8d)];else _0x30aeb1===_0x23fab2(0xb1)&&_0x5c1ab0[_0x23fab2(0x8d)]!==undefined&&(_0x168b1f[_0x23fab2(0xa3)][_0x5c1ab0[_0x23fab2(0x95)]]=(0x0,typeorm_1[_0x23fab2(0x9a)])('%'+_0x5c1ab0[_0x23fab2(0x8d)]+'%'));});_0x30ce59&&_0x30ce59>0x0&&(_0x168b1f[_0x5ba1fd(0xa9)]=_0x30ce59,_0x168b1f['skip']=_0xa68b8b);if(_0x5b7954)return this[_0x5ba1fd(0xa5)]['count'](_0x168b1f);return this[_0x5ba1fd(0xa5)]['find'](_0x168b1f);}[a556_0x3f654b(0xb3)](_0x5ccf5a){const _0x54422b=a556_0x3f654b;return tslib_1[_0x54422b(0x8a)](this,void 0x0,void 0x0,function*(){const _0x5de13e=_0x54422b,_0x90043d=yield this[_0x5de13e(0xa5)][_0x5de13e(0x89)](_0x5ccf5a);return _0x90043d;});}[a556_0x3f654b(0xab)](_0x48dc2f,_0x1998eb){const _0x292328=a556_0x3f654b;return this[_0x292328(0x8c)][_0x292328(0x9d)]('Update\x20a\x20activity'),_0x1998eb[_0x292328(0xb2)]=_0x48dc2f,this['customerActivityRepository']['save'](_0x1998eb);}[a556_0x3f654b(0xa4)](_0x1fd545){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x37f47e=a556_0x206d;this[_0x37f47e(0x8c)][_0x37f47e(0x9d)](_0x37f47e(0x8b));const _0x325058=yield this['customerActivityRepository'][_0x37f47e(0xa4)](_0x1fd545);return _0x325058;});}};CustomerActivityService=tslib_1[a556_0x3f654b(0xac)]([(0x0,typedi_1[a556_0x3f654b(0xa6)])(),tslib_1[a556_0x3f654b(0xaf)](0x0,(0x0,typeorm_typedi_extensions_1[a556_0x3f654b(0xa2)])()),tslib_1[a556_0x3f654b(0xaf)](0x1,(0x0,Logger_1['Logger'])(__filename)),tslib_1[a556_0x3f654b(0xb6)](a556_0x3f654b(0xa7),[CustomerActivityRepository_1[a556_0x3f654b(0x90)],Object])],CustomerActivityService),exports[a556_0x3f654b(0x94)]=CustomerActivityService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CustomerActivityService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const CustomerActivityRepository_1 = require("../repositories/CustomerActivityRepository");
+const typeorm_1 = require("typeorm");
+let CustomerActivityService = class CustomerActivityService {
+    constructor(customerActivityRepository, log) {
+        this.customerActivityRepository = customerActivityRepository;
+        this.log = log;
+    }
+    // find Role
+    findOne(findCondition) {
+        this.log.info('Find role');
+        return this.customerActivityRepository.findOne(findCondition);
+    }
+    // Role list
+    list(limit, offset, select = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, typeorm_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.customerActivityRepository.count(condition);
+        }
+        return this.customerActivityRepository.find(condition);
+    }
+    // create role
+    create(customerActivity) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newCustomerActivity = yield this.customerActivityRepository.save(customerActivity);
+            return newCustomerActivity;
+        });
+    }
+    // update role
+    update(id, customerActivity) {
+        this.log.info('Update a activity');
+        customerActivity.customerActivityId = id;
+        return this.customerActivityRepository.save(customerActivity);
+    }
+    // delete role
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a activity');
+            const deleteCustomerActivity = yield this.customerActivityRepository.delete(id);
+            return deleteCustomerActivity;
+        });
+    }
+};
+CustomerActivityService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [CustomerActivityRepository_1.CustomerActivityRepository, Object])
+], CustomerActivityService);
+exports.CustomerActivityService = CustomerActivityService;
+//# sourceMappingURL=CustomerActivityService.js.map

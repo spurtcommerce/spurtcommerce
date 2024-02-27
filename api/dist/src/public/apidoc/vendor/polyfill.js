@@ -1,1 +1,96 @@
-function a1054_0x376b(){var _0x5a987b=['valueOf','3905224RQcdem','toString','670MjSYdu','\x20is\x20not\x20a\x20function','1392316sIYSJH','769740cbdrvQ','forEach','4Sjjixd','4064249HpAoNX','6rUdWJV','isPrototypeOf','hasOwnProperty','keys','object','429400jEudNy','length','9PhALXT','prototype','28523nUXtcc','propertyIsEnumerable','constructor','1270677gdVmuy','push','function','call'];a1054_0x376b=function(){return _0x5a987b;};return a1054_0x376b();}var a1054_0x1e06d0=a1054_0x81fd;(function(_0x869a48,_0xe8cb39){var _0x4d1983=a1054_0x81fd,_0x26afc6=_0x869a48();while(!![]){try{var _0x49d827=-parseInt(_0x4d1983(0x1cf))/0x1+-parseInt(_0x4d1983(0x1c5))/0x2+parseInt(_0x4d1983(0x1bc))/0x3*(parseInt(_0x4d1983(0x1c8))/0x4)+-parseInt(_0x4d1983(0x1c6))/0x5+parseInt(_0x4d1983(0x1ca))/0x6*(parseInt(_0x4d1983(0x1c9))/0x7)+-parseInt(_0x4d1983(0x1c1))/0x8*(-parseInt(_0x4d1983(0x1d1))/0x9)+-parseInt(_0x4d1983(0x1c3))/0xa*(-parseInt(_0x4d1983(0x1d3))/0xb);if(_0x49d827===_0xe8cb39)break;else _0x26afc6['push'](_0x26afc6['shift']());}catch(_0x64c9f1){_0x26afc6['push'](_0x26afc6['shift']());}}}(a1054_0x376b,0x5e5f0));function a1054_0x81fd(_0x13ccbc,_0x2ea1f9){var _0x376b4a=a1054_0x376b();return a1054_0x81fd=function(_0x81fdf4,_0x367ecc){_0x81fdf4=_0x81fdf4-0x1bc;var _0x4c6bdd=_0x376b4a[_0x81fdf4];return _0x4c6bdd;},a1054_0x81fd(_0x13ccbc,_0x2ea1f9);}!Object[a1054_0x1e06d0(0x1cd)]&&(Object[a1054_0x1e06d0(0x1cd)]=(function(){'use strict';var _0xb1c8b6=a1054_0x1e06d0;var _0x2881b7=Object[_0xb1c8b6(0x1d2)][_0xb1c8b6(0x1cc)],_0x29c187=!{'toString':null}[_0xb1c8b6(0x1d4)](_0xb1c8b6(0x1c2)),_0x125d14=['toString','toLocaleString',_0xb1c8b6(0x1c0),_0xb1c8b6(0x1cc),_0xb1c8b6(0x1cb),_0xb1c8b6(0x1d4),_0xb1c8b6(0x1d5)],_0x48b675=_0x125d14['length'];return function(_0x3f0260){var _0x35fa1e=_0xb1c8b6;if(typeof _0x3f0260!==_0x35fa1e(0x1ce)&&(typeof _0x3f0260!==_0x35fa1e(0x1be)||_0x3f0260===null))throw new TypeError('Object.keys\x20called\x20on\x20non-object');var _0x240558=[],_0x532faa,_0x82ee43;for(_0x532faa in _0x3f0260){_0x2881b7[_0x35fa1e(0x1bf)](_0x3f0260,_0x532faa)&&_0x240558[_0x35fa1e(0x1bd)](_0x532faa);}if(_0x29c187)for(_0x82ee43=0x0;_0x82ee43<_0x48b675;_0x82ee43++){_0x2881b7['call'](_0x3f0260,_0x125d14[_0x82ee43])&&_0x240558[_0x35fa1e(0x1bd)](_0x125d14[_0x82ee43]);}return _0x240558;};}()));!Array[a1054_0x1e06d0(0x1d2)][a1054_0x1e06d0(0x1c7)]&&(Array['prototype']['forEach']=function(_0x1d4207,_0x2a2118){var _0x1ec339=a1054_0x1e06d0,_0x16762b,_0x1d88a4;if(this==null)throw new TypeError('\x20this\x20is\x20null\x20or\x20not\x20defined');var _0x8fcb7=Object(this),_0xe48b97=_0x8fcb7[_0x1ec339(0x1d0)]>>>0x0;if(typeof _0x1d4207!==_0x1ec339(0x1be))throw new TypeError(_0x1d4207+_0x1ec339(0x1c4));arguments[_0x1ec339(0x1d0)]>0x1&&(_0x16762b=_0x2a2118);_0x1d88a4=0x0;while(_0x1d88a4<_0xe48b97){var _0x28332b;_0x1d88a4 in _0x8fcb7&&(_0x28332b=_0x8fcb7[_0x1d88a4],_0x1d4207[_0x1ec339(0x1bf)](_0x16762b,_0x28332b,_0x1d88a4,_0x8fcb7)),_0x1d88a4++;}});
+// From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+if (!Object.keys) {
+  Object.keys = (function () {
+    'use strict';
+    var hasOwnProperty = Object.prototype.hasOwnProperty,
+        hasDontEnumBug = !({toString: null}).propertyIsEnumerable('toString'),
+        dontEnums = [
+          'toString',
+          'toLocaleString',
+          'valueOf',
+          'hasOwnProperty',
+          'isPrototypeOf',
+          'propertyIsEnumerable',
+          'constructor'
+        ],
+        dontEnumsLength = dontEnums.length;
+
+    return function (obj) {
+      if (typeof obj !== 'object' && (typeof obj !== 'function' || obj === null)) {
+        throw new TypeError('Object.keys called on non-object');
+      }
+
+      var result = [], prop, i;
+
+      for (prop in obj) {
+        if (hasOwnProperty.call(obj, prop)) {
+          result.push(prop);
+        }
+      }
+
+      if (hasDontEnumBug) {
+        for (i = 0; i < dontEnumsLength; i++) {
+          if (hasOwnProperty.call(obj, dontEnums[i])) {
+            result.push(dontEnums[i]);
+          }
+        }
+      }
+      return result;
+    };
+  }());
+}
+
+//Production steps of ECMA-262, Edition 5, 15.4.4.18
+//Reference: http://es5.github.com/#x15.4.4.18
+if (!Array.prototype.forEach) {
+  Array.prototype.forEach = function (callback, thisArg) {
+    var T, k;
+
+    if (this == null) {
+      throw new TypeError(' this is null or not defined');
+    }
+
+    // 1. Let O be the result of calling ToObject passing the |this| value as the argument.
+    var O = Object(this);
+
+    // 2. Let lenValue be the result of calling the Get internal method of O with the argument "length".
+    // 3. Let len be ToUint32(lenValue).
+    var len = O.length >>> 0;
+
+    // 4. If IsCallable(callback) is false, throw a TypeError exception.
+    // See: http://es5.github.com/#x9.11
+    if (typeof callback !== "function") {
+      throw new TypeError(callback + " is not a function");
+    }
+
+    // 5. If thisArg was supplied, let T be thisArg; else let T be undefined.
+    if (arguments.length > 1) {
+      T = thisArg;
+    }
+
+    // 6. Let k be 0
+    k = 0;
+
+    // 7. Repeat, while k < len
+    while (k < len) {
+      var kValue;
+
+      // a. Let Pk be ToString(k).
+      //   This is implicit for LHS operands of the in operator
+      // b. Let kPresent be the result of calling the HasProperty internal method of O with argument Pk.
+      //   This step can be combined with c
+      // c. If kPresent is true, then
+      if (k in O) {
+        // i. Let kValue be the result of calling the Get internal method of O with argument Pk.
+        kValue = O[k];
+
+        // ii. Call the Call internal method of callback with T as the this value and
+        // argument list containing kValue, k, and O.
+        callback.call(T, kValue, k, O);
+      }
+      // d. Increase k by 1.
+      k++;
+    }
+    // 8. return undefined
+  };
+}

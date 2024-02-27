@@ -1,1 +1,20 @@
-'use strict';function a475_0x447b(){const _0x1e6c5a=['2566MQTBAa','../models/Jobs','25417hmBhzo','276dOAxon','15863409kGfzVd','typeorm','4619785tIkDQt','tslib','945441GZaGFn','472HWesBU','10tHucjY','defineProperty','JobsRepository','__esModule','__decorate','Repository','2857284pNdNRQ','3248160DBVFsH'];a475_0x447b=function(){return _0x1e6c5a;};return a475_0x447b();}const a475_0x5dff73=a475_0x183b;(function(_0x4b71b7,_0xe83f01){const _0x321b71=a475_0x183b,_0x1f8e2c=_0x4b71b7();while(!![]){try{const _0x5e2ab9=-parseInt(_0x321b71(0x186))/0x1*(parseInt(_0x321b71(0x189))/0x2)+-parseInt(_0x321b71(0x18e))/0x3+-parseInt(_0x321b71(0x184))/0x4+parseInt(_0x321b71(0x18c))/0x5+-parseInt(_0x321b71(0x185))/0x6+-parseInt(_0x321b71(0x188))/0x7*(parseInt(_0x321b71(0x18f))/0x8)+parseInt(_0x321b71(0x18a))/0x9*(parseInt(_0x321b71(0x190))/0xa);if(_0x5e2ab9===_0xe83f01)break;else _0x1f8e2c['push'](_0x1f8e2c['shift']());}catch(_0x2b0304){_0x1f8e2c['push'](_0x1f8e2c['shift']());}}}(a475_0x447b,0x85a41));Object[a475_0x5dff73(0x191)](exports,a475_0x5dff73(0x181),{'value':!![]}),exports[a475_0x5dff73(0x180)]=void 0x0;const tslib_1=require(a475_0x5dff73(0x18d)),typeorm_1=require(a475_0x5dff73(0x18b)),Jobs_1=require(a475_0x5dff73(0x187));let JobsRepository=class JobsRepository extends typeorm_1[a475_0x5dff73(0x183)]{};function a475_0x183b(_0x4998d4,_0x2b8d39){const _0x447b95=a475_0x447b();return a475_0x183b=function(_0x183ba4,_0x2b0203){_0x183ba4=_0x183ba4-0x180;let _0xf11d95=_0x447b95[_0x183ba4];return _0xf11d95;},a475_0x183b(_0x4998d4,_0x2b8d39);}JobsRepository=tslib_1[a475_0x5dff73(0x182)]([(0x0,typeorm_1['EntityRepository'])(Jobs_1['Jobs'])],JobsRepository),exports[a475_0x5dff73(0x180)]=JobsRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.JobsRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Jobs_1 = require("../models/Jobs");
+let JobsRepository = class JobsRepository extends typeorm_1.Repository {
+};
+JobsRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(Jobs_1.Jobs)
+], JobsRepository);
+exports.JobsRepository = JobsRepository;
+//# sourceMappingURL=JobsRepository.js.map

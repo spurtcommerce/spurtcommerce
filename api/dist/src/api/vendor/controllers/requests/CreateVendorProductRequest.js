@@ -1,1 +1,43 @@
-'use strict';const a676_0x1c2550=a676_0x2b1b;function a676_0x50cb(){const _0x12c01e=['productName','1nvCFPp','sortOrder','defineProperty','Maximum\x20length\x20of\x20sortOrder\x20should\x20be\x204','9037060HMlOQw','CreateVendorProductRequest','__metadata','363138zLMuCh','__esModule','prototype','image','84JobAhN','Max','vendorId','4237936sNcydX','9spDQHQ','2274956OzVKQM','596aEYtAa','IsNotEmpty','design:type','__decorate','21045rBCPBJ','1456279tWkCyh','class-validator','805xrjtEJ','61656GTffrm'];a676_0x50cb=function(){return _0x12c01e;};return a676_0x50cb();}(function(_0x2c151b,_0x5b2405){const _0x2d828a=a676_0x2b1b,_0xf17a1d=_0x2c151b();while(!![]){try{const _0x496957=-parseInt(_0x2d828a(0x128))/0x1*(parseInt(_0x2d828a(0x138))/0x2)+parseInt(_0x2d828a(0x12f))/0x3+parseInt(_0x2d828a(0x139))/0x4*(parseInt(_0x2d828a(0x13d))/0x5)+-parseInt(_0x2d828a(0x141))/0x6*(parseInt(_0x2d828a(0x140))/0x7)+parseInt(_0x2d828a(0x136))/0x8+-parseInt(_0x2d828a(0x137))/0x9*(-parseInt(_0x2d828a(0x12c))/0xa)+parseInt(_0x2d828a(0x13e))/0xb*(parseInt(_0x2d828a(0x133))/0xc);if(_0x496957===_0x5b2405)break;else _0xf17a1d['push'](_0xf17a1d['shift']());}catch(_0x16cbd6){_0xf17a1d['push'](_0xf17a1d['shift']());}}}(a676_0x50cb,0xc0a94));Object[a676_0x1c2550(0x12a)](exports,a676_0x1c2550(0x130),{'value':!![]}),exports[a676_0x1c2550(0x12d)]=void 0x0;function a676_0x2b1b(_0x1cd28c,_0x248a13){const _0x50cba9=a676_0x50cb();return a676_0x2b1b=function(_0x2b1b9f,_0x249948){_0x2b1b9f=_0x2b1b9f-0x127;let _0x2eab84=_0x50cba9[_0x2b1b9f];return _0x2eab84;},a676_0x2b1b(_0x1cd28c,_0x248a13);}const tslib_1=require('tslib');require('reflect-metadata');const class_validator_1=require(a676_0x1c2550(0x13f));class CreateVendorProductRequest{}tslib_1[a676_0x1c2550(0x13c)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a676_0x1c2550(0x12e)](a676_0x1c2550(0x13b),String)],CreateVendorProductRequest[a676_0x1c2550(0x131)],a676_0x1c2550(0x127),void 0x0),tslib_1[a676_0x1c2550(0x13c)]([(0x0,class_validator_1[a676_0x1c2550(0x13a)])(),tslib_1[a676_0x1c2550(0x12e)]('design:type',String)],CreateVendorProductRequest[a676_0x1c2550(0x131)],'sku',void 0x0),tslib_1[a676_0x1c2550(0x13c)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a676_0x1c2550(0x12e)](a676_0x1c2550(0x13b),String)],CreateVendorProductRequest['prototype'],'categoryId',void 0x0),tslib_1[a676_0x1c2550(0x13c)]([(0x0,class_validator_1[a676_0x1c2550(0x13a)])(),tslib_1[a676_0x1c2550(0x12e)](a676_0x1c2550(0x13b),String)],CreateVendorProductRequest['prototype'],a676_0x1c2550(0x132),void 0x0),tslib_1[a676_0x1c2550(0x13c)]([(0x0,class_validator_1[a676_0x1c2550(0x134)])(0x270f,{'message':a676_0x1c2550(0x12b)}),tslib_1['__metadata'](a676_0x1c2550(0x13b),Number)],CreateVendorProductRequest['prototype'],a676_0x1c2550(0x129),void 0x0),tslib_1[a676_0x1c2550(0x13c)]([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1[a676_0x1c2550(0x12e)](a676_0x1c2550(0x13b),Number)],CreateVendorProductRequest[a676_0x1c2550(0x131)],a676_0x1c2550(0x135),void 0x0),exports[a676_0x1c2550(0x12d)]=CreateVendorProductRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateVendorProductRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateVendorProductRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateVendorProductRequest.prototype, "productName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateVendorProductRequest.prototype, "sku", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateVendorProductRequest.prototype, "categoryId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateVendorProductRequest.prototype, "image", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.Max)(9999, {
+        message: 'Maximum length of sortOrder should be 4',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateVendorProductRequest.prototype, "sortOrder", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateVendorProductRequest.prototype, "vendorId", void 0);
+exports.CreateVendorProductRequest = CreateVendorProductRequest;
+//# sourceMappingURL=CreateVendorProductRequest.js.map

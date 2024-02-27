@@ -1,1 +1,258 @@
-'use strict';const a205_0xb27f21=a205_0x2762;(function(_0x49e455,_0x16285f){const _0x2a5899=a205_0x2762,_0x9430f1=_0x49e455();while(!![]){try{const _0x4ad2c7=-parseInt(_0x2a5899(0xe2))/0x1+-parseInt(_0x2a5899(0xe4))/0x2+-parseInt(_0x2a5899(0xdf))/0x3*(-parseInt(_0x2a5899(0xd3))/0x4)+-parseInt(_0x2a5899(0x9c))/0x5*(-parseInt(_0x2a5899(0xa6))/0x6)+parseInt(_0x2a5899(0xae))/0x7+-parseInt(_0x2a5899(0xc7))/0x8+-parseInt(_0x2a5899(0xc1))/0x9*(parseInt(_0x2a5899(0xc6))/0xa);if(_0x4ad2c7===_0x16285f)break;else _0x9430f1['push'](_0x9430f1['shift']());}catch(_0x2c11e7){_0x9430f1['push'](_0x9430f1['shift']());}}}(a205_0x39ea,0xe448a));Object[a205_0xb27f21(0xa8)](exports,a205_0xb27f21(0xe5),{'value':!![]}),exports['SeoBlogController']=void 0x0;const tslib_1=require(a205_0xb27f21(0x9e));require(a205_0xb27f21(0xbb));const routing_controllers_1=require(a205_0xb27f21(0xa7)),MSeoMetaService_1=require(a205_0xb27f21(0xbf)),MSeoMetaModel_1=require('../../models/MSeoMetaModel'),CreateSeoRequest_1=require(a205_0xb27f21(0xeb)),BlogService_1=require(a205_0xb27f21(0xbc)),CategoryService_1=require(a205_0xb27f21(0xe3)),AddonValidationMiddleware_1=require(a205_0xb27f21(0xd2));let SeoBlogController=class SeoBlogController{constructor(_0x3ada49,_0x20de12,_0x3d51d4){const _0x3f4320=a205_0xb27f21;this['blogService']=_0x3ada49,this['mSeoMetaService']=_0x20de12,this[_0x3f4320(0xa0)]=_0x3d51d4;}[a205_0xb27f21(0xe8)](_0x515608,_0x511155,_0x138d85,_0x4615a5,_0x57c926,_0x4ac5b8,_0x29f25a){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2ebd65=a205_0x2762,_0x1e919d=['id',_0x2ebd65(0xc5),_0x2ebd65(0xce),_0x2ebd65(0xcd),_0x2ebd65(0xda),_0x2ebd65(0xde),'isActive','blogSlug',_0x2ebd65(0xe7)],_0x3d6c01=[{'name':_0x2ebd65(0xc5),'op':_0x2ebd65(0xb0),'value':_0x138d85},{'name':_0x2ebd65(0xce),'op':'like','value':_0x4615a5},{'name':'isActive','op':_0x2ebd65(0xb1),'value':_0x57c926}],_0x198a10=[],_0x39fb49=yield this[_0x2ebd65(0x9d)]['list'](_0x515608,_0x511155,_0x1e919d,_0x3d6c01,_0x198a10,_0x4ac5b8);if(_0x4ac5b8){const _0x468413={'status':0x1,'message':_0x2ebd65(0xb3),'data':_0x39fb49};return _0x29f25a[_0x2ebd65(0xb4)](0xc8)[_0x2ebd65(0xa4)](_0x468413);}else{const _0x3e8f07=_0x39fb49[_0x2ebd65(0x9f)](_0xac24e0=>tslib_1[_0x2ebd65(0xc3)](this,void 0x0,void 0x0,function*(){const _0x5ededd=_0x2ebd65,_0x202a8c=_0xac24e0,_0xd601f7=yield this['categoryService'][_0x5ededd(0xba)]({'where':{'categoryId':_0xac24e0['categoryId']},'select':[_0x5ededd(0xb7)]});return _0xd601f7&&(_0x202a8c[_0x5ededd(0xac)]=_0xd601f7[_0x5ededd(0xb7)]),_0x202a8c;})),_0x10f0cd=yield Promise['all'](_0x3e8f07),_0x38628b={'status':0x1,'message':_0x2ebd65(0xa9),'data':_0x10f0cd};return _0x29f25a[_0x2ebd65(0xb4)](0xc8)['send'](_0x38628b);}});}[a205_0xb27f21(0xc0)](_0x3d27d3,_0x5509ce,_0x50ed04){const _0x116246=a205_0xb27f21;return tslib_1[_0x116246(0xc3)](this,void 0x0,void 0x0,function*(){const _0x19ca70=_0x116246,_0x55811b=yield this[_0x19ca70(0x9d)][_0x19ca70(0xba)](_0x3d27d3);if(!_0x55811b){const _0x1a58d9={'status':0x0,'message':_0x19ca70(0xaf)};return _0x50ed04['status'](0x190)[_0x19ca70(0xa4)](_0x1a58d9);}const _0x4b2c16=yield this[_0x19ca70(0xcf)][_0x19ca70(0xba)]({'where':{'refId':_0x3d27d3,'seoType':'blogs'}});if(_0x4b2c16){_0x4b2c16['metaTagTitle']=_0x5509ce[_0x19ca70(0xd8)]?_0x5509ce[_0x19ca70(0xd8)]:_0x55811b[_0x19ca70(0xc5)],_0x4b2c16[_0x19ca70(0xdd)]=_0x5509ce['metaTagDescription']?yield this[_0x19ca70(0xcf)]['escapeChar'](_0x5509ce[_0x19ca70(0xdd)]):'',_0x4b2c16['metaTagKeyword']=_0x5509ce[_0x19ca70(0xc4)],_0x4b2c16[_0x19ca70(0xca)]=_0x3d27d3,_0x4b2c16['seoType']=_0x19ca70(0xe0),yield this[_0x19ca70(0xcf)][_0x19ca70(0xe6)](_0x4b2c16[_0x19ca70(0xc9)],_0x4b2c16);const _0x281cb4={'status':0x1,'message':_0x19ca70(0xc8)};return _0x50ed04[_0x19ca70(0xb4)](0xc8)['send'](_0x281cb4);}const _0x3c6cf3=new MSeoMetaModel_1['MSeoMeta']();_0x3c6cf3[_0x19ca70(0xd8)]=_0x5509ce['metaTagTitle']?_0x5509ce[_0x19ca70(0xd8)]:_0x55811b['title'],_0x3c6cf3[_0x19ca70(0xdd)]=_0x5509ce[_0x19ca70(0xdd)]?yield this[_0x19ca70(0xcf)][_0x19ca70(0xd1)](_0x5509ce[_0x19ca70(0xdd)]):'',_0x3c6cf3['metaTagKeyword']=_0x5509ce['metaTagKeyword'],_0x3c6cf3[_0x19ca70(0xca)]=_0x3d27d3,_0x3c6cf3['seoType']='blogs';const _0x573f5a=yield this[_0x19ca70(0xcf)][_0x19ca70(0xb8)](_0x3c6cf3);if(_0x573f5a){const _0x5f3306={'status':0x1,'message':_0x19ca70(0xb5),'data':_0x573f5a};return _0x50ed04[_0x19ca70(0xb4)](0xc8)[_0x19ca70(0xa4)](_0x5f3306);}else{const _0x4bd330={'status':0x0,'message':_0x19ca70(0xe9)};return _0x50ed04['status'](0x190)[_0x19ca70(0xa4)](_0x4bd330);}});}[a205_0xb27f21(0xab)](_0x2c7e9c,_0x1e49c1){const _0xde2db7=a205_0xb27f21;return tslib_1[_0xde2db7(0xc3)](this,void 0x0,void 0x0,function*(){const _0x3cfd69=_0xde2db7,_0x1082df=yield this[_0x3cfd69(0x9d)][_0x3cfd69(0xba)](_0x2c7e9c);if(!_0x1082df){const _0x444107={'status':0x0,'message':_0x3cfd69(0xaf)};return _0x1e49c1['status'](0x190)['send'](_0x444107);}_0x1082df[_0x3cfd69(0xbe)]=yield this['mSeoMetaService'][_0x3cfd69(0xba)]({'where':{'refId':_0x2c7e9c,'seoType':_0x3cfd69(0xe0)}});const _0x532a93={'status':0x1,'message':_0x3cfd69(0xd4),'data':_0x1082df};return _0x1e49c1['status'](0xc8)[_0x3cfd69(0xa4)](_0x532a93);});}};tslib_1[a205_0xb27f21(0xc2)]([(0x0,routing_controllers_1[a205_0xb27f21(0xea)])(),(0x0,routing_controllers_1[a205_0xb27f21(0x9b)])(['admin',a205_0xb27f21(0xa5)]),tslib_1[a205_0xb27f21(0xb2)](0x0,(0x0,routing_controllers_1[a205_0xb27f21(0xaa)])(a205_0xb27f21(0xcc))),tslib_1[a205_0xb27f21(0xb2)](0x1,(0x0,routing_controllers_1[a205_0xb27f21(0xaa)])(a205_0xb27f21(0xe1))),tslib_1[a205_0xb27f21(0xb2)](0x2,(0x0,routing_controllers_1[a205_0xb27f21(0xaa)])('keyword')),tslib_1[a205_0xb27f21(0xb2)](0x3,(0x0,routing_controllers_1['QueryParam'])('categoryId')),tslib_1[a205_0xb27f21(0xb2)](0x4,(0x0,routing_controllers_1['QueryParam'])(a205_0xb27f21(0xb4))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a205_0xb27f21(0xaa)])('count')),tslib_1[a205_0xb27f21(0xb2)](0x6,(0x0,routing_controllers_1[a205_0xb27f21(0xd5)])()),tslib_1[a205_0xb27f21(0xa3)](a205_0xb27f21(0xd6),Function),tslib_1[a205_0xb27f21(0xa3)](a205_0xb27f21(0xdb),[Number,Number,String,String,String,Object,Object]),tslib_1[a205_0xb27f21(0xa3)](a205_0xb27f21(0xd9),Promise)],SeoBlogController[a205_0xb27f21(0xb9)],a205_0xb27f21(0xe8),null),tslib_1[a205_0xb27f21(0xc2)]([(0x0,routing_controllers_1['Post'])(a205_0xb27f21(0x9a)),(0x0,routing_controllers_1['Authorized'])(['admin',a205_0xb27f21(0xa2)]),tslib_1[a205_0xb27f21(0xb2)](0x0,(0x0,routing_controllers_1[a205_0xb27f21(0xbd)])(a205_0xb27f21(0xd7))),tslib_1[a205_0xb27f21(0xb2)](0x1,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a205_0xb27f21(0xb2)](0x2,(0x0,routing_controllers_1[a205_0xb27f21(0xd5)])()),tslib_1[a205_0xb27f21(0xa3)](a205_0xb27f21(0xd6),Function),tslib_1['__metadata'](a205_0xb27f21(0xdb),[Number,CreateSeoRequest_1[a205_0xb27f21(0xcb)],Object]),tslib_1['__metadata'](a205_0xb27f21(0xd9),Promise)],SeoBlogController['prototype'],a205_0xb27f21(0xc0),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a205_0xb27f21(0xea)])('/:blogId'),(0x0,routing_controllers_1['Authorized'])([a205_0xb27f21(0xa1),a205_0xb27f21(0xd0)]),tslib_1[a205_0xb27f21(0xb2)](0x0,(0x0,routing_controllers_1['Param'])(a205_0xb27f21(0xd7))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a205_0xb27f21(0xd5)])()),tslib_1['__metadata'](a205_0xb27f21(0xd6),Function),tslib_1[a205_0xb27f21(0xa3)](a205_0xb27f21(0xdb),[Number,Object]),tslib_1['__metadata']('design:returntype',Promise)],SeoBlogController['prototype'],a205_0xb27f21(0xab),null),SeoBlogController=tslib_1[a205_0xb27f21(0xc2)]([(0x0,routing_controllers_1[a205_0xb27f21(0xdc)])(AddonValidationMiddleware_1['CheckAddonMiddleware']),(0x0,routing_controllers_1['JsonController'])(a205_0xb27f21(0xad)),tslib_1[a205_0xb27f21(0xa3)](a205_0xb27f21(0xdb),[BlogService_1['BlogService'],MSeoMetaService_1['MSeoMetaService'],CategoryService_1[a205_0xb27f21(0xb6)]])],SeoBlogController),exports['SeoBlogController']=SeoBlogController;function a205_0x2762(_0x5411bd,_0x2ba6cf){const _0x39ea42=a205_0x39ea();return a205_0x2762=function(_0x276219,_0x4edd52){_0x276219=_0x276219-0x9a;let _0x12e68=_0x39ea42[_0x276219];return _0x12e68;},a205_0x2762(_0x5411bd,_0x2ba6cf);}function a205_0x39ea(){const _0x58d2de=['image','design:paramtypes','UseBefore','metaTagDescription','imagePath','1791468xxTJSl','blogs','offset','472311wOqCZl','../../../../src/api/core/services/CategoryService','25240jAMXlx','__esModule','update','createdDate','blogList','Unable\x20to\x20create\x20Seo.\x20','Get','./requests/CreateSeoRequest','/:blogId','Authorized','5hZklUv','blogService','tslib','map','categoryService','admin','seo-update','__metadata','send','list-blogs','544092inSwzs','routing-controllers','defineProperty','Successfully\x20got\x20blog\x20list','QueryParam','seoDetail','categoryName','/blog-seo','6913718fwoYWa','Invalid\x20Blog.\x20','like','where','__param','Successfully\x20got\x20blog\x20count','status','Seo\x20created\x20Successfully.\x20','CategoryService','name','create','prototype','findOne','reflect-metadata','../../../Blogs/services/BlogService','Param','seo','../../services/MSeoMetaService','updateSeo','4310721JVrqZd','__decorate','__awaiter','metaTagKeyword','title','10tcnFiZ','2989744MMvFnP','Seo\x20Updated\x20successfully','seoId','refId','AddSeoRequest','limit','description','categoryId','mSeoMetaService','blog-seo-detail','escapeChar','../../../../src/api/core/middlewares/AddonValidationMiddleware','8wGJqEH','Successfully\x20got\x20Seo\x20detail.\x20','Res','design:type','blogId','metaTagTitle','design:returntype'];a205_0x39ea=function(){return _0x58d2de;};return a205_0x39ea();}
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SeoBlogController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const MSeoMetaService_1 = require("../../services/MSeoMetaService");
+const MSeoMetaModel_1 = require("../../models/MSeoMetaModel");
+const CreateSeoRequest_1 = require("./requests/CreateSeoRequest");
+const BlogService_1 = require("../../../Blogs/services/BlogService");
+const BlogCategoryService_1 = require("../../../Blogs/services/BlogCategoryService");
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+let SeoBlogController = class SeoBlogController {
+    constructor(blogService, mSeoMetaService, blogCategoryService) {
+        this.blogService = blogService;
+        this.mSeoMetaService = mSeoMetaService;
+        this.blogCategoryService = blogCategoryService;
+    }
+    // Seo Blog List
+    /**
+     * @api {get} /api/blog-seo Seo Blog List API
+     * @apiGroup Seo
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} categoryId categoryId
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Blog list",
+     *      "data": "{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/blog-seo
+     * @apiErrorExample {json} blog List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    blogList(limit, offset, keyword, categoryId, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['id', 'title', 'categoryId', 'description', 'image', 'imagePath', 'isActive', 'blogSlug', 'createdDate'];
+            const search = [
+                {
+                    name: 'title',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'categoryId',
+                    op: 'like',
+                    value: categoryId,
+                }, {
+                    name: 'isActive',
+                    op: 'where',
+                    value: status,
+                },
+            ];
+            const WhereConditions = [];
+            if (categoryId) {
+                WhereConditions.push({
+                    name: 'categoryId',
+                    value: categoryId,
+                });
+            }
+            const blogLists = yield this.blogService.list(limit, offset, select, search, WhereConditions, count);
+            if (count) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got blog count',
+                    data: blogLists,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const blogList = blogLists.map((val) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const datas = val;
+                    const getCategoryName = yield this.blogCategoryService.findOne({
+                        where: { blogCategoryId: val.categoryId },
+                        select: ['name'],
+                    });
+                    if (getCategoryName) {
+                        datas.categoryName = getCategoryName.name;
+                    }
+                    return datas;
+                }));
+                const results = yield Promise.all(blogList);
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got blog list',
+                    data: results,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Create/Update Seo  API
+    /**
+     * @api {Post} /api/blog-seo/:blogId Create/Update Seo API
+     * @apiGroup Seo
+     * @apiParam (Request body) {String} metaTagTitle metaTagTitle
+     * @apiParam (Request body) {String} metaTagDescription metaTagDescription
+     * @apiParam (Request body) {String} metaTagKeyword metaTagKeyword
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "metaTagTitle" : "",
+     *      "metaTagDescription": "",
+     *      "metaTagKeyword": ""
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "SEO Updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/blog-seo/:blogId
+     * @apiErrorExample {json} Seo  error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateSeo(blogId, seo, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const Blog = yield this.blogService.findOne(blogId);
+            if (!Blog) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Blog. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const updateSeo = yield this.mSeoMetaService.findOne({
+                where: {
+                    refId: blogId,
+                    seoType: 'blogs',
+                },
+            });
+            if (updateSeo) {
+                updateSeo.metaTagTitle = seo.metaTagTitle ? seo.metaTagTitle : Blog.title;
+                updateSeo.metaTagDescription = seo.metaTagDescription ? yield this.mSeoMetaService.escapeChar(seo.metaTagDescription) : '';
+                updateSeo.metaTagKeyword = seo.metaTagKeyword;
+                updateSeo.refId = blogId;
+                updateSeo.seoType = 'blogs';
+                yield this.mSeoMetaService.update(updateSeo.seoId, updateSeo);
+                const successResponse = {
+                    status: 1,
+                    message: 'Seo Updated successfully',
+                };
+                return response.status(200).send(successResponse);
+            }
+            const NewSeo = new MSeoMetaModel_1.MSeoMeta();
+            NewSeo.metaTagTitle = seo.metaTagTitle ? seo.metaTagTitle : Blog.title;
+            NewSeo.metaTagDescription = seo.metaTagDescription ? yield this.mSeoMetaService.escapeChar(seo.metaTagDescription) : '';
+            NewSeo.metaTagKeyword = seo.metaTagKeyword;
+            NewSeo.refId = blogId;
+            NewSeo.seoType = 'blogs';
+            const createSeo = yield this.mSeoMetaService.create(NewSeo);
+            if (createSeo) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Seo created Successfully. ',
+                    data: createSeo,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to create Seo. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Seo Detail API
+    /**
+     * @api {get} /api/blog-seo/:blogId Seo Detail API
+     * @apiGroup seo
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *    "message": "Successfully get Seo detail. ",
+     *    "data":"{}"
+     *    "status": "1"
+     *  }
+     * @apiSampleRequest /api/blog-seo/:blogId
+     * @apiErrorExample {json} Seo error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    seoDetail(blogId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const blog = yield this.blogService.findOne(blogId);
+            if (!blog) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Blog. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            blog.seo = yield this.mSeoMetaService.findOne({ where: { refId: blogId, seoType: 'blogs' } });
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got Seo detail. ',
+                data: blog,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-blogs']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('categoryId')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SeoBlogController.prototype, "blogList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/:blogId'),
+    (0, routing_controllers_1.Authorized)(['admin', 'seo-update']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('blogId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateSeoRequest_1.AddSeoRequest, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SeoBlogController.prototype, "updateSeo", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/:blogId'),
+    (0, routing_controllers_1.Authorized)(['admin', 'blog-seo-detail']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('blogId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SeoBlogController.prototype, "seoDetail", null);
+SeoBlogController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/blog-seo'),
+    tslib_1.__metadata("design:paramtypes", [BlogService_1.BlogService,
+        MSeoMetaService_1.MSeoMetaService,
+        BlogCategoryService_1.BlogCategoryService])
+], SeoBlogController);
+exports.SeoBlogController = SeoBlogController;
+//# sourceMappingURL=BlogSeoController.js.map

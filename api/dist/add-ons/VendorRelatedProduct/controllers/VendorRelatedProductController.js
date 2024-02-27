@@ -1,1 +1,392 @@
-'use strict';function a234_0x291b(_0x175cc6,_0x5edbbc){const _0x46b54c=a234_0x46b5();return a234_0x291b=function(_0x291b0e,_0x56127f){_0x291b0e=_0x291b0e-0x19a;let _0x14ec8f=_0x46b54c[_0x291b0e];return _0x14ec8f;},a234_0x291b(_0x175cc6,_0x5edbbc);}const a234_0x54109f=a234_0x291b;(function(_0x1f2a36,_0xcf2a48){const _0x3c9f48=a234_0x291b,_0x341f84=_0x1f2a36();while(!![]){try{const _0xe4ceae=-parseInt(_0x3c9f48(0x1d8))/0x1*(-parseInt(_0x3c9f48(0x20a))/0x2)+parseInt(_0x3c9f48(0x1ff))/0x3+-parseInt(_0x3c9f48(0x1af))/0x4*(-parseInt(_0x3c9f48(0x1c0))/0x5)+-parseInt(_0x3c9f48(0x20f))/0x6*(-parseInt(_0x3c9f48(0x1a7))/0x7)+parseInt(_0x3c9f48(0x204))/0x8*(parseInt(_0x3c9f48(0x1e8))/0x9)+-parseInt(_0x3c9f48(0x1cb))/0xa*(parseInt(_0x3c9f48(0x1e6))/0xb)+-parseInt(_0x3c9f48(0x1e4))/0xc;if(_0xe4ceae===_0xcf2a48)break;else _0x341f84['push'](_0x341f84['shift']());}catch(_0x35334c){_0x341f84['push'](_0x341f84['shift']());}}}(a234_0x46b5,0x4ba0e));Object[a234_0x54109f(0x1f1)](exports,'__esModule',{'value':!![]}),exports[a234_0x54109f(0x1f5)]=void 0x0;const tslib_1=require('tslib'),routing_controllers_1=require(a234_0x54109f(0x19d)),VendorProductService_1=require(a234_0x54109f(0x1b6)),ProductToCategoryService_1=require('../../../src/api/core/services/ProductToCategoryService'),CategoryService_1=require(a234_0x54109f(0x1ae)),OrderProductService_1=require('../../../src/api/core/services/OrderProductService'),ProductService_1=require(a234_0x54109f(0x215)),class_transformer_1=require(a234_0x54109f(0x1ea)),ProductRelated_1=require(a234_0x54109f(0x203)),ProductRelatedService_1=require(a234_0x54109f(0x1df)),VendorRelatedProductRequest_1=require('./request/VendorRelatedProductRequest'),AddonValidationMiddleware_1=require(a234_0x54109f(0x1fd));function a234_0x46b5(){const _0x2577b6=['4rdTEAj','customer','categoryName','productSpecial','map','vendorRelatedProductDetail','productRelatedCount','../../../src/api/core/services/VendorProductService','product.attributeKeyword\x20as\x20attributeKeyword','VendorProducts.reuse','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20price','product.keywords','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20modifiedPrice','getEarnings','VendorRelatedProductRequest','__decorate','keyword','1570510KOGqQO','successfully\x20updated\x20the\x20vendor\x20related\x20products','sku','__awaiter','Successfully\x20got\x20Vendor\x20Product\x20list.','design:returntype','send','(SELECT\x20pi.container_name\x20as\x20containerName\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20containerName','(SELECT\x20sku.sku_name\x20as\x20sku\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20sku','vendor','ProductRelated','138770wjtuqf','vendorProductId','then','product.sku\x20as\x20sku','design:type','productDiscount','vendorProductService','/update-vendor-related-product','description','customer.first_name','instanceToPlain','Successfully\x20got\x20the\x20data','product.quantity\x20as\x20quantity','30978HzDfDA','product.sortOrder\x20as\x20sortOrder','orderProductService','Invalid\x20product\x20id','push','vendorProductList','findAll','../../ProductRelated/services/ProductRelatedService','Get','length','vendorCategory','CheckAddonMiddleware','7570128PJwKWm','VendorProducts.vendorProductId\x20as\x20vendorProductId','451qEXDlo','findOne','845901awdafb','Invalid\x20product\x20Id\x20on\x20vendorRelated','class-transformer','vendorId','find','product.skuId\x20as\x20skuId','QueryParam','Param','Authorized','defineProperty','pricerefer','Invalid\x20productId','productRelated','AdminVendorRelatedProductController','Res','invalid\x20vendor\x20related\x20product\x20id','and','(SELECT\x20pi.image\x20as\x20image\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20image','Post','prototype','categoryService','../../../src/api/core/middlewares/AddonValidationMiddleware','UseBefore','1035378ReBNLy','delete','vendor.vendorId','toLowerCase','../../ProductRelated/models/ProductRelated','8EzbVKL','all','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20AS\x20productSpecial','product.pincodeBasedDelivery\x20as\x20pincodeBasedDelivery','product.isActive\x20as\x20isActive','ProductRelatedService','18zBrGVv','price','ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20AS\x20productDiscount','DESC','JsonController','6rUGVfG','Successfully\x20got\x20your\x20product\x20list.','(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20product.product_id\x20AND\x20ps.sku_id\x20=\x20skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','__param','relatedProductService','name','../../../src/api/core/services/ProductService','productToCategoryService','relatedProductId','vendorRelatedCount','VendorProducts.createdDate\x20as\x20createdDate','customer.firstName\x20as\x20vendorName','Invalid\x20product\x20id\x20on\x20VendorProduct','categoryId','Req','design:paramtypes','product.name','routing-controllers','IS\x20NULL','vendor.vendorId\x20as\x20vendorId','product','productId','VendorProducts.quotationAvailable\x20as\x20quotationAvailable','__metadata','productService','ProductService','status','3342892AWjRFh','product.productId\x20as\x20productId','/vendor-related-product-list','product.name\x20as\x20name','vendor.customer','flag','earnings','../../../src/api/core/services/CategoryService'];a234_0x46b5=function(){return _0x2577b6;};return a234_0x46b5();}let AdminVendorRelatedProductController=class AdminVendorRelatedProductController{constructor(_0x1fc227,_0x57eace,_0x3169a7,_0x1a629c,_0x32d730,_0x3b0277){const _0x373ce9=a234_0x54109f;this[_0x373ce9(0x1d1)]=_0x1fc227,this[_0x373ce9(0x1da)]=_0x57eace,this[_0x373ce9(0x213)]=_0x3169a7,this[_0x373ce9(0x216)]=_0x1a629c,this[_0x373ce9(0x1fc)]=_0x32d730,this['productService']=_0x3b0277;}['productRelated'](_0x771a09,_0x45a5fc){const _0x213d35=a234_0x54109f;return tslib_1[_0x213d35(0x1c3)](this,void 0x0,void 0x0,function*(){const _0x2b573e=_0x213d35,_0x112310=yield this[_0x2b573e(0x1a4)]['findOne']({'where':{'productId':_0x771a09[_0x2b573e(0x1a1)]}});if(!_0x112310){const _0x330953={'status':0x0,'message':_0x2b573e(0x1f3)};return _0x45a5fc[_0x2b573e(0x1a6)](0x190)[_0x2b573e(0x1c6)](_0x330953);}const _0x2a3c68=yield this[_0x2b573e(0x1d1)]['findOne']({'where':{'productId':_0x771a09['productId']}});if(!_0x2a3c68){const _0xe8eca6={'status':0x0,'message':_0x2b573e(0x21b)};return _0x45a5fc[_0x2b573e(0x1a6)](0x190)['send'](_0xe8eca6);}for(const _0x48d21d of _0x771a09[_0x2b573e(0x217)]){const _0xf659b7=yield this['productService'][_0x2b573e(0x1e7)]({'where':{'productId':_0x48d21d}});if(!_0xf659b7){const _0x1889a1={'status':0x0,'message':'Invalid\x20VendorRelatedProductId\x20on\x20product'};return _0x45a5fc['status'](0x190)['send'](_0x1889a1);}const _0x280b15=yield this[_0x2b573e(0x1d1)][_0x2b573e(0x1e7)]({'where':{'productId':_0x48d21d}});if(!_0x280b15){const _0x2ddef5={'status':0x0,'message':_0x2b573e(0x1e9)};return _0x45a5fc[_0x2b573e(0x1a6)](0x190)['send'](_0x2ddef5);}}const _0x3fbdcf=yield this['relatedProductService'][_0x2b573e(0x1ec)]({'where':{'productId':_0x771a09[_0x2b573e(0x1a1)]}}),_0xfcc86f=[];_0x3fbdcf[_0x2b573e(0x1e1)]>0x0&&(yield this['relatedProductService'][_0x2b573e(0x200)]({'productId':_0x771a09[_0x2b573e(0x1a1)]}));for(const _0x3282a5 of _0x771a09['relatedProductId']){const _0x4e8f7f=new ProductRelated_1[(_0x2b573e(0x1ca))]();_0x4e8f7f[_0x2b573e(0x1a1)]=_0x771a09[_0x2b573e(0x1a1)],_0x4e8f7f[_0x2b573e(0x217)]=_0x3282a5,_0xfcc86f[_0x2b573e(0x1dc)](_0x4e8f7f);}const _0x3c9b0f=yield this[_0x2b573e(0x213)]['create'](_0xfcc86f);if(!_0x3c9b0f){const _0x31d6f2={'status':0x0,'message':'unable\x20to\x20update\x20the\x20vendor\x20related\x20products'};return _0x45a5fc[_0x2b573e(0x1a6)](0x190)[_0x2b573e(0x1c6)](_0x31d6f2);}const _0x4b10c6={'status':0x1,'message':_0x2b573e(0x1c1),'data':_0xfcc86f};return _0x45a5fc[_0x2b573e(0x1a6)](0xc8)[_0x2b573e(0x1c6)](_0x4b10c6);});}[a234_0x54109f(0x1dd)](_0x346e04,_0x1a1c4c,_0x4f4712,_0x421e7e,_0x4135b8,_0x335613,_0x1e8d48,_0xac6b0d){const _0x5a7eae=a234_0x54109f;return tslib_1[_0x5a7eae(0x1c3)](this,void 0x0,void 0x0,function*(){const _0x42c2cf=_0x5a7eae,_0x4e7ea9=_0x1e8d48['user'][_0x42c2cf(0x1eb)],_0x14b2a9=[_0x42c2cf(0x1e5),'VendorProducts.vendorProductCommission\x20as\x20vendorProductCommission',_0x42c2cf(0x1a2),'VendorProducts.approvalFlag\x20as\x20approvalFlag',_0x42c2cf(0x19f),_0x42c2cf(0x1a8),_0x42c2cf(0x207),_0x42c2cf(0x1aa),_0x42c2cf(0x1ce),_0x42c2cf(0x1ed),'product.price\x20as\x20productprice',_0x42c2cf(0x1d7),_0x42c2cf(0x21a),_0x42c2cf(0x1d9),_0x42c2cf(0x208),'product.productSlug\x20as\x20productSlug',_0x42c2cf(0x219),'product.keywords\x20as\x20keywords',_0x42c2cf(0x1b7),_0x42c2cf(0x1f9),_0x42c2cf(0x1c7),_0x42c2cf(0x1c8),_0x42c2cf(0x1b9),_0x42c2cf(0x1bb),'(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20product.product_id\x20AND\x20pd2.sku_id\x20=\x20skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20\x20pd2.date_end\x20>=\x20CURDATE()))\x20'+_0x42c2cf(0x20c),_0x42c2cf(0x211)+'\x20'+_0x42c2cf(0x206)],_0x5bc558=[],_0x3001f7=[],_0x48983a=[];_0x3001f7[_0x42c2cf(0x1dc)]({'tableName':'VendorProducts.product','aliasName':_0x42c2cf(0x1a0)},{'tableName':'VendorProducts.vendor','aliasName':_0x42c2cf(0x1c9)},{'tableName':_0x42c2cf(0x1ab),'aliasName':_0x42c2cf(0x1b0)});_0x4f4712&&_0x4f4712!==''&&_0x5bc558[_0x42c2cf(0x1dc)]({'name':'product.isActive','op':_0x42c2cf(0x1f8),'value':+_0x4f4712});_0x5bc558[_0x42c2cf(0x1dc)]({'name':_0x42c2cf(0x201),'op':'and','value':_0x4e7ea9},{'name':_0x42c2cf(0x1b8),'op':_0x42c2cf(0x19e),'value':''});const _0x5b5de7=[];_0x421e7e&&_0x5b5de7[_0x42c2cf(0x1dc)]({'name':[_0x42c2cf(0x1ba),_0x42c2cf(0x19c),_0x42c2cf(0x1d4)],'value':_0x421e7e[_0x42c2cf(0x202)]()});const _0x447d92=[];_0x447d92[_0x42c2cf(0x1dc)]({'name':'VendorProducts.createdDate','order':_0x42c2cf(0x20d)});if(_0x335613){const _0x533868=yield this[_0x42c2cf(0x1d1)]['listByQueryBuilder'](_0x346e04,_0x1a1c4c,_0x14b2a9,_0x5bc558,_0x5b5de7,_0x3001f7,_0x48983a,_0x447d92,!![],!![]),_0x5708bd={'status':0x1,'message':_0x42c2cf(0x1c4),'data':_0x533868};return _0xac6b0d[_0x42c2cf(0x1a6)](0xc8)[_0x42c2cf(0x1c6)](_0x5708bd);}const _0x3e7dc9=yield this[_0x42c2cf(0x1d1)]['listByQueryBuilder'](_0x346e04,_0x1a1c4c,_0x14b2a9,_0x5bc558,_0x5b5de7,_0x3001f7,_0x48983a,_0x447d92,![],!![]),_0x580975=_0x3e7dc9['map'](_0x22d731=>tslib_1[_0x42c2cf(0x1c3)](this,void 0x0,void 0x0,function*(){const _0x35cda7=_0x42c2cf,_0x4d0c8e=_0x22d731,_0x13d782=yield this[_0x35cda7(0x216)][_0x35cda7(0x1de)]({'select':['categoryId',_0x35cda7(0x1a1)],'where':{'productId':_0x22d731[_0x35cda7(0x1a1)]}})[_0x35cda7(0x1cd)](_0x503e4d=>{const _0x46d168=_0x35cda7,_0x18b232=_0x503e4d['map'](_0x23ed3b=>tslib_1[_0x46d168(0x1c3)](this,void 0x0,void 0x0,function*(){const _0x2f0ffe=_0x46d168,_0x40395c=yield this['categoryService'][_0x2f0ffe(0x1e7)]({'categoryId':_0x23ed3b[_0x2f0ffe(0x21c)]}),_0x337abb=_0x23ed3b;return _0x40395c!==undefined?_0x337abb['categoryName']=_0x40395c['name']:_0x337abb[_0x2f0ffe(0x1b1)]='',_0x337abb;})),_0x5d623c=Promise['all'](_0x18b232);return _0x5d623c;});_0x4d0c8e[_0x35cda7(0x1e2)]=_0x13d782;if(_0x22d731['productSpecial']!==null)_0x4d0c8e[_0x35cda7(0x1f2)]=_0x22d731[_0x35cda7(0x1b2)],_0x4d0c8e[_0x35cda7(0x1ac)]=0x1;else _0x22d731[_0x35cda7(0x1d0)]!==null?(_0x4d0c8e['pricerefer']=_0x22d731[_0x35cda7(0x1d0)],_0x4d0c8e['flag']=0x0):(_0x4d0c8e[_0x35cda7(0x1f2)]='',_0x4d0c8e[_0x35cda7(0x1ac)]='');const _0xc8ca57=yield this[_0x35cda7(0x1da)][_0x35cda7(0x1bc)](_0x22d731[_0x35cda7(0x1a1)]);return _0xc8ca57?_0x4d0c8e[_0x35cda7(0x1ad)]=_0xc8ca57['productPriceTotal']:_0x4d0c8e['earnings']='',_0x4d0c8e[_0x35cda7(0x218)]=yield this[_0x35cda7(0x213)][_0x35cda7(0x1b5)](_0x22d731[_0x35cda7(0x1cc)]),_0x4d0c8e;})),_0x45dee7=yield Promise[_0x42c2cf(0x205)](_0x580975),_0x2f41c1={'status':0x1,'message':_0x42c2cf(0x210),'data':_0x45dee7};return _0xac6b0d[_0x42c2cf(0x1a6)](0xc8)['send'](_0x2f41c1);});}[a234_0x54109f(0x1b4)](_0x3f1f63,_0xc92d82){const _0x485b53=a234_0x54109f;return tslib_1[_0x485b53(0x1c3)](this,void 0x0,void 0x0,function*(){const _0x317db0=_0x485b53,_0x18a3f3=yield this['vendorProductService'][_0x317db0(0x1e7)]({'where':{'productId':_0x3f1f63}});if(!_0x18a3f3){const _0x41672b={'status':0x0,'message':_0x317db0(0x1f7)};return _0xc92d82[_0x317db0(0x1a6)](0x190)[_0x317db0(0x1c6)](_0x41672b);}const _0x4b056b=yield this[_0x317db0(0x1a4)][_0x317db0(0x1e7)]({'select':['productId',_0x317db0(0x1d3),_0x317db0(0x1c2),_0x317db0(0x214)],'where':{'productId':_0x18a3f3[_0x317db0(0x1a1)]}});if(!_0x4b056b){const _0x521022={'status':0x0,'message':_0x317db0(0x1db)};return _0xc92d82[_0x317db0(0x1a6)](0x190)[_0x317db0(0x1c6)](_0x521022);}_0x4b056b['vendorRelatedProduct']=yield this[_0x317db0(0x213)][_0x317db0(0x1ec)]({'select':[_0x317db0(0x217),_0x317db0(0x1a1)],'where':{'productId':_0x3f1f63}})[_0x317db0(0x1cd)](_0x3cf789=>{const _0x44b231=_0x317db0,_0x5e90a6=_0x3cf789[_0x44b231(0x1b3)](_0x2ad5d4=>tslib_1[_0x44b231(0x1c3)](this,void 0x0,void 0x0,function*(){const _0x152386=_0x44b231,_0x64064a=yield this['vendorProductService'][_0x152386(0x1e7)]({'where':{'productId':_0x2ad5d4[_0x152386(0x217)]},'relations':[_0x152386(0x1a0)]}),_0x5b58c3={};return _0x5b58c3[_0x152386(0x1cc)]=_0x64064a[_0x152386(0x1cc)],_0x5b58c3[_0x152386(0x1a1)]=_0x64064a[_0x152386(0x1a0)][_0x152386(0x1a1)],_0x5b58c3[_0x152386(0x214)]=_0x64064a[_0x152386(0x1a0)][_0x152386(0x214)],_0x5b58c3['sku']=_0x64064a[_0x152386(0x1a0)][_0x152386(0x1c2)],(0x0,class_transformer_1[_0x152386(0x1d5)])(_0x5b58c3);})),_0x260bd8=Promise[_0x44b231(0x205)](_0x5e90a6);return _0x260bd8;});const _0x3b50e2={'status':0x1,'message':_0x317db0(0x1d6),'data':_0x4b056b};return _0xc92d82[_0x317db0(0x1a6)](0xc8)[_0x317db0(0x1c6)](_0x3b50e2);});}};tslib_1[a234_0x54109f(0x1be)]([(0x0,routing_controllers_1[a234_0x54109f(0x1fa)])(a234_0x54109f(0x1d2)),(0x0,routing_controllers_1[a234_0x54109f(0x1f0)])(a234_0x54109f(0x1c9)),tslib_1[a234_0x54109f(0x212)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a234_0x54109f(0x212)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a234_0x54109f(0x1a3)]('design:type',Function),tslib_1[a234_0x54109f(0x1a3)]('design:paramtypes',[VendorRelatedProductRequest_1[a234_0x54109f(0x1bd)],Object]),tslib_1['__metadata'](a234_0x54109f(0x1c5),Promise)],AdminVendorRelatedProductController[a234_0x54109f(0x1fb)],a234_0x54109f(0x1f4),null),tslib_1[a234_0x54109f(0x1be)]([(0x0,routing_controllers_1[a234_0x54109f(0x1e0)])(a234_0x54109f(0x1a9)),(0x0,routing_controllers_1[a234_0x54109f(0x1f0)])(a234_0x54109f(0x1c9)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a234_0x54109f(0x1ee)])('limit')),tslib_1[a234_0x54109f(0x212)](0x1,(0x0,routing_controllers_1[a234_0x54109f(0x1ee)])('offset')),tslib_1[a234_0x54109f(0x212)](0x2,(0x0,routing_controllers_1[a234_0x54109f(0x1ee)])(a234_0x54109f(0x1a6))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a234_0x54109f(0x1ee)])(a234_0x54109f(0x1bf))),tslib_1[a234_0x54109f(0x212)](0x4,(0x0,routing_controllers_1[a234_0x54109f(0x1ee)])(a234_0x54109f(0x20b))),tslib_1[a234_0x54109f(0x212)](0x5,(0x0,routing_controllers_1[a234_0x54109f(0x1ee)])('count')),tslib_1[a234_0x54109f(0x212)](0x6,(0x0,routing_controllers_1[a234_0x54109f(0x19a)])()),tslib_1['__param'](0x7,(0x0,routing_controllers_1['Res'])()),tslib_1[a234_0x54109f(0x1a3)](a234_0x54109f(0x1cf),Function),tslib_1[a234_0x54109f(0x1a3)]('design:paramtypes',[Number,Number,String,String,String,Number,Object,Object]),tslib_1['__metadata'](a234_0x54109f(0x1c5),Promise)],AdminVendorRelatedProductController[a234_0x54109f(0x1fb)],a234_0x54109f(0x1dd),null),tslib_1[a234_0x54109f(0x1be)]([(0x0,routing_controllers_1[a234_0x54109f(0x1e0)])('/vendor-related-product-details/:id'),(0x0,routing_controllers_1[a234_0x54109f(0x1f0)])(a234_0x54109f(0x1c9)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a234_0x54109f(0x1ef)])('id')),tslib_1[a234_0x54109f(0x212)](0x1,(0x0,routing_controllers_1[a234_0x54109f(0x1f6)])()),tslib_1[a234_0x54109f(0x1a3)]('design:type',Function),tslib_1[a234_0x54109f(0x1a3)](a234_0x54109f(0x19b),[Number,Object]),tslib_1[a234_0x54109f(0x1a3)](a234_0x54109f(0x1c5),Promise)],AdminVendorRelatedProductController[a234_0x54109f(0x1fb)],a234_0x54109f(0x1b4),null),AdminVendorRelatedProductController=tslib_1[a234_0x54109f(0x1be)]([(0x0,routing_controllers_1[a234_0x54109f(0x1fe)])(AddonValidationMiddleware_1[a234_0x54109f(0x1e3)]),(0x0,routing_controllers_1[a234_0x54109f(0x20e)])('/vendor-related-product'),tslib_1[a234_0x54109f(0x1a3)](a234_0x54109f(0x19b),[VendorProductService_1['VendorProductService'],OrderProductService_1['OrderProductService'],ProductRelatedService_1[a234_0x54109f(0x209)],ProductToCategoryService_1['ProductToCategoryService'],CategoryService_1['CategoryService'],ProductService_1[a234_0x54109f(0x1a5)]])],AdminVendorRelatedProductController),exports[a234_0x54109f(0x1f5)]=AdminVendorRelatedProductController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AdminVendorRelatedProductController = void 0;
+const tslib_1 = require("tslib");
+const routing_controllers_1 = require("routing-controllers");
+const VendorProductService_1 = require("../../../src/api/core/services/VendorProductService");
+const ProductToCategoryService_1 = require("../../../src/api/core/services/ProductToCategoryService");
+const CategoryService_1 = require("../../../src/api/core/services/CategoryService");
+const OrderProductService_1 = require("../../../src/api/core/services/OrderProductService");
+const ProductService_1 = require("../../../src/api/core/services/ProductService");
+const class_transformer_1 = require("class-transformer");
+const ProductRelated_1 = require("../../ProductRelated/models/ProductRelated");
+const ProductRelatedService_1 = require("../../ProductRelated/services/ProductRelatedService");
+const VendorRelatedProductRequest_1 = require("./request/VendorRelatedProductRequest");
+const AddonValidationMiddleware_1 = require("../../../src/api/core/middlewares/AddonValidationMiddleware");
+let AdminVendorRelatedProductController = class AdminVendorRelatedProductController {
+    constructor(vendorProductService, orderProductService, relatedProductService, productToCategoryService, categoryService, productService) {
+        this.vendorProductService = vendorProductService;
+        this.orderProductService = orderProductService;
+        this.relatedProductService = relatedProductService;
+        this.productToCategoryService = productToCategoryService;
+        this.categoryService = categoryService;
+        this.productService = productService;
+    }
+    // update Product related api
+    /**
+     * @api {Post} /api/vendor-related-product/update-vendor-related-product update vendor related product
+     * @apiGroup Vendor Related Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} productId productId
+     * @apiParam (Request body) {number} relatedProductId relatedProductId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      'status': 1,
+     *      'message': 'Successfully update the vendor related product'
+     * }
+     * @apiSampleRequest /api/vendor-related-product/update-vendor-related-product
+     * @apiErrorExample  {json} error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productRelated(productRelatedRequest, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExistProduct = yield this.productService.findOne({ where: { productId: productRelatedRequest.productId } });
+            if (!ifExistProduct) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid productId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const ifExistVendorRelated = yield this.vendorProductService.findOne({
+                where: {
+                    productId: productRelatedRequest.productId,
+                },
+            });
+            if (!ifExistVendorRelated) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid product id on VendorProduct',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            for (const id of productRelatedRequest.relatedProductId) {
+                const findVendorRelatedProducts = yield this.productService.findOne({
+                    where: {
+                        productId: id,
+                    },
+                });
+                if (!findVendorRelatedProducts) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid VendorRelatedProductId on product',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                const ifExistProductRelatedOnVendorProduct = yield this.vendorProductService.findOne({
+                    where: {
+                        productId: id,
+                    },
+                });
+                if (!ifExistProductRelatedOnVendorProduct) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid product Id on vendorRelated',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            const ifExistVendorRelatedProduct = yield this.relatedProductService.find({
+                where: {
+                    productId: productRelatedRequest.productId,
+                },
+            });
+            const vendorRelatedProductData = [];
+            if (ifExistVendorRelatedProduct.length > 0) {
+                yield this.relatedProductService.delete({ productId: productRelatedRequest.productId });
+            }
+            for (const id of productRelatedRequest.relatedProductId) {
+                const newVendorRelated = new ProductRelated_1.ProductRelated();
+                newVendorRelated.productId = productRelatedRequest.productId;
+                newVendorRelated.relatedProductId = id;
+                vendorRelatedProductData.push(newVendorRelated);
+            }
+            const updateRelatedProduct = yield this.relatedProductService.create(vendorRelatedProductData);
+            if (!updateRelatedProduct) {
+                const errorStatus = {
+                    status: 0,
+                    message: 'unable to update the vendor related products',
+                };
+                return response.status(400).send(errorStatus);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'successfully updated the vendor related products',
+                data: vendorRelatedProductData,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Vendor Product List API
+    /**
+     * @api {get} /api/vendor-related-product/vendor-related-product-list Vendor related Product List API
+     * @apiGroup  Vendor Related Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} status 0->inactive 1-> active
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} price price
+     * @apiParam (Request body) {Number} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get your product list",
+     *      "data":{
+     *      "vendorId" : "",
+     *      "vendorName" : "",
+     *      "productName" : "",
+     *      "sku" : "",
+     *      "model" : "",
+     *      "price" : "",
+     *      "quantity" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-related-product/vendor-related-product-list
+     * @apiErrorExample {json} vendor error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorProductList(limit, offset, status, keyword, price, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorId = request.user.vendorId;
+            const selects = ['VendorProducts.vendorProductId as vendorProductId',
+                'VendorProducts.vendorProductCommission as vendorProductCommission',
+                'VendorProducts.quotationAvailable as quotationAvailable',
+                'VendorProducts.approvalFlag as approvalFlag',
+                'vendor.vendorId as vendorId',
+                'product.productId as productId',
+                'product.pincodeBasedDelivery as pincodeBasedDelivery',
+                'product.name as name',
+                'product.sku as sku',
+                'product.skuId as skuId',
+                'product.price as productprice',
+                'product.quantity as quantity',
+                'customer.firstName as vendorName',
+                'product.sortOrder as sortOrder',
+                'product.isActive as isActive',
+                'product.productSlug as productSlug',
+                'VendorProducts.createdDate as createdDate',
+                'product.keywords as keywords',
+                'product.attributeKeyword as attributeKeyword',
+                '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = product.productId AND pi.default_image = 1 LIMIT 1) as image',
+                '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
+                '(SELECT sku.sku_name as sku FROM sku WHERE sku.id = skuId) as sku',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as modifiedPrice',
+                '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+                    'ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
+                '(SELECT price FROM product_special ps WHERE ps.product_id = product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial'];
+            const whereCondition = [];
+            const relations = [];
+            const groupBy = [];
+            relations.push({
+                tableName: 'VendorProducts.product',
+                aliasName: 'product',
+            }, {
+                tableName: 'VendorProducts.vendor',
+                aliasName: 'vendor',
+            }, {
+                tableName: 'vendor.customer',
+                aliasName: 'customer',
+            });
+            if (status && status !== '') {
+                whereCondition.push({
+                    name: 'product.isActive',
+                    op: 'and',
+                    value: +status,
+                });
+            }
+            whereCondition.push({
+                name: 'vendor.vendorId',
+                op: 'and',
+                value: vendorId,
+            }, {
+                name: 'VendorProducts.reuse',
+                op: 'IS NULL',
+                value: '',
+            });
+            const searchConditions = [];
+            if (keyword) {
+                searchConditions.push({
+                    name: ['product.keywords', 'product.name', 'customer.first_name'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'VendorProducts.createdDate',
+                order: 'DESC',
+            });
+            if (count) {
+                const vendorProductListCount = yield this.vendorProductService.listByQueryBuilder(limit, offset, selects, whereCondition, searchConditions, relations, groupBy, sort, true, true);
+                const sucResponse = {
+                    status: 1,
+                    message: 'Successfully got Vendor Product list.',
+                    data: vendorProductListCount,
+                };
+                return response.status(200).send(sucResponse);
+            }
+            const vendorProductList = yield this.vendorProductService.listByQueryBuilder(limit, offset, selects, whereCondition, searchConditions, relations, groupBy, sort, false, true);
+            const productList = vendorProductList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const categories = yield this.productToCategoryService.findAll({
+                    select: ['categoryId', 'productId'],
+                    where: { productId: value.productId },
+                }).then((val) => {
+                    const category = val.map((values) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                        const categoryNames = yield this.categoryService.findOne({ categoryId: values.categoryId });
+                        const tempp = values;
+                        if (categoryNames !== undefined) {
+                            tempp.categoryName = categoryNames.name;
+                        }
+                        else {
+                            tempp.categoryName = '';
+                        }
+                        return tempp;
+                    }));
+                    const result = Promise.all(category);
+                    return result;
+                });
+                temp.vendorCategory = categories;
+                if (value.productSpecial !== null) {
+                    temp.pricerefer = value.productSpecial;
+                    temp.flag = 1;
+                }
+                else if (value.productDiscount !== null) {
+                    temp.pricerefer = value.productDiscount;
+                    temp.flag = 0;
+                }
+                else {
+                    temp.pricerefer = '';
+                    temp.flag = '';
+                }
+                const orderProduct = yield this.orderProductService.getEarnings(value.productId);
+                if (orderProduct) {
+                    temp.earnings = orderProduct.productPriceTotal;
+                }
+                else {
+                    temp.earnings = '';
+                }
+                temp.vendorRelatedCount = yield this.relatedProductService.productRelatedCount(value.vendorProductId);
+                return temp;
+            }));
+            const results = yield Promise.all(productList);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got your product list.',
+                data: results,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // product related detail api
+    /**
+     * @api {Get} /api/vendor-related-product/vendor-related-product-details/:id vendor related product details
+     * @apiGroup Vendor Related Product
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} success
+     * HTTP/1.1 200 success
+     * {
+     *      'status': '1',
+     *      'message': 'Successfully get details for product'
+     * }
+     * @apiSampleRequest /api/vendor-related-product/vendor-related-product-details/:id
+     * @apiErrorExample {json} error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorRelatedProductDetail(productId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExistVendorProductDetails = yield this.vendorProductService.findOne({ where: { productId } });
+            if (!ifExistVendorProductDetails) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'invalid vendor related product id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const ifExistProduct = yield this.productService.findOne({
+                select: ['productId', 'description', 'sku', 'name'],
+                where: { productId: ifExistVendorProductDetails.productId },
+            });
+            if (!ifExistProduct) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid product id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            ifExistProduct.vendorRelatedProduct = yield this.relatedProductService.find({
+                select: ['relatedProductId', 'productId'],
+                where: { productId },
+            }).then((val) => {
+                const vendorRelatedData = val.map((values) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const vendorProduct = yield this.vendorProductService.findOne({ where: { productId: values.relatedProductId }, relations: ['product'] });
+                    const temp = {};
+                    temp.vendorProductId = vendorProduct.vendorProductId;
+                    temp.productId = vendorProduct.product.productId;
+                    temp.name = vendorProduct.product.name;
+                    temp.sku = vendorProduct.product.sku;
+                    return (0, class_transformer_1.instanceToPlain)(temp);
+                }));
+                const resultDatas = Promise.all(vendorRelatedData);
+                return resultDatas;
+            });
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the data',
+                data: ifExistProduct,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/update-vendor-related-product'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [VendorRelatedProductRequest_1.VendorRelatedProductRequest, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminVendorRelatedProductController.prototype, "productRelated", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-related-product-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('price')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminVendorRelatedProductController.prototype, "vendorProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-related-product-details/:id'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminVendorRelatedProductController.prototype, "vendorRelatedProductDetail", null);
+AdminVendorRelatedProductController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/vendor-related-product'),
+    tslib_1.__metadata("design:paramtypes", [VendorProductService_1.VendorProductService, OrderProductService_1.OrderProductService, ProductRelatedService_1.ProductRelatedService, ProductToCategoryService_1.ProductToCategoryService, CategoryService_1.CategoryService, ProductService_1.ProductService])
+], AdminVendorRelatedProductController);
+exports.AdminVendorRelatedProductController = AdminVendorRelatedProductController;
+//# sourceMappingURL=VendorRelatedProductController.js.map

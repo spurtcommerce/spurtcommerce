@@ -1,1 +1,21 @@
-'use strict';const a976_0x5c2a1b=a976_0x436b;(function(_0x1c8a98,_0x2c7a93){const _0x268778=a976_0x436b,_0x5de9c9=_0x1c8a98();while(!![]){try{const _0x177e79=-parseInt(_0x268778(0x83))/0x1+-parseInt(_0x268778(0x8f))/0x2+parseInt(_0x268778(0x90))/0x3+-parseInt(_0x268778(0x96))/0x4*(parseInt(_0x268778(0x88))/0x5)+-parseInt(_0x268778(0x8c))/0x6*(parseInt(_0x268778(0x8b))/0x7)+parseInt(_0x268778(0x84))/0x8*(-parseInt(_0x268778(0x8e))/0x9)+parseInt(_0x268778(0x98))/0xa;if(_0x177e79===_0x2c7a93)break;else _0x5de9c9['push'](_0x5de9c9['shift']());}catch(_0x47a597){_0x5de9c9['push'](_0x5de9c9['shift']());}}}(a976_0x531d,0x4184b));Object[a976_0x5c2a1b(0x8d)](exports,'__esModule',{'value':!![]}),exports['CreateUser']=void 0x0;const tslib_1=require(a976_0x5c2a1b(0x99)),User_1=require('../../api/core/models/User');function a976_0x436b(_0x41ddbd,_0x2c44ef){const _0x531d7f=a976_0x531d();return a976_0x436b=function(_0x436b41,_0x2141f9){_0x436b41=_0x436b41-0x83;let _0x3f361f=_0x531d7f[_0x436b41];return _0x3f361f;},a976_0x436b(_0x41ddbd,_0x2c44ef);}function a976_0x531d(){const _0xcb1e68=['spurt123@','5WfiNDT','save','createEntityManager','632807Hnzndr','6BmsWos','defineProperty','775746PJHUuU','1027250cDlUaW','8445kVjPmf','hashPassword','admin@spurtcart.com','no-reply@spurtcommerce.com','CreateUser','run','160868eRfase','username','14816900MPrgDm','tslib','399511REpLoF','16zILZJq','__awaiter','User'];a976_0x531d=function(){return _0xcb1e68;};return a976_0x531d();}class CreateUser{[a976_0x5c2a1b(0x95)](_0x286b7c,_0x252a3e){const _0xad864f=a976_0x5c2a1b;return tslib_1[_0xad864f(0x85)](this,void 0x0,void 0x0,function*(){const _0x57991c=_0xad864f,_0x169994=_0x252a3e[_0x57991c(0x8a)](),_0x4dedb5=new User_1['User']();return _0x4dedb5['userId']=0x1,_0x4dedb5[_0x57991c(0x97)]=_0x57991c(0x92),_0x4dedb5['password']=yield User_1[_0x57991c(0x86)][_0x57991c(0x91)](_0x57991c(0x87)),_0x4dedb5['email']=_0x57991c(0x93),_0x4dedb5['userGroupId']=0x1,yield _0x169994[_0x57991c(0x89)](_0x4dedb5);});}}exports[a976_0x5c2a1b(0x94)]=CreateUser;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateUser = void 0;
+const tslib_1 = require("tslib");
+const User_1 = require("../../api/core/models/User");
+class CreateUser {
+    run(factory, connection) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const em = connection.createEntityManager();
+            const user = new User_1.User();
+            user.userId = 1;
+            user.username = 'admin@spurtcart.com';
+            user.password = yield User_1.User.hashPassword('spurt123@');
+            user.email = 'no-reply@spurtcommerce.com';
+            user.userGroupId = 1;
+            return yield em.save(user);
+        });
+    }
+}
+exports.CreateUser = CreateUser;
+//# sourceMappingURL=CreateUser.js.map

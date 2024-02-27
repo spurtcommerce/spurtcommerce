@@ -1,1 +1,18 @@
-'use strict';const a714_0x5247eb=a714_0x50a7;(function(_0x1c495f,_0x4afc8a){const _0x128c6f=a714_0x50a7,_0x514ceb=_0x1c495f();while(!![]){try{const _0x3181f8=parseInt(_0x128c6f(0xde))/0x1*(parseInt(_0x128c6f(0xe2))/0x2)+parseInt(_0x128c6f(0xdb))/0x3+-parseInt(_0x128c6f(0xd7))/0x4+-parseInt(_0x128c6f(0xdd))/0x5+-parseInt(_0x128c6f(0xdf))/0x6+-parseInt(_0x128c6f(0xd9))/0x7+parseInt(_0x128c6f(0xd8))/0x8;if(_0x3181f8===_0x4afc8a)break;else _0x514ceb['push'](_0x514ceb['shift']());}catch(_0x519a9c){_0x514ceb['push'](_0x514ceb['shift']());}}}(a714_0xe344,0x9bb5e));function a714_0x50a7(_0x2bfd4b,_0x41ed28){const _0xe34471=a714_0xe344();return a714_0x50a7=function(_0x50a73d,_0x3f109c){_0x50a73d=_0x50a73d-0xd7;let _0x1e948a=_0xe34471[_0x50a73d];return _0x1e948a;},a714_0x50a7(_0x2bfd4b,_0x41ed28);}Object[a714_0x5247eb(0xe3)](exports,a714_0x5247eb(0xe0),{'value':!![]});function a714_0xe344(){const _0x1e1998=['define','2IUOrQw','defineProperty','3702788CLtYGa','19446344rndByJ','6297893wNljuy','../../api/core/models/Setting','397365CBvKYJ','Settings','2797935Llhjym','1200068LCnCGW','4443258nkYccH','__esModule'];a714_0xe344=function(){return _0x1e1998;};return a714_0xe344();}const typeorm_seeding_1=require('typeorm-seeding'),Setting_1=require(a714_0x5247eb(0xda));(0x0,typeorm_seeding_1[a714_0x5247eb(0xe1)])(Setting_1[a714_0x5247eb(0xdc)],(_0x246710,_0x51be6b)=>{const _0x5c45c4=new Setting_1['Settings']();return _0x5c45c4;});
+"use strict";
+/*
+ * spurtcommerce API
+ * version 2.0.0
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2020 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+const typeorm_seeding_1 = require("typeorm-seeding");
+const Setting_1 = require("../../api/core/models/Setting");
+(0, typeorm_seeding_1.define)(Setting_1.Settings, (faker, settings) => {
+    const setiings = new Setting_1.Settings();
+    return setiings;
+});
+//# sourceMappingURL=SettingFactory.js.map

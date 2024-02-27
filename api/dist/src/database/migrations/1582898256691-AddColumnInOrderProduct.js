@@ -1,1 +1,48 @@
-'use strict';const a853_0x36f06b=a853_0x5231;function a853_0x5231(_0x374cbc,_0x416180){const _0x4de818=a853_0x4de8();return a853_0x5231=function(_0x5231c4,_0x5d64c9){_0x5231c4=_0x5231c4-0x1b5;let _0x1446f4=_0x4de818[_0x5231c4];return _0x1446f4;},a853_0x5231(_0x374cbc,_0x416180);}(function(_0x6e422a,_0x5cb8d0){const _0x36acd1=a853_0x5231,_0x2200b8=_0x6e422a();while(!![]){try{const _0x2292c9=parseInt(_0x36acd1(0x1cb))/0x1*(-parseInt(_0x36acd1(0x1c5))/0x2)+parseInt(_0x36acd1(0x1be))/0x3+parseInt(_0x36acd1(0x1d0))/0x4*(parseInt(_0x36acd1(0x1ca))/0x5)+-parseInt(_0x36acd1(0x1b7))/0x6*(-parseInt(_0x36acd1(0x1bd))/0x7)+parseInt(_0x36acd1(0x1ba))/0x8*(-parseInt(_0x36acd1(0x1d1))/0x9)+-parseInt(_0x36acd1(0x1bf))/0xa*(-parseInt(_0x36acd1(0x1cf))/0xb)+parseInt(_0x36acd1(0x1c8))/0xc*(parseInt(_0x36acd1(0x1c4))/0xd);if(_0x2292c9===_0x5cb8d0)break;else _0x2200b8['push'](_0x2200b8['shift']());}catch(_0x3408e8){_0x2200b8['push'](_0x2200b8['shift']());}}}(a853_0x4de8,0x8fb71));function a853_0x4de8(){const _0x3572c0=['dropColumn','10,2','addColumn','798936yXKBXh','order_product','base_price','136cmQyDN','defineProperty','down','28gQwjDo','159531nHorMY','10jORazU','hasColumn','typeorm','__awaiter','tax_value','104zXSQXn','26rRzvcm','TableColumn','tax_type','904944QhMgEF','AddColumnInOrderProduct1582898256691','2516985qdGNvp','78839jkrsHd','tslib','__esModule','integer','10250977hPhycE','4PbQtPq','535149NgMqMa','decimal'];a853_0x4de8=function(){return _0x3572c0;};return a853_0x4de8();}Object[a853_0x36f06b(0x1bb)](exports,a853_0x36f06b(0x1cd),{'value':!![]}),exports[a853_0x36f06b(0x1c9)]=void 0x0;const tslib_1=require(a853_0x36f06b(0x1cc)),typeorm_1=require(a853_0x36f06b(0x1c1));class AddColumnInOrderProduct1582898256691{['up'](_0x3fdeb3){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3b4e11=a853_0x5231,_0x28246b=yield _0x3fdeb3[_0x3b4e11(0x1c0)](_0x3b4e11(0x1b8),'base_price');!_0x28246b&&(yield _0x3fdeb3[_0x3b4e11(0x1b6)](_0x3b4e11(0x1b8),new typeorm_1[(_0x3b4e11(0x1c6))]({'name':_0x3b4e11(0x1b9),'type':_0x3b4e11(0x1d2),'length':_0x3b4e11(0x1b5),'isPrimary':![],'isNullable':!![]})));const _0x4c4bf1=yield _0x3fdeb3[_0x3b4e11(0x1c0)](_0x3b4e11(0x1b8),_0x3b4e11(0x1c7));!_0x4c4bf1&&(yield _0x3fdeb3[_0x3b4e11(0x1b6)](_0x3b4e11(0x1b8),new typeorm_1[(_0x3b4e11(0x1c6))]({'name':_0x3b4e11(0x1c7),'type':_0x3b4e11(0x1ce),'length':'11','isPrimary':![],'isNullable':!![]})));const _0x58b029=yield _0x3fdeb3['hasColumn'](_0x3b4e11(0x1b8),_0x3b4e11(0x1c3));!_0x58b029&&(yield _0x3fdeb3['addColumn'](_0x3b4e11(0x1b8),new typeorm_1[(_0x3b4e11(0x1c6))]({'name':_0x3b4e11(0x1c3),'type':_0x3b4e11(0x1ce),'length':'11','isPrimary':![],'isNullable':!![]})));});}[a853_0x36f06b(0x1bc)](_0x139d8b){const _0xd805b3=a853_0x36f06b;return tslib_1[_0xd805b3(0x1c2)](this,void 0x0,void 0x0,function*(){const _0xaa1ae5=_0xd805b3;yield _0x139d8b[_0xaa1ae5(0x1d3)](_0xaa1ae5(0x1b8),'tax_value');});}}exports[a853_0x36f06b(0x1c9)]=AddColumnInOrderProduct1582898256691;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInOrderProduct1582898256691 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInOrderProduct1582898256691 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('order_product', 'base_price');
+            if (!ifExist) {
+                yield queryRunner.addColumn('order_product', new typeorm_1.TableColumn({
+                    name: 'base_price',
+                    type: 'decimal',
+                    length: '10,2',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist1 = yield queryRunner.hasColumn('order_product', 'tax_type');
+            if (!ifExist1) {
+                yield queryRunner.addColumn('order_product', new typeorm_1.TableColumn({
+                    name: 'tax_type',
+                    type: 'integer',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist2 = yield queryRunner.hasColumn('order_product', 'tax_value');
+            if (!ifExist2) {
+                yield queryRunner.addColumn('order_product', new typeorm_1.TableColumn({
+                    name: 'tax_value',
+                    type: 'integer',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('order_product', 'tax_value');
+        });
+    }
+}
+exports.AddColumnInOrderProduct1582898256691 = AddColumnInOrderProduct1582898256691;
+//# sourceMappingURL=1582898256691-AddColumnInOrderProduct.js.map

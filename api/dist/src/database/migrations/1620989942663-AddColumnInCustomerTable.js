@@ -1,1 +1,28 @@
-'use strict';const a914_0x5cfe62=a914_0x4853;(function(_0x2a9632,_0x15432f){const _0x4a451b=a914_0x4853,_0x5b0379=_0x2a9632();while(!![]){try{const _0x326dd0=-parseInt(_0x4a451b(0x175))/0x1+-parseInt(_0x4a451b(0x177))/0x2+-parseInt(_0x4a451b(0x17d))/0x3+-parseInt(_0x4a451b(0x17b))/0x4+-parseInt(_0x4a451b(0x173))/0x5*(-parseInt(_0x4a451b(0x174))/0x6)+parseInt(_0x4a451b(0x172))/0x7*(-parseInt(_0x4a451b(0x179))/0x8)+-parseInt(_0x4a451b(0x17e))/0x9*(-parseInt(_0x4a451b(0x180))/0xa);if(_0x326dd0===_0x15432f)break;else _0x5b0379['push'](_0x5b0379['shift']());}catch(_0x15a5f9){_0x5b0379['push'](_0x5b0379['shift']());}}}(a914_0x5c02,0xe13c8));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a914_0x5cfe62(0x17c)]=void 0x0;function a914_0x5c02(){const _0x50e5d7=['16caJxPQ','addColumn','2839524GxagJZ','AddColumnInCustomerTable1620989942663','833520bRZiFd','35023356DSDymq','customer','10JSxZZm','255','__awaiter','3301865vFAIAO','135TBMQds','313434vieTBF','1413177kiGuNV','dropColumn','2070162MAcZfZ','locked_on'];a914_0x5c02=function(){return _0x50e5d7;};return a914_0x5c02();}const tslib_1=require('tslib'),typeorm_1=require('typeorm');function a914_0x4853(_0x5ed27c,_0x17d3a3){const _0x5c02db=a914_0x5c02();return a914_0x4853=function(_0x4853e6,_0x401a6e){_0x4853e6=_0x4853e6-0x172;let _0x406b7e=_0x5c02db[_0x4853e6];return _0x406b7e;},a914_0x4853(_0x5ed27c,_0x17d3a3);}class AddColumnInCustomerTable1620989942663{['up'](_0x354e3a){const _0x14dea5=a914_0x5cfe62;return tslib_1[_0x14dea5(0x182)](this,void 0x0,void 0x0,function*(){const _0x1d418d=_0x14dea5,_0x426468=yield _0x354e3a['hasColumn']('customer','locked_on');!_0x426468&&(yield _0x354e3a[_0x1d418d(0x17a)](_0x1d418d(0x17f),new typeorm_1['TableColumn']({'name':_0x1d418d(0x178),'type':'varchar','length':_0x1d418d(0x181),'isPrimary':![],'isNullable':!![]})));});}['down'](_0xeb05b9){const _0x2b7186=a914_0x5cfe62;return tslib_1[_0x2b7186(0x182)](this,void 0x0,void 0x0,function*(){const _0x143efc=_0x2b7186;yield _0xeb05b9[_0x143efc(0x176)](_0x143efc(0x17f),_0x143efc(0x178));});}}exports[a914_0x5cfe62(0x17c)]=AddColumnInCustomerTable1620989942663;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInCustomerTable1620989942663 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInCustomerTable1620989942663 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist3 = yield queryRunner.hasColumn('customer', 'locked_on');
+            if (!ifExist3) {
+                yield queryRunner.addColumn('customer', new typeorm_1.TableColumn({
+                    name: 'locked_on',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('customer', 'locked_on');
+        });
+    }
+}
+exports.AddColumnInCustomerTable1620989942663 = AddColumnInCustomerTable1620989942663;
+//# sourceMappingURL=1620989942663-AddColumnInCustomerTable.js.map

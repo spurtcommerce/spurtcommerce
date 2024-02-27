@@ -1,1 +1,35 @@
-'use strict';function a101_0x32f9(){const _0x309b26=['104332IumcrS','ProductQuotation','359026XOVDvA','367821rYUaYw','YYYY-MM-DD\x20HH:mm:ss','AddProductQuotationPlugin1665134458498','moment/moment','defineProperty','1181230BCwDYa','tslib','save','27vqhHSx','product-quotation','28KORQeB','typeorm','__esModule','down','~/api/admin-quotation~,~/api/quotation~,~/api/vendor-quotation~,~/api/admin-quotation/product-list~,~/api/admin-quotation/update-quotation-available/~,~/api/admin-quotation/quotation-request-detail/~,~/api/quotation/quotation-request~,~/api/quotation/quotation-request-list~,~/api/vendor-quotation/vendor-products-list~,~/api/vendor-quotation/vendor-product/update-quotation-available/~,~/api/vendor-quotation/vendor-quotation-request-detail/~','225506emPtxb','Sales','1139208vktPSa','format','__awaiter','11652xwVhKs'];a101_0x32f9=function(){return _0x309b26;};return a101_0x32f9();}function a101_0x2daf(_0xe71964,_0x50bea5){const _0x32f92e=a101_0x32f9();return a101_0x2daf=function(_0x2daf56,_0x393e73){_0x2daf56=_0x2daf56-0xdb;let _0x2df2fd=_0x32f92e[_0x2daf56];return _0x2df2fd;},a101_0x2daf(_0xe71964,_0x50bea5);}const a101_0x15b2d7=a101_0x2daf;(function(_0x111d23,_0x5f3c26){const _0x322fac=a101_0x2daf,_0x575285=_0x111d23();while(!![]){try{const _0x382c9e=-parseInt(_0x322fac(0xe3))/0x1+parseInt(_0x322fac(0xeb))/0x2+parseInt(_0x322fac(0xdc))/0x3*(parseInt(_0x322fac(0xe9))/0x4)+-parseInt(_0x322fac(0xf1))/0x5+-parseInt(_0x322fac(0xe8))/0x6*(parseInt(_0x322fac(0xde))/0x7)+parseInt(_0x322fac(0xe5))/0x8+parseInt(_0x322fac(0xec))/0x9;if(_0x382c9e===_0x5f3c26)break;else _0x575285['push'](_0x575285['shift']());}catch(_0x5907b0){_0x575285['push'](_0x575285['shift']());}}}(a101_0x32f9,0x1f40a));Object[a101_0x15b2d7(0xf0)](exports,a101_0x15b2d7(0xe0),{'value':!![]}),exports[a101_0x15b2d7(0xee)]=void 0x0;const tslib_1=require(a101_0x15b2d7(0xf2)),typeorm_1=require(a101_0x15b2d7(0xdf)),moment=require(a101_0x15b2d7(0xef));class AddProductQuotationPlugin1665134458498{['up'](_0x3fe869){const _0x5c3cef=a101_0x15b2d7;return tslib_1[_0x5c3cef(0xe7)](this,void 0x0,void 0x0,function*(){const _0x2584ac=_0x5c3cef,_0x461ded=[{'pluginName':_0x2584ac(0xea),'slugName':_0x2584ac(0xdd),'pluginAvatar':'','pluginAvatarPath':'','pluginTimestamp':0x183b1bf7682,'pluginType':_0x2584ac(0xe4),'pluginStatus':0x1,'isEditable':0x0,'routes':_0x2584ac(0xe2),'createdDate':''+moment()[_0x2584ac(0xe6)](_0x2584ac(0xed)),'updatedDate':''+moment()['format']('YYYY-MM-DD\x20HH:mm:ss')}];yield(0x0,typeorm_1['getRepository'])('Plugins')[_0x2584ac(0xdb)](_0x461ded);});}[a101_0x15b2d7(0xe1)](_0x1ce5ee){const _0xefcef3=a101_0x15b2d7;return tslib_1[_0xefcef3(0xe7)](this,void 0x0,void 0x0,function*(){});}}exports[a101_0x15b2d7(0xee)]=AddProductQuotationPlugin1665134458498;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddProductQuotationPlugin1665134458498 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment = require("moment/moment");
+class AddProductQuotationPlugin1665134458498 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const SeoSeed = [
+                {
+                    pluginName: 'ProductQuotation',
+                    slugName: 'product-quotation',
+                    pluginAvatar: '',
+                    pluginAvatarPath: '',
+                    pluginTimestamp: 1665134458498,
+                    pluginType: 'Sales',
+                    pluginStatus: 1,
+                    isEditable: 0,
+                    routes: '~/api/admin-quotation~,~/api/quotation~,~/api/vendor-quotation~,~/api/admin-quotation/product-list~,~/api/admin-quotation/update-quotation-available/~,~/api/admin-quotation/quotation-request-detail/~,~/api/quotation/quotation-request~,~/api/quotation/quotation-request-list~,~/api/vendor-quotation/vendor-products-list~,~/api/vendor-quotation/vendor-product/update-quotation-available/~,~/api/vendor-quotation/vendor-quotation-request-detail/~',
+                    createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                },
+            ];
+            yield (0, typeorm_1.getRepository)('Plugins').save(SeoSeed);
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ---
+        });
+    }
+}
+exports.AddProductQuotationPlugin1665134458498 = AddProductQuotationPlugin1665134458498;
+//# sourceMappingURL=1665134458498-AddProductQuotationPlugin.js.map

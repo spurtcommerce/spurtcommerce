@@ -1,1 +1,34 @@
-'use strict';const a667_0x201391=a667_0x3162;(function(_0x406d87,_0xa1e518){const _0x4d53b7=a667_0x3162,_0x321970=_0x406d87();while(!![]){try{const _0x1a7b0a=parseInt(_0x4d53b7(0x174))/0x1*(parseInt(_0x4d53b7(0x16b))/0x2)+-parseInt(_0x4d53b7(0x16c))/0x3+parseInt(_0x4d53b7(0x17c))/0x4+-parseInt(_0x4d53b7(0x17a))/0x5*(-parseInt(_0x4d53b7(0x172))/0x6)+parseInt(_0x4d53b7(0x17d))/0x7*(parseInt(_0x4d53b7(0x16a))/0x8)+parseInt(_0x4d53b7(0x178))/0x9+parseInt(_0x4d53b7(0x17f))/0xa*(-parseInt(_0x4d53b7(0x180))/0xb);if(_0x1a7b0a===_0xa1e518)break;else _0x321970['push'](_0x321970['shift']());}catch(_0x56d199){_0x321970['push'](_0x321970['shift']());}}}(a667_0x58a1,0x1b890));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a667_0x201391(0x175)]=void 0x0;function a667_0x58a1(){const _0x4896dd=['20eVZiQt','299514daQnLA','oldPassword','prototype','MinLength','password\x20is\x20required','password\x20must\x20contain\x20minimum\x208\x20character','12396nQnHzz','__metadata','20443GmqxFG','ChangePassword','newPassword','class-validator','1585818blYbmD','Password\x20must\x20contain\x20at\x20least\x20one\x20number\x20or\x20one\x20symbol\x20and\x20one\x20uppercase\x20and\x20lowercase\x20letter,\x20and\x20at\x20least\x208\x20and\x20at\x20most\x20128\x20characters','465DWowOW','design:type','280388JrNogH','1200038JCMmKa','__decorate','462830irCOVY','143mrKcnO','IsNotEmpty','tslib','Old\x20Password\x20is\x20minimum\x205\x20character','Matches','8VCnDVt'];a667_0x58a1=function(){return _0x4896dd;};return a667_0x58a1();}const tslib_1=require(a667_0x201391(0x182));require('reflect-metadata');const class_validator_1=require(a667_0x201391(0x177));function a667_0x3162(_0x5769df,_0x1506c5){const _0x58a126=a667_0x58a1();return a667_0x3162=function(_0x3162b4,_0x2871a5){_0x3162b4=_0x3162b4-0x169;let _0x3f4194=_0x58a126[_0x3162b4];return _0x3f4194;},a667_0x3162(_0x5769df,_0x1506c5);}class ChangePassword{}tslib_1[a667_0x201391(0x17e)]([(0x0,class_validator_1[a667_0x201391(0x16f)])(0x5,{'message':a667_0x201391(0x183)}),(0x0,class_validator_1[a667_0x201391(0x181)])(),tslib_1['__metadata'](a667_0x201391(0x17b),String)],ChangePassword[a667_0x201391(0x16e)],a667_0x201391(0x16d),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a667_0x201391(0x16f)])(0x8,{'message':a667_0x201391(0x171)}),(0x0,class_validator_1[a667_0x201391(0x169)])(/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/,{'message':a667_0x201391(0x179)}),(0x0,class_validator_1[a667_0x201391(0x181)])({'message':a667_0x201391(0x170)}),tslib_1[a667_0x201391(0x173)](a667_0x201391(0x17b),String)],ChangePassword[a667_0x201391(0x16e)],a667_0x201391(0x176),void 0x0),exports['ChangePassword']=ChangePassword;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ChangePassword = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class ChangePassword {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.MinLength)(5, {
+        message: 'Old Password is minimum 5 character',
+    }),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], ChangePassword.prototype, "oldPassword", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MinLength)(8, {
+        message: 'password must contain minimum 8 character',
+    }),
+    (0, class_validator_1.Matches)(/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/, { message: 'Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters' }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'password is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], ChangePassword.prototype, "newPassword", void 0);
+exports.ChangePassword = ChangePassword;
+//# sourceMappingURL=changePasswordRequest.js.map

@@ -1,1 +1,132 @@
-'use strict';const a169_0x5e6e76=a169_0x8cac;(function(_0x352c9d,_0x38b5af){const _0x2cf980=a169_0x8cac,_0x2623ac=_0x352c9d();while(!![]){try{const _0x311c26=-parseInt(_0x2cf980(0xbb))/0x1+-parseInt(_0x2cf980(0xae))/0x2*(-parseInt(_0x2cf980(0x8b))/0x3)+parseInt(_0x2cf980(0xb8))/0x4+-parseInt(_0x2cf980(0xac))/0x5+parseInt(_0x2cf980(0x90))/0x6+parseInt(_0x2cf980(0xa9))/0x7*(parseInt(_0x2cf980(0x98))/0x8)+parseInt(_0x2cf980(0x89))/0x9*(-parseInt(_0x2cf980(0xa0))/0xa);if(_0x311c26===_0x38b5af)break;else _0x2623ac['push'](_0x2623ac['shift']());}catch(_0x38924f){_0x2623ac['push'](_0x2623ac['shift']());}}}(a169_0x1268,0x82ce3));function a169_0x1268(){const _0x52dd41=['find','4189320QdyRrx','getTable','Table','154392wrBEvP','3759381UlAWQf','customerForeignKeys','591OCiCMm','createTable','__awaiter','modified_date','datetime','605940cMPJvI','created_date','createForeignKey','product_answer','question_id','hasTable','255','TableForeignKey','16ycWJNQ','columnNames','CASCADE','__esModule','fk_tbl_question_tbl_report_abuse','modified_by','varchar','foreignKeys','20oYucMz','reason_id','integer','answer_report_abuse','CreateReportAbuseTable1587374782552','dropTable','answer_id','fk_tbl_customer_tbl_report_abuse','customer','208831NeKNkA','customer_id','questionForeignKeys','1403430LLewVy','defineProperty','6074PcoMOw','increment','indexOf','is_active','created_by','down','remark','answerForeignKeys','CURRENT_TIMESTAMP'];a169_0x1268=function(){return _0x52dd41;};return a169_0x1268();}function a169_0x8cac(_0x2ce1e7,_0x25175e){const _0x1268a0=a169_0x1268();return a169_0x8cac=function(_0x8cacf1,_0x516974){_0x8cacf1=_0x8cacf1-0x89;let _0x20a119=_0x1268a0[_0x8cacf1];return _0x20a119;},a169_0x8cac(_0x2ce1e7,_0x25175e);}Object[a169_0x5e6e76(0xad)](exports,a169_0x5e6e76(0x9b),{'value':!![]}),exports[a169_0x5e6e76(0xa4)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require('typeorm');class CreateReportAbuseTable1587374782552{constructor(){const _0x28595a=a169_0x5e6e76;this[_0x28595a(0xab)]=new typeorm_1[(_0x28595a(0x97))]({'name':_0x28595a(0x9c),'columnNames':[_0x28595a(0x94)],'referencedColumnNames':[_0x28595a(0x94)],'referencedTableName':'product_question','onDelete':'CASCADE'}),this[_0x28595a(0xb5)]=new typeorm_1[(_0x28595a(0x97))]({'name':'fk_tbl_answer_tbl_report_abuse','columnNames':[_0x28595a(0xa6)],'referencedColumnNames':['answer_id'],'referencedTableName':_0x28595a(0x93),'onDelete':_0x28595a(0x9a)}),this[_0x28595a(0x8a)]=new typeorm_1[(_0x28595a(0x97))]({'name':_0x28595a(0xa7),'columnNames':[_0x28595a(0xaa)],'referencedColumnNames':['id'],'referencedTableName':_0x28595a(0xa8),'onDelete':_0x28595a(0x9a)});}['up'](_0x276003){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4fedf5=a169_0x8cac,_0x3e4f9f=new typeorm_1[(_0x4fedf5(0xba))]({'name':_0x4fedf5(0xa3),'columns':[{'name':'id','type':_0x4fedf5(0xa2),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x4fedf5(0xaf)},{'name':'customer_id','type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4fedf5(0x94),'type':_0x4fedf5(0xa2),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4fedf5(0xa6),'type':_0x4fedf5(0xa2),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4fedf5(0xa1),'type':_0x4fedf5(0xa2),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4fedf5(0xb4),'type':_0x4fedf5(0x9e),'length':_0x4fedf5(0x96),'isPrimary':![],'isNullable':!![]},{'name':_0x4fedf5(0xb1),'type':_0x4fedf5(0xa2),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4fedf5(0xb2),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4fedf5(0x91),'type':'datetime','isPrimary':![],'isNullable':!![],'default':_0x4fedf5(0xb6)},{'name':_0x4fedf5(0x9d),'type':_0x4fedf5(0xa2),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4fedf5(0x8e),'type':_0x4fedf5(0x8f),'isPrimary':![],'isNullable':!![],'default':_0x4fedf5(0xb6)}]}),_0x4e3d2e=yield _0x276003[_0x4fedf5(0x95)](_0x4fedf5(0xa3));!_0x4e3d2e&&(yield _0x276003[_0x4fedf5(0x8c)](_0x3e4f9f));const _0x2227c8=yield _0x276003[_0x4fedf5(0xb9)](_0x4fedf5(0xa3)),_0x27fd88=_0x2227c8[_0x4fedf5(0x9f)][_0x4fedf5(0xb7)](_0x5bfe7=>_0x5bfe7[_0x4fedf5(0x99)]['indexOf']('question_id')!==-0x1);!_0x27fd88&&(yield _0x276003[_0x4fedf5(0x92)](_0x3e4f9f,this[_0x4fedf5(0xab)]));const _0x4b6bdc=_0x2227c8[_0x4fedf5(0x9f)]['find'](_0x5779c7=>_0x5779c7['columnNames'][_0x4fedf5(0xb0)]('answer_id')!==-0x1);!_0x4b6bdc&&(yield _0x276003[_0x4fedf5(0x92)](_0x3e4f9f,this[_0x4fedf5(0xb5)]));const _0x36dd00=_0x2227c8[_0x4fedf5(0x9f)][_0x4fedf5(0xb7)](_0x5bea05=>_0x5bea05[_0x4fedf5(0x99)][_0x4fedf5(0xb0)](_0x4fedf5(0xaa))!==-0x1);!_0x36dd00&&(yield _0x276003['createForeignKey'](_0x3e4f9f,this[_0x4fedf5(0x8a)]));});}[a169_0x5e6e76(0xb3)](_0x534b6b){const _0x231b56=a169_0x5e6e76;return tslib_1[_0x231b56(0x8d)](this,void 0x0,void 0x0,function*(){const _0x4f798d=_0x231b56;yield _0x534b6b[_0x4f798d(0xa5)](_0x4f798d(0xa3),!![]);});}}exports[a169_0x5e6e76(0xa4)]=CreateReportAbuseTable1587374782552;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateReportAbuseTable1587374782552 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateReportAbuseTable1587374782552 {
+    constructor() {
+        this.questionForeignKeys = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_question_tbl_report_abuse',
+            columnNames: ['question_id'],
+            referencedColumnNames: ['question_id'],
+            referencedTableName: 'product_question',
+            onDelete: 'CASCADE',
+        });
+        this.answerForeignKeys = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_answer_tbl_report_abuse',
+            columnNames: ['answer_id'],
+            referencedColumnNames: ['answer_id'],
+            referencedTableName: 'product_answer',
+            onDelete: 'CASCADE',
+        });
+        this.customerForeignKeys = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_customer_tbl_report_abuse',
+            columnNames: ['customer_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'customer',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'answer_report_abuse',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'customer_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'question_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'answer_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'reason_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'remark',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('answer_report_abuse');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const getTable = yield queryRunner.getTable('answer_report_abuse');
+            const ifDataExsist = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('question_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.questionForeignKeys);
+            }
+            const ifDataExsist1 = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('answer_id') !== -1);
+            if (!ifDataExsist1) {
+                yield queryRunner.createForeignKey(table, this.answerForeignKeys);
+            }
+            const ifDataExsist2 = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('customer_id') !== -1);
+            if (!ifDataExsist2) {
+                yield queryRunner.createForeignKey(table, this.customerForeignKeys);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('answer_report_abuse', true);
+        });
+    }
+}
+exports.CreateReportAbuseTable1587374782552 = CreateReportAbuseTable1587374782552;
+//# sourceMappingURL=1587374782552-CreateReportAbuseTable.js.map

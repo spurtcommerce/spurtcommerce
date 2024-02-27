@@ -1,1 +1,89 @@
-'use strict';function a453_0x12f7(){const _0x2802d0=['updateDetails','vendorOrderArchive','typeorm/index','BeforeInsert','vendor_order_id','design:returntype','vendorOrderId','format','design:type','__esModule','201093jcWYiC','./PaymentItems','YYYY-MM-DD\x20HH:mm:ss','commissionAmount','2985876TunIue','class-validator','5odBpIs','paymentItemId','vendor_payment_archive','commission_amount','defineProperty','__metadata','./Vendor','__awaiter','353150YmlfSL','vendor','vendorId','Vendor','6OluzPQ','4174610ZDsmJm','paymentItems','payment_item_id','__decorate','moment','698931gGDHLT','Entity','1890768viwjik','416WUVSYU','JoinColumn','prototype','VendorPaymentArchive','9919NKhXXB','vendor_id','design:paramtypes','vendorPaymentArchive','ManyToOne','amount','BaseModel','IsNotEmpty','createDetails','Column','PaymentItems','createdDate'];a453_0x12f7=function(){return _0x2802d0;};return a453_0x12f7();}const a453_0x122df2=a453_0x2747;function a453_0x2747(_0x4b2f6b,_0x1b0ee6){const _0x12f7bb=a453_0x12f7();return a453_0x2747=function(_0x27474f,_0x3920a3){_0x27474f=_0x27474f-0x14c;let _0x15bb8d=_0x12f7bb[_0x27474f];return _0x15bb8d;},a453_0x2747(_0x4b2f6b,_0x1b0ee6);}(function(_0x540124,_0x1400b5){const _0x333d7d=a453_0x2747,_0x65f7d3=_0x540124();while(!![]){try{const _0x3d2fc6=parseInt(_0x333d7d(0x154))/0x1+parseInt(_0x333d7d(0x162))/0x2*(parseInt(_0x333d7d(0x166))/0x3)+-parseInt(_0x333d7d(0x16e))/0x4*(-parseInt(_0x333d7d(0x15a))/0x5)+-parseInt(_0x333d7d(0x158))/0x6+parseInt(_0x333d7d(0x173))/0x7*(parseInt(_0x333d7d(0x16f))/0x8)+parseInt(_0x333d7d(0x16c))/0x9+-parseInt(_0x333d7d(0x167))/0xa;if(_0x3d2fc6===_0x1400b5)break;else _0x65f7d3['push'](_0x65f7d3['shift']());}catch(_0x2e1420){_0x65f7d3['push'](_0x65f7d3['shift']());}}}(a453_0x12f7,0x40403));Object[a453_0x122df2(0x15e)](exports,a453_0x122df2(0x153),{'value':!![]}),exports[a453_0x122df2(0x172)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require('typeorm'),index_1=require(a453_0x122df2(0x14c)),BaseModel_1=require('./BaseModel'),PaymentItems_1=require(a453_0x122df2(0x155)),Vendor_1=require(a453_0x122df2(0x160)),moment=require(a453_0x122df2(0x16b)),class_validator_1=require(a453_0x122df2(0x159));let VendorPaymentArchive=class VendorPaymentArchive extends BaseModel_1[a453_0x122df2(0x179)]{['createDetails'](){const _0x59fd64=a453_0x122df2;return tslib_1[_0x59fd64(0x161)](this,void 0x0,void 0x0,function*(){const _0x55e4d2=_0x59fd64;this[_0x55e4d2(0x17e)]=moment()[_0x55e4d2(0x151)]('YYYY-MM-DD\x20HH:mm:ss');});}[a453_0x122df2(0x17f)](){const _0x299fea=a453_0x122df2;return tslib_1[_0x299fea(0x161)](this,void 0x0,void 0x0,function*(){const _0x1c7a49=_0x299fea;this['modifiedDate']=moment()[_0x1c7a49(0x151)](_0x1c7a49(0x156));});}};tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,index_1['PrimaryGeneratedColumn'])({'name':'id'}),tslib_1[a453_0x122df2(0x15f)](a453_0x122df2(0x152),Number)],VendorPaymentArchive[a453_0x122df2(0x171)],'id',void 0x0),tslib_1[a453_0x122df2(0x16a)]([(0x0,class_validator_1[a453_0x122df2(0x17a)])(),(0x0,typeorm_1[a453_0x122df2(0x17c)])({'name':'vendor_id'}),tslib_1[a453_0x122df2(0x15f)]('design:type',Number)],VendorPaymentArchive[a453_0x122df2(0x171)],a453_0x122df2(0x164),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a453_0x122df2(0x17a)])(),(0x0,typeorm_1[a453_0x122df2(0x17c)])({'name':a453_0x122df2(0x14e)}),tslib_1[a453_0x122df2(0x15f)](a453_0x122df2(0x152),Number)],VendorPaymentArchive[a453_0x122df2(0x171)],a453_0x122df2(0x150),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a453_0x122df2(0x17c)])({'name':'vendor_order_archive'}),tslib_1['__metadata'](a453_0x122df2(0x152),Number)],VendorPaymentArchive[a453_0x122df2(0x171)],a453_0x122df2(0x180),void 0x0),tslib_1[a453_0x122df2(0x16a)]([(0x0,typeorm_1[a453_0x122df2(0x17c)])({'name':a453_0x122df2(0x169)}),tslib_1[a453_0x122df2(0x15f)](a453_0x122df2(0x152),Number)],VendorPaymentArchive[a453_0x122df2(0x171)],a453_0x122df2(0x15b),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a453_0x122df2(0x17a)])(),(0x0,typeorm_1[a453_0x122df2(0x17c)])({'name':a453_0x122df2(0x178)}),tslib_1[a453_0x122df2(0x15f)](a453_0x122df2(0x152),Number)],VendorPaymentArchive[a453_0x122df2(0x171)],a453_0x122df2(0x178),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1['Column'])({'name':a453_0x122df2(0x15d)}),tslib_1[a453_0x122df2(0x15f)](a453_0x122df2(0x152),Number)],VendorPaymentArchive[a453_0x122df2(0x171)],a453_0x122df2(0x157),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a453_0x122df2(0x177)])(_0x21f739=>PaymentItems_1[a453_0x122df2(0x17d)],_0x5c43f9=>_0x5c43f9['vendorPaymentArchive']),(0x0,typeorm_1['JoinColumn'])({'name':a453_0x122df2(0x169)}),tslib_1['__metadata'](a453_0x122df2(0x152),PaymentItems_1[a453_0x122df2(0x17d)])],VendorPaymentArchive['prototype'],a453_0x122df2(0x168),void 0x0),tslib_1[a453_0x122df2(0x16a)]([(0x0,typeorm_1[a453_0x122df2(0x177)])(_0x144696=>Vendor_1[a453_0x122df2(0x165)],_0x315c0=>_0x315c0[a453_0x122df2(0x176)]),(0x0,typeorm_1[a453_0x122df2(0x170)])({'name':a453_0x122df2(0x174)}),tslib_1['__metadata'](a453_0x122df2(0x152),Array)],VendorPaymentArchive[a453_0x122df2(0x171)],a453_0x122df2(0x163),void 0x0),tslib_1[a453_0x122df2(0x16a)]([(0x0,typeorm_1[a453_0x122df2(0x14d)])(),tslib_1[a453_0x122df2(0x15f)](a453_0x122df2(0x152),Function),tslib_1['__metadata'](a453_0x122df2(0x175),[]),tslib_1['__metadata'](a453_0x122df2(0x14f),Promise)],VendorPaymentArchive['prototype'],a453_0x122df2(0x17b),null),tslib_1['__decorate']([(0x0,typeorm_1['BeforeUpdate'])(),tslib_1[a453_0x122df2(0x15f)](a453_0x122df2(0x152),Function),tslib_1[a453_0x122df2(0x15f)](a453_0x122df2(0x175),[]),tslib_1[a453_0x122df2(0x15f)](a453_0x122df2(0x14f),Promise)],VendorPaymentArchive[a453_0x122df2(0x171)],a453_0x122df2(0x17f),null),VendorPaymentArchive=tslib_1[a453_0x122df2(0x16a)]([(0x0,typeorm_1[a453_0x122df2(0x16d)])(a453_0x122df2(0x15c))],VendorPaymentArchive),exports[a453_0x122df2(0x172)]=VendorPaymentArchive;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorPaymentArchive = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const index_1 = require("typeorm/index");
+const BaseModel_1 = require("./BaseModel");
+const PaymentItems_1 = require("./PaymentItems");
+const Vendor_1 = require("./Vendor");
+const moment = require("moment");
+const class_validator_1 = require("class-validator");
+let VendorPaymentArchive = class VendorPaymentArchive extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, index_1.PrimaryGeneratedColumn)({ name: 'id' }),
+    tslib_1.__metadata("design:type", Number)
+], VendorPaymentArchive.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'vendor_id' }),
+    tslib_1.__metadata("design:type", Number)
+], VendorPaymentArchive.prototype, "vendorId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'vendor_order_id' }),
+    tslib_1.__metadata("design:type", Number)
+], VendorPaymentArchive.prototype, "vendorOrderId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'vendor_order_archive' }),
+    tslib_1.__metadata("design:type", Number)
+], VendorPaymentArchive.prototype, "vendorOrderArchive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'payment_item_id' }),
+    tslib_1.__metadata("design:type", Number)
+], VendorPaymentArchive.prototype, "paymentItemId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'amount' }),
+    tslib_1.__metadata("design:type", Number)
+], VendorPaymentArchive.prototype, "amount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'commission_amount' }),
+    tslib_1.__metadata("design:type", Number)
+], VendorPaymentArchive.prototype, "commissionAmount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => PaymentItems_1.PaymentItems, paymentItems => paymentItems.vendorPaymentArchive),
+    (0, typeorm_1.JoinColumn)({ name: 'payment_item_id' }),
+    tslib_1.__metadata("design:type", PaymentItems_1.PaymentItems)
+], VendorPaymentArchive.prototype, "paymentItems", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => Vendor_1.Vendor, vendor => vendor.vendorPaymentArchive),
+    (0, typeorm_1.JoinColumn)({ name: 'vendor_id' }),
+    tslib_1.__metadata("design:type", Array)
+], VendorPaymentArchive.prototype, "vendor", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorPaymentArchive.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorPaymentArchive.prototype, "updateDetails", null);
+VendorPaymentArchive = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('vendor_payment_archive')
+], VendorPaymentArchive);
+exports.VendorPaymentArchive = VendorPaymentArchive;
+//# sourceMappingURL=VendorPaymentArchive.js.map

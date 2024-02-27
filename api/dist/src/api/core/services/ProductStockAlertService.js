@@ -1,1 +1,82 @@
-'use strict';function a593_0x2c41(){const _0x402644=['like','__param','forEach','save','ProductStockAlertService','design:paramtypes','typeorm-typedi-extensions','__decorate','Like','count','ProductStockAlertRepository','OrmRepository','delete','6oiXBoT','productStockAlertRepository','log','find','value','../repositories/ProductStockAlertRepository','Service','1656225GpoMap','take','typeorm/index','findOne','422912JjuJwN','__esModule','186146gdFTYH','where','307293jBZHsc','name','9707061Unuosc','select','defineProperty','8gihYcA','7261715lCTuGG','6091984jQNvqZ','__awaiter','Logger','length'];a593_0x2c41=function(){return _0x402644;};return a593_0x2c41();}const a593_0x330279=a593_0x5d99;(function(_0x29ef3d,_0x37c2cc){const _0x274c83=a593_0x5d99,_0x3539fe=_0x29ef3d();while(!![]){try{const _0x1747a9=-parseInt(_0x274c83(0x147))/0x1*(parseInt(_0x274c83(0x140))/0x2)+parseInt(_0x274c83(0x142))/0x3+-parseInt(_0x274c83(0x149))/0x4+parseInt(_0x274c83(0x148))/0x5*(parseInt(_0x274c83(0x133))/0x6)+parseInt(_0x274c83(0x144))/0x7+parseInt(_0x274c83(0x13e))/0x8+parseInt(_0x274c83(0x13a))/0x9;if(_0x1747a9===_0x37c2cc)break;else _0x3539fe['push'](_0x3539fe['shift']());}catch(_0x3761ef){_0x3539fe['push'](_0x3539fe['shift']());}}}(a593_0x2c41,0xde5d6));Object[a593_0x330279(0x146)](exports,a593_0x330279(0x13f),{'value':!![]}),exports[a593_0x330279(0x151)]=void 0x0;const tslib_1=require('tslib'),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require(a593_0x330279(0x153)),Logger_1=require('../../../decorators/Logger'),ProductStockAlertRepository_1=require(a593_0x330279(0x138)),index_1=require(a593_0x330279(0x13c));function a593_0x5d99(_0x34bd0e,_0x134c30){const _0x2c41cb=a593_0x2c41();return a593_0x5d99=function(_0x5d99d9,_0x4e368c){_0x5d99d9=_0x5d99d9-0x12e;let _0xaa4725=_0x2c41cb[_0x5d99d9];return _0xaa4725;},a593_0x5d99(_0x34bd0e,_0x134c30);}let ProductStockAlertService=class ProductStockAlertService{constructor(_0x1ea885,_0x2ee70e){const _0x151208=a593_0x330279;this[_0x151208(0x134)]=_0x1ea885,this['log']=_0x2ee70e;}['create'](_0x2d4b4b){const _0x1ec19a=a593_0x330279;return tslib_1[_0x1ec19a(0x14a)](this,void 0x0,void 0x0,function*(){const _0x57d74b=_0x1ec19a,_0xa6ff1=yield this[_0x57d74b(0x134)][_0x57d74b(0x150)](_0x2d4b4b);return this[_0x57d74b(0x135)]['info']('Create\x20a\x20stockAlert'),_0xa6ff1;});}[a593_0x330279(0x13d)](_0x1c14a8){return this['productStockAlertRepository']['findOne'](_0x1c14a8);}['list'](_0x13d468,_0x45a4a7,_0x46326f=[],_0x3dd94b=[],_0x389a6d=[],_0x5ea745){const _0xd8034=a593_0x330279,_0x336312={};return _0x46326f&&_0x46326f[_0xd8034(0x14c)]>0x0&&(_0x336312[_0xd8034(0x145)]=_0x46326f),_0x336312[_0xd8034(0x141)]={},_0x389a6d&&_0x389a6d[_0xd8034(0x14c)]>0x0&&_0x389a6d[_0xd8034(0x14f)](_0x40a106=>{const _0x25ac3d=_0xd8034;_0x336312['where'][_0x40a106[_0x25ac3d(0x143)]]=_0x40a106['value'];}),_0x3dd94b&&_0x3dd94b[_0xd8034(0x14c)]>0x0&&_0x3dd94b[_0xd8034(0x14f)](_0x1cd7ac=>{const _0x1968dc=_0xd8034,_0x407c58=_0x1cd7ac['op'];if(_0x407c58===_0x1968dc(0x141)&&_0x1cd7ac[_0x1968dc(0x137)]!==undefined)_0x336312[_0x1968dc(0x141)][_0x1cd7ac[_0x1968dc(0x143)]]=_0x1cd7ac[_0x1968dc(0x137)];else _0x407c58===_0x1968dc(0x14d)&&_0x1cd7ac[_0x1968dc(0x137)]!==undefined&&(_0x336312[_0x1968dc(0x141)][_0x1cd7ac['name']]=(0x0,index_1[_0x1968dc(0x12e)])('%'+_0x1cd7ac[_0x1968dc(0x137)]+'%'));}),_0x13d468&&_0x13d468>0x0&&(_0x336312[_0xd8034(0x13b)]=_0x13d468,_0x336312['skip']=_0x45a4a7),_0x5ea745?this[_0xd8034(0x134)][_0xd8034(0x12f)](_0x336312):this[_0xd8034(0x134)][_0xd8034(0x136)](_0x336312);}[a593_0x330279(0x132)](_0x8ea304){const _0x56c383=a593_0x330279;return tslib_1[_0x56c383(0x14a)](this,void 0x0,void 0x0,function*(){const _0x3db5c1=_0x56c383;return yield this[_0x3db5c1(0x134)][_0x3db5c1(0x132)](_0x8ea304);});}};ProductStockAlertService=tslib_1[a593_0x330279(0x154)]([(0x0,typedi_1[a593_0x330279(0x139)])(),tslib_1[a593_0x330279(0x14e)](0x0,(0x0,typeorm_typedi_extensions_1[a593_0x330279(0x131)])()),tslib_1['__param'](0x1,(0x0,Logger_1[a593_0x330279(0x14b)])(__filename)),tslib_1['__metadata'](a593_0x330279(0x152),[ProductStockAlertRepository_1[a593_0x330279(0x130)],Object])],ProductStockAlertService),exports[a593_0x330279(0x151)]=ProductStockAlertService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductStockAlertService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const ProductStockAlertRepository_1 = require("../repositories/ProductStockAlertRepository");
+const index_1 = require("typeorm/index");
+let ProductStockAlertService = class ProductStockAlertService {
+    constructor(productStockAlertRepository, log) {
+        this.productStockAlertRepository = productStockAlertRepository;
+        this.log = log;
+    }
+    // create
+    create(stockAlert) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newStockAlert = yield this.productStockAlertRepository.save(stockAlert);
+            this.log.info('Create a stockAlert');
+            return newStockAlert;
+        });
+    }
+    // find stock
+    findOne(stockAlert) {
+        return this.productStockAlertRepository.findOne(stockAlert);
+    }
+    // list
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.productStockAlertRepository.count(condition);
+        }
+        else {
+            return this.productStockAlertRepository.find(condition);
+        }
+    }
+    // delete
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.productStockAlertRepository.delete(id);
+        });
+    }
+};
+ProductStockAlertService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [ProductStockAlertRepository_1.ProductStockAlertRepository, Object])
+], ProductStockAlertService);
+exports.ProductStockAlertService = ProductStockAlertService;
+//# sourceMappingURL=ProductStockAlertService.js.map

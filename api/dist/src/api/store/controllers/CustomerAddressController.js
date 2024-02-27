@@ -1,1 +1,499 @@
-'use strict';function a638_0x2f1f(){const _0x178e99=['connection','__decorate','headers','countryId','token','__metadata','create','updateAddress','Put','__param','postcode','update','x-forwarded-for','Body','address1','tslib','/update-address/:id','1348WSIIiI','AddressService','offset','design:type','LiveAddress','1363236krtMyY','createAddress','The\x20Customer\x20Detail\x20have\x20been\x20updated\x20Successfully','list','city','Unable\x20to\x20update\x20customer\x20address.\x20','8315AXDjbH','./requests/CreateAddressRequest','count','status','user','Unable\x20to\x20delete\x20the\x20address.\x20','JsonController','design:returntype','../../core/middlewares/checkTokenMiddleware','Get','__esModule','12260730EwzEdG','reflect-metadata','remoteAddress','6iadaTa','\x20Live\x20Address...!','QueryParam','send','socket','findOne','/delete-address/:id','Param','Req','prototype','delete','split','state','LiveAddressService','Address\x20added','CustomerAddressController','addressType','Address','Live\x20Address\x20Mapping\x20Service\x20Called...!','customerId','408906hXSdwc','deleteAddress','489523BNbPyT','../../core/services/AddressService','__awaiter','Live\x20Address\x20Successfully\x20Added..!','LiveAddressList','Res','routing-controllers','getCustomerAddress','zone','Got','addressService','/live','119VPvdmY','addressId','UpdateLiveAddress','design:paramtypes','limit','Invalid\x20address\x20Id.','../../core/models/Address','444858tXuzdg','liveAddresService','data','CheckCustomerMiddleware','Delete','11zxVZUc','Successfully\x20Get\x20the\x20customer\x20Address','Unable\x20to\x20Add\x20Live\x20Addres..!','Address\x20deleted','zoneId','UseBefore','147816SHMnXL','AuthService','address2','CustomerAddress','128sMVKoV','company','/get-address-list'];a638_0x2f1f=function(){return _0x178e99;};return a638_0x2f1f();}const a638_0x355204=a638_0x25ae;function a638_0x25ae(_0x6cb003,_0x50880c){const _0x2f1ff1=a638_0x2f1f();return a638_0x25ae=function(_0x25ae12,_0x4aec0b){_0x25ae12=_0x25ae12-0x121;let _0x4cd7c6=_0x2f1ff1[_0x25ae12];return _0x4cd7c6;},a638_0x25ae(_0x6cb003,_0x50880c);}(function(_0xcc1b49,_0x3b0038){const _0x352519=a638_0x25ae,_0x32f455=_0xcc1b49();while(!![]){try{const _0x9ad929=-parseInt(_0x352519(0x16d))/0x1+parseInt(_0x352519(0x16b))/0x2*(parseInt(_0x352519(0x157))/0x3)+parseInt(_0x352519(0x13e))/0x4*(parseInt(_0x352519(0x149))/0x5)+parseInt(_0x352519(0x180))/0x6*(parseInt(_0x352519(0x179))/0x7)+parseInt(_0x352519(0x12a))/0x8*(parseInt(_0x352519(0x126))/0x9)+parseInt(_0x352519(0x154))/0xa*(-parseInt(_0x352519(0x185))/0xb)+-parseInt(_0x352519(0x143))/0xc;if(_0x9ad929===_0x3b0038)break;else _0x32f455['push'](_0x32f455['shift']());}catch(_0x16f3ce){_0x32f455['push'](_0x32f455['shift']());}}}(a638_0x2f1f,0xa1f39));Object['defineProperty'](exports,a638_0x355204(0x153),{'value':!![]}),exports['CustomerAddressController']=void 0x0;const tslib_1=require(a638_0x355204(0x13c));require(a638_0x355204(0x155));const routing_controllers_1=require(a638_0x355204(0x173)),AddressService_1=require(a638_0x355204(0x16e)),Address_1=require(a638_0x355204(0x17f)),CreateAddressRequest_1=require(a638_0x355204(0x14a)),checkTokenMiddleware_1=require('../../core/middlewares/checkTokenMiddleware'),LiveAddressService_1=require('../../core/services/LiveAddressService'),LiveAddress_1=require('../../core/models/LiveAddress'),checkTokenMiddleware_2=require(a638_0x355204(0x151)),AuthService_1=require('../../../auth/AuthService');let CustomerAddressController=class CustomerAddressController{constructor(_0x55c8ca,_0x2950cc,_0x51d42c){const _0x5803f6=a638_0x355204;this['addressService']=_0x55c8ca,this[_0x5803f6(0x181)]=_0x2950cc,this['authSerivce']=_0x51d42c;}[a638_0x355204(0x144)](_0x8fd3c3,_0x3f627b,_0x59d10c){const _0x2114b0=a638_0x355204;return tslib_1[_0x2114b0(0x16f)](this,void 0x0,void 0x0,function*(){const _0x1454d1=_0x2114b0;_0x8fd3c3[_0x1454d1(0x167)]===0x2&&(yield this[_0x1454d1(0x177)]['find']({'where':{'addressType':_0x8fd3c3['addressType']}})['then'](_0x160418=>tslib_1[_0x1454d1(0x16f)](this,void 0x0,void 0x0,function*(){const _0x50c4d1=_0x1454d1;for(const _0x30710a of _0x160418){yield this['addressService'][_0x50c4d1(0x161)](_0x30710a[_0x50c4d1(0x17a)]);}})));const _0x270b3d=new Address_1[(_0x1454d1(0x168))]();_0x270b3d[_0x1454d1(0x16a)]=_0x59d10c[_0x1454d1(0x14d)]['id'],_0x270b3d['address1']=_0x8fd3c3[_0x1454d1(0x13b)],_0x270b3d[_0x1454d1(0x128)]=_0x8fd3c3[_0x1454d1(0x128)],_0x270b3d[_0x1454d1(0x147)]=_0x8fd3c3[_0x1454d1(0x147)],_0x270b3d[_0x1454d1(0x163)]=_0x8fd3c3[_0x1454d1(0x163)],_0x270b3d[_0x1454d1(0x124)]=+_0x8fd3c3[_0x1454d1(0x163)],_0x270b3d[_0x1454d1(0x130)]=_0x8fd3c3[_0x1454d1(0x130)],_0x270b3d[_0x1454d1(0x137)]=_0x8fd3c3[_0x1454d1(0x137)],_0x270b3d['addressType']=_0x8fd3c3[_0x1454d1(0x167)],_0x270b3d['company']=_0x8fd3c3[_0x1454d1(0x12b)];const _0x52c027=yield this['addressService'][_0x1454d1(0x133)](_0x270b3d);if(_0x52c027){const _0xbe8727={'status':0x1,'message':_0x1454d1(0x165),'data':_0x52c027};return _0x3f627b[_0x1454d1(0x14c)](0xc8)[_0x1454d1(0x15a)](_0xbe8727);}else{const _0x27d29f={'status':0x0,'message':'Unable\x20to\x20add\x20address,\x20try\x20again.\x20'};return _0x3f627b[_0x1454d1(0x14c)](0x190)['send'](_0x27d29f);}});}[a638_0x355204(0x16c)](_0x27806d,_0x388bbd,_0x3305ba){const _0x11640d=a638_0x355204;return tslib_1[_0x11640d(0x16f)](this,void 0x0,void 0x0,function*(){const _0x258b5f=_0x11640d,_0x8d8794=yield this[_0x258b5f(0x177)][_0x258b5f(0x15c)]({'where':{'addressId':_0x27806d,'customerId':_0x388bbd[_0x258b5f(0x14d)]['id']}});if(!_0x8d8794){const _0x542c65={'status':0x0,'message':_0x258b5f(0x17e)};return _0x3305ba[_0x258b5f(0x14c)](0x190)[_0x258b5f(0x15a)](_0x542c65);}const _0xb55dd0=yield this[_0x258b5f(0x177)][_0x258b5f(0x161)](_0x8d8794);if(_0xb55dd0===0x1){const _0x24de87={'status':0x1,'message':_0x258b5f(0x123)};return _0x3305ba[_0x258b5f(0x14c)](0xc8)[_0x258b5f(0x15a)](_0x24de87);}else{const _0x93c762={'status':0x0,'message':_0x258b5f(0x14e)};return _0x3305ba[_0x258b5f(0x14c)](0x190)[_0x258b5f(0x15a)](_0x93c762);}});}[a638_0x355204(0x174)](_0x128a0e,_0x216697,_0x32a994,_0x4946df,_0x3452fa){const _0x1e1779=a638_0x355204;return tslib_1[_0x1e1779(0x16f)](this,void 0x0,void 0x0,function*(){const _0xb2a0e0=_0x1e1779,_0xfdb5b4=[{'name':_0xb2a0e0(0x16a),'value':_0x4946df[_0xb2a0e0(0x14d)]['id']}],_0x4819f=yield this[_0xb2a0e0(0x177)][_0xb2a0e0(0x146)](_0x128a0e,_0x216697,[],[_0xb2a0e0(0x175)],_0xfdb5b4,_0x32a994),_0x38180f=yield this[_0xb2a0e0(0x181)][_0xb2a0e0(0x15c)]({'where':{'customerId':_0x4946df[_0xb2a0e0(0x14d)]['id']}}),_0x23aa96={'status':0x1,'message':_0xb2a0e0(0x121),'data':{'customerAddress':_0x4819f,'liveAddress':_0x38180f}};return _0x3452fa[_0xb2a0e0(0x14c)](0xc8)[_0xb2a0e0(0x15a)](_0x23aa96);});}[a638_0x355204(0x134)](_0x588854,_0x1e64bd,_0x47c27b,_0x2e4c5c){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x299751=a638_0x25ae,_0x1225db=yield this[_0x299751(0x177)][_0x299751(0x15c)]({'where':{'addressId':_0x1e64bd,'customerId':_0x47c27b['user']['id']}});if(!_0x1225db){const _0x3213f0={'status':0x0,'message':'Invalid\x20addressId'};return _0x2e4c5c[_0x299751(0x14c)](0x190)[_0x299751(0x15a)](_0x3213f0);}_0x1225db['customerId']=_0x47c27b[_0x299751(0x14d)]['id'],_0x1225db[_0x299751(0x13b)]=_0x588854[_0x299751(0x13b)],_0x1225db[_0x299751(0x128)]=_0x588854[_0x299751(0x128)],_0x1225db[_0x299751(0x147)]=_0x588854[_0x299751(0x147)],_0x1225db[_0x299751(0x163)]=_0x588854[_0x299751(0x163)],_0x1225db[_0x299751(0x124)]=_0x588854['state'],_0x1225db[_0x299751(0x130)]=_0x588854[_0x299751(0x130)],_0x1225db[_0x299751(0x137)]=_0x588854['postcode'],_0x1225db[_0x299751(0x167)]=_0x588854[_0x299751(0x167)],_0x1225db[_0x299751(0x12b)]=_0x588854['company'];const _0x529292=yield this[_0x299751(0x177)][_0x299751(0x133)](_0x1225db);if(_0x529292){const _0x5cbff6={'status':0x1,'message':_0x299751(0x145),'data':_0x529292};return _0x2e4c5c[_0x299751(0x14c)](0xc8)[_0x299751(0x15a)](_0x5cbff6);}else{const _0x81dc88={'status':0x1,'message':_0x299751(0x148)};return _0x2e4c5c[_0x299751(0x14c)](0x190)[_0x299751(0x15a)](_0x81dc88);}});}['CreateLiveAddress'](_0x8900f3,_0x357713,_0x585a41){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x192024=a638_0x25ae,_0x35f69e=(_0x357713['headers'][_0x192024(0x139)]||_0x357713[_0x192024(0x12d)][_0x192024(0x156)]||_0x357713[_0x192024(0x15b)]['remoteAddress']||_0x357713[_0x192024(0x12d)][_0x192024(0x15b)]['remoteAddress'])['split'](',')[0x0],_0x3e28eb=_0x357713['id']===''?0x0:_0x357713['id'],_0x2c9acc={};_0x3e28eb?_0x2c9acc[_0x192024(0x16a)]=_0x3e28eb:(_0x2c9acc['ip']=_0x35f69e,_0x2c9acc[_0x192024(0x16a)]=0x0),yield this['liveAddresService']['delete'](_0x2c9acc);const _0x24292a=new LiveAddress_1[(_0x192024(0x142))]();_0x24292a[_0x192024(0x16a)]=_0x357713['id']===''?0x0:_0x357713['id'],_0x24292a['ip']=_0x35f69e,_0x24292a['address1']=_0x8900f3[_0x192024(0x13b)],_0x24292a[_0x192024(0x128)]=_0x8900f3[_0x192024(0x128)],_0x24292a['city']=_0x8900f3[_0x192024(0x147)],_0x24292a['state']=_0x8900f3['state'],_0x24292a[_0x192024(0x130)]=_0x8900f3['countryId'],_0x24292a[_0x192024(0x137)]=_0x8900f3[_0x192024(0x137)],_0x24292a[_0x192024(0x12b)]=_0x8900f3[_0x192024(0x12b)];const _0x1181e1=yield this[_0x192024(0x181)][_0x192024(0x133)](_0x24292a);return _0x585a41['status'](_0x1181e1?0xc8:0x190)[_0x192024(0x15a)]({'status':_0x1181e1?0x1:0x0,'message':_0x1181e1?_0x192024(0x170):_0x192024(0x122),'data':_0x1181e1?_0x1181e1:undefined});});}['LiveAddressList'](_0x1d90eb,_0x1c2a5e){const _0x444f43=a638_0x355204;return tslib_1[_0x444f43(0x16f)](this,void 0x0,void 0x0,function*(){const _0x6a3c85=_0x444f43,_0x292e6c=(_0x1d90eb[_0x6a3c85(0x12f)][_0x6a3c85(0x139)]||_0x1d90eb[_0x6a3c85(0x12d)]['remoteAddress']||_0x1d90eb[_0x6a3c85(0x15b)][_0x6a3c85(0x156)]||_0x1d90eb[_0x6a3c85(0x12d)][_0x6a3c85(0x15b)][_0x6a3c85(0x156)])[_0x6a3c85(0x162)](',')[0x0],_0x4b6116=yield this[_0x6a3c85(0x181)][_0x6a3c85(0x15c)]({'where':{'ip':_0x292e6c,'customerId':0x0}});return _0x1c2a5e['status'](0xc8)['send']({'status':0x1,'message':(_0x4b6116?_0x6a3c85(0x176):'No')+_0x6a3c85(0x158),'data':_0x4b6116});});}[a638_0x355204(0x17b)](_0x34d24d,_0x4eafca){const _0x3cc6b1=a638_0x355204;return tslib_1[_0x3cc6b1(0x16f)](this,void 0x0,void 0x0,function*(){const _0x1b0eee=_0x3cc6b1,_0x44f8d9=yield this['authSerivce']['decryptToken'](_0x34d24d[_0x1b0eee(0x182)][_0x1b0eee(0x131)]),_0x47504c=yield this[_0x1b0eee(0x181)][_0x1b0eee(0x15c)]({'where':{'ip':_0x34d24d['data']['ip'],'customerId':0x0}});return _0x47504c&&_0x44f8d9&&(_0x47504c['customerId']=_0x44f8d9['id'],yield this['liveAddresService'][_0x1b0eee(0x161)]({'customerId':_0x44f8d9['id']}),yield this[_0x1b0eee(0x181)][_0x1b0eee(0x138)](_0x47504c['id'],_0x47504c)),_0x4eafca['status'](0xc8)[_0x1b0eee(0x15a)]({'status':0x1,'message':_0x1b0eee(0x169)});});}};tslib_1[a638_0x355204(0x12e)]([(0x0,routing_controllers_1[a638_0x355204(0x125)])(checkTokenMiddleware_1['CheckCustomerMiddleware']),(0x0,routing_controllers_1['Post'])('/add-address'),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a638_0x355204(0x13a)])({'validate':!![]})),tslib_1[a638_0x355204(0x136)](0x1,(0x0,routing_controllers_1[a638_0x355204(0x172)])()),tslib_1[a638_0x355204(0x136)](0x2,(0x0,routing_controllers_1[a638_0x355204(0x15f)])()),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x141),Function),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x17c),[CreateAddressRequest_1[a638_0x355204(0x129)],Object,Object]),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x150),Promise)],CustomerAddressController[a638_0x355204(0x160)],a638_0x355204(0x144),null),tslib_1[a638_0x355204(0x12e)]([(0x0,routing_controllers_1['UseBefore'])(checkTokenMiddleware_1[a638_0x355204(0x183)]),(0x0,routing_controllers_1[a638_0x355204(0x184)])(a638_0x355204(0x15d)),tslib_1[a638_0x355204(0x136)](0x0,(0x0,routing_controllers_1[a638_0x355204(0x15e)])('id')),tslib_1[a638_0x355204(0x136)](0x1,(0x0,routing_controllers_1[a638_0x355204(0x15f)])()),tslib_1[a638_0x355204(0x136)](0x2,(0x0,routing_controllers_1[a638_0x355204(0x172)])()),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x141),Function),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x17c),[Number,Object,Object]),tslib_1[a638_0x355204(0x132)]('design:returntype',Promise)],CustomerAddressController['prototype'],'deleteAddress',null),tslib_1[a638_0x355204(0x12e)]([(0x0,routing_controllers_1[a638_0x355204(0x125)])(checkTokenMiddleware_1[a638_0x355204(0x183)]),(0x0,routing_controllers_1[a638_0x355204(0x152)])(a638_0x355204(0x12c)),tslib_1[a638_0x355204(0x136)](0x0,(0x0,routing_controllers_1[a638_0x355204(0x159)])(a638_0x355204(0x17d))),tslib_1[a638_0x355204(0x136)](0x1,(0x0,routing_controllers_1[a638_0x355204(0x159)])(a638_0x355204(0x140))),tslib_1[a638_0x355204(0x136)](0x2,(0x0,routing_controllers_1[a638_0x355204(0x159)])(a638_0x355204(0x14b))),tslib_1[a638_0x355204(0x136)](0x3,(0x0,routing_controllers_1[a638_0x355204(0x15f)])()),tslib_1[a638_0x355204(0x136)](0x4,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata'](a638_0x355204(0x141),Function),tslib_1['__metadata'](a638_0x355204(0x17c),[Number,Number,Object,Object,Object]),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x150),Promise)],CustomerAddressController[a638_0x355204(0x160)],'getCustomerAddress',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a638_0x355204(0x125)])(checkTokenMiddleware_1[a638_0x355204(0x183)]),(0x0,routing_controllers_1[a638_0x355204(0x135)])(a638_0x355204(0x13d)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a638_0x355204(0x13a)])({'validate':!![]})),tslib_1[a638_0x355204(0x136)](0x1,(0x0,routing_controllers_1[a638_0x355204(0x15e)])('id')),tslib_1['__param'](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1[a638_0x355204(0x136)](0x3,(0x0,routing_controllers_1[a638_0x355204(0x172)])()),tslib_1['__metadata'](a638_0x355204(0x141),Function),tslib_1['__metadata'](a638_0x355204(0x17c),[CreateAddressRequest_1[a638_0x355204(0x129)],Number,Object,Object]),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x150),Promise)],CustomerAddressController['prototype'],a638_0x355204(0x134),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a638_0x355204(0x125)])(checkTokenMiddleware_2['CheckTokenMiddleware']),(0x0,routing_controllers_1['Post'])('/live'),tslib_1[a638_0x355204(0x136)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a638_0x355204(0x136)](0x1,(0x0,routing_controllers_1[a638_0x355204(0x15f)])()),tslib_1[a638_0x355204(0x136)](0x2,(0x0,routing_controllers_1[a638_0x355204(0x172)])()),tslib_1[a638_0x355204(0x132)]('design:type',Function),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x17c),[CreateAddressRequest_1[a638_0x355204(0x129)],Object,Object]),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x150),Promise)],CustomerAddressController[a638_0x355204(0x160)],'CreateLiveAddress',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a638_0x355204(0x152)])(a638_0x355204(0x178)),tslib_1[a638_0x355204(0x136)](0x0,(0x0,routing_controllers_1[a638_0x355204(0x15f)])()),tslib_1[a638_0x355204(0x136)](0x1,(0x0,routing_controllers_1[a638_0x355204(0x172)])()),tslib_1['__metadata'](a638_0x355204(0x141),Function),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x17c),[Object,Object]),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x150),Promise)],CustomerAddressController[a638_0x355204(0x160)],a638_0x355204(0x171),null),tslib_1[a638_0x355204(0x12e)]([(0x0,routing_controllers_1[a638_0x355204(0x135)])(a638_0x355204(0x178)),tslib_1[a638_0x355204(0x136)](0x0,(0x0,routing_controllers_1[a638_0x355204(0x13a)])()),tslib_1[a638_0x355204(0x136)](0x1,(0x0,routing_controllers_1[a638_0x355204(0x172)])()),tslib_1[a638_0x355204(0x132)]('design:type',Function),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x17c),[Object,Object]),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x150),Promise)],CustomerAddressController[a638_0x355204(0x160)],a638_0x355204(0x17b),null),CustomerAddressController=tslib_1[a638_0x355204(0x12e)]([(0x0,routing_controllers_1[a638_0x355204(0x14f)])('/CustomerAddress'),tslib_1[a638_0x355204(0x132)](a638_0x355204(0x17c),[AddressService_1[a638_0x355204(0x13f)],LiveAddressService_1[a638_0x355204(0x164)],AuthService_1[a638_0x355204(0x127)]])],CustomerAddressController),exports[a638_0x355204(0x166)]=CustomerAddressController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CustomerAddressController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const AddressService_1 = require("../../core/services/AddressService");
+const Address_1 = require("../../core/models/Address");
+const CreateAddressRequest_1 = require("./requests/CreateAddressRequest");
+const checkTokenMiddleware_1 = require("../../core/middlewares/checkTokenMiddleware");
+const LiveAddressService_1 = require("../../core/services/LiveAddressService");
+const LiveAddress_1 = require("../../core/models/LiveAddress");
+const checkTokenMiddleware_2 = require("../../core/middlewares/checkTokenMiddleware");
+const AuthService_1 = require("../../../auth/AuthService");
+let CustomerAddressController = class CustomerAddressController {
+    constructor(addressService, liveAddresService, authSerivce) {
+        this.addressService = addressService;
+        this.liveAddresService = liveAddresService;
+        this.authSerivce = authSerivce;
+    }
+    // Create Customer Address
+    /**
+     * @api {post} /api/CustomerAddress/add-address Add Customer Address API
+     * @apiGroup Customer Address
+     * @apiParam (Request body) {String{..128}} address1 address1
+     * @apiParam (Request body) {String{..128}} [address2] address2
+     * @apiParam (Request body) {String{..128}} city city
+     * @apiParam (Request body) {String{..128}} state state
+     * @apiParam (Request body) {Number{..6}} postcode postcode
+     * @apiParam (Request body) {Number} countryId countryId
+     * @apiParam (Request body) {Number} addressType addressType
+     * @apiParam (Request body) {String{..32}} [company] company
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "address1" : "",
+     *      "address2" : "",
+     *      "city" : "",
+     *      "state" : "",
+     *      "countryId" : "",
+     *      "postcode" : "",
+     *      "countryId" : "",
+     *      "addressType" : "",
+     *      "company" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "New Address is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/CustomerAddress/add-address
+     * @apiErrorExample {json} addAddress error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createAddress(addressParam, response, request) {
+        var _a, _b;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (addressParam.addressType === 2) {
+                yield this.addressService.find({
+                    where: {
+                        addressType: addressParam.addressType,
+                    },
+                }).then((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    for (const data of value) {
+                        yield this.addressService.delete(data.addressId);
+                    }
+                }));
+            }
+            const newAddress = new Address_1.Address();
+            newAddress.customerId = request.user.id;
+            newAddress.address1 = addressParam.address1;
+            newAddress.address2 = addressParam.address2;
+            newAddress.city = addressParam.city;
+            newAddress.state = (_a = addressParam.state) !== null && _a !== void 0 ? _a : '';
+            newAddress.zoneId = (_b = addressParam.zoneId) !== null && _b !== void 0 ? _b : 0;
+            newAddress.countryId = addressParam.countryId;
+            newAddress.postcode = addressParam.postcode;
+            newAddress.addressType = addressParam.addressType;
+            newAddress.company = addressParam.company;
+            const addressSave = yield this.addressService.create(newAddress);
+            if (addressSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Address added',
+                    data: addressSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to add address, try again. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete Customer Address
+    /**
+     * @api {delete} /api/CustomerAddress/delete-address/:id Delete Customer Address API
+     * @apiGroup Customer Address
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "addressId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted address.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/CustomerAddress/delete-address/:id
+     * @apiErrorExample {json} address error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteAddress(id, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const address = yield this.addressService.findOne({
+                where: {
+                    addressId: id, customerId: request.user.id,
+                },
+            });
+            if (!address) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid address Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteAddress = yield this.addressService.delete(address);
+            if (deleteAddress === 1) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Address deleted',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the address. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    //   Get Customer Address List API
+    /**
+     * @api {get} /api/CustomerAddress/get-address-list Get Customer Address List API
+     * @apiGroup Customer Address
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} count count
+     * @apiParamExample {json} Input
+     * {
+     *      "customerId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get customer address list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/CustomerAddress/get-address-list
+     * @apiErrorExample {json} Address error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    getCustomerAddress(limit, offset, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const WhereConditions = [
+                {
+                    name: 'customerId',
+                    value: request.user.id,
+                },
+            ];
+            const customerAddress = yield this.addressService.list(limit, offset, [], ['zone'], WhereConditions, count);
+            const liveAddress = yield this.liveAddresService.findOne({
+                where: {
+                    customerId: request.user.id,
+                },
+            });
+            const successResponse = {
+                status: 1,
+                message: 'Successfully Get the customer Address',
+                data: { customerAddress, liveAddress },
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Update Customer Address
+    /**
+     * @api {put} /api/CustomerAddress/update-address/:id Update Customer Address API
+     * @apiGroup Customer Address
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..128}} address1 address1
+     * @apiParam (Request body) {String{..128}} [address2] address2
+     * @apiParam (Request body) {String{..128}} city city
+     * @apiParam (Request body) {String{..128}} state state
+     * @apiParam (Request body) {Number{..6}} postcode postcode
+     * @apiParam (Request body) {Number} countryId countryId
+     * @apiParam (Request body) {Number} addressType addressType
+     * @apiParam (Request body) {String{..32}} [company] company
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "address1" : "",
+     *      "address2" : "",
+     *      "city" : "",
+     *      "state" : "",
+     *      "postcode" : "",
+     *      "countryId" : "",
+     *      "addressType" : "",
+     *      "company" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated  customer address.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/CustomerAddress/update-address/:id
+     * @apiErrorExample {json} Address error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateAddress(addressParam, id, request, response) {
+        var _a, _b;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const address = yield this.addressService.findOne({
+                where: {
+                    addressId: id, customerId: request.user.id,
+                },
+            });
+            if (!address) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid addressId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            address.customerId = request.user.id;
+            address.address1 = addressParam.address1;
+            address.address2 = addressParam.address2;
+            address.city = addressParam.city;
+            address.state = (_a = addressParam.state) !== null && _a !== void 0 ? _a : '';
+            address.zoneId = (_b = addressParam.zoneId) !== null && _b !== void 0 ? _b : 0;
+            address.countryId = addressParam.countryId;
+            address.postcode = addressParam.postcode;
+            address.addressType = addressParam.addressType;
+            address.company = addressParam.company;
+            const addressSave = yield this.addressService.create(address);
+            if (addressSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'The Customer Detail have been updated Successfully',
+                    data: addressSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 1,
+                    message: 'Unable to update customer address. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // live Address API
+    /**
+     * @api {post} /api/CustomerAddress/live/ live Address API
+     * @apiGroup Customer Address
+     * @apiHeader {string} Authorized
+     * @apiParam (requestBody) {string} address1 address1
+     * @apiParam (requestBody) {string} address2 address2
+     * @apiParam (requestBody) {string} city city
+     * @apiParam (requestBody) {string} state state
+     * @apiParam (requestBody) {Number} postcode postcode
+     * @apiParam (requestBody) {Number} countryId countryId
+     * @apiParam (requestBody) {string} company company
+     * @apiParam (requestBody) {Number} addressType addressType
+     * @apiParamExample {json} Input
+     * {
+     *           "address1": "",
+     *            "address2": "",
+     *             "city":"",
+     *             "state":"",
+     *             "postcode":"",
+     *             "countryId":"",
+     *             "company":""
+     *             "addressType":
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *    "message": "Live Address Successfully Added..!",
+     *     "status" : "1"
+     * }
+     * @apiSampleRequest /api/CustomerAddress/live/
+     * @apiErrorExample {json} live Address error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    CreateLiveAddress(addressParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const userIp = (request.headers['x-forwarded-for'] ||
+                request.connection.remoteAddress ||
+                request.socket.remoteAddress ||
+                request.connection.socket.remoteAddress).split(',')[0];
+            const currentUser = request.id === '' ? 0 : request.id;
+            const whereCondition = {};
+            currentUser ? whereCondition.customerId = currentUser : (whereCondition.ip = userIp,
+                whereCondition.customerId = 0);
+            yield this.liveAddresService.delete(whereCondition);
+            const newAddress = new LiveAddress_1.LiveAddress();
+            newAddress.customerId = request.id === '' ? 0 : request.id;
+            newAddress.ip = userIp;
+            newAddress.address1 = addressParam.address1;
+            newAddress.address2 = addressParam.address2;
+            newAddress.city = addressParam.city;
+            newAddress.state = addressParam.state;
+            newAddress.countryId = addressParam.countryId;
+            newAddress.postcode = addressParam.postcode;
+            newAddress.company = addressParam.company;
+            const addressSave = yield this.liveAddresService.create(newAddress);
+            return response.status(addressSave ? 200 : 400).send({
+                status: addressSave ? 1 : 0,
+                message: addressSave ? 'Live Address Successfully Added..!' : 'Unable to Add Live Addres..!',
+                data: addressSave ? addressSave : undefined,
+            });
+        });
+    }
+    // live Address API
+    /**
+     * @api {get} /api/CustomerAddress/live/ live-Address API
+     * @apiGroup Customer Address
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *    "message": "Got Live Address...!",
+     *     "status" : "1"
+     * }
+     * @apiSampleRequest /api/CustomerAddress/live/
+     * @apiErrorExample {json} live Address error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    LiveAddressList(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const userIp = (request.headers['x-forwarded-for'] ||
+                request.connection.remoteAddress ||
+                request.socket.remoteAddress ||
+                request.connection.socket.remoteAddress).split(',')[0];
+            const liveAddress = yield this.liveAddresService.findOne({
+                where: {
+                    ip: userIp,
+                    customerId: 0,
+                },
+            });
+            return response.status(200).send({
+                status: 1,
+                message: `${liveAddress ? 'Got' : 'No'} Live Address...!`,
+                data: liveAddress,
+            });
+        });
+    }
+    // Address Mapping
+    /**
+     * @api {put} /api/CustomerAddress/live/ live Address API
+     * @apiGroup Customer Address
+     * @apiHeader {string} Authorized
+     * @apiParam (requestBody) {string} customer customer
+     * @apiParamExample {json} Input
+     * {
+     *    "customer": {
+     *           "data": {
+     *            "token": "string",
+     *              "ip": "number"
+     *       }
+     *    }
+     * }
+     * HTTP/1.1 200 OK
+     * {
+     *    "message": "Live Address Mapping Service Called...!",
+     *     "status" : "1"
+     * }
+     * @apiSampleRequest /api/CustomerAddress/live/
+     * @apiErrorExample {json} live Address error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Map's Live Map Location/Address to Respective Registered Customer
+    // API is called Automactically (Axios) when Customer Log's in..!
+    //  Mapping Service API
+    UpdateLiveAddress(customer, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const user = yield this.authSerivce.decryptToken(customer.data.token);
+            const liveAddress = yield this.liveAddresService.findOne({
+                where: {
+                    ip: customer.data.ip,
+                    customerId: 0,
+                },
+            });
+            if (liveAddress && user) {
+                liveAddress.customerId = user.id;
+                yield this.liveAddresService.delete({ customerId: user.id });
+                yield this.liveAddresService.update(liveAddress.id, liveAddress);
+            }
+            return response.status(200).send({
+                status: 1,
+                message: `Live Address Mapping Service Called...!`,
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckCustomerMiddleware),
+    (0, routing_controllers_1.Post)('/add-address'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateAddressRequest_1.CustomerAddress, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerAddressController.prototype, "createAddress", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckCustomerMiddleware),
+    (0, routing_controllers_1.Delete)('/delete-address/:id'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerAddressController.prototype, "deleteAddress", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckCustomerMiddleware),
+    (0, routing_controllers_1.Get)('/get-address-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerAddressController.prototype, "getCustomerAddress", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckCustomerMiddleware),
+    (0, routing_controllers_1.Put)('/update-address/:id'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateAddressRequest_1.CustomerAddress, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerAddressController.prototype, "updateAddress", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_2.CheckTokenMiddleware),
+    (0, routing_controllers_1.Post)('/live'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateAddressRequest_1.CustomerAddress, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerAddressController.prototype, "CreateLiveAddress", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/live'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerAddressController.prototype, "LiveAddressList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/live'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerAddressController.prototype, "UpdateLiveAddress", null);
+CustomerAddressController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/CustomerAddress'),
+    tslib_1.__metadata("design:paramtypes", [AddressService_1.AddressService,
+        LiveAddressService_1.LiveAddressService,
+        AuthService_1.AuthService])
+], CustomerAddressController);
+exports.CustomerAddressController = CustomerAddressController;
+//# sourceMappingURL=CustomerAddressController.js.map

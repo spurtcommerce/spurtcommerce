@@ -1,1 +1,78 @@
-'use strict';const a109_0x1aa54d=a109_0x6c8c;(function(_0x5b859b,_0x2a9abc){const _0x393c6f=a109_0x6c8c,_0x580207=_0x5b859b();while(!![]){try{const _0x3a9265=-parseInt(_0x393c6f(0x144))/0x1*(-parseInt(_0x393c6f(0x153))/0x2)+parseInt(_0x393c6f(0x141))/0x3+parseInt(_0x393c6f(0x13c))/0x4*(-parseInt(_0x393c6f(0x154))/0x5)+parseInt(_0x393c6f(0x13e))/0x6+parseInt(_0x393c6f(0x14a))/0x7*(-parseInt(_0x393c6f(0x155))/0x8)+parseInt(_0x393c6f(0x145))/0x9+parseInt(_0x393c6f(0x142))/0xa*(-parseInt(_0x393c6f(0x14f))/0xb);if(_0x3a9265===_0x2a9abc)break;else _0x580207['push'](_0x580207['shift']());}catch(_0x3588f0){_0x580207['push'](_0x580207['shift']());}}}(a109_0x1050,0xab023));function a109_0x6c8c(_0xa94077,_0x1b4189){const _0x105065=a109_0x1050();return a109_0x6c8c=function(_0x6c8c8f,_0x79537){_0x6c8c8f=_0x6c8c8f-0x13a;let _0x1c01db=_0x105065[_0x6c8c8f];return _0x1c01db;},a109_0x6c8c(_0xa94077,_0x1b4189);}Object['defineProperty'](exports,a109_0x1aa54d(0x13d),{'value':!![]}),exports[a109_0x1aa54d(0x152)]=void 0x0;const tslib_1=require(a109_0x1aa54d(0x151)),typeorm_1=require(a109_0x1aa54d(0x13a));class CreateProductRelatedTable1546529746397{['up'](_0x334994){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x17ed4a=a109_0x6c8c,_0x4aa879=new typeorm_1['Table']({'name':_0x17ed4a(0x146),'columns':[{'name':_0x17ed4a(0x148),'type':_0x17ed4a(0x14c),'length':'11','isGenerated':!![],'generationStrategy':_0x17ed4a(0x147),'isPrimary':!![],'isNullable':![]},{'name':'product_id','type':_0x17ed4a(0x14c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x17ed4a(0x13b),'type':_0x17ed4a(0x14b),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x17ed4a(0x143),'type':_0x17ed4a(0x14b),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_by','type':_0x17ed4a(0x14c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x17ed4a(0x156),'type':_0x17ed4a(0x14c),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0x17ed4a(0x14d),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':_0x17ed4a(0x140),'type':_0x17ed4a(0x14d),'isPrimary':![],'isNullable':!![],'default':_0x17ed4a(0x14e)}]}),_0x5f0c16=yield _0x334994[_0x17ed4a(0x149)]('product_related');!_0x5f0c16&&(yield _0x334994['createTable'](_0x4aa879));});}[a109_0x1aa54d(0x150)](_0x1674cb){const _0x357ed6=a109_0x1aa54d;return tslib_1[_0x357ed6(0x13f)](this,void 0x0,void 0x0,function*(){yield _0x1674cb['dropTable']('product_related',!![]);});}}function a109_0x1050(){const _0x16c501=['product_related','increment','related_id','hasTable','196jtqXlj','int','integer','DATETIME','CURRENT_TIMESTAMP','505769NBmCNu','down','tslib','CreateProductRelatedTable1546529746397','10qukjMw','168290dQjijx','230496atjQlS','modified_by','typeorm','related_product_id','4MFiCsS','__esModule','3700656TNKtKZ','__awaiter','modified_date','1023639OxEQbV','370HvBwoM','is_active','221723dnNmcw','10579176envKFe'];a109_0x1050=function(){return _0x16c501;};return a109_0x1050();}exports[a109_0x1aa54d(0x152)]=CreateProductRelatedTable1546529746397;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateProductRelatedTable1546529746397 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateProductRelatedTable1546529746397 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'product_related',
+                columns: [
+                    {
+                        name: 'related_id',
+                        type: 'integer',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'product_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'related_product_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('product_related');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('product_related', true);
+        });
+    }
+}
+exports.CreateProductRelatedTable1546529746397 = CreateProductRelatedTable1546529746397;
+//# sourceMappingURL=1546529746397-CreateProductRelatedTable.js.map

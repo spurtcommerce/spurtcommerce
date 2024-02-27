@@ -1,1 +1,37 @@
-'use strict';const a488_0x1b9eb2=a488_0x3ae7;function a488_0x1819(){const _0xc0fd45=['EntityRepository','manager','typeorm','118722GqRfgV','792080JMVOUK','getCount','Page','Repository','42tmDkCH','createQueryBuilder','where','5059128PAqPHT','tslib','1943982dBFlAU','575054jcRMCJ','page.page_id\x20!=\x20:id','PageRepository','defineProperty','42OJfOGl','__awaiter','pageSlug','page.slug_name\x20=\x20:slug','page.title\x20=\x20:value','__decorate','14eCvoXr','page','../models/Page','4776880IqWjdE','andWhere','checkSlugData','20680630kCXoHX'];a488_0x1819=function(){return _0xc0fd45;};return a488_0x1819();}(function(_0x58b100,_0x3b7810){const _0x2eb5e4=a488_0x3ae7,_0x225248=_0x58b100();while(!![]){try{const _0x5a3b33=-parseInt(_0x2eb5e4(0xa9))/0x1+-parseInt(_0x2eb5e4(0xad))/0x2*(-parseInt(_0x2eb5e4(0x9e))/0x3)+-parseInt(_0x2eb5e4(0xa6))/0x4+parseInt(_0x2eb5e4(0x9f))/0x5*(parseInt(_0x2eb5e4(0xa3))/0x6)+parseInt(_0x2eb5e4(0xb3))/0x7*(-parseInt(_0x2eb5e4(0xb6))/0x8)+-parseInt(_0x2eb5e4(0xa8))/0x9+parseInt(_0x2eb5e4(0x9a))/0xa;if(_0x5a3b33===_0x3b7810)break;else _0x225248['push'](_0x225248['shift']());}catch(_0x3f4791){_0x225248['push'](_0x225248['shift']());}}}(a488_0x1819,0xb90d7));function a488_0x3ae7(_0x568e73,_0x5f76b3){const _0x1819ed=a488_0x1819();return a488_0x3ae7=function(_0x3ae758,_0x1d9bc9){_0x3ae758=_0x3ae758-0x99;let _0x1e72a6=_0x1819ed[_0x3ae758];return _0x1e72a6;},a488_0x3ae7(_0x568e73,_0x5f76b3);}Object[a488_0x1b9eb2(0xac)](exports,'__esModule',{'value':!![]}),exports['PageRepository']=void 0x0;const tslib_1=require(a488_0x1b9eb2(0xa7)),typeorm_1=require(a488_0x1b9eb2(0x9d)),Page_1=require(a488_0x1b9eb2(0xb5));let PageRepository=class PageRepository extends typeorm_1[a488_0x1b9eb2(0xa2)]{[a488_0x1b9eb2(0xaf)](_0x28f87a){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xb0fa60=a488_0x3ae7,_0x5060f7=yield this['manager'][_0xb0fa60(0xa4)](Page_1[_0xb0fa60(0xa1)],_0xb0fa60(0xb4));return _0x5060f7[_0xb0fa60(0xa5)](_0xb0fa60(0xb1),{'value':_0x28f87a}),_0x5060f7['getMany']();});}[a488_0x1b9eb2(0x99)](_0x43a96b,_0x5c5524){const _0x43a466=a488_0x1b9eb2;return tslib_1[_0x43a466(0xae)](this,void 0x0,void 0x0,function*(){const _0x43156c=_0x43a466,_0x463028=yield this[_0x43156c(0x9c)]['createQueryBuilder'](Page_1[_0x43156c(0xa1)],_0x43156c(0xb4));return _0x463028[_0x43156c(0xa5)](_0x43156c(0xb0),{'slug':_0x43a96b}),_0x5c5524>0x0&&_0x463028[_0x43156c(0xb7)](_0x43156c(0xaa),{'id':_0x5c5524}),_0x463028[_0x43156c(0xa0)]();});}};PageRepository=tslib_1[a488_0x1b9eb2(0xb2)]([(0x0,typeorm_1[a488_0x1b9eb2(0x9b)])(Page_1[a488_0x1b9eb2(0xa1)])],PageRepository),exports[a488_0x1b9eb2(0xab)]=PageRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PageRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Page_1 = require("../models/Page");
+let PageRepository = class PageRepository extends typeorm_1.Repository {
+    pageSlug(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(Page_1.Page, 'page');
+            query.where('page.title = :value', { value: data });
+            return query.getMany();
+        });
+    }
+    checkSlugData(slug, id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(Page_1.Page, 'page');
+            query.where('page.slug_name = :slug', { slug });
+            if (id > 0) {
+                query.andWhere('page.page_id != :id', { id });
+            }
+            return query.getCount();
+        });
+    }
+};
+PageRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(Page_1.Page)
+], PageRepository);
+exports.PageRepository = PageRepository;
+//# sourceMappingURL=PageRepository.js.map

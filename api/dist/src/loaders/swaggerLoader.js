@@ -1,1 +1,27 @@
-'use strict';function a995_0x54cc(){const _0x2d260d=['servers','swagger-ui-express','21lAZGax','://','defineProperty','19386430PauttO','setup','swagger','express_app','__importStar','info','port','file','join','description','1433454CJvkeR','schema','host','env','5181472vBBoMw','name','2004108brcCqX','2YWlWoW','swaggerLoader','__esModule','path','2430400IxKVcB','version','9smbqMA','../env','app','5142788mscgjd','1234843DgpBsb','enabled','getData','use'];a995_0x54cc=function(){return _0x2d260d;};return a995_0x54cc();}const a995_0x5c45bd=a995_0x2cec;(function(_0x527215,_0x29856e){const _0x877043=a995_0x2cec,_0x533a94=_0x527215();while(!![]){try{const _0x5c35c1=-parseInt(_0x877043(0x82))/0x1*(-parseInt(_0x877043(0x78))/0x2)+parseInt(_0x877043(0x77))/0x3+parseInt(_0x877043(0x81))/0x4+-parseInt(_0x877043(0x7c))/0x5+parseInt(_0x877043(0x71))/0x6*(-parseInt(_0x877043(0x88))/0x7)+parseInt(_0x877043(0x75))/0x8*(parseInt(_0x877043(0x7e))/0x9)+-parseInt(_0x877043(0x8b))/0xa;if(_0x5c35c1===_0x29856e)break;else _0x533a94['push'](_0x533a94['shift']());}catch(_0x5ca3fe){_0x533a94['push'](_0x533a94['shift']());}}}(a995_0x54cc,0xa9a1a));function a995_0x2cec(_0x4bb086,_0x3185bf){const _0x54cceb=a995_0x54cc();return a995_0x2cec=function(_0x2cec57,_0x4f23c4){_0x2cec57=_0x2cec57-0x6f;let _0x4e8b51=_0x54cceb[_0x2cec57];return _0x4e8b51;},a995_0x2cec(_0x4bb086,_0x3185bf);}Object[a995_0x5c45bd(0x8a)](exports,a995_0x5c45bd(0x7a),{'value':!![]}),exports[a995_0x5c45bd(0x79)]=void 0x0;const tslib_1=require('tslib'),path=tslib_1[a995_0x5c45bd(0x8f)](require(a995_0x5c45bd(0x7b))),swaggerUi=tslib_1[a995_0x5c45bd(0x8f)](require(a995_0x5c45bd(0x87))),env_1=require(a995_0x5c45bd(0x7f)),swaggerLoader=_0x358aa5=>{const _0x41ca6f=a995_0x5c45bd;if(_0x358aa5&&env_1['env'][_0x41ca6f(0x8d)][_0x41ca6f(0x83)]){const _0x22cfa4=_0x358aa5[_0x41ca6f(0x84)](_0x41ca6f(0x8e)),_0x2da292=require(path[_0x41ca6f(0x6f)](__dirname,'..',env_1[_0x41ca6f(0x74)]['swagger'][_0x41ca6f(0x92)]));_0x2da292[_0x41ca6f(0x90)]={'title':env_1[_0x41ca6f(0x74)]['app'][_0x41ca6f(0x76)],'description':env_1[_0x41ca6f(0x74)]['app'][_0x41ca6f(0x70)],'version':env_1[_0x41ca6f(0x74)][_0x41ca6f(0x80)][_0x41ca6f(0x7d)]},_0x2da292[_0x41ca6f(0x86)]=[{'url':env_1[_0x41ca6f(0x74)]['app'][_0x41ca6f(0x72)]+_0x41ca6f(0x89)+env_1['env']['app'][_0x41ca6f(0x73)]+':'+env_1[_0x41ca6f(0x74)][_0x41ca6f(0x80)][_0x41ca6f(0x91)]+env_1['env'][_0x41ca6f(0x80)]['routePrefix']}],_0x22cfa4[_0x41ca6f(0x85)](env_1[_0x41ca6f(0x74)]['swagger']['route'],swaggerUi['serve'],swaggerUi[_0x41ca6f(0x8c)](_0x2da292));}};exports['swaggerLoader']=swaggerLoader;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.swaggerLoader = void 0;
+const tslib_1 = require("tslib");
+const path = tslib_1.__importStar(require("path"));
+const swaggerUi = tslib_1.__importStar(require("swagger-ui-express"));
+const env_1 = require("../env");
+const swaggerLoader = (settings) => {
+    if (settings && env_1.env.swagger.enabled) {
+        const expressApp = settings.getData('express_app');
+        const swaggerFile = require(path.join(__dirname, '..', env_1.env.swagger.file));
+        // Add npm infos to the swagger doc
+        swaggerFile.info = {
+            title: env_1.env.app.name,
+            description: env_1.env.app.description,
+            version: env_1.env.app.version,
+        };
+        swaggerFile.servers = [
+            {
+                url: `${env_1.env.app.schema}://${env_1.env.app.host}:${env_1.env.app.port}${env_1.env.app.routePrefix}`,
+            },
+        ];
+        expressApp.use(env_1.env.swagger.route, swaggerUi.serve, swaggerUi.setup(swaggerFile));
+    }
+};
+exports.swaggerLoader = swaggerLoader;
+//# sourceMappingURL=swaggerLoader.js.map

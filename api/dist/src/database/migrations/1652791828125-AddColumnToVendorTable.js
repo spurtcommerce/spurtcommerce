@@ -1,1 +1,57 @@
-'use strict';function a941_0x422d(){const _0x402c90=['6413112jUrgOG','63PqdWga','display_name_url','16166txqAcx','2938836xWOgLy','facebook','vendor','twitter','2853096AZJQOs','32hmKtgq','instagram','tslib','838712gDXJFP','AddColumnToVendorTable1652791828125','VARCHAR','defineProperty','255','addColumns','__esModule','2262588rZpOan','2774650PuPjYz','__awaiter','TableColumn'];a941_0x422d=function(){return _0x402c90;};return a941_0x422d();}const a941_0x374d0a=a941_0x50e6;(function(_0x5b9a3b,_0x15be3c){const _0x38e663=a941_0x50e6,_0x5068e2=_0x5b9a3b();while(!![]){try{const _0x380e31=-parseInt(_0x38e663(0xbe))/0x1*(-parseInt(_0x38e663(0xc4))/0x2)+parseInt(_0x38e663(0xb7))/0x3+parseInt(_0x38e663(0xbf))/0x4+-parseInt(_0x38e663(0xb8))/0x5+-parseInt(_0x38e663(0xc3))/0x6+-parseInt(_0x38e663(0xbc))/0x7*(parseInt(_0x38e663(0xc7))/0x8)+parseInt(_0x38e663(0xbb))/0x9;if(_0x380e31===_0x15be3c)break;else _0x5068e2['push'](_0x5068e2['shift']());}catch(_0x170c93){_0x5068e2['push'](_0x5068e2['shift']());}}}(a941_0x422d,0x76af4));Object[a941_0x374d0a(0xb3)](exports,a941_0x374d0a(0xb6),{'value':!![]}),exports['AddColumnToVendorTable1652791828125']=void 0x0;const tslib_1=require(a941_0x374d0a(0xc6)),typeorm_1=require('typeorm');class AddColumnToVendorTable1652791828125{['up'](_0x21af73){const _0x3ff4e9=a941_0x374d0a;return tslib_1[_0x3ff4e9(0xb9)](this,void 0x0,void 0x0,function*(){const _0x59fbe8=_0x3ff4e9,_0x24526f=new typeorm_1[(_0x59fbe8(0xba))]({'name':_0x59fbe8(0xbd),'type':_0x59fbe8(0xc9),'length':_0x59fbe8(0xb4),'isPrimary':![],'isNullable':!![]}),_0x558dcb=new typeorm_1[(_0x59fbe8(0xba))]({'name':_0x59fbe8(0xc2),'type':'VARCHAR','length':_0x59fbe8(0xb4),'isPrimary':![],'isNullable':!![]}),_0x20ccbd=new typeorm_1['TableColumn']({'name':_0x59fbe8(0xc5),'type':_0x59fbe8(0xc9),'length':'255','isPrimary':![],'isNullable':!![]}),_0x339a87=new typeorm_1[(_0x59fbe8(0xba))]({'name':'youtube','type':_0x59fbe8(0xc9),'length':_0x59fbe8(0xb4),'isPrimary':![],'isNullable':!![]}),_0x1bc2a4=new typeorm_1[(_0x59fbe8(0xba))]({'name':_0x59fbe8(0xc0),'type':'VARCHAR','length':_0x59fbe8(0xb4),'isPrimary':![],'isNullable':!![]}),_0x227847=yield _0x21af73['getTable'](_0x59fbe8(0xc1));_0x227847&&(yield _0x21af73[_0x59fbe8(0xb5)](_0x227847,[_0x24526f,_0x20ccbd,_0x1bc2a4,_0x339a87,_0x558dcb]));});}['down'](_0x295e21){const _0x1fcd18=a941_0x374d0a;return tslib_1[_0x1fcd18(0xb9)](this,void 0x0,void 0x0,function*(){return;});}}function a941_0x50e6(_0x2a9160,_0x4164e0){const _0x422dbd=a941_0x422d();return a941_0x50e6=function(_0x50e6a6,_0x17d7c2){_0x50e6a6=_0x50e6a6-0xb3;let _0x373337=_0x422dbd[_0x50e6a6];return _0x373337;},a941_0x50e6(_0x2a9160,_0x4164e0);}exports[a941_0x374d0a(0xc8)]=AddColumnToVendorTable1652791828125;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnToVendorTable1652791828125 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnToVendorTable1652791828125 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const displayName = new typeorm_1.TableColumn({
+                name: 'display_name_url',
+                type: 'VARCHAR',
+                length: '255',
+                isPrimary: false,
+                isNullable: true,
+            });
+            const twitter = new typeorm_1.TableColumn({
+                name: 'twitter',
+                type: 'VARCHAR',
+                length: '255',
+                isPrimary: false,
+                isNullable: true,
+            });
+            const insta = new typeorm_1.TableColumn({
+                name: 'instagram',
+                type: 'VARCHAR',
+                length: '255',
+                isPrimary: false,
+                isNullable: true,
+            });
+            const youtube = new typeorm_1.TableColumn({
+                name: 'youtube',
+                type: 'VARCHAR',
+                length: '255',
+                isPrimary: false,
+                isNullable: true,
+            });
+            const facebook = new typeorm_1.TableColumn({
+                name: 'facebook',
+                type: 'VARCHAR',
+                length: '255',
+                isPrimary: false,
+                isNullable: true,
+            });
+            const table = yield queryRunner.getTable('vendor');
+            if (table) {
+                yield queryRunner.addColumns(table, [displayName, insta, facebook, youtube, twitter]);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return;
+        });
+    }
+}
+exports.AddColumnToVendorTable1652791828125 = AddColumnToVendorTable1652791828125;
+//# sourceMappingURL=1652791828125-AddColumnToVendorTable.js.map

@@ -1,1 +1,197 @@
-'use strict';const a571_0x1111b8=a571_0x42ec;(function(_0x5c72d8,_0x3691eb){const _0xbf725f=a571_0x42ec,_0x4a6f0c=_0x5c72d8();while(!![]){try{const _0x30f8ef=-parseInt(_0xbf725f(0x23c))/0x1*(parseInt(_0xbf725f(0x20d))/0x2)+parseInt(_0xbf725f(0x21d))/0x3*(-parseInt(_0xbf725f(0x233))/0x4)+-parseInt(_0xbf725f(0x23b))/0x5*(parseInt(_0xbf725f(0x1d0))/0x6)+parseInt(_0xbf725f(0x1df))/0x7+-parseInt(_0xbf725f(0x1ca))/0x8*(-parseInt(_0xbf725f(0x202))/0x9)+parseInt(_0xbf725f(0x1fe))/0xa+-parseInt(_0xbf725f(0x1fb))/0xb;if(_0x30f8ef===_0x3691eb)break;else _0x4a6f0c['push'](_0x4a6f0c['shift']());}catch(_0xbb4d16){_0x4a6f0c['push'](_0x4a6f0c['shift']());}}}(a571_0x3d23,0x299b8));function a571_0x42ec(_0x1f795f,_0x27812e){const _0x3d238a=a571_0x3d23();return a571_0x42ec=function(_0x42ecb6,_0xa43c2c){_0x42ecb6=_0x42ecb6-0x1c5;let _0x3b85f4=_0x3d238a[_0x42ecb6];return _0x3b85f4;},a571_0x42ec(_0x1f795f,_0x27812e);}Object[a571_0x1111b8(0x22d)](exports,a571_0x1111b8(0x208),{'value':!![]}),exports[a571_0x1111b8(0x222)]=void 0x0;const tslib_1=require(a571_0x1111b8(0x22b)),typeorm_1=require(a571_0x1111b8(0x1e0)),Currency_1=require('../models/Currency'),EmailTemplate_1=require(a571_0x1111b8(0x1f4)),Order_1=require(a571_0x1111b8(0x20f)),OrderProduct_1=require(a571_0x1111b8(0x1d6)),PaymentItems_1=require(a571_0x1111b8(0x238)),ProductModel_1=require(a571_0x1111b8(0x22a)),CustomerCart_1=require(a571_0x1111b8(0x21e)),Setting_1=require(a571_0x1111b8(0x1f1)),User_1=require('../models/User'),Payment_1=require(a571_0x1111b8(0x1f9)),ProductImage_1=require(a571_0x1111b8(0x203)),env_1=require(a571_0x1111b8(0x227)),moment_1=tslib_1[a571_0x1111b8(0x1c6)](require(a571_0x1111b8(0x223))),mail_services_1=require(a571_0x1111b8(0x1e9)),VendorPayment_1=require(a571_0x1111b8(0x234)),VendorProducts_1=require(a571_0x1111b8(0x1d9)),Vendor_1=require('../models/Vendor'),VendorGlobalSettings_1=require(a571_0x1111b8(0x1fc)),VendorOrders_1=require('../models/VendorOrders'),VendorInvoice_1=require(a571_0x1111b8(0x1c5)),VendorInvoiceItem_1=require('../models/VendorInvoiceItem'),Customer_1=require(a571_0x1111b8(0x1d3));function a571_0x3d23(){const _0x343034=['../models/VendorPayment','productName','sendMail','Customer','../models/PaymentItems','currencyRight','getRepository','7705PNcYlr','248569QpXmLg','Payment','ProductImage','find','{name}','orderData','getDate','../models/VendorInvoice','__importDefault','VendorOrders','storeRedirectUrl','EmailTemplate','53072BEfdrx','delete','taxValue','today','VendorProducts','PaymentItems','84GmdOYA','email','storeCurrencyId','../models/Customer','YYYY-MM-DD\x20HH:mm:ss','{orderId}','../models/OrderProduct','productImage','discountedAmount','../models/VendorProducts','redirectUrl','username','getFullYear','shippingLastname','vendorOrderId','2015272rcIolu','typeorm','orderProductPrefixId','Currency','discountAmount','paymentAmount','commission','{adminname}','Vendor','replace','../../../auth/mail.services','productPrice','save','getManager','Success','Settings','content','__awaiter','../models/Setting','CustomerCart','logo','../models/EmailTemplate','paymentItemId','subject','basePrice','vendorProductCommission','../models/Payment','processOrder','914562gzDhvv','../models/VendorGlobalSettings','symbolLeft','1862180jkcgTQ','companyName','currencyLeft','slice','387eyEQhm','../models/ProductImage','amount','orderProductId','vendorInvoiceId','emailContent','__esModule','shippingFirstname','VendorInvoice','customerId','orderId','2Kvvxpr','quantity','../models/Order','skuName','vendorId','paymentInformation','total','name','defaultCommission','commissionAmount','VendorGlobalSetting','VendorInvoiceItem','productInformationData','vendorRedirectUrl','findOne','productId','1389EQbzip','../models/CustomerCart','paymentId','MAILService','VendorPayment','OrderProcessService','moment','taxType','default','env','../../../../src/env','push','couponDiscountAmount','../models/ProductModel','tslib','model','defineProperty','productDetailData','OrderProduct','getMonth','paidDate','length','2036Pkmddf'];a571_0x3d23=function(){return _0x343034;};return a571_0x3d23();}class OrderProcessService{constructor(){}[a571_0x1111b8(0x1fa)](_0x550e2b,_0x293524){const _0x5ad9a7=a571_0x1111b8;return tslib_1[_0x5ad9a7(0x1f0)](this,void 0x0,void 0x0,function*(){const _0x23276e=_0x5ad9a7,_0x1e2965=(0x0,typeorm_1['getManager'])()['getRepository'](EmailTemplate_1[_0x23276e(0x1c9)]),_0x347701=(0x0,typeorm_1[_0x23276e(0x1ec)])()[_0x23276e(0x23a)](OrderProduct_1[_0x23276e(0x22f)]),_0x349bca=(0x0,typeorm_1[_0x23276e(0x1ec)])()['getRepository'](ProductImage_1[_0x23276e(0x23e)]),_0x28e680=(0x0,typeorm_1['getManager'])()[_0x23276e(0x23a)](ProductModel_1['Product']),_0x18de18=(0x0,typeorm_1[_0x23276e(0x1ec)])()['getRepository'](Setting_1[_0x23276e(0x1ee)]),_0x314bd7=(0x0,typeorm_1['getManager'])()[_0x23276e(0x23a)](Currency_1[_0x23276e(0x1e2)]),_0x5d490b=(0x0,typeorm_1[_0x23276e(0x1ec)])()[_0x23276e(0x23a)](User_1['User']),_0x39a44c=(0x0,typeorm_1[_0x23276e(0x1ec)])()[_0x23276e(0x23a)](Payment_1[_0x23276e(0x23d)]),_0x2c055c=(0x0,typeorm_1[_0x23276e(0x1ec)])()[_0x23276e(0x23a)](PaymentItems_1['PaymentItems']),_0x17be0d=(0x0,typeorm_1['getManager'])()[_0x23276e(0x23a)](CustomerCart_1[_0x23276e(0x1f2)]),_0x1b931f=(0x0,typeorm_1[_0x23276e(0x1ec)])()['getRepository'](VendorPayment_1['VendorPayment']),_0x1dfbd8=(0x0,typeorm_1[_0x23276e(0x1ec)])()[_0x23276e(0x23a)](VendorProducts_1[_0x23276e(0x1ce)]),_0x33cc14=(0x0,typeorm_1['getManager'])()[_0x23276e(0x23a)](Vendor_1[_0x23276e(0x1e7)]),_0x414ab9=(0x0,typeorm_1['getManager'])()[_0x23276e(0x23a)](VendorGlobalSettings_1[_0x23276e(0x217)]),_0x3c4e03=(0x0,typeorm_1['getManager'])()[_0x23276e(0x23a)](VendorOrders_1[_0x23276e(0x1c7)]),_0x3eaa2f=(0x0,typeorm_1[_0x23276e(0x1ec)])()[_0x23276e(0x23a)](VendorInvoice_1[_0x23276e(0x20a)]),_0x92b62d=(0x0,typeorm_1[_0x23276e(0x1ec)])()[_0x23276e(0x23a)](VendorInvoiceItem_1[_0x23276e(0x218)]),_0x2462c7=(0x0,typeorm_1[_0x23276e(0x1ec)])()['getRepository'](Customer_1[_0x23276e(0x237)]),_0x2c8ae0=(0x0,typeorm_1[_0x23276e(0x1ec)])()[_0x23276e(0x23a)](Order_1['Order']),_0x5eccb2=yield _0x2c8ae0[_0x23276e(0x21b)](_0x550e2b);if(!_0x5eccb2)return{'status':0x1,'message':'Invalid\x20Order\x20Id'};const _0x48ef6d=yield _0x18de18[_0x23276e(0x21b)](),_0x492424=yield _0x314bd7[_0x23276e(0x21b)](_0x48ef6d[_0x23276e(0x1d2)]);_0x5eccb2[_0x23276e(0x239)]=_0x492424['symbolRight'],_0x5eccb2[_0x23276e(0x200)]=_0x492424[_0x23276e(0x1fd)];const _0x5b6e3e=new Payment_1['Payment']();_0x5b6e3e[_0x23276e(0x20c)]=_0x550e2b;const _0xaaff42=new Date();_0x5b6e3e[_0x23276e(0x231)]=(0x0,moment_1[_0x23276e(0x225)])(_0xaaff42)['format'](_0x23276e(0x1d4)),_0x5b6e3e['paymentNumber']=_0x293524['id'],_0x5b6e3e[_0x23276e(0x1e4)]=_0x5eccb2[_0x23276e(0x213)],_0x5b6e3e[_0x23276e(0x212)]=JSON['stringify'](_0x293524);const _0x437544=yield _0x39a44c[_0x23276e(0x1eb)](_0x5b6e3e),_0x50d1b7=[];let _0x3bc44f;const _0x4e2e64=yield _0x347701[_0x23276e(0x23f)]({'where':{'orderId':_0x5eccb2['orderId']},'select':['orderProductId','orderId','productId',_0x23276e(0x214),_0x23276e(0x22c),_0x23276e(0x20e),_0x23276e(0x213),_0x23276e(0x1ea),'discountAmount',_0x23276e(0x1d8),_0x23276e(0x229),'basePrice']});for(_0x3bc44f=0x0;_0x3bc44f<_0x4e2e64[_0x23276e(0x232)];_0x3bc44f++){const _0x7cd6aa=new PaymentItems_1[(_0x23276e(0x1cf))]();_0x7cd6aa[_0x23276e(0x21f)]=_0x437544[_0x23276e(0x21f)],_0x7cd6aa['orderProductId']=_0x4e2e64[_0x3bc44f][_0x23276e(0x205)],_0x7cd6aa['totalAmount']=_0x4e2e64[_0x3bc44f]['total'],_0x7cd6aa[_0x23276e(0x235)]=_0x4e2e64[_0x3bc44f][_0x23276e(0x214)],_0x7cd6aa['productQuantity']=_0x4e2e64[_0x3bc44f][_0x23276e(0x20e)],_0x7cd6aa['productPrice']=_0x4e2e64[_0x3bc44f][_0x23276e(0x1ea)];const _0x2edbd0=yield _0x2c055c[_0x23276e(0x1eb)](_0x7cd6aa),_0x4b05db=yield _0x1dfbd8['findOne']({'where':{'productId':_0x4e2e64[_0x3bc44f][_0x23276e(0x21c)]}});if(_0x4b05db){const _0x2703d3=yield _0x33cc14[_0x23276e(0x21b)]({'where':{'vendorId':_0x4b05db[_0x23276e(0x211)]}}),_0x4ca912=yield _0x3c4e03[_0x23276e(0x21b)]({'where':{'vendorId':_0x4b05db['vendorId'],'orderProductId':_0x4e2e64[_0x3bc44f][_0x23276e(0x205)]}}),_0x574cbf=new VendorPayment_1[(_0x23276e(0x221))]();_0x574cbf[_0x23276e(0x211)]=_0x4b05db[_0x23276e(0x211)],_0x574cbf[_0x23276e(0x1f5)]=_0x2edbd0[_0x23276e(0x1f5)],_0x574cbf[_0x23276e(0x1de)]=_0x4ca912[_0x23276e(0x1de)],_0x574cbf[_0x23276e(0x204)]=_0x4e2e64[_0x3bc44f]['total'];if(_0x4b05db[_0x23276e(0x1f8)]>0x0)_0x574cbf['commissionAmount']=_0x574cbf[_0x23276e(0x204)]*(_0x4b05db[_0x23276e(0x1f8)]/0x64);else{if(_0x2703d3['commission']>0x0)_0x574cbf['commissionAmount']=_0x574cbf[_0x23276e(0x204)]*(_0x2703d3[_0x23276e(0x1e5)]/0x64);else{const _0x48eeff=yield _0x414ab9[_0x23276e(0x21b)](),_0x3edfe9=_0x48eeff[_0x23276e(0x215)];_0x574cbf[_0x23276e(0x216)]=_0x574cbf[_0x23276e(0x204)]*(_0x3edfe9/0x64);}}yield _0x1b931f[_0x23276e(0x1eb)](_0x574cbf);}const _0x346cf4=yield _0x347701['findOne']({'where':{'orderProductId':_0x4e2e64[_0x3bc44f][_0x23276e(0x205)]},'select':[_0x23276e(0x205),_0x23276e(0x20c),_0x23276e(0x21c),_0x23276e(0x214),_0x23276e(0x22c),_0x23276e(0x20e),_0x23276e(0x213),_0x23276e(0x1ea),_0x23276e(0x1f7),_0x23276e(0x1e3),_0x23276e(0x1d8),_0x23276e(0x210),_0x23276e(0x1cc),_0x23276e(0x224),_0x23276e(0x1e1),_0x23276e(0x229)]}),_0x57bb92=yield _0x28e680[_0x23276e(0x21b)](_0x346cf4[_0x23276e(0x21c)]);let _0x1ea4ce;_0x1ea4ce=yield _0x349bca[_0x23276e(0x21b)]({'where':{'productId':_0x346cf4['productId'],'defaultImage':0x1}}),_0x57bb92[_0x23276e(0x219)]=_0x346cf4,_0x57bb92['productImage']=_0x1ea4ce,_0x50d1b7[_0x23276e(0x228)](_0x57bb92);const _0x18a3f0=yield _0x17be0d[_0x23276e(0x21b)]({'where':{'productId':_0x4e2e64[_0x3bc44f][_0x23276e(0x21c)],'customerId':_0x5eccb2['customerId']}});_0x18a3f0!==undefined&&(yield _0x17be0d[_0x23276e(0x1cb)](_0x18a3f0['id']));}const _0x30041c=yield _0x1e2965['findOne'](0x5),_0x5237c3=yield _0x1e2965[_0x23276e(0x21b)](0x6),_0xdde6e9=new Date(),_0x4ef2e2=('0'+_0xdde6e9[_0x23276e(0x242)]())[_0x23276e(0x201)](-0x2)+'.'+('0'+(_0xdde6e9[_0x23276e(0x230)]()+0x1))[_0x23276e(0x201)](-0x2)+'.'+_0xdde6e9[_0x23276e(0x1dc)](),_0x591efb=_0x5eccb2[_0x23276e(0x209)],_0x181143=_0x5eccb2[_0x23276e(0x1dd)],_0x23ede2=_0x591efb+'\x20'+_0x181143,_0x366501=_0x5237c3[_0x23276e(0x1ef)][_0x23276e(0x1e8)](_0x23276e(0x1e6),'Admin')[_0x23276e(0x1e8)](_0x23276e(0x240),_0x23ede2)[_0x23276e(0x1e8)](_0x23276e(0x1d5),_0x5eccb2[_0x23276e(0x20c)]),_0x6514c9=_0x30041c[_0x23276e(0x1ef)][_0x23276e(0x1e8)](_0x23276e(0x240),_0x23ede2),_0x4dc7aa=[],_0x23140c=yield _0x5d490b[_0x23276e(0x23f)]({'select':[_0x23276e(0x1db)],'where':{'userGroupId':0x1}});for(const _0x508707 of _0x23140c){const _0x2b457c=_0x508707['username'];_0x4dc7aa['push'](_0x2b457c);}const _0x13a0a6=yield _0x18de18[_0x23276e(0x21b)](),_0x275468=yield _0x3eaa2f[_0x23276e(0x23f)]({'where':{'orderId':_0x5eccb2[_0x23276e(0x20c)]}});if(_0x275468[_0x23276e(0x232)]>0x0)for(const _0x4dbdcc of _0x275468){const _0x5b74de=[],_0x5f579b=yield _0x33cc14[_0x23276e(0x21b)]({'where':{'vendorId':_0x4dbdcc[_0x23276e(0x211)]}}),_0x52ab2c=yield _0x2462c7['findOne']({'where':{'id':_0x5f579b[_0x23276e(0x20b)]}}),_0xaa675=_0x5237c3[_0x23276e(0x1ef)][_0x23276e(0x1e8)](_0x23276e(0x1e6),_0x5f579b[_0x23276e(0x1ff)])[_0x23276e(0x1e8)](_0x23276e(0x240),_0x23ede2)['replace'](_0x23276e(0x1d5),_0x5eccb2['orderId']),_0x15052b=yield _0x92b62d['find']({'where':{'vendorInvoiceId':_0x4dbdcc[_0x23276e(0x206)]}});for(const _0x2bf0c8 of _0x15052b){const _0x331823=yield _0x347701['findOne']({'where':{'orderProductId':_0x2bf0c8[_0x23276e(0x205)]},'select':[_0x23276e(0x205),'orderId',_0x23276e(0x21c),_0x23276e(0x214),_0x23276e(0x22c),_0x23276e(0x20e),'total',_0x23276e(0x1ea),_0x23276e(0x1f7),_0x23276e(0x210),_0x23276e(0x1cc),'taxType',_0x23276e(0x1e1)]}),_0x41c3e9=yield _0x28e680[_0x23276e(0x21b)](_0x331823[_0x23276e(0x21c)]);let _0x50e825;_0x50e825=yield _0x349bca['findOne']({'where':{'productId':_0x331823[_0x23276e(0x21c)],'defaultImage':0x1}}),_0x41c3e9['productInformationData']=_0x331823,_0x41c3e9[_0x23276e(0x1d7)]=_0x50e825,_0x5b74de[_0x23276e(0x228)](_0x41c3e9);}const _0x54663a=env_1[_0x23276e(0x226)][_0x23276e(0x21a)],_0x1f89b2={};_0x1f89b2[_0x23276e(0x1f3)]=_0x13a0a6,_0x1f89b2[_0x23276e(0x207)]=_0xaa675,_0x1f89b2[_0x23276e(0x1da)]=_0x54663a,_0x1f89b2['productDetailData']=_0x5b74de,_0x1f89b2[_0x23276e(0x1cd)]=_0x4ef2e2,_0x1f89b2['orderData']=_0x5eccb2,mail_services_1[_0x23276e(0x220)][_0x23276e(0x236)](_0x1f89b2,_0x52ab2c[_0x23276e(0x1d1)],_0x5237c3['subject'],![],![],'');}const _0x31687a=env_1['env']['adminRedirectUrl'],_0x1edab0={};_0x1edab0['logo']=_0x13a0a6,_0x1edab0[_0x23276e(0x207)]=_0x366501,_0x1edab0['redirectUrl']=_0x31687a,_0x1edab0['productDetailData']=_0x50d1b7,_0x1edab0['today']=_0x4ef2e2,_0x1edab0['orderData']=_0x5eccb2,mail_services_1['MAILService'][_0x23276e(0x236)](_0x1edab0,_0x4dc7aa,_0x5237c3[_0x23276e(0x1f6)],![],![],'');const _0x3a8721=env_1[_0x23276e(0x226)][_0x23276e(0x1c8)],_0x2e6072={};return _0x2e6072[_0x23276e(0x1f3)]=_0x13a0a6,_0x2e6072[_0x23276e(0x207)]=_0x6514c9,_0x2e6072[_0x23276e(0x22e)]=_0x50d1b7,_0x2e6072['today']=_0x4ef2e2,_0x2e6072[_0x23276e(0x1da)]=_0x3a8721,_0x2e6072[_0x23276e(0x241)]=_0x5eccb2,mail_services_1[_0x23276e(0x220)][_0x23276e(0x236)](_0x2e6072,_0x5eccb2[_0x23276e(0x1d1)],_0x30041c[_0x23276e(0x1f6)],![],![],''),{'status':0x1,'message':_0x23276e(0x1ed)};});}}exports[a571_0x1111b8(0x222)]=OrderProcessService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrderProcessService = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Currency_1 = require("../models/Currency");
+const EmailTemplate_1 = require("../models/EmailTemplate");
+const Order_1 = require("../models/Order");
+const OrderProduct_1 = require("../models/OrderProduct");
+const PaymentItems_1 = require("../models/PaymentItems");
+const ProductModel_1 = require("../models/ProductModel");
+const CustomerCart_1 = require("../models/CustomerCart");
+const Setting_1 = require("../models/Setting");
+const User_1 = require("../models/User");
+const Payment_1 = require("../models/Payment");
+const ProductImage_1 = require("../models/ProductImage");
+const env_1 = require("../../../../src/env");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const mail_services_1 = require("../../../auth/mail.services");
+const VendorPayment_1 = require("../models/VendorPayment");
+const VendorProducts_1 = require("../models/VendorProducts");
+const Vendor_1 = require("../models/Vendor");
+const VendorGlobalSettings_1 = require("../models/VendorGlobalSettings");
+const VendorOrders_1 = require("../models/VendorOrders");
+const VendorInvoice_1 = require("../models/VendorInvoice");
+const VendorInvoiceItem_1 = require("../models/VendorInvoiceItem");
+const Customer_1 = require("../models/Customer");
+class OrderProcessService {
+    constructor() {
+        // -----
+    }
+    // create order
+    processOrder(orderId, transactionsParams) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const EmailTemplateRepository = (0, typeorm_1.getManager)().getRepository(EmailTemplate_1.EmailTemplate);
+            const orderProductRepository = (0, typeorm_1.getManager)().getRepository(OrderProduct_1.OrderProduct);
+            const productImageRepository = (0, typeorm_1.getManager)().getRepository(ProductImage_1.ProductImage);
+            const productRepository = (0, typeorm_1.getManager)().getRepository(ProductModel_1.Product);
+            const settingRepository = (0, typeorm_1.getManager)().getRepository(Setting_1.Settings);
+            const currencyRepository = (0, typeorm_1.getManager)().getRepository(Currency_1.Currency);
+            const userRepository = (0, typeorm_1.getManager)().getRepository(User_1.User);
+            const paymentRepository = (0, typeorm_1.getManager)().getRepository(Payment_1.Payment);
+            const paymentItemsRepository = (0, typeorm_1.getManager)().getRepository(PaymentItems_1.PaymentItems);
+            const CustomerCartRepository = (0, typeorm_1.getManager)().getRepository(CustomerCart_1.CustomerCart);
+            const vendorPaymentRepository = (0, typeorm_1.getManager)().getRepository(VendorPayment_1.VendorPayment);
+            const VendorProductsRepository = (0, typeorm_1.getManager)().getRepository(VendorProducts_1.VendorProducts);
+            const VendorRepository = (0, typeorm_1.getManager)().getRepository(Vendor_1.Vendor);
+            const VendorGlobalSettingRepository = (0, typeorm_1.getManager)().getRepository(VendorGlobalSettings_1.VendorGlobalSetting);
+            const VendorOrdersRepository = (0, typeorm_1.getManager)().getRepository(VendorOrders_1.VendorOrders);
+            const VendorInvoiceRepository = (0, typeorm_1.getManager)().getRepository(VendorInvoice_1.VendorInvoice);
+            const VendorInvoiceItemRepository = (0, typeorm_1.getManager)().getRepository(VendorInvoiceItem_1.VendorInvoiceItem);
+            const CustomerRepository = (0, typeorm_1.getManager)().getRepository(Customer_1.Customer);
+            // ----
+            const orderRepository = (0, typeorm_1.getManager)().getRepository(Order_1.Order);
+            const orderData = yield orderRepository.findOne(orderId);
+            if (!orderData) {
+                return {
+                    status: 1,
+                    message: 'Invalid Order Id',
+                };
+            }
+            const setting = yield settingRepository.findOne();
+            const currencySymbol = yield currencyRepository.findOne(setting.storeCurrencyId);
+            orderData.currencyRight = currencySymbol.symbolRight;
+            orderData.currencyLeft = currencySymbol.symbolLeft;
+            const paymentParams = new Payment_1.Payment();
+            paymentParams.orderId = orderId;
+            const date = new Date();
+            paymentParams.paidDate = (0, moment_1.default)(date).format('YYYY-MM-DD HH:mm:ss');
+            paymentParams.paymentNumber = transactionsParams.id;
+            paymentParams.paymentAmount = orderData.total;
+            paymentParams.paymentInformation = JSON.stringify(transactionsParams);
+            const payments = yield paymentRepository.save(paymentParams);
+            const productDetailData = [];
+            let i;
+            const orderProduct = yield orderProductRepository.find({ where: { orderId: orderData.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'basePrice'] });
+            for (i = 0; i < orderProduct.length; i++) {
+                const paymentItems = new PaymentItems_1.PaymentItems();
+                paymentItems.paymentId = payments.paymentId;
+                paymentItems.orderProductId = orderProduct[i].orderProductId;
+                paymentItems.totalAmount = orderProduct[i].total;
+                paymentItems.productName = orderProduct[i].name;
+                paymentItems.productQuantity = orderProduct[i].quantity;
+                paymentItems.productPrice = orderProduct[i].productPrice;
+                const payItem = yield paymentItemsRepository.save(paymentItems);
+                const vendorProduct = yield VendorProductsRepository.findOne({ where: { productId: orderProduct[i].productId } });
+                if (vendorProduct) {
+                    const vendor = yield VendorRepository.findOne({ where: { vendorId: vendorProduct.vendorId } });
+                    const vendorOrders = yield VendorOrdersRepository.findOne({ where: { vendorId: vendorProduct.vendorId, orderProductId: orderProduct[i].orderProductId } });
+                    const vendorPayments = new VendorPayment_1.VendorPayment();
+                    vendorPayments.vendorId = vendorProduct.vendorId;
+                    vendorPayments.paymentItemId = payItem.paymentItemId;
+                    vendorPayments.vendorOrderId = vendorOrders.vendorOrderId;
+                    vendorPayments.amount = orderProduct[i].total;
+                    if (vendorProduct.vendorProductCommission > 0) {
+                        vendorPayments.commissionAmount = vendorPayments.amount * (vendorProduct.vendorProductCommission / 100);
+                    }
+                    else if (vendor.commission > 0) {
+                        vendorPayments.commissionAmount = vendorPayments.amount * (vendor.commission / 100);
+                    }
+                    else {
+                        const defaultCommission = yield VendorGlobalSettingRepository.findOne();
+                        const defCommission = defaultCommission.defaultCommission;
+                        vendorPayments.commissionAmount = vendorPayments.amount * (defCommission / 100);
+                    }
+                    yield vendorPaymentRepository.save(vendorPayments);
+                }
+                const productInformation = yield orderProductRepository.findOne({ where: { orderProductId: orderProduct[i].orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'discountAmount', 'discountedAmount', 'skuName', 'taxValue', 'taxType', 'orderProductPrefixId', 'couponDiscountAmount'] });
+                const productImageData = yield productRepository.findOne(productInformation.productId);
+                let productImageDetail;
+                productImageDetail = yield productImageRepository.findOne({ where: { productId: productInformation.productId, defaultImage: 1 } });
+                productImageData.productInformationData = productInformation;
+                productImageData.productImage = productImageDetail;
+                productDetailData.push(productImageData);
+                const cart = yield CustomerCartRepository.findOne({ where: { productId: orderProduct[i].productId, customerId: orderData.customerId } });
+                if (cart !== undefined) {
+                    yield CustomerCartRepository.delete(cart.id);
+                }
+            }
+            const emailContent = yield EmailTemplateRepository.findOne(5);
+            const adminEmailContent = yield EmailTemplateRepository.findOne(6);
+            const nowDate = new Date();
+            const today = ('0' + nowDate.getDate()).slice(-2) + '.' + ('0' + (nowDate.getMonth() + 1)).slice(-2) + '.' + nowDate.getFullYear();
+            const customerFirstName = orderData.shippingFirstname;
+            const customerLastName = orderData.shippingLastname;
+            const customerName = customerFirstName + ' ' + customerLastName;
+            const adminMessage = adminEmailContent.content.replace('{adminname}', 'Admin').replace('{name}', customerName).replace('{orderId}', orderData.orderId);
+            const customerMessage = emailContent.content.replace('{name}', customerName);
+            const adminId = [];
+            const adminUser = yield userRepository.find({ select: ['username'], where: { userGroupId: 1 } });
+            for (const user of adminUser) {
+                const val = user.username;
+                adminId.push(val);
+            }
+            const logo = yield settingRepository.findOne();
+            const vendorInvoice = yield VendorInvoiceRepository.find({ where: { orderId: orderData.orderId } });
+            if (vendorInvoice.length > 0) {
+                for (const vendInvoice of vendorInvoice) {
+                    const vendorProductDetailData = [];
+                    const vendor = yield VendorRepository.findOne({ where: { vendorId: vendInvoice.vendorId } });
+                    const customer = yield CustomerRepository.findOne({ where: { id: vendor.customerId } });
+                    const vendorMessage = adminEmailContent.content.replace('{adminname}', vendor.companyName).replace('{name}', customerName).replace('{orderId}', orderData.orderId);
+                    const vendorInvoiceItem = yield VendorInvoiceItemRepository.find({ where: { vendorInvoiceId: vendInvoice.vendorInvoiceId } });
+                    for (const vendInvoiceItem of vendorInvoiceItem) {
+                        const vendorProductInformation = yield orderProductRepository.findOne({ where: { orderProductId: vendInvoiceItem.orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'skuName', 'taxValue', 'taxType', 'orderProductPrefixId'] });
+                        const vendorProductImageData = yield productRepository.findOne(vendorProductInformation.productId);
+                        let vendorProductImageDetail;
+                        vendorProductImageDetail = yield productImageRepository.findOne({ where: { productId: vendorProductInformation.productId, defaultImage: 1 } });
+                        vendorProductImageData.productInformationData = vendorProductInformation;
+                        vendorProductImageData.productImage = vendorProductImageDetail;
+                        vendorProductDetailData.push(vendorProductImageData);
+                    }
+                    const vendorRedirectUrl = env_1.env.vendorRedirectUrl;
+                    const vendorMailContent = {};
+                    vendorMailContent.logo = logo;
+                    vendorMailContent.emailContent = vendorMessage;
+                    vendorMailContent.redirectUrl = vendorRedirectUrl;
+                    vendorMailContent.productDetailData = vendorProductDetailData;
+                    vendorMailContent.today = today;
+                    vendorMailContent.orderData = orderData;
+                    mail_services_1.MAILService.sendMail(vendorMailContent, customer.email, adminEmailContent.subject, false, false, '');
+                }
+            }
+            const adminRedirectUrl = env_1.env.adminRedirectUrl;
+            const mailContents = {};
+            mailContents.logo = logo;
+            mailContents.emailContent = adminMessage;
+            mailContents.redirectUrl = adminRedirectUrl;
+            mailContents.productDetailData = productDetailData;
+            mailContents.today = today;
+            mailContents.orderData = orderData;
+            mail_services_1.MAILService.sendMail(mailContents, adminId, adminEmailContent.subject, false, false, '');
+            const storeRedirectUrl = env_1.env.storeRedirectUrl;
+            const storeMailContents = {};
+            storeMailContents.logo = logo;
+            storeMailContents.emailContent = customerMessage;
+            storeMailContents.productDetailData = productDetailData;
+            storeMailContents.today = today;
+            storeMailContents.redirectUrl = storeRedirectUrl;
+            storeMailContents.orderData = orderData;
+            mail_services_1.MAILService.sendMail(storeMailContents, orderData.email, emailContent.subject, false, false, '');
+            return {
+                status: 1,
+                message: 'Success',
+            };
+        });
+    }
+}
+exports.OrderProcessService = OrderProcessService;
+//# sourceMappingURL=OrderProcessService.js.map

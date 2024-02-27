@@ -1,1 +1,21 @@
-'use strict';function a346_0x5011(){const _0x17ff10=['16uFGiyR','tslib','522brVQcT','__decorate','class-validator','119806GYHKuI','7grMBic','4905558JFbEdi','1314576IolTGT','reflect-metadata','7237150cSEdeC','30885ocBGXm','FileNameRequest','1121827gjeEUE','prototype','image','__esModule','915309BizioH','IsNotEmpty'];a346_0x5011=function(){return _0x17ff10;};return a346_0x5011();}const a346_0x1e9d67=a346_0x2d57;(function(_0x41f072,_0x1928a4){const _0x39abe3=a346_0x2d57,_0x155f4e=_0x41f072();while(!![]){try{const _0x1edb5a=-parseInt(_0x39abe3(0x17a))/0x1*(-parseInt(_0x39abe3(0x179))/0x2)+parseInt(_0x39abe3(0x172))/0x3+parseInt(_0x39abe3(0x17c))/0x4+parseInt(_0x39abe3(0x16c))/0x5*(-parseInt(_0x39abe3(0x176))/0x6)+parseInt(_0x39abe3(0x16e))/0x7*(-parseInt(_0x39abe3(0x174))/0x8)+-parseInt(_0x39abe3(0x17b))/0x9+parseInt(_0x39abe3(0x16b))/0xa;if(_0x1edb5a===_0x1928a4)break;else _0x155f4e['push'](_0x155f4e['shift']());}catch(_0x2b2bbf){_0x155f4e['push'](_0x155f4e['shift']());}}}(a346_0x5011,0x5b428));Object['defineProperty'](exports,a346_0x1e9d67(0x171),{'value':!![]}),exports[a346_0x1e9d67(0x16d)]=void 0x0;const tslib_1=require(a346_0x1e9d67(0x175));require(a346_0x1e9d67(0x17d));const class_validator_1=require(a346_0x1e9d67(0x178));class FileNameRequest{}function a346_0x2d57(_0x11b7de,_0xc62798){const _0x5011e4=a346_0x5011();return a346_0x2d57=function(_0x2d5763,_0x2dba19){_0x2d5763=_0x2d5763-0x16b;let _0x9867b6=_0x5011e4[_0x2d5763];return _0x9867b6;},a346_0x2d57(_0x11b7de,_0xc62798);}tslib_1[a346_0x1e9d67(0x177)]([(0x0,class_validator_1[a346_0x1e9d67(0x173)])(),tslib_1['__metadata']('design:type',String)],FileNameRequest[a346_0x1e9d67(0x16f)],a346_0x1e9d67(0x170),void 0x0),exports[a346_0x1e9d67(0x16d)]=FileNameRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FileNameRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class FileNameRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], FileNameRequest.prototype, "image", void 0);
+exports.FileNameRequest = FileNameRequest;
+//# sourceMappingURL=CreateFileNameRequest.js.map

@@ -1,1 +1,989 @@
-'use strict';const a640_0x16e42b=a640_0x2a1f;(function(_0x23135f,_0x3f24ec){const _0x3c81bf=a640_0x2a1f,_0x221db8=_0x23135f();while(!![]){try{const _0x33558e=parseInt(_0x3c81bf(0x1a4))/0x1*(parseInt(_0x3c81bf(0x19c))/0x2)+parseInt(_0x3c81bf(0x1ac))/0x3*(-parseInt(_0x3c81bf(0x255))/0x4)+parseInt(_0x3c81bf(0x18d))/0x5+parseInt(_0x3c81bf(0x248))/0x6*(parseInt(_0x3c81bf(0x25d))/0x7)+-parseInt(_0x3c81bf(0x1fb))/0x8+parseInt(_0x3c81bf(0x179))/0x9*(parseInt(_0x3c81bf(0x1dc))/0xa)+parseInt(_0x3c81bf(0x245))/0xb*(-parseInt(_0x3c81bf(0x207))/0xc);if(_0x33558e===_0x3f24ec)break;else _0x221db8['push'](_0x221db8['shift']());}catch(_0x5bb804){_0x221db8['push'](_0x221db8['shift']());}}}(a640_0x5194,0xb805b));function a640_0x5194(){const _0x17a7e1=['avatarPath','CheckCustomerMiddleware','YYYY-MM-DD\x20HH:mm:ss','/login-log-list','routing-controllers','Loggedin\x20successfully.','defaultRoute','oldPassword','utc','/reset-password','headers','encrypt','./requests/changePasswordRequest','Password\x20must\x20contain\x20at\x20least\x20one\x20number\x20or\x20one\x20symbol\x20and\x20one\x20uppercase\x20and\x20lowercase\x20letter,\x20and\x20at\x20least\x208\x20and\x20at\x20most\x20128\x20characters','sendMail','Your\x20password\x20has\x20been\x20change\x20successfully.\x20','../../core/services/CustomerService','../../core/services/PluginService','customerActivityService','../../core/models/LoginAttemptsModel','substr','{name}','You\x20are\x20not\x20install\x20this\x20plugin\x20or\x20problem\x20in\x20installation','4948669vfLSNZ','moment','Key\x20is\x20missing','636BZjWJU','../../core/models/Customer','axios','/CustomerAddress/live','Inactive\x20Customer\x20account','../../core/middlewares/checkTokenMiddleware','clientId','Password\x20must\x20contain\x20at\x20least\x20one\x20number\x20or\x20at\x20least\x20one\x20symbol\x20and\x20one\x20uppercase\x20and\x20lowercase\x20letter,\x20and\x20at\x20least\x208\x20and\x20at\x20most\x20128\x20characters','tslib','subject','Successfully\x20Logout','CustomerEditProfileRequest','emailId','12mGzRVN','update','all','/guest-cart','/Oauth-login','../../core/services/LoginAttemptsService','editProfile','includes','19978ijUviH','design:type','LogList','keyCheck','logout','class-transformer','ipAddress','userType','../../core/models/CustomerActivity','changePassword','storeRedirectUrl','your\x20password\x20reset\x20link\x20has\x20been\x20expired,\x20try\x20again','env','pluginService','./requests/CustomerLoginRequest','../../core/models/AccessTokenModel','SettingService','LoginLogService','QueryParam','AES','login','kbbbb','CustomerActivity','format','lockedOn','productDetailData','StoreCustomerController','Password\x20must\x20not\x20duplicate\x20any\x20part\x20of\x20the\x20email\x20address','Successfully\x20get\x20login\x20Log\x20list','enc','activityId','logList','OauthLogin','authorization','register','instanceToPlain','toString','gmail','36189JGhHeZ','reflect-metadata','getCustomerProfile','You\x20are\x20not\x20Registered\x20with\x20us.\x20','connection','remoteAddress','type','AccessToken','/get-profile','Logged\x20in\x20Successfully.\x20','storeForgetPasswordLink','Your\x20password\x20has\x20been\x20changed\x20successfully','\x20seconds','availImageTypes','LoginLog','S3Service','concat','username','imageService','normal','2589355LpEbRE','/login','../../../auth/mail.services','emailTemplateService','attachmentDetails','design:paramtypes','redirectUrl','val','typeorm','parse','match','isLock','/register','UseBefore','CustomerRegisterRequest','23534TrPeZc','resetPassword','log','Bearer','emailContent','../../core/services/CustomerActivityService','../../core/models/LoginLog','userId','83dGAhPJ','imageserver','Req','./requests/CustomerEditProfileRequest','Img_','token','jwtSecret','AppId','411477TimLWR','CustomerService','loginAttemptsCount','data','EmailTemplateService','getConnection','Post','encryptedKey','split','replace','This\x20Email\x20is\x20Not\x20Registered.\x20','ceil','create','AppSecretKey','from','s3Service','findOne','address','Thank\x20you!\x20A\x20link\x20to\x20reset\x20your\x20password\x20will\x20be\x20sent\x20to\x20your\x20registered\x20email\x20shortly.','CustomerOauthLogin','baseUrl','Res','ChangePassword','phoneNumber','add','ascii','JsonController','prototype','hashPassword','YYYY-MM-DD\x20hh:mm:ss','isAttachment','loginAttemptsService','matchEmail','password','This\x20link\x20has\x20been\x20used\x20already.\x20please\x20try\x20again','forgetPasswordLink','user','__importDefault','You\x20have\x20an\x20error\x20in\x20your\x20request\x27s\x20body.\x20Check\x20\x27errors\x27\x20field\x20for\x20more\x20details!','customer','zoneId','loginAttemptsMinutes','./requests/CustomerOauthLoginRequest','content','Only\x20','base64','socket','customerService','90vajVxC','customerId','ImageService','design:returntype','The\x20Password\x20entered\x20is\x20invalid.\x20','{link}','firstName','newPassword','?token=','lastName','status','The\x20Customer\x20\x20details\x20have\x20been\x20updated\x20successfully','cryptoSecret','customerEmail','avatar','defineProperty','/forgot-password-key-check','accessTokenService','__param','createdDate','random','../../core/services/EmailTemplateService','pincode','CustomerLogin','BodyParam','File\x20size\x20is\x20too\x20large,\x20give\x20less\x20than\x202\x20mb.\x20','push','LoginAttemptsService','isActive','subtract','Get','1745072tWSBLT','customer/','linkExpires','Invalid\x20token','The\x20old\x20and\x20new\x20passwords\x20are\x20the\x20same.\x20Please\x20try\x20giving\x20a\x20different\x20one.\x20','delete','customer:','sign','default','getProfile','key','Your\x20Login\x20attempts\x20try\x20has\x20been\x20exceed\x20and\x20your\x20account\x20has\x20been\x20locked','12YOygWW','settingService','join','Put','crypto-js','__metadata','logo','mobileNumber','@spurtcommerce/customer','message','Redirect\x20to\x20this\x20url.','limit','length','comparePassword','minutes','Body','image','../../../env','forgetPasswordKey','Utf8','facebook','countryId','email','loginLogService','../../core/services/ImageService','x-forwarded-for','imageUpload','__decorate','diff','pluginAdditionalInfo','MAILService','Customer','../../core/services/AccessTokenService','__awaiter','customerRegister','map','now','send','body'];a640_0x5194=function(){return _0x17a7e1;};return a640_0x5194();}function a640_0x2a1f(_0x54c7a5,_0x3bf041){const _0x519468=a640_0x5194();return a640_0x2a1f=function(_0x2a1ff2,_0x28c61b){_0x2a1ff2=_0x2a1ff2-0x175;let _0x1f402c=_0x519468[_0x2a1ff2];return _0x1f402c;},a640_0x2a1f(_0x54c7a5,_0x3bf041);}Object[a640_0x16e42b(0x1eb)](exports,'__esModule',{'value':!![]}),exports[a640_0x16e42b(0x277)]=void 0x0;const tslib_1=require(a640_0x16e42b(0x250));require(a640_0x16e42b(0x17a));const routing_controllers_1=require(a640_0x16e42b(0x232)),class_transformer_1=require(a640_0x16e42b(0x262)),jsonwebtoken_1=tslib_1[a640_0x16e42b(0x1d1)](require('jsonwebtoken')),mail_services_1=require(a640_0x16e42b(0x18f)),CustomerRegisterRequest_1=require('./requests/CustomerRegisterRequest'),CustomerLoginRequest_1=require(a640_0x16e42b(0x26b)),CustomerOauthLoginRequest_1=require(a640_0x16e42b(0x1d6)),changePasswordRequest_1=require(a640_0x16e42b(0x23a)),Customer_1=require(a640_0x16e42b(0x249)),CustomerService_1=require(a640_0x16e42b(0x23e)),LoginLogService_1=require('../../core/services/LoginLogService'),CustomerEditProfileRequest_1=require(a640_0x16e42b(0x1a7)),env_1=require(a640_0x16e42b(0x218)),LoginLog_1=require(a640_0x16e42b(0x1a2)),CustomerActivity_1=require(a640_0x16e42b(0x265)),EmailTemplateService_1=require(a640_0x16e42b(0x1f1)),CustomerActivityService_1=require(a640_0x16e42b(0x1a1)),ImageService_1=require(a640_0x16e42b(0x21f)),S3Service_1=require('../../core/services/S3Service'),PluginService_1=require(a640_0x16e42b(0x23f)),SettingService_1=require('../../core/services/SettingService'),moment_1=tslib_1['__importDefault'](require(a640_0x16e42b(0x246))),LoginAttemptsModel_1=require(a640_0x16e42b(0x241)),typeorm_1=require(a640_0x16e42b(0x195)),LoginAttemptsService_1=require(a640_0x16e42b(0x25a)),AccessTokenModel_1=require(a640_0x16e42b(0x26c)),AccessTokenService_1=require(a640_0x16e42b(0x227)),checkTokenMiddleware_1=require(a640_0x16e42b(0x24d)),customer_1=require(a640_0x16e42b(0x20f)),axios_1=tslib_1[a640_0x16e42b(0x1d1)](require(a640_0x16e42b(0x24a)));let StoreCustomerController=class StoreCustomerController{constructor(_0x555f40,_0x552bfb,_0x40c325,_0x533d26,_0x5a573c,_0x1c3eeb,_0x5ab5e0,_0x188829,_0x41e419,_0x22ff2b){const _0x2537d7=a640_0x16e42b;this[_0x2537d7(0x1db)]=_0x555f40,this[_0x2537d7(0x1bb)]=_0x552bfb,this[_0x2537d7(0x208)]=_0x40c325,this[_0x2537d7(0x1cb)]=_0x533d26,this[_0x2537d7(0x1ed)]=_0x5a573c,this[_0x2537d7(0x18b)]=_0x1c3eeb,this[_0x2537d7(0x21e)]=_0x5ab5e0,this[_0x2537d7(0x190)]=_0x188829,this[_0x2537d7(0x26a)]=_0x41e419,this[_0x2537d7(0x240)]=_0x22ff2b;}['register'](_0xe9bfcb,_0x61decc,_0x5c8015){const _0x2bee26=a640_0x16e42b;return tslib_1[_0x2bee26(0x228)](this,void 0x0,void 0x0,function*(){const _0x2e6776=_0x2bee26,_0x1d92dc=yield(0x0,customer_1[_0x2e6776(0x229)])((0x0,typeorm_1[_0x2e6776(0x1b1)])(),{'body':_0xe9bfcb,'ip':(_0x61decc[_0x2e6776(0x238)]['x-forwarded-for']||_0x61decc[_0x2e6776(0x17d)]['remoteAddress']||_0x61decc[_0x2e6776(0x1da)][_0x2e6776(0x17e)]||_0x61decc[_0x2e6776(0x17d)][_0x2e6776(0x1da)]['remoteAddress'])[_0x2e6776(0x1b4)](',')[0x0],'storeRedirectUrl':env_1[_0x2e6776(0x269)][_0x2e6776(0x267)]});if(_0x1d92dc[_0x2e6776(0x1e6)]===0x0)return _0x5c8015[_0x2e6776(0x1e6)](0x190)[_0x2e6776(0x22c)]({'status':_0x1d92dc[_0x2e6776(0x1e6)],'message':_0x1d92dc['message']});const _0x3d38c0=_0x1d92dc[_0x2e6776(0x1af)][_0x2e6776(0x1e9)];return mail_services_1[_0x2e6776(0x225)][_0x2e6776(0x23c)](_0x3d38c0['mailContent'],_0x3d38c0[_0x2e6776(0x21d)],_0x3d38c0[_0x2e6776(0x251)],_0x3d38c0['bcc'],_0x3d38c0[_0x2e6776(0x1ca)],_0x3d38c0[_0x2e6776(0x191)]),_0x5c8015[_0x2e6776(0x1e6)](0xc8)[_0x2e6776(0x22c)]({'status':_0x1d92dc[_0x2e6776(0x1e6)],'message':_0x1d92dc[_0x2e6776(0x210)],'data':_0x1d92dc[_0x2e6776(0x1af)]['resultData']});});}[a640_0x16e42b(0x271)](_0x2f1800,_0x1aac8e,_0x196ebc){const _0x4aa0e1=a640_0x16e42b;return tslib_1[_0x4aa0e1(0x228)](this,void 0x0,void 0x0,function*(){const _0x519f68=_0x4aa0e1;if(_0x2f1800[_0x519f68(0x17f)]===_0x519f68(0x18c)){const _0x2c7df7=yield this[_0x519f68(0x1db)][_0x519f68(0x1bc)]({'select':['id','firstName','lastName','email',_0x519f68(0x20e),_0x519f68(0x1cd),'avatar','avatarPath','isActive',_0x519f68(0x275)],'where':{'email':_0x2f1800[_0x519f68(0x254)],'deleteFlag':0x0}});if(!_0x2c7df7){const _0x289c12={'status':0x0,'message':_0x519f68(0x17c)};return _0x196ebc[_0x519f68(0x1e6)](0x190)[_0x519f68(0x22c)](_0x289c12);}if(_0x2c7df7[_0x519f68(0x275)]){if((0x0,moment_1[_0x519f68(0x203)])(_0x2c7df7[_0x519f68(0x275)])[_0x519f68(0x274)]('YYYY-MM-DD\x20HH:mm:ss')>(0x0,moment_1['default'])()[_0x519f68(0x274)](_0x519f68(0x230))){const _0x5742d7=(0x0,moment_1[_0x519f68(0x203)])(),_0x5f4c1f=(0x0,moment_1[_0x519f68(0x203)])(_0x2c7df7['lockedOn'],_0x519f68(0x1c9)),_0xb3bcc9=_0x5f4c1f[_0x519f68(0x223)](_0x5742d7,'seconds'),_0x634338={'status':0x0,'message':'Your\x20account\x20has\x20been\x20locked.\x20Please\x20try\x20after\x20'+_0xb3bcc9+_0x519f68(0x185)};return _0x196ebc['status'](0x190)['send'](_0x634338);}}if(_0x2c7df7['isActive']===0x0){const _0x1fc23c={'status':0x0,'message':_0x519f68(0x24c)};return _0x196ebc[_0x519f68(0x1e6)](0x190)[_0x519f68(0x22c)](_0x1fc23c);}if(yield Customer_1[_0x519f68(0x226)][_0x519f68(0x214)](_0x2c7df7,_0x2f1800['password'])){const _0xca0d6d=jsonwebtoken_1[_0x519f68(0x203)][_0x519f68(0x202)]({'id':_0x2c7df7['id']},env_1[_0x519f68(0x269)][_0x519f68(0x1aa)],{'expiresIn':'4h'}),_0x5e2adf=new CustomerActivity_1[(_0x519f68(0x273))]();_0x5e2adf[_0x519f68(0x1dd)]=_0x2c7df7['id'],_0x5e2adf[_0x519f68(0x27b)]=0x1,_0x5e2adf['description']='loggedIn',yield this[_0x519f68(0x240)][_0x519f68(0x1b8)](_0x5e2adf);const _0x5436e9=new LoginLog_1[(_0x519f68(0x187))]();_0x5436e9['customerId']=_0x2c7df7['id'],_0x5436e9[_0x519f68(0x254)]=_0x2c7df7['email'],_0x5436e9[_0x519f68(0x1e2)]=_0x2c7df7['firstName'],_0x5436e9[_0x519f68(0x263)]=(_0x1aac8e['headers'][_0x519f68(0x220)]||_0x1aac8e['connection'][_0x519f68(0x17e)]||_0x1aac8e['socket'][_0x519f68(0x17e)]||_0x1aac8e[_0x519f68(0x17d)][_0x519f68(0x1da)]['remoteAddress'])[_0x519f68(0x1b4)](',')[0x0];const _0x456e99=yield this[_0x519f68(0x21e)][_0x519f68(0x1b8)](_0x5436e9),_0x4ecce9=yield this[_0x519f68(0x1db)][_0x519f68(0x1bc)]({'where':{'email':_0x2f1800[_0x519f68(0x254)],'deleteFlag':0x0}});_0x4ecce9['lastLogin']=_0x456e99[_0x519f68(0x1ef)],yield this[_0x519f68(0x1db)][_0x519f68(0x1b8)](_0x4ecce9);const _0x287ff9=require('crypto-js'),_0x36c010=_0x287ff9['AES'][_0x519f68(0x239)](_0xca0d6d,env_1[_0x519f68(0x269)][_0x519f68(0x1e8)])[_0x519f68(0x177)]();if(_0xca0d6d){const _0x5b9fbc=new AccessTokenModel_1[(_0x519f68(0x180))]();_0x5b9fbc[_0x519f68(0x1a3)]=_0x2c7df7['id'],_0x5b9fbc[_0x519f68(0x1a9)]=_0xca0d6d,_0x5b9fbc[_0x519f68(0x264)]=_0x519f68(0x1d3),yield this[_0x519f68(0x1ed)][_0x519f68(0x1b8)](_0x5b9fbc);}_0x2c7df7['email']='',_0x2c7df7[_0x519f68(0x1e2)]='',_0x2c7df7[_0x519f68(0x1e5)]='',_0x2c7df7[_0x519f68(0x20e)]='',_0x2c7df7['username']='';const _0x1c5bdf={'status':0x1,'message':_0x519f68(0x182),'data':{'token':_0x36c010,'user':(0x0,class_transformer_1[_0x519f68(0x176)])(_0x2c7df7)}},{existsSync:_0x44d067}=require('fs'),_0x2f5f25=yield _0x44d067(process['cwd']()+'/add-ons/AbandonedCart/controllers/admin/AbandonedCartController.ts');return _0x2f5f25&&(yield axios_1[_0x519f68(0x203)]['put'](env_1[_0x519f68(0x269)]['baseUrl']+_0x519f68(0x258),{'data':{'token':_0x36c010,'ip':_0x5436e9[_0x519f68(0x263)]}})),yield axios_1[_0x519f68(0x203)]['put'](env_1[_0x519f68(0x269)][_0x519f68(0x1c0)]+_0x519f68(0x24b),{'data':{'token':_0x36c010,'ip':_0x5436e9['ipAddress']}}),_0x196ebc[_0x519f68(0x1e6)](0xc8)[_0x519f68(0x22c)](_0x1c5bdf);}const _0x4378c0=(0x0,moment_1[_0x519f68(0x203)])(new Date())[_0x519f68(0x1f9)](env_1[_0x519f68(0x269)][_0x519f68(0x1d5)],_0x519f68(0x215))[_0x519f68(0x274)]('YYYY-MM-DD\x20HH:mm:ss'),_0x176132=yield this[_0x519f68(0x1cb)]['find']({'customerId':_0x2c7df7['id'],'createdDate':(0x0,typeorm_1['MoreThan'])(_0x4378c0)});if(_0x176132[_0x519f68(0x213)]>env_1[_0x519f68(0x269)][_0x519f68(0x1ae)]){_0x2c7df7[_0x519f68(0x198)]=0x1,_0x2c7df7[_0x519f68(0x275)]=(0x0,moment_1[_0x519f68(0x203)])()[_0x519f68(0x1c4)](env_1[_0x519f68(0x269)][_0x519f68(0x1d5)],'minutes')[_0x519f68(0x274)](_0x519f68(0x230)),yield this['customerService']['update'](_0x2c7df7['id'],_0x2c7df7);const _0x459a61={'status':0x0,'message':_0x519f68(0x206)};return _0x196ebc[_0x519f68(0x1e6)](0x190)[_0x519f68(0x22c)](_0x459a61);}const _0x24c042=new LoginAttemptsModel_1['LoginAttemptsModel']();_0x24c042['customerId']=_0x2c7df7['id'],_0x24c042[_0x519f68(0x263)]=(_0x1aac8e['headers']['x-forwarded-for']||_0x1aac8e[_0x519f68(0x17d)][_0x519f68(0x17e)]||_0x1aac8e[_0x519f68(0x1da)][_0x519f68(0x17e)]||_0x1aac8e[_0x519f68(0x17d)][_0x519f68(0x1da)]['remoteAddress'])[_0x519f68(0x1b4)](',')[0x0],yield this['loginAttemptsService']['create'](_0x24c042);const _0x4bca09={'status':0x0,'message':_0x519f68(0x1e0)};return _0x196ebc['status'](0x190)['send'](_0x4bca09);}if(_0x2f1800[_0x519f68(0x17f)]===_0x519f68(0x178)){const _0x37fe24=yield this['pluginService'][_0x519f68(0x1bc)]({'where':{'pluginName':_0x2f1800[_0x519f68(0x17f)],'pluginStatus':0x1}});if(_0x37fe24){const _0x48b5ff=JSON['parse'](_0x37fe24[_0x519f68(0x224)]),_0xc4acbd=env_1['env']['baseUrl']+_0x48b5ff[_0x519f68(0x234)],_0x3c1fe5={'status':0x1,'message':_0x519f68(0x211),'data':{'returnPath':_0xc4acbd,'clientId':_0x48b5ff[_0x519f68(0x24e)]}};return _0x196ebc[_0x519f68(0x1e6)](0xc8)[_0x519f68(0x22c)](_0x3c1fe5);}else{const _0x13a967={'status':0x0,'message':_0x519f68(0x244)};return _0x196ebc[_0x519f68(0x1e6)](0x190)[_0x519f68(0x22c)](_0x13a967);}}else{if(_0x2f1800[_0x519f68(0x17f)]===_0x519f68(0x21b)){const _0x4cad51=yield this[_0x519f68(0x26a)]['findOne']({'where':{'pluginName':_0x2f1800['type'],'pluginStatus':0x1}});if(_0x4cad51){const _0x10686a=JSON[_0x519f68(0x196)](_0x4cad51[_0x519f68(0x224)]),_0x20c9f2=env_1['env'][_0x519f68(0x1c0)]+_0x10686a[_0x519f68(0x234)],_0xe60560={'status':0x1,'message':_0x519f68(0x211),'data':{'returnPath':_0x20c9f2,'AppId':_0x10686a[_0x519f68(0x1ab)],'AppSecretKey':_0x10686a[_0x519f68(0x1b9)]}};return _0x196ebc[_0x519f68(0x1e6)](0xc8)['send'](_0xe60560);}else{const _0x289a13={'status':0x0,'message':'You\x20are\x20not\x20install\x20this\x20plugin\x20or\x20problem\x20in\x20installation'};return _0x196ebc[_0x519f68(0x1e6)](0x190)[_0x519f68(0x22c)](_0x289a13);}}}});}[a640_0x16e42b(0x266)](_0x5b9424,_0x3da849,_0x1374c5){const _0x19f38e=a640_0x16e42b;return tslib_1[_0x19f38e(0x228)](this,void 0x0,void 0x0,function*(){const _0x1e0825=_0x19f38e,_0xbde33a=yield this[_0x1e0825(0x1db)][_0x1e0825(0x1bc)]({'where':{'id':_0x3da849['user']['id']}});if(yield Customer_1[_0x1e0825(0x226)][_0x1e0825(0x214)](_0xbde33a,_0x5b9424[_0x1e0825(0x235)])){const _0x1e21ac=yield Customer_1[_0x1e0825(0x226)][_0x1e0825(0x214)](_0xbde33a,_0x5b9424[_0x1e0825(0x1e3)]);if(_0x1e21ac){const _0xd29c91={'status':0x0,'message':_0x1e0825(0x1ff)};return _0x1374c5[_0x1e0825(0x1e6)](0x190)[_0x1e0825(0x22c)](_0xd29c91);}const _0x25bb53=/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;if(!_0x5b9424[_0x1e0825(0x1e3)]['match'](_0x25bb53)){const _0x3c7d8f=[];_0x3c7d8f[_0x1e0825(0x1f6)](_0x1e0825(0x23b));const _0x1d1e49={'status':0x0,'message':_0x1e0825(0x1d2),'data':{'message':_0x3c7d8f}};return _0x1374c5[_0x1e0825(0x1e6)](0x1a6)['send'](_0x1d1e49);}_0xbde33a[_0x1e0825(0x1cd)]=yield Customer_1['Customer'][_0x1e0825(0x1c8)](_0x5b9424[_0x1e0825(0x1e3)]);const _0x4697fb=yield this[_0x1e0825(0x1db)][_0x1e0825(0x256)](_0xbde33a['id'],_0xbde33a);if(_0x4697fb){const _0x1ccfba={'status':0x1,'message':_0x1e0825(0x23d)};return _0x1374c5['status'](0xc8)[_0x1e0825(0x22c)](_0x1ccfba);}}const _0xca5477={'status':0x0,'message':'The\x20Current\x20Password\x20does\x20not\x20Match\x20OurRecords'};return _0x1374c5[_0x1e0825(0x1e6)](0x190)[_0x1e0825(0x22c)](_0xca5477);});}[a640_0x16e42b(0x204)](_0x43f6d8,_0x24172b){const _0x3a77ed=a640_0x16e42b;return tslib_1[_0x3a77ed(0x228)](this,void 0x0,void 0x0,function*(){const _0x35b8ec=_0x3a77ed,_0x3b989a=yield(0x0,customer_1[_0x35b8ec(0x17b)])((0x0,typeorm_1[_0x35b8ec(0x1b1)])(),_0x43f6d8[_0x35b8ec(0x1d0)]['id']);return _0x24172b[_0x35b8ec(0x1e6)](0xc8)[_0x35b8ec(0x22c)]({'status':_0x3b989a[_0x35b8ec(0x1e6)],'message':_0x3b989a[_0x35b8ec(0x210)],'data':_0x3b989a[_0x35b8ec(0x1af)]});});}[a640_0x16e42b(0x25b)](_0x2e1afe,_0x14eac4,_0x2075c6){const _0x3fd0f9=a640_0x16e42b;var _0x3b98bd;return tslib_1[_0x3fd0f9(0x228)](this,void 0x0,void 0x0,function*(){const _0x5d9863=_0x3fd0f9,_0x526805=_0x2e1afe[_0x5d9863(0x217)];let _0x4337d6;const _0x33bad8=yield this[_0x5d9863(0x1db)][_0x5d9863(0x1bc)]({'select':['id',_0x5d9863(0x1e2),_0x5d9863(0x1e5),'email',_0x5d9863(0x20e),_0x5d9863(0x1bd),_0x5d9863(0x1d4),_0x5d9863(0x21c),_0x5d9863(0x1f2),_0x5d9863(0x1ea),'avatarPath','password'],'where':{'id':_0x14eac4['user']['id']}});if(_0x526805){const _0xad3bf8=_0x526805[_0x5d9863(0x1b4)](';')[0x0][_0x5d9863(0x1b4)]('/')[0x1],_0x13ffdf=env_1['env'][_0x5d9863(0x186)]['split'](',');if(!_0x13ffdf[_0x5d9863(0x25c)](_0xad3bf8)){const _0x4d8c3d={'status':0x0,'message':_0x5d9863(0x1d8)+env_1['env'][_0x5d9863(0x186)]+'\x20types\x20are\x20allowed'};return _0x2075c6[_0x5d9863(0x1e6)](0x190)[_0x5d9863(0x22c)](_0x4d8c3d);}_0x4337d6=_0x5d9863(0x1a8)+Date[_0x5d9863(0x22b)]()+'.'+_0xad3bf8;const _0x5e164e=_0x5d9863(0x1fc),_0x22d26f=Buffer[_0x5d9863(0x1ba)](_0x526805['replace'](/^data:image\/\w+;base64,/,''),_0x5d9863(0x1d9)),_0x112031=_0x526805[_0x5d9863(0x1b5)](/^data:image\/\w+;base64,/,'')[_0x5d9863(0x213)],_0x4a6037=0x4*Math[_0x5d9863(0x1b7)](_0x112031/0x3)*0.5624896334383812,_0x5b56a6=_0x4a6037/0x400;console[_0x5d9863(0x19e)](_0x5b56a6+_0x5d9863(0x272));if(+_0x5b56a6<=0x800)env_1[_0x5d9863(0x269)][_0x5d9863(0x1a5)]==='s3'?yield this[_0x5d9863(0x1bb)][_0x5d9863(0x221)](_0x5e164e+_0x4337d6,_0x22d26f,_0xad3bf8):yield this[_0x5d9863(0x18b)][_0x5d9863(0x221)](_0x5e164e+_0x4337d6,_0x22d26f);else{const _0x24ac0e={'status':0x0,'message':_0x5d9863(0x1f5)};return _0x2075c6[_0x5d9863(0x1e6)](0x190)[_0x5d9863(0x22c)](_0x24ac0e);}_0x33bad8[_0x5d9863(0x1ea)]=_0x4337d6,_0x33bad8['avatarPath']=_0x5e164e;}_0x33bad8[_0x5d9863(0x1e2)]=_0x2e1afe[_0x5d9863(0x1e2)],_0x33bad8['lastName']=(_0x3b98bd=_0x2e1afe[_0x5d9863(0x1e5)])!==null&&_0x3b98bd!==void 0x0?_0x3b98bd:'',_0x33bad8[_0x5d9863(0x21d)]=_0x2e1afe[_0x5d9863(0x254)],_0x33bad8[_0x5d9863(0x20e)]=_0x2e1afe[_0x5d9863(0x1c3)],_0x33bad8[_0x5d9863(0x18a)]=_0x2e1afe[_0x5d9863(0x254)];const _0x5f555d=yield this[_0x5d9863(0x1db)][_0x5d9863(0x256)](_0x33bad8['id'],_0x33bad8),_0x34bb95={'status':0x1,'message':_0x5d9863(0x1e7),'data':(0x0,class_transformer_1[_0x5d9863(0x176)])(_0x5f555d)};return _0x2075c6['status'](0xc8)['send'](_0x34bb95);});}[a640_0x16e42b(0x25f)](_0x5842bf,_0x27283b){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3f3ea6=a640_0x2a1f,_0x1d1666=yield this['loginLogService'][_0x3f3ea6(0x27c)](_0x5842bf),_0x2654c6=_0x1d1666[_0x3f3ea6(0x22a)](_0x495119=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x33d08e=_0x3f3ea6,_0x4c798d=moment_1[_0x33d08e(0x203)][_0x33d08e(0x236)](_0x495119[_0x33d08e(0x1ef)])['local']()['format']('YYYY-MM-DD'),_0x4982e8=_0x495119;return _0x4982e8[_0x33d08e(0x1ef)]=_0x4c798d,_0x4982e8;})),_0x5d6b6e=yield Promise[_0x3f3ea6(0x257)](_0x2654c6),_0xcb9ff={'status':0x1,'message':_0x3f3ea6(0x279),'data':_0x5d6b6e};return _0x27283b[_0x3f3ea6(0x1e6)](0xc8)['send'](_0xcb9ff);});}[a640_0x16e42b(0x27d)](_0xedcc8f,_0x496b97,_0x3f1efe){const _0x3dabf8=a640_0x16e42b;return tslib_1[_0x3dabf8(0x228)](this,void 0x0,void 0x0,function*(){const _0x371fe3=_0x3dabf8,_0x49da9f=yield this[_0x371fe3(0x1db)][_0x371fe3(0x1bc)]({'where':{'email':_0xedcc8f[_0x371fe3(0x254)]}});if(!_0x49da9f){const _0x3cfcaf=new Customer_1[(_0x371fe3(0x226))](),_0x131945=Math[_0x371fe3(0x1f0)]()[_0x371fe3(0x177)]()['substr'](0x2,0x5);_0x3cfcaf['password']=yield Customer_1[_0x371fe3(0x226)][_0x371fe3(0x1c8)](_0x131945),_0x3cfcaf[_0x371fe3(0x21d)]=_0xedcc8f[_0x371fe3(0x254)],_0x3cfcaf[_0x371fe3(0x18a)]=_0xedcc8f[_0x371fe3(0x254)],_0x3cfcaf[_0x371fe3(0x1f8)]=0x1,_0x3cfcaf['ip']=(_0x496b97['headers'][_0x371fe3(0x220)]||_0x496b97[_0x371fe3(0x17d)]['remoteAddress']||_0x496b97[_0x371fe3(0x1da)][_0x371fe3(0x17e)]||_0x496b97[_0x371fe3(0x17d)][_0x371fe3(0x1da)][_0x371fe3(0x17e)])[_0x371fe3(0x1b4)](',')[0x0];const _0x1c5651=yield this['customerService'][_0x371fe3(0x1b8)](_0x3cfcaf),_0x38688d=jsonwebtoken_1[_0x371fe3(0x203)][_0x371fe3(0x202)]({'id':_0x1c5651['id']},env_1['env'][_0x371fe3(0x1aa)],{'expiresIn':0x15180}),_0x4b4976=yield this[_0x371fe3(0x190)]['findOne'](0x1),_0x251f2c=_0x4b4976[_0x371fe3(0x1d7)]['replace'](_0x371fe3(0x243),_0x1c5651[_0x371fe3(0x18a)]),_0x1ae976=env_1[_0x371fe3(0x269)]['storeRedirectUrl'],_0x4a0a8c=yield this['settingService'][_0x371fe3(0x1bc)](),_0x584ace={};_0x584ace[_0x371fe3(0x20d)]=_0x4a0a8c,_0x584ace[_0x371fe3(0x1a0)]=_0x251f2c,_0x584ace['redirectUrl']=_0x1ae976,_0x584ace['productDetailData']=undefined;const _0x412a06=mail_services_1['MAILService']['sendMail'](_0x584ace,_0x1c5651[_0x371fe3(0x21d)],_0x4b4976[_0x371fe3(0x251)],![],![],'');if(_0x38688d){const _0x107f16=new AccessTokenModel_1[(_0x371fe3(0x180))]();_0x107f16[_0x371fe3(0x1a3)]=_0x49da9f['id'],_0x107f16[_0x371fe3(0x1a9)]=_0x38688d,yield this[_0x371fe3(0x1ed)]['create'](_0x107f16);}const _0x187957=require(_0x371fe3(0x20b)),_0x32e3c1=_0x187957['AES']['encrypt'](_0x38688d,env_1[_0x371fe3(0x269)][_0x371fe3(0x1e8)])[_0x371fe3(0x177)]();if(_0x412a06){const _0x4ecd54={'status':0x1,'message':'Loggedin\x20successfully.\x20','data':{'token':_0x32e3c1,'user':(0x0,class_transformer_1[_0x371fe3(0x176)])(_0x49da9f),'password':_0x131945}};return _0x3f1efe[_0x371fe3(0x1e6)](0xc8)[_0x371fe3(0x22c)](_0x4ecd54);}}else{const _0x2f856b=jsonwebtoken_1['default'][_0x371fe3(0x202)]({'id':_0x49da9f['id']},env_1[_0x371fe3(0x269)][_0x371fe3(0x1aa)],{'expiresIn':0x15180}),_0x5ab264=require(_0x371fe3(0x20b)),_0x248de4=_0x5ab264['AES'][_0x371fe3(0x239)](_0x2f856b,env_1[_0x371fe3(0x269)][_0x371fe3(0x1e8)])[_0x371fe3(0x177)](),_0xed776e={'status':0x1,'message':_0x371fe3(0x233),'data':{'token':_0x248de4,'user':(0x0,class_transformer_1[_0x371fe3(0x176)])(_0x49da9f)}};return _0x3f1efe['status'](0xc8)[_0x371fe3(0x22c)](_0xed776e);}});}['forgetPasswordLink'](_0x49a5ac,_0x3ec823,_0x34cab2){const _0x154098=a640_0x16e42b;return tslib_1[_0x154098(0x228)](this,void 0x0,void 0x0,function*(){const _0x62a871=_0x154098,_0x36771e=yield this['customerService'][_0x62a871(0x1bc)]({'where':{'email':_0x49a5ac,'deleteFlag':0x0}});console['log'](_0x62a871(0x201),_0x36771e);if(!_0x36771e){const _0x498968={'status':0x1,'message':_0x62a871(0x1b6)};return _0x3ec823[_0x62a871(0x1e6)](0x190)['send'](_0x498968);}const _0x321fb4=require(_0x62a871(0x20b)),_0x3b14b5=_0x321fb4[_0x62a871(0x270)][_0x62a871(0x239)](_0x36771e[_0x62a871(0x21d)],env_1[_0x62a871(0x269)]['cryptoSecret'])[_0x62a871(0x177)](),_0x5c1228=Buffer['from'](_0x3b14b5)[_0x62a871(0x177)](_0x62a871(0x1d9));console['log'](_0x3b14b5+_0x62a871(0x194)),console[_0x62a871(0x19e)](_0x5c1228+_0x62a871(0x1b3)),_0x36771e['forgetPasswordKey']=_0x5c1228,_0x36771e[_0x62a871(0x1fd)]=(0x0,moment_1['default'])()[_0x62a871(0x1c4)](0x14,'minutes')['format']('YYYY-MM-DD\x20HH:mm:ss'),yield this[_0x62a871(0x1db)]['update'](_0x36771e['id'],_0x36771e);const _0xa9493b=yield this[_0x62a871(0x190)][_0x62a871(0x1bc)](0x17),_0x4723bf=yield this['settingService'][_0x62a871(0x1bc)](),_0x58d5f8=env_1[_0x62a871(0x269)][_0x62a871(0x183)]+_0x62a871(0x1e4)+_0x5c1228,_0x5db453=env_1[_0x62a871(0x269)][_0x62a871(0x267)];console[_0x62a871(0x19e)](_0x58d5f8+_0x62a871(0x193));const _0x2aab66=_0xa9493b['content']['replace'](_0x62a871(0x243),_0x36771e['firstName'])[_0x62a871(0x1b5)](_0x62a871(0x1e1),_0x58d5f8),_0x5e939a={};_0x5e939a['logo']=_0x4723bf,_0x5e939a[_0x62a871(0x1a0)]=_0x2aab66,_0x5e939a[_0x62a871(0x193)]=_0x5db453,_0x5e939a[_0x62a871(0x276)]=undefined;const _0x421f99=mail_services_1[_0x62a871(0x225)][_0x62a871(0x23c)](_0x5e939a,_0x36771e[_0x62a871(0x21d)],_0xa9493b[_0x62a871(0x251)],![],![],'');if(_0x421f99){const _0x1c1a38={'status':0x1,'message':_0x62a871(0x1be)};return _0x3ec823[_0x62a871(0x1e6)](0xc8)[_0x62a871(0x22c)](_0x1c1a38);}});}[a640_0x16e42b(0x260)](_0xc73433,_0x154fd4){const _0x504003=a640_0x16e42b;return tslib_1[_0x504003(0x228)](this,void 0x0,void 0x0,function*(){const _0x388bac=_0x504003,_0x9d2f3b=require(_0x388bac(0x20b)),_0x4fe2d5=_0x9d2f3b[_0x388bac(0x270)]['decrypt'](Buffer[_0x388bac(0x1ba)](_0xc73433,_0x388bac(0x1d9))[_0x388bac(0x177)]('ascii'),env_1[_0x388bac(0x269)][_0x388bac(0x1e8)]),_0xc3b64=_0x4fe2d5[_0x388bac(0x177)](_0x9d2f3b[_0x388bac(0x27a)][_0x388bac(0x21a)]),_0x20d7f6=yield this[_0x388bac(0x1db)][_0x388bac(0x1bc)]({'where':{'email':_0xc3b64,'deleteFlag':0x0}});if(!_0x20d7f6){const _0x49c7aa={'status':0x3,'message':'Invalid\x20key.\x20please\x20try\x20again'};return _0x154fd4[_0x388bac(0x1e6)](0xc8)['send'](_0x49c7aa);}if((0x0,moment_1['default'])(_0x20d7f6[_0x388bac(0x1fd)])[_0x388bac(0x274)](_0x388bac(0x230))<(0x0,moment_1[_0x388bac(0x203)])()[_0x388bac(0x274)]('YYYY-MM-DD\x20HH:mm:ss')){const _0xf22a73={'status':0x2,'message':_0x388bac(0x268)};return _0x154fd4['status'](0xc8)[_0x388bac(0x22c)](_0xf22a73);}if(_0x20d7f6[_0x388bac(0x219)]!==''){const _0xc2dc98={'status':0x1,'message':'Valid\x20key'};return _0x154fd4['status'](0xc8)[_0x388bac(0x22c)](_0xc2dc98);}else{const _0x90d0c2={'status':0x3,'message':_0x388bac(0x1ce)};return _0x154fd4[_0x388bac(0x1e6)](0xc8)[_0x388bac(0x22c)](_0x90d0c2);}});}[a640_0x16e42b(0x19d)](_0x4b6cdb,_0x3ca7f9,_0xebe1c0){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x141fb0=a640_0x2a1f,_0x1d70fd=_0x3ca7f9[_0x141fb0(0x22d)][_0x141fb0(0x205)];if(!_0x1d70fd){const _0x206cb0={'status':0x0,'message':_0x141fb0(0x247)};return _0xebe1c0[_0x141fb0(0x1e6)](0x190)['send'](_0x206cb0);}const _0x476d3a=require('crypto-js'),_0x4dd6d1=_0x476d3a['AES']['decrypt'](Buffer[_0x141fb0(0x1ba)](_0x1d70fd,_0x141fb0(0x1d9))[_0x141fb0(0x177)](_0x141fb0(0x1c5)),env_1[_0x141fb0(0x269)][_0x141fb0(0x1e8)]),_0x271a25=_0x4dd6d1['toString'](_0x476d3a[_0x141fb0(0x27a)][_0x141fb0(0x21a)]);console[_0x141fb0(0x19e)](_0x271a25+'decodedTokenKey');const _0x4eb104=yield this[_0x141fb0(0x1db)][_0x141fb0(0x1bc)]({'select':['id','firstName','email','mobileNumber',_0x141fb0(0x1cd),_0x141fb0(0x1ea),_0x141fb0(0x22e),_0x141fb0(0x1f8),_0x141fb0(0x219)],'where':{'email':_0x271a25,'deleteFlag':0x0}}),_0x3fc5e5=/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;if(!_0x4b6cdb['match'](_0x3fc5e5)){const _0x3111d1=[];_0x3111d1[_0x141fb0(0x1f6)](_0x141fb0(0x24f));const _0x38d89d={'status':0x0,'message':_0x141fb0(0x1d2),'data':{'message':_0x3111d1}};return _0xebe1c0[_0x141fb0(0x1e6)](0x1a6)[_0x141fb0(0x22c)](_0x38d89d);}const _0x71453d=_0x4eb104['email'][_0x141fb0(0x197)](/.{3}/g)[_0x141fb0(0x189)](_0x4eb104['email'][_0x141fb0(0x242)](0x1)[_0x141fb0(0x197)](/.{3}/g),_0x4eb104['email'][_0x141fb0(0x242)](0x2)[_0x141fb0(0x197)](/.{3}/g)),_0x34e19a=new RegExp(_0x71453d[_0x141fb0(0x209)]('|'),'i')['test'](_0x4b6cdb);console['log'](_0x34e19a+_0x141fb0(0x1cc));if(_0x34e19a===!![]){const _0x1c0e5f=[];_0x1c0e5f[_0x141fb0(0x1f6)](_0x141fb0(0x278));const _0xf0ff6b={'status':0x0,'message':_0x141fb0(0x1d2),'data':{'message':_0x1c0e5f}};return _0xebe1c0[_0x141fb0(0x1e6)](0x1a6)[_0x141fb0(0x22c)](_0xf0ff6b);}_0x4eb104['password']=yield Customer_1[_0x141fb0(0x226)][_0x141fb0(0x1c8)](_0x4b6cdb),_0x4eb104[_0x141fb0(0x219)]='';const _0x25923a=yield this[_0x141fb0(0x1db)][_0x141fb0(0x256)](_0x4eb104['id'],_0x4eb104);if(_0x25923a){const _0x2c1dc9={'status':0x1,'message':_0x141fb0(0x184),'data':_0x4eb104[_0x141fb0(0x21d)]};return _0xebe1c0[_0x141fb0(0x1e6)](0xc8)[_0x141fb0(0x22c)](_0x2c1dc9);}});}[a640_0x16e42b(0x261)](_0x5d6bac,_0x581063){const _0x258324=a640_0x16e42b;return tslib_1[_0x258324(0x228)](this,void 0x0,void 0x0,function*(){const _0x5659dd=_0x258324,_0xabd515=_0x5d6bac[_0x5659dd(0x238)][_0x5659dd(0x27e)]['split']('\x20')[0x0]===_0x5659dd(0x19f)?_0x5d6bac['headers'][_0x5659dd(0x27e)][_0x5659dd(0x1b4)]('\x20')[0x1]:'';if(!_0xabd515){const _0x147459={'status':0x1,'message':_0x5659dd(0x252)};return _0x581063[_0x5659dd(0x1e6)](0xc8)[_0x5659dd(0x22c)](_0x147459);}const _0x57eddc=require(_0x5659dd(0x20b)),_0x570312=_0x57eddc['AES']['decrypt'](_0xabd515,env_1[_0x5659dd(0x269)][_0x5659dd(0x1e8)]),_0x1063ba=_0x570312['toString'](_0x57eddc[_0x5659dd(0x27a)][_0x5659dd(0x21a)]),_0x4f8978=yield this[_0x5659dd(0x1ed)][_0x5659dd(0x1bc)]({'where':{'token':_0x1063ba}});if(!_0x4f8978){const _0x5c2c1d={'status':0x0,'message':_0x5659dd(0x1fe)};return _0x581063[_0x5659dd(0x1e6)](0x190)[_0x5659dd(0x22c)](_0x5c2c1d);}const _0x543384=yield this['accessTokenService'][_0x5659dd(0x200)](_0x4f8978);if(!_0x543384){const _0x26dd1b={'status':0x1,'message':_0x5659dd(0x252)};return _0x581063[_0x5659dd(0x1e6)](0xc8)[_0x5659dd(0x22c)](_0x26dd1b);}});}};tslib_1[a640_0x16e42b(0x222)]([(0x0,routing_controllers_1['Post'])(a640_0x16e42b(0x199)),tslib_1[a640_0x16e42b(0x1ee)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a640_0x16e42b(0x20c)]('design:type',Function),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x192),[CustomerRegisterRequest_1[a640_0x16e42b(0x19b)],Object,Object]),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x1df),Promise)],StoreCustomerController[a640_0x16e42b(0x1c7)],a640_0x16e42b(0x175),null),tslib_1[a640_0x16e42b(0x222)]([(0x0,routing_controllers_1[a640_0x16e42b(0x1b2)])(a640_0x16e42b(0x18e)),tslib_1[a640_0x16e42b(0x1ee)](0x0,(0x0,routing_controllers_1[a640_0x16e42b(0x216)])({'validate':!![]})),tslib_1[a640_0x16e42b(0x1ee)](0x1,(0x0,routing_controllers_1[a640_0x16e42b(0x1a6)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a640_0x16e42b(0x1c1)])()),tslib_1[a640_0x16e42b(0x20c)]('design:type',Function),tslib_1[a640_0x16e42b(0x20c)]('design:paramtypes',[CustomerLoginRequest_1[a640_0x16e42b(0x1f3)],Object,Object]),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x1df),Promise)],StoreCustomerController['prototype'],'login',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a640_0x16e42b(0x19a)])(checkTokenMiddleware_1[a640_0x16e42b(0x22f)]),(0x0,routing_controllers_1[a640_0x16e42b(0x1b2)])('/change-password'),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a640_0x16e42b(0x216)])({'validate':!![]})),tslib_1[a640_0x16e42b(0x1ee)](0x1,(0x0,routing_controllers_1[a640_0x16e42b(0x1a6)])()),tslib_1[a640_0x16e42b(0x1ee)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x25e),Function),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x192),[changePasswordRequest_1[a640_0x16e42b(0x1c2)],Object,Object]),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x1df),Promise)],StoreCustomerController[a640_0x16e42b(0x1c7)],a640_0x16e42b(0x266),null),tslib_1[a640_0x16e42b(0x222)]([(0x0,routing_controllers_1['UseBefore'])(checkTokenMiddleware_1[a640_0x16e42b(0x22f)]),(0x0,routing_controllers_1[a640_0x16e42b(0x1fa)])(a640_0x16e42b(0x181)),tslib_1[a640_0x16e42b(0x1ee)](0x0,(0x0,routing_controllers_1[a640_0x16e42b(0x1a6)])()),tslib_1[a640_0x16e42b(0x1ee)](0x1,(0x0,routing_controllers_1[a640_0x16e42b(0x1c1)])()),tslib_1[a640_0x16e42b(0x20c)]('design:type',Function),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x192),[Object,Object]),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x1df),Promise)],StoreCustomerController[a640_0x16e42b(0x1c7)],a640_0x16e42b(0x204),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a640_0x16e42b(0x19a)])(checkTokenMiddleware_1[a640_0x16e42b(0x22f)]),(0x0,routing_controllers_1[a640_0x16e42b(0x1b2)])('/edit-profile'),tslib_1[a640_0x16e42b(0x1ee)](0x0,(0x0,routing_controllers_1[a640_0x16e42b(0x216)])({'validate':!![]})),tslib_1[a640_0x16e42b(0x1ee)](0x1,(0x0,routing_controllers_1[a640_0x16e42b(0x1a6)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a640_0x16e42b(0x1c1)])()),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x25e),Function),tslib_1[a640_0x16e42b(0x20c)]('design:paramtypes',[CustomerEditProfileRequest_1[a640_0x16e42b(0x253)],Object,Object]),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x1df),Promise)],StoreCustomerController[a640_0x16e42b(0x1c7)],a640_0x16e42b(0x25b),null),tslib_1[a640_0x16e42b(0x222)]([(0x0,routing_controllers_1['Get'])(a640_0x16e42b(0x231)),tslib_1[a640_0x16e42b(0x1ee)](0x0,(0x0,routing_controllers_1[a640_0x16e42b(0x26f)])(a640_0x16e42b(0x212))),tslib_1['__param'](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x25e),Function),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x192),[Number,Object]),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x1df),Promise)],StoreCustomerController[a640_0x16e42b(0x1c7)],a640_0x16e42b(0x25f),null),tslib_1[a640_0x16e42b(0x222)]([(0x0,routing_controllers_1[a640_0x16e42b(0x1b2)])(a640_0x16e42b(0x259)),tslib_1[a640_0x16e42b(0x1ee)](0x0,(0x0,routing_controllers_1[a640_0x16e42b(0x216)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1[a640_0x16e42b(0x1ee)](0x2,(0x0,routing_controllers_1[a640_0x16e42b(0x1c1)])()),tslib_1[a640_0x16e42b(0x20c)]('design:type',Function),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x192),[CustomerOauthLoginRequest_1[a640_0x16e42b(0x1bf)],Object,Object]),tslib_1[a640_0x16e42b(0x20c)]('design:returntype',Promise)],StoreCustomerController['prototype'],'OauthLogin',null),tslib_1[a640_0x16e42b(0x222)]([(0x0,routing_controllers_1[a640_0x16e42b(0x1fa)])('/forgot-password-link'),tslib_1['__param'](0x0,(0x0,routing_controllers_1['QueryParam'])(a640_0x16e42b(0x21d))),tslib_1[a640_0x16e42b(0x1ee)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a640_0x16e42b(0x1ee)](0x2,(0x0,routing_controllers_1[a640_0x16e42b(0x1a6)])()),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x25e),Function),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x192),[String,Object,Object]),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x1df),Promise)],StoreCustomerController['prototype'],a640_0x16e42b(0x1cf),null),tslib_1[a640_0x16e42b(0x222)]([(0x0,routing_controllers_1[a640_0x16e42b(0x1fa)])(a640_0x16e42b(0x1ec)),tslib_1[a640_0x16e42b(0x1ee)](0x0,(0x0,routing_controllers_1['QueryParam'])('key')),tslib_1[a640_0x16e42b(0x1ee)](0x1,(0x0,routing_controllers_1[a640_0x16e42b(0x1c1)])()),tslib_1['__metadata'](a640_0x16e42b(0x25e),Function),tslib_1[a640_0x16e42b(0x20c)]('design:paramtypes',[String,Object]),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x1df),Promise)],StoreCustomerController['prototype'],a640_0x16e42b(0x260),null),tslib_1[a640_0x16e42b(0x222)]([(0x0,routing_controllers_1[a640_0x16e42b(0x20a)])(a640_0x16e42b(0x237)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a640_0x16e42b(0x1f4)])('newPassword')),tslib_1[a640_0x16e42b(0x1ee)](0x1,(0x0,routing_controllers_1[a640_0x16e42b(0x1a6)])()),tslib_1[a640_0x16e42b(0x1ee)](0x2,(0x0,routing_controllers_1[a640_0x16e42b(0x1c1)])()),tslib_1['__metadata'](a640_0x16e42b(0x25e),Function),tslib_1['__metadata'](a640_0x16e42b(0x192),[String,Object,Object]),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x1df),Promise)],StoreCustomerController['prototype'],a640_0x16e42b(0x19d),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a640_0x16e42b(0x19a)])(checkTokenMiddleware_1[a640_0x16e42b(0x22f)]),(0x0,routing_controllers_1[a640_0x16e42b(0x1b2)])('/logout'),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a640_0x16e42b(0x1a6)])()),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a640_0x16e42b(0x1c1)])()),tslib_1['__metadata'](a640_0x16e42b(0x25e),Function),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x192),[Object,Object]),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x1df),Promise)],StoreCustomerController[a640_0x16e42b(0x1c7)],'logout',null),StoreCustomerController=tslib_1[a640_0x16e42b(0x222)]([(0x0,routing_controllers_1[a640_0x16e42b(0x1c6)])('/customer'),tslib_1[a640_0x16e42b(0x20c)](a640_0x16e42b(0x192),[CustomerService_1[a640_0x16e42b(0x1ad)],S3Service_1[a640_0x16e42b(0x188)],SettingService_1[a640_0x16e42b(0x26d)],LoginAttemptsService_1[a640_0x16e42b(0x1f7)],AccessTokenService_1['AccessTokenService'],ImageService_1[a640_0x16e42b(0x1de)],LoginLogService_1[a640_0x16e42b(0x26e)],EmailTemplateService_1[a640_0x16e42b(0x1b0)],PluginService_1['PluginService'],CustomerActivityService_1['CustomerActivityService']])],StoreCustomerController),exports[a640_0x16e42b(0x277)]=StoreCustomerController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StoreCustomerController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const class_transformer_1 = require("class-transformer");
+const jsonwebtoken_1 = tslib_1.__importDefault(require("jsonwebtoken"));
+const mail_services_1 = require("../../../auth/mail.services");
+const CustomerRegisterRequest_1 = require("./requests/CustomerRegisterRequest");
+const CustomerLoginRequest_1 = require("./requests/CustomerLoginRequest");
+const CustomerOauthLoginRequest_1 = require("./requests/CustomerOauthLoginRequest");
+const changePasswordRequest_1 = require("./requests/changePasswordRequest");
+const Customer_1 = require("../../core/models/Customer");
+const CustomerService_1 = require("../../core/services/CustomerService");
+const LoginLogService_1 = require("../../core/services/LoginLogService");
+const CustomerEditProfileRequest_1 = require("./requests/CustomerEditProfileRequest");
+const env_1 = require("../../../env");
+const LoginLog_1 = require("../../core/models/LoginLog");
+const CustomerActivity_1 = require("../../core/models/CustomerActivity");
+const EmailTemplateService_1 = require("../../core/services/EmailTemplateService");
+const CustomerActivityService_1 = require("../../core/services/CustomerActivityService");
+const ImageService_1 = require("../../core/services/ImageService");
+const S3Service_1 = require("../../core/services/S3Service");
+const PluginService_1 = require("../../core/services/PluginService");
+const SettingService_1 = require("../../core/services/SettingService");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const LoginAttemptsModel_1 = require("../../core/models/LoginAttemptsModel");
+const typeorm_1 = require("typeorm");
+const LoginAttemptsService_1 = require("../../core/services/LoginAttemptsService");
+const AccessTokenModel_1 = require("../../core/models/AccessTokenModel");
+const AccessTokenService_1 = require("../../core/services/AccessTokenService");
+const checkTokenMiddleware_1 = require("../../core/middlewares/checkTokenMiddleware");
+const customer_1 = require("@spurtcommerce/customer");
+const StoreCategoryValidatorMiddleware_1 = require("../../core/middlewares/StoreCategoryValidatorMiddleware");
+const axios_1 = tslib_1.__importDefault(require("axios"));
+let StoreCustomerController = class StoreCustomerController {
+    constructor(customerService, s3Service, settingService, loginAttemptsService, accessTokenService, imageService, loginLogService, emailTemplateService, pluginService, customerActivityService) {
+        this.customerService = customerService;
+        this.s3Service = s3Service;
+        this.settingService = settingService;
+        this.loginAttemptsService = loginAttemptsService;
+        this.accessTokenService = accessTokenService;
+        this.imageService = imageService;
+        this.loginLogService = loginLogService;
+        this.emailTemplateService = emailTemplateService;
+        this.pluginService = pluginService;
+        this.customerActivityService = customerActivityService;
+    }
+    // Customer Register API
+    /**
+     * @api {post} /api/customer/register register API
+     * @apiGroup Store
+     * @apiParam (Request body) {String{..32}} name Name
+     * @apiParam (Request body) {String} [lastName] lastName
+     * @apiParam (Request body) {String{8..128}} password User Password
+     * @apiParam (Request body) {String} confirmPassword Confirm Password
+     * @apiParam (Request body) {String{..96}} emailId User Email Id
+     * @apiParam (Request body) {String{..15}} [phoneNumber] User Phone Number
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "lastName" : "",
+     *      "password" : "",
+     *      "confirmPassword" : "",
+     *      "emailId" : "",
+     *      "phoneNumber" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Thank you for registering with us and please check your email",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer/register
+     * @apiErrorExample {json} Register error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Customer Register Function
+    register(registerParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const siteId = request.store.Id;
+            const customerRegisterParam = registerParam;
+            customerRegisterParam.siteId = siteId;
+            const customerSave = yield (0, customer_1.customerRegister)((0, typeorm_1.getConnection)(), {
+                body: customerRegisterParam,
+                ip: (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0],
+                storeRedirectUrl: env_1.env.storeRedirectUrl,
+            });
+            if (customerSave.status === 0) {
+                return response.status(400).send({
+                    status: customerSave.status,
+                    message: customerSave.message,
+                });
+            }
+            const customerEmail = customerSave.data.customerEmail;
+            mail_services_1.MAILService.sendMail(customerEmail.mailContent, customerEmail.email, customerEmail.subject, customerEmail.bcc, customerEmail.isAttachment, customerEmail.attachmentDetails);
+            return response.status(200).send({
+                status: customerSave.status,
+                message: customerSave.message,
+                data: customerSave.data.resultData,
+            });
+        });
+    }
+    // Login API
+    /**
+     * @api {post} /api/customer/login login API
+     * @apiGroup Store
+     * @apiParam (Request body) {String} [emailId] User Email Id
+     * @apiParam (Request body) {String} [password] User Password
+     * @apiParam (Request body) {String} type  send as normal | facebook | gmail
+     * @apiParamExample {json} Input
+     * {
+     *      "emailId" : "",
+     *      "password" : "",
+     *      "type" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "data": "{
+     *         "token":''
+     *      }",
+     *      "message": "Successfully login",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer/login
+     * @apiErrorExample {json} Login error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Login Function
+    login(loginParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (loginParam.type === 'normal') {
+                const siteId = request.store.Id;
+                const resultData = yield this.customerService.findOne({
+                    select: ['id', 'firstName', 'lastName', 'email', 'mobileNumber', 'password', 'avatar', 'avatarPath', 'isActive', 'lockedOn'],
+                    where: { email: loginParam.emailId, deleteFlag: 0, siteId },
+                });
+                if (!resultData) {
+                    const errorUserNameResponse = {
+                        status: 0,
+                        message: 'You are not Registered with us. ',
+                    };
+                    return response.status(400).send(errorUserNameResponse);
+                }
+                if (resultData.lockedOn) {
+                    if ((0, moment_1.default)(resultData.lockedOn).format('YYYY-MM-DD HH:mm:ss') > (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')) {
+                        const startTime = (0, moment_1.default)();
+                        const endTime = (0, moment_1.default)(resultData.lockedOn, 'YYYY-MM-DD hh:mm:ss');
+                        const secondsDiff = endTime.diff(startTime, 'seconds');
+                        const errorLock = {
+                            status: 0,
+                            message: 'Your account has been locked. Please try after ' + secondsDiff + ' seconds',
+                        };
+                        return response.status(400).send(errorLock);
+                    }
+                }
+                if (resultData.isActive === 0) {
+                    const errorUserInActiveResponse = {
+                        status: 0,
+                        message: 'Inactive Customer account',
+                    };
+                    return response.status(400).send(errorUserInActiveResponse);
+                }
+                if (yield Customer_1.Customer.comparePassword(resultData, loginParam.password)) {
+                    // create a token
+                    const token = jsonwebtoken_1.default.sign({ id: resultData.id }, env_1.env.jwtSecret, {
+                        expiresIn: '4h',
+                    });
+                    const customerActivity = new CustomerActivity_1.CustomerActivity();
+                    customerActivity.customerId = resultData.id;
+                    customerActivity.activityId = 1;
+                    customerActivity.description = 'loggedIn';
+                    yield this.customerActivityService.create(customerActivity);
+                    const loginLog = new LoginLog_1.LoginLog();
+                    loginLog.customerId = resultData.id;
+                    loginLog.emailId = resultData.email;
+                    loginLog.firstName = resultData.firstName;
+                    loginLog.ipAddress = (request.headers['x-forwarded-for'] ||
+                        request.connection.remoteAddress ||
+                        request.socket.remoteAddress ||
+                        request.connection.socket.remoteAddress).split(',')[0];
+                    const savedloginLog = yield this.loginLogService.create(loginLog);
+                    const customer = yield this.customerService.findOne({ where: { email: loginParam.emailId, deleteFlag: 0 } });
+                    customer.lastLogin = savedloginLog.createdDate;
+                    yield this.customerService.create(customer);
+                    const Crypto = require('crypto-js');
+                    const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
+                    if (token) {
+                        const newToken = new AccessTokenModel_1.AccessToken();
+                        newToken.userId = resultData.id;
+                        newToken.token = token;
+                        newToken.userType = 'customer';
+                        yield this.accessTokenService.create(newToken);
+                    }
+                    resultData.email = '';
+                    resultData.firstName = '';
+                    resultData.lastName = '';
+                    resultData.mobileNumber = '';
+                    resultData.username = '';
+                    const successResponse = {
+                        status: 1,
+                        message: 'Logged in Successfully. ',
+                        data: {
+                            token: ciphertextToken,
+                            user: (0, class_transformer_1.instanceToPlain)(resultData),
+                        },
+                    };
+                    // Plugin Logic
+                    const { existsSync } = require('fs');
+                    const pluginExist = yield existsSync(process.cwd() + '/add-ons/AbandonedCart/controllers/admin/AbandonedCartController.ts');
+                    if (pluginExist) {
+                        yield axios_1.default.put((env_1.env.baseUrl + '/guest-cart'), {
+                            data: {
+                                token: ciphertextToken,
+                                ip: loginLog.ipAddress,
+                            },
+                        });
+                    }
+                    // Plugin Logic End
+                    // Live Address Updation Internal Api Call
+                    yield axios_1.default.put((env_1.env.baseUrl + '/CustomerAddress/live'), {
+                        data: {
+                            token: ciphertextToken,
+                            ip: loginLog.ipAddress,
+                        },
+                    });
+                    return response.status(200).send(successResponse);
+                }
+                // track the login attempts
+                const currentDateTime = (0, moment_1.default)(new Date()).subtract(env_1.env.loginAttemptsMinutes, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+                const getAttempts = yield this.loginAttemptsService.find({ customerId: resultData.id, createdDate: (0, typeorm_1.MoreThan)(currentDateTime) });
+                if (getAttempts.length > env_1.env.loginAttemptsCount) {
+                    resultData.isLock = 1;
+                    resultData.lockedOn = (0, moment_1.default)().add(env_1.env.loginAttemptsMinutes, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+                    yield this.customerService.update(resultData.id, resultData);
+                    const errorResponse1 = {
+                        status: 0,
+                        message: 'Your Login attempts try has been exceed and your account has been locked',
+                    };
+                    return response.status(400).send(errorResponse1);
+                }
+                const loginAttempts = new LoginAttemptsModel_1.LoginAttemptsModel();
+                loginAttempts.customerId = resultData.id;
+                loginAttempts.ipAddress = (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0];
+                yield this.loginAttemptsService.create(loginAttempts);
+                const errorResponse = {
+                    status: 0,
+                    message: 'The Password entered is invalid. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            if (loginParam.type === 'gmail') {
+                const plugin = yield this.pluginService.findOne({ where: { pluginName: loginParam.type, pluginStatus: 1 } });
+                if (plugin) {
+                    const pluginInfo = JSON.parse(plugin.pluginAdditionalInfo);
+                    const route = env_1.env.baseUrl + pluginInfo.defaultRoute;
+                    const successResponse = {
+                        status: 1,
+                        message: 'Redirect to this url.',
+                        data: {
+                            returnPath: route,
+                            clientId: pluginInfo.clientId,
+                        },
+                    };
+                    return response.status(200).send(successResponse);
+                }
+                else {
+                    const successResponse = {
+                        status: 0,
+                        message: 'You are not install this plugin or problem in installation',
+                    };
+                    return response.status(400).send(successResponse);
+                }
+            }
+            else if (loginParam.type === 'facebook') {
+                const plugin = yield this.pluginService.findOne({ where: { pluginName: loginParam.type, pluginStatus: 1 } });
+                if (plugin) {
+                    const pluginInfo = JSON.parse(plugin.pluginAdditionalInfo);
+                    const route = env_1.env.baseUrl + pluginInfo.defaultRoute;
+                    const successResponse = {
+                        status: 1,
+                        message: 'Redirect to this url.',
+                        data: {
+                            returnPath: route,
+                            AppId: pluginInfo.AppId,
+                            AppSecretKey: pluginInfo.AppSecretKey,
+                        },
+                    };
+                    return response.status(200).send(successResponse);
+                }
+                else {
+                    const successResponse = {
+                        status: 0,
+                        message: 'You are not install this plugin or problem in installation',
+                    };
+                    return response.status(400).send(successResponse);
+                }
+            }
+        });
+    }
+    // Change Password API
+    /**
+     * @api {post} /api/customer/change-password Change Password API
+     * @apiGroup Store
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{5..}} oldPassword Old Password
+     * @apiParam (Request body) {String{8..128}} newPassword New Password
+     * @apiParamExample {json} Input
+     *      "oldPassword" : "",
+     *      "newPassword" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Your password changed successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer/change-password
+     * @apiErrorExample {json} Change Password error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Change Password Function
+    changePassword(changePasswordParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const resultData = yield this.customerService.findOne({ where: { id: request.user.id } });
+            if (yield Customer_1.Customer.comparePassword(resultData, changePasswordParam.oldPassword)) {
+                const val = yield Customer_1.Customer.comparePassword(resultData, changePasswordParam.newPassword);
+                if (val) {
+                    const errResponse = {
+                        status: 0,
+                        message: 'The old and new passwords are the same. Please try giving a different one. ',
+                    };
+                    return response.status(400).send(errResponse);
+                }
+                const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;
+                if (!changePasswordParam.newPassword.match(pattern)) {
+                    const passwordValidatingMessage = [];
+                    passwordValidatingMessage.push('Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
+                    const errResponse = {
+                        status: 0,
+                        message: "You have an error in your request's body. Check 'errors' field for more details!",
+                        data: { message: passwordValidatingMessage },
+                    };
+                    return response.status(422).send(errResponse);
+                }
+                resultData.password = yield Customer_1.Customer.hashPassword(changePasswordParam.newPassword);
+                const updateUserData = yield this.customerService.update(resultData.id, resultData);
+                if (updateUserData) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Your password has been change successfully. ',
+                    };
+                    return response.status(200).send(successResponse);
+                }
+            }
+            const errorResponse = {
+                status: 0,
+                message: 'The Current Password does not Match OurRecords',
+            };
+            return response.status(400).send(errorResponse);
+        });
+    }
+    // Get Customer Profile API
+    /**
+     * @api {get} /api/customer/get-profile Get Profile API
+     * @apiGroup Store
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Get the Profile..!",
+     *      "status": "1"
+     *       "data":{}
+     * }
+     * @apiSampleRequest /api/customer/get-profile
+     * @apiErrorExample {json} Get Profile error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Get Profile Function
+    getProfile(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customerDetails = yield (0, customer_1.getCustomerProfile)((0, typeorm_1.getConnection)(), request.user.id);
+            return response.status(200).send({
+                status: customerDetails.status,
+                message: customerDetails.message,
+                data: customerDetails.data,
+            });
+        });
+    }
+    // Customer Edit Profile API
+    /**
+     * @api {post} /api/customer/edit-profile Edit Profile API
+     * @apiGroup Store
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..32}} firstName First Name
+     * @apiParam (Request body) {String{..32}} [lastName] Last Name
+     * @apiParam (Request body) {String} password password
+     * @apiParam (Request body) {String{..96}} emailId User Email Id
+     * @apiParam (Request body) {Number{..15}} [phoneNumber] User Phone Number (Optional)
+     * @apiParam (Request body) {String} [image] Customer Image
+     * @apiParamExample {json} Input
+     * {
+     *      "firstName" : "",
+     *      "lastName" : "",
+     *      "password" "",
+     *      "emailId" : "",
+     *      "phoneNumber" : "",
+     *      "image": "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated your profile.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer/edit-profile
+     * @apiErrorExample {json} Register error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Customer Profile Edit Function
+    editProfile(customerEditProfileRequest, request, response) {
+        var _a;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const image = customerEditProfileRequest.image;
+            let name;
+            const resultData = yield this.customerService.findOne({
+                select: ['id', 'firstName', 'lastName', 'email', 'mobileNumber', 'address', 'zoneId', 'countryId', 'pincode', 'avatar', 'avatarPath', 'password'],
+                where: { id: request.user.id },
+            });
+            if (image) {
+                const type = image.split(';')[0].split('/')[1];
+                const availableTypes = env_1.env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse = {
+                        status: 0,
+                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                name = 'Img_' + Date.now() + '.' + type;
+                const path = 'customer/';
+                const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
+                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                const sizeInKb = sizeInBytes / 1024;
+                console.log(sizeInKb + 'kbbbb');
+                if (+sizeInKb <= 2048) {
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((path + name), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((path + name), base64Data);
+                    }
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'File size is too large, give less than 2 mb. ',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                resultData.avatar = name;
+                resultData.avatarPath = path;
+            }
+            resultData.firstName = customerEditProfileRequest.firstName;
+            resultData.lastName = (_a = customerEditProfileRequest.lastName) !== null && _a !== void 0 ? _a : '';
+            resultData.email = customerEditProfileRequest.emailId;
+            resultData.mobileNumber = customerEditProfileRequest.phoneNumber;
+            resultData.username = customerEditProfileRequest.emailId;
+            const updateuserData = yield this.customerService.update(resultData.id, resultData);
+            const successResponse = {
+                status: 1,
+                message: 'The Customer  details have been updated successfully',
+                data: (0, class_transformer_1.instanceToPlain)(updateuserData),
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // logList API
+    /**
+     * @api {get} /api/customer/login-log-list Login Log list API
+     * @apiGroup Store
+     * @apiParam (Request body) {Number} limit limit
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get login log list",
+     *      "data":{
+     *      "id"
+     *      "customerId"
+     *      "emailId"
+     *      "firstName"
+     *      "ipAddress"
+     *      "createdDate"
+     *      }
+     * }
+     * @apiSampleRequest /api/customer/login-log-list
+     * @apiErrorExample {json} Front error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    LogList(limit, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const loginLogList = yield this.loginLogService.logList(limit);
+            const promise = loginLogList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const createdDate = moment_1.default.utc(result.createdDate).local().format('YYYY-MM-DD');
+                const temp = result;
+                temp.createdDate = createdDate;
+                return temp;
+            }));
+            const finalResult = yield Promise.all(promise);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get login Log list',
+                data: finalResult,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Oauth Login API
+    /**
+     * @api {post} /api/customer/Oauth-login Oauth login API
+     * @apiGroup Store
+     * @apiParam (Request body) {String} emailId User Email Id
+     * @apiParam (Request body) {String} [source] source
+     * @apiParam (Request body) {String} [oauthData] oauthData
+     * @apiParamExample {json} Input
+     * {
+     *      "emailId" : "",
+     *      "source" : "",
+     *      "oauthData" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "data": "{
+     *         "token":''
+     *         "password":''
+     *      }",
+     *      "message": "Successfully login",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer/Oauth-login
+     * @apiErrorExample {json} Login error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Login Function
+    OauthLogin(loginParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const resultData = yield this.customerService.findOne({
+                where: { email: loginParam.emailId },
+            });
+            if (!resultData) {
+                const newUser = new Customer_1.Customer();
+                const tempPassword = Math.random().toString().substr(2, 5);
+                newUser.password = yield Customer_1.Customer.hashPassword(tempPassword);
+                newUser.email = loginParam.emailId;
+                newUser.username = loginParam.emailId;
+                newUser.isActive = 1;
+                newUser.ip = (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0];
+                const newCustomer = yield this.customerService.create(newUser);
+                // create a token
+                const token = jsonwebtoken_1.default.sign({ id: newCustomer.id }, env_1.env.jwtSecret, {
+                    expiresIn: 86400, // expires in 24 hours
+                });
+                const emailContent = yield this.emailTemplateService.findOne(1);
+                const message = emailContent.content.replace('{name}', newCustomer.username);
+                const redirectUrl = env_1.env.storeRedirectUrl;
+                const logo = yield this.settingService.findOne();
+                const mailContents = {};
+                mailContents.logo = logo;
+                mailContents.emailContent = message;
+                mailContents.redirectUrl = redirectUrl;
+                mailContents.productDetailData = undefined;
+                const sendMailRes = mail_services_1.MAILService.sendMail(mailContents, newCustomer.email, emailContent.subject, false, false, '');
+                if (token) {
+                    const newToken = new AccessTokenModel_1.AccessToken();
+                    newToken.userId = resultData.id;
+                    newToken.token = token;
+                    yield this.accessTokenService.create(newToken);
+                }
+                const Crypto = require('crypto-js');
+                const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
+                if (sendMailRes) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Loggedin successfully. ',
+                        data: {
+                            token: ciphertextToken,
+                            user: (0, class_transformer_1.instanceToPlain)(resultData),
+                            password: tempPassword,
+                        },
+                    };
+                    return response.status(200).send(successResponse);
+                }
+            }
+            else {
+                // create a token
+                const token = jsonwebtoken_1.default.sign({ id: resultData.id }, env_1.env.jwtSecret, {
+                    expiresIn: 86400, // expires in 24 hours
+                });
+                const Crypto = require('crypto-js');
+                const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
+                const successResponse = {
+                    status: 1,
+                    message: 'Loggedin successfully.',
+                    data: {
+                        token: ciphertextToken,
+                        user: (0, class_transformer_1.instanceToPlain)(resultData),
+                    },
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // forgot password link
+    /**
+     * @api {get} /api/customer/forgot-password-link Forgot Password Link API
+     * @apiGroup  Store
+     * @apiParam (Request body) {String} email User email
+     * @apiParamExample {json} Input
+     * {
+     *      "email" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer/forgot-password-link
+     * @apiErrorExample {json} store forgot passowrd error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    forgetPasswordLink(emailId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = yield this.customerService.findOne({
+                where: { email: emailId, deleteFlag: 0 },
+            });
+            console.log('customer:', customer);
+            if (!customer) {
+                const errResponse = {
+                    status: 1,
+                    message: 'This Email is Not Registered. ',
+                };
+                return response.status(400).send(errResponse);
+            }
+            const Crypto = require('crypto-js');
+            const val = Crypto.AES.encrypt(customer.email, env_1.env.cryptoSecret).toString();
+            const encryptedKey = Buffer.from(val).toString('base64');
+            console.log(val + 'val');
+            console.log(encryptedKey + 'encryptedKey');
+            customer.forgetPasswordKey = encryptedKey;
+            customer.linkExpires = (0, moment_1.default)().add(20, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            yield this.customerService.update(customer.id, customer);
+            const emailContent = yield this.emailTemplateService.findOne(23);
+            const logo = yield this.settingService.findOne();
+            const redirectUrl = env_1.env.storeForgetPasswordLink + '?token=' + encryptedKey;
+            const storeRedirectUrl = env_1.env.storeRedirectUrl;
+            console.log(redirectUrl + 'redirectUrl');
+            const message = emailContent.content.replace('{name}', customer.firstName).replace('{link}', redirectUrl);
+            const mailContents = {};
+            mailContents.logo = logo;
+            mailContents.emailContent = message;
+            mailContents.redirectUrl = storeRedirectUrl;
+            mailContents.productDetailData = undefined;
+            const sendMailRes = mail_services_1.MAILService.sendMail(mailContents, customer.email, emailContent.subject, false, false, '');
+            if (sendMailRes) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Thank you! A link to reset your password will be sent to your registered email shortly.',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // forget password key check
+    /**
+     * @api {get} /api/customer/forgot-password-key-check Forgot Password Key check API
+     * @apiGroup   Store
+     * @apiParam (Request body) {String} key key
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer/forgot-password-key-check
+     * @apiErrorExample {json} store b2b error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    keyCheck(encryptedKey, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const Crypto = require('crypto-js');
+            const bytes = Crypto.AES.decrypt(Buffer.from(encryptedKey, 'base64').toString('ascii'), env_1.env.cryptoSecret);
+            const decodedTokenKey = bytes.toString(Crypto.enc.Utf8);
+            const customer = yield this.customerService.findOne({
+                where: { email: decodedTokenKey, deleteFlag: 0 },
+            });
+            if (!customer) {
+                const errResponse = {
+                    status: 3,
+                    message: 'Invalid key. please try again',
+                };
+                return response.status(200).send(errResponse);
+            }
+            if ((0, moment_1.default)(customer.linkExpires).format('YYYY-MM-DD HH:mm:ss') < (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')) {
+                const expirationError = {
+                    status: 2,
+                    message: 'your password reset link has been expired, try again',
+                };
+                return response.status(200).send(expirationError);
+            }
+            if (customer.forgetPasswordKey !== '') {
+                const successResponse = {
+                    status: 1,
+                    message: 'Valid key',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const successResponse = {
+                    status: 3,
+                    message: 'This link has been used already. please try again',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // reset password
+    /**
+     * @api {put} /api/customer/reset-password  Reset Password API
+     * @apiGroup  Store
+     * @apiParam (Request body) {String} newPassword  newPassword
+     * @apiParam (Request body) {String} key  key
+     * @apiParamExample {json} Input
+     * {
+     *      "key": "",
+     *      "newPassword" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Password changed",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer/reset-password
+     * @apiErrorExample {json} store b2b error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    resetPassword(newPassword, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const tokenKey = request.body.key;
+            if (!tokenKey) {
+                const keyError = {
+                    status: 0,
+                    message: 'Key is missing',
+                };
+                return response.status(400).send(keyError);
+            }
+            const Crypto = require('crypto-js');
+            const bytes = Crypto.AES.decrypt(Buffer.from(tokenKey, 'base64').toString('ascii'), env_1.env.cryptoSecret);
+            const decodedTokenKey = bytes.toString(Crypto.enc.Utf8);
+            console.log(decodedTokenKey + 'decodedTokenKey');
+            const resultData = yield this.customerService.findOne({
+                select: ['id', 'firstName', 'email', 'mobileNumber', 'password', 'avatar', 'avatarPath', 'isActive', 'forgetPasswordKey'],
+                where: { email: decodedTokenKey, deleteFlag: 0 },
+            });
+            const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;
+            if (!newPassword.match(pattern)) {
+                const passwordValidatingMessage = [];
+                passwordValidatingMessage.push('Password must contain at least one number or at least one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
+                const errResponse = {
+                    status: 0,
+                    message: "You have an error in your request's body. Check 'errors' field for more details!",
+                    data: { message: passwordValidatingMessage },
+                };
+                return response.status(422).send(errResponse);
+            }
+            const partsOfThreeLetters = resultData.email.match(/.{3}/g).concat(resultData.email.substr(1).match(/.{3}/g), resultData.email.substr(2).match(/.{3}/g));
+            const matchEmail = new RegExp(partsOfThreeLetters.join('|'), 'i').test(newPassword);
+            console.log(matchEmail + 'matchEmail');
+            if (matchEmail === true) {
+                const validationMessage = [];
+                validationMessage.push('Password must not duplicate any part of the email address');
+                const passwordDuplicateErrorResponse = {
+                    status: 0,
+                    message: "You have an error in your request's body. Check 'errors' field for more details!",
+                    data: { message: validationMessage },
+                };
+                return response.status(422).send(passwordDuplicateErrorResponse);
+            }
+            resultData.password = yield Customer_1.Customer.hashPassword(newPassword);
+            resultData.forgetPasswordKey = '';
+            const updateUserData = yield this.customerService.update(resultData.id, resultData);
+            if (updateUserData) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Your password has been changed successfully',
+                    data: resultData.email,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Logout API
+    /**
+     * @api {post} /api/customer/logout Log Out API
+     * @apiGroup Store
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully logout",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer/logout
+     * @apiErrorExample {json} Logout error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    logout(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const token = request.headers.authorization.split(' ')[0] === 'Bearer' ? request.headers.authorization.split(' ')[1] : '';
+            if (!token) {
+                const successResponseBeforeToken = {
+                    status: 1,
+                    message: 'Successfully Logout',
+                };
+                return response.status(200).send(successResponseBeforeToken);
+            }
+            const Crypto = require('crypto-js');
+            const bytes = Crypto.AES.decrypt(token, env_1.env.cryptoSecret);
+            const originalEncryptedString = bytes.toString(Crypto.enc.Utf8);
+            const user = yield this.accessTokenService.findOne({
+                where: {
+                    token: originalEncryptedString,
+                },
+            });
+            if (!user) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid token',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteToken = yield this.accessTokenService.delete(user);
+            if (!deleteToken) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully Logout',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/register'),
+    (0, routing_controllers_1.UseBefore)(StoreCategoryValidatorMiddleware_1.StoreCategoryValidator),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CustomerRegisterRequest_1.CustomerRegisterRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerController.prototype, "register", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(StoreCategoryValidatorMiddleware_1.StoreCategoryValidator),
+    (0, routing_controllers_1.Post)('/login'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CustomerLoginRequest_1.CustomerLogin, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerController.prototype, "login", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckCustomerMiddleware),
+    (0, routing_controllers_1.Post)('/change-password'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [changePasswordRequest_1.ChangePassword, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerController.prototype, "changePassword", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckCustomerMiddleware),
+    (0, routing_controllers_1.Get)('/get-profile'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerController.prototype, "getProfile", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckCustomerMiddleware),
+    (0, routing_controllers_1.Post)('/edit-profile'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CustomerEditProfileRequest_1.CustomerEditProfileRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerController.prototype, "editProfile", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/login-log-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerController.prototype, "LogList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/Oauth-login'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CustomerOauthLoginRequest_1.CustomerOauthLogin, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerController.prototype, "OauthLogin", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/forgot-password-link'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('email')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerController.prototype, "forgetPasswordLink", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/forgot-password-key-check'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('key')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerController.prototype, "keyCheck", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/reset-password'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('newPassword')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerController.prototype, "resetPassword", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckCustomerMiddleware),
+    (0, routing_controllers_1.Post)('/logout'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerController.prototype, "logout", null);
+StoreCustomerController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/customer'),
+    tslib_1.__metadata("design:paramtypes", [CustomerService_1.CustomerService,
+        S3Service_1.S3Service,
+        SettingService_1.SettingService,
+        LoginAttemptsService_1.LoginAttemptsService,
+        AccessTokenService_1.AccessTokenService,
+        ImageService_1.ImageService,
+        LoginLogService_1.LoginLogService,
+        EmailTemplateService_1.EmailTemplateService,
+        PluginService_1.PluginService,
+        CustomerActivityService_1.CustomerActivityService])
+], StoreCustomerController);
+exports.StoreCustomerController = StoreCustomerController;
+//# sourceMappingURL=CustomerController.js.map

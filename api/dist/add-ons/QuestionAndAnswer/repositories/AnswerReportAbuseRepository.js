@@ -1,1 +1,20 @@
-'use strict';const a183_0x20072c=a183_0x4f30;function a183_0x5871(){const _0x1dbad2=['5792103yiwKws','defineProperty','7813428PBJyIl','16uUbrtA','../models/AnswerReportAbuse','544169Iogqts','Repository','2193870OQWvTl','6806940PwBUHV','typeorm','AnswerReportAbuseRepository','1178980AVMITu','212bjnBHX','__decorate','50847mcaiFU'];a183_0x5871=function(){return _0x1dbad2;};return a183_0x5871();}(function(_0x20013c,_0x2e74fb){const _0x417f44=a183_0x4f30,_0x2177d3=_0x20013c();while(!![]){try{const _0x25b07d=-parseInt(_0x417f44(0xff))/0x1+parseInt(_0x417f44(0x101))/0x2+parseInt(_0x417f44(0xf9))/0x3*(-parseInt(_0x417f44(0xf7))/0x4)+-parseInt(_0x417f44(0xf6))/0x5+parseInt(_0x417f44(0x102))/0x6+-parseInt(_0x417f44(0xfc))/0x7+-parseInt(_0x417f44(0xfd))/0x8*(-parseInt(_0x417f44(0xfa))/0x9);if(_0x25b07d===_0x2e74fb)break;else _0x2177d3['push'](_0x2177d3['shift']());}catch(_0x3e0a9d){_0x2177d3['push'](_0x2177d3['shift']());}}}(a183_0x5871,0xb0c7d));Object[a183_0x20072c(0xfb)](exports,'__esModule',{'value':!![]}),exports[a183_0x20072c(0xf5)]=void 0x0;function a183_0x4f30(_0x524548,_0x353b11){const _0x58711d=a183_0x5871();return a183_0x4f30=function(_0x4f30bb,_0x70c76e){_0x4f30bb=_0x4f30bb-0xf5;let _0x3a7736=_0x58711d[_0x4f30bb];return _0x3a7736;},a183_0x4f30(_0x524548,_0x353b11);}const tslib_1=require('tslib'),typeorm_1=require(a183_0x20072c(0x103)),AnswerReportAbuse_1=require(a183_0x20072c(0xfe));let AnswerReportAbuseRepository=class AnswerReportAbuseRepository extends typeorm_1[a183_0x20072c(0x100)]{};AnswerReportAbuseRepository=tslib_1[a183_0x20072c(0xf8)]([(0x0,typeorm_1['EntityRepository'])(AnswerReportAbuse_1['AnswerReportAbuse'])],AnswerReportAbuseRepository),exports[a183_0x20072c(0xf5)]=AnswerReportAbuseRepository;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AnswerReportAbuseRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const AnswerReportAbuse_1 = require("../models/AnswerReportAbuse");
+let AnswerReportAbuseRepository = class AnswerReportAbuseRepository extends typeorm_1.Repository {
+};
+AnswerReportAbuseRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(AnswerReportAbuse_1.AnswerReportAbuse)
+], AnswerReportAbuseRepository);
+exports.AnswerReportAbuseRepository = AnswerReportAbuseRepository;
+//# sourceMappingURL=AnswerReportAbuseRepository.js.map

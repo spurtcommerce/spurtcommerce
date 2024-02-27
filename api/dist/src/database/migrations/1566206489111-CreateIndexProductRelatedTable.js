@@ -1,1 +1,44 @@
-'use strict';const a806_0x16f284=a806_0x2e7c;function a806_0x51e8(){const _0x5c9c45=['2084936qfbrhO','5NxfrMC','ALTER\x20TABLE\x20`product_discount`\x20ADD\x20INDEX\x20`date_start`\x20(`date_start`)','ALTER\x20TABLE\x20`product`\x20ADD\x20INDEX\x20`manufacturer_id`\x20(`manufacturer_id`)','product_image','today_deals','3724259Pwxtot','is_featured','__awaiter','priority','ALTER\x20TABLE\x20`product_special`\x20ADD\x20INDEX\x20`priority`\x20(`priority`)','manufacturer_id','ALTER\x20TABLE\x20`product_discount`\x20ADD\x20INDEX\x20`priority`\x20(`priority`)','61470NARFpz','ALTER\x20TABLE\x20`product_special`\x20ADD\x20INDEX\x20`date_end`\x20(`date_end`)','product_special','date_end','query','2242104WjsYJT','tslib','426436GzwDFk','ALTER\x20TABLE\x20`product`\x20ADD\x20INDEX\x20`is_active`\x20(`is_active`)','ALTER\x20TABLE\x20`product_special`\x20ADD\x20INDEX\x20`price`\x20(`price`)','ALTER\x20TABLE\x20`product_image`\x20ADD\x20INDEX\x20`default_image`\x20(`default_image`)','2IScJSw','ALTER\x20TABLE\x20`product`\x20ADD\x20INDEX\x20`is_featured`\x20(`is_featured`)','CreateIndexProductRelatedTable1566206489111','default_image','condition','1417641YgflPK','774jUJXfL','product_discount','ALTER\x20TABLE\x20`product`\x20ADD\x20INDEX\x20`today_deals`\x20(`today_deals`)','product','1107711mQBCyR','ALTER\x20TABLE\x20`product_discount`\x20ADD\x20INDEX\x20`date_end`\x20(`date_end`)','date_start','14SlqIdD','price','product_option_value','dropIndex'];a806_0x51e8=function(){return _0x5c9c45;};return a806_0x51e8();}(function(_0x42f221,_0x5c54e2){const _0x2358b2=a806_0x2e7c,_0x7fcf61=_0x42f221();while(!![]){try{const _0x5dabb6=parseInt(_0x2358b2(0xde))/0x1+-parseInt(_0x2358b2(0xfd))/0x2*(parseInt(_0x2358b2(0xd9))/0x3)+-parseInt(_0x2358b2(0xf9))/0x4*(parseInt(_0x2358b2(0xe6))/0x5)+parseInt(_0x2358b2(0xf7))/0x6+parseInt(_0x2358b2(0xe1))/0x7*(-parseInt(_0x2358b2(0xe5))/0x8)+parseInt(_0x2358b2(0xda))/0x9*(parseInt(_0x2358b2(0xf2))/0xa)+-parseInt(_0x2358b2(0xeb))/0xb;if(_0x5dabb6===_0x5c54e2)break;else _0x7fcf61['push'](_0x7fcf61['shift']());}catch(_0x5d612a){_0x7fcf61['push'](_0x7fcf61['shift']());}}}(a806_0x51e8,0x8b6c6));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a806_0x16f284(0xd6)]=void 0x0;function a806_0x2e7c(_0x18d303,_0x2341b6){const _0x51e858=a806_0x51e8();return a806_0x2e7c=function(_0x2e7c5f,_0x426c71){_0x2e7c5f=_0x2e7c5f-0xd6;let _0x466ff7=_0x51e858[_0x2e7c5f];return _0x466ff7;},a806_0x2e7c(_0x18d303,_0x2341b6);}const tslib_1=require(a806_0x16f284(0xf8));class CreateIndexProductRelatedTable1566206489111{['up'](_0x5b79c7){const _0x16a544=a806_0x16f284;return tslib_1[_0x16a544(0xed)](this,void 0x0,void 0x0,function*(){const _0x2efb5d=_0x16a544;yield _0x5b79c7[_0x2efb5d(0xf6)](_0x2efb5d(0xf1)),yield _0x5b79c7[_0x2efb5d(0xf6)](_0x2efb5d(0xe7)),yield _0x5b79c7[_0x2efb5d(0xf6)](_0x2efb5d(0xdf)),yield _0x5b79c7[_0x2efb5d(0xf6)]('ALTER\x20TABLE\x20`product_discount`\x20ADD\x20INDEX\x20`price`\x20(`price`)'),yield _0x5b79c7['query'](_0x2efb5d(0xfc)),yield _0x5b79c7['query'](_0x2efb5d(0xe8)),yield _0x5b79c7[_0x2efb5d(0xf6)]('ALTER\x20TABLE\x20`product`\x20ADD\x20INDEX\x20`condition`\x20(`condition`)'),yield _0x5b79c7[_0x2efb5d(0xf6)](_0x2efb5d(0xdc)),yield _0x5b79c7[_0x2efb5d(0xf6)](_0x2efb5d(0xfe)),yield _0x5b79c7[_0x2efb5d(0xf6)](_0x2efb5d(0xfa)),yield _0x5b79c7['query'](_0x2efb5d(0xf3)),yield _0x5b79c7[_0x2efb5d(0xf6)]('ALTER\x20TABLE\x20`product_special`\x20ADD\x20INDEX\x20`start_end`\x20(`date_end`)'),yield _0x5b79c7[_0x2efb5d(0xf6)](_0x2efb5d(0xef)),yield _0x5b79c7[_0x2efb5d(0xf6)](_0x2efb5d(0xfb));});}['down'](_0x5974a8){const _0x772283=a806_0x16f284;return tslib_1[_0x772283(0xed)](this,void 0x0,void 0x0,function*(){const _0x419580=_0x772283;yield _0x5974a8[_0x419580(0xe4)](_0x419580(0xdd),_0x419580(0xf0)),yield _0x5974a8[_0x419580(0xe4)](_0x419580(0xdd),_0x419580(0xd8)),yield _0x5974a8[_0x419580(0xe4)]('product',_0x419580(0xec)),yield _0x5974a8[_0x419580(0xe4)]('product',_0x419580(0xea)),yield _0x5974a8[_0x419580(0xe4)](_0x419580(0xe9),_0x419580(0xd7)),yield _0x5974a8[_0x419580(0xe4)](_0x419580(0xdb),_0x419580(0xe0)),yield _0x5974a8[_0x419580(0xe4)]('product_discount',_0x419580(0xf5)),yield _0x5974a8[_0x419580(0xe4)](_0x419580(0xdb),_0x419580(0xee)),yield _0x5974a8[_0x419580(0xe4)](_0x419580(0xdb),_0x419580(0xe2)),yield _0x5974a8[_0x419580(0xe4)](_0x419580(0xe3),'product_option_id'),yield _0x5974a8[_0x419580(0xe4)](_0x419580(0xf4),_0x419580(0xe0)),yield _0x5974a8[_0x419580(0xe4)](_0x419580(0xf4),'date_end'),yield _0x5974a8[_0x419580(0xe4)](_0x419580(0xf4),_0x419580(0xee)),yield _0x5974a8[_0x419580(0xe4)](_0x419580(0xf4),_0x419580(0xe2));});}}exports[a806_0x16f284(0xd6)]=CreateIndexProductRelatedTable1566206489111;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateIndexProductRelatedTable1566206489111 = void 0;
+const tslib_1 = require("tslib");
+class CreateIndexProductRelatedTable1566206489111 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `product_discount` ADD INDEX `priority` (`priority`)');
+            yield queryRunner.query('ALTER TABLE `product_discount` ADD INDEX `date_start` (`date_start`)');
+            yield queryRunner.query('ALTER TABLE `product_discount` ADD INDEX `date_end` (`date_end`)');
+            yield queryRunner.query('ALTER TABLE `product_discount` ADD INDEX `price` (`price`)');
+            yield queryRunner.query('ALTER TABLE `product_image` ADD INDEX `default_image` (`default_image`)');
+            yield queryRunner.query('ALTER TABLE `product` ADD INDEX `manufacturer_id` (`manufacturer_id`)');
+            yield queryRunner.query('ALTER TABLE `product` ADD INDEX `condition` (`condition`)');
+            yield queryRunner.query('ALTER TABLE `product` ADD INDEX `today_deals` (`today_deals`)');
+            yield queryRunner.query('ALTER TABLE `product` ADD INDEX `is_featured` (`is_featured`)');
+            yield queryRunner.query('ALTER TABLE `product` ADD INDEX `is_active` (`is_active`)');
+            yield queryRunner.query('ALTER TABLE `product_special` ADD INDEX `date_end` (`date_end`)');
+            yield queryRunner.query('ALTER TABLE `product_special` ADD INDEX `start_end` (`date_end`)');
+            yield queryRunner.query('ALTER TABLE `product_special` ADD INDEX `priority` (`priority`)');
+            yield queryRunner.query('ALTER TABLE `product_special` ADD INDEX `price` (`price`)');
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropIndex('product', 'manufacturer_id');
+            yield queryRunner.dropIndex('product', 'condition');
+            yield queryRunner.dropIndex('product', 'is_featured');
+            yield queryRunner.dropIndex('product', 'today_deals');
+            yield queryRunner.dropIndex('product_image', 'default_image');
+            yield queryRunner.dropIndex('product_discount', 'date_start');
+            yield queryRunner.dropIndex('product_discount', 'date_end');
+            yield queryRunner.dropIndex('product_discount', 'priority');
+            yield queryRunner.dropIndex('product_discount', 'price');
+            yield queryRunner.dropIndex('product_option_value', 'product_option_id');
+            yield queryRunner.dropIndex('product_special', 'date_start');
+            yield queryRunner.dropIndex('product_special', 'date_end');
+            yield queryRunner.dropIndex('product_special', 'priority');
+            yield queryRunner.dropIndex('product_special', 'price');
+        });
+    }
+}
+exports.CreateIndexProductRelatedTable1566206489111 = CreateIndexProductRelatedTable1566206489111;
+//# sourceMappingURL=1566206489111-CreateIndexProductRelatedTable.js.map

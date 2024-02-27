@@ -1,1 +1,73 @@
-'use strict';const a57_0x326925=a57_0x571c;(function(_0x1493bb,_0x3302bd){const _0x370055=a57_0x571c,_0x2631d3=_0x1493bb();while(!![]){try{const _0x57a530=parseInt(_0x370055(0x91))/0x1+parseInt(_0x370055(0x98))/0x2*(-parseInt(_0x370055(0xa0))/0x3)+-parseInt(_0x370055(0xa8))/0x4*(parseInt(_0x370055(0x9c))/0x5)+-parseInt(_0x370055(0x9b))/0x6+parseInt(_0x370055(0x9d))/0x7+parseInt(_0x370055(0xa3))/0x8*(parseInt(_0x370055(0xa5))/0x9)+parseInt(_0x370055(0xaa))/0xa;if(_0x57a530===_0x3302bd)break;else _0x2631d3['push'](_0x2631d3['shift']());}catch(_0x2e1efd){_0x2631d3['push'](_0x2631d3['shift']());}}}(a57_0x299c,0xed568));Object[a57_0x326925(0x9e)](exports,a57_0x326925(0x95),{'value':!![]}),exports[a57_0x326925(0xac)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a57_0x326925(0xa2)),moment=require(a57_0x326925(0x99));class AddStripeData1648122529616{['up'](_0x38333b){const _0x5d5631=a57_0x326925;return tslib_1[_0x5d5631(0x90)](this,void 0x0,void 0x0,function*(){const _0x2e8445=_0x5d5631,_0x424bd5={'clientId':'','clientSecret':'','processRoute':_0x2e8445(0x9f),'successRoute':_0x2e8445(0x8f),'cancelRoute':_0x2e8445(0x8d),'failureRoute':'/stripe-payment/failure','isTest':''},_0x4d7364={'controls':[{'name':'clientId','label':'Client\x20Id:','value':'','type':_0x2e8445(0x96),'validators':{'required':!![]}},{'name':_0x2e8445(0x97),'label':_0x2e8445(0x92),'value':'','type':_0x2e8445(0x96),'validators':{'required':!![]}},{'name':_0x2e8445(0xa7),'label':'Is\x20Test:','value':'','type':_0x2e8445(0x94)}],'postRoute':_0x2e8445(0x9a)},_0x2ae73a=[{'pluginName':_0x2e8445(0xad),'pluginAvatar':_0x2e8445(0x8e),'pluginAvatarPath':'logo/','pluginType':_0x2e8445(0xa4),'pluginTimestamp':0x17fbbc20750,'pluginAdditionalInfo':JSON[_0x2e8445(0xa6)](_0x424bd5),'pluginFormInfo':JSON[_0x2e8445(0xa6)](_0x4d7364),'pluginStatus':0x1,'isEditable':0x1,'createdDate':''+moment()[_0x2e8445(0xa1)](_0x2e8445(0xab)),'updatedDate':''+moment()[_0x2e8445(0xa1)](_0x2e8445(0xab))}];yield(0x0,typeorm_1[_0x2e8445(0xa9)])('Plugins')[_0x2e8445(0xae)](_0x2ae73a);});}[a57_0x326925(0x93)](_0x4a71d7){const _0x1343a1=a57_0x326925;return tslib_1[_0x1343a1(0x90)](this,void 0x0,void 0x0,function*(){});}}function a57_0x571c(_0x2648d9,_0x1b4f3b){const _0x299c5f=a57_0x299c();return a57_0x571c=function(_0x571cde,_0x5c2d7a){_0x571cde=_0x571cde-0x8d;let _0x44b54f=_0x299c5f[_0x571cde];return _0x44b54f;},a57_0x571c(_0x2648d9,_0x1b4f3b);}function a57_0x299c(){const _0x2d5aae=['clientSecret','78OfDUHG','moment/moment','/admin-stripe-payment/update-setting','2536014KPRwXt','1040245hpNtJx','3567774hFnzAg','defineProperty','/stripe-payment/process','25659LOtetu','format','typeorm','48gncKFv','Payment','2147274pRZTEL','stringify','isTest','28mPLWnP','getRepository','3039130uYCHFq','YYYY-MM-DD\x20HH:mm:ss','AddStripeData1648122529616','Stripe','save','/stripe-payment/cancel','Img_1567002127693.png','/stripe-payment/success','__awaiter','939604ZCeyoX','Client\x20Secret:','down','checkbox','__esModule','text'];a57_0x299c=function(){return _0x2d5aae;};return a57_0x299c();}exports[a57_0x326925(0xac)]=AddStripeData1648122529616;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddStripeData1648122529616 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment = require("moment/moment");
+class AddStripeData1648122529616 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pluginAdditionalInfo = {
+                clientId: '',
+                clientSecret: '',
+                processRoute: '/stripe-payment/process',
+                successRoute: '/stripe-payment/success',
+                cancelRoute: '/stripe-payment/cancel',
+                failureRoute: '/stripe-payment/failure',
+                isTest: '',
+            };
+            const pluginFormInfo = {
+                controls: [
+                    {
+                        name: 'clientId',
+                        label: 'Client Id:',
+                        value: '',
+                        type: 'text',
+                        validators: {
+                            required: true,
+                        },
+                    },
+                    {
+                        name: 'clientSecret',
+                        label: 'Client Secret:',
+                        value: '',
+                        type: 'text',
+                        validators: {
+                            required: true,
+                        },
+                    },
+                    {
+                        name: 'isTest',
+                        label: 'Is Test:',
+                        value: '',
+                        type: 'checkbox',
+                    },
+                ],
+                postRoute: '/admin-stripe-payment/update-setting',
+            };
+            const StripeSeed = [
+                {
+                    pluginName: 'Stripe',
+                    pluginAvatar: 'Img_1567002127693.png',
+                    pluginAvatarPath: 'logo/',
+                    pluginType: 'Payment',
+                    pluginTimestamp: 1648122529616,
+                    pluginAdditionalInfo: JSON.stringify(pluginAdditionalInfo),
+                    pluginFormInfo: JSON.stringify(pluginFormInfo),
+                    pluginStatus: 1,
+                    isEditable: 1,
+                    createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                },
+            ];
+            yield (0, typeorm_1.getRepository)('Plugins').save(StripeSeed);
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ---
+        });
+    }
+}
+exports.AddStripeData1648122529616 = AddStripeData1648122529616;
+//# sourceMappingURL=1648122529616-AddStripeData.js.map

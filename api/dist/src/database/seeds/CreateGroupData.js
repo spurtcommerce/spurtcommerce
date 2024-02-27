@@ -1,1 +1,18 @@
-'use strict';const a972_0x474d77=a972_0x5745;(function(_0x545b3a,_0x1229c0){const _0x237a13=a972_0x5745,_0x55c49d=_0x545b3a();while(!![]){try{const _0x2869a9=-parseInt(_0x237a13(0x117))/0x1*(-parseInt(_0x237a13(0x122))/0x2)+-parseInt(_0x237a13(0x113))/0x3*(-parseInt(_0x237a13(0x114))/0x4)+-parseInt(_0x237a13(0x116))/0x5+-parseInt(_0x237a13(0x126))/0x6+parseInt(_0x237a13(0x118))/0x7+parseInt(_0x237a13(0x121))/0x8+-parseInt(_0x237a13(0x11b))/0x9*(-parseInt(_0x237a13(0x11c))/0xa);if(_0x2869a9===_0x1229c0)break;else _0x55c49d['push'](_0x55c49d['shift']());}catch(_0xe9c2c9){_0x55c49d['push'](_0x55c49d['shift']());}}}(a972_0x4e92,0x98a4a));function a972_0x4e92(){const _0x495353=['10utXVld','name','defineProperty','__awaiter','__esModule','3385464RdxJOV','1268232rJAicR','createEntityManager','CreateGroupData','UserGroup','5936892FPWsNo','307623jizJUI','12BKXlzX','../../api/core/models/UserGroup','5800420aoOvcu','1WtliHZ','139517SAOLrC','run','save','12509451kcqBGJ'];a972_0x4e92=function(){return _0x495353;};return a972_0x4e92();}Object[a972_0x474d77(0x11e)](exports,a972_0x474d77(0x120),{'value':!![]}),exports[a972_0x474d77(0x124)]=void 0x0;const tslib_1=require('tslib'),UserGroup_1=require(a972_0x474d77(0x115));class CreateGroupData{[a972_0x474d77(0x119)](_0x2571ed,_0x1fc71d){const _0x26f78e=a972_0x474d77;return tslib_1[_0x26f78e(0x11f)](this,void 0x0,void 0x0,function*(){const _0x5eb02d=_0x26f78e,_0x676503=_0x1fc71d[_0x5eb02d(0x123)](),_0xe24d5b=new UserGroup_1[(_0x5eb02d(0x125))]();return _0xe24d5b['groupId']=0x1,_0xe24d5b[_0x5eb02d(0x11d)]='admin',yield _0x676503[_0x5eb02d(0x11a)](_0xe24d5b);});}}function a972_0x5745(_0x4f1246,_0x522702){const _0x4e928d=a972_0x4e92();return a972_0x5745=function(_0x5745f3,_0x5b0513){_0x5745f3=_0x5745f3-0x113;let _0x2e622d=_0x4e928d[_0x5745f3];return _0x2e622d;},a972_0x5745(_0x4f1246,_0x522702);}exports[a972_0x474d77(0x124)]=CreateGroupData;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateGroupData = void 0;
+const tslib_1 = require("tslib");
+const UserGroup_1 = require("../../api/core/models/UserGroup");
+class CreateGroupData {
+    run(factory, connection) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const em = connection.createEntityManager();
+            const user = new UserGroup_1.UserGroup();
+            user.groupId = 1;
+            user.name = 'admin';
+            return yield em.save(user);
+        });
+    }
+}
+exports.CreateGroupData = CreateGroupData;
+//# sourceMappingURL=CreateGroupData.js.map

@@ -1,1 +1,28 @@
-'use strict';const a898_0xe1752b=a898_0x12c9;(function(_0xa692d3,_0x2322b7){const _0x17487e=a898_0x12c9,_0x4426f1=_0xa692d3();while(!![]){try{const _0x5142cf=-parseInt(_0x17487e(0xbc))/0x1+parseInt(_0x17487e(0xb0))/0x2*(parseInt(_0x17487e(0xb6))/0x3)+parseInt(_0x17487e(0xac))/0x4+parseInt(_0x17487e(0xb3))/0x5+parseInt(_0x17487e(0xaa))/0x6*(parseInt(_0x17487e(0xab))/0x7)+-parseInt(_0x17487e(0xb2))/0x8*(parseInt(_0x17487e(0xb8))/0x9)+parseInt(_0x17487e(0xb4))/0xa;if(_0x5142cf===_0x2322b7)break;else _0x4426f1['push'](_0x4426f1['shift']());}catch(_0x21f466){_0x4426f1['push'](_0x4426f1['shift']());}}}(a898_0x2f47,0xdac35));function a898_0x2f47(){const _0x3623ab=['362eTgHgY','AddColumnInProductStockAlert1603707976533','17032TwUCMF','1095715UMByfj','9640060LhJQnG','addColumn','2520XlhiaI','255','981gpmlil','down','defineProperty','__awaiter','1493296wJcIPg','dropColumn','__esModule','335898QyiTvY','42CStwog','3801292JgdECe','product_stock_alert','hasColumn','typeorm'];a898_0x2f47=function(){return _0x3623ab;};return a898_0x2f47();}function a898_0x12c9(_0xec88,_0x100c00){const _0x2f47c9=a898_0x2f47();return a898_0x12c9=function(_0x12c938,_0x4c0b34){_0x12c938=_0x12c938-0xa8;let _0x2b519d=_0x2f47c9[_0x12c938];return _0x2b519d;},a898_0x12c9(_0xec88,_0x100c00);}Object[a898_0xe1752b(0xba)](exports,a898_0xe1752b(0xa9),{'value':!![]}),exports[a898_0xe1752b(0xb1)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a898_0xe1752b(0xaf));class AddColumnInProductStockAlert1603707976533{['up'](_0x54b066){const _0x5a50f3=a898_0xe1752b;return tslib_1[_0x5a50f3(0xbb)](this,void 0x0,void 0x0,function*(){const _0x34a485=_0x5a50f3,_0x1362ca=yield _0x54b066[_0x34a485(0xae)](_0x34a485(0xad),'sku_name');!_0x1362ca&&(yield _0x54b066[_0x34a485(0xb5)]('product_stock_alert',new typeorm_1['TableColumn']({'name':'sku_name','type':'varchar','length':_0x34a485(0xb7),'isPrimary':![],'isNullable':!![]})));});}[a898_0xe1752b(0xb9)](_0x36609e){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1a0670=a898_0x12c9;yield _0x36609e[_0x1a0670(0xa8)](_0x1a0670(0xad),'sku_name');});}}exports[a898_0xe1752b(0xb1)]=AddColumnInProductStockAlert1603707976533;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInProductStockAlert1603707976533 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInProductStockAlert1603707976533 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('product_stock_alert', 'sku_name');
+            if (!ifExist) {
+                yield queryRunner.addColumn('product_stock_alert', new typeorm_1.TableColumn({
+                    name: 'sku_name',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('product_stock_alert', 'sku_name');
+        });
+    }
+}
+exports.AddColumnInProductStockAlert1603707976533 = AddColumnInProductStockAlert1603707976533;
+//# sourceMappingURL=1603707976533-AddColumnInProductStockAlert.js.map

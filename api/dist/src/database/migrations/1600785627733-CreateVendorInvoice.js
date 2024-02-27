@@ -1,1 +1,130 @@
-'use strict';function a886_0x54e1(_0x121ca3,_0x465971){const _0x48f543=a886_0x48f5();return a886_0x54e1=function(_0x54e1e4,_0x2e53f3){_0x54e1e4=_0x54e1e4-0x126;let _0x2a21a8=_0x48f543[_0x54e1e4];return _0x2a21a8;},a886_0x54e1(_0x121ca3,_0x465971);}const a886_0x3bdb5f=a886_0x54e1;(function(_0x2acb8e,_0x59823a){const _0x50acc2=a886_0x54e1,_0x2b56dc=_0x2acb8e();while(!![]){try{const _0x4f4b8a=parseInt(_0x50acc2(0x147))/0x1+-parseInt(_0x50acc2(0x153))/0x2+parseInt(_0x50acc2(0x132))/0x3*(-parseInt(_0x50acc2(0x13f))/0x4)+-parseInt(_0x50acc2(0x150))/0x5*(parseInt(_0x50acc2(0x139))/0x6)+parseInt(_0x50acc2(0x12c))/0x7*(-parseInt(_0x50acc2(0x13e))/0x8)+parseInt(_0x50acc2(0x128))/0x9+parseInt(_0x50acc2(0x14d))/0xa;if(_0x4f4b8a===_0x59823a)break;else _0x2b56dc['push'](_0x2b56dc['shift']());}catch(_0x1a3129){_0x2b56dc['push'](_0x2b56dc['shift']());}}}(a886_0x48f5,0xd3830));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a886_0x3bdb5f(0x14a)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a886_0x3bdb5f(0x14b));function a886_0x48f5(){const _0x138a65=['shipping_firstname','order','modified_date','3434032MgGQen','948724azhtPO','tableForeignKey','TableForeignKey','255','vendor_id','foreignKeys','down','increment','1545003gkNYBl','fk_tbl_order_tbl_vendor_invoice_foreignKey','dropTable','CreateVendorInvoice1600785627733','typeorm','created_by','31486370JWhRFL','vendor_invoice_id','Table','5pYybYI','columnNames','tableForeignKey1','1863386qApGcI','datetime','CASCADE','11071197LllpOE','indexOf','order_id','integer','14UPzuLm','vendor_invoice','created_date','fk_tbl_vendor_tbl_vendor_invoice_foreignKey','shipping_lastname','varchar','21fkacEx','email','find','hasTable','invoice_no','__awaiter','createForeignKey','9641718cqszRC','total'];a886_0x48f5=function(){return _0x138a65;};return a886_0x48f5();}class CreateVendorInvoice1600785627733{constructor(){const _0x2f816d=a886_0x3bdb5f;this[_0x2f816d(0x140)]=new typeorm_1[(_0x2f816d(0x141))]({'name':_0x2f816d(0x12f),'columnNames':[_0x2f816d(0x143)],'referencedColumnNames':[_0x2f816d(0x143)],'referencedTableName':'vendor','onDelete':_0x2f816d(0x127)}),this[_0x2f816d(0x152)]=new typeorm_1[(_0x2f816d(0x141))]({'name':_0x2f816d(0x148),'columnNames':[_0x2f816d(0x12a)],'referencedColumnNames':[_0x2f816d(0x12a)],'referencedTableName':_0x2f816d(0x13c),'onDelete':'CASCADE'});}['up'](_0x1b4c0a){const _0x4f54fa=a886_0x3bdb5f;return tslib_1[_0x4f54fa(0x137)](this,void 0x0,void 0x0,function*(){const _0x58fb5f=_0x4f54fa,_0x1d85a6=new typeorm_1[(_0x58fb5f(0x14f))]({'name':_0x58fb5f(0x12d),'columns':[{'name':_0x58fb5f(0x14e),'type':'integer','length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x58fb5f(0x146)},{'name':'vendor_id','type':_0x58fb5f(0x12b),'length':'11','isPrimary':![],'isNullable':![]},{'name':_0x58fb5f(0x12a),'type':_0x58fb5f(0x12b),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x58fb5f(0x136),'type':_0x58fb5f(0x131),'length':_0x58fb5f(0x142),'isPrimary':![],'isNullable':!![]},{'name':'invoice_prefix','type':_0x58fb5f(0x131),'length':_0x58fb5f(0x142),'isPrimary':![],'isNullable':!![]},{'name':_0x58fb5f(0x13a),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x58fb5f(0x133),'type':_0x58fb5f(0x131),'length':'255','isPrimary':![],'isNullable':!![]},{'name':_0x58fb5f(0x13b),'type':_0x58fb5f(0x131),'length':'32','isPrimary':![],'isNullable':!![]},{'name':_0x58fb5f(0x130),'type':_0x58fb5f(0x131),'length':'32','isPrimary':![],'isNullable':!![]},{'name':_0x58fb5f(0x14c),'type':_0x58fb5f(0x12b),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x58fb5f(0x12e),'type':_0x58fb5f(0x126),'isPrimary':![],'isNullable':!![]},{'name':'modified_by','type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x58fb5f(0x13d),'type':_0x58fb5f(0x126),'isPrimary':![],'isNullable':!![]}]}),_0x3a9d28=yield _0x1b4c0a[_0x58fb5f(0x135)](_0x58fb5f(0x12d));!_0x3a9d28&&(yield _0x1b4c0a['createTable'](_0x1d85a6));const _0x5bd90b=_0x1d85a6[_0x58fb5f(0x144)][_0x58fb5f(0x134)](_0x1e78e6=>_0x1e78e6[_0x58fb5f(0x151)][_0x58fb5f(0x129)]('vendor_id')!==-0x1);!_0x5bd90b&&(yield _0x1b4c0a[_0x58fb5f(0x138)](_0x1d85a6,this[_0x58fb5f(0x140)]));const _0x121534=_0x1d85a6[_0x58fb5f(0x144)][_0x58fb5f(0x134)](_0x3f46d0=>_0x3f46d0[_0x58fb5f(0x151)][_0x58fb5f(0x129)](_0x58fb5f(0x12a))!==-0x1);!_0x121534&&(yield _0x1b4c0a[_0x58fb5f(0x138)](_0x1d85a6,this['tableForeignKey1']));});}[a886_0x3bdb5f(0x145)](_0x566c48){const _0x5356d3=a886_0x3bdb5f;return tslib_1[_0x5356d3(0x137)](this,void 0x0,void 0x0,function*(){const _0x3b34fc=_0x5356d3;yield _0x566c48[_0x3b34fc(0x149)](_0x3b34fc(0x12d),!![]);});}}exports[a886_0x3bdb5f(0x14a)]=CreateVendorInvoice1600785627733;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateVendorInvoice1600785627733 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateVendorInvoice1600785627733 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_vendor_tbl_vendor_invoice_foreignKey',
+            columnNames: ['vendor_id'],
+            referencedColumnNames: ['vendor_id'],
+            referencedTableName: 'vendor',
+            onDelete: 'CASCADE',
+        });
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_order_tbl_vendor_invoice_foreignKey',
+            columnNames: ['order_id'],
+            referencedColumnNames: ['order_id'],
+            referencedTableName: 'order',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'vendor_invoice',
+                columns: [
+                    {
+                        name: 'vendor_invoice_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'vendor_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'order_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'invoice_no',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'invoice_prefix',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'total',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'email',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'shipping_firstname',
+                        type: 'varchar',
+                        length: '32',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'shipping_lastname',
+                        type: 'varchar',
+                        length: '32',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('vendor_invoice');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('vendor_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+            const ifDataExistt = table.foreignKeys.find(fk => fk.columnNames.indexOf('order_id') !== -1);
+            if (!ifDataExistt) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('vendor_invoice', true);
+        });
+    }
+}
+exports.CreateVendorInvoice1600785627733 = CreateVendorInvoice1600785627733;
+//# sourceMappingURL=1600785627733-CreateVendorInvoice.js.map

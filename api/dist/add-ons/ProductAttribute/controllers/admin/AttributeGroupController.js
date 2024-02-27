@@ -1,1 +1,392 @@
-'use strict';const a63_0x2851c1=a63_0x332d;(function(_0x1676eb,_0x2955a8){const _0x48831c=a63_0x332d,_0x48b4ff=_0x1676eb();while(!![]){try{const _0x1c1c0c=-parseInt(_0x48831c(0x108))/0x1*(-parseInt(_0x48831c(0x10f))/0x2)+-parseInt(_0x48831c(0x111))/0x3+parseInt(_0x48831c(0x103))/0x4+parseInt(_0x48831c(0xeb))/0x5+-parseInt(_0x48831c(0x124))/0x6*(parseInt(_0x48831c(0x10b))/0x7)+-parseInt(_0x48831c(0x100))/0x8+parseInt(_0x48831c(0xfe))/0x9;if(_0x1c1c0c===_0x2955a8)break;else _0x48b4ff['push'](_0x48b4ff['shift']());}catch(_0x5ebebd){_0x48b4ff['push'](_0x48b4ff['shift']());}}}(a63_0x5a03,0xc1792));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a63_0x2851c1(0xff)]=void 0x0;const tslib_1=require(a63_0x2851c1(0xf5));require('reflect-metadata');const routing_controllers_1=require(a63_0x2851c1(0x10c)),AttributeGroup_1=require(a63_0x2851c1(0xfa)),AttributeGroupService_1=require('../../services/AttributeGroupService'),AttributeService_1=require(a63_0x2851c1(0xf7)),AddonValidationMiddleware_1=require(a63_0x2851c1(0x11a));function a63_0x332d(_0x59d455,_0x108b3e){const _0x5a03d0=a63_0x5a03();return a63_0x332d=function(_0x332d52,_0xe013c1){_0x332d52=_0x332d52-0xdb;let _0x59a930=_0x5a03d0[_0x332d52];return _0x59a930;},a63_0x332d(_0x59d455,_0x108b3e);}let AttributeGroupController=class AttributeGroupController{constructor(_0x1417d4,_0xcbe6d4){const _0x54fd96=a63_0x2851c1;this[_0x54fd96(0xf6)]=_0x1417d4,this['attributeService']=_0xcbe6d4;}[a63_0x2851c1(0x121)](_0x525298,_0x485218,_0x3a1a37){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x26881e=a63_0x332d,_0x3fe26d=new AttributeGroup_1['AttributeGroup']();_0x3fe26d['attributeGroupName']=_0x525298,_0x3fe26d['sortOrder']=_0x485218;const _0x28ef1f=yield this[_0x26881e(0xf6)][_0x26881e(0xdf)](_0x3fe26d);if(_0x28ef1f){const _0x42c3d9={'status':0x1,'message':_0x26881e(0xdc),'data':_0x28ef1f};return _0x3a1a37[_0x26881e(0xef)](0xc8)['send'](_0x42c3d9);}else{const _0x5b982f={'status':0x0,'message':'Unable\x20to\x20create\x20attribute\x20group,\x20try\x20again.'};return _0x3a1a37[_0x26881e(0xef)](0x190)['send'](_0x5b982f);}});}[a63_0x2851c1(0x115)](_0x1d8963,_0x36419d,_0x4d265b,_0x31b6fe,_0x598e6d){const _0x4cec37=a63_0x2851c1;return tslib_1[_0x4cec37(0x123)](this,void 0x0,void 0x0,function*(){const _0xfda0c=_0x4cec37,_0x1946cb=[_0xfda0c(0x101),_0xfda0c(0x10d),_0xfda0c(0x104)],_0x2a45d7=[];(_0x4d265b===null||_0x4d265b===void 0x0?void 0x0:_0x4d265b[_0xfda0c(0x112)]())&&(console['log'](_0x4d265b),_0x2a45d7[_0xfda0c(0xf8)]({'name':['AttributeGroup.attributeGroupName'],'op':'like','value':_0x4d265b}));const _0x26651d=[],_0x10e2a5=[{'name':'AttributeGroup.createdDate','order':_0xfda0c(0x109)}],_0x4ee408=yield this[_0xfda0c(0xf6)][_0xfda0c(0xe1)](_0x1d8963,_0x36419d,_0x1946cb,[],_0x2a45d7,_0x26651d,[],_0x10e2a5,![],!![]),_0x407fb9=_0x4ee408[_0xfda0c(0x107)](_0x46362f=>tslib_1[_0xfda0c(0x123)](this,void 0x0,void 0x0,function*(){const _0x363c86=_0xfda0c,_0x587477=_0x46362f,_0x343c40=yield this[_0x363c86(0x118)][_0x363c86(0x102)]({'where':{'groupId':_0x587477[_0x363c86(0xee)]}});return _0x587477[_0x363c86(0xfd)]=_0x343c40,_0x587477;})),_0x237243=yield Promise['all'](_0x407fb9);return _0x598e6d['status'](0xc8)[_0xfda0c(0xe2)]({'status':0x1,'message':_0xfda0c(0xe4),'data':_0x237243});});}[a63_0x2851c1(0xf1)](_0x38f507,_0x58bf31,_0x3ba82f,_0xac52bf){const _0x3b3817=a63_0x2851c1;return tslib_1[_0x3b3817(0x123)](this,void 0x0,void 0x0,function*(){const _0x3476c7=_0x3b3817,_0x5766ee=yield this[_0x3476c7(0xf6)][_0x3476c7(0xf2)]({'where':{'groupId':_0x38f507}});if(!_0x5766ee){const _0x76890b={'status':0x0,'message':'Invalid\x20group\x20Id.'};return _0xac52bf[_0x3476c7(0xef)](0x190)[_0x3476c7(0xe2)](_0x76890b);}_0x5766ee['attributeGroupName']=_0x58bf31,_0x5766ee[_0x3476c7(0xed)]=_0x3ba82f;const _0x575ee8=yield this['attributeGroupService'][_0x3476c7(0xdf)](_0x5766ee);if(_0x575ee8){const _0x38b4fc={'status':0x1,'message':'Successfully\x20updated\x20Attribute\x20Group.','data':_0x575ee8};return _0xac52bf[_0x3476c7(0xef)](0xc8)[_0x3476c7(0xe2)](_0x38b4fc);}else{const _0x40bf3a={'status':0x0,'message':_0x3476c7(0xe7)};return _0xac52bf[_0x3476c7(0xef)](0x190)[_0x3476c7(0xe2)](_0x40bf3a);}});}['deleteAttributeGroup'](_0x498ed7,_0x25db7b,_0x5f427e){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5e8609=a63_0x332d,_0x810cf5=yield this[_0x5e8609(0xf6)][_0x5e8609(0xf2)]({'where':{'groupId':_0x498ed7}});if(!_0x810cf5){const _0x5b5cac={'status':0x0,'message':'Invalid\x20attribute\x20Group\x20Id.'};return _0x25db7b[_0x5e8609(0xef)](0x190)[_0x5e8609(0xe2)](_0x5b5cac);}const _0x2c30d8=yield this['attributeService'][_0x5e8609(0x102)]({'where':{'groupId':_0x810cf5['groupId']}});if(_0x2c30d8)return _0x25db7b[_0x5e8609(0xef)](0x190)['send']({'status':0x0,'message':_0x5e8609(0xe9)});const _0x1f72bc=yield this['attributeGroupService']['delete'](_0x498ed7);if(_0x1f72bc){const _0x548029={'status':0x1,'message':'Successfullly\x20deleted\x20Attribute\x20Group.'};return _0x25db7b[_0x5e8609(0xef)](0xc8)['send'](_0x548029);}else{const _0xdc4b3={'status':0x0,'message':_0x5e8609(0xe6)};return _0x25db7b[_0x5e8609(0xef)](0x190)['send'](_0xdc4b3);}});}[a63_0x2851c1(0xf0)](_0x2fcd87,_0x213273,_0x8c81f6){const _0x3096a2=a63_0x2851c1;return tslib_1[_0x3096a2(0x123)](this,void 0x0,void 0x0,function*(){const _0x48b623=_0x3096a2,_0x3ebc93=yield this['attributeGroupService'][_0x48b623(0xf2)]({'where':{'groupId':_0x2fcd87}});if(!_0x3ebc93){const _0x5c2e25={'status':0x0,'message':_0x48b623(0x120)};return _0x8c81f6['status'](0x190)['send'](_0x5c2e25);}const _0x32f946={'status':0x1,'message':_0x48b623(0xf4),'data':_0x3ebc93};return _0x8c81f6[_0x48b623(0xef)](0xc8)[_0x48b623(0xe2)](_0x32f946);});}};function a63_0x5a03(){const _0x10f069=['Successfully\x20Got\x20attribute\x20group','tslib','attributeGroupService','../../services/AttributeService','push','design:paramtypes','../../models/AttributeGroup','/:id','count','attribute','22892499jnEbyf','AttributeGroupController','9358864pmeUDn','AttributeGroup.groupId\x20as\x20groupId','find','2356624Fpkzca','AttributeGroup.sortOrder\x20as\x20sortOrder','attribute-group-add','deleteAttributeGroup','map','19dxNFMh','DESC','JsonController','7ZqnZRu','routing-controllers','AttributeGroup.attributeGroupName\x20as\x20attributeGroupName','BodyParam','101110QgQWXL','admin','1916334Ytycja','trim','Res','design:type','AttributeGrouplist','AttributeService','/get-attribute-group/:id','attributeService','QueryParam','../../../../src/api/core/middlewares/AddonValidationMiddleware','attribute-group-edit','Put','__param','__metadata','Post','\x20invalid\x20group\x20Id','addAttributeGroup','offset','__awaiter','9446466zLInKo','__decorate','Successfully\x20added\x20Attribute\x20Group.','Req','Authorized','create','prototype','listByQueryBuilder','send','Param','Successfully\x20got\x20the\x20attribute\x20group\x20list.','Get','unable\x20to\x20delete\x20Attribute\x20Group.','Unable\x20to\x20update\x20Attribute\x20Group.','design:returntype','You\x20cannot\x20delete\x20this\x20attribute\x20group\x20as\x20products\x20are\x20mapped\x20to\x20it.\x20','attributeGroupName','411005UqSzfA','limit','sortOrder','groupId','status','getAttributeGroup','updateAttributeGroup','findOne','attribute-group-delete'];a63_0x5a03=function(){return _0x10f069;};return a63_0x5a03();}tslib_1[a63_0x2851c1(0xdb)]([(0x0,routing_controllers_1[a63_0x2851c1(0x11f)])(),(0x0,routing_controllers_1[a63_0x2851c1(0xde)])([a63_0x2851c1(0x110),a63_0x2851c1(0x105)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a63_0x2851c1(0x10e)])(a63_0x2851c1(0xea))),tslib_1[a63_0x2851c1(0x11d)](0x1,(0x0,routing_controllers_1[a63_0x2851c1(0x10e)])(a63_0x2851c1(0xed))),tslib_1[a63_0x2851c1(0x11d)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a63_0x2851c1(0x11e)](a63_0x2851c1(0x114),Function),tslib_1[a63_0x2851c1(0x11e)](a63_0x2851c1(0xf9),[String,Number,Object]),tslib_1['__metadata'](a63_0x2851c1(0xe8),Promise)],AttributeGroupController['prototype'],'addAttributeGroup',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a63_0x2851c1(0xe5)])(),tslib_1[a63_0x2851c1(0x11d)](0x0,(0x0,routing_controllers_1['QueryParam'])(a63_0x2851c1(0xec))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a63_0x2851c1(0x119)])(a63_0x2851c1(0x122))),tslib_1[a63_0x2851c1(0x11d)](0x2,(0x0,routing_controllers_1[a63_0x2851c1(0x119)])('keyword')),tslib_1[a63_0x2851c1(0x11d)](0x3,(0x0,routing_controllers_1[a63_0x2851c1(0x119)])(a63_0x2851c1(0xfc))),tslib_1[a63_0x2851c1(0x11d)](0x4,(0x0,routing_controllers_1[a63_0x2851c1(0x113)])()),tslib_1[a63_0x2851c1(0x11e)]('design:type',Function),tslib_1['__metadata'](a63_0x2851c1(0xf9),[Number,Number,String,Object,Object]),tslib_1[a63_0x2851c1(0x11e)](a63_0x2851c1(0xe8),Promise)],AttributeGroupController[a63_0x2851c1(0xe0)],a63_0x2851c1(0x115),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a63_0x2851c1(0x11c)])(a63_0x2851c1(0xfb)),(0x0,routing_controllers_1[a63_0x2851c1(0xde)])([a63_0x2851c1(0x110),a63_0x2851c1(0x11b)]),tslib_1[a63_0x2851c1(0x11d)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1[a63_0x2851c1(0x11d)](0x1,(0x0,routing_controllers_1[a63_0x2851c1(0x10e)])(a63_0x2851c1(0xea))),tslib_1[a63_0x2851c1(0x11d)](0x2,(0x0,routing_controllers_1[a63_0x2851c1(0x10e)])(a63_0x2851c1(0xed))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a63_0x2851c1(0x113)])()),tslib_1[a63_0x2851c1(0x11e)]('design:type',Function),tslib_1['__metadata'](a63_0x2851c1(0xf9),[Number,String,Number,Object]),tslib_1[a63_0x2851c1(0x11e)](a63_0x2851c1(0xe8),Promise)],AttributeGroupController['prototype'],a63_0x2851c1(0xf1),null),tslib_1[a63_0x2851c1(0xdb)]([(0x0,routing_controllers_1['Delete'])(a63_0x2851c1(0xfb)),(0x0,routing_controllers_1['Authorized'])([a63_0x2851c1(0x110),a63_0x2851c1(0xf3)]),tslib_1[a63_0x2851c1(0x11d)](0x0,(0x0,routing_controllers_1[a63_0x2851c1(0xe3)])('id')),tslib_1[a63_0x2851c1(0x11d)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a63_0x2851c1(0x11d)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1['__metadata']('design:type',Function),tslib_1[a63_0x2851c1(0x11e)](a63_0x2851c1(0xf9),[Number,Object,Object]),tslib_1[a63_0x2851c1(0x11e)](a63_0x2851c1(0xe8),Promise)],AttributeGroupController[a63_0x2851c1(0xe0)],a63_0x2851c1(0x106),null),tslib_1[a63_0x2851c1(0xdb)]([(0x0,routing_controllers_1['Get'])(a63_0x2851c1(0x117)),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a63_0x2851c1(0x11d)](0x0,(0x0,routing_controllers_1[a63_0x2851c1(0xe3)])('id')),tslib_1[a63_0x2851c1(0x11d)](0x1,(0x0,routing_controllers_1[a63_0x2851c1(0xdd)])()),tslib_1[a63_0x2851c1(0x11d)](0x2,(0x0,routing_controllers_1[a63_0x2851c1(0x113)])()),tslib_1[a63_0x2851c1(0x11e)]('design:type',Function),tslib_1['__metadata'](a63_0x2851c1(0xf9),[Number,Object,Object]),tslib_1[a63_0x2851c1(0x11e)](a63_0x2851c1(0xe8),Promise)],AttributeGroupController['prototype'],'getAttributeGroup',null),AttributeGroupController=tslib_1[a63_0x2851c1(0xdb)]([(0x0,routing_controllers_1['UseBefore'])(AddonValidationMiddleware_1['CheckAddonMiddleware']),(0x0,routing_controllers_1[a63_0x2851c1(0x10a)])('/attribute-group'),tslib_1[a63_0x2851c1(0x11e)](a63_0x2851c1(0xf9),[AttributeGroupService_1['AttributeGroupService'],AttributeService_1[a63_0x2851c1(0x116)]])],AttributeGroupController),exports['AttributeGroupController']=AttributeGroupController;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AttributeGroupController = void 0;
+const tslib_1 = require("tslib");
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const AttributeGroup_1 = require("../../models/AttributeGroup");
+const AttributeGroupService_1 = require("../../services/AttributeGroupService");
+// import { CheckAddonMiddleware } from '../../../../src/api/core/middlewares/AddonValidationMiddleware';
+const CreateAttributeGroupRequest_1 = require("./requests/CreateAttributeGroupRequest");
+// import { CreateAttributeGroupToAttribute } from './requests/CreateAttributeGroupToAttributeRequest';
+const AttributeToGroup_1 = require("../../models/AttributeToGroup");
+const AttributeToGroupService_1 = require("../../services/AttributeToGroupService");
+const typeorm_1 = require("typeorm");
+const ProductSpecToAttrGroupService_1 = require("../../services/ProductSpecToAttrGroupService");
+const AttributeService_1 = require("../../services/AttributeService");
+// @UseBefore(CheckAddonMiddleware)
+let AttributeGroupController = class AttributeGroupController {
+    constructor(attributeGroupService, attributeToGroupService, productSpecToAttrGroupService, attributeService) {
+        this.attributeGroupService = attributeGroupService;
+        this.attributeToGroupService = attributeToGroupService;
+        this.productSpecToAttrGroupService = productSpecToAttrGroupService;
+        this.attributeService = attributeService;
+        // --
+    }
+    // Create Attribute Group API
+    /**
+     * @api {post} /api/attribute-group Add Attribute group API
+     * @apiGroup Attribute Group
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} attributeGroupName
+     * @apiParam (Request body) {Number} sortOrder
+     * @apiParamExample {json} Input
+     * {
+     *      "attributeGroupName" : "",
+     *      "sortOrder" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully created attribute group.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/attribute-group
+     * @apiErrorExample {json} Attribute group error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addAttributeGroup(attributeGroupParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newAttributeGroup = new AttributeGroup_1.AttributeGroup();
+            newAttributeGroup.name = attributeGroupParam.name;
+            newAttributeGroup.sortOrder = attributeGroupParam.sortOrder;
+            const AttributeGroupSaved = yield this.attributeGroupService.create(newAttributeGroup);
+            const AttributeGroupAttributes = [];
+            for (const attributeId of attributeGroupParam.attributeIds) {
+                const attributeToGroup = new AttributeToGroup_1.AttributeToGroup();
+                attributeToGroup.attributeId = attributeId;
+                attributeToGroup.attributeGroupId = AttributeGroupSaved.id;
+                AttributeGroupAttributes.push(attributeToGroup);
+            }
+            yield this.attributeToGroupService.bulkCreate(AttributeGroupAttributes);
+            const attributeGroupDetail = yield this.attributeGroupService.findOne({
+                where: {
+                    id: AttributeGroupSaved.id,
+                },
+                relations: ['attributes'],
+            });
+            const successResponse = {
+                status: 1,
+                message: 'Successfully added Attribute Group',
+                data: attributeGroupDetail,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Attribute Group List API
+    /**
+     * @api {get} /api/attribute-group Attribute Group list API
+     * @apiGroup Attribute Group
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get Attribute Group list API",
+     *      "data":{
+     *       "groupId" : "",
+     *       "attributeGroupName" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/attribute-group
+     * @apiErrorExample {json} Attribute Group error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    AttributeGrouplist(limit, offset, keyword, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // const select = [
+            //     'AttributeGroup.id as id',
+            //     'AttributeGroup.name as name',
+            //     'AttributeGroup.sortOrder as sortOrder',
+            //     'AttributeGroup.isActive as isActive',
+            //     'AttributeGroup.isDelete as isDelete',
+            //     'AttributeGroup.createdDate as createdDate',
+            //     'AttributeGroup.modifiedDate as modifiedDate',
+            // ];
+            const searchConditions = [];
+            if (keyword === null || keyword === void 0 ? void 0 : keyword.trim()) {
+                searchConditions.push({
+                    name: ['AttributeGroup.name'],
+                    op: 'like',
+                    value: keyword,
+                });
+            }
+            const whereConditions = [
+                {
+                    op: 'where',
+                    name: 'AttributeGroup.isDelete',
+                    value: 0,
+                },
+            ];
+            const relations = [
+            // {
+            //     op: 'left-select',
+            //     tableName: 'AttributeGroup.attributes',
+            //     aliasName: 'attributes',
+            // },
+            // {
+            //     op: 'left-select',
+            //     tableName: 'attributes.attributeValues',
+            //     aliasName: 'attributeValues',
+            // },
+            ];
+            const sort = [{
+                    name: 'AttributeGroup.createdDate',
+                    order: 'DESC',
+                }];
+            const attributeGroups = yield this.attributeGroupService.listByQueryBuilder(limit, offset, [], whereConditions, searchConditions, relations, [], sort, false, false);
+            if (count) {
+                const attributeGroupCount = yield this.attributeGroupService.listByQueryBuilder(0, 0, [], whereConditions, searchConditions, relations, [], sort, true, false);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got the attribute Group Count.',
+                    data: attributeGroupCount,
+                });
+            }
+            const attributeGroupsWithAttributeDetails = yield Promise.all(attributeGroups.map((attributeGroup) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const attributeGroupToAttributes = (yield this.attributeToGroupService.findAttributeDistinct(attributeGroup.id)).map((attributeGroupToAttribute) => attributeGroupToAttribute.attribute_id);
+                const attributeDetails = yield this.attributeService.find({
+                    where: {
+                        id: (0, typeorm_1.In)(attributeGroupToAttributes),
+                    },
+                    relations: ['attributeValues'],
+                });
+                return Object.assign(Object.assign({}, attributeGroup), { attributes: attributeDetails });
+            })));
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully got the attribute group list.',
+                data: attributeGroupsWithAttributeDetails
+                    .map((attributeGroup) => {
+                    const attributeCount = attributeGroup.attributes.length;
+                    const attributeNames = (attributeGroup.attributes.map((attribute) => attribute.name)).toString();
+                    // attributeGroup.attributes;
+                    return Object.assign(Object.assign({}, attributeGroup), { attributeCount, attributeNames });
+                }),
+            });
+        });
+    }
+    // update Attribute Group
+    /**
+     * @api {put} /api/attribute-group/:id Update Attribute Group API
+     * @apiGroup Attribute Group
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} attributeGroupName attributeGroupName
+     * @apiParam (Request body) {Number} sortOrder sortOrder
+     * @apiParamExample {json} Input
+     * {
+     *      "attributeGroupName" : "",
+     *      "sortOrder" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated attribute group.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/attribute-group/:id
+     * @apiErrorExample {json} Attribute Group error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateAttributeGroup(id, attributeGroupParam, response) {
+        var _a, _b;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const group = yield this.attributeGroupService.findOne({
+                where: {
+                    id,
+                },
+            });
+            if (!group) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid group Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            group.name = attributeGroupParam.name;
+            group.sortOrder = attributeGroupParam.sortOrder;
+            const groupSave = yield this.attributeGroupService.create(group);
+            // Delete Attribute From Group
+            if ((_a = attributeGroupParam.deleteAttributeIds) === null || _a === void 0 ? void 0 : _a.length) {
+                yield this.attributeToGroupService.delete({ attributeGroupId: group.id, attributeId: (0, typeorm_1.In)(attributeGroupParam.deleteAttributeIds) });
+            }
+            if ((_b = attributeGroupParam.attributeIds) === null || _b === void 0 ? void 0 : _b.length) {
+                const AttributeGroupAttributes = [];
+                for (const attributeId of attributeGroupParam.attributeIds) {
+                    const attributeToGroup = new AttributeToGroup_1.AttributeToGroup();
+                    attributeToGroup.attributeId = attributeId;
+                    attributeToGroup.attributeGroupId = groupSave.id;
+                    AttributeGroupAttributes.push(attributeToGroup);
+                }
+                yield this.attributeToGroupService.bulkCreate(AttributeGroupAttributes);
+            }
+            const attributeGroupDetail = yield this.attributeGroupService.findOne({
+                where: {
+                    id: group.id,
+                },
+                relations: ['attributes'],
+            });
+            const successResponse = {
+                status: 1,
+                message: 'Successfully updated Attribute Group',
+                data: attributeGroupDetail,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // delete AttributeGroup API
+    /**
+     * @api {delete} /api/attribute-group/:id Delete Attribute group API
+     * @apiGroup Attribute Group
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Attribute group.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/attribute-group/:id
+     * @apiErrorExample {json} Currency error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteAttributeGroup(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield this.attributeGroupService.softDelete(id);
+            yield this.attributeToGroupService.delete({ attributeGroupId: id });
+            yield this.productSpecToAttrGroupService.delete({ attributeGroupId: id });
+            const successResponse = {
+                status: 1,
+                message: 'Successfullly deleted Attribute Group.',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // @Post('/attribute')
+    // public async mapAttributeGroupToSpec(@Res() response: any, @Body({ validate: true }) payload: CreateAttributeGroupToAttribute): Promise<any> {
+    //     const AttributeGroupAttributes: AttributeToGroup[] = [];
+    //     for (const AttributeGroupAttribute of payload.attributeGroupAttributes) {
+    //         for (const attributeId of AttributeGroupAttribute.attributeIds) {
+    //             const attributeToGroup = new AttributeToGroup();
+    //             attributeToGroup.attributeId = attributeId;
+    //             attributeToGroup.attributeGroupId = AttributeGroupAttribute.attributeGroupId;
+    //             AttributeGroupAttributes.push(attributeToGroup);
+    //         }
+    //     }
+    //     await this.attributeToGroupService.bulkCreate(AttributeGroupAttributes);
+    //     return response.status(200).send({
+    //         status: 1,
+    //         message: `Successfully added specification to attribute group..!!`,
+    //     });
+    // }
+    // @Delete('/attribute/:ids')
+    // public async deleteAttributeInGroup(@Res() response: any, @Param('ids') attributeToGroupIds: string): Promise<any> {
+    //     const attributeToGroupIdsNum = (attributeToGroupIds.split(',')).map((id) => Number(id));
+    //     await this.attributeToGroupService.delete({ id: In(attributeToGroupIdsNum) });
+    //     return response.status(200).send({
+    //         status: 1,
+    //         message: `Successfully deleted Attribute To Group!`,
+    //     });
+    // }
+    //   Get attribute Group API
+    /**
+     * @api {get} /api/attribute-group/get-attribute-group/:id Get Attribute Group  API
+     * @apiGroup Attribute Group
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get attribute Group",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/attribute-group/get-attribute-group/:id
+     * @apiErrorExample {json} Attribute Group error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    getAttributeGroup(id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const attribute = yield this.attributeGroupService.findOne({ where: { id, isDelete: 0 }, relations: ['attributes'] });
+            if (!attribute) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid group Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully Got attribute group',
+                data: attribute,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'attribute-group-add']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateAttributeGroupRequest_1.CreateAttributeGroup, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AttributeGroupController.prototype, "addAttributeGroup", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AttributeGroupController.prototype, "AttributeGrouplist", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'attribute-group-edit']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateAttributeGroupRequest_1.CreateAttributeGroup, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AttributeGroupController.prototype, "updateAttributeGroup", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'attribute-group-delete']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AttributeGroupController.prototype, "deleteAttributeGroup", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AttributeGroupController.prototype, "getAttributeGroup", null);
+AttributeGroupController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/attribute-group'),
+    tslib_1.__metadata("design:paramtypes", [AttributeGroupService_1.AttributeGroupService,
+        AttributeToGroupService_1.AttributeToGroupService,
+        ProductSpecToAttrGroupService_1.ProductSpecToAttrGroupService,
+        AttributeService_1.AttributeService])
+], AttributeGroupController);
+exports.AttributeGroupController = AttributeGroupController;
+//# sourceMappingURL=AttributeGroupController.js.map

@@ -1,1 +1,76 @@
-'use strict';const a432_0x4dc8e6=a432_0x1f80;(function(_0x113bbb,_0x353231){const _0x1ca0ed=a432_0x1f80,_0x4f4fed=_0x113bbb();while(!![]){try{const _0x51641d=parseInt(_0x1ca0ed(0xe0))/0x1*(-parseInt(_0x1ca0ed(0xd6))/0x2)+-parseInt(_0x1ca0ed(0xec))/0x3*(parseInt(_0x1ca0ed(0xf1))/0x4)+-parseInt(_0x1ca0ed(0xe5))/0x5+parseInt(_0x1ca0ed(0xe9))/0x6+parseInt(_0x1ca0ed(0xea))/0x7*(parseInt(_0x1ca0ed(0xe7))/0x8)+-parseInt(_0x1ca0ed(0xfa))/0x9+-parseInt(_0x1ca0ed(0xdf))/0xa*(-parseInt(_0x1ca0ed(0xf6))/0xb);if(_0x51641d===_0x353231)break;else _0x4f4fed['push'](_0x4f4fed['shift']());}catch(_0x58f213){_0x4f4fed['push'](_0x4f4fed['shift']());}}}(a432_0x5a09,0x65a85));Object[a432_0x4dc8e6(0xd3)](exports,'__esModule',{'value':!![]}),exports['SizeChartTemplateHeader']=void 0x0;const tslib_1=require(a432_0x4dc8e6(0xe3)),typeorm_1=require(a432_0x4dc8e6(0xf5)),BaseModel_1=require('./BaseModel'),HeaderTextModel_1=require(a432_0x4dc8e6(0xf3)),SizeChartTemplate_1=require(a432_0x4dc8e6(0xeb)),moment=require(a432_0x4dc8e6(0xdc)),class_validator_1=require(a432_0x4dc8e6(0xee));let SizeChartTemplateHeader=class SizeChartTemplateHeader extends BaseModel_1[a432_0x4dc8e6(0xf8)]{['createDetails'](){const _0x14bc99=a432_0x4dc8e6;return tslib_1[_0x14bc99(0xd7)](this,void 0x0,void 0x0,function*(){const _0x31af7c=_0x14bc99;this[_0x31af7c(0xdb)]=moment()[_0x31af7c(0xfb)](_0x31af7c(0xe4));});}[a432_0x4dc8e6(0xf2)](){const _0x46ac70=a432_0x4dc8e6;return tslib_1[_0x46ac70(0xd7)](this,void 0x0,void 0x0,function*(){const _0x3c2d4b=_0x46ac70;this['modifiedDate']=moment()[_0x3c2d4b(0xfb)](_0x3c2d4b(0xe4));});}};tslib_1[a432_0x4dc8e6(0xef)]([(0x0,class_validator_1[a432_0x4dc8e6(0xd4)])(),(0x0,typeorm_1[a432_0x4dc8e6(0xd5)])({'name':'id'}),tslib_1[a432_0x4dc8e6(0xd8)](a432_0x4dc8e6(0xe1),Number)],SizeChartTemplateHeader[a432_0x4dc8e6(0xdd)],'id',void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a432_0x4dc8e6(0xd4)])(),(0x0,typeorm_1['Column'])({'name':a432_0x4dc8e6(0xe2)}),tslib_1[a432_0x4dc8e6(0xd8)](a432_0x4dc8e6(0xe1),Number)],SizeChartTemplateHeader[a432_0x4dc8e6(0xdd)],'templateId',void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a432_0x4dc8e6(0xd4)])(),(0x0,typeorm_1['Column'])({'name':a432_0x4dc8e6(0xf0)}),tslib_1['__metadata']('design:type',Number)],SizeChartTemplateHeader['prototype'],a432_0x4dc8e6(0xf4),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a432_0x4dc8e6(0xd4)])(),(0x0,typeorm_1['Column'])({'name':'header_text'}),tslib_1[a432_0x4dc8e6(0xd8)]('design:type',String)],SizeChartTemplateHeader['prototype'],a432_0x4dc8e6(0xd2),void 0x0),tslib_1[a432_0x4dc8e6(0xef)]([(0x0,typeorm_1[a432_0x4dc8e6(0xd1)])(_0x542f3a=>HeaderTextModel_1['HeaderText'],_0x575cda=>_0x575cda[a432_0x4dc8e6(0xd9)]),(0x0,typeorm_1['JoinColumn'])({'name':a432_0x4dc8e6(0xf0)}),tslib_1[a432_0x4dc8e6(0xd8)](a432_0x4dc8e6(0xe1),HeaderTextModel_1[a432_0x4dc8e6(0xf7)])],SizeChartTemplateHeader[a432_0x4dc8e6(0xdd)],a432_0x4dc8e6(0xda),void 0x0),tslib_1[a432_0x4dc8e6(0xef)]([(0x0,typeorm_1[a432_0x4dc8e6(0xd1)])(_0x377d07=>SizeChartTemplate_1[a432_0x4dc8e6(0xde)],_0x42885d=>_0x42885d[a432_0x4dc8e6(0xd9)]),(0x0,typeorm_1[a432_0x4dc8e6(0xcf)])({'name':'template_id'}),tslib_1[a432_0x4dc8e6(0xd8)](a432_0x4dc8e6(0xe1),SizeChartTemplate_1['SizeChartTemplate'])],SizeChartTemplateHeader[a432_0x4dc8e6(0xdd)],a432_0x4dc8e6(0xce),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a432_0x4dc8e6(0xf9)])(),tslib_1[a432_0x4dc8e6(0xd8)]('design:type',Function),tslib_1[a432_0x4dc8e6(0xd8)]('design:paramtypes',[]),tslib_1['__metadata'](a432_0x4dc8e6(0xd0),Promise)],SizeChartTemplateHeader[a432_0x4dc8e6(0xdd)],'createDetails',null),tslib_1[a432_0x4dc8e6(0xef)]([(0x0,typeorm_1['BeforeUpdate'])(),tslib_1[a432_0x4dc8e6(0xd8)](a432_0x4dc8e6(0xe1),Function),tslib_1[a432_0x4dc8e6(0xd8)](a432_0x4dc8e6(0xe8),[]),tslib_1[a432_0x4dc8e6(0xd8)]('design:returntype',Promise)],SizeChartTemplateHeader['prototype'],a432_0x4dc8e6(0xf2),null),SizeChartTemplateHeader=tslib_1['__decorate']([(0x0,typeorm_1['Entity'])(a432_0x4dc8e6(0xe6))],SizeChartTemplateHeader),exports[a432_0x4dc8e6(0xed)]=SizeChartTemplateHeader;function a432_0x1f80(_0x2baab8,_0x5829b8){const _0x5a09f8=a432_0x5a09();return a432_0x1f80=function(_0x1f804b,_0x4c6b0f){_0x1f804b=_0x1f804b-0xce;let _0x34884d=_0x5a09f8[_0x1f804b];return _0x34884d;},a432_0x1f80(_0x2baab8,_0x5829b8);}function a432_0x5a09(){const _0x2f4169=['1528ayTzDS','design:paramtypes','2931768XPsAwV','25228gKpXvU','./SizeChartTemplate','552oSZcFj','SizeChartTemplateHeader','class-validator','__decorate','header_id','7088qHNszi','updateDetails','./HeaderTextModel','headerId','typeorm','683804cnOFuL','HeaderText','BaseModel','BeforeInsert','1612224rEGwoS','format','sizeChartTemplate','JoinColumn','design:returntype','ManyToOne','headerText','defineProperty','IsNotEmpty','PrimaryGeneratedColumn','49518XHJZru','__awaiter','__metadata','templateHeader','header','createdDate','moment/moment','prototype','SizeChartTemplate','10ZQMTOZ','6SOFOKb','design:type','template_id','tslib','YYYY-MM-DD\x20HH:mm:ss','845145oRujgS','size_chart_template_header'];a432_0x5a09=function(){return _0x2f4169;};return a432_0x5a09();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SizeChartTemplateHeader = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const HeaderTextModel_1 = require("./HeaderTextModel");
+const SizeChartTemplate_1 = require("./SizeChartTemplate");
+const moment = require("moment/moment");
+const class_validator_1 = require("class-validator");
+let SizeChartTemplateHeader = class SizeChartTemplateHeader extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'id' }),
+    tslib_1.__metadata("design:type", Number)
+], SizeChartTemplateHeader.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'template_id' }),
+    tslib_1.__metadata("design:type", Number)
+], SizeChartTemplateHeader.prototype, "templateId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'header_id' }),
+    tslib_1.__metadata("design:type", Number)
+], SizeChartTemplateHeader.prototype, "headerId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'header_text' }),
+    tslib_1.__metadata("design:type", String)
+], SizeChartTemplateHeader.prototype, "headerText", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => HeaderTextModel_1.HeaderText, headerText => headerText.templateHeader),
+    (0, typeorm_1.JoinColumn)({ name: 'header_id' }),
+    tslib_1.__metadata("design:type", HeaderTextModel_1.HeaderText)
+], SizeChartTemplateHeader.prototype, "header", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => SizeChartTemplate_1.SizeChartTemplate, sizeChartTemplate => sizeChartTemplate.templateHeader),
+    (0, typeorm_1.JoinColumn)({ name: 'template_id' }),
+    tslib_1.__metadata("design:type", SizeChartTemplate_1.SizeChartTemplate)
+], SizeChartTemplateHeader.prototype, "sizeChartTemplate", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], SizeChartTemplateHeader.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], SizeChartTemplateHeader.prototype, "updateDetails", null);
+SizeChartTemplateHeader = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('size_chart_template_header')
+], SizeChartTemplateHeader);
+exports.SizeChartTemplateHeader = SizeChartTemplateHeader;
+//# sourceMappingURL=SizeChartTemplateHeader.js.map

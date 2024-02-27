@@ -1,1 +1,969 @@
-'use strict';function a258_0x47e2(){const _0x543fa1=['SEPARATOR','substring','admin','../../../env','status','708105eoguDq','metaTagTitle','category.sortOrder\x20as\x20sortOrder','Successfully\x20got\x20category\x20detail','Category\x20Detail\x20Sheet','replace','Successfully\x20updated\x20category.','delete','path.name','now','deleteCategory','177872BMgukb','QueryParam','findOne','categoryCreate','\x20types\x20are\x20allowed','design:type','__param','unlinkSync','Invalid\x20Category\x20Id','log','__decorate','Successfully\x20deleted\x20category.','exceljs','JsonController','level','offset','__importStar','addCategory','categoryListTree','split','design:returntype','categorycount','Workbook','limit','xlsx','Image','count','CategoryController','Unable\x20to\x20delete\x20the\x20category.\x20','/update-category-slug','categoryId','Invalid\x20category\x20Id.','categorySlug','Successfully\x20get\x20Category\x20Count','end','S3Service','productToCategoryService','Unable\x20to\x20update\x20the\x20category.\x20','6290840iURTYc','./CategoryexcelDetail_','where','DESC','70bmiKsW','Authorized','imageUpload','../../core/services/CategoryPathService','categorylist','find','Post','isActive','send','1583626ggHUxD','/category/:id','data','../../core/services/S3Service','CategoryPath.category','Not\x20able\x20to\x20update\x20as\x20the\x20file\x20size\x20is\x20too\x20large.','download','You\x20cannot\x20delete\x20this\x20category\x20as\x20it\x20is\x20mapped\x20to\x20a\x20product','like','update:','imageService','CategoryPath.path','successfully\x20got\x20the\x20complete\x20category\x20list.','thin','Req','In-Active','Sort\x20Order','CategoryDetail','GROUP_CONCAT','../../core/services/ImageService','getCell','categoryPathService','Levels','Successfully\x20get\x20category\x20List\x20count','CategoryPathService','Body','includes','design:paramtypes','prototype','addWorksheet','.xlsx','validate_slug','categoryList','category/','category.categoryId','categoryPathId','length','CategoryService','ASC','categoryCount','../../core/services/CategoryService','UpdateCategoryRequest','Res','lastIndexOf','Get','name','tslib','parentInt','CategoryPath.categoryId\x20as\x20categoryId','Img_','sortOrder','border','category.createdDate\x20as\x20createdDate','/category-list-intree','addRows','push','/category','imageserver','updateSlug','ORDER\x20BY','pathId','updateCategory','CategoryPath.level','Category\x20Name','549vWifPH','category.name\x20as\x20name','42189290xtWZue','s3Service','\x20\x27\x20','create','ImageService','delete-category','DeleteCategoryRequest','levels','imagePath','/category-export-all','columns','slug','__awaiter','category','ProductToCategoryService','category.isActive','./CategoryExcel','getConnection','category.name','path','categoryExportAll','listByQueryBuilder','CategoryPath','__metadata','AddCategory','image','ceil','reflect-metadata','CategoryPath.category_id','createdDate','categoryExcelListDownload','Choose\x20atleast\x20one\x20category.','findAll','3299786NZVAxd','toLowerCase','Only\x20','category.isActive\x20as\x20isActive','env','category.parentInt\x20as\x20parentInt','categoryService','Delete','category.image\x20as\x20image','keyword','trim','writeFile','base64','from','message','./requests/UpdateCategoryRequest','536028KXZDYa','availImageTypes','categoryDescription','4EfmIZM','create-category','You\x20cannot\x20delete\x20this\x20parent\x20category\x20as\x20sub-categories\x20are\x20mapped\x20to\x20it.\x20','__importDefault','Active'];a258_0x47e2=function(){return _0x543fa1;};return a258_0x47e2();}const a258_0x3eee72=a258_0x2121;(function(_0x1a2703,_0x4822d3){const _0x45fa70=a258_0x2121,_0x13c230=_0x1a2703();while(!![]){try{const _0x5c420e=parseInt(_0x45fa70(0x188))/0x1+parseInt(_0x45fa70(0x1eb))/0x2+parseInt(_0x45fa70(0x208))/0x3*(parseInt(_0x45fa70(0x1fe))/0x4)+parseInt(_0x45fa70(0x17b))/0x5+parseInt(_0x45fa70(0x1fb))/0x6*(-parseInt(_0x45fa70(0x17f))/0x7)+-parseInt(_0x45fa70(0x155))/0x8*(-parseInt(_0x45fa70(0x1c8))/0x9)+-parseInt(_0x45fa70(0x1ca))/0xa;if(_0x5c420e===_0x4822d3)break;else _0x13c230['push'](_0x13c230['shift']());}catch(_0x57d8b7){_0x13c230['push'](_0x13c230['shift']());}}}(a258_0x47e2,0xed3a7));function a258_0x2121(_0x251796,_0x43333c){const _0x47e2c2=a258_0x47e2();return a258_0x2121=function(_0x212176,_0x728bf0){_0x212176=_0x212176-0x151;let _0x44c1e9=_0x47e2c2[_0x212176];return _0x44c1e9;},a258_0x2121(_0x251796,_0x43333c);}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a258_0x3eee72(0x170)]=void 0x0;const tslib_1=require(a258_0x3eee72(0x1b6));require(a258_0x3eee72(0x1e5));const routing_controllers_1=require('routing-controllers'),class_transformer_1=require('class-transformer'),CategoryService_1=require(a258_0x3eee72(0x1b0)),AddCategoryRequest_1=require('./requests/AddCategoryRequest'),UpdateCategoryRequest_1=require(a258_0x3eee72(0x1fa)),CategoryPath_1=require('../../core/models/CategoryPath'),array_to_tree_1=tslib_1[a258_0x3eee72(0x201)](require('array-to-tree')),DeleteCategoryRequest_1=require('./requests/DeleteCategoryRequest'),CategoryPathService_1=require(a258_0x3eee72(0x182)),ProductToCategoryService_1=require('../../core/services/ProductToCategoryService'),S3Service_1=require(a258_0x3eee72(0x18b)),env_1=require(a258_0x3eee72(0x206)),ImageService_1=require(a258_0x3eee72(0x19b)),fs=tslib_1[a258_0x3eee72(0x165)](require('fs')),typeorm_1=require('typeorm'),product_1=require('@spurtcommerce/product');let CategoryController=class CategoryController{constructor(_0x13eea0,_0x21f631,_0x4407c2,_0x43c231,_0x22f1a3){const _0x4ba944=a258_0x3eee72;this[_0x4ba944(0x1f1)]=_0x13eea0,this['productToCategoryService']=_0x21f631,this['categoryPathService']=_0x4407c2,this[_0x4ba944(0x1cb)]=_0x43c231,this['imageService']=_0x22f1a3;}[a258_0x3eee72(0x166)](_0x4dda2d,_0x192067){const _0x13dc02=a258_0x3eee72;var _0x8dac98;return tslib_1[_0x13dc02(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x533014=_0x13dc02,_0xccf925=_0x4dda2d[_0x533014(0x1e3)];let _0x5c30e1,_0x1b97e2;if(_0xccf925){const _0x37ccc3=_0xccf925['split'](';')[0x0][_0x533014(0x168)]('/')[0x1],_0x336d31=env_1[_0x533014(0x1ef)][_0x533014(0x1fc)]['split'](',');if(!_0x336d31[_0x533014(0x1a2)](_0x37ccc3)){const _0x4211b3={'status':0x0,'message':_0x533014(0x1ed)+env_1['env']['availImageTypes']+_0x533014(0x159)};return _0x192067[_0x533014(0x207)](0x190)['send'](_0x4211b3);}_0x5c30e1=_0x533014(0x1b9)+Date[_0x533014(0x153)]()+'.'+_0x37ccc3,_0x1b97e2='category/';const _0x40e27c=Buffer[_0x533014(0x1f8)](_0xccf925['replace'](/^data:image\/\w+;base64,/,''),_0x533014(0x1f7)),_0xabcb85=_0xccf925[_0x533014(0x20d)](/^data:image\/\w+;base64,/,'')['length'],_0x3fd0a7=0x4*Math[_0x533014(0x1e4)](_0xabcb85/0x3)*0.5624896334383812,_0x1e52a5=_0x3fd0a7/0x400;if(+_0x1e52a5<=0x800)env_1[_0x533014(0x1ef)]['imageserver']==='s3'?yield this['s3Service'][_0x533014(0x181)](_0x1b97e2+_0x5c30e1,_0x40e27c,_0x37ccc3):yield this[_0x533014(0x192)][_0x533014(0x181)](_0x1b97e2+_0x5c30e1,_0x40e27c);else{const _0x4a91dd={'status':0x0,'message':'Not\x20able\x20to\x20update\x20as\x20the\x20file\x20size\x20is\x20too\x20large.'};return _0x192067[_0x533014(0x207)](0x190)[_0x533014(0x187)](_0x4a91dd);}}const _0x1ccdc9=yield(0x0,product_1[_0x533014(0x158)])((0x0,typeorm_1[_0x533014(0x1db)])(),{'name':_0x4dda2d[_0x533014(0x1b5)],'containerName':_0x5c30e1,'containerPath':_0x1b97e2,'parentInt':_0x4dda2d[_0x533014(0x1b7)],'sortOrder':_0x4dda2d[_0x533014(0x1ba)],'categorySlug':_0x4dda2d[_0x533014(0x175)],'categoryDescription':_0x4dda2d[_0x533014(0x1fd)],'status':_0x4dda2d['status']});return _0x192067[_0x533014(0x207)](_0x1ccdc9['status']?0xc8:0x190)[_0x533014(0x187)]({'status':_0x1ccdc9[_0x533014(0x207)],'message':_0x1ccdc9[_0x533014(0x1f9)],'data':(_0x8dac98=_0x1ccdc9[_0x533014(0x18a)])!==null&&_0x8dac98!==void 0x0?_0x8dac98:undefined});});}[a258_0x3eee72(0x1c5)](_0x3921fd,_0x59a1dc,_0x19ea9e){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x30bd34=a258_0x2121;console[_0x30bd34(0x15e)](_0x30bd34(0x191),_0x3921fd);const _0xb16cf4=yield this['categoryService'][_0x30bd34(0x157)]({'where':{'categoryId':_0x3921fd['categoryId']}});if(!_0xb16cf4){const _0x171abe={'status':0x0,'message':_0x30bd34(0x174)};return _0x59a1dc[_0x30bd34(0x207)](0x190)[_0x30bd34(0x187)](_0x171abe);}_0xb16cf4[_0x30bd34(0x1b5)]=_0x3921fd[_0x30bd34(0x1b5)];const _0x3f94f4=_0x3921fd['image'];if(_0x3f94f4){const _0x43cf36=_0x3f94f4[_0x30bd34(0x168)](';')[0x0][_0x30bd34(0x168)]('/')[0x1],_0x3447d6=env_1[_0x30bd34(0x1ef)][_0x30bd34(0x1fc)][_0x30bd34(0x168)](',');if(!_0x3447d6['includes'](_0x43cf36)){const _0x247f51={'status':0x0,'message':_0x30bd34(0x1ed)+env_1[_0x30bd34(0x1ef)][_0x30bd34(0x1fc)]+'\x20types\x20are\x20allowed'};return _0x59a1dc[_0x30bd34(0x207)](0x190)[_0x30bd34(0x187)](_0x247f51);}const _0x263a2c='Img_'+Date[_0x30bd34(0x153)]()+'.'+_0x43cf36,_0xd683a=_0x30bd34(0x1a9),_0x102069=Buffer[_0x30bd34(0x1f8)](_0x3f94f4[_0x30bd34(0x20d)](/^data:image\/\w+;base64,/,''),_0x30bd34(0x1f7)),_0x115b3f=_0x3f94f4['replace'](/^data:image\/\w+;base64,/,'')[_0x30bd34(0x1ac)],_0x1b67f1=0x4*Math[_0x30bd34(0x1e4)](_0x115b3f/0x3)*0.5624896334383812,_0x5a63bf=_0x1b67f1/0x400;if(+_0x5a63bf<=0x800)env_1[_0x30bd34(0x1ef)][_0x30bd34(0x1c1)]==='s3'?yield this[_0x30bd34(0x1cb)]['imageUpload'](_0xd683a+_0x263a2c,_0x102069,_0x43cf36):yield this[_0x30bd34(0x192)][_0x30bd34(0x181)](_0xd683a+_0x263a2c,_0x102069);else{const _0x37b0b5={'status':0x0,'message':_0x30bd34(0x18d)};return _0x59a1dc[_0x30bd34(0x207)](0x190)[_0x30bd34(0x187)](_0x37b0b5);}_0xb16cf4[_0x30bd34(0x1e3)]=_0x263a2c,_0xb16cf4['imagePath']=_0xd683a;}_0xb16cf4[_0x30bd34(0x1b7)]=_0x3921fd[_0x30bd34(0x1b7)],_0xb16cf4[_0x30bd34(0x1ba)]=_0x3921fd[_0x30bd34(0x1ba)];const _0x36cfdd=_0x3921fd['categorySlug']?_0x3921fd[_0x30bd34(0x175)]:_0x3921fd[_0x30bd34(0x1b5)],_0x418a28=_0x36cfdd[_0x30bd34(0x1f5)](),_0x2be6c1=_0x418a28[_0x30bd34(0x20d)](/\s+/g,'-')['replace'](/[&\/\\@#,+()$~%.'":*?<>{}]/g,'')['toLowerCase']();_0xb16cf4['categorySlug']=yield this[_0x30bd34(0x1a7)](_0x2be6c1),_0xb16cf4['isActive']=_0x3921fd[_0x30bd34(0x207)],_0xb16cf4[_0x30bd34(0x1fd)]=_0x3921fd['categoryDescription']?yield this[_0x30bd34(0x192)]['escapeChar'](_0x3921fd['categoryDescription']):'';const _0x4f2ad3=yield this[_0x30bd34(0x1f1)][_0x30bd34(0x1cd)](_0xb16cf4),_0x202e64=yield this['categoryPathService'][_0x30bd34(0x184)]({'where':{'categoryId':_0x3921fd[_0x30bd34(0x173)]}});for(const _0x25c63d of _0x202e64){yield this[_0x30bd34(0x19d)][_0x30bd34(0x151)](_0x25c63d[_0x30bd34(0x1ab)]);}const _0x554d35=yield this[_0x30bd34(0x19d)]['find']({'where':{'categoryId':_0x3921fd[_0x30bd34(0x1b7)]},'order':{'level':'ASC'}});let _0x323335=0x0;for(const _0x49e477 of _0x554d35){const _0x338652=new CategoryPath_1[(_0x30bd34(0x1e0))]();_0x338652[_0x30bd34(0x173)]=_0x4f2ad3[_0x30bd34(0x173)],_0x338652[_0x30bd34(0x1c4)]=_0x49e477['pathId'],_0x338652[_0x30bd34(0x163)]=_0x323335,this[_0x30bd34(0x19d)][_0x30bd34(0x1cd)](_0x338652),_0x323335++;}const _0x5678a2=new CategoryPath_1[(_0x30bd34(0x1e0))]();_0x5678a2[_0x30bd34(0x173)]=_0x4f2ad3[_0x30bd34(0x173)],_0x5678a2['pathId']=_0x4f2ad3['categoryId'],_0x5678a2[_0x30bd34(0x163)]=_0x323335,yield this[_0x30bd34(0x19d)][_0x30bd34(0x1cd)](_0x5678a2);if(+_0x3921fd['status']===0x0){const _0x242a0f=yield this['categoryPathService'][_0x30bd34(0x184)]({'where':{'pathId':_0x4f2ad3['categoryId']}});for(const _0x475480 of _0x242a0f){const _0x317638=yield this[_0x30bd34(0x1f1)][_0x30bd34(0x157)]({'where':{'categoryId':_0x475480[_0x30bd34(0x173)]}});_0x317638[_0x30bd34(0x186)]=0x0,yield this['categoryService'][_0x30bd34(0x1cd)](_0x317638);}}else{const _0x5a8fc8=yield this['categoryPathService'][_0x30bd34(0x184)]({'where':{'pathId':_0x4f2ad3[_0x30bd34(0x173)]}});for(const _0x1816e5 of _0x5a8fc8){const _0x170170=yield this['categoryService'][_0x30bd34(0x157)]({'where':{'categoryId':_0x1816e5[_0x30bd34(0x173)]}});_0x170170[_0x30bd34(0x186)]=0x1,yield this[_0x30bd34(0x1f1)]['create'](_0x170170);}}if(_0x4f2ad3!==undefined){const _0xf95963={'status':0x1,'message':_0x30bd34(0x20e),'data':(0x0,class_transformer_1['instanceToPlain'])(_0x4f2ad3)};return _0x59a1dc[_0x30bd34(0x207)](0xc8)[_0x30bd34(0x187)](_0xf95963);}else{const _0x1dcfbd={'status':0x0,'message':_0x30bd34(0x17a)};return _0x59a1dc[_0x30bd34(0x207)](0x190)['send'](_0x1dcfbd);}});}[a258_0x3eee72(0x154)](_0x5662b1,_0x20d6cf,_0x1e8c3c){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x23aebb=a258_0x2121,_0x10431a=yield this[_0x23aebb(0x179)][_0x23aebb(0x157)]({'where':{'categoryId':_0x5662b1[_0x23aebb(0x173)]}});if(_0x10431a)return _0x20d6cf[_0x23aebb(0x207)](0x190)[_0x23aebb(0x187)]({'status':0x0,'message':_0x23aebb(0x18f)});const _0x34e147=yield this[_0x23aebb(0x1f1)][_0x23aebb(0x157)]({'where':{'categoryId':_0x5662b1[_0x23aebb(0x173)]}});if(!_0x34e147){const _0x10ac98={'status':0x0,'message':'Invalid\x20category\x20Id.'};return _0x20d6cf['status'](0x190)['send'](_0x10ac98);}const _0x1ec5a6=yield this[_0x23aebb(0x1f1)][_0x23aebb(0x157)]({'where':{'parentInt':_0x5662b1['categoryId']}});if(_0x1ec5a6){const _0x250be0={'status':0x0,'message':_0x23aebb(0x200)};return _0x20d6cf[_0x23aebb(0x207)](0x190)[_0x23aebb(0x187)](_0x250be0);}const _0x3a4cc6=yield this[_0x23aebb(0x19d)][_0x23aebb(0x184)]({'where':{'categoryId':_0x5662b1[_0x23aebb(0x173)]}});for(const _0xb26cd of _0x3a4cc6){yield this['categoryPathService'][_0x23aebb(0x151)](_0xb26cd[_0x23aebb(0x1ab)]);}const _0x4768a3=yield this[_0x23aebb(0x1f1)]['delete'](_0x34e147);if(!_0x4768a3){const _0x32ee5c={'status':0x1,'message':_0x23aebb(0x160)};return _0x20d6cf[_0x23aebb(0x207)](0xc8)[_0x23aebb(0x187)](_0x32ee5c);}else{const _0x59e23f={'status':0x0,'message':_0x23aebb(0x171)};return _0x20d6cf[_0x23aebb(0x207)](0x190)['send'](_0x59e23f);}});}[a258_0x3eee72(0x183)](_0x136229,_0x507ead,_0x659bb2,_0x4d67a8,_0xbc623c,_0x19f54e,_0x379626){var _0x1f2337;return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x596c87=a258_0x2121,_0x2f3345=yield(0x0,product_1[_0x596c87(0x1a8)])((0x0,typeorm_1[_0x596c87(0x1db)])(),_0x136229,_0x507ead,_0x659bb2,_0xbc623c,_0x4d67a8);return _0x379626['status'](_0x2f3345[_0x596c87(0x207)]?0xc8:0x190)[_0x596c87(0x187)]({'status':_0x2f3345['status'],'message':_0x2f3345[_0x596c87(0x1f9)],'data':(_0x1f2337=_0x2f3345[_0x596c87(0x18a)])!==null&&_0x1f2337!==void 0x0?_0x1f2337:undefined});});}[a258_0x3eee72(0x167)](_0x58918e,_0x501233,_0x23fed8,_0x1a0b1e,_0x5f06c4,_0x247b2f){const _0x153f91=a258_0x3eee72;return tslib_1[_0x153f91(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x28cd12=_0x153f91,_0x2a6025=['categoryId',_0x28cd12(0x1b5),_0x28cd12(0x1e3),_0x28cd12(0x1d2),_0x28cd12(0x1b7),_0x28cd12(0x1ba),_0x28cd12(0x186)],_0x4cfd90=[{'name':_0x28cd12(0x1b5),'op':_0x28cd12(0x190),'value':_0x23fed8}],_0x16e381=[],_0x20d225=yield this['categoryService']['list'](_0x58918e,_0x501233,_0x2a6025,_0x4cfd90,_0x16e381,_0x1a0b1e,_0x5f06c4);if(_0x5f06c4){const _0x142a24={'status':0x1,'message':_0x28cd12(0x19f),'data':_0x20d225};return _0x247b2f[_0x28cd12(0x207)](0xc8)[_0x28cd12(0x187)](_0x142a24);}else{const _0x2c90e6=(0x0,array_to_tree_1['default'])(_0x20d225,{'parentProperty':'parentInt','customID':'categoryId'}),_0x4aec68={'status':0x1,'message':_0x28cd12(0x194),'data':_0x2c90e6};return _0x247b2f[_0x28cd12(0x207)](0xc8)['send'](_0x4aec68);}});}[a258_0x3eee72(0x1c2)](_0x4dc422){const _0x1584ee=a258_0x3eee72;return tslib_1[_0x1584ee(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x1b7619=_0x1584ee,_0x465313=[],_0x4cc8d4=yield this['categoryService'][_0x1b7619(0x1ea)]();for(const _0xb24838 of _0x4cc8d4){const _0x2d1181=_0xb24838['metaTagTitle'];if(_0x2d1181){const _0x2438a3=_0x2d1181['replace'](/\s+/g,'-')[_0x1b7619(0x20d)](/[&\/\\#@,+()$~%.'":*?<>{}]/g,'')[_0x1b7619(0x1ec)](),_0x2d1309=_0x2438a3[_0x1b7619(0x20d)](/--/gi,'-'),_0x575a70=yield this['categoryService'][_0x1b7619(0x1d5)](_0x2d1181);if(_0x575a70[_0x1b7619(0x1ac)]===0x0||_0x575a70===''||_0x575a70===undefined)_0xb24838['categorySlug']=_0x2d1309;else{if(_0x575a70['length']===0x1&&_0x2d1181!==_0x575a70[_0x575a70['length']-0x1][_0x1b7619(0x209)])_0xb24838[_0x1b7619(0x175)]=_0x2d1309+'-'+0x1;else{if(_0x575a70[_0x1b7619(0x1ac)]>0x1&&_0x575a70!==undefined&&_0x575a70!==''){const _0x3b0595=_0x575a70[_0x575a70[_0x1b7619(0x1ac)]-0x1],_0x44ff49=_0x3b0595[_0x1b7619(0x175)],_0x4d9792=_0x44ff49[_0x1b7619(0x204)](_0x44ff49['lastIndexOf']('-')+0x1,_0x44ff49['length']),_0x51d9ab=parseInt(_0x4d9792,0x0);_0xb24838['categorySlug']=_0x2d1309+'-'+(_0x51d9ab+0x1);}}}}else{const _0x240435=_0xb24838[_0x1b7619(0x1b5)],_0x175735=_0x240435[_0x1b7619(0x20d)](/\s+/g,'-')[_0x1b7619(0x20d)](/[&\/\\@#,+()$~%.'":*?<>{}]/g,'')[_0x1b7619(0x1ec)](),_0x405900=_0x175735['replace'](/--/gi,'-'),_0x399a86=yield this[_0x1b7619(0x1f1)][_0x1b7619(0x1d5)](_0x240435);if(_0x399a86===''||_0x399a86===undefined||_0x399a86[_0x1b7619(0x1ac)]===0x0)_0xb24838[_0x1b7619(0x175)]=_0x405900;else{if(_0x399a86['length']===0x1&&_0x240435!==_0x399a86[_0x399a86[_0x1b7619(0x1ac)]-0x1]['title'])_0xb24838[_0x1b7619(0x175)]=_0x405900+'-'+0x1;else{if(_0x399a86['length']>0x1&&_0x399a86!==undefined&&_0x399a86!==''){const _0x55727d=_0x399a86[_0x399a86[_0x1b7619(0x1ac)]-0x1],_0x394ee2=_0x55727d[_0x1b7619(0x175)],_0x32c9e6=_0x394ee2['substring'](_0x394ee2[_0x1b7619(0x1b3)]('-')+0x1,_0x394ee2[_0x1b7619(0x1ac)]),_0x3c96b9=parseInt(_0x32c9e6,0x0);_0xb24838[_0x1b7619(0x175)]=_0x405900+'-'+(_0x3c96b9+0x1);}}}}_0x465313[_0x1b7619(0x1bf)](_0xb24838);}yield this[_0x1b7619(0x1f1)]['create'](_0x465313);const _0x2e115c={'status':0x1,'message':'Successfully\x20updated\x20the\x20category\x20slug.'};return _0x4dc422[_0x1b7619(0x207)](0xc8)['send'](_0x2e115c);});}[a258_0x3eee72(0x16a)](_0x4573c9,_0x75a5ec,_0x4606cd,_0x196793,_0x30211b,_0x1520e0){const _0x143716=a258_0x3eee72;return tslib_1[_0x143716(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x497b20=_0x143716,_0x1da288=yield this['categoryService'][_0x497b20(0x1af)](_0x4573c9,_0x75a5ec,_0x4606cd,_0x196793,_0x30211b),_0x3f3979={'status':0x1,'message':_0x497b20(0x176),'data':{'productCount':_0x1da288['categoryCount']}};return _0x1520e0[_0x497b20(0x207)](0xc8)[_0x497b20(0x187)](_0x3f3979);});}['CategoryDetail'](_0x1533ba,_0x32eff5){const _0x48198e=a258_0x3eee72;return tslib_1[_0x48198e(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x204470=_0x48198e,_0xdbec7=yield this[_0x204470(0x1f1)][_0x204470(0x157)]({'where':{'categoryId':_0x1533ba}});if(!_0xdbec7){const _0xa1cebe={'status':0x0,'message':_0x204470(0x15d)};return _0x32eff5[_0x204470(0x207)](0x190)['send'](_0xa1cebe);}const _0x59108e={'status':0x1,'message':_0x204470(0x20b),'data':_0xdbec7};return _0x32eff5['status'](0xc8)[_0x204470(0x187)](_0x59108e);});}['categoryExcelListDownload'](_0x11038a,_0x2e945c,_0xd6f2e0,_0x5c7de4,_0x11ac41){const _0x4a0283=a258_0x3eee72;return tslib_1[_0x4a0283(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x3f0852=_0x4a0283,_0x5d46e6=require(_0x3f0852(0x161)),_0x2d908b=new _0x5d46e6['Workbook'](),_0x4349d0=_0x2d908b[_0x3f0852(0x1a5)](_0x3f0852(0x20c)),_0x379df5=[],_0x1bc059=['CategoryPath.categoryId\x20as\x20categoryId',_0x3f0852(0x20a),_0x3f0852(0x1f0),_0x3f0852(0x1c9),_0x3f0852(0x1f3),'category.imagePath\x20as\x20imagePath',_0x3f0852(0x1ee),'category.createdDate\x20as\x20createdDate','GROUP_CONCAT'+'('+_0x3f0852(0x152)+'\x20'+_0x3f0852(0x1c3)+'\x20'+'CategoryPath.level'+'\x20'+_0x3f0852(0x203)+_0x3f0852(0x1cc)+'>'+_0x3f0852(0x1cc)+')'+'\x20'+'as'+'\x20'+_0x3f0852(0x1d1)],_0x16af6f=[{'tableName':_0x3f0852(0x18c),'aliasName':_0x3f0852(0x1d7)},{'tableName':'CategoryPath.path','aliasName':_0x3f0852(0x1dd)}],_0x3d820b=[{'name':_0x3f0852(0x1e6)}],_0x291f94=[];if(_0x11038a)_0x291f94[_0x3f0852(0x1bf)]({'name':_0x3f0852(0x1aa),'op':'IN','value':_0x11038a});else return _0x11ac41[_0x3f0852(0x207)](0x190)[_0x3f0852(0x187)]({'status':0x0,'message':_0x3f0852(0x1e9)});const _0x58f460=[];_0x2e945c&&_0x2e945c!==''&&_0x58f460[_0x3f0852(0x1bf)]({'name':[_0x3f0852(0x1dc)],'value':_0x2e945c});const _0x1f2551=[];_0xd6f2e0?_0x1f2551[_0x3f0852(0x1bf)]({'name':'sortOrder','order':_0xd6f2e0===0x2?_0x3f0852(0x17e):_0x3f0852(0x1ae)}):_0x1f2551['push']({'name':_0x3f0852(0x1e7),'order':_0x3f0852(0x17e)});const _0x4bebc3=yield this[_0x3f0852(0x19d)][_0x3f0852(0x1df)](0x0,0x0,_0x1bc059,_0x291f94,_0x58f460,_0x16af6f,_0x3d820b,_0x1f2551,![],!![]);_0x4349d0[_0x3f0852(0x1d4)]=[{'header':_0x3f0852(0x16e),'key':_0x3f0852(0x1e3),'size':0x10,'width':0x1e},{'header':_0x3f0852(0x1c7),'key':_0x3f0852(0x1b5),'size':0x10,'width':0x1e},{'header':_0x3f0852(0x19e),'key':_0x3f0852(0x1b7),'size':0x10,'width':0x3c},{'header':_0x3f0852(0x198),'key':'sortOrder','size':0x10,'width':0xf},{'header':'Status','key':'isActive','size':0x10,'width':0xf}],_0x4349d0[_0x3f0852(0x19c)]('A1')[_0x3f0852(0x1bb)]={'top':{'style':'thin'},'left':{'style':_0x3f0852(0x195)},'bottom':{'style':_0x3f0852(0x195)},'right':{'style':_0x3f0852(0x195)}},_0x4349d0[_0x3f0852(0x19c)]('B1')[_0x3f0852(0x1bb)]={'top':{'style':_0x3f0852(0x195)},'left':{'style':_0x3f0852(0x195)},'bottom':{'style':_0x3f0852(0x195)},'right':{'style':_0x3f0852(0x195)}},_0x4349d0[_0x3f0852(0x19c)]('C1')[_0x3f0852(0x1bb)]={'top':{'style':_0x3f0852(0x195)},'left':{'style':_0x3f0852(0x195)},'bottom':{'style':_0x3f0852(0x195)},'right':{'style':_0x3f0852(0x195)}},_0x4349d0[_0x3f0852(0x19c)]('D1')[_0x3f0852(0x1bb)]={'top':{'style':_0x3f0852(0x195)},'left':{'style':_0x3f0852(0x195)},'bottom':{'style':_0x3f0852(0x195)},'right':{'style':_0x3f0852(0x195)}},_0x4349d0['getCell']('E1')['border']={'top':{'style':_0x3f0852(0x195)},'left':{'style':_0x3f0852(0x195)},'bottom':{'style':_0x3f0852(0x195)},'right':{'style':_0x3f0852(0x195)}};for(const _0x296a6a of _0x4bebc3){+_0x296a6a[_0x3f0852(0x186)]===0x1?_0x296a6a[_0x3f0852(0x186)]=_0x3f0852(0x202):_0x296a6a[_0x3f0852(0x186)]=_0x3f0852(0x197),_0x379df5[_0x3f0852(0x1bf)]([_0x296a6a[_0x3f0852(0x1e3)],_0x296a6a['name'],_0x296a6a[_0x3f0852(0x1d1)],_0x296a6a[_0x3f0852(0x1ba)],_0x296a6a[_0x3f0852(0x186)]]);}_0x4349d0[_0x3f0852(0x1be)](_0x379df5);const _0xd70a45=_0x3f0852(0x1da)+Date[_0x3f0852(0x153)]()+'.xlsx';return yield _0x2d908b[_0x3f0852(0x16d)][_0x3f0852(0x1f6)](_0xd70a45),new Promise((_0x36bc76,_0x12ed81)=>{const _0x32b640=_0x3f0852;_0x11ac41[_0x32b640(0x18e)](_0xd70a45,(_0x50c477,_0x2cd248)=>{const _0x29be40=_0x32b640;if(_0x50c477)_0x12ed81(_0x50c477);else return fs[_0x29be40(0x15c)](_0xd70a45),_0x11ac41[_0x29be40(0x177)]();});});});}['categoryExportAll'](_0x45a399,_0x54fab7,_0x573d47,_0x558bd4,_0x2c222b){const _0x1773a0=a258_0x3eee72;return tslib_1[_0x1773a0(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x397066=_0x1773a0,_0xc6b30e=require(_0x397066(0x161)),_0x32e659=new _0xc6b30e[(_0x397066(0x16b))](),_0x43056f=_0x32e659[_0x397066(0x1a5)](_0x397066(0x20c)),_0x44814c=[],_0x245d36=[_0x397066(0x1b8),'category.sortOrder\x20as\x20sortOrder',_0x397066(0x1f0),_0x397066(0x1c9),_0x397066(0x1f3),'category.imagePath\x20as\x20imagePath',_0x397066(0x1ee),_0x397066(0x1bc),_0x397066(0x19a)+'('+_0x397066(0x152)+'\x20'+_0x397066(0x1c3)+'\x20'+_0x397066(0x1c6)+'\x20'+_0x397066(0x203)+'\x20\x27\x20'+'>'+_0x397066(0x1cc)+')'+'\x20'+'as'+'\x20'+_0x397066(0x1d1)],_0x2403b1=[{'tableName':_0x397066(0x18c),'aliasName':_0x397066(0x1d7)},{'tableName':_0x397066(0x193),'aliasName':'path'}],_0x3ab730=[{'name':_0x397066(0x1e6)}],_0x19d51d=[];(_0x45a399||_0x45a399===0x0)&&_0x19d51d['push']({'name':_0x397066(0x1d9),'op':_0x397066(0x17d),'value':_0x45a399});const _0x1ad24d=[];_0x54fab7&&_0x54fab7!==''&&_0x1ad24d[_0x397066(0x1bf)]({'name':[_0x397066(0x1dc)],'value':_0x54fab7});const _0x384894=[];_0x573d47?_0x384894[_0x397066(0x1bf)]({'name':_0x397066(0x1ba),'order':_0x573d47===0x2?_0x397066(0x17e):_0x397066(0x1ae)}):_0x384894['push']({'name':_0x397066(0x1e7),'order':_0x397066(0x17e)});const _0x4aee51=yield this[_0x397066(0x19d)][_0x397066(0x1df)](0x0,0x0,_0x245d36,_0x19d51d,_0x1ad24d,_0x2403b1,_0x3ab730,_0x384894,![],!![]);_0x43056f[_0x397066(0x1d4)]=[{'header':_0x397066(0x16e),'key':'image','size':0x10,'width':0x1e},{'header':_0x397066(0x1c7),'key':_0x397066(0x1b5),'size':0x10,'width':0x1e},{'header':'Levels','key':_0x397066(0x1b7),'size':0x10,'width':0x3c},{'header':'Sort\x20Order','key':_0x397066(0x1ba),'size':0x10,'width':0xf},{'header':'Status','key':'isActive','size':0x10,'width':0xf}],_0x43056f[_0x397066(0x19c)]('A1')[_0x397066(0x1bb)]={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':_0x397066(0x195)},'right':{'style':_0x397066(0x195)}},_0x43056f['getCell']('B1')[_0x397066(0x1bb)]={'top':{'style':'thin'},'left':{'style':_0x397066(0x195)},'bottom':{'style':_0x397066(0x195)},'right':{'style':_0x397066(0x195)}},_0x43056f[_0x397066(0x19c)]('C1')[_0x397066(0x1bb)]={'top':{'style':_0x397066(0x195)},'left':{'style':_0x397066(0x195)},'bottom':{'style':_0x397066(0x195)},'right':{'style':_0x397066(0x195)}},_0x43056f[_0x397066(0x19c)]('D1')[_0x397066(0x1bb)]={'top':{'style':_0x397066(0x195)},'left':{'style':_0x397066(0x195)},'bottom':{'style':'thin'},'right':{'style':_0x397066(0x195)}},_0x43056f[_0x397066(0x19c)]('E1')[_0x397066(0x1bb)]={'top':{'style':_0x397066(0x195)},'left':{'style':_0x397066(0x195)},'bottom':{'style':_0x397066(0x195)},'right':{'style':_0x397066(0x195)}};for(const _0x250d2d of _0x4aee51){+_0x250d2d[_0x397066(0x186)]===0x1?_0x250d2d[_0x397066(0x186)]=_0x397066(0x202):_0x250d2d[_0x397066(0x186)]=_0x397066(0x197),_0x44814c[_0x397066(0x1bf)]([_0x250d2d[_0x397066(0x1e3)],_0x250d2d[_0x397066(0x1b5)],_0x250d2d[_0x397066(0x1d1)],_0x250d2d[_0x397066(0x1ba)],_0x250d2d[_0x397066(0x186)]]);}_0x43056f[_0x397066(0x1be)](_0x44814c);const _0x2cb95a=_0x397066(0x17c)+Date[_0x397066(0x153)]()+_0x397066(0x1a6);return yield _0x32e659[_0x397066(0x16d)][_0x397066(0x1f6)](_0x2cb95a),new Promise((_0x23970e,_0x57b2bb)=>{const _0x56b9a5=_0x397066;_0x2c222b[_0x56b9a5(0x18e)](_0x2cb95a,(_0x497abf,_0x3fbed2)=>{const _0x3dd64c=_0x56b9a5;if(_0x497abf)_0x57b2bb(_0x497abf);else return fs[_0x3dd64c(0x15c)](_0x2cb95a),_0x2c222b[_0x3dd64c(0x177)]();});});});}['validate_slug'](_0x2912c0,_0x10d8a1=0x0,_0x488000=0x0){const _0x5c1dee=a258_0x3eee72;return tslib_1[_0x5c1dee(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x86f23d=_0x5c1dee,_0x2c4153=yield this['categoryService']['checkSlug'](_0x2912c0,_0x10d8a1,_0x488000);return _0x2c4153?(!_0x488000?_0x488000=0x1:_0x488000++,yield this[_0x86f23d(0x1a7)](_0x2912c0,_0x10d8a1,_0x488000)):(_0x488000>0x0&&(_0x2912c0=_0x2912c0+_0x488000),_0x2912c0);});}};tslib_1[a258_0x3eee72(0x15f)]([(0x0,routing_controllers_1[a258_0x3eee72(0x185)])('/category'),(0x0,routing_controllers_1[a258_0x3eee72(0x180)])([a258_0x3eee72(0x205),a258_0x3eee72(0x1ff)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a258_0x3eee72(0x1a1)])({'validate':!![]})),tslib_1[a258_0x3eee72(0x15b)](0x1,(0x0,routing_controllers_1[a258_0x3eee72(0x1b2)])()),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x15a),Function),tslib_1['__metadata'](a258_0x3eee72(0x1a3),[AddCategoryRequest_1[a258_0x3eee72(0x1e2)],Object]),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x169),Promise)],CategoryController[a258_0x3eee72(0x1a4)],a258_0x3eee72(0x166),null),tslib_1[a258_0x3eee72(0x15f)]([(0x0,routing_controllers_1['Put'])(a258_0x3eee72(0x189)),(0x0,routing_controllers_1[a258_0x3eee72(0x180)])([a258_0x3eee72(0x205),'edit-category']),tslib_1[a258_0x3eee72(0x15b)](0x0,(0x0,routing_controllers_1[a258_0x3eee72(0x1a1)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a258_0x3eee72(0x15b)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x15a),Function),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x1a3),[UpdateCategoryRequest_1[a258_0x3eee72(0x1b1)],Object,Object]),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x169),Promise)],CategoryController[a258_0x3eee72(0x1a4)],a258_0x3eee72(0x1c5),null),tslib_1[a258_0x3eee72(0x15f)]([(0x0,routing_controllers_1[a258_0x3eee72(0x1f2)])(a258_0x3eee72(0x189)),(0x0,routing_controllers_1[a258_0x3eee72(0x180)])([a258_0x3eee72(0x205),a258_0x3eee72(0x1cf)]),tslib_1[a258_0x3eee72(0x15b)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a258_0x3eee72(0x15b)](0x1,(0x0,routing_controllers_1[a258_0x3eee72(0x1b2)])()),tslib_1[a258_0x3eee72(0x15b)](0x2,(0x0,routing_controllers_1[a258_0x3eee72(0x196)])()),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x15a),Function),tslib_1[a258_0x3eee72(0x1e1)]('design:paramtypes',[DeleteCategoryRequest_1[a258_0x3eee72(0x1d0)],Object,Object]),tslib_1[a258_0x3eee72(0x1e1)]('design:returntype',Promise)],CategoryController['prototype'],a258_0x3eee72(0x154),null),tslib_1[a258_0x3eee72(0x15f)]([(0x0,routing_controllers_1['Get'])(a258_0x3eee72(0x1c0)),(0x0,routing_controllers_1['Authorized'])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x16c))),tslib_1[a258_0x3eee72(0x15b)](0x1,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])('offset')),tslib_1[a258_0x3eee72(0x15b)](0x2,(0x0,routing_controllers_1['QueryParam'])('keyword')),tslib_1[a258_0x3eee72(0x15b)](0x3,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x1ba))),tslib_1['__param'](0x4,(0x0,routing_controllers_1['QueryParam'])(a258_0x3eee72(0x207))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x16f))),tslib_1[a258_0x3eee72(0x15b)](0x6,(0x0,routing_controllers_1[a258_0x3eee72(0x1b2)])()),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x15a),Function),tslib_1[a258_0x3eee72(0x1e1)]('design:paramtypes',[Number,Number,String,Number,String,Object,Object]),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x169),Promise)],CategoryController[a258_0x3eee72(0x1a4)],a258_0x3eee72(0x183),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a258_0x3eee72(0x1b4)])(a258_0x3eee72(0x1bd)),(0x0,routing_controllers_1[a258_0x3eee72(0x180)])(),tslib_1[a258_0x3eee72(0x15b)](0x0,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x16c))),tslib_1[a258_0x3eee72(0x15b)](0x1,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x164))),tslib_1[a258_0x3eee72(0x15b)](0x2,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x1f4))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x1ba))),tslib_1[a258_0x3eee72(0x15b)](0x4,(0x0,routing_controllers_1['QueryParam'])(a258_0x3eee72(0x16f))),tslib_1[a258_0x3eee72(0x15b)](0x5,(0x0,routing_controllers_1['Res'])()),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x15a),Function),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x1a3),[Number,Number,String,Number,Object,Object]),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x169),Promise)],CategoryController[a258_0x3eee72(0x1a4)],a258_0x3eee72(0x167),null),tslib_1[a258_0x3eee72(0x15f)]([(0x0,routing_controllers_1['Put'])(a258_0x3eee72(0x172)),tslib_1[a258_0x3eee72(0x15b)](0x0,(0x0,routing_controllers_1[a258_0x3eee72(0x1b2)])()),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x15a),Function),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x1a3),[Object]),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x169),Promise)],CategoryController[a258_0x3eee72(0x1a4)],'updateSlug',null),tslib_1[a258_0x3eee72(0x15f)]([(0x0,routing_controllers_1[a258_0x3eee72(0x1b4)])('/category-count'),(0x0,routing_controllers_1[a258_0x3eee72(0x180)])(),tslib_1[a258_0x3eee72(0x15b)](0x0,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])('limit')),tslib_1[a258_0x3eee72(0x15b)](0x1,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x164))),tslib_1[a258_0x3eee72(0x15b)](0x2,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x1f4))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x1ba))),tslib_1[a258_0x3eee72(0x15b)](0x4,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])('status')),tslib_1[a258_0x3eee72(0x15b)](0x5,(0x0,routing_controllers_1['Res'])()),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x15a),Function),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x1a3),[Number,Number,String,Number,String,Object]),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x169),Promise)],CategoryController[a258_0x3eee72(0x1a4)],a258_0x3eee72(0x16a),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a258_0x3eee72(0x1b4)])('/category-detail'),(0x0,routing_controllers_1[a258_0x3eee72(0x180)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x173))),tslib_1[a258_0x3eee72(0x15b)](0x1,(0x0,routing_controllers_1[a258_0x3eee72(0x1b2)])()),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x15a),Function),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x1a3),[Number,Object]),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x169),Promise)],CategoryController['prototype'],a258_0x3eee72(0x199),null),tslib_1[a258_0x3eee72(0x15f)]([(0x0,routing_controllers_1[a258_0x3eee72(0x1b4)])('/category-excel-list'),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x173))),tslib_1[a258_0x3eee72(0x15b)](0x1,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x1f4))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x1ba))),tslib_1[a258_0x3eee72(0x15b)](0x3,(0x0,routing_controllers_1[a258_0x3eee72(0x196)])()),tslib_1[a258_0x3eee72(0x15b)](0x4,(0x0,routing_controllers_1['Res'])()),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x15a),Function),tslib_1[a258_0x3eee72(0x1e1)]('design:paramtypes',[String,String,Number,Object,Object]),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x169),Promise)],CategoryController[a258_0x3eee72(0x1a4)],a258_0x3eee72(0x1e8),null),tslib_1[a258_0x3eee72(0x15f)]([(0x0,routing_controllers_1[a258_0x3eee72(0x1b4)])(a258_0x3eee72(0x1d3)),tslib_1[a258_0x3eee72(0x15b)](0x0,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])('status')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x1f4))),tslib_1[a258_0x3eee72(0x15b)](0x2,(0x0,routing_controllers_1[a258_0x3eee72(0x156)])(a258_0x3eee72(0x1ba))),tslib_1[a258_0x3eee72(0x15b)](0x3,(0x0,routing_controllers_1['Req'])()),tslib_1[a258_0x3eee72(0x15b)](0x4,(0x0,routing_controllers_1[a258_0x3eee72(0x1b2)])()),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x15a),Function),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x1a3),[Number,String,Number,Object,Object]),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x169),Promise)],CategoryController[a258_0x3eee72(0x1a4)],a258_0x3eee72(0x1de),null),CategoryController=tslib_1[a258_0x3eee72(0x15f)]([(0x0,routing_controllers_1[a258_0x3eee72(0x162)])(),tslib_1[a258_0x3eee72(0x1e1)](a258_0x3eee72(0x1a3),[CategoryService_1[a258_0x3eee72(0x1ad)],ProductToCategoryService_1[a258_0x3eee72(0x1d8)],CategoryPathService_1[a258_0x3eee72(0x1a0)],S3Service_1[a258_0x3eee72(0x178)],ImageService_1[a258_0x3eee72(0x1ce)]])],CategoryController),exports['CategoryController']=CategoryController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CategoryController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const class_transformer_1 = require("class-transformer");
+const CategoryService_1 = require("../../core/services/CategoryService");
+const AddCategoryRequest_1 = require("./requests/AddCategoryRequest");
+const UpdateCategoryRequest_1 = require("./requests/UpdateCategoryRequest");
+const CategoryPath_1 = require("../../core/models/CategoryPath");
+const array_to_tree_1 = tslib_1.__importDefault(require("array-to-tree"));
+const DeleteCategoryRequest_1 = require("./requests/DeleteCategoryRequest");
+const CategoryPathService_1 = require("../../core/services/CategoryPathService");
+const ProductToCategoryService_1 = require("../../core/services/ProductToCategoryService");
+const S3Service_1 = require("../../core/services/S3Service");
+const env_1 = require("../../../env");
+const ImageService_1 = require("../../core/services/ImageService");
+const fs = tslib_1.__importStar(require("fs"));
+const typeorm_1 = require("typeorm");
+const product_1 = require("@spurtcommerce/product");
+const ExportLog_1 = require("../../core/models/ExportLog");
+const ExportLogService_1 = require("../../core/services/ExportLogService");
+let CategoryController = class CategoryController {
+    constructor(categoryService, productToCategoryService, categoryPathService, s3Service, imageService, exportLogService) {
+        this.categoryService = categoryService;
+        this.productToCategoryService = productToCategoryService;
+        this.categoryPathService = categoryPathService;
+        this.s3Service = s3Service;
+        this.imageService = imageService;
+        this.exportLogService = exportLogService;
+    }
+    // create Category API
+    /**
+     * @api {post} /api/category Add Category API
+     * @apiGroup Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..255}} name Category name
+     * @apiParam (Request body) {String} [image] Category image
+     * @apiParam (Request body) {Number} [parentInt] Category  parentInt
+     * @apiParam (Request body) {Number{..9999}} sortOrder Category sortOrder
+     * @apiParam (Request body) {Number} status Category status 1-> Active 0-> inactive
+     * @apiParam (Request body) {String} categorySlug
+     * @apiParam (Request body) {String} [categoryDescription] Category categoryDescription
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "image" : "",
+     *      "parentInt" : "",
+     *      "sortOrder" : "",
+     *      "status" : "",
+     *      "categoryDescription" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully created new Category.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/category
+     * @apiErrorExample {json} Category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addCategory(category, response) {
+        var _a;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const image = category.image;
+            let name;
+            let path;
+            if (image) {
+                const type = image.split(';')[0].split('/')[1];
+                const availableTypes = env_1.env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse = {
+                        status: 0,
+                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                name = 'Img_' + Date.now() + '.' + type;
+                path = 'category/';
+                const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
+                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                const sizeInKb = sizeInBytes / 1024;
+                if (+sizeInKb <= 2048) {
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((path + name), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((path + name), base64Data);
+                    }
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Not able to update as the file size is too large.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            const categorySave = yield (0, product_1.categoryCreate)((0, typeorm_1.getConnection)(), {
+                name: category.name,
+                containerName: name,
+                containerPath: path,
+                parentInt: category.parentInt,
+                sortOrder: category.sortOrder,
+                categorySlug: category.categorySlug,
+                categoryDescription: category.categoryDescription,
+                status: category.status,
+            });
+            return response.status(categorySave.status ? 200 : 400).send({
+                status: categorySave.status,
+                message: categorySave.message,
+                data: (_a = categorySave.data) !== null && _a !== void 0 ? _a : undefined,
+            });
+        });
+    }
+    // Update Category API
+    /**
+     * @api {put} /api/category/:id Update Category API
+     * @apiGroup Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} categoryId Category categoryId
+     * @apiParam (Request body) {String} name Category name
+     * @apiParam (Request body) {String} [image] Category image
+     * @apiParam (Request body) {number} [parentInt] Category  parentInt
+     * @apiParam (Request body) {number{..9999}} sortOrder Category sortOrder
+     * @apiParam (Request body) {String} categorySlug
+     * @apiParam (Request body) {Number} [status] Category status 1-> Active 0-> inactive
+     * @apiParam (Request body) {String} [categoryDescription] Category categoryDescription
+     * @apiParamExample {json} Input
+     * {
+     *      "categoryId" : "",
+     *      "name" : "",
+     *      "image" : "",
+     *      "imagePath" : "",
+     *      "parentInt" : "",
+     *      "sortOrder" : "",
+     *      "status" : "",
+     *      "categoryDescription" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated Category.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/category/:id
+     * @apiErrorExample {json} Category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateCategory(category, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            console.log('update:', category);
+            const categoryId = yield this.categoryService.findOne({
+                where: {
+                    categoryId: category.categoryId,
+                },
+            });
+            if (!categoryId) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid category Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            categoryId.name = category.name;
+            const image = category.image;
+            if (image) {
+                const type = image.split(';')[0].split('/')[1];
+                const availableTypes = env_1.env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse = {
+                        status: 0,
+                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                const name = 'Img_' + Date.now() + '.' + type;
+                const path = 'category/';
+                const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
+                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                const sizeInKb = sizeInBytes / 1024;
+                if (+sizeInKb <= 2048) {
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((path + name), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((path + name), base64Data);
+                    }
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Not able to update as the file size is too large.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                categoryId.image = name;
+                categoryId.imagePath = path;
+            }
+            categoryId.parentInt = category.parentInt;
+            categoryId.sortOrder = category.sortOrder;
+            const metaTagTitle = category.categorySlug ? category.categorySlug : category.name;
+            const slug = metaTagTitle.trim();
+            const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+            categoryId.categorySlug = yield this.validate_slug(data);
+            categoryId.isActive = category.status;
+            categoryId.categoryDescription = category.categoryDescription ? yield this.imageService.escapeChar(category.categoryDescription) : '';
+            const categorySave = yield this.categoryService.create(categoryId);
+            const deleteCategory = yield this.categoryPathService.find({ where: { categoryId: category.categoryId } });
+            for (const val of deleteCategory) {
+                yield this.categoryPathService.delete(val.categoryPathId);
+            }
+            const getAllPath = yield this.categoryPathService.find({
+                where: { categoryId: category.parentInt },
+                order: { level: 'ASC' },
+            });
+            let level = 0;
+            for (const path of getAllPath) {
+                const CategoryPathLoop = new CategoryPath_1.CategoryPath();
+                CategoryPathLoop.categoryId = categorySave.categoryId;
+                CategoryPathLoop.pathId = path.pathId;
+                CategoryPathLoop.level = level;
+                this.categoryPathService.create(CategoryPathLoop);
+                level++;
+            }
+            const newCategoryPath = new CategoryPath_1.CategoryPath();
+            newCategoryPath.categoryId = categorySave.categoryId;
+            newCategoryPath.pathId = categorySave.categoryId;
+            newCategoryPath.level = level;
+            yield this.categoryPathService.create(newCategoryPath);
+            if (+category.status === 0) {
+                const categories = yield this.categoryPathService.find({ where: { pathId: categorySave.categoryId } });
+                for (const cat of categories) {
+                    const disableCategory = yield this.categoryService.findOne({ where: { categoryId: cat.categoryId } });
+                    disableCategory.isActive = 0;
+                    yield this.categoryService.create(disableCategory);
+                }
+            }
+            else {
+                const categories = yield this.categoryPathService.find({ where: { pathId: categorySave.categoryId } });
+                for (const cat of categories) {
+                    const disableCategory = yield this.categoryService.findOne({ where: { categoryId: cat.categoryId } });
+                    disableCategory.isActive = 1;
+                    yield this.categoryService.create(disableCategory);
+                }
+            }
+            if (categorySave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated category.',
+                    data: (0, class_transformer_1.instanceToPlain)(categorySave),
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the category. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // delete Category API
+    /**
+     * @api {delete} /api/category/:id Delete Category API
+     * @apiGroup Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} categoryId Category categoryId
+     * @apiParamExample {json} Input
+     * {
+     *      "categoryId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Category.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/category/:id
+     * @apiErrorExample {json} Category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteCategory(category, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const productToCategory = yield this.productToCategoryService.findOne({
+                where: {
+                    categoryId: category.categoryId,
+                },
+            });
+            if (productToCategory) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'You cannot delete this category as it is mapped to a product',
+                });
+            }
+            const categoryId = yield this.categoryService.findOne({
+                where: {
+                    categoryId: category.categoryId,
+                },
+            });
+            if (!categoryId) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid category Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const parentCategoryId = yield this.categoryService.findOne({
+                where: {
+                    parentInt: category.categoryId,
+                },
+            });
+            if (parentCategoryId) {
+                const errorresponse = {
+                    status: 0,
+                    message: 'You cannot delete this parent category as sub-categories are mapped to it. ',
+                };
+                return response.status(400).send(errorresponse);
+            }
+            const categoryPath = yield this.categoryPathService.find({ where: { categoryId: category.categoryId } });
+            for (const path of categoryPath) {
+                yield this.categoryPathService.delete(path.categoryPathId);
+            }
+            const deleteCategory = yield this.categoryService.delete(categoryId);
+            if (!deleteCategory) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted category.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the category. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Category List API
+    /**
+     * @api {get} /api/category Category List API
+     * @apiGroup Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} sortOrder sortOrder
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {String} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "successfully got the complete category list.",
+     *      "data":"{ }"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/category
+     * @apiErrorExample {json} Category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    categorylist(limit, offset, keyword, sortOrder, status, count, response) {
+        var _a;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const listCategory = yield (0, product_1.categoryList)((0, typeorm_1.getConnection)(), limit, offset, keyword, status, sortOrder);
+            return response.status(listCategory.status ? 200 : 400).send({
+                status: listCategory.status,
+                message: listCategory.message,
+                data: (_a = listCategory.data) !== null && _a !== void 0 ? _a : undefined,
+            });
+        });
+    }
+    // Category List Tree API
+    /**
+     * @api {get} /api/category-list-intree Category List InTree API
+     * @apiGroup Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} sortOrder sortOrder
+     * @apiParam (Request body) {String} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "successfully got the complete category list.",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/category-list-intree
+     * @apiErrorExample {json} Category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    categoryListTree(limit, offset, keyword, sortOrder, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['categoryId', 'name', 'image', 'imagePath', 'parentInt', 'sortOrder', 'isActive'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                },
+            ];
+            const WhereConditions = [];
+            const category = yield this.categoryService.list(limit, offset, select, search, WhereConditions, sortOrder, count);
+            if (count) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully get category List count',
+                    data: category,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const categoryLists = (0, array_to_tree_1.default)(category, {
+                    parentProperty: 'parentInt',
+                    customID: 'categoryId',
+                });
+                const successResponse = {
+                    status: 1,
+                    message: 'successfully got the complete category list.',
+                    data: categoryLists,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Update Category Slug API
+    /**
+     * @api {put} /api/update-category-slug Update Category Slug API
+     * @apiGroup Category
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated Category Slug.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/update-category-slug
+     * @apiErrorExample {json} Category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateSlug(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const arr = [];
+            const category = yield this.categoryService.findAll();
+            for (const val of category) {
+                const metaTagTitle = val.metaTagTitle;
+                if (metaTagTitle) {
+                    const dat = metaTagTitle.replace(/\s+/g, '-').replace(/[&\/\\#@,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+                    const data = dat.replace(/--/gi, '-');
+                    const getCategorySlug = yield this.categoryService.slug(metaTagTitle);
+                    if (getCategorySlug.length === 0 || getCategorySlug === '' || getCategorySlug === undefined) {
+                        val.categorySlug = data;
+                    }
+                    else if (getCategorySlug.length === 1 && (metaTagTitle !== getCategorySlug[getCategorySlug.length - 1].metaTagTitle)) {
+                        val.categorySlug = data + '-' + 1;
+                    }
+                    else if (getCategorySlug.length > 1 && getCategorySlug !== undefined && getCategorySlug !== '') {
+                        const slugVal = getCategorySlug[getCategorySlug.length - 1];
+                        const value = slugVal.categorySlug;
+                        const getSlugInt = value.substring(value.lastIndexOf('-') + 1, value.length);
+                        const slugNumber = parseInt(getSlugInt, 0);
+                        val.categorySlug = data + '-' + (slugNumber + 1);
+                    }
+                }
+                else {
+                    const title = val.name;
+                    const dat = title.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+                    const data = dat.replace(/--/gi, '-');
+                    const getCategorySlug = yield this.categoryService.slug(title);
+                    if (getCategorySlug === '' || getCategorySlug === undefined || getCategorySlug.length === 0) {
+                        val.categorySlug = data;
+                    }
+                    else if (getCategorySlug.length === 1 && (title !== getCategorySlug[getCategorySlug.length - 1].title)) {
+                        val.categorySlug = data + '-' + 1;
+                    }
+                    else if (getCategorySlug.length > 1 && getCategorySlug !== undefined && getCategorySlug !== '') {
+                        const slugVal = getCategorySlug[getCategorySlug.length - 1];
+                        const value = slugVal.categorySlug;
+                        const getSlugInt = value.substring(value.lastIndexOf('-') + 1, value.length);
+                        const slugNumber = parseInt(getSlugInt, 0);
+                        val.categorySlug = data + '-' + (slugNumber + 1);
+                    }
+                }
+                arr.push(val);
+            }
+            yield this.categoryService.create(arr);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully updated the category slug.',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Category List API
+    /**
+     * @api {get} /api/category-count Category Count API
+     * @apiGroup Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} sortOrder sortOrder
+     * @apiParam (Request body) {String} status status
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "successfully got the complete category count.",
+     *      "data":"{ }"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/category-count
+     * @apiErrorExample {json} Category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    categorycount(limit, offset, keyword, sortOrder, status, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const productCount = yield this.categoryService.categoryCount(limit, offset, keyword, sortOrder, status);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get Category Count',
+                data: {
+                    productCount: productCount.categoryCount,
+                },
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // category Detail
+    /**
+     * @api {get} /api/category-detail Category Detail API
+     * @apiGroup Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} categoryId categoryId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Category detail",
+     *      "data": "{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/category-detail
+     * @apiErrorExample {json} category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    CategoryDetail(categoryId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const category = yield this.categoryService.findOne({
+                where: {
+                    categoryId,
+                },
+            });
+            if (!category) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Category Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got category detail',
+                data: category,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Category Excel Document download
+    /**
+     * @api {get} /api/category-excel-list Category Excel
+     * @apiGroup Category
+     * @apiParam (Request body) {String} categoryId categoryId
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} sortOrder sortOrder
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the Category Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/category-excel-list
+     * @apiErrorExample {json} category Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    categoryExcelListDownload(categoryId, keyword, sortOrder, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Category Detail Sheet');
+            const rows = [];
+            const select = [
+                'CategoryPath.categoryId as categoryId',
+                'category.sortOrder as sortOrder',
+                'category.parentInt as parentInt',
+                'category.name as name',
+                'category.image as image',
+                'category.imagePath as imagePath',
+                'category.isActive as isActive',
+                'category.createdDate as createdDate',
+                'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'CategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',
+            ];
+            const relations = [
+                {
+                    tableName: 'CategoryPath.category',
+                    aliasName: 'category',
+                },
+                {
+                    tableName: 'CategoryPath.path',
+                    aliasName: 'path',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'CategoryPath.category_id',
+                },
+            ];
+            const whereConditions = [];
+            if (categoryId) {
+                whereConditions.push({
+                    name: 'category.categoryId',
+                    op: 'IN',
+                    value: categoryId,
+                });
+            }
+            // else {
+            //     return response.status(400).send({
+            //         status: 0,
+            //         message: 'Choose atleast one category.',
+            //     });
+            // }
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['category.name'],
+                    value: keyword,
+                });
+            }
+            const sort = [];
+            if (sortOrder) {
+                sort.push({
+                    name: 'sortOrder',
+                    order: sortOrder === 2 ? 'DESC' : 'ASC',
+                });
+            }
+            else {
+                sort.push({
+                    name: 'createdDate',
+                    order: 'DESC',
+                });
+            }
+            const categoryLists = yield this.categoryPathService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'Image', key: 'image', size: 16, width: 30 },
+                { header: 'Category Name', key: 'name', size: 16, width: 30 },
+                { header: 'Levels', key: 'parentInt', size: 16, width: 60 },
+                { header: 'Sort Order', key: 'sortOrder', size: 16, width: 15 },
+                { header: 'Status', key: 'isActive', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const data of categoryLists) {
+                if (+data.isActive === 1) {
+                    data.isActive = 'Active';
+                }
+                else {
+                    data.isActive = 'In-Active';
+                }
+                rows.push([data.image, data.name, data.levels, data.sortOrder, data.isActive]);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './CategoryExcel' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            // Add export log
+            const newExportLog = new ExportLog_1.ExportLog();
+            newExportLog.module = 'Product Categories';
+            newExportLog.recordAvailable = categoryLists.length;
+            newExportLog.createdBy = request.user.userId;
+            yield this.exportLogService.create(newExportLog);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Category Export All Excel API
+    /**
+     * @api {get} /api/category-export-all Category Export All API
+     * @apiGroup Category
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} sortOrder sortOrder
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the category Excel List..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/category-export-all
+     * @apiErrorExample {json} Category Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    categoryExportAll(status, keyword, sortOrder, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Category Detail Sheet');
+            const rows = [];
+            const select = [
+                'CategoryPath.categoryId as categoryId',
+                'category.sortOrder as sortOrder',
+                'category.parentInt as parentInt',
+                'category.name as name',
+                'category.image as image',
+                'category.imagePath as imagePath',
+                'category.isActive as isActive',
+                'category.createdDate as createdDate',
+                'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'CategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',
+            ];
+            const relations = [
+                {
+                    tableName: 'CategoryPath.category',
+                    aliasName: 'category',
+                },
+                {
+                    tableName: 'CategoryPath.path',
+                    aliasName: 'path',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'CategoryPath.category_id',
+                },
+            ];
+            const whereConditions = [];
+            if (status || status === 0) {
+                whereConditions.push({
+                    name: 'category.isActive',
+                    op: 'where',
+                    value: status,
+                });
+            }
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['category.name'],
+                    value: keyword,
+                });
+            }
+            const sort = [];
+            if (sortOrder) {
+                sort.push({
+                    name: 'sortOrder',
+                    order: sortOrder === 2 ? 'DESC' : 'ASC',
+                });
+            }
+            else {
+                sort.push({
+                    name: 'createdDate',
+                    order: 'DESC',
+                });
+            }
+            const categoryLists = yield this.categoryPathService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'Image', key: 'image', size: 16, width: 30 },
+                { header: 'Category Name', key: 'name', size: 16, width: 30 },
+                { header: 'Levels', key: 'parentInt', size: 16, width: 60 },
+                { header: 'Sort Order', key: 'sortOrder', size: 16, width: 15 },
+                { header: 'Status', key: 'isActive', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const data of categoryLists) {
+                if (+data.isActive === 1) {
+                    data.isActive = 'Active';
+                }
+                else {
+                    data.isActive = 'In-Active';
+                }
+                rows.push([data.image, data.name, data.levels, data.sortOrder, data.isActive]);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './CategoryexcelDetail_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    validate_slug($slug, $id = 0, $count = 0) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const slugCount = yield this.categoryService.checkSlug($slug, $id, $count);
+            if (slugCount) {
+                if (!$count) {
+                    $count = 1;
+                }
+                else {
+                    $count++;
+                }
+                return yield this.validate_slug($slug, $id, $count);
+            }
+            else {
+                if ($count > 0) {
+                    $slug = $slug + $count;
+                }
+                return $slug;
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/category'),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-category']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [AddCategoryRequest_1.AddCategory, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CategoryController.prototype, "addCategory", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/category/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-category']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [UpdateCategoryRequest_1.UpdateCategoryRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CategoryController.prototype, "updateCategory", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/category/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-category']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [DeleteCategoryRequest_1.DeleteCategoryRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CategoryController.prototype, "deleteCategory", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/category'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CategoryController.prototype, "categorylist", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/category-list-intree'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CategoryController.prototype, "categoryListTree", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-category-slug'),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CategoryController.prototype, "updateSlug", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/category-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CategoryController.prototype, "categorycount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/category-detail'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('categoryId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CategoryController.prototype, "CategoryDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/category-excel-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('categoryId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CategoryController.prototype, "categoryExcelListDownload", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/category-export-all'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CategoryController.prototype, "categoryExportAll", null);
+CategoryController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)(),
+    tslib_1.__metadata("design:paramtypes", [CategoryService_1.CategoryService,
+        ProductToCategoryService_1.ProductToCategoryService,
+        CategoryPathService_1.CategoryPathService,
+        S3Service_1.S3Service,
+        ImageService_1.ImageService,
+        ExportLogService_1.ExportLogService])
+], CategoryController);
+exports.CategoryController = CategoryController;
+//# sourceMappingURL=CategoryController.js.map

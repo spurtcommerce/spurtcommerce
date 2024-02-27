@@ -1,1 +1,85 @@
-'use strict';const a381_0x33e656=a381_0x9448;(function(_0x2cf364,_0x92b5bf){const _0x357292=a381_0x9448,_0x1da0de=_0x2cf364();while(!![]){try{const _0x5a99d8=-parseInt(_0x357292(0x113))/0x1*(-parseInt(_0x357292(0x10e))/0x2)+-parseInt(_0x357292(0x111))/0x3*(-parseInt(_0x357292(0x12d))/0x4)+parseInt(_0x357292(0x11a))/0x5*(-parseInt(_0x357292(0x108))/0x6)+-parseInt(_0x357292(0x136))/0x7*(-parseInt(_0x357292(0x120))/0x8)+-parseInt(_0x357292(0x11e))/0x9+-parseInt(_0x357292(0x10b))/0xa+-parseInt(_0x357292(0x10a))/0xb*(-parseInt(_0x357292(0x114))/0xc);if(_0x5a99d8===_0x92b5bf)break;else _0x1da0de['push'](_0x1da0de['shift']());}catch(_0xc759d5){_0x1da0de['push'](_0x1da0de['shift']());}}}(a381_0x1fa2,0x2d380));function a381_0x1fa2(){const _0x1f1085=['is_active','6afEqfc','moment/moment','4349686eqzsVp','864200QLdITs','contact_person_email','contactPersonMobile','3008zrpFrd','__esModule','contact_person_mobile','10965UliJVu','job_id','73iEAala','12Gskinl','__metadata','prototype','salaryType','__decorate','defineProperty','940890sNCPhT','YYYY-MM-DD\x20HH:mm:ss','class-validator','job_description','2976975wSsvhW','Column','1896XvdlsD','modifiedDate','design:returntype','job_location','jobDescription','isActive','design:type','BaseModel','IsNotEmpty','contactPersonEmail','Entity','jobLocation','job_title','200qOGINl','format','design:paramtypes','updateDetails','createdDate','createDetails','./BaseModel','contactPersonName','jobId','3031ekjHJr','Jobs','tslib'];a381_0x1fa2=function(){return _0x1f1085;};return a381_0x1fa2();}Object[a381_0x33e656(0x119)](exports,a381_0x33e656(0x10f),{'value':!![]}),exports[a381_0x33e656(0x137)]=void 0x0;function a381_0x9448(_0x44600a,_0x12229a){const _0x1fa201=a381_0x1fa2();return a381_0x9448=function(_0x944891,_0x26d0cd){_0x944891=_0x944891-0x108;let _0x3a65c1=_0x1fa201[_0x944891];return _0x3a65c1;},a381_0x9448(_0x44600a,_0x12229a);}const tslib_1=require(a381_0x33e656(0x138)),typeorm_1=require('typeorm'),BaseModel_1=require(a381_0x33e656(0x133)),moment=require(a381_0x33e656(0x109)),class_validator_1=require(a381_0x33e656(0x11c));let Jobs=class Jobs extends BaseModel_1[a381_0x33e656(0x127)]{[a381_0x33e656(0x132)](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3f73bd=a381_0x9448;this[_0x3f73bd(0x131)]=moment()['format'](_0x3f73bd(0x11b));});}[a381_0x33e656(0x130)](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xa05a61=a381_0x9448;this[_0xa05a61(0x121)]=moment()[_0xa05a61(0x12e)](_0xa05a61(0x11b));});}};tslib_1[a381_0x33e656(0x118)]([(0x0,class_validator_1[a381_0x33e656(0x128)])(),(0x0,typeorm_1['PrimaryGeneratedColumn'])({'name':a381_0x33e656(0x112)}),tslib_1[a381_0x33e656(0x115)](a381_0x33e656(0x126),Number)],Jobs[a381_0x33e656(0x116)],a381_0x33e656(0x135),void 0x0),tslib_1[a381_0x33e656(0x118)]([(0x0,class_validator_1[a381_0x33e656(0x128)])(),(0x0,typeorm_1[a381_0x33e656(0x11f)])({'name':a381_0x33e656(0x12c)}),tslib_1[a381_0x33e656(0x115)]('design:type',String)],Jobs['prototype'],'jobTitle',void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a381_0x33e656(0x11f)])({'name':a381_0x33e656(0x11d)}),tslib_1[a381_0x33e656(0x115)]('design:type',String)],Jobs[a381_0x33e656(0x116)],a381_0x33e656(0x124),void 0x0),tslib_1[a381_0x33e656(0x118)]([(0x0,typeorm_1[a381_0x33e656(0x11f)])({'name':'salary_type'}),tslib_1[a381_0x33e656(0x115)]('design:type',String)],Jobs[a381_0x33e656(0x116)],a381_0x33e656(0x117),void 0x0),tslib_1[a381_0x33e656(0x118)]([(0x0,typeorm_1[a381_0x33e656(0x11f)])({'name':a381_0x33e656(0x123)}),tslib_1[a381_0x33e656(0x115)](a381_0x33e656(0x126),String)],Jobs[a381_0x33e656(0x116)],a381_0x33e656(0x12b),void 0x0),tslib_1[a381_0x33e656(0x118)]([(0x0,class_validator_1[a381_0x33e656(0x128)])(),(0x0,typeorm_1[a381_0x33e656(0x11f)])({'name':'contact_person_name'}),tslib_1[a381_0x33e656(0x115)](a381_0x33e656(0x126),String)],Jobs['prototype'],a381_0x33e656(0x134),void 0x0),tslib_1[a381_0x33e656(0x118)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1['Column'])({'name':a381_0x33e656(0x10c)}),tslib_1[a381_0x33e656(0x115)](a381_0x33e656(0x126),String)],Jobs[a381_0x33e656(0x116)],a381_0x33e656(0x129),void 0x0),tslib_1[a381_0x33e656(0x118)]([(0x0,class_validator_1[a381_0x33e656(0x128)])(),(0x0,typeorm_1[a381_0x33e656(0x11f)])({'name':a381_0x33e656(0x110)}),tslib_1[a381_0x33e656(0x115)](a381_0x33e656(0x126),Number)],Jobs['prototype'],a381_0x33e656(0x10d),void 0x0),tslib_1[a381_0x33e656(0x118)]([(0x0,typeorm_1[a381_0x33e656(0x11f)])({'name':a381_0x33e656(0x139)}),tslib_1[a381_0x33e656(0x115)](a381_0x33e656(0x126),Number)],Jobs[a381_0x33e656(0x116)],a381_0x33e656(0x125),void 0x0),tslib_1[a381_0x33e656(0x118)]([(0x0,typeorm_1['BeforeInsert'])(),tslib_1[a381_0x33e656(0x115)]('design:type',Function),tslib_1[a381_0x33e656(0x115)](a381_0x33e656(0x12f),[]),tslib_1[a381_0x33e656(0x115)](a381_0x33e656(0x122),Promise)],Jobs[a381_0x33e656(0x116)],a381_0x33e656(0x132),null),tslib_1[a381_0x33e656(0x118)]([(0x0,typeorm_1['BeforeUpdate'])(),tslib_1['__metadata'](a381_0x33e656(0x126),Function),tslib_1[a381_0x33e656(0x115)](a381_0x33e656(0x12f),[]),tslib_1[a381_0x33e656(0x115)]('design:returntype',Promise)],Jobs['prototype'],a381_0x33e656(0x130),null),Jobs=tslib_1[a381_0x33e656(0x118)]([(0x0,typeorm_1[a381_0x33e656(0x12a)])('jobs')],Jobs),exports['Jobs']=Jobs;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Jobs = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const moment = require("moment/moment");
+const class_validator_1 = require("class-validator");
+let Jobs = class Jobs extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'job_id' }),
+    tslib_1.__metadata("design:type", Number)
+], Jobs.prototype, "jobId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'job_title' }),
+    tslib_1.__metadata("design:type", String)
+], Jobs.prototype, "jobTitle", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'job_description' }),
+    tslib_1.__metadata("design:type", String)
+], Jobs.prototype, "jobDescription", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'salary_type' }),
+    tslib_1.__metadata("design:type", String)
+], Jobs.prototype, "salaryType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'job_location' }),
+    tslib_1.__metadata("design:type", String)
+], Jobs.prototype, "jobLocation", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'contact_person_name' }),
+    tslib_1.__metadata("design:type", String)
+], Jobs.prototype, "contactPersonName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'contact_person_email' }),
+    tslib_1.__metadata("design:type", String)
+], Jobs.prototype, "contactPersonEmail", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'contact_person_mobile' }),
+    tslib_1.__metadata("design:type", Number)
+], Jobs.prototype, "contactPersonMobile", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], Jobs.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Jobs.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Jobs.prototype, "updateDetails", null);
+Jobs = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('jobs')
+], Jobs);
+exports.Jobs = Jobs;
+//# sourceMappingURL=Jobs.js.map

@@ -1,1 +1,88 @@
-'use strict';const a90_0x95079e=a90_0x35a9;(function(_0x36e557,_0x135d25){const _0x5a8721=a90_0x35a9,_0x377c0b=_0x36e557();while(!![]){try{const _0xa2285f=-parseInt(_0x5a8721(0x116))/0x1+parseInt(_0x5a8721(0x10e))/0x2*(parseInt(_0x5a8721(0x112))/0x3)+parseInt(_0x5a8721(0x10c))/0x4*(-parseInt(_0x5a8721(0x119))/0x5)+-parseInt(_0x5a8721(0x125))/0x6*(-parseInt(_0x5a8721(0x12c))/0x7)+-parseInt(_0x5a8721(0x11b))/0x8*(parseInt(_0x5a8721(0x12d))/0x9)+-parseInt(_0x5a8721(0x121))/0xa*(-parseInt(_0x5a8721(0x118))/0xb)+-parseInt(_0x5a8721(0x128))/0xc*(parseInt(_0x5a8721(0x110))/0xd);if(_0xa2285f===_0x135d25)break;else _0x377c0b['push'](_0x377c0b['shift']());}catch(_0x5426c0){_0x377c0b['push'](_0x377c0b['shift']());}}}(a90_0x1f4a,0x9bed2));function a90_0x1f4a(){const _0x533dd8=['536627qugGBO','down','11ptKYAS','510QTZjni','defineProperty','40XixrVV','255','file_name','typeorm','tslib','int','10441930IteBAR','product_slug','__awaiter','dropTable','6kaJHXn','varchar','modified_by','1673016wzEkWN','product_qrcode','createTable','datetime','2049901qNdtIQ','608085udiFFD','file_path','1348TkhLbJ','Table','23300ZhCgyQ','AddProductQRcodeTable1687862122458','26OQanBp','created_by','126ZMlAsu','modified_date','integer','CURRENT_TIMESTAMP'];a90_0x1f4a=function(){return _0x533dd8;};return a90_0x1f4a();}function a90_0x35a9(_0x37f7d1,_0x8de650){const _0x1f4a2e=a90_0x1f4a();return a90_0x35a9=function(_0x35a961,_0x2ea4e2){_0x35a961=_0x35a961-0x10b;let _0x3b3d2c=_0x1f4a2e[_0x35a961];return _0x3b3d2c;},a90_0x35a9(_0x37f7d1,_0x8de650);}Object[a90_0x95079e(0x11a)](exports,'__esModule',{'value':!![]}),exports[a90_0x95079e(0x10f)]=void 0x0;const tslib_1=require(a90_0x95079e(0x11f)),typeorm_1=require(a90_0x95079e(0x11e));class AddProductQRcodeTable1687862122458{['up'](_0x47a688){const _0x59a229=a90_0x95079e;return tslib_1[_0x59a229(0x123)](this,void 0x0,void 0x0,function*(){const _0x513ec4=_0x59a229,_0xbca16=new typeorm_1[(_0x513ec4(0x10d))]({'name':_0x513ec4(0x129),'columns':[{'name':'id','type':_0x513ec4(0x114),'isGenerated':!![],'generationStrategy':'increment','isPrimary':!![],'isNullable':![]},{'name':'product_id','type':_0x513ec4(0x114),'length':'255','isPrimary':![],'isNullable':!![]},{'name':_0x513ec4(0x122),'type':'varchar','length':_0x513ec4(0x11c),'isPrimary':![],'isNullable':!![]},{'name':_0x513ec4(0x10b),'type':_0x513ec4(0x126),'length':_0x513ec4(0x11c),'isPrimary':![],'isNullable':!![]},{'name':_0x513ec4(0x11d),'type':'varchar','length':'255','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0x513ec4(0x12b),'isPrimary':![],'isNullable':!![],'default':_0x513ec4(0x115)},{'name':_0x513ec4(0x113),'type':'datetime','isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':_0x513ec4(0x111),'type':_0x513ec4(0x120),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x513ec4(0x127),'type':'int','length':'11','isPrimary':![],'isNullable':!![]}]}),_0x1daf08=yield _0x47a688['hasTable'](_0x513ec4(0x129));!_0x1daf08&&(yield _0x47a688[_0x513ec4(0x12a)](_0xbca16));});}[a90_0x95079e(0x117)](_0x57e776){const _0x529198=a90_0x95079e;return tslib_1[_0x529198(0x123)](this,void 0x0,void 0x0,function*(){const _0x1f9b02=_0x529198;yield _0x57e776[_0x1f9b02(0x124)](_0x1f9b02(0x129),!![]);});}}exports[a90_0x95079e(0x10f)]=AddProductQRcodeTable1687862122458;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddProductQRcodeTable1687862122458 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddProductQRcodeTable1687862122458 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'product_qrcode',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    },
+                    {
+                        name: 'product_id',
+                        type: 'integer',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'product_slug',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'file_path',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'file_name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('product_qrcode');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('product_qrcode', true);
+        });
+    }
+}
+exports.AddProductQRcodeTable1687862122458 = AddProductQRcodeTable1687862122458;
+//# sourceMappingURL=1687862122458-AddProductQRcodeTable.js.map

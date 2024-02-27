@@ -1,1 +1,97 @@
-'use strict';const a112_0x283f11=a112_0x315b;(function(_0x3fc7ac,_0x1d798e){const _0x27382f=a112_0x315b,_0x12b1eb=_0x3fc7ac();while(!![]){try{const _0x7420b9=-parseInt(_0x27382f(0x1af))/0x1+-parseInt(_0x27382f(0x1be))/0x2+-parseInt(_0x27382f(0x1c1))/0x3+parseInt(_0x27382f(0x19d))/0x4+parseInt(_0x27382f(0x1ab))/0x5*(parseInt(_0x27382f(0x1bf))/0x6)+parseInt(_0x27382f(0x1b5))/0x7+parseInt(_0x27382f(0x1b1))/0x8;if(_0x7420b9===_0x1d798e)break;else _0x12b1eb['push'](_0x12b1eb['shift']());}catch(_0x54d1ca){_0x12b1eb['push'](_0x12b1eb['shift']());}}}(a112_0x3f54,0x5e4f5));Object[a112_0x283f11(0x1a3)](exports,'__esModule',{'value':!![]}),exports[a112_0x283f11(0x1a0)]=void 0x0;function a112_0x3f54(){const _0x4684a9=['moment','Related\x20Product','Add\x20Related\x20Products','250','typeorm','35iELftb','default','product','getRepository','481515EeZnzV','push','3762728ZsPrae','length','update-related-product','PermissionModule','1142512aUXwgm','Related\x20Products\x20Detail','save','format','__awaiter','Update\x20Related\x20Products','YYYY-MM-DD\x20HH:mm:ss','249','__importDefault','310828rKxuOI','611844uxZxRB','\x22product\x22','1763847BKRjVl','PermissionModuleGroup','1055184toWgSN','List\x20Related\x20Products','247','AddRelatedProductsPermissionGroupData1654605354974','moduleGroupId','list-related-product','defineProperty','related-product-detail','248'];a112_0x3f54=function(){return _0x4684a9;};return a112_0x3f54();}const tslib_1=require('tslib'),typeorm_1=require(a112_0x283f11(0x1aa)),moment_1=tslib_1[a112_0x283f11(0x1bd)](require(a112_0x283f11(0x1a6)));function a112_0x315b(_0x55c788,_0x38de14){const _0x3f54be=a112_0x3f54();return a112_0x315b=function(_0x315b7,_0x3f47b0){_0x315b7=_0x315b7-0x19d;let _0x126cde=_0x3f54be[_0x315b7];return _0x126cde;},a112_0x315b(_0x55c788,_0x38de14);}class AddRelatedProductsPermissionGroupData1654605354974{['up'](_0x2211a7){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x8ecd6f=a112_0x315b,_0x5c6b4a=yield _0x2211a7['query']('SELECT\x20*\x20FROM\x20`permission_module_group`\x20WHERE\x20`slug_name`\x20=\x20'+_0x8ecd6f(0x1c0)),_0x1ed5d0=[];if(_0x5c6b4a[_0x8ecd6f(0x1b2)]===0x0){const _0x46cf8a=[{'name':_0x8ecd6f(0x1a7),'slugName':_0x8ecd6f(0x1ad),'sortOrder':'71','createdDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()[_0x8ecd6f(0x1b8)](_0x8ecd6f(0x1bb)),'updatedDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()[_0x8ecd6f(0x1b8)](_0x8ecd6f(0x1bb))}],_0x2280e2=yield(0x0,typeorm_1[_0x8ecd6f(0x1ae)])(_0x8ecd6f(0x1c2))[_0x8ecd6f(0x1b7)](_0x46cf8a);_0x2280e2&&(_0x1ed5d0[_0x8ecd6f(0x1b0)]({'moduleGroupId':_0x2280e2[0x0][_0x8ecd6f(0x1a1)],'name':'List\x20Related\x20Products','slugName':'list-related-product','sortOrder':_0x8ecd6f(0x19f),'createdDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()[_0x8ecd6f(0x1b8)](_0x8ecd6f(0x1bb)),'updatedDate':''+(0x0,moment_1['default'])()[_0x8ecd6f(0x1b8)]('YYYY-MM-DD\x20HH:mm:ss')},{'moduleGroupId':_0x2280e2[0x0][_0x8ecd6f(0x1a1)],'name':_0x8ecd6f(0x1a8),'slugName':_0x8ecd6f(0x1b3),'sortOrder':_0x8ecd6f(0x1a5),'createdDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()[_0x8ecd6f(0x1b8)]('YYYY-MM-DD\x20HH:mm:ss'),'updatedDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()['format'](_0x8ecd6f(0x1bb))},{'moduleGroupId':_0x2280e2[0x0]['moduleGroupId'],'name':_0x8ecd6f(0x1ba),'slugName':_0x8ecd6f(0x1b3),'sortOrder':_0x8ecd6f(0x1bc),'createdDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()[_0x8ecd6f(0x1b8)](_0x8ecd6f(0x1bb)),'updatedDate':''+(0x0,moment_1['default'])()['format'](_0x8ecd6f(0x1bb))},{'moduleGroupId':_0x2280e2[0x0]['moduleGroupId'],'name':_0x8ecd6f(0x1b6),'slugName':_0x8ecd6f(0x1a4),'sortOrder':_0x8ecd6f(0x1a9),'createdDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()[_0x8ecd6f(0x1b8)](_0x8ecd6f(0x1bb)),'updatedDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()[_0x8ecd6f(0x1b8)](_0x8ecd6f(0x1bb))}),yield(0x0,typeorm_1[_0x8ecd6f(0x1ae)])(_0x8ecd6f(0x1b4))[_0x8ecd6f(0x1b7)](_0x1ed5d0));}else _0x1ed5d0[_0x8ecd6f(0x1b0)]({'moduleGroupId':_0x5c6b4a[0x0][_0x8ecd6f(0x1a1)],'name':_0x8ecd6f(0x19e),'slugName':_0x8ecd6f(0x1a2),'sortOrder':_0x8ecd6f(0x19f),'createdDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()[_0x8ecd6f(0x1b8)]('YYYY-MM-DD\x20HH:mm:ss'),'updatedDate':''+(0x0,moment_1['default'])()[_0x8ecd6f(0x1b8)]('YYYY-MM-DD\x20HH:mm:ss')},{'moduleGroupId':_0x5c6b4a[0x0][_0x8ecd6f(0x1a1)],'name':_0x8ecd6f(0x1a8),'slugName':_0x8ecd6f(0x1b3),'sortOrder':_0x8ecd6f(0x1a5),'createdDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()['format'](_0x8ecd6f(0x1bb)),'updatedDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()[_0x8ecd6f(0x1b8)](_0x8ecd6f(0x1bb))},{'moduleGroupId':_0x5c6b4a[0x0][_0x8ecd6f(0x1a1)],'name':_0x8ecd6f(0x1ba),'slugName':_0x8ecd6f(0x1b3),'sortOrder':_0x8ecd6f(0x1bc),'createdDate':''+(0x0,moment_1['default'])()[_0x8ecd6f(0x1b8)]('YYYY-MM-DD\x20HH:mm:ss'),'updatedDate':''+(0x0,moment_1['default'])()[_0x8ecd6f(0x1b8)](_0x8ecd6f(0x1bb))},{'moduleGroupId':_0x5c6b4a[0x0][_0x8ecd6f(0x1a1)],'name':_0x8ecd6f(0x1b6),'slugName':_0x8ecd6f(0x1a4),'sortOrder':_0x8ecd6f(0x1a9),'createdDate':''+(0x0,moment_1[_0x8ecd6f(0x1ac)])()[_0x8ecd6f(0x1b8)](_0x8ecd6f(0x1bb)),'updatedDate':''+(0x0,moment_1['default'])()[_0x8ecd6f(0x1b8)]('YYYY-MM-DD\x20HH:mm:ss')}),yield(0x0,typeorm_1[_0x8ecd6f(0x1ae)])(_0x8ecd6f(0x1b4))['save'](_0x1ed5d0);});}['down'](_0x42ab4a){const _0x5380a1=a112_0x283f11;return tslib_1[_0x5380a1(0x1b9)](this,void 0x0,void 0x0,function*(){});}}exports[a112_0x283f11(0x1a0)]=AddRelatedProductsPermissionGroupData1654605354974;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddRelatedProductsPermissionGroupData1654605354974 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+class AddRelatedProductsPermissionGroupData1654605354974 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const exist = yield queryRunner.query('SELECT * FROM `permission_module_group` WHERE `slug_name` = ' + '"product"');
+            const RelatedProductsPermissionSeed = [];
+            if (exist.length === 0) {
+                const RelatedProductPermissionGroupSeed = [
+                    {
+                        name: 'Related Product',
+                        slugName: 'product',
+                        sortOrder: '71',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    },
+                ];
+                const val = yield (0, typeorm_1.getRepository)('PermissionModuleGroup').save(RelatedProductPermissionGroupSeed);
+                if (val) {
+                    RelatedProductsPermissionSeed.push({
+                        moduleGroupId: val[0].moduleGroupId,
+                        name: 'List Related Products',
+                        slugName: 'list-related-product',
+                        sortOrder: '247',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    }, {
+                        moduleGroupId: val[0].moduleGroupId,
+                        name: 'Add Related Products',
+                        slugName: 'update-related-product',
+                        sortOrder: '248',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    }, {
+                        moduleGroupId: val[0].moduleGroupId,
+                        name: 'Update Related Products',
+                        slugName: 'update-related-product',
+                        sortOrder: '249',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    }, {
+                        moduleGroupId: val[0].moduleGroupId,
+                        name: 'Related Products Detail',
+                        slugName: 'related-product-detail',
+                        sortOrder: '250',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    });
+                    yield (0, typeorm_1.getRepository)('PermissionModule').save(RelatedProductsPermissionSeed);
+                }
+            }
+            else {
+                RelatedProductsPermissionSeed.push({
+                    moduleGroupId: exist[0].moduleGroupId,
+                    name: 'List Related Products',
+                    slugName: 'list-related-product',
+                    sortOrder: '247',
+                    createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                }, {
+                    moduleGroupId: exist[0].moduleGroupId,
+                    name: 'Add Related Products',
+                    slugName: 'update-related-product',
+                    sortOrder: '248',
+                    createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                }, {
+                    moduleGroupId: exist[0].moduleGroupId,
+                    name: 'Update Related Products',
+                    slugName: 'update-related-product',
+                    sortOrder: '249',
+                    createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                }, {
+                    moduleGroupId: exist[0].moduleGroupId,
+                    name: 'Related Products Detail',
+                    slugName: 'related-product-detail',
+                    sortOrder: '250',
+                    createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                });
+                yield (0, typeorm_1.getRepository)('PermissionModule').save(RelatedProductsPermissionSeed);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.AddRelatedProductsPermissionGroupData1654605354974 = AddRelatedProductsPermissionGroupData1654605354974;
+//# sourceMappingURL=1654605354974-AddRelatedProductsPermissionGroupData.js.map

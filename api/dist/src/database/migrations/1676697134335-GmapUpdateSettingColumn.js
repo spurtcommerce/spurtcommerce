@@ -1,1 +1,70 @@
-'use strict';const a957_0x5ef129=a957_0x23b6;(function(_0x54837b,_0x28d6bd){const _0x1bcf03=a957_0x23b6,_0x5a1666=_0x54837b();while(!![]){try{const _0x3ef69b=-parseInt(_0x1bcf03(0x109))/0x1*(parseInt(_0x1bcf03(0x11c))/0x2)+parseInt(_0x1bcf03(0x110))/0x3*(parseInt(_0x1bcf03(0x11d))/0x4)+-parseInt(_0x1bcf03(0x121))/0x5+-parseInt(_0x1bcf03(0x11a))/0x6+parseInt(_0x1bcf03(0x116))/0x7*(parseInt(_0x1bcf03(0x120))/0x8)+parseInt(_0x1bcf03(0x119))/0x9*(-parseInt(_0x1bcf03(0x11b))/0xa)+parseInt(_0x1bcf03(0x108))/0xb;if(_0x3ef69b===_0x28d6bd)break;else _0x5a1666['push'](_0x5a1666['shift']());}catch(_0x35a75d){_0x5a1666['push'](_0x5a1666['shift']());}}}(a957_0x1a03,0x908af));function a957_0x23b6(_0x585cbc,_0x5bf059){const _0x1a0354=a957_0x1a03();return a957_0x23b6=function(_0x23b681,_0x4b6241){_0x23b681=_0x23b681-0x104;let _0x34cf0f=_0x1a0354[_0x23b681];return _0x34cf0f;},a957_0x23b6(_0x585cbc,_0x5bf059);}Object[a957_0x5ef129(0x122)](exports,'__esModule',{'value':!![]}),exports[a957_0x5ef129(0x10d)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a957_0x5ef129(0x10e)),moment=require(a957_0x5ef129(0x111));class GmapUpdateSettingColumn1676697134335{['up'](_0x2311b3){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4f3aea=a957_0x23b6,_0x125d7c={'clientId':'','clientSecret':'','defaultRoute':'/CustomerAddress/add-address','isTest':''},_0xf941fc={'controls':[{'name':_0x4f3aea(0x117),'label':'Client\x20Id:','value':'','type':_0x4f3aea(0x114),'validators':{'required':!![]}},{'name':_0x4f3aea(0x11f),'label':_0x4f3aea(0x10b),'value':'','type':_0x4f3aea(0x114),'validators':{'required':!![]}},{'name':_0x4f3aea(0x106),'label':_0x4f3aea(0x10a),'value':'','type':_0x4f3aea(0x112)}],'postRoute':_0x4f3aea(0x115)},_0x1d0216=[{'pluginName':_0x4f3aea(0x10f),'pluginAvatar':'Img_1564575414973.png','pluginAvatarPath':_0x4f3aea(0x105),'pluginType':_0x4f3aea(0x118),'pluginTimestamp':0x18662efe4ff,'pluginAdditionalInfo':JSON[_0x4f3aea(0x113)](_0x125d7c),'pluginFormInfo':JSON[_0x4f3aea(0x113)](_0xf941fc),'pluginStatus':0x1,'isEditable':0x1,'createdDate':''+moment()[_0x4f3aea(0x10c)]('YYYY-MM-DD\x20HH:mm:ss'),'updatedDate':''+moment()['format'](_0x4f3aea(0x123))}];yield(0x0,typeorm_1['getRepository'])('Plugins')[_0x4f3aea(0x107)](_0x1d0216);});}[a957_0x5ef129(0x104)](_0x2cfb01){const _0x262458=a957_0x5ef129;return tslib_1[_0x262458(0x11e)](this,void 0x0,void 0x0,function*(){});}}exports[a957_0x5ef129(0x10d)]=GmapUpdateSettingColumn1676697134335;function a957_0x1a03(){const _0x285084=['gmap','3XxCAwS','moment/moment','checkbox','stringify','text','/admin-gmap/update-setting','350847RrmQkG','clientId','Gmap','144dyahgM','5502750huBnOS','443680MwXQIS','2VLKGoG','1639172HumLSS','__awaiter','clientSecret','144hNATLT','5360530ZfoMZg','defineProperty','YYYY-MM-DD\x20HH:mm:ss','down','/logo','isTest','save','29660477CKsIMQ','717212jsBWGG','Is\x20Test:','Client\x20Secret:','format','GmapUpdateSettingColumn1676697134335','typeorm'];a957_0x1a03=function(){return _0x285084;};return a957_0x1a03();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GmapUpdateSettingColumn1676697134335 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment = require("moment/moment");
+class GmapUpdateSettingColumn1676697134335 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pluginAdditionalInfo = {
+                clientId: '',
+                clientSecret: '',
+                defaultRoute: '/CustomerAddress/add-address',
+                isTest: '',
+            };
+            const pluginFormInfo = {
+                controls: [
+                    {
+                        name: 'clientId',
+                        label: 'Client Id:',
+                        value: '',
+                        type: 'text',
+                        validators: {
+                            required: true,
+                        },
+                    },
+                    {
+                        name: 'clientSecret',
+                        label: 'Client Secret:',
+                        value: '',
+                        type: 'text',
+                        validators: {
+                            required: true,
+                        },
+                    },
+                    {
+                        name: 'isTest',
+                        label: 'Is Test:',
+                        value: '',
+                        type: 'checkbox',
+                    },
+                ],
+                postRoute: '/admin-gmap/update-setting',
+            };
+            const GmapSeed = [
+                {
+                    pluginName: 'gmap',
+                    pluginAvatar: 'Img_1564575414973.png',
+                    pluginAvatarPath: '/logo',
+                    pluginType: 'Gmap',
+                    pluginTimestamp: 1676697134335,
+                    pluginAdditionalInfo: JSON.stringify(pluginAdditionalInfo),
+                    pluginFormInfo: JSON.stringify(pluginFormInfo),
+                    pluginStatus: 1,
+                    isEditable: 1,
+                    createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                },
+            ];
+            yield (0, typeorm_1.getRepository)('Plugins').save(GmapSeed);
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ---
+        });
+    }
+}
+exports.GmapUpdateSettingColumn1676697134335 = GmapUpdateSettingColumn1676697134335;
+//# sourceMappingURL=1676697134335-GmapUpdateSettingColumn.js.map

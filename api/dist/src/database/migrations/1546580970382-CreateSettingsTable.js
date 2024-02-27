@@ -1,1 +1,226 @@
-'use strict';const a749_0x583b1e=a749_0x2586;(function(_0x35433e,_0x29521f){const _0x1745e1=a749_0x2586,_0x28a6fe=_0x35433e();while(!![]){try{const _0x432ef1=-parseInt(_0x1745e1(0x1bb))/0x1*(parseInt(_0x1745e1(0x1c4))/0x2)+parseInt(_0x1745e1(0x1ac))/0x3*(parseInt(_0x1745e1(0x1bd))/0x4)+parseInt(_0x1745e1(0x1b1))/0x5*(parseInt(_0x1745e1(0x1a8))/0x6)+parseInt(_0x1745e1(0x1ba))/0x7+-parseInt(_0x1745e1(0x1ca))/0x8*(-parseInt(_0x1745e1(0x1c6))/0x9)+-parseInt(_0x1745e1(0x1b8))/0xa*(-parseInt(_0x1745e1(0x1c7))/0xb)+-parseInt(_0x1745e1(0x1a9))/0xc;if(_0x432ef1===_0x29521f)break;else _0x28a6fe['push'](_0x28a6fe['shift']());}catch(_0x12981e){_0x28a6fe['push'](_0x28a6fe['shift']());}}}(a749_0x559f,0x8f8b0));function a749_0x559f(){const _0x227dbd=['1215eaEswv','11231341iovFjj','store_logo','text','55416PRXBnc','store_owner','settings_id','CreateSettingsTable1546580970382','250','zone_id','store_language_name','store_logo_path','down','items_per_page','meta_tag_title','url','is_active','google','instagram','country_id','createTable','meta_tag_description','facebook','420ZkuDxW','6108120GZFubQ','store_address','hasTable','236469NBIiwr','store_fax','invoice_prefix','maintenance_mode','created_date','1745EQIlGA','store_email','modified_by','settings','datetime','int','category_product_count','10wFWhvF','dropTable','305137KcfPnC','57099KzJUfm','varchar','8GzKDaQ','store_currency_id','typeorm','255','__awaiter','increment','meta_tag_keywords','38QZfSqs','__esModule'];a749_0x559f=function(){return _0x227dbd;};return a749_0x559f();}function a749_0x2586(_0x19390c,_0x55c0e1){const _0x559f6c=a749_0x559f();return a749_0x2586=function(_0x258698,_0x2ee75c){_0x258698=_0x258698-0x1a0;let _0x1cfa5c=_0x559f6c[_0x258698];return _0x1cfa5c;},a749_0x2586(_0x19390c,_0x55c0e1);}Object['defineProperty'](exports,a749_0x583b1e(0x1c5),{'value':!![]}),exports[a749_0x583b1e(0x1cd)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a749_0x583b1e(0x1bf));class CreateSettingsTable1546580970382{['up'](_0xe91c6){const _0x4a2e57=a749_0x583b1e;return tslib_1[_0x4a2e57(0x1c1)](this,void 0x0,void 0x0,function*(){const _0x54c671=_0x4a2e57,_0x72234=new typeorm_1['Table']({'name':_0x54c671(0x1b4),'columns':[{'name':_0x54c671(0x1cc),'type':_0x54c671(0x1b6),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x54c671(0x1c2)},{'name':_0x54c671(0x1a0),'type':_0x54c671(0x1bc),'length':'250','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1d4),'type':_0x54c671(0x1bc),'length':_0x54c671(0x1ce),'isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1a6),'type':_0x54c671(0x1c9),'isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1c3),'type':_0x54c671(0x1bc),'length':_0x54c671(0x1ce),'isPrimary':![],'isNullable':!![]},{'name':'store_name','type':'varchar','length':'250','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1cb),'type':_0x54c671(0x1bc),'length':'250','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1aa),'type':_0x54c671(0x1c9),'isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1a4),'type':_0x54c671(0x1b6),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1cf),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1b2),'type':_0x54c671(0x1bc),'length':'250','isPrimary':![],'isNullable':!![]},{'name':'store_telephone','type':_0x54c671(0x1bc),'length':'50','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1ad),'type':_0x54c671(0x1bc),'length':'30','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1c8),'type':'varchar','length':_0x54c671(0x1ce),'isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1d1),'type':_0x54c671(0x1bc),'length':_0x54c671(0x1ce),'isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1af),'type':_0x54c671(0x1b6),'length':'3','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1d0),'type':_0x54c671(0x1bc),'length':_0x54c671(0x1ce),'isPrimary':![],'isNullable':!![]},{'name':'order_status','type':_0x54c671(0x1b6),'length':'11','isPrimary':![],'isNullable':!![],'default':0x1},{'name':_0x54c671(0x1be),'type':_0x54c671(0x1b6),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'store_image','type':'varchar','length':'255','isPrimary':![],'isNullable':!![]},{'name':'store_image_path','type':'text','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1a7),'type':_0x54c671(0x1bc),'length':'255','isPrimary':![],'isNullable':!![]},{'name':'twitter','type':'varchar','length':_0x54c671(0x1c0),'isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1a3),'type':_0x54c671(0x1bc),'length':'255','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1a2),'type':'varchar','length':_0x54c671(0x1c0),'isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1ae),'type':'varchar','length':_0x54c671(0x1c0),'isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1d3),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1b7),'type':_0x54c671(0x1b6),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1a1),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1b0),'type':_0x54c671(0x1b5),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':'modified_date','type':_0x54c671(0x1b5),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':'created_by','type':_0x54c671(0x1b6),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x54c671(0x1b3),'type':_0x54c671(0x1b6),'length':'11','isPrimary':![],'isNullable':!![]}]}),_0x1c69a6=yield _0xe91c6[_0x54c671(0x1ab)](_0x54c671(0x1b4));!_0x1c69a6&&(yield _0xe91c6[_0x54c671(0x1a5)](_0x72234));});}[a749_0x583b1e(0x1d2)](_0x521ff6){const _0x43b444=a749_0x583b1e;return tslib_1[_0x43b444(0x1c1)](this,void 0x0,void 0x0,function*(){const _0x28ed9d=_0x43b444;yield _0x521ff6[_0x28ed9d(0x1b9)]('settings',!![]);});}}exports[a749_0x583b1e(0x1cd)]=CreateSettingsTable1546580970382;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateSettingsTable1546580970382 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateSettingsTable1546580970382 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'settings',
+                columns: [
+                    {
+                        name: 'settings_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'url',
+                        type: 'varchar',
+                        length: '250',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_tag_title',
+                        type: 'varchar',
+                        length: '250',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_tag_description',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_tag_keywords',
+                        type: 'varchar',
+                        length: '250',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'store_name',
+                        type: 'varchar',
+                        length: '250',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'store_owner',
+                        type: 'varchar',
+                        length: '250',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'store_address',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'country_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'zone_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'store_email',
+                        type: 'varchar',
+                        length: '250',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'store_telephone',
+                        type: 'varchar',
+                        length: '50',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'store_fax',
+                        type: 'varchar',
+                        length: '30',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'store_logo',
+                        type: 'varchar',
+                        length: '250',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'store_logo_path',
+                        type: 'varchar',
+                        length: '250',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'maintenance_mode',
+                        type: 'int',
+                        length: '3',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'store_language_name',
+                        type: 'varchar',
+                        length: '250',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'order_status',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 1,
+                    }, {
+                        name: 'store_currency_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'store_image',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'store_image_path',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'facebook',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'twitter',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'instagram',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'google',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'invoice_prefix',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'items_per_page',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'category_product_count',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('settings');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('settings', true);
+        });
+    }
+}
+exports.CreateSettingsTable1546580970382 = CreateSettingsTable1546580970382;
+//# sourceMappingURL=1546580970382-CreateSettingsTable.js.map

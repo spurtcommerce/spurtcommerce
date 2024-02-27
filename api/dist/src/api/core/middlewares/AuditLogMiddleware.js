@@ -1,1 +1,85 @@
-'use strict';const a352_0x37a204=a352_0x5377;(function(_0x22ca08,_0x371437){const _0x36bd34=a352_0x5377,_0x4239aa=_0x22ca08();while(!![]){try{const _0x58e1ad=parseInt(_0x36bd34(0x1b8))/0x1*(parseInt(_0x36bd34(0x1dd))/0x2)+parseInt(_0x36bd34(0x1aa))/0x3+-parseInt(_0x36bd34(0x1cc))/0x4*(parseInt(_0x36bd34(0x1db))/0x5)+parseInt(_0x36bd34(0x1c4))/0x6*(parseInt(_0x36bd34(0x1d0))/0x7)+-parseInt(_0x36bd34(0x1b7))/0x8+parseInt(_0x36bd34(0x1bb))/0x9*(-parseInt(_0x36bd34(0x19c))/0xa)+-parseInt(_0x36bd34(0x1b0))/0xb*(-parseInt(_0x36bd34(0x1c2))/0xc);if(_0x58e1ad===_0x371437)break;else _0x4239aa['push'](_0x4239aa['shift']());}catch(_0x4a8f77){_0x4239aa['push'](_0x4239aa['shift']());}}}(a352_0x18a5,0x3ba17));Object[a352_0x37a204(0x1cd)](exports,a352_0x37a204(0x19b),{'value':!![]}),exports[a352_0x37a204(0x1b9)]=void 0x0;function a352_0x18a5(){const _0x452ca7=['filter','203DOyIdt','params','getClientIp','value','logType','action','actions','length','categorylist','url','POST','60KnSCOA','stringify','12zULvBL','admin_actions.json','LessThan','category-count','YYYY-MM-DD','moment','createOrUpdate','__esModule','20HjTRNT','format','AuditLogService','method','response','update-category','browserInfo','\x20has\x20been\x20deleted\x20by\x20','userName','typeorm','userId','__decorate','join','__importStar','115839aEHvuA','indexOf','path','api','category-detail','substr','22NzcCUX','map','DELETE','\x20has\x20been\x20read\x20by\x20','includes','__awaiter','Container','3881144cqTEBT','30503TphpMc','LoggingMiddleware','requestUrl','882207jyMITC','every','request-ip','user-agent','cwd','views','category-list-intree','4364028oslMgh','add-category','87234CAduse','delete-category','after','description','body','find','firstName','typedi','148388Iwfwrj','defineProperty','user'];a352_0x18a5=function(){return _0x452ca7;};return a352_0x18a5();}const tslib_1=require('tslib'),AuditLog_1=require('../models/AuditLog'),typedi_1=require(a352_0x37a204(0x1cb)),AuditLogService_1=require('../services/AuditLogService'),path=tslib_1[a352_0x37a204(0x1a9)](require(a352_0x37a204(0x1ac))),routing_controllers_1=require('routing-controllers'),moment_1=tslib_1['__importDefault'](require(a352_0x37a204(0x1e2))),typeorm_1=require(a352_0x37a204(0x1a5));function a352_0x5377(_0x122294,_0x2ee3e9){const _0x18a5fd=a352_0x18a5();return a352_0x5377=function(_0x5377c6,_0xf17a79){_0x5377c6=_0x5377c6-0x19b;let _0x26e799=_0x18a5fd[_0x5377c6];return _0x26e799;},a352_0x5377(_0x122294,_0x2ee3e9);}let LoggingMiddleware=class LoggingMiddleware{['use'](_0x547d40,_0x3ae4b3,_0x34db31){const _0x2df6e2=a352_0x37a204;return tslib_1[_0x2df6e2(0x1b5)](this,void 0x0,void 0x0,function*(){const _0x5b73c3=_0x2df6e2;if(_0x547d40&&_0x547d40[_0x5b73c3(0x1ce)]){const _0xa4bf84=typedi_1[_0x5b73c3(0x1b6)]['get'](AuditLogService_1[_0x5b73c3(0x19e)]),_0x49ea95=require(_0x5b73c3(0x1bd)),_0x3d5ccf=path[_0x5b73c3(0x1a8)](process[_0x5b73c3(0x1bf)](),_0x5b73c3(0x1c0)+'/'+_0x5b73c3(0x1de)),_0x471375=require(_0x3d5ccf),_0x5b4fc4=[_0x5b73c3(0x1c3),_0x5b73c3(0x1a1),_0x5b73c3(0x1c5),_0x5b73c3(0x1d8),_0x5b73c3(0x1c1),'update-category-slug',_0x5b73c3(0x1e0),_0x5b73c3(0x1ae)],_0x368c5c=_0x547d40[_0x5b73c3(0x1d9)]['split']('/'),_0x48c5a8=_0x368c5c[_0x5b73c3(0x1ab)]('api')?_0x368c5c['indexOf'](_0x5b73c3(0x1ad)):0x1,_0x2e3af6=_0x368c5c[_0x48c5a8+0x1],_0x615e2a=_0x368c5c&&_0x368c5c[0x2]?_0x368c5c[0x2]['includes']('?')?_0x368c5c[0x2][_0x5b73c3(0x1af)](0x0,_0x368c5c[0x2][_0x5b73c3(0x1ab)]('?')):_0x368c5c[0x2]:'',_0x5dd6bd=_0x368c5c&&_0x368c5c[0x3]?_0x368c5c[0x3][_0x5b73c3(0x1b4)]('?')?_0x368c5c[0x3][_0x5b73c3(0x1af)](0x0,_0x368c5c[0x3]['indexOf']('?')):_0x368c5c[0x3]:'',_0x53395f=_0x368c5c&&_0x368c5c[0x2]&&!_0x5b4fc4[0x2][_0x5b73c3(0x1b4)](_0x368c5c[0x2])?!![]:![],_0x30ab6b=function _0x1d71ef(_0x412168,_0xa28e52){const _0x33d938=_0x5b73c3;return _0x412168[_0x33d938(0x1cf)](_0x223faa=>Object['keys'](_0xa28e52)[_0x33d938(0x1bc)](_0x656cd6=>_0x223faa[_0x656cd6]===_0xa28e52[_0x656cd6]));},_0x2e8acd=yield _0x471375[_0x5b73c3(0x1d6)][_0x471375[_0x5b73c3(0x1d6)][_0x5b73c3(0x1b1)](_0x2e40e0=>{const _0x2cae36=_0x5b73c3;return _0x2e40e0[_0x2cae36(0x1d5)];})[_0x5b73c3(0x1ab)](_0x615e2a)],_0x30d238=_0x53395f?_0x30ab6b(_0x471375[_0x5b73c3(0x1d6)],{'action':_0x5dd6bd,'route':_0x615e2a}):_0x2e8acd,_0x2012d8=_0x53395f?_0x30d238[0x0]:_0x30d238;if(_0x2012d8){const _0x4b01d1=(0x0,moment_1['default'])()['subtract'](0x1,'months')[_0x5b73c3(0x19d)](_0x5b73c3(0x1e1)),_0x2fc4d9=yield _0xa4bf84[_0x5b73c3(0x1c9)]({'where':{'createdDate':(0x0,typeorm_1[_0x5b73c3(0x1df)])(_0x4b01d1)}});_0x2fc4d9[_0x5b73c3(0x1d7)]&&(yield _0xa4bf84['delete'](_0x2fc4d9));const _0x56930c=new AuditLog_1['AuditLog']();_0x56930c[_0x5b73c3(0x1a6)]=_0x547d40['user'][_0x5b73c3(0x1a6)],_0x56930c[_0x5b73c3(0x1d4)]=_0x5b73c3(0x1a0),_0x56930c[_0x5b73c3(0x1ba)]=_0x547d40[_0x5b73c3(0x1d9)];const _0x5a8593=_0x547d40['headers'][_0x5b73c3(0x1be)],_0xb1624a=_0x5a8593;_0x56930c[_0x5b73c3(0x1a2)]=JSON['stringify']({'ip':_0x49ea95[_0x5b73c3(0x1d2)](_0x547d40),'browser':_0xb1624a});switch(_0x547d40[_0x5b73c3(0x19f)]){case _0x5b73c3(0x1da):_0x56930c['description']=_0x2012d8['value']+'\x20has\x20been\x20created\x20by\x20'+_0x547d40[_0x5b73c3(0x1ce)]['firstName'];break;case'GET':_0x56930c[_0x5b73c3(0x1c7)]=_0x2012d8[_0x5b73c3(0x1d3)]+_0x5b73c3(0x1b3)+_0x547d40['user']['firstName'];break;case'PUT':_0x56930c[_0x5b73c3(0x1c7)]=_0x2012d8['value']+'\x20has\x20been\x20updated\x20by\x20'+_0x547d40[_0x5b73c3(0x1ce)][_0x5b73c3(0x1ca)];break;case _0x5b73c3(0x1b2):_0x56930c['description']=_0x2012d8[_0x5b73c3(0x1d3)]+_0x5b73c3(0x1a3)+_0x547d40[_0x5b73c3(0x1ce)]['firstName'];break;default:_0x56930c[_0x5b73c3(0x1c7)]=undefined;}_0x56930c[_0x5b73c3(0x1d1)]=JSON[_0x5b73c3(0x1dc)](_0x547d40[_0x5b73c3(0x1c8)]),_0x56930c[_0x5b73c3(0x19f)]=_0x547d40[_0x5b73c3(0x19f)],_0x56930c[_0x5b73c3(0x1a4)]=_0x547d40[_0x5b73c3(0x1ce)][_0x5b73c3(0x1ca)],_0x56930c['module']=_0x2e3af6,yield _0xa4bf84[_0x5b73c3(0x1e3)](_0x56930c);}}_0x34db31();});}};LoggingMiddleware=tslib_1[a352_0x37a204(0x1a7)]([(0x0,routing_controllers_1['Middleware'])({'type':a352_0x37a204(0x1c6)})],LoggingMiddleware),exports[a352_0x37a204(0x1b9)]=LoggingMiddleware;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LoggingMiddleware = void 0;
+const tslib_1 = require("tslib");
+const AuditLog_1 = require("../models/AuditLog");
+const typedi_1 = require("typedi");
+const AuditLogService_1 = require("../services/AuditLogService");
+const path = tslib_1.__importStar(require("path"));
+const routing_controllers_1 = require("routing-controllers");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const typeorm_1 = require("typeorm");
+let LoggingMiddleware = class LoggingMiddleware {
+    use(request, response, next) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (request && request.user) {
+                const auditLogService = typedi_1.Container.get(AuditLogService_1.AuditLogService);
+                const requestIp = require('request-ip');
+                const actionJson = path.join(process.cwd(), 'views' + '/' + 'admin_actions.json');
+                const actionData = require(actionJson);
+                const withoutRouteArray = ['add-category', 'update-category', 'delete-category', 'categorylist', 'category-list-intree',
+                    'update-category-slug', 'category-count', 'category-detail'];
+                const routeSplit = request.url.split('/');
+                const findParamApi = routeSplit.indexOf('api') ? routeSplit.indexOf('api') : 1;
+                const moduleName = routeSplit[findParamApi + 1];
+                const routeTwo = (routeSplit && routeSplit[2]) ? (routeSplit[2].includes('?') ? routeSplit[2].substr(0, routeSplit[2].indexOf('?')) : routeSplit[2]) : '';
+                const routeThree = (routeSplit && routeSplit[3]) ? (routeSplit[3].includes('?') ? routeSplit[3].substr(0, routeSplit[3].indexOf('?')) : routeSplit[3]) : '';
+                const isRoute = (routeSplit && routeSplit[2] && !withoutRouteArray[2].includes(routeSplit[2])) ? true : false;
+                const filterByFunc = function filterBy(list, criteria) {
+                    return list.filter(candidate => Object.keys(criteria).every(key => candidate[key] === criteria[key]));
+                };
+                const val = yield actionData.actions[actionData.actions.map((item) => {
+                    return item.action;
+                }).indexOf(routeTwo)];
+                const actionValue = isRoute ? filterByFunc(actionData.actions, { action: routeThree, route: routeTwo }) : val;
+                const keyObject = isRoute ? actionValue[0] : actionValue;
+                if (keyObject) {
+                    // get excpet first 30 days data
+                    const auditMonth = (0, moment_1.default)().subtract(1, 'months').format('YYYY-MM-DD');
+                    const exceptOneMonthRcrd = yield auditLogService.find({
+                        where: {
+                            createdDate: (0, typeorm_1.LessThan)(auditMonth),
+                        },
+                    });
+                    if (exceptOneMonthRcrd.length) {
+                        yield auditLogService.delete(exceptOneMonthRcrd);
+                    }
+                    const auditLog = new AuditLog_1.AuditLog();
+                    auditLog.userId = request.user.userId;
+                    auditLog.logType = 'response';
+                    auditLog.requestUrl = request.url;
+                    const source = request.headers['user-agent'];
+                    const ua = source;
+                    auditLog.browserInfo = JSON.stringify({ ip: requestIp.getClientIp(request), browser: ua });
+                    switch (request.method) {
+                        case 'POST':
+                            auditLog.description = keyObject.value + ' has been created by ' + request.user.firstName;
+                            break;
+                        case 'GET':
+                            auditLog.description = keyObject.value + ' has been read by ' + request.user.firstName;
+                            break;
+                        case 'PUT':
+                            auditLog.description = keyObject.value + ' has been updated by ' + request.user.firstName;
+                            break;
+                        case 'DELETE':
+                            auditLog.description = keyObject.value + ' has been deleted by ' + request.user.firstName;
+                            break;
+                        default:
+                            auditLog.description = undefined;
+                    }
+                    auditLog.params = JSON.stringify(request.body);
+                    auditLog.method = request.method;
+                    auditLog.userName = request.user.firstName;
+                    auditLog.module = moduleName;
+                    yield auditLogService.createOrUpdate(auditLog);
+                }
+            }
+            next();
+        });
+    }
+};
+LoggingMiddleware = tslib_1.__decorate([
+    (0, routing_controllers_1.Middleware)({ type: 'after' })
+], LoggingMiddleware);
+exports.LoggingMiddleware = LoggingMiddleware;
+//# sourceMappingURL=AuditLogMiddleware.js.map

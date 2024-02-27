@@ -1,1 +1,93 @@
-'use strict';const a614_0x1fe0ee=a614_0x199c;function a614_0x48df(){const _0x1af71a=['__metadata','45754fbOoOu','name','__awaiter','DESC','findAll','typeorm','info','findOne','6996612UcWqUg','TaxRepository','skip','Service','tslib','Logger','log','1756443LoHRZz','672tlifZp','defineProperty','typeorm-typedi-extensions','6885351YvpXxN','Create\x20a\x20new\x20tax\x20=>\x20','forEach','Like','__param','TaxService','__esModule','taxId','5bNreCo','save','length','take','60472odqIuJ','select','875252jrpBev','delete','../repositories/TaxRepository','5gITrXV','5900580oBnuyJ','taxRepository','where','design:paramtypes'];a614_0x48df=function(){return _0x1af71a;};return a614_0x48df();}function a614_0x199c(_0x5a4e2b,_0x2bb946){const _0x48df8c=a614_0x48df();return a614_0x199c=function(_0x199c48,_0x2aff26){_0x199c48=_0x199c48-0xf3;let _0x13420f=_0x48df8c[_0x199c48];return _0x13420f;},a614_0x199c(_0x5a4e2b,_0x2bb946);}(function(_0x2f8343,_0x24673f){const _0x54ce68=a614_0x199c,_0x3d7d9a=_0x2f8343();while(!![]){try{const _0x82e170=-parseInt(_0x54ce68(0x10b))/0x1*(-parseInt(_0x54ce68(0x11a))/0x2)+parseInt(_0x54ce68(0xff))/0x3+-parseInt(_0x54ce68(0x111))/0x4*(-parseInt(_0x54ce68(0x114))/0x5)+-parseInt(_0x54ce68(0xf8))/0x6+parseInt(_0x54ce68(0x100))/0x7*(parseInt(_0x54ce68(0x10f))/0x8)+parseInt(_0x54ce68(0x103))/0x9+-parseInt(_0x54ce68(0x115))/0xa;if(_0x82e170===_0x24673f)break;else _0x3d7d9a['push'](_0x3d7d9a['shift']());}catch(_0x59cef1){_0x3d7d9a['push'](_0x3d7d9a['shift']());}}}(a614_0x48df,0x9f7a6));Object[a614_0x1fe0ee(0x101)](exports,a614_0x1fe0ee(0x109),{'value':!![]}),exports['TaxService']=void 0x0;const tslib_1=require(a614_0x1fe0ee(0xfc)),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require(a614_0x1fe0ee(0x102)),Logger_1=require('../../../decorators/Logger'),TaxRepository_1=require(a614_0x1fe0ee(0x113)),typeorm_1=require(a614_0x1fe0ee(0xf5));let TaxService=class TaxService{constructor(_0x314b52,_0x3ccfd5){const _0x10a2ab=a614_0x1fe0ee;this[_0x10a2ab(0x116)]=_0x314b52,this[_0x10a2ab(0xfe)]=_0x3ccfd5;}[a614_0x1fe0ee(0xf7)](_0x1778f5){const _0x5e01cb=a614_0x1fe0ee;return this['log'][_0x5e01cb(0xf6)]('Find\x20all\x20tax'),this[_0x5e01cb(0x116)][_0x5e01cb(0xf7)](_0x1778f5);}['list'](_0x1c305a=0x0,_0x57fea8=0x0,_0xaef74=[],_0x1f971a=[],_0x306ab6,_0xf202fd){const _0x7189e1=a614_0x1fe0ee,_0x4ea432={};return _0xaef74&&_0xaef74[_0x7189e1(0x10d)]>0x0&&(_0x4ea432[_0x7189e1(0x110)]=_0xaef74),_0x4ea432[_0x7189e1(0x117)]={},_0x1f971a&&_0x1f971a[_0x7189e1(0x10d)]>0x0&&_0x1f971a[_0x7189e1(0x105)](_0x41730d=>{const _0x1d83fc=_0x7189e1;_0x4ea432[_0x1d83fc(0x117)][_0x41730d[_0x1d83fc(0x11b)]]=_0x41730d['value'];}),_0x306ab6&&(_0x4ea432[_0x7189e1(0x117)]={'taxName':(0x0,typeorm_1[_0x7189e1(0x106)])('%'+_0x306ab6+'%')}),_0x4ea432['order']={'createdDate':_0x7189e1(0xf3)},_0x1c305a&&_0x1c305a>0x0&&(_0x4ea432[_0x7189e1(0x10e)]=_0x1c305a,_0x4ea432[_0x7189e1(0xfa)]=_0x57fea8),_0xf202fd?this['taxRepository']['count'](_0x4ea432):this[_0x7189e1(0x116)]['find'](_0x4ea432);}['create'](_0x960fd5){const _0x468990=a614_0x1fe0ee;return tslib_1[_0x468990(0x11c)](this,void 0x0,void 0x0,function*(){const _0x51dd2=_0x468990;this[_0x51dd2(0xfe)][_0x51dd2(0xf6)](_0x51dd2(0x104),_0x960fd5['toString']());const _0x2174cf=yield this[_0x51dd2(0x116)][_0x51dd2(0x10c)](_0x960fd5);return _0x2174cf;});}['update'](_0x38fa90,_0x22f4db){const _0x5cf4e7=a614_0x1fe0ee;return this[_0x5cf4e7(0xfe)]['info']('Update\x20a\x20tax'),_0x22f4db[_0x5cf4e7(0x10a)]=_0x38fa90,this['taxRepository']['save'](_0x22f4db);}[a614_0x1fe0ee(0x112)](_0x293011){const _0x5c0d8f=a614_0x1fe0ee;return tslib_1[_0x5c0d8f(0x11c)](this,void 0x0,void 0x0,function*(){const _0x25983c=_0x5c0d8f;this[_0x25983c(0xfe)][_0x25983c(0xf6)]('Delete\x20a\x20tax');const _0x2dde98=yield this[_0x25983c(0x116)][_0x25983c(0x112)](_0x293011);return _0x2dde98;});}[a614_0x1fe0ee(0xf4)](_0x4042c0){const _0x3261bc=a614_0x1fe0ee;return this[_0x3261bc(0xfe)][_0x3261bc(0xf6)]('Find\x20all\x20tax'),this[_0x3261bc(0x116)]['find'](_0x4042c0);}};TaxService=tslib_1['__decorate']([(0x0,typedi_1[a614_0x1fe0ee(0xfb)])(),tslib_1[a614_0x1fe0ee(0x107)](0x0,(0x0,typeorm_typedi_extensions_1['OrmRepository'])()),tslib_1['__param'](0x1,(0x0,Logger_1[a614_0x1fe0ee(0xfd)])(__filename)),tslib_1[a614_0x1fe0ee(0x119)](a614_0x1fe0ee(0x118),[TaxRepository_1[a614_0x1fe0ee(0xf9)],Object])],TaxService),exports[a614_0x1fe0ee(0x108)]=TaxService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TaxService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const TaxRepository_1 = require("../repositories/TaxRepository");
+const typeorm_1 = require("typeorm");
+let TaxService = class TaxService {
+    constructor(taxRepository, log) {
+        this.taxRepository = taxRepository;
+        this.log = log;
+    }
+    // find tax
+    findOne(findCondition) {
+        this.log.info('Find all tax');
+        return this.taxRepository.findOne(findCondition);
+    }
+    // tax list
+    list(limit = 0, offset = 0, select = [], whereConditions = [], keyword, count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (keyword) {
+            condition.where = {
+                taxName: (0, typeorm_1.Like)('%' + keyword + '%'),
+            };
+        }
+        condition.order = {
+            createdDate: 'DESC',
+        };
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.taxRepository.count(condition);
+        }
+        else {
+            return this.taxRepository.find(condition);
+        }
+    }
+    // create tax
+    create(tax) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new tax => ', tax.toString());
+            const newTax = yield this.taxRepository.save(tax);
+            return newTax;
+        });
+    }
+    // update tax
+    update(id, tax) {
+        this.log.info('Update a tax');
+        tax.taxId = id;
+        return this.taxRepository.save(tax);
+    }
+    // delete tax
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a tax');
+            const newTax = yield this.taxRepository.delete(id);
+            return newTax;
+        });
+    }
+    // find tax
+    findAll(findCondition) {
+        this.log.info('Find all tax');
+        return this.taxRepository.find(findCondition);
+    }
+};
+TaxService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [TaxRepository_1.TaxRepository, Object])
+], TaxService);
+exports.TaxService = TaxService;
+//# sourceMappingURL=TaxService.js.map

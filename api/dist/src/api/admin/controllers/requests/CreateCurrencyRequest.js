@@ -1,1 +1,48 @@
-'use strict';const a292_0x2cf526=a292_0x2fc7;(function(_0x202f02,_0x4eccbb){const _0x56277c=a292_0x2fc7,_0x4524c5=_0x202f02();while(!![]){try{const _0x220113=-parseInt(_0x56277c(0x1cb))/0x1*(parseInt(_0x56277c(0x1df))/0x2)+parseInt(_0x56277c(0x1d4))/0x3*(-parseInt(_0x56277c(0x1d5))/0x4)+-parseInt(_0x56277c(0x1dc))/0x5+-parseInt(_0x56277c(0x1d1))/0x6+-parseInt(_0x56277c(0x1da))/0x7+-parseInt(_0x56277c(0x1db))/0x8*(-parseInt(_0x56277c(0x1e1))/0x9)+parseInt(_0x56277c(0x1ce))/0xa;if(_0x220113===_0x4eccbb)break;else _0x4524c5['push'](_0x4524c5['shift']());}catch(_0x334e2d){_0x4524c5['push'](_0x4524c5['shift']());}}}(a292_0xca7d,0x88e36));function a292_0x2fc7(_0x4e143e,_0x4e0b6a){const _0xca7de2=a292_0xca7d();return a292_0x2fc7=function(_0x2fc734,_0x12aad3){_0x2fc734=_0x2fc734-0x1cb;let _0x374807=_0xca7de2[_0x2fc734];return _0x374807;},a292_0x2fc7(_0x4e143e,_0x4e0b6a);}Object[a292_0x2cf526(0x1d6)](exports,'__esModule',{'value':!![]}),exports[a292_0x2cf526(0x1e0)]=void 0x0;const tslib_1=require(a292_0x2cf526(0x1d8));require('reflect-metadata');const class_validator_1=require(a292_0x2cf526(0x1de));class CreateCurrency{}tslib_1[a292_0x2cf526(0x1d3)]([(0x0,class_validator_1[a292_0x2cf526(0x1d9)])(0x1e,{'message':'title\x20should\x20be\x20maximum\x2030\x20characters'}),(0x0,class_validator_1[a292_0x2cf526(0x1d2)])(),tslib_1[a292_0x2cf526(0x1cc)]('design:type',String)],CreateCurrency[a292_0x2cf526(0x1cf)],a292_0x2cf526(0x1e3),void 0x0),tslib_1[a292_0x2cf526(0x1d3)]([(0x0,class_validator_1[a292_0x2cf526(0x1d9)])(0x4,{'message':'code\x20should\x20be\x20maximum\x204\x20characters'}),tslib_1[a292_0x2cf526(0x1cc)](a292_0x2cf526(0x1e4),String)],CreateCurrency['prototype'],a292_0x2cf526(0x1d7),void 0x0),tslib_1[a292_0x2cf526(0x1d3)]([(0x0,class_validator_1[a292_0x2cf526(0x1d9)])(0x4,{'message':a292_0x2cf526(0x1dd)}),(0x0,class_validator_1[a292_0x2cf526(0x1e2)])(_0x1c1175=>_0x1c1175['symbolLeft']!==null),tslib_1[a292_0x2cf526(0x1cc)](a292_0x2cf526(0x1e4),String)],CreateCurrency[a292_0x2cf526(0x1cf)],'symbolLeft',void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a292_0x2cf526(0x1d9)])(0x4,{'message':a292_0x2cf526(0x1e5)}),(0x0,class_validator_1[a292_0x2cf526(0x1e2)])(_0x29409c=>_0x29409c[a292_0x2cf526(0x1d0)]!==null),tslib_1['__metadata']('design:type',String)],CreateCurrency[a292_0x2cf526(0x1cf)],a292_0x2cf526(0x1d0),void 0x0),tslib_1[a292_0x2cf526(0x1d3)]([(0x0,class_validator_1[a292_0x2cf526(0x1d2)])(),tslib_1[a292_0x2cf526(0x1cc)](a292_0x2cf526(0x1e4),Number)],CreateCurrency[a292_0x2cf526(0x1cf)],a292_0x2cf526(0x1cd),void 0x0),exports[a292_0x2cf526(0x1e0)]=CreateCurrency;function a292_0xca7d(){const _0x30d404=['design:type','symbolRight\x20should\x20be\x20maximum\x204\x20characters','844912DSYChY','__metadata','status','35362710YgmuoE','prototype','symbolRight','3927324vmHPZz','IsNotEmpty','__decorate','123VpWgKa','84768iuJwwH','defineProperty','code','tslib','MaxLength','852943OuMKCX','24XLBKFQ','4746460miVIzv','symbolLeft\x20should\x20be\x20maximum\x204\x20characters','class-validator','2swNfIo','CreateCurrency','1391706dDgUuC','ValidateIf','title'];a292_0xca7d=function(){return _0x30d404;};return a292_0xca7d();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCurrency = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateCurrency {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(30, {
+        message: 'title should be maximum 30 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], CreateCurrency.prototype, "title", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(4, {
+        message: 'code should be maximum 4 characters',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateCurrency.prototype, "code", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(4, {
+        message: 'symbolLeft should be maximum 4 characters',
+    }),
+    (0, class_validator_1.ValidateIf)(o => o.symbolLeft !== null),
+    tslib_1.__metadata("design:type", String)
+], CreateCurrency.prototype, "symbolLeft", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(4, {
+        message: 'symbolRight should be maximum 4 characters',
+    }),
+    (0, class_validator_1.ValidateIf)(o => o.symbolRight !== null),
+    tslib_1.__metadata("design:type", String)
+], CreateCurrency.prototype, "symbolRight", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateCurrency.prototype, "status", void 0);
+exports.CreateCurrency = CreateCurrency;
+//# sourceMappingURL=CreateCurrencyRequest.js.map

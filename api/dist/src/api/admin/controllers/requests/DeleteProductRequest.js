@@ -1,1 +1,21 @@
-'use strict';const a321_0x565a5f=a321_0x5911;(function(_0x365964,_0x573ca2){const _0x24dbc7=a321_0x5911,_0x576776=_0x365964();while(!![]){try{const _0x4fd845=parseInt(_0x24dbc7(0x142))/0x1+-parseInt(_0x24dbc7(0x146))/0x2*(parseInt(_0x24dbc7(0x147))/0x3)+parseInt(_0x24dbc7(0x14a))/0x4+-parseInt(_0x24dbc7(0x14b))/0x5+parseInt(_0x24dbc7(0x148))/0x6+-parseInt(_0x24dbc7(0x14d))/0x7*(-parseInt(_0x24dbc7(0x14f))/0x8)+-parseInt(_0x24dbc7(0x143))/0x9;if(_0x4fd845===_0x573ca2)break;else _0x576776['push'](_0x576776['shift']());}catch(_0x375165){_0x576776['push'](_0x576776['shift']());}}}(a321_0x619f,0x9f381));Object[a321_0x565a5f(0x144)](exports,a321_0x565a5f(0x14c),{'value':!![]}),exports[a321_0x565a5f(0x150)]=void 0x0;function a321_0x5911(_0x29d69a,_0x126b3b){const _0x619f0c=a321_0x619f();return a321_0x5911=function(_0x59113f,_0x4b0ad2){_0x59113f=_0x59113f-0x142;let _0x1f03d6=_0x619f0c[_0x59113f];return _0x1f03d6;},a321_0x5911(_0x29d69a,_0x126b3b);}const tslib_1=require(a321_0x565a5f(0x14e));function a321_0x619f(){const _0x334567=['56qhWwuO','tslib','916352anLJqI','DeleteProductRequest','1132367TWQWoT','16217406wZhPol','defineProperty','class-validator','2514CDjNZp','2307NtBvBP','6399600DkSPsu','productId','2457748oIaeTa','1545140vIfUhq','__esModule'];a321_0x619f=function(){return _0x334567;};return a321_0x619f();}require('reflect-metadata');const class_validator_1=require(a321_0x565a5f(0x145));class DeleteProductRequest{}tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])(),tslib_1['__metadata']('design:type',Array)],DeleteProductRequest['prototype'],a321_0x565a5f(0x149),void 0x0),exports['DeleteProductRequest']=DeleteProductRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeleteProductRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class DeleteProductRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Array)
+], DeleteProductRequest.prototype, "productId", void 0);
+exports.DeleteProductRequest = DeleteProductRequest;
+//# sourceMappingURL=DeleteProductRequest.js.map

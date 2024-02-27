@@ -1,1 +1,14 @@
-'use strict';const a979_0x5c3a0f=a979_0x26d3;(function(_0x5b4ace,_0x4384f7){const _0xe7ee79=a979_0x26d3,_0x4b72d6=_0x5b4ace();while(!![]){try{const _0x55d906=parseInt(_0xe7ee79(0x7f))/0x1*(-parseInt(_0xe7ee79(0x7b))/0x2)+-parseInt(_0xe7ee79(0x7c))/0x3*(-parseInt(_0xe7ee79(0x75))/0x4)+-parseInt(_0xe7ee79(0x80))/0x5*(-parseInt(_0xe7ee79(0x76))/0x6)+-parseInt(_0xe7ee79(0x81))/0x7+parseInt(_0xe7ee79(0x7d))/0x8+-parseInt(_0xe7ee79(0x73))/0x9+-parseInt(_0xe7ee79(0x79))/0xa*(-parseInt(_0xe7ee79(0x82))/0xb);if(_0x55d906===_0x4384f7)break;else _0x4b72d6['push'](_0x4b72d6['shift']());}catch(_0x5b8366){_0x4b72d6['push'](_0x4b72d6['shift']());}}}(a979_0x5f35,0x6d4f9));Object[a979_0x5c3a0f(0x78)](exports,a979_0x5c3a0f(0x7e),{'value':!![]}),exports[a979_0x5c3a0f(0x83)]=void 0x0;const typedi_1=require('typedi'),logger_1=require(a979_0x5c3a0f(0x74));function a979_0x26d3(_0x347536,_0x1032ca){const _0x5f35dd=a979_0x5f35();return a979_0x26d3=function(_0x26d3cf,_0xabb3f7){_0x26d3cf=_0x26d3cf-0x73;let _0x4022ec=_0x5f35dd[_0x26d3cf];return _0x4022ec;},a979_0x26d3(_0x347536,_0x1032ca);}function Logger(_0x3bab22){return(_0x194eae,_0x11598b,_0x22cdc0)=>{const _0x5a5e1d=a979_0x26d3,_0x249abf=new logger_1[(_0x5a5e1d(0x83))](_0x3bab22),_0x33bac1=_0x11598b?_0x11598b['toString']():'';typedi_1[_0x5a5e1d(0x7a)][_0x5a5e1d(0x77)]({'object':_0x194eae,'propertyName':_0x33bac1,'index':_0x22cdc0,'value':()=>_0x249abf});};}function a979_0x5f35(){const _0x49e76d=['1969985xunQHY','4643688qdvgEh','15653kbeVSV','Logger','1905633JpVftK','../lib/logger','23360fVUTbJ','6LtHSzf','registerHandler','defineProperty','4640BYjDPn','Container','1241172rrnCha','153JwdOcj','4730680HtGGDm','__esModule','1HaSblS'];a979_0x5f35=function(){return _0x49e76d;};return a979_0x5f35();}exports[a979_0x5c3a0f(0x83)]=Logger;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Logger = void 0;
+const typedi_1 = require("typedi");
+const logger_1 = require("../lib/logger");
+function Logger(scope) {
+    return (object, propertyKey, index) => {
+        const logger = new logger_1.Logger(scope);
+        const propertyName = propertyKey ? propertyKey.toString() : '';
+        typedi_1.Container.registerHandler({ object, propertyName, index, value: () => logger });
+    };
+}
+exports.Logger = Logger;
+//# sourceMappingURL=Logger.js.map

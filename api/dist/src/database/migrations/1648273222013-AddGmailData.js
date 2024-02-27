@@ -1,1 +1,70 @@
-'use strict';const a933_0x7775f1=a933_0x32c7;(function(_0x1c42e6,_0x575360){const _0x29bbdb=a933_0x32c7,_0x5b5d99=_0x1c42e6();while(!![]){try{const _0x2cd9e9=-parseInt(_0x29bbdb(0x1a8))/0x1*(-parseInt(_0x29bbdb(0x1b3))/0x2)+-parseInt(_0x29bbdb(0x1af))/0x3+-parseInt(_0x29bbdb(0x1b4))/0x4+-parseInt(_0x29bbdb(0x1c2))/0x5*(-parseInt(_0x29bbdb(0x1c0))/0x6)+parseInt(_0x29bbdb(0x1bb))/0x7+-parseInt(_0x29bbdb(0x1b1))/0x8+-parseInt(_0x29bbdb(0x1ad))/0x9;if(_0x2cd9e9===_0x575360)break;else _0x5b5d99['push'](_0x5b5d99['shift']());}catch(_0x3e09a1){_0x5b5d99['push'](_0x5b5d99['shift']());}}}(a933_0x58ad,0xb70d6));function a933_0x32c7(_0x279fda,_0x577073){const _0x58ad04=a933_0x58ad();return a933_0x32c7=function(_0x32c7d6,_0xaba4f5){_0x32c7d6=_0x32c7d6-0x1a8;let _0x3a78f9=_0x58ad04[_0x32c7d6];return _0x3a78f9;},a933_0x32c7(_0x279fda,_0x577073);}Object['defineProperty'](exports,a933_0x7775f1(0x1b0),{'value':!![]}),exports[a933_0x7775f1(0x1ab)]=void 0x0;function a933_0x58ad(){const _0x50020e=['__awaiter','40PQZTnK','4157056UdkPrv','stringify','Client\x20Secret:','/logo','text','typeorm','Img_1564575462680.jpeg','6979644GuDQFs','Plugins','tslib','isTest','Oauth','1813434gberAL','/admin-gmail/update-setting','15UkvuMv','Is\x20Test:','format','/gmail-login','Client\x20Id:','getRepository','59581sgzUyd','YYYY-MM-DD\x20HH:mm:ss','down','AddGmailData1648273222013','checkbox','3574161cVHebX','moment/moment','1178604ZWNEvL','__esModule','4131088bBXtXC'];a933_0x58ad=function(){return _0x50020e;};return a933_0x58ad();}const tslib_1=require(a933_0x7775f1(0x1bd)),typeorm_1=require(a933_0x7775f1(0x1b9)),moment=require(a933_0x7775f1(0x1ae));class AddGmailData1648273222013{['up'](_0x7a79a5){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x13e5bb=a933_0x32c7,_0x38039c={'clientId':'','clientSecret':'','defaultRoute':_0x13e5bb(0x1c5),'isTest':''},_0x19095d={'controls':[{'name':'clientId','label':_0x13e5bb(0x1c6),'value':'','type':_0x13e5bb(0x1b8),'validators':{'required':!![]}},{'name':'clientSecret','label':_0x13e5bb(0x1b6),'value':'','type':_0x13e5bb(0x1b8),'validators':{'required':![]}},{'name':_0x13e5bb(0x1be),'label':_0x13e5bb(0x1c3),'value':'','type':_0x13e5bb(0x1ac)}],'postRoute':_0x13e5bb(0x1c1)},_0x1262fe=[{'pluginName':'Gmail','pluginAvatar':_0x13e5bb(0x1ba),'pluginAvatarPath':_0x13e5bb(0x1b7),'pluginType':_0x13e5bb(0x1bf),'pluginTimestamp':0x17fc4bd697d,'pluginAdditionalInfo':JSON[_0x13e5bb(0x1b5)](_0x38039c),'pluginFormInfo':JSON[_0x13e5bb(0x1b5)](_0x19095d),'pluginStatus':0x1,'isEditable':0x1,'createdDate':''+moment()[_0x13e5bb(0x1c4)](_0x13e5bb(0x1a9)),'updatedDate':''+moment()[_0x13e5bb(0x1c4)](_0x13e5bb(0x1a9))}];yield(0x0,typeorm_1[_0x13e5bb(0x1c7)])(_0x13e5bb(0x1bc))['save'](_0x1262fe);});}[a933_0x7775f1(0x1aa)](_0x545b5b){const _0x1d69a9=a933_0x7775f1;return tslib_1[_0x1d69a9(0x1b2)](this,void 0x0,void 0x0,function*(){});}}exports[a933_0x7775f1(0x1ab)]=AddGmailData1648273222013;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddGmailData1648273222013 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment = require("moment/moment");
+class AddGmailData1648273222013 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pluginAdditionalInfo = {
+                clientId: '',
+                clientSecret: '',
+                defaultRoute: '/gmail-login',
+                isTest: '',
+            };
+            const pluginFormInfo = {
+                controls: [
+                    {
+                        name: 'clientId',
+                        label: 'Client Id:',
+                        value: '',
+                        type: 'text',
+                        validators: {
+                            required: true,
+                        },
+                    },
+                    {
+                        name: 'clientSecret',
+                        label: 'Client Secret:',
+                        value: '',
+                        type: 'text',
+                        validators: {
+                            required: false,
+                        },
+                    },
+                    {
+                        name: 'isTest',
+                        label: 'Is Test:',
+                        value: '',
+                        type: 'checkbox',
+                    },
+                ],
+                postRoute: '/admin-gmail/update-setting',
+            };
+            const GmailSeed = [
+                {
+                    pluginName: 'Gmail',
+                    pluginAvatar: 'Img_1564575462680.jpeg',
+                    pluginAvatarPath: '/logo',
+                    pluginType: 'Oauth',
+                    pluginTimestamp: 1648273222013,
+                    pluginAdditionalInfo: JSON.stringify(pluginAdditionalInfo),
+                    pluginFormInfo: JSON.stringify(pluginFormInfo),
+                    pluginStatus: 1,
+                    isEditable: 1,
+                    createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                    updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
+                },
+            ];
+            yield (0, typeorm_1.getRepository)('Plugins').save(GmailSeed);
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ---
+        });
+    }
+}
+exports.AddGmailData1648273222013 = AddGmailData1648273222013;
+//# sourceMappingURL=1648273222013-AddGmailData.js.map

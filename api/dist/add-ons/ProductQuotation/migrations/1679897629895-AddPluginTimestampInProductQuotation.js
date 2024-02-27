@@ -1,1 +1,30 @@
-'use strict';const a102_0x5c166a=a102_0x15a9;(function(_0x4eb1c7,_0x4fd323){const _0x140fe2=a102_0x15a9,_0x5a7be0=_0x4eb1c7();while(!![]){try{const _0x3ea3ad=-parseInt(_0x140fe2(0x86))/0x1+-parseInt(_0x140fe2(0x82))/0x2*(parseInt(_0x140fe2(0x7b))/0x3)+parseInt(_0x140fe2(0x89))/0x4*(-parseInt(_0x140fe2(0x7a))/0x5)+parseInt(_0x140fe2(0x8a))/0x6*(parseInt(_0x140fe2(0x76))/0x7)+-parseInt(_0x140fe2(0x74))/0x8*(-parseInt(_0x140fe2(0x77))/0x9)+-parseInt(_0x140fe2(0x88))/0xa*(-parseInt(_0x140fe2(0x85))/0xb)+parseInt(_0x140fe2(0x7c))/0xc;if(_0x3ea3ad===_0x4fd323)break;else _0x5a7be0['push'](_0x5a7be0['shift']());}catch(_0x2e319d){_0x5a7be0['push'](_0x5a7be0['shift']());}}}(a102_0x1e9d,0x20a51));function a102_0x1e9d(){const _0x40eb8f=['product-quotation','80SiEWDr','167764wJaQuo','59298uYbdvw','pluginName','8zIUvAA','pluginTimestamp','63AxVFsY','708633RitBIN','../../../src/api/core/models/Plugin','AddPluginTimestampInProductQuotation1679897629895','5MlUCcI','42393pFrKnr','3447072pRiySJ','defineProperty','save','__esModule','tslib','down','34rUXSPT','findOne','__awaiter','94853SmgPcL','108043ciGCZk'];a102_0x1e9d=function(){return _0x40eb8f;};return a102_0x1e9d();}Object[a102_0x5c166a(0x7d)](exports,a102_0x5c166a(0x7f),{'value':!![]}),exports[a102_0x5c166a(0x79)]=void 0x0;const tslib_1=require(a102_0x5c166a(0x80)),typeorm_1=require('typeorm'),Plugin_1=require(a102_0x5c166a(0x78));function a102_0x15a9(_0x316a07,_0x4e320c){const _0x1e9de8=a102_0x1e9d();return a102_0x15a9=function(_0x15a953,_0x1447c1){_0x15a953=_0x15a953-0x74;let _0x57170f=_0x1e9de8[_0x15a953];return _0x57170f;},a102_0x15a9(_0x316a07,_0x4e320c);}class AddPluginTimestampInProductQuotation1679897629895{['up'](_0x27e77a){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1d2b5f=a102_0x15a9,_0x1eeed7=(0x0,typeorm_1['getRepository'])(Plugin_1['Plugins']),_0x55496b=yield _0x1eeed7[_0x1d2b5f(0x83)]({'where':{'slugName':_0x1d2b5f(0x87)}});_0x55496b&&(_0x55496b[_0x1d2b5f(0x8b)]='ProductQuotation',_0x55496b[_0x1d2b5f(0x75)]=0x183b1bf7682,yield _0x1eeed7[_0x1d2b5f(0x7e)](_0x55496b));});}[a102_0x5c166a(0x81)](_0x2c7777){const _0x7cee3d=a102_0x5c166a;return tslib_1[_0x7cee3d(0x84)](this,void 0x0,void 0x0,function*(){});}}exports[a102_0x5c166a(0x79)]=AddPluginTimestampInProductQuotation1679897629895;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddPluginTimestampInProductQuotation1679897629895 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../../../src/api/core/models/Plugin");
+class AddPluginTimestampInProductQuotation1679897629895 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const repo = (0, typeorm_1.getRepository)(Plugin_1.Plugins);
+            const plugin = yield repo.findOne({
+                where: {
+                    slugName: 'product-quotation',
+                },
+            });
+            if (plugin) {
+                plugin.pluginName = 'ProductQuotation';
+                plugin.pluginTimestamp = 1665134458498; // This Add-on's Plugin Migration Timestamp
+                yield repo.save(plugin);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.AddPluginTimestampInProductQuotation1679897629895 = AddPluginTimestampInProductQuotation1679897629895;
+//# sourceMappingURL=1679897629895-AddPluginTimestampInProductQuotation.js.map

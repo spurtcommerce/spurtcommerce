@@ -1,1 +1,50 @@
-'use strict';const a900_0x4b52be=a900_0x2cff;(function(_0x13f5f6,_0xcdf849){const _0x579c1e=a900_0x2cff,_0xa50fef=_0x13f5f6();while(!![]){try{const _0x5cce52=-parseInt(_0x579c1e(0x114))/0x1+parseInt(_0x579c1e(0x126))/0x2+-parseInt(_0x579c1e(0x11e))/0x3*(-parseInt(_0x579c1e(0x121))/0x4)+-parseInt(_0x579c1e(0x10f))/0x5+parseInt(_0x579c1e(0x11b))/0x6*(-parseInt(_0x579c1e(0x118))/0x7)+parseInt(_0x579c1e(0x11c))/0x8+-parseInt(_0x579c1e(0x11f))/0x9*(-parseInt(_0x579c1e(0x116))/0xa);if(_0x5cce52===_0xcdf849)break;else _0xa50fef['push'](_0xa50fef['shift']());}catch(_0x162b27){_0xa50fef['push'](_0xa50fef['shift']());}}}(a900_0x142a,0xdcd93));Object['defineProperty'](exports,a900_0x4b52be(0x119),{'value':!![]}),exports[a900_0x4b52be(0x123)]=void 0x0;const tslib_1=require(a900_0x4b52be(0x11d)),typeorm_1=require('typeorm');function a900_0x2cff(_0x3783cc,_0x3354a8){const _0x142a43=a900_0x142a();return a900_0x2cff=function(_0x2cffda,_0x3b2382){_0x2cffda=_0x2cffda-0x10e;let _0x679499=_0x142a43[_0x2cffda];return _0x679499;},a900_0x2cff(_0x3783cc,_0x3354a8);}class AddColumnInCustomerCart1603710224439{['up'](_0xe3e4ba){const _0x122069=a900_0x4b52be;return tslib_1[_0x122069(0x117)](this,void 0x0,void 0x0,function*(){const _0x5de15d=_0x122069,_0x2aeba1=yield _0xe3e4ba[_0x5de15d(0x120)](_0x5de15d(0x11a),'sku_name');!_0x2aeba1&&(yield _0xe3e4ba['addColumn'](_0x5de15d(0x11a),new typeorm_1[(_0x5de15d(0x124))]({'name':_0x5de15d(0x122),'type':_0x5de15d(0x125),'length':_0x5de15d(0x113),'isPrimary':![],'isNullable':!![]})));const _0x3724a4=yield _0xe3e4ba[_0x5de15d(0x120)]('customer_cart','varient_name');!_0x3724a4&&(yield _0xe3e4ba['addColumn']('customer_cart',new typeorm_1['TableColumn']({'name':_0x5de15d(0x115),'type':'varchar','length':_0x5de15d(0x113),'isPrimary':![],'isNullable':!![]})));const _0x5ca4b3=yield _0xe3e4ba[_0x5de15d(0x120)](_0x5de15d(0x11a),_0x5de15d(0x10e));!_0x5ca4b3&&(yield _0xe3e4ba[_0x5de15d(0x112)](_0x5de15d(0x11a),new typeorm_1[(_0x5de15d(0x124))]({'name':'product_varient_option_id','type':'int','length':'11','isPrimary':![],'isNullable':!![]})));});}[a900_0x4b52be(0x111)](_0x269abb){const _0x2ae1e0=a900_0x4b52be;return tslib_1[_0x2ae1e0(0x117)](this,void 0x0,void 0x0,function*(){const _0x26327e=_0x2ae1e0;yield _0x269abb[_0x26327e(0x110)](_0x26327e(0x11a),_0x26327e(0x122)),yield _0x269abb[_0x26327e(0x110)](_0x26327e(0x11a),_0x26327e(0x115)),yield _0x269abb[_0x26327e(0x110)](_0x26327e(0x11a),_0x26327e(0x10e));});}}exports[a900_0x4b52be(0x123)]=AddColumnInCustomerCart1603710224439;function a900_0x142a(){const _0x553de4=['hasColumn','230488SVBYnQ','sku_name','AddColumnInCustomerCart1603710224439','TableColumn','varchar','2231434qgqQdv','product_varient_option_id','6684545qzCWxQ','dropColumn','down','addColumn','255','942545DSPUcv','varient_name','1628530sWgIMr','__awaiter','133NLqPwE','__esModule','customer_cart','55698pugpkL','8376928BasCdB','tslib','3BRplAu','63zSRVhj'];a900_0x142a=function(){return _0x553de4;};return a900_0x142a();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInCustomerCart1603710224439 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInCustomerCart1603710224439 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('customer_cart', 'sku_name');
+            if (!ifExist) {
+                yield queryRunner.addColumn('customer_cart', new typeorm_1.TableColumn({
+                    name: 'sku_name',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist1 = yield queryRunner.hasColumn('customer_cart', 'varient_name');
+            if (!ifExist1) {
+                yield queryRunner.addColumn('customer_cart', new typeorm_1.TableColumn({
+                    name: 'varient_name',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist2 = yield queryRunner.hasColumn('customer_cart', 'product_varient_option_id');
+            if (!ifExist2) {
+                yield queryRunner.addColumn('customer_cart', new typeorm_1.TableColumn({
+                    name: 'product_varient_option_id',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('customer_cart', 'sku_name');
+            yield queryRunner.dropColumn('customer_cart', 'varient_name');
+            yield queryRunner.dropColumn('customer_cart', 'product_varient_option_id');
+        });
+    }
+}
+exports.AddColumnInCustomerCart1603710224439 = AddColumnInCustomerCart1603710224439;
+//# sourceMappingURL=1603710224439-AddColumnInCustomerCart.js.map

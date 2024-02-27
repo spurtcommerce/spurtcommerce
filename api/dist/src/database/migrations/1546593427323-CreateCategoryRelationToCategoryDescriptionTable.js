@@ -1,1 +1,36 @@
-'use strict';const a766_0x20c15e=a766_0x1d55;function a766_0x49e1(){const _0x1c959f=['down','9111496DuhXRa','124529pDSyBl','find','typeorm','__awaiter','9ovXHrW','category_description','6441065GAcKaM','TableForeignKey','category_id','6208762zECtCz','getTable','80262ajUnTU','33LGVBnV','552XCxDID','dropForeignKey','CreateCategoryRelationToCategoryDescriptionTable1546593427323','CASCADE','6jbzCII','foreignKeys','366380asHNXv','__esModule','110mhXbDN','category','tableForeignKey','1337512RmtRPV','createForeignKey','columnNames','22gdOuLn','indexOf'];a766_0x49e1=function(){return _0x1c959f;};return a766_0x49e1();}(function(_0xb2696c,_0x93111a){const _0x3ed091=a766_0x1d55,_0x4ac93b=_0xb2696c();while(!![]){try{const _0x4548c6=parseInt(_0x3ed091(0x169))/0x1*(parseInt(_0x3ed091(0x184))/0x2)+-parseInt(_0x3ed091(0x175))/0x3*(parseInt(_0x3ed091(0x17c))/0x4)+-parseInt(_0x3ed091(0x16f))/0x5*(-parseInt(_0x3ed091(0x17a))/0x6)+-parseInt(_0x3ed091(0x172))/0x7+parseInt(_0x3ed091(0x168))/0x8*(parseInt(_0x3ed091(0x16d))/0x9)+parseInt(_0x3ed091(0x17e))/0xa*(-parseInt(_0x3ed091(0x181))/0xb)+parseInt(_0x3ed091(0x176))/0xc*(parseInt(_0x3ed091(0x174))/0xd);if(_0x4548c6===_0x93111a)break;else _0x4ac93b['push'](_0x4ac93b['shift']());}catch(_0x34ef42){_0x4ac93b['push'](_0x4ac93b['shift']());}}}(a766_0x49e1,0xcf436));function a766_0x1d55(_0x1adac1,_0x483f22){const _0x49e1ea=a766_0x49e1();return a766_0x1d55=function(_0x1d5500,_0x4300d1){_0x1d5500=_0x1d5500-0x166;let _0x3a9db2=_0x49e1ea[_0x1d5500];return _0x3a9db2;},a766_0x1d55(_0x1adac1,_0x483f22);}Object['defineProperty'](exports,a766_0x20c15e(0x17d),{'value':!![]}),exports[a766_0x20c15e(0x178)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a766_0x20c15e(0x16b));class CreateCategoryRelationToCategoryDescriptionTable1546593427323{constructor(){const _0x4babde=a766_0x20c15e;this[_0x4babde(0x180)]=new typeorm_1[(_0x4babde(0x170))]({'name':'fk_Category_CategoryDescription','columnNames':[_0x4babde(0x171)],'referencedColumnNames':['category_id'],'referencedTableName':_0x4babde(0x17f),'onDelete':_0x4babde(0x179)});}['up'](_0x3b4731){const _0x3357f0=a766_0x20c15e;return tslib_1[_0x3357f0(0x16c)](this,void 0x0,void 0x0,function*(){const _0xdc201a=_0x3357f0,_0x3479e5=yield _0x3b4731[_0xdc201a(0x173)](_0xdc201a(0x16e)),_0x75e554=_0x3479e5['foreignKeys']['find'](_0x2fba11=>_0x2fba11[_0xdc201a(0x183)][_0xdc201a(0x166)](_0xdc201a(0x171))!==-0x1);!_0x75e554&&(yield _0x3b4731[_0xdc201a(0x182)](_0x3479e5,this[_0xdc201a(0x180)]));});}[a766_0x20c15e(0x167)](_0x591977){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4e20e8=a766_0x1d55,_0x474991=yield _0x591977['getTable']('category_description'),_0x12ad16=_0x474991[_0x4e20e8(0x17b)][_0x4e20e8(0x16a)](_0x1a4999=>_0x1a4999['columnNames'][_0x4e20e8(0x166)](_0x4e20e8(0x171))!==-0x1);_0x12ad16&&(yield _0x591977[_0x4e20e8(0x177)](_0x474991,this[_0x4e20e8(0x180)]));});}}exports[a766_0x20c15e(0x178)]=CreateCategoryRelationToCategoryDescriptionTable1546593427323;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCategoryRelationToCategoryDescriptionTable1546593427323 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateCategoryRelationToCategoryDescriptionTable1546593427323 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_Category_CategoryDescription',
+            columnNames: ['category_id'],
+            referencedColumnNames: ['category_id'],
+            referencedTableName: 'category',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('category_description');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('category_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('category_description');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('category_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.CreateCategoryRelationToCategoryDescriptionTable1546593427323 = CreateCategoryRelationToCategoryDescriptionTable1546593427323;
+//# sourceMappingURL=1546593427323-CreateCategoryRelationToCategoryDescriptionTable.js.map

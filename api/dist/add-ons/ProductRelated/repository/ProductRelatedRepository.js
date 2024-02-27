@@ -1,1 +1,28 @@
-'use strict';const a116_0x3e7b85=a116_0x5c17;(function(_0x7f62a4,_0x25ad2c){const _0x484c4c=a116_0x5c17,_0xd353c=_0x7f62a4();while(!![]){try{const _0x5b55eb=-parseInt(_0x484c4c(0x168))/0x1*(-parseInt(_0x484c4c(0x17a))/0x2)+parseInt(_0x484c4c(0x16d))/0x3*(parseInt(_0x484c4c(0x16c))/0x4)+parseInt(_0x484c4c(0x175))/0x5*(-parseInt(_0x484c4c(0x164))/0x6)+-parseInt(_0x484c4c(0x165))/0x7*(-parseInt(_0x484c4c(0x16a))/0x8)+-parseInt(_0x484c4c(0x170))/0x9+-parseInt(_0x484c4c(0x178))/0xa*(-parseInt(_0x484c4c(0x174))/0xb)+-parseInt(_0x484c4c(0x166))/0xc;if(_0x5b55eb===_0x25ad2c)break;else _0xd353c['push'](_0xd353c['shift']());}catch(_0x391524){_0xd353c['push'](_0xd353c['shift']());}}}(a116_0x22fa,0x8d82d));Object[a116_0x3e7b85(0x172)](exports,a116_0x3e7b85(0x17c),{'value':!![]}),exports['ProductRelatedRepository']=void 0x0;function a116_0x5c17(_0xf5f979,_0x32229c){const _0x22fa46=a116_0x22fa();return a116_0x5c17=function(_0x5c1762,_0x328bdb){_0x5c1762=_0x5c1762-0x162;let _0x9c3a90=_0x22fa46[_0x5c1762];return _0x9c3a90;},a116_0x5c17(_0xf5f979,_0x32229c);}function a116_0x22fa(){const _0x27a9c8=['22qtJQNU','createQueryBuilder','__esModule','__awaiter','select','1480692iGSsXp','98ImQQXs','12216348pjbuww','relatedProduct.productId\x20=\x20:productId','98473qbyKiG','../models/ProductRelated','263408SxwLkq','typeorm','23652YDVQHe','156SKITVn','relatedProduct','where','2986848vBMJpT','getCount','defineProperty','manager','11tVKNtB','10vrVjcI','Repository','productRelatedCount','5714510HooCLV','EntityRepository'];a116_0x22fa=function(){return _0x27a9c8;};return a116_0x22fa();}const tslib_1=require('tslib'),typeorm_1=require(a116_0x3e7b85(0x16b)),ProductRelated_1=require(a116_0x3e7b85(0x169));let ProductRelatedRepository=class ProductRelatedRepository extends typeorm_1[a116_0x3e7b85(0x176)]{[a116_0x3e7b85(0x177)](_0xfdf429){const _0x201dee=a116_0x3e7b85;return tslib_1[_0x201dee(0x162)](this,void 0x0,void 0x0,function*(){const _0x581e3e=_0x201dee,_0x48d80c=yield this[_0x581e3e(0x173)][_0x581e3e(0x17b)](ProductRelated_1['ProductRelated'],_0x581e3e(0x16e));return _0x48d80c[_0x581e3e(0x163)](['relatedProduct.productId']),_0x48d80c[_0x581e3e(0x16f)](_0x581e3e(0x167),{'productId':_0xfdf429}),_0x48d80c[_0x581e3e(0x171)]();});}};ProductRelatedRepository=tslib_1['__decorate']([(0x0,typeorm_1[a116_0x3e7b85(0x179)])(ProductRelated_1['ProductRelated'])],ProductRelatedRepository),exports['ProductRelatedRepository']=ProductRelatedRepository;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductRelatedRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const ProductRelated_1 = require("../models/ProductRelated");
+let ProductRelatedRepository = class ProductRelatedRepository extends typeorm_1.Repository {
+    productRelatedCount(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(ProductRelated_1.ProductRelated, 'relatedProduct');
+            query.select(['relatedProduct.productId']);
+            query.where('relatedProduct.productId = :productId', { productId: id });
+            return query.getCount();
+        });
+    }
+};
+ProductRelatedRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(ProductRelated_1.ProductRelated)
+], ProductRelatedRepository);
+exports.ProductRelatedRepository = ProductRelatedRepository;
+//# sourceMappingURL=ProductRelatedRepository.js.map

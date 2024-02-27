@@ -1,1 +1,78 @@
-'use strict';function a743_0x14f4(){const _0x1ff48b=['CURRENT_TIMESTAMP','4527419ZntMAz','product_to_category','10vOXwXs','25992AylFSo','category_id','24ITxwIf','152htVtNL','260811FelJhP','down','modified_date','__awaiter','tslib','Table','product_to_category_id','hasTable','__esModule','470UDrMki','24efJHQp','68831ubjDpH','is_active','defineProperty','4WwKDsJ','CreateProductToCategoryTable1546579884423','increment','created_by','117799gfNOSM','2063240QXBWBQ','integer','modified_by','DATETIME','1718856RBUcLq'];a743_0x14f4=function(){return _0x1ff48b;};return a743_0x14f4();}const a743_0x58728a=a743_0x4685;(function(_0x282862,_0x3cf378){const _0x1bc11d=a743_0x4685,_0x524721=_0x282862();while(!![]){try{const _0x19b385=parseInt(_0x1bc11d(0xad))/0x1*(parseInt(_0x1bc11d(0xac))/0x2)+-parseInt(_0x1bc11d(0xa8))/0x3*(parseInt(_0x1bc11d(0x9f))/0x4)+parseInt(_0x1bc11d(0xa4))/0x5+parseInt(_0x1bc11d(0xbb))/0x6*(-parseInt(_0x1bc11d(0xbc))/0x7)+-parseInt(_0x1bc11d(0xb0))/0x8*(-parseInt(_0x1bc11d(0xb1))/0x9)+-parseInt(_0x1bc11d(0xba))/0xa*(-parseInt(_0x1bc11d(0xa3))/0xb)+parseInt(_0x1bc11d(0xaf))/0xc*(-parseInt(_0x1bc11d(0xaa))/0xd);if(_0x19b385===_0x3cf378)break;else _0x524721['push'](_0x524721['shift']());}catch(_0x216468){_0x524721['push'](_0x524721['shift']());}}}(a743_0x14f4,0x463ea));Object[a743_0x58728a(0x9e)](exports,a743_0x58728a(0xb9),{'value':!![]}),exports['CreateProductToCategoryTable1546579884423']=void 0x0;const tslib_1=require(a743_0x58728a(0xb5)),typeorm_1=require('typeorm');function a743_0x4685(_0x3f0e7d,_0x4c3e11){const _0x14f4fa=a743_0x14f4();return a743_0x4685=function(_0x4685f8,_0x4ed45b){_0x4685f8=_0x4685f8-0x9e;let _0x543055=_0x14f4fa[_0x4685f8];return _0x543055;},a743_0x4685(_0x3f0e7d,_0x4c3e11);}class CreateProductToCategoryTable1546579884423{['up'](_0x142cac){const _0x182bfb=a743_0x58728a;return tslib_1[_0x182bfb(0xb4)](this,void 0x0,void 0x0,function*(){const _0x1d1ebd=_0x182bfb,_0x16b06c=new typeorm_1[(_0x1d1ebd(0xb6))]({'name':_0x1d1ebd(0xab),'columns':[{'name':_0x1d1ebd(0xb7),'type':_0x1d1ebd(0xa5),'length':'11','isGenerated':!![],'generationStrategy':_0x1d1ebd(0xa1),'isPrimary':!![],'isNullable':![]},{'name':'product_id','type':_0x1d1ebd(0xa5),'length':'11','isPrimary':![],'isNullable':![]},{'name':_0x1d1ebd(0xae),'type':'integer','length':'11','isPrimary':![],'isNullable':![]},{'name':_0x1d1ebd(0xbd),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1d1ebd(0xa2),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1d1ebd(0xa6),'type':_0x1d1ebd(0xa5),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0x1d1ebd(0xa7),'isPrimary':![],'isNullable':!![],'default':_0x1d1ebd(0xa9)},{'name':_0x1d1ebd(0xb3),'type':_0x1d1ebd(0xa7),'isPrimary':![],'isNullable':!![],'default':_0x1d1ebd(0xa9)}]}),_0x11fd16=yield _0x142cac[_0x1d1ebd(0xb8)](_0x1d1ebd(0xab));!_0x11fd16&&(yield _0x142cac['createTable'](_0x16b06c));});}[a743_0x58728a(0xb2)](_0x5f4ffc){const _0x235afb=a743_0x58728a;return tslib_1[_0x235afb(0xb4)](this,void 0x0,void 0x0,function*(){yield _0x5f4ffc['dropTable']('product_to_category',!![]);});}}exports[a743_0x58728a(0xa0)]=CreateProductToCategoryTable1546579884423;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateProductToCategoryTable1546579884423 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateProductToCategoryTable1546579884423 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'product_to_category',
+                columns: [
+                    {
+                        name: 'product_to_category_id',
+                        type: 'integer',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'product_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'category_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('product_to_category');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('product_to_category', true);
+        });
+    }
+}
+exports.CreateProductToCategoryTable1546579884423 = CreateProductToCategoryTable1546579884423;
+//# sourceMappingURL=1546579884423-CreateProductToCategoryTable.js.map

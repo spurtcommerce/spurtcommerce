@@ -1,1 +1,952 @@
-'use strict';const a276_0x232bb5=a276_0x3421;(function(_0x1b7916,_0x15d6d0){const _0x1c50d4=a276_0x3421,_0x1cc935=_0x1b7916();while(!![]){try{const _0x42fee8=parseInt(_0x1c50d4(0x15f))/0x1*(-parseInt(_0x1c50d4(0x127))/0x2)+parseInt(_0x1c50d4(0x151))/0x3*(parseInt(_0x1c50d4(0xfd))/0x4)+-parseInt(_0x1c50d4(0x13c))/0x5+-parseInt(_0x1c50d4(0x13f))/0x6*(-parseInt(_0x1c50d4(0x109))/0x7)+parseInt(_0x1c50d4(0xee))/0x8*(parseInt(_0x1c50d4(0x149))/0x9)+-parseInt(_0x1c50d4(0xd4))/0xa+-parseInt(_0x1c50d4(0xd8))/0xb;if(_0x42fee8===_0x15d6d0)break;else _0x1cc935['push'](_0x1cc935['shift']());}catch(_0x48cc37){_0x1cc935['push'](_0x1cc935['shift']());}}}(a276_0xc072,0x8b7c8));function a276_0x3421(_0x40e820,_0x470a86){const _0xc0729f=a276_0xc072();return a276_0x3421=function(_0x3421c9,_0x22b643){_0x3421c9=_0x3421c9-0xcf;let _0x33fc73=_0xc0729f[_0x3421c9];return _0x33fc73;},a276_0x3421(_0x40e820,_0x470a86);}Object[a276_0x232bb5(0x14e)](exports,'__esModule',{'value':!![]}),exports['ServiceController']=void 0x0;const tslib_1=require(a276_0x232bb5(0x10d));require(a276_0x232bb5(0xdc));const routing_controllers_1=require('routing-controllers'),Service_1=require('../../core/models/Service'),ServiceToCategory_1=require(a276_0x232bb5(0x163)),ServiceImage_1=require('../../core/models/ServiceImage'),ServiceService_1=require('../../core/services/ServiceService'),ServiceToCategoryService_1=require(a276_0x232bb5(0xe7)),ServiceEnquiryService_1=require(a276_0x232bb5(0x15d)),ServiceCategoryService_1=require('../../core/services/ServiceCategoryService'),CreateServiceRequest_1=require(a276_0x232bb5(0xda)),DeleteEnquiryRequest_1=require(a276_0x232bb5(0x168)),DeleteServiceRequest_1=require('./requests/DeleteServiceRequest'),ServiceImageService_1=require(a276_0x232bb5(0x154)),fs=tslib_1['__importStar'](require('fs'));function a276_0xc072(){const _0x46b440=['Email\x20Id','toString','Get','ServiceCategoryService','totalEnquires','stringify','/leads-excel-list','parse','unable\x20to\x20list\x20enquiry','count','createdDate','metaTagTitle','prototype','.xlsx','isActive','split','excelServiceView','CreateService','/delete-multiple-service','findOne','Invalid\x20service\x20Id.','status','serviceCategoryService','metaTagDescription','desciption','12qTsImU','Post','metaTagKeyword','columns','image','unlinkSync','Workbook','exceljs','export-services','serviceImageService','list','all','name','Unable\x20to\x20delete\x20the\x20enquiry.','ServiceImageService','Name','leadsId','addService','ServiceService','/service-detail','create','4883785srUwzr','successfully\x20got\x20the\x20enquiry\x20list.','__awaiter','6cKCOdW','mobile','leads\x20Detail\x20Sheet','Successfully\x20deleted\x20the\x20Service.','Body','findAll','Status','writeFile','addWorksheet','Unable\x20to\x20update\x20the\x20service.','9FImgtJ','__param','/service-enquiry-list','then','Description','defineProperty','deleteMultipleEnquiry','design:type','3131907IJQgoA','ServiceEnquiryService','now','../../core/services/ServiceImageService','delete','__decorate','thin','Put','design:returntype','Successfully\x20got\x20count','defaultImage','totalServices','../../core/services/ServiceEnquiryService','Invalid\x20Service\x20Id.','13379pqsFLQ','edit-services','Unable\x20to\x20create\x20service','price','../../core/models/ServiceToCategory','Authorized','successfully\x20got\x20the\x20count.','category','list-services','./requests/DeleteEnquiryRequest','border','Param','/service','deleteMultipleService','serviceDetail','Successfully\x20deleted\x20the\x20Enquiry.','serviceCategoryId','Services','Res','design:paramtypes','ServiceToCategory','keyword','enquiryId','successfully\x20got\x20the\x20service\x20detail.','list-enquiry','serviceId','7206980QYcVfM','updateService','serviceToCategoryService','DeleteService','123420HSNGBY','admin','./requests/CreateServiceRequest','xlsx','reflect-metadata','QueryParam','./ServiceExcel_','serviceService','Req','getCell','delete-enquiry','Invalid\x20leads\x20Id','/service-list','successfully\x20got\x20the\x20dashboard\x20count.','categoryName','../../core/services/ServiceToCategoryService','__metadata','email','addRows','description','/service-excel-list','delete-services','3062344zHkZyl','end','excelLeadsView','Invalid\x20serviceId','deleteservice','Unable\x20to\x20delete\x20the\x20service.','send','serviceEnquiryService','ServiceImage','Sucessfully\x20updated\x20the\x20service.','serviceList','/delete-multiple-enquiry','offset','Successfully\x20added\x20a\x20new\x20service.','serviceEnquiryList','4zCePRB','create-services','map','./LeadsExcel_','/update-service/:id','containerName','successfully\x20got\x20the\x20complete\x20service\x20list.','Title','find','deleteEnquiry','/delete-service-enquiry/:id','push','6534661tdlYWF','like','Delete','title','tslib'];a276_0xc072=function(){return _0x46b440;};return a276_0xc072();}let ServiceController=class ServiceController{constructor(_0x2b5bb4,_0xa8e01a,_0x297e54,_0x129a23,_0x13a33b){const _0x32c123=a276_0x232bb5;this[_0x32c123(0xdf)]=_0x2b5bb4,this['serviceToCategoryService']=_0xa8e01a,this['serviceEnquiryService']=_0x297e54,this[_0x32c123(0x130)]=_0x129a23,this[_0x32c123(0x124)]=_0x13a33b;}[a276_0x232bb5(0x138)](_0x3876ec,_0x507c18){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x17d48a=a276_0x3421,_0x3f6742=new Service_1[(_0x17d48a(0x170))]();_0x3f6742[_0x17d48a(0x10c)]=_0x3876ec[_0x17d48a(0x10c)],_0x3f6742['description']=_0x3876ec[_0x17d48a(0xeb)],_0x3f6742[_0x17d48a(0x140)]=_0x3876ec[_0x17d48a(0x140)],_0x3f6742['price']=_0x3876ec[_0x17d48a(0x162)],_0x3f6742['metaTagTitle']=_0x3876ec[_0x17d48a(0x119)],_0x3f6742[_0x17d48a(0x125)]=_0x3876ec[_0x17d48a(0x125)],_0x3f6742[_0x17d48a(0x129)]=_0x3876ec[_0x17d48a(0x129)],_0x3f6742[_0x17d48a(0x11c)]=_0x3876ec[_0x17d48a(0x123)];const _0x248609=yield this['serviceService']['create'](_0x3f6742);if(_0x3876ec[_0x17d48a(0x16f)]){const _0x575e01=_0x3876ec[_0x17d48a(0x16f)];for(const _0x466695 of _0x575e01){const _0x39019c=new ServiceToCategory_1['ServiceToCategory']();_0x39019c[_0x17d48a(0xd3)]=_0x248609[_0x17d48a(0xd3)],_0x39019c[_0x17d48a(0x16f)]=_0x466695,_0x39019c[_0x17d48a(0x11c)]=0x1,yield this['serviceToCategoryService'][_0x17d48a(0x13b)](_0x39019c);}}const _0x21cd96=_0x3876ec['image'];for(const _0x41065e of _0x21cd96){const _0x36bdc8=JSON['stringify'](_0x41065e),_0x5c8643=JSON[_0x17d48a(0x115)](_0x36bdc8),_0x5e0a37=new ServiceImage_1[(_0x17d48a(0xf6))]();_0x5e0a37[_0x17d48a(0xd3)]=_0x248609[_0x17d48a(0xd3)],_0x5e0a37[_0x17d48a(0x12b)]=_0x5c8643['image'],_0x5e0a37['containerName']=_0x5c8643[_0x17d48a(0x102)],_0x5e0a37[_0x17d48a(0x15b)]=_0x5c8643[_0x17d48a(0x15b)],yield this['serviceImageService'][_0x17d48a(0x13b)](_0x5e0a37);}if(_0x248609){const _0x20780e={'status':0x1,'message':_0x17d48a(0xfb),'data':_0x248609};return _0x507c18[_0x17d48a(0x123)](0xc8)[_0x17d48a(0xf4)](_0x20780e);}else{const _0x4dcfe8={'status':0x0,'message':_0x17d48a(0x161)};return _0x507c18[_0x17d48a(0x123)](0x190)['send'](_0x4dcfe8);}});}[a276_0x232bb5(0xf8)](_0x5c495a,_0x165ca7,_0xbc6043,_0x471625,_0x43fbd9,_0x2402f9,_0x451bd4){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3c4ee6=a276_0x3421,_0x226a26=[_0x3c4ee6(0xd3),'title',_0x3c4ee6(0xeb),'mobile',_0x3c4ee6(0x162),_0x3c4ee6(0x119),'metaTagDescription',_0x3c4ee6(0x129),'isActive','createdDate'],_0x379495=[{'name':_0x3c4ee6(0x10c),'op':_0x3c4ee6(0x10a),'value':_0xbc6043},{'name':_0x3c4ee6(0x11c),'op':_0x3c4ee6(0x10a),'value':_0x43fbd9}],_0xeb6d53=[],_0x1868be=yield this['serviceService'][_0x3c4ee6(0x131)](_0x5c495a,_0x165ca7,_0x226a26,_0x379495,_0xeb6d53,_0x471625,_0x2402f9);if(_0x2402f9){const _0x2e04d8={'status':0x1,'message':_0x3c4ee6(0x15a),'data':_0x1868be};return _0x451bd4[_0x3c4ee6(0x123)](0xc8)[_0x3c4ee6(0xf4)](_0x2e04d8);}const _0x1c95a5=_0x1868be[_0x3c4ee6(0xff)](_0x43b37c=>tslib_1[_0x3c4ee6(0x13e)](this,void 0x0,void 0x0,function*(){const _0xee89b0=_0x3c4ee6,_0x2e9881=yield this[_0xee89b0(0x130)]['findAll']({'select':[_0xee89b0(0x12b),_0xee89b0(0x102),'defaultImage'],'where':{'serviceId':_0x43b37c[_0xee89b0(0xd3)]}}),_0x3ac2c7=yield this[_0xee89b0(0xd6)]['find']({'select':['serviceId',_0xee89b0(0x16f)],'where':{'serviceId':_0x43b37c[_0xee89b0(0xd3)]}})[_0xee89b0(0x14c)](_0x3331d6=>{const _0x4d9cb3=_0xee89b0,_0x5cf923=_0x3331d6['map'](_0x52a3b1=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1b4d73=a276_0x3421,_0x47e59d=yield this['serviceCategoryService'][_0x1b4d73(0x121)]({'serviceCategoryId':_0x52a3b1[_0x1b4d73(0x16f)]}),_0x1bb498=_0x52a3b1;return _0x47e59d!==undefined?_0x1bb498[_0x1b4d73(0xe6)]=_0x47e59d[_0x1b4d73(0x133)]:_0x1bb498[_0x1b4d73(0xe6)]='',_0x1bb498;})),_0x3faa52=Promise[_0x4d9cb3(0x132)](_0x5cf923);return _0x3faa52;}),_0x310eff=_0x43b37c;return _0x310eff['serviceImage']=_0x2e9881,_0x310eff[_0xee89b0(0x166)]=_0x3ac2c7,_0x310eff;})),_0x1ef838=yield Promise[_0x3c4ee6(0x132)](_0x1c95a5),_0x2cf580={'status':0x1,'message':_0x3c4ee6(0x103),'data':_0x1ef838};return _0x451bd4[_0x3c4ee6(0x123)](0xc8)['send'](_0x2cf580);});}[a276_0x232bb5(0xd5)](_0x51ee79,_0x3dd4bc,_0x5bae29){const _0xe8bb8e=a276_0x232bb5;return tslib_1[_0xe8bb8e(0x13e)](this,void 0x0,void 0x0,function*(){const _0x490849=_0xe8bb8e,_0x26b0d8=yield this['serviceService'][_0x490849(0x121)]({'where':{'serviceId':_0x51ee79}});if(!_0x26b0d8){const _0x3e49d8={'status':0x0,'message':_0x490849(0x122)};return _0x5bae29[_0x490849(0x123)](0x190)[_0x490849(0xf4)](_0x3e49d8);}_0x26b0d8['title']=_0x3dd4bc[_0x490849(0x10c)],_0x26b0d8['description']=_0x3dd4bc[_0x490849(0xeb)],_0x26b0d8[_0x490849(0x140)]=_0x3dd4bc[_0x490849(0x140)],_0x26b0d8[_0x490849(0x162)]=_0x3dd4bc[_0x490849(0x162)],_0x26b0d8[_0x490849(0x119)]=_0x3dd4bc['metaTagTitle'],_0x26b0d8[_0x490849(0x125)]=_0x3dd4bc[_0x490849(0x125)],_0x26b0d8[_0x490849(0x129)]=_0x3dd4bc[_0x490849(0x129)],_0x26b0d8[_0x490849(0x11c)]=_0x3dd4bc['status'];const _0x367682=yield this['serviceService'][_0x490849(0x13b)](_0x26b0d8),_0x1b5c99=yield this['serviceToCategoryService'][_0x490849(0x105)]({'where':{'serviceId':_0x367682[_0x490849(0xd3)]}});_0x1b5c99&&this[_0x490849(0xd6)]['delete']({'serviceId':_0x367682['serviceId']});if(_0x3dd4bc[_0x490849(0x16f)]){const _0x6ef0df=_0x3dd4bc[_0x490849(0x16f)];for(const _0x55f785 of _0x6ef0df){const _0x225e5e=new ServiceToCategory_1[(_0x490849(0x173))]();_0x225e5e[_0x490849(0xd3)]=_0x367682[_0x490849(0xd3)],_0x225e5e['serviceCategoryId']=_0x55f785,_0x225e5e[_0x490849(0x11c)]=0x1,yield this[_0x490849(0xd6)][_0x490849(0x13b)](_0x225e5e);}}this['serviceImageService'][_0x490849(0x155)]({'serviceId':_0x367682[_0x490849(0xd3)]});const _0x328d2b=_0x3dd4bc[_0x490849(0x12b)];for(const _0x3f9b1b of _0x328d2b){const _0xcb27a1=JSON[_0x490849(0x113)](_0x3f9b1b),_0x255867=JSON['parse'](_0xcb27a1),_0x4c1363=new ServiceImage_1[(_0x490849(0xf6))]();_0x4c1363[_0x490849(0xd3)]=_0x367682[_0x490849(0xd3)],_0x4c1363[_0x490849(0x12b)]=_0x255867[_0x490849(0x12b)],_0x4c1363[_0x490849(0x102)]=_0x255867['containerName'],_0x4c1363[_0x490849(0x15b)]=_0x255867[_0x490849(0x15b)],this[_0x490849(0x130)]['create'](_0x4c1363);}if(_0x367682){const _0x1cec1e={'status':0x1,'message':_0x490849(0xf7),'data':_0x367682};return _0x5bae29[_0x490849(0x123)](0xc8)[_0x490849(0xf4)](_0x1cec1e);}else{const _0x14a52a={'status':0x0,'message':_0x490849(0x148)};return _0x5bae29[_0x490849(0x123)](0x190)['send'](_0x14a52a);}});}[a276_0x232bb5(0xf2)](_0x25a94d,_0x47cf01,_0x4797cd){const _0x1c5c13=a276_0x232bb5;return tslib_1[_0x1c5c13(0x13e)](this,void 0x0,void 0x0,function*(){const _0x3544d6=_0x1c5c13,_0x1a6676=yield this[_0x3544d6(0xdf)][_0x3544d6(0x121)]({'where':{'serviceId':_0x25a94d}});if(!_0x1a6676){const _0x291de9={'status':0x0,'message':'Invalid\x20service\x20Id.'};return _0x47cf01[_0x3544d6(0x123)](0x190)['send'](_0x291de9);}const _0x975e9e=yield this[_0x3544d6(0xdf)][_0x3544d6(0x155)](_0x1a6676);yield this[_0x3544d6(0xd6)][_0x3544d6(0x155)](_0x1a6676[_0x3544d6(0xd3)]),this[_0x3544d6(0x130)][_0x3544d6(0x155)]({'serviceId':_0x1a6676[_0x3544d6(0xd3)]});if(!_0x975e9e){const _0x5711fa={'status':0x1,'message':'Successfully\x20deleted\x20the\x20service.\x20'};return _0x47cf01[_0x3544d6(0x123)](0xc8)['send'](_0x5711fa);}else{const _0x41f42d={'status':0x0,'message':_0x3544d6(0xf3)};return _0x47cf01[_0x3544d6(0x123)](0x190)[_0x3544d6(0xf4)](_0x41f42d);}});}[a276_0x232bb5(0x16c)](_0x1e5861,_0x4aeb33,_0x2e947a){const _0x15c0b4=a276_0x232bb5;return tslib_1[_0x15c0b4(0x13e)](this,void 0x0,void 0x0,function*(){const _0x39d26f=_0x15c0b4,_0x3279af=_0x1e5861[_0x39d26f(0xd3)][_0x39d26f(0x10f)](),_0x1f73f9=_0x3279af[_0x39d26f(0x11d)](','),_0x43a1fe=_0x1f73f9[_0x39d26f(0xff)](_0x5b0309=>tslib_1[_0x39d26f(0x13e)](this,void 0x0,void 0x0,function*(){const _0x2c1a18=_0x39d26f,_0x1c6954=yield this['serviceService']['findOne'](_0x5b0309);if(_0x1c6954===undefined){const _0x81d842={'status':0x0,'message':_0x2c1a18(0x15e)};return _0x4aeb33['status'](0x190)[_0x2c1a18(0xf4)](_0x81d842);}else yield this[_0x2c1a18(0xdf)][_0x2c1a18(0x155)](_0x1c6954),yield this[_0x2c1a18(0xd6)][_0x2c1a18(0x155)](_0x1c6954[_0x2c1a18(0xd3)]),yield this['serviceImageService'][_0x2c1a18(0x155)]({'serviceId':_0x1c6954['serviceId']});})),_0x5779b6=yield Promise['all'](_0x43a1fe);if(_0x5779b6){const _0xd7a17c={'status':0x1,'message':_0x39d26f(0x142)};return _0x4aeb33[_0x39d26f(0x123)](0xc8)[_0x39d26f(0xf4)](_0xd7a17c);}});}[a276_0x232bb5(0xfc)](_0x3f25f1,_0xc4ee72,_0x304b90,_0x5c77f8,_0x332199){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x13ad2b=a276_0x3421,_0x3ee7fc=[_0x13ad2b(0xd0),'name',_0x13ad2b(0xe9),'mobile','comments',_0x13ad2b(0x11c),'createdDate'],_0x12e3a5=[{'name':'name','op':'like','value':_0x304b90},{'name':'email','op':_0x13ad2b(0x10a),'value':_0x304b90}],_0x17ea58=[],_0x4bb7c6=yield this[_0x13ad2b(0xf5)][_0x13ad2b(0x131)](_0x3f25f1,_0xc4ee72,_0x3ee7fc,_0x12e3a5,_0x17ea58,_0x5c77f8);if(_0x5c77f8){const _0x51d2f7={'status':0x1,'message':_0x13ad2b(0x165),'data':_0x4bb7c6};return _0x332199[_0x13ad2b(0x123)](0xc8)[_0x13ad2b(0xf4)](_0x51d2f7);}if(_0x4bb7c6){const _0x2956e3={'status':0x1,'message':_0x13ad2b(0x13d),'data':_0x4bb7c6};return _0x332199[_0x13ad2b(0x123)](0xc8)[_0x13ad2b(0xf4)](_0x2956e3);}else{const _0x49dd24={'status':0x0,'message':_0x13ad2b(0x116)};return _0x332199[_0x13ad2b(0x123)](0x190)[_0x13ad2b(0xf4)](_0x49dd24);}});}[a276_0x232bb5(0x106)](_0x19b87b,_0x4038ad,_0x4a25e7){const _0x4bfca0=a276_0x232bb5;return tslib_1[_0x4bfca0(0x13e)](this,void 0x0,void 0x0,function*(){const _0x2f187b=_0x4bfca0,_0x43adf2=yield this[_0x2f187b(0xf5)]['findOne']({'where':{'enquiryId':_0x19b87b}});if(!_0x43adf2){const _0x1b2fda={'status':0x0,'message':'Invalid\x20Enquiry\x20Id.'};return _0x4038ad[_0x2f187b(0x123)](0x190)[_0x2f187b(0xf4)](_0x1b2fda);}const _0x4659a9=yield this[_0x2f187b(0xf5)][_0x2f187b(0x155)](_0x43adf2);if(!_0x4659a9){const _0x4837f4={'status':0x1,'message':'Successfully\x20deleted\x20the\x20enquiry.\x20'};return _0x4038ad[_0x2f187b(0x123)](0xc8)[_0x2f187b(0xf4)](_0x4837f4);}else{const _0x395d50={'status':0x0,'message':_0x2f187b(0x134)};return _0x4038ad['status'](0x190)[_0x2f187b(0xf4)](_0x395d50);}});}[a276_0x232bb5(0x14f)](_0x5ab635,_0x1d9191,_0x7f9a1f){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4fcf31=a276_0x3421,_0x3373fe=_0x5ab635['enquiryId']['toString'](),_0x255ac1=_0x3373fe[_0x4fcf31(0x11d)](','),_0x358490=_0x255ac1[_0x4fcf31(0xff)](_0x4ff3e7=>tslib_1[_0x4fcf31(0x13e)](this,void 0x0,void 0x0,function*(){const _0x314fa9=_0x4fcf31,_0xc76b60=yield this['serviceEnquiryService']['findOne'](_0x4ff3e7);if(_0xc76b60===undefined){const _0x1ab804={'status':0x0,'message':'Invalid\x20Enquiry\x20Id.'};return _0x1d9191['status'](0x190)[_0x314fa9(0xf4)](_0x1ab804);}else return yield this['serviceEnquiryService'][_0x314fa9(0x155)](_0xc76b60);})),_0x373f2f=yield Promise['all'](_0x358490);if(_0x373f2f){const _0x28f4fa={'status':0x1,'message':_0x4fcf31(0x16e)};return _0x1d9191[_0x4fcf31(0x123)](0xc8)[_0x4fcf31(0xf4)](_0x28f4fa);}});}[a276_0x232bb5(0x11e)](_0x5afbf7,_0x17f1ea,_0x4c8868){const _0x40159d=a276_0x232bb5;return tslib_1[_0x40159d(0x13e)](this,void 0x0,void 0x0,function*(){const _0x38805d=_0x40159d,_0x39dfb8=require(_0x38805d(0x12e)),_0x3df1a6=new _0x39dfb8[(_0x38805d(0x12d))](),_0x545b08=_0x3df1a6[_0x38805d(0x147)]('service\x20Detail\x20Sheet'),_0x1767d4=[],_0x48ce00=_0x5afbf7[_0x38805d(0x11d)](',');for(const _0x280ad1 of _0x48ce00){const _0x4864bc=yield this[_0x38805d(0xdf)][_0x38805d(0x121)](_0x280ad1);if(_0x4864bc===undefined){const _0x38a01d={'status':0x0,'message':'Invalid\x20service\x20Id'};return _0x4c8868['status'](0x190)['send'](_0x38a01d);}}_0x545b08['columns']=[{'header':_0x38805d(0x104),'key':'title','size':0x10,'width':0xf},{'header':_0x38805d(0x14d),'key':_0x38805d(0x126),'size':0x10,'width':0x19},{'header':'Mobile\x20Number','key':'mobile','size':0x10,'width':0xf},{'header':'Price','key':'price','size':0x10,'width':0xf},{'header':_0x38805d(0x145),'key':'isActive','size':0x10,'width':0xf}],_0x545b08[_0x38805d(0xe1)]('A1')[_0x38805d(0x169)]={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':_0x38805d(0x157)},'right':{'style':_0x38805d(0x157)}},_0x545b08[_0x38805d(0xe1)]('B1')[_0x38805d(0x169)]={'top':{'style':_0x38805d(0x157)},'left':{'style':_0x38805d(0x157)},'bottom':{'style':_0x38805d(0x157)},'right':{'style':_0x38805d(0x157)}},_0x545b08['getCell']('C1')[_0x38805d(0x169)]={'top':{'style':_0x38805d(0x157)},'left':{'style':'thin'},'bottom':{'style':_0x38805d(0x157)},'right':{'style':'thin'}},_0x545b08[_0x38805d(0xe1)]('D1')[_0x38805d(0x169)]={'top':{'style':_0x38805d(0x157)},'left':{'style':'thin'},'bottom':{'style':_0x38805d(0x157)},'right':{'style':_0x38805d(0x157)}},_0x545b08[_0x38805d(0xe1)]('D1')[_0x38805d(0x169)]={'top':{'style':_0x38805d(0x157)},'left':{'style':_0x38805d(0x157)},'bottom':{'style':_0x38805d(0x157)},'right':{'style':_0x38805d(0x157)}};for(const _0x3c5225 of _0x48ce00){const _0x812c7e=yield this[_0x38805d(0xdf)]['findOne'](_0x3c5225);_0x1767d4[_0x38805d(0x108)]([_0x812c7e[_0x38805d(0x10c)],_0x812c7e[_0x38805d(0xeb)],_0x812c7e[_0x38805d(0x140)],_0x812c7e[_0x38805d(0x162)],_0x812c7e[_0x38805d(0x11c)]]);}_0x545b08[_0x38805d(0xea)](_0x1767d4);const _0xe1edc6=_0x38805d(0xde)+Date[_0x38805d(0x153)]()+_0x38805d(0x11b);return yield _0x3df1a6[_0x38805d(0xdb)][_0x38805d(0x146)](_0xe1edc6),new Promise((_0x52e8fd,_0x48cbcd)=>{_0x4c8868['download'](_0xe1edc6,(_0x3d17d0,_0x2e5f7d)=>{const _0x4a471a=a276_0x3421;if(_0x3d17d0)_0x48cbcd(_0x3d17d0);else return fs['unlinkSync'](_0xe1edc6),_0x4c8868[_0x4a471a(0xef)]();});});});}[a276_0x232bb5(0xf0)](_0x3b6300,_0x1152e6,_0x94b359){const _0xd78d03=a276_0x232bb5;return tslib_1[_0xd78d03(0x13e)](this,void 0x0,void 0x0,function*(){const _0x4a4d74=_0xd78d03,_0xf85e54=require(_0x4a4d74(0x12e)),_0x447c49=new _0xf85e54[(_0x4a4d74(0x12d))](),_0x2fc2e7=_0x447c49[_0x4a4d74(0x147)](_0x4a4d74(0x141)),_0x445065=[],_0x261159=_0x3b6300['split'](',');for(const _0x3dad56 of _0x261159){const _0x43750d=yield this[_0x4a4d74(0xf5)][_0x4a4d74(0x121)](_0x3dad56);if(_0x43750d===undefined){const _0x4e1994={'status':0x0,'message':_0x4a4d74(0xe3)};return _0x94b359[_0x4a4d74(0x123)](0x190)[_0x4a4d74(0xf4)](_0x4e1994);}}_0x2fc2e7[_0x4a4d74(0x12a)]=[{'header':'Leads\x20Id','key':_0x4a4d74(0xd0),'size':0x10,'width':0xf},{'header':_0x4a4d74(0x136),'key':_0x4a4d74(0x133),'size':0x10,'width':0xf},{'header':_0x4a4d74(0x10e),'key':_0x4a4d74(0xe9),'size':0x10,'width':0x14},{'header':'Mobile\x20Number','key':_0x4a4d74(0x140),'size':0x10,'width':0xf}],_0x2fc2e7[_0x4a4d74(0xe1)]('A1')['border']={'top':{'style':_0x4a4d74(0x157)},'left':{'style':_0x4a4d74(0x157)},'bottom':{'style':_0x4a4d74(0x157)},'right':{'style':_0x4a4d74(0x157)}},_0x2fc2e7[_0x4a4d74(0xe1)]('B1')[_0x4a4d74(0x169)]={'top':{'style':_0x4a4d74(0x157)},'left':{'style':_0x4a4d74(0x157)},'bottom':{'style':_0x4a4d74(0x157)},'right':{'style':_0x4a4d74(0x157)}},_0x2fc2e7['getCell']('C1')['border']={'top':{'style':'thin'},'left':{'style':'thin'},'bottom':{'style':_0x4a4d74(0x157)},'right':{'style':'thin'}},_0x2fc2e7['getCell']('D1')['border']={'top':{'style':_0x4a4d74(0x157)},'left':{'style':_0x4a4d74(0x157)},'bottom':{'style':_0x4a4d74(0x157)},'right':{'style':_0x4a4d74(0x157)}};for(const _0x49d0b9 of _0x261159){const _0x50af0e=yield this[_0x4a4d74(0xf5)]['findOne'](_0x49d0b9);_0x445065[_0x4a4d74(0x108)]([_0x50af0e['enquiryId'],_0x50af0e[_0x4a4d74(0x133)],_0x50af0e[_0x4a4d74(0xe9)],_0x50af0e[_0x4a4d74(0x140)]]);}_0x2fc2e7[_0x4a4d74(0xea)](_0x445065);const _0x5a171c=_0x4a4d74(0x100)+Date[_0x4a4d74(0x153)]()+_0x4a4d74(0x11b);return yield _0x447c49[_0x4a4d74(0xdb)]['writeFile'](_0x5a171c),new Promise((_0xa66a86,_0x2bc5e7)=>{_0x94b359['download'](_0x5a171c,(_0x40c8d5,_0x5f094a)=>{const _0x1d4ef5=a276_0x3421;if(_0x40c8d5)_0x2bc5e7(_0x40c8d5);else return fs[_0x1d4ef5(0x12c)](_0x5a171c),_0x94b359[_0x1d4ef5(0xef)]();});});});}[a276_0x232bb5(0x16d)](_0x26b9c4,_0x340f74){const _0x4215d6=a276_0x232bb5;return tslib_1[_0x4215d6(0x13e)](this,void 0x0,void 0x0,function*(){const _0x4d6fa5=_0x4215d6,_0x1e9eff={},_0x32e44e=yield this[_0x4d6fa5(0xdf)][_0x4d6fa5(0x121)]({'select':['serviceId',_0x4d6fa5(0x10c),_0x4d6fa5(0xeb),_0x4d6fa5(0x140),_0x4d6fa5(0x162),_0x4d6fa5(0x119),_0x4d6fa5(0x125),_0x4d6fa5(0x129),_0x4d6fa5(0x11c),_0x4d6fa5(0x118)],'where':{'serviceId':_0x26b9c4}});if(!_0x32e44e){const _0xd922d7={'status':0x0,'message':_0x4d6fa5(0xf1)};return _0x340f74[_0x4d6fa5(0x123)](0x190)[_0x4d6fa5(0xf4)](_0xd922d7);}_0x1e9eff['serviceId']=_0x32e44e[_0x4d6fa5(0xd3)],_0x1e9eff[_0x4d6fa5(0x10c)]=_0x32e44e[_0x4d6fa5(0x10c)],_0x1e9eff[_0x4d6fa5(0xeb)]=_0x32e44e['description'],_0x1e9eff['mobile']=_0x32e44e[_0x4d6fa5(0x140)],_0x1e9eff[_0x4d6fa5(0x162)]=_0x32e44e[_0x4d6fa5(0x162)],_0x1e9eff['metaTagTitle']=_0x32e44e[_0x4d6fa5(0x119)],_0x1e9eff[_0x4d6fa5(0x125)]=_0x32e44e[_0x4d6fa5(0x125)],_0x1e9eff[_0x4d6fa5(0x129)]=_0x32e44e['metaTagKeyword'],_0x1e9eff[_0x4d6fa5(0x11c)]=_0x32e44e[_0x4d6fa5(0x11c)],_0x1e9eff[_0x4d6fa5(0x118)]=_0x32e44e[_0x4d6fa5(0x118)];const _0x2ff8ab=yield this[_0x4d6fa5(0x130)][_0x4d6fa5(0x144)]({'select':[_0x4d6fa5(0x12b),_0x4d6fa5(0x102),_0x4d6fa5(0x15b)],'where':{'serviceId':_0x32e44e['serviceId']}});_0x1e9eff['Image']=_0x2ff8ab;const _0x29b93d=yield this['serviceToCategoryService']['find']({'select':['serviceCategoryId'],'where':{'serviceId':_0x32e44e[_0x4d6fa5(0xd3)]}}),_0x100d8a=_0x29b93d[_0x4d6fa5(0xff)](_0x2577d1=>tslib_1[_0x4d6fa5(0x13e)](this,void 0x0,void 0x0,function*(){const _0x435bef=_0x4d6fa5,_0x1bfe3e=_0x2577d1,_0x286315=yield this[_0x435bef(0x124)][_0x435bef(0x121)]({'where':{'serviceCategoryId':_0x2577d1[_0x435bef(0x16f)]}});return _0x1bfe3e[_0x435bef(0x133)]=_0x286315[_0x435bef(0x133)],_0x1bfe3e;})),_0x4e632e=yield Promise[_0x4d6fa5(0x132)](_0x100d8a);_0x1e9eff[_0x4d6fa5(0x166)]=_0x4e632e;const _0x404976={'status':0x1,'message':_0x4d6fa5(0xd1),'data':_0x1e9eff};return _0x340f74[_0x4d6fa5(0x123)](0xc8)[_0x4d6fa5(0xf4)](_0x404976);});}['serviceCount'](_0x29e24a){const _0x56cf01=a276_0x232bb5;return tslib_1[_0x56cf01(0x13e)](this,void 0x0,void 0x0,function*(){const _0x33484d=_0x56cf01,_0x5deecd={},_0xc24a28=[],_0x3cf03d=[],_0x3fe076=[],_0xcb8d1c=yield this['serviceService'][_0x33484d(0x131)](0x0,0x0,_0xc24a28,_0x3cf03d,_0x3fe076,0x0,0x1),_0x4949af=yield this['serviceCategoryService'][_0x33484d(0x131)](0x0,0x0,_0xc24a28,_0x3cf03d,_0x3fe076,0x0,0x1),_0x137e62=yield this[_0x33484d(0xf5)][_0x33484d(0x131)](0x0,0x0,_0xc24a28,_0x3cf03d,_0x3fe076,0x1);_0x5deecd[_0x33484d(0x15c)]=_0xcb8d1c,_0x5deecd['totalCategories']=_0x4949af,_0x5deecd[_0x33484d(0x112)]=_0x137e62;const _0x2469a4={'status':0x1,'message':_0x33484d(0xe5),'data':_0x5deecd};return _0x29e24a['status'](0xc8)['send'](_0x2469a4);});}};tslib_1['__decorate']([(0x0,routing_controllers_1[a276_0x232bb5(0x128)])('/add-service'),(0x0,routing_controllers_1[a276_0x232bb5(0x164)])([a276_0x232bb5(0xd9),a276_0x232bb5(0xfe)]),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a276_0x232bb5(0x14a)](0x1,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x150),Function),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x172),[CreateServiceRequest_1['CreateService'],Object]),tslib_1['__metadata'](a276_0x232bb5(0x159),Promise)],ServiceController[a276_0x232bb5(0x11a)],a276_0x232bb5(0x138),null),tslib_1[a276_0x232bb5(0x156)]([(0x0,routing_controllers_1['Get'])(a276_0x232bb5(0xe4)),(0x0,routing_controllers_1['Authorized'])(['admin',a276_0x232bb5(0x167)]),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1['QueryParam'])('limit')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a276_0x232bb5(0xdd)])('offset')),tslib_1[a276_0x232bb5(0x14a)](0x2,(0x0,routing_controllers_1['QueryParam'])(a276_0x232bb5(0xcf))),tslib_1[a276_0x232bb5(0x14a)](0x3,(0x0,routing_controllers_1['QueryParam'])(a276_0x232bb5(0x162))),tslib_1[a276_0x232bb5(0x14a)](0x4,(0x0,routing_controllers_1[a276_0x232bb5(0xdd)])(a276_0x232bb5(0x123))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a276_0x232bb5(0xdd)])(a276_0x232bb5(0x117))),tslib_1[a276_0x232bb5(0x14a)](0x6,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1['__metadata'](a276_0x232bb5(0x150),Function),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x172),[Number,Number,String,Number,String,Object,Object]),tslib_1[a276_0x232bb5(0xe8)]('design:returntype',Promise)],ServiceController[a276_0x232bb5(0x11a)],a276_0x232bb5(0xf8),null),tslib_1[a276_0x232bb5(0x156)]([(0x0,routing_controllers_1[a276_0x232bb5(0x158)])(a276_0x232bb5(0x101)),(0x0,routing_controllers_1[a276_0x232bb5(0x164)])([a276_0x232bb5(0xd9),a276_0x232bb5(0x160)]),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1[a276_0x232bb5(0x14a)](0x1,(0x0,routing_controllers_1[a276_0x232bb5(0x143)])({'validate':!![]})),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1[a276_0x232bb5(0xe8)]('design:type',Function),tslib_1[a276_0x232bb5(0xe8)]('design:paramtypes',[Number,CreateServiceRequest_1[a276_0x232bb5(0x11f)],Object]),tslib_1['__metadata'](a276_0x232bb5(0x159),Promise)],ServiceController[a276_0x232bb5(0x11a)],a276_0x232bb5(0xd5),null),tslib_1[a276_0x232bb5(0x156)]([(0x0,routing_controllers_1[a276_0x232bb5(0x10b)])('/delete-service/:id'),(0x0,routing_controllers_1[a276_0x232bb5(0x164)])([a276_0x232bb5(0xd9),a276_0x232bb5(0xed)]),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1[a276_0x232bb5(0x16a)])('id')),tslib_1[a276_0x232bb5(0x14a)](0x1,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1[a276_0x232bb5(0x14a)](0x2,(0x0,routing_controllers_1[a276_0x232bb5(0xe0)])()),tslib_1['__metadata'](a276_0x232bb5(0x150),Function),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x172),[Number,Object,Object]),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x159),Promise)],ServiceController['prototype'],a276_0x232bb5(0xf2),null),tslib_1[a276_0x232bb5(0x156)]([(0x0,routing_controllers_1[a276_0x232bb5(0x128)])(a276_0x232bb5(0x120)),(0x0,routing_controllers_1[a276_0x232bb5(0x164)])(),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a276_0x232bb5(0x14a)](0x1,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1[a276_0x232bb5(0x14a)](0x2,(0x0,routing_controllers_1[a276_0x232bb5(0xe0)])()),tslib_1['__metadata']('design:type',Function),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x172),[DeleteServiceRequest_1[a276_0x232bb5(0xd7)],Object,Object]),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x159),Promise)],ServiceController[a276_0x232bb5(0x11a)],'deleteMultipleService',null),tslib_1[a276_0x232bb5(0x156)]([(0x0,routing_controllers_1[a276_0x232bb5(0x110)])(a276_0x232bb5(0x14b)),(0x0,routing_controllers_1[a276_0x232bb5(0x164)])(['admin',a276_0x232bb5(0xd2)]),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1[a276_0x232bb5(0xdd)])('limit')),tslib_1[a276_0x232bb5(0x14a)](0x1,(0x0,routing_controllers_1[a276_0x232bb5(0xdd)])(a276_0x232bb5(0xfa))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a276_0x232bb5(0xdd)])('keyword')),tslib_1['__param'](0x3,(0x0,routing_controllers_1['QueryParam'])(a276_0x232bb5(0x117))),tslib_1[a276_0x232bb5(0x14a)](0x4,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x150),Function),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x172),[Number,Number,String,Object,Object]),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x159),Promise)],ServiceController[a276_0x232bb5(0x11a)],'serviceEnquiryList',null),tslib_1['__decorate']([(0x0,routing_controllers_1['Delete'])(a276_0x232bb5(0x107)),(0x0,routing_controllers_1['Authorized'])(['admin',a276_0x232bb5(0xe2)]),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1[a276_0x232bb5(0x16a)])('id')),tslib_1[a276_0x232bb5(0x14a)](0x1,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1[a276_0x232bb5(0x14a)](0x2,(0x0,routing_controllers_1[a276_0x232bb5(0xe0)])()),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x150),Function),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x172),[Number,Object,Object]),tslib_1[a276_0x232bb5(0xe8)]('design:returntype',Promise)],ServiceController['prototype'],a276_0x232bb5(0x106),null),tslib_1[a276_0x232bb5(0x156)]([(0x0,routing_controllers_1[a276_0x232bb5(0x128)])(a276_0x232bb5(0xf9)),(0x0,routing_controllers_1[a276_0x232bb5(0x164)])(),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1[a276_0x232bb5(0x143)])({'validate':!![]})),tslib_1[a276_0x232bb5(0x14a)](0x1,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1[a276_0x232bb5(0x14a)](0x2,(0x0,routing_controllers_1[a276_0x232bb5(0xe0)])()),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x150),Function),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x172),[DeleteEnquiryRequest_1['DeleteEnquiry'],Object,Object]),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x159),Promise)],ServiceController[a276_0x232bb5(0x11a)],a276_0x232bb5(0x14f),null),tslib_1[a276_0x232bb5(0x156)]([(0x0,routing_controllers_1[a276_0x232bb5(0x110)])(a276_0x232bb5(0xec)),(0x0,routing_controllers_1[a276_0x232bb5(0x164)])([a276_0x232bb5(0xd9),a276_0x232bb5(0x12f)]),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1[a276_0x232bb5(0xdd)])(a276_0x232bb5(0xd3))),tslib_1[a276_0x232bb5(0x14a)](0x1,(0x0,routing_controllers_1[a276_0x232bb5(0xe0)])()),tslib_1[a276_0x232bb5(0x14a)](0x2,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x150),Function),tslib_1['__metadata'](a276_0x232bb5(0x172),[String,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],ServiceController[a276_0x232bb5(0x11a)],a276_0x232bb5(0x11e),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(a276_0x232bb5(0x114)),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1[a276_0x232bb5(0xdd)])(a276_0x232bb5(0x137))),tslib_1[a276_0x232bb5(0x14a)](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1[a276_0x232bb5(0x14a)](0x2,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x150),Function),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x172),[String,Object,Object]),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x159),Promise)],ServiceController[a276_0x232bb5(0x11a)],a276_0x232bb5(0xf0),null),tslib_1[a276_0x232bb5(0x156)]([(0x0,routing_controllers_1[a276_0x232bb5(0x110)])(a276_0x232bb5(0x13a)),(0x0,routing_controllers_1[a276_0x232bb5(0x164)])(),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1[a276_0x232bb5(0xdd)])('serviceId')),tslib_1[a276_0x232bb5(0x14a)](0x1,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x150),Function),tslib_1['__metadata'](a276_0x232bb5(0x172),[Number,Object]),tslib_1[a276_0x232bb5(0xe8)]('design:returntype',Promise)],ServiceController[a276_0x232bb5(0x11a)],a276_0x232bb5(0x16d),null),tslib_1[a276_0x232bb5(0x156)]([(0x0,routing_controllers_1[a276_0x232bb5(0x110)])('/service-count'),(0x0,routing_controllers_1[a276_0x232bb5(0x164)])(),tslib_1[a276_0x232bb5(0x14a)](0x0,(0x0,routing_controllers_1[a276_0x232bb5(0x171)])()),tslib_1['__metadata']('design:type',Function),tslib_1['__metadata']('design:paramtypes',[Object]),tslib_1['__metadata'](a276_0x232bb5(0x159),Promise)],ServiceController[a276_0x232bb5(0x11a)],'serviceCount',null),ServiceController=tslib_1[a276_0x232bb5(0x156)]([(0x0,routing_controllers_1['JsonController'])(a276_0x232bb5(0x16b)),tslib_1[a276_0x232bb5(0xe8)](a276_0x232bb5(0x172),[ServiceService_1[a276_0x232bb5(0x139)],ServiceToCategoryService_1['ServiceToCategoryService'],ServiceEnquiryService_1[a276_0x232bb5(0x152)],ServiceImageService_1[a276_0x232bb5(0x135)],ServiceCategoryService_1[a276_0x232bb5(0x111)]])],ServiceController),exports['ServiceController']=ServiceController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ServiceController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const Service_1 = require("../../core/models/Service");
+const ServiceToCategory_1 = require("../../core/models/ServiceToCategory");
+const ServiceImage_1 = require("../../core/models/ServiceImage");
+const ServiceService_1 = require("../../core/services/ServiceService");
+const ServiceToCategoryService_1 = require("../../core/services/ServiceToCategoryService");
+const ServiceEnquiryService_1 = require("../../core/services/ServiceEnquiryService");
+const ServiceCategoryService_1 = require("../../core/services/ServiceCategoryService");
+const CreateServiceRequest_1 = require("./requests/CreateServiceRequest");
+const DeleteEnquiryRequest_1 = require("./requests/DeleteEnquiryRequest");
+const DeleteServiceRequest_1 = require("./requests/DeleteServiceRequest");
+const ServiceImageService_1 = require("../../core/services/ServiceImageService");
+const fs = tslib_1.__importStar(require("fs"));
+let ServiceController = class ServiceController {
+    constructor(serviceService, serviceToCategoryService, serviceEnquiryService, serviceImageService, serviceCategoryService) {
+        this.serviceService = serviceService;
+        this.serviceToCategoryService = serviceToCategoryService;
+        this.serviceEnquiryService = serviceEnquiryService;
+        this.serviceImageService = serviceImageService;
+        this.serviceCategoryService = serviceCategoryService;
+    }
+    // Create Service API
+    /**
+     * @api {post} /api/service/add-service Add Service API
+     * @apiGroup Service
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {string} categoryId CategoryId(required)
+     * @apiParam (Request body) {String{..255}} title Service title(required)
+     * @apiParam (Request body) {String} [description] Service description
+     * @apiParam (Request body) {Number{..15}} mobile Service mobile(required)
+     * @apiParam (Request body) {Number} [price] Service price
+     * @apiParam (Request body) {String} [image] Service image
+     * @apiParam (Request body) {String{..70}} [metaTagTitle] Service metaTagTitle(required)
+     * @apiParam (Request body) {String{..160}} [metaTagDescription] Service metaTagDescription
+     * @apiParam (Request body) {String{..255}} [metaTagKeyword] Service metaTagKeyword
+     * @apiParam (Request body) {Number} status inactive-> 0, active-> 1 (required)
+     * @apiParam (Request body) {Number} [defaultImage]
+     * @apiParamExample {json} Input
+     * {
+     *      "categoryId" : [],
+     *      "title" : "",
+     *      "description" : "",
+     *      "mobile" : "",
+     *      "price" : "",
+     *      "image" : "",
+     *      "metaTagTitle" : "",
+     *      "metaTagdescription" : "",
+     *      "metaTagKeyword" : "",
+     *      "status" : "",
+     *      "image":[{
+     *      "image":""
+     *      "containerName":""
+     *      "defaultImage":""
+     *      }]
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully created new Service.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service/add-service
+     * @apiErrorExample {json} Service error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addService(serviceParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newService = new Service_1.Services();
+            newService.title = serviceParam.title;
+            newService.description = serviceParam.description;
+            newService.mobile = serviceParam.mobile;
+            newService.price = serviceParam.price;
+            newService.metaTagTitle = serviceParam.metaTagTitle;
+            newService.metaTagDescription = serviceParam.metaTagDescription;
+            newService.metaTagKeyword = serviceParam.metaTagKeyword;
+            newService.isActive = serviceParam.status;
+            const serviceSave = yield this.serviceService.create(newService);
+            // save service category
+            if (serviceParam.serviceCategoryId) {
+                const category = serviceParam.serviceCategoryId;
+                for (const categoryId of category) {
+                    const newServiceToCategory = new ServiceToCategory_1.ServiceToCategory();
+                    newServiceToCategory.serviceId = serviceSave.serviceId;
+                    newServiceToCategory.serviceCategoryId = categoryId;
+                    newServiceToCategory.isActive = 1;
+                    yield this.serviceToCategoryService.create(newServiceToCategory);
+                }
+            }
+            // Save Service Image
+            const serviceImage = serviceParam.image;
+            for (const imageRow of serviceImage) {
+                const imageData = JSON.stringify(imageRow);
+                const imageResult = JSON.parse(imageData);
+                const newServiceImage = new ServiceImage_1.ServiceImage();
+                newServiceImage.serviceId = serviceSave.serviceId;
+                newServiceImage.image = imageResult.image;
+                newServiceImage.containerName = imageResult.containerName;
+                newServiceImage.defaultImage = imageResult.defaultImage;
+                yield this.serviceImageService.create(newServiceImage);
+            }
+            if (serviceSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully added a new service.',
+                    data: serviceSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to create service',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Service List API
+    /**
+     * @api {get} /api/service/service-list Service List API
+     * @apiGroup Service
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status Status
+     * @apiParam (Request body) {Number} price=1/2 if 1->asc 2->desc
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get service list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service/service-list
+     * @apiErrorExample {json} Service error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    serviceList(limit, offset, keyword, price, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['serviceId', 'title', 'description', 'mobile', 'price', 'metaTagTitle', 'metaTagDescription', 'metaTagKeyword', 'isActive', 'createdDate'];
+            const search = [
+                {
+                    name: 'title',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                }
+            ];
+            const WhereConditions = [];
+            const serviceList = yield this.serviceService.list(limit, offset, select, search, WhereConditions, price, count);
+            if (count) {
+                const successRes = {
+                    status: 1,
+                    message: 'Successfully got count',
+                    data: serviceList,
+                };
+                return response.status(200).send(successRes);
+            }
+            const services = serviceList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const defaultValue = yield this.serviceImageService.findAll({
+                    select: ['image', 'containerName', 'defaultImage'],
+                    where: { serviceId: value.serviceId },
+                });
+                const categoryValue = yield this.serviceToCategoryService.find({
+                    select: ['serviceId', 'serviceCategoryId'],
+                    where: { serviceId: value.serviceId },
+                }).then((val) => {
+                    const category = val.map((values) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                        const categoryNames = yield this.serviceCategoryService.findOne({ serviceCategoryId: values.serviceCategoryId });
+                        const tempVAL = values;
+                        if (categoryNames !== undefined) {
+                            tempVAL.categoryName = categoryNames.name;
+                        }
+                        else {
+                            tempVAL.categoryName = '';
+                        }
+                        return tempVAL;
+                    }));
+                    const categoryFinalData = Promise.all(category);
+                    return categoryFinalData;
+                });
+                const temp = value;
+                temp.serviceImage = defaultValue;
+                temp.category = categoryValue;
+                return temp;
+            }));
+            const results = yield Promise.all(services);
+            const successResponse = {
+                status: 1,
+                message: 'successfully got the complete service list.',
+                data: results,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Update Service API
+    /**
+     * @api {put} /api/service/update-service/:id Update Service API
+     * @apiGroup Service
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} categoryId CategoryId(required)
+     * @apiParam (Request body) {String{..255}} title Service title(required)
+     * @apiParam (Request body) {String} [description] Service description
+     * @apiParam (Request body) {Number{..15}} mobile Service mobile(required)
+     * @apiParam (Request body) {Number} [price] Service price
+     * @apiParam (Request body) {String} [image] Service image
+     * @apiParam (Request body) {String{..70}} [metaTagTitle] Service metaTagTitle(required)
+     * @apiParam (Request body) {String{..160}} [metaTagDescription] Service metaTagDescription
+     * @apiParam (Request body) {String{..255}} [metaTagKeyword] Service metaTagKeyword
+     * @apiParam (Request body) {Number} status inactive-> 0, active-> 1 (required)
+     * @apiParam (Request body) {Number} [defaultImage]
+     * @apiParamExample {json} Input
+     * {
+     *      "categoryId" : "",
+     *      "title" : "",
+     *      "description" : "",
+     *      "mobile" : "",
+     *      "price" : "",
+     *      "image" : "",
+     *      "metaTagTitle" : "",
+     *      "metaTagdescription" : "",
+     *      "metaTagKeyword" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated service.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service/update-service/:id
+     * @apiErrorExample {json} Service error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateService(id, serviceParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const service = yield this.serviceService.findOne({ where: { serviceId: id } });
+            if (!service) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid service Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            service.title = serviceParam.title;
+            service.description = serviceParam.description;
+            service.mobile = serviceParam.mobile;
+            service.price = serviceParam.price;
+            service.metaTagTitle = serviceParam.metaTagTitle;
+            service.metaTagDescription = serviceParam.metaTagDescription;
+            service.metaTagKeyword = serviceParam.metaTagKeyword;
+            service.isActive = serviceParam.status;
+            const serviceSave = yield this.serviceService.create(service);
+            const findCategory = yield this.serviceToCategoryService.find({
+                where: {
+                    serviceId: serviceSave.serviceId,
+                },
+            });
+            if (findCategory) {
+                // delete category id mapped with service
+                this.serviceToCategoryService.delete({ serviceId: serviceSave.serviceId });
+            }
+            // save service category
+            if (serviceParam.serviceCategoryId) {
+                const category = serviceParam.serviceCategoryId;
+                for (const categoryId of category) {
+                    const newServiceToCategory = new ServiceToCategory_1.ServiceToCategory();
+                    newServiceToCategory.serviceId = serviceSave.serviceId;
+                    newServiceToCategory.serviceCategoryId = categoryId;
+                    newServiceToCategory.isActive = 1;
+                    yield this.serviceToCategoryService.create(newServiceToCategory);
+                }
+            }
+            // Delete previous images
+            this.serviceImageService.delete({ serviceId: serviceSave.serviceId });
+            // Save Service Image
+            const serviceImage = serviceParam.image;
+            for (const imageRow of serviceImage) {
+                const imageData = JSON.stringify(imageRow);
+                const imageResult = JSON.parse(imageData);
+                const newServiceImage = new ServiceImage_1.ServiceImage();
+                newServiceImage.serviceId = serviceSave.serviceId;
+                newServiceImage.image = imageResult.image;
+                newServiceImage.containerName = imageResult.containerName;
+                newServiceImage.defaultImage = imageResult.defaultImage;
+                this.serviceImageService.create(newServiceImage);
+            }
+            if (serviceSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Sucessfully updated the service.',
+                    data: serviceSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the service.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete Service API
+    /**
+     * @api {delete} /api/service/delete-service/:id Delete Service API
+     * @apiGroup Service
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "serviceId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted service.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service/delete-service/:id
+     * @apiErrorExample {json} Service error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteservice(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const service = yield this.serviceService.findOne({ where: { serviceId: id } });
+            if (!service) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid service Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteService = yield this.serviceService.delete(service);
+            // delete service category
+            yield this.serviceToCategoryService.delete(service.serviceId);
+            // Delete service images
+            this.serviceImageService.delete({ serviceId: service.serviceId });
+            if (!deleteService) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the service. ',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the service.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete Multiple Service API
+    /**
+     * @api {post} /api/service/delete-multiple-service Delete Multiple Service API
+     * @apiGroup Service
+     * @apiHeader {String} Authorization
+     * @apiParam {Number} serviceId ServiceId
+     * @apiParamExample {json} Input
+     * {
+     *   "ServiceId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully deleted Service.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/service/delete-multiple-service
+     * @apiErrorExample {json} Service error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteMultipleService(deleteService, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const serviceData = deleteService.serviceId.toString();
+            const service = serviceData.split(',');
+            const data = service.map((id) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const dataId = yield this.serviceService.findOne(id);
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid Service Id.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                else {
+                    yield this.serviceService.delete(dataId);
+                    // delete service category
+                    yield this.serviceToCategoryService.delete(dataId.serviceId);
+                    // Delete service images
+                    yield this.serviceImageService.delete({ serviceId: dataId.serviceId });
+                }
+            }));
+            const deleteServices = yield Promise.all(data);
+            if (deleteServices) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the Service.',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Service Enquiry List API
+    /**
+     * @api {get} /api/service/service-enquiry-list Service Enquiry List API
+     * @apiGroup Service
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get service enquiry list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service/service-enquiry-list
+     * @apiErrorExample {json} Enquiry error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    serviceEnquiryList(limit, offset, keyword, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['enquiryId', 'name', 'email', 'mobile', 'comments', 'isActive', 'createdDate'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                },
+                {
+                    name: 'email',
+                    op: 'like',
+                    value: keyword,
+                },
+            ];
+            const WhereConditions = [];
+            const serviceEnquiryList = yield this.serviceEnquiryService.list(limit, offset, select, search, WhereConditions, count);
+            if (count) {
+                const successResponse = {
+                    status: 1,
+                    message: 'successfully got the count.',
+                    data: serviceEnquiryList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            if (serviceEnquiryList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'successfully got the enquiry list.',
+                    data: serviceEnquiryList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to list enquiry',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete Service Enquiry API
+    /**
+     * @api {delete} /api/service/delete-service-enquiry/:id Delete Enquiry API
+     * @apiGroup Service
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "enquiryId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted service Enquiry.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service/delete-service-enquiry/:id
+     * @apiErrorExample {json} Enquiry error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteEnquiry(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const enquiry = yield this.serviceEnquiryService.findOne({ where: { enquiryId: id } });
+            if (!enquiry) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Enquiry Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteEnquiry = yield this.serviceEnquiryService.delete(enquiry);
+            if (!deleteEnquiry) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the enquiry. ',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the enquiry.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete Multiple Enquiry API
+    /**
+     * @api {post} /api/service/delete-multiple-enquiry Delete Multiple Enquiry API
+     * @apiGroup Service
+     * @apiHeader {String} Authorization
+     * @apiParam {number} enquiryId EnquiryId
+     * @apiParamExample {json} Input
+     * {
+     *   "EnquiryId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully deleted Enquiry.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/service/delete-multiple-enquiry
+     * @apiErrorExample {json} Enquiry error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteMultipleEnquiry(deleteEnquires, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const enquiryData = deleteEnquires.enquiryId.toString();
+            const enquiry = enquiryData.split(',');
+            const data = enquiry.map((id) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const dataId = yield this.serviceEnquiryService.findOne(id);
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid Enquiry Id.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                else {
+                    return yield this.serviceEnquiryService.delete(dataId);
+                }
+            }));
+            const deleteEnquiry = yield Promise.all(data);
+            if (deleteEnquiry) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the Enquiry.',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    //  Service Export Excel Document Download
+    /**
+     * @api {get} /api/service/service-excel-list service Excel download
+     * @apiGroup Service
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {string} serviceId service Id
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the service excel list..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/service/service-excel-list
+     * @apiErrorExample {json} Service Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    excelServiceView(serviceId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('service Detail Sheet');
+            const rows = [];
+            const services = serviceId.split(',');
+            for (const id of services) {
+                const dataId = yield this.serviceService.findOne(id);
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid service Id',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'Title', key: 'title', size: 16, width: 15 },
+                { header: 'Description', key: 'desciption', size: 16, width: 25 },
+                { header: 'Mobile Number', key: 'mobile', size: 16, width: 15 },
+                { header: 'Price', key: 'price', size: 16, width: 15 },
+                { header: 'Status', key: 'isActive', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const id of services) {
+                const dataId = yield this.serviceService.findOne(id);
+                rows.push([dataId.title, dataId.description, dataId.mobile, dataId.price, dataId.isActive]);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './ServiceExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // leads Details Excel Document Download
+    /**
+     * @api {get} /api/service/leads-excel-list leads Excel download
+     * @apiGroup Service
+     * @apiParam (Request body) {string} leadsId leadsId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the leads excel list..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/service/leads-excel-list
+     * @apiErrorExample {json} Service Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    excelLeadsView(leadsId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('leads Detail Sheet');
+            const rows = [];
+            const leads = leadsId.split(',');
+            for (const id of leads) {
+                const dataId = yield this.serviceEnquiryService.findOne(id);
+                if (dataId === undefined) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid leads Id',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'Leads Id', key: 'enquiryId', size: 16, width: 15 },
+                { header: 'Name', key: 'name', size: 16, width: 15 },
+                { header: 'Email Id', key: 'email', size: 16, width: 20 },
+                { header: 'Mobile Number', key: 'mobile', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            for (const id of leads) {
+                const dataId = yield this.serviceEnquiryService.findOne(id);
+                rows.push([dataId.enquiryId, dataId.name, dataId.email, dataId.mobile]);
+            }
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './LeadsExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Service Detail API
+    /**
+     * @api {get} /api/service/service-detail Service Detail API
+     * @apiGroup Service
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} serviceId serviceId
+     * @apiParamExample {json} Input
+     * {
+     *      "serviceId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the service detail.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service/service-detail
+     * @apiErrorExample {json} Service error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    serviceDetail(serviceId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const serviceData = {};
+            const service = yield this.serviceService.findOne({
+                select: ['serviceId', 'title', 'description', 'mobile', 'price', 'metaTagTitle', 'metaTagDescription', 'metaTagKeyword', 'isActive', 'createdDate'],
+                where: {
+                    serviceId,
+                },
+            });
+            if (!service) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid serviceId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            serviceData.serviceId = service.serviceId;
+            serviceData.title = service.title;
+            serviceData.description = service.description;
+            serviceData.mobile = service.mobile;
+            serviceData.price = service.price;
+            serviceData.metaTagTitle = service.metaTagTitle;
+            serviceData.metaTagDescription = service.metaTagDescription;
+            serviceData.metaTagKeyword = service.metaTagKeyword;
+            serviceData.isActive = service.isActive;
+            serviceData.createdDate = service.createdDate;
+            const defaultValue = yield this.serviceImageService.findAll({
+                select: ['image', 'containerName', 'defaultImage'],
+                where: { serviceId: service.serviceId },
+            });
+            serviceData.Image = defaultValue;
+            const categoryValue = yield this.serviceToCategoryService.find({
+                select: ['serviceCategoryId'],
+                where: { serviceId: service.serviceId },
+            });
+            const serviceCategory = categoryValue.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const categoryNames = yield this.serviceCategoryService.findOne({
+                    where: { serviceCategoryId: value.serviceCategoryId },
+                });
+                temp.name = categoryNames.name;
+                return temp;
+            }));
+            const results = yield Promise.all(serviceCategory);
+            serviceData.category = results;
+            const successResponse = {
+                status: 1,
+                message: 'successfully got the service detail.',
+                data: serviceData,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Service Count API
+    /**
+     * @api {get} /api/service/service-count Service Count API
+     * @apiGroup Service
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the service count.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service/service-count
+     * @apiErrorExample {json} Service error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    serviceCount(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const service = {};
+            const select = [];
+            const search = [];
+            const WhereConditions = [];
+            const servicesCount = yield this.serviceService.list(0, 0, select, search, WhereConditions, 0, 1);
+            const serviceCategoryCount = yield this.serviceCategoryService.list(0, 0, select, search, WhereConditions, 0, 1);
+            const serviceEnquiryCount = yield this.serviceEnquiryService.list(0, 0, select, search, WhereConditions, 1);
+            service.totalServices = servicesCount;
+            service.totalCategories = serviceCategoryCount;
+            service.totalEnquires = serviceEnquiryCount;
+            const successResponse = {
+                status: 1,
+                message: 'successfully got the dashboard count.',
+                data: service,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/add-service'),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-services']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateServiceRequest_1.CreateService, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "addService", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/service-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-services']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('price')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "serviceList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-service/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-services']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateServiceRequest_1.CreateService, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "updateService", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-service/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-services']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "deleteservice", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/delete-multiple-service'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [DeleteServiceRequest_1.DeleteService, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "deleteMultipleService", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/service-enquiry-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-enquiry']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "serviceEnquiryList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-service-enquiry/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-enquiry']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "deleteEnquiry", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/delete-multiple-enquiry'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [DeleteEnquiryRequest_1.DeleteEnquiry, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "deleteMultipleEnquiry", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/service-excel-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'export-services']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('serviceId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "excelServiceView", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/leads-excel-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('leadsId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "excelLeadsView", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/service-detail'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('serviceId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "serviceDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/service-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceController.prototype, "serviceCount", null);
+ServiceController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/service'),
+    tslib_1.__metadata("design:paramtypes", [ServiceService_1.ServiceService,
+        ServiceToCategoryService_1.ServiceToCategoryService,
+        ServiceEnquiryService_1.ServiceEnquiryService,
+        ServiceImageService_1.ServiceImageService,
+        ServiceCategoryService_1.ServiceCategoryService])
+], ServiceController);
+exports.ServiceController = ServiceController;
+//# sourceMappingURL=ServiceController.js.map

@@ -1,1 +1,64 @@
-'use strict';function a431_0x5342(_0xbc1fb8,_0x6cce9a){const _0x300cfb=a431_0x300c();return a431_0x5342=function(_0x5342a8,_0x30663b){_0x5342a8=_0x5342a8-0xd2;let _0xde6e11=_0x300cfb[_0x5342a8];return _0xde6e11;},a431_0x5342(_0xbc1fb8,_0x6cce9a);}const a431_0x3958f1=a431_0x5342;(function(_0x4bc62d,_0x34dde7){const _0x2f5a53=a431_0x5342,_0x4d1675=_0x4bc62d();while(!![]){try{const _0x530e72=parseInt(_0x2f5a53(0xf8))/0x1*(-parseInt(_0x2f5a53(0xec))/0x2)+-parseInt(_0x2f5a53(0xe2))/0x3*(parseInt(_0x2f5a53(0xd7))/0x4)+-parseInt(_0x2f5a53(0xfd))/0x5*(-parseInt(_0x2f5a53(0xdb))/0x6)+-parseInt(_0x2f5a53(0xe7))/0x7*(parseInt(_0x2f5a53(0xee))/0x8)+-parseInt(_0x2f5a53(0xf6))/0x9+-parseInt(_0x2f5a53(0xe1))/0xa*(parseInt(_0x2f5a53(0xf7))/0xb)+parseInt(_0x2f5a53(0xe4))/0xc;if(_0x530e72===_0x34dde7)break;else _0x4d1675['push'](_0x4d1675['shift']());}catch(_0x41750b){_0x4d1675['push'](_0x4d1675['shift']());}}}(a431_0x300c,0x7b05e));Object['defineProperty'](exports,a431_0x3958f1(0xd3),{'value':!![]}),exports[a431_0x3958f1(0xf4)]=void 0x0;const tslib_1=require(a431_0x3958f1(0xf9)),typeorm_1=require(a431_0x3958f1(0xd9)),BaseModel_1=require(a431_0x3958f1(0xd5)),SizeChartTemplateHeader_1=require(a431_0x3958f1(0xf5)),moment=require(a431_0x3958f1(0xff)),SizeChart_1=require(a431_0x3958f1(0xeb)),class_validator_1=require('class-validator');let SizeChartTemplate=class SizeChartTemplate extends BaseModel_1[a431_0x3958f1(0xd2)]{[a431_0x3958f1(0xf2)](){const _0x13f4dc=a431_0x3958f1;return tslib_1[_0x13f4dc(0xe5)](this,void 0x0,void 0x0,function*(){const _0x17265e=_0x13f4dc;this[_0x17265e(0xe3)]=moment()[_0x17265e(0xfb)](_0x17265e(0xe6));});}['updateDetails'](){const _0x575fde=a431_0x3958f1;return tslib_1[_0x575fde(0xe5)](this,void 0x0,void 0x0,function*(){const _0x1ee9fd=_0x575fde;this[_0x1ee9fd(0xe8)]=moment()['format']('YYYY-MM-DD\x20HH:mm:ss');});}};tslib_1[a431_0x3958f1(0xed)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a431_0x3958f1(0xf1)])({'name':'id'}),tslib_1[a431_0x3958f1(0xd8)](a431_0x3958f1(0xfe),Number)],SizeChartTemplate[a431_0x3958f1(0xf3)],'id',void 0x0),tslib_1[a431_0x3958f1(0xed)]([(0x0,class_validator_1[a431_0x3958f1(0xea)])(),(0x0,typeorm_1[a431_0x3958f1(0xe9)])({'name':a431_0x3958f1(0xdc)}),tslib_1[a431_0x3958f1(0xd8)](a431_0x3958f1(0xfe),String)],SizeChartTemplate['prototype'],'templateName',void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a431_0x3958f1(0xde)])(_0x2d8f99=>SizeChartTemplateHeader_1[a431_0x3958f1(0xda)],_0x56a23d=>_0x56a23d[a431_0x3958f1(0xd6)]),tslib_1[a431_0x3958f1(0xd8)](a431_0x3958f1(0xfe),Array)],SizeChartTemplate[a431_0x3958f1(0xf3)],'templateHeader',void 0x0),tslib_1[a431_0x3958f1(0xed)]([(0x0,typeorm_1[a431_0x3958f1(0xde)])(_0x193624=>SizeChart_1[a431_0x3958f1(0xdd)],_0xdaf9f5=>_0xdaf9f5[a431_0x3958f1(0xd6)]),tslib_1[a431_0x3958f1(0xd8)](a431_0x3958f1(0xfe),Array)],SizeChartTemplate[a431_0x3958f1(0xf3)],a431_0x3958f1(0xef),void 0x0),tslib_1[a431_0x3958f1(0xed)]([(0x0,typeorm_1['BeforeInsert'])(),tslib_1[a431_0x3958f1(0xd8)](a431_0x3958f1(0xfe),Function),tslib_1[a431_0x3958f1(0xd8)](a431_0x3958f1(0xe0),[]),tslib_1[a431_0x3958f1(0xd8)]('design:returntype',Promise)],SizeChartTemplate[a431_0x3958f1(0xf3)],a431_0x3958f1(0xf2),null),tslib_1['__decorate']([(0x0,typeorm_1[a431_0x3958f1(0xfa)])(),tslib_1[a431_0x3958f1(0xd8)](a431_0x3958f1(0xfe),Function),tslib_1['__metadata'](a431_0x3958f1(0xe0),[]),tslib_1[a431_0x3958f1(0xd8)](a431_0x3958f1(0xd4),Promise)],SizeChartTemplate[a431_0x3958f1(0xf3)],a431_0x3958f1(0xfc),null),SizeChartTemplate=tslib_1['__decorate']([(0x0,typeorm_1[a431_0x3958f1(0xf0)])(a431_0x3958f1(0xdf))],SizeChartTemplate),exports[a431_0x3958f1(0xf4)]=SizeChartTemplate;function a431_0x300c(){const _0x2a699b=['SizeChart','OneToMany','size_chart_template','design:paramtypes','3154370MkjnMN','387957mzYQdB','createdDate','29971236vcvwLU','__awaiter','YYYY-MM-DD\x20HH:mm:ss','2495605wzsaHE','modifiedDate','Column','IsNotEmpty','./SizeChart','5086LIMkmk','__decorate','16cWmAcz','sizeChart','Entity','PrimaryGeneratedColumn','createDetails','prototype','SizeChartTemplate','./SizeChartTemplateHeader','5767749ZzJKrg','11PIuPVu','133fPCQVR','tslib','BeforeUpdate','format','updateDetails','656485rEWknQ','design:type','moment/moment','BaseModel','__esModule','design:returntype','./BaseModel','sizeChartTemplate','28xUUtOe','__metadata','typeorm','SizeChartTemplateHeader','42eZCLgk','template_name'];a431_0x300c=function(){return _0x2a699b;};return a431_0x300c();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SizeChartTemplate = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const SizeChartTemplateHeader_1 = require("./SizeChartTemplateHeader");
+const moment = require("moment/moment");
+const SizeChart_1 = require("./SizeChart");
+const class_validator_1 = require("class-validator");
+let SizeChartTemplate = class SizeChartTemplate extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'id' }),
+    tslib_1.__metadata("design:type", Number)
+], SizeChartTemplate.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'template_name' }),
+    tslib_1.__metadata("design:type", String)
+], SizeChartTemplate.prototype, "templateName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => SizeChartTemplateHeader_1.SizeChartTemplateHeader, sizeChartTemplateHeader => sizeChartTemplateHeader.sizeChartTemplate),
+    tslib_1.__metadata("design:type", Array)
+], SizeChartTemplate.prototype, "templateHeader", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => SizeChart_1.SizeChart, sizeChart => sizeChart.sizeChartTemplate),
+    tslib_1.__metadata("design:type", Array)
+], SizeChartTemplate.prototype, "sizeChart", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], SizeChartTemplate.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], SizeChartTemplate.prototype, "updateDetails", null);
+SizeChartTemplate = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('size_chart_template')
+], SizeChartTemplate);
+exports.SizeChartTemplate = SizeChartTemplate;
+//# sourceMappingURL=SizeChartTemplate.js.map

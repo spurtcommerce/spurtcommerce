@@ -1,1 +1,83 @@
-'use strict';const a741_0xefd0bd=a741_0x2ec4;(function(_0x582ff2,_0x1d2da3){const _0x3a3d1d=a741_0x2ec4,_0x3dbd1f=_0x582ff2();while(!![]){try{const _0x33f6e9=-parseInt(_0x3a3d1d(0xfc))/0x1*(-parseInt(_0x3a3d1d(0x104))/0x2)+-parseInt(_0x3a3d1d(0xf7))/0x3+parseInt(_0x3a3d1d(0xe6))/0x4+parseInt(_0x3a3d1d(0xf8))/0x5*(-parseInt(_0x3a3d1d(0x100))/0x6)+parseInt(_0x3a3d1d(0xfa))/0x7*(parseInt(_0x3a3d1d(0xee))/0x8)+parseInt(_0x3a3d1d(0xe4))/0x9*(parseInt(_0x3a3d1d(0x101))/0xa)+-parseInt(_0x3a3d1d(0xfe))/0xb*(parseInt(_0x3a3d1d(0xf2))/0xc);if(_0x33f6e9===_0x1d2da3)break;else _0x3dbd1f['push'](_0x3dbd1f['shift']());}catch(_0x18a2c0){_0x3dbd1f['push'](_0x3dbd1f['shift']());}}}(a741_0x49ec,0x29781));Object['defineProperty'](exports,a741_0xefd0bd(0x102),{'value':!![]}),exports[a741_0xefd0bd(0xf0)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a741_0xefd0bd(0xff));function a741_0x49ec(){const _0x4eafba=['is_active','Table','message','modified_date','modified_by','increment','email_template','8AJpiqt','varchar','CreateEmailTemplateTable1546579597970','int','3223704PZtTaJ','down','CURRENT_TIMESTAMP','datetime','__awaiter','359247JicYkL','7270JIVWvE','created_by','278285kvaApy','hasTable','2054vFaNZN','text','11VNrOdT','typeorm','996CozPTL','10iiKmZO','__esModule','dropTable','242YPieCn','2575134jbGhXK','255','900788GfuOlU'];a741_0x49ec=function(){return _0x4eafba;};return a741_0x49ec();}class CreateEmailTemplateTable1546579597970{['up'](_0x2e1cfe){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3f8b6d=a741_0x2ec4,_0xcdabaf=new typeorm_1[(_0x3f8b6d(0xe8))]({'name':_0x3f8b6d(0xed),'columns':[{'name':'id','type':_0x3f8b6d(0xf1),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x3f8b6d(0xec)},{'name':'shortname','type':_0x3f8b6d(0xef),'length':_0x3f8b6d(0xe5),'isPrimary':![],'isNullable':!![]},{'name':'subject','type':_0x3f8b6d(0xef),'length':_0x3f8b6d(0xe5),'isPrimary':![],'isNullable':!![]},{'name':_0x3f8b6d(0xe9),'type':_0x3f8b6d(0xfd),'isPrimary':![],'isNullable':!![]},{'name':_0x3f8b6d(0xe7),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0x3f8b6d(0xf5),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':_0x3f8b6d(0xea),'type':_0x3f8b6d(0xf5),'isPrimary':![],'isNullable':!![],'default':_0x3f8b6d(0xf4)},{'name':_0x3f8b6d(0xf9),'type':_0x3f8b6d(0xf1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3f8b6d(0xeb),'type':_0x3f8b6d(0xf1),'length':'11','isPrimary':![],'isNullable':!![]}]}),_0xbcf6=yield _0x2e1cfe[_0x3f8b6d(0xfb)](_0x3f8b6d(0xed));!_0xbcf6&&(yield _0x2e1cfe['createTable'](_0xcdabaf));});}[a741_0xefd0bd(0xf3)](_0x5ef72e){const _0x3cf190=a741_0xefd0bd;return tslib_1[_0x3cf190(0xf6)](this,void 0x0,void 0x0,function*(){const _0x4fef3b=_0x3cf190;yield _0x5ef72e[_0x4fef3b(0x103)](_0x4fef3b(0xed),!![]);});}}function a741_0x2ec4(_0x17bebf,_0x4c23d1){const _0x49ec5=a741_0x49ec();return a741_0x2ec4=function(_0x2ec4e2,_0x35aef1){_0x2ec4e2=_0x2ec4e2-0xe4;let _0x40c027=_0x49ec5[_0x2ec4e2];return _0x40c027;},a741_0x2ec4(_0x17bebf,_0x4c23d1);}exports['CreateEmailTemplateTable1546579597970']=CreateEmailTemplateTable1546579597970;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateEmailTemplateTable1546579597970 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateEmailTemplateTable1546579597970 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'email_template',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'shortname',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'subject',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'message',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('email_template');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('email_template', true);
+        });
+    }
+}
+exports.CreateEmailTemplateTable1546579597970 = CreateEmailTemplateTable1546579597970;
+//# sourceMappingURL=1546579597970-CreateEmailTemplateTable.js.map

@@ -1,1 +1,39 @@
-'use strict';const a784_0x5d8859=a784_0x11d7;(function(_0x205be1,_0x4a8d67){const _0x1807d1=a784_0x11d7,_0x4918d2=_0x205be1();while(!![]){try{const _0x2f57a3=-parseInt(_0x1807d1(0xc6))/0x1*(parseInt(_0x1807d1(0xc8))/0x2)+-parseInt(_0x1807d1(0xc7))/0x3*(parseInt(_0x1807d1(0xd1))/0x4)+parseInt(_0x1807d1(0xd3))/0x5+-parseInt(_0x1807d1(0xd7))/0x6+-parseInt(_0x1807d1(0xc5))/0x7*(-parseInt(_0x1807d1(0xc3))/0x8)+parseInt(_0x1807d1(0xc2))/0x9*(-parseInt(_0x1807d1(0xcf))/0xa)+parseInt(_0x1807d1(0xcc))/0xb;if(_0x2f57a3===_0x4a8d67)break;else _0x4918d2['push'](_0x4918d2['shift']());}catch(_0x564ee3){_0x4918d2['push'](_0x4918d2['shift']());}}}(a784_0x40ae,0x82cfc));Object[a784_0x5d8859(0xda)](exports,a784_0x5d8859(0xca),{'value':!![]}),exports[a784_0x5d8859(0xcd)]=void 0x0;function a784_0x40ae(){const _0x20414b=['3162300uQiZtF','oauth_data','456645yccids','local','customer','varchar','2407584vhGZVB','addColumn','tslib','defineProperty','typeorm','153TMwEDc','256aBwVHa','__awaiter','211267wtRPlX','6193vZNyqm','3OMImEI','220HjhfQC','dropColumn','__esModule','255','19082569mVrdZY','AddColumnInCustomer1555504622184','hasColumn','225310qgQlbS','down'];a784_0x40ae=function(){return _0x20414b;};return a784_0x40ae();}const tslib_1=require(a784_0x5d8859(0xd9)),typeorm_1=require(a784_0x5d8859(0xc1));function a784_0x11d7(_0xec343c,_0x433d8){const _0x40ae2e=a784_0x40ae();return a784_0x11d7=function(_0x11d7a4,_0x145f7a){_0x11d7a4=_0x11d7a4-0xc1;let _0x54006b=_0x40ae2e[_0x11d7a4];return _0x54006b;},a784_0x11d7(_0xec343c,_0x433d8);}class AddColumnInCustomer1555504622184{['up'](_0x4d418f){const _0x2c1613=a784_0x5d8859;return tslib_1[_0x2c1613(0xc4)](this,void 0x0,void 0x0,function*(){const _0x533684=_0x2c1613,_0xa51b0e=yield _0x4d418f[_0x533684(0xce)]('customer',_0x533684(0xd4));!_0xa51b0e&&(yield _0x4d418f[_0x533684(0xd8)](_0x533684(0xd5),new typeorm_1['TableColumn']({'name':'local','type':_0x533684(0xd6),'length':_0x533684(0xcb),'isPrimary':![],'isNullable':!![]})));const _0x53ea7c=yield _0x4d418f['hasColumn'](_0x533684(0xd5),_0x533684(0xd2));!_0x53ea7c&&(yield _0x4d418f['addColumn'](_0x533684(0xd5),new typeorm_1['TableColumn']({'name':'oauth_data','type':_0x533684(0xd6),'length':_0x533684(0xcb),'isPrimary':![],'isNullable':!![]})));});}[a784_0x5d8859(0xd0)](_0x5da65b){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x417e3a=a784_0x11d7;yield _0x5da65b[_0x417e3a(0xc9)](_0x417e3a(0xd5),'local'),yield _0x5da65b['dropColumn'](_0x417e3a(0xd5),'oauth_data');});}}exports['AddColumnInCustomer1555504622184']=AddColumnInCustomer1555504622184;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInCustomer1555504622184 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInCustomer1555504622184 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('customer', 'local');
+            if (!ifExist) {
+                yield queryRunner.addColumn('customer', new typeorm_1.TableColumn({
+                    name: 'local',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExistColumn = yield queryRunner.hasColumn('customer', 'oauth_data');
+            if (!ifExistColumn) {
+                yield queryRunner.addColumn('customer', new typeorm_1.TableColumn({
+                    name: 'oauth_data',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('customer', 'local');
+            yield queryRunner.dropColumn('customer', 'oauth_data');
+        });
+    }
+}
+exports.AddColumnInCustomer1555504622184 = AddColumnInCustomer1555504622184;
+//# sourceMappingURL=1555504622184-AddColumnInCustomer.js.map

@@ -1,1 +1,89 @@
-'use strict';const a181_0x36f947=a181_0x32fc;(function(_0x5e00c0,_0x37a549){const _0x4d4e1a=a181_0x32fc,_0x53a7d8=_0x5e00c0();while(!![]){try{const _0x9a68a6=parseInt(_0x4d4e1a(0x158))/0x1*(-parseInt(_0x4d4e1a(0x161))/0x2)+parseInt(_0x4d4e1a(0x153))/0x3+-parseInt(_0x4d4e1a(0x17a))/0x4+-parseInt(_0x4d4e1a(0x14f))/0x5+parseInt(_0x4d4e1a(0x15e))/0x6+-parseInt(_0x4d4e1a(0x16c))/0x7+-parseInt(_0x4d4e1a(0x171))/0x8*(-parseInt(_0x4d4e1a(0x167))/0x9);if(_0x9a68a6===_0x37a549)break;else _0x53a7d8['push'](_0x53a7d8['shift']());}catch(_0x4d61f6){_0x53a7d8['push'](_0x53a7d8['shift']());}}}(a181_0x5b50,0xa295c));Object[a181_0x36f947(0x172)](exports,a181_0x36f947(0x155),{'value':!![]}),exports[a181_0x36f947(0x16b)]=void 0x0;const tslib_1=require(a181_0x36f947(0x14d)),typeorm_1=require(a181_0x36f947(0x15b)),BaseModel_1=require('../../../src/api/core/models/BaseModel'),ProductModel_1=require(a181_0x36f947(0x163)),moment=require(a181_0x36f947(0x165)),ProductAnswer_1=require(a181_0x36f947(0x169)),AnswerReportAbuse_1=require('./AnswerReportAbuse'),class_validator_1=require(a181_0x36f947(0x173));let ProductQuestion=class ProductQuestion extends BaseModel_1[a181_0x36f947(0x15f)]{[a181_0x36f947(0x174)](){const _0x529f40=a181_0x36f947;return tslib_1[_0x529f40(0x15c)](this,void 0x0,void 0x0,function*(){const _0x54e09e=_0x529f40;this[_0x54e09e(0x160)]=moment()[_0x54e09e(0x159)](_0x54e09e(0x152));});}[a181_0x36f947(0x15d)](){const _0x561b47=a181_0x36f947;return tslib_1[_0x561b47(0x15c)](this,void 0x0,void 0x0,function*(){const _0x4e7e02=_0x561b47;this['modifiedDate']=moment()[_0x4e7e02(0x159)](_0x4e7e02(0x152));});}};function a181_0x32fc(_0x27424a,_0x172d5c){const _0x5b5011=a181_0x5b50();return a181_0x32fc=function(_0x32fc92,_0x2b7b5e){_0x32fc92=_0x32fc92-0x14c;let _0x28e33f=_0x5b5011[_0x32fc92];return _0x28e33f;},a181_0x32fc(_0x27424a,_0x172d5c);}tslib_1['__decorate']([(0x0,class_validator_1[a181_0x36f947(0x157)])(),(0x0,typeorm_1[a181_0x36f947(0x177)])({'name':'question_id'}),tslib_1[a181_0x36f947(0x154)](a181_0x36f947(0x16d),Number)],ProductQuestion[a181_0x36f947(0x156)],a181_0x36f947(0x17c),void 0x0),tslib_1[a181_0x36f947(0x150)]([(0x0,class_validator_1[a181_0x36f947(0x157)])(),(0x0,typeorm_1[a181_0x36f947(0x178)])({'name':a181_0x36f947(0x16e)}),tslib_1[a181_0x36f947(0x154)](a181_0x36f947(0x16d),Number)],ProductQuestion[a181_0x36f947(0x156)],a181_0x36f947(0x168),void 0x0),tslib_1[a181_0x36f947(0x150)]([(0x0,class_validator_1[a181_0x36f947(0x157)])(),(0x0,typeorm_1[a181_0x36f947(0x178)])({'name':a181_0x36f947(0x15a)}),tslib_1[a181_0x36f947(0x154)](a181_0x36f947(0x16d),String)],ProductQuestion[a181_0x36f947(0x156)],'question',void 0x0),tslib_1[a181_0x36f947(0x150)]([(0x0,class_validator_1[a181_0x36f947(0x157)])(),(0x0,typeorm_1['Column'])({'name':'type'}),tslib_1[a181_0x36f947(0x154)](a181_0x36f947(0x16d),Number)],ProductQuestion['prototype'],a181_0x36f947(0x17d),void 0x0),tslib_1[a181_0x36f947(0x150)]([(0x0,class_validator_1[a181_0x36f947(0x157)])(),(0x0,typeorm_1[a181_0x36f947(0x178)])({'name':'reference_id'}),tslib_1['__metadata'](a181_0x36f947(0x16d),Number)],ProductQuestion[a181_0x36f947(0x156)],a181_0x36f947(0x175),void 0x0),tslib_1[a181_0x36f947(0x150)]([(0x0,typeorm_1[a181_0x36f947(0x178)])({'name':a181_0x36f947(0x166)}),tslib_1[a181_0x36f947(0x154)]('design:type',Number)],ProductQuestion['prototype'],'isActive',void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a181_0x36f947(0x170)])(_0x2ef43a=>ProductModel_1[a181_0x36f947(0x164)]),(0x0,typeorm_1[a181_0x36f947(0x14c)])({'name':a181_0x36f947(0x16e)}),tslib_1[a181_0x36f947(0x154)](a181_0x36f947(0x16d),ProductModel_1[a181_0x36f947(0x164)])],ProductQuestion[a181_0x36f947(0x156)],a181_0x36f947(0x179),void 0x0),tslib_1[a181_0x36f947(0x150)]([(0x0,typeorm_1[a181_0x36f947(0x162)])(_0x175a01=>ProductAnswer_1['ProductAnswer'],_0x54455c=>_0x54455c[a181_0x36f947(0x17b)]),tslib_1[a181_0x36f947(0x154)](a181_0x36f947(0x16d),Array)],ProductQuestion[a181_0x36f947(0x156)],'productAnswer',void 0x0),tslib_1[a181_0x36f947(0x150)]([(0x0,typeorm_1[a181_0x36f947(0x162)])(_0x2663fb=>AnswerReportAbuse_1[a181_0x36f947(0x176)],_0x2cdcae=>_0x2cdcae['productQuestion']),tslib_1[a181_0x36f947(0x154)](a181_0x36f947(0x16d),Array)],ProductQuestion[a181_0x36f947(0x156)],'answerReportAbuse',void 0x0),tslib_1[a181_0x36f947(0x150)]([(0x0,typeorm_1[a181_0x36f947(0x16f)])(),tslib_1[a181_0x36f947(0x154)](a181_0x36f947(0x16d),Function),tslib_1[a181_0x36f947(0x154)](a181_0x36f947(0x14e),[]),tslib_1[a181_0x36f947(0x154)](a181_0x36f947(0x16a),Promise)],ProductQuestion[a181_0x36f947(0x156)],a181_0x36f947(0x174),null),tslib_1[a181_0x36f947(0x150)]([(0x0,typeorm_1['BeforeUpdate'])(),tslib_1['__metadata'](a181_0x36f947(0x16d),Function),tslib_1[a181_0x36f947(0x154)](a181_0x36f947(0x14e),[]),tslib_1[a181_0x36f947(0x154)]('design:returntype',Promise)],ProductQuestion[a181_0x36f947(0x156)],'updateDetails',null),ProductQuestion=tslib_1[a181_0x36f947(0x150)]([(0x0,typeorm_1['Entity'])(a181_0x36f947(0x151))],ProductQuestion),exports['ProductQuestion']=ProductQuestion;function a181_0x5b50(){const _0x505187=['1914676cIJuoJ','productQuestion','questionId','type','JoinColumn','tslib','design:paramtypes','4833505FrCYoa','__decorate','product_question','YYYY-MM-DD\x20HH:mm:ss','1429251VZSnnC','__metadata','__esModule','prototype','IsNotEmpty','1YiLYCh','format','question','typeorm','__awaiter','updateDetails','2896818UHuVHc','BaseModel','createdDate','2110888HDjrai','OneToMany','../../../src/api/core/models/ProductModel','Product','moment/moment','is_active','22488651MuvyfQ','productId','./ProductAnswer','design:returntype','ProductQuestion','2038379DxKaOJ','design:type','product_id','BeforeInsert','OneToOne','8YgfINy','defineProperty','class-validator','createDetails','referenceId','AnswerReportAbuse','PrimaryGeneratedColumn','Column','product'];a181_0x5b50=function(){return _0x505187;};return a181_0x5b50();}
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductQuestion = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("../../../src/api/core/models/BaseModel");
+const ProductModel_1 = require("../../../src/api/core/models/ProductModel");
+const moment = require("moment/moment");
+const ProductAnswer_1 = require("./ProductAnswer");
+const AnswerReportAbuse_1 = require("./AnswerReportAbuse");
+const class_validator_1 = require("class-validator");
+let ProductQuestion = class ProductQuestion extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'question_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductQuestion.prototype, "questionId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductQuestion.prototype, "productId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'question' }),
+    tslib_1.__metadata("design:type", String)
+], ProductQuestion.prototype, "question", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'type' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductQuestion.prototype, "type", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'reference_id' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductQuestion.prototype, "referenceId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], ProductQuestion.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToOne)(type => ProductModel_1.Product),
+    (0, typeorm_1.JoinColumn)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", ProductModel_1.Product)
+], ProductQuestion.prototype, "product", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => ProductAnswer_1.ProductAnswer, productAnswer => productAnswer.productQuestion),
+    tslib_1.__metadata("design:type", Array)
+], ProductQuestion.prototype, "productAnswer", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => AnswerReportAbuse_1.AnswerReportAbuse, answerReportAbuse => answerReportAbuse.productQuestion),
+    tslib_1.__metadata("design:type", Array)
+], ProductQuestion.prototype, "answerReportAbuse", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQuestion.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQuestion.prototype, "updateDetails", null);
+ProductQuestion = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('product_question')
+], ProductQuestion);
+exports.ProductQuestion = ProductQuestion;
+//# sourceMappingURL=ProductQuestion.js.map

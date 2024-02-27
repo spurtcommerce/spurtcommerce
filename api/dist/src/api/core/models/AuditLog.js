@@ -1,1 +1,75 @@
-'use strict';const a364_0x572392=a364_0x14da;(function(_0x53fd79,_0x4294ef){const _0xa13e78=a364_0x14da,_0x26438f=_0x53fd79();while(!![]){try{const _0x38017c=-parseInt(_0xa13e78(0x196))/0x1+parseInt(_0xa13e78(0x18a))/0x2+-parseInt(_0xa13e78(0x1a5))/0x3+parseInt(_0xa13e78(0x1a2))/0x4+-parseInt(_0xa13e78(0x194))/0x5+parseInt(_0xa13e78(0x18b))/0x6+-parseInt(_0xa13e78(0x1a0))/0x7;if(_0x38017c===_0x4294ef)break;else _0x26438f['push'](_0x26438f['shift']());}catch(_0x406951){_0x26438f['push'](_0x26438f['shift']());}}}(a364_0x53e9,0x9f786));Object[a364_0x572392(0x1ad)](exports,'__esModule',{'value':!![]}),exports['AuditLog']=void 0x0;function a364_0x53e9(){const _0xa5fe4e=['YYYY-MM-DD\x20HH:mm:ss','request_url','User','requestUrl','browser_info','2297448weOEnL','6417696TJGQsc','design:paramtypes','ManyToOne','__awaiter','design:returntype','params','./BaseModel','module','Column','755575fbuLhU','browserInfo','889223xAvrUy','./User','prototype','logType','format','__importDefault','__metadata','Entity','user','userId','10838548hyihTk','userName','4591064OzgBju','audit_log','auditLog','372642iXzeEH','BaseModel','log_type','description','design:type','auditLogId','createdDate','object','defineProperty','tslib','moment','PrimaryGeneratedColumn','user_name','__decorate','method'];a364_0x53e9=function(){return _0xa5fe4e;};return a364_0x53e9();}const tslib_1=require(a364_0x572392(0x17f)),typeorm_1=require('typeorm'),moment_1=tslib_1[a364_0x572392(0x19b)](require(a364_0x572392(0x180))),BaseModel_1=require(a364_0x572392(0x191)),User_1=require(a364_0x572392(0x197));let AuditLog=class AuditLog extends BaseModel_1[a364_0x572392(0x1a6)]{['createDetails'](){const _0x325b28=a364_0x572392;return tslib_1[_0x325b28(0x18e)](this,void 0x0,void 0x0,function*(){const _0x27b826=_0x325b28;this[_0x27b826(0x1ab)]=(0x0,moment_1['default'])()[_0x27b826(0x19a)](_0x27b826(0x185));});}};function a364_0x14da(_0x4be710,_0x34d4e4){const _0x53e924=a364_0x53e9();return a364_0x14da=function(_0x14daed,_0x55584d){_0x14daed=_0x14daed-0x17f;let _0x484f4f=_0x53e924[_0x14daed];return _0x484f4f;},a364_0x14da(_0x4be710,_0x34d4e4);}tslib_1['__decorate']([(0x0,typeorm_1[a364_0x572392(0x181)])({'name':'id'}),tslib_1[a364_0x572392(0x19c)](a364_0x572392(0x1a9),Number)],AuditLog[a364_0x572392(0x198)],a364_0x572392(0x1aa),void 0x0),tslib_1[a364_0x572392(0x183)]([(0x0,typeorm_1[a364_0x572392(0x193)])({'name':'user_id'}),tslib_1[a364_0x572392(0x19c)](a364_0x572392(0x1a9),Number)],AuditLog[a364_0x572392(0x198)],a364_0x572392(0x19f),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1['Column'])({'name':a364_0x572392(0x182)}),tslib_1[a364_0x572392(0x19c)]('design:type',String)],AuditLog[a364_0x572392(0x198)],a364_0x572392(0x1a1),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a364_0x572392(0x193)])({'name':a364_0x572392(0x184)}),tslib_1[a364_0x572392(0x19c)](a364_0x572392(0x1a9),String)],AuditLog['prototype'],a364_0x572392(0x184),void 0x0),tslib_1[a364_0x572392(0x183)]([(0x0,typeorm_1[a364_0x572392(0x193)])({'name':a364_0x572392(0x186)}),tslib_1[a364_0x572392(0x19c)](a364_0x572392(0x1a9),String)],AuditLog[a364_0x572392(0x198)],a364_0x572392(0x188),void 0x0),tslib_1[a364_0x572392(0x183)]([(0x0,typeorm_1[a364_0x572392(0x193)])({'name':a364_0x572392(0x1ac)}),tslib_1[a364_0x572392(0x19c)]('design:type',String)],AuditLog['prototype'],a364_0x572392(0x1ac),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a364_0x572392(0x193)])({'name':a364_0x572392(0x1a7)}),tslib_1[a364_0x572392(0x19c)](a364_0x572392(0x1a9),String)],AuditLog[a364_0x572392(0x198)],a364_0x572392(0x199),void 0x0),tslib_1[a364_0x572392(0x183)]([(0x0,typeorm_1[a364_0x572392(0x193)])({'name':a364_0x572392(0x1a8)}),tslib_1[a364_0x572392(0x19c)](a364_0x572392(0x1a9),String)],AuditLog[a364_0x572392(0x198)],a364_0x572392(0x1a8),void 0x0),tslib_1[a364_0x572392(0x183)]([(0x0,typeorm_1['Column'])({'name':a364_0x572392(0x190)}),tslib_1[a364_0x572392(0x19c)](a364_0x572392(0x1a9),String)],AuditLog[a364_0x572392(0x198)],a364_0x572392(0x190),void 0x0),tslib_1[a364_0x572392(0x183)]([(0x0,typeorm_1[a364_0x572392(0x193)])({'name':a364_0x572392(0x189)}),tslib_1[a364_0x572392(0x19c)](a364_0x572392(0x1a9),String)],AuditLog['prototype'],a364_0x572392(0x195),void 0x0),tslib_1[a364_0x572392(0x183)]([(0x0,typeorm_1[a364_0x572392(0x193)])({'name':a364_0x572392(0x192)}),tslib_1['__metadata']('design:type',String)],AuditLog[a364_0x572392(0x198)],a364_0x572392(0x192),void 0x0),tslib_1[a364_0x572392(0x183)]([(0x0,typeorm_1[a364_0x572392(0x18d)])(_0x233403=>User_1[a364_0x572392(0x187)],_0xa2d97a=>_0xa2d97a[a364_0x572392(0x1a4)]),(0x0,typeorm_1['JoinColumn'])({'name':'user_id'}),tslib_1[a364_0x572392(0x19c)](a364_0x572392(0x1a9),Array)],AuditLog[a364_0x572392(0x198)],a364_0x572392(0x19e),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1['BeforeInsert'])(),tslib_1[a364_0x572392(0x19c)]('design:type',Function),tslib_1[a364_0x572392(0x19c)](a364_0x572392(0x18c),[]),tslib_1[a364_0x572392(0x19c)](a364_0x572392(0x18f),Promise)],AuditLog[a364_0x572392(0x198)],'createDetails',null),AuditLog=tslib_1['__decorate']([(0x0,typeorm_1[a364_0x572392(0x19d)])(a364_0x572392(0x1a3))],AuditLog),exports['AuditLog']=AuditLog;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AuditLog = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const BaseModel_1 = require("./BaseModel");
+const User_1 = require("./User");
+let AuditLog = class AuditLog extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'id' }),
+    tslib_1.__metadata("design:type", Number)
+], AuditLog.prototype, "auditLogId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'user_id' }),
+    tslib_1.__metadata("design:type", Number)
+], AuditLog.prototype, "userId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'user_name' }),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "userName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'method' }),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "method", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'request_url' }),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "requestUrl", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'object' }),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "object", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'log_type' }),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "logType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'description' }),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "description", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'params' }),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "params", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'browser_info' }),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "browserInfo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'module' }),
+    tslib_1.__metadata("design:type", String)
+], AuditLog.prototype, "module", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => User_1.User, user => user.auditLog),
+    (0, typeorm_1.JoinColumn)({ name: 'user_id' }),
+    tslib_1.__metadata("design:type", Array)
+], AuditLog.prototype, "user", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], AuditLog.prototype, "createDetails", null);
+AuditLog = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('audit_log')
+], AuditLog);
+exports.AuditLog = AuditLog;
+//# sourceMappingURL=AuditLog.js.map

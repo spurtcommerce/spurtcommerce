@@ -1,1 +1,1051 @@
-'use strict';const a281_0x3421f6=a281_0x5792;(function(_0xd18ad9,_0x5b5b36){const _0x39dbed=a281_0x5792,_0x39b964=_0xd18ad9();while(!![]){try{const _0x2c0e9c=-parseInt(_0x39dbed(0x195))/0x1+-parseInt(_0x39dbed(0x1d6))/0x2*(-parseInt(_0x39dbed(0x194))/0x3)+-parseInt(_0x39dbed(0x19d))/0x4+parseInt(_0x39dbed(0x16f))/0x5+parseInt(_0x39dbed(0x178))/0x6+parseInt(_0x39dbed(0x161))/0x7*(parseInt(_0x39dbed(0x1a7))/0x8)+-parseInt(_0x39dbed(0x197))/0x9;if(_0x2c0e9c===_0x5b5b36)break;else _0x39b964['push'](_0x39b964['shift']());}catch(_0x25176f){_0x39b964['push'](_0x39b964['shift']());}}}(a281_0x1b55,0x6c769));function a281_0x5792(_0x10e5c8,_0x29a229){const _0x1b55f3=a281_0x1b55();return a281_0x5792=function(_0x579232,_0x81e43e){_0x579232=_0x579232-0x10f;let _0x541930=_0x1b55f3[_0x579232];return _0x541930;},a281_0x5792(_0x10e5c8,_0x29a229);}Object[a281_0x3421f6(0x164)](exports,a281_0x3421f6(0x14d),{'value':!![]}),exports[a281_0x3421f6(0x12f)]=void 0x0;const tslib_1=require('tslib');require(a281_0x3421f6(0x134));const routing_controllers_1=require(a281_0x3421f6(0x1e3)),class_transformer_1=require(a281_0x3421f6(0x17d)),jsonwebtoken_1=tslib_1[a281_0x3421f6(0x120)](require(a281_0x3421f6(0x1a4))),env_1=require('../../../env'),ForgotPasswordRequest_1=require('./requests/ForgotPasswordRequest'),UserLoginRequest_1=require(a281_0x3421f6(0x196)),CreateUserRequest_1=require(a281_0x3421f6(0x16a)),UpdateUserRequest_1=require(a281_0x3421f6(0x156)),User_1=require(a281_0x3421f6(0x124)),AccessTokenModel_1=require(a281_0x3421f6(0x19f)),UserService_1=require(a281_0x3421f6(0x125)),UserGroupService_1=require(a281_0x3421f6(0x1c8)),ChangePasswordRequest_1=require('./requests/ChangePasswordRequest'),EditProfileRequest_1=require(a281_0x3421f6(0x1c1)),AccessTokenService_1=require(a281_0x3421f6(0x14c)),EmailTemplateService_1=require('../../core/services/EmailTemplateService'),mail_services_1=require(a281_0x3421f6(0x13c)),ImageService_1=require(a281_0x3421f6(0x17f)),S3Service_1=require(a281_0x3421f6(0x19c)),SettingService_1=require(a281_0x3421f6(0x147)),typeorm_1=require('typeorm'),moment_1=tslib_1[a281_0x3421f6(0x120)](require(a281_0x3421f6(0x1da)));let UserController=class UserController{constructor(_0x21108d,_0x90750f,_0x4a2a76,_0x50a42b,_0x472ab7,_0x555ee4,_0xec961f){const _0x342dae=a281_0x3421f6;this['userService']=_0x21108d,this[_0x342dae(0x162)]=_0x90750f,this[_0x342dae(0x15b)]=_0x4a2a76,this[_0x342dae(0x13e)]=_0x50a42b,this['s3Service']=_0x472ab7,this[_0x342dae(0x1a9)]=_0x555ee4,this[_0x342dae(0x1c7)]=_0xec961f;}['login'](_0xf57be8,_0x513f35){const _0x306457=a281_0x3421f6;return tslib_1[_0x306457(0x1bc)](this,void 0x0,void 0x0,function*(){const _0x24346b=_0x306457,_0x542e82=yield this[_0x24346b(0x149)]['findOne']({'where':{'username':(0x0,typeorm_1[_0x24346b(0x1d9)])(_0x52aea6=>_0x24346b(0x139)+_0x52aea6+_0x24346b(0x110)+_0xf57be8[_0x24346b(0x11a)][_0x24346b(0x174)]()+'\x27'),'isActive':0x1,'deleteFlag':0x0},'relations':[_0x24346b(0x17b)]});if(_0x542e82){if(yield User_1[_0x24346b(0x142)][_0x24346b(0x146)](_0x542e82,_0xf57be8['password'])){const _0x57400a=jsonwebtoken_1[_0x24346b(0x170)][_0x24346b(0x145)]({'id':_0x542e82[_0x24346b(0x167)],'role':_0x24346b(0x1ab)},env_1[_0x24346b(0x19e)][_0x24346b(0x1b2)],{'expiresIn':'4h'});if(_0x542e82[_0x24346b(0x17b)][_0x24346b(0x15c)]===0x0){const _0x40eb20={'status':0x0,'message':'InActive\x20Role.'};return _0x513f35[_0x24346b(0x1c3)](0x190)[_0x24346b(0x1b7)](_0x40eb20);}let _0x3eac27={};if(_0x542e82[_0x24346b(0x1a0)]!==0x1){const _0x4224cb=yield this[_0x24346b(0x149)][_0x24346b(0x1c4)]({'where':{'userId':_0x542e82[_0x24346b(0x167)]}});if(_0x4224cb[_0x24346b(0x1a2)])_0x3eac27=JSON[_0x24346b(0x18b)](_0x4224cb[_0x24346b(0x1a2)]);else{const _0x215c80=yield this['userGroupService'][_0x24346b(0x1c4)]({'where':{'groupId':_0x542e82[_0x24346b(0x1a0)]}});_0x3eac27=_0x215c80['permission']?JSON[_0x24346b(0x18b)](_0x215c80[_0x24346b(0x1a2)]):{};}}if(_0x57400a){const _0x5e1daf=new AccessTokenModel_1[(_0x24346b(0x1a5))]();_0x5e1daf[_0x24346b(0x167)]=_0x542e82['userId'],_0x5e1daf[_0x24346b(0x1c9)]=_0x57400a,_0x5e1daf['userType']=_0x24346b(0x1ab),yield this[_0x24346b(0x15b)][_0x24346b(0x15a)](_0x5e1daf);const _0x35b571=require('crypto-js'),_0x160d64=_0x35b571[_0x24346b(0x15d)][_0x24346b(0x185)](_0x57400a,env_1['env'][_0x24346b(0x13a)])[_0x24346b(0x1c2)](),_0xc15635={'status':0x1,'message':_0x24346b(0x140),'data':{'token':_0x160d64,'user':(0x0,class_transformer_1['instanceToPlain'])(_0x542e82),'permission':_0x3eac27}};return _0x513f35['status'](0xc8)['send'](_0xc15635);}}else{const _0xee5251={'status':0x0,'message':_0x24346b(0x12b)};return _0x513f35[_0x24346b(0x1c3)](0x190)[_0x24346b(0x1b7)](_0xee5251);}}else{const _0xda2380={'status':0x0,'message':'Wrong\x20Login\x20Information.'};return _0x513f35[_0x24346b(0x1c3)](0x190)[_0x24346b(0x1b7)](_0xda2380);}});}[a281_0x3421f6(0x1b8)](_0x129b15,_0x1014b1,_0x1b46fe,_0x32871d,_0x598271,_0x1dfe11){const _0x3af0bc=a281_0x3421f6;return tslib_1[_0x3af0bc(0x1bc)](this,void 0x0,void 0x0,function*(){const _0x1042aa=_0x3af0bc,_0x271ecf=[_0x1042aa(0x17b)],_0x1da749=[{'name':_0x1042aa(0x129),'value':0x0}],_0x39f430=yield this[_0x1042aa(0x149)]['list'](_0x129b15,_0x1014b1,[_0x1042aa(0x167),_0x1042aa(0x11a),_0x1042aa(0x1dc),'lastName',_0x1042aa(0x13f),'address',_0x1042aa(0x165),_0x1042aa(0x141),_0x1042aa(0x1aa),'password',_0x1042aa(0x150)],_0x271ecf,_0x1da749,_0x1b46fe,_0x32871d),_0x141706={'status':0x1,'data':_0x39f430,'message':_0x1042aa(0x1e8)};return _0x1dfe11[_0x1042aa(0x1c3)](0xc8)[_0x1042aa(0x1b7)](_0x141706);});}[a281_0x3421f6(0x117)](_0x581359,_0x2dc3d2){const _0x2527e9=a281_0x3421f6;return tslib_1[_0x2527e9(0x1bc)](this,void 0x0,void 0x0,function*(){const _0xab8938=_0x2527e9,_0x38abaf=[{'name':'id','value':_0x581359['userGroupId']}],_0x4c663d=yield this['userGroupService'][_0xab8938(0x1ce)](0x0,0x0,[],_0x38abaf,0x0);if(_0x4c663d[_0xab8938(0x12e)]===0x0){const _0x26f2e6={'status':0x0,'message':_0xab8938(0x1b6)};return _0x2dc3d2[_0xab8938(0x1c3)](0x190)[_0xab8938(0x1b7)](_0x26f2e6);}const _0x500295=yield this[_0xab8938(0x149)][_0xab8938(0x1c4)]({'where':{'username':_0x581359[_0xab8938(0x11a)],'deleteFlag':0x0}});if(_0x500295){const _0x1aa17b={'status':0x0,'message':_0xab8938(0x1e9)};return _0x2dc3d2[_0xab8938(0x1c3)](0x190)[_0xab8938(0x1b7)](_0x1aa17b);}const _0x8c49b3=yield User_1[_0xab8938(0x142)]['hashPassword'](_0x581359['password']),_0x172c73=new User_1[(_0xab8938(0x142))]();_0x172c73[_0xab8938(0x11a)]=_0x581359[_0xab8938(0x11a)],_0x172c73['password']=_0x8c49b3,_0x172c73[_0xab8938(0x1dc)]=_0x581359['firstName'],_0x172c73[_0xab8938(0x191)]=_0x581359[_0xab8938(0x191)],_0x172c73['email']=_0x581359[_0xab8938(0x13f)],_0x172c73['deleteFlag']=0x0,_0x172c73[_0xab8938(0x1a0)]=_0x581359['userGroupId'],_0x172c73[_0xab8938(0x15c)]=0x1;const _0x3473df=yield this[_0xab8938(0x149)][_0xab8938(0x15a)](_0x172c73);if(_0x3473df){const _0xcb8263=yield this[_0xab8938(0x13e)][_0xab8938(0x1c4)](0x7),_0x62f5b1=_0xcb8263[_0xab8938(0x127)][_0xab8938(0x16e)](_0xab8938(0x11f),_0x581359['username'])[_0xab8938(0x16e)](_0xab8938(0x159),_0x581359[_0xab8938(0x13f)])[_0xab8938(0x16e)](_0xab8938(0x188),_0x581359[_0xab8938(0x1b9)]),_0x26e2de=env_1['env']['adminRedirectUrl'],_0x330575=yield this[_0xab8938(0x1a9)][_0xab8938(0x1c4)](),_0x13141e={};_0x13141e[_0xab8938(0x1be)]=_0x330575,_0x13141e[_0xab8938(0x160)]=_0x62f5b1,_0x13141e[_0xab8938(0x176)]=_0x26e2de,_0x13141e['productDetailData']=undefined,mail_services_1[_0xab8938(0x172)]['sendMail'](_0x13141e,_0x581359[_0xab8938(0x13f)],_0xcb8263['subject'],![],![],'');const _0x864fdc={'status':0x1,'message':_0xab8938(0x12d),'data':_0x3473df};return _0x2dc3d2[_0xab8938(0x1c3)](0xc8)[_0xab8938(0x1b7)](_0x864fdc);}});}[a281_0x3421f6(0x19b)](_0x493e07,_0x459a58,_0x1009c2,_0x126ae1){const _0x4d514f=a281_0x3421f6;return tslib_1[_0x4d514f(0x1bc)](this,void 0x0,void 0x0,function*(){const _0x589a04=_0x4d514f;if(_0x1009c2[_0x589a04(0x128)][_0x589a04(0x167)]===_0x493e07){const _0x2c5666={'status':0x0,'message':_0x589a04(0x186)};return _0x126ae1[_0x589a04(0x1c3)](0x190)[_0x589a04(0x1b7)](_0x2c5666);}const _0x45d6fd=[{'name':'id','value':_0x459a58['userGroupId']}],_0x1d7a35=yield this[_0x589a04(0x162)]['list'](0x0,0x0,[],_0x45d6fd,0x0);if(_0x1d7a35['length']===0x0){const _0x2bd30c={'status':0x0,'message':_0x589a04(0x1b6)};return _0x126ae1[_0x589a04(0x1c3)](0x190)[_0x589a04(0x1b7)](_0x2bd30c);}const _0x250968=yield User_1[_0x589a04(0x142)]['hashPassword'](_0x459a58[_0x589a04(0x1b9)]),_0x2bc3c1=new User_1[(_0x589a04(0x142))]();_0x2bc3c1['username']=_0x459a58['username'];if(_0x459a58[_0x589a04(0x1b9)]){const _0x276437=/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;if(!_0x459a58[_0x589a04(0x1b9)][_0x589a04(0x1bb)](_0x276437)){const _0x2e572c=[];_0x2e572c[_0x589a04(0x14e)](_0x589a04(0x152));const _0x57d840={'status':0x0,'message':_0x589a04(0x163),'data':{'message':_0x2e572c}};return _0x126ae1[_0x589a04(0x1c3)](0x1a6)[_0x589a04(0x1b7)](_0x57d840);}_0x2bc3c1[_0x589a04(0x1b9)]=_0x250968;}_0x2bc3c1['firstName']=_0x459a58[_0x589a04(0x1dc)],_0x2bc3c1[_0x589a04(0x191)]=_0x459a58['lastName'],_0x2bc3c1['email']=_0x459a58[_0x589a04(0x13f)],_0x2bc3c1['userGroupId']=_0x459a58[_0x589a04(0x1a0)],_0x2bc3c1['isActive']=0x1;const _0x3991f7=yield this[_0x589a04(0x149)][_0x589a04(0x1bd)](_0x493e07,_0x2bc3c1);if(_0x3991f7){const _0x81a0d2={'status':0x1,'message':_0x589a04(0x168)};return _0x126ae1['status'](0xc8)[_0x589a04(0x1b7)](_0x81a0d2);}else{const _0x43800d={'status':0x0,'message':_0x589a04(0x175)};return _0x126ae1['status'](0x190)[_0x589a04(0x1b7)](_0x43800d);}});}['remove'](_0x5da187,_0x14b37c,_0x24185e){const _0x4374a7=a281_0x3421f6;return tslib_1[_0x4374a7(0x1bc)](this,void 0x0,void 0x0,function*(){const _0x10f750=_0x4374a7;if(_0x14b37c['user']['userId']===_0x5da187){const _0x2b20a4={'status':0x0,'message':_0x10f750(0x15e)};return _0x24185e[_0x10f750(0x1c3)](0x190)[_0x10f750(0x1b7)](_0x2b20a4);}const _0x236078=yield this['userService']['findOne']({'where':{'userId':_0x5da187}});if(!_0x236078){const _0x4e31db={'status':0x1,'message':_0x10f750(0x113)};return _0x24185e['status'](0x190)['send'](_0x4e31db);}_0x236078[_0x10f750(0x129)]=0x1;const _0x558107=yield this['userService'][_0x10f750(0x15a)](_0x236078);if(_0x558107){const _0x42f988={'status':0x1,'message':_0x10f750(0x1e4)};return _0x24185e[_0x10f750(0x1c3)](0xc8)['send'](_0x42f988);}else{const _0xa3fb24={'status':0x0,'message':_0x10f750(0x17a)};return _0x24185e[_0x10f750(0x1c3)](0x190)[_0x10f750(0x1b7)](_0xa3fb24);}});}[a281_0x3421f6(0x13d)](_0x3e3bd5,_0x3663b8){const _0x1e2245=a281_0x3421f6;return tslib_1[_0x1e2245(0x1bc)](this,void 0x0,void 0x0,function*(){const _0x41049f=_0x1e2245,_0x6a7542=yield this[_0x41049f(0x149)][_0x41049f(0x1c4)]({'where':{'email':_0x3e3bd5[_0x41049f(0x13f)]}});if(!_0x6a7542){const _0xc7e80f={'status':0x0,'message':_0x41049f(0x1e1)};return _0x3663b8[_0x41049f(0x1c3)](0x190)['send'](_0xc7e80f);}const _0x2f2a0d=Math[_0x41049f(0x11d)]()[_0x41049f(0x1c2)]()['substr'](0x2,0x5),_0x2f619e=yield User_1[_0x41049f(0x142)][_0x41049f(0x190)](_0x2f2a0d);_0x6a7542[_0x41049f(0x1b9)]=_0x2f619e,yield this[_0x41049f(0x149)][_0x41049f(0x15a)](_0x6a7542);const _0x42caf8=yield this[_0x41049f(0x13e)][_0x41049f(0x1c4)](0x2),_0x8e01e3=yield this[_0x41049f(0x1a9)][_0x41049f(0x1c4)](),_0x39d3ee=_0x42caf8[_0x41049f(0x127)][_0x41049f(0x16e)](_0x41049f(0x11f),_0x6a7542[_0x41049f(0x1dc)])[_0x41049f(0x16e)](_0x41049f(0x198),_0x2f2a0d),_0x2a12ee=env_1['env'][_0x41049f(0x1ba)],_0x4869f9={};_0x4869f9['logo']=_0x8e01e3,_0x4869f9[_0x41049f(0x160)]=_0x39d3ee,_0x4869f9[_0x41049f(0x176)]=_0x2a12ee,_0x4869f9[_0x41049f(0x121)]=undefined;const _0x21d2c2=mail_services_1['MAILService'][_0x41049f(0x16b)](_0x4869f9,_0x6a7542[_0x41049f(0x13f)],_0x42caf8[_0x41049f(0x11e)],![],![],'');if(_0x21d2c2){const _0x4246b2={'status':0x1,'message':_0x41049f(0x1e5)};return _0x3663b8[_0x41049f(0x1c3)](0xc8)[_0x41049f(0x1b7)](_0x4246b2);}else{const _0x510a18={'status':0x0,'message':_0x41049f(0x133)};return _0x3663b8[_0x41049f(0x1c3)](0x190)[_0x41049f(0x1b7)](_0x510a18);}});}[a281_0x3421f6(0x137)](_0x13345c,_0x348c0f,_0x53bd73){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5ceadf=a281_0x5792,_0x286ec7=yield this[_0x5ceadf(0x149)]['findOne']({'where':{'userId':_0x348c0f[_0x5ceadf(0x128)][_0x5ceadf(0x167)]}});if(!_0x286ec7){const _0x148d9d={'status':0x0,'message':'Invalid\x20user\x20Id.'};return _0x53bd73[_0x5ceadf(0x1c3)](0x190)[_0x5ceadf(0x1b7)](_0x148d9d);}if(yield User_1[_0x5ceadf(0x142)][_0x5ceadf(0x146)](_0x286ec7,_0x13345c[_0x5ceadf(0x155)])){const _0x4d034b=yield User_1[_0x5ceadf(0x142)][_0x5ceadf(0x146)](_0x286ec7,_0x13345c[_0x5ceadf(0x131)]);if(_0x4d034b){const _0x1cdebb={'status':0x0,'message':'Existing\x20password\x20and\x20New\x20password\x20should\x20not\x20match'};return _0x53bd73[_0x5ceadf(0x1c3)](0x190)['send'](_0x1cdebb);}const _0x474002=/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;if(!_0x13345c[_0x5ceadf(0x131)][_0x5ceadf(0x1bb)](_0x474002)){const _0x583167=[];_0x583167['push'](_0x5ceadf(0x152));const _0x54818f={'status':0x0,'message':_0x5ceadf(0x163),'data':{'message':_0x583167}};return _0x53bd73[_0x5ceadf(0x1c3)](0x1a6)[_0x5ceadf(0x1b7)](_0x54818f);}_0x286ec7[_0x5ceadf(0x1b9)]=yield User_1[_0x5ceadf(0x142)]['hashPassword'](_0x13345c['newPassword']);const _0x18d0fe=yield this[_0x5ceadf(0x149)][_0x5ceadf(0x1bd)](_0x286ec7[_0x5ceadf(0x167)],_0x286ec7);if(_0x18d0fe){const _0x5a7173={'status':0x1,'message':_0x5ceadf(0x19a)};return _0x53bd73[_0x5ceadf(0x1c3)](0xc8)[_0x5ceadf(0x1b7)](_0x5a7173);}}const _0x576fb6={'status':0x0,'message':_0x5ceadf(0x1d0)};return _0x53bd73['status'](0x190)[_0x5ceadf(0x1b7)](_0x576fb6);});}[a281_0x3421f6(0x1c0)](_0x392b48,_0x460f0a,_0x590679){const _0x2cd6b3=a281_0x3421f6;return tslib_1[_0x2cd6b3(0x1bc)](this,void 0x0,void 0x0,function*(){const _0x458382=_0x2cd6b3,_0x12394a=yield this[_0x458382(0x149)][_0x458382(0x1c4)]({'where':{'userId':_0x590679[_0x458382(0x128)][_0x458382(0x167)]}});if(!_0x12394a){const _0x1e3577={'status':0x0,'message':_0x458382(0x113)};return _0x460f0a[_0x458382(0x1c3)](0x190)[_0x458382(0x1b7)](_0x1e3577);}const _0x50db94=_0x392b48['avatar'];if(_0x50db94){const _0x208ee0=_0x50db94[_0x458382(0x1ac)](';')[0x0][_0x458382(0x1ac)]('/')[0x1],_0xea069d=env_1['env'][_0x458382(0x1b3)][_0x458382(0x1ac)](',');if(!_0xea069d['includes'](_0x208ee0)){const _0x1d122c={'status':0x0,'message':_0x458382(0x13b)+env_1[_0x458382(0x19e)]['availImageTypes']+_0x458382(0x187)};return _0x460f0a[_0x458382(0x1c3)](0x190)[_0x458382(0x1b7)](_0x1d122c);}const _0x3ba1fe='Img_'+Date[_0x458382(0x1c5)]()+'.'+_0x208ee0,_0x3bbbf5=_0x458382(0x1ca),_0x3dffd2=Buffer['from'](_0x50db94[_0x458382(0x16e)](/^data:image\/\w+;base64,/,''),_0x458382(0x123)),_0x1b7704=_0x50db94[_0x458382(0x16e)](/^data:image\/\w+;base64,/,'')[_0x458382(0x12e)],_0x31c561=0x4*Math['ceil'](_0x1b7704/0x3)*0.5624896334383812,_0x41c13e=_0x31c561/0x400;if(+_0x41c13e<=0x800)env_1[_0x458382(0x19e)][_0x458382(0x11c)]==='s3'?yield this[_0x458382(0x1ec)][_0x458382(0x1df)](_0x3bbbf5+_0x3ba1fe,_0x3dffd2,_0x208ee0):yield this[_0x458382(0x1c7)]['imageUpload'](_0x3bbbf5+_0x3ba1fe,_0x3dffd2);else{const _0x19844c={'status':0x0,'message':'Not\x20able\x20to\x20update\x20as\x20the\x20file\x20size\x20is\x20too\x20large.'};return _0x460f0a[_0x458382(0x1c3)](0x190)['send'](_0x19844c);}_0x12394a[_0x458382(0x141)]=_0x3ba1fe,_0x12394a[_0x458382(0x1aa)]=_0x3bbbf5;}_0x12394a[_0x458382(0x11a)]=_0x392b48[_0x458382(0x11a)],_0x12394a['email']=_0x392b48[_0x458382(0x13f)],_0x12394a[_0x458382(0x165)]=_0x392b48[_0x458382(0x165)],_0x12394a['address']=_0x392b48[_0x458382(0x115)];const _0x2b9d13=yield this[_0x458382(0x149)][_0x458382(0x15a)](_0x12394a);_0x2b9d13['usergroup']=yield this[_0x458382(0x162)]['findOne']({'where':{'groupId':_0x2b9d13[_0x458382(0x1a0)]}});if(_0x2b9d13){const _0x2a3222={'status':0x1,'message':_0x458382(0x151),'data':_0x2b9d13};return _0x460f0a[_0x458382(0x1c3)](0xc8)[_0x458382(0x1b7)](_0x2a3222);}else{const _0x36f71b={'status':0x0,'message':'Unable\x20to\x20edit\x20the\x20profile.'};return _0x460f0a[_0x458382(0x1c3)](0x190)[_0x458382(0x1b7)](_0x36f71b);}});}[a281_0x3421f6(0x112)](_0x289a58,_0x135ed7){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x46b561=a281_0x5792,_0x11dcbb=_0x289a58[_0x46b561(0x130)]['authorization'][_0x46b561(0x1ac)]('\x20')[0x0]===_0x46b561(0x135)?_0x289a58['headers'][_0x46b561(0x12a)][_0x46b561(0x1ac)]('\x20')[0x1]:'';if(!_0x11dcbb){const _0x13d03a={'status':0x1,'message':_0x46b561(0x177)};return _0x135ed7[_0x46b561(0x1c3)](0xc8)[_0x46b561(0x1b7)](_0x13d03a);}const _0x20f8a3=require('crypto-js'),_0xe8b129=_0x20f8a3[_0x46b561(0x15d)]['decrypt'](_0x11dcbb,env_1[_0x46b561(0x19e)][_0x46b561(0x13a)]),_0x122220=_0xe8b129['toString'](_0x20f8a3[_0x46b561(0x18e)]['Utf8']),_0x484f5a=yield this['accessTokenService']['findOne']({'where':{'token':_0x122220}});if(!_0x484f5a){const _0x145ff9={'status':0x0,'message':_0x46b561(0x1a3)};return _0x135ed7[_0x46b561(0x1c3)](0x190)[_0x46b561(0x1b7)](_0x145ff9);}const _0x25bf0d=yield this[_0x46b561(0x15b)][_0x46b561(0x1ad)](_0x484f5a);if(!_0x25bf0d){const _0x4a91de={'status':0x1,'message':'Successfully\x20Logout.'};return _0x135ed7[_0x46b561(0x1c3)](0xc8)[_0x46b561(0x1b7)](_0x4a91de);}});}[a281_0x3421f6(0x132)](_0x5b4964,_0x50065a,_0x4cf7d8){const _0xca8cbf=a281_0x3421f6;return tslib_1[_0xca8cbf(0x1bc)](this,void 0x0,void 0x0,function*(){const _0x254cf3=_0xca8cbf,_0x415612=yield this[_0x254cf3(0x149)][_0x254cf3(0x1c4)]({'where':{'email':_0x5b4964,'deleteFlag':0x0}});if(!_0x415612){const _0x3ce0d3={'status':0x1,'message':_0x254cf3(0x1b4)};return _0x50065a[_0x254cf3(0x1c3)](0xc8)[_0x254cf3(0x1b7)](_0x3ce0d3);}const _0x547c8e=require('crypto-js'),_0x1e7132=_0x547c8e[_0x254cf3(0x15d)]['encrypt'](_0x415612[_0x254cf3(0x13f)],env_1['env'][_0x254cf3(0x13a)])[_0x254cf3(0x1c2)](),_0x539ad3=Buffer[_0x254cf3(0x189)](_0x1e7132)[_0x254cf3(0x1c2)]('base64');console[_0x254cf3(0x118)](_0x539ad3+'enc'),_0x415612[_0x254cf3(0x1ee)]=_0x539ad3,_0x415612['linkExpires']=(0x0,moment_1['default'])()[_0x254cf3(0x111)](0x14,_0x254cf3(0x193))['format'](_0x254cf3(0x1ae)),yield this[_0x254cf3(0x149)]['update'](_0x415612[_0x254cf3(0x167)],_0x415612);const _0x4e6ebc=yield this[_0x254cf3(0x13e)][_0x254cf3(0x1c4)](0x17),_0x21b329=yield this[_0x254cf3(0x1a9)][_0x254cf3(0x1c4)](),_0x4b3619=env_1[_0x254cf3(0x19e)][_0x254cf3(0x1bf)]+_0x254cf3(0x184)+_0x539ad3;console[_0x254cf3(0x118)](_0x4b3619+_0x254cf3(0x176));const _0x4c3dee=_0x4e6ebc[_0x254cf3(0x127)][_0x254cf3(0x16e)](_0x254cf3(0x11f),_0x415612[_0x254cf3(0x1dc)])[_0x254cf3(0x16e)](_0x254cf3(0x154),_0x4b3619),_0xafe6b4={};_0xafe6b4['logo']=_0x21b329,_0xafe6b4[_0x254cf3(0x160)]=_0x4c3dee,_0xafe6b4[_0x254cf3(0x176)]=_0x4b3619,_0xafe6b4[_0x254cf3(0x121)]=undefined;const _0x5927b1=mail_services_1['MAILService'][_0x254cf3(0x16b)](_0xafe6b4,_0x415612[_0x254cf3(0x13f)],_0x4e6ebc[_0x254cf3(0x11e)],![],![],'');if(_0x5927b1){const _0x52ea37={'status':0x1,'message':_0x254cf3(0x1b4)};return _0x50065a[_0x254cf3(0x1c3)](0xc8)[_0x254cf3(0x1b7)](_0x52ea37);}});}[a281_0x3421f6(0x1cc)](_0x35d4fa,_0x39c119){const _0x27a15d=a281_0x3421f6;return tslib_1[_0x27a15d(0x1bc)](this,void 0x0,void 0x0,function*(){const _0xe167bf=_0x27a15d;console['log'](_0x35d4fa+_0xe167bf(0x1c6));const _0x257bc2=require(_0xe167bf(0x136)),_0x537e9b=_0x257bc2[_0xe167bf(0x15d)][_0xe167bf(0x1ed)](Buffer['from'](_0x35d4fa,_0xe167bf(0x123))[_0xe167bf(0x1c2)](_0xe167bf(0x1d7)),env_1[_0xe167bf(0x19e)][_0xe167bf(0x13a)]),_0x375941=_0x537e9b['toString'](_0x257bc2['enc'][_0xe167bf(0x15f)]);console[_0xe167bf(0x118)](_0x375941+'key');const _0x54ded6=yield this[_0xe167bf(0x149)][_0xe167bf(0x1c4)]({'where':{'email':_0x375941,'deleteFlag':0x0}});if(!_0x54ded6){const _0x51533c={'status':0x3,'message':_0xe167bf(0x171)};return _0x39c119['status'](0xc8)[_0xe167bf(0x1b7)](_0x51533c);}if((0x0,moment_1[_0xe167bf(0x170)])(_0x54ded6[_0xe167bf(0x157)])['format'](_0xe167bf(0x1ae))<(0x0,moment_1['default'])()[_0xe167bf(0x126)]('YYYY-MM-DD\x20HH:mm:ss')){const _0x193359={'status':0x2,'message':_0xe167bf(0x182)};return _0x39c119[_0xe167bf(0x1c3)](0xc8)[_0xe167bf(0x1b7)](_0x193359);}if(_0x54ded6[_0xe167bf(0x1ee)]!==''){const _0x2ec86d={'status':0x1,'message':_0xe167bf(0x138)};return _0x39c119[_0xe167bf(0x1c3)](0xc8)[_0xe167bf(0x1b7)](_0x2ec86d);}else{const _0x20aab1={'status':0x3,'message':'This\x20link\x20has\x20been\x20used\x20already.\x20please\x20try\x20again'};return _0x39c119[_0xe167bf(0x1c3)](0xc8)['send'](_0x20aab1);}});}[a281_0x3421f6(0x16c)](_0x374d4b,_0x3eaba3,_0x357cb6,_0x2f6921){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x52b0a5=a281_0x5792,_0x2b4fc1=_0x3eaba3;if(!_0x2b4fc1){const _0x5ae534={'status':0x0,'message':_0x52b0a5(0x1a1)};return _0x2f6921['status'](0x190)['send'](_0x5ae534);}const _0x2f9f49=require(_0x52b0a5(0x136));console[_0x52b0a5(0x118)](_0x2b4fc1+_0x52b0a5(0x1d2));const _0x34bab0=_0x2f9f49[_0x52b0a5(0x15d)]['decrypt'](Buffer[_0x52b0a5(0x189)](_0x2b4fc1,_0x52b0a5(0x123))[_0x52b0a5(0x1c2)](_0x52b0a5(0x1d7)),env_1[_0x52b0a5(0x19e)][_0x52b0a5(0x13a)]),_0x554a17=_0x34bab0[_0x52b0a5(0x1c2)](_0x2f9f49[_0x52b0a5(0x18e)]['Utf8']);console[_0x52b0a5(0x118)](_0x554a17+_0x52b0a5(0x16d));const _0x4bb0a1=yield this[_0x52b0a5(0x149)][_0x52b0a5(0x1c4)]({'select':[_0x52b0a5(0x167),_0x52b0a5(0x1dc),'email','phoneNumber',_0x52b0a5(0x1b9),_0x52b0a5(0x141),_0x52b0a5(0x1aa),'isActive','forgetPasswordKey'],'where':{'email':_0x554a17,'deleteFlag':0x0}}),_0x2818a3=/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])(?=.*?[#?!@$%^&*-])).{8,128}$/;if(!_0x374d4b[_0x52b0a5(0x1bb)](_0x2818a3)){const _0x33ddcd=[];_0x33ddcd[_0x52b0a5(0x14e)](_0x52b0a5(0x152));const _0x15ff18={'status':0x0,'message':'You\x20have\x20an\x20error\x20in\x20your\x20request\x27s\x20body.\x20Check\x20\x27errors\x27\x20field\x20for\x20more\x20details!','data':{'message':_0x33ddcd}};return _0x2f6921[_0x52b0a5(0x1c3)](0x1a6)[_0x52b0a5(0x1b7)](_0x15ff18);}const _0x50a37f=_0x4bb0a1[_0x52b0a5(0x13f)][_0x52b0a5(0x1bb)](/.{3}/g)[_0x52b0a5(0x173)](_0x4bb0a1[_0x52b0a5(0x13f)]['substr'](0x1)[_0x52b0a5(0x1bb)](/.{3}/g),_0x4bb0a1['email'][_0x52b0a5(0x158)](0x2)[_0x52b0a5(0x1bb)](/.{3}/g)),_0x4c8690=new RegExp(_0x50a37f[_0x52b0a5(0x181)]('|'),'i')['test'](_0x374d4b);if(_0x4c8690===!![]){const _0x10a546=[];_0x10a546['push'](_0x52b0a5(0x1cf));const _0x2a72ea={'status':0x0,'message':'You\x20have\x20an\x20error\x20in\x20your\x20request\x27s\x20body.\x20Check\x20\x27errors\x27\x20field\x20for\x20more\x20details!','data':{'message':_0x10a546}};return _0x2f6921[_0x52b0a5(0x1c3)](0x1a6)[_0x52b0a5(0x1b7)](_0x2a72ea);}_0x4bb0a1[_0x52b0a5(0x1b9)]=yield User_1[_0x52b0a5(0x142)][_0x52b0a5(0x190)](_0x374d4b),_0x4bb0a1['forgetPasswordKey']='';const _0x5afb6a=yield this[_0x52b0a5(0x149)][_0x52b0a5(0x1bd)](_0x4bb0a1[_0x52b0a5(0x167)],_0x4bb0a1);if(_0x5afb6a){const _0x56e12d={'status':0x1,'message':_0x52b0a5(0x1e6),'data':_0x4bb0a1[_0x52b0a5(0x13f)]};return _0x2f6921['status'](0xc8)[_0x52b0a5(0x1b7)](_0x56e12d);}});}['getProfile'](_0x232ac8,_0x1f9708){const _0x2d89df=a281_0x3421f6;return tslib_1[_0x2d89df(0x1bc)](this,void 0x0,void 0x0,function*(){const _0xd22832=_0x2d89df,_0x42ebc9=yield this[_0xd22832(0x149)][_0xd22832(0x1c4)]({'select':[_0xd22832(0x11a),_0xd22832(0x167),'email',_0xd22832(0x115),'avatar',_0xd22832(0x1aa),_0xd22832(0x150),_0xd22832(0x129),_0xd22832(0x1dc),'lastName','phoneNumber','isActive','code'],'where':{'userId':_0x232ac8[_0xd22832(0x128)][_0xd22832(0x167)]}}),_0x3e0249={'status':0x1,'message':_0xd22832(0x144),'data':_0x42ebc9};return _0x1f9708[_0xd22832(0x1c3)](0xc8)['send'](_0x3e0249);});}};tslib_1[a281_0x3421f6(0x1a8)]([(0x0,routing_controllers_1[a281_0x3421f6(0x1ea)])(a281_0x3421f6(0x14a)),tslib_1[a281_0x3421f6(0x114)](0x0,(0x0,routing_controllers_1[a281_0x3421f6(0x1b5)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a281_0x3421f6(0x183)])()),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x116),Function),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1e2),[UserLoginRequest_1['UserLogin'],Object]),tslib_1['__metadata'](a281_0x3421f6(0x1b0),Promise)],UserController[a281_0x3421f6(0x199)],a281_0x3421f6(0x18d),null),tslib_1[a281_0x3421f6(0x1a8)]([(0x0,routing_controllers_1[a281_0x3421f6(0x14b)])(a281_0x3421f6(0x1de)),(0x0,routing_controllers_1[a281_0x3421f6(0x148)])(['admin',a281_0x3421f6(0x1e0)]),tslib_1[a281_0x3421f6(0x114)](0x0,(0x0,routing_controllers_1[a281_0x3421f6(0x1db)])('limit')),tslib_1['__param'](0x1,(0x0,routing_controllers_1['QueryParam'])(a281_0x3421f6(0x18f))),tslib_1[a281_0x3421f6(0x114)](0x2,(0x0,routing_controllers_1['QueryParam'])(a281_0x3421f6(0x192))),tslib_1[a281_0x3421f6(0x114)](0x3,(0x0,routing_controllers_1[a281_0x3421f6(0x1db)])(a281_0x3421f6(0x179))),tslib_1['__param'](0x4,(0x0,routing_controllers_1['Req'])()),tslib_1['__param'](0x5,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata']('design:type',Function),tslib_1[a281_0x3421f6(0x1d8)]('design:paramtypes',[Number,Number,String,Object,Object,Object]),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1b0),Promise)],UserController[a281_0x3421f6(0x199)],'findAll',null),tslib_1[a281_0x3421f6(0x1a8)]([(0x0,routing_controllers_1[a281_0x3421f6(0x1ea)])(a281_0x3421f6(0x1cd)),(0x0,routing_controllers_1['Authorized'])([a281_0x3421f6(0x1ab),a281_0x3421f6(0x18c)]),tslib_1[a281_0x3421f6(0x114)](0x0,(0x0,routing_controllers_1[a281_0x3421f6(0x1b5)])({'validate':!![]})),tslib_1[a281_0x3421f6(0x114)](0x1,(0x0,routing_controllers_1[a281_0x3421f6(0x183)])()),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x116),Function),tslib_1[a281_0x3421f6(0x1d8)]('design:paramtypes',[CreateUserRequest_1[a281_0x3421f6(0x122)],Object]),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1b0),Promise)],UserController[a281_0x3421f6(0x199)],'createUser',null),tslib_1[a281_0x3421f6(0x1a8)]([(0x0,routing_controllers_1[a281_0x3421f6(0x1a6)])('/update-user/:id'),(0x0,routing_controllers_1['Authorized'])(['admin',a281_0x3421f6(0x17e)]),tslib_1[a281_0x3421f6(0x114)](0x0,(0x0,routing_controllers_1[a281_0x3421f6(0x169)])('id')),tslib_1[a281_0x3421f6(0x114)](0x1,(0x0,routing_controllers_1[a281_0x3421f6(0x1b5)])({'validate':!![]})),tslib_1[a281_0x3421f6(0x114)](0x2,(0x0,routing_controllers_1[a281_0x3421f6(0x12c)])()),tslib_1[a281_0x3421f6(0x114)](0x3,(0x0,routing_controllers_1[a281_0x3421f6(0x183)])()),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x116),Function),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1e2),[Number,UpdateUserRequest_1[a281_0x3421f6(0x1d4)],Object,Object]),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1b0),Promise)],UserController['prototype'],a281_0x3421f6(0x19b),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a281_0x3421f6(0x1eb)])('/delete-user/:id'),(0x0,routing_controllers_1['Authorized'])([a281_0x3421f6(0x1ab),a281_0x3421f6(0x11b)]),tslib_1[a281_0x3421f6(0x114)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1[a281_0x3421f6(0x114)](0x1,(0x0,routing_controllers_1[a281_0x3421f6(0x12c)])()),tslib_1[a281_0x3421f6(0x114)](0x2,(0x0,routing_controllers_1[a281_0x3421f6(0x183)])()),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x116),Function),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1e2),[Number,Object,Object]),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1b0),Promise)],UserController['prototype'],a281_0x3421f6(0x14f),null),tslib_1[a281_0x3421f6(0x1a8)]([(0x0,routing_controllers_1[a281_0x3421f6(0x1ea)])('/forgot-password'),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a281_0x3421f6(0x1b5)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a281_0x3421f6(0x183)])()),tslib_1[a281_0x3421f6(0x1d8)]('design:type',Function),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1e2),[ForgotPasswordRequest_1[a281_0x3421f6(0x1b1)],Object]),tslib_1['__metadata'](a281_0x3421f6(0x1b0),Promise)],UserController[a281_0x3421f6(0x199)],a281_0x3421f6(0x13d),null),tslib_1[a281_0x3421f6(0x1a8)]([(0x0,routing_controllers_1[a281_0x3421f6(0x1a6)])(a281_0x3421f6(0x18a)),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a281_0x3421f6(0x114)](0x0,(0x0,routing_controllers_1[a281_0x3421f6(0x1b5)])({'validate':!![]})),tslib_1[a281_0x3421f6(0x114)](0x1,(0x0,routing_controllers_1[a281_0x3421f6(0x12c)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x116),Function),tslib_1['__metadata']('design:paramtypes',[ChangePasswordRequest_1[a281_0x3421f6(0x1d3)],Object,Object]),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1b0),Promise)],UserController[a281_0x3421f6(0x199)],a281_0x3421f6(0x137),null),tslib_1[a281_0x3421f6(0x1a8)]([(0x0,routing_controllers_1['Post'])('/edit-profile'),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a281_0x3421f6(0x114)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a281_0x3421f6(0x114)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a281_0x3421f6(0x114)](0x2,(0x0,routing_controllers_1[a281_0x3421f6(0x12c)])()),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x116),Function),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1e2),[EditProfileRequest_1[a281_0x3421f6(0x1cb)],Object,Object]),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1b0),Promise)],UserController[a281_0x3421f6(0x199)],'editProfile',null),tslib_1[a281_0x3421f6(0x1a8)]([(0x0,routing_controllers_1[a281_0x3421f6(0x1ea)])(a281_0x3421f6(0x143)),(0x0,routing_controllers_1[a281_0x3421f6(0x148)])(),tslib_1[a281_0x3421f6(0x114)](0x0,(0x0,routing_controllers_1[a281_0x3421f6(0x12c)])()),tslib_1[a281_0x3421f6(0x114)](0x1,(0x0,routing_controllers_1[a281_0x3421f6(0x183)])()),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x116),Function),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1e2),[Object,Object]),tslib_1['__metadata'](a281_0x3421f6(0x1b0),Promise)],UserController['prototype'],a281_0x3421f6(0x112),null),tslib_1[a281_0x3421f6(0x1a8)]([(0x0,routing_controllers_1['Post'])(a281_0x3421f6(0x180)),tslib_1[a281_0x3421f6(0x114)](0x0,(0x0,routing_controllers_1[a281_0x3421f6(0x1e7)])(a281_0x3421f6(0x13f))),tslib_1[a281_0x3421f6(0x114)](0x1,(0x0,routing_controllers_1[a281_0x3421f6(0x183)])()),tslib_1[a281_0x3421f6(0x114)](0x2,(0x0,routing_controllers_1[a281_0x3421f6(0x12c)])()),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x116),Function),tslib_1['__metadata']('design:paramtypes',[String,Object,Object]),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1b0),Promise)],UserController['prototype'],'forgetPasswordLink',null),tslib_1[a281_0x3421f6(0x1a8)]([(0x0,routing_controllers_1[a281_0x3421f6(0x14b)])(a281_0x3421f6(0x1d5)),tslib_1['__param'](0x0,(0x0,routing_controllers_1['QueryParam'])(a281_0x3421f6(0x16d))),tslib_1[a281_0x3421f6(0x114)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x116),Function),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1e2),[String,Object]),tslib_1['__metadata'](a281_0x3421f6(0x1b0),Promise)],UserController[a281_0x3421f6(0x199)],'keyCheck',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a281_0x3421f6(0x1a6)])(a281_0x3421f6(0x166)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a281_0x3421f6(0x1e7)])('newPassword')),tslib_1[a281_0x3421f6(0x114)](0x1,(0x0,routing_controllers_1[a281_0x3421f6(0x1e7)])(a281_0x3421f6(0x16d))),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a281_0x3421f6(0x12c)])()),tslib_1[a281_0x3421f6(0x114)](0x3,(0x0,routing_controllers_1[a281_0x3421f6(0x183)])()),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x116),Function),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1e2),[String,String,Object,Object]),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1b0),Promise)],UserController['prototype'],'resetPassword',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a281_0x3421f6(0x14b)])(a281_0x3421f6(0x1d1)),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a281_0x3421f6(0x114)](0x0,(0x0,routing_controllers_1[a281_0x3421f6(0x12c)])()),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a281_0x3421f6(0x183)])()),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x116),Function),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1e2),[Object,Object]),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1b0),Promise)],UserController['prototype'],a281_0x3421f6(0x1af),null),UserController=tslib_1[a281_0x3421f6(0x1a8)]([(0x0,routing_controllers_1['JsonController'])('/auth'),tslib_1[a281_0x3421f6(0x1d8)](a281_0x3421f6(0x1e2),[UserService_1[a281_0x3421f6(0x10f)],UserGroupService_1[a281_0x3421f6(0x17c)],AccessTokenService_1['AccessTokenService'],EmailTemplateService_1[a281_0x3421f6(0x119)],S3Service_1[a281_0x3421f6(0x153)],SettingService_1[a281_0x3421f6(0x1dd)],ImageService_1['ImageService']])],UserController),exports[a281_0x3421f6(0x12f)]=UserController;function a281_0x1b55(){const _0x483e38=['/change-password','parse','create-user','login','enc','offset','hashPassword','lastName','keyword','minutes','24NNibIb','562284sPoHuA','./requests/UserLoginRequest','3933405paHmCq','{xxxxxx}','prototype','Your\x20password\x20changed\x20successfully.','updateUser','../../core/services/S3Service','1766484NOEIfW','env','../../core/models/AccessTokenModel','userGroupId','Key\x20is\x20missing','permission','Invalid\x20token.','jsonwebtoken','AccessToken','Put','1845784UZsBVk','__decorate','settingService','avatarPath','admin','split','delete','YYYY-MM-DD\x20HH:mm:ss','getProfile','design:returntype','ForgotPassword','jwtSecret','availImageTypes','If\x20the\x20user\x20is\x20registered\x20a\x20link\x20to\x20reset\x20the\x20password\x20will\x20be\x20sent\x20to\x20the\x20user’s\x20email\x20address.','Body','Invalid\x20user\x20Group\x20Id.','send','findAll','password','adminRedirectUrl','match','__awaiter','update','logo','adminForgetPasswordLink','editProfile','./requests/EditProfileRequest','toString','status','findOne','now','enkKey','imageService','../../core/services/UserGroupService','token','user/','EditProfileRequest','keyCheck','/create-user','list','Password\x20must\x20not\x20duplicate\x20any\x20part\x20of\x20the\x20email\x20address','Your\x20old\x20password\x20is\x20wrong.','/get-profile','tokenKey','ChangePassword','UpdateUserRequest','/forgot-password-key-check','67732HSsZfn','ascii','__metadata','Raw','moment','QueryParam','firstName','SettingService','/userlist','imageUpload','list-user','Invalid\x20email\x20Id.','design:paramtypes','routing-controllers','User\x20Deleted\x20successfully.','Your\x20password\x20has\x20been\x20sent\x20to\x20your\x20email\x20inbox.','Your\x20password\x20has\x20been\x20changed\x20successfully','BodyParam','Successfully\x20get\x20All\x20user\x20List','This\x20user\x20already\x20exists.','Post','Delete','s3Service','decrypt','forgetPasswordKey','UserService',')\x20=\x20\x27','add','logout','Invalid\x20User\x20Id.','__param','address','design:type','createUser','log','EmailTemplateService','username','delete-user','imageserver','random','subject','{name}','__importDefault','productDetailData','CreateUser','base64','../../core/models/User','../../core/services/UserService','format','content','user','deleteFlag','authorization','Wrong\x20Login\x20Information.','Req','User\x20Created\x20Successfully','length','UserController','headers','newPassword','forgetPasswordLink','Error\x20in\x20sending\x20email.','reflect-metadata','Bearer','crypto-js','changePassword','Valid\x20key','LOWER(','cryptoSecret','Only\x20','../../../auth/mail.services','forgotPassword','emailTemplateService','email','Logged\x20in\x20successfully.','avatar','User','/logout','Successfully\x20Get\x20the\x20Profile.','sign','comparePassword','../../core/services/SettingService','Authorized','userService','/login','Get','../../core/services/AccessTokenService','__esModule','push','remove','createdDate','Successfully\x20updated\x20the\x20profile.','Password\x20must\x20contain\x20at\x20least\x20one\x20number\x20or\x20one\x20symbol\x20and\x20one\x20uppercase\x20and\x20lowercase\x20letter,\x20and\x20at\x20least\x208\x20and\x20at\x20most\x20128\x20characters','S3Service','{link}','oldPassword','./requests/UpdateUserRequest','linkExpires','substr','{username}','create','accessTokenService','isActive','AES','You\x20cannot\x20edit\x20this\x20user\x20as\x20this\x20user\x20is\x20logged\x20in\x20at\x20the\x20moment.','Utf8','emailContent','7VmMbVL','userGroupService','You\x20have\x20an\x20error\x20in\x20your\x20request\x27s\x20body.\x20Check\x20\x27errors\x27\x20field\x20for\x20more\x20details!','defineProperty','phoneNumber','/reset-password','userId','User\x20updated\x20successfully.','Param','./requests/CreateUserRequest','sendMail','resetPassword','key','replace','2553735mPQnBc','default','Invalid\x20key.\x20please\x20try\x20again','MAILService','concat','toLowerCase','Unable\x20to\x20update\x20the\x20user.','redirectUrl','Successfully\x20Logout.','5236902rdqsrb','count','Unable\x20to\x20delete\x20the\x20user.','usergroup','UserGroupService','class-transformer','edit-user','../../core/services/ImageService','/forgot-password-link','join','Your\x20forgot\x20password\x20link\x20got\x20expired,\x20try\x20again.','Res','?token=','encrypt','You\x20cannot\x20Edit\x20logged\x20in\x20User','\x20types\x20are\x20allowed','{password}','from'];a281_0x1b55=function(){return _0x483e38;};return a281_0x1b55();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const class_transformer_1 = require("class-transformer");
+const jsonwebtoken_1 = tslib_1.__importDefault(require("jsonwebtoken"));
+const env_1 = require("../../../env");
+const ForgotPasswordRequest_1 = require("./requests/ForgotPasswordRequest");
+const UserLoginRequest_1 = require("./requests/UserLoginRequest");
+const CreateUserRequest_1 = require("./requests/CreateUserRequest");
+const UpdateUserRequest_1 = require("./requests/UpdateUserRequest");
+const User_1 = require("../../core/models/User");
+const AccessTokenModel_1 = require("../../core/models/AccessTokenModel");
+const UserService_1 = require("../../core/services/UserService");
+const UserGroupService_1 = require("../../core/services/UserGroupService");
+const ChangePasswordRequest_1 = require("./requests/ChangePasswordRequest");
+const EditProfileRequest_1 = require("./requests/EditProfileRequest");
+const AccessTokenService_1 = require("../../core/services/AccessTokenService");
+const EmailTemplateService_1 = require("../../core/services/EmailTemplateService");
+const mail_services_1 = require("../../../auth/mail.services");
+const ImageService_1 = require("../../core/services/ImageService");
+const S3Service_1 = require("../../core/services/S3Service");
+const SettingService_1 = require("../../core/services/SettingService");
+const typeorm_1 = require("typeorm");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+let UserController = class UserController {
+    constructor(userService, userGroupService, accessTokenService, emailTemplateService, s3Service, settingService, imageService) {
+        this.userService = userService;
+        this.userGroupService = userGroupService;
+        this.accessTokenService = accessTokenService;
+        this.emailTemplateService = emailTemplateService;
+        this.s3Service = s3Service;
+        this.settingService = settingService;
+        this.imageService = imageService;
+    }
+    // Login API
+    /**
+     * @api {post} /api/auth/login Login
+     * @apiGroup Authentication
+     * @apiParam (Request body) {String} username User Username
+     * @apiParam (Request body) {String} password User Password
+     * @apiParamExample {json} Input
+     * {
+     *      "username" : "",
+     *      "password" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "data": "{
+     *         "token":''
+     *      }",
+     *      "message": "Successfully login",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/login
+     * @apiErrorExample {json} Login error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    login(loginParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const user = yield this.userService.findOne({
+                where: {
+                    username: (0, typeorm_1.Raw)(alias => `LOWER(${alias}) = '${loginParam.username.toLowerCase()}'`),
+                    isActive: 1,
+                    deleteFlag: 0,
+                },
+                relations: ['usergroup'],
+            });
+            if (user) {
+                if (yield User_1.User.comparePassword(user, loginParam.password)) {
+                    // create a token
+                    const token = jsonwebtoken_1.default.sign({ id: user.userId, role: 'admin' }, env_1.env.jwtSecret, {
+                        expiresIn: '4h',
+                    });
+                    if (user.usergroup.isActive === 0) {
+                        const errorResponse = {
+                            status: 0,
+                            message: 'InActive Role.',
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                    let permission = {};
+                    if (user.userGroupId !== 1) {
+                        const userDetail = yield this.userService.findOne({ where: { userId: user.userId } });
+                        if (userDetail.permission) {
+                            permission = JSON.parse(userDetail.permission);
+                        }
+                        else {
+                            const roleDetail = yield this.userGroupService.findOne({ where: { groupId: user.userGroupId } });
+                            permission = roleDetail.permission ? JSON.parse(roleDetail.permission) : {};
+                        }
+                    }
+                    if (token) {
+                        const newToken = new AccessTokenModel_1.AccessToken();
+                        newToken.userId = user.userId;
+                        newToken.token = token;
+                        newToken.userType = 'admin';
+                        yield this.accessTokenService.create(newToken);
+                        const Crypto = require('crypto-js');
+                        const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
+                        const successResponse = {
+                            status: 1,
+                            message: 'Logged in successfully.',
+                            data: {
+                                token: ciphertextToken,
+                                user: (0, class_transformer_1.instanceToPlain)(user),
+                                permission,
+                            },
+                        };
+                        return response.status(200).send(successResponse);
+                    }
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Wrong Login Information.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Wrong Login Information.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // User List API
+    /**
+     * @api {get} /api/auth/userlist User List API
+     * @apiGroup Authentication
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get user list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/userlist
+     * @apiErrorExample {json} User Profile error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    findAll(limit, offset, keyword, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const relation = ['usergroup'];
+            const WhereConditions = [{
+                    name: 'deleteFlag',
+                    value: 0,
+                }];
+            const user = yield this.userService.list(limit, offset, ['userId', 'username', 'firstName', 'lastName', 'email', 'address', 'phoneNumber', 'avatar', 'avatarPath', 'password', 'createdDate'], relation, WhereConditions, keyword, count);
+            const successResponse = {
+                status: 1,
+                data: user,
+                message: 'Successfully get All user List',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Create User API
+    /**
+     * @api {post} /api/auth/create-user Create User API
+     * @apiGroup Authentication
+     * @apiParam (Request body) {String{..96}} username userName
+     * @apiParam (Request body) {String{8..128}} password password
+     * @apiParam (Request body) {String{..32}} firstName User First Name
+     * @apiParam (Request body) {String{..32}} lastName User Last Name
+     * @apiParam (Request body) {String{..96}} email User Email-Id
+     * @apiParam (Request body) {Number} userGroupId User GroupId
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "username" : "",
+     *      "password" : "",
+     *      "firstName" : "",
+     *      "lastName" : "",
+     *      "email" : "",
+     *      "userGroupId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "New User is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/create-user
+     * @apiErrorExample {json} createUser error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createUser(createParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const userGroupExistWhereCondition = [
+                {
+                    name: 'id',
+                    value: createParam.userGroupId,
+                },
+            ];
+            const userGroupExistRecord = yield this.userGroupService.list(0, 0, [], userGroupExistWhereCondition, 0);
+            if (userGroupExistRecord.length === 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid user Group Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const user = yield this.userService.findOne({
+                where: {
+                    username: createParam.username,
+                    deleteFlag: 0,
+                },
+            });
+            if (user) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'This user already exists.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newUserPassword = yield User_1.User.hashPassword(createParam.password);
+            const newUserParams = new User_1.User();
+            newUserParams.username = createParam.username;
+            newUserParams.password = newUserPassword;
+            newUserParams.firstName = createParam.firstName;
+            newUserParams.lastName = createParam.lastName;
+            newUserParams.email = createParam.email;
+            newUserParams.deleteFlag = 0;
+            newUserParams.userGroupId = createParam.userGroupId;
+            newUserParams.isActive = 1;
+            const userSaveResponse = yield this.userService.create(newUserParams);
+            // sending login Credential email to new user
+            if (userSaveResponse) {
+                const emailContent = yield this.emailTemplateService.findOne(7);
+                const message = emailContent.content.replace('{name}', createParam.username).replace('{username}', createParam.email).replace('{password}', createParam.password);
+                const redirectUrl = env_1.env.adminRedirectUrl;
+                const logo = yield this.settingService.findOne();
+                const mailContents = {};
+                mailContents.logo = logo;
+                mailContents.emailContent = message;
+                mailContents.redirectUrl = redirectUrl;
+                mailContents.productDetailData = undefined;
+                mail_services_1.MAILService.sendMail(mailContents, createParam.email, emailContent.subject, false, false, '');
+                const successResponse = {
+                    status: 1,
+                    message: 'User Created Successfully',
+                    data: userSaveResponse,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // update User API
+    /**
+     * @api {put} /api/auth/update-user/:id Update User API
+     * @apiGroup Authentication
+     * @apiParam (Request body) {String} username userName
+     * @apiParam (Request body) {String} [password] password
+     * @apiParam (Request body) {String{..32}} firstName User First Name
+     * @apiParam (Request body) {String{..32}} lastName User Last Name
+     * @apiParam (Request body) {String} email User Email-Id
+     * @apiParam (Request body) {Number} userGroupId User GroupId
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "username" : "",
+     *      "password" : "",
+     *      "firstName" : "",
+     *      "lastName" : "",
+     *      "email" : "",
+     *      "userGroupId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "User is updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/update-user/:id
+     * @apiErrorExample {json} updateUser error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateUser(id, createParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (request.user.userId === id) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You cannot Edit logged in User',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const userGroupExistWhereCondition = [
+                {
+                    name: 'id',
+                    value: createParam.userGroupId,
+                },
+            ];
+            const userGroupExistRecord = yield this.userGroupService.list(0, 0, [], userGroupExistWhereCondition, 0);
+            if (userGroupExistRecord.length === 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid user Group Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newUserPassword = yield User_1.User.hashPassword(createParam.password);
+            const newUserParams = new User_1.User();
+            newUserParams.username = createParam.username;
+            if (createParam.password) {
+                const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;
+                if (!createParam.password.match(pattern)) {
+                    const passwordValidatingMessage = [];
+                    passwordValidatingMessage.push('Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
+                    const errResponse = {
+                        status: 0,
+                        message: "You have an error in your request's body. Check 'errors' field for more details!",
+                        data: { message: passwordValidatingMessage },
+                    };
+                    return response.status(422).send(errResponse);
+                }
+                newUserParams.password = newUserPassword;
+            }
+            newUserParams.firstName = createParam.firstName;
+            newUserParams.lastName = createParam.lastName;
+            newUserParams.email = createParam.email;
+            newUserParams.userGroupId = createParam.userGroupId;
+            newUserParams.isActive = 1;
+            const userSaveResponse = yield this.userService.update(id, newUserParams);
+            if (userSaveResponse) {
+                const successResponse = {
+                    status: 1,
+                    message: 'User updated successfully.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the user.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete User API
+    /**
+     * @api {delete} /api/auth/delete-user/:id Delete User
+     * @apiGroup Authentication
+     * @apiParam (Request body) {Number} id UserId
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "User is deleted successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/delete-user/:id
+     * @apiErrorExample {json} updateUser error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    remove(id, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (request.user.userId === id) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You cannot edit this user as this user is logged in at the moment.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const user = yield this.userService.findOne({
+                where: {
+                    userId: id,
+                },
+            });
+            if (!user) {
+                const errResponse = {
+                    status: 1,
+                    message: 'Invalid User Id.',
+                };
+                return response.status(400).send(errResponse);
+            }
+            user.deleteFlag = 1;
+            const deleteUser = yield this.userService.create(user);
+            if (deleteUser) {
+                const successResponse = {
+                    status: 1,
+                    message: 'User Deleted successfully.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the user.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // forgot Password API
+    /**
+     * @api {post} /api/auth/forgot-password Forgot Password API
+     * @apiGroup Authentication
+     * @apiParam (Request body) {String} email User email
+     * @apiParamExample {json} Input
+     * {
+     *      "email" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Thank you. Your password send to your email",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/forgot-password
+     * @apiErrorExample {json} User error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    forgotPassword(forgotPassword, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const user = yield this.userService.findOne({
+                where: {
+                    email: forgotPassword.email,
+                },
+            });
+            if (!user) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid email Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const tempPassword = Math.random().toString().substr(2, 5);
+            const password = yield User_1.User.hashPassword(tempPassword);
+            user.password = password;
+            yield this.userService.create(user);
+            const emailContent = yield this.emailTemplateService.findOne(2);
+            const logo = yield this.settingService.findOne();
+            const message = emailContent.content.replace('{name}', user.firstName).replace('{xxxxxx}', tempPassword);
+            const redirectUrl = env_1.env.adminRedirectUrl;
+            const mailContents = {};
+            mailContents.logo = logo;
+            mailContents.emailContent = message;
+            mailContents.redirectUrl = redirectUrl;
+            mailContents.productDetailData = undefined;
+            const sendMailRes = mail_services_1.MAILService.sendMail(mailContents, user.email, emailContent.subject, false, false, '');
+            if (sendMailRes) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Your password has been sent to your email inbox.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Error in sending email.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Change Password API
+    /**
+     * @api {put} /api/auth/change-password Change Password API
+     * @apiGroup Authentication
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} oldPassword User oldPassword
+     * @apiParam (Request body) {String} newPassword User newPassword
+     * @apiParamExample {json} Input
+     * {
+     *      "oldPassword" : "",
+     *      "newPassword" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Password changed",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/change-password
+     * @apiErrorExample {json} User error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    changePassword(changePasswordParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const user = yield this.userService.findOne({
+                where: {
+                    userId: request.user.userId,
+                },
+            });
+            if (!user) {
+                const errResponse = {
+                    status: 0,
+                    message: 'Invalid user Id.',
+                };
+                return response.status(400).send(errResponse);
+            }
+            if (yield User_1.User.comparePassword(user, changePasswordParam.oldPassword)) {
+                const val = yield User_1.User.comparePassword(user, changePasswordParam.newPassword);
+                if (val) {
+                    const errResponse = {
+                        status: 0,
+                        message: 'Existing password and New password should not match',
+                    };
+                    return response.status(400).send(errResponse);
+                }
+                const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;
+                if (!changePasswordParam.newPassword.match(pattern)) {
+                    const passwordValidatingMessage = [];
+                    passwordValidatingMessage.push('Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
+                    const errResponse = {
+                        status: 0,
+                        message: "You have an error in your request's body. Check 'errors' field for more details!",
+                        data: { message: passwordValidatingMessage },
+                    };
+                    return response.status(422).send(errResponse);
+                }
+                user.password = yield User_1.User.hashPassword(changePasswordParam.newPassword);
+                const updateUser = yield this.userService.update(user.userId, user);
+                if (updateUser) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Your password changed successfully.',
+                    };
+                    return response.status(200).send(successResponse);
+                }
+            }
+            const errorResponse = {
+                status: 0,
+                message: 'Your old password is wrong.',
+            };
+            return response.status(400).send(errorResponse);
+        });
+    }
+    // Edit Profile API
+    /**
+     * @api {post} /api/auth/edit-profile Edit Profile API
+     * @apiGroup Authentication
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..96}} username User username
+     * @apiParam (Request body) {String{..96}} email User email
+     * @apiParam (Request body) {String{..15}} phoneNumber User phoneNumber
+     * @apiParam (Request body) {String{.255}} address User address
+     * @apiParam (Request body) {String} [avatar] User avatar
+     * @apiParamExample {json} Input
+     * {
+     *      "username" : "",
+     *      "email" : "",
+     *      "phoneNumber" : "",
+     *      "address" : "",
+     *      "avatar" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated User.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/edit-profile
+     * @apiErrorExample {json} User error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    editProfile(editProfileParam, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const user = yield this.userService.findOne({
+                where: {
+                    userId: request.user.userId,
+                },
+            });
+            if (!user) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid User Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const avatar = editProfileParam.avatar;
+            if (avatar) {
+                const type = avatar.split(';')[0].split('/')[1];
+                const availableTypes = env_1.env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse = {
+                        status: 0,
+                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                const name = 'Img_' + Date.now() + '.' + type;
+                const path = 'user/';
+                const base64Data = Buffer.from(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const stringLength = avatar.replace(/^data:image\/\w+;base64,/, '').length;
+                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                const sizeInKb = sizeInBytes / 1024;
+                if (+sizeInKb <= 2048) {
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((path + name), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((path + name), base64Data);
+                    }
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Not able to update as the file size is too large.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                user.avatar = name;
+                user.avatarPath = path;
+            }
+            user.username = editProfileParam.username;
+            user.email = editProfileParam.email;
+            user.phoneNumber = editProfileParam.phoneNumber;
+            user.address = editProfileParam.address;
+            const userSave = yield this.userService.create(user);
+            userSave.usergroup = yield this.userGroupService.findOne({ where: { groupId: userSave.userGroupId } });
+            if (userSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated the profile.',
+                    data: userSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to edit the profile.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Logout API
+    /**
+     * @api {post} /api/auth/logout Log Out API
+     * @apiGroup Authentication
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully logout",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/logout
+     * @apiErrorExample {json} Logout error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    logout(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const token = request.headers.authorization.split(' ')[0] === 'Bearer' ? request.headers.authorization.split(' ')[1] : '';
+            if (!token) {
+                const successResponseBeforeToken = {
+                    status: 1,
+                    message: 'Successfully Logout.',
+                };
+                return response.status(200).send(successResponseBeforeToken);
+            }
+            const Crypto = require('crypto-js');
+            const bytes = Crypto.AES.decrypt(token, env_1.env.cryptoSecret);
+            const originalEncryptedString = bytes.toString(Crypto.enc.Utf8);
+            const user = yield this.accessTokenService.findOne({
+                where: {
+                    token: originalEncryptedString,
+                },
+            });
+            if (!user) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid token.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteToken = yield this.accessTokenService.delete(user);
+            if (!deleteToken) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully Logout.',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // forgot password link
+    /**
+     * @api {post} /api/auth/forgot-password-link Forgot Password Link API
+     * @apiGroup  Authentication
+     * @apiParam (Request body) {String} email User email
+     * @apiParamExample {json} Input
+     * {
+     *      "email" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/forgot-password-link
+     * @apiErrorExample {json} admin forgot password error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    forgetPasswordLink(emailId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = yield this.userService.findOne({
+                where: { email: emailId, deleteFlag: 0 },
+            });
+            if (!customer) {
+                const errResponse = {
+                    status: 1,
+                    message: 'If the user is registered a link to reset the password will be sent to the user’s email address.',
+                };
+                return response.status(200).send(errResponse);
+            }
+            const Crypto = require('crypto-js');
+            const val = Crypto.AES.encrypt(customer.email, env_1.env.cryptoSecret).toString();
+            const encryptedKey = Buffer.from(val).toString('base64');
+            console.log(encryptedKey + 'enc');
+            customer.forgetPasswordKey = encryptedKey;
+            customer.linkExpires = (0, moment_1.default)().add(20, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            yield this.userService.update(customer.userId, customer);
+            const emailContent = yield this.emailTemplateService.findOne(23);
+            const logo = yield this.settingService.findOne();
+            const redirectUrl = env_1.env.adminForgetPasswordLink + '?token=' + encryptedKey;
+            console.log(redirectUrl + 'redirectUrl');
+            const message = emailContent.content.replace('{name}', customer.firstName).replace('{link}', redirectUrl);
+            const mailContents = {};
+            mailContents.logo = logo;
+            mailContents.emailContent = message;
+            mailContents.redirectUrl = redirectUrl;
+            mailContents.productDetailData = undefined;
+            const sendMailRes = mail_services_1.MAILService.sendMail(mailContents, customer.email, emailContent.subject, false, false, '');
+            if (sendMailRes) {
+                const successResponse = {
+                    status: 1,
+                    message: 'If the user is registered a link to reset the password will be sent to the user’s email address.',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // forget password key check
+    /**
+     * @api {get} /api/auth/forgot-password-key-check Forgot Password Key check API
+     * @apiGroup   Authentication
+     * @apiParam (Request body) {String} key key
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/forgot-password-key-check
+     * @apiErrorExample {json} admin forget password error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    keyCheck(encryptedKey, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            console.log(encryptedKey + 'enkKey');
+            const Crypto = require('crypto-js');
+            const bytes = Crypto.AES.decrypt(Buffer.from(encryptedKey, 'base64').toString('ascii'), env_1.env.cryptoSecret);
+            const decodedTokenKey = bytes.toString(Crypto.enc.Utf8);
+            console.log(decodedTokenKey + 'key');
+            const customer = yield this.userService.findOne({
+                where: { email: decodedTokenKey, deleteFlag: 0 },
+            });
+            if (!customer) {
+                const errResponse = {
+                    status: 3,
+                    message: 'Invalid key. please try again',
+                };
+                return response.status(200).send(errResponse);
+            }
+            if ((0, moment_1.default)(customer.linkExpires).format('YYYY-MM-DD HH:mm:ss') < (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')) {
+                const expirationError = {
+                    status: 2,
+                    message: 'Your forgot password link got expired, try again.',
+                };
+                return response.status(200).send(expirationError);
+            }
+            if (customer.forgetPasswordKey !== '') {
+                const successResponse = {
+                    status: 1,
+                    message: 'Valid key',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const successResponse = {
+                    status: 3,
+                    message: 'This link has been used already. please try again',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // reset password
+    /**
+     * @api {put} /api/auth/reset-password  Reset Password API
+     * @apiGroup  Authentication
+     * @apiParam (Request body) {String} newPassword  newPassword
+     * @apiParam (Request body) {String} key  key
+     * @apiParamExample {json} Input
+     * {
+     *      "key": "",
+     *      "newPassword" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Password changed",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/auth/reset-password
+     * @apiErrorExample {json} admin resetpassword error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    resetPassword(newPassword, key, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const tokenKey = key;
+            if (!tokenKey) {
+                const keyError = {
+                    status: 0,
+                    message: 'Key is missing',
+                };
+                return response.status(400).send(keyError);
+            }
+            const Crypto = require('crypto-js');
+            console.log(tokenKey + 'tokenKey');
+            const bytes = Crypto.AES.decrypt(Buffer.from(tokenKey, 'base64').toString('ascii'), env_1.env.cryptoSecret);
+            const decodedTokenKey = bytes.toString(Crypto.enc.Utf8);
+            console.log(decodedTokenKey + 'key');
+            const resultData = yield this.userService.findOne({
+                select: ['userId', 'firstName', 'email', 'phoneNumber', 'password', 'avatar', 'avatarPath', 'isActive', 'forgetPasswordKey'],
+                where: { email: decodedTokenKey, deleteFlag: 0 },
+            });
+            const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])(?=.*?[#?!@$%^&*-])).{8,128}$/;
+            if (!newPassword.match(pattern)) {
+                const passwordValidatingMessage = [];
+                passwordValidatingMessage.push('Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
+                const errResponse = {
+                    status: 0,
+                    message: "You have an error in your request's body. Check 'errors' field for more details!",
+                    data: { message: passwordValidatingMessage },
+                };
+                return response.status(422).send(errResponse);
+            }
+            const partsOfThreeLetters = resultData.email.match(/.{3}/g).concat(resultData.email.substr(1).match(/.{3}/g), resultData.email.substr(2).match(/.{3}/g));
+            const matchEmail = new RegExp(partsOfThreeLetters.join('|'), 'i').test(newPassword);
+            if (matchEmail === true) {
+                const validationMessage = [];
+                validationMessage.push('Password must not duplicate any part of the email address');
+                const passwordDuplicateErrorResponse = {
+                    status: 0,
+                    message: "You have an error in your request's body. Check 'errors' field for more details!",
+                    data: { message: validationMessage },
+                };
+                return response.status(422).send(passwordDuplicateErrorResponse);
+            }
+            resultData.password = yield User_1.User.hashPassword(newPassword);
+            resultData.forgetPasswordKey = '';
+            const updateUserData = yield this.userService.update(resultData.userId, resultData);
+            if (updateUserData) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Your password has been changed successfully',
+                    data: resultData.email,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Get User Profile API
+    /**
+     * @api {get} /api/auth/get-profile Get User Profile API
+     * @apiGroup Authentication
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Get the Profile..!",
+     *      "status": "1"
+     *       "data":{}
+     * }
+     * @apiSampleRequest /api/auth/get-profile
+     * @apiErrorExample {json} Get Profile error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Get Profile Function
+    getProfile(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const resultData = yield this.userService.findOne({ select: ['username', 'userId', 'email', 'address', 'avatar', 'avatarPath', 'createdDate', 'deleteFlag', 'firstName', 'lastName', 'phoneNumber', 'isActive', 'code'], where: { userId: request.user.userId } });
+            const successResponse = {
+                status: 1,
+                message: 'Successfully Get the Profile.',
+                data: resultData,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/login'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [UserLoginRequest_1.UserLogin, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "login", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/userlist'),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-user']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "findAll", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/create-user'),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-user']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateUserRequest_1.CreateUser, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "createUser", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-user/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-user']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, UpdateUserRequest_1.UpdateUserRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "updateUser", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-user/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-user']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "remove", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/forgot-password'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [ForgotPasswordRequest_1.ForgotPassword, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "forgotPassword", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/change-password'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [ChangePasswordRequest_1.ChangePassword, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "changePassword", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/edit-profile'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [EditProfileRequest_1.EditProfileRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "editProfile", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/logout'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "logout", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/forgot-password-link'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('email')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "forgetPasswordLink", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/forgot-password-key-check'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('key')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "keyCheck", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/reset-password'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('newPassword')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('key')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "resetPassword", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/get-profile'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserController.prototype, "getProfile", null);
+UserController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/auth'),
+    tslib_1.__metadata("design:paramtypes", [UserService_1.UserService,
+        UserGroupService_1.UserGroupService,
+        AccessTokenService_1.AccessTokenService,
+        EmailTemplateService_1.EmailTemplateService, S3Service_1.S3Service, SettingService_1.SettingService,
+        ImageService_1.ImageService])
+], UserController);
+exports.UserController = UserController;
+//# sourceMappingURL=UserController.js.map

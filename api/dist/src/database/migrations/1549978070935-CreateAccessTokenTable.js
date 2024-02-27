@@ -1,1 +1,78 @@
-'use strict';const a777_0x2644e8=a777_0x13ca;(function(_0xedccc1,_0x4dab2f){const _0x4b20db=a777_0x13ca,_0x4204c2=_0xedccc1();while(!![]){try{const _0x75fe86=parseInt(_0x4b20db(0x191))/0x1+-parseInt(_0x4b20db(0x188))/0x2*(parseInt(_0x4b20db(0x194))/0x3)+parseInt(_0x4b20db(0x18f))/0x4*(parseInt(_0x4b20db(0x192))/0x5)+-parseInt(_0x4b20db(0x195))/0x6+-parseInt(_0x4b20db(0x197))/0x7*(parseInt(_0x4b20db(0x1a3))/0x8)+parseInt(_0x4b20db(0x190))/0x9*(-parseInt(_0x4b20db(0x19c))/0xa)+parseInt(_0x4b20db(0x19b))/0xb;if(_0x75fe86===_0x4dab2f)break;else _0x4204c2['push'](_0x4204c2['shift']());}catch(_0x48db08){_0x4204c2['push'](_0x4204c2['shift']());}}}(a777_0x429c,0x4e78a));function a777_0x13ca(_0x1efb6b,_0x424798){const _0x429cd7=a777_0x429c();return a777_0x13ca=function(_0x13ca33,_0x55b061){_0x13ca33=_0x13ca33-0x188;let _0x2ef613=_0x429cd7[_0x13ca33];return _0x2ef613;},a777_0x13ca(_0x1efb6b,_0x424798);}function a777_0x429c(){const _0x114f73=['9cvXvKg','191711iarrGW','19335GHoAnx','createTable','195819BEjTih','3677136kpoqBb','DATETIME','24787UbnNOs','increment','token','int','18819537PBldJR','5269470mtxqiR','CreateAccessTokenTable1549978070935','down','modified_date','defineProperty','access_token','tslib','416xspRMF','is_active','hasTable','8blLpPZ','integer','varchar','__esModule','dropTable','created_by','255','4QuEviK'];a777_0x429c=function(){return _0x114f73;};return a777_0x429c();}Object[a777_0x2644e8(0x1a0)](exports,a777_0x2644e8(0x18b),{'value':!![]}),exports[a777_0x2644e8(0x19d)]=void 0x0;const tslib_1=require(a777_0x2644e8(0x1a2)),index_1=require('typeorm/index');class CreateAccessTokenTable1549978070935{['up'](_0x2c878b){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4ae488=a777_0x13ca,_0x242190=new index_1['Table']({'name':'access_token','columns':[{'name':'id','type':'int','length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x4ae488(0x198)},{'name':'user_id','type':_0x4ae488(0x189),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4ae488(0x199),'type':_0x4ae488(0x18a),'length':_0x4ae488(0x18e),'isPrimary':![],'isNullable':!![]},{'name':_0x4ae488(0x1a4),'type':_0x4ae488(0x19a),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4ae488(0x18d),'type':_0x4ae488(0x189),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'modified_by','type':_0x4ae488(0x189),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':'DATETIME','isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':_0x4ae488(0x19f),'type':_0x4ae488(0x196),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'}]}),_0x3f1907=yield _0x2c878b[_0x4ae488(0x1a5)](_0x4ae488(0x1a1));!_0x3f1907&&(yield _0x2c878b[_0x4ae488(0x193)](_0x242190));});}[a777_0x2644e8(0x19e)](_0x21f04f){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x986104=a777_0x13ca;yield _0x21f04f[_0x986104(0x18c)](_0x986104(0x1a1),!![]);});}}exports['CreateAccessTokenTable1549978070935']=CreateAccessTokenTable1549978070935;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateAccessTokenTable1549978070935 = void 0;
+const tslib_1 = require("tslib");
+const index_1 = require("typeorm/index");
+class CreateAccessTokenTable1549978070935 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new index_1.Table({
+                name: 'access_token',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'user_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'token',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('access_token');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('access_token', true);
+        });
+    }
+}
+exports.CreateAccessTokenTable1549978070935 = CreateAccessTokenTable1549978070935;
+//# sourceMappingURL=1549978070935-CreateAccessTokenTable.js.map

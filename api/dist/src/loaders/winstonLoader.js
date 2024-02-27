@@ -1,1 +1,27 @@
-'use strict';const a997_0x5b7d41=a997_0x5113;function a997_0x5113(_0x4a7dd8,_0x2c11cd){const _0x285325=a997_0x2853();return a997_0x5113=function(_0x5113ca,_0x3c2eb0){_0x5113ca=_0x5113ca-0xd0;let _0x22a18d=_0x285325[_0x5113ca];return _0x22a18d;},a997_0x5113(_0x4a7dd8,_0x2c11cd);}(function(_0x4fe60c,_0x224781){const _0x27a94f=a997_0x5113,_0x5772b8=_0x4fe60c();while(!![]){try{const _0x23ec23=parseInt(_0x27a94f(0xe6))/0x1*(parseInt(_0x27a94f(0xd1))/0x2)+parseInt(_0x27a94f(0xe1))/0x3*(-parseInt(_0x27a94f(0xd6))/0x4)+-parseInt(_0x27a94f(0xd2))/0x5+-parseInt(_0x27a94f(0xdd))/0x6*(-parseInt(_0x27a94f(0xe2))/0x7)+parseInt(_0x27a94f(0xe7))/0x8+parseInt(_0x27a94f(0xdb))/0x9+-parseInt(_0x27a94f(0xdc))/0xa*(-parseInt(_0x27a94f(0xe9))/0xb);if(_0x23ec23===_0x224781)break;else _0x5772b8['push'](_0x5772b8['shift']());}catch(_0x32d9ee){_0x5772b8['push'](_0x5772b8['shift']());}}}(a997_0x2853,0xdc94e));Object[a997_0x5b7d41(0xda)](exports,a997_0x5b7d41(0xd4),{'value':!![]}),exports[a997_0x5b7d41(0xd8)]=void 0x0;const winston_1=require(a997_0x5b7d41(0xd9)),env_1=require(a997_0x5b7d41(0xe3)),winstonLoader=_0x2e8aa8=>{const _0x54e73f=a997_0x5b7d41;(0x0,winston_1[_0x54e73f(0xd3)])({'transports':[new winston_1[(_0x54e73f(0xe4))]['Console']({'level':env_1[_0x54e73f(0xe5)][_0x54e73f(0xd0)][_0x54e73f(0xe0)],'handleExceptions':!![],'format':env_1['env']['node']!==_0x54e73f(0xd7)?winston_1[_0x54e73f(0xdf)][_0x54e73f(0xd5)](winston_1[_0x54e73f(0xdf)][_0x54e73f(0xde)]()):winston_1['format']['combine'](winston_1[_0x54e73f(0xdf)][_0x54e73f(0xe8)](),winston_1['format']['simple']())})]});};function a997_0x2853(){const _0x481569=['4027345tAqiBi','configure','__esModule','combine','16pUvoMA','development','winstonLoader','winston','defineProperty','465300uNxujg','10QRCxwB','216keZHbX','json','format','level','1069908qeevBG','174776WZbkRW','../env','transports','env','261843JJEQrl','5420880nDgFOB','colorize','13700654ZguWnX','log','2PNBcjQ'];a997_0x2853=function(){return _0x481569;};return a997_0x2853();}exports[a997_0x5b7d41(0xd8)]=winstonLoader;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.winstonLoader = void 0;
+const winston_1 = require("winston");
+const env_1 = require("../env");
+const winstonLoader = (settings) => {
+    (0, winston_1.configure)({
+        transports: [
+            new winston_1.transports.Console({
+                level: env_1.env.log.level,
+                handleExceptions: true,
+                format: env_1.env.node !== 'development'
+                    ? winston_1.format.combine(winston_1.format.json())
+                    : winston_1.format.combine(winston_1.format.colorize(), winston_1.format.simple()),
+            }),
+        ],
+    });
+};
+exports.winstonLoader = winstonLoader;
+//# sourceMappingURL=winstonLoader.js.map

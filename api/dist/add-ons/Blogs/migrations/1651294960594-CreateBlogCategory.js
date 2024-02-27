@@ -1,1 +1,113 @@
-'use strict';function a18_0x3afe(){const _0x41ea9a=['created_by','is_active','sort_order','int','66850jztISa','integer','2701476BHaroE','varchar','__awaiter','29752pRedTW','__esModule','text','image','7240rVRgeD','image_path','defineProperty','1650568NKmSlU','5VJhWBb','CreateBlogCategory1651294960594','blog_category_id','CURRENT_TIMESTAMP','down','increment','hasTable','meta_tag_keyword','blog_category','createTable','meta_tag_title','90izkAng','255','744198DWTRVy','typeorm','76XhGbhX','parent_int','2925310kAIddd','DATETIME','tslib'];a18_0x3afe=function(){return _0x41ea9a;};return a18_0x3afe();}const a18_0x1fe755=a18_0xf728;(function(_0x23baa3,_0x2101ea){const _0x5c906e=a18_0xf728,_0x3dbe40=_0x23baa3();while(!![]){try{const _0x7e65b9=parseInt(_0x5c906e(0x191))/0x1*(-parseInt(_0x5c906e(0x17e))/0x2)+parseInt(_0x5c906e(0x18f))/0x3+-parseInt(_0x5c906e(0x181))/0x4+parseInt(_0x5c906e(0x182))/0x5*(parseInt(_0x5c906e(0x177))/0x6)+parseInt(_0x5c906e(0x175))/0x7+parseInt(_0x5c906e(0x17a))/0x8*(parseInt(_0x5c906e(0x18d))/0x9)+parseInt(_0x5c906e(0x193))/0xa;if(_0x7e65b9===_0x2101ea)break;else _0x3dbe40['push'](_0x3dbe40['shift']());}catch(_0x4ae4b5){_0x3dbe40['push'](_0x3dbe40['shift']());}}}(a18_0x3afe,0x5567d));Object[a18_0x1fe755(0x180)](exports,a18_0x1fe755(0x17b),{'value':!![]}),exports[a18_0x1fe755(0x183)]=void 0x0;function a18_0xf728(_0x5b0ef8,_0x3fe486){const _0x3afecc=a18_0x3afe();return a18_0xf728=function(_0xf72896,_0x26c95a){_0xf72896=_0xf72896-0x173;let _0x4f02bb=_0x3afecc[_0xf72896];return _0x4f02bb;},a18_0xf728(_0x5b0ef8,_0x3fe486);}const tslib_1=require(a18_0x1fe755(0x195)),typeorm_1=require(a18_0x1fe755(0x190));class CreateBlogCategory1651294960594{['up'](_0x55d75f){const _0x3d65df=a18_0x1fe755;return tslib_1[_0x3d65df(0x179)](this,void 0x0,void 0x0,function*(){const _0xfa5e23=_0x3d65df,_0x4aff1b=new typeorm_1['Table']({'name':_0xfa5e23(0x18a),'columns':[{'name':_0xfa5e23(0x184),'type':_0xfa5e23(0x176),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0xfa5e23(0x187)},{'name':'name','type':'varchar','length':_0xfa5e23(0x18e),'isPrimary':![],'isNullable':!![]},{'name':_0xfa5e23(0x17d),'type':_0xfa5e23(0x178),'length':_0xfa5e23(0x18e),'isPrimary':![],'isNullable':!![]},{'name':_0xfa5e23(0x17f),'type':_0xfa5e23(0x178),'length':_0xfa5e23(0x18e),'isPrimary':![],'isNullable':!![]},{'name':_0xfa5e23(0x192),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0xfa5e23(0x173),'type':_0xfa5e23(0x176),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0xfa5e23(0x18c),'type':_0xfa5e23(0x178),'length':_0xfa5e23(0x18e),'isPrimary':![],'isNullable':!![]},{'name':'meta_tag_description','type':_0xfa5e23(0x17c),'isPrimary':![],'isNullable':!![]},{'name':_0xfa5e23(0x189),'type':_0xfa5e23(0x178),'length':'255','isPrimary':![],'isNullable':!![]},{'name':_0xfa5e23(0x197),'type':_0xfa5e23(0x174),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0xfa5e23(0x196),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':'modified_by','type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0xfa5e23(0x194),'isPrimary':![],'isNullable':!![],'default':_0xfa5e23(0x185)},{'name':'modified_date','type':_0xfa5e23(0x194),'isPrimary':![],'isNullable':!![],'default':_0xfa5e23(0x185)}]}),_0x1d2474=yield _0x55d75f[_0xfa5e23(0x188)]('blog_category');!_0x1d2474&&(yield _0x55d75f[_0xfa5e23(0x18b)](_0x4aff1b));});}[a18_0x1fe755(0x186)](_0x2da17b){const _0x4fde1a=a18_0x1fe755;return tslib_1[_0x4fde1a(0x179)](this,void 0x0,void 0x0,function*(){const _0x44e4ea=_0x4fde1a;yield _0x2da17b['dropTable'](_0x44e4ea(0x18a),!![]);});}}exports[a18_0x1fe755(0x183)]=CreateBlogCategory1651294960594;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateBlogCategory1651294960594 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateBlogCategory1651294960594 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'blog_category',
+                columns: [
+                    {
+                        name: 'blog_category_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'image',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'image_path',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'parent_int',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'sort_order',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_tag_title',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_tag_description',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_tag_keyword',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('blog_category');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('blog_category', true);
+        });
+    }
+}
+exports.CreateBlogCategory1651294960594 = CreateBlogCategory1651294960594;
+//# sourceMappingURL=1651294960594-CreateBlogCategory.js.map

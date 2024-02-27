@@ -1,0 +1,1 @@
+{"version":3,"file":"StockStatusFactory.js","sourceRoot":"","sources":["../../../../src/database/factories/StockStatusFactory.ts"],"names":[],"mappings":";AAAA;;;;;;;;GAQG;;AAGH,qDAAyC;AACzC,mEAAgE;AAChE,IAAA,wBAAM,EAAC,yBAAW,EAAE,CAAC,KAAmB,EAAE,QAA0B,EAAE,EAAE;IACpE,MAAM,WAAW,GAAG,IAAI,yBAAW,EAAE,CAAC;IACtC,OAAO,WAAW,CAAC;AACvB,CAAC,CAAC,CAAC"}

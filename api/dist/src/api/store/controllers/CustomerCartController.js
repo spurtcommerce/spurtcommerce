@@ -1,1 +1,192 @@
-'use strict';const a639_0x5898b4=a639_0x54ed;(function(_0x43fb40,_0x2a559c){const _0x5a8485=a639_0x54ed,_0x1c973c=_0x43fb40();while(!![]){try{const _0x10507f=parseInt(_0x5a8485(0x1aa))/0x1*(parseInt(_0x5a8485(0x1a5))/0x2)+parseInt(_0x5a8485(0x1cf))/0x3+-parseInt(_0x5a8485(0x1b1))/0x4*(-parseInt(_0x5a8485(0x1ce))/0x5)+parseInt(_0x5a8485(0x1d7))/0x6+parseInt(_0x5a8485(0x1cc))/0x7*(-parseInt(_0x5a8485(0x1d0))/0x8)+-parseInt(_0x5a8485(0x1c5))/0x9*(-parseInt(_0x5a8485(0x1bc))/0xa)+-parseInt(_0x5a8485(0x1c4))/0xb*(parseInt(_0x5a8485(0x1e3))/0xc);if(_0x10507f===_0x2a559c)break;else _0x1c973c['push'](_0x1c973c['shift']());}catch(_0xd54b4d){_0x1c973c['push'](_0x1c973c['shift']());}}}(a639_0x21a2,0xa9dfa));function a639_0x54ed(_0x3a5245,_0x5e2c0c){const _0x21a2c3=a639_0x21a2();return a639_0x54ed=function(_0x54edc5,_0x4ed744){_0x54edc5=_0x54edc5-0x1a4;let _0x56b58c=_0x21a2c3[_0x54edc5];return _0x56b58c;},a639_0x54ed(_0x3a5245,_0x5e2c0c);}function a639_0x21a2(){const _0x1ca31b=['customerId','data','addCustomerCart','cartCreate','/delete-cart-item','quantity','send','22pkzVlo','9UZDUYg','__metadata','remoteAddress','./requests/CreateCartRequest','/add-cart','tslib','design:returntype','21IsHJqD','message','365vLMKRE','119241PrpGqj','415384TRIBoa','skuName','__decorate','../../core/middlewares/checkTokenMiddleware','design:paramtypes','cartList','headers','5606730CWvglm','__esModule','routing-controllers','cartId','typeorm','deleteCartItem','tirePrice','Get','prototype','design:type','__awaiter','defineProperty','13861212xqKRNm','productPrice','Req','cartDelete','2noGoSD','__param','CheckCustomerMiddleware','connection','limit','594679LxfDZd','user','productIds','getConnection','customerCartList','split','StoreCustomerCartController','15188ZLrLIo','/customer-cart','type','Body','@spurtcommerce/cart','Post','Res','x-forwarded-for','QueryParam','status','/customer-cart-list','13157110KWzpQG'];a639_0x21a2=function(){return _0x1ca31b;};return a639_0x21a2();}Object[a639_0x5898b4(0x1e2)](exports,a639_0x5898b4(0x1d8),{'value':!![]}),exports[a639_0x5898b4(0x1b0)]=void 0x0;const tslib_1=require(a639_0x5898b4(0x1ca));require('reflect-metadata');const routing_controllers_1=require(a639_0x5898b4(0x1d9)),CreateCartRequest_1=require(a639_0x5898b4(0x1c8)),checkTokenMiddleware_1=require(a639_0x5898b4(0x1d3)),cart_1=require(a639_0x5898b4(0x1b5)),typeorm_1=require(a639_0x5898b4(0x1db));let StoreCustomerCartController=class StoreCustomerCartController{constructor(){}['addCustomerCart'](_0x132aa7,_0x3be4d5,_0x1cf774){var _0x4a72e2;return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x159084=a639_0x54ed,_0x29dc92=yield(0x0,cart_1[_0x159084(0x1c0)])((0x0,typeorm_1[_0x159084(0x1ad)])(),{'productId':_0x132aa7['productId'],'skuName':_0x132aa7[_0x159084(0x1d1)],'customerId':_0x3be4d5[_0x159084(0x1ab)]['id'],'quantity':_0x132aa7[_0x159084(0x1c2)],'type':_0x132aa7[_0x159084(0x1b3)],'productPrice':_0x132aa7[_0x159084(0x1e4)],'tirePrice':_0x132aa7[_0x159084(0x1dd)],'ipAddress':(_0x3be4d5[_0x159084(0x1d6)][_0x159084(0x1b8)]||_0x3be4d5[_0x159084(0x1a8)][_0x159084(0x1c7)]||_0x3be4d5['socket'][_0x159084(0x1c7)]||_0x3be4d5[_0x159084(0x1a8)]['socket'][_0x159084(0x1c7)])[_0x159084(0x1af)](',')[0x0]});return _0x1cf774['status'](_0x29dc92[_0x159084(0x1ba)]?0xc8:0x190)['send']({'status':_0x29dc92[_0x159084(0x1ba)],'message':_0x29dc92[_0x159084(0x1cd)],'data':(_0x4a72e2=_0x29dc92[_0x159084(0x1be)])!==null&&_0x4a72e2!==void 0x0?_0x4a72e2:undefined});});}[a639_0x5898b4(0x1ae)](_0x3ec4c9,_0x4b5940,_0x475fc4,_0x1ca409,_0x6a5895){const _0x2960b7=a639_0x5898b4;return tslib_1[_0x2960b7(0x1e1)](this,void 0x0,void 0x0,function*(){const _0x2bf328=_0x2960b7,_0x2cef1f=yield(0x0,cart_1[_0x2bf328(0x1d5)])((0x0,typeorm_1[_0x2bf328(0x1ad)])(),_0x1ca409[_0x2bf328(0x1ab)]['id'],_0x3ec4c9,_0x4b5940,+_0x475fc4);if(_0x2cef1f[_0x2bf328(0x1ba)]===0x0)return _0x6a5895['status'](0x190)[_0x2bf328(0x1c3)]({'status':_0x2cef1f['status'],'message':_0x2cef1f[_0x2bf328(0x1cd)]});return _0x6a5895[_0x2bf328(0x1ba)](0xc8)[_0x2bf328(0x1c3)]({'status':_0x2cef1f[_0x2bf328(0x1ba)],'message':_0x2cef1f[_0x2bf328(0x1cd)],'data':_0x2cef1f[_0x2bf328(0x1be)]});});}[a639_0x5898b4(0x1dc)](_0x350201,_0x54cc52,_0x5a76ce){const _0x482936=a639_0x5898b4;var _0x3a4587;return tslib_1[_0x482936(0x1e1)](this,void 0x0,void 0x0,function*(){const _0x4ee69b=_0x482936,_0x855ad6={};_0x855ad6[_0x4ee69b(0x1bd)]=_0x5a76ce['user']['id'];(_0x350201===null||_0x350201===void 0x0?void 0x0:_0x350201['trim']())&&(_0x855ad6[_0x4ee69b(0x1ac)]=_0x350201['split'](','));const _0x3d63b0=yield(0x0,cart_1[_0x4ee69b(0x1a4)])((0x0,typeorm_1[_0x4ee69b(0x1ad)])(),_0x855ad6);return _0x54cc52[_0x4ee69b(0x1ba)](_0x3d63b0[_0x4ee69b(0x1ba)]?0xc8:0x190)[_0x4ee69b(0x1c3)]({'status':_0x3d63b0[_0x4ee69b(0x1ba)],'message':_0x3d63b0[_0x4ee69b(0x1cd)],'data':(_0x3a4587=_0x3d63b0[_0x4ee69b(0x1be)])!==null&&_0x3a4587!==void 0x0?_0x3a4587:undefined});});}};tslib_1[a639_0x5898b4(0x1d2)]([(0x0,routing_controllers_1['Post'])(a639_0x5898b4(0x1c9)),tslib_1[a639_0x5898b4(0x1a6)](0x0,(0x0,routing_controllers_1[a639_0x5898b4(0x1b4)])({'validate':!![]})),tslib_1[a639_0x5898b4(0x1a6)](0x1,(0x0,routing_controllers_1[a639_0x5898b4(0x1e5)])()),tslib_1[a639_0x5898b4(0x1a6)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata'](a639_0x5898b4(0x1e0),Function),tslib_1[a639_0x5898b4(0x1c6)](a639_0x5898b4(0x1d4),[CreateCartRequest_1['CreateCartRequest'],Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],StoreCustomerCartController['prototype'],a639_0x5898b4(0x1bf),null),tslib_1[a639_0x5898b4(0x1d2)]([(0x0,routing_controllers_1[a639_0x5898b4(0x1de)])(a639_0x5898b4(0x1bb)),tslib_1[a639_0x5898b4(0x1a6)](0x0,(0x0,routing_controllers_1[a639_0x5898b4(0x1b9)])(a639_0x5898b4(0x1a9))),tslib_1[a639_0x5898b4(0x1a6)](0x1,(0x0,routing_controllers_1[a639_0x5898b4(0x1b9)])('offset')),tslib_1[a639_0x5898b4(0x1a6)](0x2,(0x0,routing_controllers_1['QueryParam'])('count')),tslib_1[a639_0x5898b4(0x1a6)](0x3,(0x0,routing_controllers_1[a639_0x5898b4(0x1e5)])()),tslib_1['__param'](0x4,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata']('design:type',Function),tslib_1[a639_0x5898b4(0x1c6)](a639_0x5898b4(0x1d4),[Number,Number,Object,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],StoreCustomerCartController[a639_0x5898b4(0x1df)],a639_0x5898b4(0x1ae),null),tslib_1[a639_0x5898b4(0x1d2)]([(0x0,routing_controllers_1[a639_0x5898b4(0x1b6)])(a639_0x5898b4(0x1c1)),tslib_1['__param'](0x0,(0x0,routing_controllers_1['BodyParam'])(a639_0x5898b4(0x1da))),tslib_1[a639_0x5898b4(0x1a6)](0x1,(0x0,routing_controllers_1[a639_0x5898b4(0x1b7)])()),tslib_1[a639_0x5898b4(0x1a6)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1[a639_0x5898b4(0x1c6)](a639_0x5898b4(0x1e0),Function),tslib_1[a639_0x5898b4(0x1c6)](a639_0x5898b4(0x1d4),[String,Object,Object]),tslib_1[a639_0x5898b4(0x1c6)](a639_0x5898b4(0x1cb),Promise)],StoreCustomerCartController[a639_0x5898b4(0x1df)],a639_0x5898b4(0x1dc),null),StoreCustomerCartController=tslib_1[a639_0x5898b4(0x1d2)]([(0x0,routing_controllers_1['UseBefore'])(checkTokenMiddleware_1[a639_0x5898b4(0x1a7)]),(0x0,routing_controllers_1['JsonController'])(a639_0x5898b4(0x1b2)),tslib_1[a639_0x5898b4(0x1c6)](a639_0x5898b4(0x1d4),[])],StoreCustomerCartController),exports[a639_0x5898b4(0x1b0)]=StoreCustomerCartController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StoreCustomerCartController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const CreateCartRequest_1 = require("./requests/CreateCartRequest");
+const checkTokenMiddleware_1 = require("../../core/middlewares/checkTokenMiddleware");
+const cart_1 = require("@spurtcommerce/cart");
+const typeorm_1 = require("typeorm");
+let StoreCustomerCartController = class StoreCustomerCartController {
+    constructor() {
+        // --
+    }
+    // create and update customer cart API
+    /**
+     * @api {post} /api/customer-cart/add-cart Add to cart API
+     * @apiGroup Customer Cart
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} productId productId
+     * @apiParam (Request body) {Number} [productPrice] productPrice
+     * @apiParam (Request body) {Number} [tirePrice] tirePrice
+     * @apiParam (Request body) {Number} [quantity] quantity
+     * @apiParam (Request body) {String} [skuName] skuName
+     * @apiParam (Request body) {string} [type] type
+     * @apiParamExample {json} Input
+     * {
+     *      "productId" : "",
+     *      "productPrice" : "",
+     *      "tirePrice" : "",
+     *      "quantity" : "",
+     *      "skuName" : "",
+     *      "type" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully added product to cart",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer-cart/add-cart
+     * @apiErrorExample {json} vendor category  error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addCustomerCart(cartParam, request, response) {
+        var _a;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const cartResponse = yield (0, cart_1.cartCreate)((0, typeorm_1.getConnection)(), {
+                productId: cartParam.productId,
+                skuName: cartParam.skuName,
+                customerId: request.user.id,
+                quantity: cartParam.quantity,
+                type: cartParam.type,
+                productPrice: cartParam.productPrice,
+                tirePrice: cartParam.tirePrice,
+                ipAddress: (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0],
+            });
+            return response.status(cartResponse.status ? 200 : 400).send({
+                status: cartResponse.status,
+                message: cartResponse.message,
+                data: (_a = cartResponse.data) !== null && _a !== void 0 ? _a : undefined,
+            });
+        });
+    }
+    // Customer Cart List API
+    /**
+     * @api {get} /api/customer-cart/customer-cart-list  Customer Cart List API
+     * @apiGroup Customer Cart
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Boolean} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get Customer Cart List",
+     *      "data":{
+     *       "productId" : "",
+     *       "name" : "",
+     *       "quantity" : "",
+     *       "productPrice" : "",
+     *       "total" : "",
+     *       "image" : "",
+     *       "containerName" : "",
+     *       "optionName" : "",
+     *       "optionValueName" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/customer-cart/customer-cart-list
+     * @apiErrorExample {json} Customer Cart error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    customerCartList(limit, offset, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const cartDetails = yield (0, cart_1.cartList)((0, typeorm_1.getConnection)(), request.user.id, limit, offset, +count);
+            if (cartDetails.status === 0) {
+                return response.status(400).send({
+                    status: cartDetails.status,
+                    message: cartDetails.message,
+                });
+            }
+            return response.status(200).send({
+                status: cartDetails.status,
+                message: cartDetails.message,
+                data: cartDetails.data,
+            });
+        });
+    }
+    // Delete cart items API
+    /**
+     * @api {post} /api/customer-cart/delete-cart-item Delete Cart items API
+     * @apiGroup Customer Cart
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} cartId cartId
+     * @apiParamExample {json} Input
+     * {
+     * "cartId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully deleted items.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/customer-cart/delete-cart-item
+     * @apiErrorExample {json} cartDelete error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteCartItem(cartId, response, request) {
+        var _a;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const options = {};
+            options.customerId = request.user.id;
+            if (cartId === null || cartId === void 0 ? void 0 : cartId.trim()) {
+                options.productIds = cartId.split(',');
+            }
+            const cartResponse = yield (0, cart_1.cartDelete)((0, typeorm_1.getConnection)(), options);
+            return response.status(cartResponse.status ? 200 : 400).send({
+                status: cartResponse.status,
+                message: cartResponse.message,
+                data: (_a = cartResponse.data) !== null && _a !== void 0 ? _a : undefined,
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/add-cart'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateCartRequest_1.CreateCartRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerCartController.prototype, "addCustomerCart", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/customer-cart-list'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerCartController.prototype, "customerCartList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/delete-cart-item'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('cartId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], StoreCustomerCartController.prototype, "deleteCartItem", null);
+StoreCustomerCartController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(checkTokenMiddleware_1.CheckCustomerMiddleware),
+    (0, routing_controllers_1.JsonController)('/customer-cart'),
+    tslib_1.__metadata("design:paramtypes", [])
+], StoreCustomerCartController);
+exports.StoreCustomerCartController = StoreCustomerCartController;
+//# sourceMappingURL=CustomerCartController.js.map

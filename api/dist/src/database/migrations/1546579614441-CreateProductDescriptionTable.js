@@ -1,1 +1,94 @@
-'use strict';const a742_0x524e09=a742_0x5042;(function(_0x522e7f,_0x12e9ac){const _0x592815=a742_0x5042,_0xa00f76=_0x522e7f();while(!![]){try{const _0x6084b6=-parseInt(_0x592815(0x1f7))/0x1*(parseInt(_0x592815(0x1fe))/0x2)+parseInt(_0x592815(0x203))/0x3+parseInt(_0x592815(0x1f8))/0x4+-parseInt(_0x592815(0x1ee))/0x5*(parseInt(_0x592815(0x1f3))/0x6)+parseInt(_0x592815(0x1f6))/0x7*(parseInt(_0x592815(0x200))/0x8)+-parseInt(_0x592815(0x20b))/0x9+parseInt(_0x592815(0x1e9))/0xa;if(_0x6084b6===_0x12e9ac)break;else _0xa00f76['push'](_0xa00f76['shift']());}catch(_0x577d88){_0xa00f76['push'](_0xa00f76['shift']());}}}(a742_0x3c2d,0xa8889));Object[a742_0x524e09(0x1fd)](exports,a742_0x524e09(0x1f2),{'value':!![]}),exports[a742_0x524e09(0x201)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a742_0x524e09(0x1f0));function a742_0x3c2d(){const _0x6a1391=['Table','product_description_id','9276525tOzIVy','dropTable','2466710dyJcYj','product_description','varchar','name','int','987845OIHbAk','__awaiter','typeorm','meta_keyword','__esModule','12HQhomB','255','created_by','191534HhOZmw','13feNAcm','2262624FpGgLY','modified_date','integer','DATETIME','meta_description','defineProperty','47546ZZmQWD','description','248WZxhUO','CreateProductDescriptionTable1546579614441','created_date','2294028KgcsxX','down','TEXT','CURRENT_TIMESTAMP','createTable','increment'];a742_0x3c2d=function(){return _0x6a1391;};return a742_0x3c2d();}class CreateProductDescriptionTable1546579614441{['up'](_0x57bbcf){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3316d0=a742_0x5042,_0x4effc5=new typeorm_1[(_0x3316d0(0x209))]({'name':_0x3316d0(0x1ea),'columns':[{'name':_0x3316d0(0x20a),'type':_0x3316d0(0x1fa),'length':'11','isGenerated':!![],'generationStrategy':_0x3316d0(0x208),'isPrimary':!![],'isNullable':![]},{'name':'product_id','type':_0x3316d0(0x1fa),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3316d0(0x1ec),'type':'varchar','length':'255','isPrimary':![],'isNullable':![]},{'name':_0x3316d0(0x1ff),'type':'TEXT','isPrimary':![],'isNullable':!![]},{'name':_0x3316d0(0x1fc),'type':_0x3316d0(0x205),'isPrimary':![],'isNullable':!![]},{'name':_0x3316d0(0x1f1),'type':_0x3316d0(0x1eb),'length':_0x3316d0(0x1f4),'isPrimary':![],'isNullable':!![]},{'name':'is_active','type':_0x3316d0(0x1ed),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3316d0(0x1f5),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':'modified_by','type':_0x3316d0(0x1fa),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3316d0(0x202),'type':_0x3316d0(0x1fb),'isPrimary':![],'isNullable':!![],'default':_0x3316d0(0x206)},{'name':_0x3316d0(0x1f9),'type':'DATETIME','isPrimary':![],'isNullable':!![],'default':_0x3316d0(0x206)}]}),_0x3484d4=yield _0x57bbcf['hasTable'](_0x3316d0(0x1ea));!_0x3484d4&&(yield _0x57bbcf[_0x3316d0(0x207)](_0x4effc5));});}[a742_0x524e09(0x204)](_0xe2acb5){const _0x3a3d22=a742_0x524e09;return tslib_1[_0x3a3d22(0x1ef)](this,void 0x0,void 0x0,function*(){const _0x454684=_0x3a3d22;yield _0xe2acb5[_0x454684(0x1e8)](_0x454684(0x1ea),!![]);});}}function a742_0x5042(_0x19ee08,_0x34672a){const _0x3c2d6b=a742_0x3c2d();return a742_0x5042=function(_0x504236,_0x27ad75){_0x504236=_0x504236-0x1e8;let _0x2cd8be=_0x3c2d6b[_0x504236];return _0x2cd8be;},a742_0x5042(_0x19ee08,_0x34672a);}exports[a742_0x524e09(0x201)]=CreateProductDescriptionTable1546579614441;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateProductDescriptionTable1546579614441 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateProductDescriptionTable1546579614441 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'product_description',
+                columns: [
+                    {
+                        name: 'product_description_id',
+                        type: 'integer',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'product_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'description',
+                        type: 'TEXT',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_description',
+                        type: 'TEXT',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_keyword',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('product_description');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('product_description', true);
+        });
+    }
+}
+exports.CreateProductDescriptionTable1546579614441 = CreateProductDescriptionTable1546579614441;
+//# sourceMappingURL=1546579614441-CreateProductDescriptionTable.js.map

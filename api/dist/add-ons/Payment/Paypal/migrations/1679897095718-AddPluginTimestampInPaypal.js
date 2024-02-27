@@ -1,1 +1,30 @@
-'use strict';function a42_0x3ebc(){const _0xfdf331=['defineProperty','1089372XYxRUk','getRepository','50aRjNWh','__awaiter','2153280KdSKaJ','64267SiUBwo','3311488bWMxXO','pluginTimestamp','642GxtvGX','1389440yZNvXK','3937320NswlUW','tslib','typeorm','AddPluginTimestampInPaypal1679897095718','findOne','save','Paypal','Plugins','24874jTjxJk','13Enwcbc','__esModule'];a42_0x3ebc=function(){return _0xfdf331;};return a42_0x3ebc();}const a42_0x48bead=a42_0x291e;(function(_0x259456,_0x41d4f0){const _0x564c04=a42_0x291e,_0x5757bd=_0x259456();while(!![]){try{const _0x3e2be9=-parseInt(_0x564c04(0xec))/0x1*(-parseInt(_0x564c04(0xeb))/0x2)+parseInt(_0x564c04(0xf3))/0x3+parseInt(_0x564c04(0xef))/0x4+parseInt(_0x564c04(0xe2))/0x5+parseInt(_0x564c04(0xe1))/0x6*(parseInt(_0x564c04(0xf4))/0x7)+parseInt(_0x564c04(0xdf))/0x8+parseInt(_0x564c04(0xe3))/0x9*(-parseInt(_0x564c04(0xf1))/0xa);if(_0x3e2be9===_0x41d4f0)break;else _0x5757bd['push'](_0x5757bd['shift']());}catch(_0x2f3b03){_0x5757bd['push'](_0x5757bd['shift']());}}}(a42_0x3ebc,0x9be6f));Object[a42_0x48bead(0xee)](exports,a42_0x48bead(0xed),{'value':!![]}),exports[a42_0x48bead(0xe6)]=void 0x0;function a42_0x291e(_0x3e2da0,_0x131367){const _0x3ebcfa=a42_0x3ebc();return a42_0x291e=function(_0x291ef2,_0x55bece){_0x291ef2=_0x291ef2-0xdf;let _0x332340=_0x3ebcfa[_0x291ef2];return _0x332340;},a42_0x291e(_0x3e2da0,_0x131367);}const tslib_1=require(a42_0x48bead(0xe4)),typeorm_1=require(a42_0x48bead(0xe5)),Plugin_1=require('../../../../src/api/core/models/Plugin');class AddPluginTimestampInPaypal1679897095718{['up'](_0x5845f0){const _0x2bee09=a42_0x48bead;return tslib_1[_0x2bee09(0xf2)](this,void 0x0,void 0x0,function*(){const _0x3be0e0=_0x2bee09,_0x4841f7=(0x0,typeorm_1[_0x3be0e0(0xf0)])(Plugin_1[_0x3be0e0(0xea)]),_0x960e7e=yield _0x4841f7[_0x3be0e0(0xe7)]({'where':{'pluginName':_0x3be0e0(0xe9)}});_0x960e7e&&(_0x960e7e['slugName']='paypal',_0x960e7e[_0x3be0e0(0xe0)]=0x17fb5889991,yield _0x4841f7[_0x3be0e0(0xe8)](_0x960e7e));});}['down'](_0x1e1a82){const _0x2515aa=a42_0x48bead;return tslib_1[_0x2515aa(0xf2)](this,void 0x0,void 0x0,function*(){});}}exports[a42_0x48bead(0xe6)]=AddPluginTimestampInPaypal1679897095718;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddPluginTimestampInPaypal1679897095718 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../../../../src/api/core/models/Plugin");
+class AddPluginTimestampInPaypal1679897095718 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const repo = (0, typeorm_1.getRepository)(Plugin_1.Plugins);
+            const plugin = yield repo.findOne({
+                where: {
+                    pluginName: 'Paypal',
+                },
+            });
+            if (plugin) {
+                plugin.slugName = 'paypal';
+                plugin.pluginTimestamp = 1648018102673; // This Add-on's Plugin Migration Timestamp
+                yield repo.save(plugin);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.AddPluginTimestampInPaypal1679897095718 = AddPluginTimestampInPaypal1679897095718;
+//# sourceMappingURL=1679897095718-AddPluginTimestampInPaypal.js.map

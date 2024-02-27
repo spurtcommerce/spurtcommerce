@@ -1,1 +1,70 @@
-'use strict';const a423_0x25ca77=a423_0x41da;function a423_0x3960(){const _0x58fbb6=['YYYY-MM-DD\x20HH:mm:ss','18xgmhlR','2327364tzehtz','total_amount','tslib','56210irlDWS','design:type','1627838DVLnwx','OneToMany','currencySymbolRight','class-validator','Settlement','1UPAVrm','design:returntype','PrimaryGeneratedColumn','__esModule','no_of_orders','prototype','modifiedDate','2404245tLKuWg','createDetails','__metadata','currencySymbolLeft','title','moment/moment','typeorm','BaseModel','168GumJdc','updateDetails','BeforeUpdate','createdDate','700SidwJM','settlement','SettlementItem','noOfOrders','__decorate','design:paramtypes','currency_symbol_right','format','943523oGHVcV','currency_symbol_left','defineProperty','Column','IsNotEmpty','Entity','__awaiter','242037oTggLN','settlementItem','3861015OEGrVz'];a423_0x3960=function(){return _0x58fbb6;};return a423_0x3960();}(function(_0x1aca8d,_0xf2ae6f){const _0x3140bd=a423_0x41da,_0x25dff9=_0x1aca8d();while(!![]){try{const _0x54f0a6=parseInt(_0x3140bd(0x112))/0x1*(-parseInt(_0x3140bd(0x10d))/0x2)+parseInt(_0x3140bd(0x119))/0x3+parseInt(_0x3140bd(0x108))/0x4+-parseInt(_0x3140bd(0x136))/0x5+-parseInt(_0x3140bd(0x107))/0x6*(-parseInt(_0x3140bd(0x12d))/0x7)+-parseInt(_0x3140bd(0x121))/0x8*(-parseInt(_0x3140bd(0x134))/0x9)+-parseInt(_0x3140bd(0x125))/0xa*(parseInt(_0x3140bd(0x10b))/0xb);if(_0x54f0a6===_0xf2ae6f)break;else _0x25dff9['push'](_0x25dff9['shift']());}catch(_0x47d131){_0x25dff9['push'](_0x25dff9['shift']());}}}(a423_0x3960,0x63bea));Object[a423_0x25ca77(0x12f)](exports,a423_0x25ca77(0x115),{'value':!![]}),exports[a423_0x25ca77(0x111)]=void 0x0;const tslib_1=require(a423_0x25ca77(0x10a)),typeorm_1=require(a423_0x25ca77(0x11f)),BaseModel_1=require('./BaseModel'),moment=require(a423_0x25ca77(0x11e)),SettlementItem_1=require('./SettlementItem'),class_validator_1=require(a423_0x25ca77(0x110));function a423_0x41da(_0x1ad3e7,_0x35a401){const _0x3960fe=a423_0x3960();return a423_0x41da=function(_0x41da39,_0x1bc1bd){_0x41da39=_0x41da39-0x107;let _0x5dd357=_0x3960fe[_0x41da39];return _0x5dd357;},a423_0x41da(_0x1ad3e7,_0x35a401);}let Settlement=class Settlement extends BaseModel_1[a423_0x25ca77(0x120)]{[a423_0x25ca77(0x11a)](){const _0x511d50=a423_0x25ca77;return tslib_1[_0x511d50(0x133)](this,void 0x0,void 0x0,function*(){const _0x4fa6bd=_0x511d50;this[_0x4fa6bd(0x124)]=moment()[_0x4fa6bd(0x12c)](_0x4fa6bd(0x137));});}['updateDetails'](){const _0x374427=a423_0x25ca77;return tslib_1[_0x374427(0x133)](this,void 0x0,void 0x0,function*(){const _0x474ac4=_0x374427;this[_0x474ac4(0x118)]=moment()[_0x474ac4(0x12c)]('YYYY-MM-DD\x20HH:mm:ss');});}};tslib_1[a423_0x25ca77(0x129)]([(0x0,class_validator_1[a423_0x25ca77(0x131)])(),(0x0,typeorm_1[a423_0x25ca77(0x114)])({'name':'id'}),tslib_1['__metadata'](a423_0x25ca77(0x10c),Number)],Settlement[a423_0x25ca77(0x117)],'id',void 0x0),tslib_1[a423_0x25ca77(0x129)]([(0x0,class_validator_1[a423_0x25ca77(0x131)])(),(0x0,typeorm_1[a423_0x25ca77(0x130)])({'name':'title'}),tslib_1[a423_0x25ca77(0x11b)](a423_0x25ca77(0x10c),String)],Settlement[a423_0x25ca77(0x117)],a423_0x25ca77(0x11d),void 0x0),tslib_1[a423_0x25ca77(0x129)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a423_0x25ca77(0x130)])({'name':a423_0x25ca77(0x116)}),tslib_1['__metadata'](a423_0x25ca77(0x10c),Number)],Settlement[a423_0x25ca77(0x117)],a423_0x25ca77(0x128),void 0x0),tslib_1[a423_0x25ca77(0x129)]([(0x0,class_validator_1[a423_0x25ca77(0x131)])(),(0x0,typeorm_1['Column'])({'name':a423_0x25ca77(0x109)}),tslib_1['__metadata'](a423_0x25ca77(0x10c),String)],Settlement[a423_0x25ca77(0x117)],'totalAmount',void 0x0),tslib_1[a423_0x25ca77(0x129)]([(0x0,typeorm_1[a423_0x25ca77(0x130)])({'name':a423_0x25ca77(0x12e)}),tslib_1[a423_0x25ca77(0x11b)]('design:type',String)],Settlement[a423_0x25ca77(0x117)],a423_0x25ca77(0x11c),void 0x0),tslib_1[a423_0x25ca77(0x129)]([(0x0,typeorm_1[a423_0x25ca77(0x130)])({'name':a423_0x25ca77(0x12b)}),tslib_1[a423_0x25ca77(0x11b)](a423_0x25ca77(0x10c),String)],Settlement[a423_0x25ca77(0x117)],a423_0x25ca77(0x10f),void 0x0),tslib_1[a423_0x25ca77(0x129)]([(0x0,typeorm_1[a423_0x25ca77(0x10e)])(_0x180b3a=>SettlementItem_1[a423_0x25ca77(0x127)],_0x554ad1=>_0x554ad1[a423_0x25ca77(0x126)]),tslib_1[a423_0x25ca77(0x11b)](a423_0x25ca77(0x10c),Array)],Settlement[a423_0x25ca77(0x117)],a423_0x25ca77(0x135),void 0x0),tslib_1[a423_0x25ca77(0x129)]([(0x0,typeorm_1['BeforeInsert'])(),tslib_1[a423_0x25ca77(0x11b)](a423_0x25ca77(0x10c),Function),tslib_1[a423_0x25ca77(0x11b)]('design:paramtypes',[]),tslib_1[a423_0x25ca77(0x11b)]('design:returntype',Promise)],Settlement['prototype'],a423_0x25ca77(0x11a),null),tslib_1[a423_0x25ca77(0x129)]([(0x0,typeorm_1[a423_0x25ca77(0x123)])(),tslib_1[a423_0x25ca77(0x11b)](a423_0x25ca77(0x10c),Function),tslib_1[a423_0x25ca77(0x11b)](a423_0x25ca77(0x12a),[]),tslib_1[a423_0x25ca77(0x11b)](a423_0x25ca77(0x113),Promise)],Settlement[a423_0x25ca77(0x117)],a423_0x25ca77(0x122),null),Settlement=tslib_1[a423_0x25ca77(0x129)]([(0x0,typeorm_1[a423_0x25ca77(0x132)])('settlement')],Settlement),exports['Settlement']=Settlement;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Settlement = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const moment = require("moment/moment");
+const SettlementItem_1 = require("./SettlementItem");
+const class_validator_1 = require("class-validator");
+let Settlement = class Settlement extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'id' }),
+    tslib_1.__metadata("design:type", Number)
+], Settlement.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'title' }),
+    tslib_1.__metadata("design:type", String)
+], Settlement.prototype, "title", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'no_of_orders' }),
+    tslib_1.__metadata("design:type", Number)
+], Settlement.prototype, "noOfOrders", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'total_amount' }),
+    tslib_1.__metadata("design:type", String)
+], Settlement.prototype, "totalAmount", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'currency_symbol_left' }),
+    tslib_1.__metadata("design:type", String)
+], Settlement.prototype, "currencySymbolLeft", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'currency_symbol_right' }),
+    tslib_1.__metadata("design:type", String)
+], Settlement.prototype, "currencySymbolRight", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => SettlementItem_1.SettlementItem, settlementItem => settlementItem.settlement),
+    tslib_1.__metadata("design:type", Array)
+], Settlement.prototype, "settlementItem", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Settlement.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Settlement.prototype, "updateDetails", null);
+Settlement = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('settlement')
+], Settlement);
+exports.Settlement = Settlement;
+//# sourceMappingURL=Settlement.js.map

@@ -1,1 +1,32 @@
-'use strict';function a302_0x169e(_0x4b3b1e,_0x5dcd50){const _0x2e1870=a302_0x2e18();return a302_0x169e=function(_0x169e83,_0x2fd74c){_0x169e83=_0x169e83-0x160;let _0x1f533=_0x2e1870[_0x169e83];return _0x1f533;},a302_0x169e(_0x4b3b1e,_0x5dcd50);}const a302_0x55ecbc=a302_0x169e;(function(_0x147023,_0x93824){const _0x425dae=a302_0x169e,_0x4039d1=_0x147023();while(!![]){try{const _0x56f558=-parseInt(_0x425dae(0x172))/0x1+-parseInt(_0x425dae(0x161))/0x2*(parseInt(_0x425dae(0x175))/0x3)+parseInt(_0x425dae(0x163))/0x4+parseInt(_0x425dae(0x177))/0x5*(-parseInt(_0x425dae(0x167))/0x6)+-parseInt(_0x425dae(0x169))/0x7+parseInt(_0x425dae(0x171))/0x8*(parseInt(_0x425dae(0x166))/0x9)+parseInt(_0x425dae(0x176))/0xa;if(_0x56f558===_0x93824)break;else _0x4039d1['push'](_0x4039d1['shift']());}catch(_0x19128a){_0x4039d1['push'](_0x4039d1['shift']());}}}(a302_0x2e18,0x6ad85));Object[a302_0x55ecbc(0x173)](exports,a302_0x55ecbc(0x16e),{'value':!![]}),exports['CreateRole']=void 0x0;const tslib_1=require(a302_0x55ecbc(0x168));require('reflect-metadata');const class_validator_1=require(a302_0x55ecbc(0x165));function a302_0x2e18(){const _0x27ddda=['492611kJeWch','defineProperty','name\x20is\x20required','102vBEAbX','21062870OCqqkM','258835cHAxQD','status\x20is\x20required','49394cpnBxj','prototype','1748108XdiLcz','name\x20should\x20be\x20maximum\x2064\x20characters','class-validator','333msDRRY','30cOgZsp','tslib','5950084oQIYkT','name','__metadata','__decorate','IsNotEmpty','__esModule','CreateRole','design:type','72536SngOre'];a302_0x2e18=function(){return _0x27ddda;};return a302_0x2e18();}class CreateRole{}tslib_1[a302_0x55ecbc(0x16c)]([(0x0,class_validator_1['MaxLength'])(0x40,{'message':a302_0x55ecbc(0x164)}),(0x0,class_validator_1[a302_0x55ecbc(0x16d)])({'message':a302_0x55ecbc(0x174)}),tslib_1[a302_0x55ecbc(0x16b)]('design:type',String)],CreateRole[a302_0x55ecbc(0x162)],a302_0x55ecbc(0x16a),void 0x0),tslib_1[a302_0x55ecbc(0x16c)]([(0x0,class_validator_1[a302_0x55ecbc(0x16d)])({'message':a302_0x55ecbc(0x160)}),tslib_1[a302_0x55ecbc(0x16b)](a302_0x55ecbc(0x170),Number)],CreateRole[a302_0x55ecbc(0x162)],'status',void 0x0),exports[a302_0x55ecbc(0x16f)]=CreateRole;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateRole = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateRole {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(64, {
+        message: 'name should be maximum 64 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'name is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateRole.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'status is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateRole.prototype, "status", void 0);
+exports.CreateRole = CreateRole;
+//# sourceMappingURL=CreateRoleRequest.js.map

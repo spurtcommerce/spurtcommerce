@@ -1,1 +1,227 @@
-'use strict';function a644_0x292c(){const _0x54915b=['axios','code','routing-controllers','2658VLxMrm','hashPassword','toString','/gmail-login/','jwtSecret','randomatic','{name}','AES','verifyIdToken','query','clientId','412ajGtLe','encrypt','connection','crypto-js','Loggedin\x20successfully.\x20','1559824hfcWVy','username','createdDate','defineProperty','password','Customer','__awaiter','loginApi','default','Settings','16602bcNsgp','LoginLog','19604046xeeBtw','env','x-forwarded-for','logo','baseUrl','typeorm','MAILService','cryptoSecret','auth','273295GVlmHK','1295OXBXoB','replace','AccessToken','GmailController','Gmail','__param','userId','../../../../src/api/core/models/EmailTemplate','emailId','../../../../src/api/core/models/Setting','loginCallBack','sign','offline','generateAuthUrl','lastLogin','send','design:paramtypes','__metadata','Login','/callback','10wEogdi','design:returntype','5369076YHpETj','design:type','Post','prototype','post','split','ipAddress','https://www.googleapis.com/auth/userinfo.email','getRepository','OAuth2','pluginAdditionalInfo','sendMail','token','https://www.googleapis.com/auth/userinfo.profile','email','id_token','firstName','reflect-metadata','Controller','customerId','isActive','headers','{xxxxxx}','../../../../src/api/core/models/AccessTokenModel','googleapis','Loggedin\x20successfully.','../../../../src/auth/mail.services','177709AukDHl','OauthVerify','remoteAddress','save','Get','getManager','socket','status','Req','Res','__decorate','pluginService','getToken','__importDefault','findOne','/gmail-login','PluginService','184JwWkPL'];a644_0x292c=function(){return _0x54915b;};return a644_0x292c();}const a644_0x4d2cea=a644_0x3049;(function(_0x3447f4,_0x2f7db9){const _0xaea4ae=a644_0x3049,_0x3d1047=_0x3447f4();while(!![]){try{const _0x5511ef=-parseInt(_0xaea4ae(0xcc))/0x1+parseInt(_0xaea4ae(0xb2))/0x2*(parseInt(_0xaea4ae(0xa7))/0x3)+-parseInt(_0xaea4ae(0xb7))/0x4+parseInt(_0xaea4ae(0xcd))/0x5*(-parseInt(_0xaea4ae(0xc1))/0x6)+parseInt(_0xaea4ae(0x92))/0x7*(-parseInt(_0xaea4ae(0xa3))/0x8)+parseInt(_0xaea4ae(0x77))/0x9+-parseInt(_0xaea4ae(0x75))/0xa*(-parseInt(_0xaea4ae(0xc3))/0xb);if(_0x5511ef===_0x2f7db9)break;else _0x3d1047['push'](_0x3d1047['shift']());}catch(_0x25c27c){_0x3d1047['push'](_0x3d1047['shift']());}}}(a644_0x292c,0x91dd5));Object[a644_0x4d2cea(0xba)](exports,'__esModule',{'value':!![]}),exports['GmailController']=void 0x0;const tslib_1=require('tslib');require(a644_0x4d2cea(0x88));const routing_controllers_1=require(a644_0x4d2cea(0xa6)),typeorm_1=require(a644_0x4d2cea(0xc8)),Customer_1=require('../../../../src/api/core/models/Customer'),LoginLog_1=require('../../../../src/api/core/models/LoginLog'),jsonwebtoken_1=tslib_1[a644_0x4d2cea(0x9f)](require('jsonwebtoken')),mail_services_1=require(a644_0x4d2cea(0x91)),EmailTemplate_1=require(a644_0x4d2cea(0xd4)),env_1=require('../../../../src/env'),Setting_1=require(a644_0x4d2cea(0xd6)),AccessTokenModel_1=require(a644_0x4d2cea(0x8e)),PluginService_1=require('../../../../src/api/core/services/PluginService'),google_auth_library_1=require('google-auth-library');let GmailController=class GmailController{constructor(_0x54b906){const _0x2a2be0=a644_0x4d2cea;this[_0x2a2be0(0x9d)]=_0x54b906;}[a644_0x4d2cea(0xbe)](_0x54f997){const _0x52718d=a644_0x4d2cea;return tslib_1[_0x52718d(0xbd)](this,void 0x0,void 0x0,function*(){const _0x40b093=_0x52718d,_0x256590=env_1[_0x40b093(0xc4)][_0x40b093(0xc7)]+'/gmail-login/callback',_0x5574c1=yield this[_0x40b093(0x9d)]['findOne']({'where':{'pluginName':_0x40b093(0xd1),'pluginStatus':0x1}}),_0x1fdb6e=JSON['parse'](_0x5574c1[_0x40b093(0x81)]),{google:_0x440a85}=require(_0x40b093(0x8f)),_0x33bf6b=new _0x440a85[(_0x40b093(0xcb))][(_0x40b093(0x80))](_0x1fdb6e[_0x40b093(0xb1)],_0x1fdb6e['clientSecret'],_0x256590);return new Promise((_0xf5637b,_0x594e31)=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3ade28=_0x40b093,_0xb1a78d=yield _0x33bf6b[_0x3ade28(0xda)]({'access_type':_0x3ade28(0xd9),'scope':[_0x3ade28(0x7e),_0x3ade28(0x84)]});_0x54f997['redirect'](_0xb1a78d);}));});}[a644_0x4d2cea(0xd7)](_0x591093,_0x15c823){const _0x432e9d=a644_0x4d2cea;return tslib_1[_0x432e9d(0xbd)](this,void 0x0,void 0x0,function*(){const _0x11cdd7=_0x432e9d,_0x4e97c5=_0x15c823[_0x11cdd7(0xb0)][_0x11cdd7(0xa5)],_0x5def99=env_1[_0x11cdd7(0xc4)]['baseUrl']+'/gmail-login/callback',_0x3ea047=yield this[_0x11cdd7(0x9d)]['findOne']({'where':{'pluginName':_0x11cdd7(0xd1),'pluginStatus':0x1}}),_0x2cc306=JSON['parse'](_0x3ea047[_0x11cdd7(0x81)]),{google:_0x317ea9}=require(_0x11cdd7(0x8f)),_0x12a2e1=new _0x317ea9[(_0x11cdd7(0xcb))]['OAuth2'](_0x2cc306['clientId'],_0x2cc306['clientSecret'],_0x5def99),{tokens:_0x3ef320}=yield _0x12a2e1[_0x11cdd7(0x9e)](_0x4e97c5),_0x186c92=_0x3ef320[_0x11cdd7(0x86)],_0x2c5ce1={'token':_0x186c92},_0x3e4318=require(_0x11cdd7(0xa4)),_0x3de6dc=yield _0x3e4318[_0x11cdd7(0x7b)](env_1[_0x11cdd7(0xc4)][_0x11cdd7(0xc7)]+_0x11cdd7(0xaa),_0x2c5ce1);if(_0x3de6dc)return _0x591093['status'](0xc8)[_0x11cdd7(0xdc)](_0x3de6dc['data']);return _0x591093['status'](0x190)[_0x11cdd7(0xdc)]({'status':0x0,'message':'invalid\x20data\x20!!'});});}['Login'](_0x4c7d59,_0x194db9,_0x32bdc6){const _0x1d1e30=a644_0x4d2cea;return tslib_1[_0x1d1e30(0xbd)](this,void 0x0,void 0x0,function*(){const _0x5b22ba=_0x1d1e30,_0x55b512=yield this['pluginService'][_0x5b22ba(0xa0)]({'where':{'pluginName':'Gmail','pluginStatus':0x1}}),_0x1dfce1=JSON['parse'](_0x55b512[_0x5b22ba(0x81)]),_0x229539=_0x4c7d59['token'],_0x301529=_0x1dfce1[_0x5b22ba(0xb1)],_0x43147d=yield this[_0x5b22ba(0x93)](_0x229539,_0x301529),_0x34c66f=(0x0,typeorm_1[_0x5b22ba(0x97)])()[_0x5b22ba(0x7f)](Customer_1['Customer']),_0x2b743d=(0x0,typeorm_1[_0x5b22ba(0x97)])()[_0x5b22ba(0x7f)](EmailTemplate_1['EmailTemplate']),_0x5b52ba=(0x0,typeorm_1[_0x5b22ba(0x97)])()[_0x5b22ba(0x7f)](LoginLog_1[_0x5b22ba(0xc2)]),_0x441407=(0x0,typeorm_1[_0x5b22ba(0x97)])()[_0x5b22ba(0x7f)](Setting_1[_0x5b22ba(0xc0)]),_0x4ef318=yield _0x34c66f[_0x5b22ba(0xa0)]({'where':{'email':_0x43147d[_0x5b22ba(0x85)],'deleteFlag':0x0}});if(!_0x4ef318){const _0x2fe44a=new Customer_1[(_0x5b22ba(0xbc))](),_0x3070b0=require(_0x5b22ba(0xac)),_0x39566a=_0x3070b0('0',0x5)[_0x5b22ba(0xa9)]();_0x2fe44a[_0x5b22ba(0xbb)]=yield Customer_1[_0x5b22ba(0xbc)][_0x5b22ba(0xa8)](_0x39566a),_0x2fe44a[_0x5b22ba(0x85)]=_0x43147d[_0x5b22ba(0x85)],_0x2fe44a[_0x5b22ba(0xb8)]=_0x43147d[_0x5b22ba(0x85)];const _0x1ab3e9=JSON['stringify']({});_0x2fe44a['oauthData']=_0x1ab3e9,_0x2fe44a[_0x5b22ba(0x8b)]=0x1,_0x2fe44a['ip']=(_0x194db9[_0x5b22ba(0x8c)]['x-forwarded-for']||_0x194db9[_0x5b22ba(0xb4)]['remoteAddress']||_0x194db9[_0x5b22ba(0x98)][_0x5b22ba(0x94)]||_0x194db9[_0x5b22ba(0xb4)][_0x5b22ba(0x98)][_0x5b22ba(0x94)])[_0x5b22ba(0x7c)](',')[0x0];const _0x4dcc86=yield _0x34c66f['save'](_0x2fe44a),_0x49300c=new LoginLog_1['LoginLog']();_0x49300c['customerId']=_0x4dcc86['id'],_0x49300c[_0x5b22ba(0xd5)]=_0x4dcc86['email'],_0x49300c[_0x5b22ba(0x7d)]=(_0x194db9[_0x5b22ba(0x8c)][_0x5b22ba(0xc5)]||_0x194db9[_0x5b22ba(0xb4)][_0x5b22ba(0x94)]||_0x194db9[_0x5b22ba(0x98)]['remoteAddress']||_0x194db9['connection'][_0x5b22ba(0x98)][_0x5b22ba(0x94)])[_0x5b22ba(0x7c)](',')[0x0];const _0x3d6e0d=yield _0x5b52ba[_0x5b22ba(0x95)](_0x49300c),_0xef6c2c=yield _0x34c66f['findOne']({'where':{'email':_0x4dcc86[_0x5b22ba(0x85)],'deleteFlag':0x0}});_0xef6c2c['lastLogin']=_0x3d6e0d[_0x5b22ba(0xb9)],yield _0x34c66f[_0x5b22ba(0x95)](_0xef6c2c);const _0x17561b=jsonwebtoken_1[_0x5b22ba(0xbf)]['sign']({'id':_0x4dcc86['id']},env_1[_0x5b22ba(0xc4)][_0x5b22ba(0xab)]),_0x5ce0b5=(0x0,typeorm_1[_0x5b22ba(0x97)])()['getRepository'](AccessTokenModel_1[_0x5b22ba(0xcf)]),_0x50f44e=new AccessTokenModel_1[(_0x5b22ba(0xcf))]();_0x50f44e[_0x5b22ba(0xd3)]=_0x4dcc86['id'],_0x50f44e[_0x5b22ba(0x83)]=_0x17561b,yield _0x5ce0b5[_0x5b22ba(0x95)](_0x50f44e);const _0x2d7a91=require(_0x5b22ba(0xb5)),_0x1cf97=_0x2d7a91[_0x5b22ba(0xae)][_0x5b22ba(0xb3)](_0x17561b,env_1[_0x5b22ba(0xc4)][_0x5b22ba(0xca)])[_0x5b22ba(0xa9)](),_0x58ea20=yield _0x2b743d[_0x5b22ba(0xa0)]({'where':{'emailTemplateId':0x9}}),_0x121ce4=_0x58ea20['content'][_0x5b22ba(0xce)](_0x5b22ba(0xad),_0x4dcc86['username'])[_0x5b22ba(0xce)](_0x5b22ba(0x8d),_0x39566a),_0x2cbd93=env_1[_0x5b22ba(0xc4)]['storeRedirectUrl'],_0x152ebc=yield _0x441407[_0x5b22ba(0xa0)](),_0x107e6c={};_0x107e6c[_0x5b22ba(0xc6)]=_0x152ebc,_0x107e6c['emailContent']=_0x121ce4,_0x107e6c['redirectUrl']=_0x2cbd93,_0x107e6c['productDetailData']=undefined,mail_services_1[_0x5b22ba(0xc9)][_0x5b22ba(0x82)](_0x107e6c,_0x4dcc86[_0x5b22ba(0x85)],_0x58ea20['subject'],![],![],'');if(_0x4dcc86){const _0xc0157e={'status':0x1,'message':_0x5b22ba(0xb6),'data':{'token':_0x1cf97,'user':_0x4dcc86}};return _0x32bdc6[_0x5b22ba(0x99)](0xc8)[_0x5b22ba(0xdc)](_0xc0157e);}}else{const _0x57bdec=jsonwebtoken_1[_0x5b22ba(0xbf)][_0x5b22ba(0xd8)]({'id':_0x4ef318['id']},env_1['env']['jwtSecret']),_0x1b15a2=require('crypto-js'),_0x2ed996=_0x1b15a2[_0x5b22ba(0xae)][_0x5b22ba(0xb3)](_0x57bdec,env_1[_0x5b22ba(0xc4)][_0x5b22ba(0xca)])[_0x5b22ba(0xa9)](),_0x4d9015=new LoginLog_1[(_0x5b22ba(0xc2))]();_0x4d9015[_0x5b22ba(0x8a)]=_0x4ef318['id'],_0x4d9015[_0x5b22ba(0xd5)]=_0x4ef318[_0x5b22ba(0x85)],_0x4d9015[_0x5b22ba(0x87)]=_0x4ef318[_0x5b22ba(0x87)],_0x4d9015[_0x5b22ba(0x7d)]=(_0x194db9[_0x5b22ba(0x8c)][_0x5b22ba(0xc5)]||_0x194db9[_0x5b22ba(0xb4)][_0x5b22ba(0x94)]||_0x194db9[_0x5b22ba(0x98)][_0x5b22ba(0x94)]||_0x194db9[_0x5b22ba(0xb4)]['socket'][_0x5b22ba(0x94)])[_0x5b22ba(0x7c)](',')[0x0];const _0x3608b5=yield _0x5b52ba[_0x5b22ba(0x95)](_0x4d9015),_0x19a265=yield _0x34c66f[_0x5b22ba(0xa0)]({'where':{'email':_0x4ef318['email'],'deleteFlag':0x0}});_0x19a265[_0x5b22ba(0xdb)]=_0x3608b5['createdDate'],yield _0x34c66f['save'](_0x19a265);const _0x1b9371=(0x0,typeorm_1[_0x5b22ba(0x97)])()[_0x5b22ba(0x7f)](AccessTokenModel_1['AccessToken']),_0x5a1443=new AccessTokenModel_1['AccessToken']();_0x5a1443[_0x5b22ba(0xd3)]=_0x4ef318['id'],_0x5a1443[_0x5b22ba(0x83)]=_0x57bdec,yield _0x1b9371[_0x5b22ba(0x95)](_0x5a1443);const _0x5639d5={'status':0x1,'message':_0x5b22ba(0x90),'data':{'token':_0x2ed996,'user':_0x4ef318}};return _0x32bdc6[_0x5b22ba(0x99)](0xc8)[_0x5b22ba(0xdc)](_0x5639d5);}});}[a644_0x4d2cea(0x93)](_0x2ccf29,_0x29bdfc){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5425ed=a644_0x3049,_0x4db0f=new google_auth_library_1['OAuth2Client'](),_0x4eb2d3=yield _0x4db0f[_0x5425ed(0xaf)]({'idToken':_0x2ccf29,'audience':_0x29bdfc}),_0xaa2533=_0x4eb2d3['getPayload']();return _0xaa2533;});}};function a644_0x3049(_0x60129a,_0x9e04f7){const _0x292c92=a644_0x292c();return a644_0x3049=function(_0x30492c,_0x436741){_0x30492c=_0x30492c-0x72;let _0x269421=_0x292c92[_0x30492c];return _0x269421;},a644_0x3049(_0x60129a,_0x9e04f7);}tslib_1['__decorate']([(0x0,routing_controllers_1[a644_0x4d2cea(0x96)])('/'),tslib_1[a644_0x4d2cea(0xd2)](0x0,(0x0,routing_controllers_1[a644_0x4d2cea(0x9b)])()),tslib_1['__metadata'](a644_0x4d2cea(0x78),Function),tslib_1['__metadata'](a644_0x4d2cea(0xdd),[Object]),tslib_1[a644_0x4d2cea(0x72)](a644_0x4d2cea(0x76),Promise)],GmailController['prototype'],a644_0x4d2cea(0xbe),null),tslib_1[a644_0x4d2cea(0x9c)]([(0x0,routing_controllers_1['Get'])(a644_0x4d2cea(0x74)),tslib_1[a644_0x4d2cea(0xd2)](0x0,(0x0,routing_controllers_1[a644_0x4d2cea(0x9b)])()),tslib_1[a644_0x4d2cea(0xd2)](0x1,(0x0,routing_controllers_1[a644_0x4d2cea(0x9a)])()),tslib_1[a644_0x4d2cea(0x72)](a644_0x4d2cea(0x78),Function),tslib_1[a644_0x4d2cea(0x72)](a644_0x4d2cea(0xdd),[Object,Object]),tslib_1[a644_0x4d2cea(0x72)](a644_0x4d2cea(0x76),Promise)],GmailController['prototype'],a644_0x4d2cea(0xd7),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a644_0x4d2cea(0x79)])('/'),tslib_1[a644_0x4d2cea(0xd2)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a644_0x4d2cea(0x9a)])()),tslib_1[a644_0x4d2cea(0xd2)](0x2,(0x0,routing_controllers_1[a644_0x4d2cea(0x9b)])()),tslib_1['__metadata'](a644_0x4d2cea(0x78),Function),tslib_1[a644_0x4d2cea(0x72)](a644_0x4d2cea(0xdd),[Object,Object,Object]),tslib_1[a644_0x4d2cea(0x72)](a644_0x4d2cea(0x76),Promise)],GmailController[a644_0x4d2cea(0x7a)],a644_0x4d2cea(0x73),null),GmailController=tslib_1[a644_0x4d2cea(0x9c)]([(0x0,routing_controllers_1[a644_0x4d2cea(0x89)])(a644_0x4d2cea(0xa1)),tslib_1[a644_0x4d2cea(0x72)](a644_0x4d2cea(0xdd),[PluginService_1[a644_0x4d2cea(0xa2)]])],GmailController),exports[a644_0x4d2cea(0xd0)]=GmailController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GmailController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const typeorm_1 = require("typeorm");
+const Customer_1 = require("../../../../src/api/core/models/Customer");
+const LoginLog_1 = require("../../../../src/api/core/models/LoginLog");
+const jsonwebtoken_1 = tslib_1.__importDefault(require("jsonwebtoken"));
+const mail_services_1 = require("../../../../src/auth/mail.services");
+const EmailTemplate_1 = require("../../../../src/api/core/models/EmailTemplate");
+const env_1 = require("../../../../src/env");
+const Setting_1 = require("../../../../src/api/core/models/Setting");
+const AccessTokenModel_1 = require("../../../../src/api/core/models/AccessTokenModel");
+const PluginService_1 = require("../../../../src/api/core/services/PluginService");
+const google_auth_library_1 = require("google-auth-library");
+let GmailController = class GmailController {
+    constructor(pluginService) {
+        this.pluginService = pluginService;
+        // ---
+    }
+    loginApi(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const redirectUrl = env_1.env.baseUrl + '/gmail-login/callback';
+            const plugin = yield this.pluginService.findOne({ where: { pluginName: 'Gmail', pluginStatus: 1 } });
+            const pluginInfo = JSON.parse(plugin.pluginAdditionalInfo);
+            const { google } = require('googleapis');
+            const oauth2Client = new google.auth.OAuth2(pluginInfo.clientId, pluginInfo.clientSecret, redirectUrl);
+            return new Promise((resolve, reject) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const authUrl = yield oauth2Client.generateAuthUrl({
+                    access_type: 'offline',
+                    scope: ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile'],
+                });
+                response.redirect(authUrl);
+            }));
+        });
+    }
+    loginCallBack(response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const code = request.query.code;
+            const redirectUrl = env_1.env.baseUrl + '/gmail-login/callback';
+            const plugin = yield this.pluginService.findOne({ where: { pluginName: 'Gmail', pluginStatus: 1 } });
+            const pluginInfo = JSON.parse(plugin.pluginAdditionalInfo);
+            const { google } = require('googleapis');
+            const oauth2Client = new google.auth.OAuth2(pluginInfo.clientId, pluginInfo.clientSecret, redirectUrl);
+            // Create token
+            const { tokens } = yield oauth2Client.getToken(code);
+            const idToken = tokens.id_token;
+            const reqData = {
+                token: idToken,
+            };
+            const axios = require('axios');
+            const redirectedData = yield axios.post(env_1.env.baseUrl + '/gmail-login/', reqData);
+            if (redirectedData) {
+                return response.status(200).send(redirectedData.data);
+            }
+            return response.status(400).send({ status: 0, message: 'invalid data !!' });
+        });
+    }
+    // Gmail Login API
+    /**
+     * @api {post} /api/gmail-login Gmail Login API
+     * @apiGroup Oauth
+     * @apiParam (Request body) {String{..255}} emailId emailId
+     * @apiParam (Request body) {String} oauthData oauthData
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 Ok
+     * @apiSampleRequest /api/gmail-login
+     * @apiErrorExample {json} Error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    Login(postParams, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ----
+            const plugin = yield this.pluginService.findOne({ where: { pluginName: 'Gmail', pluginStatus: 1 } });
+            const pluginInfo = JSON.parse(plugin.pluginAdditionalInfo);
+            const idToken = postParams.token;
+            const audience = pluginInfo.clientId;
+            const infoParams = yield this.OauthVerify(idToken, audience);
+            const CustomerRepository = (0, typeorm_1.getManager)().getRepository(Customer_1.Customer);
+            const EmailTemplateRepository = (0, typeorm_1.getManager)().getRepository(EmailTemplate_1.EmailTemplate);
+            const LoginLogRepository = (0, typeorm_1.getManager)().getRepository(LoginLog_1.LoginLog);
+            const SettingRepository = (0, typeorm_1.getManager)().getRepository(Setting_1.Settings);
+            const resultData = yield CustomerRepository.findOne({
+                where: { email: infoParams.email, deleteFlag: 0 },
+            });
+            if (!resultData) {
+                const newUser = new Customer_1.Customer();
+                const randomize = require('randomatic');
+                const tempPassword = randomize('0', 5).toString();
+                newUser.password = yield Customer_1.Customer.hashPassword(tempPassword);
+                newUser.email = infoParams.email;
+                newUser.username = infoParams.email;
+                const oauthData = JSON.stringify({});
+                newUser.oauthData = oauthData;
+                newUser.isActive = 1;
+                newUser.ip = (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0];
+                const newCustomer = yield CustomerRepository.save(newUser);
+                const loginLog = new LoginLog_1.LoginLog();
+                loginLog.customerId = newCustomer.id;
+                loginLog.emailId = newCustomer.email;
+                loginLog.ipAddress = (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0];
+                const savedloginLog = yield LoginLogRepository.save(loginLog);
+                const customer = yield CustomerRepository.findOne({ where: { email: newCustomer.email, deleteFlag: 0 } });
+                customer.lastLogin = savedloginLog.createdDate;
+                yield CustomerRepository.save(customer);
+                // create a token
+                const token = jsonwebtoken_1.default.sign({ id: newCustomer.id }, env_1.env.jwtSecret);
+                const accessTokenRepository = (0, typeorm_1.getManager)().getRepository(AccessTokenModel_1.AccessToken);
+                const newToken = new AccessTokenModel_1.AccessToken();
+                newToken.userId = newCustomer.id;
+                newToken.token = token;
+                yield accessTokenRepository.save(newToken);
+                const Crypto = require('crypto-js');
+                const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
+                const emailContent = yield EmailTemplateRepository.findOne({ where: { emailTemplateId: 9 } });
+                const message = emailContent.content.replace('{name}', newCustomer.username).replace('{xxxxxx}', tempPassword);
+                const redirectUrl = env_1.env.storeRedirectUrl;
+                const logo = yield SettingRepository.findOne();
+                const mailContents = {};
+                mailContents.logo = logo;
+                mailContents.emailContent = message;
+                mailContents.redirectUrl = redirectUrl;
+                mailContents.productDetailData = undefined;
+                mail_services_1.MAILService.sendMail(mailContents, newCustomer.email, emailContent.subject, false, false, '');
+                if (newCustomer) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Loggedin successfully. ',
+                        data: {
+                            token: ciphertextToken,
+                            user: newCustomer,
+                        },
+                    };
+                    return response.status(200).send(successResponse);
+                }
+            }
+            else {
+                // create a token
+                const token = jsonwebtoken_1.default.sign({ id: resultData.id }, env_1.env.jwtSecret);
+                const Crypto = require('crypto-js');
+                const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
+                const loginLog = new LoginLog_1.LoginLog();
+                loginLog.customerId = resultData.id;
+                loginLog.emailId = resultData.email;
+                loginLog.firstName = resultData.firstName;
+                loginLog.ipAddress = (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0];
+                const savedloginLog = yield LoginLogRepository.save(loginLog);
+                const customer = yield CustomerRepository.findOne({ where: { email: resultData.email, deleteFlag: 0 } });
+                customer.lastLogin = savedloginLog.createdDate;
+                yield CustomerRepository.save(customer);
+                const accessTokenRepository = (0, typeorm_1.getManager)().getRepository(AccessTokenModel_1.AccessToken);
+                const newToken = new AccessTokenModel_1.AccessToken();
+                newToken.userId = resultData.id;
+                newToken.token = token;
+                yield accessTokenRepository.save(newToken);
+                const successResponse = {
+                    status: 1,
+                    message: 'Loggedin successfully.',
+                    data: {
+                        token: ciphertextToken,
+                        user: resultData,
+                    },
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    OauthVerify(idToken, audience) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const client = new google_auth_library_1.OAuth2Client();
+            const ticket = yield client.verifyIdToken({
+                idToken,
+                audience,
+            });
+            const payload = ticket.getPayload();
+            return payload;
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/'),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], GmailController.prototype, "loginApi", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/callback'),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], GmailController.prototype, "loginCallBack", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], GmailController.prototype, "Login", null);
+GmailController = tslib_1.__decorate([
+    (0, routing_controllers_1.Controller)('/gmail-login'),
+    tslib_1.__metadata("design:paramtypes", [PluginService_1.PluginService])
+], GmailController);
+exports.GmailController = GmailController;
+//# sourceMappingURL=GmailController.js.map

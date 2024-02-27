@@ -1,1 +1,83 @@
-'use strict';function a725_0x512d(_0x17ae62,_0x13025b){const _0x48a0f7=a725_0x48a0();return a725_0x512d=function(_0x512d2b,_0x2bcc7a){_0x512d2b=_0x512d2b-0x18c;let _0x10537a=_0x48a0f7[_0x512d2b];return _0x10537a;},a725_0x512d(_0x17ae62,_0x13025b);}const a725_0x38646b=a725_0x512d;(function(_0x2f6a15,_0x93d216){const _0x2f3ea4=a725_0x512d,_0x142624=_0x2f6a15();while(!![]){try{const _0x470067=-parseInt(_0x2f3ea4(0x198))/0x1+parseInt(_0x2f3ea4(0x18c))/0x2*(parseInt(_0x2f3ea4(0x1a7))/0x3)+-parseInt(_0x2f3ea4(0x1a8))/0x4+parseInt(_0x2f3ea4(0x193))/0x5*(-parseInt(_0x2f3ea4(0x192))/0x6)+parseInt(_0x2f3ea4(0x194))/0x7*(parseInt(_0x2f3ea4(0x1a3))/0x8)+-parseInt(_0x2f3ea4(0x19e))/0x9*(-parseInt(_0x2f3ea4(0x1a5))/0xa)+parseInt(_0x2f3ea4(0x195))/0xb*(parseInt(_0x2f3ea4(0x190))/0xc);if(_0x470067===_0x93d216)break;else _0x142624['push'](_0x142624['shift']());}catch(_0x4c8b6a){_0x142624['push'](_0x142624['shift']());}}}(a725_0x48a0,0x25c93));function a725_0x48a0(){const _0x979745=['28720ReuJoo','DATETIME','427860BqxgCl','date_added','345tuuWwd','976464KJFFmY','created_date','tslib','modified_date','customer_ip','1528jYnesv','createTable','CreateCustomerIpTable1546523577052','varchar','12bbivfu','customer_id','450RFIIKe','12930AQAGgn','84rPSnuZ','6282892rcWWIa','typeorm','down','152061hClxoE','CURRENT_TIMESTAMP','created_by','increment','defineProperty','is_active','9afgAoa','dropTable','integer','int','__awaiter'];a725_0x48a0=function(){return _0x979745;};return a725_0x48a0();}Object[a725_0x38646b(0x19c)](exports,'__esModule',{'value':!![]}),exports[a725_0x38646b(0x18e)]=void 0x0;const tslib_1=require(a725_0x38646b(0x1aa)),typeorm_1=require(a725_0x38646b(0x196));class CreateCustomerIpTable1546523577052{['up'](_0x3b61f8){const _0x1202a2=a725_0x38646b;return tslib_1[_0x1202a2(0x1a2)](this,void 0x0,void 0x0,function*(){const _0x3d10f8=_0x1202a2,_0x46199a=new typeorm_1['Table']({'name':_0x3d10f8(0x1ac),'columns':[{'name':'customer_ip_id','type':_0x3d10f8(0x1a0),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x3d10f8(0x19b)},{'name':_0x3d10f8(0x191),'type':_0x3d10f8(0x1a0),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'ip','type':_0x3d10f8(0x18f),'length':'15','isPrimary':![],'isNullable':!![]},{'name':_0x3d10f8(0x1a6),'type':_0x3d10f8(0x1a4),'isPrimary':![],'isNullable':!![]},{'name':_0x3d10f8(0x19d),'type':_0x3d10f8(0x1a1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3d10f8(0x19a),'type':_0x3d10f8(0x1a0),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'modified_by','type':_0x3d10f8(0x1a0),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3d10f8(0x1a9),'type':_0x3d10f8(0x1a4),'isPrimary':![],'isNullable':!![],'default':_0x3d10f8(0x199)},{'name':_0x3d10f8(0x1ab),'type':_0x3d10f8(0x1a4),'isPrimary':![],'isNullable':!![],'default':_0x3d10f8(0x199)}]}),_0x5d8b70=yield _0x3b61f8['hasTable'](_0x3d10f8(0x1ac));!_0x5d8b70&&(yield _0x3b61f8[_0x3d10f8(0x18d)](_0x46199a));});}[a725_0x38646b(0x197)](_0x4d1439){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4c54a4=a725_0x512d;yield _0x4d1439[_0x4c54a4(0x19f)](_0x4c54a4(0x1ac),!![]);});}}exports[a725_0x38646b(0x18e)]=CreateCustomerIpTable1546523577052;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCustomerIpTable1546523577052 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateCustomerIpTable1546523577052 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'customer_ip',
+                columns: [
+                    {
+                        name: 'customer_ip_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'customer_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'ip',
+                        type: 'varchar',
+                        length: '15',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'date_added',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('customer_ip');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('customer_ip', true);
+        });
+    }
+}
+exports.CreateCustomerIpTable1546523577052 = CreateCustomerIpTable1546523577052;
+//# sourceMappingURL=1546523577052-CreateCustomerIpTable.js.map

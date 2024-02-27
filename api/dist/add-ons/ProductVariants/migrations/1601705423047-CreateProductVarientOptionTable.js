@@ -1,1 +1,109 @@
-'use strict';const a129_0x1368a6=a129_0x42c0;(function(_0x477c0b,_0x29e83d){const _0x3b916a=a129_0x42c0,_0x307a16=_0x477c0b();while(!![]){try{const _0x2b19a2=parseInt(_0x3b916a(0x1bd))/0x1*(-parseInt(_0x3b916a(0x1da))/0x2)+parseInt(_0x3b916a(0x1c0))/0x3*(-parseInt(_0x3b916a(0x1b2))/0x4)+parseInt(_0x3b916a(0x1d4))/0x5+parseInt(_0x3b916a(0x1b7))/0x6*(parseInt(_0x3b916a(0x1ba))/0x7)+-parseInt(_0x3b916a(0x1cf))/0x8*(-parseInt(_0x3b916a(0x1c6))/0x9)+parseInt(_0x3b916a(0x1b4))/0xa+parseInt(_0x3b916a(0x1c2))/0xb*(-parseInt(_0x3b916a(0x1d0))/0xc);if(_0x2b19a2===_0x29e83d)break;else _0x307a16['push'](_0x307a16['shift']());}catch(_0x36070a){_0x307a16['push'](_0x307a16['shift']());}}}(a129_0x434c,0xa3f1e));function a129_0x42c0(_0x3c69b1,_0x2d2eeb){const _0x434cd4=a129_0x434c();return a129_0x42c0=function(_0x42c07e,_0x856b0){_0x42c07e=_0x42c07e-0x1ad;let _0x1ebf34=_0x434cd4[_0x42c07e];return _0x1ebf34;},a129_0x42c0(_0x3c69b1,_0x2d2eeb);}function a129_0x434c(){const _0x2d4999=['__esModule','255','increment','is_active','createTable','int','24xCRGSq','foreignKeys','10386320FHHsrn','CASCADE','columnNames','234TcbdmD','CURRENT_TIMESTAMP','datetime','104573AozPsZ','indexOf','modified_date','790185MoMSiL','product','__awaiter','599121xbtdnr','find','3355KHnXjo','getTable','varient_name','down','74853iPhwhW','typeorm','fk_tbl_product_Related_tbl_product_varient_option','product_varient_option','CreateProductVarientOptionTable1601705423047','created_date','tslib','sku_id','product_id','1256aEQUoY','60828HJqFdG','hasTable','varchar','TableForeignKey','6394840FiRJsJ','modified_by','Table','createForeignKey','tableForeignKey','tableForeignKey1','2zTZECc'];a129_0x434c=function(){return _0x2d4999;};return a129_0x434c();}Object['defineProperty'](exports,a129_0x1368a6(0x1db),{'value':!![]}),exports['CreateProductVarientOptionTable1601705423047']=void 0x0;const tslib_1=require(a129_0x1368a6(0x1cc)),typeorm_1=require(a129_0x1368a6(0x1c7));class CreateProductVarientOptionTable1601705423047{constructor(){const _0x2c1717=a129_0x1368a6;this[_0x2c1717(0x1d8)]=new typeorm_1[(_0x2c1717(0x1d3))]({'name':_0x2c1717(0x1c8),'columnNames':['product_id'],'referencedColumnNames':['product_id'],'referencedTableName':_0x2c1717(0x1be),'onDelete':_0x2c1717(0x1b5)}),this[_0x2c1717(0x1d9)]=new typeorm_1[(_0x2c1717(0x1d3))]({'name':'fk_tbl_sku_Related_tbl_product_varient_option','columnNames':[_0x2c1717(0x1cd)],'referencedColumnNames':['id'],'referencedTableName':'sku','onDelete':'CASCADE'});}['up'](_0x496f42){const _0x29ff65=a129_0x1368a6;return tslib_1[_0x29ff65(0x1bf)](this,void 0x0,void 0x0,function*(){const _0x36a78e=_0x29ff65,_0x232bdc=new typeorm_1[(_0x36a78e(0x1d6))]({'name':_0x36a78e(0x1c9),'columns':[{'name':'id','type':'int','length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x36a78e(0x1ae)},{'name':_0x36a78e(0x1c4),'type':_0x36a78e(0x1d2),'length':_0x36a78e(0x1ad),'isPrimary':![],'isNullable':!![]},{'name':_0x36a78e(0x1ce),'type':_0x36a78e(0x1b1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'sku_id','type':_0x36a78e(0x1b1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x36a78e(0x1af),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x36a78e(0x1cb),'type':_0x36a78e(0x1b9),'isPrimary':![],'isNullable':!![],'default':_0x36a78e(0x1b8)},{'name':_0x36a78e(0x1bc),'type':'datetime','isPrimary':![],'isNullable':!![],'default':_0x36a78e(0x1b8)},{'name':'created_by','type':_0x36a78e(0x1b1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x36a78e(0x1d5),'type':'int','length':'11','isPrimary':![],'isNullable':!![]}]}),_0x2f8873=yield _0x496f42[_0x36a78e(0x1d1)](_0x36a78e(0x1c9));!_0x2f8873&&(yield _0x496f42[_0x36a78e(0x1b0)](_0x232bdc));const _0x56242b=yield _0x496f42[_0x36a78e(0x1c3)](_0x36a78e(0x1c9)),_0x59cf73=_0x56242b[_0x36a78e(0x1b3)][_0x36a78e(0x1c1)](_0x5ef397=>_0x5ef397['columnNames'][_0x36a78e(0x1bb)](_0x36a78e(0x1ce))!==-0x1);!_0x59cf73&&(yield _0x496f42[_0x36a78e(0x1d7)](_0x232bdc,this[_0x36a78e(0x1d8)]));const _0x23fac0=_0x56242b[_0x36a78e(0x1b3)][_0x36a78e(0x1c1)](_0x550acf=>_0x550acf[_0x36a78e(0x1b6)][_0x36a78e(0x1bb)](_0x36a78e(0x1cd))!==-0x1);!_0x23fac0&&(yield _0x496f42[_0x36a78e(0x1d7)](_0x232bdc,this[_0x36a78e(0x1d9)]));});}[a129_0x1368a6(0x1c5)](_0x5ae343){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x476852=a129_0x42c0;yield _0x5ae343['dropTable'](_0x476852(0x1c9),!![]);});}}exports[a129_0x1368a6(0x1ca)]=CreateProductVarientOptionTable1601705423047;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateProductVarientOptionTable1601705423047 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateProductVarientOptionTable1601705423047 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_product_Related_tbl_product_varient_option',
+            columnNames: ['product_id'],
+            referencedColumnNames: ['product_id'],
+            referencedTableName: 'product',
+            onDelete: 'CASCADE',
+        });
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_sku_Related_tbl_product_varient_option',
+            columnNames: ['sku_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'sku',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'product_varient_option',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'varient_name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'product_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'sku_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('product_varient_option');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const getTable = yield queryRunner.getTable('product_varient_option');
+            const ifDataExsist = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('product_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+            const ifDataExsist1 = getTable.foreignKeys.find(fk => fk.columnNames.indexOf('sku_id') !== -1);
+            if (!ifDataExsist1) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('product_varient_option', true);
+        });
+    }
+}
+exports.CreateProductVarientOptionTable1601705423047 = CreateProductVarientOptionTable1601705423047;
+//# sourceMappingURL=1601705423047-CreateProductVarientOptionTable.js.map

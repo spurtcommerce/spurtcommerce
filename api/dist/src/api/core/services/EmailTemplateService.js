@@ -1,1 +1,89 @@
-'use strict';const a562_0x12fd51=a562_0x8b90;(function(_0x992c3c,_0x52ef13){const _0x12f564=a562_0x8b90,_0x3a31b2=_0x992c3c();while(!![]){try{const _0x160c16=-parseInt(_0x12f564(0x174))/0x1+parseInt(_0x12f564(0x169))/0x2+parseInt(_0x12f564(0x180))/0x3+-parseInt(_0x12f564(0x173))/0x4+-parseInt(_0x12f564(0x166))/0x5+parseInt(_0x12f564(0x161))/0x6*(parseInt(_0x12f564(0x175))/0x7)+parseInt(_0x12f564(0x15a))/0x8*(-parseInt(_0x12f564(0x162))/0x9);if(_0x160c16===_0x52ef13)break;else _0x3a31b2['push'](_0x3a31b2['shift']());}catch(_0x2618ab){_0x3a31b2['push'](_0x3a31b2['shift']());}}}(a562_0x2c7e,0xe9d35));Object['defineProperty'](exports,a562_0x12fd51(0x177),{'value':!![]}),exports['EmailTemplateService']=void 0x0;function a562_0x2c7e(){const _0xe1515=['typeorm-typedi-extensions','399620aYJSOW','298653JmbNUv','1589ljWcsV','findOne','__esModule','order','__param','create','design:paramtypes','find','value','forEach','DESC','5416455snIjuA','Like','save','skip','like','8kJtOuQ','OrmRepository','take','Logger','__awaiter','length','emailTemplateRepository','13170LwkiXf','13986405twvmLa','count','list','typeorm/index','6493400ToQhGV','where','select','3810564epCQqN','../repositories/EmailTemplateRepository','name','log','../../../decorators/Logger','Service','delete','EmailTemplateService','update'];a562_0x2c7e=function(){return _0xe1515;};return a562_0x2c7e();}function a562_0x8b90(_0x4e1a71,_0x360d45){const _0x2c7ef7=a562_0x2c7e();return a562_0x8b90=function(_0x8b9090,_0x2a2867){_0x8b9090=_0x8b9090-0x158;let _0x1243f5=_0x2c7ef7[_0x8b9090];return _0x1243f5;},a562_0x8b90(_0x4e1a71,_0x360d45);}const tslib_1=require('tslib'),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require(a562_0x12fd51(0x172)),Logger_1=require(a562_0x12fd51(0x16d)),index_1=require(a562_0x12fd51(0x165)),EmailTemplateRepository_1=require(a562_0x12fd51(0x16a));let EmailTemplateService=class EmailTemplateService{constructor(_0x4c878d,_0x105c7d){const _0x2b7a65=a562_0x12fd51;this[_0x2b7a65(0x160)]=_0x4c878d,this[_0x2b7a65(0x16c)]=_0x105c7d;}[a562_0x12fd51(0x17a)](_0x16295c){const _0x310c31=a562_0x12fd51;return tslib_1[_0x310c31(0x15e)](this,void 0x0,void 0x0,function*(){const _0x102c2d=_0x310c31;return this[_0x102c2d(0x16c)]['info']('Create\x20a\x20new\x20emailTemplate\x20'),this[_0x102c2d(0x160)][_0x102c2d(0x182)](_0x16295c);});}['findOne'](_0x12c886){const _0x3b252b=a562_0x12fd51;return this[_0x3b252b(0x160)][_0x3b252b(0x176)](_0x12c886);}[a562_0x12fd51(0x171)](_0x227334,_0x4cfa3b){const _0x26f8dd=a562_0x12fd51;return _0x4cfa3b['id']=_0x227334,this[_0x26f8dd(0x160)][_0x26f8dd(0x182)](_0x4cfa3b);}[a562_0x12fd51(0x164)](_0x169ffd,_0x163b32,_0x19d1eb=[],_0x46e2c2=[],_0x101fa3=[],_0x4f6bc1){const _0x6a3309=a562_0x12fd51,_0xe2b73c={};return _0x19d1eb&&_0x19d1eb['length']>0x0&&(_0xe2b73c[_0x6a3309(0x168)]=_0x19d1eb),_0xe2b73c[_0x6a3309(0x167)]={},_0x101fa3&&_0x101fa3[_0x6a3309(0x15f)]>0x0&&_0x101fa3[_0x6a3309(0x17e)](_0x4272dd=>{const _0x55c745=_0x6a3309;_0xe2b73c[_0x55c745(0x167)][_0x4272dd[_0x55c745(0x16b)]]=_0x4272dd['value'];}),_0x46e2c2&&_0x46e2c2[_0x6a3309(0x15f)]>0x0&&_0x46e2c2[_0x6a3309(0x17e)](_0x3e68df=>{const _0x587bbe=_0x6a3309,_0x339936=_0x3e68df['op'];if(_0x339936==='where'&&_0x3e68df[_0x587bbe(0x17d)]!=='')_0xe2b73c[_0x587bbe(0x167)][_0x3e68df[_0x587bbe(0x16b)]]=_0x3e68df[_0x587bbe(0x17d)];else _0x339936===_0x587bbe(0x159)&&_0x3e68df[_0x587bbe(0x17d)]!==''&&(_0xe2b73c[_0x587bbe(0x167)][_0x3e68df['name']]=(0x0,index_1[_0x587bbe(0x181)])('%'+_0x3e68df[_0x587bbe(0x17d)]+'%'));}),_0xe2b73c[_0x6a3309(0x178)]={'createdDate':_0x6a3309(0x17f)},_0x169ffd&&_0x169ffd>0x0&&(_0xe2b73c[_0x6a3309(0x15c)]=_0x169ffd,_0xe2b73c[_0x6a3309(0x158)]=_0x163b32),_0x4f6bc1?this[_0x6a3309(0x160)][_0x6a3309(0x163)](_0xe2b73c):this[_0x6a3309(0x160)][_0x6a3309(0x17c)](_0xe2b73c);}[a562_0x12fd51(0x16f)](_0x26a600){const _0x456ac0=a562_0x12fd51;return tslib_1[_0x456ac0(0x15e)](this,void 0x0,void 0x0,function*(){const _0x68511b=_0x456ac0;return yield this['emailTemplateRepository'][_0x68511b(0x16f)](_0x26a600);});}};EmailTemplateService=tslib_1['__decorate']([(0x0,typedi_1[a562_0x12fd51(0x16e)])(),tslib_1['__param'](0x0,(0x0,typeorm_typedi_extensions_1[a562_0x12fd51(0x15b)])()),tslib_1[a562_0x12fd51(0x179)](0x1,(0x0,Logger_1[a562_0x12fd51(0x15d)])(__filename)),tslib_1['__metadata'](a562_0x12fd51(0x17b),[EmailTemplateRepository_1['EmailTemplateRepository'],Object])],EmailTemplateService),exports[a562_0x12fd51(0x170)]=EmailTemplateService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EmailTemplateService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const index_1 = require("typeorm/index");
+const EmailTemplateRepository_1 = require("../repositories/EmailTemplateRepository");
+let EmailTemplateService = class EmailTemplateService {
+    constructor(emailTemplateRepository, log) {
+        this.emailTemplateRepository = emailTemplateRepository;
+        this.log = log;
+    }
+    // Create emailTemplate
+    create(emailTemplate) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new emailTemplate ');
+            return this.emailTemplateRepository.save(emailTemplate);
+        });
+    }
+    // Find Condition
+    findOne(emailTemplate) {
+        return this.emailTemplateRepository.findOne(emailTemplate);
+    }
+    // Update EmailTemplate
+    update(id, emailTemplate) {
+        emailTemplate.id = id;
+        return this.emailTemplateRepository.save(emailTemplate);
+    }
+    // EmailTemplate List
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== '') {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== '') {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        condition.order = {
+            createdDate: 'DESC',
+        };
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.emailTemplateRepository.count(condition);
+        }
+        else {
+            return this.emailTemplateRepository.find(condition);
+        }
+    }
+    // Delete EmailTemplate
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.emailTemplateRepository.delete(id);
+        });
+    }
+};
+EmailTemplateService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [EmailTemplateRepository_1.EmailTemplateRepository, Object])
+], EmailTemplateService);
+exports.EmailTemplateService = EmailTemplateService;
+//# sourceMappingURL=EmailTemplateService.js.map

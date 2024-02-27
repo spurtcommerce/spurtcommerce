@@ -1,1 +1,335 @@
-'use strict';const a62_0x107829=a62_0x1ae9;(function(_0x2d32d4,_0x262d5b){const _0x1a9703=a62_0x1ae9,_0x4b65b1=_0x2d32d4();while(!![]){try{const _0x18bc72=parseInt(_0x1a9703(0x1af))/0x1*(-parseInt(_0x1a9703(0x196))/0x2)+parseInt(_0x1a9703(0x18d))/0x3+-parseInt(_0x1a9703(0x1a4))/0x4+-parseInt(_0x1a9703(0x198))/0x5+-parseInt(_0x1a9703(0x1bd))/0x6*(parseInt(_0x1a9703(0x18b))/0x7)+-parseInt(_0x1a9703(0x18f))/0x8+parseInt(_0x1a9703(0x16e))/0x9*(parseInt(_0x1a9703(0x178))/0xa);if(_0x18bc72===_0x262d5b)break;else _0x4b65b1['push'](_0x4b65b1['shift']());}catch(_0x3904fa){_0x4b65b1['push'](_0x4b65b1['shift']());}}}(a62_0x55e5,0x68b3d));function a62_0x55e5(){const _0xd3a83d=['AttributeService','deleteAttribute','addAttributeGroup','__metadata','map','You\x20cannot\x20delete\x20this\x20attribute\x20as\x20products\x20are\x20mapped\x20to\x20it.\x20','Authorized','create','listByQueryBuilder','/:id','../../services/AttributeGroupService','Attribute','Successfullly\x20deleted\x20attribute.','../../services/AttributeService','Successfully\x20updated\x20Attribute.','attributeGroup','574xlOIjR','Attribute.attributeName\x20as\x20attributeName','289983iNFEWm','AttributeGroupService','4110672ZGoIPp','count','add-attribute','reflect-metadata','Attribute.groupId\x20as\x20groupId','\x20invalid\x20attribute\x20Id','defineProperty','2SGzlgg','attribute-list','679870BCWVvz','sortOrder','CheckAddonMiddleware','Attribute.createdDate','__awaiter','send','Attributelist','Invalid\x20attribute\x20Id','tslib','admin','Param','attributeService','2683760kXFXxU','../../../../src/api/core/middlewares/AddonValidationMiddleware','design:returntype','attributeGroupService','__decorate','/attribute','Post','Delete','Res','Body','getAttribute','555461RTDKyk','ProductAttributeService','Attribute.attributeId\x20as\x20attributeId','__param','Req','CreateAttribute','Successfully\x20Got\x20attribute','Successfully\x20got\x20the\x20attribute\x20list','productAttributeService','edit-attribute','unable\x20to\x20create\x20attribute,\x20try\x20again','delete-attribute','DESC','routing-controllers','54006grZSVN','prototype','unable\x20to\x20update\x20Attribute','groupId','Attribute.sortOrder\x20as\x20sortOrder','Get','findOne','delete','offset','all','153fwAbzL','attributeName','QueryParam','Put','../../services/ProductAttributeService','updateAttribute','JsonController','design:type','design:paramtypes','__esModule','1733230EeOTqK','AttributeController','status'];a62_0x55e5=function(){return _0xd3a83d;};return a62_0x55e5();}Object[a62_0x107829(0x195)](exports,a62_0x107829(0x177),{'value':!![]}),exports[a62_0x107829(0x179)]=void 0x0;const tslib_1=require(a62_0x107829(0x1a0));function a62_0x1ae9(_0x3b75c1,_0x42e3ea){const _0x55e544=a62_0x55e5();return a62_0x1ae9=function(_0x1ae990,_0xe02e06){_0x1ae990=_0x1ae990-0x169;let _0x1ffb02=_0x55e544[_0x1ae990];return _0x1ffb02;},a62_0x1ae9(_0x3b75c1,_0x42e3ea);}require(a62_0x107829(0x192));const routing_controllers_1=require(a62_0x107829(0x1bc)),Attribute_1=require('../../models/Attribute'),AttributeService_1=require(a62_0x107829(0x188)),AttributeGroupService_1=require(a62_0x107829(0x185)),CreateAttributeRequest_1=require('./requests/CreateAttributeRequest'),ProductAttributeService_1=require(a62_0x107829(0x172)),AddonValidationMiddleware_1=require(a62_0x107829(0x1a5));let AttributeController=class AttributeController{constructor(_0x2ff40e,_0x28ef55,_0x334861){const _0x5a2520=a62_0x107829;this[_0x5a2520(0x1a3)]=_0x2ff40e,this['productAttributeService']=_0x28ef55,this['attributeGroupService']=_0x334861;}[a62_0x107829(0x17d)](_0x2cec28,_0x3fa63b){const _0x980972=a62_0x107829;return tslib_1[_0x980972(0x19c)](this,void 0x0,void 0x0,function*(){const _0xf435f7=_0x980972,_0x533b6f=new Attribute_1[(_0xf435f7(0x186))]();_0x533b6f[_0xf435f7(0x16f)]=_0x2cec28['attributeName'],_0x533b6f[_0xf435f7(0x199)]=_0x2cec28[_0xf435f7(0x199)],_0x533b6f[_0xf435f7(0x1c0)]=_0x2cec28[_0xf435f7(0x1c0)];const _0x336ae9=yield this['attributeService']['create'](_0x533b6f);if(_0x336ae9){const _0x4c4578={'status':0x1,'message':'Attribute\x20added\x20successfully.','data':_0x336ae9};return _0x3fa63b[_0xf435f7(0x17a)](0xc8)[_0xf435f7(0x19d)](_0x4c4578);}else{const _0x51edd8={'status':0x0,'message':_0xf435f7(0x1b9)};return _0x3fa63b[_0xf435f7(0x17a)](0x190)['send'](_0x51edd8);}});}[a62_0x107829(0x19e)](_0x4de7c9,_0x19f231,_0x130083,_0x352a60){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2f76d6=a62_0x1ae9,_0x244e81=[_0x2f76d6(0x1b1),_0x2f76d6(0x193),_0x2f76d6(0x18c),_0x2f76d6(0x1c1)],_0x1c09b6=[{'name':_0x2f76d6(0x19b),'order':_0x2f76d6(0x1bb)}],_0x688d19=yield this[_0x2f76d6(0x1a3)][_0x2f76d6(0x183)](_0x4de7c9,_0x19f231,_0x244e81,[],[],[],[],_0x1c09b6,![],!![]);if(_0x130083){const _0x339c4a=yield this['attributeService']['listByQueryBuilder'](_0x4de7c9,_0x19f231,_0x244e81,[],[],[],[],_0x1c09b6,!![],!![]),_0x3a5b4c={'status':0x1,'message':'Successfully\x20got\x20the\x20attribute\x20list.','data':_0x339c4a};return _0x352a60['status'](0xc8)[_0x2f76d6(0x19d)](_0x3a5b4c);}const _0x57c18e=_0x688d19[_0x2f76d6(0x17f)](_0x2b77d6=>tslib_1[_0x2f76d6(0x19c)](this,void 0x0,void 0x0,function*(){const _0x3c9116=_0x2f76d6,_0x2ecd18=_0x2b77d6,_0x52e7a4=yield this[_0x3c9116(0x1a7)][_0x3c9116(0x16a)]({'where':{'groupId':_0x2ecd18[_0x3c9116(0x1c0)]}});return _0x2ecd18[_0x3c9116(0x18a)]=_0x52e7a4,_0x2ecd18;})),_0x4ae5fc=yield Promise[_0x2f76d6(0x16d)](_0x57c18e);return _0x352a60['status'](0xc8)[_0x2f76d6(0x19d)]({'status':0x1,'messge':_0x2f76d6(0x1b6),'data':_0x4ae5fc});});}[a62_0x107829(0x173)](_0x244a2b,_0x3d2eaf,_0x34fa23){const _0x1dda0b=a62_0x107829;return tslib_1[_0x1dda0b(0x19c)](this,void 0x0,void 0x0,function*(){const _0x5b238f=_0x1dda0b,_0x5b070d=yield this['attributeService'][_0x5b238f(0x16a)]({'where':{'attributeId':_0x244a2b}});if(!_0x5b070d){const _0x54630c={'status':0x0,'message':_0x5b238f(0x19f)};return _0x34fa23[_0x5b238f(0x17a)](0x190)[_0x5b238f(0x19d)](_0x54630c);}_0x5b070d[_0x5b238f(0x16f)]=_0x3d2eaf[_0x5b238f(0x16f)],_0x5b070d[_0x5b238f(0x1c0)]=_0x3d2eaf['groupId'],_0x5b070d[_0x5b238f(0x199)]=_0x3d2eaf[_0x5b238f(0x199)];const _0x554ade=yield this['attributeService'][_0x5b238f(0x182)](_0x5b070d);if(_0x554ade){const _0x15f28b={'status':0x1,'message':_0x5b238f(0x189),'data':_0x554ade};return _0x34fa23[_0x5b238f(0x17a)](0xc8)['send'](_0x15f28b);}else{const _0x576ea9={'status':0x0,'message':_0x5b238f(0x1bf)};return _0x34fa23[_0x5b238f(0x17a)](0x190)['send'](_0x576ea9);}});}[a62_0x107829(0x17c)](_0x212234,_0x25d73e,_0x3593d3){const _0x1d0919=a62_0x107829;return tslib_1[_0x1d0919(0x19c)](this,void 0x0,void 0x0,function*(){const _0x142bc2=_0x1d0919,_0x5a4d80=yield this[_0x142bc2(0x1a3)]['findOne']({'where':{'attributeId':_0x212234}});if(!_0x5a4d80){const _0x27660c={'status':0x0,'message':'Invalid\x20attribute\x20Id'};return _0x25d73e['status'](0x190)[_0x142bc2(0x19d)](_0x27660c);}const _0x7635c6=yield this[_0x142bc2(0x1b7)][_0x142bc2(0x16a)]({'where':{'attributeId':_0x212234}});if(_0x7635c6){const _0x3e2135={'status':0x0,'message':_0x142bc2(0x180)};return _0x25d73e['status'](0x190)[_0x142bc2(0x19d)](_0x3e2135);}const _0x12f1c8=yield this[_0x142bc2(0x1a3)][_0x142bc2(0x16b)](_0x212234);if(_0x12f1c8){const _0x10abce={'status':0x1,'message':_0x142bc2(0x187)};return _0x25d73e['status'](0xc8)[_0x142bc2(0x19d)](_0x10abce);}else{const _0x3c5d25={'status':0x0,'message':'Unable\x20to\x20delete\x20attribute.'};return _0x25d73e['status'](0x190)[_0x142bc2(0x19d)](_0x3c5d25);}});}[a62_0x107829(0x1ae)](_0x4e8d0a,_0x74ffe7,_0x5e9384){const _0x420ce9=a62_0x107829;return tslib_1[_0x420ce9(0x19c)](this,void 0x0,void 0x0,function*(){const _0x59389b=_0x420ce9,_0x375ec0=yield this['attributeService']['findOne']({'where':{'attributeId':_0x4e8d0a}});if(!_0x375ec0){const _0x377905={'status':0x0,'message':_0x59389b(0x194)};return _0x5e9384[_0x59389b(0x17a)](0x190)[_0x59389b(0x19d)](_0x377905);}const _0x32b08f={'status':0x1,'message':_0x59389b(0x1b5),'data':_0x375ec0};return _0x5e9384['status'](0xc8)[_0x59389b(0x19d)](_0x32b08f);});}};tslib_1[a62_0x107829(0x1a8)]([(0x0,routing_controllers_1[a62_0x107829(0x1aa)])(),(0x0,routing_controllers_1[a62_0x107829(0x181)])(['admin',a62_0x107829(0x191)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a62_0x107829(0x1ad)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a62_0x107829(0x1ac)])()),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x175),Function),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x176),[CreateAttributeRequest_1[a62_0x107829(0x1b4)],Object]),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x1a6),Promise)],AttributeController[a62_0x107829(0x1be)],a62_0x107829(0x17d),null),tslib_1[a62_0x107829(0x1a8)]([(0x0,routing_controllers_1[a62_0x107829(0x169)])(),(0x0,routing_controllers_1[a62_0x107829(0x181)])([a62_0x107829(0x1a1),a62_0x107829(0x197)]),tslib_1[a62_0x107829(0x1b2)](0x0,(0x0,routing_controllers_1['QueryParam'])('limit')),tslib_1[a62_0x107829(0x1b2)](0x1,(0x0,routing_controllers_1[a62_0x107829(0x170)])(a62_0x107829(0x16c))),tslib_1[a62_0x107829(0x1b2)](0x2,(0x0,routing_controllers_1[a62_0x107829(0x170)])(a62_0x107829(0x190))),tslib_1[a62_0x107829(0x1b2)](0x3,(0x0,routing_controllers_1[a62_0x107829(0x1ac)])()),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x175),Function),tslib_1['__metadata'](a62_0x107829(0x176),[Number,Number,Object,Object]),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x1a6),Promise)],AttributeController[a62_0x107829(0x1be)],a62_0x107829(0x19e),null),tslib_1[a62_0x107829(0x1a8)]([(0x0,routing_controllers_1[a62_0x107829(0x171)])(a62_0x107829(0x184)),(0x0,routing_controllers_1[a62_0x107829(0x181)])([a62_0x107829(0x1a1),a62_0x107829(0x1b8)]),tslib_1[a62_0x107829(0x1b2)](0x0,(0x0,routing_controllers_1[a62_0x107829(0x1a2)])('id')),tslib_1[a62_0x107829(0x1b2)](0x1,(0x0,routing_controllers_1[a62_0x107829(0x1ad)])({'validate':!![]})),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a62_0x107829(0x1ac)])()),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x175),Function),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x176),[Number,CreateAttributeRequest_1[a62_0x107829(0x1b4)],Object]),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x1a6),Promise)],AttributeController[a62_0x107829(0x1be)],a62_0x107829(0x173),null),tslib_1[a62_0x107829(0x1a8)]([(0x0,routing_controllers_1[a62_0x107829(0x1ab)])(a62_0x107829(0x184)),(0x0,routing_controllers_1[a62_0x107829(0x181)])(['admin',a62_0x107829(0x1ba)]),tslib_1[a62_0x107829(0x1b2)](0x0,(0x0,routing_controllers_1[a62_0x107829(0x1a2)])('id')),tslib_1[a62_0x107829(0x1b2)](0x1,(0x0,routing_controllers_1[a62_0x107829(0x1ac)])()),tslib_1[a62_0x107829(0x1b2)](0x2,(0x0,routing_controllers_1[a62_0x107829(0x1b3)])()),tslib_1[a62_0x107829(0x17e)]('design:type',Function),tslib_1['__metadata'](a62_0x107829(0x176),[Number,Object,Object]),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x1a6),Promise)],AttributeController['prototype'],a62_0x107829(0x17c),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a62_0x107829(0x169)])('/get-attribute/:id'),(0x0,routing_controllers_1[a62_0x107829(0x181)])(),tslib_1[a62_0x107829(0x1b2)](0x0,(0x0,routing_controllers_1[a62_0x107829(0x1a2)])('id')),tslib_1[a62_0x107829(0x1b2)](0x1,(0x0,routing_controllers_1[a62_0x107829(0x1b3)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a62_0x107829(0x1ac)])()),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x175),Function),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x176),[Number,Object,Object]),tslib_1[a62_0x107829(0x17e)](a62_0x107829(0x1a6),Promise)],AttributeController[a62_0x107829(0x1be)],a62_0x107829(0x1ae),null),AttributeController=tslib_1[a62_0x107829(0x1a8)]([(0x0,routing_controllers_1['UseBefore'])(AddonValidationMiddleware_1[a62_0x107829(0x19a)]),(0x0,routing_controllers_1[a62_0x107829(0x174)])(a62_0x107829(0x1a9)),tslib_1['__metadata'](a62_0x107829(0x176),[AttributeService_1[a62_0x107829(0x17b)],ProductAttributeService_1[a62_0x107829(0x1b0)],AttributeGroupService_1[a62_0x107829(0x18e)]])],AttributeController),exports[a62_0x107829(0x179)]=AttributeController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AttributeController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const Attribute_1 = require("../../models/Attribute");
+const AttributeService_1 = require("../../services/AttributeService");
+const CreateAttributeRequest_1 = require("./requests/CreateAttributeRequest");
+const AttributeValue_1 = require("../../models/AttributeValue");
+const ProductSpecAttrGrptoAttrService_1 = require("../../services/ProductSpecAttrGrptoAttrService");
+const AttributeToGroupService_1 = require("../../services/AttributeToGroupService");
+const AttributeValueService_1 = require("../../services/AttributeValueService");
+const typeorm_1 = require("typeorm");
+// import { CheckAddonMiddleware } from '../../../../src/api/core/middlewares/AddonValidationMiddleware';
+// @UseBefore(CheckAddonMiddleware)
+let AttributeController = class AttributeController {
+    constructor(attributeService, productSpecAttrGrptoAttrService, attributeToGroupService, attributeValueService) {
+        this.attributeService = attributeService;
+        this.productSpecAttrGrptoAttrService = productSpecAttrGrptoAttrService;
+        this.attributeToGroupService = attributeToGroupService;
+        this.attributeValueService = attributeValueService;
+        // --
+    }
+    // Create Attribute API
+    /**
+     * @api {post} /api/attribute Add Attribute API
+     * @apiGroup Attribute
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..255}} attributeName
+     * @apiParam (Request body) {Number} groupId
+     * @apiParam (Request body) {Number{..9999}} sortOrder
+     * @apiParamExample {json} Input
+     * {
+     *      "attributeName" : "",
+     *      "groupId" : "",
+     *      "sortOrder" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully created attribute.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/attribute
+     * @apiErrorExample {json} Attribute error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addAttributeGroup(attributeParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newAttribute = new Attribute_1.Attribute();
+            newAttribute.name = attributeParam.name;
+            newAttribute.sortOrder = attributeParam.sortOrder;
+            newAttribute.type = attributeParam.type;
+            newAttribute.isMandatory = attributeParam.isMandatory;
+            newAttribute.useAsFilter = attributeParam.useAsFilter;
+            newAttribute.defaultValue = attributeParam.defaultValue;
+            newAttribute.sectionName = attributeParam.sectionName;
+            newAttribute.label = attributeParam.label;
+            newAttribute.description = attributeParam.description;
+            const attributeValues = [];
+            for (const attributeValueParam of attributeParam.attributeValues) {
+                const attributeValue = new AttributeValue_1.AttributeValue();
+                attributeValue.value = attributeValueParam.value.trim();
+                attributeValues.push(attributeValue);
+            }
+            newAttribute.attributeValues = attributeValues;
+            const AttributeSaved = yield this.attributeService.create(newAttribute);
+            const successResponse = {
+                status: 1,
+                message: 'Attribute added successfully.',
+                data: AttributeSaved,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Attribute List API
+    /**
+     * @api {get} /api/attribute Attribute list API
+     * @apiGroup Attribute
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get Attribute list API",
+     *      "data":{
+     *       "groupId" : "",
+     *       "attributeName" : "",
+     *       "sortOrder" : "",
+     *       "attributeId" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/attribute
+     * @apiErrorExample {json} Attribute Group error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    Attributelist(limit, offset, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // const select = [
+            //     'Attribute.id as id',
+            //     'Attribute.name as attributeName',
+            //     'Attribute.sortOrder as sortOrder',
+            //     'Attribute.type as type',
+            //     'Attribute.isMandatory as isMandatory',
+            //     'Attribute.useAsFilter as useAsFilter',
+            // ];
+            const sort = [{
+                    name: 'Attribute.createdDate',
+                    order: 'DESC',
+                }];
+            const whereConditions = [
+                {
+                    op: 'where',
+                    name: 'Attribute.isDelete',
+                    value: 0,
+                },
+            ];
+            const relations = [
+            // {
+            //     op: 'left-select',
+            //     tableName: 'Attribute.attributeValues',
+            //     aliasName: 'attributeValues',
+            // },
+            ];
+            const attributeList = yield this.attributeService.listByQueryBuilder(limit, offset, [], whereConditions, [], relations, [], sort, false, false);
+            return response.status(200).send({
+                status: 1,
+                messge: 'Successfully got the attribute',
+                data: count ? attributeList.length : attributeList,
+            });
+        });
+    }
+    // update Attribute Group
+    /**
+     * @api {put} /api/attribute/:id Update Attribute API
+     * @apiGroup Attribute
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..255}} attributeName attributeName
+     * @apiParam (Request body) {Number} groupId groupId
+     * @apiParam (Request body) {Number{..9999}} sortOrder sortOrder
+     * @apiParamExample {json} Input
+     * {
+     *      "attributeName" : "",
+     *      "groupId" : "",
+     *      "sortOrder" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated attribute.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/attribute/:id
+     * @apiErrorExample {json} Attribute error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateAttribute(id, attributeParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const attribute = yield this.attributeService.findOne({
+                where: {
+                    id,
+                },
+                relations: ['attributeValues'],
+            });
+            if (!attribute) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid attribute Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            // Delete attribute value
+            if (attributeParam.deleteAttributeValueIds.length) {
+                yield this.attributeValueService.delete({ id: (0, typeorm_1.In)(attributeParam.deleteAttributeValueIds) });
+            }
+            attribute.name = attributeParam.name;
+            attribute.sortOrder = attributeParam.sortOrder;
+            attribute.type = attributeParam.type;
+            attribute.isMandatory = attributeParam.isMandatory;
+            attribute.useAsFilter = attributeParam.useAsFilter;
+            attribute.isActive = attributeParam.isActive;
+            attribute.defaultValue = attributeParam.defaultValue;
+            attribute.sectionName = attributeParam.sectionName;
+            attribute.label = attributeParam.label;
+            attribute.description = attributeParam.description;
+            const attributeValues = [];
+            for (const attributeValueParam of attributeParam.attributeValues) {
+                const attributeValue = new AttributeValue_1.AttributeValue();
+                if (attributeValueParam.id) {
+                    attributeValue.id = attributeValueParam.id;
+                }
+                attributeValue.value = attributeValueParam.value.trim();
+                attributeValues.push(attributeValue);
+            }
+            attribute.attributeValues = attributeValues;
+            const attributeSave = yield this.attributeService.create(attribute);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully updated Attribute.',
+                data: attributeSave,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // delete Attribute API
+    /**
+     * @api {delete} /api/attribute/:id Delete Attribute API
+     * @apiGroup Attribute
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Attribute.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/attribute/:id
+     * @apiErrorExample {json} attribute error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteAttribute(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield this.attributeService.softDelete(id);
+            yield this.attributeToGroupService.delete({ attributeId: id });
+            yield this.productSpecAttrGrptoAttrService.delete({ attributeId: id });
+            const successResponse = {
+                status: 1,
+                message: 'Successfullly deleted attribute.',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    //   Get attribute API
+    /**
+     * @api {get} /api/attribute/get-attribute/:id Get Attribute  API
+     * @apiGroup Attribute
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get attribute",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/attribute/get-attribute/:id
+     * @apiErrorExample {json} Attribute error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    getAttribute(id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const attribute = yield this.attributeService.findOne({ where: { id, isDelete: 0 }, relations: ['attributeValues'] });
+            if (!attribute) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid attribute Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully Got attribute',
+                data: attribute,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'add-attribute']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateAttributeRequest_1.CreateAttribute, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AttributeController.prototype, "addAttributeGroup", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(['admin', 'attribute-list']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AttributeController.prototype, "Attributelist", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-attribute']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateAttributeRequest_1.CreateAttribute, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AttributeController.prototype, "updateAttribute", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-attribute']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AttributeController.prototype, "deleteAttribute", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AttributeController.prototype, "getAttribute", null);
+AttributeController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/attribute'),
+    tslib_1.__metadata("design:paramtypes", [AttributeService_1.AttributeService,
+        ProductSpecAttrGrptoAttrService_1.ProductSpecAttrGrptoAttrService,
+        AttributeToGroupService_1.AttributeToGroupService,
+        AttributeValueService_1.AttributeValueService])
+], AttributeController);
+exports.AttributeController = AttributeController;
+//# sourceMappingURL=AttributeController.js.map

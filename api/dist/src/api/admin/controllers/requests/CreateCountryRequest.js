@@ -1,1 +1,52 @@
-'use strict';const a290_0x5d48eb=a290_0x3ba0;(function(_0x167518,_0x4adb0e){const _0x1c9efb=a290_0x3ba0,_0x4a34c2=_0x167518();while(!![]){try{const _0x5d181e=-parseInt(_0x1c9efb(0xf2))/0x1+-parseInt(_0x1c9efb(0xed))/0x2+parseInt(_0x1c9efb(0xec))/0x3+-parseInt(_0x1c9efb(0xe4))/0x4+-parseInt(_0x1c9efb(0xf4))/0x5*(parseInt(_0x1c9efb(0xf5))/0x6)+parseInt(_0x1c9efb(0xdf))/0x7*(parseInt(_0x1c9efb(0xe3))/0x8)+parseInt(_0x1c9efb(0xef))/0x9*(parseInt(_0x1c9efb(0xf3))/0xa);if(_0x5d181e===_0x4adb0e)break;else _0x4a34c2['push'](_0x4a34c2['shift']());}catch(_0x324ca2){_0x4a34c2['push'](_0x4a34c2['shift']());}}}(a290_0x4f3f,0x59f79));Object[a290_0x5d48eb(0xe6)](exports,a290_0x5d48eb(0xe1),{'value':!![]}),exports[a290_0x5d48eb(0xf8)]=void 0x0;const tslib_1=require(a290_0x5d48eb(0xe8));require(a290_0x5d48eb(0xea));const class_validator_1=require(a290_0x5d48eb(0xee));class CreateCountry{}function a290_0x4f3f(){const _0x515b82=['prototype','195793osfJMU','10HKDqMU','5aafzqw','4023618ZpxAnF','MaxLength','isoCode2\x20should\x20be\x20maximum\x202\x20characters','CreateCountry','IsNotEmpty','isoCode2','186389VTLuaX','isoCode3','__esModule','design:type','184gOyiJh','2352652RMJBZC','isoCode2\x20is\x20required','defineProperty','__decorate','tslib','__metadata','reflect-metadata','isoCode3\x20should\x20be\x20maximum\x203\x20characters','1000164ylQvoP','174866EsLxOa','class-validator','8682192miOqCK','name\x20is\x20required'];a290_0x4f3f=function(){return _0x515b82;};return a290_0x4f3f();}function a290_0x3ba0(_0x5715e6,_0x4c79e5){const _0x4f3f76=a290_0x4f3f();return a290_0x3ba0=function(_0x3ba066,_0x1e1d6d){_0x3ba066=_0x3ba066-0xdd;let _0x2fc650=_0x4f3f76[_0x3ba066];return _0x2fc650;},a290_0x3ba0(_0x5715e6,_0x4c79e5);}tslib_1['__decorate']([(0x0,class_validator_1['MaxLength'])(0x1e,{'message':'name\x20should\x20be\x20maximum\x2030\x20characters'}),(0x0,class_validator_1[a290_0x5d48eb(0xdd)])({'message':a290_0x5d48eb(0xf0)}),tslib_1['__metadata'](a290_0x5d48eb(0xe2),String)],CreateCountry[a290_0x5d48eb(0xf1)],'name',void 0x0),tslib_1[a290_0x5d48eb(0xe7)]([(0x0,class_validator_1[a290_0x5d48eb(0xf6)])(0x2,{'message':a290_0x5d48eb(0xf7)}),(0x0,class_validator_1[a290_0x5d48eb(0xdd)])({'message':a290_0x5d48eb(0xe5)}),tslib_1[a290_0x5d48eb(0xe9)]('design:type',String)],CreateCountry[a290_0x5d48eb(0xf1)],a290_0x5d48eb(0xde),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a290_0x5d48eb(0xf6)])(0x3,{'message':a290_0x5d48eb(0xeb)}),(0x0,class_validator_1['IsNotEmpty'])({'message':'isoCode3\x20is\x20required'}),tslib_1[a290_0x5d48eb(0xe9)](a290_0x5d48eb(0xe2),String)],CreateCountry[a290_0x5d48eb(0xf1)],a290_0x5d48eb(0xe0),void 0x0),tslib_1[a290_0x5d48eb(0xe7)]([(0x0,class_validator_1[a290_0x5d48eb(0xdd)])(),tslib_1[a290_0x5d48eb(0xe9)](a290_0x5d48eb(0xe2),Number)],CreateCountry[a290_0x5d48eb(0xf1)],'postcodeRequired',void 0x0),tslib_1[a290_0x5d48eb(0xe7)]([(0x0,class_validator_1[a290_0x5d48eb(0xdd)])(),tslib_1['__metadata']('design:type',Number)],CreateCountry[a290_0x5d48eb(0xf1)],'status',void 0x0),exports['CreateCountry']=CreateCountry;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCountry = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateCountry {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(30, {
+        message: 'name should be maximum 30 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'name is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateCountry.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(2, {
+        message: 'isoCode2 should be maximum 2 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'isoCode2 is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateCountry.prototype, "isoCode2", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(3, {
+        message: 'isoCode3 should be maximum 3 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'isoCode3 is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateCountry.prototype, "isoCode3", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateCountry.prototype, "postcodeRequired", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateCountry.prototype, "status", void 0);
+exports.CreateCountry = CreateCountry;
+//# sourceMappingURL=CreateCountryRequest.js.map

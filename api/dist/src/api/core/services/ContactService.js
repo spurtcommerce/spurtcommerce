@@ -1,1 +1,36 @@
-'use strict';const a553_0x96c05=a553_0x4f83;(function(_0x3a5338,_0x4a761a){const _0xd5dbdf=a553_0x4f83,_0x3373b9=_0x3a5338();while(!![]){try{const _0x185248=parseInt(_0xd5dbdf(0x79))/0x1*(parseInt(_0xd5dbdf(0x80))/0x2)+parseInt(_0xd5dbdf(0x7a))/0x3+-parseInt(_0xd5dbdf(0x81))/0x4+parseInt(_0xd5dbdf(0x83))/0x5+parseInt(_0xd5dbdf(0x7d))/0x6+parseInt(_0xd5dbdf(0x77))/0x7*(-parseInt(_0xd5dbdf(0x74))/0x8)+parseInt(_0xd5dbdf(0x87))/0x9*(-parseInt(_0xd5dbdf(0x71))/0xa);if(_0x185248===_0x4a761a)break;else _0x3373b9['push'](_0x3373b9['shift']());}catch(_0x6fc6e5){_0x3373b9['push'](_0x3373b9['shift']());}}}(a553_0x4a02,0x2f871));Object[a553_0x96c05(0x85)](exports,a553_0x96c05(0x6b),{'value':!![]}),exports['ContactService']=void 0x0;const tslib_1=require(a553_0x96c05(0x78)),typedi_1=require(a553_0x96c05(0x7f)),typeorm_typedi_extensions_1=require('typeorm-typedi-extensions'),Logger_1=require(a553_0x96c05(0x7e)),ContactRepository_1=require(a553_0x96c05(0x84));let ContactService=class ContactService{constructor(_0x177675,_0x6a2c0){const _0x401a76=a553_0x96c05;this[_0x401a76(0x73)]=_0x177675,this[_0x401a76(0x70)]=_0x6a2c0;}[a553_0x96c05(0x86)](_0x50c3d3){const _0x402866=a553_0x96c05;return tslib_1[_0x402866(0x6d)](this,void 0x0,void 0x0,function*(){const _0x1112fe=_0x402866;return this[_0x1112fe(0x70)][_0x1112fe(0x7c)](_0x1112fe(0x75)),this[_0x1112fe(0x73)][_0x1112fe(0x72)](_0x50c3d3);});}};function a553_0x4a02(){const _0x15b746=['8AvowDR','Create\x20a\x20Contact\x20customer\x20Infomation\x20','design:paramtypes','621425QWoIUS','tslib','1QrAGFP','984345CORznw','ContactRepository','info','2238492xWQNrf','../../../decorators/Logger','typedi','566266jAnwXf','1004056StjPej','__param','1181760DlETuf','../repositories/ContactRepository','defineProperty','create','27kzzSkj','__esModule','__metadata','__awaiter','Logger','__decorate','log','2287400PtxYBG','save','contactRepository'];a553_0x4a02=function(){return _0x15b746;};return a553_0x4a02();}function a553_0x4f83(_0x562540,_0x12d660){const _0x4a0202=a553_0x4a02();return a553_0x4f83=function(_0x4f8390,_0x3d18a9){_0x4f8390=_0x4f8390-0x6b;let _0x1711aa=_0x4a0202[_0x4f8390];return _0x1711aa;},a553_0x4f83(_0x562540,_0x12d660);}ContactService=tslib_1[a553_0x96c05(0x6f)]([(0x0,typedi_1['Service'])(),tslib_1[a553_0x96c05(0x82)](0x0,(0x0,typeorm_typedi_extensions_1['OrmRepository'])()),tslib_1['__param'](0x1,(0x0,Logger_1[a553_0x96c05(0x6e)])(__filename)),tslib_1[a553_0x96c05(0x6c)](a553_0x96c05(0x76),[ContactRepository_1[a553_0x96c05(0x7b)],Object])],ContactService),exports['ContactService']=ContactService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ContactService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const ContactRepository_1 = require("../repositories/ContactRepository");
+let ContactService = class ContactService {
+    constructor(contactRepository, log) {
+        this.contactRepository = contactRepository;
+        this.log = log;
+    }
+    // create contact info
+    create(customer) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a Contact customer Infomation ');
+            return this.contactRepository.save(customer);
+        });
+    }
+};
+ContactService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [ContactRepository_1.ContactRepository, Object])
+], ContactService);
+exports.ContactService = ContactService;
+//# sourceMappingURL=ContactService.js.map

@@ -1,1 +1,88 @@
-'use strict';const a600_0x33b9e1=a600_0x2dc0;(function(_0x20bf1a,_0x185ed3){const _0x177dcd=a600_0x2dc0,_0x27262f=_0x20bf1a();while(!![]){try{const _0x9cce0f=-parseInt(_0x177dcd(0x20d))/0x1+parseInt(_0x177dcd(0x1e4))/0x2*(parseInt(_0x177dcd(0x201))/0x3)+parseInt(_0x177dcd(0x20a))/0x4*(-parseInt(_0x177dcd(0x1f4))/0x5)+-parseInt(_0x177dcd(0x209))/0x6*(parseInt(_0x177dcd(0x1f9))/0x7)+-parseInt(_0x177dcd(0x1fb))/0x8*(parseInt(_0x177dcd(0x1ec))/0x9)+parseInt(_0x177dcd(0x1f7))/0xa*(-parseInt(_0x177dcd(0x1fd))/0xb)+parseInt(_0x177dcd(0x204))/0xc;if(_0x9cce0f===_0x185ed3)break;else _0x27262f['push'](_0x27262f['shift']());}catch(_0x1a2112){_0x27262f['push'](_0x27262f['shift']());}}}(a600_0x5bf0,0xa33b7));function a600_0x2dc0(_0x1ec992,_0x54de19){const _0x5bf03a=a600_0x5bf0();return a600_0x2dc0=function(_0x2dc041,_0x5a918f){_0x2dc041=_0x2dc041-0x1e3;let _0x5235eb=_0x5bf03a[_0x2dc041];return _0x5235eb;},a600_0x2dc0(_0x1ec992,_0x54de19);}Object[a600_0x33b9e1(0x1fe)](exports,a600_0x33b9e1(0x212),{'value':!![]}),exports[a600_0x33b9e1(0x1fa)]=void 0x0;const tslib_1=require(a600_0x33b9e1(0x1eb)),typedi_1=require(a600_0x33b9e1(0x1fc)),typeorm_typedi_extensions_1=require(a600_0x33b9e1(0x20e)),Logger_1=require(a600_0x33b9e1(0x1e8)),ServiceCategoryRepository_1=require(a600_0x33b9e1(0x210)),index_1=require(a600_0x33b9e1(0x1ea));function a600_0x5bf0(){const _0x3ae0b9=['serviceCategoryRepository','Create\x20a\x20new\x20category\x20=>\x20','list','Service','234wYupxX','8WxkKCm','ASC','where','682237VdFuGd','typeorm-typedi-extensions','ServiceCategoryRepository','../repositories/ServiceCategoryRepository','findOne','__esModule','find','value','22WUOBXV','info','Like','delete','../../../decorators/Logger','design:paramtypes','typeorm/index','tslib','45DMzIct','order','DESC','__metadata','length','log','skip','forEach','2916135WyxsQQ','Logger','__param','1106140DsTofY','name','154882enMgwU','ServiceCategoryService','1848584zQqzkA','typedi','99XESMbj','defineProperty','take','count','24936AffZiY','Delete\x20a\x20Category','__awaiter','65275956Gzeunl'];a600_0x5bf0=function(){return _0x3ae0b9;};return a600_0x5bf0();}let ServiceCategoryService=class ServiceCategoryService{constructor(_0x44cbb5,_0x51db45){const _0x1a0371=a600_0x33b9e1;this[_0x1a0371(0x205)]=_0x44cbb5,this[_0x1a0371(0x1f1)]=_0x51db45;}['create'](_0x2fca06){const _0x42fecf=a600_0x33b9e1;return tslib_1[_0x42fecf(0x203)](this,void 0x0,void 0x0,function*(){const _0x5c949b=_0x42fecf;return this[_0x5c949b(0x1f1)][_0x5c949b(0x1e5)](_0x5c949b(0x206),_0x2fca06['toString']()),this[_0x5c949b(0x205)]['save'](_0x2fca06);});}[a600_0x33b9e1(0x211)](_0x2dfd41){const _0x4e873b=a600_0x33b9e1;return this[_0x4e873b(0x205)][_0x4e873b(0x211)](_0x2dfd41);}['delete'](_0x2e52e9){const _0x4b2767=a600_0x33b9e1;return tslib_1[_0x4b2767(0x203)](this,void 0x0,void 0x0,function*(){const _0x26cea8=_0x4b2767;this[_0x26cea8(0x1f1)][_0x26cea8(0x1e5)](_0x26cea8(0x202)),yield this[_0x26cea8(0x205)][_0x26cea8(0x1e7)](_0x2e52e9);return;});}['find'](_0x3f4ae4){const _0x5fd89f=a600_0x33b9e1;return this[_0x5fd89f(0x205)][_0x5fd89f(0x213)](_0x3f4ae4);}[a600_0x33b9e1(0x207)](_0x21063c,_0x2bd026,_0x57bb87=[],_0x55ea6b=[],_0x48be20=[],_0x2784dd,_0x14206b){const _0x4bd73a=a600_0x33b9e1,_0x2b3cb9={};_0x57bb87&&_0x57bb87[_0x4bd73a(0x1f0)]>0x0&&(_0x2b3cb9['select']=_0x57bb87);_0x2b3cb9[_0x4bd73a(0x20c)]={};_0x48be20&&_0x48be20['length']>0x0&&_0x48be20[_0x4bd73a(0x1f3)](_0x307769=>{const _0x386718=_0x4bd73a;_0x2b3cb9['where'][_0x307769[_0x386718(0x1f8)]]=_0x307769[_0x386718(0x1e3)];});_0x55ea6b&&_0x55ea6b[_0x4bd73a(0x1f0)]>0x0&&_0x55ea6b[_0x4bd73a(0x1f3)](_0xe6f7cb=>{const _0x2efdbb=_0x4bd73a,_0x33c995=_0xe6f7cb['op'];if(_0x33c995===_0x2efdbb(0x20c)&&_0xe6f7cb[_0x2efdbb(0x1e3)]!=='')_0x2b3cb9['where'][_0xe6f7cb[_0x2efdbb(0x1f8)]]=_0xe6f7cb[_0x2efdbb(0x1e3)];else _0x33c995==='like'&&_0xe6f7cb[_0x2efdbb(0x1e3)]!==''&&(_0x2b3cb9[_0x2efdbb(0x20c)][_0xe6f7cb['name']]=(0x0,index_1[_0x2efdbb(0x1e6)])('%'+_0xe6f7cb[_0x2efdbb(0x1e3)]+'%'));});_0x21063c&&_0x21063c>0x0&&(_0x2b3cb9[_0x4bd73a(0x1ff)]=_0x21063c,_0x2b3cb9[_0x4bd73a(0x1f2)]=_0x2bd026);_0x2b3cb9[_0x4bd73a(0x1ed)]={'sortOrder':_0x2784dd===0x2?_0x4bd73a(0x1ee):_0x4bd73a(0x20b)};if(_0x14206b)return this['serviceCategoryRepository'][_0x4bd73a(0x200)](_0x2b3cb9);return this[_0x4bd73a(0x205)][_0x4bd73a(0x213)](_0x2b3cb9);}};ServiceCategoryService=tslib_1['__decorate']([(0x0,typedi_1[a600_0x33b9e1(0x208)])(),tslib_1[a600_0x33b9e1(0x1f6)](0x0,(0x0,typeorm_typedi_extensions_1['OrmRepository'])()),tslib_1[a600_0x33b9e1(0x1f6)](0x1,(0x0,Logger_1[a600_0x33b9e1(0x1f5)])(__filename)),tslib_1[a600_0x33b9e1(0x1ef)](a600_0x33b9e1(0x1e9),[ServiceCategoryRepository_1[a600_0x33b9e1(0x20f)],Object])],ServiceCategoryService),exports['ServiceCategoryService']=ServiceCategoryService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ServiceCategoryService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const ServiceCategoryRepository_1 = require("../repositories/ServiceCategoryRepository");
+const index_1 = require("typeorm/index");
+let ServiceCategoryService = class ServiceCategoryService {
+    constructor(serviceCategoryRepository, log) {
+        this.serviceCategoryRepository = serviceCategoryRepository;
+        this.log = log;
+    }
+    // create Category
+    create(category) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new category => ', category.toString());
+            return this.serviceCategoryRepository.save(category);
+        });
+    }
+    // findone category
+    findOne(category) {
+        return this.serviceCategoryRepository.findOne(category);
+    }
+    // delete Category
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a Category');
+            yield this.serviceCategoryRepository.delete(id);
+            return;
+        });
+    }
+    // find category
+    find(category) {
+        return this.serviceCategoryRepository.find(category);
+    }
+    // Service category List
+    list(limit, offset, select = [], search = [], whereConditions = [], sortOrder, count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== '') {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== '') {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        condition.order = { sortOrder: (sortOrder === 2) ? 'DESC' : 'ASC' };
+        if (count) {
+            return this.serviceCategoryRepository.count(condition);
+        }
+        return this.serviceCategoryRepository.find(condition);
+    }
+};
+ServiceCategoryService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [ServiceCategoryRepository_1.ServiceCategoryRepository, Object])
+], ServiceCategoryService);
+exports.ServiceCategoryService = ServiceCategoryService;
+//# sourceMappingURL=ServiceCategoryService.js.map

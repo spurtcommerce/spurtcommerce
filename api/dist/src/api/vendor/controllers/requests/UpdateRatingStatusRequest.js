@@ -1,1 +1,15 @@
-'use strict';var a680_0x2dd929=a680_0x40cb;(function(_0x1e21b0,_0x5cf7f2){var _0x48c277=a680_0x40cb,_0x3ec87d=_0x1e21b0();while(!![]){try{var _0x514e1f=-parseInt(_0x48c277(0x98))/0x1+parseInt(_0x48c277(0x9a))/0x2*(-parseInt(_0x48c277(0x93))/0x3)+-parseInt(_0x48c277(0x9c))/0x4+-parseInt(_0x48c277(0x96))/0x5*(-parseInt(_0x48c277(0x97))/0x6)+parseInt(_0x48c277(0x91))/0x7*(-parseInt(_0x48c277(0x95))/0x8)+parseInt(_0x48c277(0x99))/0x9+parseInt(_0x48c277(0x9b))/0xa;if(_0x514e1f===_0x5cf7f2)break;else _0x3ec87d['push'](_0x3ec87d['shift']());}catch(_0x2f16e1){_0x3ec87d['push'](_0x3ec87d['shift']());}}}(a680_0x5025,0x9c95b));function a680_0x40cb(_0x444917,_0x3a81f8){var _0x5025aa=a680_0x5025();return a680_0x40cb=function(_0x40cb03,_0x525d3c){_0x40cb03=_0x40cb03-0x90;var _0xbadf0=_0x5025aa[_0x40cb03];return _0xbadf0;},a680_0x40cb(_0x444917,_0x3a81f8);}Object[a680_0x2dd929(0x94)](exports,a680_0x2dd929(0x9d),{'value':!![]}),exports['UpdateRatingStatusRequest']=void 0x0,require(a680_0x2dd929(0x92));class UpdateRatingStatusRequest{}exports[a680_0x2dd929(0x90)]=UpdateRatingStatusRequest;function a680_0x5025(){var _0xd4ac9c=['UpdateRatingStatusRequest','14lHmTMA','reflect-metadata','3nPpgii','defineProperty','1820176Veuhpt','15ZYOEsS','713082IFLRJY','653260UPvjvA','9737244IuyDLY','1915478fziwbN','18413270dhegZu','2289480ThAiHT','__esModule'];a680_0x5025=function(){return _0xd4ac9c;};return a680_0x5025();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UpdateRatingStatusRequest = void 0;
+require("reflect-metadata");
+class UpdateRatingStatusRequest {
+}
+exports.UpdateRatingStatusRequest = UpdateRatingStatusRequest;
+//# sourceMappingURL=UpdateRatingStatusRequest.js.map

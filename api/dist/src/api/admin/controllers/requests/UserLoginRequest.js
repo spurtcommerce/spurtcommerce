@@ -1,1 +1,28 @@
-'use strict';function a344_0x4783(_0x3eeaff,_0x3cf5e1){const _0x18095a=a344_0x1809();return a344_0x4783=function(_0x4783b0,_0x5cafb9){_0x4783b0=_0x4783b0-0x96;let _0x354f57=_0x18095a[_0x4783b0];return _0x354f57;},a344_0x4783(_0x3eeaff,_0x3cf5e1);}const a344_0x3eb51f=a344_0x4783;(function(_0x1d21b8,_0x367c98){const _0x19a076=a344_0x4783,_0x674e8d=_0x1d21b8();while(!![]){try{const _0x5f4784=parseInt(_0x19a076(0x9a))/0x1*(-parseInt(_0x19a076(0x9e))/0x2)+parseInt(_0x19a076(0x9f))/0x3+-parseInt(_0x19a076(0x9b))/0x4+parseInt(_0x19a076(0xa2))/0x5+-parseInt(_0x19a076(0x9d))/0x6+-parseInt(_0x19a076(0x99))/0x7+parseInt(_0x19a076(0x9c))/0x8;if(_0x5f4784===_0x367c98)break;else _0x674e8d['push'](_0x674e8d['shift']());}catch(_0x13591c){_0x674e8d['push'](_0x674e8d['shift']());}}}(a344_0x1809,0x5201b));Object[a344_0x3eb51f(0xa7)](exports,'__esModule',{'value':!![]}),exports[a344_0x3eb51f(0xa8)]=void 0x0;const tslib_1=require('tslib');require(a344_0x3eb51f(0xa3));const class_validator_1=require(a344_0x3eb51f(0xa4));class UserLogin{}tslib_1[a344_0x3eb51f(0xa5)]([(0x0,class_validator_1['IsEmail'])(),(0x0,class_validator_1[a344_0x3eb51f(0x96)])(),tslib_1[a344_0x3eb51f(0x98)](a344_0x3eb51f(0x97),String)],UserLogin['prototype'],a344_0x3eb51f(0xa1),void 0x0),tslib_1[a344_0x3eb51f(0xa5)]([(0x0,class_validator_1[a344_0x3eb51f(0x96)])({'message':'Password\x20is\x20required'}),tslib_1[a344_0x3eb51f(0x98)](a344_0x3eb51f(0x97),String)],UserLogin[a344_0x3eb51f(0xa0)],a344_0x3eb51f(0xa6),void 0x0),exports[a344_0x3eb51f(0xa8)]=UserLogin;function a344_0x1809(){const _0x407058=['defineProperty','UserLogin','IsNotEmpty','design:type','__metadata','659001GJSWJX','201919yfdxZK','2165908vHdNzD','1822592wLqUIe','557070uYrxwY','2wbGQGb','1401087rbSGHv','prototype','username','2857150FHSwRp','reflect-metadata','class-validator','__decorate','password'];a344_0x1809=function(){return _0x407058;};return a344_0x1809();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserLogin = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class UserLogin {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], UserLogin.prototype, "username", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Password is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], UserLogin.prototype, "password", void 0);
+exports.UserLogin = UserLogin;
+//# sourceMappingURL=UserLoginRequest.js.map

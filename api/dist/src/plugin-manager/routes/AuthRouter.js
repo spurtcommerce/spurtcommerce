@@ -1,1 +1,13 @@
-'use strict';const a1016_0x2e99d8=a1016_0x21ed;(function(_0x4d1d5c,_0x95a722){const _0x58f04c=a1016_0x21ed,_0xa79ed8=_0x4d1d5c();while(!![]){try{const _0x16b4f0=parseInt(_0x58f04c(0x138))/0x1*(parseInt(_0x58f04c(0x139))/0x2)+parseInt(_0x58f04c(0x12f))/0x3+parseInt(_0x58f04c(0x133))/0x4*(parseInt(_0x58f04c(0x13c))/0x5)+parseInt(_0x58f04c(0x128))/0x6*(-parseInt(_0x58f04c(0x136))/0x7)+parseInt(_0x58f04c(0x131))/0x8+parseInt(_0x58f04c(0x12c))/0x9+parseInt(_0x58f04c(0x13a))/0xa*(-parseInt(_0x58f04c(0x132))/0xb);if(_0x16b4f0===_0x95a722)break;else _0xa79ed8['push'](_0xa79ed8['shift']());}catch(_0x208136){_0xa79ed8['push'](_0xa79ed8['shift']());}}}(a1016_0x49cc,0xe5427));Object['defineProperty'](exports,a1016_0x2e99d8(0x13d),{'value':!![]}),exports[a1016_0x2e99d8(0x127)]=void 0x0;function a1016_0x21ed(_0x1e8a57,_0x350891){const _0x49cc3b=a1016_0x49cc();return a1016_0x21ed=function(_0x21ed88,_0x3f1b64){_0x21ed88=_0x21ed88-0x126;let _0x3d406c=_0x49cc3b[_0x21ed88];return _0x3d406c;},a1016_0x21ed(_0x1e8a57,_0x350891);}const tslib_1=require(a1016_0x2e99d8(0x12d)),express=tslib_1[a1016_0x2e99d8(0x12e)](require('express')),AuthController_1=require(a1016_0x2e99d8(0x130)),authController=new AuthController_1['AuthController']();exports['AuthRoute']=express[a1016_0x2e99d8(0x135)]()[a1016_0x2e99d8(0x12a)]('/',authController[a1016_0x2e99d8(0x129)])['get'](a1016_0x2e99d8(0x126),authController['login'])[a1016_0x2e99d8(0x134)]('/login',authController[a1016_0x2e99d8(0x13b)])[a1016_0x2e99d8(0x12a)](a1016_0x2e99d8(0x12b),authController[a1016_0x2e99d8(0x137)]);function a1016_0x49cc(){const _0x2638e5=['__importStar','4880640LeKMfl','../controller/AuthController','331672Mcbduv','4169YIeEUO','104KCRvqu','post','Router','3218677QNjuUS','logout','63544lwxuXx','38VUOyok','107760jzraqw','postLogin','159015QQPrDS','__esModule','/login','AuthRoute','6XhjIDy','login','get','/logout','16023681RUkRHE','tslib'];a1016_0x49cc=function(){return _0x2638e5;};return a1016_0x49cc();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AuthRoute = void 0;
+const tslib_1 = require("tslib");
+const express = tslib_1.__importStar(require("express"));
+const AuthController_1 = require("../controller/AuthController");
+const authController = new AuthController_1.AuthController();
+exports.AuthRoute = express.Router()
+    .get('/', authController.login)
+    .get('/login', authController.login)
+    .post('/login', authController.postLogin)
+    .get('/logout', authController.logout);
+//# sourceMappingURL=AuthRouter.js.map

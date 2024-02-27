@@ -1,1 +1,15 @@
-'use strict';function a342_0x277a(){var _0x428add=['392454oPOxht','reflect-metadata','154158tisSYS','4678reAUOL','UpdateTodayDealsParam','5KCVddi','1597185ONFoSS','32frXNvW','2922780ddkflB','1056232kGRGvK','49412imVcpb'];a342_0x277a=function(){return _0x428add;};return a342_0x277a();}var a342_0xfde079=a342_0x33e9;(function(_0x22d294,_0x5adbea){var _0x5ebeba=a342_0x33e9,_0x4f88a2=_0x22d294();while(!![]){try{var _0x35df82=parseInt(_0x5ebeba(0x1a7))/0x1*(parseInt(_0x5ebeba(0x1a0))/0x2)+parseInt(_0x5ebeba(0x19f))/0x3+parseInt(_0x5ebeba(0x1a3))/0x4*(-parseInt(_0x5ebeba(0x1a9))/0x5)+-parseInt(_0x5ebeba(0x1a6))/0x6+-parseInt(_0x5ebeba(0x1a1))/0x7+parseInt(_0x5ebeba(0x1a2))/0x8+parseInt(_0x5ebeba(0x1a4))/0x9;if(_0x35df82===_0x5adbea)break;else _0x4f88a2['push'](_0x4f88a2['shift']());}catch(_0x124ef6){_0x4f88a2['push'](_0x4f88a2['shift']());}}}(a342_0x277a,0x4fe7c));function a342_0x33e9(_0x21b985,_0x37ec7a){var _0x277a6d=a342_0x277a();return a342_0x33e9=function(_0x33e996,_0x43517a){_0x33e996=_0x33e996-0x19f;var _0xb8ab0d=_0x277a6d[_0x33e996];return _0xb8ab0d;},a342_0x33e9(_0x21b985,_0x37ec7a);}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a342_0xfde079(0x1a8)]=void 0x0,require(a342_0xfde079(0x1a5));class UpdateTodayDealsParam{}exports[a342_0xfde079(0x1a8)]=UpdateTodayDealsParam;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UpdateTodayDealsParam = void 0;
+require("reflect-metadata");
+class UpdateTodayDealsParam {
+}
+exports.UpdateTodayDealsParam = UpdateTodayDealsParam;
+//# sourceMappingURL=UpdateTodayDealsParam.js.map

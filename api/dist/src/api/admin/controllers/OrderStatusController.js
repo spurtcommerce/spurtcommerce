@@ -1,1 +1,532 @@
-'use strict';const a267_0x211fbf=a267_0x4725;(function(_0x2ca064,_0x24029a){const _0x68c468=a267_0x4725,_0x39f512=_0x2ca064();while(!![]){try{const _0x4bb89a=-parseInt(_0x68c468(0x97))/0x1+-parseInt(_0x68c468(0xbc))/0x2*(parseInt(_0x68c468(0xb3))/0x3)+parseInt(_0x68c468(0xbf))/0x4+-parseInt(_0x68c468(0xa8))/0x5*(-parseInt(_0x68c468(0xce))/0x6)+-parseInt(_0x68c468(0xb5))/0x7*(-parseInt(_0x68c468(0x91))/0x8)+-parseInt(_0x68c468(0xb1))/0x9+-parseInt(_0x68c468(0x8a))/0xa*(-parseInt(_0x68c468(0xbd))/0xb);if(_0x4bb89a===_0x24029a)break;else _0x39f512['push'](_0x39f512['shift']());}catch(_0x3a4085){_0x39f512['push'](_0x39f512['shift']());}}}(a267_0x88d2,0x5664f));Object[a267_0x211fbf(0x7b)](exports,a267_0x211fbf(0xad),{'value':!![]}),exports[a267_0x211fbf(0xab)]=void 0x0;const tslib_1=require('tslib');require(a267_0x211fbf(0x7d));function a267_0x88d2(){const _0x41ad05=['defineProperty','Get','reflect-metadata','create','Status\x20is\x20mapped\x20with\x20order\x20product,\x20so\x20you\x20cant\x20delete\x20it.','log','parentId','push','Successfully\x20created\x20a\x20new\x20order\x20status.','design:paramtypes','orderStatusService','findAll','UpdateFullfillmentStatus','list','Unable\x20to\x20create\x20the\x20Order\x20Status.','2397070qfTsYz','admin','OrderProductService','/order-fullfillment-status-list','isBuyer','routing-controllers','prototype','372224qzgaKl','createOrderStatus','/update-order-status/:id','priority','defaultStatus','unable\x20to\x20get\x20OrderStatus.','703754icRpWW','limit','Put','../../core/services/OrderStatusService','colorCode','OrderStatusService','isVendor','orderStatusId','orderStatusList:','send','count','__metadata','/order-status-list','isActive','JsonController','../../core/services/OrderProductService','like','3165XBeuGS','updateOrderFullfillmentStatus','updateOrderStatus','OrderStatusController','orderStatusList','__esModule','status','Invalid\x20order\x20Status\x20Id.','isAdmin','5677389YfZqXy','name','18OnZJrv','typeorm','91jNoQTt','QueryParam','design:returntype','orderStatus','Authorized','Successfully\x20updated\x20the\x20order\x20status.','all','101834GujFKR','44ifVgdh','design:type','1627340rKbJSX','findOne','delete-order-status','/create-order-status','Delete','orderFullfillmentStatusList','Successfully\x20deleted\x20the\x20order\x20status.','Res','../../core/models/OrderStatus','edit-order-status','/update-order-fullfillment-status/:id','Param','/delete-order-status/:id','status:','CreateOrderStatus','222fXXZUP','orderProductService','isApi','__param','unable\x20to\x20get\x20order\x20status\x20list\x20based\x20on\x20parent.','Successfully\x20got\x20the\x20complete\x20Order\x20fullfillment\x20status\x20list.','Body','orderStatusListBasedOnParent','__awaiter','Successfully\x20got\x20the\x20complete\x20order\x20status\x20list.','./requests/CreateOrderStatusRequest','offset','Req','Successfully\x20updated\x20order\x20fullfillment\x20status','__decorate','You\x20have\x20already\x20added\x20this\x20name.','Successfully\x20got\x20order\x20status\x20list\x20based\x20on\x20parent.','list-order-status'];a267_0x88d2=function(){return _0x41ad05;};return a267_0x88d2();}function a267_0x4725(_0x37388e,_0x2a7195){const _0x88d242=a267_0x88d2();return a267_0x4725=function(_0x472578,_0x162376){_0x472578=_0x472578-0x72;let _0x3a5b9e=_0x88d242[_0x472578];return _0x3a5b9e;},a267_0x4725(_0x37388e,_0x2a7195);}const routing_controllers_1=require(a267_0x211fbf(0x8f)),typeorm_1=require(a267_0x211fbf(0xb4)),OrderStatus_1=require(a267_0x211fbf(0xc7)),OrderStatusService_1=require(a267_0x211fbf(0x9a)),OrderProductService_1=require(a267_0x211fbf(0xa6)),CreateOrderStatusRequest_1=require(a267_0x211fbf(0x73)),UpdateFullfillmentStatus_1=require('./requests/UpdateFullfillmentStatus');let OrderStatusController=class OrderStatusController{constructor(_0x2a55ce,_0x5564c1){const _0x4d0a27=a267_0x211fbf;this[_0x4d0a27(0x85)]=_0x2a55ce,this[_0x4d0a27(0xcf)]=_0x5564c1;}[a267_0x211fbf(0x92)](_0x4d12b4,_0x1e11f8){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xe6b46c=a267_0x4725,_0x3408c5=yield this[_0xe6b46c(0x85)][_0xe6b46c(0xc0)]({'where':{'name':_0x4d12b4[_0xe6b46c(0xb2)],'parentId':_0x4d12b4[_0xe6b46c(0x81)]}});if(_0x3408c5){const _0x321126={'status':0x0,'message':_0xe6b46c(0x78)};return _0x1e11f8[_0xe6b46c(0xae)](0x190)['send'](_0x321126);}const _0x4ee387=new OrderStatus_1['OrderStatus']();_0x4ee387[_0xe6b46c(0xb2)]=_0x4d12b4[_0xe6b46c(0xb2)],_0x4ee387[_0xe6b46c(0x9b)]=_0x4d12b4[_0xe6b46c(0x9b)],_0x4ee387[_0xe6b46c(0x94)]=_0x4d12b4['priority']?_0x4d12b4[_0xe6b46c(0x94)]:0x1,_0x4ee387[_0xe6b46c(0xa4)]=_0x4d12b4[_0xe6b46c(0xae)],_0x4ee387[_0xe6b46c(0x81)]=_0x4d12b4[_0xe6b46c(0x81)]?_0x4d12b4[_0xe6b46c(0x81)]:0x0,_0x4ee387[_0xe6b46c(0xb0)]=_0x4d12b4['isAdmin'],_0x4ee387[_0xe6b46c(0x9d)]=_0x4d12b4['isVendor'],_0x4ee387[_0xe6b46c(0x8e)]=_0x4d12b4[_0xe6b46c(0x8e)],_0x4ee387['isApi']=_0x4d12b4['isApi'];const _0x4e785e=yield this[_0xe6b46c(0x85)][_0xe6b46c(0x7e)](_0x4ee387);if(_0x4e785e!==undefined){const _0xbf35b9={'status':0x1,'message':_0xe6b46c(0x83),'data':_0x4e785e};return _0x1e11f8[_0xe6b46c(0xae)](0xc8)[_0xe6b46c(0xa0)](_0xbf35b9);}else{const _0x1b9cac={'status':0x0,'message':_0xe6b46c(0x89)};return _0x1e11f8[_0xe6b46c(0xae)](0x190)[_0xe6b46c(0xa0)](_0x1b9cac);}});}[a267_0x211fbf(0xaa)](_0x1c49c9,_0x1e821f,_0x12c35d,_0x3929d4){const _0xb6dcd=a267_0x211fbf;return tslib_1[_0xb6dcd(0xd6)](this,void 0x0,void 0x0,function*(){const _0x5bac02=_0xb6dcd,_0x333c0=yield this[_0x5bac02(0x85)][_0x5bac02(0xc0)]({'where':{'orderStatusId':_0x1e821f}});if(!_0x333c0){const _0x379908={'status':0x0,'message':_0x5bac02(0xaf)};return _0x12c35d[_0x5bac02(0xae)](0x190)[_0x5bac02(0xa0)](_0x379908);}const _0x4e5025=yield this['orderStatusService'][_0x5bac02(0xc0)]({'where':{'name':_0x1c49c9['name'],'orderStatusId':(0x0,typeorm_1['Not'])(_0x333c0['orderStatusId']),'parentId':_0x1c49c9[_0x5bac02(0x81)]}});if(_0x4e5025){const _0x5ce62e={'status':0x0,'message':_0x5bac02(0x78)};return _0x12c35d[_0x5bac02(0xae)](0x190)[_0x5bac02(0xa0)](_0x5ce62e);}_0x333c0[_0x5bac02(0xb2)]=_0x1c49c9[_0x5bac02(0xb2)],_0x333c0['colorCode']=_0x1c49c9[_0x5bac02(0x9b)],_0x333c0[_0x5bac02(0x94)]=_0x1c49c9['priority']?_0x1c49c9[_0x5bac02(0x94)]:0x1,_0x333c0['isActive']=_0x1c49c9['status'],_0x333c0[_0x5bac02(0x81)]=_0x1c49c9['parentId']?_0x1c49c9['parentId']:0x0,_0x333c0[_0x5bac02(0xb0)]=_0x1c49c9['isAdmin'],_0x333c0['isVendor']=_0x1c49c9[_0x5bac02(0x9d)],_0x333c0['isBuyer']=_0x1c49c9[_0x5bac02(0x8e)],_0x333c0[_0x5bac02(0xd0)]=_0x1c49c9[_0x5bac02(0xd0)];const _0x1a6942=yield this[_0x5bac02(0x85)][_0x5bac02(0x7e)](_0x333c0);if(_0x1a6942!==undefined){const _0x25d66a={'status':0x1,'message':_0x5bac02(0xba),'data':_0x1a6942};return _0x12c35d['status'](0xc8)[_0x5bac02(0xa0)](_0x25d66a);}else{const _0x12e842={'status':0x1,'message':'Unable\x20to\x20update\x20the\x20Order\x20Status.'};return _0x12c35d[_0x5bac02(0xae)](0x190)[_0x5bac02(0xa0)](_0x12e842);}});}[a267_0x211fbf(0xa9)](_0x3ab01c,_0x1df0b8,_0x42d3f4,_0x1edb74){const _0x382bcd=a267_0x211fbf;return tslib_1[_0x382bcd(0xd6)](this,void 0x0,void 0x0,function*(){const _0x4629f1=_0x382bcd,_0x24eed7=yield this[_0x4629f1(0x85)][_0x4629f1(0xc0)]({'where':{'orderStatusId':_0x1df0b8}});if(!_0x24eed7){const _0x1aa839={'status':0x0,'message':_0x4629f1(0xaf)};return _0x42d3f4[_0x4629f1(0xae)](0x190)['send'](_0x1aa839);}console[_0x4629f1(0x80)](_0x4629f1(0xcc),_0x3ab01c['status']),_0x24eed7['isActive']=+_0x3ab01c['status'];const _0x48e8dc=yield this[_0x4629f1(0x85)][_0x4629f1(0x7e)](_0x24eed7);return _0x42d3f4[_0x4629f1(0xae)](0xc8)[_0x4629f1(0xa0)]({'status':0x1,'message':_0x4629f1(0x76),'data':_0x48e8dc});});}[a267_0x211fbf(0xc4)](_0xfcbd19,_0x173cca,_0xb5a98f,_0x17bbb9){const _0x33075c=a267_0x211fbf;return tslib_1[_0x33075c(0xd6)](this,void 0x0,void 0x0,function*(){const _0x2bb892=_0x33075c,_0x246527=['orderStatusId',_0x2bb892(0xb2),_0x2bb892(0x9b),'priority',_0x2bb892(0xa4),_0x2bb892(0x95)],_0xaa3cb=[{'name':_0x2bb892(0x81),'op':'where','value':0x0}],_0x46702b=[],_0x4e92d3=yield this['orderStatusService'][_0x2bb892(0x88)](_0xfcbd19,_0x173cca,_0x246527,_0xaa3cb,_0x46702b,_0xb5a98f);console['log'](_0x2bb892(0x9f),_0x4e92d3);const _0x4c8cc4=_0x4e92d3['map'](_0x332472=>tslib_1[_0x2bb892(0xd6)](this,void 0x0,void 0x0,function*(){const _0x4b94ea=_0x2bb892,_0x1d673e=_0x332472,_0x262108=yield this['orderStatusService'][_0x4b94ea(0x86)]({'where':{'parentId':_0x332472[_0x4b94ea(0x9e)]}});return _0x262108?_0x1d673e[_0x4b94ea(0xb8)]=_0x262108:_0x1d673e['orderStatus']=[],_0x1d673e;})),_0x20fc63=yield Promise[_0x2bb892(0xbb)](_0x4c8cc4);if(_0x20fc63){const _0x36975e={'status':0x1,'message':_0x2bb892(0xd3),'data':_0x4e92d3};return _0x17bbb9[_0x2bb892(0xae)](0xc8)[_0x2bb892(0xa0)](_0x36975e);}else{const _0x4dbb19={'status':0x0,'message':'unable\x20to\x20get\x20Order\x20fullfillment\x20status\x20list.'};return _0x17bbb9[_0x2bb892(0xae)](0x190)[_0x2bb892(0xa0)](_0x4dbb19);}});}[a267_0x211fbf(0xd5)](_0x3b7fe4,_0x155c70,_0xf99c5c,_0x1ce00c){const _0x4ebe21=a267_0x211fbf;return tslib_1[_0x4ebe21(0xd6)](this,void 0x0,void 0x0,function*(){const _0x50f380=_0x4ebe21,_0x48c1b2=[];_0x48c1b2[_0x50f380(0x82)]({'name':'parentId','value':_0xf99c5c});const _0x39bd29=yield this[_0x50f380(0x85)][_0x50f380(0x88)](_0x3b7fe4,_0x155c70,[],[],_0x48c1b2,![]);console[_0x50f380(0x80)]('orderStatusList:',_0x39bd29);if(_0x39bd29){const _0x43630c={'status':0x1,'message':_0x50f380(0x79),'data':_0x39bd29};return _0x1ce00c[_0x50f380(0xae)](0xc8)[_0x50f380(0xa0)](_0x43630c);}else{const _0x225ac7={'status':0x0,'message':_0x50f380(0xd2)};return _0x1ce00c[_0x50f380(0xae)](0x190)[_0x50f380(0xa0)](_0x225ac7);}});}[a267_0x211fbf(0xac)](_0x212fbd,_0x5511ad,_0x4b1ccf,_0x47974e,_0x51d31c,_0x34762e){const _0x52e1a1=a267_0x211fbf;return tslib_1[_0x52e1a1(0xd6)](this,void 0x0,void 0x0,function*(){const _0x27a025=_0x52e1a1,_0x2630ee=[_0x27a025(0x9e),'name','colorCode',_0x27a025(0x94),_0x27a025(0xa4)],_0x23ebba=[{'name':_0x27a025(0xb2),'op':_0x27a025(0xa7),'value':_0x4b1ccf},{'name':_0x27a025(0xa4),'op':_0x27a025(0xa7),'value':_0x47974e}],_0x13ad11=[],_0x2bbd9b=yield this['orderStatusService'][_0x27a025(0x88)](_0x212fbd,_0x5511ad,_0x2630ee,_0x23ebba,_0x13ad11,_0x51d31c);if(_0x2bbd9b){const _0x2356a1={'status':0x1,'message':_0x27a025(0x72),'data':_0x2bbd9b};return _0x34762e['status'](0xc8)[_0x27a025(0xa0)](_0x2356a1);}else{const _0x32baac={'status':0x0,'message':_0x27a025(0x96)};return _0x34762e[_0x27a025(0xae)](0x190)[_0x27a025(0xa0)](_0x32baac);}});}['deleteOrderStatus'](_0x2c9ac5,_0x5bbfb8,_0x23f8ee){const _0x2734c5=a267_0x211fbf;return tslib_1[_0x2734c5(0xd6)](this,void 0x0,void 0x0,function*(){const _0x135532=_0x2734c5,_0x558817=yield this[_0x135532(0x85)][_0x135532(0xc0)]({'where':{'orderStatusId':_0x2c9ac5}});if(!_0x558817){const _0x182f3f={'status':0x0,'message':_0x135532(0xaf)};return _0x5bbfb8[_0x135532(0xae)](0x190)[_0x135532(0xa0)](_0x182f3f);}const _0x38ab4c=yield this[_0x135532(0xcf)]['findOne']({'where':{'orderStatusId':_0x2c9ac5}});if(_0x38ab4c){const _0x6a44c3={'status':0x0,'message':_0x135532(0x7f)};return _0x5bbfb8['status'](0x190)[_0x135532(0xa0)](_0x6a44c3);}const _0x14e4d5=yield this[_0x135532(0x85)]['delete'](_0x558817);if(_0x14e4d5){const _0x28d6a5={'status':0x1,'message':_0x135532(0xc5)};return _0x5bbfb8[_0x135532(0xae)](0xc8)[_0x135532(0xa0)](_0x28d6a5);}else{const _0x7cdd4d={'status':0x0,'message':'Unable\x20to\x20delete\x20the\x20order\x20Status.'};return _0x5bbfb8[_0x135532(0xae)](0x190)[_0x135532(0xa0)](_0x7cdd4d);}});}};tslib_1[a267_0x211fbf(0x77)]([(0x0,routing_controllers_1['Post'])(a267_0x211fbf(0xc2)),(0x0,routing_controllers_1[a267_0x211fbf(0xb9)])([a267_0x211fbf(0x8b),'create-order-status']),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a267_0x211fbf(0xd4)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a267_0x211fbf(0xc6)])()),tslib_1[a267_0x211fbf(0xa2)]('design:type',Function),tslib_1[a267_0x211fbf(0xa2)]('design:paramtypes',[CreateOrderStatusRequest_1['CreateOrderStatus'],Object]),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0xb7),Promise)],OrderStatusController['prototype'],'createOrderStatus',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a267_0x211fbf(0x99)])(a267_0x211fbf(0x93)),(0x0,routing_controllers_1[a267_0x211fbf(0xb9)])([a267_0x211fbf(0x8b),a267_0x211fbf(0xc8)]),tslib_1[a267_0x211fbf(0xd1)](0x0,(0x0,routing_controllers_1[a267_0x211fbf(0xd4)])({'validate':!![]})),tslib_1[a267_0x211fbf(0xd1)](0x1,(0x0,routing_controllers_1[a267_0x211fbf(0xca)])('id')),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a267_0x211fbf(0xc6)])()),tslib_1[a267_0x211fbf(0xd1)](0x3,(0x0,routing_controllers_1['Req'])()),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0xbe),Function),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0x84),[CreateOrderStatusRequest_1[a267_0x211fbf(0xcd)],Number,Object,Object]),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0xb7),Promise)],OrderStatusController[a267_0x211fbf(0x90)],a267_0x211fbf(0xaa),null),tslib_1[a267_0x211fbf(0x77)]([(0x0,routing_controllers_1[a267_0x211fbf(0x99)])(a267_0x211fbf(0xc9)),(0x0,routing_controllers_1[a267_0x211fbf(0xb9)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a267_0x211fbf(0xd4)])({'validate':!![]})),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a267_0x211fbf(0xca)])('id')),tslib_1[a267_0x211fbf(0xd1)](0x2,(0x0,routing_controllers_1[a267_0x211fbf(0xc6)])()),tslib_1[a267_0x211fbf(0xd1)](0x3,(0x0,routing_controllers_1[a267_0x211fbf(0x75)])()),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0xbe),Function),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0x84),[UpdateFullfillmentStatus_1[a267_0x211fbf(0x87)],Number,Object,Object]),tslib_1['__metadata'](a267_0x211fbf(0xb7),Promise)],OrderStatusController['prototype'],a267_0x211fbf(0xa9),null),tslib_1[a267_0x211fbf(0x77)]([(0x0,routing_controllers_1['Get'])(a267_0x211fbf(0x8d)),(0x0,routing_controllers_1[a267_0x211fbf(0xb9)])([a267_0x211fbf(0x8b),a267_0x211fbf(0x7a)]),tslib_1[a267_0x211fbf(0xd1)](0x0,(0x0,routing_controllers_1[a267_0x211fbf(0xb6)])(a267_0x211fbf(0x98))),tslib_1[a267_0x211fbf(0xd1)](0x1,(0x0,routing_controllers_1[a267_0x211fbf(0xb6)])(a267_0x211fbf(0x74))),tslib_1[a267_0x211fbf(0xd1)](0x2,(0x0,routing_controllers_1[a267_0x211fbf(0xb6)])(a267_0x211fbf(0xa1))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a267_0x211fbf(0xc6)])()),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0xbe),Function),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0x84),[Number,Number,Object,Object]),tslib_1['__metadata'](a267_0x211fbf(0xb7),Promise)],OrderStatusController[a267_0x211fbf(0x90)],a267_0x211fbf(0xc4),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a267_0x211fbf(0x7c)])('/order-status-list-based-on-parent'),(0x0,routing_controllers_1[a267_0x211fbf(0xb9)])(),tslib_1[a267_0x211fbf(0xd1)](0x0,(0x0,routing_controllers_1[a267_0x211fbf(0xb6)])(a267_0x211fbf(0x98))),tslib_1[a267_0x211fbf(0xd1)](0x1,(0x0,routing_controllers_1[a267_0x211fbf(0xb6)])(a267_0x211fbf(0x74))),tslib_1['__param'](0x2,(0x0,routing_controllers_1['QueryParam'])('parentId')),tslib_1[a267_0x211fbf(0xd1)](0x3,(0x0,routing_controllers_1['Res'])()),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0xbe),Function),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0x84),[Number,Number,Number,Object]),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0xb7),Promise)],OrderStatusController[a267_0x211fbf(0x90)],'orderStatusListBasedOnParent',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a267_0x211fbf(0x7c)])(a267_0x211fbf(0xa3)),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a267_0x211fbf(0xd1)](0x0,(0x0,routing_controllers_1[a267_0x211fbf(0xb6)])(a267_0x211fbf(0x98))),tslib_1[a267_0x211fbf(0xd1)](0x1,(0x0,routing_controllers_1['QueryParam'])(a267_0x211fbf(0x74))),tslib_1['__param'](0x2,(0x0,routing_controllers_1['QueryParam'])('keyword')),tslib_1[a267_0x211fbf(0xd1)](0x3,(0x0,routing_controllers_1[a267_0x211fbf(0xb6)])('status')),tslib_1[a267_0x211fbf(0xd1)](0x4,(0x0,routing_controllers_1['QueryParam'])(a267_0x211fbf(0xa1))),tslib_1[a267_0x211fbf(0xd1)](0x5,(0x0,routing_controllers_1[a267_0x211fbf(0xc6)])()),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0xbe),Function),tslib_1['__metadata']('design:paramtypes',[Number,Number,String,String,Object,Object]),tslib_1[a267_0x211fbf(0xa2)]('design:returntype',Promise)],OrderStatusController[a267_0x211fbf(0x90)],a267_0x211fbf(0xac),null),tslib_1[a267_0x211fbf(0x77)]([(0x0,routing_controllers_1[a267_0x211fbf(0xc3)])(a267_0x211fbf(0xcb)),(0x0,routing_controllers_1[a267_0x211fbf(0xb9)])([a267_0x211fbf(0x8b),a267_0x211fbf(0xc1)]),tslib_1[a267_0x211fbf(0xd1)](0x0,(0x0,routing_controllers_1[a267_0x211fbf(0xca)])('id')),tslib_1[a267_0x211fbf(0xd1)](0x1,(0x0,routing_controllers_1[a267_0x211fbf(0xc6)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a267_0x211fbf(0x75)])()),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0xbe),Function),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0x84),[Number,Object,Object]),tslib_1[a267_0x211fbf(0xa2)]('design:returntype',Promise)],OrderStatusController[a267_0x211fbf(0x90)],'deleteOrderStatus',null),OrderStatusController=tslib_1[a267_0x211fbf(0x77)]([(0x0,routing_controllers_1[a267_0x211fbf(0xa5)])('/order-status'),tslib_1[a267_0x211fbf(0xa2)](a267_0x211fbf(0x84),[OrderStatusService_1[a267_0x211fbf(0x9c)],OrderProductService_1[a267_0x211fbf(0x8c)]])],OrderStatusController),exports[a267_0x211fbf(0xab)]=OrderStatusController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrderStatusController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const typeorm_1 = require("typeorm");
+const OrderStatus_1 = require("../../core/models/OrderStatus");
+const OrderStatusService_1 = require("../../core/services/OrderStatusService");
+const OrderProductService_1 = require("../../core/services/OrderProductService");
+const CreateOrderStatusRequest_1 = require("./requests/CreateOrderStatusRequest");
+const UpdateFullfillmentStatus_1 = require("./requests/UpdateFullfillmentStatus");
+let OrderStatusController = class OrderStatusController {
+    constructor(orderStatusService, orderProductService) {
+        this.orderStatusService = orderStatusService;
+        this.orderProductService = orderProductService;
+    }
+    // Create Order Status API
+    /**
+     * @api {post} /api/order-status/create-order-status Create OrderStatus API
+     * @apiGroup OrderStatus
+     * @apiParam (Request body) {String{..32}} name name
+     * @apiParam (Request body) {String{..255}} colorCode colorCode
+     * @apiParam (Request body) {Number} [priority] priority
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {Number} [parentId] parentId
+     * @apiParam (Request body) {Number} [isAdmin] isAdmin
+     * @apiParam (Request body) {Number} [isVendor] isVendor
+     * @apiParam (Request body) {Number} [isBuyer] isBuyer
+     * @apiParam (Request body) {Number} [isApi] isApi
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "colorCode" : "",
+     *      "priority" : "",
+     *      "status" : "",
+     *      "parentId" : "",
+     *      "isAdmin" : "",
+     *      "isVendor" : "",
+     *      "isBuyer" : "",
+     *      "isApi" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "New OrderStatus is created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/order-status/create-order-status
+     * @apiErrorExample {json} createOrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createOrderStatus(orderStatusParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const existOrder = yield this.orderStatusService.findOne({ where: { name: orderStatusParam.name, parentId: orderStatusParam.parentId } });
+            if (existOrder) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You have already added this name.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newOrderStatus = new OrderStatus_1.OrderStatus();
+            newOrderStatus.name = orderStatusParam.name;
+            newOrderStatus.colorCode = orderStatusParam.colorCode;
+            newOrderStatus.priority = orderStatusParam.priority ? orderStatusParam.priority : 1;
+            newOrderStatus.isActive = orderStatusParam.status;
+            newOrderStatus.parentId = orderStatusParam.parentId ? orderStatusParam.parentId : 0;
+            newOrderStatus.isAdmin = orderStatusParam.isAdmin;
+            newOrderStatus.isVendor = orderStatusParam.isVendor;
+            newOrderStatus.isBuyer = orderStatusParam.isBuyer;
+            newOrderStatus.isApi = orderStatusParam.isApi;
+            const orderStatusSave = yield this.orderStatusService.create(newOrderStatus);
+            if (orderStatusSave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully created a new order status.',
+                    data: orderStatusSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to create the Order Status.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // update Order Status API
+    /**
+     * @api {put} /api/order-status/update-order-status/:id Update OrderStatus API
+     * @apiGroup OrderStatus
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..32}} name OrderStatus name
+     * @apiParam (Request body) {String{..255}} colorCode colorCode
+     * @apiParam (Request body) {Number} [priority] priority
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {Number} [parentId] parentId
+     * @apiParam (Request body) {Number} [isAdmin] isAdmin
+     * @apiParam (Request body) {Number} [isVendor] isVendor
+     * @apiParam (Request body) {Number} [isBuyer] isBuyer
+     * @apiParam (Request body) {Number} [isApi] isApi
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "colorCode" : "",
+     *      "priority" : "",
+     *      "status" : "",
+     *      "parentId" : "",
+     *      "isAdmin" : "",
+     *      "isVendor" : "",
+     *      "isBuyer" : "",
+     *      "isApi" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated orderStatus.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/order-status/update-order-status/:id
+     * @apiErrorExample {json} OrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateOrderStatus(orderStatusParams, id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderStatus = yield this.orderStatusService.findOne({
+                where: {
+                    orderStatusId: id,
+                },
+            });
+            if (!orderStatus) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid order Status Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const existOrder = yield this.orderStatusService.findOne({ where: { name: orderStatusParams.name, orderStatusId: (0, typeorm_1.Not)(orderStatus.orderStatusId), parentId: orderStatusParams.parentId } });
+            if (existOrder) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You have already added this name.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            orderStatus.name = orderStatusParams.name;
+            orderStatus.colorCode = orderStatusParams.colorCode;
+            orderStatus.priority = orderStatusParams.priority ? orderStatusParams.priority : 1;
+            orderStatus.isActive = orderStatusParams.status;
+            orderStatus.parentId = orderStatusParams.parentId ? orderStatusParams.parentId : 0;
+            orderStatus.isAdmin = orderStatusParams.isAdmin;
+            orderStatus.isVendor = orderStatusParams.isVendor;
+            orderStatus.isBuyer = orderStatusParams.isBuyer;
+            orderStatus.isApi = orderStatusParams.isApi;
+            const orderStatusSave = yield this.orderStatusService.create(orderStatus);
+            if (orderStatusSave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated the order status.',
+                    data: orderStatusSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 1,
+                    message: 'Unable to update the Order Status.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update Fullfillment Order Status API
+    /**
+     * @api {put} /api/order-status/update-order-fullfillment-status/:id Update Fullfillment OrderStatus API
+     * @apiGroup OrderStatus
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} status status
+     * @apiParamExample {json} Input
+     * {
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated orderStatus.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/order-status/update-order-fullfillment-status/:id
+     * @apiErrorExample {json} OrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateOrderFullfillmentStatus(param, id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderStatus = yield this.orderStatusService.findOne({
+                where: {
+                    orderStatusId: id,
+                },
+            });
+            if (!orderStatus) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid order Status Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            console.log('status:', param.status);
+            orderStatus.isActive = +param.status;
+            const fullfillmentStatus = yield this.orderStatusService.create(orderStatus);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully updated order fullfillment status',
+                data: fullfillmentStatus,
+            });
+        });
+    }
+    // Order Fullfillment Status List API
+    /**
+     * @api {get} /api/order-status/order-fullfillment-status-list Order Fullfillment Status List API
+     * @apiGroup OrderStatus
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get order fullfillmet status list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/order-status/order-fullfillment-status-list
+     * @apiErrorExample {json} OrderFullFillmentStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderFullfillmentStatusList(limit, offset, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['orderStatusId', 'name', 'colorCode', 'priority', 'isActive', 'defaultStatus'];
+            const search = [
+                {
+                    name: 'parentId',
+                    op: 'where',
+                    value: 0,
+                },
+            ];
+            const WhereConditions = [];
+            const orderStatusList = yield this.orderStatusService.list(limit, offset, select, search, WhereConditions, count);
+            console.log('orderStatusList:', orderStatusList);
+            const list = orderStatusList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const data = yield this.orderStatusService.findAll({ where: { parentId: value.orderStatusId } });
+                if (data) {
+                    temp.orderStatus = data;
+                }
+                else {
+                    temp.orderStatus = [];
+                }
+                return temp;
+            }));
+            const results = yield Promise.all(list);
+            if (results) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the complete Order fullfillment status list.',
+                    data: orderStatusList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to get Order fullfillment status list.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Getting A Child Order Status List Based On Parent List API
+    /**
+     * @api {get} /api/order-status/order-status-list-based-on-parent Getting A Child Order Status List Based On Parent List API
+     * @apiGroup OrderStatus
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} parentId parentId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got order status list based on parent",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/order-status/order-status-list-based-on-parent
+     * @apiErrorExample {json} OrderStatusListBasedOnParent error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderStatusListBasedOnParent(limit, offset, parentId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const WhereConditions = [];
+            WhereConditions.push({
+                name: 'parentId',
+                value: parentId,
+            });
+            const orderStatusList = yield this.orderStatusService.list(limit, offset, [], [], WhereConditions, false);
+            console.log('orderStatusList:', orderStatusList);
+            if (orderStatusList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got order status list based on parent.',
+                    data: orderStatusList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to get order status list based on parent.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Order Status List API
+    /**
+     * @api {get} /api/order-status/order-status-list OrderStatus List API
+     * @apiGroup OrderStatus
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get orderStatus list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/order-status/order-status-list
+     * @apiErrorExample {json} OrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderStatusList(limit, offset, keyword, status, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['orderStatusId', 'name', 'colorCode', 'priority', 'isActive'];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                },
+            ];
+            const WhereConditions = [];
+            const orderStatusList = yield this.orderStatusService.list(limit, offset, select, search, WhereConditions, count);
+            if (orderStatusList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the complete order status list.',
+                    data: orderStatusList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to get OrderStatus.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete Order Status API
+    /**
+     * @api {delete} /api/order-status/delete-order-status/:id Delete OrderStatus API
+     * @apiGroup OrderStatus
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "orderStatusId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted orderStatus.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/order-status/delete-order-status/:id
+     * @apiErrorExample {json} OrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteOrderStatus(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderStatus = yield this.orderStatusService.findOne({
+                where: {
+                    orderStatusId: id,
+                },
+            });
+            if (!orderStatus) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid order Status Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const orderProduct = yield this.orderProductService.findOne({
+                where: {
+                    orderStatusId: id,
+                },
+            });
+            if (orderProduct) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Status is mapped with order product, so you cant delete it.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteOrderStatus = yield this.orderStatusService.delete(orderStatus);
+            if (deleteOrderStatus) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the order status.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the order Status.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/create-order-status'),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-order-status']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateOrderStatusRequest_1.CreateOrderStatus, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderStatusController.prototype, "createOrderStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-order-status/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-order-status']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateOrderStatusRequest_1.CreateOrderStatus, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderStatusController.prototype, "updateOrderStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-order-fullfillment-status/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [UpdateFullfillmentStatus_1.UpdateFullfillmentStatus, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderStatusController.prototype, "updateOrderFullfillmentStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-fullfillment-status-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-order-status']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderStatusController.prototype, "orderFullfillmentStatusList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-status-list-based-on-parent'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('parentId')),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderStatusController.prototype, "orderStatusListBasedOnParent", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-status-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderStatusController.prototype, "orderStatusList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-order-status/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-order-status']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderStatusController.prototype, "deleteOrderStatus", null);
+OrderStatusController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/order-status'),
+    tslib_1.__metadata("design:paramtypes", [OrderStatusService_1.OrderStatusService, OrderProductService_1.OrderProductService])
+], OrderStatusController);
+exports.OrderStatusController = OrderStatusController;
+//# sourceMappingURL=OrderStatusController.js.map

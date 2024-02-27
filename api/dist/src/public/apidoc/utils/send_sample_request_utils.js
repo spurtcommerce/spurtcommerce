@@ -1,1 +1,97 @@
-var a1046_0x37f86b=a1046_0x4e8b;(function(_0x25afce,_0x5ede36){var _0x42fe42=a1046_0x4e8b,_0x277e38=_0x25afce();while(!![]){try{var _0x4f8ee2=-parseInt(_0x42fe42(0x188))/0x1+parseInt(_0x42fe42(0x18a))/0x2+parseInt(_0x42fe42(0x18c))/0x3+-parseInt(_0x42fe42(0x175))/0x4+parseInt(_0x42fe42(0x182))/0x5*(parseInt(_0x42fe42(0x177))/0x6)+parseInt(_0x42fe42(0x185))/0x7+-parseInt(_0x42fe42(0x180))/0x8;if(_0x4f8ee2===_0x5ede36)break;else _0x277e38['push'](_0x277e38['shift']());}catch(_0x21d196){_0x277e38['push'](_0x277e38['shift']());}}}(a1046_0x3385,0x32de5));function a1046_0x3385(){var _0x5345cf=['forEach','475368CKNxVZ','set','5KWWuaQ','slice','isNaN','1807141FUxfwT','length','keys','392793IyvCHB','function','95402hoqFsA','endsWith','663885HtXsSy','parse','].\x20Value:\x20(','push','Boolean','lodash','807104MdqDli','get','2011128hbsmkZ','split','Failed\x20to\x20parse\x20object\x20value\x20at\x20path\x20[','false','object','assign','Number','amdefine'];a1046_0x3385=function(){return _0x5345cf;};return a1046_0x3385();}if(typeof define!==a1046_0x37f86b(0x189))var define=require(a1046_0x37f86b(0x17e))(module);function a1046_0x4e8b(_0xc2e071,_0xe03f04){var _0x33850c=a1046_0x3385();return a1046_0x4e8b=function(_0x4e8bd9,_0x3e1e34){_0x4e8bd9=_0x4e8bd9-0x170;var _0x2d773a=_0x33850c[_0x4e8bd9];return _0x2d773a;},a1046_0x4e8b(_0xc2e071,_0xe03f04);}define([a1046_0x37f86b(0x174)],function(_0xea3ced){var _0x5a39bb=console;function _0x361e06(_0x11549c,_0x2897e5,_0x4c9d77,_0x3c3e3a){var _0x3069b3=a1046_0x4e8b,_0x5d7055=_0x2897e5[_0x3069b3(0x178)]('.'),_0x26515e=_0x5d7055[0x0];_0x4c9d77[_0x3069b3(0x172)](_0x26515e);if(_0x5d7055[_0x3069b3(0x186)]>0x1&&_0x3c3e3a[_0x4c9d77['join']('.')]=='Object'){var _0x1321ed=_0x5d7055[_0x3069b3(0x183)](0x1)['join']('.');if(!_0x11549c[_0x26515e])_0x11549c[_0x26515e]={};typeof _0x11549c[_0x26515e]==_0x3069b3(0x17b)&&(_0x11549c[_0x26515e][_0x1321ed]=_0x11549c[_0x2897e5],delete _0x11549c[_0x2897e5],_0x361e06(_0x11549c[_0x26515e],_0x1321ed,_0x4c9d77,_0x3c3e3a));}}function _0x134648(_0x435a07,_0x530143){var _0x43b7ff=a1046_0x4e8b,_0x54bdd6=Object[_0x43b7ff(0x17c)]({},_0x435a07);return Object[_0x43b7ff(0x187)](_0x54bdd6)[_0x43b7ff(0x17f)](function(_0x32c06b){_0x361e06(_0x54bdd6,_0x32c06b,[],_0x530143);}),_0x54bdd6;}function _0x383c45(_0x45006f,_0x40846c){var _0x58121f=a1046_0x4e8b,_0x59041d=Object['assign']({},_0x45006f);return Object[_0x58121f(0x187)](_0x40846c)[_0x58121f(0x17f)](function(_0x6d4af0){var _0x8f4378=_0x58121f;if(_0x59041d[_0x6d4af0]&&(_0x40846c[_0x6d4af0][_0x8f4378(0x18b)]('[]')||_0x40846c[_0x6d4af0]==='Object'))try{_0x59041d[_0x6d4af0]=JSON[_0x8f4378(0x170)](_0x59041d[_0x6d4af0]);}catch(_0x2ebced){;}}),_0x59041d;}function _0x2a49df(_0x1441ae,_0x251cb5,_0x4a872b){var _0x47d8be=a1046_0x4e8b,_0x41e4e7=_0xea3ced[_0x47d8be(0x176)](_0x1441ae,_0x251cb5);if(_0x41e4e7!==undefined){if(_0x4a872b===_0x47d8be(0x173)){if(_0x41e4e7==='true')_0xea3ced[_0x47d8be(0x181)](_0x1441ae,_0x251cb5,!![]);else _0x41e4e7===_0x47d8be(0x17a)?_0xea3ced[_0x47d8be(0x181)](_0x1441ae,_0x251cb5,![]):_0x5a39bb['warn'](_0x47d8be(0x179)+_0x251cb5+_0x47d8be(0x171)+_0x41e4e7+').\x20Type:\x20('+_0x4a872b+')');}else{if(_0x4a872b===_0x47d8be(0x17d)){var _0x5ccb12=parseInt(_0x41e4e7,0xa);!_0xea3ced[_0x47d8be(0x184)](_0x5ccb12)?_0xea3ced[_0x47d8be(0x181)](_0x1441ae,_0x251cb5,_0x5ccb12):_0x5a39bb['warn'](_0x47d8be(0x179)+_0x251cb5+_0x47d8be(0x171)+_0x41e4e7+').\x20Type:\x20('+_0x4a872b+')');}}}}function _0x5e801b(_0x3b7598,_0x49fa83){var _0x34eff5=_0x383c45(_0x3b7598,_0x49fa83);return _0x34eff5=_0x134648(_0x34eff5,_0x49fa83),_0x34eff5;}function _0x346f14(_0x29989a,_0x39a5c0){var _0x5a7349=a1046_0x4e8b,_0x3435fa=Object[_0x5a7349(0x17c)]({},_0x29989a);return Object[_0x5a7349(0x187)](_0x39a5c0)[_0x5a7349(0x17f)](function(_0x13c26b){_0x2a49df(_0x3435fa,_0x13c26b,_0x39a5c0[_0x13c26b]);}),_0x3435fa;}function _0x262ee8(_0x56ea83){return _0x56ea83['replace'](/{(.+?)}/g,':$1');}function _0x2c869f(_0x872d8b){_0x5a39bb=_0x872d8b;}return{'handleNestedAndParsingFields':_0x5e801b,'convertPathParams':_0x262ee8,'tryParsingWithTypes':_0x346f14,'setLogger':_0x2c869f};});
+//this block is used to make this module works with Node (CommonJS module format)
+if (typeof define !== 'function') {
+    var define = require('amdefine')(module)
+}
+
+define(['lodash'], function (_) {
+
+    var log = console;
+
+    function handleNestedFields(object, key, params, paramType) {
+        var attributes = key.split('.');
+        var field = attributes[0];
+        params.push(field);
+        if (attributes.length > 1 && paramType[params.join('.')] == 'Object') {
+            var nestedField = attributes.slice(1).join('.');
+            if (!object[field])
+                object[field] = {};
+            if (typeof object[field] == 'object') {
+                object[field][nestedField] = object[key];
+                delete object[key];
+                handleNestedFields(object[field], nestedField, params, paramType);
+            }
+        }
+    }
+
+    function handleNestedFieldsForAllParams(param, paramType) {
+        var result = Object.assign({}, param);
+        Object.keys(result).forEach(function (key) {
+            handleNestedFields(result, key, [], paramType);
+        });
+        return result
+    }
+
+    function handleArraysAndObjectFields(param, paramType) {
+        var result = Object.assign({}, param);
+        Object.keys(paramType).forEach(function (key) {
+            if (result[key] && (paramType[key].endsWith('[]') || paramType[key] === 'Object')) {
+                try {
+                    result[key] = JSON.parse(result[key]);
+                } catch (e) {;}
+            }
+        });
+        return result
+    }
+
+    function tryParsingAsType(object, path, type) {
+        var val = _.get(object, path);
+        if (val !== undefined) {
+            if (type === 'Boolean') {
+                if (val === 'true') {
+                    _.set(object, path, true);
+                } else if (val === 'false') {
+                    _.set(object, path, false);
+                } else {
+                    log.warn('Failed to parse object value at path [' + path + ']. Value: (' + val + '). Type: (' + type + ')');
+                }
+            } else if (type === 'Number') {
+                var parsedInt = parseInt(val, 10);
+                if (!_.isNaN(parsedInt)) {
+                    _.set(object, path, parsedInt);
+                } else {
+                    log.warn('Failed to parse object value at path [' + path + ']. Value: (' + val + '). Type: (' + type + ')');
+                }
+            }
+        }
+    }
+
+    function handleNestedAndParsingFields(param, paramType) {
+        var result = handleArraysAndObjectFields(param, paramType);
+        result = handleNestedFieldsForAllParams(result, paramType);
+        return result;
+    }
+
+    function tryParsingWithTypes(param, paramType) {
+        var result = Object.assign({}, param);
+        Object.keys(paramType).forEach(function (key) {
+            tryParsingAsType(result, key, paramType[key]);
+        });
+        return result;
+    }
+
+    // Converts path params in the {param} format to the accepted :param format, used before inserting the URL params.
+    function convertPathParams(url) {
+        return url.replace(/{(.+?)}/g, ':$1');
+    }
+
+    function setLogger(logger) {
+      log = logger;
+    }
+
+    return {
+        handleNestedAndParsingFields,
+        convertPathParams,
+        tryParsingWithTypes,
+        setLogger
+    };
+});

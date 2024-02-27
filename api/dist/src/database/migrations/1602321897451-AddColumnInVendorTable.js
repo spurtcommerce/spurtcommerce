@@ -1,1 +1,39 @@
-'use strict';const a890_0xc533a7=a890_0x48b0;(function(_0x19d330,_0x1efdc3){const _0x43b0aa=a890_0x48b0,_0x304075=_0x19d330();while(!![]){try{const _0x59096d=parseInt(_0x43b0aa(0x194))/0x1*(-parseInt(_0x43b0aa(0x197))/0x2)+parseInt(_0x43b0aa(0x193))/0x3+-parseInt(_0x43b0aa(0x196))/0x4+-parseInt(_0x43b0aa(0x1a5))/0x5*(parseInt(_0x43b0aa(0x19f))/0x6)+-parseInt(_0x43b0aa(0x1a2))/0x7+parseInt(_0x43b0aa(0x19d))/0x8+parseInt(_0x43b0aa(0x19a))/0x9*(parseInt(_0x43b0aa(0x1a4))/0xa);if(_0x59096d===_0x1efdc3)break;else _0x304075['push'](_0x304075['shift']());}catch(_0x4219d3){_0x304075['push'](_0x304075['shift']());}}}(a890_0x332b,0xc8219));function a890_0x48b0(_0x3398a6,_0x1e544d){const _0x332b63=a890_0x332b();return a890_0x48b0=function(_0x48b04f,_0x14e372){_0x48b04f=_0x48b04f-0x191;let _0x25c2cd=_0x332b63[_0x48b04f];return _0x25c2cd;},a890_0x48b0(_0x3398a6,_0x1e544d);}function a890_0x332b(){const _0x1ad2b0=['hasColumn','varchar','4308171yzAHjU','5ZnCiEV','company_cover_image','1719116FznqwZ','776zAjUlx','typeorm','defineProperty','9wNehKi','TableColumn','__awaiter','1768072OBmuLk','vendor','392604itGxVN','dropColumn','255','6505072rPurkZ','tslib','18323660Xrqdze','100oulTnI','down','addColumn'];a890_0x332b=function(){return _0x1ad2b0;};return a890_0x332b();}Object[a890_0xc533a7(0x199)](exports,'__esModule',{'value':!![]}),exports['AddColumnInVendorTable1602321897451']=void 0x0;const tslib_1=require(a890_0xc533a7(0x1a3)),typeorm_1=require(a890_0xc533a7(0x198));class AddColumnInVendorTable1602321897451{['up'](_0x1961c4){const _0x595d2f=a890_0xc533a7;return tslib_1[_0x595d2f(0x19c)](this,void 0x0,void 0x0,function*(){const _0x274a04=_0x595d2f,_0x28c478=yield _0x1961c4[_0x274a04(0x191)]('vendor',_0x274a04(0x195));!_0x28c478&&(yield _0x1961c4['addColumn'](_0x274a04(0x19e),new typeorm_1[(_0x274a04(0x19b))]({'name':'company_cover_image','type':_0x274a04(0x192),'length':_0x274a04(0x1a1),'isPrimary':![],'isNullable':!![]})));const _0x427bb4=yield _0x1961c4[_0x274a04(0x191)](_0x274a04(0x19e),'company_cover_image_path');!_0x427bb4&&(yield _0x1961c4[_0x274a04(0x1a7)](_0x274a04(0x19e),new typeorm_1[(_0x274a04(0x19b))]({'name':'company_cover_image_path','type':_0x274a04(0x192),'length':_0x274a04(0x1a1),'isPrimary':![],'isNullable':!![]})));});}[a890_0xc533a7(0x1a6)](_0x119732){const _0x23b8f3=a890_0xc533a7;return tslib_1[_0x23b8f3(0x19c)](this,void 0x0,void 0x0,function*(){const _0x467e47=_0x23b8f3;yield _0x119732[_0x467e47(0x1a0)](_0x467e47(0x19e),'company_cover_image'),yield _0x119732[_0x467e47(0x1a0)]('vendor','company_cover_image_path');});}}exports['AddColumnInVendorTable1602321897451']=AddColumnInVendorTable1602321897451;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInVendorTable1602321897451 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInVendorTable1602321897451 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('vendor', 'company_cover_image');
+            if (!ifExist) {
+                yield queryRunner.addColumn('vendor', new typeorm_1.TableColumn({
+                    name: 'company_cover_image',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExistt = yield queryRunner.hasColumn('vendor', 'company_cover_image_path');
+            if (!ifExistt) {
+                yield queryRunner.addColumn('vendor', new typeorm_1.TableColumn({
+                    name: 'company_cover_image_path',
+                    type: 'varchar',
+                    length: '255',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('vendor', 'company_cover_image');
+            yield queryRunner.dropColumn('vendor', 'company_cover_image_path');
+        });
+    }
+}
+exports.AddColumnInVendorTable1602321897451 = AddColumnInVendorTable1602321897451;
+//# sourceMappingURL=1602321897451-AddColumnInVendorTable.js.map

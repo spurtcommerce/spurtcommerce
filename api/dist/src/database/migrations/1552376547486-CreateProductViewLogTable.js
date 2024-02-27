@@ -1,1 +1,108 @@
-'use strict';const a781_0x420ab8=a781_0x3f11;(function(_0x16b21d,_0x4baf93){const _0x1f9320=a781_0x3f11,_0x1a67b6=_0x16b21d();while(!![]){try{const _0x2a1fbc=-parseInt(_0x1f9320(0x10e))/0x1*(parseInt(_0x1f9320(0x117))/0x2)+-parseInt(_0x1f9320(0x11c))/0x3*(-parseInt(_0x1f9320(0x11f))/0x4)+parseInt(_0x1f9320(0x104))/0x5*(parseInt(_0x1f9320(0x119))/0x6)+parseInt(_0x1f9320(0x118))/0x7+parseInt(_0x1f9320(0x11d))/0x8*(-parseInt(_0x1f9320(0xf8))/0x9)+-parseInt(_0x1f9320(0x10b))/0xa+parseInt(_0x1f9320(0x103))/0xb;if(_0x2a1fbc===_0x4baf93)break;else _0x1a67b6['push'](_0x1a67b6['shift']());}catch(_0x15de84){_0x1a67b6['push'](_0x1a67b6['shift']());}}}(a781_0x4b04,0x9c286));Object[a781_0x420ab8(0x100)](exports,a781_0x420ab8(0x112),{'value':!![]}),exports[a781_0x420ab8(0x115)]=void 0x0;function a781_0x4b04(){const _0x23585c=['address','created_date','7775800WhTETE','first_name','hasTable','624942jLunpS','product_view_log','varchar','created_by','__esModule','int','modified_by','CreateProductViewLogTable1552376547486','increment','4WrgHvU','1360926aQEGzb','2822838fSiOeT','modified_date','Table','141FyacWJ','352OSpcKL','username','41276lYDYUM','down','220257VHtjqi','dropTable','bigint','email','typeorm','CURRENT_TIMESTAMP','DATETIME','integer','defineProperty','product_id','mobile','28534154IfdzFS','5IuoijV','is_active','last_name','255','__awaiter'];a781_0x4b04=function(){return _0x23585c;};return a781_0x4b04();}const tslib_1=require('tslib'),typeorm_1=require(a781_0x420ab8(0xfc));class CreateProductViewLogTable1552376547486{['up'](_0x5205f6){const _0x4f2c3f=a781_0x420ab8;return tslib_1[_0x4f2c3f(0x108)](this,void 0x0,void 0x0,function*(){const _0x1ce23a=_0x4f2c3f,_0x3cbbe7=new typeorm_1[(_0x1ce23a(0x11b))]({'name':_0x1ce23a(0x10f),'columns':[{'name':'id','type':_0x1ce23a(0x113),'length':'11','isGenerated':!![],'generationStrategy':_0x1ce23a(0x116),'isPrimary':!![],'isNullable':![]},{'name':_0x1ce23a(0x101),'type':_0x1ce23a(0x113),'length':'11','isPrimary':![],'isNullable':![]},{'name':_0x1ce23a(0x10c),'type':_0x1ce23a(0x110),'length':_0x1ce23a(0x107),'isPrimary':![],'isNullable':!![]},{'name':_0x1ce23a(0x106),'type':_0x1ce23a(0x110),'length':_0x1ce23a(0x107),'isPrimary':![],'isNullable':!![]},{'name':_0x1ce23a(0xfb),'type':'varchar','length':_0x1ce23a(0x107),'isPrimary':![],'isNullable':!![]},{'name':_0x1ce23a(0x11e),'type':_0x1ce23a(0x110),'length':_0x1ce23a(0x107),'isPrimary':![],'isNullable':!![]},{'name':_0x1ce23a(0x102),'type':_0x1ce23a(0xfa),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1ce23a(0x109),'type':_0x1ce23a(0x110),'length':_0x1ce23a(0x107),'isPrimary':![],'isNullable':!![]},{'name':_0x1ce23a(0x105),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1ce23a(0x111),'type':_0x1ce23a(0xff),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1ce23a(0x114),'type':_0x1ce23a(0xff),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x1ce23a(0x10a),'type':_0x1ce23a(0xfe),'isPrimary':![],'isNullable':!![],'default':_0x1ce23a(0xfd)},{'name':_0x1ce23a(0x11a),'type':_0x1ce23a(0xfe),'isPrimary':![],'isNullable':!![],'default':_0x1ce23a(0xfd)}]}),_0x297d83=yield _0x5205f6[_0x1ce23a(0x10d)](_0x1ce23a(0x10f));!_0x297d83&&(yield _0x5205f6['createTable'](_0x3cbbe7));});}[a781_0x420ab8(0xf7)](_0x23d860){const _0x406c31=a781_0x420ab8;return tslib_1[_0x406c31(0x108)](this,void 0x0,void 0x0,function*(){const _0x1b0bd2=_0x406c31;yield _0x23d860[_0x1b0bd2(0xf9)]('product_view_log',!![]);});}}function a781_0x3f11(_0x45f47b,_0x354a58){const _0x4b045f=a781_0x4b04();return a781_0x3f11=function(_0x3f1146,_0x4f7977){_0x3f1146=_0x3f1146-0xf7;let _0x2eacb8=_0x4b045f[_0x3f1146];return _0x2eacb8;},a781_0x3f11(_0x45f47b,_0x354a58);}exports[a781_0x420ab8(0x115)]=CreateProductViewLogTable1552376547486;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateProductViewLogTable1552376547486 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateProductViewLogTable1552376547486 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'product_view_log',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'int',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'product_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'first_name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'last_name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'email',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'username',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'mobile',
+                        type: 'bigint',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'address',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('product_view_log');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('product_view_log', true);
+        });
+    }
+}
+exports.CreateProductViewLogTable1552376547486 = CreateProductViewLogTable1552376547486;
+//# sourceMappingURL=1552376547486-CreateProductViewLogTable.js.map

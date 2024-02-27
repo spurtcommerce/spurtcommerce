@@ -1,1 +1,406 @@
-'use strict';function a3_0x308c(){const _0x173f00=['CustomerCart.customer_id','log','5NsWtgL','defaultImage','guestCartList','name','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20AS\x20productDiscount','send','split','Post','total','Successfully\x20removed\x20from\x20Cart','connection','remoteAddress','createData','flag','unable\x20to\x20list\x20cart\x20list','(SELECT\x20sku.min_quantity_allowed_cart\x20as\x20minQuantityAllowedCart\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20minQuantityAllowedCart','IF(product.taxType\x20=\x202,\x20(SELECT\x20tax.tax_percentage\x20FROM\x20tax\x20WHERE\x20tax.tax_id\x20=\x20`product`.`tax_value`\x20LIMIT\x201),\x20product.taxValue)\x20\x20as\x20taxValue','product.skuId\x20as\x20skuId','Added\x20to\x20cart','1091460ICNkFT','product.outOfStockThreshold\x20as\x20outOfStockThreshold','productPrice','product.upc\x20as\x20upc','status','product.sku\x20as\x20sku','18SWrlfd','Body','customerCartService','design:type','__param','CustomerCart.ip','productTirePriceService','hasStock','tirePrice','20010370KhLBre','headers','vendorId','listByQueryBuilder','productId','product.stockStatusId\x20as\x20stockStatusId','quantity','design:returntype','(SELECT\x20sku.id\x20as\x20skuId\x20FROM\x20sku\x20WHERE\x20sku.sku_name\x20=\x20skuName)\x20as\x20skuId','product.taxType\x20as\x20taxType','CustomerAbandonedCartController','skuService','Invalid\x20ProductId','../../../../src/api/store/controllers/requests/CreateCartRequest','ProductService','addGuestCart','39oAkMLG','JsonController','(SELECT\x20sku.notify_min_quantity_below\x20as\x20notifyMinQuantity\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20notifyMinQuantity','CheckAddonMiddleware','skuName','productService','product.dateAvailable\x20as\x20dateAvailable','product.name\x20as\x20name','type','../../../../src/api/core/services/ProductImageService','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20AS\x20productSpecial','tslib','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20price','177908pBdIZW','SkuService','CustomerCart','stockStatus','pricerefer','skuId','productSpecial','decryptToken','(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20product.product_id\x20AND\x20pd2.sku_id\x20=\x20skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20\x20pd2.date_end\x20>=\x20CURDATE()))\x20','5316492gzojaW','CustomerCart.id\x20as\x20id','8408120zfdeKN','defineProperty','socket','CustomerCart.skuName\x20as\x20skuName','AuthService','1709883uAXnyE','product.productSlug\x20as\x20productSlug','taxValue','update','../../../../src/api/core/services/SkuService','GuestCart\x20into\x20CustomerCart\x20Api\x20is\x20called','635010tXRrhS','CustomerCart.productPrice\x20as\x20productPrice','optionName','__esModule','QueryParam','new','product.productId\x20as\x20productId','all','containerName','UseBefore','Quantity\x20should\x20greater\x20than\x20min\x20Quantity.','Put','find','productTirePrices','__decorate','../../../../src/api/core/models/CustomerCart','findAll','CustomerCartService','x-forwarded-for','CustomerCart.createdDate','length','Successfully\x20got\x20the\x20cart\x20list.','product.description\x20as\x20description','authSerivce','toString','push','CustomerCart.quantity\x20as\x20quantity','CustomerCart.total\x20as\x20total','Res','__metadata','ProductImageService','../../../../src/api/core/services/CustomerCartService','product.keywords\x20as\x20keywords','image','Req','../../../../src/api/core/services/ProductTirePriceService','design:paramtypes','qty:','../../../../src/api/core/services/ProductService','delete','/guest-cart','findOne','product.isActive\x20as\x20isActive','count','product.taxValue\x20as\x20taxValue','outOfStock','__awaiter','prototype','guestToCustomer','minQuantityAllowedCart','and','inStock','where','product.createdDate\x20as\x20createdDate','map','../../../../src/api/core/middlewares/AddonValidationMiddleware','productOriginalImage','customerId','maxQuantityAllowedCart'];a3_0x308c=function(){return _0x173f00;};return a3_0x308c();}const a3_0x1e8c81=a3_0x1b15;(function(_0x416327,_0x26fbcf){const _0x5d6835=a3_0x1b15,_0xa8816f=_0x416327();while(!![]){try{const _0x15b017=-parseInt(_0x5d6835(0x23a))/0x1+-parseInt(_0x5d6835(0x1f8))/0x2+-parseInt(_0x5d6835(0x217))/0x3*(parseInt(_0x5d6835(0x224))/0x4)+-parseInt(_0x5d6835(0x277))/0x5*(parseInt(_0x5d6835(0x22d))/0x6)+parseInt(_0x5d6835(0x234))/0x7+-parseInt(_0x5d6835(0x22f))/0x8+-parseInt(_0x5d6835(0x1fe))/0x9*(-parseInt(_0x5d6835(0x207))/0xa);if(_0x15b017===_0x26fbcf)break;else _0xa8816f['push'](_0xa8816f['shift']());}catch(_0x4e1974){_0xa8816f['push'](_0xa8816f['shift']());}}}(a3_0x308c,0x865a1));function a3_0x1b15(_0x1e5ef3,_0x4afee0){const _0x308cec=a3_0x308c();return a3_0x1b15=function(_0x1b156c,_0x1f0ce6){_0x1b156c=_0x1b156c-0x1ee;let _0x575520=_0x308cec[_0x1b156c];return _0x575520;},a3_0x1b15(_0x1e5ef3,_0x4afee0);}Object[a3_0x1e8c81(0x230)](exports,a3_0x1e8c81(0x23d),{'value':!![]}),exports[a3_0x1e8c81(0x211)]=void 0x0;const tslib_1=require(a3_0x1e8c81(0x222)),routing_controllers_1=require('routing-controllers'),CustomerCartService_1=require(a3_0x1e8c81(0x259)),ProductImageService_1=require(a3_0x1e8c81(0x220)),ProductService_1=require(a3_0x1e8c81(0x260)),ProductTirePriceService_1=require(a3_0x1e8c81(0x25d)),SkuService_1=require(a3_0x1e8c81(0x238)),CustomerCart_1=require(a3_0x1e8c81(0x249)),AuthService_1=require('../../../../src/auth/AuthService'),CreateCartRequest_1=require(a3_0x1e8c81(0x214)),AddonValidationMiddleware_1=require(a3_0x1e8c81(0x271));let CustomerAbandonedCartController=class CustomerAbandonedCartController{constructor(_0x125be4,_0x3eeae7,_0xae8466,_0x51d042,_0x265478,_0x160475){const _0x589e33=a3_0x1e8c81;this[_0x589e33(0x21c)]=_0x125be4,this['skuService']=_0x3eeae7,this[_0x589e33(0x200)]=_0xae8466,this['productImageService']=_0x51d042,this[_0x589e33(0x204)]=_0x265478,this[_0x589e33(0x251)]=_0x160475;}[a3_0x1e8c81(0x216)](_0x10a356,_0x5ab8a2,_0x473850){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x349f0b=a3_0x1b15,_0x3d17f2=(_0x5ab8a2[_0x349f0b(0x208)][_0x349f0b(0x24c)]||_0x5ab8a2['connection'][_0x349f0b(0x1f0)]||_0x5ab8a2[_0x349f0b(0x231)][_0x349f0b(0x1f0)]||_0x5ab8a2['connection']['socket'][_0x349f0b(0x1f0)])[_0x349f0b(0x27d)](',')[0x0],_0x3dd8c1=yield this['productService']['findOne']({'where':{'productId':_0x10a356[_0x349f0b(0x20b)]}});if(!_0x3dd8c1){const _0x313aab={'status':0x0,'message':_0x349f0b(0x213)};return _0x473850[_0x349f0b(0x1fc)](0x190)[_0x349f0b(0x27c)](_0x313aab);}const _0x22ced2=yield this[_0x349f0b(0x212)][_0x349f0b(0x263)]({'where':{'skuName':_0x10a356[_0x349f0b(0x21b)]}});if(!_0x22ced2){const _0x4b3974={'status':0x0,'message':'Invalid\x20sku'};return _0x473850[_0x349f0b(0x1fc)](0x190)[_0x349f0b(0x27c)](_0x4b3974);}const _0x28f908=yield this[_0x349f0b(0x200)][_0x349f0b(0x263)]({'where':{'skuName':_0x10a356[_0x349f0b(0x21b)],'productId':_0x10a356[_0x349f0b(0x20b)],'ip':_0x3d17f2,'customerId':0x0}});if(_0x28f908){if(_0x10a356[_0x349f0b(0x21f)]&&_0x10a356['type']===_0x349f0b(0x23f)){if(_0x10a356['quantity']===0x0){yield this['customerCartService'][_0x349f0b(0x261)](_0x28f908['id']);const _0x5854a7={'status':0x1,'message':_0x349f0b(0x1ee)};return _0x473850[_0x349f0b(0x1fc)](0xc8)[_0x349f0b(0x27c)](_0x5854a7);}const _0x3ca535=Number(_0x28f908[_0x349f0b(0x20d)])+ +_0x10a356[_0x349f0b(0x20d)];console[_0x349f0b(0x276)](_0x349f0b(0x25f),_0x3ca535);if(_0x3dd8c1[_0x349f0b(0x205)]===0x1){if(!(_0x22ced2[_0x349f0b(0x26b)]<=_0x3ca535)){const _0x4902a7={'status':0x0,'message':_0x349f0b(0x244)};return _0x473850[_0x349f0b(0x1fc)](0x190)[_0x349f0b(0x27c)](_0x4902a7);}else{if(!(_0x22ced2['maxQuantityAllowedCart']>=_0x3ca535)){const _0x351a21={'status':0x0,'message':'Reached\x20maximum\x20quantity\x20limit'};return _0x473850[_0x349f0b(0x1fc)](0x190)[_0x349f0b(0x27c)](_0x351a21);}}}_0x28f908[_0x349f0b(0x20d)]=_0x3ca535;}else _0x28f908[_0x349f0b(0x20d)]=_0x10a356[_0x349f0b(0x20d)];_0x28f908['productPrice']=_0x10a356[_0x349f0b(0x1fa)],_0x28f908[_0x349f0b(0x27f)]=+_0x10a356['quantity']*+_0x10a356[_0x349f0b(0x1fa)],_0x28f908['tirePrice']=_0x10a356[_0x349f0b(0x206)]?_0x10a356[_0x349f0b(0x206)]:0x0,_0x28f908[_0x349f0b(0x209)]=_0x10a356[_0x349f0b(0x209)]?_0x10a356[_0x349f0b(0x209)]:0x0,_0x28f908[_0x349f0b(0x21b)]=_0x10a356[_0x349f0b(0x21b)],yield this['customerCartService'][_0x349f0b(0x1f1)](_0x28f908);const _0x4f91e7={'status':0x1,'message':'Successfully\x20updated\x20cart.','data':_0x28f908};return _0x473850[_0x349f0b(0x1fc)](0xc8)['send'](_0x4f91e7);}else{if(_0x10a356[_0x349f0b(0x20d)]===0x0){yield this[_0x349f0b(0x200)][_0x349f0b(0x261)](_0x28f908['id']);const _0xeb5c0e={'status':0x1,'message':_0x349f0b(0x1ee)};return _0x473850[_0x349f0b(0x1fc)](0xc8)[_0x349f0b(0x27c)](_0xeb5c0e);}if(_0x3dd8c1[_0x349f0b(0x205)]===0x1){if(!(_0x22ced2['minQuantityAllowedCart']<=+_0x10a356[_0x349f0b(0x20d)])){const _0x1db8f9={'status':0x0,'message':'Quantity\x20should\x20greater\x20than\x20min\x20Quantity.'};return _0x473850[_0x349f0b(0x1fc)](0x190)['send'](_0x1db8f9);}else{if(!(_0x22ced2[_0x349f0b(0x274)]>=+_0x10a356[_0x349f0b(0x20d)])){const _0x27a149={'status':0x0,'message':'Reached\x20maximum\x20quantity\x20limit'};return _0x473850[_0x349f0b(0x1fc)](0x190)[_0x349f0b(0x27c)](_0x27a149);}}}const _0x144f7f=new CustomerCart_1[(_0x349f0b(0x226))]();_0x144f7f['productId']=_0x10a356['productId'],_0x144f7f[_0x349f0b(0x27a)]=_0x3dd8c1['name'],_0x144f7f[_0x349f0b(0x273)]=0x0,_0x144f7f[_0x349f0b(0x20d)]=_0x10a356[_0x349f0b(0x20d)],_0x144f7f[_0x349f0b(0x1fa)]=_0x10a356[_0x349f0b(0x1fa)],_0x144f7f[_0x349f0b(0x206)]=_0x10a356['tirePrice']?_0x10a356[_0x349f0b(0x206)]:0x0,_0x144f7f[_0x349f0b(0x209)]=_0x10a356['vendorId']?_0x10a356[_0x349f0b(0x209)]:0x0,(_0x144f7f[_0x349f0b(0x27f)]=+_0x10a356['quantity']*+_0x10a356[_0x349f0b(0x1fa)],_0x144f7f[_0x349f0b(0x21b)]=_0x10a356[_0x349f0b(0x21b)]),_0x144f7f['ip']=_0x3d17f2;const _0x59e87c=yield this['customerCartService'][_0x349f0b(0x1f1)](_0x144f7f),_0x4e87f5={'status':0x1,'message':_0x349f0b(0x1f7),'data':_0x59e87c};return _0x473850[_0x349f0b(0x1fc)](0xc8)['send'](_0x4e87f5);}});}[a3_0x1e8c81(0x279)](_0x3ddd09,_0x190693,_0x879833){const _0x3aa065=a3_0x1e8c81;return tslib_1[_0x3aa065(0x268)](this,void 0x0,void 0x0,function*(){const _0x3ef651=_0x3aa065,_0x428061=(_0x190693['headers'][_0x3ef651(0x24c)]||_0x190693['connection'][_0x3ef651(0x1f0)]||_0x190693['socket'][_0x3ef651(0x1f0)]||_0x190693[_0x3ef651(0x1ef)][_0x3ef651(0x231)][_0x3ef651(0x1f0)])[_0x3ef651(0x27d)](',')[0x0],_0x2ab4ec=[_0x3ef651(0x22e),_0x3ef651(0x23b),'CustomerCart.tirePrice\x20as\x20tirePrice',_0x3ef651(0x255),_0x3ef651(0x232),_0x3ef651(0x240),'product.taxType\x20as\x20taxType',_0x3ef651(0x266),_0x3ef651(0x21e),'product.price\x20as\x20price',_0x3ef651(0x210),_0x3ef651(0x254),_0x3ef651(0x250),_0x3ef651(0x21d),_0x3ef651(0x1fd),_0x3ef651(0x1f6),'product.sortOrder\x20as\x20sortOrder',_0x3ef651(0x1fb),'product.rating\x20as\x20rating',_0x3ef651(0x264),_0x3ef651(0x235),'product.hasStock\x20as\x20hasStock',_0x3ef651(0x1f9),_0x3ef651(0x20c),_0x3ef651(0x26f),_0x3ef651(0x25a),_0x3ef651(0x1f5),_0x3ef651(0x20f),_0x3ef651(0x223),'(SELECT\x20sku.out_of_stock_threshold\x20as\x20outOfStockThreshold\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20outOfStockThreshold',_0x3ef651(0x219),_0x3ef651(0x1f4),'(SELECT\x20sku.max_quantity_allowed_cart\x20as\x20maxQuantityAllowedCart\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20maxQuantityAllowedCart','(SELECT\x20sku.enable_back_orders\x20as\x20enableBackOrders\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20enableBackOrders',_0x3ef651(0x22c)+_0x3ef651(0x27b),'(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20product.product_id\x20AND\x20ps.sku_id\x20=\x20skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))'+'\x20'+_0x3ef651(0x221)],_0x56f25a=[],_0x4bb522=[],_0x58d3f9=[],_0x477f6b=[];_0x4bb522[_0x3ef651(0x253)]({'tableName':'CustomerCart.product','aliasName':'product'}),_0x56f25a['push']({'name':_0x3ef651(0x203),'op':_0x3ef651(0x26e),'value':'\x22'+(''+_0x428061[_0x3ef651(0x252)]())+'\x22'}),_0x56f25a[_0x3ef651(0x253)]({'name':_0x3ef651(0x275),'op':_0x3ef651(0x26c),'value':0x0}),_0x477f6b[_0x3ef651(0x253)]({'name':_0x3ef651(0x24d),'order':'DESC'});const _0x51caf0=yield this[_0x3ef651(0x200)][_0x3ef651(0x20a)](undefined,undefined,_0x2ab4ec,_0x56f25a,[],_0x4bb522,_0x58d3f9,_0x477f6b,!![],!![]);if(_0x879833){const _0xbcf00f={'status':0x1,'message':'Successfully\x20got\x20the\x20cart\x20count.','data':_0x51caf0};return _0x3ddd09[_0x3ef651(0x1fc)](0xc8)['send'](_0xbcf00f);}const _0x52505d=yield this['customerCartService'][_0x3ef651(0x20a)](undefined,undefined,_0x2ab4ec,_0x56f25a,[],_0x4bb522,_0x58d3f9,_0x477f6b,![],!![]);let _0x3ce2a8=0x0;const _0x32c5b4=_0x52505d[_0x3ef651(0x270)](_0x3a8dbe=>tslib_1[_0x3ef651(0x268)](this,void 0x0,void 0x0,function*(){const _0x3ab268=_0x3ef651,_0xe9c611=_0x3a8dbe;_0xe9c611[_0x3ab268(0x236)]=+_0x3a8dbe[_0x3ab268(0x236)],_0xe9c611[_0x3ab268(0x23c)]=_0x3a8dbe[_0x3ab268(0x23c)],_0xe9c611[_0x3ab268(0x20d)]=_0x3a8dbe['quantity'],_0xe9c611['tirePrice']=_0x3a8dbe[_0x3ab268(0x206)],_0xe9c611['productImage']=yield this['productImageService'][_0x3ab268(0x24a)]({'select':[_0x3ab268(0x20b),_0x3ab268(0x25b),_0x3ab268(0x242),_0x3ab268(0x278)],'where':{'productId':_0xe9c611[_0x3ab268(0x20b)]}}),_0xe9c611[_0x3ab268(0x272)]=_0xe9c611['productImage']['slice'](),_0x3ce2a8=0x0;if(_0x3a8dbe[_0x3ab268(0x22a)]!==null)_0xe9c611[_0x3ab268(0x228)]=_0x3a8dbe['productSpecial'],_0xe9c611[_0x3ab268(0x1f2)]=0x1;else _0x3a8dbe['productDiscount']!==null?(_0xe9c611[_0x3ab268(0x228)]=_0x3a8dbe['productDiscount'],_0xe9c611[_0x3ab268(0x1f2)]=0x0):(_0xe9c611[_0x3ab268(0x228)]='',_0xe9c611['flag']='');return _0xe9c611[_0x3ab268(0x247)]=yield this[_0x3ab268(0x204)][_0x3ab268(0x24a)]({'select':['id',_0x3ab268(0x20d),'price'],'where':{'productId':_0x3a8dbe[_0x3ab268(0x20b)],'skuId':_0x3a8dbe[_0x3ab268(0x229)]}}),_0x3a8dbe[_0x3ab268(0x205)]===0x1?_0x3a8dbe[_0x3ab268(0x20d)]<=_0x3a8dbe['outOfStockThreshold']?_0xe9c611[_0x3ab268(0x227)]=_0x3ab268(0x267):_0xe9c611['stockStatus']='inStock':_0xe9c611[_0x3ab268(0x227)]=_0x3ab268(0x26d),_0xe9c611;})),_0x4beb26=yield Promise[_0x3ef651(0x241)](_0x32c5b4);if(_0x52505d){const _0x23dfa0={'status':0x1,'message':_0x3ef651(0x24f),'data':{'cartList':_0x4beb26,'grandTotal':_0x3ce2a8}};return _0x3ddd09[_0x3ef651(0x1fc)](0xc8)[_0x3ef651(0x27c)](_0x23dfa0);}else{const _0x32899f={'status':0x0,'message':_0x3ef651(0x1f3)};return _0x3ddd09[_0x3ef651(0x1fc)](0x190)['send'](_0x32899f);}});}[a3_0x1e8c81(0x26a)](_0x423a7a,_0x308fda){const _0x51cdc1=a3_0x1e8c81;return tslib_1[_0x51cdc1(0x268)](this,void 0x0,void 0x0,function*(){const _0x34e0ef=_0x51cdc1,_0x3e9093=yield this[_0x34e0ef(0x251)][_0x34e0ef(0x22b)](_0x423a7a['data']['token']),_0x1bac1b=yield this[_0x34e0ef(0x200)][_0x34e0ef(0x246)]({'select':['id'],'where':{'ip':_0x423a7a['data']['ip'],'customerId':0x0}}),_0x598f9d=_0x1bac1b[_0x34e0ef(0x270)](_0x32484a=>_0x32484a['id']);return _0x598f9d[_0x34e0ef(0x24e)]&&_0x3e9093&&(yield this['customerCartService'][_0x34e0ef(0x237)](_0x598f9d,_0x3e9093['id'])),_0x308fda[_0x34e0ef(0x1fc)](0xc8)[_0x34e0ef(0x27c)]({'status':0x1,'message':_0x34e0ef(0x239)});});}};tslib_1[a3_0x1e8c81(0x248)]([(0x0,routing_controllers_1[a3_0x1e8c81(0x27e)])(),tslib_1[a3_0x1e8c81(0x202)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a3_0x1e8c81(0x202)](0x1,(0x0,routing_controllers_1[a3_0x1e8c81(0x25c)])()),tslib_1[a3_0x1e8c81(0x202)](0x2,(0x0,routing_controllers_1[a3_0x1e8c81(0x256)])()),tslib_1[a3_0x1e8c81(0x257)](a3_0x1e8c81(0x201),Function),tslib_1[a3_0x1e8c81(0x257)]('design:paramtypes',[CreateCartRequest_1['CreateCartRequest'],Object,Object]),tslib_1[a3_0x1e8c81(0x257)]('design:returntype',Promise)],CustomerAbandonedCartController[a3_0x1e8c81(0x269)],a3_0x1e8c81(0x216),null),tslib_1[a3_0x1e8c81(0x248)]([(0x0,routing_controllers_1['Get'])(),tslib_1[a3_0x1e8c81(0x202)](0x0,(0x0,routing_controllers_1['Res'])()),tslib_1[a3_0x1e8c81(0x202)](0x1,(0x0,routing_controllers_1[a3_0x1e8c81(0x25c)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a3_0x1e8c81(0x23e)])(a3_0x1e8c81(0x265))),tslib_1[a3_0x1e8c81(0x257)](a3_0x1e8c81(0x201),Function),tslib_1['__metadata'](a3_0x1e8c81(0x25e),[Object,Object,Object]),tslib_1[a3_0x1e8c81(0x257)](a3_0x1e8c81(0x20e),Promise)],CustomerAbandonedCartController[a3_0x1e8c81(0x269)],a3_0x1e8c81(0x279),null),tslib_1[a3_0x1e8c81(0x248)]([(0x0,routing_controllers_1[a3_0x1e8c81(0x245)])(),tslib_1[a3_0x1e8c81(0x202)](0x0,(0x0,routing_controllers_1[a3_0x1e8c81(0x1ff)])()),tslib_1[a3_0x1e8c81(0x202)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a3_0x1e8c81(0x257)](a3_0x1e8c81(0x201),Function),tslib_1[a3_0x1e8c81(0x257)](a3_0x1e8c81(0x25e),[Object,Object]),tslib_1[a3_0x1e8c81(0x257)](a3_0x1e8c81(0x20e),Promise)],CustomerAbandonedCartController[a3_0x1e8c81(0x269)],a3_0x1e8c81(0x26a),null),CustomerAbandonedCartController=tslib_1[a3_0x1e8c81(0x248)]([(0x0,routing_controllers_1[a3_0x1e8c81(0x243)])(AddonValidationMiddleware_1[a3_0x1e8c81(0x21a)]),(0x0,routing_controllers_1[a3_0x1e8c81(0x218)])(a3_0x1e8c81(0x262)),tslib_1[a3_0x1e8c81(0x257)]('design:paramtypes',[ProductService_1[a3_0x1e8c81(0x215)],SkuService_1[a3_0x1e8c81(0x225)],CustomerCartService_1[a3_0x1e8c81(0x24b)],ProductImageService_1[a3_0x1e8c81(0x258)],ProductTirePriceService_1['ProductTirePriceService'],AuthService_1[a3_0x1e8c81(0x233)]])],CustomerAbandonedCartController),exports['CustomerAbandonedCartController']=CustomerAbandonedCartController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CustomerAbandonedCartController = void 0;
+const tslib_1 = require("tslib");
+const routing_controllers_1 = require("routing-controllers");
+const CustomerCartService_1 = require("../../../../src/api/core/services/CustomerCartService");
+const ProductImageService_1 = require("../../../../src/api/core/services/ProductImageService");
+const ProductService_1 = require("../../../../src/api/core/services/ProductService");
+const ProductTirePriceService_1 = require("../../../../src/api/core/services/ProductTirePriceService");
+const SkuService_1 = require("../../../../src/api/core/services/SkuService");
+const CustomerCart_1 = require("../../../../src/api/core/models/CustomerCart");
+const AuthService_1 = require("../../../../src/auth/AuthService");
+const CreateCartRequest_1 = require("../../../../src/api/store/controllers/requests/CreateCartRequest");
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+let CustomerAbandonedCartController = class CustomerAbandonedCartController {
+    constructor(productService, skuService, customerCartService, productImageService, productTirePriceService, authSerivce) {
+        this.productService = productService;
+        this.skuService = skuService;
+        this.customerCartService = customerCartService;
+        this.productImageService = productImageService;
+        this.productTirePriceService = productTirePriceService;
+        this.authSerivce = authSerivce;
+    }
+    // create and update guest cart API
+    /**
+     * @api {post} /api/guest-cart Add to cart API
+     * @apiGroup Guest Cart
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} productId productId
+     * @apiParam (Request body) {Number} [productPrice] productPrice
+     * @apiParam (Request body) {Number} [tirePrice] tirePrice
+     * @apiParam (Request body) {Number} [quantity] quantity
+     * @apiParam (Request body) {String} [skuName] skuName
+     * @apiParam (Request body) {string} [type] type
+     * @apiParamExample {json} Input
+     * {
+     *      'productId' : ',
+     *      'productPrice' : ',
+     *      'tirePrice' : ',
+     *      'quantity' : ',
+     *      'skuName' : ',
+     *      'type' : ',
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      'message': 'Successfully added product to cart',
+     *      'status': '1'
+     * }
+     * @apiSampleRequest /api/guest-cart
+     * @apiErrorExample {json} Guest cart error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addGuestCart(cartParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ip = (request.headers['x-forwarded-for'] ||
+                request.connection.remoteAddress ||
+                request.socket.remoteAddress ||
+                request.connection.socket.remoteAddress).split(',')[0];
+            const product = yield this.productService.findOne({
+                where: {
+                    productId: cartParam.productId,
+                },
+            });
+            if (!product) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid ProductId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const sku = yield this.skuService.findOne({ where: { skuName: cartParam.skuName } });
+            if (!sku) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid sku',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const findOption = yield this.customerCartService.findOne({
+                where: {
+                    skuName: cartParam.skuName, productId: cartParam.productId, ip, customerId: 0,
+                },
+            });
+            if (findOption) {
+                if (cartParam.type && cartParam.type === 'new') {
+                    if (cartParam.quantity === 0) {
+                        yield this.customerCartService.delete(findOption.id);
+                        const deleteCart = {
+                            status: 1,
+                            message: 'Successfully removed from Cart',
+                        };
+                        return response.status(200).send(deleteCart);
+                    }
+                    const qty = Number(findOption.quantity) + +cartParam.quantity;
+                    console.log('qty:', qty);
+                    if (product.hasStock === 1) {
+                        if (!(sku.minQuantityAllowedCart <= qty)) {
+                            const minCart = {
+                                status: 0,
+                                message: 'Quantity should greater than min Quantity.',
+                            };
+                            return response.status(400).send(minCart);
+                        }
+                        else if (!(sku.maxQuantityAllowedCart >= qty)) {
+                            const maxCart = {
+                                status: 0,
+                                message: 'Reached maximum quantity limit',
+                            };
+                            return response.status(400).send(maxCart);
+                        }
+                    }
+                    findOption.quantity = qty;
+                }
+                else {
+                    findOption.quantity = cartParam.quantity;
+                }
+                findOption.productPrice = cartParam.productPrice;
+                findOption.total = +cartParam.quantity * +cartParam.productPrice;
+                findOption.tirePrice = cartParam.tirePrice ? cartParam.tirePrice : 0;
+                findOption.vendorId = cartParam.vendorId ? cartParam.vendorId : 0;
+                findOption.skuName = cartParam.skuName;
+                yield this.customerCartService.createData(findOption);
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated cart.',
+                    data: findOption,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                if (cartParam.quantity === 0) {
+                    yield this.customerCartService.delete(findOption.id);
+                    const deleteCart = {
+                        status: 1,
+                        message: 'Successfully removed from Cart',
+                    };
+                    return response.status(200).send(deleteCart);
+                }
+                if (product.hasStock === 1) {
+                    if (!(sku.minQuantityAllowedCart <= +cartParam.quantity)) {
+                        const minCart = {
+                            status: 0,
+                            message: 'Quantity should greater than min Quantity.',
+                        };
+                        return response.status(400).send(minCart);
+                    }
+                    else if (!(sku.maxQuantityAllowedCart >= +cartParam.quantity)) {
+                        const maxCart = {
+                            status: 0,
+                            message: 'Reached maximum quantity limit',
+                        };
+                        return response.status(400).send(maxCart);
+                    }
+                }
+                const addCustomerCart = new CustomerCart_1.CustomerCart();
+                addCustomerCart.productId = cartParam.productId,
+                    addCustomerCart.name = product.name,
+                    addCustomerCart.customerId = 0,
+                    addCustomerCart.quantity = cartParam.quantity,
+                    addCustomerCart.productPrice = cartParam.productPrice,
+                    addCustomerCart.tirePrice = cartParam.tirePrice ? cartParam.tirePrice : 0,
+                    addCustomerCart.vendorId = cartParam.vendorId ? cartParam.vendorId : 0;
+                addCustomerCart.total = +cartParam.quantity * +cartParam.productPrice,
+                    addCustomerCart.skuName = cartParam.skuName;
+                addCustomerCart.ip = ip;
+                const val = yield this.customerCartService.createData(addCustomerCart);
+                const cart = {
+                    status: 1,
+                    message: 'Added to cart',
+                    data: val,
+                };
+                return response.status(200).send(cart);
+            }
+        });
+    }
+    // Guest Cart List API
+    /**
+     * @api {get} /api/guest-cart  Guest Cart List API
+     * @apiGroup Guest Cart
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Boolean} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      'message': 'Successfully got Cart List',
+     *      'data':{
+     *       'productId' : ',
+     *       'name' : ',
+     *       'quantity' : ',
+     *       'productPrice' : ',
+     *       'total' : ',
+     *       'image' : ',
+     *       'containerName' : ',
+     *       'optionName' : ',
+     *       'optionValueName' : ',
+     *      }
+     *      'status': '1'
+     * }
+     * @apiSampleRequest /api/guest-cart
+     * @apiErrorExample {json} Guest Cart error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    guestCartList(response, request, count) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ip = (request.headers['x-forwarded-for'] ||
+                request.connection.remoteAddress ||
+                request.socket.remoteAddress ||
+                request.connection.socket.remoteAddress).split(',')[0];
+            const selects = ['CustomerCart.id as id',
+                'CustomerCart.productPrice as productPrice',
+                'CustomerCart.tirePrice as tirePrice',
+                'CustomerCart.total as total',
+                'CustomerCart.skuName as skuName',
+                'product.productId as productId',
+                'product.taxType as taxType',
+                'product.taxValue as taxValue',
+                'product.name as name',
+                'product.price as price',
+                'product.taxType as taxType',
+                'CustomerCart.quantity as quantity',
+                'product.description as description',
+                'product.dateAvailable as dateAvailable',
+                'product.sku as sku',
+                'product.skuId as skuId',
+                'product.sortOrder as sortOrder',
+                'product.upc as upc',
+                'product.rating as rating',
+                'product.isActive as isActive',
+                'product.productSlug as productSlug',
+                'product.hasStock as hasStock',
+                'product.outOfStockThreshold as outOfStockThreshold',
+                'product.stockStatusId as stockStatusId',
+                'product.createdDate as createdDate',
+                'product.keywords as keywords',
+                'IF(product.taxType = 2, (SELECT tax.tax_percentage FROM tax WHERE tax.tax_id = `product`.`tax_value` LIMIT 1), product.taxValue)  as taxValue',
+                '(SELECT sku.id as skuId FROM sku WHERE sku.sku_name = skuName) as skuId',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
+                '(SELECT sku.out_of_stock_threshold as outOfStockThreshold FROM sku WHERE sku.id = skuId) as outOfStockThreshold',
+                '(SELECT sku.notify_min_quantity_below as notifyMinQuantity FROM sku WHERE sku.id = skuId) as notifyMinQuantity',
+                '(SELECT sku.min_quantity_allowed_cart as minQuantityAllowedCart FROM sku WHERE sku.id = skuId) as minQuantityAllowedCart',
+                '(SELECT sku.max_quantity_allowed_cart as maxQuantityAllowedCart FROM sku WHERE sku.id = skuId) as maxQuantityAllowedCart',
+                '(SELECT sku.enable_back_orders as enableBackOrders FROM sku WHERE sku.id = skuId) as enableBackOrders',
+                '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+                    ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
+                '(SELECT price FROM product_special ps WHERE ps.product_id = product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
+            ];
+            const whereCondition = [];
+            const relations = [];
+            const groupBy = [];
+            const sort = [];
+            relations.push({
+                tableName: 'CustomerCart.product',
+                aliasName: 'product',
+            });
+            whereCondition.push({
+                name: 'CustomerCart.ip',
+                op: 'where',
+                value: '"' + `${ip.toString()}` + '"',
+            });
+            whereCondition.push({
+                name: 'CustomerCart.customer_id',
+                op: 'and',
+                value: 0,
+            });
+            sort.push({
+                name: 'CustomerCart.createdDate',
+                order: 'DESC',
+            });
+            const cartCount = yield this.customerCartService.listByQueryBuilder(undefined, undefined, selects, whereCondition, [], relations, groupBy, sort, true, true);
+            if (count) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the cart count.',
+                    data: cartCount,
+                };
+                return response.status(200).send(successResponse);
+            }
+            const cartList = yield this.customerCartService.listByQueryBuilder(undefined, undefined, selects, whereCondition, [], relations, groupBy, sort, false, true);
+            let grandTotal = 0;
+            const findImage = cartList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                temp.taxValue = +value.taxValue;
+                temp.optionName = value.optionName;
+                temp.quantity = value.quantity;
+                temp.tirePrice = value.tirePrice;
+                temp.productImage = yield this.productImageService.findAll({
+                    select: ['productId', 'image', 'containerName', 'defaultImage'],
+                    where: {
+                        productId: temp.productId,
+                    },
+                });
+                temp.productOriginalImage = temp.productImage.slice();
+                grandTotal = 0;
+                if (value.productSpecial !== null) {
+                    temp.pricerefer = value.productSpecial;
+                    temp.flag = 1;
+                }
+                else if (value.productDiscount !== null) {
+                    temp.pricerefer = value.productDiscount;
+                    temp.flag = 0;
+                }
+                else {
+                    temp.pricerefer = '';
+                    temp.flag = '';
+                }
+                temp.productTirePrices = yield this.productTirePriceService.findAll({
+                    select: ['id', 'quantity', 'price'],
+                    where: { productId: value.productId, skuId: value.skuId },
+                });
+                if (value.hasStock === 1) {
+                    if (value.quantity <= value.outOfStockThreshold) {
+                        temp.stockStatus = 'outOfStock';
+                    }
+                    else {
+                        temp.stockStatus = 'inStock';
+                    }
+                }
+                else {
+                    temp.stockStatus = 'inStock';
+                }
+                return temp;
+            }));
+            const finalResult = yield Promise.all(findImage);
+            if (cartList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the cart list.',
+                    data: { cartList: finalResult, grandTotal },
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to list cart list',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Converts The Guest Cart into Respective Registered Customer's Cart
+    // API is called Automactically (Axios) when Customer Log's in..!
+    guestToCustomer(customer, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const user = yield this.authSerivce.decryptToken(customer.data.token);
+            const guestCartDetails = yield this.customerCartService.find({
+                select: ['id'],
+                where: { ip: customer.data.ip, customerId: 0 },
+            });
+            const guestCartIds = guestCartDetails.map((item) => item.id);
+            if (guestCartIds.length && user) {
+                yield this.customerCartService.update(guestCartIds, user.id);
+            }
+            return response.status(200).send({
+                status: 1,
+                message: 'GuestCart into CustomerCart Api is called',
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateCartRequest_1.CreateCartRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerAbandonedCartController.prototype, "addGuestCart", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerAbandonedCartController.prototype, "guestCartList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerAbandonedCartController.prototype, "guestToCustomer", null);
+CustomerAbandonedCartController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/guest-cart'),
+    tslib_1.__metadata("design:paramtypes", [ProductService_1.ProductService,
+        SkuService_1.SkuService,
+        CustomerCartService_1.CustomerCartService,
+        ProductImageService_1.ProductImageService,
+        ProductTirePriceService_1.ProductTirePriceService,
+        AuthService_1.AuthService])
+], CustomerAbandonedCartController);
+exports.CustomerAbandonedCartController = CustomerAbandonedCartController;
+//# sourceMappingURL=CustomerAbandonedCartController.js.map

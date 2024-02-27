@@ -1,1 +1,115 @@
-'use strict';const a221_0x1a19e0=a221_0x1dc4;(function(_0x1b69f1,_0x36d4bb){const _0x4795fd=a221_0x1dc4,_0x4e2461=_0x1b69f1();while(!![]){try{const _0x4f2d2f=-parseInt(_0x4795fd(0x12c))/0x1*(parseInt(_0x4795fd(0x13c))/0x2)+-parseInt(_0x4795fd(0x126))/0x3+-parseInt(_0x4795fd(0x107))/0x4*(parseInt(_0x4795fd(0x13a))/0x5)+-parseInt(_0x4795fd(0x12e))/0x6+-parseInt(_0x4795fd(0x122))/0x7+-parseInt(_0x4795fd(0x131))/0x8+parseInt(_0x4795fd(0x114))/0x9*(parseInt(_0x4795fd(0x12a))/0xa);if(_0x4f2d2f===_0x36d4bb)break;else _0x4e2461['push'](_0x4e2461['shift']());}catch(_0x45ffc7){_0x4e2461['push'](_0x4e2461['shift']());}}}(a221_0xf344,0x516d3));Object[a221_0x1a19e0(0x118)](exports,a221_0x1a19e0(0x111),{'value':!![]}),exports['MSeoMetaService']=void 0x0;const tslib_1=require(a221_0x1a19e0(0x10c)),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require(a221_0x1a19e0(0x11a)),Logger_1=require(a221_0x1a19e0(0x132)),index_1=require(a221_0x1a19e0(0x10f)),MSeoMetaRepository_1=require(a221_0x1a19e0(0x100));let MSeoMetaService=class MSeoMetaService{constructor(_0x4ebe84,_0x3e5666){const _0x3812ca=a221_0x1a19e0;this['mSeoMetaRepository']=_0x4ebe84,this[_0x3812ca(0x136)]=_0x3e5666;}[a221_0x1a19e0(0x137)](_0x24a642){const _0x403082=a221_0x1a19e0;return tslib_1[_0x403082(0x103)](this,void 0x0,void 0x0,function*(){const _0x11bc35=_0x403082;return this[_0x11bc35(0x136)][_0x11bc35(0x11d)](_0x11bc35(0x119)),this['mSeoMetaRepository'][_0x11bc35(0x108)](_0x24a642);});}['findOne'](_0xcda798){const _0x4b7fb7=a221_0x1a19e0;return this[_0x4b7fb7(0x13d)][_0x4b7fb7(0x123)](_0xcda798);}[a221_0x1a19e0(0x135)](_0x53cb93,_0x151233){const _0x34afd3=a221_0x1a19e0;return this[_0x34afd3(0x136)][_0x34afd3(0x11d)](_0x34afd3(0x127)),_0x151233[_0x34afd3(0x124)]=_0x53cb93,this[_0x34afd3(0x13d)]['save'](_0x151233);}['list'](_0x21afea,_0x1e6802,_0x2bd8e7=[],_0x127349=[],_0x1e7965=[],_0x2f6239){const _0x2d413c=a221_0x1a19e0,_0x2a7bb0={};return _0x2bd8e7&&_0x2bd8e7['length']>0x0&&(_0x2a7bb0['select']=_0x2bd8e7),_0x2a7bb0[_0x2d413c(0x129)]={},_0x1e7965&&_0x1e7965['length']>0x0&&_0x1e7965[_0x2d413c(0x11f)](_0x410f4b=>{const _0x3a709b=_0x2d413c;_0x2a7bb0['where'][_0x410f4b[_0x3a709b(0x110)]]=_0x410f4b[_0x3a709b(0x10e)];}),_0x127349&&_0x127349[_0x2d413c(0x115)]>0x0&&_0x127349['forEach'](_0x5defa5=>{const _0x48d685=_0x2d413c,_0x1f398a=_0x5defa5['op'];if(_0x1f398a===_0x48d685(0x129)&&_0x5defa5[_0x48d685(0x10e)]!==undefined)_0x2a7bb0[_0x48d685(0x129)][_0x5defa5[_0x48d685(0x110)]]=_0x5defa5[_0x48d685(0x10e)];else _0x1f398a==='like'&&_0x5defa5[_0x48d685(0x10e)]!==undefined&&(_0x2a7bb0['where'][_0x5defa5[_0x48d685(0x110)]]=(0x0,index_1[_0x48d685(0x125)])('%'+_0x5defa5[_0x48d685(0x10e)]+'%'));}),_0x21afea&&_0x21afea>0x0&&(_0x2a7bb0['take']=_0x21afea,_0x2a7bb0[_0x2d413c(0x134)]=_0x1e6802),_0x2a7bb0[_0x2d413c(0x10b)]={},_0x2f6239?this[_0x2d413c(0x13d)][_0x2d413c(0x11c)](_0x2a7bb0):this[_0x2d413c(0x13d)][_0x2d413c(0x112)](_0x2a7bb0);}[a221_0x1a19e0(0x113)](_0x45f2d9){const _0x17c7f1=a221_0x1a19e0;return tslib_1[_0x17c7f1(0x103)](this,void 0x0,void 0x0,function*(){const _0x6fbaa3=_0x17c7f1;return yield this[_0x6fbaa3(0x13d)]['delete'](_0x45f2d9);});}[a221_0x1a19e0(0x101)](_0x2c90a2){const _0x1e3dd8=a221_0x1a19e0;return tslib_1[_0x1e3dd8(0x103)](this,void 0x0,void 0x0,function*(){const _0x115941=_0x1e3dd8,_0x2260ac=_0x2c90a2['replace'](/&/g,_0x115941(0x12b))[_0x115941(0x11e)](/</g,'&lt;')[_0x115941(0x11e)](/>/g,_0x115941(0x106))['replace'](/"/g,_0x115941(0x105))[_0x115941(0x11e)](/'/g,_0x115941(0x120))[_0x115941(0x11e)](/,/g,'&sbquo;')[_0x115941(0x11e)](/=/g,_0x115941(0x13f))['replace'](/-/g,_0x115941(0x117))[_0x115941(0x11e)](/…/g,_0x115941(0x109))['replace'](/@/g,_0x115941(0x116))[_0x115941(0x11e)](/©/g,_0x115941(0x13e))[_0x115941(0x11e)](/#/g,'&#35;')['replace'](/“/g,_0x115941(0x11b))[_0x115941(0x11e)](/’/g,_0x115941(0x104))[_0x115941(0x11e)](/‘/g,_0x115941(0x10a))['replace'](/™/g,_0x115941(0x12f))[_0x115941(0x11e)](/®/g,_0x115941(0x10d))['replace'](/–/g,'&ndash;')['replace'](/é/g,_0x115941(0x12d))[_0x115941(0x11e)](/€/g,_0x115941(0x13b))[_0x115941(0x11e)](/£/g,'&pound;');return _0x2260ac;});}};function a221_0x1dc4(_0x749150,_0xf943b3){const _0xf34419=a221_0xf344();return a221_0x1dc4=function(_0x1dc457,_0x5ba78a){_0x1dc457=_0x1dc457-0x100;let _0x361adf=_0xf34419[_0x1dc457];return _0x361adf;},a221_0x1dc4(_0x749150,_0xf943b3);}function a221_0xf344(){const _0x1aa3c2=['4416881TSkBgu','findOne','SeoId','Like','1056972qMnasS','Update\x20a\x20Seo','__param','where','2450VEvtHb','&amp;','127vAmYek','&eacute;','1802790sChxGX','&trade;','__decorate','130736zadvRc','../../../src/decorators/Logger','design:paramtypes','skip','update','log','create','Logger','Service','565DWYlBM','&euro;','9382pBdCBA','mSeoMetaRepository','&copy;','&#61;','../repositories/MSeoMetaRepository','escapeChar','MSeoMetaService','__awaiter','&rsquo;','&quot;','&gt;','9188lxhElV','save','&hellip;','&lsquo;','order','tslib','&reg;','value','typeorm/index','name','__esModule','find','delete','91431sccrjf','length','&commat;','&#45;','defineProperty','Create\x20a\x20new\x20seo\x20','typeorm-typedi-extensions','&ldquo;','count','info','replace','forEach','&#39;','__metadata'];a221_0xf344=function(){return _0x1aa3c2;};return a221_0xf344();}MSeoMetaService=tslib_1[a221_0x1a19e0(0x130)]([(0x0,typedi_1[a221_0x1a19e0(0x139)])(),tslib_1[a221_0x1a19e0(0x128)](0x0,(0x0,typeorm_typedi_extensions_1['OrmRepository'])()),tslib_1[a221_0x1a19e0(0x128)](0x1,(0x0,Logger_1[a221_0x1a19e0(0x138)])(__filename)),tslib_1[a221_0x1a19e0(0x121)](a221_0x1a19e0(0x133),[MSeoMetaRepository_1['MSeoMetaRepository'],Object])],MSeoMetaService),exports[a221_0x1a19e0(0x102)]=MSeoMetaService;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MSeoMetaService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../src/decorators/Logger");
+const index_1 = require("typeorm/index");
+const MSeoMetaRepository_1 = require("../repositories/MSeoMetaRepository");
+let MSeoMetaService = class MSeoMetaService {
+    constructor(mSeoMetaRepository, log) {
+        this.mSeoMetaRepository = mSeoMetaRepository;
+        this.log = log;
+    }
+    // create seo
+    create(seo) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new seo ');
+            return this.mSeoMetaRepository.save(seo);
+        });
+    }
+    // find Condition
+    findOne(seo) {
+        return this.mSeoMetaRepository.findOne(seo);
+    }
+    // update seo
+    update(id, seo) {
+        this.log.info('Update a Seo');
+        seo.SeoId = id;
+        return this.mSeoMetaRepository.save(seo);
+    }
+    // seo List
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        condition.order = {};
+        if (count) {
+            return this.mSeoMetaRepository.count(condition);
+        }
+        else {
+            return this.mSeoMetaRepository.find(condition);
+        }
+    }
+    // delete seo
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.mSeoMetaRepository.delete(id);
+        });
+    }
+    escapeChar(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const val = data
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;')
+                .replace(/,/g, '&sbquo;')
+                .replace(/=/g, '&#61;')
+                .replace(/-/g, '&#45;')
+                .replace(/…/g, '&hellip;')
+                .replace(/@/g, '&commat;')
+                .replace(/©/g, '&copy;')
+                .replace(/#/g, '&#35;')
+                .replace(/“/g, '&ldquo;')
+                .replace(/’/g, '&rsquo;')
+                .replace(/‘/g, '&lsquo;')
+                .replace(/™/g, '&trade;')
+                .replace(/®/g, '&reg;')
+                .replace(/–/g, '&ndash;')
+                .replace(/é/g, '&eacute;')
+                .replace(/€/g, '&euro;')
+                .replace(/£/g, '&pound;');
+            return val;
+        });
+    }
+};
+MSeoMetaService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [MSeoMetaRepository_1.MSeoMetaRepository, Object])
+], MSeoMetaService);
+exports.MSeoMetaService = MSeoMetaService;
+//# sourceMappingURL=MSeoMetaService.js.map

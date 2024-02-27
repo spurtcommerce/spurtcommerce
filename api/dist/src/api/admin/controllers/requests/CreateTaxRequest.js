@@ -1,1 +1,27 @@
-'use strict';function a308_0x3f22(){const _0x13d89a=['defineProperty','634248nAULDV','2811033PEqkxk','MaxLength','CreateTaxRequest','7935TaThjh','IsNotEmpty','design:type','395980FowyVY','__metadata','245160Gmqdqp','20tlkpGE','1668337ydryrC','12llRvHv','50OJuyZd','taxName','18nDKXHk','taxStatus','365088xtqOam','prototype','taxName\x20should\x20be\x20maximum\x20255\x20characters','77AgStpc'];a308_0x3f22=function(){return _0x13d89a;};return a308_0x3f22();}const a308_0x38ed3d=a308_0x5301;(function(_0x2ff5ab,_0x4a1678){const _0x401b66=a308_0x5301,_0xecde8=_0x2ff5ab();while(!![]){try{const _0x237e7f=parseInt(_0x401b66(0x1c2))/0x1+parseInt(_0x401b66(0x1cf))/0x2*(-parseInt(_0x401b66(0x1c6))/0x3)+-parseInt(_0x401b66(0x1cb))/0x4+parseInt(_0x401b66(0x1c9))/0x5*(parseInt(_0x401b66(0x1d1))/0x6)+-parseInt(_0x401b66(0x1c0))/0x7*(parseInt(_0x401b66(0x1bd))/0x8)+parseInt(_0x401b66(0x1c3))/0x9*(parseInt(_0x401b66(0x1cc))/0xa)+-parseInt(_0x401b66(0x1cd))/0xb*(parseInt(_0x401b66(0x1ce))/0xc);if(_0x237e7f===_0x4a1678)break;else _0xecde8['push'](_0xecde8['shift']());}catch(_0x45b337){_0xecde8['push'](_0xecde8['shift']());}}}(a308_0x3f22,0xaeaa8));function a308_0x5301(_0x4d4c2a,_0x52b18f){const _0x3f2295=a308_0x3f22();return a308_0x5301=function(_0x530189,_0x44db0c){_0x530189=_0x530189-0x1bd;let _0x494574=_0x3f2295[_0x530189];return _0x494574;},a308_0x5301(_0x4d4c2a,_0x52b18f);}Object[a308_0x38ed3d(0x1c1)](exports,'__esModule',{'value':!![]}),exports['CreateTaxRequest']=void 0x0;const tslib_1=require('tslib');require('reflect-metadata');const class_validator_1=require('class-validator');class CreateTaxRequest{}tslib_1['__decorate']([(0x0,class_validator_1[a308_0x38ed3d(0x1c4)])(0xff,{'message':a308_0x38ed3d(0x1bf)}),tslib_1['__metadata'](a308_0x38ed3d(0x1c8),String)],CreateTaxRequest[a308_0x38ed3d(0x1be)],a308_0x38ed3d(0x1d0),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a308_0x38ed3d(0x1c7)])(),tslib_1[a308_0x38ed3d(0x1ca)]('design:type',Number)],CreateTaxRequest[a308_0x38ed3d(0x1be)],a308_0x38ed3d(0x1d2),void 0x0),exports[a308_0x38ed3d(0x1c5)]=CreateTaxRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateTaxRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateTaxRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'taxName should be maximum 255 characters',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateTaxRequest.prototype, "taxName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateTaxRequest.prototype, "taxStatus", void 0);
+exports.CreateTaxRequest = CreateTaxRequest;
+//# sourceMappingURL=CreateTaxRequest.js.map

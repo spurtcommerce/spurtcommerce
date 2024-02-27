@@ -1,1 +1,150 @@
-'use strict';const a544_0x585439=a544_0x2deb;(function(_0x2b81a4,_0x1bc09e){const _0x5e65f5=a544_0x2deb,_0xd6f8c5=_0x2b81a4();while(!![]){try{const _0x39087c=-parseInt(_0x5e65f5(0x1bf))/0x1*(parseInt(_0x5e65f5(0x1ea))/0x2)+parseInt(_0x5e65f5(0x1cf))/0x3*(parseInt(_0x5e65f5(0x1d8))/0x4)+parseInt(_0x5e65f5(0x1de))/0x5+-parseInt(_0x5e65f5(0x1e7))/0x6+-parseInt(_0x5e65f5(0x1c7))/0x7+parseInt(_0x5e65f5(0x1ca))/0x8*(-parseInt(_0x5e65f5(0x1df))/0x9)+parseInt(_0x5e65f5(0x1bb))/0xa*(parseInt(_0x5e65f5(0x1f4))/0xb);if(_0x39087c===_0x1bc09e)break;else _0xd6f8c5['push'](_0xd6f8c5['shift']());}catch(_0x216520){_0xd6f8c5['push'](_0xd6f8c5['shift']());}}}(a544_0xf4a5,0xb2ee9));function a544_0x2deb(_0x5a0139,_0x49120a){const _0xf4a5dd=a544_0xf4a5();return a544_0x2deb=function(_0x2deb9f,_0x354a7b){_0x2deb9f=_0x2deb9f-0x1b8;let _0x4e5a06=_0xf4a5dd[_0x2deb9f];return _0x4e5a06;},a544_0x2deb(_0x5a0139,_0x49120a);}Object[a544_0x585439(0x1d9)](exports,a544_0x585439(0x1c0),{'value':!![]}),exports['VendorRepository']=void 0x0;const tslib_1=require('tslib'),typeorm_1=require('typeorm'),Vendor_1=require('../models/Vendor'),Customer_1=require('../models/Customer');let VendorRepository=class VendorRepository extends typeorm_1[a544_0x585439(0x1dd)]{[a544_0x585439(0x1bd)](_0x43ef0f,_0x1e942c,_0x2c4e75=[],_0x170d62=[],_0x16cec=[],_0x43f2a8=[],_0x59e146){const _0x2897d4=a544_0x585439;return tslib_1[_0x2897d4(0x1f5)](this,void 0x0,void 0x0,function*(){const _0x59f166=_0x2897d4;console[_0x59f166(0x1cd)](_0x59f166(0x1d2),_0x43ef0f);const _0x5447ec=yield this[_0x59f166(0x1c2)][_0x59f166(0x1da)](Vendor_1[_0x59f166(0x1f3)],_0x59f166(0x1d6));console[_0x59f166(0x1cd)](_0x59f166(0x1f2),_0x2c4e75);_0x2c4e75&&_0x2c4e75[_0x59f166(0x1cb)]>0x0&&(_0x5447ec[_0x59f166(0x1d1)](_0x2c4e75),console['log'](_0x59f166(0x1d7),_0x2c4e75));_0x170d62&&_0x170d62[_0x59f166(0x1cb)]>0x0&&_0x170d62[_0x59f166(0x1ef)](_0x5f0736=>{const _0x23ca09=_0x59f166;_0x5447ec['leftJoin'](_0x5f0736[_0x23ca09(0x1c3)],_0x5f0736[_0x23ca09(0x1e8)]);});_0x16cec&&_0x16cec[_0x59f166(0x1cb)]>0x0&&_0x16cec['forEach'](_0x2a120b=>{const _0x3da89f=_0x59f166,_0x5679af=_0x2a120b['op'];if(_0x5679af===_0x3da89f(0x1f1)&&_0x2a120b[_0x3da89f(0x1d4)]!=='')_0x5447ec['where'](_0x2a120b[_0x3da89f(0x1e5)]+'\x20=\x20'+_0x2a120b[_0x3da89f(0x1d4)]);else{if(_0x5679af===_0x3da89f(0x1be)&&_0x2a120b[_0x3da89f(0x1d4)]!=='')_0x5447ec[_0x3da89f(0x1e1)](_0x2a120b[_0x3da89f(0x1e5)]+_0x3da89f(0x1d5)+'\x27%'+_0x2a120b[_0x3da89f(0x1d4)]+'%\x27');else{if(_0x5679af==='or'&&_0x2a120b[_0x3da89f(0x1d4)]!=='')_0x5447ec[_0x3da89f(0x1cc)](_0x2a120b[_0x3da89f(0x1e5)]+_0x3da89f(0x1d5)+'\x27%'+_0x2a120b[_0x3da89f(0x1d4)]+'%\x27');else _0x5679af==='andWhere'&&_0x2a120b['value']!==undefined&&_0x2a120b[_0x3da89f(0x1d4)]!==''&&_0x5447ec['andWhere'](_0x2a120b[_0x3da89f(0x1e5)]+'\x20=\x20'+_0x2a120b[_0x3da89f(0x1d4)]);}}});_0x43f2a8&&_0x43f2a8[_0x59f166(0x1cb)]>0x0&&_0x43f2a8[_0x59f166(0x1ef)](_0x27c126=>{const _0x12aece=_0x59f166,_0x1dd4f2=_0x27c126['op'];if(_0x1dd4f2===_0x12aece(0x1f1)&&_0x27c126[_0x12aece(0x1d4)]!==undefined){const _0xb8d813=this[_0x12aece(0x1c2)][_0x12aece(0x1e4)](Customer_1['Customer'])[_0x12aece(0x1da)](_0x12aece(0x1f0))['select']('id')['where']('delete_flag\x20=\x20'+_0x27c126[_0x12aece(0x1d4)]);_0x5447ec['where'](_0x27c126['name']+'\x20IN\x20('+_0xb8d813[_0x12aece(0x1e2)]()+')');}else{if(_0x1dd4f2===_0x12aece(0x1c4)&&_0x27c126[_0x12aece(0x1d4)]!==undefined&&_0x27c126[_0x12aece(0x1d4)]!==''){const _0x21080d=this[_0x12aece(0x1c2)][_0x12aece(0x1e4)](Customer_1['Customer'])[_0x12aece(0x1da)](_0x12aece(0x1f0))[_0x12aece(0x1d1)]('id')[_0x12aece(0x1f1)]('email\x20LIKE\x20'+'\x27%'+_0x27c126[_0x12aece(0x1d4)]+'%\x27'+'\x20');_0x5447ec[_0x12aece(0x1e1)](_0x27c126[_0x12aece(0x1e5)]+_0x12aece(0x1ce)+_0x21080d['getSql']()+')');}else{if(_0x1dd4f2==='status'&&_0x27c126[_0x12aece(0x1d4)]!==undefined&&_0x27c126[_0x12aece(0x1d4)]!==''){const _0x15cea3=this[_0x12aece(0x1c2)][_0x12aece(0x1e4)](Customer_1[_0x12aece(0x1c8)])[_0x12aece(0x1da)](_0x12aece(0x1f0))['select']('id')['where']('is_active\x20=\x20'+_0x27c126[_0x12aece(0x1d4)]);_0x5447ec[_0x12aece(0x1e1)](_0x27c126[_0x12aece(0x1e5)]+_0x12aece(0x1ce)+_0x15cea3[_0x12aece(0x1e2)]()+')');}else{if(_0x1dd4f2===_0x12aece(0x1e5)&&_0x27c126['value']!==undefined&&_0x27c126[_0x12aece(0x1d4)]!=='')_0x5447ec[_0x12aece(0x1e1)](_0x27c126[_0x12aece(0x1e5)]+_0x12aece(0x1d5)+'\x27%'+_0x27c126[_0x12aece(0x1d4)]+'%\x27');else{if(_0x1dd4f2==='keyword'&&_0x27c126[_0x12aece(0x1d4)]!==undefined&&_0x27c126[_0x12aece(0x1d4)]!==''){const _0x2dcde3=this['manager'][_0x12aece(0x1e4)](Customer_1[_0x12aece(0x1c8)])['createQueryBuilder'](_0x12aece(0x1f0))[_0x12aece(0x1d1)]('id')[_0x12aece(0x1f1)](_0x12aece(0x1bc)+'\x27%'+_0x27c126['value']+'%\x27'+'\x20'+'OR\x20'+_0x12aece(0x1e6)+'\x27%'+_0x27c126['value']+'%\x27')[_0x12aece(0x1cc)](_0x12aece(0x1e9)+'\x27%'+_0x27c126[_0x12aece(0x1d4)]+'%\x27');_0x5447ec[_0x12aece(0x1e1)](_0x27c126[_0x12aece(0x1e5)]+_0x12aece(0x1ce)+_0x2dcde3[_0x12aece(0x1e2)]()+')');}}}}}});_0x43ef0f&&_0x43ef0f>0x0&&(console['log']('limitIn:',_0x43ef0f),_0x5447ec[_0x59f166(0x1d3)](_0x43ef0f),_0x5447ec['offset'](_0x1e942c));_0x5447ec['orderBy'](_0x59f166(0x1f7),_0x59f166(0x1eb));if(_0x59e146)return _0x5447ec[_0x59f166(0x1c1)]();return _0x5447ec[_0x59f166(0x1e0)]();});}[a544_0x585439(0x1c5)](_0x31a335){const _0x24b790=a544_0x585439;return tslib_1[_0x24b790(0x1f5)](this,void 0x0,void 0x0,function*(){const _0x39ca2c=_0x24b790,_0xbf9cf9=yield this[_0x39ca2c(0x1c2)][_0x39ca2c(0x1da)](Vendor_1[_0x39ca2c(0x1f3)],'vendor');return _0xbf9cf9[_0x39ca2c(0x1d1)]([_0x39ca2c(0x1b9),'vendor.vendor_slug_name\x20as\x20vendorSlugName',_0x39ca2c(0x1ba)]),_0xbf9cf9['where']('customer.first_name\x20=\x20:value',{'value':_0x31a335}),_0xbf9cf9['innerJoin'](_0x39ca2c(0x1ee),_0x39ca2c(0x1f0)),_0xbf9cf9[_0x39ca2c(0x1ed)]();});}[a544_0x585439(0x1db)](_0x12c629){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x464abf=a544_0x2deb,_0x20358b=yield this['manager']['createQueryBuilder'](Vendor_1[_0x464abf(0x1f3)],_0x464abf(0x1d6));return _0x20358b['select']([_0x464abf(0x1b9),_0x464abf(0x1c6),'customer.first_name\x20as\x20firstName']),_0x20358b[_0x464abf(0x1f1)](_0x464abf(0x1d0),{'value':_0x12c629}),_0x20358b[_0x464abf(0x1b8)](_0x464abf(0x1ee),_0x464abf(0x1f0)),_0x20358b[_0x464abf(0x1ec)]();});}[a544_0x585439(0x1c9)](_0x8010bc){const _0x31fea8=a544_0x585439;return tslib_1[_0x31fea8(0x1f5)](this,void 0x0,void 0x0,function*(){const _0x11361e=_0x31fea8,_0x291adb=yield this[_0x11361e(0x1c2)][_0x11361e(0x1da)](Vendor_1[_0x11361e(0x1f3)],_0x11361e(0x1d6));return _0x291adb['select']([_0x11361e(0x1b9),_0x11361e(0x1c6),_0x11361e(0x1ba)]),_0x291adb[_0x11361e(0x1f1)](_0x11361e(0x1d0),{'value':_0x8010bc}),_0x291adb[_0x11361e(0x1e1)]('vendor.vendor_slug_name\x20IS\x20:value1',{'value1':undefined}),_0x291adb['innerJoin'](_0x11361e(0x1ee),_0x11361e(0x1f0)),_0x291adb[_0x11361e(0x1ed)]();});}['validateDisplayUrlName'](_0x330c9f,_0x2e9a78,_0x2f50c8){const _0x5590ca=a544_0x585439;return tslib_1[_0x5590ca(0x1f5)](this,void 0x0,void 0x0,function*(){const _0x1c82d2=_0x5590ca,_0x2394f3=yield this['manager'][_0x1c82d2(0x1da)](Vendor_1['Vendor'],_0x1c82d2(0x1d6));return _0x2394f3[_0x1c82d2(0x1f1)](_0x1c82d2(0x1dc),{'value':_0x330c9f}),_0x2394f3['andWhere'](_0x1c82d2(0x1e3),{'deleteFlag':0x0}),_0x2e9a78===0x1&&_0x2394f3['andWhere'](_0x1c82d2(0x1f6),{'value':_0x2f50c8}),_0x2394f3[_0x1c82d2(0x1b8)](_0x1c82d2(0x1ee),_0x1c82d2(0x1f0)),_0x2394f3[_0x1c82d2(0x1ec)]();});}};VendorRepository=tslib_1['__decorate']([(0x0,typeorm_1['EntityRepository'])(Vendor_1[a544_0x585439(0x1f3)])],VendorRepository),exports['VendorRepository']=VendorRepository;function a544_0xf4a5(){const _0x3938d1=['customer.first_name\x20as\x20firstName','1562120TjiyCi','first_name\x20LIKE\x20','vendorList','and','566lurZEo','__esModule','getCount','manager','tableName','email','vendorSlug','vendor.vendor_slug_name\x20as\x20vendorSlugName','1762719lvMMZd','Customer','vendorSlugEmptySlug','5330496QQduqY','length','orWhere','log','\x20IN\x20(','4977uZqrMl','customer.first_name\x20=\x20:value','select','limit:','limit','value','\x20LIKE\x20','vendor','selectin:','964xtDdyq','defineProperty','createQueryBuilder','vendorSlugOne','vendor.displayNameUrl\x20=\x20:value','Repository','4385710RfKnHw','9zQWdvZ','getMany','andWhere','getSql','customer.deleteFlag\x20=\x20:deleteFlag','getRepository','name','email\x20LIKE\x20','3311058KRJeqs','aliasName','vendor.company_name\x20LIKE\x20','5008dzNhQB','DESC','getRawOne','getRawMany','vendor.customer','forEach','customer','where','select:','Vendor','165RpCuZy','__awaiter','vendor.vendorId\x20!=\x20:value\x20','vendor.vendor_id','innerJoin','vendor.vendor_id\x20as\x20vendorId'];a544_0xf4a5=function(){return _0x3938d1;};return a544_0xf4a5();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Vendor_1 = require("../models/Vendor");
+const Customer_1 = require("../models/Customer");
+let VendorRepository = class VendorRepository extends typeorm_1.Repository {
+    vendorList(limit, offset, select = [], relations = [], searchConditions = [], whereConditions = [], count) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            console.log('limit:', limit);
+            const query = yield this.manager.createQueryBuilder(Vendor_1.Vendor, 'vendor');
+            console.log('select:', select);
+            // Select
+            if (select && select.length > 0) {
+                query.select(select);
+                console.log('selectin:', select);
+            }
+            // relations
+            if (relations && relations.length > 0) {
+                relations.forEach((joinTb) => {
+                    query.leftJoin(joinTb.tableName, joinTb.aliasName);
+                });
+            }
+            // Keyword Search
+            if (searchConditions && searchConditions.length > 0) {
+                searchConditions.forEach((table) => {
+                    const operator = table.op;
+                    if (operator === 'where' && table.value !== '') {
+                        query.where(table.name + ' = ' + table.value);
+                    }
+                    else if (operator === 'and' && table.value !== '') {
+                        query.andWhere(table.name + ' LIKE ' + "\'%" + table.value + "%\'");
+                    }
+                    else if (operator === 'or' && table.value !== '') {
+                        query.orWhere(table.name + ' LIKE ' + "\'%" + table.value + "%\'");
+                    }
+                    else if (operator === 'andWhere' && table.value !== undefined && table.value !== '') {
+                        query.andWhere(table.name + ' = ' + table.value);
+                    }
+                });
+            }
+            // Keyword Search
+            if (whereConditions && whereConditions.length > 0) {
+                whereConditions.forEach((table) => {
+                    const operator = table.op;
+                    if (operator === 'where' && table.value !== undefined) {
+                        const subQb = this.manager
+                            .getRepository(Customer_1.Customer)
+                            .createQueryBuilder('customer')
+                            .select('id')
+                            .where('delete_flag = ' + table.value);
+                        query.where(table.name + ' IN (' + subQb.getSql() + ')');
+                    }
+                    else if (operator === 'email' && table.value !== undefined && table.value !== '') {
+                        const subQb = this.manager
+                            .getRepository(Customer_1.Customer)
+                            .createQueryBuilder('customer')
+                            .select('id')
+                            .where('email LIKE ' + "'%" + table.value + "%'" + ' ');
+                        query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
+                    }
+                    else if (operator === 'status' && table.value !== undefined && table.value !== '') {
+                        const subQb = this.manager
+                            .getRepository(Customer_1.Customer)
+                            .createQueryBuilder('customer')
+                            .select('id')
+                            .where('is_active = ' + table.value);
+                        query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
+                    }
+                    else if (operator === 'name' && table.value !== undefined && table.value !== '') {
+                        query.andWhere(table.name + ' LIKE ' + "\'%" + table.value + "%\'");
+                    }
+                    else if (operator === 'keyword' && table.value !== undefined && table.value !== '') {
+                        const subQb = this.manager
+                            .getRepository(Customer_1.Customer)
+                            .createQueryBuilder('customer')
+                            .select('id')
+                            .where('first_name LIKE ' + "'%" + table.value + "%'" + ' ' + 'OR ' + 'email LIKE ' + "'%" + table.value + "%'")
+                            .orWhere('vendor.company_name LIKE ' + "'%" + table.value + "%'");
+                        query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
+                    }
+                });
+            }
+            // Limit & Offset
+            if (limit && limit > 0) {
+                console.log('limitIn:', limit);
+                query.limit(limit);
+                query.offset(offset);
+            }
+            query.orderBy('vendor.vendor_id', 'DESC');
+            if (count) {
+                return query.getCount();
+            }
+            return query.getMany();
+        });
+    }
+    vendorSlug(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(Vendor_1.Vendor, 'vendor');
+            query.select(['vendor.vendor_id as vendorId', 'vendor.vendor_slug_name as vendorSlugName', 'customer.first_name as firstName']);
+            query.where('customer.first_name = :value', { value: data });
+            query.innerJoin('vendor.customer', 'customer');
+            return query.getRawMany();
+        });
+    }
+    vendorSlugOne(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(Vendor_1.Vendor, 'vendor');
+            query.select(['vendor.vendor_id as vendorId', 'vendor.vendor_slug_name as vendorSlugName', 'customer.first_name as firstName']);
+            query.where('customer.first_name = :value', { value: data });
+            query.innerJoin('vendor.customer', 'customer');
+            return query.getRawOne();
+        });
+    }
+    vendorSlugEmptySlug(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(Vendor_1.Vendor, 'vendor');
+            query.select(['vendor.vendor_id as vendorId', 'vendor.vendor_slug_name as vendorSlugName', 'customer.first_name as firstName']);
+            query.where('customer.first_name = :value', { value: data });
+            query.andWhere('vendor.vendor_slug_name IS :value1', { value1: undefined });
+            query.innerJoin('vendor.customer', 'customer');
+            return query.getRawMany();
+        });
+    }
+    validateDisplayUrlName(name, checkVendor, vendorId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(Vendor_1.Vendor, 'vendor');
+            query.where('vendor.displayNameUrl = :value', { value: name });
+            query.andWhere('customer.deleteFlag = :deleteFlag', { deleteFlag: 0 });
+            if (checkVendor === 1) {
+                query.andWhere('vendor.vendorId != :values', { values: vendorId });
+            }
+            query.innerJoin('vendor.customer', 'customer');
+            return query.getRawOne();
+        });
+    }
+};
+VendorRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(Vendor_1.Vendor)
+], VendorRepository);
+exports.VendorRepository = VendorRepository;
+//# sourceMappingURL=VendorRepository.js.map

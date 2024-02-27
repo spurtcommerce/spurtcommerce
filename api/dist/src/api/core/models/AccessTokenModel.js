@@ -1,1 +1,72 @@
-'use strict';const a361_0x1917d4=a361_0x2cb5;(function(_0x24fc1a,_0xeff417){const _0x30cf17=a361_0x2cb5,_0x260c03=_0x24fc1a();while(!![]){try{const _0x10a0ea=parseInt(_0x30cf17(0x11c))/0x1*(parseInt(_0x30cf17(0x128))/0x2)+parseInt(_0x30cf17(0x12f))/0x3+-parseInt(_0x30cf17(0x13d))/0x4*(-parseInt(_0x30cf17(0x13e))/0x5)+parseInt(_0x30cf17(0x139))/0x6+-parseInt(_0x30cf17(0x122))/0x7+-parseInt(_0x30cf17(0x12a))/0x8*(-parseInt(_0x30cf17(0x120))/0x9)+-parseInt(_0x30cf17(0x127))/0xa*(parseInt(_0x30cf17(0x13b))/0xb);if(_0x10a0ea===_0xeff417)break;else _0x260c03['push'](_0x260c03['shift']());}catch(_0x2a3137){_0x260c03['push'](_0x260c03['shift']());}}}(a361_0x44d8,0xa12cf));Object[a361_0x1917d4(0x136)](exports,'__esModule',{'value':!![]}),exports[a361_0x1917d4(0x12d)]=void 0x0;function a361_0x44d8(){const _0x579b13=['BeforeUpdate','access_token','user_id','defineProperty','PrimaryGeneratedColumn','typeorm','811098KJdTXb','user','11VmqMlQ','JoinColumn','936YDBnwO','17785tfgvrS','user_type','token','createDetails','moment','class-validator','__metadata','__decorate','BaseModel','design:paramtypes','YYYY-MM-DD\x20HH:mm:ss','design:type','./BaseModel','2DeseHi','__awaiter','accessToken','format','26262DUJuVy','modifiedDate','1522003UVdSxb','userId','design:returntype','userType','typeorm/index','16942930SfoPqX','501346xqvZXv','User','432kIrpqW','Entity','Column','AccessToken','./User','2836374iRlPDa','IsNotEmpty','BeforeInsert','prototype'];a361_0x44d8=function(){return _0x579b13;};return a361_0x44d8();}const tslib_1=require('tslib'),typeorm_1=require(a361_0x1917d4(0x138)),index_1=require(a361_0x1917d4(0x126)),User_1=require(a361_0x1917d4(0x12e)),index_2=require(a361_0x1917d4(0x126)),index_3=require(a361_0x1917d4(0x126)),BaseModel_1=require(a361_0x1917d4(0x11b)),moment=require(a361_0x1917d4(0x113)),class_validator_1=require(a361_0x1917d4(0x114));let AccessToken=class AccessToken extends BaseModel_1[a361_0x1917d4(0x117)]{[a361_0x1917d4(0x112)](){const _0x5e832b=a361_0x1917d4;return tslib_1[_0x5e832b(0x11d)](this,void 0x0,void 0x0,function*(){const _0x180012=_0x5e832b;this['createdDate']=moment()[_0x180012(0x11f)](_0x180012(0x119));});}['updateDetails'](){const _0x8b1950=a361_0x1917d4;return tslib_1[_0x8b1950(0x11d)](this,void 0x0,void 0x0,function*(){const _0x51693f=_0x8b1950;this[_0x51693f(0x121)]=moment()[_0x51693f(0x11f)]('YYYY-MM-DD\x20HH:mm:ss');});}};function a361_0x2cb5(_0x5a937f,_0x432f27){const _0x44d8e2=a361_0x44d8();return a361_0x2cb5=function(_0x2cb575,_0x4009b4){_0x2cb575=_0x2cb575-0x110;let _0x10913f=_0x44d8e2[_0x2cb575];return _0x10913f;},a361_0x2cb5(_0x5a937f,_0x432f27);}tslib_1[a361_0x1917d4(0x116)]([(0x0,class_validator_1[a361_0x1917d4(0x130)])(),(0x0,index_1[a361_0x1917d4(0x137)])({'name':'id'}),tslib_1[a361_0x1917d4(0x115)](a361_0x1917d4(0x11a),Number)],AccessToken[a361_0x1917d4(0x132)],'id',void 0x0),tslib_1[a361_0x1917d4(0x116)]([(0x0,class_validator_1[a361_0x1917d4(0x130)])(),(0x0,typeorm_1[a361_0x1917d4(0x12c)])({'name':a361_0x1917d4(0x135)}),tslib_1[a361_0x1917d4(0x115)](a361_0x1917d4(0x11a),Number)],AccessToken[a361_0x1917d4(0x132)],a361_0x1917d4(0x123),void 0x0),tslib_1[a361_0x1917d4(0x116)]([(0x0,class_validator_1[a361_0x1917d4(0x130)])(),(0x0,typeorm_1[a361_0x1917d4(0x12c)])({'name':'token'}),tslib_1[a361_0x1917d4(0x115)](a361_0x1917d4(0x11a),String)],AccessToken[a361_0x1917d4(0x132)],a361_0x1917d4(0x111),void 0x0),tslib_1[a361_0x1917d4(0x116)]([(0x0,typeorm_1['Column'])({'name':a361_0x1917d4(0x110)}),tslib_1['__metadata'](a361_0x1917d4(0x11a),String)],AccessToken[a361_0x1917d4(0x132)],a361_0x1917d4(0x125),void 0x0),tslib_1[a361_0x1917d4(0x116)]([(0x0,index_3['ManyToOne'])(_0x537e12=>User_1[a361_0x1917d4(0x129)],_0x452d2c=>_0x452d2c[a361_0x1917d4(0x11e)]),(0x0,index_2[a361_0x1917d4(0x13c)])({'name':'user_id'}),tslib_1['__metadata']('design:type',User_1[a361_0x1917d4(0x129)])],AccessToken[a361_0x1917d4(0x132)],a361_0x1917d4(0x13a),void 0x0),tslib_1[a361_0x1917d4(0x116)]([(0x0,typeorm_1[a361_0x1917d4(0x131)])(),tslib_1['__metadata']('design:type',Function),tslib_1[a361_0x1917d4(0x115)](a361_0x1917d4(0x118),[]),tslib_1[a361_0x1917d4(0x115)]('design:returntype',Promise)],AccessToken[a361_0x1917d4(0x132)],a361_0x1917d4(0x112),null),tslib_1[a361_0x1917d4(0x116)]([(0x0,typeorm_1[a361_0x1917d4(0x133)])(),tslib_1[a361_0x1917d4(0x115)]('design:type',Function),tslib_1['__metadata'](a361_0x1917d4(0x118),[]),tslib_1[a361_0x1917d4(0x115)](a361_0x1917d4(0x124),Promise)],AccessToken[a361_0x1917d4(0x132)],'updateDetails',null),AccessToken=tslib_1['__decorate']([(0x0,typeorm_1[a361_0x1917d4(0x12b)])(a361_0x1917d4(0x134))],AccessToken),exports[a361_0x1917d4(0x12d)]=AccessToken;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AccessToken = void 0;
+const tslib_1 = require("tslib");
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+const typeorm_1 = require("typeorm");
+const index_1 = require("typeorm/index");
+const User_1 = require("./User");
+const index_2 = require("typeorm/index");
+const index_3 = require("typeorm/index");
+const BaseModel_1 = require("./BaseModel");
+const moment = require("moment");
+const class_validator_1 = require("class-validator");
+let AccessToken = class AccessToken extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, index_1.PrimaryGeneratedColumn)({ name: 'id' }),
+    tslib_1.__metadata("design:type", Number)
+], AccessToken.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'user_id' }),
+    tslib_1.__metadata("design:type", Number)
+], AccessToken.prototype, "userId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'token' }),
+    tslib_1.__metadata("design:type", String)
+], AccessToken.prototype, "token", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'user_type' }),
+    tslib_1.__metadata("design:type", String)
+], AccessToken.prototype, "userType", void 0);
+tslib_1.__decorate([
+    (0, index_3.ManyToOne)(type => User_1.User, user => user.accessToken),
+    (0, index_2.JoinColumn)({ name: 'user_id' }),
+    tslib_1.__metadata("design:type", User_1.User)
+], AccessToken.prototype, "user", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], AccessToken.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], AccessToken.prototype, "updateDetails", null);
+AccessToken = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('access_token')
+], AccessToken);
+exports.AccessToken = AccessToken;
+//# sourceMappingURL=AccessTokenModel.js.map

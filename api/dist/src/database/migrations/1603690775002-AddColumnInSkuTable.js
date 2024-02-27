@@ -1,1 +1,72 @@
-'use strict';const a896_0x5ac7c0=a896_0x4751;(function(_0x1af311,_0x19ba77){const _0x486ccf=a896_0x4751,_0x4de9de=_0x1af311();while(!![]){try{const _0xa2471e=parseInt(_0x486ccf(0x191))/0x1*(-parseInt(_0x486ccf(0x199))/0x2)+-parseInt(_0x486ccf(0x19e))/0x3*(parseInt(_0x486ccf(0x1a6))/0x4)+-parseInt(_0x486ccf(0x19c))/0x5+parseInt(_0x486ccf(0x1a7))/0x6+parseInt(_0x486ccf(0x19d))/0x7+-parseInt(_0x486ccf(0x1a5))/0x8*(-parseInt(_0x486ccf(0x18e))/0x9)+parseInt(_0x486ccf(0x1a2))/0xa;if(_0xa2471e===_0x19ba77)break;else _0x4de9de['push'](_0x4de9de['shift']());}catch(_0x5851e3){_0x4de9de['push'](_0x4de9de['shift']());}}}(a896_0x4bd3,0x36b22));Object[a896_0x5ac7c0(0x190)](exports,'__esModule',{'value':!![]}),exports[a896_0x5ac7c0(0x192)]=void 0x0;function a896_0x4bd3(){const _0x534f44=['17RkRsrf','AddColumnInSkuTable1603690775002','min_quantity_allowed_cart','dropColumn','out_of_stock_threshold','addColumn','enable_back_orders','typeorm','2062AMMajq','tslib','notify_min_quantity_below','569520TEkEJH','1235766ROKkKB','3ALdwWQ','sku','max_quantity_allowed_cart','__awaiter','1593470Yutrlc','int','TableColumn','8WLdTEi','1744728eCmJwa','1421556jHPBbD','down','1969524JAfPQM','hasColumn','defineProperty'];a896_0x4bd3=function(){return _0x534f44;};return a896_0x4bd3();}const tslib_1=require(a896_0x5ac7c0(0x19a)),typeorm_1=require(a896_0x5ac7c0(0x198));class AddColumnInSkuTable1603690775002{['up'](_0x483b8a){const _0x5c0e26=a896_0x5ac7c0;return tslib_1[_0x5c0e26(0x1a1)](this,void 0x0,void 0x0,function*(){const _0x17401f=_0x5c0e26,_0x4a05bc=yield _0x483b8a[_0x17401f(0x18f)](_0x17401f(0x19f),_0x17401f(0x195));!_0x4a05bc&&(yield _0x483b8a[_0x17401f(0x196)](_0x17401f(0x19f),new typeorm_1[(_0x17401f(0x1a4))]({'name':'out_of_stock_threshold','type':'int','length':'11','isPrimary':![],'isNullable':!![]})));const _0x16e7db=yield _0x483b8a['hasColumn'](_0x17401f(0x19f),_0x17401f(0x19b));!_0x16e7db&&(yield _0x483b8a[_0x17401f(0x196)](_0x17401f(0x19f),new typeorm_1['TableColumn']({'name':_0x17401f(0x19b),'type':'int','length':'11','isPrimary':![],'isNullable':!![]})));const _0x27bcf8=yield _0x483b8a[_0x17401f(0x18f)](_0x17401f(0x19f),_0x17401f(0x193));!_0x27bcf8&&(yield _0x483b8a[_0x17401f(0x196)](_0x17401f(0x19f),new typeorm_1['TableColumn']({'name':_0x17401f(0x193),'type':'int','length':'11','isPrimary':![],'isNullable':!![]})));const _0xb32602=yield _0x483b8a['hasColumn'](_0x17401f(0x19f),_0x17401f(0x1a0));!_0xb32602&&(yield _0x483b8a[_0x17401f(0x196)]('sku',new typeorm_1['TableColumn']({'name':_0x17401f(0x1a0),'type':_0x17401f(0x1a3),'length':'11','isPrimary':![],'isNullable':!![]})));const _0x4dba5f=yield _0x483b8a[_0x17401f(0x18f)]('sku',_0x17401f(0x197));!_0x4dba5f&&(yield _0x483b8a['addColumn'](_0x17401f(0x19f),new typeorm_1[(_0x17401f(0x1a4))]({'name':'enable_back_orders','type':_0x17401f(0x1a3),'length':'11','isPrimary':![],'isNullable':!![]})));});}[a896_0x5ac7c0(0x18d)](_0x1d7fbf){const _0x37c2d9=a896_0x5ac7c0;return tslib_1[_0x37c2d9(0x1a1)](this,void 0x0,void 0x0,function*(){const _0x2a8554=_0x37c2d9;yield _0x1d7fbf[_0x2a8554(0x194)](_0x2a8554(0x19f),_0x2a8554(0x195)),yield _0x1d7fbf[_0x2a8554(0x194)]('sku',_0x2a8554(0x19b)),yield _0x1d7fbf[_0x2a8554(0x194)](_0x2a8554(0x19f),_0x2a8554(0x1a0)),yield _0x1d7fbf['dropColumn']('sku','min_quantity_allowed_cart'),yield _0x1d7fbf[_0x2a8554(0x194)](_0x2a8554(0x19f),'enable_back_orders');});}}function a896_0x4751(_0x48c2bc,_0x9397a8){const _0x4bd3ef=a896_0x4bd3();return a896_0x4751=function(_0x475171,_0x2e77d4){_0x475171=_0x475171-0x18d;let _0xb55c24=_0x4bd3ef[_0x475171];return _0xb55c24;},a896_0x4751(_0x48c2bc,_0x9397a8);}exports[a896_0x5ac7c0(0x192)]=AddColumnInSkuTable1603690775002;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInSkuTable1603690775002 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInSkuTable1603690775002 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist1 = yield queryRunner.hasColumn('sku', 'out_of_stock_threshold');
+            if (!ifExist1) {
+                yield queryRunner.addColumn('sku', new typeorm_1.TableColumn({
+                    name: 'out_of_stock_threshold',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist2 = yield queryRunner.hasColumn('sku', 'notify_min_quantity_below');
+            if (!ifExist2) {
+                yield queryRunner.addColumn('sku', new typeorm_1.TableColumn({
+                    name: 'notify_min_quantity_below',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist3 = yield queryRunner.hasColumn('sku', 'min_quantity_allowed_cart');
+            if (!ifExist3) {
+                yield queryRunner.addColumn('sku', new typeorm_1.TableColumn({
+                    name: 'min_quantity_allowed_cart',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist4 = yield queryRunner.hasColumn('sku', 'max_quantity_allowed_cart');
+            if (!ifExist4) {
+                yield queryRunner.addColumn('sku', new typeorm_1.TableColumn({
+                    name: 'max_quantity_allowed_cart',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist5 = yield queryRunner.hasColumn('sku', 'enable_back_orders');
+            if (!ifExist5) {
+                yield queryRunner.addColumn('sku', new typeorm_1.TableColumn({
+                    name: 'enable_back_orders',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('sku', 'out_of_stock_threshold');
+            yield queryRunner.dropColumn('sku', 'notify_min_quantity_below');
+            yield queryRunner.dropColumn('sku', 'max_quantity_allowed_cart');
+            yield queryRunner.dropColumn('sku', 'min_quantity_allowed_cart');
+            yield queryRunner.dropColumn('sku', 'enable_back_orders');
+        });
+    }
+}
+exports.AddColumnInSkuTable1603690775002 = AddColumnInSkuTable1603690775002;
+//# sourceMappingURL=1603690775002-AddColumnInSkuTable.js.map

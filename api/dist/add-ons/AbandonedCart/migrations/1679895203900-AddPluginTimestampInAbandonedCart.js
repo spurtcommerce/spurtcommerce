@@ -1,1 +1,29 @@
-'use strict';const a5_0x10635a=a5_0x66b1;function a5_0x66b1(_0x4aa02f,_0x5b20aa){const _0x540011=a5_0x5400();return a5_0x66b1=function(_0x66b1df,_0x63695){_0x66b1df=_0x66b1df-0xab;let _0x2e7603=_0x540011[_0x66b1df];return _0x2e7603;},a5_0x66b1(_0x4aa02f,_0x5b20aa);}function a5_0x5400(){const _0x3a9a03=['down','typeorm','5851400toPDzy','16vtYFLL','__awaiter','3cICsiS','1487550TncsQk','AbandonedCart','defineProperty','18326vfyLiD','6HZijPe','getRepository','save','tslib','AddPluginTimestampInAbandonedCart1679895203900','8oodqxD','304310qwpXad','1932693JiCOQP','4460478zBHDnl','pluginTimestamp','5871339FEwlYp'];a5_0x5400=function(){return _0x3a9a03;};return a5_0x5400();}(function(_0x409613,_0x71d246){const _0x59e08e=a5_0x66b1,_0x39eeef=_0x409613();while(!![]){try{const _0x11c9b9=-parseInt(_0x59e08e(0xbb))/0x1*(parseInt(_0x59e08e(0xbf))/0x2)+-parseInt(_0x59e08e(0xbc))/0x3+parseInt(_0x59e08e(0xb9))/0x4*(-parseInt(_0x59e08e(0xb1))/0x5)+-parseInt(_0x59e08e(0xab))/0x6*(-parseInt(_0x59e08e(0xb2))/0x7)+-parseInt(_0x59e08e(0xb0))/0x8*(-parseInt(_0x59e08e(0xb5))/0x9)+parseInt(_0x59e08e(0xb8))/0xa+-parseInt(_0x59e08e(0xb3))/0xb;if(_0x11c9b9===_0x71d246)break;else _0x39eeef['push'](_0x39eeef['shift']());}catch(_0x3b592d){_0x39eeef['push'](_0x39eeef['shift']());}}}(a5_0x5400,0x5354d));Object[a5_0x10635a(0xbe)](exports,'__esModule',{'value':!![]}),exports[a5_0x10635a(0xaf)]=void 0x0;const tslib_1=require(a5_0x10635a(0xae)),typeorm_1=require(a5_0x10635a(0xb7)),Plugin_1=require('../../../src/api/core/models/Plugin');class AddPluginTimestampInAbandonedCart1679895203900{['up'](_0x42ed4e){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x3475e1=a5_0x66b1,_0x25f98f=(0x0,typeorm_1[_0x3475e1(0xac)])(Plugin_1['Plugins']),_0x3413b0=yield _0x25f98f['findOne']({'where':{'pluginName':_0x3475e1(0xbd)}});_0x3413b0&&(_0x3413b0[_0x3475e1(0xb4)]=0x186ea05c649,yield _0x25f98f[_0x3475e1(0xad)](_0x3413b0));});}[a5_0x10635a(0xb6)](_0x2900f8){const _0x4f1f68=a5_0x10635a;return tslib_1[_0x4f1f68(0xba)](this,void 0x0,void 0x0,function*(){});}}exports[a5_0x10635a(0xaf)]=AddPluginTimestampInAbandonedCart1679895203900;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddPluginTimestampInAbandonedCart1679895203900 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../../../src/api/core/models/Plugin");
+class AddPluginTimestampInAbandonedCart1679895203900 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const repo = (0, typeorm_1.getRepository)(Plugin_1.Plugins);
+            const plugin = yield repo.findOne({
+                where: {
+                    pluginName: 'AbandonedCart',
+                },
+            });
+            if (plugin) {
+                plugin.pluginTimestamp = 1678963492425; // This Add-on's Plugin Migration Timestamp
+                yield repo.save(plugin);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.AddPluginTimestampInAbandonedCart1679895203900 = AddPluginTimestampInAbandonedCart1679895203900;
+//# sourceMappingURL=1679895203900-AddPluginTimestampInAbandonedCart.js.map

@@ -1,1 +1,83 @@
-'use strict';const a56_0x5dcbba=a56_0x4c86;(function(_0x1a9b35,_0x2100b1){const _0x34e668=a56_0x4c86,_0x787484=_0x1a9b35();while(!![]){try{const _0xac1ace=parseInt(_0x34e668(0x1d2))/0x1+-parseInt(_0x34e668(0x1e8))/0x2+-parseInt(_0x34e668(0x1e2))/0x3*(parseInt(_0x34e668(0x1d0))/0x4)+parseInt(_0x34e668(0x1d4))/0x5+-parseInt(_0x34e668(0x1d8))/0x6*(-parseInt(_0x34e668(0x1ed))/0x7)+-parseInt(_0x34e668(0x1e3))/0x8+parseInt(_0x34e668(0x1d5))/0x9*(-parseInt(_0x34e668(0x1df))/0xa);if(_0xac1ace===_0x2100b1)break;else _0x787484['push'](_0x787484['shift']());}catch(_0xf62203){_0x787484['push'](_0x787484['shift']());}}}(a56_0x5af3,0xe58b4));Object[a56_0x5dcbba(0x1ee)](exports,a56_0x5dcbba(0x1d7),{'value':!![]}),exports['CreateStripeOrderTranscation1623221600927']=void 0x0;function a56_0x4c86(_0x5bfa45,_0x5b4507){const _0x5af367=a56_0x5af3();return a56_0x4c86=function(_0x4c8691,_0x34b466){_0x4c8691=_0x4c8691-0x1d0;let _0x2a0f60=_0x5af367[_0x4c8691];return _0x2a0f60;},a56_0x4c86(_0x5bfa45,_0x5b4507);}const tslib_1=require(a56_0x5dcbba(0x1dc)),typeorm_1=require(a56_0x5dcbba(0x1e6));class CreateStripeOrderTranscation1623221600927{['up'](_0xde16f4){const _0x402cef=a56_0x5dcbba;return tslib_1[_0x402cef(0x1ea)](this,void 0x0,void 0x0,function*(){const _0x3af232=_0x402cef,_0x1b2048=new typeorm_1['Table']({'name':'stripe_order_transaction','columns':[{'name':'id','type':_0x3af232(0x1db),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x3af232(0x1e0)},{'name':'stripe_order_id','type':_0x3af232(0x1db),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3af232(0x1d1),'type':_0x3af232(0x1da),'length':'255','isPrimary':![],'isNullable':!![]},{'name':_0x3af232(0x1d9),'type':_0x3af232(0x1de),'isPrimary':![],'isNullable':!![]},{'name':_0x3af232(0x1e4),'type':_0x3af232(0x1db),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3af232(0x1dd),'type':'datetime','isPrimary':![],'isNullable':!![],'default':_0x3af232(0x1eb)},{'name':_0x3af232(0x1e1),'type':'datetime','isPrimary':![],'isNullable':!![],'default':_0x3af232(0x1eb)},{'name':_0x3af232(0x1e5),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x3af232(0x1d6),'type':_0x3af232(0x1db),'length':'11','isPrimary':![],'isNullable':!![]}]}),_0x29ed88=yield _0xde16f4['hasTable'](_0x3af232(0x1ec));!_0x29ed88&&(yield _0xde16f4[_0x3af232(0x1d3)](_0x1b2048));});}[a56_0x5dcbba(0x1e9)](_0x84ecf9){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){yield _0x84ecf9['dropTable']('stripe_order_transaction',!![]);});}}function a56_0x5af3(){const _0x3bd231=['int','tslib','created_date','TEXT','1597910yqRBpJ','increment','modified_date','20181NNRyzo','8470208YRAaSx','payment_status','created_by','typeorm','CreateStripeOrderTranscation1623221600927','648130LNLZzZ','down','__awaiter','CURRENT_TIMESTAMP','stripe_order_transaction','7dpbXGc','defineProperty','364CvgUrc','payment_type','1031394PvXJgd','createTable','4744590XWPhUv','9UgQwdm','modified_by','__esModule','6688134GHspwW','payment_data','varchar'];a56_0x5af3=function(){return _0x3bd231;};return a56_0x5af3();}exports[a56_0x5dcbba(0x1e7)]=CreateStripeOrderTranscation1623221600927;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateStripeOrderTranscation1623221600927 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateStripeOrderTranscation1623221600927 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'stripe_order_transaction',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'stripe_order_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'payment_type',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'payment_data',
+                        type: 'TEXT',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'payment_status',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('stripe_order_transaction');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('stripe_order_transaction', true);
+        });
+    }
+}
+exports.CreateStripeOrderTranscation1623221600927 = CreateStripeOrderTranscation1623221600927;
+//# sourceMappingURL=1623221600927-CreateStripeOrderTranscation.js.map

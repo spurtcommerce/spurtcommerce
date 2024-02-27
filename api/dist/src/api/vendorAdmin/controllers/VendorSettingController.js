@@ -1,1 +1,122 @@
-'use strict';const a694_0x3af81b=a694_0x7dc3;(function(_0x5d1f8f,_0x23cc2d){const _0xc41875=a694_0x7dc3,_0x19abdb=_0x5d1f8f();while(!![]){try{const _0x49baa9=-parseInt(_0xc41875(0x91))/0x1*(parseInt(_0xc41875(0xb6))/0x2)+-parseInt(_0xc41875(0x93))/0x3*(parseInt(_0xc41875(0xa6))/0x4)+parseInt(_0xc41875(0x9a))/0x5+parseInt(_0xc41875(0x9f))/0x6*(-parseInt(_0xc41875(0xa2))/0x7)+parseInt(_0xc41875(0xa9))/0x8*(-parseInt(_0xc41875(0xbe))/0x9)+-parseInt(_0xc41875(0xb7))/0xa*(parseInt(_0xc41875(0x96))/0xb)+-parseInt(_0xc41875(0xa8))/0xc*(-parseInt(_0xc41875(0x92))/0xd);if(_0x49baa9===_0x23cc2d)break;else _0x19abdb['push'](_0x19abdb['shift']());}catch(_0x5e9cbd){_0x19abdb['push'](_0x19abdb['shift']());}}}(a694_0x246a,0xc55a3));function a694_0x7dc3(_0x1f2467,_0x31460e){const _0x246a23=a694_0x246a();return a694_0x7dc3=function(_0x7dc3ad,_0x4030ca){_0x7dc3ad=_0x7dc3ad-0x90;let _0x1c9e1e=_0x246a23[_0x7dc3ad];return _0x1c9e1e;},a694_0x7dc3(_0x1f2467,_0x31460e);}Object[a694_0x3af81b(0x9e)](exports,a694_0x3af81b(0x95),{'value':!![]}),exports['VendorAdminSettingController']=void 0x0;const tslib_1=require('tslib');function a694_0x246a(){const _0x5c4c61=['JsonController','design:returntype','Res','1976mOIBTR','__param','12IDOfJz','5465528WDvDzP','./requests/CreateVendorSettingRequest','/create-vendor-settings','VendorGlobalSetting','Settings\x20created\x20Successfully.','Body','Get','data\x20is\x20empty','create','settingsList','design:type','findOne','defaultCommission','4UwBMcH','10UaDByg','VendorGlobalSettingService','reflect-metadata','../../core/services/VendorSettingService','/vendor-setting','__metadata','createSettings','9gfgSvi','design:paramtypes','87137ioFqPE','24806990jDQXwb','795BQDcJa','send','__esModule','7783017VayZbR','__decorate','status','CreateVendorSettingRequest','6557730aTfBpr','__awaiter','routing-controllers','/get-vendor-settings','defineProperty','4292994xMCRJO','prototype','vendorGlobalSettingService','7hEigLy'];a694_0x246a=function(){return _0x5c4c61;};return a694_0x246a();}require(a694_0x3af81b(0xb9));const routing_controllers_1=require(a694_0x3af81b(0x9c)),VendorSettingService_1=require(a694_0x3af81b(0xba)),VendorGlobalSettings_1=require('../../core/models/VendorGlobalSettings'),CreateVendorSettingRequest_1=require(a694_0x3af81b(0xaa));let VendorAdminSettingController=class VendorAdminSettingController{constructor(_0x24473f){const _0x24e531=a694_0x3af81b;this[_0x24e531(0xa1)]=_0x24473f;}[a694_0x3af81b(0xbd)](_0x204aa0,_0x17576e){const _0x4a36cc=a694_0x3af81b;return tslib_1[_0x4a36cc(0x9b)](this,void 0x0,void 0x0,function*(){const _0x353a62=_0x4a36cc,_0x519940=yield this['vendorGlobalSettingService'][_0x353a62(0xb4)]();if(_0x519940===undefined){const _0x3eb8c7=new VendorGlobalSettings_1[(_0x353a62(0xac))]();_0x3eb8c7['defaultCommission']=_0x204aa0['defaultCommission'];const _0x22eeb1=yield this[_0x353a62(0xa1)]['create'](_0x3eb8c7),_0xe571d0={'status':0x1,'message':_0x353a62(0xad),'data':_0x22eeb1};return _0x17576e[_0x353a62(0x98)](0xc8)['send'](_0xe571d0);}else{_0x519940[_0x353a62(0xb5)]=_0x204aa0[_0x353a62(0xb5)];const _0x36f004=yield this[_0x353a62(0xa1)][_0x353a62(0xb1)](_0x519940),_0x47ec84={'status':0x1,'message':'Settings\x20Updated\x20Successfully.','data':_0x36f004};return _0x17576e[_0x353a62(0x98)](0xc8)[_0x353a62(0x94)](_0x47ec84);}});}[a694_0x3af81b(0xb2)](_0x20cc77){const _0x73d492=a694_0x3af81b;return tslib_1[_0x73d492(0x9b)](this,void 0x0,void 0x0,function*(){const _0x14d0f4=_0x73d492,_0x248b73=yield this['vendorGlobalSettingService'][_0x14d0f4(0xb4)]();if(_0x248b73===undefined){const _0x9b17be={'status':0x1,'message':_0x14d0f4(0xb0)};return _0x20cc77[_0x14d0f4(0x98)](0xc8)[_0x14d0f4(0x94)](_0x9b17be);}const _0x12dcce={'status':0x1,'message':'Successfully\x20get\x20vendor\x20settings','data':{'defaultCommission':_0x248b73[_0x14d0f4(0xb5)]}};return _0x20cc77[_0x14d0f4(0x98)](0xc8)[_0x14d0f4(0x94)](_0x12dcce);});}};tslib_1['__decorate']([(0x0,routing_controllers_1['Post'])(a694_0x3af81b(0xab)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a694_0x3af81b(0xae)])({'validate':!![]})),tslib_1[a694_0x3af81b(0xa7)](0x1,(0x0,routing_controllers_1[a694_0x3af81b(0xa5)])()),tslib_1['__metadata'](a694_0x3af81b(0xb3),Function),tslib_1['__metadata'](a694_0x3af81b(0x90),[CreateVendorSettingRequest_1[a694_0x3af81b(0x99)],Object]),tslib_1[a694_0x3af81b(0xbc)](a694_0x3af81b(0xa4),Promise)],VendorAdminSettingController['prototype'],'createSettings',null),tslib_1[a694_0x3af81b(0x97)]([(0x0,routing_controllers_1[a694_0x3af81b(0xaf)])(a694_0x3af81b(0x9d)),tslib_1[a694_0x3af81b(0xa7)](0x0,(0x0,routing_controllers_1[a694_0x3af81b(0xa5)])()),tslib_1[a694_0x3af81b(0xbc)]('design:type',Function),tslib_1[a694_0x3af81b(0xbc)]('design:paramtypes',[Object]),tslib_1[a694_0x3af81b(0xbc)](a694_0x3af81b(0xa4),Promise)],VendorAdminSettingController[a694_0x3af81b(0xa0)],a694_0x3af81b(0xb2),null),VendorAdminSettingController=tslib_1['__decorate']([(0x0,routing_controllers_1[a694_0x3af81b(0xa3)])(a694_0x3af81b(0xbb)),tslib_1[a694_0x3af81b(0xbc)](a694_0x3af81b(0x90),[VendorSettingService_1[a694_0x3af81b(0xb8)]])],VendorAdminSettingController),exports['VendorAdminSettingController']=VendorAdminSettingController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorAdminSettingController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const VendorSettingService_1 = require("../../core/services/VendorSettingService");
+const VendorGlobalSettings_1 = require("../../core/models/VendorGlobalSettings");
+const CreateVendorSettingRequest_1 = require("./requests/CreateVendorSettingRequest");
+let VendorAdminSettingController = class VendorAdminSettingController {
+    constructor(vendorGlobalSettingService) {
+        this.vendorGlobalSettingService = vendorGlobalSettingService;
+    }
+    // create and update Vendor settings API
+    /**
+     * @api {post} /api/vendor-setting/create-vendor-settings Create Vendor Settings API
+     * @apiGroup Admin-Vendor-Setting
+     * @apiParam (Request body) {Number} defaultCommission  default commission
+     * @apiParamExample {json} Input
+     * {
+     *      "defaultCommission" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Created Vendor Setting.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-setting/create-vendor-settings
+     * @apiErrorExample {json} addSettings error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createSettings(settings, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const settingValue = yield this.vendorGlobalSettingService.findOne();
+            if (settingValue === undefined) {
+                const newSettings = new VendorGlobalSettings_1.VendorGlobalSetting();
+                newSettings.defaultCommission = settings.defaultCommission;
+                const createdData = yield this.vendorGlobalSettingService.create(newSettings);
+                const successResponse = {
+                    status: 1,
+                    message: 'Settings created Successfully.',
+                    data: createdData,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                settingValue.defaultCommission = settings.defaultCommission;
+                const updatedData = yield this.vendorGlobalSettingService.create(settingValue);
+                const successResponse = {
+                    status: 1,
+                    message: 'Settings Updated Successfully.',
+                    data: updatedData,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Get Vendor Settings list API
+    /**
+     * @api {get} /api/vendor-setting/get-vendor-settings Get Vendor Setting API
+     * @apiGroup Admin-Vendor-Setting
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get vendor settings",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/vendor-setting/get-vendor-settings
+     * @apiErrorExample {json} getSettings error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    settingsList(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const settingValue = yield this.vendorGlobalSettingService.findOne();
+            if (settingValue === undefined) {
+                const successresponse = {
+                    status: 1,
+                    message: 'data is empty',
+                };
+                return response.status(200).send(successresponse);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get vendor settings',
+                data: {
+                    defaultCommission: settingValue.defaultCommission,
+                },
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/create-vendor-settings'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateVendorSettingRequest_1.CreateVendorSettingRequest, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorAdminSettingController.prototype, "createSettings", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/get-vendor-settings'),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorAdminSettingController.prototype, "settingsList", null);
+VendorAdminSettingController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/vendor-setting'),
+    tslib_1.__metadata("design:paramtypes", [VendorSettingService_1.VendorGlobalSettingService])
+], VendorAdminSettingController);
+exports.VendorAdminSettingController = VendorAdminSettingController;
+//# sourceMappingURL=VendorSettingController.js.map

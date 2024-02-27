@@ -1,1 +1,94 @@
-'use strict';const a222_0x18b94e=a222_0x255a;(function(_0x118c37,_0x94f9a9){const _0x15cadd=a222_0x255a,_0x5658d2=_0x118c37();while(!![]){try{const _0x1b0e7a=parseInt(_0x15cadd(0x121))/0x1*(parseInt(_0x15cadd(0x125))/0x2)+parseInt(_0x15cadd(0x13a))/0x3+parseInt(_0x15cadd(0x11f))/0x4+parseInt(_0x15cadd(0x119))/0x5+parseInt(_0x15cadd(0x13d))/0x6+-parseInt(_0x15cadd(0x134))/0x7*(parseInt(_0x15cadd(0x13c))/0x8)+-parseInt(_0x15cadd(0x129))/0x9;if(_0x1b0e7a===_0x94f9a9)break;else _0x5658d2['push'](_0x5658d2['shift']());}catch(_0x17fab4){_0x5658d2['push'](_0x5658d2['shift']());}}}(a222_0x18cb,0x5c97a));function a222_0x255a(_0x3f070b,_0x32bd8b){const _0x18cb0e=a222_0x18cb();return a222_0x255a=function(_0x255aa4,_0x447d36){_0x255aa4=_0x255aa4-0x112;let _0x326274=_0x18cb0e[_0x255aa4];return _0x326274;},a222_0x255a(_0x3f070b,_0x32bd8b);}Object[a222_0x18b94e(0x115)](exports,'__esModule',{'value':!![]}),exports[a222_0x18b94e(0x138)]=void 0x0;const tslib_1=require(a222_0x18b94e(0x112)),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require(a222_0x18b94e(0x135)),Logger_1=require(a222_0x18b94e(0x133)),index_1=require(a222_0x18b94e(0x126)),SiteMapRepository_1=require(a222_0x18b94e(0x11e));let SiteMapService=class SiteMapService{constructor(_0x105f59,_0x7372a2){const _0x3dd7c1=a222_0x18b94e;this[_0x3dd7c1(0x137)]=_0x105f59,this[_0x3dd7c1(0x12b)]=_0x7372a2;}[a222_0x18b94e(0x13b)](_0x9513e){const _0x2afbec=a222_0x18b94e;return tslib_1[_0x2afbec(0x118)](this,void 0x0,void 0x0,function*(){const _0x353bb0=_0x2afbec;return this[_0x353bb0(0x12b)][_0x353bb0(0x120)]('Create\x20a\x20new\x20site\x20map\x20'),this['siteMapRepository'][_0x353bb0(0x12d)](_0x9513e);});}[a222_0x18b94e(0x139)](_0x212ae7){const _0x2d371b=a222_0x18b94e;return this[_0x2d371b(0x137)]['findOne'](_0x212ae7);}[a222_0x18b94e(0x11b)](_0x1fb471,_0x3af541){const _0x42d502=a222_0x18b94e;return this[_0x42d502(0x12b)]['info'](_0x42d502(0x12f)),_0x3af541['id']=_0x1fb471,this['siteMapRepository'][_0x42d502(0x12d)](_0x3af541);}['findAll'](){const _0x415acf=a222_0x18b94e;return this[_0x415acf(0x137)][_0x415acf(0x123)]();}[a222_0x18b94e(0x136)](_0x5ea505,_0x300896,_0x520c67=[],_0x3a8b00=[],_0x432ea3=[],_0x4f548c){const _0x1aad5a=a222_0x18b94e,_0x18cbd0={};return _0x520c67&&_0x520c67[_0x1aad5a(0x122)]>0x0&&(_0x18cbd0[_0x1aad5a(0x11a)]=_0x520c67),_0x18cbd0[_0x1aad5a(0x132)]={},_0x432ea3&&_0x432ea3[_0x1aad5a(0x122)]>0x0&&_0x432ea3['forEach'](_0x1096e3=>{_0x18cbd0['where'][_0x1096e3['name']]=_0x1096e3['value'];}),_0x3a8b00&&_0x3a8b00[_0x1aad5a(0x122)]>0x0&&_0x3a8b00['forEach'](_0x34abe9=>{const _0x456970=_0x1aad5a,_0x501217=_0x34abe9['op'];if(_0x501217===_0x456970(0x132)&&_0x34abe9[_0x456970(0x124)]!==undefined)_0x18cbd0[_0x456970(0x132)][_0x34abe9[_0x456970(0x12c)]]=_0x34abe9['value'];else _0x501217===_0x456970(0x114)&&_0x34abe9['value']!==undefined&&(_0x18cbd0[_0x456970(0x132)][_0x34abe9['name']]=(0x0,index_1['Like'])('%'+_0x34abe9[_0x456970(0x124)]+'%'));}),_0x5ea505&&_0x5ea505>0x0&&(_0x18cbd0['take']=_0x5ea505,_0x18cbd0[_0x1aad5a(0x116)]=_0x300896),_0x18cbd0[_0x1aad5a(0x117)]={'createdDate':_0x1aad5a(0x127)},_0x4f548c?this[_0x1aad5a(0x137)][_0x1aad5a(0x113)](_0x18cbd0):this[_0x1aad5a(0x137)]['find'](_0x18cbd0);}['delete'](_0x3460e3){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2c5904=a222_0x255a;return yield this[_0x2c5904(0x137)]['delete'](_0x3460e3);});}};function a222_0x18cb(){const _0x5dffa8=['OrmRepository','where','../../../src/decorators/Logger','21ulqLQL','typeorm-typedi-extensions','list','siteMapRepository','SiteMapService','findOne','116877NrBvyR','create','1895992sBoMeu','602838YuPbbp','tslib','count','like','defineProperty','skip','order','__awaiter','2782730jMVyat','select','update','Service','design:paramtypes','../repositories/SiteMapRepository','1822480mFJXRb','info','137crvSwr','length','find','value','4076MqWbHW','typeorm/index','DESC','Logger','3064941GFCqLi','__metadata','log','name','save','__decorate','Update\x20a\x20siteMap','__param'];a222_0x18cb=function(){return _0x5dffa8;};return a222_0x18cb();}SiteMapService=tslib_1[a222_0x18b94e(0x12e)]([(0x0,typedi_1[a222_0x18b94e(0x11c)])(),tslib_1[a222_0x18b94e(0x130)](0x0,(0x0,typeorm_typedi_extensions_1[a222_0x18b94e(0x131)])()),tslib_1['__param'](0x1,(0x0,Logger_1[a222_0x18b94e(0x128)])(__filename)),tslib_1[a222_0x18b94e(0x12a)](a222_0x18b94e(0x11d),[SiteMapRepository_1['SiteMapRepository'],Object])],SiteMapService),exports[a222_0x18b94e(0x138)]=SiteMapService;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SiteMapService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../src/decorators/Logger");
+const index_1 = require("typeorm/index");
+const SiteMapRepository_1 = require("../repositories/SiteMapRepository");
+let SiteMapService = class SiteMapService {
+    constructor(siteMapRepository, log) {
+        this.siteMapRepository = siteMapRepository;
+        this.log = log;
+    }
+    // create site map
+    create(siteMap) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new site map ');
+            return this.siteMapRepository.save(siteMap);
+        });
+    }
+    // find Condition
+    findOne(siteMap) {
+        return this.siteMapRepository.findOne(siteMap);
+    }
+    // update site map
+    update(id, siteMap) {
+        this.log.info('Update a siteMap');
+        siteMap.id = id;
+        return this.siteMapRepository.save(siteMap);
+    }
+    // find all
+    findAll() {
+        return this.siteMapRepository.find();
+    }
+    // site map List
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        condition.order = {
+            createdDate: 'DESC',
+        };
+        if (count) {
+            return this.siteMapRepository.count(condition);
+        }
+        else {
+            return this.siteMapRepository.find(condition);
+        }
+    }
+    // delete Site Map
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.siteMapRepository.delete(id);
+        });
+    }
+};
+SiteMapService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [SiteMapRepository_1.SiteMapRepository, Object])
+], SiteMapService);
+exports.SiteMapService = SiteMapService;
+//# sourceMappingURL=SiteMapService.js.map

@@ -1,1 +1,29 @@
-'use strict';const a679_0xf8d28d=a679_0x4644;(function(_0x1677c2,_0x23ee0d){const _0x3ea33e=a679_0x4644,_0x1d9c3d=_0x1677c2();while(!![]){try{const _0x2ac31a=parseInt(_0x3ea33e(0xd5))/0x1+-parseInt(_0x3ea33e(0xc6))/0x2+-parseInt(_0x3ea33e(0xca))/0x3+parseInt(_0x3ea33e(0xd4))/0x4*(-parseInt(_0x3ea33e(0xcd))/0x5)+parseInt(_0x3ea33e(0xd1))/0x6+parseInt(_0x3ea33e(0xc5))/0x7*(-parseInt(_0x3ea33e(0xc7))/0x8)+-parseInt(_0x3ea33e(0xcc))/0x9*(-parseInt(_0x3ea33e(0xc8))/0xa);if(_0x2ac31a===_0x23ee0d)break;else _0x1d9c3d['push'](_0x1d9c3d['shift']());}catch(_0x28646c){_0x1d9c3d['push'](_0x1d9c3d['shift']());}}}(a679_0x24d1,0x482a3));function a679_0x24d1(){const _0x10f36e=['reflect-metadata','2996730lSSyPI','__metadata','status','8OIxJFe','173876qbgnOY','__decorate','IsEmail','UpdateDeliveryPersonRequest','991879tIduhv','878210YBWmVF','8xMBaeR','400oOZJav','design:type','569484lPfYIc','firstName','93357psRRid','55085YIVqRX','IsNotEmpty','emailId'];a679_0x24d1=function(){return _0x10f36e;};return a679_0x24d1();}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a679_0xf8d28d(0xc4)]=void 0x0;const tslib_1=require('tslib');function a679_0x4644(_0x1d2fe0,_0x2e3ce9){const _0x24d187=a679_0x24d1();return a679_0x4644=function(_0x4644f7,_0x285d40){_0x4644f7=_0x4644f7-0xc3;let _0x30afe6=_0x24d187[_0x4644f7];return _0x30afe6;},a679_0x4644(_0x1d2fe0,_0x2e3ce9);}require(a679_0xf8d28d(0xd0));const class_validator_1=require('class-validator');class UpdateDeliveryPersonRequest{}tslib_1[a679_0xf8d28d(0xd6)]([(0x0,class_validator_1[a679_0xf8d28d(0xce)])(),tslib_1[a679_0xf8d28d(0xd2)]('design:type',String)],UpdateDeliveryPersonRequest['prototype'],a679_0xf8d28d(0xcb),void 0x0),tslib_1[a679_0xf8d28d(0xd6)]([(0x0,class_validator_1[a679_0xf8d28d(0xc3)])(),tslib_1[a679_0xf8d28d(0xd2)](a679_0xf8d28d(0xc9),String)],UpdateDeliveryPersonRequest['prototype'],a679_0xf8d28d(0xcf),void 0x0),tslib_1[a679_0xf8d28d(0xd6)]([(0x0,class_validator_1[a679_0xf8d28d(0xce)])(),tslib_1[a679_0xf8d28d(0xd2)](a679_0xf8d28d(0xc9),Number)],UpdateDeliveryPersonRequest['prototype'],a679_0xf8d28d(0xd3),void 0x0),exports[a679_0xf8d28d(0xc4)]=UpdateDeliveryPersonRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UpdateDeliveryPersonRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class UpdateDeliveryPersonRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateDeliveryPersonRequest.prototype, "firstName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    tslib_1.__metadata("design:type", String)
+], UpdateDeliveryPersonRequest.prototype, "emailId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateDeliveryPersonRequest.prototype, "status", void 0);
+exports.UpdateDeliveryPersonRequest = UpdateDeliveryPersonRequest;
+//# sourceMappingURL=UpdateDeliveryPersonRequest.js.map

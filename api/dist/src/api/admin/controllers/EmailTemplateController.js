@@ -1,1 +1,301 @@
-'use strict';function a263_0x3622(_0x4f686a,_0x4c0138){const _0x293587=a263_0x2935();return a263_0x3622=function(_0x36226e,_0x41bb2c){_0x36226e=_0x36226e-0xb7;let _0xdd1da=_0x293587[_0x36226e];return _0xdd1da;},a263_0x3622(_0x4f686a,_0x4c0138);}const a263_0x582545=a263_0x3622;(function(_0x3f6406,_0x1fca46){const _0x482c0c=a263_0x3622,_0x1d3ec2=_0x3f6406();while(!![]){try{const _0x450924=parseInt(_0x482c0c(0xf2))/0x1+-parseInt(_0x482c0c(0xfa))/0x2*(-parseInt(_0x482c0c(0xb8))/0x3)+parseInt(_0x482c0c(0xe8))/0x4+parseInt(_0x482c0c(0xf5))/0x5*(-parseInt(_0x482c0c(0xd8))/0x6)+-parseInt(_0x482c0c(0xd3))/0x7*(-parseInt(_0x482c0c(0xc7))/0x8)+-parseInt(_0x482c0c(0xbd))/0x9*(-parseInt(_0x482c0c(0xd1))/0xa)+parseInt(_0x482c0c(0xed))/0xb*(-parseInt(_0x482c0c(0xf1))/0xc);if(_0x450924===_0x1fca46)break;else _0x1d3ec2['push'](_0x1d3ec2['shift']());}catch(_0x52022b){_0x1d3ec2['push'](_0x1d3ec2['shift']());}}}(a263_0x2935,0xa73b7));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports['EmailTemplateController']=void 0x0;const tslib_1=require(a263_0x582545(0xd2));function a263_0x2935(){const _0x171178=['Put','unable\x20to\x20list\x20emailTemplate','6uZlcMI','create','Unable\x20to\x20delete\x20the\x20email\x20template.','like','design:type','Invalid\x20email\x20template','__decorate','Param','Successfully\x20updated\x20the\x20email\x20template.','Delete','offset','list-email-template','../../core/services/EmailTemplateService','Get','addEmailTemplate','Successfully\x20deleted\x20the\x20email\x20template.','1272868WVEWxv','updateEmailTemplate','Req','design:paramtypes','Invalid\x20email\x20template\x20Id.','77YmTxcc','prototype','JsonController','__param','3112260WIGBcD','895361DKoAQe','/email-template','typeorm','6008885zQXigE','Res','admin','routing-controllers','delete-email-template','478sbsANA','emailTemplateService','edit-email-template','findOne','design:returntype','14499oUucZj','__metadata','Unable\x20to\x20update\x20the\x20emailTemplate.','dynamicFieldsRef','subject','556533LlTzRg','delete','Successfully\x20got\x20the\x20complete\x20email\x20template\x20list.','emailTemplateList','isActive','__awaiter','QueryParam','EmailTemplate','emailTemplateId','This\x20title\x20already\x20exists.\x20Please\x20try\x20another\x20one!!','7205768gSiEQY','CreateEmailTemplate','./requests/CreateEmailTemplateRequest','title','status','Authorized','limit','keyword','deleteEmailTemplate','content','70PGVRpJ','tslib','7ZIIXOQ','send','Body'];a263_0x2935=function(){return _0x171178;};return a263_0x2935();}require('reflect-metadata');const routing_controllers_1=require(a263_0x582545(0xf8)),EmailTemplate_1=require('../../core/models/EmailTemplate'),CreateEmailTemplateRequest_1=require(a263_0x582545(0xc9)),EmailTemplateService_1=require(a263_0x582545(0xe4)),typeorm_1=require(a263_0x582545(0xf4));let EmailTemplateController=class EmailTemplateController{constructor(_0x7c21b){this['emailTemplateService']=_0x7c21b;}[a263_0x582545(0xe6)](_0x2116db,_0x377de6){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x124728=a263_0x3622,_0x2950ab=yield this[_0x124728(0xfb)]['findOne']({'where':{'title':_0x2116db['title']}});if(_0x2950ab)return _0x377de6[_0x124728(0xcb)](0x190)['send']({'status':0x1,'message':_0x124728(0xc6)});const _0x208a31=new EmailTemplate_1[(_0x124728(0xc4))]();_0x208a31[_0x124728(0xca)]=_0x2116db['title'],_0x208a31['subject']=_0x2116db['subject'],_0x208a31['content']=_0x2116db[_0x124728(0xd0)],_0x208a31[_0x124728(0xc1)]=_0x2116db['status'],_0x208a31[_0x124728(0xbb)]=_0x2116db['dynamicFieldsRef'];const _0x292df9=yield this['emailTemplateService']['create'](_0x208a31);if(_0x292df9!==undefined){const _0x52ffce={'status':0x1,'message':'Successfully\x20created\x20new\x20email\x20template.','data':_0x292df9};return _0x377de6[_0x124728(0xcb)](0xc8)[_0x124728(0xd4)](_0x52ffce);}else{const _0x18dd49={'status':0x0,'message':'Unable\x20to\x20create\x20email\x20template.'};return _0x377de6[_0x124728(0xcb)](0x190)[_0x124728(0xd4)](_0x18dd49);}});}[a263_0x582545(0xc0)](_0xa610c7,_0x1be679,_0x183285,_0xe6317c,_0x2cfd7d){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x407cf8=a263_0x3622,_0x554d4f=[_0x407cf8(0xc5),_0x407cf8(0xca),'subject',_0x407cf8(0xd0),_0x407cf8(0xc1),'dynamicFieldsRef'],_0x386b4d=[{'name':_0x407cf8(0xca),'op':_0x407cf8(0xdb),'value':_0x183285}],_0x2ff464=[],_0x49e0f8=yield this['emailTemplateService']['list'](_0xa610c7,_0x1be679,_0x554d4f,_0x386b4d,_0x2ff464,_0xe6317c);if(_0x49e0f8){const _0x589404={'status':0x1,'message':_0x407cf8(0xbf),'data':_0x49e0f8};return _0x2cfd7d[_0x407cf8(0xcb)](0xc8)[_0x407cf8(0xd4)](_0x589404);}else{const _0x4797a5={'status':0x0,'message':_0x407cf8(0xd7)};return _0x2cfd7d[_0x407cf8(0xcb)](0x190)['send'](_0x4797a5);}});}[a263_0x582545(0xe9)](_0x132839,_0x3a0cdd,_0x585ae1){const _0x2d24f5=a263_0x582545;return tslib_1[_0x2d24f5(0xc2)](this,void 0x0,void 0x0,function*(){const _0x39bc1f=_0x2d24f5,_0x26cdf8=yield this[_0x39bc1f(0xfb)][_0x39bc1f(0xfd)]({'where':{'emailTemplateId':_0x132839}});if(!_0x26cdf8){const _0x90db55={'status':0x0,'message':_0x39bc1f(0xec)};return _0x585ae1[_0x39bc1f(0xcb)](0x190)[_0x39bc1f(0xd4)](_0x90db55);}const _0x35d771=yield this[_0x39bc1f(0xfb)][_0x39bc1f(0xfd)]({'where':{'title':_0x3a0cdd[_0x39bc1f(0xca)],'emailTemplateId':(0x0,typeorm_1['Not'])(_0x132839)}});if(_0x35d771)return _0x585ae1[_0x39bc1f(0xcb)](0x190)[_0x39bc1f(0xd4)]({'status':0x1,'message':_0x39bc1f(0xc6)});_0x26cdf8[_0x39bc1f(0xca)]=_0x3a0cdd[_0x39bc1f(0xca)],_0x26cdf8[_0x39bc1f(0xbc)]=_0x3a0cdd[_0x39bc1f(0xbc)],_0x26cdf8[_0x39bc1f(0xd0)]=_0x3a0cdd[_0x39bc1f(0xd0)],_0x26cdf8[_0x39bc1f(0xc1)]=_0x3a0cdd[_0x39bc1f(0xcb)];const _0x55eca9=yield this['emailTemplateService'][_0x39bc1f(0xd9)](_0x26cdf8);if(_0x55eca9!==undefined){const _0xe15793={'status':0x1,'message':_0x39bc1f(0xe0),'data':_0x55eca9};return _0x585ae1['status'](0xc8)[_0x39bc1f(0xd4)](_0xe15793);}else{const _0xde8b4b={'status':0x0,'message':_0x39bc1f(0xba)};return _0x585ae1[_0x39bc1f(0xcb)](0x190)['send'](_0xde8b4b);}});}[a263_0x582545(0xcf)](_0x16bfb3,_0x16d62e,_0x59e3a9){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4c0fff=a263_0x3622,_0x13c55d=yield this[_0x4c0fff(0xfb)][_0x4c0fff(0xfd)]({'where':{'emailTemplateId':_0x16bfb3}});if(!_0x13c55d){const _0x29fb4a={'status':0x0,'message':_0x4c0fff(0xdd)};return _0x16d62e[_0x4c0fff(0xcb)](0x190)['send'](_0x29fb4a);}const _0x361623=yield this[_0x4c0fff(0xfb)][_0x4c0fff(0xbe)](_0x13c55d);if(_0x361623){const _0x554394={'status':0x1,'message':_0x4c0fff(0xe7)};return _0x16d62e[_0x4c0fff(0xcb)](0xc8)['send'](_0x554394);}else{const _0x4fa7a6={'status':0x0,'message':_0x4c0fff(0xda)};return _0x16d62e[_0x4c0fff(0xcb)](0x190)[_0x4c0fff(0xd4)](_0x4fa7a6);}});}};tslib_1[a263_0x582545(0xde)]([(0x0,routing_controllers_1['Post'])('/add-email-template'),(0x0,routing_controllers_1[a263_0x582545(0xcc)])(),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a263_0x582545(0xd5)])({'validate':!![]})),tslib_1[a263_0x582545(0xf0)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a263_0x582545(0xb9)](a263_0x582545(0xdc),Function),tslib_1[a263_0x582545(0xb9)](a263_0x582545(0xeb),[CreateEmailTemplateRequest_1['CreateEmailTemplate'],Object]),tslib_1[a263_0x582545(0xb9)]('design:returntype',Promise)],EmailTemplateController[a263_0x582545(0xee)],'addEmailTemplate',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a263_0x582545(0xe5)])('/email-templatelist'),(0x0,routing_controllers_1[a263_0x582545(0xcc)])([a263_0x582545(0xf7),a263_0x582545(0xe3)]),tslib_1[a263_0x582545(0xf0)](0x0,(0x0,routing_controllers_1[a263_0x582545(0xc3)])(a263_0x582545(0xcd))),tslib_1[a263_0x582545(0xf0)](0x1,(0x0,routing_controllers_1[a263_0x582545(0xc3)])(a263_0x582545(0xe2))),tslib_1[a263_0x582545(0xf0)](0x2,(0x0,routing_controllers_1[a263_0x582545(0xc3)])(a263_0x582545(0xce))),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a263_0x582545(0xc3)])('count')),tslib_1[a263_0x582545(0xf0)](0x4,(0x0,routing_controllers_1[a263_0x582545(0xf6)])()),tslib_1[a263_0x582545(0xb9)]('design:type',Function),tslib_1['__metadata'](a263_0x582545(0xeb),[Number,Number,String,Object,Object]),tslib_1['__metadata'](a263_0x582545(0xb7),Promise)],EmailTemplateController['prototype'],a263_0x582545(0xc0),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a263_0x582545(0xd6)])('/update-email-template/:id'),(0x0,routing_controllers_1['Authorized'])([a263_0x582545(0xf7),a263_0x582545(0xfc)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a263_0x582545(0xdf)])('id')),tslib_1[a263_0x582545(0xf0)](0x1,(0x0,routing_controllers_1[a263_0x582545(0xd5)])({'validate':!![]})),tslib_1[a263_0x582545(0xf0)](0x2,(0x0,routing_controllers_1[a263_0x582545(0xf6)])()),tslib_1[a263_0x582545(0xb9)](a263_0x582545(0xdc),Function),tslib_1[a263_0x582545(0xb9)](a263_0x582545(0xeb),[Number,CreateEmailTemplateRequest_1[a263_0x582545(0xc8)],Object]),tslib_1[a263_0x582545(0xb9)](a263_0x582545(0xb7),Promise)],EmailTemplateController[a263_0x582545(0xee)],a263_0x582545(0xe9),null),tslib_1[a263_0x582545(0xde)]([(0x0,routing_controllers_1[a263_0x582545(0xe1)])('/delete-email-template/:id'),(0x0,routing_controllers_1['Authorized'])([a263_0x582545(0xf7),a263_0x582545(0xf9)]),tslib_1[a263_0x582545(0xf0)](0x0,(0x0,routing_controllers_1[a263_0x582545(0xdf)])('id')),tslib_1[a263_0x582545(0xf0)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a263_0x582545(0xea)])()),tslib_1[a263_0x582545(0xb9)](a263_0x582545(0xdc),Function),tslib_1[a263_0x582545(0xb9)](a263_0x582545(0xeb),[Number,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],EmailTemplateController[a263_0x582545(0xee)],a263_0x582545(0xcf),null),EmailTemplateController=tslib_1[a263_0x582545(0xde)]([(0x0,routing_controllers_1[a263_0x582545(0xef)])(a263_0x582545(0xf3)),tslib_1[a263_0x582545(0xb9)]('design:paramtypes',[EmailTemplateService_1['EmailTemplateService']])],EmailTemplateController),exports['EmailTemplateController']=EmailTemplateController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EmailTemplateController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const EmailTemplate_1 = require("../../core/models/EmailTemplate");
+const CreateEmailTemplateRequest_1 = require("./requests/CreateEmailTemplateRequest");
+const EmailTemplateService_1 = require("../../core/services/EmailTemplateService");
+const typeorm_1 = require("typeorm");
+let EmailTemplateController = class EmailTemplateController {
+    constructor(emailTemplateService) {
+        this.emailTemplateService = emailTemplateService;
+    }
+    // Create EmailTemplate API
+    /**
+     * @api {post} /api/email-template/add-email-template Add Email Template API
+     * @apiGroup EmailTemplate
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..30}} title EmailTemplate title
+     * @apiParam (Request body) {String{..255}} subject EmailTemplate subject
+     * @apiParam (Request body) {String} content EmailTemplate content
+     * @apiParam (Request body) {Number} status EmailTemplate status
+     * @apiParamExample {json} Input
+     * {
+     *      "title" : "",
+     *      "subject" : "",
+     *      "content" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully created new emailTemplate.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/email-template/add-email-template
+     * @apiErrorExample {json} EmailTemplate error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    addEmailTemplate(emailTemplateParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifCheckTitle = yield this.emailTemplateService.findOne({ where: {
+                    title: emailTemplateParam.title,
+                } });
+            if (ifCheckTitle) {
+                return response.status(400).send({ status: 1, message: 'This title already exists. Please try another one!!' });
+            }
+            const emailTemplate = new EmailTemplate_1.EmailTemplate();
+            emailTemplate.title = emailTemplateParam.title;
+            emailTemplate.subject = emailTemplateParam.subject;
+            emailTemplate.content = emailTemplateParam.content;
+            emailTemplate.isActive = emailTemplateParam.status;
+            emailTemplate.dynamicFieldsRef = emailTemplateParam.dynamicFieldsRef;
+            const emailTemplateSave = yield this.emailTemplateService.create(emailTemplate);
+            if (emailTemplateSave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully created new email template.',
+                    data: emailTemplateSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to create email template.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // EmailTemplate List API
+    /**
+     * @api {get} /api/email-template/email-templatelist EmailTemplate List API
+     * @apiGroup EmailTemplate
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get emailTemplate list",
+     *      "data":{
+     *      "id" : "",
+     *      "title" : "",
+     *      "subject" : "",
+     *      "content" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/email-template/email-templatelist
+     * @apiErrorExample {json} EmailTemplate error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    emailTemplateList(limit, offset, keyword, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['emailTemplateId', 'title', 'subject', 'content', 'isActive', 'dynamicFieldsRef'];
+            const search = [
+                {
+                    name: 'title',
+                    op: 'like',
+                    value: keyword,
+                },
+            ];
+            const WhereConditions = [];
+            const emailTemplateList = yield this.emailTemplateService.list(limit, offset, select, search, WhereConditions, count);
+            if (emailTemplateList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the complete email template list.',
+                    data: emailTemplateList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to list emailTemplate',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update EmailTemplate API
+    /**
+     * @api {put} /api/email-template/update-email-template/:id Update EmailTemplate API
+     * @apiGroup EmailTemplate
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..30}} title EmailTemplate title
+     * @apiParam (Request body) {String{..255}} subject EmailTemplate subject
+     * @apiParam (Request body) {String} content EmailTemplate content
+     * @apiParam (Request body) {Number} status EmailTemplate status
+     * @apiParamExample {json} Input
+     * {
+     *      "title" : "",
+     *      "subject" : "",
+     *      "content" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated emailTemplate.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/email-template/update-email-template/:id
+     * @apiErrorExample {json} emailTemplate error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateEmailTemplate(id, emailTemplateParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const emailTemplate = yield this.emailTemplateService.findOne({
+                where: {
+                    emailTemplateId: id,
+                },
+            });
+            if (!emailTemplate) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid email template Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const ifCheckTitle = yield this.emailTemplateService.findOne({ where: {
+                    title: emailTemplateParam.title,
+                    emailTemplateId: (0, typeorm_1.Not)(id),
+                } });
+            if (ifCheckTitle) {
+                return response.status(400).send({ status: 1, message: 'This title already exists. Please try another one!!' });
+            }
+            emailTemplate.title = emailTemplateParam.title;
+            emailTemplate.subject = emailTemplateParam.subject;
+            emailTemplate.content = emailTemplateParam.content;
+            emailTemplate.isActive = emailTemplateParam.status;
+            const templateSave = yield this.emailTemplateService.create(emailTemplate);
+            if (templateSave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated the email template.',
+                    data: templateSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the emailTemplate.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Delete EmailTemplate API
+    /**
+     * @api {delete} /api/email-template/delete-email-template/:id Delete EmailTemplate API
+     * @apiGroup EmailTemplate
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "emailTemplateId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted emailTemplate.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/email-template/delete-email-template/:id
+     * @apiErrorExample {json} EmailTemplate error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteEmailTemplate(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const emailTemplate = yield this.emailTemplateService.findOne({
+                where: {
+                    emailTemplateId: id,
+                },
+            });
+            if (!emailTemplate) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid email template',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteEmailTemplate = yield this.emailTemplateService.delete(emailTemplate);
+            if (deleteEmailTemplate) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the email template.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the email template.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/add-email-template'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateEmailTemplateRequest_1.CreateEmailTemplate, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], EmailTemplateController.prototype, "addEmailTemplate", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/email-templatelist'),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-email-template']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], EmailTemplateController.prototype, "emailTemplateList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-email-template/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-email-template']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateEmailTemplateRequest_1.CreateEmailTemplate, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], EmailTemplateController.prototype, "updateEmailTemplate", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-email-template/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-email-template']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], EmailTemplateController.prototype, "deleteEmailTemplate", null);
+EmailTemplateController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/email-template'),
+    tslib_1.__metadata("design:paramtypes", [EmailTemplateService_1.EmailTemplateService])
+], EmailTemplateController);
+exports.EmailTemplateController = EmailTemplateController;
+//# sourceMappingURL=EmailTemplateController.js.map

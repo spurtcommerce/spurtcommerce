@@ -1,1 +1,68 @@
-'use strict';function a1003_0x322b(){const _0x344d22=['2391522UGxeXY','pluginHomeRedirectUrl','save','Plugins','push','findIndex','4769710IDNlPg','__awaiter','findOne','toLowerCase','path','272512vZUOIo','HomeController','render','find','2169QSkJvA','../models/Plugin','getRepository','tslib','12XuYSGt','home','params','env','typeorm','updateInactiveStatus','__esModule','../../env','pages/home','../home','cwd','redirect','736365CEGevG','updateActiveStatus','Home\x20Page','pluginStatus','__importStar','pluginName','getManager','routePrefix','739961MGsLtm','6hVaJbM','readdirSync','5133828MQCtPL','17928SdUXKH'];a1003_0x322b=function(){return _0x344d22;};return a1003_0x322b();}const a1003_0x48894a=a1003_0x48ef;(function(_0x2a82c6,_0xd39add){const _0x5030f4=a1003_0x48ef,_0x3e13cd=_0x2a82c6();while(!![]){try{const _0x4ffa4a=parseInt(_0x5030f4(0x84))/0x1+-parseInt(_0x5030f4(0x94))/0x2*(-parseInt(_0x5030f4(0x85))/0x3)+-parseInt(_0x5030f4(0x9c))/0x4*(parseInt(_0x5030f4(0xa8))/0x5)+-parseInt(_0x5030f4(0x89))/0x6+-parseInt(_0x5030f4(0x87))/0x7+-parseInt(_0x5030f4(0x88))/0x8*(-parseInt(_0x5030f4(0x98))/0x9)+parseInt(_0x5030f4(0x8f))/0xa;if(_0x4ffa4a===_0xd39add)break;else _0x3e13cd['push'](_0x3e13cd['shift']());}catch(_0x2cc1e0){_0x3e13cd['push'](_0x3e13cd['shift']());}}}(a1003_0x322b,0x6f423));Object['defineProperty'](exports,a1003_0x48894a(0xa2),{'value':!![]}),exports['HomeController']=void 0x0;const tslib_1=require(a1003_0x48894a(0x9b));function a1003_0x48ef(_0x5452f3,_0x191773){const _0x322bfb=a1003_0x322b();return a1003_0x48ef=function(_0x48ef70,_0x48f79b){_0x48ef70=_0x48ef70-0x7e;let _0x2834fb=_0x322bfb[_0x48ef70];return _0x2834fb;},a1003_0x48ef(_0x5452f3,_0x191773);}require('reflect-metadata');const typeorm_1=require(a1003_0x48894a(0xa0)),Plugin_1=require(a1003_0x48894a(0x99)),env_1=require(a1003_0x48894a(0xa3)),fs=tslib_1[a1003_0x48894a(0x80)](require('fs')),path=tslib_1['__importStar'](require(a1003_0x48894a(0x93)));class HomeController{constructor(){}[a1003_0x48894a(0x9d)](_0x3980a6,_0x55c3b0){const _0x371dcc=a1003_0x48894a;return tslib_1[_0x371dcc(0x90)](this,void 0x0,void 0x0,function*(){const _0x4a7205=_0x371dcc,_0x57d635=path['join'](process[_0x4a7205(0xa6)](),'plugins'+'/'),_0x1d5d9b=yield fs[_0x4a7205(0x86)](_0x57d635),_0x2bb925=(0x0,typeorm_1[_0x4a7205(0x82)])()[_0x4a7205(0x9a)](Plugin_1[_0x4a7205(0x8c)]),_0x490d67=yield _0x2bb925[_0x4a7205(0x97)]();for(const _0x1608b7 of _0x1d5d9b){const _0x35915f=_0x490d67[_0x4a7205(0x8e)](_0x3b9ee7=>_0x3b9ee7[_0x4a7205(0x81)][_0x4a7205(0x92)]()===_0x1608b7[_0x4a7205(0x92)]());if(_0x35915f===-0x1){const _0x145a72=new Plugin_1[(_0x4a7205(0x8c))]();_0x145a72[_0x4a7205(0x81)]=_0x1608b7,_0x145a72['pluginStatus']=0x0,_0x490d67[_0x4a7205(0x8d)](_0x145a72);}}_0x55c3b0[_0x4a7205(0x96)](_0x4a7205(0xa4),{'data':_0x490d67,'path':_0x4a7205(0xa5),'baseUrl':env_1[_0x4a7205(0x9f)]['baseUrl']+env_1[_0x4a7205(0x9f)]['app'][_0x4a7205(0x83)],'title':_0x4a7205(0x7e)});});}[a1003_0x48894a(0xa1)](_0x261ad0,_0x2135c8){const _0x3fb741=a1003_0x48894a;return tslib_1[_0x3fb741(0x90)](this,void 0x0,void 0x0,function*(){const _0x5dc7b9=_0x3fb741,_0x345852=_0x261ad0[_0x5dc7b9(0x9e)]['id'],_0x34639a=(0x0,typeorm_1[_0x5dc7b9(0x82)])()['getRepository'](Plugin_1[_0x5dc7b9(0x8c)]),_0x5b50ed=yield _0x34639a[_0x5dc7b9(0x91)](_0x345852);_0x5b50ed[_0x5dc7b9(0x7f)]=0x0,yield _0x34639a['save'](_0x5b50ed),_0x2135c8[_0x5dc7b9(0xa7)](env_1[_0x5dc7b9(0x9f)][_0x5dc7b9(0x8a)]);});}[a1003_0x48894a(0xa9)](_0x2602bd,_0x904800){const _0x34e0c7=a1003_0x48894a;return tslib_1[_0x34e0c7(0x90)](this,void 0x0,void 0x0,function*(){const _0x3c4bfe=_0x34e0c7,_0xd70a6d=_0x2602bd[_0x3c4bfe(0x9e)]['id'],_0x1586e8=(0x0,typeorm_1[_0x3c4bfe(0x82)])()[_0x3c4bfe(0x9a)](Plugin_1[_0x3c4bfe(0x8c)]),_0x5353de=yield _0x1586e8['findOne'](_0xd70a6d);_0x5353de['pluginStatus']=0x1,yield _0x1586e8[_0x3c4bfe(0x8b)](_0x5353de),_0x904800[_0x3c4bfe(0xa7)](env_1['env'][_0x3c4bfe(0x8a)]);});}}exports[a1003_0x48894a(0x95)]=HomeController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.HomeController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../models/Plugin");
+const env_1 = require("../../env");
+// import { lstatSync, readdirSync } from 'fs';
+const fs = tslib_1.__importStar(require("fs"));
+const path = tslib_1.__importStar(require("path"));
+class HomeController {
+    constructor() {
+        // ---
+    }
+    home(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const directoryPath = path.join(process.cwd(), 'plugins' + '/');
+            const directoryList = yield fs.readdirSync(directoryPath);
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginList = yield pluginRepository.find();
+            for (const directory of directoryList) {
+                const index = pluginList.findIndex(p => p.pluginName.toLowerCase() === directory.toLowerCase());
+                if (index === -1) {
+                    const plugin = new Plugin_1.Plugins();
+                    plugin.pluginName = directory;
+                    plugin.pluginStatus = 0;
+                    pluginList.push(plugin);
+                }
+            }
+            res.render('pages/home', {
+                data: pluginList,
+                path: '../home',
+                baseUrl: env_1.env.baseUrl + env_1.env.app.routePrefix,
+                title: 'Home Page',
+            });
+        });
+    }
+    updateInactiveStatus(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginData = yield pluginRepository.findOne(id);
+            pluginData.pluginStatus = 0;
+            yield pluginRepository.save(pluginData);
+            res.redirect(env_1.env.pluginHomeRedirectUrl);
+        });
+    }
+    updateActiveStatus(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginData = yield pluginRepository.findOne(id);
+            pluginData.pluginStatus = 1;
+            yield pluginRepository.save(pluginData);
+            res.redirect(env_1.env.pluginHomeRedirectUrl);
+        });
+    }
+}
+exports.HomeController = HomeController;
+//# sourceMappingURL=HomeController.js.map

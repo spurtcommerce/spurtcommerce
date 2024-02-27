@@ -1,1 +1,108 @@
-'use strict';const a705_0x54b831=a705_0x3b27;(function(_0x41836f,_0x23ae6d){const _0x270be2=a705_0x3b27,_0xc09d62=_0x41836f();while(!![]){try{const _0x3a8ca1=parseInt(_0x270be2(0x12e))/0x1*(parseInt(_0x270be2(0x136))/0x2)+parseInt(_0x270be2(0x12a))/0x3*(-parseInt(_0x270be2(0x111))/0x4)+-parseInt(_0x270be2(0x12c))/0x5*(-parseInt(_0x270be2(0x121))/0x6)+parseInt(_0x270be2(0x11e))/0x7*(-parseInt(_0x270be2(0x119))/0x8)+-parseInt(_0x270be2(0x12d))/0x9+-parseInt(_0x270be2(0x131))/0xa*(parseInt(_0x270be2(0x122))/0xb)+parseInt(_0x270be2(0x117))/0xc;if(_0x3a8ca1===_0x23ae6d)break;else _0xc09d62['push'](_0xc09d62['shift']());}catch(_0x51d31b){_0xc09d62['push'](_0xc09d62['shift']());}}}(a705_0x52cb,0xc1d0e));function a705_0x52cb(){const _0x5a1186=['15PdsRzT','11408913lXLoRf','6854KXTfMY','typedi','request','10wpDbtq','validateVendor','user','Invalid\x20credentials\x20given','customer','52DKyVOj','warn','validateUserGroup','144132hffEXI','parse','__esModule','Invalid\x20token','Logger','userGroupId','19308192kIikud','role','104CGTZVp','Successfully\x20checked\x20credentials','vendor','Forbidden','permission','396403TgqYeD','groupId','admin','3035862YVTfIg','2411013TQVYSp','defineProperty','./AuthService','authorizationChecker','info','tslib','routeName','AuthService','24KquHOi','Invalid\x20group'];a705_0x52cb=function(){return _0x5a1186;};return a705_0x52cb();}Object[a705_0x54b831(0x123)](exports,a705_0x54b831(0x113),{'value':!![]}),exports[a705_0x54b831(0x125)]=void 0x0;const tslib_1=require(a705_0x54b831(0x127)),typedi_1=require(a705_0x54b831(0x12f)),logger_1=require('../lib/logger'),AuthService_1=require(a705_0x54b831(0x124));function a705_0x3b27(_0x492179,_0x1ce2c4){const _0x52cbd0=a705_0x52cb();return a705_0x3b27=function(_0x3b27d0,_0x58b731){_0x3b27d0=_0x3b27d0-0x10f;let _0x64b3c7=_0x52cbd0[_0x3b27d0];return _0x64b3c7;},a705_0x3b27(_0x492179,_0x1ce2c4);}function authorizationChecker(_0x2a287e){const _0x46425b=a705_0x54b831,_0x424570=new logger_1[(_0x46425b(0x115))](__filename),_0x57326e=typedi_1['Container']['get'](AuthService_1[_0x46425b(0x129)]);return function _0x5bfdaa(_0x4f7ed6,_0x27e651){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2c5bdb=a705_0x3b27,_0x42c8c3=yield _0x57326e['parseBasicAuthFromRequest'](_0x4f7ed6[_0x2c5bdb(0x130)]);if(_0x42c8c3===undefined)return _0x424570[_0x2c5bdb(0x10f)]('No\x20credentials\x20given'),![];const _0x3aadc2=yield _0x57326e['checkTokenExist'](_0x4f7ed6[_0x2c5bdb(0x130)]);if(!_0x3aadc2)return _0x424570[_0x2c5bdb(0x10f)](_0x2c5bdb(0x114)),![];if(_0x27e651[0x0]===_0x2c5bdb(0x135)){_0x4f7ed6['request']['user']=yield _0x57326e['validateCustomer'](_0x42c8c3['id']);if(_0x4f7ed6[_0x2c5bdb(0x130)]['user']===undefined)return _0x424570[_0x2c5bdb(0x10f)]('Invalid\x20credentials\x20given'),![];return _0x424570[_0x2c5bdb(0x126)](_0x2c5bdb(0x11a)),!![];}else{if(_0x27e651[0x0]===_0x2c5bdb(0x11b)){_0x4f7ed6[_0x2c5bdb(0x130)][_0x2c5bdb(0x133)]=yield _0x57326e[_0x2c5bdb(0x132)](_0x42c8c3['id']);if(_0x4f7ed6[_0x2c5bdb(0x130)][_0x2c5bdb(0x133)]===undefined)return _0x424570['warn'](_0x2c5bdb(0x134)),![];return _0x424570[_0x2c5bdb(0x126)](_0x2c5bdb(0x11a)),!![];}else{if(_0x27e651[0x0]==='admin-vendor'){if(_0x42c8c3[_0x2c5bdb(0x118)]===_0x2c5bdb(0x120))_0x4f7ed6['request']['user']=yield _0x57326e['validateUser'](_0x42c8c3['id']);else _0x42c8c3[_0x2c5bdb(0x118)]===_0x2c5bdb(0x11b)&&(_0x4f7ed6[_0x2c5bdb(0x130)]['user']=yield _0x57326e[_0x2c5bdb(0x132)](_0x42c8c3['id']));if(_0x4f7ed6[_0x2c5bdb(0x130)][_0x2c5bdb(0x133)]===undefined)return _0x424570[_0x2c5bdb(0x10f)](_0x2c5bdb(0x134)),![];return _0x424570[_0x2c5bdb(0x126)](_0x2c5bdb(0x11a)),!![];}else{_0x4f7ed6[_0x2c5bdb(0x130)][_0x2c5bdb(0x133)]=yield _0x57326e['validateUser'](_0x42c8c3['id']);if(_0x4f7ed6[_0x2c5bdb(0x130)][_0x2c5bdb(0x133)]===undefined)return _0x424570['warn'](_0x2c5bdb(0x134)),![];const _0x5b8b2d=_0x27e651[0x1];console['log'](_0x5b8b2d+_0x2c5bdb(0x128));const _0x5fda62=_0x4f7ed6[_0x2c5bdb(0x130)][_0x2c5bdb(0x133)]&&_0x4f7ed6[_0x2c5bdb(0x130)][_0x2c5bdb(0x133)][_0x2c5bdb(0x116)]?_0x4f7ed6[_0x2c5bdb(0x130)][_0x2c5bdb(0x133)]['userGroupId']:undefined;if(_0x5fda62){const _0x3f9285=yield _0x57326e[_0x2c5bdb(0x110)](_0x5fda62);if(_0x3f9285){if(_0x3f9285[_0x2c5bdb(0x11f)]===0x1)return!![];else{if(_0x5b8b2d){let _0x5b42ef;_0x4f7ed6['request'][_0x2c5bdb(0x133)]['permission']?_0x5b42ef=_0x4f7ed6[_0x2c5bdb(0x130)][_0x2c5bdb(0x133)][_0x2c5bdb(0x11d)]?JSON[_0x2c5bdb(0x112)](_0x4f7ed6[_0x2c5bdb(0x130)]['user']['permission']):{}:_0x5b42ef=_0x3f9285['permission']?JSON['parse'](_0x3f9285[_0x2c5bdb(0x11d)]):{};if(_0x5b42ef){if(!_0x5b42ef[_0x5b8b2d])return _0x424570['warn'](_0x2c5bdb(0x11c)),![];}}}}}else return _0x424570[_0x2c5bdb(0x10f)](_0x2c5bdb(0x12b)),![];return _0x424570[_0x2c5bdb(0x126)](_0x2c5bdb(0x11a)),!![];}}}});};}exports[a705_0x54b831(0x125)]=authorizationChecker;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.authorizationChecker = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const logger_1 = require("../lib/logger");
+const AuthService_1 = require("./AuthService");
+function authorizationChecker(connection) {
+    const log = new logger_1.Logger(__filename);
+    const authService = typedi_1.Container.get(AuthService_1.AuthService);
+    return function innerAuthorizationChecker(action, roles) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const userId = yield authService.parseBasicAuthFromRequest(action.request);
+            if (userId === undefined) {
+                log.warn('No credentials given');
+                return false;
+            }
+            // Check the token is revocked or not
+            const checkRevoke = yield authService.checkTokenExist(action.request);
+            if (!checkRevoke) {
+                log.warn('Invalid token');
+                return false;
+            }
+            if (roles[0] === 'customer') {
+                action.request.user = yield authService.validateCustomer(userId.id);
+                if (action.request.user === undefined) {
+                    log.warn('Invalid credentials given');
+                    return false;
+                }
+                log.info('Successfully checked credentials');
+                return true;
+            }
+            else if (roles[0] === 'vendor') {
+                action.request.user = yield authService.validateVendor(userId.id);
+                if (action.request.user === undefined) {
+                    log.warn('Invalid credentials given');
+                    return false;
+                }
+                log.info('Successfully checked credentials');
+                return true;
+            }
+            else if (roles[0] === 'admin-vendor') {
+                if (userId.role === 'admin') {
+                    action.request.user = yield authService.validateUser(userId.id);
+                }
+                else if (userId.role === 'vendor') {
+                    action.request.user = yield authService.validateVendor(userId.id);
+                }
+                if (action.request.user === undefined) {
+                    log.warn('Invalid credentials given');
+                    return false;
+                }
+                log.info('Successfully checked credentials');
+                return true;
+            }
+            else {
+                action.request.user = yield authService.validateUser(userId.id);
+                if (action.request.user === undefined) {
+                    log.warn('Invalid credentials given');
+                    return false;
+                }
+                const routeName = roles[1];
+                console.log(routeName + 'routeName');
+                const userGroupId = (action.request.user && action.request.user.userGroupId) ? action.request.user.userGroupId : undefined;
+                if (userGroupId) {
+                    const getUserGroup = yield authService.validateUserGroup(userGroupId);
+                    if (getUserGroup) {
+                        if (getUserGroup.groupId === 1) {
+                            return true;
+                        }
+                        else {
+                            if (routeName) {
+                                let permissions;
+                                if (action.request.user.permission) {
+                                    permissions = action.request.user.permission ? JSON.parse(action.request.user.permission) : {};
+                                }
+                                else {
+                                    permissions = getUserGroup.permission ? JSON.parse(getUserGroup.permission) : {};
+                                }
+                                if (permissions) {
+                                    if (!permissions[routeName]) {
+                                        log.warn('Forbidden');
+                                        return false;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else {
+                    log.warn('Invalid group');
+                    return false;
+                }
+                log.info('Successfully checked credentials');
+                return true;
+            }
+        });
+    };
+}
+exports.authorizationChecker = authorizationChecker;
+//# sourceMappingURL=authorizationChecker.js.map

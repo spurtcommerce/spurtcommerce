@@ -1,1 +1,69 @@
-'use strict';const a434_0xd2eaa9=a434_0x5f11;(function(_0x313e04,_0x5ec102){const _0x72f5ac=a434_0x5f11,_0x30dcc5=_0x313e04();while(!![]){try{const _0x2e08a9=parseInt(_0x72f5ac(0x122))/0x1*(parseInt(_0x72f5ac(0x115))/0x2)+parseInt(_0x72f5ac(0x11c))/0x3+parseInt(_0x72f5ac(0x12f))/0x4+-parseInt(_0x72f5ac(0x113))/0x5+-parseInt(_0x72f5ac(0x120))/0x6*(parseInt(_0x72f5ac(0x12d))/0x7)+parseInt(_0x72f5ac(0x128))/0x8+-parseInt(_0x72f5ac(0x10a))/0x9*(parseInt(_0x72f5ac(0x124))/0xa);if(_0x2e08a9===_0x5ec102)break;else _0x30dcc5['push'](_0x30dcc5['shift']());}catch(_0x46d9d8){_0x30dcc5['push'](_0x30dcc5['shift']());}}}(a434_0x426a,0x6da3c));Object[a434_0xd2eaa9(0x11a)](exports,a434_0xd2eaa9(0x108),{'value':!![]}),exports[a434_0xd2eaa9(0x12e)]=void 0x0;const tslib_1=require('tslib'),class_validator_1=require(a434_0xd2eaa9(0x10c)),typeorm_1=require(a434_0xd2eaa9(0x126)),BaseModel_1=require(a434_0xd2eaa9(0x11b)),moment_1=tslib_1[a434_0xd2eaa9(0x116)](require(a434_0xd2eaa9(0x114)));function a434_0x5f11(_0x3c0695,_0x386b47){const _0x426a4c=a434_0x426a();return a434_0x5f11=function(_0x5f11a8,_0x75de0d){_0x5f11a8=_0x5f11a8-0x108;let _0x2f6371=_0x426a4c[_0x5f11a8];return _0x2f6371;},a434_0x5f11(_0x3c0695,_0x386b47);}function a434_0x426a(){const _0xdeeda3=['modifiedDate','format','__metadata','23892eqwdag','__decorate','23MsntqK','sku_name','10ZPxdUX','PrimaryGeneratedColumn','typeorm','skuName','3855264zZkgah','BeforeUpdate','order_id','updateDetails','YYYY-MM-DD\x20HH:mm:ss','994UVzjSA','StockLog','1887616kisrGu','Column','__awaiter','createDetails','__esModule','productId','3418281raOBnz','orderId','class-validator','design:paramtypes','design:returntype','default','prototype','quantity','BeforeInsert','1899205kqjXNm','moment','15214tthxJn','__importDefault','createdDate','IsNotEmpty','design:type','defineProperty','./BaseModel','1936215SajWVA'];a434_0x426a=function(){return _0xdeeda3;};return a434_0x426a();}let StockLog=class StockLog extends BaseModel_1['BaseModel']{[a434_0xd2eaa9(0x132)](){const _0x410fd8=a434_0xd2eaa9;return tslib_1[_0x410fd8(0x131)](this,void 0x0,void 0x0,function*(){const _0x3df48e=_0x410fd8;this[_0x3df48e(0x117)]=(0x0,moment_1[_0x3df48e(0x10f)])()['format'](_0x3df48e(0x12c));});}[a434_0xd2eaa9(0x12b)](){const _0x1eb101=a434_0xd2eaa9;return tslib_1[_0x1eb101(0x131)](this,void 0x0,void 0x0,function*(){const _0x6930ef=_0x1eb101;this[_0x6930ef(0x11d)]=(0x0,moment_1['default'])()[_0x6930ef(0x11e)]('YYYY-MM-DD\x20HH:mm:ss');});}};tslib_1[a434_0xd2eaa9(0x121)]([(0x0,typeorm_1[a434_0xd2eaa9(0x125)])({'name':'id'}),(0x0,class_validator_1[a434_0xd2eaa9(0x118)])(),tslib_1['__metadata'](a434_0xd2eaa9(0x119),Number)],StockLog['prototype'],'id',void 0x0),tslib_1[a434_0xd2eaa9(0x121)]([(0x0,class_validator_1[a434_0xd2eaa9(0x118)])(),(0x0,typeorm_1[a434_0xd2eaa9(0x130)])({'name':'product_id'}),tslib_1[a434_0xd2eaa9(0x11f)]('design:type',Number)],StockLog[a434_0xd2eaa9(0x110)],a434_0xd2eaa9(0x109),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a434_0xd2eaa9(0x118)])(),(0x0,typeorm_1[a434_0xd2eaa9(0x130)])({'name':a434_0xd2eaa9(0x12a)}),tslib_1[a434_0xd2eaa9(0x11f)](a434_0xd2eaa9(0x119),Number)],StockLog[a434_0xd2eaa9(0x110)],a434_0xd2eaa9(0x10b),void 0x0),tslib_1[a434_0xd2eaa9(0x121)]([(0x0,typeorm_1['Column'])({'name':'quantity'}),tslib_1['__metadata'](a434_0xd2eaa9(0x119),Number)],StockLog[a434_0xd2eaa9(0x110)],a434_0xd2eaa9(0x111),void 0x0),tslib_1[a434_0xd2eaa9(0x121)]([(0x0,typeorm_1[a434_0xd2eaa9(0x130)])({'name':a434_0xd2eaa9(0x123)}),tslib_1[a434_0xd2eaa9(0x11f)](a434_0xd2eaa9(0x119),String)],StockLog[a434_0xd2eaa9(0x110)],a434_0xd2eaa9(0x127),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1[a434_0xd2eaa9(0x112)])(),tslib_1[a434_0xd2eaa9(0x11f)](a434_0xd2eaa9(0x119),Function),tslib_1[a434_0xd2eaa9(0x11f)](a434_0xd2eaa9(0x10d),[]),tslib_1[a434_0xd2eaa9(0x11f)](a434_0xd2eaa9(0x10e),Promise)],StockLog[a434_0xd2eaa9(0x110)],a434_0xd2eaa9(0x132),null),tslib_1[a434_0xd2eaa9(0x121)]([(0x0,typeorm_1[a434_0xd2eaa9(0x129)])(),tslib_1[a434_0xd2eaa9(0x11f)](a434_0xd2eaa9(0x119),Function),tslib_1[a434_0xd2eaa9(0x11f)](a434_0xd2eaa9(0x10d),[]),tslib_1['__metadata']('design:returntype',Promise)],StockLog[a434_0xd2eaa9(0x110)],'updateDetails',null),StockLog=tslib_1[a434_0xd2eaa9(0x121)]([(0x0,typeorm_1['Entity'])('stock_log')],StockLog),exports[a434_0xd2eaa9(0x12e)]=StockLog;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StockLog = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+const typeorm_1 = require("typeorm");
+const BaseModel_1 = require("./BaseModel");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+let StockLog = class StockLog extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'id' }),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], StockLog.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", Number)
+], StockLog.prototype, "productId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'order_id' }),
+    tslib_1.__metadata("design:type", Number)
+], StockLog.prototype, "orderId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'quantity' }),
+    tslib_1.__metadata("design:type", Number)
+], StockLog.prototype, "quantity", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'sku_name' }),
+    tslib_1.__metadata("design:type", String)
+], StockLog.prototype, "skuName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], StockLog.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], StockLog.prototype, "updateDetails", null);
+StockLog = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('stock_log')
+], StockLog);
+exports.StockLog = StockLog;
+//# sourceMappingURL=StockLog.js.map

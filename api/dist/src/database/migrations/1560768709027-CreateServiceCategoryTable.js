@@ -1,1 +1,113 @@
-'use strict';const a791_0x321bbf=a791_0x1e19;(function(_0x24ef8c,_0x219035){const _0x599d67=a791_0x1e19,_0x2a1fb2=_0x24ef8c();while(!![]){try{const _0x35225f=-parseInt(_0x599d67(0xea))/0x1+parseInt(_0x599d67(0xf3))/0x2+-parseInt(_0x599d67(0xd1))/0x3+-parseInt(_0x599d67(0xd3))/0x4*(-parseInt(_0x599d67(0xef))/0x5)+parseInt(_0x599d67(0xd4))/0x6*(-parseInt(_0x599d67(0xe8))/0x7)+-parseInt(_0x599d67(0xd2))/0x8+parseInt(_0x599d67(0xe1))/0x9*(parseInt(_0x599d67(0xe2))/0xa);if(_0x35225f===_0x219035)break;else _0x2a1fb2['push'](_0x2a1fb2['shift']());}catch(_0x2c3d36){_0x2a1fb2['push'](_0x2a1fb2['shift']());}}}(a791_0x1dda,0x85805));Object[a791_0x321bbf(0xdc)](exports,a791_0x321bbf(0xe4),{'value':!![]}),exports['CreateServiceCategoryTable1560768709027']=void 0x0;function a791_0x1dda(){const _0x93db3c=['service_category_id','meta_tag_description','255','2534751QIyHXb','60GdpcbP','image','__esModule','int','modified_by','created_by','1037127CDIaGu','service_category','363305PKYMQM','increment','dropTable','DATETIME','created_date','9865tyIgrT','CURRENT_TIMESTAMP','meta_tag_title','integer','1138728HqDAWN','sort_order','1323690Cnriok','7149272kWDMSf','572LUCcoe','12xlfmNS','varchar','down','is_active','hasTable','typeorm','__awaiter','name','defineProperty','text'];a791_0x1dda=function(){return _0x93db3c;};return a791_0x1dda();}function a791_0x1e19(_0x14bb86,_0x1fd464){const _0x1dda58=a791_0x1dda();return a791_0x1e19=function(_0x1e1950,_0x2ca7d5){_0x1e1950=_0x1e1950-0xd1;let _0x289804=_0x1dda58[_0x1e1950];return _0x289804;},a791_0x1e19(_0x14bb86,_0x1fd464);}const tslib_1=require('tslib'),typeorm_1=require(a791_0x321bbf(0xd9));class CreateServiceCategoryTable1560768709027{['up'](_0x57c1a0){const _0x5a6c7f=a791_0x321bbf;return tslib_1[_0x5a6c7f(0xda)](this,void 0x0,void 0x0,function*(){const _0x4aa481=_0x5a6c7f,_0x1658ac=new typeorm_1['Table']({'name':_0x4aa481(0xe9),'columns':[{'name':_0x4aa481(0xde),'type':_0x4aa481(0xf2),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x4aa481(0xeb)},{'name':_0x4aa481(0xdb),'type':'varchar','length':_0x4aa481(0xe0),'isPrimary':![],'isNullable':!![]},{'name':_0x4aa481(0xe3),'type':'varchar','length':_0x4aa481(0xe0),'isPrimary':![],'isNullable':!![]},{'name':'image_path','type':_0x4aa481(0xd5),'length':'255','isPrimary':![],'isNullable':!![]},{'name':'parent_int','type':_0x4aa481(0xf2),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4aa481(0xf4),'type':_0x4aa481(0xf2),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4aa481(0xf1),'type':_0x4aa481(0xd5),'length':'255','isPrimary':![],'isNullable':!![]},{'name':_0x4aa481(0xdf),'type':_0x4aa481(0xdd),'isPrimary':![],'isNullable':!![]},{'name':'meta_tag_keyword','type':_0x4aa481(0xd5),'length':_0x4aa481(0xe0),'isPrimary':![],'isNullable':!![]},{'name':_0x4aa481(0xd7),'type':_0x4aa481(0xe5),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4aa481(0xe7),'type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4aa481(0xe6),'type':_0x4aa481(0xe5),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x4aa481(0xee),'type':_0x4aa481(0xed),'isPrimary':![],'isNullable':!![],'default':_0x4aa481(0xf0)},{'name':'modified_date','type':_0x4aa481(0xed),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'}]}),_0x432dbc=yield _0x57c1a0[_0x4aa481(0xd8)](_0x4aa481(0xe9));!_0x432dbc&&(yield _0x57c1a0['createTable'](_0x1658ac));});}[a791_0x321bbf(0xd6)](_0x2d581c){const _0x293eaa=a791_0x321bbf;return tslib_1[_0x293eaa(0xda)](this,void 0x0,void 0x0,function*(){const _0x175d15=_0x293eaa;yield _0x2d581c[_0x175d15(0xec)](_0x175d15(0xe9),!![]);});}}exports['CreateServiceCategoryTable1560768709027']=CreateServiceCategoryTable1560768709027;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateServiceCategoryTable1560768709027 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateServiceCategoryTable1560768709027 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'service_category',
+                columns: [
+                    {
+                        name: 'service_category_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'name',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'image',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'image_path',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'parent_int',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'sort_order',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_tag_title',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_tag_description',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'meta_tag_keyword',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('service_category');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('service_category', true);
+        });
+    }
+}
+exports.CreateServiceCategoryTable1560768709027 = CreateServiceCategoryTable1560768709027;
+//# sourceMappingURL=1560768709027-CreateServiceCategoryTable.js.map

@@ -1,1 +1,90 @@
-'use strict';function a601_0x36a4(_0x496d59,_0x451597){const _0x1513cc=a601_0x1513();return a601_0x36a4=function(_0x36a4cb,_0x108069){_0x36a4cb=_0x36a4cb-0x95;let _0x5bd1d2=_0x1513cc[_0x36a4cb];return _0x5bd1d2;},a601_0x36a4(_0x496d59,_0x451597);}const a601_0x9796d0=a601_0x36a4;function a601_0x1513(){const _0x37dd6c=['design:paramtypes','ServiceEnquiryRepository','find','__decorate','983934VpfKuC','info','value','log','serviceEnquiryRepository','Logger','typeorm/index','list','create','Delete\x20a\x20enquiry','56424wGVbQi','Service','1688075MURgiT','length','Create\x20a\x20new\x20enquiry\x20=>\x20','ServiceEnquiryService','typeorm-typedi-extensions','skip','take','4gXZoGw','where','order','like','__esModule','defineProperty','__awaiter','__metadata','154933dXvyCw','toString','tslib','954KVTTzL','2270240miIzMT','1006596CuSNIo','Like','forEach','OrmRepository','findOne','name','typedi','__param','delete','944937xyUGnA'];a601_0x1513=function(){return _0x37dd6c;};return a601_0x1513();}(function(_0x72e188,_0x242645){const _0x5ee491=a601_0x36a4,_0x35a999=_0x72e188();while(!![]){try{const _0x39fac6=-parseInt(_0x5ee491(0xa0))/0x1*(-parseInt(_0x5ee491(0x98))/0x2)+parseInt(_0x5ee491(0xae))/0x3+parseInt(_0x5ee491(0xa4))/0x4+parseInt(_0x5ee491(0xbf))/0x5+-parseInt(_0x5ee491(0xa5))/0x6+-parseInt(_0x5ee491(0xb3))/0x7+-parseInt(_0x5ee491(0xbd))/0x8*(parseInt(_0x5ee491(0xa3))/0x9);if(_0x39fac6===_0x242645)break;else _0x35a999['push'](_0x35a999['shift']());}catch(_0x26968a){_0x35a999['push'](_0x35a999['shift']());}}}(a601_0x1513,0x73bda));Object[a601_0x9796d0(0x9d)](exports,a601_0x9796d0(0x9c),{'value':!![]}),exports[a601_0x9796d0(0xc2)]=void 0x0;const tslib_1=require(a601_0x9796d0(0xa2)),typedi_1=require(a601_0x9796d0(0xab)),typeorm_typedi_extensions_1=require(a601_0x9796d0(0x95)),Logger_1=require('../../../decorators/Logger'),ServiceEnquiryRepository_1=require('../repositories/ServiceEnquiryRepository'),index_1=require(a601_0x9796d0(0xb9));let ServiceEnquiryService=class ServiceEnquiryService{constructor(_0x4bf3bd,_0xecb71b){const _0x3815c3=a601_0x9796d0;this[_0x3815c3(0xb7)]=_0x4bf3bd,this[_0x3815c3(0xb6)]=_0xecb71b;}[a601_0x9796d0(0xbb)](_0x2ae6b7){const _0xfd56e8=a601_0x9796d0;return tslib_1[_0xfd56e8(0x9e)](this,void 0x0,void 0x0,function*(){const _0x1a7bce=_0xfd56e8;return this['log'][_0x1a7bce(0xb4)](_0x1a7bce(0xc1),_0x2ae6b7[_0x1a7bce(0xa1)]()),this[_0x1a7bce(0xb7)]['save'](_0x2ae6b7);});}[a601_0x9796d0(0xa9)](_0x2892e4){const _0x491348=a601_0x9796d0;return this[_0x491348(0xb7)][_0x491348(0xa9)](_0x2892e4);}[a601_0x9796d0(0xad)](_0x5f4300){const _0x35ebdc=a601_0x9796d0;return tslib_1[_0x35ebdc(0x9e)](this,void 0x0,void 0x0,function*(){const _0x32179a=_0x35ebdc;this[_0x32179a(0xb6)][_0x32179a(0xb4)](_0x32179a(0xbc)),yield this[_0x32179a(0xb7)][_0x32179a(0xad)](_0x5f4300);return;});}[a601_0x9796d0(0xb1)](_0x3b77f4){const _0x40b882=a601_0x9796d0;return this['serviceEnquiryRepository'][_0x40b882(0xb1)](_0x3b77f4);}[a601_0x9796d0(0xba)](_0x318872,_0x5ab9c9,_0x464855=[],_0x33bbc9=[],_0x3b3146=[],_0x100bff){const _0x24b0c2=a601_0x9796d0,_0x38ef37={};_0x464855&&_0x464855[_0x24b0c2(0xc0)]>0x0&&(_0x38ef37['select']=_0x464855);_0x38ef37[_0x24b0c2(0x99)]={};_0x3b3146&&_0x3b3146[_0x24b0c2(0xc0)]>0x0&&_0x3b3146['forEach'](_0x48e8a0=>{const _0xdeb390=_0x24b0c2;_0x38ef37[_0xdeb390(0x99)][_0x48e8a0[_0xdeb390(0xaa)]]=_0x48e8a0[_0xdeb390(0xb5)];});_0x33bbc9&&_0x33bbc9[_0x24b0c2(0xc0)]>0x0&&_0x33bbc9[_0x24b0c2(0xa7)](_0x13706c=>{const _0x1a002d=_0x24b0c2,_0x17efb9=_0x13706c['op'];if(_0x17efb9===_0x1a002d(0x99)&&_0x13706c[_0x1a002d(0xb5)]!=='')_0x38ef37[_0x1a002d(0x99)][_0x13706c[_0x1a002d(0xaa)]]=_0x13706c['value'];else _0x17efb9===_0x1a002d(0x9b)&&_0x13706c[_0x1a002d(0xb5)]!==''&&(_0x38ef37['where'][_0x13706c[_0x1a002d(0xaa)]]=(0x0,index_1[_0x1a002d(0xa6)])('%'+_0x13706c[_0x1a002d(0xb5)]+'%'));});_0x38ef37[_0x24b0c2(0x9a)]={'createdDate':'DESC'};_0x318872&&_0x318872>0x0&&(_0x38ef37[_0x24b0c2(0x97)]=_0x318872,_0x38ef37[_0x24b0c2(0x96)]=_0x5ab9c9);if(_0x100bff)return this[_0x24b0c2(0xb7)]['count'](_0x38ef37);return this[_0x24b0c2(0xb7)][_0x24b0c2(0xb1)](_0x38ef37);}};ServiceEnquiryService=tslib_1[a601_0x9796d0(0xb2)]([(0x0,typedi_1[a601_0x9796d0(0xbe)])(),tslib_1['__param'](0x0,(0x0,typeorm_typedi_extensions_1[a601_0x9796d0(0xa8)])()),tslib_1[a601_0x9796d0(0xac)](0x1,(0x0,Logger_1[a601_0x9796d0(0xb8)])(__filename)),tslib_1[a601_0x9796d0(0x9f)](a601_0x9796d0(0xaf),[ServiceEnquiryRepository_1[a601_0x9796d0(0xb0)],Object])],ServiceEnquiryService),exports[a601_0x9796d0(0xc2)]=ServiceEnquiryService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ServiceEnquiryService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const ServiceEnquiryRepository_1 = require("../repositories/ServiceEnquiryRepository");
+const index_1 = require("typeorm/index");
+let ServiceEnquiryService = class ServiceEnquiryService {
+    constructor(serviceEnquiryRepository, log) {
+        this.serviceEnquiryRepository = serviceEnquiryRepository;
+        this.log = log;
+    }
+    // create enquiry
+    create(enquiry) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Create a new enquiry => ', enquiry.toString());
+            return this.serviceEnquiryRepository.save(enquiry);
+        });
+    }
+    // findone enquiry
+    findOne(enquiry) {
+        return this.serviceEnquiryRepository.findOne(enquiry);
+    }
+    // delete enquiry
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a enquiry');
+            yield this.serviceEnquiryRepository.delete(id);
+            return;
+        });
+    }
+    // find enquiry
+    find(enquiry) {
+        return this.serviceEnquiryRepository.find(enquiry);
+    }
+    // enquiry list
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== '') {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== '') {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        condition.order = {
+            createdDate: 'DESC',
+        };
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.serviceEnquiryRepository.count(condition);
+        }
+        return this.serviceEnquiryRepository.find(condition);
+    }
+};
+ServiceEnquiryService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [ServiceEnquiryRepository_1.ServiceEnquiryRepository, Object])
+], ServiceEnquiryService);
+exports.ServiceEnquiryService = ServiceEnquiryService;
+//# sourceMappingURL=ServiceEnquiryService.js.map

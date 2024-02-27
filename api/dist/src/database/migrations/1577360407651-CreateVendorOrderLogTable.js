@@ -1,1 +1,114 @@
-'use strict';const a824_0x25a9c2=a824_0x5364;(function(_0x4db6b0,_0x498bee){const _0x54bfdd=a824_0x5364,_0x41f25d=_0x4db6b0();while(!![]){try{const _0x57e2f8=-parseInt(_0x54bfdd(0x1fa))/0x1+parseInt(_0x54bfdd(0x1e3))/0x2*(parseInt(_0x54bfdd(0x1eb))/0x3)+parseInt(_0x54bfdd(0x1f9))/0x4+parseInt(_0x54bfdd(0x1de))/0x5+-parseInt(_0x54bfdd(0x1e7))/0x6*(-parseInt(_0x54bfdd(0x1e0))/0x7)+parseInt(_0x54bfdd(0x1e5))/0x8+-parseInt(_0x54bfdd(0x1f6))/0x9;if(_0x57e2f8===_0x498bee)break;else _0x41f25d['push'](_0x41f25d['shift']());}catch(_0x35f067){_0x41f25d['push'](_0x41f25d['shift']());}}}(a824_0x14d0,0x4c49f));function a824_0x5364(_0x22dfec,_0x3b3c88){const _0x14d0eb=a824_0x14d0();return a824_0x5364=function(_0x536414,_0x624ab3){_0x536414=_0x536414-0x1d2;let _0x47a32a=_0x14d0eb[_0x536414];return _0x47a32a;},a824_0x5364(_0x22dfec,_0x3b3c88);}Object[a824_0x25a9c2(0x1d9)](exports,a824_0x25a9c2(0x1e6),{'value':!![]}),exports[a824_0x25a9c2(0x1ea)]=void 0x0;const tslib_1=require(a824_0x25a9c2(0x1d8)),typeorm_1=require('typeorm');class CreateVendorOrderLogTable1577360407651{constructor(){const _0x8237b9=a824_0x25a9c2;this[_0x8237b9(0x1db)]=new typeorm_1[(_0x8237b9(0x1d7))]({'name':_0x8237b9(0x1f4),'columnNames':['vendor_id'],'referencedColumnNames':[_0x8237b9(0x1df)],'referencedTableName':_0x8237b9(0x1fe),'onDelete':_0x8237b9(0x1d4)}),this[_0x8237b9(0x1f8)]=new typeorm_1[(_0x8237b9(0x1d7))]({'name':_0x8237b9(0x1ed),'columnNames':[_0x8237b9(0x1fb)],'referencedColumnNames':[_0x8237b9(0x1fb)],'referencedTableName':_0x8237b9(0x1e9),'onDelete':_0x8237b9(0x1d4)});}['up'](_0x57596a){const _0x100cae=a824_0x25a9c2;return tslib_1[_0x100cae(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x2e8bcd=_0x100cae,_0x483569=new typeorm_1[(_0x2e8bcd(0x1ec))]({'name':_0x2e8bcd(0x1f3),'columns':[{'name':'vendor_order_log_id','type':'integer','length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x2e8bcd(0x1fc)},{'name':_0x2e8bcd(0x1f5),'type':'integer','length':'11','isPrimary':![],'isNullable':![]},{'name':_0x2e8bcd(0x1df),'type':_0x2e8bcd(0x1f2),'length':'11','isPrimary':![],'isNullable':![]},{'name':'order_id','type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':'sub_order_id','type':_0x2e8bcd(0x1e8),'length':_0x2e8bcd(0x1dd),'isPrimary':![],'isNullable':!![]},{'name':'sub_order_status_id','type':_0x2e8bcd(0x1f2),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_by','type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x2e8bcd(0x1ee),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x2e8bcd(0x1f0),'type':'DATETIME','isPrimary':![],'isNullable':!![],'default':_0x2e8bcd(0x1e4)},{'name':_0x2e8bcd(0x1ef),'type':_0x2e8bcd(0x1e1),'isPrimary':![],'isNullable':!![],'default':_0x2e8bcd(0x1e4)}]}),_0x5c0758=yield _0x57596a[_0x2e8bcd(0x1d2)](_0x2e8bcd(0x1f3));!_0x5c0758&&(yield _0x57596a[_0x2e8bcd(0x1d3)](_0x483569));const _0x5f5398=_0x483569[_0x2e8bcd(0x1e2)]['find'](_0x196af3=>_0x196af3[_0x2e8bcd(0x1f7)][_0x2e8bcd(0x1f1)](_0x2e8bcd(0x1df))!==-0x1);!_0x5f5398&&(yield _0x57596a[_0x2e8bcd(0x1da)](_0x483569,this[_0x2e8bcd(0x1db)]));const _0x3e2b7d=_0x483569['foreignKeys'][_0x2e8bcd(0x1fd)](_0x57cbea=>_0x57cbea[_0x2e8bcd(0x1f7)][_0x2e8bcd(0x1f1)](_0x2e8bcd(0x1fb))!==-0x1);!_0x3e2b7d&&(yield _0x57596a[_0x2e8bcd(0x1da)](_0x483569,this[_0x2e8bcd(0x1f8)]));});}[a824_0x25a9c2(0x1d5)](_0x25e4b6){const _0x1acbe4=a824_0x25a9c2;return tslib_1[_0x1acbe4(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x25c814=_0x1acbe4;yield _0x25e4b6[_0x25c814(0x1dc)](_0x25c814(0x1f3),!![]);});}}exports[a824_0x25a9c2(0x1ea)]=CreateVendorOrderLogTable1577360407651;function a824_0x14d0(){const _0x1a0bb6=['tableForeignKey1','62876PoeLlo','243595EOgupz','order_id','increment','find','vendor','hasTable','createTable','CASCADE','down','__awaiter','TableForeignKey','tslib','defineProperty','createForeignKey','tableForeignKey','dropTable','255','2632695TCHnwx','vendor_id','1645MKmTZN','DATETIME','foreignKeys','5948NCpYec','CURRENT_TIMESTAMP','656080advatk','__esModule','6234Jratbj','varchar','order','CreateVendorOrderLogTable1577360407651','294JvkgdH','Table','fk_tbl_order_tbl_vendor_order_log_foreignKey','modified_by','modified_date','created_date','indexOf','integer','vendor_orders_log','fk_tbl_vendor_tbl_vendor_order_log_foreignKey','vendor_order_id','5434299ozxFCP','columnNames'];a824_0x14d0=function(){return _0x1a0bb6;};return a824_0x14d0();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateVendorOrderLogTable1577360407651 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateVendorOrderLogTable1577360407651 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_vendor_tbl_vendor_order_log_foreignKey',
+            columnNames: ['vendor_id'],
+            referencedColumnNames: ['vendor_id'],
+            referencedTableName: 'vendor',
+            onDelete: 'CASCADE',
+        });
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_order_tbl_vendor_order_log_foreignKey',
+            columnNames: ['order_id'],
+            referencedColumnNames: ['order_id'],
+            referencedTableName: 'order',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'vendor_orders_log',
+                columns: [
+                    {
+                        name: 'vendor_order_log_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'vendor_order_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'vendor_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: false,
+                    }, {
+                        name: 'order_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'sub_order_id',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'sub_order_status_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('vendor_orders_log');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('vendor_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+            const ifDataExist = table.foreignKeys.find(fk => fk.columnNames.indexOf('order_id') !== -1);
+            if (!ifDataExist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('vendor_orders_log', true);
+        });
+    }
+}
+exports.CreateVendorOrderLogTable1577360407651 = CreateVendorOrderLogTable1577360407651;
+//# sourceMappingURL=1577360407651-CreateVendorOrderLogTable.js.map

@@ -1,1 +1,30 @@
-'use strict';const a50_0x348cb4=a50_0x5b98;(function(_0x5af4b2,_0x375ea7){const _0x1a50d8=a50_0x5b98,_0x1a460a=_0x5af4b2();while(!![]){try{const _0x3496dd=parseInt(_0x1a50d8(0x180))/0x1+-parseInt(_0x1a50d8(0x189))/0x2*(parseInt(_0x1a50d8(0x17b))/0x3)+-parseInt(_0x1a50d8(0x185))/0x4*(-parseInt(_0x1a50d8(0x181))/0x5)+parseInt(_0x1a50d8(0x18f))/0x6*(parseInt(_0x1a50d8(0x18b))/0x7)+-parseInt(_0x1a50d8(0x17d))/0x8*(-parseInt(_0x1a50d8(0x179))/0x9)+parseInt(_0x1a50d8(0x17f))/0xa+parseInt(_0x1a50d8(0x190))/0xb*(-parseInt(_0x1a50d8(0x18e))/0xc);if(_0x3496dd===_0x375ea7)break;else _0x1a460a['push'](_0x1a460a['shift']());}catch(_0x18fd6e){_0x1a460a['push'](_0x1a460a['shift']());}}}(a50_0x26d9,0x5ec54));function a50_0x5b98(_0x22e9fb,_0x13f63a){const _0x26d9a0=a50_0x26d9();return a50_0x5b98=function(_0x5b981,_0x15b65e){_0x5b981=_0x5b981-0x178;let _0x7da678=_0x26d9a0[_0x5b981];return _0x7da678;},a50_0x5b98(_0x22e9fb,_0x13f63a);}Object['defineProperty'](exports,a50_0x348cb4(0x18c),{'value':!![]}),exports[a50_0x348cb4(0x18a)]=void 0x0;const tslib_1=require(a50_0x348cb4(0x182)),typeorm_1=require('typeorm'),Plugin_1=require(a50_0x348cb4(0x17c));function a50_0x26d9(){const _0x1a60e1=['getRepository','findOne','1558HoIpHP','AddPluginTimestampInRazorpay1679897259836','1335271pUVBsV','__esModule','pluginTimestamp','22118916bziino','24PatyjS','11FvvIgs','slugName','20025FmlKHV','save','1122KJpXGe','../../../../src/api/core/models/Plugin','1448Xabypc','Razorpay','2647180IflPnS','488503HmJJun','3019055DPyCvB','tslib','Plugins','razorpay','4xGGGyj','__awaiter'];a50_0x26d9=function(){return _0x1a60e1;};return a50_0x26d9();}class AddPluginTimestampInRazorpay1679897259836{['up'](_0x36e9c4){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x4ae68c=a50_0x5b98,_0x32b6a5=(0x0,typeorm_1[_0x4ae68c(0x187)])(Plugin_1[_0x4ae68c(0x183)]),_0x5a2d70=yield _0x32b6a5[_0x4ae68c(0x188)]({'where':{'pluginName':_0x4ae68c(0x17e)}});_0x5a2d70&&(_0x5a2d70[_0x4ae68c(0x178)]=_0x4ae68c(0x184),_0x5a2d70[_0x4ae68c(0x18d)]=0x17fbbeb1b4b,yield _0x32b6a5[_0x4ae68c(0x17a)](_0x5a2d70));});}['down'](_0x2086aa){const _0x2fb461=a50_0x348cb4;return tslib_1[_0x2fb461(0x186)](this,void 0x0,void 0x0,function*(){});}}exports[a50_0x348cb4(0x18a)]=AddPluginTimestampInRazorpay1679897259836;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddPluginTimestampInRazorpay1679897259836 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../../../../src/api/core/models/Plugin");
+class AddPluginTimestampInRazorpay1679897259836 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const repo = (0, typeorm_1.getRepository)(Plugin_1.Plugins);
+            const plugin = yield repo.findOne({
+                where: {
+                    pluginName: 'Razorpay',
+                },
+            });
+            if (plugin) {
+                plugin.slugName = 'razorpay';
+                plugin.pluginTimestamp = 1648125221707; // This Add-on's Plugin Migration Timestamp
+                yield repo.save(plugin);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+        });
+    }
+}
+exports.AddPluginTimestampInRazorpay1679897259836 = AddPluginTimestampInRazorpay1679897259836;
+//# sourceMappingURL=1679897259836-AddPluginTimestampInRazorpay.js.map

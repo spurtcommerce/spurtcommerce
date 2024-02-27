@@ -1,1 +1,598 @@
-'use strict';const a275_0x3313cb=a275_0x5bf5;(function(_0x48c5d7,_0x20937e){const _0x397c82=a275_0x5bf5,_0x1650b3=_0x48c5d7();while(!![]){try{const _0x2f1e26=-parseInt(_0x397c82(0x145))/0x1*(parseInt(_0x397c82(0x12d))/0x2)+-parseInt(_0x397c82(0xd4))/0x3*(parseInt(_0x397c82(0xfb))/0x4)+parseInt(_0x397c82(0x118))/0x5*(parseInt(_0x397c82(0xe9))/0x6)+-parseInt(_0x397c82(0xde))/0x7*(-parseInt(_0x397c82(0xd8))/0x8)+parseInt(_0x397c82(0xeb))/0x9*(parseInt(_0x397c82(0x10d))/0xa)+parseInt(_0x397c82(0x15e))/0xb*(parseInt(_0x397c82(0xe8))/0xc)+-parseInt(_0x397c82(0xda))/0xd*(parseInt(_0x397c82(0x10c))/0xe);if(_0x2f1e26===_0x20937e)break;else _0x1650b3['push'](_0x1650b3['shift']());}catch(_0x453c76){_0x1650b3['push'](_0x1650b3['shift']());}}}(a275_0x5483,0xe2f11));Object['defineProperty'](exports,a275_0x3313cb(0x152),{'value':!![]}),exports[a275_0x3313cb(0x138)]=void 0x0;const tslib_1=require(a275_0x3313cb(0x109));function a275_0x5483(){const _0x2edef9=['serviceCategoryCount','QueryParam','Invalid\x20Category\x20Id','push','keyword','category.parentInt\x20as\x20parentInt','Not\x20able\x20to\x20upload\x20as\x20the\x20file\x20size\x20is\x20too\x20large.','5YwqBwg','/update-service-category/:id','Delete','categoryPathId','category.metaTagTitle\x20as\x20metaTagTitle','length','Unable\x20to\x20create\x20the\x20category.\x20','env','../../core/services/ServiceCategoryPathService','ImageService','imageUpload','createServiceCategory','split','imagePath','base64','Res','ServiceCategoryPath','Successfully\x20got\x20service\x20category\x20detail','category.sortOrder\x20as\x20sortOrder','\x20\x27\x20','path.name','2981852dwIuoa','DESC','metaTagTitle','ServiceCategory','serviceCategoryPathService','parentInt','serviceCategoryService','Unable\x20to\x20update\x20the\x20category.\x20','delete','findOne','listByQueryBuilder','ServiceCategoryController','list','/add-service-category','JsonController','Successfully\x20updated\x20the\x20category.','image','s3Service','Successfully\x20got\x20the\x20service\x20category\x20list.','category.createdDate\x20as\x20createdDate','availImageTypes','ceil','ASC','Authorized','1WmxwYH','isActive','create','S3Service','serviceToCategoryService','imageService','Post','Invalid\x20category\x20Id.','status','replace','pathId','design:returntype','/service-category-list','__esModule','__param','prototype','category/','Put','\x20types\x20are\x20allowed','../../../env','__decorate','category.sortOrder','level','category.image\x20as\x20image','like','3597Mmshxj','Unable\x20to\x20delete\x20the\x20category.\x20','3oVXzDA','deleteCategory','Get','metaTagKeyword','16UPkAMN','ServiceCategoryPath.category','1989MUyxag','category.metaTagKeyword\x20as\x20metaTagKeyword','ServiceToCategoryService','category.name\x20as\x20name','4184229DHMVMP','delete-service-category','__awaiter','admin','metaTagDescription','../../core/models/ServiceCategory','ServiceCategoryPath.path','includes','ServiceCategoryPath.service_category_id','name','39624tJBLgJ','9649566wNsdQo','send','71937neRgXk','You\x20cannot\x20delete\x20this\x20service\x20category\x20as\x20it\x20is\x20already\x20mapped\x20to\x20a\x20service.','../../core/services/ServiceCategoryService','Param','count','successfully\x20got\x20the\x20service\x20category\x20count.','Body','sortOrder','ORDER\x20BY','updateServiceCategory','CreateServiceCategory','../../core/services/S3Service','serviceCategorylist','list-service-category','serviceCategoryDetail','now','5297924wXPbJj','Img_','levels','from','category.imagePath\x20as\x20imagePath','`category`.`name`','__metadata','find','ServiceCategoryPath.level','path','serviceCategoryId','../../core/services/ImageService','design:type','Successfully\x20created\x20a\x20new\x20category.','tslib','design:paramtypes','Req','17066zfAfAN','60hcSHWa','SEPARATOR','Only\x20','category.createdDate'];a275_0x5483=function(){return _0x2edef9;};return a275_0x5483();}require('reflect-metadata');const routing_controllers_1=require('routing-controllers'),ServiceCategoryService_1=require(a275_0x3313cb(0xed)),CreateServiceCategoryRequest_1=require('./requests/CreateServiceCategoryRequest'),ServiceCategory_1=require(a275_0x3313cb(0xe3)),ServiceCategoryPath_1=require('../../core/models/ServiceCategoryPath'),ServiceCategoryPathService_1=require(a275_0x3313cb(0x120)),S3Service_1=require(a275_0x3313cb(0xf6)),env_1=require(a275_0x3313cb(0x158)),ImageService_1=require(a275_0x3313cb(0x106)),ServiceToCategoryService_1=require('../../core/services/ServiceToCategoryService');function a275_0x5bf5(_0x7726db,_0x13bd05){const _0x548338=a275_0x5483();return a275_0x5bf5=function(_0x5bf5f3,_0x395170){_0x5bf5f3=_0x5bf5f3-0xd3;let _0x46b54d=_0x548338[_0x5bf5f3];return _0x46b54d;},a275_0x5bf5(_0x7726db,_0x13bd05);}let ServiceCategoryController=class ServiceCategoryController{constructor(_0x26393c,_0x5d3f44,_0x221c32,_0x4e7bcb,_0x2f2333){const _0x20dea5=a275_0x3313cb;this[_0x20dea5(0x133)]=_0x26393c,this[_0x20dea5(0x131)]=_0x5d3f44,this[_0x20dea5(0x13e)]=_0x221c32,this[_0x20dea5(0x149)]=_0x4e7bcb,this[_0x20dea5(0x14a)]=_0x2f2333;}[a275_0x3313cb(0x123)](_0x5a2e39,_0x162a18){const _0x3082ed=a275_0x3313cb;return tslib_1[_0x3082ed(0xe0)](this,void 0x0,void 0x0,function*(){const _0xc342aa=_0x3082ed,_0x2157a0=new ServiceCategory_1[(_0xc342aa(0x130))]();_0x2157a0[_0xc342aa(0xe7)]=_0x5a2e39['name'];const _0x1c4153=_0x5a2e39[_0xc342aa(0x13d)];if(_0x1c4153){const _0x45919c=_0x1c4153['split'](';')[0x0][_0xc342aa(0x124)]('/')[0x1],_0x32e990=env_1[_0xc342aa(0x11f)][_0xc342aa(0x141)][_0xc342aa(0x124)](',');if(!_0x32e990[_0xc342aa(0xe5)](_0x45919c)){const _0x3980bb={'status':0x0,'message':_0xc342aa(0x10f)+env_1[_0xc342aa(0x11f)][_0xc342aa(0x141)]+_0xc342aa(0x157)};return _0x162a18[_0xc342aa(0x14d)](0x190)[_0xc342aa(0xea)](_0x3980bb);}const _0x448451=_0xc342aa(0xfc)+Date['now']()+'.'+_0x45919c,_0x389eb7=_0xc342aa(0x155),_0x317050=Buffer[_0xc342aa(0xfe)](_0x1c4153[_0xc342aa(0x14e)](/^data:image\/\w+;base64,/,''),'base64'),_0x2516d9=_0x1c4153[_0xc342aa(0x14e)](/^data:image\/\w+;base64,/,'')[_0xc342aa(0x11d)],_0x258338=0x4*Math[_0xc342aa(0x142)](_0x2516d9/0x3)*0.5624896334383812,_0x411163=_0x258338/0x400;if(+_0x411163<=0x800)env_1[_0xc342aa(0x11f)]['imageserver']==='s3'?yield this[_0xc342aa(0x13e)][_0xc342aa(0x122)](_0x389eb7+_0x448451,_0x317050,_0x45919c):yield this[_0xc342aa(0x14a)][_0xc342aa(0x122)](_0x389eb7+_0x448451,_0x317050);else{const _0x4eeb27={'status':0x0,'message':_0xc342aa(0x117)};return _0x162a18['status'](0x190)[_0xc342aa(0xea)](_0x4eeb27);}_0x2157a0[_0xc342aa(0x13d)]=_0x448451,_0x2157a0[_0xc342aa(0x125)]=_0x389eb7;}_0x2157a0['parentInt']=_0x5a2e39[_0xc342aa(0x132)]?_0x5a2e39[_0xc342aa(0x132)]:0x0,_0x2157a0[_0xc342aa(0xf2)]=_0x5a2e39[_0xc342aa(0xf2)],_0x2157a0[_0xc342aa(0x12f)]=_0x5a2e39[_0xc342aa(0x12f)],_0x2157a0['metaTagDescription']=_0x5a2e39['metaTagDescription'],_0x2157a0[_0xc342aa(0xd7)]=_0x5a2e39['metaTagKeyword'],_0x2157a0[_0xc342aa(0x146)]=_0x5a2e39[_0xc342aa(0x14d)];const _0x1a589a=yield this['serviceCategoryService']['create'](_0x2157a0),_0x1db2b0=yield this[_0xc342aa(0x131)][_0xc342aa(0x102)]({'where':{'serviceCategoryId':_0x5a2e39[_0xc342aa(0x132)]},'order':{'level':_0xc342aa(0x143)}});let _0x4e8f66=0x0;for(const _0x1a7e12 of _0x1db2b0){const _0x1d38a9=new ServiceCategoryPath_1[(_0xc342aa(0x128))]();_0x1d38a9[_0xc342aa(0x105)]=_0x1a589a[_0xc342aa(0x105)],_0x1d38a9[_0xc342aa(0x14f)]=_0x1a7e12[_0xc342aa(0x14f)],_0x1d38a9[_0xc342aa(0x15b)]=_0x4e8f66,yield this[_0xc342aa(0x131)]['create'](_0x1d38a9),_0x4e8f66++;}const _0x50871d=new ServiceCategoryPath_1[(_0xc342aa(0x128))]();_0x50871d[_0xc342aa(0x105)]=_0x1a589a[_0xc342aa(0x105)],_0x50871d[_0xc342aa(0x14f)]=_0x1a589a[_0xc342aa(0x105)],_0x50871d[_0xc342aa(0x15b)]=_0x4e8f66,yield this[_0xc342aa(0x131)][_0xc342aa(0x147)](_0x50871d);if(_0x1a589a!==undefined){const _0x554434={'status':0x1,'message':_0xc342aa(0x108),'data':_0x1a589a};return _0x162a18[_0xc342aa(0x14d)](0xc8)[_0xc342aa(0xea)](_0x554434);}else{const _0x48dbf3={'status':0x0,'message':_0xc342aa(0x11e)};return _0x162a18[_0xc342aa(0x14d)](0x190)[_0xc342aa(0xea)](_0x48dbf3);}});}[a275_0x3313cb(0xf4)](_0x20a886,_0x199f74,_0x27e3b9,_0x2daa65){const _0x572be9=a275_0x3313cb;return tslib_1[_0x572be9(0xe0)](this,void 0x0,void 0x0,function*(){const _0x46a44d=_0x572be9,_0x176d75=yield this[_0x46a44d(0x133)][_0x46a44d(0x136)]({'where':{'serviceCategoryId':_0x20a886}});if(!_0x176d75){const _0x12335a={'status':0x0,'message':_0x46a44d(0x14c)};return _0x27e3b9['status'](0x190)['send'](_0x12335a);}_0x176d75['name']=_0x199f74[_0x46a44d(0xe7)];const _0x15d35f=_0x199f74[_0x46a44d(0x13d)];if(_0x15d35f){const _0x411e4f=_0x15d35f[_0x46a44d(0x124)](';')[0x0]['split']('/')[0x1],_0x452c36=env_1[_0x46a44d(0x11f)][_0x46a44d(0x141)][_0x46a44d(0x124)](',');if(!_0x452c36[_0x46a44d(0xe5)](_0x411e4f)){const _0x109138={'status':0x0,'message':_0x46a44d(0x10f)+env_1[_0x46a44d(0x11f)]['availImageTypes']+_0x46a44d(0x157)};return _0x27e3b9[_0x46a44d(0x14d)](0x190)[_0x46a44d(0xea)](_0x109138);}const _0x3a5dfb=_0x46a44d(0xfc)+Date[_0x46a44d(0xfa)]()+'.'+_0x411e4f,_0x1e9d02=_0x46a44d(0x155),_0x4758fb=Buffer['from'](_0x15d35f[_0x46a44d(0x14e)](/^data:image\/\w+;base64,/,''),_0x46a44d(0x126)),_0x263b67=_0x15d35f[_0x46a44d(0x14e)](/^data:image\/\w+;base64,/,'')[_0x46a44d(0x11d)],_0x5874e6=0x4*Math[_0x46a44d(0x142)](_0x263b67/0x3)*0.5624896334383812,_0x22666d=_0x5874e6/0x400;if(+_0x22666d<=0x800)env_1[_0x46a44d(0x11f)]['imageserver']==='s3'?yield this[_0x46a44d(0x13e)][_0x46a44d(0x122)](_0x1e9d02+_0x3a5dfb,_0x4758fb,_0x411e4f):yield this['imageService'][_0x46a44d(0x122)](_0x1e9d02+_0x3a5dfb,_0x4758fb);else{const _0x34f5a6={'status':0x0,'message':'Not\x20able\x20to\x20upload\x20as\x20the\x20file\x20size\x20is\x20too\x20large.'};return _0x27e3b9[_0x46a44d(0x14d)](0x190)[_0x46a44d(0xea)](_0x34f5a6);}_0x176d75['image']=_0x3a5dfb,_0x176d75[_0x46a44d(0x125)]=_0x1e9d02;}_0x176d75['parentInt']=_0x199f74[_0x46a44d(0x132)]?_0x199f74['parentInt']:0x0,_0x176d75[_0x46a44d(0xf2)]=_0x199f74[_0x46a44d(0xf2)],_0x176d75['metaTagTitle']=_0x199f74['metaTagTitle'],_0x176d75[_0x46a44d(0xe2)]=_0x199f74[_0x46a44d(0xe2)],_0x176d75['metaTagKeyword']=_0x199f74[_0x46a44d(0xd7)],_0x176d75[_0x46a44d(0x146)]=_0x199f74[_0x46a44d(0x14d)];const _0x2bdd1d=yield this['serviceCategoryService'][_0x46a44d(0x147)](_0x176d75),_0x4730e3=yield this['serviceCategoryPathService'][_0x46a44d(0x102)]({'where':{'serviceCategoryId':_0x20a886}});for(const _0x260c63 of _0x4730e3){yield this[_0x46a44d(0x131)][_0x46a44d(0x135)](_0x260c63['categoryPathId']);}const _0x3ba87f=yield this[_0x46a44d(0x131)]['find']({'where':{'serviceCategoryId':_0x199f74[_0x46a44d(0x132)]},'order':{'level':'ASC'}});let _0x379a50=0x0;for(const _0x5b8273 of _0x3ba87f){const _0x4683ad=new ServiceCategoryPath_1[(_0x46a44d(0x128))]();_0x4683ad[_0x46a44d(0x105)]=_0x2bdd1d[_0x46a44d(0x105)],_0x4683ad[_0x46a44d(0x14f)]=_0x5b8273[_0x46a44d(0x14f)],_0x4683ad['level']=_0x379a50,this['serviceCategoryPathService']['create'](_0x4683ad),_0x379a50++;}const _0x44f6e9=new ServiceCategoryPath_1['ServiceCategoryPath']();_0x44f6e9[_0x46a44d(0x105)]=_0x2bdd1d['serviceCategoryId'],_0x44f6e9['pathId']=_0x2bdd1d[_0x46a44d(0x105)],_0x44f6e9['level']=_0x379a50,yield this[_0x46a44d(0x131)][_0x46a44d(0x147)](_0x44f6e9);if(_0x2bdd1d!==undefined){const _0x42bee2={'status':0x1,'message':_0x46a44d(0x13c),'data':_0x2bdd1d};return _0x27e3b9[_0x46a44d(0x14d)](0xc8)[_0x46a44d(0xea)](_0x42bee2);}else{const _0x3b6e45={'status':0x0,'message':_0x46a44d(0x134)};return _0x27e3b9[_0x46a44d(0x14d)](0x190)[_0x46a44d(0xea)](_0x3b6e45);}});}['serviceCategorylist'](_0x4e6e06,_0x1c40a8,_0x6dff2b,_0xfe58f8,_0x666a4f,_0x3c13dc,_0x511ca6){const _0x1ecf55=a275_0x3313cb;return tslib_1[_0x1ecf55(0xe0)](this,void 0x0,void 0x0,function*(){const _0x512783=_0x1ecf55,_0x47694=['ServiceCategoryPath.serviceCategoryId\x20as\x20serviceCategoryId',_0x512783(0x12a),_0x512783(0x116),_0x512783(0xdd),_0x512783(0x15c),_0x512783(0xff),_0x512783(0x11c),'category.metaTagDescription\x20as\x20metaTagDescription',_0x512783(0xdb),'category.isActive\x20as\x20isActive',_0x512783(0x140),'GROUP_CONCAT'+'('+_0x512783(0x12c)+'\x20'+_0x512783(0xf3)+'\x20'+_0x512783(0x103)+'\x20'+_0x512783(0x10e)+_0x512783(0x12b)+'>'+'\x20\x27\x20'+')'+'\x20'+'as'+'\x20'+_0x512783(0xfd)],_0x5bd8e7=[{'tableName':_0x512783(0xd9),'aliasName':'category'},{'tableName':_0x512783(0xe4),'aliasName':_0x512783(0x104)}],_0xb1572d=[{'name':_0x512783(0xe6)}],_0xff6542=[];(+_0xfe58f8||_0xfe58f8!=='')&&_0xff6542[_0x512783(0x114)]({'name':'category.isActive','op':'or','value':+_0xfe58f8});const _0x5c7806=[];_0x6dff2b&&_0x6dff2b!==''&&_0x5c7806[_0x512783(0x114)]({'name':[_0x512783(0x100)],'value':_0x6dff2b});const _0x595780=[];_0x666a4f?_0x595780[_0x512783(0x114)]({'name':_0x512783(0x15a),'order':_0x666a4f===0x2?'DESC':'ASC'}):_0x595780['push']({'name':_0x512783(0x110),'order':_0x512783(0x12e)});if(_0x3c13dc){const _0x3337f0=yield this['serviceCategoryPathService'][_0x512783(0x137)](_0x4e6e06,_0x1c40a8,_0x47694,_0xff6542,_0x5c7806,_0x5bd8e7,_0xb1572d,_0x595780,!![],!![]),_0x19bb8c={'status':0x1,'message':_0x512783(0x13f),'data':_0x3337f0};return _0x511ca6[_0x512783(0x14d)](0xc8)[_0x512783(0xea)](_0x19bb8c);}const _0x511f45=yield this[_0x512783(0x131)][_0x512783(0x137)](_0x4e6e06,_0x1c40a8,_0x47694,_0xff6542,_0x5c7806,_0x5bd8e7,_0xb1572d,_0x595780,![],!![]),_0x14d5a4={'status':0x1,'message':'Successfully\x20got\x20the\x20service\x20category\x20list.','data':_0x511f45};return _0x511ca6['status'](0xc8)[_0x512783(0xea)](_0x14d5a4);});}[a275_0x3313cb(0xd5)](_0xf0fb16,_0x3bb961,_0xa19d33){const _0x259b36=a275_0x3313cb;return tslib_1[_0x259b36(0xe0)](this,void 0x0,void 0x0,function*(){const _0x3dd3ec=_0x259b36,_0xa6e6a5=yield this['serviceCategoryService'][_0x3dd3ec(0x136)]({'where':{'serviceCategoryId':_0xf0fb16}});if(!_0xa6e6a5){const _0x5af74b={'status':0x0,'message':'Invalid\x20category\x20Id.'};return _0x3bb961['status'](0x190)[_0x3dd3ec(0xea)](_0x5af74b);}const _0x282882=yield this[_0x3dd3ec(0x133)][_0x3dd3ec(0x136)]({'where':{'parentInt':_0xf0fb16}});if(_0x282882){const _0x4ef3a2={'status':0x0,'message':'You\x20cannot\x20delete\x20this\x20parent\x20category\x20as\x20sub-categories\x20are\x20mapped\x20to\x20it.'};return _0x3bb961['status'](0x190)[_0x3dd3ec(0xea)](_0x4ef3a2);}const _0x3d80a0=yield this[_0x3dd3ec(0x149)][_0x3dd3ec(0x136)]({'where':{'serviceCategoryId':_0xf0fb16}});if(_0x3d80a0){const _0x515c96={'status':0x0,'message':_0x3dd3ec(0xec)};return _0x3bb961[_0x3dd3ec(0x14d)](0x190)[_0x3dd3ec(0xea)](_0x515c96);}const _0x385a1d=yield this[_0x3dd3ec(0x131)]['find']({'where':{'serviceCategoryId':_0xf0fb16}});for(const _0x2f4201 of _0x385a1d){yield this[_0x3dd3ec(0x131)]['delete'](_0x2f4201[_0x3dd3ec(0x11b)]);}const _0x2f550a=yield this[_0x3dd3ec(0x133)][_0x3dd3ec(0x135)](_0xa6e6a5);if(!_0x2f550a){const _0x424760={'status':0x1,'message':'Successfully\x20deleted\x20the\x20category.'};return _0x3bb961[_0x3dd3ec(0x14d)](0xc8)[_0x3dd3ec(0xea)](_0x424760);}else{const _0x566fff={'status':0x0,'message':_0x3dd3ec(0xd3)};return _0x3bb961[_0x3dd3ec(0x14d)](0x190)[_0x3dd3ec(0xea)](_0x566fff);}});}[a275_0x3313cb(0xf9)](_0x42f2da,_0x1e4b7a){const _0x563bc8=a275_0x3313cb;return tslib_1[_0x563bc8(0xe0)](this,void 0x0,void 0x0,function*(){const _0x524da4=_0x563bc8,_0x1738f1=yield this[_0x524da4(0x133)][_0x524da4(0x136)]({'where':{'serviceCategoryId':_0x42f2da}});if(!_0x1738f1){const _0x1d6615={'status':0x0,'message':_0x524da4(0x113)};return _0x1e4b7a[_0x524da4(0x14d)](0x190)['send'](_0x1d6615);}const _0x5d8f1a={'status':0x1,'message':_0x524da4(0x129),'data':_0x1738f1};return _0x1e4b7a[_0x524da4(0x14d)](0xc8)[_0x524da4(0xea)](_0x5d8f1a);});}[a275_0x3313cb(0x111)](_0x273306,_0xe5ce02,_0x2db21c){const _0x1a8120=a275_0x3313cb;return tslib_1[_0x1a8120(0xe0)](this,void 0x0,void 0x0,function*(){const _0x250e9d=_0x1a8120,_0x48de50=[],_0x5a9e8a=[{'name':_0x250e9d(0xe7),'op':_0x250e9d(0x15d),'value':_0x273306}];_0xe5ce02&&_0x5a9e8a[_0x250e9d(0x114)]({'name':_0x250e9d(0x146),'op':_0x250e9d(0x15d),'value':_0xe5ce02});const _0x1a0e10=[],_0x4a117f=yield this['serviceCategoryService'][_0x250e9d(0x139)](0x0,0x0,_0x48de50,_0x5a9e8a,_0x1a0e10,0x0,0x1),_0x4cc0df={'status':0x1,'message':_0x250e9d(0xf0),'data':_0x4a117f};return _0x2db21c[_0x250e9d(0x14d)](0xc8)[_0x250e9d(0xea)](_0x4cc0df);});}};tslib_1[a275_0x3313cb(0x159)]([(0x0,routing_controllers_1[a275_0x3313cb(0x14b)])(a275_0x3313cb(0x13a)),(0x0,routing_controllers_1[a275_0x3313cb(0x144)])([a275_0x3313cb(0xe1),'create-service-category']),tslib_1[a275_0x3313cb(0x153)](0x0,(0x0,routing_controllers_1[a275_0x3313cb(0xf1)])({'validate':!![]})),tslib_1[a275_0x3313cb(0x153)](0x1,(0x0,routing_controllers_1[a275_0x3313cb(0x127)])()),tslib_1['__metadata'](a275_0x3313cb(0x107),Function),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x10a),[CreateServiceCategoryRequest_1[a275_0x3313cb(0xf5)],Object]),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x150),Promise)],ServiceCategoryController[a275_0x3313cb(0x154)],a275_0x3313cb(0x123),null),tslib_1[a275_0x3313cb(0x159)]([(0x0,routing_controllers_1[a275_0x3313cb(0x156)])(a275_0x3313cb(0x119)),(0x0,routing_controllers_1[a275_0x3313cb(0x144)])([a275_0x3313cb(0xe1),'edit-service-category']),tslib_1[a275_0x3313cb(0x153)](0x0,(0x0,routing_controllers_1[a275_0x3313cb(0xee)])('id')),tslib_1[a275_0x3313cb(0x153)](0x1,(0x0,routing_controllers_1[a275_0x3313cb(0xf1)])({'validate':!![]})),tslib_1[a275_0x3313cb(0x153)](0x2,(0x0,routing_controllers_1[a275_0x3313cb(0x127)])()),tslib_1['__param'](0x3,(0x0,routing_controllers_1[a275_0x3313cb(0x10b)])()),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x107),Function),tslib_1[a275_0x3313cb(0x101)]('design:paramtypes',[Number,CreateServiceCategoryRequest_1[a275_0x3313cb(0xf5)],Object,Object]),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x150),Promise)],ServiceCategoryController[a275_0x3313cb(0x154)],'updateServiceCategory',null),tslib_1[a275_0x3313cb(0x159)]([(0x0,routing_controllers_1[a275_0x3313cb(0xd6)])(a275_0x3313cb(0x151)),(0x0,routing_controllers_1['Authorized'])([a275_0x3313cb(0xe1),a275_0x3313cb(0xf8)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a275_0x3313cb(0x112)])('limit')),tslib_1[a275_0x3313cb(0x153)](0x1,(0x0,routing_controllers_1[a275_0x3313cb(0x112)])('offset')),tslib_1[a275_0x3313cb(0x153)](0x2,(0x0,routing_controllers_1[a275_0x3313cb(0x112)])(a275_0x3313cb(0x115))),tslib_1[a275_0x3313cb(0x153)](0x3,(0x0,routing_controllers_1[a275_0x3313cb(0x112)])(a275_0x3313cb(0x14d))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a275_0x3313cb(0x112)])(a275_0x3313cb(0xf2))),tslib_1[a275_0x3313cb(0x153)](0x5,(0x0,routing_controllers_1[a275_0x3313cb(0x112)])(a275_0x3313cb(0xef))),tslib_1[a275_0x3313cb(0x153)](0x6,(0x0,routing_controllers_1[a275_0x3313cb(0x127)])()),tslib_1[a275_0x3313cb(0x101)]('design:type',Function),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x10a),[Number,Number,String,String,Number,Object,Object]),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x150),Promise)],ServiceCategoryController['prototype'],a275_0x3313cb(0xf7),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a275_0x3313cb(0x11a)])('/delete-service-category/:id'),(0x0,routing_controllers_1[a275_0x3313cb(0x144)])([a275_0x3313cb(0xe1),a275_0x3313cb(0xdf)]),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a275_0x3313cb(0xee)])('id')),tslib_1[a275_0x3313cb(0x153)](0x1,(0x0,routing_controllers_1[a275_0x3313cb(0x127)])()),tslib_1[a275_0x3313cb(0x153)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x107),Function),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x10a),[Number,Object,Object]),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x150),Promise)],ServiceCategoryController[a275_0x3313cb(0x154)],a275_0x3313cb(0xd5),null),tslib_1[a275_0x3313cb(0x159)]([(0x0,routing_controllers_1[a275_0x3313cb(0xd6)])('/service-category-detail'),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a275_0x3313cb(0x153)](0x0,(0x0,routing_controllers_1[a275_0x3313cb(0x112)])(a275_0x3313cb(0x105))),tslib_1[a275_0x3313cb(0x153)](0x1,(0x0,routing_controllers_1[a275_0x3313cb(0x127)])()),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x107),Function),tslib_1['__metadata'](a275_0x3313cb(0x10a),[Number,Object]),tslib_1[a275_0x3313cb(0x101)]('design:returntype',Promise)],ServiceCategoryController[a275_0x3313cb(0x154)],a275_0x3313cb(0xf9),null),tslib_1[a275_0x3313cb(0x159)]([(0x0,routing_controllers_1[a275_0x3313cb(0xd6)])('/service-category-count'),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a275_0x3313cb(0x153)](0x0,(0x0,routing_controllers_1[a275_0x3313cb(0x112)])(a275_0x3313cb(0x115))),tslib_1[a275_0x3313cb(0x153)](0x1,(0x0,routing_controllers_1['QueryParam'])(a275_0x3313cb(0x14d))),tslib_1[a275_0x3313cb(0x153)](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x107),Function),tslib_1['__metadata'](a275_0x3313cb(0x10a),[String,String,Object]),tslib_1[a275_0x3313cb(0x101)](a275_0x3313cb(0x150),Promise)],ServiceCategoryController[a275_0x3313cb(0x154)],a275_0x3313cb(0x111),null),ServiceCategoryController=tslib_1[a275_0x3313cb(0x159)]([(0x0,routing_controllers_1[a275_0x3313cb(0x13b)])('/service-category'),tslib_1['__metadata'](a275_0x3313cb(0x10a),[ServiceCategoryService_1['ServiceCategoryService'],ServiceCategoryPathService_1['ServiceCategoryPathService'],S3Service_1[a275_0x3313cb(0x148)],ServiceToCategoryService_1[a275_0x3313cb(0xdc)],ImageService_1[a275_0x3313cb(0x121)]])],ServiceCategoryController),exports['ServiceCategoryController']=ServiceCategoryController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ServiceCategoryController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const ServiceCategoryService_1 = require("../../core/services/ServiceCategoryService");
+const CreateServiceCategoryRequest_1 = require("./requests/CreateServiceCategoryRequest");
+const ServiceCategory_1 = require("../../core/models/ServiceCategory");
+const ServiceCategoryPath_1 = require("../../core/models/ServiceCategoryPath");
+const ServiceCategoryPathService_1 = require("../../core/services/ServiceCategoryPathService");
+const S3Service_1 = require("../../core/services/S3Service");
+const env_1 = require("../../../env");
+const ImageService_1 = require("../../core/services/ImageService");
+const ServiceToCategoryService_1 = require("../../core/services/ServiceToCategoryService");
+let ServiceCategoryController = class ServiceCategoryController {
+    constructor(serviceCategoryService, serviceCategoryPathService, s3Service, serviceToCategoryService, imageService) {
+        this.serviceCategoryService = serviceCategoryService;
+        this.serviceCategoryPathService = serviceCategoryPathService;
+        this.s3Service = s3Service;
+        this.serviceToCategoryService = serviceToCategoryService;
+        this.imageService = imageService;
+    }
+    // create service Category API
+    /**
+     * @api {post} /api/service-category/add-service-category Add Service Category API
+     * @apiGroup Service Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..255}} name Service Category name
+     * @apiParam (Request body) {String} image Service Category image
+     * @apiParam (Request body) {Number} parentInt Service Category  parentInt
+     * @apiParam (Request body) {Number{..9999}} sortOrder Service Category sortOrder
+     * @apiParam (Request body) {String{..70}} [metaTagTitle] Service Category metaTagTitle
+     * @apiParam (Request body) {String{..160}} [metaTagDescription] Service Category metaTagDescription
+     * @apiParam (Request body) {String{..255}} [metaTagKeyword] Service Category metaTagKeyword
+     * @apiParam (Request body) {Number} status Service Category status 1-> Active 0-> inactive
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "image" : "",
+     *      "parentInt" : "",
+     *      "sortOrder" : "",
+     *      "metaTagTitle" : "",
+     *      "metaTagDescription" : "",
+     *      "metaTagKeyword" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully created new Service Category.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service-category/add-service-category
+     * @apiErrorExample {json} Service Category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createServiceCategory(category, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newCategory = new ServiceCategory_1.ServiceCategory();
+            newCategory.name = category.name;
+            const image = category.image;
+            if (image) {
+                const type = image.split(';')[0].split('/')[1];
+                const availableTypes = env_1.env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse = {
+                        status: 0,
+                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                const name = 'Img_' + Date.now() + '.' + type;
+                const path = 'category/';
+                const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
+                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                const sizeInKb = sizeInBytes / 1024;
+                if (+sizeInKb <= 2048) {
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((path + name), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((path + name), base64Data);
+                    }
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Not able to upload as the file size is too large.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                newCategory.image = name;
+                newCategory.imagePath = path;
+            }
+            newCategory.parentInt = category.parentInt ? category.parentInt : 0;
+            newCategory.sortOrder = category.sortOrder;
+            newCategory.metaTagTitle = category.metaTagTitle;
+            newCategory.metaTagDescription = category.metaTagDescription;
+            newCategory.metaTagKeyword = category.metaTagKeyword;
+            newCategory.isActive = category.status;
+            const categorySave = yield this.serviceCategoryService.create(newCategory);
+            const getAllPath = yield this.serviceCategoryPathService.find({
+                where: { serviceCategoryId: category.parentInt },
+                order: { level: 'ASC' },
+            });
+            let level = 0;
+            for (const path of getAllPath) {
+                const CategoryPathLoop = new ServiceCategoryPath_1.ServiceCategoryPath();
+                CategoryPathLoop.serviceCategoryId = categorySave.serviceCategoryId;
+                CategoryPathLoop.pathId = path.pathId;
+                CategoryPathLoop.level = level;
+                yield this.serviceCategoryPathService.create(CategoryPathLoop);
+                level++;
+            }
+            const newCategoryPath = new ServiceCategoryPath_1.ServiceCategoryPath();
+            newCategoryPath.serviceCategoryId = categorySave.serviceCategoryId;
+            newCategoryPath.pathId = categorySave.serviceCategoryId;
+            newCategoryPath.level = level;
+            yield this.serviceCategoryPathService.create(newCategoryPath);
+            if (categorySave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully created a new category.',
+                    data: categorySave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to create the category. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update service Category API
+    /**
+     * @api {put} /api/service-category/update-service-category/:id Update Service Category API
+     * @apiGroup Service Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..255}} name ServiceCategory name
+     * @apiParam (Request body) {String} [image] ServiceCategory image
+     * @apiParam (Request body) {Number} parentInt ServiceCategory  parentInt
+     * @apiParam (Request body) {Number{..9999}} sortOrder ServiceCategory sortOrder
+     * @apiParam (Request body) {String{..70}} [metaTagTitle] ServiceCategory metaTagTitle
+     * @apiParam (Request body) {String{..160}} [metaTagDescription] ServiceCategory metaTagDescription
+     * @apiParam (Request body) {String{..255}} [metaTagKeyword] ServiceCategory metaTagKeyword
+     * @apiParam (Request body) {Number} status ServiceCategory status 1-> Active 0-> inactive
+     * @apiParamExample {json} Input
+     * {
+     *      "name" : "",
+     *      "image" : "",
+     *      "imagePath" : "",
+     *      "parentInt" : "",
+     *      "sortOrder" : "",
+     *      "metaTagTitle" : "",
+     *      "metaTagDescription" : "",
+     *      "metaTagKeyword" : "",
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated Service Category.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service-category/update-service-category/:id
+     * @apiErrorExample {json} Service Category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateServiceCategory(id, updateCategory, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const serviceCategoryId = yield this.serviceCategoryService.findOne({ where: { serviceCategoryId: id } });
+            if (!serviceCategoryId) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid category Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            serviceCategoryId.name = updateCategory.name;
+            const images = updateCategory.image;
+            if (images) {
+                const type = images.split(';')[0].split('/')[1];
+                const availableTypes = env_1.env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse = {
+                        status: 0,
+                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                const name = 'Img_' + Date.now() + '.' + type;
+                const path = 'category/';
+                const base64Data = Buffer.from(images.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const stringLength = images.replace(/^data:image\/\w+;base64,/, '').length;
+                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                const sizeInKb = sizeInBytes / 1024;
+                if (+sizeInKb <= 2048) {
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((path + name), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((path + name), base64Data);
+                    }
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Not able to upload as the file size is too large.',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                serviceCategoryId.image = name;
+                serviceCategoryId.imagePath = path;
+            }
+            serviceCategoryId.parentInt = updateCategory.parentInt ? updateCategory.parentInt : 0;
+            serviceCategoryId.sortOrder = updateCategory.sortOrder;
+            serviceCategoryId.metaTagTitle = updateCategory.metaTagTitle;
+            serviceCategoryId.metaTagDescription = updateCategory.metaTagDescription;
+            serviceCategoryId.metaTagKeyword = updateCategory.metaTagKeyword;
+            serviceCategoryId.isActive = updateCategory.status;
+            const categorySave = yield this.serviceCategoryService.create(serviceCategoryId);
+            const deleteCategory = yield this.serviceCategoryPathService.find({ where: { serviceCategoryId: id } });
+            for (const val of deleteCategory) {
+                yield this.serviceCategoryPathService.delete(val.categoryPathId);
+            }
+            const getAllPath = yield this.serviceCategoryPathService.find({
+                where: { serviceCategoryId: updateCategory.parentInt },
+                order: { level: 'ASC' },
+            });
+            let level = 0;
+            for (const path of getAllPath) {
+                const CategoryPathLoop = new ServiceCategoryPath_1.ServiceCategoryPath();
+                CategoryPathLoop.serviceCategoryId = categorySave.serviceCategoryId;
+                CategoryPathLoop.pathId = path.pathId;
+                CategoryPathLoop.level = level;
+                this.serviceCategoryPathService.create(CategoryPathLoop);
+                level++;
+            }
+            const newCategoryPath = new ServiceCategoryPath_1.ServiceCategoryPath();
+            newCategoryPath.serviceCategoryId = categorySave.serviceCategoryId;
+            newCategoryPath.pathId = categorySave.serviceCategoryId;
+            newCategoryPath.level = level;
+            yield this.serviceCategoryPathService.create(newCategoryPath);
+            if (categorySave !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully updated the category.',
+                    data: categorySave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to update the category. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Service Category List API
+    /**
+     * @api {get} /api/service-category/service-category-list Service Category List API
+     * @apiGroup Service Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} status Status
+     * @apiParam (Request body) {Number} sortOrder Sort order ( 1->ASC,  2->DESC )
+     * @apiParam (Request body) {String} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "successfully got the complete category list.",
+     *      "data":"{ }"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service-category/service-category-list
+     * @apiErrorExample {json} Service Category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    serviceCategorylist(limit, offset, keyword, status, sortOrder, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'ServiceCategoryPath.serviceCategoryId as serviceCategoryId',
+                'category.sortOrder as sortOrder',
+                'category.parentInt as parentInt',
+                'category.name as name',
+                'category.image as image',
+                'category.imagePath as imagePath',
+                'category.metaTagTitle as metaTagTitle',
+                'category.metaTagDescription as metaTagDescription',
+                'category.metaTagKeyword as metaTagKeyword',
+                'category.isActive as isActive',
+                'category.createdDate as createdDate',
+                'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'ServiceCategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',
+            ];
+            const relations = [
+                {
+                    tableName: 'ServiceCategoryPath.category',
+                    aliasName: 'category',
+                },
+                {
+                    tableName: 'ServiceCategoryPath.path',
+                    aliasName: 'path',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'ServiceCategoryPath.service_category_id',
+                },
+            ];
+            const whereConditions = [];
+            if (+status || status !== '') {
+                whereConditions.push({
+                    name: 'category.isActive',
+                    op: 'or',
+                    value: +status,
+                });
+            }
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['`category`.`name`'],
+                    value: keyword,
+                });
+            }
+            const sort = [];
+            if (sortOrder) {
+                sort.push({
+                    name: 'category.sortOrder',
+                    order: sortOrder === 2 ? 'DESC' : 'ASC',
+                });
+            }
+            else {
+                sort.push({
+                    name: 'category.createdDate',
+                    order: 'DESC',
+                });
+            }
+            if (count) {
+                const counts = yield this.serviceCategoryPathService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                const sucResponse = {
+                    status: 1,
+                    message: 'Successfully got the service category list.',
+                    data: counts,
+                };
+                return response.status(200).send(sucResponse);
+            }
+            const vendorCategoryList = yield this.serviceCategoryPathService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the service category list.',
+                data: vendorCategoryList,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // delete service Category API
+    /**
+     * @api {delete} /api/service-category/delete-service-category/:id Delete Service Category API
+     * @apiGroup Service Category
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "Id" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Service Category.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service-category/delete-service-category/:id
+     * @apiErrorExample {json} service category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteCategory(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const serviceCategoryId = yield this.serviceCategoryService.findOne({ where: { serviceCategoryId: id } });
+            if (!serviceCategoryId) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid category Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const parentCategoryId = yield this.serviceCategoryService.findOne({ where: { parentInt: id } });
+            if (parentCategoryId) {
+                const errorresponse = {
+                    status: 0,
+                    message: 'You cannot delete this parent category as sub-categories are mapped to it.',
+                };
+                return response.status(400).send(errorresponse);
+            }
+            const serviceToCategory = yield this.serviceToCategoryService.findOne({
+                where: {
+                    serviceCategoryId: id,
+                },
+            });
+            if (serviceToCategory) {
+                const errorresponse = {
+                    status: 0,
+                    message: 'You cannot delete this service category as it is already mapped to a service.',
+                };
+                return response.status(400).send(errorresponse);
+            }
+            const categoryPath = yield this.serviceCategoryPathService.find({ where: { serviceCategoryId: id } });
+            for (const path of categoryPath) {
+                yield this.serviceCategoryPathService.delete(path.categoryPathId);
+            }
+            const deleteCategory = yield this.serviceCategoryService.delete(serviceCategoryId);
+            if (!deleteCategory) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the category.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to delete the category. ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // service category Detail
+    /**
+     * @api {get} /api/service-category/service-category-detail Service Category Detail API
+     * @apiGroup Service Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} serviceCategoryId serviceCategoryId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got Service Category detail",
+     *      "data": "{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service-category/service-category-detail
+     * @apiErrorExample {json} service category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    serviceCategoryDetail(serviceCategoryId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const category = yield this.serviceCategoryService.findOne({
+                where: {
+                    serviceCategoryId,
+                },
+            });
+            if (!category) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Category Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got service category detail',
+                data: category,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Service Category Count API
+    /**
+     * @api {get} /api/service-category/service-category-count Service Category Count API
+     * @apiGroup Service Category
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} status status
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the service category count.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/service-category/service-category-count
+     * @apiErrorExample {json} Service error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    serviceCategoryCount(keyword, status, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [];
+            const search = [{
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                }];
+            if (status) {
+                search.push({
+                    name: 'isActive',
+                    op: 'like',
+                    value: status,
+                });
+            }
+            const WhereConditions = [];
+            const serviceCategoryCount = yield this.serviceCategoryService.list(0, 0, select, search, WhereConditions, 0, 1);
+            const successResponse = {
+                status: 1,
+                message: 'successfully got the service category count.',
+                data: serviceCategoryCount,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/add-service-category'),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-service-category']),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateServiceCategoryRequest_1.CreateServiceCategory, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceCategoryController.prototype, "createServiceCategory", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-service-category/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'edit-service-category']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, CreateServiceCategoryRequest_1.CreateServiceCategory, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceCategoryController.prototype, "updateServiceCategory", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/service-category-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-service-category']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceCategoryController.prototype, "serviceCategorylist", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-service-category/:id'),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-service-category']),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceCategoryController.prototype, "deleteCategory", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/service-category-detail'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('serviceCategoryId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceCategoryController.prototype, "serviceCategoryDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/service-category-count'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ServiceCategoryController.prototype, "serviceCategoryCount", null);
+ServiceCategoryController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/service-category'),
+    tslib_1.__metadata("design:paramtypes", [ServiceCategoryService_1.ServiceCategoryService,
+        ServiceCategoryPathService_1.ServiceCategoryPathService,
+        S3Service_1.S3Service,
+        ServiceToCategoryService_1.ServiceToCategoryService,
+        ImageService_1.ImageService])
+], ServiceCategoryController);
+exports.ServiceCategoryController = ServiceCategoryController;
+//# sourceMappingURL=ServiceCategoryController.js.map

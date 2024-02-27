@@ -1,1 +1,66 @@
-'use strict';const a59_0x370a4f=a59_0x240e;(function(_0xbfe103,_0x192783){const _0x4c199d=a59_0x240e,_0x32d5f3=_0xbfe103();while(!![]){try{const _0x497f3e=-parseInt(_0x4c199d(0x1ce))/0x1+-parseInt(_0x4c199d(0x1dc))/0x2*(-parseInt(_0x4c199d(0x1db))/0x3)+-parseInt(_0x4c199d(0x1d6))/0x4+-parseInt(_0x4c199d(0x1d9))/0x5*(parseInt(_0x4c199d(0x1c7))/0x6)+-parseInt(_0x4c199d(0x1c1))/0x7+parseInt(_0x4c199d(0x1dd))/0x8+-parseInt(_0x4c199d(0x1cf))/0x9*(-parseInt(_0x4c199d(0x1d7))/0xa);if(_0x497f3e===_0x192783)break;else _0x32d5f3['push'](_0x32d5f3['shift']());}catch(_0x564b36){_0x32d5f3['push'](_0x32d5f3['shift']());}}}(a59_0x4a38,0xdcb26));Object[a59_0x370a4f(0x1c2)](exports,'__esModule',{'value':!![]}),exports[a59_0x370a4f(0x1c4)]=void 0x0;function a59_0x240e(_0x4e0678,_0x4204de){const _0x4a3815=a59_0x4a38();return a59_0x240e=function(_0x240e86,_0x19883e){_0x240e86=_0x240e86-0x1bb;let _0xf168a9=_0x4a3815[_0x240e86];return _0xf168a9;},a59_0x240e(_0x4e0678,_0x4204de);}const tslib_1=require('tslib'),typeorm_1=require(a59_0x370a4f(0x1cd)),index_1=require('typeorm/index'),BaseModel_1=require(a59_0x370a4f(0x1d8)),moment=require(a59_0x370a4f(0x1df));function a59_0x4a38(){const _0x22ece5=['defineProperty','BaseModel','StripeOrder','Column','status','9903162mSDLRk','design:type','total','__decorate','Entity','design:paramtypes','typeorm','1468798vfvdXM','42941259dAFbBP','PrimaryGeneratedColumn','prototype','stripe_ref_id','__awaiter','BeforeInsert','orderId','6028512eRPTzZ','10IelAeg','../../../../src/api/core/models/BaseModel','5YjkMzK','format','152574jLzinl','6xKHaxQ','6075080Moheaq','createDetails','moment','design:returntype','__metadata','YYYY-MM-DD\x20HH:mm:ss','stripeRefId','updateDetails','BeforeUpdate','1069481VYjBDw'];a59_0x4a38=function(){return _0x22ece5;};return a59_0x4a38();}let StripeOrder=class StripeOrder extends BaseModel_1[a59_0x370a4f(0x1c3)]{[a59_0x370a4f(0x1de)](){const _0xa0c184=a59_0x370a4f;return tslib_1[_0xa0c184(0x1d3)](this,void 0x0,void 0x0,function*(){const _0x100e21=_0xa0c184;this['createdDate']=moment()['format'](_0x100e21(0x1bd));});}[a59_0x370a4f(0x1bf)](){const _0x53a432=a59_0x370a4f;return tslib_1[_0x53a432(0x1d3)](this,void 0x0,void 0x0,function*(){const _0x5daca9=_0x53a432;this['modifiedDate']=moment()[_0x5daca9(0x1da)](_0x5daca9(0x1bd));});}};tslib_1[a59_0x370a4f(0x1ca)]([(0x0,index_1[a59_0x370a4f(0x1d0)])({'name':'id'}),tslib_1[a59_0x370a4f(0x1bc)](a59_0x370a4f(0x1c8),Number)],StripeOrder['prototype'],'id',void 0x0),tslib_1[a59_0x370a4f(0x1ca)]([(0x0,typeorm_1[a59_0x370a4f(0x1c5)])({'name':'order_id'}),tslib_1[a59_0x370a4f(0x1bc)]('design:type',Number)],StripeOrder[a59_0x370a4f(0x1d1)],a59_0x370a4f(0x1d5),void 0x0),tslib_1[a59_0x370a4f(0x1ca)]([(0x0,typeorm_1[a59_0x370a4f(0x1c5)])({'name':a59_0x370a4f(0x1d2)}),tslib_1[a59_0x370a4f(0x1bc)](a59_0x370a4f(0x1c8),String)],StripeOrder[a59_0x370a4f(0x1d1)],a59_0x370a4f(0x1be),void 0x0),tslib_1[a59_0x370a4f(0x1ca)]([(0x0,typeorm_1['Column'])({'name':'total'}),tslib_1['__metadata'](a59_0x370a4f(0x1c8),String)],StripeOrder[a59_0x370a4f(0x1d1)],a59_0x370a4f(0x1c9),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1['Column'])({'name':'status'}),tslib_1[a59_0x370a4f(0x1bc)](a59_0x370a4f(0x1c8),Number)],StripeOrder['prototype'],a59_0x370a4f(0x1c6),void 0x0),tslib_1[a59_0x370a4f(0x1ca)]([(0x0,typeorm_1[a59_0x370a4f(0x1d4)])(),tslib_1[a59_0x370a4f(0x1bc)](a59_0x370a4f(0x1c8),Function),tslib_1['__metadata'](a59_0x370a4f(0x1cc),[]),tslib_1[a59_0x370a4f(0x1bc)](a59_0x370a4f(0x1bb),Promise)],StripeOrder[a59_0x370a4f(0x1d1)],a59_0x370a4f(0x1de),null),tslib_1[a59_0x370a4f(0x1ca)]([(0x0,typeorm_1[a59_0x370a4f(0x1c0)])(),tslib_1['__metadata']('design:type',Function),tslib_1['__metadata'](a59_0x370a4f(0x1cc),[]),tslib_1[a59_0x370a4f(0x1bc)](a59_0x370a4f(0x1bb),Promise)],StripeOrder['prototype'],a59_0x370a4f(0x1bf),null),StripeOrder=tslib_1[a59_0x370a4f(0x1ca)]([(0x0,typeorm_1[a59_0x370a4f(0x1cb)])('stripe_order')],StripeOrder),exports[a59_0x370a4f(0x1c4)]=StripeOrder;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * http://api.spurtcommerce.com
+ *
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StripeOrder = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const index_1 = require("typeorm/index");
+const BaseModel_1 = require("../../../../src/api/core/models/BaseModel");
+const moment = require("moment");
+let StripeOrder = class StripeOrder extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, index_1.PrimaryGeneratedColumn)({ name: 'id' }),
+    tslib_1.__metadata("design:type", Number)
+], StripeOrder.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'order_id' }),
+    tslib_1.__metadata("design:type", Number)
+], StripeOrder.prototype, "orderId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'stripe_ref_id' }),
+    tslib_1.__metadata("design:type", String)
+], StripeOrder.prototype, "stripeRefId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'total' }),
+    tslib_1.__metadata("design:type", String)
+], StripeOrder.prototype, "total", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'status' }),
+    tslib_1.__metadata("design:type", Number)
+], StripeOrder.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], StripeOrder.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], StripeOrder.prototype, "updateDetails", null);
+StripeOrder = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('stripe_order')
+], StripeOrder);
+exports.StripeOrder = StripeOrder;
+//# sourceMappingURL=StripeOrder.js.map

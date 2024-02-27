@@ -1,1 +1,36 @@
-'use strict';const a795_0x1181a9=a795_0xc388;(function(_0x25f297,_0x50d56d){const _0x15850b=a795_0xc388,_0x18d6fd=_0x25f297();while(!![]){try{const _0x111dda=-parseInt(_0x15850b(0x18a))/0x1*(-parseInt(_0x15850b(0x194))/0x2)+-parseInt(_0x15850b(0x189))/0x3+parseInt(_0x15850b(0x18e))/0x4+parseInt(_0x15850b(0x19c))/0x5+parseInt(_0x15850b(0x188))/0x6+parseInt(_0x15850b(0x19f))/0x7+-parseInt(_0x15850b(0x199))/0x8*(parseInt(_0x15850b(0x1a1))/0x9);if(_0x111dda===_0x50d56d)break;else _0x18d6fd['push'](_0x18d6fd['shift']());}catch(_0x41778d){_0x18d6fd['push'](_0x18d6fd['shift']());}}}(a795_0x42e7,0x1f725));function a795_0x42e7(){const _0x23ce10=['fk_tbl_service_enquiry_tbl_service','service_id','712626xbQBBA','635805tfheto','2HiXSsL','indexOf','foreignKeys','createForeignKey','23948KhPwVX','defineProperty','CASCADE','dropForeignKey','down','AddRelationEnquiryToServiceTable1560937885319','152914fAwANS','service','TableForeignKey','typeorm','serviceToEnquiryForeignKeys','493040HiiEmj','service_enquiry','columnNames','842185nLeyOJ','getTable','__awaiter','125237wVSNxr','find','18lXgAan'];a795_0x42e7=function(){return _0x23ce10;};return a795_0x42e7();}Object[a795_0x1181a9(0x18f)](exports,'__esModule',{'value':!![]}),exports[a795_0x1181a9(0x193)]=void 0x0;function a795_0xc388(_0x40145e,_0x290b52){const _0x42e743=a795_0x42e7();return a795_0xc388=function(_0xc388db,_0x1a368f){_0xc388db=_0xc388db-0x186;let _0x548226=_0x42e743[_0xc388db];return _0x548226;},a795_0xc388(_0x40145e,_0x290b52);}const tslib_1=require('tslib'),typeorm_1=require(a795_0x1181a9(0x197));class AddRelationEnquiryToServiceTable1560937885319{constructor(){const _0x505970=a795_0x1181a9;this[_0x505970(0x198)]=new typeorm_1[(_0x505970(0x196))]({'name':_0x505970(0x186),'columnNames':[_0x505970(0x187)],'referencedColumnNames':[_0x505970(0x187)],'referencedTableName':_0x505970(0x195),'onDelete':_0x505970(0x190)});}['up'](_0x8fc66c){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x36add0=a795_0xc388,_0x226ed3=yield _0x8fc66c[_0x36add0(0x19d)]('service_enquiry'),_0x4ce455=_0x226ed3[_0x36add0(0x18c)]['find'](_0x3fc568=>_0x3fc568[_0x36add0(0x19b)][_0x36add0(0x18b)]('service_id')!==-0x1);!_0x4ce455&&(yield _0x8fc66c[_0x36add0(0x18d)](_0x226ed3,this[_0x36add0(0x198)]));});}[a795_0x1181a9(0x192)](_0x3b28d5){const _0x448338=a795_0x1181a9;return tslib_1[_0x448338(0x19e)](this,void 0x0,void 0x0,function*(){const _0x5e9af0=_0x448338,_0x3c45b7=yield _0x3b28d5[_0x5e9af0(0x19d)](_0x5e9af0(0x19a)),_0x8e5bee=_0x3c45b7[_0x5e9af0(0x18c)][_0x5e9af0(0x1a0)](_0x5c408c=>_0x5c408c['columnNames']['indexOf'](_0x5e9af0(0x187))!==-0x1);_0x8e5bee&&(yield _0x3b28d5[_0x5e9af0(0x191)](_0x3c45b7,this[_0x5e9af0(0x198)]));});}}exports[a795_0x1181a9(0x193)]=AddRelationEnquiryToServiceTable1560937885319;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddRelationEnquiryToServiceTable1560937885319 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddRelationEnquiryToServiceTable1560937885319 {
+    constructor() {
+        this.serviceToEnquiryForeignKeys = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_service_enquiry_tbl_service',
+            columnNames: ['service_id'],
+            referencedColumnNames: ['service_id'],
+            referencedTableName: 'service',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('service_enquiry');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('service_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.serviceToEnquiryForeignKeys);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('service_enquiry');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('service_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.serviceToEnquiryForeignKeys);
+            }
+        });
+    }
+}
+exports.AddRelationEnquiryToServiceTable1560937885319 = AddRelationEnquiryToServiceTable1560937885319;
+//# sourceMappingURL=1560937885319-AddRelationEnquiryToServiceTable.js.map

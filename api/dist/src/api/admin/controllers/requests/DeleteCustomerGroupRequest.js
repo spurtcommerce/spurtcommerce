@@ -1,1 +1,21 @@
-'use strict';const a315_0xd0d67b=a315_0x518f;(function(_0x13c5c3,_0x4d165d){const _0x59311e=a315_0x518f,_0x156f66=_0x13c5c3();while(!![]){try{const _0x301875=-parseInt(_0x59311e(0x18a))/0x1+-parseInt(_0x59311e(0x187))/0x2*(parseInt(_0x59311e(0x188))/0x3)+-parseInt(_0x59311e(0x181))/0x4*(parseInt(_0x59311e(0x18e))/0x5)+parseInt(_0x59311e(0x18d))/0x6+parseInt(_0x59311e(0x182))/0x7+-parseInt(_0x59311e(0x17e))/0x8*(parseInt(_0x59311e(0x185))/0x9)+parseInt(_0x59311e(0x18b))/0xa;if(_0x301875===_0x4d165d)break;else _0x156f66['push'](_0x156f66['shift']());}catch(_0x11590a){_0x156f66['push'](_0x156f66['shift']());}}}(a315_0x47d1,0x8fb2f));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a315_0xd0d67b(0x18f)]=void 0x0;const tslib_1=require('tslib');function a315_0x518f(_0x4f0c51,_0x2b2292){const _0x47d176=a315_0x47d1();return a315_0x518f=function(_0x518fde,_0x26f694){_0x518fde=_0x518fde-0x17e;let _0x4a04eb=_0x47d176[_0x518fde];return _0x4a04eb;},a315_0x518f(_0x4f0c51,_0x2b2292);}require(a315_0xd0d67b(0x18c));const class_validator_1=require(a315_0xd0d67b(0x17f));class DeleteCustomerGroupRequest{}tslib_1[a315_0xd0d67b(0x180)]([(0x0,class_validator_1[a315_0xd0d67b(0x186)])(),tslib_1['__metadata'](a315_0xd0d67b(0x189),Number)],DeleteCustomerGroupRequest[a315_0xd0d67b(0x184)],a315_0xd0d67b(0x183),void 0x0),exports[a315_0xd0d67b(0x18f)]=DeleteCustomerGroupRequest;function a315_0x47d1(){const _0x265e7a=['3015oXivCG','IsNotEmpty','2PudJxT','2737047tWKUaF','design:type','242637MKCSuj','22963510kQwGvz','reflect-metadata','4515234WyUMFt','1731355idLLCn','DeleteCustomerGroupRequest','13480FVMGZu','class-validator','__decorate','12wiKJVE','2085825aibDzi','groupId','prototype'];a315_0x47d1=function(){return _0x265e7a;};return a315_0x47d1();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeleteCustomerGroupRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class DeleteCustomerGroupRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], DeleteCustomerGroupRequest.prototype, "groupId", void 0);
+exports.DeleteCustomerGroupRequest = DeleteCustomerGroupRequest;
+//# sourceMappingURL=DeleteCustomerGroupRequest.js.map

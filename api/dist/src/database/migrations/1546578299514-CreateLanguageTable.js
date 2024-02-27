@@ -1,1 +1,100 @@
-'use strict';const a738_0x1e9da8=a738_0x5458;(function(_0x1a26af,_0x447cdc){const _0x48b350=a738_0x5458,_0x3c7456=_0x1a26af();while(!![]){try{const _0x4d3fc5=parseInt(_0x48b350(0x126))/0x1+parseInt(_0x48b350(0x129))/0x2+-parseInt(_0x48b350(0x118))/0x3+parseInt(_0x48b350(0x122))/0x4*(-parseInt(_0x48b350(0x11b))/0x5)+parseInt(_0x48b350(0x121))/0x6*(parseInt(_0x48b350(0x10f))/0x7)+-parseInt(_0x48b350(0x12a))/0x8+parseInt(_0x48b350(0x11e))/0x9;if(_0x4d3fc5===_0x447cdc)break;else _0x3c7456['push'](_0x3c7456['shift']());}catch(_0x44acef){_0x3c7456['push'](_0x3c7456['shift']());}}}(a738_0x5d8a,0xdc667));function a738_0x5458(_0x3bdfa7,_0x133fd2){const _0x5d8a91=a738_0x5d8a();return a738_0x5458=function(_0x545818,_0x26b7f4){_0x545818=_0x545818-0x10c;let _0x14180a=_0x5d8a91[_0x545818];return _0x14180a;},a738_0x5458(_0x3bdfa7,_0x133fd2);}function a738_0x5d8a(){const _0x98aab6=['TEXT','datetime','modified_by','language_id','text','created_by','locale','2685411XBSkYg','modified_date','createTable','5AYYuNM','CURRENT_TIMESTAMP','255','16424244yHxXuD','code','CreateLanguageTable1546578299514','114IEjJaW','5844456uDOKoY','image_path','dropTable','language','94013MIxCVd','sort_order','created_date','1453594BaZSLl','1877336JnOUZQ','tslib','name','Table','int','varchar','increment','__awaiter','312403xELCEF','typeorm'];a738_0x5d8a=function(){return _0x98aab6;};return a738_0x5d8a();}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a738_0x1e9da8(0x120)]=void 0x0;const tslib_1=require(a738_0x1e9da8(0x12b)),typeorm_1=require(a738_0x1e9da8(0x110));class CreateLanguageTable1546578299514{['up'](_0x30ddf0){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x58cfda=a738_0x5458,_0x2321d5=new typeorm_1[(_0x58cfda(0x12d))]({'name':_0x58cfda(0x125),'columns':[{'name':_0x58cfda(0x114),'type':_0x58cfda(0x12e),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x58cfda(0x10d)},{'name':_0x58cfda(0x12c),'type':_0x58cfda(0x10c),'length':'32','isPrimary':![],'isNullable':!![]},{'name':_0x58cfda(0x11f),'type':_0x58cfda(0x10c),'length':'5','isPrimary':![],'isNullable':!![]},{'name':'image','type':_0x58cfda(0x111),'isPrimary':![],'isNullable':!![]},{'name':_0x58cfda(0x123),'type':_0x58cfda(0x115),'isPrimary':![],'isNullable':!![]},{'name':_0x58cfda(0x117),'type':_0x58cfda(0x10c),'length':_0x58cfda(0x11d),'isPrimary':![],'isNullable':!![]},{'name':_0x58cfda(0x127),'type':_0x58cfda(0x12e),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'is_active','type':'int','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x58cfda(0x128),'type':_0x58cfda(0x112),'isPrimary':![],'isNullable':!![],'default':_0x58cfda(0x11c)},{'name':_0x58cfda(0x119),'type':_0x58cfda(0x112),'isPrimary':![],'isNullable':!![],'default':_0x58cfda(0x11c)},{'name':_0x58cfda(0x116),'type':_0x58cfda(0x12e),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x58cfda(0x113),'type':'int','length':'11','isPrimary':![],'isNullable':!![]}]}),_0x4a6fd2=yield _0x30ddf0['hasTable'](_0x58cfda(0x125));!_0x4a6fd2&&(yield _0x30ddf0[_0x58cfda(0x11a)](_0x2321d5));});}['down'](_0xcf7677){const _0x537eb8=a738_0x1e9da8;return tslib_1[_0x537eb8(0x10e)](this,void 0x0,void 0x0,function*(){const _0x597246=_0x537eb8;yield _0xcf7677[_0x597246(0x124)]('language',!![]);});}}exports[a738_0x1e9da8(0x120)]=CreateLanguageTable1546578299514;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateLanguageTable1546578299514 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateLanguageTable1546578299514 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'language',
+                columns: [
+                    {
+                        name: 'language_id',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'name',
+                        type: 'varchar',
+                        length: '32',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'code',
+                        type: 'varchar',
+                        length: '5',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'image',
+                        type: 'TEXT',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'image_path',
+                        type: 'text',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'locale',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'sort_order',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'created_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('language');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('language', true);
+        });
+    }
+}
+exports.CreateLanguageTable1546578299514 = CreateLanguageTable1546578299514;
+//# sourceMappingURL=1546578299514-CreateLanguageTable.js.map

@@ -1,1 +1,41 @@
-'use strict';const a288_0x3315ec=a288_0x5479;(function(_0x537459,_0xa4b028){const _0x2f7b52=a288_0x5479,_0x6cd8d7=_0x537459();while(!![]){try{const _0x826ae0=parseInt(_0x2f7b52(0x70))/0x1+parseInt(_0x2f7b52(0x6b))/0x2*(parseInt(_0x2f7b52(0x7d))/0x3)+-parseInt(_0x2f7b52(0x6a))/0x4*(parseInt(_0x2f7b52(0x7a))/0x5)+parseInt(_0x2f7b52(0x7b))/0x6*(-parseInt(_0x2f7b52(0x81))/0x7)+-parseInt(_0x2f7b52(0x84))/0x8+parseInt(_0x2f7b52(0x79))/0x9*(parseInt(_0x2f7b52(0x73))/0xa)+parseInt(_0x2f7b52(0x6f))/0xb*(parseInt(_0x2f7b52(0x76))/0xc);if(_0x826ae0===_0xa4b028)break;else _0x6cd8d7['push'](_0x6cd8d7['shift']());}catch(_0x2e693c){_0x6cd8d7['push'](_0x6cd8d7['shift']());}}}(a288_0x35b8,0x3d261));Object[a288_0x3315ec(0x7e)](exports,a288_0x3315ec(0x74),{'value':!![]}),exports['CreateAttribute']=void 0x0;function a288_0x35b8(){const _0x4d0000=['reflect-metadata','36DmRuJI','defineProperty','design:type','attributeName','1351gNSeQb','__decorate','prototype','1032424IwKokw','CreateAttribute','4DUOevA','16640KnKxEH','MaxLength','tslib','maximum\x20length\x20of\x20sort\x20order\x20should\x20be\x204','314567BvkavN','253445ktygvh','Attribute\x20name\x20is\x20required','sortOrder\x20is\x20required','90EcChQq','__esModule','IsNotEmpty','36YpbMHx','__metadata','class-validator','306486OsRLZS','47865myZaJe','11082YjTYVh'];a288_0x35b8=function(){return _0x4d0000;};return a288_0x35b8();}const tslib_1=require(a288_0x3315ec(0x6d));require(a288_0x3315ec(0x7c));const class_validator_1=require(a288_0x3315ec(0x78));function a288_0x5479(_0x46811d,_0x4f167c){const _0x35b8a2=a288_0x35b8();return a288_0x5479=function(_0x547946,_0x5297a4){_0x547946=_0x547946-0x6a;let _0x42a6d3=_0x35b8a2[_0x547946];return _0x42a6d3;},a288_0x5479(_0x46811d,_0x4f167c);}class CreateAttribute{}tslib_1[a288_0x3315ec(0x82)]([(0x0,class_validator_1[a288_0x3315ec(0x75)])({'message':a288_0x3315ec(0x71)}),(0x0,class_validator_1[a288_0x3315ec(0x6c)])(0xff,{'message':'attribute\x20name\x20should\x20be\x20maximum\x20255\x20characters'}),tslib_1[a288_0x3315ec(0x77)](a288_0x3315ec(0x7f),String)],CreateAttribute[a288_0x3315ec(0x83)],a288_0x3315ec(0x80),void 0x0),tslib_1[a288_0x3315ec(0x82)]([(0x0,class_validator_1[a288_0x3315ec(0x75)])({'message':'group\x20is\x20required'}),tslib_1[a288_0x3315ec(0x77)](a288_0x3315ec(0x7f),Number)],CreateAttribute[a288_0x3315ec(0x83)],'groupId',void 0x0),tslib_1[a288_0x3315ec(0x82)]([(0x0,class_validator_1['Max'])(0x270f,{'message':a288_0x3315ec(0x6e)}),(0x0,class_validator_1[a288_0x3315ec(0x75)])({'message':a288_0x3315ec(0x72)}),tslib_1['__metadata'](a288_0x3315ec(0x7f),Number)],CreateAttribute[a288_0x3315ec(0x83)],'sortOrder',void 0x0),exports[a288_0x3315ec(0x85)]=CreateAttribute;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateAttribute = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateAttribute {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Attribute name is required',
+    }),
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'attribute name should be maximum 255 characters',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateAttribute.prototype, "attributeName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'group is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateAttribute.prototype, "groupId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.Max)(9999, {
+        message: 'maximum length of sort order should be 4',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'sortOrder is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateAttribute.prototype, "sortOrder", void 0);
+exports.CreateAttribute = CreateAttribute;
+//# sourceMappingURL=CreateAttributeRequest.js.map

@@ -1,1 +1,100 @@
-'use strict';const a754_0x537d2b=a754_0x3682;(function(_0x59412b,_0x46b9b2){const _0x47f2f1=a754_0x3682,_0x5ef257=_0x59412b();while(!![]){try{const _0x21f10f=-parseInt(_0x47f2f1(0xac))/0x1+-parseInt(_0x47f2f1(0xb0))/0x2+-parseInt(_0x47f2f1(0xb2))/0x3+parseInt(_0x47f2f1(0xad))/0x4*(parseInt(_0x47f2f1(0xa9))/0x5)+-parseInt(_0x47f2f1(0xa4))/0x6*(parseInt(_0x47f2f1(0xaa))/0x7)+parseInt(_0x47f2f1(0xb5))/0x8+parseInt(_0x47f2f1(0xba))/0x9;if(_0x21f10f===_0x46b9b2)break;else _0x5ef257['push'](_0x5ef257['shift']());}catch(_0x43b2d1){_0x5ef257['push'](_0x5ef257['shift']());}}}(a754_0x5048,0xd10be));function a754_0x5048(){const _0x595e45=['Table','page','5690bnsdAt','14ajQyVp','down','615408xqTuot','2108vNTykN','tslib','title','18924PqKLyG','defineProperty','4884825onfTIR','page_group_id','CURRENT_TIMESTAMP','1660120kZLFjg','255','modified_date','created_date','__esModule','31712724FHnuXG','DATETIME','integer','page_id','dropTable','CreatePageTable1546582513520','__awaiter','created_by','TEXT','intro','hasTable','typeorm','view_page_count','varchar','is_active','3664434JSLMVK','int','sort_order'];a754_0x5048=function(){return _0x595e45;};return a754_0x5048();}Object[a754_0x537d2b(0xb1)](exports,a754_0x537d2b(0xb9),{'value':!![]}),exports[a754_0x537d2b(0xbf)]=void 0x0;const tslib_1=require(a754_0x537d2b(0xae)),typeorm_1=require(a754_0x537d2b(0xc5));class CreatePageTable1546582513520{['up'](_0xeb8f06){const _0x33b4c1=a754_0x537d2b;return tslib_1[_0x33b4c1(0xc0)](this,void 0x0,void 0x0,function*(){const _0x5c3f4e=_0x33b4c1,_0x4f1148=new typeorm_1[(_0x5c3f4e(0xa7))]({'name':_0x5c3f4e(0xa8),'columns':[{'name':_0x5c3f4e(0xbd),'type':_0x5c3f4e(0xbc),'length':'11','isGenerated':!![],'generationStrategy':'increment','isPrimary':!![],'isNullable':![]},{'name':_0x5c3f4e(0xaf),'type':_0x5c3f4e(0xc7),'length':_0x5c3f4e(0xb6),'isPrimary':![],'isNullable':!![]},{'name':_0x5c3f4e(0xc3),'type':_0x5c3f4e(0xc2),'isPrimary':![],'isNullable':!![]},{'name':'full_text','type':_0x5c3f4e(0xc2),'isPrimary':![],'isNullable':!![]},{'name':_0x5c3f4e(0xb3),'type':_0x5c3f4e(0xbc),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5c3f4e(0xa6),'type':'integer','length':'3','isPrimary':![],'isNullable':!![]},{'name':_0x5c3f4e(0xc6),'type':_0x5c3f4e(0xbc),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5c3f4e(0xa3),'type':_0x5c3f4e(0xa5),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5c3f4e(0xc1),'type':_0x5c3f4e(0xbc),'length':'11','isPrimary':![],'isNullable':!![]},{'name':'modified_by','type':_0x5c3f4e(0xbc),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5c3f4e(0xb8),'type':_0x5c3f4e(0xbb),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'},{'name':_0x5c3f4e(0xb7),'type':_0x5c3f4e(0xbb),'isPrimary':![],'isNullable':!![],'default':_0x5c3f4e(0xb4)}]}),_0x5e5829=yield _0xeb8f06[_0x5c3f4e(0xc4)](_0x5c3f4e(0xa8));!_0x5e5829&&(yield _0xeb8f06['createTable'](_0x4f1148));});}[a754_0x537d2b(0xab)](_0x2e14f4){const _0x21aa12=a754_0x537d2b;return tslib_1[_0x21aa12(0xc0)](this,void 0x0,void 0x0,function*(){const _0x8866e=_0x21aa12;yield _0x2e14f4[_0x8866e(0xbe)]('page',!![]);});}}function a754_0x3682(_0x2edf4c,_0x32109d){const _0x504878=a754_0x5048();return a754_0x3682=function(_0x368218,_0x4cc90c){_0x368218=_0x368218-0xa3;let _0x145471=_0x504878[_0x368218];return _0x145471;},a754_0x3682(_0x2edf4c,_0x32109d);}exports['CreatePageTable1546582513520']=CreatePageTable1546582513520;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreatePageTable1546582513520 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreatePageTable1546582513520 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'page',
+                columns: [
+                    {
+                        name: 'page_id',
+                        type: 'integer',
+                        length: '11',
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                        isPrimary: true,
+                        isNullable: false,
+                    }, {
+                        name: 'title',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'intro',
+                        type: 'TEXT',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'full_text',
+                        type: 'TEXT',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'page_group_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'sort_order',
+                        type: 'integer',
+                        length: '3',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'view_page_count',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'int',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('page');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('page', true);
+        });
+    }
+}
+exports.CreatePageTable1546582513520 = CreatePageTable1546582513520;
+//# sourceMappingURL=1546582513520-CreatePageTable.js.map

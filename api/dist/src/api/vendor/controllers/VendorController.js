@@ -1,1 +1,1482 @@
-'use strict';const a668_0x16d723=a668_0x59a8;(function(_0x246baa,_0x1da632){const _0x3d5c19=a668_0x59a8,_0x2bb19a=_0x246baa();while(!![]){try{const _0x2b670e=parseInt(_0x3d5c19(0x115))/0x1*(parseInt(_0x3d5c19(0x150))/0x2)+-parseInt(_0x3d5c19(0x17a))/0x3+parseInt(_0x3d5c19(0x186))/0x4+-parseInt(_0x3d5c19(0x1b5))/0x5*(parseInt(_0x3d5c19(0x18e))/0x6)+parseInt(_0x3d5c19(0x153))/0x7+-parseInt(_0x3d5c19(0x151))/0x8*(-parseInt(_0x3d5c19(0x155))/0x9)+-parseInt(_0x3d5c19(0xa1))/0xa*(-parseInt(_0x3d5c19(0xc7))/0xb);if(_0x2b670e===_0x1da632)break;else _0x2bb19a['push'](_0x2bb19a['shift']());}catch(_0x186002){_0x2bb19a['push'](_0x2bb19a['shift']());}}}(a668_0x1ad9,0x9d78b));Object[a668_0x16d723(0xb1)](exports,a668_0x16d723(0x122),{'value':!![]}),exports['VendorController']=void 0x0;const tslib_1=require(a668_0x16d723(0xb8));function a668_0x59a8(_0x563813,_0x35453d){const _0x1ad99f=a668_0x1ad9();return a668_0x59a8=function(_0x59a892,_0x6cbd19){_0x59a892=_0x59a892-0x79;let _0x1ae32c=_0x1ad99f[_0x59a892];return _0x1ae32c;},a668_0x59a8(_0x563813,_0x35453d);}require(a668_0x16d723(0x114));const routing_controllers_1=require(a668_0x16d723(0x12d)),class_transformer_1=require(a668_0x16d723(0xe4)),mail_services_1=require(a668_0x16d723(0xbf)),VendorRegistrationRequest_1=require(a668_0x16d723(0xf3)),VendorForgotPasswordRequest_1=require(a668_0x16d723(0x1b4)),Customer_1=require(a668_0x16d723(0xb0)),LoginLog_1=require(a668_0x16d723(0x18d)),CustomerService_1=require(a668_0x16d723(0x96)),VendorService_1=require(a668_0x16d723(0xc1)),VendorCategoryService_1=require('../../core/services/VendorCategoryService'),LoginLogService_1=require('../../core/services/LoginLogService'),EmailTemplateService_1=require(a668_0x16d723(0xc2)),VendorLoginRequest_1=require(a668_0x16d723(0x93)),jsonwebtoken_1=tslib_1[a668_0x16d723(0x1a5)](require('jsonwebtoken')),S3Service_1=require(a668_0x16d723(0x19e)),ImageService_1=require(a668_0x16d723(0x1b2)),env_1=require('../../../env'),UpdateVendorRequest_1=require(a668_0x16d723(0x14b)),VendorOrderService_1=require(a668_0x16d723(0xd7)),VendorProductService_1=require(a668_0x16d723(0x13f)),OrderStatusService_1=require(a668_0x16d723(0x1b3)),SettingService_1=require('../../core/services/SettingService'),CurrencyService_1=require(a668_0x16d723(0x8a)),CustomerDocument_1=require('../../core/models/CustomerDocument'),CustomerDocumentService_1=require('../../core/services/CustomerDocumentService'),AccessTokenModel_1=require(a668_0x16d723(0xec)),AccessTokenService_1=require(a668_0x16d723(0x15b)),moment_1=tslib_1[a668_0x16d723(0x1a5)](require('moment')),CustomerDocument_2=require('../../core/models/CustomerDocument'),VendorDocumentLogService_1=require(a668_0x16d723(0x1be)),VendorDocumentLogModel_1=require(a668_0x16d723(0x111)),VendorDocumentLogModel_2=require(a668_0x16d723(0x111)),marketplace_1=require(a668_0x16d723(0x138)),typeorm_1=require(a668_0x16d723(0xd3));let VendorController=class VendorController{constructor(_0x5154c4,_0x17af43,_0xa95b50,_0x1581ed,_0x4c3931,_0x932224,_0xe5bfe5,_0xc7e7f1,_0x442449,_0x1ae9c6,_0x10009b,_0x13c7a7,_0x1f5743,_0x33aaf1,_0x1635e4){const _0x4e6476=a668_0x16d723;this[_0x4e6476(0x11d)]=_0x5154c4,this[_0x4e6476(0xcb)]=_0x17af43,this[_0x4e6476(0xcc)]=_0xa95b50,this[_0x4e6476(0x10c)]=_0x1581ed,this['s3Service']=_0x4c3931,this[_0x4e6476(0x18a)]=_0x932224,this[_0x4e6476(0x140)]=_0xe5bfe5,this['vendorOrdersService']=_0xc7e7f1,this[_0x4e6476(0xe3)]=_0x442449,this[_0x4e6476(0x90)]=_0x1ae9c6,this['currencyService']=_0x10009b,this['orderStatusService']=_0x13c7a7,this['accessTokenService']=_0x1f5743,this[_0x4e6476(0x83)]=_0x33aaf1,this[_0x4e6476(0x14f)]=_0x1635e4;}['register'](_0x2daacf,_0x3b0093,_0xa78605){const _0xf8bced=a668_0x16d723;return tslib_1[_0xf8bced(0xbb)](this,void 0x0,void 0x0,function*(){const _0x161f08=_0xf8bced,_0xd62b4a=yield(0x0,marketplace_1[_0x161f08(0x97)])((0x0,typeorm_1[_0x161f08(0x17f)])(),{'body':_0x2daacf,'ip':(_0x3b0093[_0x161f08(0xca)]['x-forwarded-for']||_0x3b0093[_0x161f08(0x139)][_0x161f08(0x13d)]||_0x3b0093[_0x161f08(0x18c)]['remoteAddress']||_0x3b0093[_0x161f08(0x139)][_0x161f08(0x18c)]['remoteAddress'])[_0x161f08(0xdf)](',')[0x0],'vendorRedirectUrl':env_1[_0x161f08(0x1a6)][_0x161f08(0xcd)],'adminRedirectUrl':env_1[_0x161f08(0x1a6)]['adminRedirectUrl']});if(_0xd62b4a[_0x161f08(0x1bc)]===0x0)return _0xa78605['status'](0x190)[_0x161f08(0x179)]({'status':_0xd62b4a['status'],'message':_0xd62b4a[_0x161f08(0x125)]});const _0x279696=_0xd62b4a[_0x161f08(0x180)][_0x161f08(0x10f)],_0x2d6a48=_0xd62b4a[_0x161f08(0x180)][_0x161f08(0x154)];return mail_services_1[_0x161f08(0x110)][_0x161f08(0x8c)](_0x279696['mailContent'],_0x279696['email'],_0x279696[_0x161f08(0x80)],_0x279696[_0x161f08(0x11e)],_0x279696[_0x161f08(0xd8)],_0x279696[_0x161f08(0x129)]),mail_services_1[_0x161f08(0x110)][_0x161f08(0x8c)](_0x2d6a48[_0x161f08(0x105)],_0x2d6a48['email'],_0x2d6a48['subject'],_0x2d6a48[_0x161f08(0x11e)],_0x2d6a48[_0x161f08(0xd8)],_0x2d6a48[_0x161f08(0x129)]),_0xa78605[_0x161f08(0x1bc)](0xc8)[_0x161f08(0x179)]({'status':_0xd62b4a[_0x161f08(0x1bc)],'message':_0x161f08(0x143),'data':_0xd62b4a[_0x161f08(0x180)]['resultData']});});}[a668_0x16d723(0x120)](_0x2f4fe8,_0x50b988,_0x477bd9){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x437498=a668_0x59a8,_0x12cc2f=yield this['customerService'][_0x437498(0xc0)]({'select':['id',_0x437498(0x178),_0x437498(0x1b1),_0x437498(0xeb),_0x437498(0xae),_0x437498(0xce),_0x437498(0x158),'isActive'],'where':{'email':_0x2f4fe8[_0x437498(0x132)],'deleteFlag':0x0}});if(_0x12cc2f===undefined){const _0x1a714b={'status':0x0,'message':_0x437498(0x87)};return _0x477bd9[_0x437498(0x1bc)](0x190)[_0x437498(0x179)](_0x1a714b);}const _0x1dd266=yield this[_0x437498(0xcb)][_0x437498(0xc0)]({'where':{'customerId':_0x12cc2f['id'],'approvalFlag':0x1}});if(_0x1dd266===undefined){const _0x276c0f={'status':0x0,'message':_0x437498(0x87)};return _0x477bd9[_0x437498(0x1bc)](0x190)[_0x437498(0x179)](_0x276c0f);}_0x12cc2f[_0x437498(0x1a1)]=_0x1dd266[_0x437498(0x1a1)],_0x12cc2f[_0x437498(0x10a)]=_0x1dd266['vendorPrefixId'][_0x437498(0x17d)]('#','');const _0x51f90a=yield this[_0x437498(0x90)][_0x437498(0xc0)]();if(_0x51f90a){const _0x4eab53=yield this[_0x437498(0x7e)]['findOne'](_0x51f90a[_0x437498(0x196)]);_0x4eab53&&(_0x12cc2f[_0x437498(0x99)]=_0x4eab53[_0x437498(0x191)],_0x12cc2f['currencySymbolLeft']=_0x4eab53[_0x437498(0xa9)],_0x12cc2f['currencySymbolRight']=_0x4eab53[_0x437498(0x15f)]);}if(_0x12cc2f[_0x437498(0x109)]===0x0){const _0x20fd94={'status':0x0,'message':_0x437498(0x87)};return _0x477bd9[_0x437498(0x1bc)](0x190)[_0x437498(0x179)](_0x20fd94);}if(yield Customer_1[_0x437498(0x1ae)][_0x437498(0xe2)](_0x12cc2f,_0x2f4fe8['password'])){const _0x1ab193=jsonwebtoken_1[_0x437498(0xd9)]['sign']({'id':_0x1dd266[_0x437498(0x1a1)],'role':_0x437498(0x189)},env_1[_0x437498(0x1a6)][_0x437498(0xe5)],{'expiresIn':'4h'}),_0x5a23c4=new LoginLog_1['LoginLog']();_0x5a23c4[_0x437498(0x8b)]=_0x12cc2f['id'],_0x5a23c4[_0x437498(0x132)]=_0x12cc2f[_0x437498(0x1b1)],_0x5a23c4['firstName']=_0x12cc2f[_0x437498(0x178)],_0x5a23c4['ipAddress']=(_0x50b988['headers']['x-forwarded-for']||_0x50b988['connection'][_0x437498(0x13d)]||_0x50b988['socket'][_0x437498(0x13d)]||_0x50b988['connection'][_0x437498(0x18c)][_0x437498(0x13d)])['split'](',')[0x0];const _0x5ae696=yield this[_0x437498(0x140)][_0x437498(0xa2)](_0x5a23c4),_0x5d4a60=yield this[_0x437498(0x11d)][_0x437498(0xc0)]({'where':{'email':_0x2f4fe8['emailId'],'deleteFlag':0x0}});_0x5d4a60[_0x437498(0x131)]=_0x5ae696[_0x437498(0xe6)],yield this[_0x437498(0x11d)][_0x437498(0xa2)](_0x5d4a60);const _0x2e638d=require('crypto-js'),_0x340902=_0x2e638d[_0x437498(0x1bd)][_0x437498(0x11c)](_0x1ab193,env_1[_0x437498(0x1a6)][_0x437498(0x185)])[_0x437498(0xf4)]();if(_0x1ab193){const _0x2e5cbd=new AccessTokenModel_1[(_0x437498(0x1a0))]();_0x2e5cbd['userId']=_0x1dd266[_0x437498(0x1a1)],_0x2e5cbd[_0x437498(0xb2)]=_0x1ab193,_0x2e5cbd[_0x437498(0x164)]=_0x437498(0x189),yield this['accessTokenService'][_0x437498(0xa2)](_0x2e5cbd);}_0x12cc2f['email']='',_0x12cc2f[_0x437498(0x178)]='',_0x12cc2f['lastName']='',_0x12cc2f[_0x437498(0xeb)]='',_0x12cc2f['username']='';const _0x2090b3={'status':0x1,'message':_0x437498(0x92),'data':{'token':_0x340902,'user':(0x0,class_transformer_1['instanceToPlain'])(_0x12cc2f)}};return _0x477bd9['status'](0xc8)[_0x437498(0x179)](_0x2090b3);}const _0x50388d={'status':0x0,'message':'Wrong\x20Login\x20Information.'};return _0x477bd9[_0x437498(0x1bc)](0x190)[_0x437498(0x179)](_0x50388d);});}['vendorDetails'](_0x11454e,_0x3498c9){const _0x935ab7=a668_0x16d723;return tslib_1[_0x935ab7(0xbb)](this,void 0x0,void 0x0,function*(){const _0x49df7f=_0x935ab7,_0x3f46c8=yield(0x0,marketplace_1[_0x49df7f(0xb3)])((0x0,typeorm_1[_0x49df7f(0x17f)])(),{'vendorId':_0x11454e[_0x49df7f(0xf9)][_0x49df7f(0x1a1)]}),_0x598003={'status':0x1,'message':_0x49df7f(0x1c5),'data':_0x3f46c8[_0x49df7f(0x180)]};return _0x3498c9[_0x49df7f(0x1bc)](0xc8)['send'](_0x598003);});}['vendorCategoryList'](_0x4b6b67,_0x596fbd,_0x4c968a,_0xea508,_0xf662a1,_0x41ea3d){const _0x50a8d7=a668_0x16d723;return tslib_1[_0x50a8d7(0xbb)](this,void 0x0,void 0x0,function*(){const _0x360e67=_0x50a8d7,_0x20e877=_0xf662a1['user'][_0x360e67(0x1a1)],_0x36935d=yield this['vendorCategoryService'][_0x360e67(0x1a8)](_0x4b6b67,_0x596fbd,_0x20e877,_0x4c968a,_0xea508);if(_0x36935d){const _0x2292cf={'status':0x1,'message':_0x360e67(0xf1),'data':_0x36935d};return _0x41ea3d[_0x360e67(0x1bc)](0xc8)[_0x360e67(0x179)](_0x2292cf);}else{const _0x26f08b={'status':0x0,'message':_0x360e67(0x128)};return _0x41ea3d[_0x360e67(0x1bc)](0x190)[_0x360e67(0x179)](_0x26f08b);}});}['changePassword'](_0x11a97c,_0x547994,_0x1f43ce,_0x36ee6c){const _0x33b3aa=a668_0x16d723;return tslib_1[_0x33b3aa(0xbb)](this,void 0x0,void 0x0,function*(){const _0x2250d8=_0x33b3aa,_0x6e6cf5=yield this[_0x2250d8(0xcb)]['findOne']({'where':{'vendorId':_0x1f43ce[_0x2250d8(0xf9)][_0x2250d8(0x1a1)]}});if(!_0x6e6cf5){const _0x18c6c2={'status':0x0,'message':_0x2250d8(0xbd)};return _0x36ee6c['status'](0x190)['send'](_0x18c6c2);}const _0x467b4a=yield this[_0x2250d8(0x11d)][_0x2250d8(0xc0)]({'where':{'id':_0x6e6cf5[_0x2250d8(0x8b)]}});if(yield Customer_1[_0x2250d8(0x1ae)][_0x2250d8(0xe2)](_0x467b4a,_0x547994)){const _0x13ebe9=yield Customer_1[_0x2250d8(0x1ae)][_0x2250d8(0xe2)](_0x467b4a,_0x11a97c);if(_0x13ebe9){const _0xfe0d95={'status':0x0,'message':_0x2250d8(0x11b)};return _0x36ee6c[_0x2250d8(0x1bc)](0x190)[_0x2250d8(0x179)](_0xfe0d95);}const _0x35a326=/^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;if(!_0x11a97c[_0x2250d8(0x16f)](_0x35a326)){const _0x273d1d=[];_0x273d1d['push'](_0x2250d8(0x144));const _0x5f5bf8={'status':0x0,'message':'You\x20have\x20an\x20error\x20in\x20your\x20request\x27s\x20body.\x20Check\x20\x27errors\x27\x20field\x20for\x20more\x20details!','data':{'message':_0x273d1d}};return _0x36ee6c[_0x2250d8(0x1bc)](0x1a6)[_0x2250d8(0x179)](_0x5f5bf8);}_0x467b4a['password']=yield Customer_1[_0x2250d8(0x1ae)]['hashPassword'](_0x11a97c);const _0x2e2472=yield this[_0x2250d8(0x11d)]['update'](_0x467b4a['id'],_0x467b4a);if(_0x2e2472){const _0x15b7ca={'status':0x1,'message':_0x2250d8(0xdd)};return _0x36ee6c[_0x2250d8(0x1bc)](0xc8)['send'](_0x15b7ca);}}const _0x9134f0={'status':0x0,'message':_0x2250d8(0x18f)};return _0x36ee6c['status'](0x190)['send'](_0x9134f0);});}[a668_0x16d723(0x103)](_0x50e56e,_0x598aad){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5e9a85=a668_0x59a8,_0x3871ed=yield this['customerService'][_0x5e9a85(0xc0)]({'where':{'email':_0x50e56e['email'],'deleteFlag':0x0}});if(!_0x3871ed){const _0xa058c4={'status':0x0,'message':'Invalid\x20emailId'};return _0x598aad[_0x5e9a85(0x1bc)](0x190)['send'](_0xa058c4);}const _0x5d502c=yield this['vendorService'][_0x5e9a85(0xc0)]({'where':{'customerId':_0x3871ed['id']}});if(_0x5d502c===undefined){const _0x555fcb={'status':0x0,'message':_0x5e9a85(0x1b9)};return _0x598aad[_0x5e9a85(0x1bc)](0x190)['send'](_0x555fcb);}const _0x38394a=Math['random']()['toString']()[_0x5e9a85(0x12e)](0x2,0x5),_0x179875=yield Customer_1['Customer'][_0x5e9a85(0x172)](_0x38394a);_0x3871ed[_0x5e9a85(0xae)]=_0x179875,yield this['customerService'][_0x5e9a85(0xa2)](_0x3871ed);const _0x13dbc7=yield this[_0x5e9a85(0xcc)][_0x5e9a85(0xc0)](0x2),_0x3262cb=yield this[_0x5e9a85(0x90)][_0x5e9a85(0xc0)](),_0x5b02bc=_0x13dbc7[_0x5e9a85(0xd4)][_0x5e9a85(0x17d)](_0x5e9a85(0x1c6),_0x3871ed[_0x5e9a85(0x178)])[_0x5e9a85(0x17d)](_0x5e9a85(0x1cc),_0x38394a),_0x2c0ebb=env_1[_0x5e9a85(0x1a6)][_0x5e9a85(0xcd)],_0x275fe7={};_0x275fe7[_0x5e9a85(0xfe)]=_0x3262cb,_0x275fe7['emailContent']=_0x5b02bc,_0x275fe7['redirectUrl']=_0x2c0ebb,_0x275fe7[_0x5e9a85(0xfa)]=undefined;const _0x6a513a=mail_services_1['MAILService'][_0x5e9a85(0x8c)](_0x275fe7,_0x3871ed['email'],_0x13dbc7[_0x5e9a85(0x80)],![],![],'');if(_0x6a513a){const _0x3c41b8={'status':0x1,'message':'Your\x20password\x20has\x20been\x20sent\x20to\x20your\x20email\x20inbox.'};return _0x598aad[_0x5e9a85(0x1bc)](0xc8)['send'](_0x3c41b8);}else{const _0x49dc57={'status':0x0,'message':_0x5e9a85(0x84)};return _0x598aad['status'](0x190)[_0x5e9a85(0x179)](_0x49dc57);}});}[a668_0x16d723(0x1c4)](_0x213e85,_0x166ced,_0x4b746b){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xb93fba=a668_0x59a8,_0x4aae1a=yield this[_0xb93fba(0xcb)][_0xb93fba(0xc0)]({'where':{'customerId':_0x166ced}}),_0xb9ff65=_0x213e85[_0xb93fba(0x152)];if(_0xb9ff65){const _0x584c39=_0xb9ff65[_0xb93fba(0xdf)](';')[0x0]['split']('/')[0x1],_0x300101=env_1[_0xb93fba(0x1a6)][_0xb93fba(0x1a4)][_0xb93fba(0xdf)](',');if(!_0x300101[_0xb93fba(0x1c0)](_0x584c39)){const _0x332491={'status':0x0,'message':'Only\x20'+env_1[_0xb93fba(0x1a6)][_0xb93fba(0x1a4)]+_0xb93fba(0xdb)};return _0x4b746b[_0xb93fba(0x1bc)](0x190)[_0xb93fba(0x179)](_0x332491);}const _0x5d007d='Img_'+Date[_0xb93fba(0xef)]()+'.'+_0x584c39,_0x33c6cf=_0xb93fba(0x176),_0x1b192b=Buffer[_0xb93fba(0x130)](_0xb9ff65['replace'](/^data:image\/\w+;base64,/,''),_0xb93fba(0x190)),_0x2e7b24=_0xb9ff65[_0xb93fba(0x17d)](/^data:image\/\w+;base64,/,'')[_0xb93fba(0x1b8)],_0x1f09df=0x4*Math['ceil'](_0x2e7b24/0x3)*0.5624896334383812,_0x17f9fb=_0x1f09df/0x400;console[_0xb93fba(0x169)](_0x17f9fb+_0xb93fba(0xa7));if(+_0x17f9fb<=0x1000)env_1[_0xb93fba(0x1a6)][_0xb93fba(0x188)]==='s3'?yield this['s3Service']['imageUpload'](_0x33c6cf+_0x5d007d,_0x1b192b,_0x584c39):yield this[_0xb93fba(0x18a)][_0xb93fba(0xc5)](_0x33c6cf+_0x5d007d,_0x1b192b);else{const _0x28044a={'status':0x0,'message':_0xb93fba(0x19b)};return _0x4b746b[_0xb93fba(0x1bc)](0x190)[_0xb93fba(0x179)](_0x28044a);}_0x4aae1a[_0xb93fba(0x152)]=_0x5d007d,_0x4aae1a[_0xb93fba(0xbc)]=_0x33c6cf;}const _0x22f4d8=_0x213e85[_0xb93fba(0x175)];if(_0x22f4d8){const _0x3ae2e9=_0x22f4d8[_0xb93fba(0xdf)](';')[0x0][_0xb93fba(0xdf)]('/')[0x1],_0x2bf8bf=_0xb93fba(0xd1)+Date[_0xb93fba(0xef)]()+'.'+_0x3ae2e9,_0x33d68b=_0xb93fba(0x176),_0x4ba368=Buffer['from'](_0x22f4d8[_0xb93fba(0x17d)](/^data:image\/\w+;base64,/,''),_0xb93fba(0x190)),_0xb2cb0b=_0x22f4d8[_0xb93fba(0x17d)](/^data:image\/\w+;base64,/,'')[_0xb93fba(0x1b8)],_0x28c8e4=0x4*Math[_0xb93fba(0x1ac)](_0xb2cb0b/0x3)*0.5624896334383812,_0x3f876e=_0x28c8e4/0x400;console[_0xb93fba(0x169)](_0x3f876e+_0xb93fba(0xa7));if(+_0x3f876e<=0x1000)env_1['env'][_0xb93fba(0x188)]==='s3'?yield this[_0xb93fba(0x123)][_0xb93fba(0xc5)](_0x33d68b+_0x2bf8bf,_0x4ba368,_0x3ae2e9):yield this[_0xb93fba(0x18a)][_0xb93fba(0xc5)](_0x33d68b+_0x2bf8bf,_0x4ba368);else{const _0x57e25f={'status':0x0,'message':_0xb93fba(0x19b)};return _0x4b746b[_0xb93fba(0x1bc)](0x190)[_0xb93fba(0x179)](_0x57e25f);}_0x4aae1a['companyCoverImage']=_0x2bf8bf,_0x4aae1a[_0xb93fba(0x1c1)]=_0x33d68b;}_0x4aae1a['companyName']=_0x213e85[_0xb93fba(0x1c3)],_0x4aae1a[_0xb93fba(0xce)]=_0x213e85[_0xb93fba(0xce)],_0x4aae1a[_0xb93fba(0xb4)]=_0x213e85[_0xb93fba(0x197)],_0x4aae1a[_0xb93fba(0x14d)]=_0x213e85['companyAccountNumber'],_0x4aae1a[_0xb93fba(0x17c)]=_0x213e85['companyBankName'],_0x4aae1a[_0xb93fba(0x1a7)]=_0x213e85[_0xb93fba(0x1a7)],_0x4aae1a[_0xb93fba(0x10d)]=_0x213e85[_0xb93fba(0x10b)],_0x4aae1a[_0xb93fba(0xcf)]=_0x213e85[_0xb93fba(0xcf)],_0x4aae1a[_0xb93fba(0x174)]=_0x213e85['companyCity'],_0x4aae1a['companyState']=_0x213e85[_0xb93fba(0xe7)],_0x4aae1a['designation']=_0x213e85[_0xb93fba(0x149)],_0x4aae1a[_0xb93fba(0x163)]=_0x213e85['companyCountryId'],_0x4aae1a[_0xb93fba(0xac)]=_0x213e85['pincode'],_0x4aae1a[_0xb93fba(0x177)]=_0x213e85['companyMobileNumber']?_0x213e85[_0xb93fba(0x177)]:0x0,_0x4aae1a[_0xb93fba(0x9b)]=_0x213e85['companyEmailId'],_0x4aae1a['companyWebsite']=_0x213e85[_0xb93fba(0xab)],_0x4aae1a[_0xb93fba(0x85)]=_0x213e85[_0xb93fba(0x85)],_0x4aae1a[_0xb93fba(0xc6)]=_0x213e85[_0xb93fba(0xc6)],_0x4aae1a[_0xb93fba(0x8f)]=_0x213e85[_0xb93fba(0x16e)],_0x4aae1a[_0xb93fba(0x11f)]=_0x213e85['companyGstNumber'],_0x4aae1a['whatsapp']=_0x213e85[_0xb93fba(0xa3)],_0x4aae1a[_0xb93fba(0x16b)]=_0x213e85['companyYoutube'],_0x4aae1a['instagram']=_0x213e85[_0xb93fba(0xf7)],_0x4aae1a['countryName']=_0x213e85[_0xb93fba(0x116)],_0x4aae1a[_0xb93fba(0x133)]=_0x213e85[_0xb93fba(0x133)],yield this[_0xb93fba(0xcb)]['update'](_0x4aae1a['vendorId'],_0x4aae1a);const _0x5e715f=yield this['customerService'][_0xb93fba(0xc0)]({'where':{'id':_0x4aae1a[_0xb93fba(0x8b)]}}),_0x1bcd1e=_0x213e85[_0xb93fba(0xce)];if(_0x1bcd1e){const _0x2be001=_0x1bcd1e[_0xb93fba(0xdf)](';')[0x0][_0xb93fba(0xdf)]('/')[0x1],_0x150d3b=env_1[_0xb93fba(0x1a6)][_0xb93fba(0x1a4)][_0xb93fba(0xdf)](',');if(!_0x150d3b[_0xb93fba(0x1c0)](_0x2be001)){const _0x5d99e3={'status':0x0,'message':_0xb93fba(0x7c)+env_1['env'][_0xb93fba(0x1a4)]+_0xb93fba(0xdb)};return _0x4b746b['status'](0x190)[_0xb93fba(0x179)](_0x5d99e3);}const _0x21eb16=_0xb93fba(0xd1)+Date[_0xb93fba(0xef)]()+'.'+_0x2be001,_0x16351a=_0xb93fba(0xd5),_0x502302=Buffer[_0xb93fba(0x130)](_0x1bcd1e[_0xb93fba(0x17d)](/^data:image\/\w+;base64,/,''),'base64'),_0x4b0a8b=_0x1bcd1e[_0xb93fba(0x17d)](/^data:image\/\w+;base64,/,'')[_0xb93fba(0x1b8)],_0x53c617=0x4*Math[_0xb93fba(0x1ac)](_0x4b0a8b/0x3)*0.5624896334383812,_0x4a4f79=_0x53c617/0x400;console['log'](_0x4a4f79+_0xb93fba(0xa7));if(+_0x4a4f79<=0x1000){if(_0x5e715f[_0xb93fba(0x158)]&&_0x5e715f[_0xb93fba(0xce)]){const _0x1b481a=env_1[_0xb93fba(0x1a6)][_0xb93fba(0x188)]==='s3'?this['s3Service']:this['imageService'];yield _0x1b481a[_0xb93fba(0x9e)](_0x5e715f[_0xb93fba(0x158)]+'/'+_0x5e715f[_0xb93fba(0xce)]);}env_1[_0xb93fba(0x1a6)][_0xb93fba(0x188)]==='s3'?yield this['s3Service']['imageUpload'](_0x16351a+_0x21eb16,_0x502302,_0x2be001):yield this['imageService'][_0xb93fba(0xc5)](_0x16351a+_0x21eb16,_0x502302);}else{const _0x3f5062={'status':0x0,'message':_0xb93fba(0x19b)};return _0x4b746b[_0xb93fba(0x1bc)](0x190)[_0xb93fba(0x179)](_0x3f5062);}_0x5e715f[_0xb93fba(0xce)]=_0x21eb16,_0x5e715f[_0xb93fba(0x158)]=_0x16351a;}else{if(_0x213e85[_0xb93fba(0x9f)]===0x1){const _0x502088=env_1['env'][_0xb93fba(0x188)]==='s3'?this[_0xb93fba(0x123)]:this[_0xb93fba(0x18a)];_0x5e715f[_0xb93fba(0x158)]&&_0x5e715f['avatar']&&(yield _0x502088['deleteFile'](_0x5e715f[_0xb93fba(0x158)]+'/'+_0x5e715f[_0xb93fba(0xce)])),_0x5e715f[_0xb93fba(0xce)]='',_0x5e715f[_0xb93fba(0x158)]='';}}_0x5e715f['firstName']=_0x213e85[_0xb93fba(0x178)],_0x5e715f[_0xb93fba(0x9d)]=_0x213e85[_0xb93fba(0x9d)],_0x5e715f[_0xb93fba(0x1b1)]=_0x213e85[_0xb93fba(0x1b1)],_0x5e715f[_0xb93fba(0xeb)]=_0x213e85[_0xb93fba(0xeb)];const _0x1b9c66=yield this[_0xb93fba(0x11d)][_0xb93fba(0x1c4)](_0x5e715f[_0xb93fba(0x8b)],_0x5e715f);if(_0x1b9c66){const _0x4d9ef6={'status':0x1,'message':_0xb93fba(0x118),'data':(0x0,class_transformer_1[_0xb93fba(0xff)])(_0x5e715f)};return _0x4b746b['status'](0xc8)[_0xb93fba(0x179)](_0x4d9ef6);}});}[a668_0x16d723(0x198)](_0x1f21ea,_0x170242){const _0x5bb76f=a668_0x16d723;return tslib_1[_0x5bb76f(0xbb)](this,void 0x0,void 0x0,function*(){const _0x905ee1=_0x5bb76f,_0x472b51=[],_0x30fe54=[];_0x30fe54[_0x905ee1(0x19f)]({'tableName':'VendorProducts.product','aliasName':_0x905ee1(0xed)},{'tableName':'VendorProducts.vendor','aliasName':_0x905ee1(0x189)},{'tableName':'vendor.customer','aliasName':'customer'}),_0x472b51[_0x905ee1(0x19f)]({'name':'vendor.vendorId','op':_0x905ee1(0x11a),'value':_0x1f21ea['user'][_0x905ee1(0x1a1)]},{'name':'product.isActive','op':_0x905ee1(0x11a),'value':0x1});const _0x3dbbb8=yield this[_0x905ee1(0xe3)][_0x905ee1(0x167)](0x0,0x0,[],_0x472b51,[],_0x30fe54,[],[],!![],!![]),_0xafb4e8=[];_0xafb4e8[_0x905ee1(0x19f)]({'name':'vendor.vendorId','op':_0x905ee1(0x11a),'value':_0x1f21ea[_0x905ee1(0xf9)][_0x905ee1(0x1a1)]},{'name':_0x905ee1(0x82),'op':_0x905ee1(0x11a),'value':0x0});const _0xf96508=yield this[_0x905ee1(0xe3)][_0x905ee1(0x167)](0x0,0x0,[],_0xafb4e8,[],_0x30fe54,[],[],!![],!![]),_0x13a30b=[],_0x200194=[],_0x2d04ed=[{'name':_0x905ee1(0x1a1),'op':_0x905ee1(0x159),'value':_0x1f21ea[_0x905ee1(0xf9)][_0x905ee1(0x1a1)]}],_0x3f8c3a=yield this['vendorProductService']['list'](0x0,0x0,_0x13a30b,_0x200194,_0x2d04ed,'',0x0),_0x35baa7=yield this[_0x905ee1(0x137)][_0x905ee1(0x12a)](_0x1f21ea['user'][_0x905ee1(0x1a1)],'','','','',0x0),_0x51eae1=yield this[_0x905ee1(0x137)][_0x905ee1(0x170)](_0x1f21ea[_0x905ee1(0xf9)][_0x905ee1(0x1a1)]),_0x2d45b1=yield this[_0x905ee1(0x137)][_0x905ee1(0x7a)](_0x1f21ea[_0x905ee1(0xf9)][_0x905ee1(0x1a1)]);let _0x21328c=0x0;if(_0x2d45b1!==undefined)for(const _0x58af6d of _0x2d45b1){const _0x362394=_0x58af6d[_0x905ee1(0x14c)];let _0xd31999;const _0x4fc83e=_0x58af6d[_0x905ee1(0xbe)]*(_0x362394/0x64);_0xd31999=_0x58af6d['total']-_0x4fc83e,_0x21328c+=+_0xd31999;}const _0x28a54c=_0x21328c,_0x569ce5={'status':0x1,'message':'Successfully\x20get\x20Total\x20Dashboard\x20count','data':{'inActiveVendorProductList':_0xf96508,'activeProductCount':_0x3dbbb8,'totalProductCount':_0x3f8c3a[_0x905ee1(0x1b8)],'totalOrderCount':_0x35baa7['length'],'salesCount':_0x51eae1['salesCount'],'revenue':_0x28a54c}};return _0x170242['status'](0xc8)[_0x905ee1(0x179)](_0x569ce5);});}['topSellingProductList'](_0x4cd67b,_0x1709b6,_0x3b95b9){const _0x244cc3=a668_0x16d723;return tslib_1[_0x244cc3(0xbb)](this,void 0x0,void 0x0,function*(){const _0x169f3b=_0x244cc3,_0x41226d=[_0x169f3b(0x166),_0x169f3b(0x192),_0x169f3b(0x181),_0x169f3b(0x109)],_0x53e2f6=[{'name':_0x169f3b(0x109),'op':'like','value':0x1}],_0x2e5c17=[],_0x46db29=yield this[_0x169f3b(0x7b)][_0x169f3b(0xda)](0x0,0x0,_0x41226d,_0x53e2f6,_0x2e5c17,0x0),_0x570f48=_0x46db29[_0x169f3b(0x127)](_0xcd3b66=>tslib_1[_0x169f3b(0xbb)](this,void 0x0,void 0x0,function*(){const _0x4742b6=_0x169f3b,_0x1082a2=yield this[_0x4742b6(0x137)][_0x4742b6(0x95)](_0x1709b6[_0x4742b6(0xf9)][_0x4742b6(0x1a1)],_0x4cd67b,_0xcd3b66[_0x4742b6(0x166)]),_0x4a3cdf=_0xcd3b66;return _0x4a3cdf[_0x4742b6(0x1ba)]=_0x1082a2[_0x4742b6(0x1ba)],_0x4a3cdf;})),_0x477ae9=yield this[_0x169f3b(0x137)][_0x169f3b(0x145)](_0x1709b6[_0x169f3b(0xf9)][_0x169f3b(0x1a1)],_0x4cd67b),_0x449e37=yield Promise[_0x169f3b(0xad)](_0x570f48),_0x17622d={'status':0x1,'message':_0x169f3b(0x89),'data':{'value':_0x449e37,'orderCount':_0x477ae9[_0x169f3b(0x1ba)]}};return _0x3b95b9['status'](0xc8)[_0x169f3b(0x179)](_0x17622d);});}[a668_0x16d723(0x17b)](_0x22535f,_0x5762e8,_0x1ad4cb,_0xe3e722,_0x728a3f){const _0x1ddded=a668_0x16d723;return tslib_1[_0x1ddded(0xbb)](this,void 0x0,void 0x0,function*(){const _0x363e3d=_0x1ddded,_0x320c5e=require(_0x363e3d(0x171)),_0x123417=yield this['vendorService']['findOne']({'vendorId':_0xe3e722[_0x363e3d(0xf9)][_0x363e3d(0x1a1)]});if(!_0x123417){const _0xe65433={'status':0x0,'message':_0x363e3d(0xbd)};return _0x728a3f[_0x363e3d(0x1bc)](0x190)[_0x363e3d(0x179)](_0xe65433);}const _0x4ba7e5=Buffer[_0x363e3d(0x130)](_0x22535f[_0x363e3d(0x17d)](/^data:([A-Za-z-+\/]+);base64,/,''),'base64'),_0x41a0be=this[_0x363e3d(0x9a)](_0x22535f),_0x188676=_0x320c5e[_0x363e3d(0x135)](_0x41a0be),_0x44d7a8=env_1['env'][_0x363e3d(0x1bf)][_0x363e3d(0xdf)](',');if(!_0x44d7a8[_0x363e3d(0x1c0)](_0x188676)){const _0x5c1c35={'status':0x0,'message':_0x363e3d(0x7c)+env_1['env'][_0x363e3d(0x1bf)]+'\x20types\x20are\x20allowed'};return _0x728a3f['status'](0x190)[_0x363e3d(0x179)](_0x5c1c35);}if(_0x1ad4cb){const _0x1d3b3f=yield this['customerDocumentService'][_0x363e3d(0xc0)]({'where':{'customerDocumentId':_0x1ad4cb}});if(!_0x1d3b3f)return _0x728a3f[_0x363e3d(0x1bc)](0x190)['send']({'message':_0x363e3d(0x168)});const _0x514e34=yield this[_0x363e3d(0x83)][_0x363e3d(0xc0)]({'where':{'title':_0x5762e8,'customerDocumentId':(0x0,typeorm_1[_0x363e3d(0xf8)])(_0x1ad4cb),'customerId':_0x123417[_0x363e3d(0x8b)]}});if(_0x514e34)return _0x728a3f['status'](0x190)[_0x363e3d(0x179)]({'status':0x0,'message':'Duplicate\x20title\x20name,\x20give\x20unique\x20title\x20!!'});const _0x437453=_0x1d3b3f[_0x363e3d(0xb5)],_0x419cdc=_0x1d3b3f[_0x363e3d(0x192)];if(_0x188676===_0x363e3d(0x195)||_0x188676===_0x363e3d(0x161))env_1['env'][_0x363e3d(0x188)]==='s3'?(yield yield this[_0x363e3d(0x123)][_0x363e3d(0x9e)](_0x437453+_0x419cdc),yield this['s3Service'][_0x363e3d(0xf2)](_0x437453+_0x419cdc,_0x4ba7e5,_0x41a0be)):(yield this[_0x363e3d(0x18a)][_0x363e3d(0x9e)](_0x437453+_0x419cdc),yield this[_0x363e3d(0x18a)]['fileUpload'](_0x437453+_0x419cdc,_0x4ba7e5));else return _0x728a3f['status'](0x190)[_0x363e3d(0x179)]({'status':0x0,'message':_0x363e3d(0x1af)});_0x1d3b3f['title']=_0x5762e8,_0x1d3b3f[_0x363e3d(0x1a2)]=CustomerDocument_2[_0x363e3d(0x184)]['Pending'];const _0x48e62e=yield this[_0x363e3d(0x83)][_0x363e3d(0x1c4)](_0x1ad4cb,_0x1d3b3f),_0x18c7d9=new VendorDocumentLogModel_1[(_0x363e3d(0x182))]();_0x18c7d9[_0x363e3d(0x12f)]=_0x48e62e[_0x363e3d(0xfb)],_0x18c7d9['status']=VendorDocumentLogModel_2[_0x363e3d(0x18b)][_0x363e3d(0x1b6)],yield this[_0x363e3d(0x14f)][_0x363e3d(0xa2)](_0x18c7d9);if(_0x48e62e){const _0x33961c={'status':0x1,'message':_0x363e3d(0x1cb)};return _0x728a3f['status'](0xc8)['send'](_0x33961c);}}else{const _0x55949f=yield this[_0x363e3d(0x83)][_0x363e3d(0xc0)]({'where':{'title':_0x5762e8,'customerId':_0x123417['customerId']}});if(_0x55949f)return _0x728a3f['status'](0x190)[_0x363e3d(0x179)]({'status':0x0,'message':_0x363e3d(0x1bb)});let _0x2dee40,_0x173037;if(_0x188676==='pdf'||_0x188676===_0x363e3d(0x161))_0x2dee40=_0x363e3d(0x79),_0x173037=_0x363e3d(0xdc)+Date[_0x363e3d(0xef)]()+'.'+_0x188676,env_1[_0x363e3d(0x1a6)][_0x363e3d(0x188)]==='s3'?yield this[_0x363e3d(0x123)][_0x363e3d(0xf2)](_0x2dee40+_0x173037,_0x4ba7e5,_0x41a0be):yield this[_0x363e3d(0x18a)][_0x363e3d(0xf2)](_0x2dee40+_0x173037,_0x4ba7e5);else return _0x728a3f[_0x363e3d(0x1bc)](0x190)[_0x363e3d(0x179)]({'status':0x0,'message':_0x363e3d(0x1af)});const _0x354905=new CustomerDocument_1[(_0x363e3d(0x1a9))]();_0x354905[_0x363e3d(0x8b)]=_0x123417[_0x363e3d(0x8b)],_0x354905[_0x363e3d(0xea)]=_0x5762e8,_0x354905[_0x363e3d(0x192)]=_0x173037,_0x354905[_0x363e3d(0xb5)]='vendordocument/',_0x354905['documentStatus']=CustomerDocument_2[_0x363e3d(0x184)][_0x363e3d(0x107)];const _0x481603=yield this['customerDocumentService'][_0x363e3d(0xa2)](_0x354905),_0x1e24d2=new VendorDocumentLogModel_1['VendorDocumentLog']();_0x1e24d2[_0x363e3d(0x12f)]=_0x481603['customerDocumentId'],_0x1e24d2[_0x363e3d(0x1bc)]=VendorDocumentLogModel_2[_0x363e3d(0x18b)][_0x363e3d(0xa8)],yield this[_0x363e3d(0x14f)][_0x363e3d(0xa2)](_0x1e24d2);const _0x4ff521={'status':0x1,'message':_0x363e3d(0x1cb)};return _0x728a3f['status'](0xc8)['send'](_0x4ff521);}});}['downloadCustomerDocument'](_0x56e7a9,_0x45af76,_0x3866f9){const _0x4a016a=a668_0x16d723;return tslib_1[_0x4a016a(0xbb)](this,void 0x0,void 0x0,function*(){const _0x4e0b44=_0x4a016a,_0x5da3f9=yield this['customerDocumentService'][_0x4e0b44(0xc0)](_0x56e7a9);if(_0x5da3f9===undefined){const _0x3ec05c={'status':0x0,'message':'Invalid\x20customer\x20document\x20Id'};return _0x45af76[_0x4e0b44(0x1bc)](0x190)[_0x4e0b44(0x179)](_0x3ec05c);}const _0x5901e=_0x5da3f9[_0x4e0b44(0x192)],_0x30e5fd=_0x5da3f9[_0x4e0b44(0xb5)];let _0x14e68e;return env_1[_0x4e0b44(0x1a6)][_0x4e0b44(0x188)]==='s3'?(_0x14e68e=yield this['s3Service'][_0x4e0b44(0x1b7)](_0x30e5fd,_0x5901e),console[_0x4e0b44(0x169)](_0x14e68e,_0x4e0b44(0x148))):(_0x14e68e=yield this[_0x4e0b44(0x18a)]['fileDownload'](_0x30e5fd,_0x5901e),console[_0x4e0b44(0x169)](_0x14e68e,'val2')),_0x14e68e?new Promise((_0x22c40d,_0x337f69)=>{const _0x382380=_0x4e0b44;_0x45af76[_0x382380(0x7d)](_0x14e68e,_0x5901e);}):_0x45af76[_0x4e0b44(0x1bc)](0x190)['send']({'status':0x0,'message':_0x4e0b44(0xba)});});}[a668_0x16d723(0xb9)](_0x542d91,_0x44d848,_0x4d3f6a,_0x528850,_0x2d5d7e){const _0xdef96a=a668_0x16d723;return tslib_1[_0xdef96a(0xbb)](this,void 0x0,void 0x0,function*(){const _0x595dc0=_0xdef96a,_0x24c455=yield this['vendorService']['findOne']({'where':{'vendorId':_0x528850['user'][_0x595dc0(0x1a1)]}});if(!_0x24c455){const _0x260f85={'status':0x1,'message':_0x595dc0(0x134)};return _0x2d5d7e[_0x595dc0(0x1bc)](0x190)[_0x595dc0(0x179)](_0x260f85);}const _0x48dd74=['customerDocumentId',_0x595dc0(0x8b),_0x595dc0(0xea),_0x595dc0(0x192),_0x595dc0(0xb5),_0x595dc0(0x1a2),'createdDate'],_0x583c0e=[{'name':_0x595dc0(0x8b),'value':_0x24c455[_0x595dc0(0x8b)]}],_0x5bf3f7=[],_0x17a2b4=yield this[_0x595dc0(0x83)][_0x595dc0(0xda)](_0x542d91,_0x44d848,_0x48dd74,_0x5bf3f7,_0x583c0e,_0x4d3f6a)['then'](_0x4612cc=>tslib_1[_0x595dc0(0xbb)](this,void 0x0,void 0x0,function*(){const _0xb4f412=_0x595dc0;if(typeof _0x4612cc===_0xb4f412(0x13c))return _0x4612cc;const _0x165dd6=_0x4612cc['map'](_0x883b5f=>tslib_1[_0xb4f412(0xbb)](this,void 0x0,void 0x0,function*(){const _0x595768=_0xb4f412,_0x33867e=_0x883b5f,_0x10ed27=yield this['vendorDocumentLogService']['findAll']({'documentId':_0x883b5f['customerDocumentId']})[_0x595768(0x86)](_0x2f51fc=>{const _0x21a558=_0x2f51fc['map'](_0x517475=>{const _0x29fe73=a668_0x59a8,_0x51f189=_0x517475;return _0x51f189['status']=VendorDocumentLogModel_2[_0x29fe73(0x18b)][_0x51f189[_0x29fe73(0x1bc)]],_0x51f189;});return _0x21a558;}),_0x14aa43=yield Promise['all'](_0x10ed27);return _0x33867e['timeLine']=_0x14aa43,console[_0x595768(0x169)](_0x33867e,_0x595768(0x1c2)),_0x33867e;})),_0x52d0e7=Promise[_0xb4f412(0xad)](_0x165dd6);return _0x52d0e7;})),_0x585925={'status':0x1,'message':_0x595dc0(0x121),'data':_0x17a2b4};return _0x2d5d7e[_0x595dc0(0x1bc)](0xc8)[_0x595dc0(0x179)](_0x585925);});}[a668_0x16d723(0x9a)](_0x5b0865){const _0x2784cb=a668_0x16d723;let _0x3b066b=undefined;if(typeof _0x5b0865!==_0x2784cb(0x88))return _0x3b066b;const _0xf221f8=_0x5b0865[_0x2784cb(0x16f)](/data:([a-zA-Z0-9]+\/[a-zA-Z0-9-.+]+).*,.*/);return _0xf221f8&&_0xf221f8[_0x2784cb(0x1b8)]&&(_0x3b066b=_0xf221f8[0x1]),_0x3b066b;}[a668_0x16d723(0x16c)](_0x27fe9d,_0x57b768,_0x130c39){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x55fbe5=a668_0x59a8,_0x56577f=yield this['customerService']['findOne']({'where':{'email':_0x27fe9d,'deleteFlag':0x0}});if(!_0x56577f){const _0x3bc546={'status':0x0,'message':_0x55fbe5(0x104)};return _0x57b768[_0x55fbe5(0x1bc)](0x190)[_0x55fbe5(0x179)](_0x3bc546);}const _0x1b0cb5=require(_0x55fbe5(0x160)),_0x371b26=_0x1b0cb5[_0x55fbe5(0x1bd)]['encrypt'](_0x56577f['email'],env_1[_0x55fbe5(0x1a6)]['cryptoSecret'])['toString'](),_0x39ca4d=Buffer['from'](_0x371b26)[_0x55fbe5(0xf4)]('base64');console[_0x55fbe5(0x169)](_0x371b26+'val'),console['log'](_0x39ca4d+_0x55fbe5(0xf6)),_0x56577f[_0x55fbe5(0x14a)]=_0x39ca4d,_0x56577f[_0x55fbe5(0x19d)]=(0x0,moment_1['default'])()[_0x55fbe5(0xc9)](0x14,_0x55fbe5(0x1a3))[_0x55fbe5(0x8d)](_0x55fbe5(0x15c)),yield this[_0x55fbe5(0x11d)]['update'](_0x56577f['id'],_0x56577f);const _0x303d91=yield this[_0x55fbe5(0xcc)][_0x55fbe5(0xc0)](0x17),_0x1d7a62=yield this[_0x55fbe5(0x90)]['findOne'](),_0x39cfcb=env_1['env'][_0x55fbe5(0x1ad)]+'?token='+_0x39ca4d;console[_0x55fbe5(0x169)](_0x39cfcb+_0x55fbe5(0x15e));const _0x37e8cb=_0x303d91[_0x55fbe5(0xd4)][_0x55fbe5(0x17d)]('{name}',_0x56577f['firstName'])[_0x55fbe5(0x17d)](_0x55fbe5(0x101),_0x39cfcb),_0x2437ef={};_0x2437ef[_0x55fbe5(0xfe)]=_0x1d7a62,_0x2437ef[_0x55fbe5(0x16d)]=_0x37e8cb,_0x2437ef[_0x55fbe5(0x15e)]=_0x39cfcb,_0x2437ef[_0x55fbe5(0xfa)]=undefined;const _0x277222=mail_services_1[_0x55fbe5(0x110)]['sendMail'](_0x2437ef,_0x56577f[_0x55fbe5(0x1b1)],_0x303d91['subject'],![],![],'');if(_0x277222){const _0x45867a={'status':0x1,'message':_0x55fbe5(0x193),'data':_0x39ca4d};return _0x57b768['status'](0xc8)['send'](_0x45867a);}});}[a668_0x16d723(0xe1)](_0x1338db,_0x21b781){const _0x521564=a668_0x16d723;return tslib_1[_0x521564(0xbb)](this,void 0x0,void 0x0,function*(){const _0x354e17=_0x521564,_0x1fb1b0=require('crypto-js'),_0x138107=_0x1fb1b0['AES']['decrypt'](Buffer['from'](_0x1338db,'base64')[_0x354e17(0xf4)]('ascii'),env_1[_0x354e17(0x1a6)]['cryptoSecret']),_0x294240=_0x138107['toString'](_0x1fb1b0['enc'][_0x354e17(0x146)]),_0x861c32=yield this[_0x354e17(0x11d)]['findOne']({'where':{'email':_0x294240,'deleteFlag':0x0}});if(!_0x861c32){const _0xead4ed={'status':0x3,'message':_0x354e17(0x157)};return _0x21b781[_0x354e17(0x1bc)](0xc8)[_0x354e17(0x179)](_0xead4ed);}if((0x0,moment_1[_0x354e17(0xd9)])(_0x861c32[_0x354e17(0x19d)])['format'](_0x354e17(0x15c))<(0x0,moment_1[_0x354e17(0xd9)])()[_0x354e17(0x8d)](_0x354e17(0x15c))){const _0x13aaea={'status':0x2,'message':_0x354e17(0x94)};return _0x21b781[_0x354e17(0x1bc)](0xc8)[_0x354e17(0x179)](_0x13aaea);}if(_0x861c32[_0x354e17(0x14a)]!==''){const _0x28e5cd={'status':0x1,'message':'Valid\x20key'};return _0x21b781[_0x354e17(0x1bc)](0xc8)[_0x354e17(0x179)](_0x28e5cd);}else{const _0xfe642d={'status':0x3,'message':'This\x20link\x20has\x20been\x20used\x20already.\x20please\x20try\x20again'};return _0x21b781[_0x354e17(0x1bc)](0xc8)[_0x354e17(0x179)](_0xfe642d);}});}[a668_0x16d723(0x1c9)](_0x228710,_0x23a98c,_0x4da067){const _0xfea37a=a668_0x16d723;return tslib_1[_0xfea37a(0xbb)](this,void 0x0,void 0x0,function*(){const _0x32b9a2=_0xfea37a,_0x114764=_0x23a98c[_0x32b9a2(0x113)][_0x32b9a2(0x126)];if(!_0x114764){const _0x4b85b6={'status':0x0,'message':_0x32b9a2(0x16a)};return _0x4da067['status'](0x190)['send'](_0x4b85b6);}const _0x5ec01e=require(_0x32b9a2(0x160)),_0x143beb=_0x5ec01e[_0x32b9a2(0x1bd)][_0x32b9a2(0x147)](Buffer[_0x32b9a2(0x130)](_0x114764,_0x32b9a2(0x190))[_0x32b9a2(0xf4)](_0x32b9a2(0x199)),env_1[_0x32b9a2(0x1a6)][_0x32b9a2(0x185)]),_0x1553f8=_0x143beb['toString'](_0x5ec01e[_0x32b9a2(0xa6)]['Utf8']);console[_0x32b9a2(0x169)](_0x1553f8+'decodedTokenKey');const _0x5b3552=yield this[_0x32b9a2(0x11d)][_0x32b9a2(0xc0)]({'select':['id',_0x32b9a2(0x178),_0x32b9a2(0x1b1),'mobileNumber',_0x32b9a2(0xae),'avatar',_0x32b9a2(0x158),_0x32b9a2(0x109),_0x32b9a2(0x14a)],'where':{'email':_0x1553f8,'deleteFlag':0x0}});_0x5b3552[_0x32b9a2(0xae)]=yield Customer_1[_0x32b9a2(0x1ae)][_0x32b9a2(0x172)](_0x228710),_0x5b3552['forgetPasswordKey']='';const _0x4d64f8=yield this[_0x32b9a2(0x11d)][_0x32b9a2(0x1c4)](_0x5b3552['id'],_0x5b3552);if(_0x4d64f8){const _0x2c3cc1={'status':0x1,'message':_0x32b9a2(0xd2),'data':_0x5b3552['email']};return _0x4da067[_0x32b9a2(0x1bc)](0xc8)['send'](_0x2c3cc1);}});}[a668_0x16d723(0xa4)](_0x7acacc,_0x26597a){const _0x4db412=a668_0x16d723;return tslib_1[_0x4db412(0xbb)](this,void 0x0,void 0x0,function*(){const _0x353a8d=_0x4db412,_0x177900=_0x7acacc[_0x353a8d(0xca)][_0x353a8d(0x81)][_0x353a8d(0xdf)]('\x20')[0x0]===_0x353a8d(0xaf)?_0x7acacc[_0x353a8d(0xca)][_0x353a8d(0x81)][_0x353a8d(0xdf)]('\x20')[0x1]:'';if(!_0x177900){const _0x159c38={'status':0x1,'message':_0x353a8d(0x91)};return _0x26597a[_0x353a8d(0x1bc)](0xc8)['send'](_0x159c38);}const _0x4f212e=require(_0x353a8d(0x160)),_0x3c0bf1=_0x4f212e['AES'][_0x353a8d(0x147)](_0x177900,env_1[_0x353a8d(0x1a6)]['cryptoSecret']),_0x7bf985=_0x3c0bf1['toString'](_0x4f212e[_0x353a8d(0xa6)][_0x353a8d(0x146)]),_0x5e0d64=yield this[_0x353a8d(0x19a)]['findOne']({'where':{'token':_0x7bf985}});if(!_0x5e0d64){const _0x37ebf3={'status':0x0,'message':_0x353a8d(0x112)};return _0x26597a[_0x353a8d(0x1bc)](0x190)[_0x353a8d(0x179)](_0x37ebf3);}const _0x3033fb=yield this[_0x353a8d(0x19a)]['delete'](_0x5e0d64);if(!_0x3033fb){const _0x1f6d91={'status':0x1,'message':_0x353a8d(0x91)};return _0x26597a[_0x353a8d(0x1bc)](0xc8)[_0x353a8d(0x179)](_0x1f6d91);}});}};tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1['Post'])('/register'),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1[a668_0x16d723(0xa5)])({'validate':!![]})),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1[a668_0x16d723(0x12b)]('design:type',Function),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x117),[VendorRegistrationRequest_1['VendorRegisterRequest'],Object,Object]),tslib_1['__metadata'](a668_0x16d723(0x124),Promise)],VendorController[a668_0x16d723(0x194)],'register',null),tslib_1['__decorate']([(0x0,routing_controllers_1[a668_0x16d723(0x12c)])(a668_0x16d723(0x8e)),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1[a668_0x16d723(0xa5)])({'validate':!![]})),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1[a668_0x16d723(0xb6)])()),tslib_1[a668_0x16d723(0x173)](0x2,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x136),Function),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x117),[VendorLoginRequest_1[a668_0x16d723(0x142)],Object,Object]),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x124),Promise)],VendorController[a668_0x16d723(0x194)],'login',null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1[a668_0x16d723(0x100)])(a668_0x16d723(0x108)),(0x0,routing_controllers_1[a668_0x16d723(0x165)])('vendor'),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1[a668_0x16d723(0xb6)])()),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1['__metadata']('design:type',Function),tslib_1[a668_0x16d723(0x12b)]('design:paramtypes',[Object,Object]),tslib_1[a668_0x16d723(0x12b)]('design:returntype',Promise)],VendorController[a668_0x16d723(0x194)],a668_0x16d723(0x1c7),null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1['Get'])(a668_0x16d723(0x183)),(0x0,routing_controllers_1[a668_0x16d723(0x165)])(a668_0x16d723(0x189)),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1['QueryParam'])(a668_0x16d723(0x15d))),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1[a668_0x16d723(0xc3)])(a668_0x16d723(0x9c))),tslib_1[a668_0x16d723(0x173)](0x2,(0x0,routing_controllers_1[a668_0x16d723(0xc3)])(a668_0x16d723(0xc8))),tslib_1[a668_0x16d723(0x173)](0x3,(0x0,routing_controllers_1[a668_0x16d723(0xc3)])(a668_0x16d723(0xa0))),tslib_1[a668_0x16d723(0x173)](0x4,(0x0,routing_controllers_1['Req'])()),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x136),Function),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x117),[Number,Number,String,Object,Object,Object]),tslib_1[a668_0x16d723(0x12b)]('design:returntype',Promise)],VendorController[a668_0x16d723(0x194)],a668_0x16d723(0x106),null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1['Put'])(a668_0x16d723(0xde)),(0x0,routing_controllers_1[a668_0x16d723(0x165)])(a668_0x16d723(0x189)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a668_0x16d723(0x17e)])(a668_0x16d723(0x13e))),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1[a668_0x16d723(0x17e)])(a668_0x16d723(0x1ca))),tslib_1[a668_0x16d723(0x173)](0x2,(0x0,routing_controllers_1[a668_0x16d723(0xb6)])()),tslib_1[a668_0x16d723(0x173)](0x3,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x136),Function),tslib_1['__metadata']('design:paramtypes',[String,String,Object,Object]),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x124),Promise)],VendorController['prototype'],'changePassword',null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1[a668_0x16d723(0x12c)])(a668_0x16d723(0xfd)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a668_0x16d723(0xa5)])({'validate':!![]})),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1['__metadata'](a668_0x16d723(0x136),Function),tslib_1['__metadata'](a668_0x16d723(0x117),[VendorForgotPasswordRequest_1[a668_0x16d723(0x7f)],Object]),tslib_1['__metadata']('design:returntype',Promise)],VendorController[a668_0x16d723(0x194)],a668_0x16d723(0x103),null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1[a668_0x16d723(0xe0)])(a668_0x16d723(0xaa)),(0x0,routing_controllers_1['Authorized'])('vendor'),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1[a668_0x16d723(0xa5)])({'validate':!![]})),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1['Param'])(a668_0x16d723(0x8b))),tslib_1[a668_0x16d723(0x173)](0x2,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x136),Function),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x117),[UpdateVendorRequest_1[a668_0x16d723(0x119)],Number,Object]),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x124),Promise)],VendorController[a668_0x16d723(0x194)],a668_0x16d723(0x1c4),null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1[a668_0x16d723(0x100)])(a668_0x16d723(0x102)),(0x0,routing_controllers_1[a668_0x16d723(0x165)])(a668_0x16d723(0x189)),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1[a668_0x16d723(0xb6)])()),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x136),Function),tslib_1['__metadata']('design:paramtypes',[Object,Object]),tslib_1[a668_0x16d723(0x12b)]('design:returntype',Promise)],VendorController[a668_0x16d723(0x194)],a668_0x16d723(0x198),null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1[a668_0x16d723(0x100)])('/order-graph'),(0x0,routing_controllers_1[a668_0x16d723(0x165)])('vendor'),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1[a668_0x16d723(0xc3)])(a668_0x16d723(0x141))),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1[a668_0x16d723(0xb6)])()),tslib_1[a668_0x16d723(0x173)](0x2,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1['__metadata']('design:type',Function),tslib_1[a668_0x16d723(0x12b)]('design:paramtypes',[Number,Object,Object]),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x124),Promise)],VendorController['prototype'],a668_0x16d723(0xe9),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a668_0x16d723(0x12c)])(a668_0x16d723(0x1aa)),(0x0,routing_controllers_1[a668_0x16d723(0x165)])(a668_0x16d723(0x189)),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1[a668_0x16d723(0x17e)])(a668_0x16d723(0xee))),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1['BodyParam'])(a668_0x16d723(0xea))),tslib_1[a668_0x16d723(0x173)](0x2,(0x0,routing_controllers_1['BodyParam'])('documentId')),tslib_1[a668_0x16d723(0x173)](0x3,(0x0,routing_controllers_1[a668_0x16d723(0xb6)])()),tslib_1[a668_0x16d723(0x173)](0x4,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata']('design:type',Function),tslib_1[a668_0x16d723(0x12b)]('design:paramtypes',[String,String,Number,Object,Object]),tslib_1['__metadata'](a668_0x16d723(0x124),Promise)],VendorController[a668_0x16d723(0x194)],a668_0x16d723(0x17b),null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1[a668_0x16d723(0x100)])(a668_0x16d723(0xf5)),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1[a668_0x16d723(0xf0)])('customerDocumentId')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a668_0x16d723(0xb6)])()),tslib_1['__metadata'](a668_0x16d723(0x136),Function),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x117),[Number,Object,Object]),tslib_1['__metadata'](a668_0x16d723(0x124),Promise)],VendorController[a668_0x16d723(0x194)],a668_0x16d723(0xd6),null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1['Get'])(a668_0x16d723(0x1b0)),(0x0,routing_controllers_1['Authorized'])(a668_0x16d723(0x189)),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1[a668_0x16d723(0xc3)])('limit')),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1[a668_0x16d723(0xc3)])(a668_0x16d723(0x9c))),tslib_1['__param'](0x2,(0x0,routing_controllers_1['QueryParam'])(a668_0x16d723(0xa0))),tslib_1[a668_0x16d723(0x173)](0x3,(0x0,routing_controllers_1[a668_0x16d723(0xb6)])()),tslib_1[a668_0x16d723(0x173)](0x4,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x136),Function),tslib_1['__metadata']('design:paramtypes',[Number,Number,Object,Object,Object]),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x124),Promise)],VendorController[a668_0x16d723(0x194)],a668_0x16d723(0xb9),null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1[a668_0x16d723(0x100)])(a668_0x16d723(0x156)),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1[a668_0x16d723(0xc3)])(a668_0x16d723(0x1b1))),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1[a668_0x16d723(0x173)](0x2,(0x0,routing_controllers_1['Req'])()),tslib_1[a668_0x16d723(0x12b)]('design:type',Function),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x117),[String,Object,Object]),tslib_1['__metadata'](a668_0x16d723(0x124),Promise)],VendorController[a668_0x16d723(0x194)],a668_0x16d723(0x16c),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])(a668_0x16d723(0x1c8)),tslib_1['__param'](0x0,(0x0,routing_controllers_1['QueryParam'])(a668_0x16d723(0x126))),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a668_0x16d723(0x12b)]('design:type',Function),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x117),[String,Object]),tslib_1['__metadata'](a668_0x16d723(0x124),Promise)],VendorController['prototype'],'keyCheck',null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1[a668_0x16d723(0xe0)])('/reset-password'),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a668_0x16d723(0x17e)])(a668_0x16d723(0x13e))),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1[a668_0x16d723(0xb6)])()),tslib_1[a668_0x16d723(0x173)](0x2,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x136),Function),tslib_1['__metadata']('design:paramtypes',[String,Object,Object]),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x124),Promise)],VendorController[a668_0x16d723(0x194)],a668_0x16d723(0x1c9),null),tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1[a668_0x16d723(0x12c)])('/logout'),(0x0,routing_controllers_1[a668_0x16d723(0x165)])(a668_0x16d723(0x189)),tslib_1[a668_0x16d723(0x173)](0x0,(0x0,routing_controllers_1['Req'])()),tslib_1[a668_0x16d723(0x173)](0x1,(0x0,routing_controllers_1[a668_0x16d723(0x1ab)])()),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x136),Function),tslib_1[a668_0x16d723(0x12b)]('design:paramtypes',[Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],VendorController[a668_0x16d723(0x194)],a668_0x16d723(0xa4),null),VendorController=tslib_1[a668_0x16d723(0x1cd)]([(0x0,routing_controllers_1[a668_0x16d723(0x10e)])(a668_0x16d723(0xe8)),tslib_1[a668_0x16d723(0x12b)](a668_0x16d723(0x117),[CustomerService_1[a668_0x16d723(0x13a)],VendorService_1[a668_0x16d723(0x162)],EmailTemplateService_1[a668_0x16d723(0x187)],VendorCategoryService_1['VendorCategoryService'],S3Service_1[a668_0x16d723(0xb7)],ImageService_1[a668_0x16d723(0x15a)],LoginLogService_1['LoginLogService'],VendorOrderService_1[a668_0x16d723(0x13b)],VendorProductService_1['VendorProductService'],SettingService_1['SettingService'],CurrencyService_1[a668_0x16d723(0x14e)],OrderStatusService_1[a668_0x16d723(0xd0)],AccessTokenService_1[a668_0x16d723(0x98)],CustomerDocumentService_1[a668_0x16d723(0x19c)],VendorDocumentLogService_1[a668_0x16d723(0xfc)]])],VendorController),exports[a668_0x16d723(0xc4)]=VendorController;function a668_0x1ad9(){const _0x1312a9=['accessTokenService','File\x20size\x20is\x20too\x20large,\x20give\x20less\x20than\x204\x20mb.\x20','CustomerDocumentService','linkExpires','../../core/services/S3Service','push','AccessToken','vendorId','documentStatus','minutes','availImageTypes','__importDefault','env','companyAddress1','queryCategoryList','CustomerDocument','/upload-customer-document','Res','ceil','vendorForgetPasswordLink','Customer','Only\x20allow\x20pdf\x20format!','/customer-document-list','email','../../core/services/ImageService','../../core/services/OrderStatusService','./requests/VendorForgotPasswordRequest','10AdCSYM','ReUploaded','fileDownload','length','Invalid\x20EmailId','orderCount','Duplicate\x20title\x20name,\x20give\x20unique\x20title\x20!!','status','AES','../../core/services/VendorDocumentLogService','availAllowTypes','includes','companyCoverImagePath','resultDataresultData','companyName','update','successfully\x20got\x20Vendor\x20profile.\x20','{name}','vendorDetails','/forgot-password-key-check','resetPassword','oldPassword','Document\x20Uploaded\x20Successfully','{xxxxxx}','__decorate','vendordocument/','getTotalVendorRevenue','orderStatusService','Only\x20','download','currencyService','VendorForgotPasswordRequest','subject','authorization','product.isActive','customerDocumentService','error\x20in\x20sending\x20email.','companyTaxNumber','then','Wrong\x20Login\x20Information.','string','Successfully\x20get\x20order\x20count..!','../../core/services/CurrencyService','customerId','sendMail','format','/login','ifscCode','settingService','Successfully\x20Logout','Loggedin\x20successfully','./requests/VendorLoginRequest','Your\x20forgot\x20password\x20link\x20got\x20expired,\x20try\x20again.','findOrderCountBasedStatus','../../core/services/CustomerService','vendorRegister','AccessTokenService','currencyCode','base64MimeType','companyEmailId','offset','lastName','deleteFile','reset','count','364390RTtoXz','create','companyWhatsapp','logout','Body','enc','kbbbb','Uploaded','symbolLeft','/edit-vendor/:customerId','companyWebsite','pincode','all','password','Bearer','../../core/models/Customer','defineProperty','token','getVendorProfile','accountHolderName','path','Req','S3Service','tslib','customerDocumentList','Download\x20Failed','__awaiter','companyLogoPath','Invalid\x20vendorId','total','../../../auth/mail.services','findOne','../../core/services/VendorService','../../core/services/EmailTemplateService','QueryParam','VendorController','imageUpload','companyPanNumber','121aEvSxW','keyword','add','headers','vendorService','emailTemplateService','vendorRedirectUrl','avatar','companyAddress2','OrderStatusService','Img_','Your\x20has\x20been\x20password\x20changed\x20successfully','typeorm','content','customer/','downloadCustomerDocument','../../core/services/VendorOrderService','isAttachment','default','list','\x20types\x20are\x20allowed','VendorDocument_','Your\x20password\x20changed\x20successfully','/change-password','split','Put','keyCheck','comparePassword','vendorProductService','class-transformer','jwtSecret','createdDate','companyState','/vendor','topSellingProductList','title','mobileNumber','../../core/models/AccessTokenModel','product','customerData','now','Param','Successfully\x20got\x20the\x20vendor\x20category\x20list.','fileUpload','./requests/VendorRegistrationRequest','toString','/download-customer-document/:customerDocumentId','encryptedKey','companyInstagram','Not','user','productDetailData','customerDocumentId','VendorDocumentLogService','/forgot-password','logo','instanceToPlain','Get','{link}','/total-Dashboard-counts','forgotPassword','Invalid\x20email','mailContent','vendorCategoryList','Pending','/vendor-profile','isActive','vendorPrefixId','companyFacebook','vendorCategoryService','facebook','JsonController','adminEmail','MAILService','../../core/models/VendorDocumentLogModel','Invalid\x20token','body','reflect-metadata','473Cohtlu','countryName','design:paramtypes','Updated\x20successfully','UpdateVendorRequest','and','Existing\x20password\x20and\x20New\x20password\x20should\x20not\x20match','encrypt','customerService','bcc','companyGstNumber','login','successfully\x20list\x20the\x20customer\x20document','__esModule','s3Service','design:returntype','message','key','map','unable\x20to\x20list\x20vendor\x20category\x20list','attachmentDetails','searchOrderList','__metadata','Post','routing-controllers','substr','documentId','from','lastLogin','emailId','paymentInformation','Invalid\x20Vendor','getExtension','design:type','vendorOrdersService','@spurtcommerce/marketplace','connection','CustomerService','VendorOrdersService','number','remoteAddress','newPassword','../../core/services/VendorProductService','loginLogService','duration','VendorLogin','Thank\x20you\x20for\x20expressing\x20your\x20interest\x20and\x20registering\x20with\x20Spurtcommerce\x20for\x20selling\x20your\x20products.\x20Kindly\x20wait\x20for\x20admin\x20approval','Password\x20must\x20contain\x20at\x20least\x20one\x20number\x20or\x20one\x20symbol\x20and\x20one\x20uppercase\x20and\x20lowercase\x20letter,\x20and\x20at\x20least\x208\x20and\x20at\x20most\x20128\x20characters','findOrderCountBasedDuration','Utf8','decrypt','val1','designation','forgetPasswordKey','./requests/UpdateVendorRequest\x20','commission','bankAccountNumber','CurrencyService','vendorDocumentLogService','1478iXflGK','856yFNMwK','companyLogo','1785399aCKGPY','vendorEmail','22617AXmcBZ','/forgot-password-link','Invalid\x20key.\x20please\x20try\x20again','avatarPath','where','ImageService','../../core/services/AccessTokenService','YYYY-MM-DD\x20HH:mm:ss','limit','redirectUrl','symbolRight','crypto-js','PDF','VendorService','companyCountryId','userType','Authorized','orderStatusId','listByQueryBuilder','Invalid\x20document\x20Id\x20!!','log','Key\x20is\x20missing','youtube','forgetPasswordLink','emailContent','companyIFSC','match','getBuyersCount','mime','hashPassword','__param','companyCity','companyCoverImage','logo/','companyMobileNumber','firstName','send','187551LFgdHY','uploadCustomerDocument','bankName','replace','BodyParam','getConnection','data','colorCode','VendorDocumentLog','/vendor-category-list','DocumentStatus','cryptoSecret','1700360XWZwqz','EmailTemplateService','imageserver','vendor','imageService','DocumentLogStatus','socket','../../core/models/LoginLog','2975682daKPFm','Your\x20old\x20password\x20is\x20wrong.','base64','code','name','Reset\x20Password\x20link\x20has\x20been\x20sent\x20to\x20your\x20email\x20inbox.','prototype','pdf','storeCurrencyId','companyAccountHolderName','totalProductCounts','ascii'];a668_0x1ad9=function(){return _0x1312a9;};return a668_0x1ad9();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const class_transformer_1 = require("class-transformer");
+const mail_services_1 = require("../../../auth/mail.services");
+const VendorRegistrationRequest_1 = require("./requests/VendorRegistrationRequest");
+const VendorForgotPasswordRequest_1 = require("./requests/VendorForgotPasswordRequest");
+const Customer_1 = require("../../core/models/Customer");
+const LoginLog_1 = require("../../core/models/LoginLog");
+const CustomerService_1 = require("../../core/services/CustomerService");
+const VendorService_1 = require("../../core/services/VendorService");
+const VendorCategoryService_1 = require("../../core/services/VendorCategoryService");
+const LoginLogService_1 = require("../../core/services/LoginLogService");
+const EmailTemplateService_1 = require("../../core/services/EmailTemplateService");
+const VendorLoginRequest_1 = require("./requests/VendorLoginRequest");
+const jsonwebtoken_1 = tslib_1.__importDefault(require("jsonwebtoken"));
+const S3Service_1 = require("../../core/services/S3Service");
+const ImageService_1 = require("../../core/services/ImageService");
+const env_1 = require("../../../env");
+const UpdateVendorRequest_1 = require("./requests/UpdateVendorRequest ");
+const VendorOrderService_1 = require("../../core/services/VendorOrderService");
+const VendorProductService_1 = require("../../core/services/VendorProductService");
+const OrderStatusService_1 = require("../../core/services/OrderStatusService");
+const SettingService_1 = require("../../core/services/SettingService");
+const CurrencyService_1 = require("../../core/services/CurrencyService");
+const CustomerDocument_1 = require("../../core/models/CustomerDocument");
+const CustomerDocumentService_1 = require("../../core/services/CustomerDocumentService");
+const AccessTokenModel_1 = require("../../core/models/AccessTokenModel");
+const AccessTokenService_1 = require("../../core/services/AccessTokenService");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const CustomerDocument_2 = require("../../core/models/CustomerDocument");
+const VendorDocumentLogService_1 = require("../../core/services/VendorDocumentLogService");
+const VendorDocumentLogModel_1 = require("../../core/models/VendorDocumentLogModel");
+const VendorDocumentLogModel_2 = require("../../core/models/VendorDocumentLogModel");
+const marketplace_1 = require("@spurtcommerce/marketplace");
+const typeorm_1 = require("typeorm");
+let VendorController = class VendorController {
+    constructor(customerService, vendorService, emailTemplateService, vendorCategoryService, s3Service, imageService, loginLogService, vendorOrdersService, vendorProductService, settingService, currencyService, orderStatusService, accessTokenService, customerDocumentService, vendorDocumentLogService) {
+        this.customerService = customerService;
+        this.vendorService = vendorService;
+        this.emailTemplateService = emailTemplateService;
+        this.vendorCategoryService = vendorCategoryService;
+        this.s3Service = s3Service;
+        this.imageService = imageService;
+        this.loginLogService = loginLogService;
+        this.vendorOrdersService = vendorOrdersService;
+        this.vendorProductService = vendorProductService;
+        this.settingService = settingService;
+        this.currencyService = currencyService;
+        this.orderStatusService = orderStatusService;
+        this.accessTokenService = accessTokenService;
+        this.customerDocumentService = customerDocumentService;
+        this.vendorDocumentLogService = vendorDocumentLogService;
+    }
+    // Customer Register API
+    /**
+     * @api {post} /api/vendor/register register API
+     * @apiGroup Vendor
+     * @apiParam (Request body) {String{..32}} firstName first Name
+     * @apiParam (Request body) {String{..32}} [lastName] last Name
+     * @apiParam (Request body) {String} displayName displayName
+     * @apiParam (Request body) {String} companyName companyName
+     * @apiParam (Request body) {String} [contactPersonName] contactPersonName
+     * @apiParam (Request body) {String{8..128}} password Vendor Password
+     * @apiParam (Request body) {String} confirmPassword Confirm Password
+     * @apiParam (Request body) {String{..96}} emailId Vendor Email Id
+     * @apiParam (Request body) {String{..15}} [phoneNumber] User Phone Number
+     * @apiParamExample {json} Input
+     * {
+     *      "firstName" : "",
+     *      "lastName" : "",
+     *      "contactPersonName" : "",
+     *      "password" : "",
+     *      "confirmPassword" : "",
+     *      "emailId" : "",
+     *      "phoneNumber" : "",
+     *      "companyName" : "",
+     *      "displayName" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Thank you for registering with us for selling your product and please check your email",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/register
+     * @apiErrorExample {json} Vendor Register error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Vendor Register Function
+    register(registerParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorSave = yield (0, marketplace_1.vendorRegister)((0, typeorm_1.getConnection)(), {
+                body: registerParam,
+                ip: (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0],
+                vendorRedirectUrl: env_1.env.vendorRedirectUrl,
+                adminRedirectUrl: env_1.env.adminRedirectUrl,
+            });
+            if (vendorSave.status === 0) {
+                return response.status(400).send({
+                    status: vendorSave.status,
+                    message: vendorSave.message,
+                });
+            }
+            const adminMail = vendorSave.data.adminEmail;
+            const vendorMail = vendorSave.data.vendorEmail;
+            mail_services_1.MAILService.sendMail(adminMail.mailContent, adminMail.email, adminMail.subject, adminMail.bcc, adminMail.isAttachment, adminMail.attachmentDetails);
+            mail_services_1.MAILService.sendMail(vendorMail.mailContent, vendorMail.email, vendorMail.subject, vendorMail.bcc, vendorMail.isAttachment, vendorMail.attachmentDetails);
+            return response.status(200).send({
+                status: vendorSave.status,
+                message: `Thank you for expressing your interest and registering with Spurtcommerce for selling your products. Kindly wait for admin approval`,
+                data: vendorSave.data.resultData,
+            });
+        });
+    }
+    // Login API
+    /**
+     * @api {post} /api/vendor/login login API
+     * @apiGroup Vendor
+     * @apiParam (Request body) {String} emailId User Email Id
+     * @apiParam (Request body) {String} password User Password
+     * @apiParamExample {json} Input
+     * {
+     *      "emailId" : "",
+     *      "password" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "data": "{
+     *         "token":''
+     *      }",
+     *      "message": "Successfully loggedIn",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/login
+     * @apiErrorExample {json} Login error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Login Function
+    login(loginParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const resultData = yield this.customerService.findOne({
+                select: ['id', 'firstName', 'email', 'mobileNumber', 'password', 'avatar', 'avatarPath', 'isActive'],
+                where: { email: loginParam.emailId, deleteFlag: 0 },
+            });
+            if (resultData === undefined) {
+                const notFountResponse = {
+                    status: 0,
+                    message: 'Wrong Login Information.',
+                };
+                return response.status(400).send(notFountResponse);
+            }
+            const findVendor = yield this.vendorService.findOne({
+                where: { customerId: resultData.id, approvalFlag: 1 },
+            });
+            if (findVendor === undefined) {
+                const errorUserNameResponse = {
+                    status: 0,
+                    message: 'Wrong Login Information.',
+                };
+                return response.status(400).send(errorUserNameResponse);
+            }
+            resultData.vendorId = findVendor.vendorId;
+            resultData.vendorPrefixId = findVendor.vendorPrefixId.replace('#', '');
+            const setting = yield this.settingService.findOne();
+            if (setting) {
+                const currencyVal = yield this.currencyService.findOne(setting.storeCurrencyId);
+                if (currencyVal) {
+                    resultData.currencyCode = currencyVal.code;
+                    resultData.currencySymbolLeft = currencyVal.symbolLeft;
+                    resultData.currencySymbolRight = currencyVal.symbolRight;
+                }
+            }
+            if (resultData.isActive === 0) {
+                const errorUserInActiveResponse = {
+                    status: 0,
+                    message: 'Wrong Login Information.',
+                };
+                return response.status(400).send(errorUserInActiveResponse);
+            }
+            if (yield Customer_1.Customer.comparePassword(resultData, loginParam.password)) {
+                // create a token
+                const token = jsonwebtoken_1.default.sign({ id: findVendor.vendorId, role: 'vendor' }, env_1.env.jwtSecret, {
+                    expiresIn: '4h',
+                });
+                const loginLog = new LoginLog_1.LoginLog();
+                loginLog.customerId = resultData.id;
+                loginLog.emailId = resultData.email;
+                loginLog.firstName = resultData.firstName;
+                loginLog.ipAddress = (request.headers['x-forwarded-for'] ||
+                    request.connection.remoteAddress ||
+                    request.socket.remoteAddress ||
+                    request.connection.socket.remoteAddress).split(',')[0];
+                const savedloginLog = yield this.loginLogService.create(loginLog);
+                const customer = yield this.customerService.findOne({ where: { email: loginParam.emailId, deleteFlag: 0 } });
+                customer.lastLogin = savedloginLog.createdDate;
+                yield this.customerService.create(customer);
+                const Crypto = require('crypto-js');
+                const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
+                if (token) {
+                    const newToken = new AccessTokenModel_1.AccessToken();
+                    newToken.userId = findVendor.vendorId;
+                    newToken.token = token;
+                    newToken.userType = 'vendor';
+                    yield this.accessTokenService.create(newToken);
+                }
+                resultData.email = '';
+                resultData.firstName = '';
+                resultData.lastName = '';
+                resultData.mobileNumber = '';
+                resultData.username = '';
+                const successResponse = {
+                    status: 1,
+                    message: 'Loggedin successfully',
+                    data: {
+                        token: ciphertextToken,
+                        user: (0, class_transformer_1.instanceToPlain)(resultData),
+                    },
+                };
+                return response.status(200).send(successResponse);
+            }
+            const errorResponse = {
+                status: 0,
+                message: 'Wrong Login Information.',
+            };
+            return response.status(400).send(errorResponse);
+        });
+    }
+    // Get vendor profile API
+    /**
+     * @api {get} /api/vendor/vendor-profile Vendor Get Profile  API
+     * @apiGroup  Vendor
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully got vendor Details",
+     * "data":{
+     * "vendorId" : "",
+     * "firstName" : "",
+     * "lastName" : "",
+     * "email" : "",
+     * "mobileNumber" : "",
+     * "avatar" : "",
+     * "avatarPath" : "",
+     * "commission" : "",
+     * "status" : "",
+     * }
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/vendor-profile
+     * @apiErrorExample {json} vendor error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorDetails(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorDetail = yield (0, marketplace_1.getVendorProfile)((0, typeorm_1.getConnection)(), { vendorId: request.user.vendorId });
+            const successResponse = {
+                status: 1,
+                message: 'successfully got Vendor profile. ',
+                data: vendorDetail.data,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Vendor Category List API
+    /**
+     * @api {get} /api/vendor/vendor-category-list Vendor Category List API
+     * @apiGroup  Vendor
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get vendor category list",
+     *      "data":{
+     *       "vendorId" : "",
+     *       "vendorCategoryId" : "",
+     *       "categoryId" : "",
+     *       "commission" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/vendor-category-list
+     * @apiErrorExample {json} Vendor category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorCategoryList(limit, offset, keyword, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorId = request.user.vendorId;
+            const vendorCategoryList = yield this.vendorCategoryService.queryCategoryList(limit, offset, vendorId, keyword, count);
+            if (vendorCategoryList) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got the vendor category list.',
+                    data: vendorCategoryList,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to list vendor category list',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Change Password API
+    /**
+     * @api {put} /api/vendor/change-password Change Password API
+     * @apiGroup Vendor
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} oldPassword User oldPassword
+     * @apiParam (Request body) {String} newPassword User newPassword
+     * @apiParamExample {json} Input
+     * {
+     *      "newPassword" : "",
+     *      "oldPassword" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Password changed",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/change-password
+     * @apiErrorExample {json} User error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    changePassword(newPassword, oldPassword, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendor = yield this.vendorService.findOne({
+                where: {
+                    vendorId: request.user.vendorId,
+                },
+            });
+            if (!vendor) {
+                const errResponse = {
+                    status: 0,
+                    message: 'Invalid vendorId',
+                };
+                return response.status(400).send(errResponse);
+            }
+            const resultData = yield this.customerService.findOne({ where: { id: vendor.customerId } });
+            if (yield Customer_1.Customer.comparePassword(resultData, oldPassword)) {
+                const val = yield Customer_1.Customer.comparePassword(resultData, newPassword);
+                if (val) {
+                    const errResponse = {
+                        status: 0,
+                        message: 'Existing password and New password should not match',
+                    };
+                    return response.status(400).send(errResponse);
+                }
+                const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;
+                if (!newPassword.match(pattern)) {
+                    const passwordValidatingMessage = [];
+                    passwordValidatingMessage.push('Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
+                    const errResponse = {
+                        status: 0,
+                        message: "You have an error in your request's body. Check 'errors' field for more details!",
+                        data: { message: passwordValidatingMessage },
+                    };
+                    return response.status(422).send(errResponse);
+                }
+                resultData.password = yield Customer_1.Customer.hashPassword(newPassword);
+                const updateUserData = yield this.customerService.update(resultData.id, resultData);
+                if (updateUserData) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Your password changed successfully',
+                    };
+                    return response.status(200).send(successResponse);
+                }
+            }
+            const errorResponse = {
+                status: 0,
+                message: 'Your old password is wrong.',
+            };
+            return response.status(400).send(errorResponse);
+        });
+    }
+    // Forgot Password API
+    /**
+     * @api {post} /api/vendor/forgot-password Forgot Password API
+     * @apiGroup Vendor
+     * @apiParam (Request body) {String} email User email
+     * @apiParamExample {json} Input
+     * {
+     *      "email" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Thank you. Your password send to your email",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/forgot-password
+     * @apiErrorExample {json} User error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    forgotPassword(forgotPasswordParam, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const user = yield this.customerService.findOne({
+                where: {
+                    email: forgotPasswordParam.email, deleteFlag: 0,
+                },
+            });
+            if (!user) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid emailId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const findVendor = yield this.vendorService.findOne({
+                where: { customerId: user.id },
+            });
+            if (findVendor === undefined) {
+                const errorUserNameResponse = {
+                    status: 0,
+                    message: 'Invalid EmailId',
+                };
+                return response.status(400).send(errorUserNameResponse);
+            }
+            const tempPassword = Math.random().toString().substr(2, 5);
+            const password = yield Customer_1.Customer.hashPassword(tempPassword);
+            user.password = password;
+            yield this.customerService.create(user);
+            const emailContent = yield this.emailTemplateService.findOne(2);
+            const logo = yield this.settingService.findOne();
+            const message = emailContent.content.replace('{name}', user.firstName).replace('{xxxxxx}', tempPassword);
+            const redirectUrl = env_1.env.vendorRedirectUrl;
+            const mailContents = {};
+            mailContents.logo = logo;
+            mailContents.emailContent = message;
+            mailContents.redirectUrl = redirectUrl;
+            mailContents.productDetailData = undefined;
+            const sendMailRes = mail_services_1.MAILService.sendMail(mailContents, user.email, emailContent.subject, false, false, '');
+            if (sendMailRes) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Your password has been sent to your email inbox.',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'error in sending email.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Edit Vendor API
+    /**
+     * @api {put} /api/vendor/edit-vendor/:customerId Edit Vendor API
+     * @apiGroup Vendor
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String{..32}} firstName First Name
+     * @apiParam (Request body) {String{..32}} [lastName] Last Name
+     * @apiParam (Request body) {String} [avatar] Avatar
+     * @apiParam (Request body) {String} [designation] Designation
+     * @apiParam (Request body) {String{..96}} email Email
+     * @apiParam (Request body) {Number} mobileNumber Mobile Number
+     * @apiParam (Request body) {String} [companyName] Company Name
+     * @apiParam (Request body) {String} [companyLogo] Company Logo
+     * @apiParam (Request body) {String} [companyCoverImage] CompanyCoverImage
+     * @apiParam (Request body) {String} [companyAddress1] Company Address1
+     * @apiParam (Request body) {String} [companyAddress2] Company Address2
+     * @apiParam (Request body) {String} [companyCity] Company City
+     * @apiParam (Request body) {String} [companyState] Company State
+     * @apiParam (Request body) {Number} [companyCountryId] Company Country Id
+     * @apiParam (Request body) {String} [pincode] Pincode
+     * @apiParam (Request body) {Number} [companyMobileNumber] Company Mobile Number
+     * @apiParam (Request body) {String{..96}} [companyEmailId] Company Email Id
+     * @apiParam (Request body) {String} [companyWebsite] Company Website
+     * @apiParam (Request body) {String} [companyTaxNumber] Company Gst Number
+     * @apiParam (Request body) {String} [companyPanNumber] Company Pan Number
+     * @apiParam (Request body) {String} [paymentInformation] paymentInformation
+     * @apiParamExample {json} Input
+     * {
+     *      "firstName" : "",
+     *      "lastName" : "",
+     *      "avatar" : "",
+     *      "designation" : "",
+     *      "email" : "",
+     *      "mobileNumber" : "",
+     *      "companyName" : "",
+     *      "companyLogo" : "",
+     *      "companyCoverImage" : "",
+     *      "companyAddress1" : "",
+     *      "companyAddress2" : "",
+     *      "companyCity" : "",
+     *      "companyState" : "",
+     *      "companyCountryId" : "",
+     *      "pincode" : "",
+     *      "companyMobileNumber" : "",
+     *      "companyEmailId" : "",
+     *      "companyWebsite" : "",
+     *      "companyTaxNumber" : "",
+     *      "companyPanNumber" : "",
+     *      "paymentInformation" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1",
+     *      "message": "Edited successfully"
+     *      "data" : "{}"
+     * }
+     * @apiSampleRequest /api/vendor/edit-vendor/:customerId
+     * @apiErrorExample {json} Edit Vendor API error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    update(updateParam, customerId, response) {
+        var _a, _b;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendor = yield this.vendorService.findOne({
+                where: {
+                    customerId,
+                },
+            });
+            const companyLogo = updateParam.companyLogo;
+            if (companyLogo) {
+                const type = companyLogo.split(';')[0].split('/')[1];
+                const availableTypes = env_1.env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse = {
+                        status: 0,
+                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                const name = 'Img_' + Date.now() + '.' + type;
+                const path = 'logo/';
+                const base64Data = Buffer.from(companyLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const stringLength = companyLogo.replace(/^data:image\/\w+;base64,/, '').length;
+                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                const sizeInKb = sizeInBytes / 1024;
+                console.log(sizeInKb + 'kbbbb');
+                if (+sizeInKb <= 4096) {
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((path + name), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((path + name), base64Data);
+                    }
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'File size is too large, give less than 4 mb. ',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                vendor.companyLogo = name;
+                vendor.companyLogoPath = path;
+            }
+            const companyCoverImage = updateParam.companyCoverImage;
+            if (companyCoverImage) {
+                const covertype = companyCoverImage.split(';')[0].split('/')[1];
+                const imgName = 'Img_' + Date.now() + '.' + covertype;
+                const imgPath = 'logo/';
+                const coverbase64Data = Buffer.from(companyCoverImage.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const stringLength = companyCoverImage.replace(/^data:image\/\w+;base64,/, '').length;
+                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                const sizeInKb = sizeInBytes / 1024;
+                console.log(sizeInKb + 'kbbbb');
+                if (+sizeInKb <= 4096) {
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((imgPath + imgName), coverbase64Data, covertype);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((imgPath + imgName), coverbase64Data);
+                    }
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'File size is too large, give less than 4 mb. ',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                vendor.companyCoverImage = imgName;
+                vendor.companyCoverImagePath = imgPath;
+            }
+            vendor.companyName = updateParam.companyName;
+            vendor.avatar = updateParam.avatar;
+            vendor.accountHolderName = updateParam.companyAccountHolderName;
+            vendor.bankAccountNumber = updateParam.companyAccountNumber;
+            vendor.bankName = updateParam.companyBankName;
+            vendor.companyAddress1 = updateParam.companyAddress1;
+            vendor.facebook = updateParam.companyFacebook;
+            vendor.companyAddress2 = updateParam.companyAddress2;
+            vendor.companyCity = updateParam.companyCity;
+            vendor.companyState = (_a = updateParam.state) !== null && _a !== void 0 ? _a : '';
+            vendor.zoneId = (_b = updateParam.zoneId) !== null && _b !== void 0 ? _b : 0;
+            vendor.designation = updateParam.designation;
+            vendor.companyCountryId = updateParam.companyCountryId;
+            vendor.pincode = updateParam.pincode;
+            vendor.companyMobileNumber = updateParam.companyMobileNumber ? updateParam.companyMobileNumber : 0;
+            vendor.companyEmailId = updateParam.companyEmailId;
+            vendor.companyWebsite = updateParam.companyWebsite;
+            vendor.companyTaxNumber = updateParam.companyTaxNumber;
+            vendor.companyPanNumber = updateParam.companyPanNumber;
+            vendor.ifscCode = updateParam.companyIFSC;
+            vendor.companyGstNumber = updateParam.companyGstNumber;
+            vendor.whatsapp = updateParam.companyWhatsapp;
+            vendor.youtube = updateParam.companyYoutube;
+            vendor.instagram = updateParam.companyInstagram;
+            vendor.countryName = updateParam.countryName;
+            vendor.paymentInformation = updateParam.paymentInformation;
+            yield this.vendorService.update(vendor.vendorId, vendor);
+            const customer = yield this.customerService.findOne({
+                where: {
+                    id: vendor.customerId,
+                },
+            });
+            const avatar = updateParam.avatar;
+            if (avatar) {
+                const type = avatar.split(';')[0].split('/')[1];
+                const availableTypes = env_1.env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse = {
+                        status: 0,
+                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                const name = 'Img_' + Date.now() + '.' + type;
+                const path = 'customer/';
+                const base64Data = Buffer.from(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const stringLength = avatar.replace(/^data:image\/\w+;base64,/, '').length;
+                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                const sizeInKb = sizeInBytes / 1024;
+                console.log(sizeInKb + 'kbbbb');
+                if (+sizeInKb <= 4096) {
+                    if (customer.avatarPath && customer.avatar) {
+                        const deleteService = env_1.env.imageserver === 's3' ? this.s3Service : this.imageService;
+                        yield deleteService.deleteFile(customer.avatarPath + '/' + customer.avatar);
+                    }
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((path + name), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((path + name), base64Data);
+                    }
+                }
+                else {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'File size is too large, give less than 4 mb. ',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                customer.avatar = name;
+                customer.avatarPath = path;
+            }
+            else if (updateParam.reset === 1) {
+                const deleteService = env_1.env.imageserver === 's3' ? this.s3Service : this.imageService;
+                if (customer.avatarPath && customer.avatar) {
+                    yield deleteService.deleteFile(customer.avatarPath + '/' + customer.avatar);
+                }
+                customer.avatar = '';
+                customer.avatarPath = '';
+            }
+            customer.firstName = updateParam.firstName;
+            customer.lastName = updateParam.lastName;
+            customer.email = updateParam.email;
+            customer.mobileNumber = updateParam.mobileNumber;
+            const editCustomer = yield this.customerService.update(customer.customerId, customer);
+            if (editCustomer) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Updated successfully',
+                    data: (0, class_transformer_1.instanceToPlain)(customer),
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Dashboard Counts
+    /**
+     * @api {get} /api/vendor/total-Dashboard-counts Total Dashboard Counts
+     * @apiGroup Vendor
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got total dashboard counts",
+     *      "data":{
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/total-Dashboard-counts
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    totalProductCounts(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const whereCondition = [];
+            const relations = [];
+            relations.push({
+                tableName: 'VendorProducts.product',
+                aliasName: 'product',
+            }, {
+                tableName: 'VendorProducts.vendor',
+                aliasName: 'vendor',
+            }, {
+                tableName: 'vendor.customer',
+                aliasName: 'customer',
+            });
+            whereCondition.push({
+                name: 'vendor.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'product.isActive',
+                op: 'and',
+                value: 1,
+            });
+            const vendorActiveProductListCount = yield this.vendorProductService.listByQueryBuilder(0, 0, [], whereCondition, [], relations, [], [], true, true);
+            const inactiveWhereCondition = [];
+            inactiveWhereCondition.push({
+                name: 'vendor.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'product.isActive',
+                op: 'and',
+                value: 0,
+            });
+            const vendorInactiveProductListCount = yield this.vendorProductService.listByQueryBuilder(0, 0, [], inactiveWhereCondition, [], relations, [], [], true, true);
+            const select = [];
+            const relation = [];
+            const WhereConditions = [
+                {
+                    name: 'vendorId',
+                    op: 'where',
+                    value: request.user.vendorId,
+                },
+            ];
+            const totalProductCount = yield this.vendorProductService.list(0, 0, select, relation, WhereConditions, '', 0);
+            const orderList = yield this.vendorOrdersService.searchOrderList(request.user.vendorId, '', '', '', '', 0);
+            const buyerAndRevenueCount = yield this.vendorOrdersService.getBuyersCount(request.user.vendorId);
+            const revenue = yield this.vendorOrdersService.getTotalVendorRevenue(request.user.vendorId);
+            let total = 0;
+            if (revenue !== undefined) {
+                for (const val of revenue) {
+                    const commissionPercent = val.commission;
+                    let NetAmount;
+                    const commissionAmount = val.total * (commissionPercent / 100);
+                    NetAmount = val.total - commissionAmount;
+                    total += +NetAmount;
+                }
+            }
+            const totalRevenue = total;
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get Total Dashboard count',
+                data: {
+                    inActiveVendorProductList: vendorInactiveProductListCount,
+                    activeProductCount: vendorActiveProductListCount,
+                    totalProductCount: totalProductCount.length,
+                    totalOrderCount: orderList.length,
+                    salesCount: buyerAndRevenueCount.salesCount,
+                    revenue: totalRevenue,
+                },
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    //  order chart API
+    /**
+     * @api {get} /api/vendor/order-graph  order graph API
+     * @apiGroup Vendor
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} duration 1-> thisWeek 2-> thisMonth 3-> thisYear
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get order statics..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor/order-graph
+     * @apiErrorExample {json} order statics error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Detail Function
+    topSellingProductList(duration, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['orderStatusId', 'name', 'colorCode', 'isActive'];
+            const search = [
+                {
+                    name: 'isActive',
+                    op: 'like',
+                    value: 1,
+                },
+            ];
+            const WhereConditions = [];
+            const orderStatusList = yield this.orderStatusService.list(0, 0, select, search, WhereConditions, 0);
+            const promise = orderStatusList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const order = yield this.vendorOrdersService.findOrderCountBasedStatus(request.user.vendorId, duration, result.orderStatusId);
+                const temp = result;
+                temp.orderCount = order.orderCount;
+                return temp;
+            }));
+            const orderCount = yield this.vendorOrdersService.findOrderCountBasedDuration(request.user.vendorId, duration);
+            const value = yield Promise.all(promise);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get order count..!',
+                data: { value, orderCount: orderCount.orderCount },
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Upload Vendor Document
+    /**
+     * @api {post} /api/vendor/upload-customer-document Upload Vendor Document
+     * @apiGroup Vendor
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} title title
+     * @apiParam (Request body) {String} customerData File
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully saved imported data..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/vendor/upload-customer-document
+     * @apiErrorExample {json} Import Customer Data
+     * HTTP/1.1 500 Internal Server Error
+     */
+    uploadCustomerDocument(file, title, documentId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const mime = require('mime');
+            const vendor = yield this.vendorService.findOne({
+                vendorId: request.user.vendorId,
+            });
+            if (!vendor) {
+                const errResponse = {
+                    status: 0,
+                    message: 'Invalid vendorId',
+                };
+                return response.status(400).send(errResponse);
+            }
+            const base64Data = Buffer.from(file.replace(/^data:([A-Za-z-+\/]+);base64,/, ''), 'base64');
+            const mimeType = this.base64MimeType(file);
+            const fileType = mime.getExtension(mimeType);
+            const availableTypes = env_1.env.availAllowTypes.split(',');
+            if (!availableTypes.includes(fileType)) {
+                const errorTypeResponse = {
+                    status: 0,
+                    message: 'Only ' + env_1.env.availAllowTypes + ' types are allowed',
+                };
+                return response.status(400).send(errorTypeResponse);
+            }
+            // Re-Upload
+            if (documentId) {
+                const ifDocument = yield this.customerDocumentService.findOne({ where: { customerDocumentId: documentId } });
+                if (!ifDocument) {
+                    return response.status(400).send({ message: 'Invalid document Id !!' });
+                }
+                const ifTitleExiat = yield this.customerDocumentService.findOne({ where: { title, customerDocumentId: (0, typeorm_1.Not)(documentId), customerId: vendor.customerId } });
+                if (ifTitleExiat) {
+                    return response.status(400).send({ status: 0, message: 'Duplicate title name, give unique title !!' });
+                }
+                const uploadPath = ifDocument.path;
+                const fileName = ifDocument.name;
+                if (fileType === 'pdf' || fileType === 'PDF') {
+                    if (env_1.env.imageserver === 's3') {
+                        yield yield this.s3Service.deleteFile(uploadPath + fileName);
+                        yield this.s3Service.fileUpload((uploadPath + fileName), base64Data, mimeType);
+                    }
+                    else {
+                        yield this.imageService.deleteFile(uploadPath + fileName);
+                        yield this.imageService.fileUpload((uploadPath + fileName), base64Data);
+                    }
+                }
+                else {
+                    return response.status(400).send({ status: 0, message: 'Only allow pdf format!' });
+                }
+                ifDocument.title = title;
+                ifDocument.documentStatus = CustomerDocument_2.DocumentStatus.Pending;
+                const updateDocument = yield this.customerDocumentService.update(documentId, ifDocument);
+                const newVendorDocumentLog = new VendorDocumentLogModel_1.VendorDocumentLog();
+                newVendorDocumentLog.documentId = updateDocument.customerDocumentId;
+                newVendorDocumentLog.status = VendorDocumentLogModel_2.DocumentLogStatus.ReUploaded;
+                yield this.vendorDocumentLogService.create(newVendorDocumentLog);
+                if (updateDocument) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Document Uploaded Successfully',
+                    };
+                    return response.status(200).send(successResponse);
+                }
+            }
+            else {
+                // upload
+                const ifTitleExiat = yield this.customerDocumentService.findOne({ where: { title, customerId: vendor.customerId } });
+                if (ifTitleExiat) {
+                    return response.status(400).send({ status: 0, message: 'Duplicate title name, give unique title !!' });
+                }
+                let uploadPath;
+                let fileName;
+                if (fileType === 'pdf' || fileType === 'PDF') {
+                    uploadPath = 'vendordocument/';
+                    fileName = 'VendorDocument_' + Date.now() + '.' + fileType;
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.fileUpload((uploadPath + fileName), base64Data, mimeType);
+                    }
+                    else {
+                        yield this.imageService.fileUpload((uploadPath + fileName), base64Data);
+                    }
+                }
+                else {
+                    return response.status(400).send({ status: 0, message: 'Only allow pdf format!' });
+                }
+                const newCustomerData = new CustomerDocument_1.CustomerDocument();
+                newCustomerData.customerId = vendor.customerId;
+                newCustomerData.title = title;
+                newCustomerData.name = fileName;
+                newCustomerData.path = 'vendordocument/';
+                newCustomerData.documentStatus = CustomerDocument_2.DocumentStatus.Pending;
+                const createCustomerDocument = yield this.customerDocumentService.create(newCustomerData);
+                const newVendorDocumentLog = new VendorDocumentLogModel_1.VendorDocumentLog();
+                newVendorDocumentLog.documentId = createCustomerDocument.customerDocumentId;
+                newVendorDocumentLog.status = VendorDocumentLogModel_2.DocumentLogStatus.Uploaded;
+                yield this.vendorDocumentLogService.create(newVendorDocumentLog);
+                const successResponse = {
+                    status: 1,
+                    message: 'Document Uploaded Successfully',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Download Vendor Document API
+    /**
+     * @api {get} /api/vendor/download-customer-document/:customerDocumentId Download Vendor Document API
+     * @apiGroup Vendor
+     * @apiParamExample {json} Input
+     * {
+     *      "customerDocumentId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully download customer document file.",
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/download-customer-document/:customerDocumentId
+     * @apiErrorExample {json} Download error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    downloadCustomerDocument(customerDocumentId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customerDocument = yield this.customerDocumentService.findOne(customerDocumentId);
+            if (customerDocument === undefined) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid customer document Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const file = customerDocument.name;
+            const filePath = customerDocument.path;
+            let val;
+            if (env_1.env.imageserver === 's3') {
+                val = yield this.s3Service.fileDownload(filePath, file);
+                console.log(val, 'val1');
+            }
+            else {
+                val = yield this.imageService.fileDownload(filePath, file);
+                console.log(val, 'val2');
+            }
+            if (val) {
+                return new Promise((resolve, reject) => {
+                    response.download(val, file);
+                });
+            }
+            else {
+                return response.status(400).send({ status: 0, message: 'Download Failed' });
+            }
+        });
+    }
+    // Get Vendor Document List
+    /**
+     * @api {get} /api/vendor/customer-document-list Get Vendor Document List
+     * @apiGroup Vendor
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     * "message": "Successfully get customer document list",
+     * "data":{},
+     * "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/customer-document-list
+     * @apiErrorExample {json} customer error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    customerDocumentList(limit, offset, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendor = yield this.vendorService.findOne({
+                where: {
+                    vendorId: request.user.vendorId,
+                },
+            });
+            if (!vendor) {
+                const errResponse = {
+                    status: 1,
+                    message: 'Invalid Vendor',
+                };
+                return response.status(400).send(errResponse);
+            }
+            const select = ['customerDocumentId', 'customerId', 'title', 'name', 'path', 'documentStatus', 'createdDate'];
+            const whereConditions = [
+                {
+                    name: 'customerId',
+                    value: vendor.customerId,
+                },
+            ];
+            const search = [];
+            const customerDoc = yield this.customerDocumentService.list(limit, offset, select, search, whereConditions, count).then((docValue) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                if (typeof docValue === 'number') {
+                    return docValue;
+                }
+                const documentMapping = docValue.map((documentValue) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const parentTemp = documentValue;
+                    const findDocumentLog = yield this.vendorDocumentLogService.findAll({ documentId: documentValue.customerDocumentId }).then((docLogValue) => {
+                        const logMapping = docLogValue.map((logValue) => {
+                            const temp = logValue;
+                            temp.status = VendorDocumentLogModel_2.DocumentLogStatus[temp.status];
+                            return temp;
+                        });
+                        return logMapping;
+                    });
+                    const resultData = yield Promise.all(findDocumentLog);
+                    parentTemp.timeLine = resultData;
+                    console.log(parentTemp, 'resultDataresultData');
+                    return parentTemp;
+                }));
+                const finalResult = Promise.all(documentMapping);
+                return finalResult;
+            }));
+            const successResponse = {
+                status: 1,
+                message: 'successfully list the customer document',
+                data: customerDoc,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    base64MimeType(encoded) {
+        let result = undefined;
+        if (typeof encoded !== 'string') {
+            return result;
+        }
+        const mime = encoded.match(/data:([a-zA-Z0-9]+\/[a-zA-Z0-9-.+]+).*,.*/);
+        if (mime && mime.length) {
+            result = mime[1];
+        }
+        return result;
+    }
+    // forget password link
+    /**
+     * @api {get} /api/vendor/forgot-password-link Forgot Password Link API
+     * @apiGroup  Vendor
+     * @apiParam (Request body) {String} email User email
+     * @apiParamExample {json} Input
+     * {
+     *      "email" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/forgot-password-link
+     * @apiErrorExample {json} store b2b error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    forgetPasswordLink(emailId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = yield this.customerService.findOne({
+                where: { email: emailId, deleteFlag: 0 },
+            });
+            if (!customer) {
+                const errResponse = {
+                    status: 0,
+                    message: 'Invalid email',
+                };
+                return response.status(400).send(errResponse);
+            }
+            const Crypto = require('crypto-js');
+            const val = Crypto.AES.encrypt(customer.email, env_1.env.cryptoSecret).toString();
+            const encryptedKey = Buffer.from(val).toString('base64');
+            console.log(val + 'val');
+            console.log(encryptedKey + 'encryptedKey');
+            customer.forgetPasswordKey = encryptedKey;
+            customer.linkExpires = (0, moment_1.default)().add(20, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            yield this.customerService.update(customer.id, customer);
+            const emailContent = yield this.emailTemplateService.findOne(23);
+            const logo = yield this.settingService.findOne();
+            const redirectUrl = env_1.env.vendorForgetPasswordLink + '?token=' + encryptedKey;
+            console.log(redirectUrl + 'redirectUrl');
+            const message = emailContent.content.replace('{name}', customer.firstName).replace('{link}', redirectUrl);
+            const mailContents = {};
+            mailContents.logo = logo;
+            mailContents.emailContent = message;
+            mailContents.redirectUrl = redirectUrl;
+            mailContents.productDetailData = undefined;
+            const sendMailRes = mail_services_1.MAILService.sendMail(mailContents, customer.email, emailContent.subject, false, false, '');
+            if (sendMailRes) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Reset Password link has been sent to your email inbox.',
+                    data: encryptedKey,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // forget password key check
+    /**
+     * @api {get} /api/vendor/forgot-password-key-check Forgot Password Key check API
+     * @apiGroup   Vendor
+     * @apiParam (Request body) {String} key key
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/forgot-password-key-check/:key
+     * @apiErrorExample {json} store b2b error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    keyCheck(encryptedKey, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const Crypto = require('crypto-js');
+            const bytes = Crypto.AES.decrypt(Buffer.from(encryptedKey, 'base64').toString('ascii'), env_1.env.cryptoSecret);
+            const decodedTokenKey = bytes.toString(Crypto.enc.Utf8);
+            const customer = yield this.customerService.findOne({
+                where: { email: decodedTokenKey, deleteFlag: 0 },
+            });
+            if (!customer) {
+                const errResponse = {
+                    status: 3,
+                    message: 'Invalid key. please try again',
+                };
+                return response.status(200).send(errResponse);
+            }
+            if ((0, moment_1.default)(customer.linkExpires).format('YYYY-MM-DD HH:mm:ss') < (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')) {
+                const expirationError = {
+                    status: 2,
+                    message: 'Your forgot password link got expired, try again.',
+                };
+                return response.status(200).send(expirationError);
+            }
+            if (customer.forgetPasswordKey !== '') {
+                const successResponse = {
+                    status: 1,
+                    message: 'Valid key',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const successResponse = {
+                    status: 3,
+                    message: 'This link has been used already. please try again',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // reset password
+    /**
+     * @api {put} /api/vendor/reset-password  Reset Password API
+     * @apiGroup  Vendor
+     * @apiParam (Request body) {String} newPassword  newPassword
+     * @apiParam (Request body) {String} key  key
+     * @apiParamExample {json} Input
+     * {
+     *      "key": "",
+     *      "newPassword" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Password changed",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/reset-password
+     * @apiErrorExample {json} store b2b error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    resetPassword(newPassword, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const tokenKey = request.body.key;
+            if (!tokenKey) {
+                const keyError = {
+                    status: 0,
+                    message: 'Key is missing',
+                };
+                return response.status(400).send(keyError);
+            }
+            const Crypto = require('crypto-js');
+            const bytes = Crypto.AES.decrypt(Buffer.from(tokenKey, 'base64').toString('ascii'), env_1.env.cryptoSecret);
+            const decodedTokenKey = bytes.toString(Crypto.enc.Utf8);
+            console.log(decodedTokenKey + 'decodedTokenKey');
+            const resultData = yield this.customerService.findOne({
+                select: ['id', 'firstName', 'email', 'mobileNumber', 'password', 'avatar', 'avatarPath', 'isActive', 'forgetPasswordKey'],
+                where: { email: decodedTokenKey, deleteFlag: 0 },
+            });
+            resultData.password = yield Customer_1.Customer.hashPassword(newPassword);
+            resultData.forgetPasswordKey = '';
+            const updateUserData = yield this.customerService.update(resultData.id, resultData);
+            if (updateUserData) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Your has been password changed successfully',
+                    data: resultData.email,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Logout API
+    /**
+     * @api {post} /api/vendor/logout Log Out API
+     * @apiGroup Vendor
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully logout",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/logout
+     * @apiErrorExample {json} Logout error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    logout(request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const token = request.headers.authorization.split(' ')[0] === 'Bearer' ? request.headers.authorization.split(' ')[1] : '';
+            if (!token) {
+                const successResponseBeforeToken = {
+                    status: 1,
+                    message: 'Successfully Logout',
+                };
+                return response.status(200).send(successResponseBeforeToken);
+            }
+            const Crypto = require('crypto-js');
+            const bytes = Crypto.AES.decrypt(token, env_1.env.cryptoSecret);
+            const originalEncryptedString = bytes.toString(Crypto.enc.Utf8);
+            const user = yield this.accessTokenService.findOne({
+                where: {
+                    token: originalEncryptedString,
+                },
+            });
+            if (!user) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid token',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteToken = yield this.accessTokenService.delete(user);
+            if (!deleteToken) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully Logout',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/register'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [VendorRegistrationRequest_1.VendorRegisterRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "register", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/login'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [VendorLoginRequest_1.VendorLogin, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "login", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-profile'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "vendorDetails", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-category-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "vendorCategoryList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/change-password'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('newPassword')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('oldPassword')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "changePassword", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/forgot-password'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [VendorForgotPasswordRequest_1.VendorForgotPasswordRequest, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "forgotPassword", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/edit-vendor/:customerId'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Param)('customerId')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [UpdateVendorRequest_1.UpdateVendorRequest, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "update", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/total-Dashboard-counts'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "totalProductCounts", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-graph'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('duration')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "topSellingProductList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/upload-customer-document'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('customerData')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('title')),
+    tslib_1.__param(2, (0, routing_controllers_1.BodyParam)('documentId')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "uploadCustomerDocument", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/download-customer-document/:customerDocumentId'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('customerDocumentId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "downloadCustomerDocument", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/customer-document-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "customerDocumentList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/forgot-password-link'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('email')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "forgetPasswordLink", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/forgot-password-key-check'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('key')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "keyCheck", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/reset-password'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('newPassword')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "resetPassword", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/logout'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "logout", null);
+VendorController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/vendor'),
+    tslib_1.__metadata("design:paramtypes", [CustomerService_1.CustomerService,
+        VendorService_1.VendorService,
+        EmailTemplateService_1.EmailTemplateService,
+        VendorCategoryService_1.VendorCategoryService,
+        S3Service_1.S3Service,
+        ImageService_1.ImageService,
+        LoginLogService_1.LoginLogService,
+        VendorOrderService_1.VendorOrdersService,
+        VendorProductService_1.VendorProductService,
+        SettingService_1.SettingService,
+        CurrencyService_1.CurrencyService,
+        OrderStatusService_1.OrderStatusService,
+        AccessTokenService_1.AccessTokenService,
+        CustomerDocumentService_1.CustomerDocumentService,
+        VendorDocumentLogService_1.VendorDocumentLogService])
+], VendorController);
+exports.VendorController = VendorController;
+//# sourceMappingURL=VendorController.js.map

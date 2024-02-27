@@ -1,1 +1,99 @@
-'use strict';function a203_0x26af(){const _0x43fa2a=['vendorProducts','5013088GivgZl','\x20IN\x20(','rating','createQueryBuilder','product.vendorProducts','select','manager','../models/ProductRating','ratingConsolidate','name','6095803NuqZGw','andWhere','rating.rating_id','name\x20LIKE\x20','ratingConsolidateForVendor','EntityRepository','productRating.productId\x20=\x20:productId','3592460UnLPZn','productRating.isActive\x20=\x20:value','COUNT(productRating.rating)\x20as\x20rating','length','product','13271031BjzXPa','getSql','consolidate:','30846oECYSs','getRawOne','5084088Yludgf','../../../src/api/core/models/ProductModel','__awaiter','productRatingList','COUNT(rating.review)\x20as\x20reviewCount','DESC','413430kBildI','product_id','productRating','getCount','__esModule','ProductRating','Product','log','innerJoin','getRepository','AVG(rating.rating)\x20as\x20RatingCount','where','8MgyDlM','ratingStatistics','defineProperty','__decorate','rating.productId\x20=\x20:productId','value','rating.isActive\x20=\x20:value','orderBy','limit','278WqokLd','getMany','typeorm','RatingRepository'];a203_0x26af=function(){return _0x43fa2a;};return a203_0x26af();}const a203_0x1efc61=a203_0x5aaf;(function(_0x1a6dc3,_0x2696fb){const _0x3d4bd4=a203_0x5aaf,_0x567c4d=_0x1a6dc3();while(!![]){try{const _0xcb8cc1=-parseInt(_0x3d4bd4(0x153))/0x1+-parseInt(_0x3d4bd4(0x12d))/0x2*(-parseInt(_0x3d4bd4(0x14b))/0x3)+-parseInt(_0x3d4bd4(0x132))/0x4+parseInt(_0x3d4bd4(0x143))/0x5+parseInt(_0x3d4bd4(0x14d))/0x6+parseInt(_0x3d4bd4(0x13c))/0x7+-parseInt(_0x3d4bd4(0x124))/0x8*(parseInt(_0x3d4bd4(0x148))/0x9);if(_0xcb8cc1===_0x2696fb)break;else _0x567c4d['push'](_0x567c4d['shift']());}catch(_0x321605){_0x567c4d['push'](_0x567c4d['shift']());}}}(a203_0x26af,0xb0e7e));function a203_0x5aaf(_0x1c460e,_0x3419f5){const _0x26af4d=a203_0x26af();return a203_0x5aaf=function(_0x5aafe1,_0x325733){_0x5aafe1=_0x5aafe1-0x120;let _0x444b73=_0x26af4d[_0x5aafe1];return _0x444b73;},a203_0x5aaf(_0x1c460e,_0x3419f5);}Object[a203_0x1efc61(0x126)](exports,a203_0x1efc61(0x157),{'value':!![]}),exports[a203_0x1efc61(0x130)]=void 0x0;const tslib_1=require('tslib'),typeorm_1=require(a203_0x1efc61(0x12f)),ProductModel_1=require(a203_0x1efc61(0x14e)),ProductRating_1=require(a203_0x1efc61(0x139));let RatingRepository=class RatingRepository extends typeorm_1['Repository']{[a203_0x1efc61(0x13a)](_0x5225df){const _0x3be019=a203_0x1efc61;return tslib_1[_0x3be019(0x14f)](this,void 0x0,void 0x0,function*(){const _0x41601e=_0x3be019,_0x544e81=yield this[_0x41601e(0x138)][_0x41601e(0x135)](ProductRating_1[_0x41601e(0x158)],_0x41601e(0x134))[_0x41601e(0x137)](['AVG(rating.rating)\x20as\x20RatingCount'])[_0x41601e(0x123)](_0x41601e(0x128),{'productId':_0x5225df})[_0x41601e(0x13d)]('rating.isActive\x20=\x20:value',{'value':0x1})['getRawOne']();return _0x544e81;});}[a203_0x1efc61(0x125)](_0x2b799e){const _0x46c546=a203_0x1efc61;return tslib_1[_0x46c546(0x14f)](this,void 0x0,void 0x0,function*(){const _0x260c1a=_0x46c546,_0x3b22bd=yield this[_0x260c1a(0x138)][_0x260c1a(0x135)](ProductRating_1[_0x260c1a(0x158)],'productRating');return _0x3b22bd[_0x260c1a(0x137)]([_0x260c1a(0x145)]),_0x3b22bd['addSelect'](['COUNT(productRating.review)\x20as\x20review']),_0x3b22bd[_0x260c1a(0x123)](_0x260c1a(0x142),{'productId':_0x2b799e}),_0x3b22bd['andWhere'](_0x260c1a(0x144),{'value':0x1}),_0x3b22bd[_0x260c1a(0x14c)]();});}['getReviewCount'](_0x5c0a43){const _0x464e52=a203_0x1efc61;return tslib_1[_0x464e52(0x14f)](this,void 0x0,void 0x0,function*(){const _0x4adc53=_0x464e52,_0x54bb00=yield this['manager']['createQueryBuilder'](ProductRating_1[_0x4adc53(0x158)],_0x4adc53(0x155));return _0x54bb00[_0x4adc53(0x137)](['COUNT(productRating.review)\x20as\x20review']),_0x54bb00[_0x4adc53(0x123)]('productRating.productId\x20=\x20:productId',{'productId':_0x5c0a43}),_0x54bb00[_0x4adc53(0x13d)](_0x4adc53(0x144),{'value':0x1}),_0x54bb00[_0x4adc53(0x13d)]('productRating.review\x20IS\x20NOT\x20NULL'),_0x54bb00['getRawOne']();});}[a203_0x1efc61(0x140)](_0x1ae65f){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xa51e6d=a203_0x5aaf,_0x4e170e=yield this[_0xa51e6d(0x138)][_0xa51e6d(0x135)](ProductRating_1['ProductRating'],'rating')[_0xa51e6d(0x137)]([_0xa51e6d(0x122),_0xa51e6d(0x151)])[_0xa51e6d(0x120)]('rating.product','product')[_0xa51e6d(0x120)](_0xa51e6d(0x136),_0xa51e6d(0x131))[_0xa51e6d(0x123)]('vendorProducts.vendorId\x20=\x20:vendorId',{'vendorId':_0x1ae65f})[_0xa51e6d(0x13d)](_0xa51e6d(0x12a),{'value':0x1})[_0xa51e6d(0x14c)]();return console[_0xa51e6d(0x15a)](_0xa51e6d(0x14a),_0x4e170e),_0x4e170e;});}[a203_0x1efc61(0x150)](_0x2e47f0,_0x245991,_0x43c13e=[],_0x5ae6fb=[],_0xb19ac5=[],_0x58fb0c){const _0x2b462b=a203_0x1efc61;return tslib_1[_0x2b462b(0x14f)](this,void 0x0,void 0x0,function*(){const _0x8fe4ee=_0x2b462b,_0x33b00e=yield this[_0x8fe4ee(0x138)][_0x8fe4ee(0x135)](ProductRating_1[_0x8fe4ee(0x158)],_0x8fe4ee(0x134));_0x43c13e&&_0x43c13e['length']>0x0&&_0x33b00e[_0x8fe4ee(0x137)](_0x43c13e);_0xb19ac5&&_0xb19ac5[_0x8fe4ee(0x146)]>0x0&&_0xb19ac5['forEach'](_0x5a1b28=>{const _0x31a25e=_0x8fe4ee,_0x3aeb42=_0x5a1b28['op'];if(_0x3aeb42===_0x31a25e(0x123)&&_0x5a1b28[_0x31a25e(0x129)]!==undefined){const _0x3c08a2=this['manager'][_0x31a25e(0x121)](ProductModel_1[_0x31a25e(0x159)])['createQueryBuilder'](_0x31a25e(0x147))[_0x31a25e(0x137)](_0x31a25e(0x154))[_0x31a25e(0x123)](_0x31a25e(0x13f)+'\x27%'+_0x5a1b28[_0x31a25e(0x129)]+'%\x27'+'\x20');_0x33b00e[_0x31a25e(0x123)](_0x5a1b28[_0x31a25e(0x13b)]+_0x31a25e(0x133)+_0x3c08a2[_0x31a25e(0x149)]()+')');}});_0x2e47f0&&_0x2e47f0>0x0&&(_0x33b00e[_0x8fe4ee(0x12c)](_0x2e47f0),_0x33b00e['offset'](_0x245991));_0x33b00e[_0x8fe4ee(0x12b)](_0x8fe4ee(0x13e),_0x8fe4ee(0x152));if(_0x58fb0c)return _0x33b00e[_0x8fe4ee(0x156)]();return _0x33b00e[_0x8fe4ee(0x12e)]();});}};RatingRepository=tslib_1[a203_0x1efc61(0x127)]([(0x0,typeorm_1[a203_0x1efc61(0x141)])(ProductRating_1[a203_0x1efc61(0x158)])],RatingRepository),exports['RatingRepository']=RatingRepository;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RatingRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const ProductModel_1 = require("../../../src/api/core/models/ProductModel");
+const ProductRating_1 = require("../models/ProductRating");
+let RatingRepository = class RatingRepository extends typeorm_1.Repository {
+    ratingConsolidate(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const consolidate = yield this.manager.createQueryBuilder(ProductRating_1.ProductRating, 'rating')
+                .select(['AVG(rating.rating) as RatingCount'])
+                .where('rating.productId = :productId', { productId: id })
+                .andWhere('rating.isActive = :value', { value: 1 })
+                .getRawOne();
+            return consolidate;
+        });
+    }
+    // rating statistics
+    ratingStatistics(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(ProductRating_1.ProductRating, 'productRating');
+            query.select(['COUNT(productRating.rating) as rating']);
+            query.addSelect(['COUNT(productRating.review) as review']);
+            query.where('productRating.productId = :productId', { productId: id });
+            query.andWhere('productRating.isActive = :value', { value: 1 });
+            return query.getRawOne();
+        });
+    }
+    // get review count
+    getReviewCount(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(ProductRating_1.ProductRating, 'productRating');
+            query.select(['COUNT(productRating.review) as review']);
+            query.where('productRating.productId = :productId', { productId: id });
+            query.andWhere('productRating.isActive = :value', { value: 1 });
+            query.andWhere('productRating.review IS NOT NULL');
+            return query.getRawOne();
+        });
+    }
+    ratingConsolidateForVendor(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const consolidate = yield this.manager.createQueryBuilder(ProductRating_1.ProductRating, 'rating')
+                .select(['AVG(rating.rating) as RatingCount', 'COUNT(rating.review) as reviewCount'])
+                .innerJoin('rating.product', 'product')
+                .innerJoin('product.vendorProducts', 'vendorProducts')
+                .where('vendorProducts.vendorId = :vendorId', { vendorId: id })
+                .andWhere('rating.isActive = :value', { value: 1 })
+                .getRawOne();
+            console.log('consolidate:', consolidate);
+            return consolidate;
+        });
+    }
+    productRatingList(limit, offset, select = [], searchConditions = [], whereConditions = [], count) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(ProductRating_1.ProductRating, 'rating');
+            // Select
+            if (select && select.length > 0) {
+                query.select(select);
+            }
+            // where condition
+            if (whereConditions && whereConditions.length > 0) {
+                whereConditions.forEach((table) => {
+                    const operator = table.op;
+                    if (operator === 'where' && table.value !== undefined) {
+                        const subQb = this.manager
+                            .getRepository(ProductModel_1.Product)
+                            .createQueryBuilder('product')
+                            .select('product_id')
+                            .where('name LIKE ' + "'%" + table.value + "%'" + ' ');
+                        query.where(table.name + ' IN (' + subQb.getSql() + ')');
+                    }
+                });
+            }
+            // Limit & Offset
+            if (limit && limit > 0) {
+                query.limit(limit);
+                query.offset(offset);
+            }
+            query.orderBy('rating.rating_id', 'DESC');
+            if (count) {
+                return query.getCount();
+            }
+            return query.getMany();
+        });
+    }
+};
+RatingRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(ProductRating_1.ProductRating)
+], RatingRepository);
+exports.RatingRepository = RatingRepository;
+//# sourceMappingURL=RatingRepository.js.map

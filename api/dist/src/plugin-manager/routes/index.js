@@ -1,1 +1,83 @@
-'use strict';const a1024_0x455baf=a1024_0x29f5;(function(_0x5a1de8,_0x23abbe){const _0x2b94fd=a1024_0x29f5,_0x116684=_0x5a1de8();while(!![]){try{const _0x131c87=parseInt(_0x2b94fd(0x180))/0x1+-parseInt(_0x2b94fd(0x179))/0x2*(-parseInt(_0x2b94fd(0x185))/0x3)+parseInt(_0x2b94fd(0x176))/0x4+-parseInt(_0x2b94fd(0x172))/0x5+-parseInt(_0x2b94fd(0x195))/0x6*(parseInt(_0x2b94fd(0x18b))/0x7)+parseInt(_0x2b94fd(0x196))/0x8*(-parseInt(_0x2b94fd(0x184))/0x9)+parseInt(_0x2b94fd(0x189))/0xa*(parseInt(_0x2b94fd(0x173))/0xb);if(_0x131c87===_0x23abbe)break;else _0x116684['push'](_0x116684['shift']());}catch(_0x5aeb70){_0x116684['push'](_0x116684['shift']());}}}(a1024_0x29a2,0xa0888));Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports[a1024_0x455baf(0x17a)]=void 0x0;const tslib_1=require(a1024_0x455baf(0x197)),AuthRouter_1=require(a1024_0x455baf(0x17b)),HomeRouter_1=require(a1024_0x455baf(0x181)),CashondeliveryRouter_1=require(a1024_0x455baf(0x187)),PaypalRouter_1=require(a1024_0x455baf(0x192)),RazorpayRouter_1=require('./RazorpayRouter'),GmailRouter_1=require(a1024_0x455baf(0x17e)),FacebookRouter_1=require(a1024_0x455baf(0x186)),StripeRouter_1=require('./StripeRouter'),passportConfig=tslib_1[a1024_0x455baf(0x198)](require(a1024_0x455baf(0x18e))),globalMiddleware=tslib_1[a1024_0x455baf(0x198)](require(a1024_0x455baf(0x175)));function a1024_0x29f5(_0x2ab95e,_0x1365b0){const _0x29a253=a1024_0x29a2();return a1024_0x29f5=function(_0x29f568,_0x30ae35){_0x29f568=_0x29f568-0x172;let _0x4252ed=_0x29a253[_0x29f568];return _0x4252ed;},a1024_0x29f5(_0x2ab95e,_0x1365b0);}exports['ROUTER']=[{'handler':AuthRouter_1['AuthRoute'],'middleware':[globalMiddleware['index']],'path':'/'},{'handler':HomeRouter_1[a1024_0x455baf(0x183)],'middleware':[globalMiddleware[a1024_0x455baf(0x17c)],passportConfig[a1024_0x455baf(0x191)]],'path':a1024_0x455baf(0x18c)},{'handler':CashondeliveryRouter_1[a1024_0x455baf(0x17d)],'middleware':[globalMiddleware[a1024_0x455baf(0x17c)],passportConfig[a1024_0x455baf(0x191)]],'path':a1024_0x455baf(0x18a)},{'handler':PaypalRouter_1[a1024_0x455baf(0x188)],'middleware':[globalMiddleware[a1024_0x455baf(0x17c)],passportConfig[a1024_0x455baf(0x191)]],'path':a1024_0x455baf(0x18d)},{'handler':PaypalRouter_1['PaypalNoAuthRoute'],'middleware':[globalMiddleware[a1024_0x455baf(0x17c)]],'path':a1024_0x455baf(0x18f)},{'handler':GmailRouter_1['GmailRoute'],'middleware':[globalMiddleware[a1024_0x455baf(0x17c)],passportConfig[a1024_0x455baf(0x191)]],'path':a1024_0x455baf(0x182)},{'handler':GmailRouter_1[a1024_0x455baf(0x174)],'middleware':[globalMiddleware[a1024_0x455baf(0x17c)]],'path':'/gmail-login'},{'handler':FacebookRouter_1[a1024_0x455baf(0x190)],'middleware':[globalMiddleware['index'],passportConfig[a1024_0x455baf(0x191)]],'path':a1024_0x455baf(0x193)},{'handler':FacebookRouter_1[a1024_0x455baf(0x177)],'middleware':[globalMiddleware['index']],'path':'/facebook-login'},{'handler':RazorpayRouter_1['RazorpayRoute'],'middleware':[globalMiddleware[a1024_0x455baf(0x17c)],passportConfig[a1024_0x455baf(0x191)]],'path':a1024_0x455baf(0x194)},{'handler':RazorpayRouter_1['RazorpayNoAuthRoute'],'middleware':[globalMiddleware[a1024_0x455baf(0x17c)]],'path':a1024_0x455baf(0x17f)},{'handler':StripeRouter_1['StripeRoute'],'middleware':[globalMiddleware[a1024_0x455baf(0x17c)],passportConfig['isAuthenticated']],'path':'/stripe'},{'handler':StripeRouter_1[a1024_0x455baf(0x178)],'middleware':[globalMiddleware[a1024_0x455baf(0x17c)]],'path':'/stripe-payment'}];function a1024_0x29a2(){const _0x5c01f8=['isAuthenticated','./PaypalRouter','/facebook','/razorpay','5969694XZBzlw','4760KYcxtX','tslib','__importStar','81345iHzjBN','132vpGPId','GmailNoAuthRoute','../middlewares/environment','1135492hopBWd','FacebookNoAuthRoute','StripeNoAuthRoute','249062dcJBvd','ROUTER','./AuthRouter','index','cashOnDeliveryRoute','./GmailRouter','/razorpay-payment','691645aFInxv','./HomeRouter','/gmail','HomeRoute','4509nxUQJF','3fsdcuF','./FacebookRouter','./CashondeliveryRouter','PaypalRoute','722340juGRUD','/CashOnDelivery','7UhavRm','/home','/paypal','../config/passport','/paypal-payment','FacebookRoute'];a1024_0x29a2=function(){return _0x5c01f8;};return a1024_0x29a2();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ROUTER = void 0;
+const tslib_1 = require("tslib");
+const AuthRouter_1 = require("./AuthRouter");
+const HomeRouter_1 = require("./HomeRouter");
+const CashondeliveryRouter_1 = require("./CashondeliveryRouter");
+const PaypalRouter_1 = require("./PaypalRouter");
+const RazorpayRouter_1 = require("./RazorpayRouter");
+const GmailRouter_1 = require("./GmailRouter");
+const FacebookRouter_1 = require("./FacebookRouter");
+const StripeRouter_1 = require("./StripeRouter");
+// API keys and Passport configuration
+const passportConfig = tslib_1.__importStar(require("../config/passport"));
+const globalMiddleware = tslib_1.__importStar(require("../middlewares/environment"));
+exports.ROUTER = [
+    {
+        handler: AuthRouter_1.AuthRoute,
+        middleware: [globalMiddleware.index],
+        path: '/',
+    },
+    {
+        handler: HomeRouter_1.HomeRoute,
+        middleware: [globalMiddleware.index, passportConfig.isAuthenticated],
+        path: '/home',
+    },
+    {
+        handler: CashondeliveryRouter_1.cashOnDeliveryRoute,
+        middleware: [globalMiddleware.index, passportConfig.isAuthenticated],
+        path: '/CashOnDelivery',
+    },
+    {
+        handler: PaypalRouter_1.PaypalRoute,
+        middleware: [globalMiddleware.index, passportConfig.isAuthenticated],
+        path: '/paypal',
+    },
+    {
+        handler: PaypalRouter_1.PaypalNoAuthRoute,
+        middleware: [globalMiddleware.index],
+        path: '/paypal-payment',
+    },
+    {
+        handler: GmailRouter_1.GmailRoute,
+        middleware: [globalMiddleware.index, passportConfig.isAuthenticated],
+        path: '/gmail',
+    },
+    {
+        handler: GmailRouter_1.GmailNoAuthRoute,
+        middleware: [globalMiddleware.index],
+        path: '/gmail-login',
+    },
+    {
+        handler: FacebookRouter_1.FacebookRoute,
+        middleware: [globalMiddleware.index, passportConfig.isAuthenticated],
+        path: '/facebook',
+    },
+    {
+        handler: FacebookRouter_1.FacebookNoAuthRoute,
+        middleware: [globalMiddleware.index],
+        path: '/facebook-login',
+    },
+    {
+        handler: RazorpayRouter_1.RazorpayRoute,
+        middleware: [globalMiddleware.index, passportConfig.isAuthenticated],
+        path: '/razorpay',
+    },
+    {
+        handler: RazorpayRouter_1.RazorpayNoAuthRoute,
+        middleware: [globalMiddleware.index],
+        path: '/razorpay-payment',
+    },
+    {
+        handler: StripeRouter_1.StripeRoute,
+        middleware: [globalMiddleware.index, passportConfig.isAuthenticated],
+        path: '/stripe',
+    },
+    {
+        handler: StripeRouter_1.StripeNoAuthRoute,
+        middleware: [globalMiddleware.index],
+        path: '/stripe-payment',
+    },
+];
+//# sourceMappingURL=index.js.map

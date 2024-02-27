@@ -1,1 +1,80 @@
-'use strict';const a594_0x458324=a594_0x4f56;function a594_0x4f56(_0x4e8d53,_0x27f458){const _0x554385=a594_0x5543();return a594_0x4f56=function(_0x4f56bc,_0x2d828b){_0x4f56bc=_0x4f56bc-0x1cf;let _0x46041e=_0x554385[_0x4f56bc];return _0x46041e;},a594_0x4f56(_0x4e8d53,_0x27f458);}(function(_0x3cc5ed,_0x18147c){const _0x393b60=a594_0x4f56,_0x5036ce=_0x3cc5ed();while(!![]){try{const _0x144530=parseInt(_0x393b60(0x1f1))/0x1*(parseInt(_0x393b60(0x1d0))/0x2)+parseInt(_0x393b60(0x1f0))/0x3*(-parseInt(_0x393b60(0x1cf))/0x4)+parseInt(_0x393b60(0x1dc))/0x5+parseInt(_0x393b60(0x1f7))/0x6+-parseInt(_0x393b60(0x1f3))/0x7+parseInt(_0x393b60(0x1e0))/0x8+-parseInt(_0x393b60(0x1d2))/0x9;if(_0x144530===_0x18147c)break;else _0x5036ce['push'](_0x5036ce['shift']());}catch(_0x443ba4){_0x5036ce['push'](_0x5036ce['shift']());}}}(a594_0x5543,0x7c75c));Object[a594_0x458324(0x1d9)](exports,a594_0x458324(0x1d8),{'value':!![]}),exports[a594_0x458324(0x1f9)]=void 0x0;const tslib_1=require('tslib'),typedi_1=require(a594_0x458324(0x1f8)),typeorm_typedi_extensions_1=require(a594_0x458324(0x1d3)),Logger_1=require(a594_0x458324(0x1f5)),ProductTirePriceRepository_1=require(a594_0x458324(0x1df));let ProductTirePriceService=class ProductTirePriceService{constructor(_0x1ce22b,_0x36a36f){const _0x2f441f=a594_0x458324;this['productTirePriceRepository']=_0x1ce22b,this[_0x2f441f(0x1f4)]=_0x36a36f;}[a594_0x458324(0x1ef)](_0x5471bb){const _0x1ac686=a594_0x458324;return tslib_1[_0x1ac686(0x1e3)](this,void 0x0,void 0x0,function*(){const _0x26394d=_0x1ac686;return this[_0x26394d(0x1f4)][_0x26394d(0x1f6)](_0x26394d(0x1ed)),this['productTirePriceRepository'][_0x26394d(0x1dd)](_0x5471bb);});}[a594_0x458324(0x1e8)](_0x41c25f){const _0x192549=a594_0x458324;return this[_0x192549(0x1f4)]['info']('Find\x20a\x20data'),this['productTirePriceRepository'][_0x192549(0x1e8)](_0x41c25f);}['findAll'](_0x53bc8a){const _0x1adcbb=a594_0x458324;return this[_0x1adcbb(0x1f4)]['info']('Find\x20a\x20data'),this['productTirePriceRepository']['find'](_0x53bc8a);}[a594_0x458324(0x1e7)](_0x5ac060,_0x104485,_0x3f8edd=[],_0xbbd11f){const _0x555b45=a594_0x458324,_0x1c3abf={};return _0x1c3abf[_0x555b45(0x1e2)]={},_0x3f8edd&&_0x3f8edd[_0x555b45(0x1e4)]>0x0&&_0x3f8edd[_0x555b45(0x1d5)](_0x3d3863=>{const _0x193c5b=_0x555b45;_0x1c3abf['where'][_0x3d3863[_0x193c5b(0x1ec)]]=_0x3d3863[_0x193c5b(0x1de)];}),_0x5ac060&&_0x5ac060>0x0&&(_0x1c3abf[_0x555b45(0x1e9)]=_0x5ac060,_0x1c3abf[_0x555b45(0x1da)]=_0x104485),_0xbbd11f?this[_0x555b45(0x1d4)][_0x555b45(0x1ee)](_0x1c3abf):this[_0x555b45(0x1d4)][_0x555b45(0x1e6)](_0x1c3abf);}[a594_0x458324(0x1d7)](_0x14ebb5){const _0x285c49=a594_0x458324;return tslib_1[_0x285c49(0x1e3)](this,void 0x0,void 0x0,function*(){const _0x15e4d6=_0x285c49;this['log'][_0x15e4d6(0x1f6)](_0x15e4d6(0x1d1));const _0x2449d8=yield this[_0x15e4d6(0x1d4)]['delete'](_0x14ebb5);return _0x2449d8;});}['findTirePrice'](_0x3a68fb,_0x395f29,_0x20b02e){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x619c3f=a594_0x4f56;return yield this[_0x619c3f(0x1d4)][_0x619c3f(0x1db)](_0x3a68fb,_0x395f29,_0x20b02e);});}};function a594_0x5543(){const _0x31ac6d=['delete','__esModule','defineProperty','skip','findTirePrice','2949940eyipCh','save','value','../repositories/ProductTirePriceRepository','3828008yRVyll','__metadata','where','__awaiter','length','Service','find','list','findOne','take','ProductTirePriceRepository','OrmRepository','name','create\x20a\x20data','count','create','69kHgAFx','4keugDD','Logger','16044weOTCN','log','../../../decorators/Logger','info','2746812GXAQCM','typedi','ProductTirePriceService','26308zggpKC','10306qycTWI','Delete\x20a\x20product\x20option\x20value','7951968ndhAOA','typeorm-typedi-extensions','productTirePriceRepository','forEach','__param'];a594_0x5543=function(){return _0x31ac6d;};return a594_0x5543();}ProductTirePriceService=tslib_1['__decorate']([(0x0,typedi_1[a594_0x458324(0x1e5)])(),tslib_1[a594_0x458324(0x1d6)](0x0,(0x0,typeorm_typedi_extensions_1[a594_0x458324(0x1eb)])()),tslib_1['__param'](0x1,(0x0,Logger_1[a594_0x458324(0x1f2)])(__filename)),tslib_1[a594_0x458324(0x1e1)]('design:paramtypes',[ProductTirePriceRepository_1[a594_0x458324(0x1ea)],Object])],ProductTirePriceService),exports[a594_0x458324(0x1f9)]=ProductTirePriceService;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductTirePriceService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const ProductTirePriceRepository_1 = require("../repositories/ProductTirePriceRepository");
+let ProductTirePriceService = class ProductTirePriceService {
+    constructor(productTirePriceRepository, log) {
+        this.productTirePriceRepository = productTirePriceRepository;
+        this.log = log;
+    }
+    // create a data
+    create(Data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('create a data');
+            return this.productTirePriceRepository.save(Data);
+        });
+    }
+    // findone a data
+    findOne(id) {
+        this.log.info('Find a data');
+        return this.productTirePriceRepository.findOne(id);
+    }
+    // find a data
+    findAll(productPrice) {
+        this.log.info('Find a data');
+        return this.productTirePriceRepository.find(productPrice);
+    }
+    // List
+    list(limit, offset, whereConditions = [], count) {
+        const condition = {};
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.productTirePriceRepository.count(condition);
+        }
+        else {
+            return this.productTirePriceRepository.find(condition);
+        }
+    }
+    // delete product tire price
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.log.info('Delete a product option value');
+            const deleteProductTireValue = yield this.productTirePriceRepository.delete(id);
+            return deleteProductTireValue;
+        });
+    }
+    // find Tire Price
+    findTirePrice(productId, skuId, quantity) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.productTirePriceRepository.findTirePrice(productId, skuId, quantity);
+        });
+    }
+};
+ProductTirePriceService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [ProductTirePriceRepository_1.ProductTirePriceRepository, Object])
+], ProductTirePriceService);
+exports.ProductTirePriceService = ProductTirePriceService;
+//# sourceMappingURL=ProductTirePriceService.js.map

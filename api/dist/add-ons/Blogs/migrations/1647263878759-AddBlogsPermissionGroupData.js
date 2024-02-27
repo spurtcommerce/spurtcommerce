@@ -1,1 +1,69 @@
-'use strict';function a16_0x5e3f(_0x10502f,_0x444438){const _0x45a5ed=a16_0x45a5();return a16_0x5e3f=function(_0x5e3f25,_0x129f1d){_0x5e3f25=_0x5e3f25-0x1d8;let _0x1f1865=_0x45a5ed[_0x5e3f25];return _0x1f1865;},a16_0x5e3f(_0x10502f,_0x444438);}const a16_0x983ee9=a16_0x5e3f;(function(_0x58d957,_0x349b45){const _0x5f5c19=a16_0x5e3f,_0x41bfbb=_0x58d957();while(!![]){try{const _0x3e0771=parseInt(_0x5f5c19(0x1de))/0x1+-parseInt(_0x5f5c19(0x1f2))/0x2+-parseInt(_0x5f5c19(0x1ef))/0x3*(parseInt(_0x5f5c19(0x200))/0x4)+-parseInt(_0x5f5c19(0x1f3))/0x5+parseInt(_0x5f5c19(0x1fa))/0x6*(-parseInt(_0x5f5c19(0x1f8))/0x7)+parseInt(_0x5f5c19(0x1f1))/0x8+-parseInt(_0x5f5c19(0x1e8))/0x9*(-parseInt(_0x5f5c19(0x1e4))/0xa);if(_0x3e0771===_0x349b45)break;else _0x41bfbb['push'](_0x41bfbb['shift']());}catch(_0x46b12f){_0x41bfbb['push'](_0x41bfbb['shift']());}}}(a16_0x45a5,0xa0807));Object['defineProperty'](exports,a16_0x983ee9(0x1fd),{'value':!![]}),exports[a16_0x983ee9(0x1dd)]=void 0x0;const tslib_1=require(a16_0x983ee9(0x1f9)),typeorm_1=require(a16_0x983ee9(0x1d8)),moment_1=tslib_1[a16_0x983ee9(0x1ff)](require(a16_0x983ee9(0x1fe)));class AddBlogsPermissionGroupData1647263878759{['up'](_0x1e0d01){const _0x73ea9f=a16_0x983ee9;return tslib_1[_0x73ea9f(0x1f4)](this,void 0x0,void 0x0,function*(){const _0x1489e7=_0x73ea9f,_0x1b1ccf=yield _0x1e0d01[_0x1489e7(0x1f5)](_0x1489e7(0x1ec)+_0x1489e7(0x1fc));if(_0x1b1ccf['length']===0x0){const _0x10ba54=[{'name':_0x1489e7(0x1df),'slugName':'blogs','sortOrder':'35','createdDate':''+(0x0,moment_1['default'])()[_0x1489e7(0x1ea)]('YYYY-MM-DD\x20HH:mm:ss'),'updatedDate':''+(0x0,moment_1[_0x1489e7(0x1f7)])()[_0x1489e7(0x1ea)](_0x1489e7(0x1ed))}],_0x22a353=yield(0x0,typeorm_1[_0x1489e7(0x1eb)])(_0x1489e7(0x1f6))[_0x1489e7(0x1e9)](_0x10ba54);if(_0x22a353){const _0x403b99=[{'moduleGroupId':_0x22a353[0x0][_0x1489e7(0x1f0)],'name':_0x1489e7(0x1dc),'slugName':_0x1489e7(0x1e6),'sortOrder':_0x1489e7(0x1fb),'createdDate':''+(0x0,moment_1['default'])()['format'](_0x1489e7(0x1ed)),'updatedDate':''+(0x0,moment_1[_0x1489e7(0x1f7)])()[_0x1489e7(0x1ea)](_0x1489e7(0x1ed))},{'moduleGroupId':_0x22a353[0x0]['moduleGroupId'],'name':_0x1489e7(0x201),'slugName':_0x1489e7(0x1db),'sortOrder':_0x1489e7(0x1e2),'createdDate':''+(0x0,moment_1['default'])()[_0x1489e7(0x1ea)](_0x1489e7(0x1ed)),'updatedDate':''+(0x0,moment_1[_0x1489e7(0x1f7)])()[_0x1489e7(0x1ea)](_0x1489e7(0x1ed))},{'moduleGroupId':_0x22a353[0x0][_0x1489e7(0x1f0)],'name':_0x1489e7(0x1e5),'slugName':_0x1489e7(0x1e7),'sortOrder':_0x1489e7(0x1da),'createdDate':''+(0x0,moment_1[_0x1489e7(0x1f7)])()[_0x1489e7(0x1ea)](_0x1489e7(0x1ed)),'updatedDate':''+(0x0,moment_1['default'])()['format'](_0x1489e7(0x1ed))},{'moduleGroupId':_0x22a353[0x0][_0x1489e7(0x1f0)],'name':_0x1489e7(0x1e1),'slugName':_0x1489e7(0x1d9),'sortOrder':_0x1489e7(0x1e0),'createdDate':''+(0x0,moment_1[_0x1489e7(0x1f7)])()['format'](_0x1489e7(0x1ed)),'updatedDate':''+(0x0,moment_1[_0x1489e7(0x1f7)])()['format']('YYYY-MM-DD\x20HH:mm:ss')}];yield(0x0,typeorm_1['getRepository'])(_0x1489e7(0x1e3))['save'](_0x403b99);}}});}[a16_0x983ee9(0x1ee)](_0x1d6449){const _0x25424e=a16_0x983ee9;return tslib_1[_0x25424e(0x1f4)](this,void 0x0,void 0x0,function*(){});}}exports[a16_0x983ee9(0x1dd)]=AddBlogsPermissionGroupData1647263878759;function a16_0x45a5(){const _0x2689b5=['PermissionModule','35610daBBAx','Edit\x20Blogs','list-blogs','edit-blogs','4383bZPsCa','save','format','getRepository','SELECT\x20*\x20FROM\x20`permission_module_group`\x20WHERE\x20`slug_name`\x20=\x20','YYYY-MM-DD\x20HH:mm:ss','down','9vIAsmq','moduleGroupId','5049344IGFubw','525226PhAOoC','5724260fWxLQa','__awaiter','query','PermissionModuleGroup','default','8540qyehtk','tslib','1998yDTpKq','133','\x22blogs\x22','__esModule','moment','__importDefault','1024908MgXfyM','Create\x20Blogs','typeorm','delete-blogs','135','create-blogs','List\x20Blogs','AddBlogsPermissionGroupData1647263878759','874446ntmdUe','Blogs','136','Delete\x20Blogs','134'];a16_0x45a5=function(){return _0x2689b5;};return a16_0x45a5();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddBlogsPermissionGroupData1647263878759 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+class AddBlogsPermissionGroupData1647263878759 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const exist = yield queryRunner.query('SELECT * FROM `permission_module_group` WHERE `slug_name` = ' + '"blogs"');
+            if ((exist.length === 0)) {
+                const BlogsPermissionGroupSeed = [
+                    {
+                        name: 'Blogs',
+                        slugName: 'blogs',
+                        sortOrder: '35',
+                        createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                    },
+                ];
+                const val = yield (0, typeorm_1.getRepository)('PermissionModuleGroup').save(BlogsPermissionGroupSeed);
+                if (val) {
+                    const BlogsPermissionSeed = [
+                        {
+                            moduleGroupId: val[0].moduleGroupId,
+                            name: 'List Blogs',
+                            slugName: 'list-blogs',
+                            sortOrder: '133',
+                            createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                            updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        },
+                        {
+                            moduleGroupId: val[0].moduleGroupId,
+                            name: 'Create Blogs',
+                            slugName: 'create-blogs',
+                            sortOrder: '134',
+                            createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                            updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        },
+                        {
+                            moduleGroupId: val[0].moduleGroupId,
+                            name: 'Edit Blogs',
+                            slugName: 'edit-blogs',
+                            sortOrder: '135',
+                            createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                            updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        },
+                        {
+                            moduleGroupId: val[0].moduleGroupId,
+                            name: 'Delete Blogs',
+                            slugName: 'delete-blogs',
+                            sortOrder: '136',
+                            createdDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                            updatedDate: `${(0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')}`,
+                        },
+                    ];
+                    yield (0, typeorm_1.getRepository)('PermissionModule').save(BlogsPermissionSeed);
+                }
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ----
+        });
+    }
+}
+exports.AddBlogsPermissionGroupData1647263878759 = AddBlogsPermissionGroupData1647263878759;
+//# sourceMappingURL=1647263878759-AddBlogsPermissionGroupData.js.map

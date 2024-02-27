@@ -1,1 +1,82 @@
-'use strict';const a613_0x57373a=a613_0x42b6;(function(_0x592155,_0x23e066){const _0x532093=a613_0x42b6,_0x5104b7=_0x592155();while(!![]){try{const _0x151cf2=-parseInt(_0x532093(0xd6))/0x1*(-parseInt(_0x532093(0xf8))/0x2)+parseInt(_0x532093(0xf6))/0x3*(parseInt(_0x532093(0xf9))/0x4)+parseInt(_0x532093(0xf0))/0x5*(parseInt(_0x532093(0xde))/0x6)+parseInt(_0x532093(0xea))/0x7*(-parseInt(_0x532093(0xec))/0x8)+-parseInt(_0x532093(0xd2))/0x9*(-parseInt(_0x532093(0xd9))/0xa)+parseInt(_0x532093(0xeb))/0xb*(parseInt(_0x532093(0xd5))/0xc)+parseInt(_0x532093(0xfb))/0xd*(-parseInt(_0x532093(0xdf))/0xe);if(_0x151cf2===_0x23e066)break;else _0x5104b7['push'](_0x5104b7['shift']());}catch(_0x122eea){_0x5104b7['push'](_0x5104b7['shift']());}}}(a613_0x472a,0x8ff15));Object[a613_0x57373a(0xe5)](exports,a613_0x57373a(0xe0),{'value':!![]}),exports['StockLogService']=void 0x0;function a613_0x42b6(_0xe03bae,_0x158067){const _0x472ab8=a613_0x472a();return a613_0x42b6=function(_0x42b699,_0x40e9b7){_0x42b699=_0x42b699-0xcf;let _0x139a81=_0x472ab8[_0x42b699];return _0x139a81;},a613_0x42b6(_0xe03bae,_0x158067);}const tslib_1=require(a613_0x57373a(0xef)),typedi_1=require('typedi'),typeorm_typedi_extensions_1=require(a613_0x57373a(0xda)),Logger_1=require(a613_0x57373a(0xcf)),StockLogRepository_1=require('../repositories/StockLogRepository'),index_1=require(a613_0x57373a(0xf7));let StockLogService=class StockLogService{constructor(_0x5f4db3,_0x45b4aa){const _0x94ef1a=a613_0x57373a;this[_0x94ef1a(0xdc)]=_0x5f4db3,this['log']=_0x45b4aa;}[a613_0x57373a(0xe4)](_0x541a19){const _0xe3f64b=a613_0x57373a;return tslib_1[_0xe3f64b(0xf3)](this,void 0x0,void 0x0,function*(){const _0x922163=_0xe3f64b,_0x3e37c5=yield this[_0x922163(0xdc)][_0x922163(0xf1)](_0x541a19);return this[_0x922163(0xd0)]['info'](_0x922163(0xee)),_0x3e37c5;});}[a613_0x57373a(0xe9)](_0x30fc4b){const _0x293a4f=a613_0x57373a;return this['stockLogRepository'][_0x293a4f(0xe9)](_0x30fc4b);}['list'](_0x265195,_0x10e497,_0x54705b=[],_0x422bb6=[],_0x82b439=[],_0x984fc9){const _0x117706=a613_0x57373a,_0x130592={};return _0x54705b&&_0x54705b[_0x117706(0xd7)]>0x0&&(_0x130592[_0x117706(0xf4)]=_0x54705b),_0x130592[_0x117706(0xe7)]={},_0x82b439&&_0x82b439['length']>0x0&&_0x82b439[_0x117706(0xf5)](_0x353c78=>{const _0x5e000b=_0x117706;_0x130592[_0x5e000b(0xe7)][_0x353c78[_0x5e000b(0xe1)]]=_0x353c78[_0x5e000b(0xd4)];}),_0x422bb6&&_0x422bb6['length']>0x0&&_0x422bb6[_0x117706(0xf5)](_0x29b3fa=>{const _0x4c504a=_0x117706,_0x1fc616=_0x29b3fa['op'];if(_0x1fc616===_0x4c504a(0xe7)&&_0x29b3fa['value']!==undefined)_0x130592[_0x4c504a(0xe7)][_0x29b3fa[_0x4c504a(0xe1)]]=_0x29b3fa['value'];else _0x1fc616==='like'&&_0x29b3fa['value']!==undefined&&(_0x130592[_0x4c504a(0xe7)][_0x29b3fa[_0x4c504a(0xe1)]]=(0x0,index_1['Like'])('%'+_0x29b3fa['value']+'%'));}),_0x265195&&_0x265195>0x0&&(_0x130592[_0x117706(0xfa)]=_0x265195,_0x130592[_0x117706(0xed)]=_0x10e497),_0x984fc9?this[_0x117706(0xdc)][_0x117706(0xe3)](_0x130592):this['stockLogRepository'][_0x117706(0xe2)](_0x130592);}[a613_0x57373a(0xdb)](_0x176398){const _0xcc70da=a613_0x57373a;return tslib_1[_0xcc70da(0xf3)](this,void 0x0,void 0x0,function*(){const _0x26d73a=_0xcc70da;return yield this[_0x26d73a(0xdc)][_0x26d73a(0xdb)](_0x176398);});}};StockLogService=tslib_1['__decorate']([(0x0,typedi_1[a613_0x57373a(0xe6)])(),tslib_1['__param'](0x0,(0x0,typeorm_typedi_extensions_1[a613_0x57373a(0xd3)])()),tslib_1[a613_0x57373a(0xf2)](0x1,(0x0,Logger_1[a613_0x57373a(0xd1)])(__filename)),tslib_1[a613_0x57373a(0xe8)]('design:paramtypes',[StockLogRepository_1[a613_0x57373a(0xd8)],Object])],StockLogService),exports[a613_0x57373a(0xdd)]=StockLogService;function a613_0x472a(){const _0x33cbc8=['stockLogRepository','StockLogService','384WAsBSW','13579244ZvBGBR','__esModule','name','find','count','create','defineProperty','Service','where','__metadata','findOne','540337qfHpLZ','209oGemKn','8VAmApI','skip','Create\x20a\x20stockLog','tslib','65960UnLqZs','save','__param','__awaiter','select','forEach','9zJgGAj','typeorm/index','2LMVNsk','914436nAibNT','take','39NCIsIn','../../../decorators/Logger','log','Logger','9OcKAfm','OrmRepository','value','549876vfXOzq','1062557IeJDPe','length','StockLogRepository','1133090ExmXOD','typeorm-typedi-extensions','delete'];a613_0x472a=function(){return _0x33cbc8;};return a613_0x472a();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StockLogService = void 0;
+const tslib_1 = require("tslib");
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const Logger_1 = require("../../../decorators/Logger");
+const StockLogRepository_1 = require("../repositories/StockLogRepository");
+const index_1 = require("typeorm/index");
+let StockLogService = class StockLogService {
+    constructor(stockLogRepository, log) {
+        this.stockLogRepository = stockLogRepository;
+        this.log = log;
+    }
+    // create
+    create(stockLog) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newStockLog = yield this.stockLogRepository.save(stockLog);
+            this.log.info('Create a stockLog');
+            return newStockLog;
+        });
+    }
+    // find stock
+    findOne(stockLog) {
+        return this.stockLogRepository.findOne(stockLog);
+    }
+    // stock log list
+    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+        const condition = {};
+        if (select && select.length > 0) {
+            condition.select = select;
+        }
+        condition.where = {};
+        if (whereConditions && whereConditions.length > 0) {
+            whereConditions.forEach((item) => {
+                condition.where[item.name] = item.value;
+            });
+        }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
+        if (limit && limit > 0) {
+            condition.take = limit;
+            condition.skip = offset;
+        }
+        if (count) {
+            return this.stockLogRepository.count(condition);
+        }
+        else {
+            return this.stockLogRepository.find(condition);
+        }
+    }
+    // delete StockLog
+    delete(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.stockLogRepository.delete(id);
+        });
+    }
+};
+StockLogService = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__param(0, (0, typeorm_typedi_extensions_1.OrmRepository)()),
+    tslib_1.__param(1, (0, Logger_1.Logger)(__filename)),
+    tslib_1.__metadata("design:paramtypes", [StockLogRepository_1.StockLogRepository, Object])
+], StockLogService);
+exports.StockLogService = StockLogService;
+//# sourceMappingURL=StockLogService.js.map

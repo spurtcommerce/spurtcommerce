@@ -1,1 +1,20 @@
-'use strict';const a535_0x24c4ea=a535_0x98d2;function a535_0x3d85(){const _0x33c9a4=['164Dbpaac','30KwXhsp','2694670BZVwUN','Repository','5215392CvfkzN','__esModule','2904391iupAoH','12oRCKbI','EntityRepository','2285591CsaiLr','12003LBrggu','tslib','../models/VendorOrderArchiveLog','11398086uXlWWt','3jFLYnf','VendorOrderArchiveLogRepository','3335416OVHZrh'];a535_0x3d85=function(){return _0x33c9a4;};return a535_0x3d85();}(function(_0xebb6cb,_0x1df53f){const _0x4fce28=a535_0x98d2,_0xdf61cc=_0xebb6cb();while(!![]){try{const _0x204e43=parseInt(_0x4fce28(0x1e3))/0x1*(parseInt(_0x4fce28(0x1d9))/0x2)+-parseInt(_0x4fce28(0x1e7))/0x3*(-parseInt(_0x4fce28(0x1e9))/0x4)+-parseInt(_0x4fce28(0x1db))/0x5+parseInt(_0x4fce28(0x1e0))/0x6*(parseInt(_0x4fce28(0x1df))/0x7)+-parseInt(_0x4fce28(0x1dd))/0x8+-parseInt(_0x4fce28(0x1e6))/0x9+parseInt(_0x4fce28(0x1da))/0xa*(parseInt(_0x4fce28(0x1e2))/0xb);if(_0x204e43===_0x1df53f)break;else _0xdf61cc['push'](_0xdf61cc['shift']());}catch(_0x3d48ff){_0xdf61cc['push'](_0xdf61cc['shift']());}}}(a535_0x3d85,0xc6b85));function a535_0x98d2(_0x1253fa,_0x536596){const _0x3d859f=a535_0x3d85();return a535_0x98d2=function(_0x98d299,_0x308c5e){_0x98d299=_0x98d299-0x1d9;let _0x1a3c3a=_0x3d859f[_0x98d299];return _0x1a3c3a;},a535_0x98d2(_0x1253fa,_0x536596);}Object['defineProperty'](exports,a535_0x24c4ea(0x1de),{'value':!![]}),exports[a535_0x24c4ea(0x1e8)]=void 0x0;const tslib_1=require(a535_0x24c4ea(0x1e4)),typeorm_1=require('typeorm'),VendorOrderArchiveLog_1=require(a535_0x24c4ea(0x1e5));let VendorOrderArchiveLogRepository=class VendorOrderArchiveLogRepository extends typeorm_1[a535_0x24c4ea(0x1dc)]{};VendorOrderArchiveLogRepository=tslib_1['__decorate']([(0x0,typeorm_1[a535_0x24c4ea(0x1e1)])(VendorOrderArchiveLog_1['VendorOrderArchiveLog'])],VendorOrderArchiveLogRepository),exports['VendorOrderArchiveLogRepository']=VendorOrderArchiveLogRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorOrderArchiveLogRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const VendorOrderArchiveLog_1 = require("../models/VendorOrderArchiveLog");
+let VendorOrderArchiveLogRepository = class VendorOrderArchiveLogRepository extends typeorm_1.Repository {
+};
+VendorOrderArchiveLogRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(VendorOrderArchiveLog_1.VendorOrderArchiveLog)
+], VendorOrderArchiveLogRepository);
+exports.VendorOrderArchiveLogRepository = VendorOrderArchiveLogRepository;
+//# sourceMappingURL=VendorOrderArchiveLogRepository.js.map

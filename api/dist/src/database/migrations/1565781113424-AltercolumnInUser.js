@@ -1,1 +1,18 @@
-'use strict';const a803_0x47ac5c=a803_0x58da;function a803_0x4093(){const _0x569015=['query','446373gxZEFI','ALTER\x20TABLE\x20`users`\x20CHANGE\x20`delete_flag`\x20`delete_flag`\x20INT(11)\x20DEFAULT\x200','682477ZIuRvh','tslib','12oBhFTE','225875MdQnFj','141naiQFg','11332673TUtpni','3942750EZFLiu','27514VWElgT','12OliQMZ','8yjMQVt','128zBIwLH','2947819Tdtnhu','__esModule','down','__awaiter','defineProperty'];a803_0x4093=function(){return _0x569015;};return a803_0x4093();}(function(_0x37aa79,_0x52adab){const _0x20d54a=a803_0x58da,_0x20b618=_0x37aa79();while(!![]){try{const _0x1ea80e=-parseInt(_0x20d54a(0x1e5))/0x1+-parseInt(_0x20d54a(0x1ec))/0x2*(-parseInt(_0x20d54a(0x1e9))/0x3)+-parseInt(_0x20d54a(0x1ef))/0x4*(parseInt(_0x20d54a(0x1e8))/0x5)+parseInt(_0x20d54a(0x1ed))/0x6*(parseInt(_0x20d54a(0x1f0))/0x7)+parseInt(_0x20d54a(0x1ee))/0x8*(-parseInt(_0x20d54a(0x1f6))/0x9)+parseInt(_0x20d54a(0x1eb))/0xa+-parseInt(_0x20d54a(0x1ea))/0xb*(-parseInt(_0x20d54a(0x1e7))/0xc);if(_0x1ea80e===_0x52adab)break;else _0x20b618['push'](_0x20b618['shift']());}catch(_0x415147){_0x20b618['push'](_0x20b618['shift']());}}}(a803_0x4093,0xb39a9));Object[a803_0x47ac5c(0x1f4)](exports,a803_0x47ac5c(0x1f1),{'value':!![]}),exports['AltercolumnInUser1565781113424']=void 0x0;const tslib_1=require(a803_0x47ac5c(0x1e6));function a803_0x58da(_0x4a19aa,_0x1d91b2){const _0x40933e=a803_0x4093();return a803_0x58da=function(_0x58da5b,_0x4a02e6){_0x58da5b=_0x58da5b-0x1e5;let _0x36f6bc=_0x40933e[_0x58da5b];return _0x36f6bc;},a803_0x58da(_0x4a19aa,_0x1d91b2);}class AltercolumnInUser1565781113424{['up'](_0x5d6468){const _0x469b54=a803_0x47ac5c;return tslib_1[_0x469b54(0x1f3)](this,void 0x0,void 0x0,function*(){const _0x4a4f11=_0x469b54;yield _0x5d6468['query'](_0x4a4f11(0x1f7));});}[a803_0x47ac5c(0x1f2)](_0x4ff8b9){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x23598e=a803_0x58da;yield _0x4ff8b9[_0x23598e(0x1f5)](_0x23598e(0x1f7));});}}exports['AltercolumnInUser1565781113424']=AltercolumnInUser1565781113424;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AltercolumnInUser1565781113424 = void 0;
+const tslib_1 = require("tslib");
+class AltercolumnInUser1565781113424 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `users` CHANGE `delete_flag` `delete_flag` INT(11) DEFAULT 0');
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query('ALTER TABLE `users` CHANGE `delete_flag` `delete_flag` INT(11) DEFAULT 0');
+        });
+    }
+}
+exports.AltercolumnInUser1565781113424 = AltercolumnInUser1565781113424;
+//# sourceMappingURL=1565781113424-AltercolumnInUser.js.map

@@ -1,1 +1,101 @@
-'use strict';const a872_0x26745c=a872_0x18d0;(function(_0x592eb2,_0x1973b9){const _0x5b1233=a872_0x18d0,_0x4addc9=_0x592eb2();while(!![]){try{const _0x45d61b=parseInt(_0x5b1233(0x1df))/0x1*(parseInt(_0x5b1233(0x1d5))/0x2)+-parseInt(_0x5b1233(0x1c3))/0x3*(parseInt(_0x5b1233(0x1d2))/0x4)+parseInt(_0x5b1233(0x1ea))/0x5*(-parseInt(_0x5b1233(0x1ce))/0x6)+-parseInt(_0x5b1233(0x1c4))/0x7*(parseInt(_0x5b1233(0x1e5))/0x8)+-parseInt(_0x5b1233(0x1d1))/0x9+parseInt(_0x5b1233(0x1cc))/0xa+parseInt(_0x5b1233(0x1de))/0xb;if(_0x45d61b===_0x1973b9)break;else _0x4addc9['push'](_0x4addc9['shift']());}catch(_0xaaa2a){_0x4addc9['push'](_0x4addc9['shift']());}}}(a872_0x1204,0xbcc44));Object[a872_0x26745c(0x1e3)](exports,a872_0x26745c(0x1d4),{'value':!![]}),exports[a872_0x26745c(0x1d7)]=void 0x0;function a872_0x1204(){const _0x485ca4=['774357HfODPN','CURRENT_TIMESTAMP','product','tslib','defineProperty','find','4851128KepTGW','TableForeignKey','dropTable','modified_by','foreignKeys','81800LuAVGd','product_id','stock_log','tableForeignKey1','integer','typeorm','33mEydZG','14xGTkyc','fk_tbl_product_tbl_stock_log_foreign','increment','Table','tableForeignKey','created_date','datetime','created_by','4914190grMyVA','indexOf','12BwFWas','CASCADE','fk_tbl_order_tbl_stock_log_foreign','13020741hXVrof','548756wBaCyh','order_id','__esModule','2FsjcvC','__awaiter','CreateStockLogtable1589193302717','hasTable','modified_date','columnNames','down','order','createForeignKey','40796162BeWlCh'];a872_0x1204=function(){return _0x485ca4;};return a872_0x1204();}const tslib_1=require(a872_0x26745c(0x1e2)),typeorm_1=require(a872_0x26745c(0x1c2));class CreateStockLogtable1589193302717{constructor(){const _0x24162c=a872_0x26745c;this[_0x24162c(0x1c8)]=new typeorm_1['TableForeignKey']({'name':_0x24162c(0x1c5),'columnNames':['product_id'],'referencedColumnNames':[_0x24162c(0x1eb)],'referencedTableName':_0x24162c(0x1e1),'onDelete':'CASCADE'}),this['tableForeignKey1']=new typeorm_1[(_0x24162c(0x1e6))]({'name':_0x24162c(0x1d0),'columnNames':[_0x24162c(0x1d3)],'referencedColumnNames':[_0x24162c(0x1d3)],'referencedTableName':_0x24162c(0x1dc),'onDelete':_0x24162c(0x1cf)});}['up'](_0x166fae){const _0x8c4c8c=a872_0x26745c;return tslib_1[_0x8c4c8c(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x169ef0=_0x8c4c8c,_0x133318=new typeorm_1[(_0x169ef0(0x1c7))]({'name':_0x169ef0(0x1ec),'columns':[{'name':'id','type':_0x169ef0(0x1c1),'length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x169ef0(0x1c6)},{'name':_0x169ef0(0x1eb),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':'order_id','type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':'quantity','type':_0x169ef0(0x1c1),'isPrimary':![],'isNullable':!![]},{'name':_0x169ef0(0x1cb),'type':_0x169ef0(0x1c1),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x169ef0(0x1c9),'type':'datetime','isPrimary':![],'isNullable':!![],'default':_0x169ef0(0x1e0)},{'name':_0x169ef0(0x1e8),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x169ef0(0x1d9),'type':_0x169ef0(0x1ca),'isPrimary':![],'isNullable':!![],'default':_0x169ef0(0x1e0)}]}),_0x5567b4=yield _0x166fae[_0x169ef0(0x1d8)](_0x169ef0(0x1ec));!_0x5567b4&&(yield _0x166fae['createTable'](_0x133318));const _0x2f847f=_0x133318[_0x169ef0(0x1e9)][_0x169ef0(0x1e4)](_0x571f03=>_0x571f03[_0x169ef0(0x1da)][_0x169ef0(0x1cd)](_0x169ef0(0x1eb))!==-0x1);!_0x2f847f&&(yield _0x166fae[_0x169ef0(0x1dd)](_0x133318,this[_0x169ef0(0x1c8)]));const _0x281ef8=_0x133318[_0x169ef0(0x1e9)]['find'](_0x2d6c7f=>_0x2d6c7f[_0x169ef0(0x1da)][_0x169ef0(0x1cd)](_0x169ef0(0x1d3))!==-0x1);!_0x281ef8&&(yield _0x166fae['createForeignKey'](_0x133318,this[_0x169ef0(0x1c0)]));});}[a872_0x26745c(0x1db)](_0x33c772){const _0x15285b=a872_0x26745c;return tslib_1[_0x15285b(0x1d6)](this,void 0x0,void 0x0,function*(){const _0x3f9b5f=_0x15285b;yield _0x33c772[_0x3f9b5f(0x1e7)](_0x3f9b5f(0x1ec),!![]);});}}function a872_0x18d0(_0x28e24a,_0xd37d9b){const _0x1204a6=a872_0x1204();return a872_0x18d0=function(_0x18d027,_0x3a0b28){_0x18d027=_0x18d027-0x1c0;let _0x3154d5=_0x1204a6[_0x18d027];return _0x3154d5;},a872_0x18d0(_0x28e24a,_0xd37d9b);}exports[a872_0x26745c(0x1d7)]=CreateStockLogtable1589193302717;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateStockLogtable1589193302717 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateStockLogtable1589193302717 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_product_tbl_stock_log_foreign',
+            columnNames: ['product_id'],
+            referencedColumnNames: ['product_id'],
+            referencedTableName: 'product',
+            onDelete: 'CASCADE',
+        });
+        this.tableForeignKey1 = new typeorm_1.TableForeignKey({
+            name: 'fk_tbl_order_tbl_stock_log_foreign',
+            columnNames: ['order_id'],
+            referencedColumnNames: ['order_id'],
+            referencedTableName: 'order',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'stock_log',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'product_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'order_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'quantity',
+                        type: 'integer',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'datetime',
+                        isPrimary: false,
+                        isNullable: true,
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('stock_log');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('product_id') !== -1);
+            if (!ifDataExsist) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey);
+            }
+            const ifDataExsist1 = table.foreignKeys.find(fk => fk.columnNames.indexOf('order_id') !== -1);
+            if (!ifDataExsist1) {
+                yield queryRunner.createForeignKey(table, this.tableForeignKey1);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('stock_log', true);
+        });
+    }
+}
+exports.CreateStockLogtable1589193302717 = CreateStockLogtable1589193302717;
+//# sourceMappingURL=1589193302717-CreateStockLogtable.js.map

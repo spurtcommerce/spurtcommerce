@@ -1,1 +1,82 @@
-'use strict';const a823_0xb90a8f=a823_0xb3fa;(function(_0x373a34,_0x29dcac){const _0x47ecfe=a823_0xb3fa,_0x4a9c52=_0x373a34();while(!![]){try{const _0x4fac0b=parseInt(_0x47ecfe(0xf0))/0x1+parseInt(_0x47ecfe(0xea))/0x2*(-parseInt(_0x47ecfe(0xe6))/0x3)+-parseInt(_0x47ecfe(0xf9))/0x4*(-parseInt(_0x47ecfe(0xe4))/0x5)+parseInt(_0x47ecfe(0xf7))/0x6+-parseInt(_0x47ecfe(0xf2))/0x7*(parseInt(_0x47ecfe(0xfa))/0x8)+parseInt(_0x47ecfe(0xdf))/0x9*(-parseInt(_0x47ecfe(0xe5))/0xa)+-parseInt(_0x47ecfe(0xf1))/0xb*(-parseInt(_0x47ecfe(0xec))/0xc);if(_0x4fac0b===_0x29dcac)break;else _0x4a9c52['push'](_0x4a9c52['shift']());}catch(_0x18b1fc){_0x4a9c52['push'](_0x4a9c52['shift']());}}}(a823_0x4faf,0xb0d83));function a823_0xb3fa(_0x17c9aa,_0x241e48){const _0x4faf5b=a823_0x4faf();return a823_0xb3fa=function(_0xb3fa64,_0x2a7626){_0xb3fa64=_0xb3fa64-0xde;let _0x21c4fb=_0x4faf5b[_0xb3fa64];return _0x21c4fb;},a823_0xb3fa(_0x17c9aa,_0x241e48);}function a823_0x4faf(){const _0x115c69=['522213IBMkbc','CreateVendorOrderStatusTable1577096247706','created_by','varchar','2UrKnwL','integer','564996JzJrwG','priority','vendor_order_status_id','name','457423luqOfd','22LKPrIU','152649wrjDxU','createTable','modified_by','Table','color_code','1804260kogpbx','down','5583004bldQFF','32PzGCUV','increment','__awaiter','vendor_order_status','DATETIME','9vjlcGL','tslib','hasTable','typeorm','defineProperty','5xbJggx','12623960jzFBFx'];a823_0x4faf=function(){return _0x115c69;};return a823_0x4faf();}Object[a823_0xb90a8f(0xe3)](exports,'__esModule',{'value':!![]}),exports[a823_0xb90a8f(0xe7)]=void 0x0;const tslib_1=require(a823_0xb90a8f(0xe0)),typeorm_1=require(a823_0xb90a8f(0xe2));class CreateVendorOrderStatusTable1577096247706{['up'](_0x4e0922){const _0x5596f3=a823_0xb90a8f;return tslib_1[_0x5596f3(0xfc)](this,void 0x0,void 0x0,function*(){const _0x5101cc=_0x5596f3,_0x2c7038=new typeorm_1[(_0x5101cc(0xf5))]({'name':_0x5101cc(0xfd),'columns':[{'name':_0x5101cc(0xee),'type':'integer','length':'11','isPrimary':!![],'isNullable':![],'isGenerated':!![],'generationStrategy':_0x5101cc(0xfb)},{'name':_0x5101cc(0xef),'type':'varchar','length':'32','isPrimary':![],'isNullable':!![]},{'name':_0x5101cc(0xf6),'type':_0x5101cc(0xe9),'length':'255','isPrimary':![],'isNullable':!![]},{'name':'is_active','type':_0x5101cc(0xeb),'length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5101cc(0xe8),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':_0x5101cc(0xf4),'type':'integer','length':'11','isPrimary':![],'isNullable':!![]},{'name':'created_date','type':_0x5101cc(0xde),'isPrimary':![],'isNullable':!![]},{'name':'modified_date','type':_0x5101cc(0xde),'isPrimary':![],'isNullable':!![]},{'name':_0x5101cc(0xed),'type':_0x5101cc(0xeb),'length':'11','isPrimary':![],'isNullable':!![]}]}),_0x366f62=yield _0x4e0922[_0x5101cc(0xe1)](_0x5101cc(0xfd));!_0x366f62&&(yield _0x4e0922[_0x5101cc(0xf3)](_0x2c7038));});}[a823_0xb90a8f(0xf8)](_0x18afb5){const _0xe24854=a823_0xb90a8f;return tslib_1[_0xe24854(0xfc)](this,void 0x0,void 0x0,function*(){yield _0x18afb5['dropTable']('vendor_order_status',!![]);});}}exports['CreateVendorOrderStatusTable1577096247706']=CreateVendorOrderStatusTable1577096247706;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateVendorOrderStatusTable1577096247706 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateVendorOrderStatusTable1577096247706 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = new typeorm_1.Table({
+                name: 'vendor_order_status',
+                columns: [
+                    {
+                        name: 'vendor_order_status_id',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: true,
+                        isNullable: false,
+                        isGenerated: true,
+                        generationStrategy: 'increment',
+                    }, {
+                        name: 'name',
+                        type: 'varchar',
+                        length: '32',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'color_code',
+                        type: 'varchar',
+                        length: '255',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'is_active',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_by',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'created_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'modified_date',
+                        type: 'DATETIME',
+                        isPrimary: false,
+                        isNullable: true,
+                    }, {
+                        name: 'priority',
+                        type: 'integer',
+                        length: '11',
+                        isPrimary: false,
+                        isNullable: true,
+                    },
+                ],
+            });
+            const ifExsist = yield queryRunner.hasTable('vendor_order_status');
+            if (!ifExsist) {
+                yield queryRunner.createTable(table);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable('vendor_order_status', true);
+        });
+    }
+}
+exports.CreateVendorOrderStatusTable1577096247706 = CreateVendorOrderStatusTable1577096247706;
+//# sourceMappingURL=1577096247706-CreateVendorOrderStatusTable.js.map

@@ -1,1 +1,29 @@
-'use strict';const a532_0x285f29=a532_0x5c3f;(function(_0x5d33f6,_0x582ff2){const _0x4ee949=a532_0x5c3f,_0x105ca4=_0x5d33f6();while(!![]){try{const _0x1d1aa4=-parseInt(_0x4ee949(0x9e))/0x1*(-parseInt(_0x4ee949(0x86))/0x2)+-parseInt(_0x4ee949(0x92))/0x3*(parseInt(_0x4ee949(0x83))/0x4)+parseInt(_0x4ee949(0x84))/0x5*(-parseInt(_0x4ee949(0x8b))/0x6)+parseInt(_0x4ee949(0x9a))/0x7*(parseInt(_0x4ee949(0x99))/0x8)+-parseInt(_0x4ee949(0x95))/0x9+-parseInt(_0x4ee949(0x87))/0xa*(-parseInt(_0x4ee949(0x85))/0xb)+parseInt(_0x4ee949(0x9b))/0xc*(parseInt(_0x4ee949(0x89))/0xd);if(_0x1d1aa4===_0x582ff2)break;else _0x105ca4['push'](_0x105ca4['shift']());}catch(_0x37dd61){_0x105ca4['push'](_0x105ca4['shift']());}}}(a532_0x181d,0x48000));function a532_0x181d(){const _0x5a5601=['VendorGroup','__awaiter','EntityRepository','../models/VendorGroup','12kkjDot','vendorGroup.vendor','createQueryBuilder','2845854GMbtCJ','vendor','Repository','tslib','1057976jDPFjn','7zkZTsU','5751084uyEFJi','vendorGroup.id\x20=\x20:value','getVendorCount','13xDycea','manager','201820eDzDoT','35ftEmUR','573727cxESFM','47512uIKmXm','50xVqEPh','vendorGroup.groupId\x20as\x20vendorCount','13hRoVdt','innerJoin','315582QtsXfN','select','VendorGroupRepository'];a532_0x181d=function(){return _0x5a5601;};return a532_0x181d();}Object['defineProperty'](exports,'__esModule',{'value':!![]}),exports['VendorGroupRepository']=void 0x0;const tslib_1=require(a532_0x285f29(0x98)),typeorm_1=require('typeorm'),VendorGroup_1=require(a532_0x285f29(0x91));function a532_0x5c3f(_0xdf0055,_0x256c7a){const _0x181d9d=a532_0x181d();return a532_0x5c3f=function(_0x5c3f5d,_0x38fac1){_0x5c3f5d=_0x5c3f5d-0x83;let _0xfa8086=_0x181d9d[_0x5c3f5d];return _0xfa8086;},a532_0x5c3f(_0xdf0055,_0x256c7a);}let VendorGroupRepository=class VendorGroupRepository extends typeorm_1[a532_0x285f29(0x97)]{[a532_0x285f29(0x9d)](_0x11d234){const _0x442632=a532_0x285f29;return tslib_1[_0x442632(0x8f)](this,void 0x0,void 0x0,function*(){const _0x1169b6=_0x442632,_0x906f76=yield this[_0x1169b6(0x9f)][_0x1169b6(0x94)](VendorGroup_1[_0x1169b6(0x8e)],'vendorGroup');return _0x906f76[_0x1169b6(0x8c)]([_0x1169b6(0x88)]),_0x906f76['where'](_0x1169b6(0x9c),{'value':_0x11d234}),_0x906f76[_0x1169b6(0x8a)](_0x1169b6(0x93),_0x1169b6(0x96)),_0x906f76['getCount']();});}};VendorGroupRepository=tslib_1['__decorate']([(0x0,typeorm_1[a532_0x285f29(0x90)])(VendorGroup_1[a532_0x285f29(0x8e)])],VendorGroupRepository),exports[a532_0x285f29(0x8d)]=VendorGroupRepository;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorGroupRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const VendorGroup_1 = require("../models/VendorGroup");
+let VendorGroupRepository = class VendorGroupRepository extends typeorm_1.Repository {
+    getVendorCount(id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(VendorGroup_1.VendorGroup, 'vendorGroup');
+            query.select(['vendorGroup.groupId as vendorCount']);
+            query.where('vendorGroup.id = :value', { value: id });
+            query.innerJoin('vendorGroup.vendor', 'vendor');
+            return query.getCount();
+        });
+    }
+};
+VendorGroupRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(VendorGroup_1.VendorGroup)
+], VendorGroupRepository);
+exports.VendorGroupRepository = VendorGroupRepository;
+//# sourceMappingURL=VendorGroupRepository.js.map

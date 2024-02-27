@@ -1,1 +1,21 @@
-'use strict';const a317_0x4b8774=a317_0x5f35;(function(_0x5bf351,_0xb77646){const _0x5185ad=a317_0x5f35,_0x3629b9=_0x5bf351();while(!![]){try{const _0x2816a1=parseInt(_0x5185ad(0x17f))/0x1*(-parseInt(_0x5185ad(0x179))/0x2)+parseInt(_0x5185ad(0x170))/0x3*(parseInt(_0x5185ad(0x16f))/0x4)+parseInt(_0x5185ad(0x175))/0x5+-parseInt(_0x5185ad(0x184))/0x6+-parseInt(_0x5185ad(0x17e))/0x7*(parseInt(_0x5185ad(0x180))/0x8)+-parseInt(_0x5185ad(0x17a))/0x9*(parseInt(_0x5185ad(0x177))/0xa)+parseInt(_0x5185ad(0x174))/0xb*(parseInt(_0x5185ad(0x173))/0xc);if(_0x2816a1===_0xb77646)break;else _0x3629b9['push'](_0x3629b9['shift']());}catch(_0x5a6416){_0x3629b9['push'](_0x3629b9['shift']());}}}(a317_0x40af,0xc4908));function a317_0x40af(){const _0x52d867=['486GEHGue','tslib','enquiryId','design:type','46725OpkmAP','1HexyJy','1600FVhzpi','__esModule','__decorate','__metadata','7980630tbEqZY','reflect-metadata','4qZosBT','4498881EPjRAr','IsNotEmpty','defineProperty','509892omdDRe','539muNkiR','7236105tTgqvh','prototype','1370txVjWo','DeleteEnquiry','3102552FlZyPu'];a317_0x40af=function(){return _0x52d867;};return a317_0x40af();}Object[a317_0x4b8774(0x172)](exports,a317_0x4b8774(0x181),{'value':!![]}),exports[a317_0x4b8774(0x178)]=void 0x0;function a317_0x5f35(_0x10bade,_0x3d8382){const _0x40af69=a317_0x40af();return a317_0x5f35=function(_0x5f3583,_0x46edf3){_0x5f3583=_0x5f3583-0x16e;let _0x1b4dbe=_0x40af69[_0x5f3583];return _0x1b4dbe;},a317_0x5f35(_0x10bade,_0x3d8382);}const tslib_1=require(a317_0x4b8774(0x17b));require(a317_0x4b8774(0x16e));const class_validator_1=require('class-validator');class DeleteEnquiry{}tslib_1[a317_0x4b8774(0x182)]([(0x0,class_validator_1[a317_0x4b8774(0x171)])(),tslib_1[a317_0x4b8774(0x183)](a317_0x4b8774(0x17d),Array)],DeleteEnquiry[a317_0x4b8774(0x176)],a317_0x4b8774(0x17c),void 0x0),exports[a317_0x4b8774(0x178)]=DeleteEnquiry;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeleteEnquiry = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class DeleteEnquiry {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Array)
+], DeleteEnquiry.prototype, "enquiryId", void 0);
+exports.DeleteEnquiry = DeleteEnquiry;
+//# sourceMappingURL=DeleteEnquiryRequest.js.map

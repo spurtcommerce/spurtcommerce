@@ -1,1 +1,552 @@
-'use strict';const a88_0x4f0226=a88_0x4d8b;(function(_0x9ca1ee,_0x18f1ad){const _0x388871=a88_0x4d8b,_0x175565=_0x9ca1ee();while(!![]){try{const _0x1c259c=parseInt(_0x388871(0x25f))/0x1+-parseInt(_0x388871(0x267))/0x2+-parseInt(_0x388871(0x237))/0x3*(parseInt(_0x388871(0x217))/0x4)+parseInt(_0x388871(0x242))/0x5+-parseInt(_0x388871(0x1f7))/0x6*(parseInt(_0x388871(0x268))/0x7)+parseInt(_0x388871(0x248))/0x8+-parseInt(_0x388871(0x256))/0x9*(-parseInt(_0x388871(0x204))/0xa);if(_0x1c259c===_0x18f1ad)break;else _0x175565['push'](_0x175565['shift']());}catch(_0x15fa59){_0x175565['push'](_0x175565['shift']());}}}(a88_0x5b0c,0x97db0));Object['defineProperty'](exports,a88_0x4f0226(0x244),{'value':!![]}),exports[a88_0x4f0226(0x1f2)]=void 0x0;const tslib_1=require(a88_0x4f0226(0x264));function a88_0x5b0c(){const _0x3fbb63=['dateAvailable','155018tglkou','Invalid\x20product\x20Id','deleteProduct','base64','from','tslib','/delete-qr','trim','904020ZAnxuA','7mgnimB','productDiscount','(SELECT\x20pi.default_image\x20as\x20defaultImage\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20defaultImage','Successfully\x20got\x20product\x20lists\x20count.','listByQueryBuilder','Product.name','all','productId','../../../../src/api/core/middlewares/AddonValidationMiddleware','deleteFile','Product.price\x20as\x20price','delete','fileDownload','imageService','format','ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20AS\x20productSpecial','Unable\x20to\x20get\x20the\x20product\x20list','Res','../../../ProductQrCode/models/ProductQrcode','Product.isActive','__decorate','Body','downloadImage','imgFunction','Get','price','Product.price','productData','design:paramtypes','now','BodyParam','map','__awaiter','ProductQRcodeController','Authorized','Param','offset','productlist','7065282nNFGvt','/created-qrcode','productList','(SELECT\x20pi.container_name\x20as\x20containerName\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20containerName','Successfully\x20got\x20the\x20details','productQRcodeService','Successfully\x20deleted','sku','Product.createdDate','s3Service','../../../../src/api/core/services/ProductService','send','flag','10xOmrwl','Product.dateAvailable\x20as\x20dateAvailable','(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','length','globe','env','design:type','push','__param','Product.sku\x20as\x20sku','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20AS\x20productDiscount','./request/ProductQRcodeRequest','routing-controllers','imageserver','ProductService','includes','/product-details/:id','productSpecial','__importStar','4nbTmoy','../../../ProductQrCode/services/ProductQRcodeService','(SELECT\x20sku.sku_name\x20as\x20sku\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20sku','findOne','create','availImageTypes','download','Product.width\x20as\x20width','/qr-list','design:returntype','limit','class-transformer','Product.keywords\x20as\x20keywords','log','list','ImageService','Product.weight\x20as\x20weight','/delete-product/:id','Product.productSlug\x20as\x20productSlug','Post','instanceToPlain','reflect-metadata','Req','Product.name\x20as\x20name','QueryParam','productSlug','Product.isActive\x20as\x20isActive','base64Image','Delete','(SELECT\x20pi.image\x20as\x20image\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20image','ProductQRcode','filePath','2906403LuMkue','ASC','Product.sku','prototype','Product.skuId\x20as\x20skuId','(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20\x20pd2.date_end\x20>=\x20CURDATE()))\x20','productService','allowed\x20to\x20be\x20process','count','Invalid\x20productId','DESC','3978155MlMFEb','status','__esModule','Product.productId\x20as\x20productId','../../../../src/api/core/services/ImageService','productDetail','3737256GMxBIG','Successfully\x20got\x20the\x20list','../../../../src/env','Unable\x20to\x20get\x20the\x20data','only','isProductQr','fileName','S3Service','../../../../src/api/core/services/S3Service','Successfully\x20got\x20the\x20complete\x20product\x20list.','and','CheckAddonMiddleware','pricerefer','Product.length\x20as\x20length','16222968ltQnvm','like','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20price','deletingqrCode','split','/qrCode','__metadata','Download\x20Failed'];a88_0x5b0c=function(){return _0x3fbb63;};return a88_0x5b0c();}require(a88_0x4f0226(0x22c));const routing_controllers_1=require(a88_0x4f0226(0x210)),ProductQRcodeRequest_1=require(a88_0x4f0226(0x20f)),ProductService_1=require(a88_0x4f0226(0x201)),env_1=require(a88_0x4f0226(0x24a)),ImageService_1=require(a88_0x4f0226(0x246)),moment_1=tslib_1['__importDefault'](require('moment')),class_transformer_1=require(a88_0x4f0226(0x222)),ProductQrcode_1=require(a88_0x4f0226(0x1e3)),ProductQRcodeService_1=require(a88_0x4f0226(0x218)),S3Service_1=require(a88_0x4f0226(0x250)),AddonValidationMiddleware_1=require(a88_0x4f0226(0x270)),fs=tslib_1[a88_0x4f0226(0x216)](require('fs'));let ProductQRcodeController=class ProductQRcodeController{constructor(_0x34ad17,_0xdaae25,_0x8f22cd,_0x4d5e44){const _0x507905=a88_0x4f0226;this[_0x507905(0x1fc)]=_0x34ad17,this[_0x507905(0x200)]=_0xdaae25,this[_0x507905(0x1de)]=_0x8f22cd,this[_0x507905(0x23d)]=_0x4d5e44;}[a88_0x4f0226(0x1e8)](_0x1623b4,_0x2518dc,_0x77501){const _0x2910ad=a88_0x4f0226;return tslib_1[_0x2910ad(0x1f1)](this,void 0x0,void 0x0,function*(){const _0x5cc6ea=_0x2910ad,_0x2f65e5=[],_0x418297=_0x1623b4[_0x5cc6ea(0x1ec)];for(const _0x322580 of _0x418297){const _0x3e96b4=Date[_0x5cc6ea(0x1ee)](),_0x180eb2=env_1[_0x5cc6ea(0x209)][_0x5cc6ea(0x21c)],_0x40d217=_0x180eb2[_0x5cc6ea(0x25a)](',')[0x0],_0x194535=_0x40d217['toLowerCase'](),_0x9174d4='Img'+'_'+_0x3e96b4+'.'+_0x194535,_0x32fc95='qrcode',_0x2f5ea1=_0x322580[_0x5cc6ea(0x232)],_0x257d9b=_0x2f5ea1['split'](';')[0x0][_0x5cc6ea(0x25a)]('/')[0x1],_0x302acb=env_1[_0x5cc6ea(0x209)][_0x5cc6ea(0x21c)][_0x5cc6ea(0x25a)](',');if(!_0x302acb[_0x5cc6ea(0x213)](_0x257d9b)){const _0x55d1b2={'status':0x0,'message':_0x5cc6ea(0x24c)+env_1[_0x5cc6ea(0x209)][_0x5cc6ea(0x21c)]+''+_0x5cc6ea(0x23e)};return _0x2518dc['status'](0x190)[_0x5cc6ea(0x202)](_0x55d1b2);}const _0x5873c2=Buffer[_0x5cc6ea(0x263)](_0x2f5ea1['replace'](/^data:image\/\w+;base64,/,''),_0x5cc6ea(0x262)),_0x543b38=_0x32fc95+'/'+_0x9174d4;env_1[_0x5cc6ea(0x209)]['imageserver']==='s3'?yield this[_0x5cc6ea(0x200)]['imageUpload'](_0x543b38,_0x5873c2,_0x257d9b):yield this[_0x5cc6ea(0x1de)]['imageUpload'](_0x543b38,_0x5873c2);const _0x5effa0=new ProductQrcode_1[(_0x5cc6ea(0x235))]();_0x5effa0[_0x5cc6ea(0x26f)]=_0x322580[_0x5cc6ea(0x26f)],_0x5effa0['productSlug']=_0x322580[_0x5cc6ea(0x230)],_0x5effa0['fileName']=_0x9174d4,_0x5effa0[_0x5cc6ea(0x236)]=_0x32fc95;const _0x4572ec=yield this[_0x5cc6ea(0x1fc)][_0x5cc6ea(0x21b)](_0x5effa0);_0x2f65e5[_0x5cc6ea(0x20b)](_0x4572ec);}if(_0x2f65e5[_0x5cc6ea(0x207)]<0x0){const _0x5e88ed={'status':0x0,'message':'Unable\x20to\x20generated\x20the\x20product\x20qr-code\x20!!\x20'};return _0x2518dc['status'](0x190)[_0x5cc6ea(0x202)](_0x5e88ed);}else{const _0x297ba3={'status':0x1,'message':'successfully\x20generated\x20the\x20product\x20qr-code\x20!!\x20','data':_0x2f65e5};return _0x2518dc[_0x5cc6ea(0x243)](0xc8)[_0x5cc6ea(0x202)](_0x297ba3);}});}[a88_0x4f0226(0x259)](_0x410bff,_0x39eda7,_0x56f81a){const _0x1e639d=a88_0x4f0226;return tslib_1[_0x1e639d(0x1f1)](this,void 0x0,void 0x0,function*(){const _0xc0678d=_0x1e639d,_0x1d8971=_0x410bff,_0x21c0ae=[];for(const _0x1c2a0e of _0x1d8971){const _0xf8b9a1=yield this[_0xc0678d(0x1fc)][_0xc0678d(0x21a)]({'where':{'productId':+_0x1c2a0e}});if(_0xf8b9a1===undefined){const _0x23fa58={'status':0x0,'message':_0xc0678d(0x24b)};return _0x39eda7[_0xc0678d(0x243)](0x190)['send'](_0x23fa58);}else{const _0x4a9e55=_0xf8b9a1[_0xc0678d(0x24e)],_0x59beb9=_0xf8b9a1[_0xc0678d(0x236)],_0x62c6bb=_0x4a9e55+_0x59beb9;env_1['env'][_0xc0678d(0x211)]==='s3'?yield this[_0xc0678d(0x200)][_0xc0678d(0x1da)](_0x62c6bb):yield this[_0xc0678d(0x1de)][_0xc0678d(0x1da)](_0x62c6bb);const _0xcbe260=yield this[_0xc0678d(0x1fc)][_0xc0678d(0x21a)]({'where':{'productId':_0xf8b9a1['productId']}}),_0x53abe3=yield this[_0xc0678d(0x1fc)][_0xc0678d(0x1dc)](_0xcbe260['id']);_0x21c0ae[_0xc0678d(0x20b)](_0x53abe3);}}if(_0x21c0ae){const _0x5db50e={'status':0x1,'message':'Successfully\x20deleted\x20the\x20product'};return _0x39eda7[_0xc0678d(0x243)](0xc8)[_0xc0678d(0x202)](_0x5db50e);}});}[a88_0x4f0226(0x1e7)](_0x54305e,_0x2bd983,_0x51b62a){const _0x1da834=a88_0x4f0226;return tslib_1[_0x1da834(0x1f1)](this,void 0x0,void 0x0,function*(){const _0x2a1664=_0x1da834,_0x315865=yield this[_0x2a1664(0x1fc)][_0x2a1664(0x21a)]({'where':{'productId':_0x54305e}});if(_0x315865===undefined){const _0x289925={'status':0x0,'message':_0x2a1664(0x260)};return _0x2bd983[_0x2a1664(0x243)](0x190)[_0x2a1664(0x202)](_0x289925);}const _0x515b83=_0x315865[_0x2a1664(0x24e)],_0x3920f0=_0x315865[_0x2a1664(0x236)];let _0xc2a315;return env_1[_0x2a1664(0x209)][_0x2a1664(0x211)]==='s3'?(_0xc2a315=yield this[_0x2a1664(0x200)][_0x2a1664(0x1dd)](_0x3920f0+'/',_0x515b83),console[_0x2a1664(0x224)](_0xc2a315,'val1')):_0xc2a315=yield this[_0x2a1664(0x1de)]['fileDownload'](_0x3920f0,_0x515b83),_0xc2a315?new Promise((_0x39cddc,_0x4c0961)=>{const _0x1b46ad=_0x2a1664;_0x2bd983[_0x1b46ad(0x21d)](_0xc2a315,(_0xace313,_0x3cd8f9)=>{if(_0xace313)_0x4c0961(_0xace313);else return fs['unlinkSync'](_0x515b83),_0x2bd983['end']();});}):_0x2bd983[_0x2a1664(0x243)](0x190)[_0x2a1664(0x202)]({'status':0x0,'message':_0x2a1664(0x25d)});});}[a88_0x4f0226(0x1f6)](_0x45f1fc,_0x2a24fa,_0x290e88,_0xd49ac6){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2561d9=a88_0x4d8b,_0x9c4cb5=yield this[_0x2561d9(0x1fc)][_0x2561d9(0x225)](_0x45f1fc,_0x2a24fa,[],[],[],_0x290e88);if(!_0x9c4cb5){const _0x4d9d3b={'status':0x0,'message':_0x2561d9(0x1e1)};return _0xd49ac6[_0x2561d9(0x243)](0x190)[_0x2561d9(0x202)](_0x4d9d3b);}else{const _0x3bfd9={'status':0x1,'message':_0x2561d9(0x249),'data':_0x9c4cb5};return _0xd49ac6[_0x2561d9(0x243)](0xc8)[_0x2561d9(0x202)](_0x3bfd9);}});}[a88_0x4f0226(0x247)](_0x388ed9,_0x25de17){const _0x45a8af=a88_0x4f0226;return tslib_1[_0x45a8af(0x1f1)](this,void 0x0,void 0x0,function*(){const _0x2d4b8e=_0x45a8af,_0x14a673=yield this[_0x2d4b8e(0x1fc)][_0x2d4b8e(0x21a)]({'where':{'productId':_0x388ed9}});if(!_0x14a673){const _0x5350a0={'status':0x0,'message':'Invalid\x20productId'};return _0x25de17[_0x2d4b8e(0x243)](0xc8)[_0x2d4b8e(0x202)](_0x5350a0);}else{const _0x365dd7={'status':0x1,'message':_0x2d4b8e(0x1fb),'data':_0x14a673};return _0x25de17[_0x2d4b8e(0x243)](0xc8)[_0x2d4b8e(0x202)](_0x365dd7);}});}[a88_0x4f0226(0x261)](_0xba3813,_0x4cfc08){const _0xe1d2d5=a88_0x4f0226;return tslib_1[_0xe1d2d5(0x1f1)](this,void 0x0,void 0x0,function*(){const _0x55d2ce=_0xe1d2d5,_0x2c1d81=yield this[_0x55d2ce(0x1fc)][_0x55d2ce(0x21a)]({'where':{'id':_0xba3813}});if(!_0x2c1d81){const _0x322f85={'status':0x0,'message':_0x55d2ce(0x240)};return _0x4cfc08['status'](0x190)[_0x55d2ce(0x202)](_0x322f85);}const _0x2aa833=yield this[_0x55d2ce(0x1fc)]['delete'](_0x2c1d81['id']);if(!_0x2aa833){const _0x8e73e8={'status':0x0,'message':'Unable\x20to\x20delete\x20the\x20product'};return _0x4cfc08[_0x55d2ce(0x243)](0x190)['send'](_0x8e73e8);}else{const _0x51e02d={'status':0x1,'message':_0x55d2ce(0x1fd),'data':_0x2aa833};return _0x4cfc08[_0x55d2ce(0x243)](0xc8)['send'](_0x51e02d);}});}[a88_0x4f0226(0x1f9)](_0x401b67,_0x1332b9,_0xdf9b5d,_0x51a92e,_0x48ae71,_0x62a99c,_0x2ec0de,_0x347d95,_0x1ab625){const _0x360377=a88_0x4f0226;return tslib_1[_0x360377(0x1f1)](this,void 0x0,void 0x0,function*(){const _0x107502=_0x360377,_0x1cae6f=[_0x107502(0x245),_0x107502(0x20d),_0x107502(0x22e),'Product.quantity\x20as\x20quantity',_0x107502(0x1db),_0x107502(0x23b),_0x107502(0x229),_0x107502(0x223),_0x107502(0x231),_0x107502(0x205),_0x107502(0x21e),'Product.height\x20as\x20height',_0x107502(0x255),_0x107502(0x227),_0x107502(0x234),_0x107502(0x1fa),_0x107502(0x26a),_0x107502(0x219),_0x107502(0x258),'(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20modifiedPrice',_0x107502(0x23c)+_0x107502(0x20e),_0x107502(0x206)+'\x20'+_0x107502(0x1e0)],_0x32f937=[],_0x24f7b2=[];_0x51a92e&&_0x24f7b2[_0x107502(0x20b)]({'name':_0x107502(0x239),'op':_0x107502(0x257),'value':_0x51a92e});_0x48ae71&&_0x24f7b2['push']({'name':_0x107502(0x1e4),'op':_0x107502(0x252),'value':_0x48ae71});const _0x118f55=[];(_0xdf9b5d===null||_0xdf9b5d===void 0x0?void 0x0:_0xdf9b5d[_0x107502(0x266)]())&&_0x118f55['push']({'name':[_0x107502(0x26d)],'value':_0xdf9b5d});const _0x5126e5=[];if(+_0x62a99c&&_0x62a99c===0x1)_0x5126e5[_0x107502(0x20b)]({'name':_0x107502(0x1eb),'order':_0x107502(0x238)});else+_0x62a99c&&_0x62a99c===0x2?_0x5126e5[_0x107502(0x20b)]({'name':_0x107502(0x1eb),'order':_0x107502(0x241)}):_0x5126e5['push']({'name':_0x107502(0x1ff),'order':_0x107502(0x241)});const _0x41f821=[],_0x469a47=yield this['productService'][_0x107502(0x26c)](_0x401b67,_0x1332b9,_0x1cae6f,_0x24f7b2,_0x118f55,_0x32f937,[],_0x5126e5,![],!![]);if(_0x2ec0de){const _0x34acc7=yield this[_0x107502(0x23d)]['listByQueryBuilder'](_0x401b67,_0x1332b9,_0x1cae6f,_0x24f7b2,_0x118f55,_0x32f937,_0x41f821,_0x5126e5,!![],!![]);return _0x347d95[_0x107502(0x243)](0xc8)[_0x107502(0x202)]({'status':0x1,'message':_0x107502(0x26b),'data':_0x34acc7});}const _0x437c5b=_0x469a47[_0x107502(0x1f0)](_0x1e312b=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x29a9ab=_0x107502,_0x5b92ed=_0x1e312b,_0x4217a3=yield this[_0x29a9ab(0x1fc)][_0x29a9ab(0x21a)]({'where':{'productId':_0x1e312b[_0x29a9ab(0x26f)]}});_0x5b92ed[_0x29a9ab(0x24d)]=_0x4217a3?0x1:0x0;const _0x33187a=(0x0,moment_1['default'])(_0x1e312b[_0x29a9ab(0x25e)])[_0x29a9ab(0x1df)]('YYYY-MM-DD'),_0x319aff=(0x0,moment_1['default'])()[_0x29a9ab(0x1df)]('YYYY-MM-DD');_0x319aff>=_0x33187a&&_0x1e312b['isActive']===0x1?_0x5b92ed[_0x29a9ab(0x208)]=0x1:_0x5b92ed[_0x29a9ab(0x208)]=0x0;if(_0x1e312b[_0x29a9ab(0x215)]!==null)_0x5b92ed[_0x29a9ab(0x254)]=_0x1e312b['productSpecial'],_0x5b92ed[_0x29a9ab(0x203)]=0x1;else _0x1e312b[_0x29a9ab(0x269)]!==null?(_0x5b92ed[_0x29a9ab(0x254)]=_0x1e312b[_0x29a9ab(0x269)],_0x5b92ed[_0x29a9ab(0x203)]=0x0):(_0x5b92ed[_0x29a9ab(0x254)]='',_0x5b92ed[_0x29a9ab(0x203)]='');return _0x5b92ed;})),_0x4d0885=yield Promise[_0x107502(0x26e)](_0x437c5b),_0x154f15={'status':0x1,'message':_0x107502(0x251),'data':(0x0,class_transformer_1[_0x107502(0x22b)])(_0x4d0885)};return _0x347d95[_0x107502(0x243)](0xc8)[_0x107502(0x202)](_0x154f15);});}};function a88_0x4d8b(_0x9091c8,_0x2286e8){const _0x5b0c7f=a88_0x5b0c();return a88_0x4d8b=function(_0x4d8b9b,_0x4f2245){_0x4d8b9b=_0x4d8b9b-0x1da;let _0x2ba769=_0x5b0c7f[_0x4d8b9b];return _0x2ba769;},a88_0x4d8b(_0x9091c8,_0x2286e8);}tslib_1[a88_0x4f0226(0x1e5)]([(0x0,routing_controllers_1[a88_0x4f0226(0x22a)])(a88_0x4f0226(0x1f8)),(0x0,routing_controllers_1[a88_0x4f0226(0x1f3)])(''),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a88_0x4f0226(0x1e6)])({'validate':!![]})),tslib_1[a88_0x4f0226(0x20c)](0x1,(0x0,routing_controllers_1[a88_0x4f0226(0x1e2)])()),tslib_1[a88_0x4f0226(0x20c)](0x2,(0x0,routing_controllers_1[a88_0x4f0226(0x22d)])()),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x20a),Function),tslib_1['__metadata'](a88_0x4f0226(0x1ed),[ProductQRcodeRequest_1['ProductQRcodeRequest'],Object,Object]),tslib_1['__metadata'](a88_0x4f0226(0x220),Promise)],ProductQRcodeController[a88_0x4f0226(0x23a)],'imgFunction',null),tslib_1[a88_0x4f0226(0x1e5)]([(0x0,routing_controllers_1[a88_0x4f0226(0x22a)])(a88_0x4f0226(0x265)),(0x0,routing_controllers_1[a88_0x4f0226(0x1f3)])(),tslib_1[a88_0x4f0226(0x20c)](0x0,(0x0,routing_controllers_1[a88_0x4f0226(0x1ef)])('productId')),tslib_1[a88_0x4f0226(0x20c)](0x1,(0x0,routing_controllers_1[a88_0x4f0226(0x1e2)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a88_0x4f0226(0x22d)])()),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x20a),Function),tslib_1[a88_0x4f0226(0x25c)]('design:paramtypes',[String,Object,Object]),tslib_1[a88_0x4f0226(0x25c)]('design:returntype',Promise)],ProductQRcodeController[a88_0x4f0226(0x23a)],a88_0x4f0226(0x259),null),tslib_1[a88_0x4f0226(0x1e5)]([(0x0,routing_controllers_1[a88_0x4f0226(0x1e9)])('/download-qrimage/:productId'),(0x0,routing_controllers_1[a88_0x4f0226(0x1f3)])(),tslib_1[a88_0x4f0226(0x20c)](0x0,(0x0,routing_controllers_1[a88_0x4f0226(0x1f4)])(a88_0x4f0226(0x26f))),tslib_1[a88_0x4f0226(0x20c)](0x1,(0x0,routing_controllers_1[a88_0x4f0226(0x1e2)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a88_0x4f0226(0x22d)])()),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x20a),Function),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x1ed),[Number,Object,Object]),tslib_1['__metadata'](a88_0x4f0226(0x220),Promise)],ProductQRcodeController[a88_0x4f0226(0x23a)],a88_0x4f0226(0x1e7),null),tslib_1[a88_0x4f0226(0x1e5)]([(0x0,routing_controllers_1[a88_0x4f0226(0x1e9)])(a88_0x4f0226(0x21f)),(0x0,routing_controllers_1[a88_0x4f0226(0x1f3)])(''),tslib_1[a88_0x4f0226(0x20c)](0x0,(0x0,routing_controllers_1[a88_0x4f0226(0x22f)])(a88_0x4f0226(0x221))),tslib_1[a88_0x4f0226(0x20c)](0x1,(0x0,routing_controllers_1[a88_0x4f0226(0x22f)])(a88_0x4f0226(0x1f5))),tslib_1[a88_0x4f0226(0x20c)](0x2,(0x0,routing_controllers_1['QueryParam'])(a88_0x4f0226(0x23f))),tslib_1[a88_0x4f0226(0x20c)](0x3,(0x0,routing_controllers_1[a88_0x4f0226(0x1e2)])()),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x20a),Function),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x1ed),[Number,Number,Object,Object]),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x220),Promise)],ProductQRcodeController['prototype'],a88_0x4f0226(0x1f6),null),tslib_1[a88_0x4f0226(0x1e5)]([(0x0,routing_controllers_1[a88_0x4f0226(0x1e9)])(a88_0x4f0226(0x214)),(0x0,routing_controllers_1[a88_0x4f0226(0x1f3)])('\x20'),tslib_1[a88_0x4f0226(0x20c)](0x0,(0x0,routing_controllers_1[a88_0x4f0226(0x1f4)])('id')),tslib_1[a88_0x4f0226(0x20c)](0x1,(0x0,routing_controllers_1[a88_0x4f0226(0x1e2)])()),tslib_1[a88_0x4f0226(0x25c)]('design:type',Function),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x1ed),[Number,Object]),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x220),Promise)],ProductQRcodeController[a88_0x4f0226(0x23a)],a88_0x4f0226(0x247),null),tslib_1[a88_0x4f0226(0x1e5)]([(0x0,routing_controllers_1[a88_0x4f0226(0x233)])(a88_0x4f0226(0x228)),(0x0,routing_controllers_1[a88_0x4f0226(0x1f3)])(''),tslib_1[a88_0x4f0226(0x20c)](0x0,(0x0,routing_controllers_1['Param'])('id')),tslib_1[a88_0x4f0226(0x20c)](0x1,(0x0,routing_controllers_1[a88_0x4f0226(0x1e2)])()),tslib_1[a88_0x4f0226(0x25c)]('design:type',Function),tslib_1['__metadata'](a88_0x4f0226(0x1ed),[Number,Object]),tslib_1[a88_0x4f0226(0x25c)]('design:returntype',Promise)],ProductQRcodeController[a88_0x4f0226(0x23a)],a88_0x4f0226(0x261),null),tslib_1[a88_0x4f0226(0x1e5)]([(0x0,routing_controllers_1[a88_0x4f0226(0x1e9)])('/product-list'),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a88_0x4f0226(0x20c)](0x0,(0x0,routing_controllers_1[a88_0x4f0226(0x22f)])(a88_0x4f0226(0x221))),tslib_1[a88_0x4f0226(0x20c)](0x1,(0x0,routing_controllers_1['QueryParam'])(a88_0x4f0226(0x1f5))),tslib_1[a88_0x4f0226(0x20c)](0x2,(0x0,routing_controllers_1['QueryParam'])('keyword')),tslib_1[a88_0x4f0226(0x20c)](0x3,(0x0,routing_controllers_1[a88_0x4f0226(0x22f)])(a88_0x4f0226(0x1fe))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a88_0x4f0226(0x22f)])(a88_0x4f0226(0x243))),tslib_1['__param'](0x5,(0x0,routing_controllers_1['QueryParam'])(a88_0x4f0226(0x1ea))),tslib_1['__param'](0x6,(0x0,routing_controllers_1[a88_0x4f0226(0x22f)])('count')),tslib_1[a88_0x4f0226(0x20c)](0x7,(0x0,routing_controllers_1['Res'])()),tslib_1['__param'](0x8,(0x0,routing_controllers_1[a88_0x4f0226(0x22d)])()),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x20a),Function),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x1ed),[Number,Number,String,String,String,Number,Object,Object,Object]),tslib_1[a88_0x4f0226(0x25c)]('design:returntype',Promise)],ProductQRcodeController[a88_0x4f0226(0x23a)],a88_0x4f0226(0x1f9),null),ProductQRcodeController=tslib_1['__decorate']([(0x0,routing_controllers_1['UseBefore'])(AddonValidationMiddleware_1[a88_0x4f0226(0x253)]),(0x0,routing_controllers_1['JsonController'])(a88_0x4f0226(0x25b)),tslib_1[a88_0x4f0226(0x25c)](a88_0x4f0226(0x1ed),[ProductQRcodeService_1['ProductQRcodeService'],S3Service_1[a88_0x4f0226(0x24f)],ImageService_1[a88_0x4f0226(0x226)],ProductService_1[a88_0x4f0226(0x212)]])],ProductQRcodeController),exports['ProductQRcodeController']=ProductQRcodeController;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductQRcodeController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const ProductQRcodeRequest_1 = require("./request/ProductQRcodeRequest");
+const ProductService_1 = require("../../../../src/api/core/services/ProductService");
+const env_1 = require("../../../../src/env");
+const ImageService_1 = require("../../../../src/api/core/services/ImageService");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const class_transformer_1 = require("class-transformer");
+const ProductQrcode_1 = require("../../../ProductQrCode/models/ProductQrcode");
+const ProductQRcodeService_1 = require("../../../ProductQrCode/services/ProductQRcodeService");
+const S3Service_1 = require("../../../../src/api/core/services/S3Service");
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+const fs = tslib_1.__importStar(require("fs"));
+let ProductQRcodeController = class ProductQRcodeController {
+    constructor(productQRcodeService, s3Service, imageService, productService) {
+        this.productQRcodeService = productQRcodeService;
+        this.s3Service = s3Service;
+        this.imageService = imageService;
+        this.productService = productService;
+        //
+    }
+    // Qr create qrCode API
+    /**
+     * @api {post} /api/qrCode/created-qrcode Generate qrCode API
+     * @apiGroup qrCode
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {object} productData productData
+     * @apiParam (Request body) {Number} productData.productId productId
+     * @apiParam (Request body) {String} productData.productSlug productSlug
+     * @apiParam (Request body) {String} productData.base64Image base64Image
+     * @apiParamExample {json} Input
+     * {
+     *     "productData": [{
+     *       "productId": "",
+     *     "productSlug": "",
+     *     "base64Image": "",
+     *      }]
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "successfully created qr code",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/qrCode/created-qrcode
+     * @apiErrorExample {json} qrCode error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    imgFunction(productQRcodeRequest, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const valueArr = [];
+            const productdata = productQRcodeRequest.productData;
+            for (const data of productdata) {
+                const date = Date.now();
+                const validType = env_1.env.availImageTypes;
+                const type = validType.split(',')[0];
+                const availableTypes = type.toLowerCase();
+                const fileName = 'Img' + '_' + date + '.' + availableTypes;
+                const filePath = 'qrcode';
+                const image = data.base64Image;
+                const imageType = image.split(';')[0].split('/')[1];
+                const availabletypes = env_1.env.availImageTypes.split(',');
+                if (!availabletypes.includes(imageType)) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'only' + env_1.env.availImageTypes + '' + 'allowed to be process',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                const folderName = filePath + '/' + fileName;
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload(folderName, base64Data, imageType);
+                }
+                else {
+                    yield this.imageService.imageUpload(folderName, base64Data);
+                }
+                const Val = new ProductQrcode_1.ProductQRcode();
+                Val.productId = data.productId;
+                Val.productSlug = data.productSlug;
+                Val.fileName = fileName;
+                Val.filePath = filePath;
+                const values = yield this.productQRcodeService.create(Val);
+                valueArr.push(values);
+            }
+            if (valueArr.length < 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Unable to generated the product qr-code !! ',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            else {
+                const successResponse = {
+                    status: 1,
+                    message: 'successfully generated the product qr-code !! ',
+                    data: valueArr,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // delete-qr  API
+    /**
+     * @api {post} /api/qrCode/delete-qr API
+     * @apiGroup qrCode
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {string} productId productId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted the product",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/qrCode/delete-qr
+     * @apiErrorExample {json} delete-qr error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deletingqrCode(productId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const products = productId;
+            const arr = [];
+            for (const data of products) {
+                const datas = yield this.productQRcodeService.findOne({
+                    where: {
+                        productId: +data,
+                    },
+                });
+                if (datas === undefined) {
+                    const errRes = {
+                        status: 0,
+                        message: 'Unable to get the data',
+                    };
+                    return response.status(400).send(errRes);
+                }
+                else {
+                    const name = datas.fileName;
+                    const paths = datas.filePath;
+                    const fileNames = name + paths;
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.deleteFile(fileNames);
+                    }
+                    else {
+                        yield this.imageService.deleteFile(fileNames);
+                    }
+                    const valuess = yield this.productQRcodeService.findOne({ where: { productId: datas.productId } });
+                    const val = yield this.productQRcodeService.delete(valuess.id);
+                    arr.push(val);
+                }
+            }
+            if (arr) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted the product',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Qr download-image  API
+    /**
+     * @api {post} /api/qrCode/download-qrimage/:productId productdetail API
+     * @apiGroup qrCode
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {string} productId productId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download-image",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/qrCode/download-qrimage/:productId
+     * @apiErrorExample {json} download-image error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    downloadImage(productIds, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const data = yield this.productQRcodeService.findOne({
+                where: { productId: productIds },
+            });
+            if (data === undefined) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid product Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const file = data.fileName;
+            const filePath = data.filePath;
+            let val;
+            if (env_1.env.imageserver === 's3') {
+                val = yield this.s3Service.fileDownload(filePath + '/', file);
+                console.log(val, 'val1');
+            }
+            else {
+                val = yield this.imageService.fileDownload(filePath, file);
+            }
+            if (val) {
+                return new Promise((resolve, reject) => {
+                    response.download(val, (err, datas) => {
+                        if (err) {
+                            reject(err);
+                        }
+                        else {
+                            fs.unlinkSync(file);
+                            return response.end();
+                        }
+                    });
+                });
+            }
+            else {
+                return response.status(400).send({ status: 0, message: 'Download Failed' });
+            }
+        });
+    }
+    // Qr qr-list  API
+    /**
+     * @api {get} /api/qrCode/qr-list productList API
+     * @apiGroup qrCode
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {boolean} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got the list",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/qrCode/qr-list
+     * @apiErrorExample {json} productlist error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productlist(limit, offset, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const value = yield this.productQRcodeService.list(limit, offset, [], [], [], count);
+            if (!value) {
+                const errorResponse = {
+                    status: 0,
+                    message: `Unable to get the product list`,
+                };
+                return response.status(400).send(errorResponse);
+            }
+            else {
+                const successResponse = {
+                    status: 1,
+                    message: `Successfully got the list`,
+                    data: value,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // product-details  API
+    /**
+     * @api {get} /api/qrCode/product-details/:id productList API
+     * @apiGroup qrCode
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} id id
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got the details",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/qrCode/product-details/:id
+     * @apiErrorExample {json} productdetails error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    productDetail(id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const value = yield this.productQRcodeService.findOne({
+                where: { productId: id },
+            });
+            if (!value) {
+                const errorResponse = {
+                    status: 0,
+                    message: `Invalid productId`,
+                };
+                return response.status(200).send(errorResponse);
+            }
+            else {
+                const successResponse = {
+                    status: 1,
+                    message: `Successfully got the details`,
+                    data: value,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // details-product  API
+    /**
+     * @api {delete} /api/qrCode/details-product/:id deleteProduct API
+     * @apiGroup qrCode
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} id id
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted",
+     *      "data":"{}"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/qrCode/details-product/:id
+     * @apiErrorExample {json} productdetails error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteProduct(Id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const value = yield this.productQRcodeService.findOne({
+                where: { id: Id },
+            });
+            if (!value) {
+                const errorResponse = {
+                    status: 0,
+                    message: `Invalid productId`,
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const validId = yield this.productQRcodeService.delete(value.id);
+            if (!validId) {
+                const errorResponse = {
+                    status: 0,
+                    message: `Unable to delete the product`,
+                };
+                return response.status(400).send(errorResponse);
+            }
+            else {
+                const successResponse = {
+                    status: 1,
+                    message: `Successfully deleted`,
+                    data: validId,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Get product List
+    productList(limit, offset, keyword, sku, status, price, count, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'Product.productId as productId',
+                'Product.sku as sku',
+                'Product.name as name',
+                'Product.quantity as quantity',
+                'Product.price as price',
+                'Product.skuId as skuId',
+                'Product.productSlug as productSlug',
+                'Product.keywords as keywords',
+                'Product.isActive as isActive',
+                'Product.dateAvailable as dateAvailable',
+                'Product.width as width',
+                'Product.height as height',
+                'Product.length as length',
+                'Product.weight as weight',
+                '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as image',
+                '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
+                '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
+                '(SELECT sku.sku_name as sku FROM sku WHERE sku.id = skuId) as sku',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as modifiedPrice',
+                '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+                    ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
+                '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
+            ];
+            const relations = [];
+            const WhereConditions = [];
+            if (sku) {
+                WhereConditions.push({
+                    name: 'Product.sku',
+                    op: 'like',
+                    value: sku,
+                });
+            }
+            if (status) {
+                WhereConditions.push({
+                    name: 'Product.isActive',
+                    op: 'and',
+                    value: status,
+                });
+            }
+            const searchConditions = [];
+            if (keyword === null || keyword === void 0 ? void 0 : keyword.trim()) {
+                searchConditions.push({
+                    name: ['Product.name'],
+                    value: keyword,
+                });
+            }
+            const sort = [];
+            if (+price && price === 1) {
+                sort.push({
+                    name: 'Product.price',
+                    order: 'ASC',
+                });
+            }
+            else if (+price && price === 2) {
+                sort.push({
+                    name: 'Product.price',
+                    order: 'DESC',
+                });
+            }
+            else {
+                sort.push({
+                    name: 'Product.createdDate',
+                    order: 'DESC',
+                });
+            }
+            const groupBy = [];
+            const productLists = yield this.productService.listByQueryBuilder(limit, offset, select, WhereConditions, searchConditions, relations, [], sort, false, true);
+            if (count) {
+                const productListCount = yield this.productService.listByQueryBuilder(limit, offset, select, WhereConditions, searchConditions, relations, groupBy, sort, true, true);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got product lists count.',
+                    data: productListCount,
+                });
+            }
+            const productList = productLists.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const ifProductQr = yield this.productQRcodeService.findOne({
+                    where: { productId: value.productId },
+                });
+                temp.isProductQr = ifProductQr ? 1 : 0;
+                const date = (0, moment_1.default)(value.dateAvailable).format('YYYY-MM-DD');
+                const currentDate = (0, moment_1.default)().format('YYYY-MM-DD');
+                if (currentDate >= date && value.isActive === 1) {
+                    temp.globe = 1;
+                }
+                else {
+                    temp.globe = 0;
+                }
+                if (value.productSpecial !== null) {
+                    temp.pricerefer = value.productSpecial;
+                    temp.flag = 1;
+                }
+                else if (value.productDiscount !== null) {
+                    temp.pricerefer = value.productDiscount;
+                    temp.flag = 0;
+                }
+                else {
+                    temp.pricerefer = '';
+                    temp.flag = '';
+                }
+                return temp;
+            }));
+            const results = yield Promise.all(productList);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete product list.',
+                data: (0, class_transformer_1.instanceToPlain)(results),
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/created-qrcode'),
+    (0, routing_controllers_1.Authorized)('')
+    // tslint:disable-next-line:typedef
+    ,
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [ProductQRcodeRequest_1.ProductQRcodeRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQRcodeController.prototype, "imgFunction", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/delete-qr'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('productId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQRcodeController.prototype, "deletingqrCode", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/download-qrimage/:productId'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('productId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQRcodeController.prototype, "downloadImage", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/qr-list'),
+    (0, routing_controllers_1.Authorized)(''),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQRcodeController.prototype, "productlist", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/product-details/:id'),
+    (0, routing_controllers_1.Authorized)(' '),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQRcodeController.prototype, "productDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-product/:id'),
+    (0, routing_controllers_1.Authorized)(''),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQRcodeController.prototype, "deleteProduct", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/product-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sku')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('price')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductQRcodeController.prototype, "productList", null);
+ProductQRcodeController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/qrCode'),
+    tslib_1.__metadata("design:paramtypes", [ProductQRcodeService_1.ProductQRcodeService,
+        S3Service_1.S3Service,
+        ImageService_1.ImageService,
+        ProductService_1.ProductService])
+], ProductQRcodeController);
+exports.ProductQRcodeController = ProductQRcodeController;
+//# sourceMappingURL=ProductQRcodeController.js.map

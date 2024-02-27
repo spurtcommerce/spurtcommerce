@@ -1,1 +1,83 @@
-'use strict';const a291_0x2b9301=a291_0x5936;function a291_0x5936(_0x4d4bb1,_0x149ffe){const _0x1058a=a291_0x1058();return a291_0x5936=function(_0x59367b,_0x5229d5){_0x59367b=_0x59367b-0xa0;let _0x2e7440=_0x1058a[_0x59367b];return _0x2e7440;},a291_0x5936(_0x4d4bb1,_0x149ffe);}(function(_0x45534c,_0x2fcb0f){const _0x698bea=a291_0x5936,_0x1d4361=_0x45534c();while(!![]){try{const _0xf414c9=parseInt(_0x698bea(0xb9))/0x1+-parseInt(_0x698bea(0xaf))/0x2+parseInt(_0x698bea(0xac))/0x3*(parseInt(_0x698bea(0xa9))/0x4)+-parseInt(_0x698bea(0xbc))/0x5*(parseInt(_0x698bea(0xc2))/0x6)+parseInt(_0x698bea(0xae))/0x7+-parseInt(_0x698bea(0xaa))/0x8*(-parseInt(_0x698bea(0xa6))/0x9)+-parseInt(_0x698bea(0xb2))/0xa;if(_0xf414c9===_0x2fcb0f)break;else _0x1d4361['push'](_0x1d4361['shift']());}catch(_0x1e7505){_0x1d4361['push'](_0x1d4361['shift']());}}}(a291_0x1058,0x2e456));function a291_0x1058(){const _0x54ec8a=['352787irywbn','__metadata','minimum\x20purchase\x20amount\x20is\x20required','375bpiCHb','__decorate','couponType','IsNotEmpty','class-validator','maximum\x20purchase\x20amount\x20is\x20required','636bszZCU','__esModule','design:type','maxUserPerCoupon\x20is\x20required','emailRestrictions','MaxLength','discount\x20is\x20required','couponCode','noOfTimeCouponValidPerUser','1670481GqejmV','CreateCouponRequest','minimumPurchaseAmount','4yXfbCp','8pNyoRZ','status\x20is\x20required','185109mBkHCg','coupon\x20name\x20should\x20be\x20maximum\x20255\x20characters','489244iPVVEq','255554lDPANg','discount','coupon\x20code\x20is\x20required','3447380deOMfV','tslib','noOfTimeCouponValidPerUser\x20is\x20required','coupon\x20name\x20is\x20required','email\x20restrictions\x20should\x20be\x20maximum\x20255\x20characters','maxUserPerCoupon','prototype'];a291_0x1058=function(){return _0x54ec8a;};return a291_0x1058();}Object['defineProperty'](exports,a291_0x2b9301(0xc3),{'value':!![]}),exports['CreateCouponRequest']=void 0x0;const tslib_1=require(a291_0x2b9301(0xb3));require('reflect-metadata');const class_validator_1=require(a291_0x2b9301(0xc0));class CreateCouponRequest{}tslib_1['__decorate']([(0x0,class_validator_1['MaxLength'])(0xff,{'message':a291_0x2b9301(0xad)}),(0x0,class_validator_1['IsNotEmpty'])({'message':a291_0x2b9301(0xb5)}),tslib_1['__metadata'](a291_0x2b9301(0xc4),String)],CreateCouponRequest['prototype'],'couponName',void 0x0),tslib_1[a291_0x2b9301(0xbd)]([(0x0,class_validator_1[a291_0x2b9301(0xa2)])(0x1e,{'message':'coupon\x20code\x20should\x20be\x20maximum\x2032\x20characters'}),(0x0,class_validator_1[a291_0x2b9301(0xbf)])({'message':a291_0x2b9301(0xb1)}),tslib_1[a291_0x2b9301(0xba)](a291_0x2b9301(0xc4),String)],CreateCouponRequest[a291_0x2b9301(0xb8)],a291_0x2b9301(0xa4),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])({'message':'coupon\x20type\x20is\x20required'}),tslib_1[a291_0x2b9301(0xba)](a291_0x2b9301(0xc4),Number)],CreateCouponRequest[a291_0x2b9301(0xb8)],a291_0x2b9301(0xbe),void 0x0),tslib_1[a291_0x2b9301(0xbd)]([(0x0,class_validator_1[a291_0x2b9301(0xbf)])({'message':a291_0x2b9301(0xa3)}),tslib_1[a291_0x2b9301(0xba)](a291_0x2b9301(0xc4),Number)],CreateCouponRequest[a291_0x2b9301(0xb8)],a291_0x2b9301(0xb0),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])({'message':a291_0x2b9301(0xbb)}),tslib_1[a291_0x2b9301(0xba)](a291_0x2b9301(0xc4),Number)],CreateCouponRequest[a291_0x2b9301(0xb8)],a291_0x2b9301(0xa8),void 0x0),tslib_1[a291_0x2b9301(0xbd)]([(0x0,class_validator_1['IsNotEmpty'])({'message':a291_0x2b9301(0xc1)}),tslib_1[a291_0x2b9301(0xba)](a291_0x2b9301(0xc4),Number)],CreateCouponRequest[a291_0x2b9301(0xb8)],'maximumPurchaseAmount',void 0x0),tslib_1[a291_0x2b9301(0xbd)]([(0x0,class_validator_1[a291_0x2b9301(0xa2)])(0xff,{'message':a291_0x2b9301(0xb6)}),tslib_1[a291_0x2b9301(0xba)](a291_0x2b9301(0xc4),String)],CreateCouponRequest['prototype'],a291_0x2b9301(0xa1),void 0x0),tslib_1[a291_0x2b9301(0xbd)]([(0x0,class_validator_1[a291_0x2b9301(0xbf)])({'message':a291_0x2b9301(0xa0)}),tslib_1['__metadata'](a291_0x2b9301(0xc4),Number)],CreateCouponRequest['prototype'],a291_0x2b9301(0xb7),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a291_0x2b9301(0xbf)])({'message':a291_0x2b9301(0xb4)}),tslib_1[a291_0x2b9301(0xba)](a291_0x2b9301(0xc4),Number)],CreateCouponRequest['prototype'],a291_0x2b9301(0xa5),void 0x0),tslib_1[a291_0x2b9301(0xbd)]([(0x0,class_validator_1[a291_0x2b9301(0xbf)])({'message':a291_0x2b9301(0xab)}),tslib_1[a291_0x2b9301(0xba)](a291_0x2b9301(0xc4),Number)],CreateCouponRequest['prototype'],'status',void 0x0),exports[a291_0x2b9301(0xa7)]=CreateCouponRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCouponRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateCouponRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'coupon name should be maximum 255 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'coupon name is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateCouponRequest.prototype, "couponName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(30, {
+        message: 'coupon code should be maximum 32 characters',
+    }),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'coupon code is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateCouponRequest.prototype, "couponCode", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'coupon type is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateCouponRequest.prototype, "couponType", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'discount is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateCouponRequest.prototype, "discount", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'minimum purchase amount is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateCouponRequest.prototype, "minimumPurchaseAmount", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'maximum purchase amount is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateCouponRequest.prototype, "maximumPurchaseAmount", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.MaxLength)(255, {
+        message: 'email restrictions should be maximum 255 characters',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateCouponRequest.prototype, "emailRestrictions", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'maxUserPerCoupon is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateCouponRequest.prototype, "maxUserPerCoupon", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'noOfTimeCouponValidPerUser is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateCouponRequest.prototype, "noOfTimeCouponValidPerUser", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'status is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateCouponRequest.prototype, "status", void 0);
+exports.CreateCouponRequest = CreateCouponRequest;
+//# sourceMappingURL=CreateCouponRequest.js.map

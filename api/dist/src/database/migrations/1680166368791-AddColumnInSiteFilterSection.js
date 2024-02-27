@@ -1,1 +1,28 @@
-'use strict';const a963_0x53fde8=a963_0x18b4;(function(_0x48f022,_0x4428f2){const _0xddf534=a963_0x18b4,_0x53e35d=_0x48f022();while(!![]){try{const _0x4b5ce4=-parseInt(_0xddf534(0x1c5))/0x1+-parseInt(_0xddf534(0x1d1))/0x2*(-parseInt(_0xddf534(0x1c9))/0x3)+parseInt(_0xddf534(0x1cb))/0x4+parseInt(_0xddf534(0x1c6))/0x5*(parseInt(_0xddf534(0x1c1))/0x6)+-parseInt(_0xddf534(0x1d3))/0x7+-parseInt(_0xddf534(0x1cf))/0x8+parseInt(_0xddf534(0x1d0))/0x9*(parseInt(_0xddf534(0x1cd))/0xa);if(_0x4b5ce4===_0x4428f2)break;else _0x53e35d['push'](_0x53e35d['shift']());}catch(_0x17cafa){_0x53e35d['push'](_0x53e35d['shift']());}}}(a963_0x420c,0xee788));Object[a963_0x53fde8(0x1c7)](exports,a963_0x53fde8(0x1c0),{'value':!![]}),exports['AddColumnInSiteFilterSection1680166368791']=void 0x0;const tslib_1=require('tslib'),typeorm_1=require('typeorm');function a963_0x18b4(_0x19cdc2,_0x2dd9e1){const _0x420cbc=a963_0x420c();return a963_0x18b4=function(_0x18b422,_0xfb60df){_0x18b422=_0x18b422-0x1c0;let _0x3cbbbe=_0x420cbc[_0x18b422];return _0x3cbbbe;},a963_0x18b4(_0x19cdc2,_0x2dd9e1);}class AddColumnInSiteFilterSection1680166368791{['up'](_0x582564){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x42f1a7=a963_0x18b4,_0xcca53b=yield _0x582564[_0x42f1a7(0x1ce)](_0x42f1a7(0x1c3),_0x42f1a7(0x1ca));!_0xcca53b&&(yield _0x582564[_0x42f1a7(0x1d2)](_0x42f1a7(0x1c3),new typeorm_1[(_0x42f1a7(0x1c8))]({'name':_0x42f1a7(0x1ca),'type':'int','length':'11','isPrimary':![],'isNullable':!![]})));});}[a963_0x53fde8(0x1c2)](_0xa1ded9){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0xd1b473=a963_0x18b4;yield _0xa1ded9[_0xd1b473(0x1cc)]('site_filter_section',_0xd1b473(0x1ca));});}}exports[a963_0x53fde8(0x1c4)]=AddColumnInSiteFilterSection1680166368791;function a963_0x420c(){const _0x281177=['TableColumn','9sWzHvp','section_id','5225800LQefyi','dropColumn','1830ZNIDOk','hasColumn','12961856UzkMnI','20754viRYIp','111374JzTfGB','addColumn','4049101dGirGq','__esModule','541302HyikAN','down','site_filter_section','AddColumnInSiteFilterSection1680166368791','253747QrvOBc','85dFknQE','defineProperty'];a963_0x420c=function(){return _0x281177;};return a963_0x420c();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInSiteFilterSection1680166368791 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInSiteFilterSection1680166368791 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist = yield queryRunner.hasColumn('site_filter_section', 'section_id');
+            if (!ifExist) {
+                yield queryRunner.addColumn('site_filter_section', new typeorm_1.TableColumn({
+                    name: 'section_id',
+                    type: 'int',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('site_filter_section', 'section_id');
+        });
+    }
+}
+exports.AddColumnInSiteFilterSection1680166368791 = AddColumnInSiteFilterSection1680166368791;
+//# sourceMappingURL=1680166368791-AddColumnInSiteFilterSection.js.map

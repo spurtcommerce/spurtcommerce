@@ -1,1 +1,37 @@
-'use strict';const a32_0x1a7c3a=a32_0x1d03;(function(_0x3ac64b,_0x19b04e){const _0x1ddfd8=a32_0x1d03,_0x3c4141=_0x3ac64b();while(!![]){try{const _0x5d845d=parseInt(_0x1ddfd8(0xe0))/0x1*(parseInt(_0x1ddfd8(0xe8))/0x2)+-parseInt(_0x1ddfd8(0xf7))/0x3+-parseInt(_0x1ddfd8(0xe4))/0x4*(-parseInt(_0x1ddfd8(0xea))/0x5)+-parseInt(_0x1ddfd8(0xdf))/0x6+-parseInt(_0x1ddfd8(0xe9))/0x7*(parseInt(_0x1ddfd8(0xdd))/0x8)+parseInt(_0x1ddfd8(0xf5))/0x9+parseInt(_0x1ddfd8(0xe5))/0xa;if(_0x5d845d===_0x19b04e)break;else _0x3c4141['push'](_0x3c4141['shift']());}catch(_0x40bd32){_0x3c4141['push'](_0x3c4141['shift']());}}}(a32_0x26af,0x69124));Object[a32_0x1a7c3a(0xeb)](exports,a32_0x1a7c3a(0xec),{'value':!![]}),exports[a32_0x1a7c3a(0xe6)]=void 0x0;function a32_0x26af(){const _0x377b68=['626RfpTge','805973MimSHd','100dXerVQ','defineProperty','__esModule','blog','../models/Blog','blog.id\x20!=\x20:id','checkSlugData','blogSlug','createQueryBuilder','EntityRepository','getCount','7056072ZbOteU','where','600741cuwIkK','__decorate','__awaiter','24WycFrA','blog.blog_slug\x20=\x20:slug','2920152DeYLRO','93lOJgUI','Blog','andWhere','manager','32316vvVDWk','4880310XkjteQ','BlogRepository','getMany'];a32_0x26af=function(){return _0x377b68;};return a32_0x26af();}const tslib_1=require('tslib'),typeorm_1=require('typeorm'),Blog_1=require(a32_0x1a7c3a(0xee));function a32_0x1d03(_0x5ac87f,_0x48af35){const _0x26af35=a32_0x26af();return a32_0x1d03=function(_0x1d039e,_0x3897ea){_0x1d039e=_0x1d039e-0xdc;let _0x20bc6b=_0x26af35[_0x1d039e];return _0x20bc6b;},a32_0x1d03(_0x5ac87f,_0x48af35);}let BlogRepository=class BlogRepository extends typeorm_1['Repository']{[a32_0x1a7c3a(0xf1)](_0x385607){const _0x5333c2=a32_0x1a7c3a;return tslib_1[_0x5333c2(0xdc)](this,void 0x0,void 0x0,function*(){const _0x1c6fad=_0x5333c2,_0x3237e4=yield this[_0x1c6fad(0xe3)][_0x1c6fad(0xf2)](Blog_1['Blog'],_0x1c6fad(0xed));return _0x3237e4[_0x1c6fad(0xf6)]('blog.title\x20=\x20:value',{'value':_0x385607}),_0x3237e4[_0x1c6fad(0xe7)]();});}[a32_0x1a7c3a(0xf0)](_0xfa63fa,_0x1df3dd){const _0x88d2e3=a32_0x1a7c3a;return tslib_1[_0x88d2e3(0xdc)](this,void 0x0,void 0x0,function*(){const _0xcf1337=_0x88d2e3,_0x29d610=yield this[_0xcf1337(0xe3)][_0xcf1337(0xf2)](Blog_1['Blog'],_0xcf1337(0xed));return _0x29d610[_0xcf1337(0xf6)](_0xcf1337(0xde),{'slug':_0xfa63fa}),_0x1df3dd>0x0&&_0x29d610[_0xcf1337(0xe2)](_0xcf1337(0xef),{'id':_0x1df3dd}),_0x29d610[_0xcf1337(0xf4)]();});}};BlogRepository=tslib_1[a32_0x1a7c3a(0xf8)]([(0x0,typeorm_1[a32_0x1a7c3a(0xf3)])(Blog_1[a32_0x1a7c3a(0xe1)])],BlogRepository),exports[a32_0x1a7c3a(0xe6)]=BlogRepository;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BlogRepository = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const Blog_1 = require("../models/Blog");
+let BlogRepository = class BlogRepository extends typeorm_1.Repository {
+    blogSlug(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(Blog_1.Blog, 'blog');
+            query.where('blog.title = :value', { value: data });
+            return query.getMany();
+        });
+    }
+    checkSlugData(slug, id) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(Blog_1.Blog, 'blog');
+            query.where('blog.blog_slug = :slug', { slug });
+            if (id > 0) {
+                query.andWhere('blog.id != :id', { id });
+            }
+            return query.getCount();
+        });
+    }
+};
+BlogRepository = tslib_1.__decorate([
+    (0, typeorm_1.EntityRepository)(Blog_1.Blog)
+], BlogRepository);
+exports.BlogRepository = BlogRepository;
+//# sourceMappingURL=BlogRepository.js.map

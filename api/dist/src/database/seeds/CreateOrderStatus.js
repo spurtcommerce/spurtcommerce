@@ -1,1 +1,45 @@
-'use strict';const a973_0x734494=a973_0x3337;(function(_0x38784b,_0x3e7d80){const _0xb65309=a973_0x3337,_0x339414=_0x38784b();while(!![]){try{const _0x630e5e=parseInt(_0xb65309(0x164))/0x1*(parseInt(_0xb65309(0x15d))/0x2)+-parseInt(_0xb65309(0x167))/0x3+-parseInt(_0xb65309(0x163))/0x4*(-parseInt(_0xb65309(0x174))/0x5)+-parseInt(_0xb65309(0x15b))/0x6*(-parseInt(_0xb65309(0x15e))/0x7)+parseInt(_0xb65309(0x160))/0x8*(parseInt(_0xb65309(0x16b))/0x9)+parseInt(_0xb65309(0x165))/0xa+-parseInt(_0xb65309(0x170))/0xb;if(_0x630e5e===_0x3e7d80)break;else _0x339414['push'](_0x339414['shift']());}catch(_0xb5d776){_0x339414['push'](_0x339414['shift']());}}}(a973_0x2a11,0xdc5fa));Object[a973_0x734494(0x16f)](exports,'__esModule',{'value':!![]}),exports[a973_0x734494(0x171)]=void 0x0;const tslib_1=require(a973_0x734494(0x172)),OrderStatus_1=require(a973_0x734494(0x166));function a973_0x2a11(){const _0x1d35fa=['56PdAdKH','length','isActive','16348ovGOYB','120777mRmFCe','3904700yWVuZc','../../api/core/models/OrderStatus','5089977IZemTS','Shipped','save','Delivered','754524NdePcf','createEntityManager','__awaiter','run','defineProperty','24055042EdkmZT','CreateOrderStatus','tslib','OrderStatus','1365OxXONj','orderStatusId','26364UYDVpL','In\x20Progress','16fpRFxV','2751uCSwVj','name'];a973_0x2a11=function(){return _0x1d35fa;};return a973_0x2a11();}function a973_0x3337(_0x290eea,_0x46e5b1){const _0x2a11e4=a973_0x2a11();return a973_0x3337=function(_0x33373d,_0x2190ab){_0x33373d=_0x33373d-0x15b;let _0x1fccb4=_0x2a11e4[_0x33373d];return _0x1fccb4;},a973_0x3337(_0x290eea,_0x46e5b1);}class CreateOrderStatus{[a973_0x734494(0x16e)](_0x41e5f8,_0x3b7522){const _0x4bf025=a973_0x734494;return tslib_1[_0x4bf025(0x16d)](this,void 0x0,void 0x0,function*(){const _0x10692a=_0x4bf025,_0x42c01a=_0x3b7522[_0x10692a(0x16c)](),_0x4f3325=[{'orderStatusId':0x1,'name':_0x10692a(0x15c),'isActive':0x1},{'orderStatusId':0x2,'name':_0x10692a(0x168),'isActive':0x1},{'orderStatusId':0x3,'name':_0x10692a(0x16a),'isActive':0x1},{'orderStatusId':0x4,'name':'completed','isActive':0x1}];let _0x518d9a=0x0;for(_0x518d9a;_0x518d9a<_0x4f3325[_0x10692a(0x161)];_0x518d9a++){const _0x24e32a=new OrderStatus_1[(_0x10692a(0x173))]();_0x24e32a[_0x10692a(0x175)]=_0x4f3325[_0x518d9a][_0x10692a(0x175)],_0x24e32a[_0x10692a(0x15f)]=_0x4f3325[_0x518d9a][_0x10692a(0x15f)],_0x24e32a[_0x10692a(0x162)]=_0x4f3325[_0x518d9a][_0x10692a(0x162)],yield _0x42c01a[_0x10692a(0x169)](_0x24e32a);}return _0x4f3325;});}}exports[a973_0x734494(0x171)]=CreateOrderStatus;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateOrderStatus = void 0;
+const tslib_1 = require("tslib");
+const OrderStatus_1 = require("../../api/core/models/OrderStatus");
+class CreateOrderStatus {
+    run(factory, connection) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const em = connection.createEntityManager();
+            const statusData = [
+                {
+                    orderStatusId: 1,
+                    name: 'In Progress',
+                    isActive: 1,
+                },
+                {
+                    orderStatusId: 2,
+                    name: 'Shipped',
+                    isActive: 1,
+                },
+                {
+                    orderStatusId: 3,
+                    name: 'Delivered',
+                    isActive: 1,
+                },
+                {
+                    orderStatusId: 4,
+                    name: 'completed',
+                    isActive: 1,
+                },
+            ];
+            let i = 0;
+            for (i; i < statusData.length; i++) {
+                const orderStatus = new OrderStatus_1.OrderStatus();
+                orderStatus.orderStatusId = statusData[i].orderStatusId;
+                orderStatus.name = statusData[i].name;
+                orderStatus.isActive = statusData[i].isActive;
+                yield em.save(orderStatus);
+            }
+            return statusData;
+        });
+    }
+}
+exports.CreateOrderStatus = CreateOrderStatus;
+//# sourceMappingURL=CreateOrderStatus.js.map

@@ -1,1 +1,20 @@
-'use strict';const a325_0x8e506d=a325_0x20c2;(function(_0x4a5e9d,_0x156227){const _0x181346=a325_0x20c2,_0x406187=_0x4a5e9d();while(!![]){try{const _0x1a1125=-parseInt(_0x181346(0xf3))/0x1+parseInt(_0x181346(0xfc))/0x2+-parseInt(_0x181346(0x101))/0x3+-parseInt(_0x181346(0xfb))/0x4*(parseInt(_0x181346(0xfd))/0x5)+-parseInt(_0x181346(0xfe))/0x6*(-parseInt(_0x181346(0x106))/0x7)+parseInt(_0x181346(0xf5))/0x8*(parseInt(_0x181346(0x103))/0x9)+parseInt(_0x181346(0xf4))/0xa*(-parseInt(_0x181346(0xf8))/0xb);if(_0x1a1125===_0x156227)break;else _0x406187['push'](_0x406187['shift']());}catch(_0x8f816d){_0x406187['push'](_0x406187['shift']());}}}(a325_0x5da3,0x3c972));function a325_0x20c2(_0x34c9e1,_0x14914b){const _0x5da300=a325_0x5da3();return a325_0x20c2=function(_0x20c251,_0x2180eb){_0x20c251=_0x20c251-0xf2;let _0x1fbf55=_0x5da300[_0x20c251];return _0x1fbf55;},a325_0x20c2(_0x34c9e1,_0x14914b);}function a325_0x5da3(){const _0x414c4b=['47115hbIqgr','58722tmLPFI','Text\x20($value)\x20is\x20too\x20short\x20or\x20too\x20long!','defaultMessage','617553VDejPe','tslib','805491ZBShbB','validate','defineProperty','77vGnDLU','name','354058jUSfcm','30fhlfNU','32zxYiNc','__esModule','ValidatorConstraint','41624ddByDL','EscapeValidation','__decorate','60MzZqsC','990262cfIBmD'];a325_0x5da3=function(){return _0x414c4b;};return a325_0x5da3();}Object[a325_0x8e506d(0x105)](exports,a325_0x8e506d(0xf6),{'value':!![]}),exports[a325_0x8e506d(0xf9)]=void 0x0;const tslib_1=require(a325_0x8e506d(0x102)),class_validator_1=require('class-validator');let EscapeValidation=class EscapeValidation{[a325_0x8e506d(0x104)](_0x365a82,_0x443263){const _0x21ca4c=/[*+?^${}()<>''|[\]\\]/g['test'](_0x365a82);return _0x21ca4c===!![]?![]:!![];}[a325_0x8e506d(0x100)](_0x2ec145){const _0x5a479c=a325_0x8e506d;return _0x5a479c(0xff);}};EscapeValidation=tslib_1[a325_0x8e506d(0xfa)]([(0x0,class_validator_1[a325_0x8e506d(0xf7)])({'name':a325_0x8e506d(0xf2),'async':![]})],EscapeValidation),exports['EscapeValidation']=EscapeValidation;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EscapeValidation = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+let EscapeValidation = class EscapeValidation {
+    validate(text, args) {
+        const result = /[*+?^${}()<>''|[\]\\]/g.test(text);
+        return result === true ? false : true;
+    }
+    defaultMessage(args) {
+        // here you can provide default error message if validation failed
+        return 'Text ($value) is too short or too long!';
+    }
+};
+EscapeValidation = tslib_1.__decorate([
+    (0, class_validator_1.ValidatorConstraint)({ name: 'name', async: false })
+], EscapeValidation);
+exports.EscapeValidation = EscapeValidation;
+//# sourceMappingURL=EscapeValidation.js.map

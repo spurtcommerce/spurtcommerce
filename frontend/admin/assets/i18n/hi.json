@@ -1,4 +1,7 @@
 {
+    "languageKey": {
+        "languagedirection": "ltr"
+    },
     "CommonFormAll": {
         "Doyouwanttodelete": "क्या आप हटाना चाहते हैं ?"
     },
@@ -191,7 +194,6 @@
             "Filters": "फिल्टर",
             "OrderStatus": "आदेश की स्थिति",
             "datanotfound": "आइटम नहीं मिले",
-
             "Completed": "पूरा कर लिया है",
             "Pending": "अपूर्ण",
             "Hold": "पकड़",
@@ -239,30 +241,28 @@
             "SKUNumber": "ग्राहक का नाम",
             "OrderId": "आदेश कामतत्व"
         },
-        "Abandoned":{
-            "Keyword":"कीवर्ड",
+        "Abandoned": {
+            "Keyword": "कीवर्ड",
             "Filters": "फिल्टर",
             "ApplyFilters": "फ़िल्टर लागू करें",
             "Reset": "रीसेट",
-            "LiveCart":"लाइव कार्ट",
-            "AbandonedCarts":"परित्यक्त गाड़ियां",
-            "CustomerName":"ग्राहक का नाम",
-            "EmailAddress":"मेल पता",
-            "Product":"उत्पाद",
-            "CartSubtotal":"सामान का पूर्ण योग",
-            "IpAdderss":"आईपी ​​पता",
-            "LastUpdated":"आखरी अपडेट",
-            "ProductName":"उत्पाद का नाम",
-            "Quantity":"मात्रा",
-            "Price":"कीमत",
-            "Subtotal":"उप-योग",
-            "ClearCart":"कार्ट को खाली करें",
-            "SendMail":"मेल भेजे",
-            "Comments/Messagetocustomer":"ग्राहक को टिप्पणियाँ / संदेश",
-            "Export":"निर्यात करना",
-            "Delete":"मिटाना"
-
-
+            "LiveCart": "लाइव कार्ट",
+            "AbandonedCarts": "परित्यक्त गाड़ियां",
+            "CustomerName": "ग्राहक का नाम",
+            "EmailAddress": "मेल पता",
+            "Product": "उत्पाद",
+            "CartSubtotal": "सामान का पूर्ण योग",
+            "IpAdderss": "आईपी ​​पता",
+            "LastUpdated": "आखरी अपडेट",
+            "ProductName": "उत्पाद का नाम",
+            "Quantity": "मात्रा",
+            "Price": "कीमत",
+            "Subtotal": "उप-योग",
+            "ClearCart": "कार्ट को खाली करें",
+            "SendMail": "मेल भेजे",
+            "Comments/Messagetocustomer": "ग्राहक को टिप्पणियाँ / संदेश",
+            "Export": "निर्यात करना",
+            "Delete": "मिटाना"
         }
     },
     "Settings": {
@@ -339,7 +339,6 @@
             "Cancel": "रद्द करना",
             "Store": "दुकान",
             "MaintenanceMode": "रखरखाव मोड"
-
         },
         "Appearence": {
             "Appearence": "उपस्थिति",
@@ -659,7 +658,7 @@
     },
     "shared": {
         "imagemanagerpopup": {
-            "ImageManager": "छवि प्रबंधक",
+            "Media": "छवि प्रबंधक",
             "CreateFolder": "फोल्डर बनाएं",
             "Create": "सर्जन करना",
             "Upload": "अपलोड",
@@ -717,9 +716,12 @@
             "BuyingHistory": "इतिहास खरीदना",
             "TotalCustomer": "कुल ग्राहक",
             "ActiveCustomer": "सक्रिय ग्राहक",
-            "In-ActiveCustomer": "में सक्रिय ग्राहक"
+            "In-ActiveCustomer": "में सक्रिय ग्राहक",
+            "SelectSiteIdIsRequired":"साइट आईडी आवश्यक है का चयन करें",
+            "SiteId":"साइट आईडी"
         },
         "Error": {
+          
             "AddressLine1IsRequired": "पता पंक्ति 1 आवश्यक है",
             "CityIsRequired": "शहर आवश्यक है",
             "StateIsRequired": "राज्य आवश्यक है",
@@ -776,7 +778,7 @@
             "In-activeProducts": "सक्रिय उत्पादों में",
             "New": "नया",
             "Catalog": "सूची",
-            "SelectCategory":"श्रेणी चुनना",
+            "SelectCategory": "श्रेणी चुनना",
             "AddProduct": "उत्पाद जोड़ें",
             "Export": "निर्यात",
             "Import": "आयात",
@@ -827,7 +829,8 @@
             "Condition": "शर्त",
             "Addimages": "छवियां जोड़ें",
             "Feature": "फीचर है",
-            "RelatedProducts": "संबंधित उत्पाद"
+            "RelatedProducts": "संबंधित उत्पाद",
+            "Selected Available Product":"चयनित उपलब्ध उत्पाद"
         },
         "layout": {
             "ActiveProducts": "सक्रिय उत्पाद",
@@ -952,5 +955,33 @@
     "ToolTip": {
         "comingsoon": "जल्द आ रहा है",
         "viewDetails": "विवरण देखें"
+    },
+    "footer": {
+        "Spurtcommerce": "स्पर्टकॉमर्स",
+        "Copyrights": "कॉपीराइट © 2023, स्पर्ट कॉमर्स ई-सॉल्यूशंस प्राइवेट लिमिटेड. सभी अधिकार सुरक्षित हैं।"
+    },
+    "attributes": {
+        "CreateProductSpecification": "उत्पाद विनिर्दिष्ट निर्माण",
+        "ProductSpecification": "उत्पाद निर्दिष्ट",
+        "specificationNameisrequired": "निर्दिष्ट नाम आवश्यक है",
+        "AvailableAttributes": "उपलब्ध गुण",
+        "SearchbyName": "नाम से खोजें",
+        "SelectedAttributes": "चयनित गुण",
+        "Cancel": "रद्द करें",
+        "Family": "परिवार",
+        "CreateBusinessFamily": "व्यापार परिवार बनाएं",
+        "TotalCategoriesAssigned": "कुल श्रेणियों को सौंपा गया",
+        "SearchCategory": "श्रेणी खोजें",
+        "CategoryList": "श्रेणी सूची",
+        "ShowAssignedCategories": "सौंपी गई श्रेणियां दिखाएं",
+        "AvailableSpecification": "उपलब्ध निर्दिष्ट",
+        "AssignSpecification": "निर्दिष्ट सौंपें",
+        "Action": "क्रिया",
+        "Nil": "शून्य",
+        "SearchSpecification": "निर्दिष्ट खोजें",
+        "Edit": "संपादित करें",
+        "Create": "बनाएं",
+        "CategoryName": "श्रेणी का नाम",
+        "Save": "सहेजें"
     }
 }

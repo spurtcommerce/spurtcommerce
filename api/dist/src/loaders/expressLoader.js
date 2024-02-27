@@ -1,1 +1,96 @@
-'use strict';const a988_0x5cfdf4=a988_0x1ab7;(function(_0x36f4ca,_0x5c3fa8){const _0x494484=a988_0x1ab7,_0x2242b8=_0x36f4ca();while(!![]){try{const _0x46f89c=parseInt(_0x494484(0xdf))/0x1+-parseInt(_0x494484(0x100))/0x2*(-parseInt(_0x494484(0xeb))/0x3)+parseInt(_0x494484(0xfd))/0x4*(parseInt(_0x494484(0xf7))/0x5)+parseInt(_0x494484(0xe3))/0x6*(parseInt(_0x494484(0xdd))/0x7)+-parseInt(_0x494484(0xf5))/0x8+parseInt(_0x494484(0xdc))/0x9+-parseInt(_0x494484(0xd5))/0xa;if(_0x46f89c===_0x5c3fa8)break;else _0x2242b8['push'](_0x2242b8['shift']());}catch(_0x2b261a){_0x2242b8['push'](_0x2242b8['shift']());}}}(a988_0x30aa,0x365a1));Object[a988_0x5cfdf4(0xfb)](exports,a988_0x5cfdf4(0xe0),{'value':!![]}),exports[a988_0x5cfdf4(0xe2)]=void 0x0;function a988_0x1ab7(_0x31c91a,_0x4f4163){const _0x30aa70=a988_0x30aa();return a988_0x1ab7=function(_0x1ab74e,_0x48c348){_0x1ab74e=_0x1ab74e-0xcd;let _0xd0815=_0x30aa70[_0x1ab74e];return _0xd0815;},a988_0x1ab7(_0x31c91a,_0x4f4163);}function a988_0x30aa(){const _0x2a3933=['defineProperty','@spurtcommerce/auth','329996icWQFn','__importDefault','connection','8ZFSCUD','useExpressServer','app','__importStar','utf8','existsSync','express_server','../auth/currentUserChecker','\x27views\x27)','xssProtection','\x27../../\x27','200mb','isTest','use','replace','../common/controller-index','4323860tWupFa','../env','dist/src/loaders/spurtConnectLoader.js','path.join(__dirname,\x20','values','tslib','routing-controllers','2597958YnJlKU','7KlZKEb','express_app','152485lFqyur','__esModule','dist','expressLoader','891846FkCymF','\x27../../../\x27','xframe','getData','routePrefix','jwtSecret','log','setData','244185YWUZZd','50mb','currentUserChecker','listen','default','\x27views/assets\x27)','json','SAMEORIGIN','readFile','dist/src/loaders/publicLoader.js','3402840lEqICW','express','10dXiWlj','env','urlencoded','lusca'];a988_0x30aa=function(){return _0x2a3933;};return a988_0x30aa();}const tslib_1=require(a988_0x5cfdf4(0xda)),express_1=tslib_1[a988_0x5cfdf4(0xfe)](require(a988_0x5cfdf4(0xf6))),bodyParser=tslib_1['__importStar'](require('body-parser')),routing_controllers_1=require(a988_0x5cfdf4(0xdb)),currentUserChecker_1=require(a988_0x5cfdf4(0x107)),controllers=tslib_1[a988_0x5cfdf4(0x103)](require(a988_0x5cfdf4(0xd4))),middlewares=tslib_1['__importStar'](require('../common/middleware-index')),lusca_1=tslib_1['__importDefault'](require(a988_0x5cfdf4(0xfa))),fs_1=tslib_1[a988_0x5cfdf4(0xfe)](require('fs')),env_1=require(a988_0x5cfdf4(0xd6)),expressLoader=_0x36e2ed=>{const _0x492540=a988_0x5cfdf4;if(_0x36e2ed){const _0x521428=_0x36e2ed[_0x492540(0xe6)](_0x492540(0xff)),_0x1b9dcf=require(_0x492540(0xfc))['authorizationChecker'],_0x1adb15=(0x0,express_1[_0x492540(0xef)])();_0x1adb15['use'](bodyParser[_0x492540(0xf9)]({'limit':_0x492540(0xd0),'extended':!![]})),_0x1adb15[_0x492540(0xd2)](bodyParser[_0x492540(0xf1)]({'limit':_0x492540(0xec)})),_0x1adb15[_0x492540(0xd2)](lusca_1[_0x492540(0xef)][_0x492540(0xe5)](_0x492540(0xf2))),_0x1adb15['use'](lusca_1['default'][_0x492540(0xce)](!![]));const _0x23930c=(0x0,routing_controllers_1[_0x492540(0x101)])(_0x1adb15,{'cors':!![],'classTransformer':!![],'routePrefix':env_1[_0x492540(0xf8)][_0x492540(0x102)][_0x492540(0xe7)],'defaultErrorHandler':![],'controllers':Object[_0x492540(0xd9)](controllers),'middlewares':Object[_0x492540(0xd9)](middlewares),'authorizationChecker':_0x1b9dcf(_0x521428,env_1['env'][_0x492540(0xe8)],env_1[_0x492540(0xf8)]['cryptoSecret']),'currentUserChecker':(0x0,currentUserChecker_1[_0x492540(0xed)])(_0x521428)});if(!env_1[_0x492540(0xf8)][_0x492540(0xd1)]){const _0x232b4d=_0x23930c[_0x492540(0xee)](env_1[_0x492540(0xf8)][_0x492540(0x102)]['port']);_0x36e2ed[_0x492540(0xea)](_0x492540(0x106),_0x232b4d);}_0x36e2ed[_0x492540(0xea)](_0x492540(0xde),_0x23930c);function _0x1cef38(){const _0xe9c6ad=_0x492540,_0x59dbd0=_0xe9c6ad(0xe1);fs_1[_0xe9c6ad(0xef)][_0xe9c6ad(0x105)](_0x59dbd0)&&(fs_1[_0xe9c6ad(0xef)][_0xe9c6ad(0xf3)]('dist/src/loaders/publicLoader.js','utf8',(_0xf70b7c,_0x490dc2)=>{const _0x4a7be8=_0xe9c6ad;if(_0xf70b7c)return console[_0x4a7be8(0xe9)](_0xf70b7c);const _0x8de0d5=_0x4a7be8(0xd8)+_0x4a7be8(0xcf)+',\x20'+_0x4a7be8(0xf0),_0x189f37=_0x4a7be8(0xd8)+_0x4a7be8(0xe4)+',\x20'+'\x27views/assets\x27)',_0x529975=_0x490dc2['replace'](_0x8de0d5,_0x189f37);fs_1[_0x4a7be8(0xef)]['writeFile'](_0x4a7be8(0xf4),_0x529975,_0x4a7be8(0x104),_0x23e8f1=>{if(_0x23e8f1)return console['log'](_0x23e8f1);});}),fs_1['default']['readFile'](_0xe9c6ad(0xd7),'utf8',(_0x14dfdd,_0x5b0739)=>{const _0x274ff9=_0xe9c6ad;if(_0x14dfdd)return console[_0x274ff9(0xe9)](_0x14dfdd);const _0x3e2fc3=_0x274ff9(0xd8)+_0x274ff9(0xcf)+',\x20'+_0x274ff9(0xcd),_0x372c8b=_0x274ff9(0xd8)+'\x27../../../\x27'+',\x20'+_0x274ff9(0xcd),_0x402d8c=_0x5b0739[_0x274ff9(0xd3)](_0x3e2fc3,_0x372c8b);fs_1[_0x274ff9(0xef)]['writeFile'](_0x274ff9(0xd7),_0x402d8c,_0x274ff9(0x104),_0x5c2900=>{if(_0x5c2900)return console['log'](_0x5c2900);});}));}_0x1cef38();}};exports['expressLoader']=expressLoader;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.expressLoader = void 0;
+const tslib_1 = require("tslib");
+const express_1 = tslib_1.__importDefault(require("express"));
+const bodyParser = tslib_1.__importStar(require("body-parser"));
+const routing_controllers_1 = require("routing-controllers");
+// import { authorizationChecker } from '../auth/authorizationChecker';
+const currentUserChecker_1 = require("../auth/currentUserChecker");
+const controllers = tslib_1.__importStar(require("../common/controller-index"));
+const middlewares = tslib_1.__importStar(require("../common/middleware-index"));
+const lusca_1 = tslib_1.__importDefault(require("lusca"));
+const fs_1 = tslib_1.__importDefault(require("fs"));
+const env_1 = require("../env");
+const expressLoader = (settings) => {
+    if (settings) {
+        const connection = settings.getData('connection');
+        const authService = require('@spurtcommerce/auth').authorizationChecker;
+        /**
+         * We create a new express server instance.
+         * We could have also use useExpressServer here to attach controllers to an existing express instance.
+         */
+        const app = (0, express_1.default)();
+        app.use(bodyParser.urlencoded({ limit: '200mb', extended: true }));
+        app.use(bodyParser.json({ limit: '50mb' }));
+        app.use(lusca_1.default.xframe('SAMEORIGIN'));
+        app.use(lusca_1.default.xssProtection(true));
+        const expressApp = (0, routing_controllers_1.useExpressServer)(app, {
+            cors: true,
+            classTransformer: true,
+            routePrefix: env_1.env.app.routePrefix,
+            defaultErrorHandler: false,
+            /**
+             * We can add options about how routing-controllers should configure itself.
+             * Here we specify what controllers should be registered in our express server.
+             */
+            controllers: Object.values(controllers),
+            middlewares: Object.values(middlewares),
+            // interceptors: env.app.dirs.interceptors,
+            /**
+             * Authorization features
+             */
+            authorizationChecker: authService(connection, env_1.env.jwtSecret, env_1.env.cryptoSecret),
+            currentUserChecker: (0, currentUserChecker_1.currentUserChecker)(connection),
+        });
+        // Run application to listen on given port
+        if (!env_1.env.isTest) {
+            const server = expressApp.listen(env_1.env.app.port);
+            // server.timeout = 80;
+            settings.setData('express_server', server);
+        }
+        // Here we can set the data for other loaders
+        settings.setData('express_app', expressApp);
+        function data() {
+            const dir = 'dist';
+            if (fs_1.default.existsSync(dir)) {
+                fs_1.default.readFile('dist/src/loaders/publicLoader.js', 'utf8', (err, dataV) => {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    const sourcePath = 'path.join(__dirname, ' + "'../../'" + ', ' + "'views/assets')";
+                    const destPath = 'path.join(__dirname, ' + "'../../../'" + ', ' + "'views/assets')";
+                    const result = dataV.replace(sourcePath, destPath);
+                    fs_1.default.writeFile('dist/src/loaders/publicLoader.js', result, 'utf8', (errW) => {
+                        if (errW) {
+                            return console.log(errW);
+                        }
+                    });
+                });
+                fs_1.default.readFile('dist/src/loaders/spurtConnectLoader.js', 'utf8', (err1, data1) => {
+                    if (err1) {
+                        return console.log(err1);
+                    }
+                    const spurtSourcePath = 'path.join(__dirname, ' + "'../../'" + ', ' + "'views')";
+                    const spurtDestPath = 'path.join(__dirname, ' + "'../../../'" + ', ' + "'views')";
+                    const result1 = data1.replace(spurtSourcePath, spurtDestPath);
+                    fs_1.default.writeFile('dist/src/loaders/spurtConnectLoader.js', result1, 'utf8', (err2) => {
+                        if (err2) {
+                            return console.log(err2);
+                        }
+                    });
+                });
+            }
+        }
+        data();
+    }
+};
+exports.expressLoader = expressLoader;
+//# sourceMappingURL=expressLoader.js.map

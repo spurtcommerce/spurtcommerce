@@ -1,1 +1,346 @@
-'use strict';const a37_0x1e9246=a37_0x4f03;function a37_0x2c5c(){const _0x582fab=['ejs','Plugins','approval_url','transactions','paymentFlag','97263FLUoTd','__esModule','payPalcreate','clientSecret','related_resources','__decorate','resolve','dateAvailable','sale','Controller','payment','total','PayerID','paymentStatus','path','save','cancelUrl','query','Param','1042996KiPzXY','paypalVal','paymentDetails','status','forEach','46brAnvn','name','prototype','cancel','27DiqzJF','parse','__importStar','__awaiter','orderPrefixId','orderProductId','findOne','paypal','productPrice','1179365cRBRwR','completed','__param','discount','log','orderId','Invalid\x20Payment\x20Details','readFileSync','Product\x20you\x20ordered','reflect-metadata','processRoute','2782kFTTCX','/success','find','price','Res','isTest','Invalid\x20Order\x20Id','amount','render','map','push','quantity','PaypalOrderTransaction','getRepository','pluginAdditionalInfo','clientId','../../../../src/api/core/models/Order','baseUrl','OrderProcessService','basePrice','/cancel','redirect','live','routing-controllers','currencyCode','create','toString','../../../../src/env','send','round','paypalRefId','You\x20not\x20install\x20this\x20plugin.\x20or\x20problem\x20in\x20installation','payPalSuccess','storeUrl','paymentType','../../../../src/api/core/services/OrderProcessService','proceed','productId','successRoute','__metadata','env','success','sandbox','design:returntype','/paypal-payment','../models/PaypalOrderTransaction','Order','execute','getManager','PayPalController','/process/:id','paymentData','2091047DXLKIa','../../../../src/api/core/models/OrderProduct','2929104WDmabk','PaypalOrder','orderProcessService','../../../../src/api/core/models/ProductModel','FAILURE','paypalOrderId','minimumQuantity','design:paramtypes','../template/cancel.ejs','Req','cancelRoute','Get','configure','paypal-rest-sdk','490506BwqJpu','design:type'];a37_0x2c5c=function(){return _0x582fab;};return a37_0x2c5c();}function a37_0x4f03(_0x398838,_0x3e1919){const _0x2c5cc0=a37_0x2c5c();return a37_0x4f03=function(_0x4f0331,_0x13329b){_0x4f0331=_0x4f0331-0xe1;let _0x338863=_0x2c5cc0[_0x4f0331];return _0x338863;},a37_0x4f03(_0x398838,_0x3e1919);}(function(_0x273ced,_0x1cdb06){const _0x42ca14=a37_0x4f03,_0x50340d=_0x273ced();while(!![]){try{const _0x2c6c51=-parseInt(_0x42ca14(0x13f))/0x1*(parseInt(_0x42ca14(0x157))/0x2)+parseInt(_0x42ca14(0x127))/0x3+-parseInt(_0x42ca14(0x13a))/0x4+-parseInt(_0x42ca14(0x14c))/0x5+-parseInt(_0x42ca14(0x120))/0x6+-parseInt(_0x42ca14(0x110))/0x7+-parseInt(_0x42ca14(0x112))/0x8*(-parseInt(_0x42ca14(0x143))/0x9);if(_0x2c6c51===_0x1cdb06)break;else _0x50340d['push'](_0x50340d['shift']());}catch(_0x73912f){_0x50340d['push'](_0x50340d['shift']());}}}(a37_0x2c5c,0x2e53b));Object['defineProperty'](exports,a37_0x1e9246(0x128),{'value':!![]}),exports[a37_0x1e9246(0x10d)]=void 0x0;const tslib_1=require('tslib');require(a37_0x1e9246(0x155));const routing_controllers_1=require(a37_0x1e9246(0xf3)),path=tslib_1[a37_0x1e9246(0x145)](require(a37_0x1e9246(0x135))),typeorm_1=require('typeorm'),PaypalOrder_1=require('../models/PaypalOrder'),PaypalOrderTransaction_1=require(a37_0x1e9246(0x109)),paypal=tslib_1[a37_0x1e9246(0x145)](require(a37_0x1e9246(0x11f))),Order_1=require(a37_0x1e9246(0xec)),OrderProduct_1=require(a37_0x1e9246(0x111)),Plugin_1=require('../../../../src/api/core/models/Plugin'),ProductModel_1=require(a37_0x1e9246(0x115)),OrderProcessService_1=require(a37_0x1e9246(0xff)),env_1=require(a37_0x1e9246(0xf7));let PayPalController=class PayPalController{constructor(_0x1b61c5){const _0x211ede=a37_0x1e9246;this[_0x211ede(0x114)]=_0x1b61c5;}['processRoute'](_0x2d3d15,_0x6014c8){const _0x44be7e=a37_0x1e9246;return tslib_1[_0x44be7e(0x146)](this,void 0x0,void 0x0,function*(){const _0x59da4d=_0x44be7e,_0x38bb7c=(0x0,typeorm_1[_0x59da4d(0x10c)])()['getRepository'](Order_1['Order']),_0x565f36=yield _0x38bb7c[_0x59da4d(0x149)]({'where':{'orderPrefixId':_0x2d3d15},'select':[_0x59da4d(0x151)]}),_0x8a93db=_0x565f36[_0x59da4d(0x151)],_0x19534b=yield _0x38bb7c['findOne'](_0x8a93db);if(!_0x19534b)return _0x6014c8[_0x59da4d(0x13d)](0x190)[_0x59da4d(0xf8)]({'status':0x1,'message':_0x59da4d(0xe2)});const _0x2113ca=(0x0,typeorm_1['getManager'])()[_0x59da4d(0xe9)](Plugin_1[_0x59da4d(0x123)]),_0x445901=yield _0x2113ca[_0x59da4d(0x149)]({'where':{'pluginName':'paypal'}});if(!_0x445901)return _0x6014c8['status'](0x190)[_0x59da4d(0xf8)]({'status':0x1,'message':_0x59da4d(0xfb)});const _0x21948a=require('fs'),_0x58a49f=_0x21948a[_0x59da4d(0x153)](path['resolve'](__dirname,'../template/process.ejs')),_0x4d7f26=_0x58a49f[_0x59da4d(0xf6)](),_0x5d0f91=require('ejs'),_0x39058c=_0x5d0f91[_0x59da4d(0xe4)](_0x4d7f26,{'orderId':_0x8a93db,'baseUrl':env_1[_0x59da4d(0x104)]['baseUrl']});return _0x6014c8[_0x59da4d(0xf8)](_0x39058c);});}['proceed'](_0x168d04,_0x143043){const _0x551666=a37_0x1e9246;return tslib_1[_0x551666(0x146)](this,void 0x0,void 0x0,function*(){const _0x121bff=_0x551666,_0x4429eb=(0x0,typeorm_1[_0x121bff(0x10c)])()[_0x121bff(0xe9)](Order_1[_0x121bff(0x10a)]),_0xa8cd19=(0x0,typeorm_1['getManager'])()[_0x121bff(0xe9)](PaypalOrder_1[_0x121bff(0x113)]),_0x35fd85=(0x0,typeorm_1[_0x121bff(0x10c)])()[_0x121bff(0xe9)](OrderProduct_1['OrderProduct']),_0x557ca3=(0x0,typeorm_1[_0x121bff(0x10c)])()['getRepository'](ProductModel_1['Product']),_0x55001e=yield _0x4429eb[_0x121bff(0x149)]({'where':{'orderId':_0x168d04}});if(!_0x55001e)return _0x143043['status'](0x190)[_0x121bff(0xf8)]({'status':0x1,'message':_0x121bff(0xe2)});const _0x3d296d=(0x0,typeorm_1[_0x121bff(0x10c)])()[_0x121bff(0xe9)](Plugin_1[_0x121bff(0x123)]),_0x61f36c=yield _0x3d296d[_0x121bff(0x149)]({'where':{'pluginName':'paypal'}});if(!_0x61f36c)return _0x143043[_0x121bff(0x13d)](0x190)[_0x121bff(0xf8)]({'status':0x1,'message':'You\x20not\x20install\x20this\x20plugin.\x20or\x20problem\x20in\x20installation'});const _0x5290a8=_0x61f36c[_0x121bff(0xea)]?JSON[_0x121bff(0x144)](_0x61f36c[_0x121bff(0xea)]):{};paypal[_0x121bff(0x11e)]({'mode':_0x5290a8['isTest']?_0x121bff(0x106):_0x121bff(0xf2),'client_id':_0x5290a8[_0x121bff(0xeb)],'client_secret':_0x5290a8[_0x121bff(0x12a)]});const _0x3b546f=yield _0x35fd85[_0x121bff(0x159)]({'where':{'orderId':_0x55001e['orderId']},'select':[_0x121bff(0x148),_0x121bff(0x151),_0x121bff(0x101),_0x121bff(0x140),'model',_0x121bff(0xe7),_0x121bff(0x132),_0x121bff(0x14b),_0x121bff(0xef),'skuName']}),_0x2a508a=_0x3b546f[_0x121bff(0xe5)](_0x48dd6b=>tslib_1[_0x121bff(0x146)](this,void 0x0,void 0x0,function*(){const _0x199022=_0x121bff,_0x178dcb=yield _0x557ca3[_0x199022(0x149)]({'where':{'productId':_0x48dd6b[_0x199022(0x101)]},'select':['name',_0x199022(0xe7),_0x199022(0x118),'image','imagePath','shipping',_0x199022(0x15a),_0x199022(0x12e),_0x199022(0xe3),'rating',_0x199022(0x14f),'isActive']}),_0x568916=_0x48dd6b;return _0x568916['productDetail']=_0x178dcb,_0x568916;})),_0x3b2bc6=yield Promise['all'](_0x2a508a),_0x3a64f6=[];_0x3b2bc6[_0x121bff(0x13e)](_0x399a60=>{const _0x2f7c12=_0x121bff,_0x1ec626=Math[_0x2f7c12(0xf9)](_0x399a60['total']*0x64)/0x64/+_0x399a60[_0x2f7c12(0xe7)];_0x3a64f6[_0x2f7c12(0xe6)]({'name':_0x399a60[_0x2f7c12(0x140)],'price':_0x1ec626[_0x2f7c12(0xf6)](),'currency':_0x55001e[_0x2f7c12(0xf4)],'quantity':_0x399a60[_0x2f7c12(0xe7)]});});const _0x25a5c4=_0x55001e[_0x121bff(0x132)],_0x2bc9df=Math[_0x121bff(0xf9)](_0x25a5c4*0x64)/0x64,_0x25c7da={'intent':_0x121bff(0x12f),'payer':{'payment_method':_0x121bff(0x14a)},'redirect_urls':{'return_url':env_1[_0x121bff(0x104)][_0x121bff(0xed)]+_0x5290a8[_0x121bff(0x102)],'cancel_url':env_1[_0x121bff(0x104)][_0x121bff(0xed)]+_0x5290a8[_0x121bff(0x11c)]},'transactions':[{'item_list':{'items':_0x3a64f6},'amount':{'currency':_0x55001e[_0x121bff(0xf4)],'total':_0x2bc9df[_0x121bff(0xf6)]()},'description':_0x121bff(0x154)}]},_0x63276d=yield this[_0x121bff(0x129)](_0x25c7da);if(_0x63276d){const _0x5f1565=new PaypalOrder_1[(_0x121bff(0x113))]();console[_0x121bff(0x150)](_0x63276d+_0x121bff(0x13b)),_0x5f1565['orderId']=_0x55001e[_0x121bff(0x151)],_0x5f1565[_0x121bff(0xfa)]=_0x63276d['id'],_0x5f1565[_0x121bff(0x132)]=_0x2bc9df['toString'](),_0x5f1565['status']=0x0,_0xa8cd19['save'](_0x5f1565);for(const _0xa40e76 of _0x63276d['links']){if(_0xa40e76['rel']===_0x121bff(0x124))return new Promise(()=>{const _0x1b9efc=_0x121bff;_0x143043[_0x1b9efc(0xf1)](_0xa40e76['href']);});}}});}[a37_0x1e9246(0x105)](_0x3e4675,_0x3b6694){const _0x957d5f=a37_0x1e9246;return tslib_1[_0x957d5f(0x146)](this,void 0x0,void 0x0,function*(){const _0x1872fe=_0x957d5f,_0x1a87fe=(0x0,typeorm_1[_0x1872fe(0x10c)])()[_0x1872fe(0xe9)](Plugin_1[_0x1872fe(0x123)]),_0x123417=yield _0x1a87fe[_0x1872fe(0x149)]({'where':{'pluginName':_0x1872fe(0x14a)}});if(!_0x123417)return _0x3b6694[_0x1872fe(0x13d)](0x190)[_0x1872fe(0xf8)]({'status':0x1,'message':'You\x20not\x20install\x20this\x20plugin.\x20or\x20problem\x20in\x20installation'});const _0x5a067a=_0x123417[_0x1872fe(0xea)]?JSON[_0x1872fe(0x144)](_0x123417[_0x1872fe(0xea)]):{},_0x3da68f={'mode':_0x5a067a[_0x1872fe(0xe1)]?_0x1872fe(0x106):'live','client_id':_0x5a067a[_0x1872fe(0xeb)],'client_secret':_0x5a067a[_0x1872fe(0x12a)]},_0x535166=yield this[_0x1872fe(0xfc)](_0x3da68f,_0x3e4675[_0x1872fe(0x138)][_0x1872fe(0x133)],_0x3e4675['query']['paymentId']),_0x73a023=(0x0,typeorm_1['getManager'])()[_0x1872fe(0xe9)](PaypalOrder_1[_0x1872fe(0x113)]),_0x4ff9a2=(0x0,typeorm_1['getManager'])()[_0x1872fe(0xe9)](PaypalOrderTransaction_1[_0x1872fe(0xe8)]),_0x5d673f=yield _0x73a023[_0x1872fe(0x149)]({'where':{'paypalRefId':_0x535166['id']}});if(!_0x5d673f)return _0x3b6694[_0x1872fe(0x13d)](0x190)['send']({'status':0x1,'message':_0x1872fe(0x152)});const _0x54fce1=(0x0,typeorm_1[_0x1872fe(0x10c)])()[_0x1872fe(0xe9)](Order_1[_0x1872fe(0x10a)]),_0x832a00=yield _0x54fce1[_0x1872fe(0x149)](_0x5d673f[_0x1872fe(0x151)]);if(!_0x832a00)return _0x3b6694['status'](0x190)[_0x1872fe(0xf8)]({'status':0x1,'message':_0x1872fe(0xe2)});const _0x3925be=yield _0x54fce1[_0x1872fe(0x149)]({'where':{'orderId':_0x5d673f['orderId'],'paymentFlag':0x1}});if(_0x3925be)return _0x3b6694[_0x1872fe(0x13d)](0x190)['send']({'status':0x1,'message':'Already\x20Paid\x20for\x20this\x20Order'});const _0x2c5eed=_0x535166[_0x1872fe(0x125)][0x0][_0x1872fe(0x12b)][0x0],_0x455278=Math[_0x1872fe(0xf9)](_0x2c5eed[_0x1872fe(0x12f)][_0x1872fe(0xe3)]['total']);if(_0x2c5eed[_0x1872fe(0x12f)]['state']===_0x1872fe(0x14d)&&_0x455278===+_0x5d673f[_0x1872fe(0x132)]){const _0x39b285=new PaypalOrderTransaction_1['PaypalOrderTransaction']();_0x39b285['paymentType']=_0x2c5eed['sale']['payment_mode'],_0x39b285[_0x1872fe(0x117)]=_0x5d673f['id'],_0x39b285['paymentData']=JSON['stringify'](_0x535166),_0x39b285[_0x1872fe(0x134)]=0x1,yield _0x4ff9a2['save'](_0x39b285),_0x5d673f[_0x1872fe(0x13d)]=0x1,yield _0x73a023[_0x1872fe(0x136)](_0x5d673f),_0x832a00[_0x1872fe(0x126)]=0x1,_0x832a00[_0x1872fe(0x134)]=0x1,_0x832a00['paymentProcess']=0x1,_0x832a00[_0x1872fe(0xfe)]=_0x1872fe(0x14a),_0x832a00[_0x1872fe(0x13c)]=_0x535166['id'],yield _0x54fce1['save'](_0x832a00),yield this[_0x1872fe(0x114)]['processOrder'](_0x5d673f[_0x1872fe(0x151)],_0x535166);}else{const _0x2e4a83=new PaypalOrderTransaction_1[(_0x1872fe(0xe8))]();_0x2e4a83[_0x1872fe(0xfe)]=_0x1872fe(0x116),_0x2e4a83[_0x1872fe(0x117)]=_0x5d673f['id'],_0x2e4a83[_0x1872fe(0x10f)]=JSON['stringify'](_0x535166),_0x2e4a83[_0x1872fe(0x134)]=0x2,yield _0x4ff9a2[_0x1872fe(0x136)](_0x2e4a83),_0x5d673f[_0x1872fe(0x13d)]=0x2,yield _0x73a023[_0x1872fe(0x136)](_0x5d673f),_0x832a00['paymentFlag']=0x2,yield _0x54fce1[_0x1872fe(0x136)](_0x832a00);}const _0x53b601=require('fs'),_0x80fa99=_0x53b601['readFileSync'](path[_0x1872fe(0x12d)](__dirname,'../template/success.ejs')),_0x25c6e8=_0x80fa99['toString'](),_0x41bbb5=require(_0x1872fe(0x122)),_0x4b8f4d=_0x41bbb5[_0x1872fe(0xe4)](_0x25c6e8,{'storeUrl':env_1[_0x1872fe(0x104)][_0x1872fe(0xfd)]+_0x832a00[_0x1872fe(0x147)]});return _0x3b6694[_0x1872fe(0xf8)](_0x4b8f4d);});}[a37_0x1e9246(0x142)](_0x520b33,_0x524518){const _0x4d9705=a37_0x1e9246;return tslib_1[_0x4d9705(0x146)](this,void 0x0,void 0x0,function*(){const _0x3973c1=_0x4d9705,_0x596d9d=require('fs'),_0x113742=_0x596d9d[_0x3973c1(0x153)](path['resolve'](__dirname,_0x3973c1(0x11a))),_0x2379bb=_0x113742[_0x3973c1(0xf6)](),_0x17be57=require(_0x3973c1(0x122)),_0x2394b7=_0x17be57[_0x3973c1(0xe4)](_0x2379bb,{'storeUrl':env_1[_0x3973c1(0x104)][_0x3973c1(0x137)]});return _0x524518['send'](_0x2394b7);});}[a37_0x1e9246(0xfc)](_0x415951,_0x57fecc,_0x10b044){const _0x502d2f=a37_0x1e9246;return tslib_1[_0x502d2f(0x146)](this,void 0x0,void 0x0,function*(){return new Promise((_0x57e4f3,_0x34a0e3)=>{const _0x3b6834=a37_0x4f03;paypal[_0x3b6834(0x11e)](_0x415951);const _0x317a4d={'payer_id':_0x57fecc};paypal[_0x3b6834(0x131)][_0x3b6834(0x10b)](_0x10b044,_0x317a4d,(_0x4711a4,_0x38039c)=>{return _0x4711a4?_0x34a0e3(_0x4711a4):_0x57e4f3(_0x38039c);});});});}['payPalcreate'](_0x154cf5){const _0x7de2e0=a37_0x1e9246;return tslib_1[_0x7de2e0(0x146)](this,void 0x0,void 0x0,function*(){return new Promise((_0x3c031f,_0x405ed4)=>{const _0x303fc2=a37_0x4f03;paypal[_0x303fc2(0x131)][_0x303fc2(0xf5)](_0x154cf5,(_0x165866,_0x938ca1)=>{return _0x165866?_0x405ed4(_0x165866):_0x3c031f(_0x938ca1);});});});}};tslib_1[a37_0x1e9246(0x12c)]([(0x0,routing_controllers_1[a37_0x1e9246(0x11d)])(a37_0x1e9246(0x10e)),tslib_1[a37_0x1e9246(0x14e)](0x0,(0x0,routing_controllers_1[a37_0x1e9246(0x139)])('id')),tslib_1[a37_0x1e9246(0x14e)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a37_0x1e9246(0x103)](a37_0x1e9246(0x121),Function),tslib_1[a37_0x1e9246(0x103)](a37_0x1e9246(0x119),[String,Object]),tslib_1[a37_0x1e9246(0x103)]('design:returntype',Promise)],PayPalController[a37_0x1e9246(0x141)],a37_0x1e9246(0x156),null),tslib_1['__decorate']([(0x0,routing_controllers_1['Get'])('/proceed/:id'),tslib_1[a37_0x1e9246(0x14e)](0x0,(0x0,routing_controllers_1[a37_0x1e9246(0x139)])('id')),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a37_0x1e9246(0x15b)])()),tslib_1[a37_0x1e9246(0x103)](a37_0x1e9246(0x121),Function),tslib_1[a37_0x1e9246(0x103)](a37_0x1e9246(0x119),[String,Object]),tslib_1[a37_0x1e9246(0x103)](a37_0x1e9246(0x107),Promise)],PayPalController['prototype'],a37_0x1e9246(0x100),null),tslib_1[a37_0x1e9246(0x12c)]([(0x0,routing_controllers_1['Get'])(a37_0x1e9246(0x158)),tslib_1['__param'](0x0,(0x0,routing_controllers_1['Req'])()),tslib_1[a37_0x1e9246(0x14e)](0x1,(0x0,routing_controllers_1[a37_0x1e9246(0x15b)])()),tslib_1[a37_0x1e9246(0x103)]('design:type',Function),tslib_1[a37_0x1e9246(0x103)]('design:paramtypes',[Object,Object]),tslib_1['__metadata'](a37_0x1e9246(0x107),Promise)],PayPalController[a37_0x1e9246(0x141)],a37_0x1e9246(0x105),null),tslib_1[a37_0x1e9246(0x12c)]([(0x0,routing_controllers_1[a37_0x1e9246(0x11d)])(a37_0x1e9246(0xf0)),tslib_1[a37_0x1e9246(0x14e)](0x0,(0x0,routing_controllers_1[a37_0x1e9246(0x11b)])()),tslib_1[a37_0x1e9246(0x14e)](0x1,(0x0,routing_controllers_1[a37_0x1e9246(0x15b)])()),tslib_1['__metadata'](a37_0x1e9246(0x121),Function),tslib_1[a37_0x1e9246(0x103)](a37_0x1e9246(0x119),[Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],PayPalController[a37_0x1e9246(0x141)],'cancel',null),PayPalController=tslib_1[a37_0x1e9246(0x12c)]([(0x0,routing_controllers_1[a37_0x1e9246(0x130)])(a37_0x1e9246(0x108)),tslib_1['__metadata'](a37_0x1e9246(0x119),[OrderProcessService_1[a37_0x1e9246(0xee)]])],PayPalController),exports[a37_0x1e9246(0x10d)]=PayPalController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PayPalController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const path = tslib_1.__importStar(require("path"));
+const typeorm_1 = require("typeorm");
+const PaypalOrder_1 = require("../models/PaypalOrder");
+const PaypalOrderTransaction_1 = require("../models/PaypalOrderTransaction");
+const paypal = tslib_1.__importStar(require("paypal-rest-sdk"));
+const Order_1 = require("../../../../src/api/core/models/Order");
+const OrderProduct_1 = require("../../../../src/api/core/models/OrderProduct");
+const Plugin_1 = require("../../../../src/api/core/models/Plugin");
+const ProductModel_1 = require("../../../../src/api/core/models/ProductModel");
+const OrderProcessService_1 = require("../../../../src/api/core/services/OrderProcessService");
+const env_1 = require("../../../../src/env");
+let PayPalController = class PayPalController {
+    constructor(orderProcessService) {
+        this.orderProcessService = orderProcessService;
+        // ---
+    }
+    processRoute(orderPrefixId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderRepository = (0, typeorm_1.getManager)().getRepository(Order_1.Order);
+            const order = yield orderRepository.findOne({ where: { orderPrefixId }, select: ['orderId'] });
+            const orderId = order.orderId;
+            const orderDetail = yield orderRepository.findOne(orderId);
+            if (!orderDetail) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'Invalid Order Id',
+                });
+            }
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'paypal',
+                },
+            });
+            if (!pluginDetail) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'You not install this plugin. or problem in installation',
+                });
+            }
+            // get filesystem module
+            const fs = require('fs');
+            // using the readFileSync() function
+            // and passing the path to the file
+            const buffer = fs.readFileSync(path.resolve(__dirname, '../template/process.ejs'));
+            // use the toString() method to convert
+            // Buffer into String
+            const fileContent = buffer.toString();
+            // ----
+            const ejs = require('ejs');
+            const html = ejs.render(fileContent, { orderId, baseUrl: env_1.env.baseUrl });
+            return response.send(html);
+        });
+    }
+    proceed(orderId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderRepository = (0, typeorm_1.getManager)().getRepository(Order_1.Order);
+            const paypalOrderRepository = (0, typeorm_1.getManager)().getRepository(PaypalOrder_1.PaypalOrder);
+            const orderProductRepository = (0, typeorm_1.getManager)().getRepository(OrderProduct_1.OrderProduct);
+            const productRepository = (0, typeorm_1.getManager)().getRepository(ProductModel_1.Product);
+            const orderDetail = yield orderRepository.findOne({ where: { orderId } });
+            if (!orderDetail) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'Invalid Order Id',
+                });
+            }
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'paypal',
+                },
+            });
+            if (!pluginDetail) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'You not install this plugin. or problem in installation',
+                });
+            }
+            const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            paypal.configure({
+                mode: paypalAdditionalInfo.isTest ? 'sandbox' : 'live',
+                client_id: paypalAdditionalInfo.clientId,
+                client_secret: paypalAdditionalInfo.clientSecret,
+            });
+            const product = yield orderProductRepository.find({ where: { orderId: orderDetail.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'skuName'] });
+            const productVal = product.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const productDetail = yield productRepository.findOne({
+                    where: { productId: value.productId },
+                    select: ['name', 'quantity', 'minimumQuantity', 'image',
+                        'imagePath', 'shipping', 'price', 'dateAvailable', 'amount', 'rating', 'discount', 'isActive'],
+                });
+                const tempVal = value;
+                tempVal.productDetail = productDetail;
+                return tempVal;
+            }));
+            const results = yield Promise.all(productVal);
+            const items = [];
+            results.forEach((element) => {
+                const price = (Math.round(element.total * 100) / 100) / +element.quantity;
+                items.push({
+                    name: element.name,
+                    price: price.toString(),
+                    currency: orderDetail.currencyCode,
+                    quantity: element.quantity,
+                });
+            });
+            const total = orderDetail.total;
+            const orderAmount = Math.round(total * 100) / 100;
+            const create_payment_json = {
+                intent: 'sale',
+                payer: {
+                    payment_method: 'paypal',
+                },
+                redirect_urls: {
+                    return_url: env_1.env.baseUrl + paypalAdditionalInfo.successRoute,
+                    cancel_url: env_1.env.baseUrl + paypalAdditionalInfo.cancelRoute,
+                },
+                transactions: [{
+                        item_list: {
+                            items,
+                        },
+                        amount: {
+                            currency: orderDetail.currencyCode,
+                            total: orderAmount.toString(),
+                        },
+                        description: 'Product you ordered',
+                    }],
+            };
+            const paypalVal = yield this.payPalcreate(create_payment_json);
+            if (paypalVal) {
+                const paypalParams = new PaypalOrder_1.PaypalOrder();
+                console.log(paypalVal + 'paypalVal');
+                paypalParams.orderId = orderDetail.orderId;
+                paypalParams.paypalRefId = paypalVal.id;
+                paypalParams.total = orderAmount.toString();
+                paypalParams.status = 0;
+                paypalOrderRepository.save(paypalParams);
+                // ---
+                for (const item of paypalVal.links) {
+                    // Redirect user to this endpoint for redirect url
+                    if (item.rel === 'approval_url') {
+                        return new Promise(() => {
+                            response.redirect(item.href);
+                        });
+                    }
+                }
+            }
+        });
+    }
+    success(req, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ----
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'paypal',
+                },
+            });
+            if (!pluginDetail) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'You not install this plugin. or problem in installation',
+                });
+            }
+            const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            const config = {
+                mode: paypalAdditionalInfo.isTest ? 'sandbox' : 'live',
+                client_id: paypalAdditionalInfo.clientId,
+                client_secret: paypalAdditionalInfo.clientSecret,
+            };
+            const paymentDetails = yield this.payPalSuccess(config, req.query.PayerID, req.query.paymentId);
+            const paypalOrderRepository = (0, typeorm_1.getManager)().getRepository(PaypalOrder_1.PaypalOrder);
+            const paypalOrderTransactionRepository = (0, typeorm_1.getManager)().getRepository(PaypalOrderTransaction_1.PaypalOrderTransaction);
+            const paypalDetail = yield paypalOrderRepository.findOne({
+                where: {
+                    paypalRefId: paymentDetails.id,
+                },
+            });
+            if (!paypalDetail) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'Invalid Payment Details',
+                });
+            }
+            const orderRepository = (0, typeorm_1.getManager)().getRepository(Order_1.Order);
+            const orderData = yield orderRepository.findOne(paypalDetail.orderId);
+            if (!orderData) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'Invalid Order Id',
+                });
+            }
+            const orderStatus = yield orderRepository.findOne({ where: { orderId: paypalDetail.orderId, paymentFlag: 1 } });
+            if (orderStatus) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'Already Paid for this Order',
+                });
+            }
+            const paidDetails = paymentDetails.transactions[0].related_resources[0];
+            const intvalue = Math.round(paidDetails.sale.amount.total);
+            if (paidDetails.sale.state === 'completed' && intvalue === +paypalDetail.total) {
+                const transactionsParams = new PaypalOrderTransaction_1.PaypalOrderTransaction();
+                transactionsParams.paymentType = paidDetails.sale.payment_mode;
+                transactionsParams.paypalOrderId = paypalDetail.id;
+                transactionsParams.paymentData = JSON.stringify(paymentDetails);
+                transactionsParams.paymentStatus = 1;
+                yield paypalOrderTransactionRepository.save(transactionsParams);
+                paypalDetail.status = 1;
+                yield paypalOrderRepository.save(paypalDetail);
+                orderData.paymentFlag = 1;
+                orderData.paymentStatus = 1;
+                orderData.paymentProcess = 1;
+                orderData.paymentType = 'paypal';
+                orderData.paymentDetails = paymentDetails.id;
+                yield orderRepository.save(orderData);
+                yield this.orderProcessService.processOrder(paypalDetail.orderId, paymentDetails);
+            }
+            else {
+                const transactionsParams = new PaypalOrderTransaction_1.PaypalOrderTransaction();
+                transactionsParams.paymentType = 'FAILURE';
+                transactionsParams.paypalOrderId = paypalDetail.id;
+                transactionsParams.paymentData = JSON.stringify(paymentDetails);
+                transactionsParams.paymentStatus = 2;
+                yield paypalOrderTransactionRepository.save(transactionsParams);
+                paypalDetail.status = 2;
+                yield paypalOrderRepository.save(paypalDetail);
+                orderData.paymentFlag = 2;
+                yield orderRepository.save(orderData);
+            }
+            // get filesystem module
+            const fs = require('fs');
+            // using the readFileSync() function
+            // and passing the path to the file
+            const buffer = fs.readFileSync(path.resolve(__dirname, '../template/success.ejs'));
+            // use the toString() method to convert
+            // Buffer into String
+            const fileContent = buffer.toString();
+            // ----
+            const ejs = require('ejs');
+            const html = ejs.render(fileContent, { storeUrl: env_1.env.storeUrl + orderData.orderPrefixId });
+            return response.send(html);
+        });
+    }
+    cancel(req, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // ----
+            // get filesystem module
+            const fs = require('fs');
+            // using the readFileSync() function
+            // and passing the path to the file
+            const buffer = fs.readFileSync(path.resolve(__dirname, '../template/cancel.ejs'));
+            // use the toString() method to convert
+            // Buffer into String
+            const fileContent = buffer.toString();
+            // ----
+            const ejs = require('ejs');
+            const html = ejs.render(fileContent, { storeUrl: env_1.env.cancelUrl });
+            return response.send(html);
+        });
+    }
+    payPalSuccess(config, payerId, paymentId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return new Promise((resolve, reject) => {
+                paypal.configure(config);
+                const execute_payment_json = {
+                    payer_id: payerId,
+                };
+                paypal.payment.execute(paymentId, execute_payment_json, (error, payment) => {
+                    if (error) {
+                        return reject(error);
+                    }
+                    else {
+                        return resolve(payment);
+                    }
+                });
+            });
+        });
+    }
+    payPalcreate(val) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return new Promise((resolve, reject) => {
+                paypal.payment.create(val, (error, payment) => {
+                    if (error) {
+                        return reject(error);
+                    }
+                    else {
+                        return resolve(payment);
+                    }
+                });
+            });
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/process/:id'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PayPalController.prototype, "processRoute", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/proceed/:id'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PayPalController.prototype, "proceed", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/success'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PayPalController.prototype, "success", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/cancel'),
+    tslib_1.__param(0, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PayPalController.prototype, "cancel", null);
+PayPalController = tslib_1.__decorate([
+    (0, routing_controllers_1.Controller)('/paypal-payment'),
+    tslib_1.__metadata("design:paramtypes", [OrderProcessService_1.OrderProcessService])
+], PayPalController);
+exports.PayPalController = PayPalController;
+//# sourceMappingURL=PaypalController.js.map

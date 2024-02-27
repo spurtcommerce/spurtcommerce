@@ -1,1 +1,137 @@
-'use strict';const a391_0xe23438=a391_0x4a07;(function(_0x11f040,_0x4baf3e){const _0x3696ac=a391_0x4a07,_0xdc7606=_0x11f040();while(!![]){try{const _0x1d6f02=parseInt(_0x3696ac(0x121))/0x1+parseInt(_0x3696ac(0x12d))/0x2+parseInt(_0x3696ac(0x10a))/0x3*(parseInt(_0x3696ac(0x130))/0x4)+-parseInt(_0x3696ac(0x13e))/0x5+-parseInt(_0x3696ac(0x124))/0x6+-parseInt(_0x3696ac(0x10f))/0x7+parseInt(_0x3696ac(0x13b))/0x8*(parseInt(_0x3696ac(0x138))/0x9);if(_0x1d6f02===_0x4baf3e)break;else _0xdc7606['push'](_0xdc7606['shift']());}catch(_0x205d69){_0xdc7606['push'](_0xdc7606['shift']());}}}(a391_0x1365,0x2da15));Object[a391_0xe23438(0x120)](exports,'__esModule',{'value':!![]}),exports[a391_0xe23438(0x145)]=void 0x0;const tslib_1=require(a391_0xe23438(0x12f)),typeorm_1=require(a391_0xe23438(0x14b)),index_1=require(a391_0xe23438(0x109)),BaseModel_1=require('./BaseModel'),moment_1=tslib_1[a391_0xe23438(0x12c)](require(a391_0xe23438(0x110))),ProductModel_1=require(a391_0xe23438(0x113)),Order_1=require(a391_0xe23438(0x14e)),OrderStatus_1=require('./OrderStatus'),OrderProduct_1=require(a391_0xe23438(0x143)),class_validator_1=require(a391_0xe23438(0x12b));let OrderProductLog=class OrderProductLog extends BaseModel_1[a391_0xe23438(0x128)]{[a391_0xe23438(0x107)](){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x59bb73=a391_0x4a07;this[_0x59bb73(0x146)]=(0x0,moment_1[_0x59bb73(0x126)])()['format'](_0x59bb73(0x14d));});}[a391_0xe23438(0x10d)](){const _0x5063cb=a391_0xe23438;return tslib_1[_0x5063cb(0x140)](this,void 0x0,void 0x0,function*(){const _0x3aae9f=_0x5063cb;this[_0x3aae9f(0x136)]=(0x0,moment_1[_0x3aae9f(0x126)])()[_0x3aae9f(0x12e)](_0x3aae9f(0x14d));});}};function a391_0x4a07(_0x1ecfa9,_0x51c7b0){const _0x13654d=a391_0x1365();return a391_0x4a07=function(_0x4a0744,_0x415426){_0x4a0744=_0x4a0744-0x106;let _0x37f1e1=_0x13654d[_0x4a0744];return _0x37f1e1;},a391_0x4a07(_0x1ecfa9,_0x51c7b0);}tslib_1[a391_0xe23438(0x119)]([(0x0,class_validator_1[a391_0xe23438(0x149)])(),(0x0,index_1[a391_0xe23438(0x13f)])({'name':a391_0xe23438(0x14a)}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),Number)],OrderProductLog[a391_0xe23438(0x144)],a391_0xe23438(0x139),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1['Column'])({'name':a391_0xe23438(0x11a)}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),Number)],OrderProductLog[a391_0xe23438(0x144)],a391_0xe23438(0x11f),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,class_validator_1[a391_0xe23438(0x149)])(),(0x0,typeorm_1[a391_0xe23438(0x14f)])({'name':a391_0xe23438(0x150)}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),Number)],OrderProductLog[a391_0xe23438(0x144)],a391_0xe23438(0x142),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,class_validator_1[a391_0xe23438(0x149)])(),(0x0,typeorm_1['Column'])({'name':a391_0xe23438(0x111)}),tslib_1[a391_0xe23438(0x117)]('design:type',Number)],OrderProductLog[a391_0xe23438(0x144)],a391_0xe23438(0x114),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a391_0xe23438(0x14f)])({'name':'name'}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),String)],OrderProductLog['prototype'],a391_0xe23438(0x135),void 0x0),tslib_1['__decorate']([(0x0,typeorm_1['Column'])({'name':a391_0xe23438(0x141)}),tslib_1[a391_0xe23438(0x117)]('design:type',String)],OrderProductLog[a391_0xe23438(0x144)],a391_0xe23438(0x141),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a391_0xe23438(0x149)])(),(0x0,typeorm_1['Column'])({'name':'quantity'}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),Number)],OrderProductLog[a391_0xe23438(0x144)],'quantity',void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a391_0xe23438(0x14f)])({'name':a391_0xe23438(0x13a)}),tslib_1['__metadata'](a391_0xe23438(0x108),Number)],OrderProductLog[a391_0xe23438(0x144)],a391_0xe23438(0x125),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,class_validator_1['IsNotEmpty'])(),(0x0,typeorm_1[a391_0xe23438(0x14f)])({'name':a391_0xe23438(0x132)}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),Number)],OrderProductLog['prototype'],a391_0xe23438(0x132),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x14f)])({'name':'order_status_id'}),tslib_1[a391_0xe23438(0x117)]('design:type',Number)],OrderProductLog[a391_0xe23438(0x144)],a391_0xe23438(0x106),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x14f)])({'name':a391_0xe23438(0x14c)}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),String)],OrderProductLog[a391_0xe23438(0x144)],a391_0xe23438(0x13d),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x14f)])({'name':a391_0xe23438(0x112)}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),String)],OrderProductLog['prototype'],a391_0xe23438(0x134),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x14f)])({'name':'trace'}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),Number)],OrderProductLog[a391_0xe23438(0x144)],a391_0xe23438(0x10e),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x14f)])({'name':a391_0xe23438(0x11b)}),tslib_1['__metadata'](a391_0xe23438(0x108),Number)],OrderProductLog['prototype'],a391_0xe23438(0x11b),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x14f)])({'name':a391_0xe23438(0x12a)}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),Number)],OrderProductLog[a391_0xe23438(0x144)],a391_0xe23438(0x13c),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x148)])(_0x3ebb0b=>OrderProduct_1['OrderProduct'],_0xac9fca=>_0xac9fca[a391_0xe23438(0x147)]),(0x0,typeorm_1[a391_0xe23438(0x123)])({'name':'order_product_id'}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),OrderProduct_1[a391_0xe23438(0x11e)])],OrderProductLog['prototype'],a391_0xe23438(0x116),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x148)])(_0x1e114f=>ProductModel_1['Product'],_0x520d27=>_0x520d27[a391_0xe23438(0x147)]),(0x0,typeorm_1[a391_0xe23438(0x123)])({'name':a391_0xe23438(0x150)}),tslib_1['__metadata'](a391_0xe23438(0x108),ProductModel_1[a391_0xe23438(0x10c)])],OrderProductLog['prototype'],a391_0xe23438(0x133),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x148)])(_0x160c0d=>Order_1[a391_0xe23438(0x122)],_0x1f6bf3=>_0x1f6bf3['orderProductLog']),(0x0,typeorm_1['JoinColumn'])({'name':a391_0xe23438(0x111)}),tslib_1['__metadata'](a391_0xe23438(0x108),Order_1[a391_0xe23438(0x122)])],OrderProductLog['prototype'],a391_0xe23438(0x115),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x148)])(_0x383577=>OrderStatus_1[a391_0xe23438(0x11d)],_0x464719=>_0x464719[a391_0xe23438(0x147)]),(0x0,typeorm_1[a391_0xe23438(0x123)])({'name':a391_0xe23438(0x11c)}),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x108),OrderStatus_1['OrderStatus'])],OrderProductLog['prototype'],a391_0xe23438(0x137),void 0x0),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1['BeforeInsert'])(),tslib_1['__metadata'](a391_0xe23438(0x108),Function),tslib_1['__metadata'](a391_0xe23438(0x129),[]),tslib_1[a391_0xe23438(0x117)]('design:returntype',Promise)],OrderProductLog[a391_0xe23438(0x144)],'createDetails',null),tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x10b)])(),tslib_1['__metadata'](a391_0xe23438(0x108),Function),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x129),[]),tslib_1[a391_0xe23438(0x117)](a391_0xe23438(0x118),Promise)],OrderProductLog['prototype'],a391_0xe23438(0x10d),null),OrderProductLog=tslib_1[a391_0xe23438(0x119)]([(0x0,typeorm_1[a391_0xe23438(0x127)])(a391_0xe23438(0x131))],OrderProductLog),exports['OrderProductLog']=OrderProductLog;function a391_0x1365(){const _0x19da1b=['createdDate','orderProductLog','ManyToOne','IsNotEmpty','order_product_log_id','typeorm','tracking_url','YYYY-MM-DD\x20HH:mm:ss','./Order','Column','product_id','orderStatusId','createDetails','design:type','typeorm/index','3uPeZvl','BeforeUpdate','Product','updateDetails','trace','1387736kjKnGT','moment','order_id','tracking_no','./ProductModel','orderId','order','orderProduct','__metadata','design:returntype','__decorate','order_product_id','tax','order_status_id','OrderStatus','OrderProduct','orderProductId','defineProperty','118679FDjzXb','Order','JoinColumn','1099644NkVfTD','productPrice','default','Entity','BaseModel','design:paramtypes','is_active','class-validator','__importDefault','570262kWfEGb','format','tslib','113708HSDXdi','order_product_log','total','product','trackingNo','name','modifiedDate','orderStatus','3270798rkqNEK','orderProductLogId','product_price','8wCjBgI','isActive','trackingUrl','1136180oyxRaY','PrimaryGeneratedColumn','__awaiter','model','productId','./OrderProduct','prototype','OrderProductLog'];a391_0x1365=function(){return _0x19da1b;};return a391_0x1365();}
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrderProductLog = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+const index_1 = require("typeorm/index");
+const BaseModel_1 = require("./BaseModel");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const ProductModel_1 = require("./ProductModel");
+const Order_1 = require("./Order");
+const OrderStatus_1 = require("./OrderStatus");
+const OrderProduct_1 = require("./OrderProduct");
+const class_validator_1 = require("class-validator");
+let OrderProductLog = class OrderProductLog extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, index_1.PrimaryGeneratedColumn)({ name: 'order_product_log_id' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProductLog.prototype, "orderProductLogId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'order_product_id' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProductLog.prototype, "orderProductId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProductLog.prototype, "productId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'order_id' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProductLog.prototype, "orderId", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'name' }),
+    tslib_1.__metadata("design:type", String)
+], OrderProductLog.prototype, "name", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'model' }),
+    tslib_1.__metadata("design:type", String)
+], OrderProductLog.prototype, "model", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'quantity' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProductLog.prototype, "quantity", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'product_price' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProductLog.prototype, "productPrice", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, typeorm_1.Column)({ name: 'total' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProductLog.prototype, "total", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'order_status_id' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProductLog.prototype, "orderStatusId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'tracking_url' }),
+    tslib_1.__metadata("design:type", String)
+], OrderProductLog.prototype, "trackingUrl", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'tracking_no' }),
+    tslib_1.__metadata("design:type", String)
+], OrderProductLog.prototype, "trackingNo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'trace' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProductLog.prototype, "trace", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'tax' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProductLog.prototype, "tax", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProductLog.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => OrderProduct_1.OrderProduct, orderProduct => orderProduct.orderProductLog),
+    (0, typeorm_1.JoinColumn)({ name: 'order_product_id' }),
+    tslib_1.__metadata("design:type", OrderProduct_1.OrderProduct)
+], OrderProductLog.prototype, "orderProduct", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => ProductModel_1.Product, product => product.orderProductLog),
+    (0, typeorm_1.JoinColumn)({ name: 'product_id' }),
+    tslib_1.__metadata("design:type", ProductModel_1.Product)
+], OrderProductLog.prototype, "product", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => Order_1.Order, order => order.orderProductLog),
+    (0, typeorm_1.JoinColumn)({ name: 'order_id' }),
+    tslib_1.__metadata("design:type", Order_1.Order)
+], OrderProductLog.prototype, "order", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => OrderStatus_1.OrderStatus, orderStatus => orderStatus.orderProductLog),
+    (0, typeorm_1.JoinColumn)({ name: 'order_status_id' }),
+    tslib_1.__metadata("design:type", OrderStatus_1.OrderStatus)
+], OrderProductLog.prototype, "orderStatus", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderProductLog.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderProductLog.prototype, "updateDetails", null);
+OrderProductLog = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('order_product_log')
+], OrderProductLog);
+exports.OrderProductLog = OrderProductLog;
+//# sourceMappingURL=OrderProductLog.js.map

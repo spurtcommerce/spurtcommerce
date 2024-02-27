@@ -1,1 +1,68 @@
-'use strict';function a46_0xf5ac(){const _0x1b47a2=['Req','/update-setting','../../../../../src/api/core/models/Plugin','getRepository','Razorpay','Razorpay\x20settings\x20updated\x20successfully','send','165897AdLyOf','routing-controllers','305amIToK','pluginAdditionalInfo','design:paramtypes','2jcscXQ','2401686JqcosH','design:type','Controller','/admin-razor-pay-payment','You\x20not\x20install\x20this\x20plugin.\x20or\x20problem\x20in\x20installation','Body','clientSecret','AdminRazorPayController','clientId','Post','__esModule','3736330vjoRvE','Res','__param','__awaiter','status','21432pTsPEs','112yExdJq','design:returntype','updateSetting','reflect-metadata','1680828laMIJX','3611682PISxKh','tslib','isTest','typeorm','Unable\x20to\x20update\x20the\x20Razorpay\x20settings','save','getManager','55LvXwIG','__decorate','parse','607880cTxfUn','stringify','__metadata'];a46_0xf5ac=function(){return _0x1b47a2;};return a46_0xf5ac();}const a46_0x1f6dbe=a46_0x5577;(function(_0x4441eb,_0x523440){const _0x5f00fb=a46_0x5577,_0xc2d12e=_0x4441eb();while(!![]){try{const _0x5d29b7=-parseInt(_0x5f00fb(0x185))/0x1+parseInt(_0x5f00fb(0x164))/0x2*(-parseInt(_0x5f00fb(0x17a))/0x3)+-parseInt(_0x5f00fb(0x175))/0x4*(parseInt(_0x5f00fb(0x161))/0x5)+parseInt(_0x5f00fb(0x17b))/0x6+-parseInt(_0x5f00fb(0x165))/0x7+-parseInt(_0x5f00fb(0x176))/0x8*(parseInt(_0x5f00fb(0x15f))/0x9)+-parseInt(_0x5f00fb(0x170))/0xa*(-parseInt(_0x5f00fb(0x182))/0xb);if(_0x5d29b7===_0x523440)break;else _0xc2d12e['push'](_0xc2d12e['shift']());}catch(_0x146bc2){_0xc2d12e['push'](_0xc2d12e['shift']());}}}(a46_0xf5ac,0x5b4c6));Object['defineProperty'](exports,a46_0x1f6dbe(0x16f),{'value':!![]}),exports['AdminRazorPayController']=void 0x0;const tslib_1=require(a46_0x1f6dbe(0x17c));require(a46_0x1f6dbe(0x179));const routing_controllers_1=require(a46_0x1f6dbe(0x160)),typeorm_1=require(a46_0x1f6dbe(0x17e)),Plugin_1=require(a46_0x1f6dbe(0x18a));let AdminRazorPayController=class AdminRazorPayController{constructor(){}['updateSetting'](_0x774486,_0x1e91ba,_0x49aac3){const _0x3df36e=a46_0x1f6dbe;return tslib_1[_0x3df36e(0x173)](this,void 0x0,void 0x0,function*(){const _0x32cb7f=_0x3df36e,_0x473bcf=(0x0,typeorm_1[_0x32cb7f(0x181)])()[_0x32cb7f(0x18b)](Plugin_1['Plugins']),_0x4f73c6=yield _0x473bcf['findOne']({'where':{'pluginName':_0x32cb7f(0x18c)}});if(!_0x4f73c6)return _0x49aac3['status'](0x190)[_0x32cb7f(0x18e)]({'status':0x1,'message':_0x32cb7f(0x169)});const _0x315671=_0x4f73c6[_0x32cb7f(0x162)]?JSON[_0x32cb7f(0x184)](_0x4f73c6[_0x32cb7f(0x162)]):{};_0x315671[_0x32cb7f(0x16d)]=_0x774486[_0x32cb7f(0x16d)],_0x315671[_0x32cb7f(0x16b)]=_0x774486['clientSecret'],_0x315671[_0x32cb7f(0x17d)]=_0x774486[_0x32cb7f(0x17d)],_0x4f73c6[_0x32cb7f(0x162)]=JSON[_0x32cb7f(0x186)](_0x315671);const _0x21e021=yield _0x473bcf[_0x32cb7f(0x180)](_0x4f73c6);if(_0x21e021)return _0x49aac3['status'](0xc8)[_0x32cb7f(0x18e)]({'status':0x1,'message':_0x32cb7f(0x18d)});const _0x4f5045={'status':0x1,'message':_0x32cb7f(0x17f)};return _0x49aac3[_0x32cb7f(0x174)](0x190)[_0x32cb7f(0x18e)](_0x4f5045);});}};function a46_0x5577(_0x40c921,_0x404157){const _0xf5ac57=a46_0xf5ac();return a46_0x5577=function(_0x55772f,_0x2c783a){_0x55772f=_0x55772f-0x15f;let _0x62a6e4=_0xf5ac57[_0x55772f];return _0x62a6e4;},a46_0x5577(_0x40c921,_0x404157);}tslib_1[a46_0x1f6dbe(0x183)]([(0x0,routing_controllers_1[a46_0x1f6dbe(0x16e)])(a46_0x1f6dbe(0x189)),tslib_1[a46_0x1f6dbe(0x172)](0x0,(0x0,routing_controllers_1[a46_0x1f6dbe(0x16a)])({'validate':!![]})),tslib_1[a46_0x1f6dbe(0x172)](0x1,(0x0,routing_controllers_1[a46_0x1f6dbe(0x188)])()),tslib_1[a46_0x1f6dbe(0x172)](0x2,(0x0,routing_controllers_1[a46_0x1f6dbe(0x171)])()),tslib_1[a46_0x1f6dbe(0x187)](a46_0x1f6dbe(0x166),Function),tslib_1[a46_0x1f6dbe(0x187)](a46_0x1f6dbe(0x163),[Object,Object,Object]),tslib_1['__metadata'](a46_0x1f6dbe(0x177),Promise)],AdminRazorPayController['prototype'],a46_0x1f6dbe(0x178),null),AdminRazorPayController=tslib_1['__decorate']([(0x0,routing_controllers_1[a46_0x1f6dbe(0x167)])(a46_0x1f6dbe(0x168)),tslib_1[a46_0x1f6dbe(0x187)](a46_0x1f6dbe(0x163),[])],AdminRazorPayController),exports[a46_0x1f6dbe(0x16c)]=AdminRazorPayController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AdminRazorPayController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const typeorm_1 = require("typeorm");
+const Plugin_1 = require("../../../../../src/api/core/models/Plugin");
+let AdminRazorPayController = class AdminRazorPayController {
+    constructor() {
+        // ---
+    }
+    updateSetting(postParams, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const pluginRepository = (0, typeorm_1.getManager)().getRepository(Plugin_1.Plugins);
+            const pluginDetail = yield pluginRepository.findOne({
+                where: {
+                    pluginName: 'Razorpay',
+                },
+            });
+            if (!pluginDetail) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'You not install this plugin. or problem in installation',
+                });
+            }
+            const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
+            paypalAdditionalInfo.clientId = postParams.clientId;
+            paypalAdditionalInfo.clientSecret = postParams.clientSecret;
+            paypalAdditionalInfo.isTest = postParams.isTest;
+            pluginDetail.pluginAdditionalInfo = JSON.stringify(paypalAdditionalInfo);
+            const saveResponse = yield pluginRepository.save(pluginDetail);
+            if (saveResponse) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Razorpay settings updated successfully',
+                });
+            }
+            const errorResponse = {
+                status: 1,
+                message: 'Unable to update the Razorpay settings',
+            };
+            return response.status(400).send(errorResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/update-setting'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], AdminRazorPayController.prototype, "updateSetting", null);
+AdminRazorPayController = tslib_1.__decorate([
+    (0, routing_controllers_1.Controller)('/admin-razor-pay-payment'),
+    tslib_1.__metadata("design:paramtypes", [])
+], AdminRazorPayController);
+exports.AdminRazorPayController = AdminRazorPayController;
+//# sourceMappingURL=AdminRazorPayController.js.map

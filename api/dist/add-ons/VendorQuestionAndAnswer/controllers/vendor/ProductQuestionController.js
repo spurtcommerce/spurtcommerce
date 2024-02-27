@@ -1,1 +1,484 @@
-'use strict';const a228_0x2c80e6=a228_0x2f5b;(function(_0x2c53db,_0x1fe734){const _0x4ceeac=a228_0x2f5b,_0x43c38b=_0x2c53db();while(!![]){try{const _0x4bb758=parseInt(_0x4ceeac(0x1ae))/0x1+-parseInt(_0x4ceeac(0x1ca))/0x2+parseInt(_0x4ceeac(0x193))/0x3*(-parseInt(_0x4ceeac(0x15a))/0x4)+parseInt(_0x4ceeac(0x1ac))/0x5*(-parseInt(_0x4ceeac(0x17a))/0x6)+-parseInt(_0x4ceeac(0x1c0))/0x7*(parseInt(_0x4ceeac(0x1c6))/0x8)+-parseInt(_0x4ceeac(0x171))/0x9+parseInt(_0x4ceeac(0x173))/0xa;if(_0x4bb758===_0x1fe734)break;else _0x43c38b['push'](_0x43c38b['shift']());}catch(_0x5bf57d){_0x43c38b['push'](_0x43c38b['shift']());}}}(a228_0x11f8,0xb3677));Object[a228_0x2c80e6(0x179)](exports,a228_0x2c80e6(0x15c),{'value':!![]}),exports[a228_0x2c80e6(0x185)]=void 0x0;const tslib_1=require('tslib');function a228_0x11f8(){const _0x2130dd=['list','keyword','routing-controllers','Invalid\x20ProductId','firstName','(SELECT\x20pi.container_name\x20as\x20containerName\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20containerName','Param','user','7pcIZva','../../../../src/api/core/services/CustomerService','design:type','Req','(SELECT\x20count(pq.question_id)\x20as\x20QuestionCount\x20FROM\x20product_question\x20as\x20pq\x20WHERE\x20pq.product_id\x20=\x20Product.productId)\x20as\x20questionCount','createQuestion','2503744RvQwtn','JsonController','Product.createdDate','CreateQuestion','2000522yCREZf','productDiscount','vendorproductList','instanceToPlain','/vendor-product-question-list','CustomerService','referenceId','Product.productSlug\x20as\x20productSlug','city','../../../../src/api/core/services/ProductService','productQuestionService','updateQuestionStatus','deleteQuestion','Invalid\x20questionId','unable\x20to\x20delete\x20Question','customerService','avatar','customerId','BodyParam','Product.sku\x20as\x20sku','Product.price','userId','Post','../../../QuestionAndAnswer/models/ProductQuestion','questionId','design:paramtypes','limit','Question\x20Posted\x20Successfully','4oCsJFW','Successfully\x20get\x20all\x20question\x20List','__esModule','__param','reflect-metadata','vendorProducts.vendorId','design:returntype','Product.skuId\x20as\x20skuId','productId','pricerefer','isActive','send','class-transformer','productService','Product.isActive\x20as\x20isActive','(SELECT\x20price\x20FROM\x20product_discount\x20pd2\x20WHERE\x20pd2.product_id\x20=\x20Product.product_id\x20AND\x20pd2.sku_id\x20=\x20skuId\x20AND\x20((pd2.date_start\x20<=\x20CURDATE()\x20AND\x20\x20pd2.date_end\x20>=\x20CURDATE()))\x20','/question-list','vendorId','avatarPath','DESC','where','toLowerCase','defaultAnswer','12452535QBGNer','vendorProducts','51222950uGNwZq','push','ProductService','../../../QuestionAndAnswer/services/ProductQuestionService','(SELECT\x20pi.image\x20as\x20image\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20image','Product.name\x20as\x20name','defineProperty','4218LVewJx','ProductAnswer','Res','all','delete','userService','./requests/CreateQuestionRequest','and','\x20ORDER\x20BY\x20pd2.priority\x20ASC,\x20pd2.price\x20ASC\x20LIMIT\x201)\x20AS\x20productDiscount','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20modifiedPrice','Put','VendorProductQuestionController','../../../../src/api/core/middlewares/AddonValidationMiddleware','Product.name','CheckAddonMiddleware','prototype','Successfully\x20get\x20count','listByQueryBuilder','Get','Successfully\x20got\x20product\x20lists\x20count.','__awaiter','findOne','like','Updated\x20Your\x20Question\x20Status','Authorized','2468997EySLxr','question','invalid\x20QuestionId','vendorService','ProductQuestion','../../../QuestionAndAnswer/services/ProductAnswerService','Product.vendorProducts','productAnswerService','unable\x20to\x20create','map','ProductAnswerService','vendor','__decorate','(SELECT\x20pi.default_image\x20as\x20defaultImage\x20FROM\x20product_image\x20pi\x20WHERE\x20pi.product_id\x20=\x20Product.productId\x20AND\x20pi.default_image\x20=\x201\x20LIMIT\x201)\x20as\x20defaultImage','__metadata','flag','price','QueryParam','create','type','ProductQuestionService','unable\x20to\x20update\x20your\x20question\x20status','answer','(SELECT\x20price\x20FROM\x20product_special\x20ps\x20WHERE\x20ps.product_id\x20=\x20Product.product_id\x20AND\x20ps.sku_id\x20=\x20skuId\x20AND\x20((ps.date_start\x20<=\x20CURDATE()\x20AND\x20ps.date_end\x20>=\x20CURDATE()))','status','8465xzZLLE','/delete-question/:questionId','322566cItMfl','postedBy','productSpecial','Product.productId\x20as\x20productId','(SELECT\x20sku.price\x20as\x20price\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20price','/add-question','/update-question-status/:questionId','count','questionList','Successfully\x20deleted\x20Question'];a228_0x11f8=function(){return _0x2130dd;};return a228_0x11f8();}function a228_0x2f5b(_0x40589f,_0x5730c3){const _0x11f80d=a228_0x11f8();return a228_0x2f5b=function(_0x2f5b8b,_0x174f3b){_0x2f5b8b=_0x2f5b8b-0x158;let _0x50dd6c=_0x11f80d[_0x2f5b8b];return _0x50dd6c;},a228_0x2f5b(_0x40589f,_0x5730c3);}require(a228_0x2c80e6(0x15e));const routing_controllers_1=require(a228_0x2c80e6(0x1ba)),CreateQuestionRequest_1=require(a228_0x2c80e6(0x180)),ProductQuestionService_1=require(a228_0x2c80e6(0x176)),ProductService_1=require(a228_0x2c80e6(0x1d3)),ProductAnswerService_1=require(a228_0x2c80e6(0x198)),CustomerService_1=require(a228_0x2c80e6(0x1c1)),ProductQuestion_1=require(a228_0x2c80e6(0x1e1)),ProductAnswer_1=require('../../../QuestionAndAnswer/models/ProductAnswer'),VendorService_1=require('../../../../src/api/core/services/VendorService'),class_transformer_1=require(a228_0x2c80e6(0x166)),AddonValidationMiddleware_1=require(a228_0x2c80e6(0x186)),UserService_1=require('../../../../src/api/core/services/UserService');let VendorProductQuestionController=class VendorProductQuestionController{constructor(_0x4b40b6,_0x368b3a,_0x43d49c,_0x55f024,_0x3cd676,_0xfbdcff){const _0x3b3596=a228_0x2c80e6;this['productQuestionService']=_0x4b40b6,this['customerService']=_0x368b3a,this['productAnswerService']=_0x43d49c,this[_0x3b3596(0x167)]=_0x55f024,this[_0x3b3596(0x196)]=_0x3cd676,this[_0x3b3596(0x17f)]=_0xfbdcff;}[a228_0x2c80e6(0x1c5)](_0x24d49d,_0x1f9618,_0x2b8f19){const _0x43251d=a228_0x2c80e6;return tslib_1[_0x43251d(0x18e)](this,void 0x0,void 0x0,function*(){const _0x3801f4=_0x43251d,_0x3f4c6a=new ProductQuestion_1[(_0x3801f4(0x197))]();_0x3f4c6a[_0x3801f4(0x194)]=_0x24d49d[_0x3801f4(0x194)],_0x3f4c6a[_0x3801f4(0x162)]=_0x24d49d['productId'],_0x3f4c6a[_0x3801f4(0x1a6)]=0x3,_0x3f4c6a[_0x3801f4(0x1d0)]=_0x1f9618[_0x3801f4(0x1bf)][_0x3801f4(0x16b)],_0x3f4c6a['isActive']=0x1;const _0x5e6455=yield this['productQuestionService'][_0x3801f4(0x1a5)](_0x3f4c6a);if(_0x24d49d[_0x3801f4(0x1a9)]){const _0x275f37=new ProductAnswer_1[(_0x3801f4(0x17b))]();_0x275f37[_0x3801f4(0x1a9)]=_0x24d49d[_0x3801f4(0x1a9)],_0x275f37[_0x3801f4(0x1e2)]=+_0x5e6455['questionId'],_0x275f37['type']=0x3,_0x275f37[_0x3801f4(0x1d0)]=_0x1f9618['user'][_0x3801f4(0x16b)],_0x275f37[_0x3801f4(0x170)]=0x1,_0x275f37['isActive']=0x1,yield this[_0x3801f4(0x19a)][_0x3801f4(0x1a5)](_0x275f37);}if(_0x5e6455!==undefined){const _0x415478={'status':0x1,'message':_0x3801f4(0x159),'data':_0x5e6455};return _0x2b8f19['status'](0xc8)[_0x3801f4(0x165)](_0x415478);}else{const _0x4017d5={'status':0x0,'message':_0x3801f4(0x19b)};return _0x2b8f19[_0x3801f4(0x1ab)](0x190)['send'](_0x4017d5);}});}[a228_0x2c80e6(0x1d5)](_0xe3a3d3,_0x5816e7,_0x30ad07){const _0x241965=a228_0x2c80e6;return tslib_1[_0x241965(0x18e)](this,void 0x0,void 0x0,function*(){const _0x4c2afd=_0x241965,_0x56a214=yield this[_0x4c2afd(0x1d4)]['findOne']({'where':{'questionId':_0xe3a3d3}});if(!_0x56a214){const _0x3bbdc6={'status':0x0,'message':_0x4c2afd(0x195)};return _0x30ad07[_0x4c2afd(0x1ab)](0x190)[_0x4c2afd(0x165)](_0x3bbdc6);}_0x56a214[_0x4c2afd(0x164)]=_0x5816e7;const _0x20bebe=yield this['productQuestionService']['create'](_0x56a214);if(_0x20bebe){const _0x3a7ffc={'status':0x1,'message':_0x4c2afd(0x191),'data':_0x20bebe};return _0x30ad07[_0x4c2afd(0x1ab)](0xc8)[_0x4c2afd(0x165)](_0x3a7ffc);}else{const _0x42e5cb={'status':0x0,'message':_0x4c2afd(0x1a8)};return _0x30ad07['status'](0x190)[_0x4c2afd(0x165)](_0x42e5cb);}});}['deleteQuestion'](_0x70956a,_0x4de8eb,_0x58d7ae){const _0x47c822=a228_0x2c80e6;return tslib_1[_0x47c822(0x18e)](this,void 0x0,void 0x0,function*(){const _0x1af9f4=_0x47c822,_0x7d2b7f=yield this['productQuestionService'][_0x1af9f4(0x18f)]({'where':{'questionId':_0x70956a}});if(!_0x7d2b7f){const _0x1af380={'status':0x0,'message':_0x1af9f4(0x1d7)};return _0x4de8eb['status'](0x190)[_0x1af9f4(0x165)](_0x1af380);}const _0x2542d6=yield this[_0x1af9f4(0x1d4)][_0x1af9f4(0x17e)](_0x7d2b7f);if(_0x2542d6){const _0x5581d1={'status':0x1,'message':_0x1af9f4(0x1b7)};return _0x4de8eb[_0x1af9f4(0x1ab)](0xc8)[_0x1af9f4(0x165)](_0x5581d1);}else{const _0x14f768={'status':0x0,'message':_0x1af9f4(0x1d8)};return _0x4de8eb[_0x1af9f4(0x1ab)](0x190)[_0x1af9f4(0x165)](_0x14f768);}});}[a228_0x2c80e6(0x1b6)](_0x598798,_0x2fc913,_0x4a6dce,_0x1910a0,_0x53af2f,_0x44b461){const _0x4a3571=a228_0x2c80e6;return tslib_1[_0x4a3571(0x18e)](this,void 0x0,void 0x0,function*(){const _0x2efa94=_0x4a3571,_0x2dddeb=yield this[_0x2efa94(0x167)]['findOne']({'where':{'productId':_0x1910a0}});if(!_0x2dddeb){const _0x581b1f={'status':0x1,'message':_0x2efa94(0x1bb)};return _0x44b461['status'](0x190)[_0x2efa94(0x165)](_0x581b1f);}const _0x388903=[_0x2efa94(0x1e2),_0x2efa94(0x162),'question',_0x2efa94(0x1d0),_0x2efa94(0x1a6),'isActive'],_0x1dc10d=[],_0x2c2482=[{'name':_0x2efa94(0x162),'op':_0x2efa94(0x16e),'value':_0x1910a0},{'name':_0x2efa94(0x194),'op':_0x2efa94(0x190),'value':_0x4a6dce}],_0xa29c60=yield this[_0x2efa94(0x1d4)][_0x2efa94(0x1b8)](_0x598798,_0x2fc913,_0x388903,_0x2c2482,_0x1dc10d,_0x53af2f);if(_0x53af2f)return _0x44b461[_0x2efa94(0x1ab)](0xc8)[_0x2efa94(0x165)]({'status':0x1,'message':_0x2efa94(0x18a),'data':_0xa29c60});const _0x157a82=_0xa29c60[_0x2efa94(0x19c)](_0x5ae32f=>tslib_1[_0x2efa94(0x18e)](this,void 0x0,void 0x0,function*(){const _0x32c8ec=_0x2efa94,_0x420286=_0x5ae32f[_0x32c8ec(0x1a6)],_0xb0baee=_0x5ae32f;if(_0x420286&&_0x420286===0x1){const _0x1e9a1b=yield this[_0x32c8ec(0x17f)]['findOne']({'select':[_0x32c8ec(0x1df),_0x32c8ec(0x1bc),'avatar',_0x32c8ec(0x16c)],'where':{'userId':_0x5ae32f[_0x32c8ec(0x1d0)]}});_0x1e9a1b!==undefined&&(_0xb0baee[_0x32c8ec(0x1af)]=_0x1e9a1b);}else{if(_0x420286&&_0x420286===0x2){const _0x3660e1=yield this[_0x32c8ec(0x1d9)][_0x32c8ec(0x18f)]({'select':['id','firstName',_0x32c8ec(0x1da),'avatarPath',_0x32c8ec(0x1d2)],'where':{'id':_0x5ae32f[_0x32c8ec(0x1d0)]}});_0x3660e1!==undefined&&(_0xb0baee[_0x32c8ec(0x1af)]=_0x3660e1);}else{if(_0x420286&&_0x420286===0x3){const _0x4c270f=yield this[_0x32c8ec(0x196)][_0x32c8ec(0x18f)]({'select':[_0x32c8ec(0x1db)],'where':{'vendorId':_0x5ae32f[_0x32c8ec(0x1d0)]}}),_0x1347ee=yield this[_0x32c8ec(0x1d9)][_0x32c8ec(0x18f)]({'select':['id',_0x32c8ec(0x1bc),_0x32c8ec(0x1da),'avatarPath',_0x32c8ec(0x1d2)],'where':{'id':_0x4c270f[_0x32c8ec(0x1db)]}});_0x1347ee!==undefined&&(_0xb0baee[_0x32c8ec(0x1af)]=_0x1347ee);}}}const _0x58fb65=[{'name':'questionId','op':_0x32c8ec(0x16e),'value':_0x5ae32f[_0x32c8ec(0x1e2)]}],_0x916260=yield this['productAnswerService'][_0x32c8ec(0x1b8)](0x0,0x0,[],_0x58fb65,[],0x1);return _0xb0baee['answerCount']=_0x916260,_0xb0baee;})),_0x2423e4=yield Promise[_0x2efa94(0x17d)](_0x157a82),_0x575a27={'status':0x1,'message':_0x2efa94(0x15b),'data':{'productDetail':_0x2dddeb,'questionList':_0x2423e4}};return _0x44b461['status'](0xc8)[_0x2efa94(0x165)](_0x575a27);});}[a228_0x2c80e6(0x1cc)](_0x9e07d,_0xf4be8c,_0x770071,_0x44bc65,_0xa5f50a,_0x442754,_0x4f0686,_0x3982d7){const _0x140f84=a228_0x2c80e6;return tslib_1[_0x140f84(0x18e)](this,void 0x0,void 0x0,function*(){const _0x821156=_0x140f84,_0x1a4ffd=[_0x821156(0x1b1),_0x821156(0x1dd),_0x821156(0x178),'Product.quantity\x20as\x20quantity','Product.price\x20as\x20ProductPrice',_0x821156(0x161),_0x821156(0x1d1),_0x821156(0x168),_0x821156(0x177),_0x821156(0x1bd),_0x821156(0x1a0),'(SELECT\x20sku.sku_name\x20as\x20sku\x20FROM\x20sku\x20WHERE\x20sku.id\x20=\x20skuId)\x20as\x20sku',_0x821156(0x1b2),_0x821156(0x183),_0x821156(0x169)+_0x821156(0x182),_0x821156(0x1aa)+'\x20'+'ORDER\x20BY\x20ps.priority\x20ASC,\x20ps.price\x20ASC\x20LIMIT\x201)\x20AS\x20productSpecial',_0x821156(0x1c4)],_0x3b9e26=[{'tableName':_0x821156(0x199),'aliasName':_0x821156(0x172)}],_0xa319d=[];_0x770071&&_0x770071!==''&&_0xa319d[_0x821156(0x174)]({'name':[_0x821156(0x187),_0x821156(0x1de)],'value':_0x770071});_0x44bc65&&_0x44bc65!==''&&_0xa319d[_0x821156(0x174)]({'name':[_0x821156(0x187)],'value':_0x44bc65[_0x821156(0x16f)]()});const _0x3307ff=[{'name':_0x821156(0x1c8),'order':_0x821156(0x16d)}],_0xaf75c0=[{'name':_0x821156(0x15f),'op':_0x821156(0x181),'value':_0x3982d7[_0x821156(0x1bf)][_0x821156(0x16b)]}];_0xa5f50a&&_0xa5f50a!==''&&_0xaf75c0[_0x821156(0x174)]({'name':'Product.price','op':_0x821156(0x181),'value':_0xa5f50a});const _0x15a2dd=yield this[_0x821156(0x167)][_0x821156(0x18b)](_0x9e07d,_0xf4be8c,_0x1a4ffd,_0xaf75c0,_0xa319d,_0x3b9e26,[],_0x3307ff,![],!![]);if(_0x442754){const _0x1478c9=yield this[_0x821156(0x167)][_0x821156(0x18b)](_0x9e07d,_0xf4be8c,_0x1a4ffd,_0xaf75c0,_0xa319d,_0x3b9e26,[],_0x3307ff,!![],!![]);return _0x4f0686[_0x821156(0x1ab)](0xc8)[_0x821156(0x165)]({'status':0x1,'message':_0x821156(0x18d),'data':_0x1478c9});}const _0x3f1a30=_0x15a2dd['map'](_0x2f7c83=>tslib_1[_0x821156(0x18e)](this,void 0x0,void 0x0,function*(){const _0x1177cf=_0x821156,_0x565b61=_0x2f7c83;if(_0x2f7c83['productSpecial']!==null)_0x565b61[_0x1177cf(0x163)]=_0x2f7c83[_0x1177cf(0x1b0)],_0x565b61[_0x1177cf(0x1a2)]=0x1;else _0x2f7c83[_0x1177cf(0x1cb)]!==null?(_0x565b61[_0x1177cf(0x163)]=_0x2f7c83['productDiscount'],_0x565b61[_0x1177cf(0x1a2)]=0x0):(_0x565b61[_0x1177cf(0x163)]='',_0x565b61[_0x1177cf(0x1a2)]='');return _0x565b61;})),_0x2bb4a3=yield Promise[_0x821156(0x17d)](_0x3f1a30),_0x10b5ab={'status':0x1,'message':'Successfully\x20got\x20the\x20complete\x20product\x20list.','data':(0x0,class_transformer_1[_0x821156(0x1cd)])(_0x2bb4a3)};return _0x4f0686['status'](0xc8)[_0x821156(0x165)](_0x10b5ab);});}};tslib_1[a228_0x2c80e6(0x19f)]([(0x0,routing_controllers_1[a228_0x2c80e6(0x1e0)])(a228_0x2c80e6(0x1b3)),(0x0,routing_controllers_1[a228_0x2c80e6(0x192)])(a228_0x2c80e6(0x19e)),tslib_1[a228_0x2c80e6(0x15d)](0x0,(0x0,routing_controllers_1['Body'])({'validate':!![]})),tslib_1[a228_0x2c80e6(0x15d)](0x1,(0x0,routing_controllers_1['Req'])()),tslib_1[a228_0x2c80e6(0x15d)](0x2,(0x0,routing_controllers_1[a228_0x2c80e6(0x17c)])()),tslib_1[a228_0x2c80e6(0x1a1)](a228_0x2c80e6(0x1c2),Function),tslib_1[a228_0x2c80e6(0x1a1)](a228_0x2c80e6(0x1e3),[CreateQuestionRequest_1[a228_0x2c80e6(0x1c9)],Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],VendorProductQuestionController['prototype'],a228_0x2c80e6(0x1c5),null),tslib_1['__decorate']([(0x0,routing_controllers_1[a228_0x2c80e6(0x184)])(a228_0x2c80e6(0x1b4)),(0x0,routing_controllers_1[a228_0x2c80e6(0x192)])(a228_0x2c80e6(0x19e)),tslib_1[a228_0x2c80e6(0x15d)](0x0,(0x0,routing_controllers_1[a228_0x2c80e6(0x1be)])(a228_0x2c80e6(0x1e2))),tslib_1[a228_0x2c80e6(0x15d)](0x1,(0x0,routing_controllers_1[a228_0x2c80e6(0x1dc)])(a228_0x2c80e6(0x1ab))),tslib_1['__param'](0x2,(0x0,routing_controllers_1['Res'])()),tslib_1['__metadata']('design:type',Function),tslib_1['__metadata'](a228_0x2c80e6(0x1e3),[Number,Number,Object]),tslib_1[a228_0x2c80e6(0x1a1)](a228_0x2c80e6(0x160),Promise)],VendorProductQuestionController[a228_0x2c80e6(0x189)],'updateQuestionStatus',null),tslib_1[a228_0x2c80e6(0x19f)]([(0x0,routing_controllers_1['Delete'])(a228_0x2c80e6(0x1ad)),(0x0,routing_controllers_1[a228_0x2c80e6(0x192)])(a228_0x2c80e6(0x19e)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a228_0x2c80e6(0x1be)])('questionId')),tslib_1[a228_0x2c80e6(0x15d)](0x1,(0x0,routing_controllers_1['Res'])()),tslib_1[a228_0x2c80e6(0x15d)](0x2,(0x0,routing_controllers_1[a228_0x2c80e6(0x1c3)])()),tslib_1[a228_0x2c80e6(0x1a1)](a228_0x2c80e6(0x1c2),Function),tslib_1['__metadata'](a228_0x2c80e6(0x1e3),[Number,Object,Object]),tslib_1[a228_0x2c80e6(0x1a1)]('design:returntype',Promise)],VendorProductQuestionController[a228_0x2c80e6(0x189)],a228_0x2c80e6(0x1d6),null),tslib_1[a228_0x2c80e6(0x19f)]([(0x0,routing_controllers_1[a228_0x2c80e6(0x18c)])(a228_0x2c80e6(0x16a)),(0x0,routing_controllers_1[a228_0x2c80e6(0x192)])(a228_0x2c80e6(0x19e)),tslib_1['__param'](0x0,(0x0,routing_controllers_1[a228_0x2c80e6(0x1a4)])(a228_0x2c80e6(0x158))),tslib_1['__param'](0x1,(0x0,routing_controllers_1[a228_0x2c80e6(0x1a4)])('offset')),tslib_1[a228_0x2c80e6(0x15d)](0x2,(0x0,routing_controllers_1[a228_0x2c80e6(0x1a4)])(a228_0x2c80e6(0x1b9))),tslib_1[a228_0x2c80e6(0x15d)](0x3,(0x0,routing_controllers_1[a228_0x2c80e6(0x1a4)])(a228_0x2c80e6(0x162))),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a228_0x2c80e6(0x1a4)])(a228_0x2c80e6(0x1b5))),tslib_1[a228_0x2c80e6(0x15d)](0x5,(0x0,routing_controllers_1['Res'])()),tslib_1[a228_0x2c80e6(0x1a1)](a228_0x2c80e6(0x1c2),Function),tslib_1[a228_0x2c80e6(0x1a1)](a228_0x2c80e6(0x1e3),[Number,Number,String,Number,Object,Object]),tslib_1[a228_0x2c80e6(0x1a1)]('design:returntype',Promise)],VendorProductQuestionController[a228_0x2c80e6(0x189)],a228_0x2c80e6(0x1b6),null),tslib_1[a228_0x2c80e6(0x19f)]([(0x0,routing_controllers_1[a228_0x2c80e6(0x18c)])(a228_0x2c80e6(0x1ce)),(0x0,routing_controllers_1[a228_0x2c80e6(0x192)])(a228_0x2c80e6(0x19e)),tslib_1[a228_0x2c80e6(0x15d)](0x0,(0x0,routing_controllers_1[a228_0x2c80e6(0x1a4)])('limit')),tslib_1[a228_0x2c80e6(0x15d)](0x1,(0x0,routing_controllers_1[a228_0x2c80e6(0x1a4)])('offset')),tslib_1[a228_0x2c80e6(0x15d)](0x2,(0x0,routing_controllers_1['QueryParam'])('keyword')),tslib_1[a228_0x2c80e6(0x15d)](0x3,(0x0,routing_controllers_1[a228_0x2c80e6(0x1a4)])('productName')),tslib_1['__param'](0x4,(0x0,routing_controllers_1[a228_0x2c80e6(0x1a4)])(a228_0x2c80e6(0x1a3))),tslib_1[a228_0x2c80e6(0x15d)](0x5,(0x0,routing_controllers_1[a228_0x2c80e6(0x1a4)])(a228_0x2c80e6(0x1b5))),tslib_1[a228_0x2c80e6(0x15d)](0x6,(0x0,routing_controllers_1['Res'])()),tslib_1[a228_0x2c80e6(0x15d)](0x7,(0x0,routing_controllers_1['Req'])()),tslib_1[a228_0x2c80e6(0x1a1)]('design:type',Function),tslib_1[a228_0x2c80e6(0x1a1)](a228_0x2c80e6(0x1e3),[Number,Number,String,String,String,Object,Object,Object]),tslib_1[a228_0x2c80e6(0x1a1)](a228_0x2c80e6(0x160),Promise)],VendorProductQuestionController[a228_0x2c80e6(0x189)],'vendorproductList',null),VendorProductQuestionController=tslib_1[a228_0x2c80e6(0x19f)]([(0x0,routing_controllers_1['UseBefore'])(AddonValidationMiddleware_1[a228_0x2c80e6(0x188)]),(0x0,routing_controllers_1[a228_0x2c80e6(0x1c7)])('/vendor-product-question'),tslib_1[a228_0x2c80e6(0x1a1)](a228_0x2c80e6(0x1e3),[ProductQuestionService_1[a228_0x2c80e6(0x1a7)],CustomerService_1[a228_0x2c80e6(0x1cf)],ProductAnswerService_1[a228_0x2c80e6(0x19d)],ProductService_1[a228_0x2c80e6(0x175)],VendorService_1['VendorService'],UserService_1['UserService']])],VendorProductQuestionController),exports['VendorProductQuestionController']=VendorProductQuestionController;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorProductQuestionController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const CreateQuestionRequest_1 = require("./requests/CreateQuestionRequest");
+const ProductQuestionService_1 = require("../../../QuestionAndAnswer/services/ProductQuestionService");
+const ProductService_1 = require("../../../../src/api/core/services/ProductService");
+const ProductAnswerService_1 = require("../../../QuestionAndAnswer/services/ProductAnswerService");
+const CustomerService_1 = require("../../../../src/api/core/services/CustomerService");
+const ProductQuestion_1 = require("../../../QuestionAndAnswer/models/ProductQuestion");
+const ProductAnswer_1 = require("../../../QuestionAndAnswer/models/ProductAnswer");
+const VendorService_1 = require("../../../../src/api/core/services/VendorService");
+const class_transformer_1 = require("class-transformer");
+const AddonValidationMiddleware_1 = require("../../../../src/api/core/middlewares/AddonValidationMiddleware");
+const UserService_1 = require("../../../../src/api/core/services/UserService");
+let VendorProductQuestionController = class VendorProductQuestionController {
+    constructor(productQuestionService, customerService, productAnswerService, productService, vendorService, userService) {
+        this.productQuestionService = productQuestionService;
+        this.customerService = customerService;
+        this.productAnswerService = productAnswerService;
+        this.productService = productService;
+        this.vendorService = vendorService;
+        this.userService = userService;
+    }
+    // Create Question API
+    /**
+     * @api {post} /api/vendor-product-question/vendor-question Vendor Question API
+     * @apiGroup Vendor Product Question
+     * @apiParam (Request body) {String} question
+     * @apiParam (Request body) {Number} productId
+     * @apiParam (Request body) {String} [answer]
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "question" : "",
+     *      "productId" : "",
+     *      "answer" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Question created successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-product-question/add-question
+     * @apiErrorExample {json} Question error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    createQuestion(questionParam, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const question = new ProductQuestion_1.ProductQuestion();
+            question.question = questionParam.question;
+            question.productId = questionParam.productId;
+            question.type = 3;
+            question.referenceId = request.user.vendorId;
+            question.isActive = 1;
+            const questionSaved = yield this.productQuestionService.create(question);
+            if (questionParam.answer) {
+                const answer = new ProductAnswer_1.ProductAnswer();
+                answer.answer = questionParam.answer;
+                answer.questionId = +questionSaved.questionId;
+                answer.type = 3;
+                answer.referenceId = request.user.vendorId;
+                answer.defaultAnswer = 1;
+                answer.isActive = 1;
+                yield this.productAnswerService.create(answer);
+            }
+            if (questionSaved !== undefined) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Question Posted Successfully',
+                    data: questionSaved,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to create',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Update Question status API
+    /**
+     * @api {put} /api/vendor-product-question/update-question-status/:questionId Update Question status API
+     * @apiGroup Vendor Product Question
+     * @apiParam (Request body) {Number} status status should be 0 | 1
+     * @apiHeader {String} Authorization
+     * @apiParamExample {json} Input
+     * {
+     *      "status" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": " status updated successfully",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-product-question/update-question-status/:questionId
+     * @apiErrorExample {json} updateQuestion error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateQuestionStatus(questionId, status, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const question = yield this.productQuestionService.findOne({
+                where: {
+                    questionId,
+                },
+            });
+            if (!question) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'invalid QuestionId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            question.isActive = status;
+            const questionSave = yield this.productQuestionService.create(question);
+            if (questionSave) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Updated Your Question Status',
+                    data: questionSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to update your question status',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // delete Question API
+    /**
+     * @api {delete} /api/vendor-product-question/delete-question/:questionId Delete Question API
+     * @apiGroup Vendor Product Question
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully deleted Question.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-product-question/delete-question/:questionId
+     * @apiErrorExample {json} Question error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    deleteQuestion(questionId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const question = yield this.productQuestionService.findOne({
+                where: {
+                    questionId,
+                },
+            });
+            if (!question) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid questionId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const deleteQuestion = yield this.productQuestionService.delete(question);
+            if (deleteQuestion) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully deleted Question',
+                };
+                return response.status(200).send(successResponse);
+            }
+            else {
+                const errorResponse = {
+                    status: 0,
+                    message: 'unable to delete Question',
+                };
+                return response.status(400).send(errorResponse);
+            }
+        });
+    }
+    // Question List API
+    /**
+     * @api {get} /api/vendor-product-question/question-list Question List API
+     * @apiGroup Vendor Product Question
+     * @apiParam (Request body) {Number} productId productId
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} count count in number or boolean
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *    "message": "Successfully get question list",
+     *    "data":"{}"
+     *    "status": "1"
+     *  }
+     * @apiSampleRequest /api/vendor-product-question/question-list
+     * @apiErrorExample {json} question error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    questionList(limit, offset, keyword, productId, count, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const productDetail = yield this.productService.findOne({
+                where: { productId },
+            });
+            if (!productDetail) {
+                const errorResponse = {
+                    status: 1,
+                    message: 'Invalid ProductId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const select = ['questionId', 'productId', 'question', 'referenceId', 'type', 'isActive'];
+            const whereConditions = [];
+            const search = [
+                {
+                    name: 'productId',
+                    op: 'where',
+                    value: productId,
+                },
+                {
+                    name: 'question',
+                    op: 'like',
+                    value: keyword,
+                },
+            ];
+            const questionList = yield this.productQuestionService.list(limit, offset, select, search, whereConditions, count);
+            if (count) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully get count',
+                    data: questionList,
+                });
+            }
+            const promise = questionList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const type = result.type;
+                const temp = result;
+                if (type && type === 1) {
+                    const adminUser = yield this.userService.findOne({
+                        select: ['userId', 'firstName', 'avatar', 'avatarPath'],
+                        where: { userId: result.referenceId },
+                    });
+                    if (adminUser !== undefined) {
+                        temp.postedBy = adminUser;
+                    }
+                }
+                else if (type && type === 2) {
+                    const customer = yield this.customerService.findOne({
+                        select: ['id', 'firstName', 'avatar', 'avatarPath', 'city'],
+                        where: { id: result.referenceId },
+                    });
+                    if (customer !== undefined) {
+                        temp.postedBy = customer;
+                    }
+                }
+                else if (type && type === 3) {
+                    const vendor = yield this.vendorService.findOne({
+                        select: ['customerId'],
+                        where: { vendorId: result.referenceId },
+                    });
+                    const customer = yield this.customerService.findOne({
+                        select: ['id', 'firstName', 'avatar', 'avatarPath', 'city'],
+                        where: { id: vendor.customerId },
+                    });
+                    if (customer !== undefined) {
+                        temp.postedBy = customer;
+                    }
+                }
+                const searchQuestion = [
+                    {
+                        name: 'questionId',
+                        op: 'where',
+                        value: result.questionId,
+                    },
+                ];
+                const ansCount = yield this.productAnswerService.list(0, 0, [], searchQuestion, [], 1);
+                temp.answerCount = ansCount;
+                return temp;
+            }));
+            const value = yield Promise.all(promise);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully get all question List',
+                data: {
+                    productDetail,
+                    questionList: value,
+                },
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Vendor Product Question List API
+    /**
+     * @api {get} /api/vendor-product-question/vendor-product-question-list Vendor Product Question List API
+     * @apiGroup Vendor Product Question
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {Number} count count in number or boolean
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get vendor product list",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/vendor-product-question/vendor-product-question-list
+     * @apiErrorExample {json} vendor product question list error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorproductList(limit, offset, keyword, productName, price, count, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'Product.productId as productId',
+                'Product.sku as sku',
+                'Product.name as name',
+                'Product.quantity as quantity',
+                'Product.price as ProductPrice',
+                'Product.skuId as skuId',
+                'Product.productSlug as productSlug',
+                'Product.isActive as isActive',
+                '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as image',
+                '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
+                '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
+                '(SELECT sku.sku_name as sku FROM sku WHERE sku.id = skuId) as sku',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
+                '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as modifiedPrice',
+                '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+                    ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
+                '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
+                '(SELECT count(pq.question_id) as QuestionCount FROM product_question as pq WHERE pq.product_id = Product.productId) as questionCount',
+            ];
+            const relations = [{
+                    tableName: 'Product.vendorProducts',
+                    aliasName: 'vendorProducts',
+                }];
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['Product.name', 'Product.price'],
+                    value: keyword,
+                });
+            }
+            if (productName && productName !== '') {
+                searchConditions.push({
+                    name: ['Product.name'],
+                    value: productName.toLowerCase(),
+                });
+            }
+            const sort = [{
+                    name: 'Product.createdDate',
+                    order: 'DESC',
+                }];
+            const WhereConditions = [{
+                    name: 'vendorProducts.vendorId',
+                    op: 'and',
+                    value: request.user.vendorId,
+                }];
+            if (price && price !== '') {
+                WhereConditions.push({
+                    name: 'Product.price',
+                    op: 'and',
+                    value: price,
+                });
+            }
+            const productLists = yield this.productService.listByQueryBuilder(limit, offset, select, WhereConditions, searchConditions, relations, [], sort, false, true);
+            if (count) {
+                const productListCount = yield this.productService.listByQueryBuilder(limit, offset, select, WhereConditions, searchConditions, relations, [], sort, true, true);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got product lists count.',
+                    data: productListCount,
+                });
+            }
+            const productList = productLists.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                if (value.productSpecial !== null) {
+                    temp.pricerefer = value.productSpecial;
+                    temp.flag = 1;
+                }
+                else if (value.productDiscount !== null) {
+                    temp.pricerefer = value.productDiscount;
+                    temp.flag = 0;
+                }
+                else {
+                    temp.pricerefer = '';
+                    temp.flag = '';
+                }
+                return temp;
+            }));
+            const results = yield Promise.all(productList);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete product list.',
+                data: (0, class_transformer_1.instanceToPlain)(results),
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/add-question'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateQuestionRequest_1.CreateQuestion, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductQuestionController.prototype, "createQuestion", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/update-question-status/:questionId'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('questionId')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('status')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductQuestionController.prototype, "updateQuestionStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/delete-question/:questionId'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('questionId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductQuestionController.prototype, "deleteQuestion", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/question-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('productId')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductQuestionController.prototype, "questionList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-product-question-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('productName')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('price')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(7, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductQuestionController.prototype, "vendorproductList", null);
+VendorProductQuestionController = tslib_1.__decorate([
+    (0, routing_controllers_1.UseBefore)(AddonValidationMiddleware_1.CheckAddonMiddleware),
+    (0, routing_controllers_1.JsonController)('/vendor-product-question'),
+    tslib_1.__metadata("design:paramtypes", [ProductQuestionService_1.ProductQuestionService,
+        CustomerService_1.CustomerService,
+        ProductAnswerService_1.ProductAnswerService,
+        ProductService_1.ProductService,
+        VendorService_1.VendorService,
+        UserService_1.UserService])
+], VendorProductQuestionController);
+exports.VendorProductQuestionController = VendorProductQuestionController;
+//# sourceMappingURL=ProductQuestionController.js.map

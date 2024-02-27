@@ -1,1 +1,61 @@
-'use strict';const a915_0x373af2=a915_0x415a;function a915_0x415a(_0x47ee98,_0x3f3460){const _0x5cfd29=a915_0x5cfd();return a915_0x415a=function(_0x415a5c,_0x3a5dae){_0x415a5c=_0x415a5c-0x89;let _0x33f130=_0x5cfd29[_0x415a5c];return _0x33f130;},a915_0x415a(_0x47ee98,_0x3f3460);}(function(_0x4d4547,_0x24c9e5){const _0x1b7b6a=a915_0x415a,_0x2a49f3=_0x4d4547();while(!![]){try{const _0x34d215=parseInt(_0x1b7b6a(0x91))/0x1+-parseInt(_0x1b7b6a(0x8e))/0x2*(-parseInt(_0x1b7b6a(0x8a))/0x3)+parseInt(_0x1b7b6a(0x96))/0x4*(parseInt(_0x1b7b6a(0x90))/0x5)+-parseInt(_0x1b7b6a(0x8c))/0x6+-parseInt(_0x1b7b6a(0x93))/0x7+-parseInt(_0x1b7b6a(0x98))/0x8*(parseInt(_0x1b7b6a(0x9d))/0x9)+parseInt(_0x1b7b6a(0x97))/0xa;if(_0x34d215===_0x24c9e5)break;else _0x2a49f3['push'](_0x2a49f3['shift']());}catch(_0x5ee925){_0x2a49f3['push'](_0x2a49f3['shift']());}}}(a915_0x5cfd,0x35faa));Object['defineProperty'](exports,a915_0x373af2(0x9b),{'value':!![]}),exports['AddColumnInLoginAttempts1621056856672']=void 0x0;const tslib_1=require(a915_0x373af2(0x99)),typeorm_1=require(a915_0x373af2(0x8d));class AddColumnInLoginAttempts1621056856672{['up'](_0x346bd0){const _0x32d94c=a915_0x373af2;return tslib_1[_0x32d94c(0x8b)](this,void 0x0,void 0x0,function*(){const _0x2ae2db=_0x32d94c,_0xa7b323=yield _0x346bd0[_0x2ae2db(0xa0)](_0x2ae2db(0x9c),_0x2ae2db(0x89));!_0xa7b323&&(yield _0x346bd0['addColumn']('login_attempts',new typeorm_1['TableColumn']({'name':_0x2ae2db(0x89),'type':_0x2ae2db(0x9f),'length':'11','isPrimary':![],'isNullable':!![]})));const _0xbde083=yield _0x346bd0[_0x2ae2db(0xa0)](_0x2ae2db(0x9c),_0x2ae2db(0x9a));!_0xbde083&&(yield _0x346bd0[_0x2ae2db(0xa2)](_0x2ae2db(0x9c),new typeorm_1[(_0x2ae2db(0xa3))]({'name':_0x2ae2db(0x9a),'type':_0x2ae2db(0x9e),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'})));const _0x38d1f8=yield _0x346bd0[_0x2ae2db(0xa0)](_0x2ae2db(0x9c),'modified_by');!_0x38d1f8&&(yield _0x346bd0['addColumn'](_0x2ae2db(0x9c),new typeorm_1[(_0x2ae2db(0xa3))]({'name':_0x2ae2db(0x92),'type':_0x2ae2db(0x9f),'length':'11','isPrimary':![],'isNullable':!![]})));const _0x511e7f=yield _0x346bd0[_0x2ae2db(0xa0)](_0x2ae2db(0x9c),'modified_date');!_0x511e7f&&(yield _0x346bd0[_0x2ae2db(0xa2)](_0x2ae2db(0x9c),new typeorm_1[(_0x2ae2db(0xa3))]({'name':'modified_date','type':_0x2ae2db(0x9e),'isPrimary':![],'isNullable':!![],'default':'CURRENT_TIMESTAMP'})));});}[a915_0x373af2(0x94)](_0x16666f){const _0x582fc9=a915_0x373af2;return tslib_1[_0x582fc9(0x8b)](this,void 0x0,void 0x0,function*(){const _0x304aa0=_0x582fc9;yield _0x16666f[_0x304aa0(0x8f)]('login_attempts','created_by'),yield _0x16666f[_0x304aa0(0x8f)](_0x304aa0(0x9c),'created_date'),yield _0x16666f['dropColumn']('login_attempts',_0x304aa0(0x92)),yield _0x16666f['dropColumn'](_0x304aa0(0x9c),_0x304aa0(0x95));});}}function a915_0x5cfd(){const _0x157344=['created_by','19077zbGAXJ','__awaiter','2244600JSfxSd','typeorm','62dfiUfR','dropColumn','5MzFIRT','258563nHPDWi','modified_by','2517200AigkXu','down','modified_date','467512FLxNgA','5409520LJjiKQ','24QySoZE','tslib','created_date','__esModule','login_attempts','476172OuSdXo','datetime','integer','hasColumn','AddColumnInLoginAttempts1621056856672','addColumn','TableColumn'];a915_0x5cfd=function(){return _0x157344;};return a915_0x5cfd();}exports[a915_0x373af2(0xa1)]=AddColumnInLoginAttempts1621056856672;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddColumnInLoginAttempts1621056856672 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class AddColumnInLoginAttempts1621056856672 {
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const ifExist1 = yield queryRunner.hasColumn('login_attempts', 'created_by');
+            if (!ifExist1) {
+                yield queryRunner.addColumn('login_attempts', new typeorm_1.TableColumn({
+                    name: 'created_by',
+                    type: 'integer',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist2 = yield queryRunner.hasColumn('login_attempts', 'created_date');
+            if (!ifExist2) {
+                yield queryRunner.addColumn('login_attempts', new typeorm_1.TableColumn({
+                    name: 'created_date',
+                    type: 'datetime',
+                    isPrimary: false,
+                    isNullable: true,
+                    default: 'CURRENT_TIMESTAMP',
+                }));
+            }
+            const ifExist3 = yield queryRunner.hasColumn('login_attempts', 'modified_by');
+            if (!ifExist3) {
+                yield queryRunner.addColumn('login_attempts', new typeorm_1.TableColumn({
+                    name: 'modified_by',
+                    type: 'integer',
+                    length: '11',
+                    isPrimary: false,
+                    isNullable: true,
+                }));
+            }
+            const ifExist4 = yield queryRunner.hasColumn('login_attempts', 'modified_date');
+            if (!ifExist4) {
+                yield queryRunner.addColumn('login_attempts', new typeorm_1.TableColumn({
+                    name: 'modified_date',
+                    type: 'datetime',
+                    isPrimary: false,
+                    isNullable: true,
+                    default: 'CURRENT_TIMESTAMP',
+                }));
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropColumn('login_attempts', 'created_by');
+            yield queryRunner.dropColumn('login_attempts', 'created_date');
+            yield queryRunner.dropColumn('login_attempts', 'modified_by');
+            yield queryRunner.dropColumn('login_attempts', 'modified_date');
+        });
+    }
+}
+exports.AddColumnInLoginAttempts1621056856672 = AddColumnInLoginAttempts1621056856672;
+//# sourceMappingURL=1621056856672-AddColumnInLoginAttempts.js.map

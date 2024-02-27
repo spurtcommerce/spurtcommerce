@@ -1,1 +1,21 @@
-'use strict';function a681_0x4b64(_0x55ff05,_0xe0b803){const _0x3f7a57=a681_0x3f7a();return a681_0x4b64=function(_0x4b64a9,_0x1be51c){_0x4b64a9=_0x4b64a9-0x1c1;let _0xb16502=_0x3f7a57[_0x4b64a9];return _0xb16502;},a681_0x4b64(_0x55ff05,_0xe0b803);}function a681_0x3f7a(){const _0xfc3f59=['defineProperty','4112888MfXJrt','316qFkbVX','prototype','reflect-metadata','UpdateStockRequest','18vgMMSp','14466moBgud','764990crkrEk','655225gxmTaY','2755501voVFex','IsNotEmpty','96521bHVxOp','productId','__decorate','15060070UDDiKU','6lwwxvi','11hAEPid'];a681_0x3f7a=function(){return _0xfc3f59;};return a681_0x3f7a();}const a681_0x1b4d61=a681_0x4b64;(function(_0xec879d,_0x334941){const _0xe00b1c=a681_0x4b64,_0x12301c=_0xec879d();while(!![]){try{const _0x32adbf=parseInt(_0xe00b1c(0x1c1))/0x1+parseInt(_0xe00b1c(0x1cf))/0x2+parseInt(_0xe00b1c(0x1ce))/0x3*(parseInt(_0xe00b1c(0x1c9))/0x4)+parseInt(_0xe00b1c(0x1d0))/0x5+parseInt(_0xe00b1c(0x1c5))/0x6*(parseInt(_0xe00b1c(0x1d1))/0x7)+parseInt(_0xe00b1c(0x1c8))/0x8*(parseInt(_0xe00b1c(0x1cd))/0x9)+parseInt(_0xe00b1c(0x1c4))/0xa*(-parseInt(_0xe00b1c(0x1c6))/0xb);if(_0x32adbf===_0x334941)break;else _0x12301c['push'](_0x12301c['shift']());}catch(_0xf70cd5){_0x12301c['push'](_0x12301c['shift']());}}}(a681_0x3f7a,0xdd669));Object[a681_0x1b4d61(0x1c7)](exports,'__esModule',{'value':!![]}),exports[a681_0x1b4d61(0x1cc)]=void 0x0;const tslib_1=require('tslib');require(a681_0x1b4d61(0x1cb));const class_validator_1=require('class-validator');class UpdateStockRequest{}tslib_1[a681_0x1b4d61(0x1c3)]([(0x0,class_validator_1[a681_0x1b4d61(0x1d2)])(),tslib_1['__metadata']('design:type',Number)],UpdateStockRequest[a681_0x1b4d61(0x1ca)],a681_0x1b4d61(0x1c2),void 0x0),exports[a681_0x1b4d61(0x1cc)]=UpdateStockRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UpdateStockRequest = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class UpdateStockRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], UpdateStockRequest.prototype, "productId", void 0);
+exports.UpdateStockRequest = UpdateStockRequest;
+//# sourceMappingURL=UpdateStockRequest.js.map

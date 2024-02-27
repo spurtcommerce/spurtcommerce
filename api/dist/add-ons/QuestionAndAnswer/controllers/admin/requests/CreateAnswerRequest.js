@@ -1,1 +1,29 @@
-'use strict';const a157_0x52a1ee=a157_0x4fad;(function(_0x25cad4,_0x27c87a){const _0x1362e5=a157_0x4fad,_0x3c1d7b=_0x25cad4();while(!![]){try{const _0x28f8df=parseInt(_0x1362e5(0x1eb))/0x1+-parseInt(_0x1362e5(0x1f5))/0x2+parseInt(_0x1362e5(0x1f6))/0x3+-parseInt(_0x1362e5(0x1e3))/0x4+-parseInt(_0x1362e5(0x1ec))/0x5+parseInt(_0x1362e5(0x1e5))/0x6*(parseInt(_0x1362e5(0x1f7))/0x7)+parseInt(_0x1362e5(0x1f4))/0x8;if(_0x28f8df===_0x27c87a)break;else _0x3c1d7b['push'](_0x3c1d7b['shift']());}catch(_0x38e924){_0x3c1d7b['push'](_0x3c1d7b['shift']());}}}(a157_0x1c06,0xeb276));function a157_0x1c06(){const _0x50db23=['questionId','defineProperty','QuestionId\x20is\x20required','IsNotEmpty','__decorate','answer','__esModule','27124088NXYiDi','2785672owYIRK','2493348MMNSXL','1670627XqmudZ','class-validator','7376976VudExc','prototype','24OPmJOt','__metadata','design:type','Answer\x20is\x20required','CreateAnswer','reflect-metadata','746030SFoXUK','8610155AISZww'];a157_0x1c06=function(){return _0x50db23;};return a157_0x1c06();}Object[a157_0x52a1ee(0x1ee)](exports,a157_0x52a1ee(0x1f3),{'value':!![]}),exports[a157_0x52a1ee(0x1e9)]=void 0x0;function a157_0x4fad(_0x3eef1e,_0x18d218){const _0x1c062d=a157_0x1c06();return a157_0x4fad=function(_0x4fada2,_0x41d1ff){_0x4fada2=_0x4fada2-0x1e2;let _0x2d92e6=_0x1c062d[_0x4fada2];return _0x2d92e6;},a157_0x4fad(_0x3eef1e,_0x18d218);}const tslib_1=require('tslib');require(a157_0x52a1ee(0x1ea));const class_validator_1=require(a157_0x52a1ee(0x1e2));class CreateAnswer{}tslib_1[a157_0x52a1ee(0x1f1)]([(0x0,class_validator_1[a157_0x52a1ee(0x1f0)])({'message':a157_0x52a1ee(0x1e8)}),tslib_1[a157_0x52a1ee(0x1e6)](a157_0x52a1ee(0x1e7),String)],CreateAnswer[a157_0x52a1ee(0x1e4)],a157_0x52a1ee(0x1f2),void 0x0),tslib_1['__decorate']([(0x0,class_validator_1[a157_0x52a1ee(0x1f0)])({'message':a157_0x52a1ee(0x1ef)}),tslib_1[a157_0x52a1ee(0x1e6)]('design:type',Number)],CreateAnswer[a157_0x52a1ee(0x1e4)],a157_0x52a1ee(0x1ed),void 0x0),exports['CreateAnswer']=CreateAnswer;
+"use strict";
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateAnswer = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const class_validator_1 = require("class-validator");
+class CreateAnswer {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Answer is required',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateAnswer.prototype, "answer", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'QuestionId is required',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CreateAnswer.prototype, "questionId", void 0);
+exports.CreateAnswer = CreateAnswer;
+//# sourceMappingURL=CreateAnswerRequest.js.map

@@ -1,1 +1,875 @@
-'use strict';const a691_0x33fcaa=a691_0x1612;(function(_0x335673,_0x42e8bf){const _0x3dd116=a691_0x1612,_0x492119=_0x335673();while(!![]){try{const _0x1ca4cd=parseInt(_0x3dd116(0x102))/0x1*(-parseInt(_0x3dd116(0xc2))/0x2)+parseInt(_0x3dd116(0xfd))/0x3+parseInt(_0x3dd116(0x106))/0x4+parseInt(_0x3dd116(0x11a))/0x5+-parseInt(_0x3dd116(0x103))/0x6*(-parseInt(_0x3dd116(0xa1))/0x7)+-parseInt(_0x3dd116(0x8c))/0x8*(parseInt(_0x3dd116(0xcc))/0x9)+-parseInt(_0x3dd116(0x10d))/0xa;if(_0x1ca4cd===_0x42e8bf)break;else _0x492119['push'](_0x492119['shift']());}catch(_0x2ccab5){_0x492119['push'](_0x492119['shift']());}}}(a691_0x16f1,0x3cf9c));function a691_0x16f1(){const _0x5d34c3=['shippingPostcode','Invalid\x20order\x20Id.','shippingCity','design:type','currencyInWords','prototype','amountTo','shippingAddress2','taxValueInAmount','Successfully\x20Archived\x20this\x20product.','orderDetail.shippingCity\x20as\x20shippingCity','createdDate','companyCity','vendorId','findOne','design:paramtypes','../../core/services/VendorInvoiceItemService','find','orderStatusId','discountedAmount','currencySymbolRight','VendorOrders.orderProduct','settingService','telephone','orderDetail.customerId\x20as\x20customerId','en-IN','currencySymbolLeft','/order-export-pdf','../../core/services/ProductImageService','convert','VendorOrders.makeSettlement','modifiedDate','../../core/services/VendorInvoiceService','customerName','orderProduct.cancelRequestStatus','VendorProductService','VendorOrders.vendorId\x20as\x20vendorId','VendorOrders.order_id','MAX(orderDetail.orderId)\x20as\x20orderId','vendorOrderLogId','then','currencyCode','SettingService','to-words','settlement\x20order\x20list','endDate','orderDetail.currencySymbolLeft\x20as\x20currencySymbolLeft','__awaiter','../../core/services/OrderService','customer','QueryParam','MAX(customer.firstName)\x20as\x20vendorNames','productList','paymentCountry','companyAddress1','storeLogoPath','offset','Get','../../core/models/VendorInvoice','concat','VendorOrders.orderDetail','design:returntype','INV','0.00','customerService','customer.firstName','paymentStatus','83704PYkxCZ','logo','DESC','shippingCountry','push','raw','send','shipping_firstname','orderDetail.currencySymbolRight\x20as\x20currencySymbolRight','companyName','taxType','colorCode','__importDefault','skuName','VendorInvoiceService','all','shippingFirstname','subOrderId','email','where','Param','3094PeIgup','vendor.vendorId','/order-detail','total','productImageService','customerId','Req','VendorOrders.orderStatus','.pdf','env','pdfService','Res','orderProduct.orderProductPrefixId\x20as\x20orderProductPrefixId','subOrderStatusColorCode','productPrice','paymentFirstname','orderList','/vendor-order-list','orderId','VendorInvoiceItem','companyCountryId','basePrice','vendorProductService','format','\x2023:59:59','invoiceNo','__param','productCount','../../core/services/VendorProductService','orderDetail','map','imageService','orderExportPdf','140HYFQOg','storeLogo','admin','../../core/services/VendorService','JsonController','discountAmount','paymentCity','containerName','image','split','63bZVIdl','__esModule','create','VendorService','length','orderProduct.orderProductPrefixId','VendorOrdersService','vendorInvoiceItemId','OrderProductService','orderDetail.shippingCountry\x20as\x20shippingCountry','vendor-invoice','CommissionAmount','paymentFlag','orderDetail.createdDate\x20as\x20createdDate','shippingCompany','OrderService','subtract','en-US','../../core/services/PdfService','shippingLastname','vendor.companyName\x20as\x20companyName','vendor.companyName','taxValue','limit','s3Service','orderProduct','PdfService','orderDetail.orderStatusId\x20as\x20orderStatusId','orderStatusService','paymentCompany','default','orderLogList','../../core/services/VendorOrderService','/vendor-order-log-list','__decorate','subOrderStatusId','status','Successfully\x20Revoked\x20this\x20order.','YYYY-MM-DD\x20HH:mm:ss','moment','../../../env','../../core/models/VendorInvoiceItem','ToWords','orderStatusName','`VendorOrders`.`total`','vendorInvoiceService','BodyParam','vendorName','statusColorCode','1466469usdDrQ','ImageService','orderStatus.colorCode\x20as\x20orderColorCode','__metadata','companyState','2413qWiiPn','6306GdZCkG','shippingAddress1','companyAddress2','615340CKYzBj','toFixed','../../core/services/CustomerService','archiveFlag','VendorOrders.total\x20as\x20total','Successfully\x20got\x20the\x20vendor\x20order\x20count.','VendorOrders.subOrderId\x20as\x20subOrderId','10733100FDUTkq','and','Authorized','VendorOrders.subOrderStatusId','minutes','paymentLastname','listByQueryBuilder','../../core/services/ProductService','htmlPdf','orderDetail.orderPrefixId\x20as\x20orderPrefixId','hsn','VendorOrders.orderId\x20as\x20orderId','customerGstNo','2290085LHwBTX','Put','routing-controllers','ProductService','__importStar','symbolLeft','resizeImageBase64','name','commission','paymentAddress2','shippingZone','orderProductPrefixId','sku','orderDetail.shippingFirstname\x20as\x20customerFirstName','startDate','findOrder','orderPrefixId','orderProductId','Successfully\x20got\x20the\x20complete\x20order\x20list.','download','productId','hours','vendorInvoiceItemService','quantity','CustomerService','subOrderStatusName','vendorOrderLogService','vendorOrdersService','Invalid\x20Vendor\x20Id','findVendorCount','productService','vendorOrderId','VendorOrders.vendorOrderId\x20as\x20vendorOrderId','orderDetail.shippingFirstname\x20as\x20shippingFirstName','VendorAdminOrderController','../../core/services/S3Service','toLowerCase','VendorInvoice','OrderStatusService','makeArchive','NetAmount','orderListtt','150','findAll','orderDetail.isActive\x20as\x20isActive','../../core/services/ImageService','paymentPostcode','vendor','vendor.customer','../../core/services/OrderProductService','orderDetail.paymentProcess','count','padStart','vendorService','../../core/services/VendorOrderLogService','vendorCount','invoicePrefix','orderProductService','/admin-vendor-order','vendorInvoiceId','../../core/services/OrderStatusService','paymentAddress1','orderDetail.createdDate','orderService','`orderDetail`.`created_date`','defineProperty','VendorOrders.vendor','orderDetail.paymentStatus','orderStatus','couponDiscountAmount'];a691_0x16f1=function(){return _0x5d34c3;};return a691_0x16f1();}Object[a691_0x33fcaa(0x15b)](exports,a691_0x33fcaa(0xcd),{'value':!![]}),exports[a691_0x33fcaa(0x13c)]=void 0x0;function a691_0x1612(_0x970745,_0x5e61b1){const _0x16f17c=a691_0x16f1();return a691_0x1612=function(_0x1612ae,_0x44f639){_0x1612ae=_0x1612ae-0x64;let _0x244d94=_0x16f17c[_0x1612ae];return _0x244d94;},a691_0x1612(_0x970745,_0x5e61b1);}const tslib_1=require('tslib');require('reflect-metadata');const routing_controllers_1=require(a691_0x33fcaa(0x11c)),VendorOrderService_1=require(a691_0x33fcaa(0xec)),OrderService_1=require(a691_0x33fcaa(0x79)),ProductService_1=require(a691_0x33fcaa(0x114)),ProductImageService_1=require(a691_0x33fcaa(0x65)),VendorService_1=require(a691_0x33fcaa(0xc5)),OrderProductService_1=require(a691_0x33fcaa(0x14b)),OrderStatusService_1=require(a691_0x33fcaa(0x156)),VendorOrderLogService_1=require(a691_0x33fcaa(0x150)),PdfService_1=require(a691_0x33fcaa(0xde)),S3Service_1=require(a691_0x33fcaa(0x13d)),ImageService_1=require(a691_0x33fcaa(0x147)),SettingService_1=require('../../core/services/SettingService'),VendorInvoiceService_1=require(a691_0x33fcaa(0x69)),VendorInvoiceItemService_1=require(a691_0x33fcaa(0x170)),VendorProductService_1=require(a691_0x33fcaa(0xbd)),VendorInvoiceItem_1=require(a691_0x33fcaa(0xf5)),VendorInvoice_1=require(a691_0x33fcaa(0x83)),env_1=require(a691_0x33fcaa(0xf4)),to_words_1=require(a691_0x33fcaa(0x74)),moment_1=tslib_1[a691_0x33fcaa(0x98)](require(a691_0x33fcaa(0xf3))),CustomerService_1=require(a691_0x33fcaa(0x108)),fs=tslib_1[a691_0x33fcaa(0x11e)](require('fs'));let VendorAdminOrderController=class VendorAdminOrderController{constructor(_0x45fcc2,_0x26baec,_0x5da523,_0xfc6904,_0x564c57,_0x18b5be,_0x2c1bb4,_0x42e49d,_0x1dfd19,_0x42ce56,_0x48dc02,_0x1941f3,_0x51e536,_0x985113,_0xe4c77,_0x28a6e3){const _0x455bb9=a691_0x33fcaa;this[_0x455bb9(0x135)]=_0x45fcc2,this[_0x455bb9(0x159)]=_0x26baec,this[_0x455bb9(0x153)]=_0x5da523,this[_0x455bb9(0x14f)]=_0xfc6904,this['productService']=_0x564c57,this[_0x455bb9(0xa5)]=_0x18b5be,this['vendorOrderLogService']=_0x2c1bb4,this['orderStatusService']=_0x42e49d,this[_0x455bb9(0xab)]=_0x1dfd19,this[_0x455bb9(0x176)]=_0x42ce56,this[_0x455bb9(0xe4)]=_0x48dc02,this['vendorInvoiceService']=_0x1941f3,this[_0x455bb9(0x130)]=_0x51e536,this[_0x455bb9(0xb7)]=_0x985113,this[_0x455bb9(0xc0)]=_0xe4c77,this[_0x455bb9(0x89)]=_0x28a6e3;}[a691_0x33fcaa(0xb1)](_0x33c9c7,_0x38719b,_0x19282d,_0x29a552,_0x1cd960,_0x2d84dc,_0x1b2089,_0xdccd0b,_0x324f1a){const _0xb3236a=a691_0x33fcaa;return tslib_1[_0xb3236a(0x78)](this,void 0x0,void 0x0,function*(){const _0x8eba6=_0xb3236a,_0x165057=(0x0,moment_1[_0x8eba6(0xea)])(_0x29a552)['subtract'](0x5,_0x8eba6(0x12f))[_0x8eba6(0xdc)](0x1e,_0x8eba6(0x111))[_0x8eba6(0xb8)](_0x8eba6(0xf2)),_0x3abf50=_0x1cd960+_0x8eba6(0xb9),_0x27756e=(0x0,moment_1[_0x8eba6(0xea)])(_0x3abf50)[_0x8eba6(0xdc)](0x5,'hours')[_0x8eba6(0xdc)](0x1e,_0x8eba6(0x111))[_0x8eba6(0xb8)]('YYYY-MM-DD\x20HH:mm:ss'),_0x50f3a9=[_0x8eba6(0x7c),_0x8eba6(0x178),'orderDetail.createdDate\x20as\x20createdDate',_0x8eba6(0x6f),'orderDetail.total\x20as\x20total','orderDetail.currencySymbolLeft\x20as\x20currencySymbolLeft',_0x8eba6(0x94),_0x8eba6(0x116),_0x8eba6(0xe7),_0x8eba6(0x13b),_0x8eba6(0x16a),_0x8eba6(0xd5)],_0x5175cc=[{'tableName':_0x8eba6(0x85),'aliasName':_0x8eba6(0xbe)},{'tableName':'VendorOrders.vendor','aliasName':_0x8eba6(0x149)},{'tableName':_0x8eba6(0x14a),'aliasName':_0x8eba6(0x7a)}],_0x1a8b19=[{'name':_0x8eba6(0x6e)}],_0x1c48e5=[];_0x29a552&&_0x29a552!==''&&_0x1c48e5[_0x8eba6(0x90)]({'name':_0x8eba6(0x15a),'op':_0x8eba6(0x91),'sign':'>=','value':_0x165057});_0x1c48e5[_0x8eba6(0x90)]({'name':_0x8eba6(0x14c),'op':_0x8eba6(0x10e),'value':0x1});_0x1cd960&&_0x1cd960!==''&&_0x1c48e5['push']({'name':_0x8eba6(0x15a),'op':_0x8eba6(0x91),'sign':'<=','value':_0x27756e});const _0x59dc13=[];_0x19282d&&_0x19282d!==''&&_0x59dc13[_0x8eba6(0x90)]({'name':[_0x8eba6(0x93),'orderDetail.orderPrefixId'],'value':_0x19282d['toLowerCase']()});_0x1b2089&&_0x1b2089!==''&&_0x59dc13['push']({'name':[_0x8eba6(0x8a)],'value':_0x1b2089['toLowerCase']()});const _0x1a07db=[];_0x1a07db['push']({'name':_0x8eba6(0x158),'order':_0x8eba6(0x8e)});const _0x2fcd97=yield this[_0x8eba6(0x135)][_0x8eba6(0x113)](_0x33c9c7,_0x38719b,_0x50f3a9,_0x1c48e5,_0x59dc13,_0x5175cc,_0x1a8b19,_0x1a07db,_0x2d84dc,!![]);if(_0x2d84dc){const _0x52c207={'status':0x1,'message':'Successfully\x20got\x20count.','data':_0x2fcd97};return _0x324f1a[_0x8eba6(0xf0)](0xc8)['send'](_0x52c207);}const _0x21ed18=_0x2fcd97[_0x8eba6(0xbf)](_0x36935c=>tslib_1[_0x8eba6(0x78)](this,void 0x0,void 0x0,function*(){const _0x2907ac=_0x8eba6,_0x116ea6=yield this['orderStatusService'][_0x2907ac(0x16e)]({'where':{'orderStatusId':_0x36935c['orderStatusId']},'select':[_0x2907ac(0x172),_0x2907ac(0x121),'colorCode']}),_0x3db063=yield this[_0x2907ac(0x135)]['findAll']({'where':{'orderId':_0x36935c['orderId']}}),_0x294e16=yield this[_0x2907ac(0x135)][_0x2907ac(0x137)](_0x36935c[_0x2907ac(0xb3)]),_0x2f6b1b=_0x36935c;_0x2f6b1b[_0x2907ac(0x15e)]=_0x116ea6,_0x2f6b1b[_0x2907ac(0xbc)]=_0x3db063[_0x2907ac(0xd0)],_0x2f6b1b[_0x2907ac(0x151)]=_0x294e16[_0x2907ac(0x151)];const _0xaf980=yield this['vendorOrdersService']['findVendors'](_0x36935c[_0x2907ac(0xb3)]),_0x3c34d9=_0xaf980[_0x2907ac(0xbf)](_0x5caf12=>tslib_1[_0x2907ac(0x78)](this,void 0x0,void 0x0,function*(){const _0xf99e10=_0x2907ac,_0x43421c=yield this[_0xf99e10(0x14f)][_0xf99e10(0x16e)]({'where':{'vendorId':_0x5caf12['vendorId']}}),_0xea292=yield this[_0xf99e10(0x89)]['findOne']({'where':{'id':_0x43421c['customerId']}}),_0x27e562=_0xea292['firstName'];return _0x27e562;})),_0x5d76f1=yield Promise['all'](_0x3c34d9);return _0x2f6b1b[_0x2907ac(0xfb)]=_0x5d76f1,_0x2f6b1b;})),_0xaf13c7=yield Promise[_0x8eba6(0x9b)](_0x21ed18),_0x285357={'status':0x1,'message':_0x8eba6(0x12c),'data':_0xaf13c7};return _0x324f1a[_0x8eba6(0xf0)](0xc8)[_0x8eba6(0x92)](_0x285357);});}[a691_0x33fcaa(0xbe)](_0x985e1e,_0x3abc34,_0x5684c9){const _0x22fbdc=a691_0x33fcaa;return tslib_1[_0x22fbdc(0x78)](this,void 0x0,void 0x0,function*(){const _0x549532=_0x22fbdc,_0x356acd=yield this[_0x549532(0x159)][_0x549532(0x129)]({'where':{'orderId':_0x985e1e},'select':[_0x549532(0xb3),_0x549532(0x172),'customerId','email',_0x549532(0x177),'invoiceNo',_0x549532(0x152),_0x549532(0x12a),'shippingFirstname','shippingLastname',_0x549532(0x104),_0x549532(0x167),_0x549532(0x162),'email',_0x549532(0x124),_0x549532(0x160),_0x549532(0x8f),_0x549532(0xa6),'createdDate','currencyCode',_0x549532(0x17a),_0x549532(0x174),_0x549532(0x8b),_0x549532(0xd8)]});_0x356acd[_0x549532(0x7d)]=yield this[_0x549532(0x135)][_0x549532(0x145)]({'where':{'orderId':_0x985e1e},'select':[_0x549532(0x139),_0x549532(0xb3),_0x549532(0x16d),_0x549532(0x9d),'subOrderStatusId','orderProductId',_0x549532(0xa4)]})[_0x549532(0x71)](_0x2dd3f1=>{const _0x20e1be=_0x2dd3f1['map'](_0x208d37=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x45f9d8=a691_0x1612,_0x1af266=_0x208d37,_0x111cfc=yield this[_0x45f9d8(0x14f)][_0x45f9d8(0x16e)]({'where':{'vendorId':_0x208d37[_0x45f9d8(0x16d)]},'select':[_0x45f9d8(0xa6),'companyName',_0x45f9d8(0x7f),_0x45f9d8(0x105),'companyCity',_0x45f9d8(0x101),_0x45f9d8(0xb5)]}),_0x1228c1=yield this[_0x45f9d8(0x153)][_0x45f9d8(0x171)]({'select':[_0x45f9d8(0x12b),_0x45f9d8(0x12e),_0x45f9d8(0x121),_0x45f9d8(0x131),_0x45f9d8(0xa4),_0x45f9d8(0xb6),_0x45f9d8(0x96),'taxValue',_0x45f9d8(0xc7),_0x45f9d8(0x173),_0x45f9d8(0x15f),_0x45f9d8(0x125),'skuName'],'where':{'orderProductId':_0x208d37[_0x45f9d8(0x12b)]}});for(const _0x1c3859 of _0x1228c1){const _0x34778a=yield this[_0x45f9d8(0xa5)][_0x45f9d8(0x16e)]({'where':{'productId':_0x1c3859[_0x45f9d8(0x12e)],'defaultImage':0x1},'select':[_0x45f9d8(0xca),'containerName']}),_0x35a072=yield this[_0x45f9d8(0x138)][_0x45f9d8(0x16e)]({'where':{'productId':_0x1c3859[_0x45f9d8(0x12e)]},'select':[_0x45f9d8(0x126)]});_0x1af266[_0x45f9d8(0xb6)]=_0x1c3859[_0x45f9d8(0xb6)],_0x1af266[_0x45f9d8(0x96)]=_0x1c3859[_0x45f9d8(0x96)],_0x1af266[_0x45f9d8(0xe2)]=_0x1c3859[_0x45f9d8(0xe2)],_0x1c3859[_0x45f9d8(0x96)]===0x2?_0x1af266[_0x45f9d8(0x168)]=+_0x1c3859[_0x45f9d8(0xb6)]*(+_0x1c3859['taxValue']/0x64):_0x1af266[_0x45f9d8(0x168)]=_0x1c3859[_0x45f9d8(0xe2)],_0x1af266[_0x45f9d8(0x12e)]=_0x1c3859[_0x45f9d8(0x12e)],_0x1af266[_0x45f9d8(0x121)]=_0x1c3859[_0x45f9d8(0x121)],_0x1af266[_0x45f9d8(0x131)]=_0x1c3859[_0x45f9d8(0x131)],_0x1af266['total']=_0x1c3859[_0x45f9d8(0xa4)],_0x34778a&&(_0x1af266[_0x45f9d8(0xca)]=_0x34778a[_0x45f9d8(0xca)],_0x1af266[_0x45f9d8(0xc9)]=_0x34778a[_0x45f9d8(0xc9)]),_0x1af266[_0x45f9d8(0x126)]=_0x35a072[_0x45f9d8(0x126)],_0x1af266['discountAmount']=_0x1c3859[_0x45f9d8(0xc7)],_0x1af266[_0x45f9d8(0x173)]=_0x1c3859['discountedAmount'],_0x1af266[_0x45f9d8(0x15f)]=_0x1c3859[_0x45f9d8(0x15f)],_0x1af266[_0x45f9d8(0x99)]=_0x1c3859[_0x45f9d8(0x99)];}_0x1af266[_0x45f9d8(0x95)]=_0x111cfc[_0x45f9d8(0x95)],_0x1af266[_0x45f9d8(0x7f)]=_0x111cfc['companyAddress1'],_0x1af266['companyAddress2']=_0x111cfc[_0x45f9d8(0x105)],_0x1af266[_0x45f9d8(0x16c)]=_0x111cfc['companyCity'],_0x1af266[_0x45f9d8(0x101)]=_0x111cfc[_0x45f9d8(0x101)];let _0x295425=0x0;for(const _0x3fd85f of _0x1228c1){const _0x5e911b=yield this[_0x45f9d8(0x153)][_0x45f9d8(0x16e)]({'select':['total','discountAmount','discountedAmount',_0x45f9d8(0x15f)],'where':{'orderProductId':_0x3fd85f[_0x45f9d8(0x12b)]}});_0x295425+=+_0x5e911b['total'];}const _0x320ae9=yield this[_0x45f9d8(0xe8)][_0x45f9d8(0x16e)]({'where':{'orderStatusId':_0x208d37[_0x45f9d8(0xef)]},'select':[_0x45f9d8(0x121),_0x45f9d8(0x97)]});return _0x320ae9&&(_0x1af266[_0x45f9d8(0x133)]=_0x320ae9[_0x45f9d8(0x121)],_0x1af266[_0x45f9d8(0xae)]=_0x320ae9[_0x45f9d8(0x97)]),_0x1af266['vendorOrderTotal']=_0x295425,_0x1af266;})),_0x54b4d=Promise['all'](_0x20e1be);return _0x54b4d;});const _0x24690e=yield this[_0x549532(0xe8)][_0x549532(0x16e)]({'where':{'orderStatusId':_0x356acd['orderStatusId']},'select':['name',_0x549532(0x97)]});_0x356acd[_0x549532(0xf7)]=_0x24690e[_0x549532(0x121)],_0x356acd[_0x549532(0xfc)]=_0x24690e[_0x549532(0x97)];const _0x43c1e5=_0x356acd[_0x549532(0x7d)];let _0x2dc9bf=0x0;for(const _0x3bfcc4 of _0x43c1e5){const _0x9f7014=yield this[_0x549532(0x153)][_0x549532(0x16e)]({'select':['total',_0x549532(0xc7),_0x549532(0x173),_0x549532(0x15f)],'where':{'orderProductId':_0x3bfcc4['orderProductId']}});_0x2dc9bf+=+_0x9f7014[_0x549532(0xa4)];}_0x356acd[_0x549532(0xa4)]=_0x2dc9bf;const _0x263988={'status':0x1,'message':'Successfully\x20shown\x20the\x20order\x20Detail.\x20','data':_0x356acd};return _0x5684c9['status'](0xc8)[_0x549532(0x92)](_0x263988);});}[a691_0x33fcaa(0xeb)](_0x331885,_0x597e81){const _0xe1753d=a691_0x33fcaa;return tslib_1[_0xe1753d(0x78)](this,void 0x0,void 0x0,function*(){const _0x334266=_0xe1753d,_0x2ef655=[_0x334266(0x70),'vendorId',_0x334266(0x139),_0x334266(0xb3),_0x334266(0x9d),_0x334266(0xef),'createdDate',_0x334266(0x68)],_0x59437e=[{'name':_0x334266(0x139),'op':_0x334266(0x9f),'value':_0x331885}],_0x516073=yield this[_0x334266(0x134)]['list'](0x0,0x0,_0x2ef655,_0x59437e,0x0),_0x3f6c23=yield this[_0x334266(0xe8)][_0x334266(0x145)]({'select':[_0x334266(0x172),_0x334266(0x121)],'where':{'isActive':0x1},'orderBy':{'priority':'ASC'}}),_0x30ad1d=_0x3f6c23[_0x334266(0xbf)](_0x865733=>tslib_1[_0x334266(0x78)](this,void 0x0,void 0x0,function*(){const _0x2cb1e7=_0x334266,_0x377586=_0x516073[_0x2cb1e7(0x171)](_0x3599bc=>_0x3599bc['subOrderStatusId']===_0x865733['orderStatusId']),_0xdc05e7=_0x865733;return _0x377586===undefined?_0xdc05e7[_0x2cb1e7(0x16b)]='':_0xdc05e7[_0x2cb1e7(0x16b)]=_0x377586[_0x2cb1e7(0x16b)],_0xdc05e7;})),_0xa56196=yield Promise[_0x334266(0x9b)](_0x30ad1d),_0xe25142={'status':0x1,'message':'Successfully\x20got\x20the\x20complete\x20Vendor\x20Order\x20Status\x20Log\x20list.','data':_0xa56196};return _0x597e81['status'](0xc8)['send'](_0xe25142);});}[a691_0x33fcaa(0x141)](_0x13f468,_0x7d1c06,_0x22ea77,_0x2a7575){const _0x15a166=a691_0x33fcaa;return tslib_1[_0x15a166(0x78)](this,void 0x0,void 0x0,function*(){const _0x991534=_0x15a166,_0x480358=yield this[_0x991534(0x159)][_0x991534(0x16e)]({'where':{'orderId':_0x13f468}});if(!_0x480358){const _0x2b257f={'status':0x0,'message':_0x991534(0x161)};return _0x2a7575[_0x991534(0xf0)](0x190)[_0x991534(0x92)](_0x2b257f);}_0x480358[_0x991534(0x141)]=_0x7d1c06;const _0x50b658=yield this[_0x991534(0x159)]['create'](_0x480358);if(_0x7d1c06===0x0){const _0x1b754c={'status':0x1,'message':_0x991534(0xf1),'data':_0x50b658};return _0x2a7575['status'](0xc8)['send'](_0x1b754c);}else{const _0x534f83={'status':0x1,'message':_0x991534(0x169),'data':_0x50b658};return _0x2a7575[_0x991534(0xf0)](0xc8)[_0x991534(0x92)](_0x534f83);}});}[a691_0x33fcaa(0xc1)](_0x12edfb,_0x4074b0,_0x3f31e9,_0x374f8f){const _0x3289cc=a691_0x33fcaa;return tslib_1[_0x3289cc(0x78)](this,void 0x0,void 0x0,function*(){const _0x1d14d4=_0x3289cc,_0xfbe72e=yield this[_0x1d14d4(0x159)][_0x1d14d4(0x129)]({'where':{'orderId':_0x12edfb},'select':[_0x1d14d4(0xb3),_0x1d14d4(0x152),_0x1d14d4(0x177),'orderPrefixId',_0x1d14d4(0x119),_0x1d14d4(0x9c),_0x1d14d4(0xdf),_0x1d14d4(0xda),_0x1d14d4(0x104),_0x1d14d4(0x167),'shippingCity','shippingPostcode',_0x1d14d4(0x8f),_0x1d14d4(0x124),_0x1d14d4(0xb0),_0x1d14d4(0x112),_0x1d14d4(0xe9),_0x1d14d4(0x157),_0x1d14d4(0x123),_0x1d14d4(0xc8),_0x1d14d4(0x177),_0x1d14d4(0x148),_0x1d14d4(0x7e),'paymentZone','createdDate',_0x1d14d4(0x72),_0x1d14d4(0x17a),'currencySymbolRight']});if(!_0xfbe72e){const _0x5900da={'status':0x0,'message':'Invalid\x20Order\x20Id'};return _0x374f8f[_0x1d14d4(0xf0)](0x190)[_0x1d14d4(0x92)](_0x5900da);}const _0x20abb9=yield this[_0x1d14d4(0x14f)][_0x1d14d4(0x16e)]({'where':{'vendorId':_0x4074b0}});if(!_0x20abb9){const _0x112a19={'status':0x0,'message':_0x1d14d4(0x136)};return _0x374f8f[_0x1d14d4(0xf0)](0x190)[_0x1d14d4(0x92)](_0x112a19);}const _0x584c66=yield this[_0x1d14d4(0xf9)]['findOne']({'where':{'orderId':_0x12edfb,'vendorId':_0x4074b0}});if(!_0x584c66){const _0x305d43=yield this['orderProductService'][_0x1d14d4(0x171)]({'select':['orderProductId','productId',_0x1d14d4(0x121),_0x1d14d4(0x131),'total',_0x1d14d4(0xaf),_0x1d14d4(0xb6),'taxType',_0x1d14d4(0xe2),'discountAmount',_0x1d14d4(0x173),_0x1d14d4(0x99),_0x1d14d4(0x15f)],'where':{'orderId':_0x12edfb}});for(const _0x1a2cc2 of _0x305d43){const _0x5832b9=yield this[_0x1d14d4(0xb7)][_0x1d14d4(0x16e)]({'where':{'productId':_0x1a2cc2[_0x1d14d4(0x12e)]}});if(_0x5832b9!==undefined){const _0x41d20e=new VendorInvoice_1[(_0x1d14d4(0x13f))]();_0x41d20e[_0x1d14d4(0x16d)]=_0x5832b9[_0x1d14d4(0x16d)],_0x41d20e[_0x1d14d4(0x152)]=_0xfbe72e[_0x1d14d4(0x152)],_0x41d20e[_0x1d14d4(0xb3)]=_0xfbe72e[_0x1d14d4(0xb3)],_0x41d20e[_0x1d14d4(0x9e)]=_0xfbe72e['email'],_0x41d20e[_0x1d14d4(0xa4)]=0x0,_0x41d20e[_0x1d14d4(0x9c)]=_0xfbe72e[_0x1d14d4(0x9c)],_0x41d20e['shippingLastname']=_0xfbe72e[_0x1d14d4(0xdf)],yield this['vendorInvoiceService']['create'](_0x41d20e);const _0xbb2f73=yield this[_0x1d14d4(0xf9)]['findOne']({'where':{'vendorId':_0x5832b9['vendorId'],'orderId':_0xfbe72e[_0x1d14d4(0xb3)]}});_0xbb2f73[_0x1d14d4(0xa4)]=_0xbb2f73[_0x1d14d4(0xa4)]+ +_0x1a2cc2[_0x1d14d4(0xa4)];const _0x3af4ef=String(_0xbb2f73[_0x1d14d4(0x155)])[_0x1d14d4(0x14e)](0x5,'0');_0xbb2f73[_0x1d14d4(0xba)]=_0x1d14d4(0x87)[_0x1d14d4(0x84)](_0x3af4ef),yield this[_0x1d14d4(0xf9)]['create'](_0xbb2f73);const _0x58aa5f=new VendorInvoiceItem_1[(_0x1d14d4(0xb4))]();_0x58aa5f[_0x1d14d4(0x155)]=_0xbb2f73[_0x1d14d4(0x155)],_0x58aa5f[_0x1d14d4(0x12b)]=_0x1a2cc2[_0x1d14d4(0x12b)],yield this[_0x1d14d4(0x130)][_0x1d14d4(0xce)](_0x58aa5f);}}}let _0x3bdc6e=parseFloat(_0x1d14d4(0x88));const _0x2a9659=yield this[_0x1d14d4(0xf9)][_0x1d14d4(0x16e)]({'where':{'orderId':_0x12edfb,'vendorId':_0x4074b0}});_0xfbe72e[_0x1d14d4(0x7d)]=yield this['vendorInvoiceItemService'][_0x1d14d4(0x145)]({'where':{'vendorInvoiceId':_0x2a9659[_0x1d14d4(0x155)]},'select':[_0x1d14d4(0x12b),'vendorInvoiceId',_0x1d14d4(0xd3)]})['then'](_0x1483dc=>{const _0x31caff=_0x1d14d4,_0x529a47=_0x1483dc[_0x31caff(0xbf)](_0x227496=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x2a901f=_0x31caff,_0x599096=yield this[_0x2a901f(0x153)]['findOne']({'select':[_0x2a901f(0x12b),_0x2a901f(0x12e),_0x2a901f(0x121),_0x2a901f(0x131),_0x2a901f(0xa4),'productPrice',_0x2a901f(0xb6),'taxType',_0x2a901f(0xe2),_0x2a901f(0xc7),_0x2a901f(0x173),_0x2a901f(0x99),_0x2a901f(0x15f)],'where':{'orderProductId':_0x227496['orderProductId']}}),_0x5140fb=yield this['productService'][_0x2a901f(0x16e)]({'select':[_0x2a901f(0x126),_0x2a901f(0x117)],'where':{'productId':_0x599096[_0x2a901f(0x12e)]}}),_0x238d7a={};_0x238d7a[_0x2a901f(0xb6)]=_0x599096[_0x2a901f(0xb6)],_0x238d7a[_0x2a901f(0x96)]=_0x599096[_0x2a901f(0x96)],_0x238d7a[_0x2a901f(0xe2)]=_0x599096['taxValue'],_0x238d7a[_0x2a901f(0xc7)]=_0x599096[_0x2a901f(0xc7)],_0x238d7a[_0x2a901f(0x173)]=_0x599096[_0x2a901f(0x173)],_0x238d7a[_0x2a901f(0x15f)]=_0x599096['couponDiscountAmount'],_0x238d7a[_0x2a901f(0x126)]=_0x5140fb[_0x2a901f(0x126)],_0x238d7a[_0x2a901f(0x99)]=_0x599096['skuName'],_0x238d7a[_0x2a901f(0x117)]=_0x5140fb[_0x2a901f(0x117)];_0x238d7a[_0x2a901f(0x96)]===0x2?_0x238d7a[_0x2a901f(0x168)]=(+_0x599096[_0x2a901f(0xb6)]*(+_0x599096[_0x2a901f(0xe2)]/0x64))[_0x2a901f(0x107)](0x2):_0x238d7a[_0x2a901f(0x168)]=_0x599096[_0x2a901f(0xe2)];_0x238d7a['productId']=_0x599096[_0x2a901f(0x12e)],_0x238d7a[_0x2a901f(0x121)]=_0x599096['name'],_0x238d7a[_0x2a901f(0x131)]=_0x599096['quantity'],_0x238d7a[_0x2a901f(0xa4)]=_0x599096[_0x2a901f(0xa4)],_0x238d7a[_0x2a901f(0xaf)]=_0x599096['productPrice'];const _0x146232=_0x599096[_0x2a901f(0xa4)];return _0x3bdc6e+=parseFloat(_0x146232),_0x238d7a;})),_0xb9cb8d=Promise['all'](_0x529a47);return _0xb9cb8d;});const _0x450546=yield this[_0x1d14d4(0x176)][_0x1d14d4(0x16e)](),_0x3b8e7d=_0x450546;_0xfbe72e[_0x1d14d4(0x149)]=_0x20abb9,_0xfbe72e[_0x1d14d4(0x72)]=_0xfbe72e['currencyCode'],_0xfbe72e[_0x1d14d4(0x11f)]=_0xfbe72e['currencySymbolLeft'],_0xfbe72e['symbolRight']=_0xfbe72e[_0x1d14d4(0x174)],_0xfbe72e['invoiceNo']=_0x2a9659[_0x1d14d4(0xba)],_0xfbe72e[_0x1d14d4(0x152)]=_0x2a9659[_0x1d14d4(0x152)];let _0x71506c;_0xfbe72e[_0x1d14d4(0x72)]==='INR'?_0x71506c=new to_words_1[(_0x1d14d4(0xf6))]({'localeCode':_0x1d14d4(0x179)}):_0x71506c=new to_words_1[(_0x1d14d4(0xf6))]({'localeCode':_0x1d14d4(0xdd)});const _0x41e925=_0x71506c[_0x1d14d4(0x66)](_0x3bdc6e,{'currency':!![]});_0xfbe72e[_0x1d14d4(0x164)]=_0x41e925;let _0x2a9b72;env_1[_0x1d14d4(0xaa)]['imageserver']==='s3'?_0x2a9b72=yield this[_0x1d14d4(0xe4)][_0x1d14d4(0x120)](_0x3b8e7d['storeLogo'],_0x3b8e7d[_0x1d14d4(0x80)],'150','150'):_0x2a9b72=yield this[_0x1d14d4(0xc0)][_0x1d14d4(0x120)](_0x3b8e7d[_0x1d14d4(0xc3)],_0x3b8e7d[_0x1d14d4(0x80)],_0x1d14d4(0x144),_0x1d14d4(0x144));_0xfbe72e[_0x1d14d4(0x8d)]=_0x2a9b72;const _0x465325=yield this[_0x1d14d4(0xab)]['readHtmlToString'](_0x1d14d4(0xd6),_0xfbe72e),_0x1c4e1e='./Invoice_'+(_0x2a9659['invoiceNo']+_0x2a9659[_0x1d14d4(0xba)])+_0x1d14d4(0xa9);return yield this[_0x1d14d4(0xab)][_0x1d14d4(0x115)](_0x465325,_0x1c4e1e),new Promise((_0x1b2059,_0x45c487)=>{const _0xfe17a0=_0x1d14d4;_0x374f8f[_0xfe17a0(0x12d)](_0x1c4e1e,(_0x1da8b2,_0x3c51b1)=>{if(_0x1da8b2)_0x45c487(_0x1da8b2);else return fs['unlinkSync'](_0x1c4e1e),_0x374f8f['end']();});});});}['orderListtt'](_0x5b67af,_0x52d358,_0x3dbe43,_0x11aa33,_0x2dc4c8,_0x4977bb,_0xf63013,_0x4657e7,_0x539cd9,_0x5e0c35,_0x34778c,_0x4d321){const _0x12f397=a691_0x33fcaa;return tslib_1[_0x12f397(0x78)](this,void 0x0,void 0x0,function*(){const _0x58c025=_0x12f397,_0x5db94a=(0x0,moment_1[_0x58c025(0xea)])(_0x4977bb)[_0x58c025(0xdc)](0x5,_0x58c025(0x12f))[_0x58c025(0xdc)](0x1e,_0x58c025(0x111))['format']('YYYY-MM-DD\x20HH:mm:ss'),_0x26f35=_0xf63013+_0x58c025(0xb9),_0x2e5983=(0x0,moment_1[_0x58c025(0xea)])(_0x26f35)[_0x58c025(0xdc)](0x5,_0x58c025(0x12f))[_0x58c025(0xdc)](0x1e,'minutes')[_0x58c025(0xb8)]('YYYY-MM-DD\x20HH:mm:ss'),_0x2d419e=[_0x58c025(0x13a),_0x58c025(0x118),_0x58c025(0x6d),_0x58c025(0x10c),_0x58c025(0xd9),_0x58c025(0x77),'orderDetail.currencySymbolRight\x20as\x20currencySymbolRight',_0x58c025(0x127),'orderDetail.paymentStatus\x20as\x20paymentStatus',_0x58c025(0x10a),'VendorOrders.commission\x20as\x20commission',_0x58c025(0x146),_0x58c025(0x16a),'orderDetail.shippingCountry\x20as\x20shippingCountry',_0x58c025(0xad),'orderStatus.name\x20as\x20orderStatusName',_0x58c025(0xff),_0x58c025(0xe0)],_0x50a948=[{'tableName':_0x58c025(0x85),'aliasName':'orderDetail'},{'tableName':_0x58c025(0x15c),'aliasName':_0x58c025(0x149)},{'tableName':_0x58c025(0x175),'aliasName':_0x58c025(0xe5)},{'tableName':_0x58c025(0xa8),'aliasName':_0x58c025(0x15e)}],_0x3c461a=[],_0x225038=[];_0x225038[_0x58c025(0x90)]({'name':_0x58c025(0x14c),'op':_0x58c025(0x10e),'value':0x1},{'name':_0x58c025(0x15d),'op':_0x58c025(0x10e),'value':0x1},{'name':_0x58c025(0x67),'op':_0x58c025(0x10e),'value':0x0},{'name':_0x58c025(0x6b),'op':_0x58c025(0x91),'sign':'!=','value':0x1});_0x11aa33&&_0x11aa33!==undefined&&_0x225038[_0x58c025(0x90)]({'name':_0x58c025(0xa2),'op':'IN','value':_0x11aa33[_0x58c025(0xcb)](',')});_0x2dc4c8&&_0x2dc4c8!==undefined&&_0x225038[_0x58c025(0x90)]({'name':_0x58c025(0x110),'op':'IN','value':_0x2dc4c8[_0x58c025(0xcb)](',')});_0x4977bb&&_0x4977bb!==''&&_0x225038[_0x58c025(0x90)]({'name':_0x58c025(0x15a),'op':_0x58c025(0x91),'sign':'>=','value':_0x5db94a});_0xf63013&&_0xf63013!==''&&_0x225038['push']({'name':_0x58c025(0x15a),'op':'raw','sign':'<=','value':_0x2e5983});_0x4657e7&&_0x4657e7!==''&&_0x225038[_0x58c025(0x90)]({'name':'`VendorOrders`.`total`','op':_0x58c025(0x91),'sign':'>=','value':_0x4657e7});_0x539cd9&&_0x539cd9!==''&&_0x225038[_0x58c025(0x90)]({'name':_0x58c025(0xf8),'op':_0x58c025(0x91),'sign':'<=','value':_0x539cd9});const _0x2fb6ff=[];_0x3dbe43&&_0x3dbe43!==''&&_0x2fb6ff['push']({'name':[_0x58c025(0xe1),_0x58c025(0xd1)],'value':_0x3dbe43[_0x58c025(0x13e)]()});const _0x35a571=[];_0x35a571[_0x58c025(0x90)]({'name':_0x58c025(0x158),'order':_0x58c025(0x8e)});if(_0x5e0c35){const _0x6e742=yield this[_0x58c025(0x135)][_0x58c025(0x113)](_0x5b67af,_0x52d358,_0x2d419e,_0x225038,_0x2fb6ff,_0x50a948,_0x3c461a,_0x35a571,!![],!![]),_0x35ba54={'status':0x1,'message':_0x58c025(0x10b),'data':_0x6e742};return _0x4d321[_0x58c025(0xf0)](0xc8)[_0x58c025(0x92)](_0x35ba54);}const _0x4b9ba3=yield this[_0x58c025(0x135)][_0x58c025(0x113)](_0x5b67af,_0x52d358,_0x2d419e,_0x225038,_0x2fb6ff,_0x50a948,_0x3c461a,_0x35a571,![],!![]),_0x3ae71a=_0x4b9ba3['map'](_0x42daac=>tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x1930f7=_0x58c025,_0x3833ea=_0x42daac,_0x53a58a=_0x42daac[_0x1930f7(0x122)]&&_0x42daac[_0x1930f7(0x122)]>0x0?_0x42daac[_0x1930f7(0x122)]:0x0,_0x4adb2b=_0x42daac[_0x1930f7(0xa4)]*(_0x53a58a/0x64);return _0x3833ea[_0x1930f7(0xd7)]=_0x4adb2b[_0x1930f7(0x107)](0x2),_0x3833ea[_0x1930f7(0x142)]=_0x42daac[_0x1930f7(0xa4)]-_0x3833ea[_0x1930f7(0xd7)],_0x3833ea;})),_0x2341a4=yield Promise[_0x58c025(0x9b)](_0x3ae71a),_0xf8346e={'status':0x1,'message':'Successfully\x20got\x20the\x20complete\x20order\x20list.','data':_0x2341a4};return _0x4d321[_0x58c025(0xf0)](0xc8)[_0x58c025(0x92)](_0xf8346e);});}};tslib_1[a691_0x33fcaa(0xee)]([(0x0,routing_controllers_1['Get'])(),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a691_0x33fcaa(0xbb)](0x0,(0x0,routing_controllers_1['QueryParam'])(a691_0x33fcaa(0xe3))),tslib_1['__param'](0x1,(0x0,routing_controllers_1['QueryParam'])('offset')),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])(a691_0x33fcaa(0x6a))),tslib_1[a691_0x33fcaa(0xbb)](0x3,(0x0,routing_controllers_1['QueryParam'])(a691_0x33fcaa(0x128))),tslib_1[a691_0x33fcaa(0xbb)](0x4,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])(a691_0x33fcaa(0x76))),tslib_1['__param'](0x5,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])(a691_0x33fcaa(0x14d))),tslib_1[a691_0x33fcaa(0xbb)](0x6,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])('vendorName')),tslib_1[a691_0x33fcaa(0xbb)](0x7,(0x0,routing_controllers_1[a691_0x33fcaa(0xa7)])()),tslib_1[a691_0x33fcaa(0xbb)](0x8,(0x0,routing_controllers_1[a691_0x33fcaa(0xac)])()),tslib_1['__metadata'](a691_0x33fcaa(0x163),Function),tslib_1[a691_0x33fcaa(0x100)]('design:paramtypes',[Number,Number,String,String,String,Object,String,Object,Object]),tslib_1[a691_0x33fcaa(0x100)](a691_0x33fcaa(0x86),Promise)],VendorAdminOrderController[a691_0x33fcaa(0x165)],a691_0x33fcaa(0xb1),null),tslib_1[a691_0x33fcaa(0xee)]([(0x0,routing_controllers_1['Get'])(a691_0x33fcaa(0xa3)),(0x0,routing_controllers_1[a691_0x33fcaa(0x10f)])(),tslib_1[a691_0x33fcaa(0xbb)](0x0,(0x0,routing_controllers_1['QueryParam'])(a691_0x33fcaa(0xb3))),tslib_1[a691_0x33fcaa(0xbb)](0x1,(0x0,routing_controllers_1[a691_0x33fcaa(0xa7)])()),tslib_1['__param'](0x2,(0x0,routing_controllers_1[a691_0x33fcaa(0xac)])()),tslib_1[a691_0x33fcaa(0x100)]('design:type',Function),tslib_1['__metadata'](a691_0x33fcaa(0x16f),[Number,Object,Object]),tslib_1['__metadata']('design:returntype',Promise)],VendorAdminOrderController['prototype'],a691_0x33fcaa(0xbe),null),tslib_1[a691_0x33fcaa(0xee)]([(0x0,routing_controllers_1['Get'])(a691_0x33fcaa(0xed)),(0x0,routing_controllers_1['Authorized'])([a691_0x33fcaa(0xc4),'list-sales']),tslib_1[a691_0x33fcaa(0xbb)](0x0,(0x0,routing_controllers_1['QueryParam'])(a691_0x33fcaa(0x139))),tslib_1[a691_0x33fcaa(0xbb)](0x1,(0x0,routing_controllers_1[a691_0x33fcaa(0xac)])()),tslib_1['__metadata'](a691_0x33fcaa(0x163),Function),tslib_1[a691_0x33fcaa(0x100)]('design:paramtypes',[Number,Object]),tslib_1['__metadata']('design:returntype',Promise)],VendorAdminOrderController[a691_0x33fcaa(0x165)],'orderLogList',null),tslib_1[a691_0x33fcaa(0xee)]([(0x0,routing_controllers_1[a691_0x33fcaa(0x11b)])('/:orderId'),(0x0,routing_controllers_1['Authorized'])(),tslib_1[a691_0x33fcaa(0xbb)](0x0,(0x0,routing_controllers_1[a691_0x33fcaa(0xa0)])(a691_0x33fcaa(0xb3))),tslib_1[a691_0x33fcaa(0xbb)](0x1,(0x0,routing_controllers_1[a691_0x33fcaa(0xfa)])(a691_0x33fcaa(0x109))),tslib_1[a691_0x33fcaa(0xbb)](0x2,(0x0,routing_controllers_1[a691_0x33fcaa(0xa7)])()),tslib_1['__param'](0x3,(0x0,routing_controllers_1['Res'])()),tslib_1[a691_0x33fcaa(0x100)](a691_0x33fcaa(0x163),Function),tslib_1[a691_0x33fcaa(0x100)]('design:paramtypes',[Number,Number,Object,Object]),tslib_1[a691_0x33fcaa(0x100)](a691_0x33fcaa(0x86),Promise)],VendorAdminOrderController[a691_0x33fcaa(0x165)],a691_0x33fcaa(0x141),null),tslib_1[a691_0x33fcaa(0xee)]([(0x0,routing_controllers_1['Get'])(a691_0x33fcaa(0x64)),(0x0,routing_controllers_1[a691_0x33fcaa(0x10f)])(),tslib_1[a691_0x33fcaa(0xbb)](0x0,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])(a691_0x33fcaa(0xb3))),tslib_1[a691_0x33fcaa(0xbb)](0x1,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])(a691_0x33fcaa(0x16d))),tslib_1[a691_0x33fcaa(0xbb)](0x2,(0x0,routing_controllers_1[a691_0x33fcaa(0xa7)])()),tslib_1[a691_0x33fcaa(0xbb)](0x3,(0x0,routing_controllers_1[a691_0x33fcaa(0xac)])()),tslib_1[a691_0x33fcaa(0x100)](a691_0x33fcaa(0x163),Function),tslib_1['__metadata'](a691_0x33fcaa(0x16f),[Number,Number,Object,Object]),tslib_1['__metadata'](a691_0x33fcaa(0x86),Promise)],VendorAdminOrderController[a691_0x33fcaa(0x165)],a691_0x33fcaa(0xc1),null),tslib_1[a691_0x33fcaa(0xee)]([(0x0,routing_controllers_1[a691_0x33fcaa(0x82)])(a691_0x33fcaa(0xb2)),(0x0,routing_controllers_1['Authorized'])([a691_0x33fcaa(0xc4),a691_0x33fcaa(0x75)]),tslib_1[a691_0x33fcaa(0xbb)](0x0,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])('limit')),tslib_1[a691_0x33fcaa(0xbb)](0x1,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])(a691_0x33fcaa(0x81))),tslib_1[a691_0x33fcaa(0xbb)](0x2,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])('keyword')),tslib_1[a691_0x33fcaa(0xbb)](0x3,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])('vendorIds')),tslib_1[a691_0x33fcaa(0xbb)](0x4,(0x0,routing_controllers_1['QueryParam'])(a691_0x33fcaa(0x15e))),tslib_1[a691_0x33fcaa(0xbb)](0x5,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])(a691_0x33fcaa(0x128))),tslib_1[a691_0x33fcaa(0xbb)](0x6,(0x0,routing_controllers_1['QueryParam'])(a691_0x33fcaa(0x76))),tslib_1[a691_0x33fcaa(0xbb)](0x7,(0x0,routing_controllers_1['QueryParam'])('amountFrom')),tslib_1[a691_0x33fcaa(0xbb)](0x8,(0x0,routing_controllers_1['QueryParam'])(a691_0x33fcaa(0x166))),tslib_1[a691_0x33fcaa(0xbb)](0x9,(0x0,routing_controllers_1[a691_0x33fcaa(0x7b)])(a691_0x33fcaa(0x14d))),tslib_1[a691_0x33fcaa(0xbb)](0xa,(0x0,routing_controllers_1[a691_0x33fcaa(0xa7)])()),tslib_1[a691_0x33fcaa(0xbb)](0xb,(0x0,routing_controllers_1[a691_0x33fcaa(0xac)])()),tslib_1['__metadata'](a691_0x33fcaa(0x163),Function),tslib_1[a691_0x33fcaa(0x100)]('design:paramtypes',[Number,Number,String,String,String,String,String,String,String,Object,Object,Object]),tslib_1[a691_0x33fcaa(0x100)](a691_0x33fcaa(0x86),Promise)],VendorAdminOrderController[a691_0x33fcaa(0x165)],a691_0x33fcaa(0x143),null),VendorAdminOrderController=tslib_1[a691_0x33fcaa(0xee)]([(0x0,routing_controllers_1[a691_0x33fcaa(0xc6)])(a691_0x33fcaa(0x154)),tslib_1[a691_0x33fcaa(0x100)](a691_0x33fcaa(0x16f),[VendorOrderService_1[a691_0x33fcaa(0xd2)],OrderService_1[a691_0x33fcaa(0xdb)],OrderProductService_1[a691_0x33fcaa(0xd4)],VendorService_1[a691_0x33fcaa(0xcf)],ProductService_1[a691_0x33fcaa(0x11d)],ProductImageService_1['ProductImageService'],VendorOrderLogService_1['VendorOrderLogService'],OrderStatusService_1[a691_0x33fcaa(0x140)],PdfService_1[a691_0x33fcaa(0xe6)],SettingService_1[a691_0x33fcaa(0x73)],S3Service_1['S3Service'],VendorInvoiceService_1[a691_0x33fcaa(0x9a)],VendorInvoiceItemService_1['VendorInvoiceItemService'],VendorProductService_1[a691_0x33fcaa(0x6c)],ImageService_1[a691_0x33fcaa(0xfe)],CustomerService_1[a691_0x33fcaa(0x132)]])],VendorAdminOrderController),exports[a691_0x33fcaa(0x13c)]=VendorAdminOrderController;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VendorAdminOrderController = void 0;
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const routing_controllers_1 = require("routing-controllers");
+const VendorOrderService_1 = require("../../core/services/VendorOrderService");
+const OrderService_1 = require("../../core/services/OrderService");
+const ProductService_1 = require("../../core/services/ProductService");
+const ProductImageService_1 = require("../../core/services/ProductImageService");
+const VendorService_1 = require("../../core/services/VendorService");
+const OrderProductService_1 = require("../../core/services/OrderProductService");
+const OrderStatusService_1 = require("../../core/services/OrderStatusService");
+const VendorOrderLogService_1 = require("../../core/services/VendorOrderLogService");
+const PdfService_1 = require("../../core/services/PdfService");
+const S3Service_1 = require("../../core/services/S3Service");
+const ImageService_1 = require("../../core/services/ImageService");
+const SettingService_1 = require("../../core/services/SettingService");
+const VendorInvoiceService_1 = require("../../core/services/VendorInvoiceService");
+const VendorInvoiceItemService_1 = require("../../core/services/VendorInvoiceItemService");
+const VendorProductService_1 = require("../../core/services/VendorProductService");
+const VendorInvoiceItem_1 = require("../../core/models/VendorInvoiceItem");
+const VendorInvoice_1 = require("../../core/models/VendorInvoice");
+const env_1 = require("../../../env");
+const to_words_1 = require("to-words");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+const CustomerService_1 = require("../../core/services/CustomerService");
+const fs = tslib_1.__importStar(require("fs"));
+let VendorAdminOrderController = class VendorAdminOrderController {
+    constructor(vendorOrdersService, orderService, orderProductService, vendorService, productService, productImageService, vendorOrderLogService, orderStatusService, pdfService, settingService, s3Service, vendorInvoiceService, vendorInvoiceItemService, vendorProductService, imageService, customerService) {
+        this.vendorOrdersService = vendorOrdersService;
+        this.orderService = orderService;
+        this.orderProductService = orderProductService;
+        this.vendorService = vendorService;
+        this.productService = productService;
+        this.productImageService = productImageService;
+        this.vendorOrderLogService = vendorOrderLogService;
+        this.orderStatusService = orderStatusService;
+        this.pdfService = pdfService;
+        this.settingService = settingService;
+        this.s3Service = s3Service;
+        this.vendorInvoiceService = vendorInvoiceService;
+        this.vendorInvoiceItemService = vendorInvoiceItemService;
+        this.vendorProductService = vendorProductService;
+        this.imageService = imageService;
+        this.customerService = customerService;
+    }
+    // order List API
+    /**
+     * @api {get} /api/admin-vendor-order Order List API
+     * @apiGroup Admin Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} customerName search by customerName
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {Number} count count should be number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get order list",
+     *      "data":{
+     *      "orderId" : "",
+     *      "orderStatusId" : "",
+     *      "customerName" : "",
+     *      "totalAmount" : "",
+     *      "dateModified" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-vendor-order
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderList(limit, offset, customerName, orderPrefixId, startDate, endDate, count, vendorName, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // const startDateMin = moment(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const date = endDate + ' 23:59:59';
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const select = [
+                'MAX(customer.firstName) as vendorNames',
+                'orderDetail.customerId as customerId',
+                'orderDetail.createdDate as createdDate',
+                'MAX(orderDetail.orderId) as orderId',
+                'orderDetail.total as total',
+                'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                'orderDetail.currencySymbolRight as currencySymbolRight',
+                'orderDetail.orderPrefixId as orderPrefixId',
+                'orderDetail.orderStatusId as orderStatusId',
+                'orderDetail.shippingFirstname as shippingFirstName',
+                'orderDetail.shippingCity as shippingCity',
+                'orderDetail.shippingCountry as shippingCountry'
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                },
+                {
+                    tableName: 'VendorOrders.vendor',
+                    aliasName: 'vendor',
+                },
+                {
+                    tableName: 'vendor.customer',
+                    aliasName: 'customer',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'VendorOrders.order_id',
+                },
+            ];
+            const whereConditions = [];
+            // if (startDate && startDate !== '') {
+            //     whereConditions.push({
+            //         name: '`orderDetail`.`created_date`',
+            //         op: 'raw',
+            //         sign: '>=',
+            //         value: startDateMin,
+            //     });
+            // }
+            whereConditions.push({
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            });
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`orderDetail`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDateMin,
+                });
+            }
+            const searchConditions = [];
+            if (customerName && customerName !== '') {
+                searchConditions.push({
+                    name: ['shipping_firstname'],
+                    value: customerName.toLowerCase(),
+                });
+            }
+            if (startDate && startDate !== '') {
+                searchConditions.push({
+                    name: ['`orderDetail`.`created_date`'],
+                    value: startDate.toLowerCase(),
+                });
+            }
+            if (orderPrefixId && orderPrefixId !== '') {
+                searchConditions.push({
+                    name: ['orderDetail.orderPrefixId'],
+                    value: orderPrefixId.toLowerCase(),
+                });
+            }
+            if (vendorName && vendorName !== '') {
+                searchConditions.push({
+                    name: ['customer.firstName'],
+                    value: vendorName.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'orderDetail.createdDate',
+                order: 'DESC',
+            });
+            const orderList = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, count, true);
+            if (count) {
+                const Response = {
+                    status: 1,
+                    message: 'Successfully got count.',
+                    data: orderList,
+                };
+                return response.status(200).send(Response);
+            }
+            const orderStatus = orderList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const status = yield this.orderStatusService.findOne({
+                    where: { orderStatusId: value.orderStatusId },
+                    select: ['orderStatusId', 'name', 'colorCode'],
+                });
+                const vendorOrders = yield this.vendorOrdersService.findAll({
+                    where: { orderId: value.orderId },
+                });
+                const vendorCount = yield this.vendorOrdersService.findVendorCount(value.orderId);
+                const temp = value;
+                temp.orderStatus = status;
+                temp.productCount = vendorOrders.length;
+                temp.vendorCount = vendorCount.vendorCount;
+                const vendorsName = yield this.vendorOrdersService.findVendors(value.orderId);
+                const vendorMapping = vendorsName.map((values) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const vendorCustomer = yield this.vendorService.findOne({
+                        where: {
+                            vendorId: values.vendorId,
+                        },
+                    });
+                    const customerNames = yield this.customerService.findOne({
+                        where: {
+                            id: vendorCustomer.customerId,
+                        },
+                    });
+                    const vendorNames = customerNames.firstName;
+                    return vendorNames;
+                }));
+                const result = yield Promise.all(vendorMapping);
+                temp.vendorName = result;
+                return temp;
+            }));
+            const results = yield Promise.all(orderStatus);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete order list.',
+                data: results,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    //  Order Detail API
+    /**
+     * @api {get} /api/admin-vendor-order/order-detail  Order Detail API
+     * @apiGroup Admin Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} orderId Order Id
+     * @apiParamExample {json} Input
+     * {
+     *      "orderId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the Order Detail..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/admin-vendor-order/order-detail
+     * @apiErrorExample {json} Order Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Detail Function
+    orderDetail(orderid, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderData = yield this.orderService.findOrder({
+                where: { orderId: orderid }, select: ['orderId', 'orderStatusId', 'customerId', 'email', 'telephone', 'invoiceNo', 'invoicePrefix', 'orderPrefixId', 'shippingFirstname', 'shippingLastname', 'shippingAddress1',
+                    'shippingAddress2', 'shippingCity', 'email', 'shippingZone', 'shippingPostcode', 'shippingCountry', 'customerId', 'createdDate', 'currencyCode', 'currencySymbolLeft', 'currencySymbolRight', 'paymentStatus', 'paymentFlag'],
+            });
+            orderData.productList = yield this.vendorOrdersService.findAll({ where: { orderId: orderid }, select: ['vendorOrderId', 'orderId', 'vendorId', 'subOrderId', 'subOrderStatusId', 'orderProductId', 'total'] }).then((val) => {
+                const productVal = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const tempVal = value;
+                    const vendor = yield this.vendorService.findOne({
+                        where: { vendorId: value.vendorId },
+                        select: ['customerId', 'companyName', 'companyAddress1', 'companyAddress2', 'companyCity', 'companyState', 'companyCountryId'],
+                    });
+                    const vendorOrderProduct = yield this.orderProductService.find({ select: ['orderProductId', 'productId', 'name', 'quantity', 'total', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'orderProductPrefixId', 'skuName'], where: { orderProductId: value.orderProductId } });
+                    for (const product of vendorOrderProduct) {
+                        const productImage = yield this.productImageService.findOne({
+                            where: { productId: product.productId, defaultImage: 1 },
+                            select: ['image', 'containerName'],
+                        });
+                        const productDetail = yield this.productService.findOne({
+                            where: { productId: product.productId },
+                            select: ['sku'],
+                        });
+                        tempVal.basePrice = product.basePrice;
+                        tempVal.taxType = product.taxType;
+                        tempVal.taxValue = product.taxValue;
+                        if (product.taxType === 2) {
+                            tempVal.taxValueInAmount = +product.basePrice * ((+product.taxValue) / 100);
+                        }
+                        else {
+                            tempVal.taxValueInAmount = product.taxValue;
+                        }
+                        tempVal.productId = product.productId;
+                        tempVal.name = product.name;
+                        tempVal.quantity = product.quantity;
+                        tempVal.total = product.total;
+                        if (productImage) {
+                            tempVal.image = productImage.image;
+                            tempVal.containerName = productImage.containerName;
+                        }
+                        tempVal.sku = productDetail.sku;
+                        tempVal.discountAmount = product.discountAmount;
+                        tempVal.discountedAmount = product.discountedAmount;
+                        tempVal.couponDiscountAmount = product.couponDiscountAmount;
+                        tempVal.skuName = product.skuName;
+                    }
+                    tempVal.companyName = vendor.companyName;
+                    tempVal.companyAddress1 = vendor.companyAddress1;
+                    tempVal.companyAddress2 = vendor.companyAddress2;
+                    tempVal.companyCity = vendor.companyCity;
+                    tempVal.companyState = vendor.companyState;
+                    let total = 0;
+                    for (const id of vendorOrderProduct) {
+                        const OrderProductTotal = yield this.orderProductService.findOne({ select: ['total', 'discountAmount', 'discountedAmount', 'couponDiscountAmount'], where: { orderProductId: id.orderProductId } });
+                        total += +OrderProductTotal.total;
+                    }
+                    const subOrderStatus = yield this.orderStatusService.findOne({
+                        where: { orderStatusId: value.subOrderStatusId },
+                        select: ['name', 'colorCode'],
+                    });
+                    if (subOrderStatus) {
+                        tempVal.subOrderStatusName = subOrderStatus.name;
+                        tempVal.subOrderStatusColorCode = subOrderStatus.colorCode;
+                    }
+                    tempVal.vendorOrderTotal = total;
+                    return tempVal;
+                }));
+                const results = Promise.all(productVal);
+                return results;
+            });
+            const orderStatusData = yield this.orderStatusService.findOne({
+                where: { orderStatusId: orderData.orderStatusId },
+                select: ['name', 'colorCode'],
+            });
+            orderData.orderStatusName = orderStatusData === null || orderStatusData === void 0 ? void 0 : orderStatusData.name;
+            orderData.statusColorCode = orderStatusData === null || orderStatusData === void 0 ? void 0 : orderStatusData.colorCode;
+            const productData = orderData.productList;
+            let ttl = 0;
+            for (const id of productData) {
+                const OrderProductTotal = yield this.orderProductService.findOne({ select: ['total', 'discountAmount', 'discountedAmount', 'couponDiscountAmount'], where: { orderProductId: id.orderProductId } });
+                ttl += +OrderProductTotal.total;
+            }
+            orderData.total = ttl;
+            const successResponse = {
+                status: 1,
+                message: 'Successfully shown the order Detail. ',
+                data: orderData,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // vendor order log List API
+    /**
+     * @api {get} /api/admin-vendor-order/vendor-order-log-list Vendor Order Log List API
+     * @apiGroup Admin Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorOrderId vendorOrderId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got vendor order log list",
+     *      "data":{
+     *      "orderId" : "",
+     *      "orderStatusId" : "",
+     *      "customerName" : "",
+     *      "totalAmount" : "",
+     *      "dateAdded" : "",
+     *      "dateModified" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-vendor-order/vendor-order-log-list
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderLogList(vendorOrderId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = ['vendorOrderLogId', 'vendorId', 'vendorOrderId', 'orderId', 'subOrderId', 'subOrderStatusId', 'createdDate', 'modifiedDate'];
+            const WhereConditions = [
+                {
+                    name: 'vendorOrderId',
+                    op: 'where',
+                    value: vendorOrderId,
+                },
+            ];
+            const orderList = yield this.vendorOrderLogService.list(0, 0, select, WhereConditions, 0);
+            const orderStatuss = yield this.orderStatusService.findAll({ select: ['orderStatusId', 'name'], where: { isActive: 1 }, orderBy: { priority: 'ASC' } });
+            const order = orderStatuss.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const user = orderList.find(item => item.subOrderStatusId === value.orderStatusId);
+                const temp = value;
+                if (user === undefined) {
+                    temp.createdDate = '';
+                }
+                else {
+                    temp.createdDate = user.createdDate;
+                }
+                return temp;
+            }));
+            const result = yield Promise.all(order);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete Vendor Order Status Log list.',
+                data: result,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Make Archive/revoke  API
+    /**
+     * @api {put} /api/admin-vendor-order/:orderId Make Archive/revoke API
+     * @apiGroup Admin vendor
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} archiveFlag archive flag should should be 1 or 0
+     * @apiParamExample {json} Input
+     * {
+     *      "archiveFlag" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully .",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-vendor/:orderId
+     * @apiErrorExample {json} vendor approval error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    makeArchive(orderId, archiveFlag, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const order = yield this.orderService.findOne({
+                where: {
+                    orderId,
+                },
+            });
+            if (!order) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid order Id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            order.makeArchive = archiveFlag;
+            const orderSave = yield this.orderService.create(order);
+            if (archiveFlag === 0) {
+                const sucResponse = {
+                    status: 1,
+                    message: 'Successfully Revoked this order.',
+                    data: orderSave,
+                };
+                return response.status(200).send(sucResponse);
+            }
+            else {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully Archived this product.',
+                    data: orderSave,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    //  Order Export PDF API
+    /**
+     * @api {get} /api/admin-vendor-order/order-export-pdf  Order Export PDF API
+     * @apiGroup Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} orderId Order Id
+     * @apiParam (Request body) {Number} vendorId vendorId
+     * @apiParamExample {json} Input
+     * {
+     *      "orderId" : "",
+     *      "vendorId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the Order Detail..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/admin-vendor-order/order-export-pdf
+     * @apiErrorExample {json} Order Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Detail Function
+    orderExportPdf(orderId, vendorId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderData = yield this.orderService.findOrder({
+                where: { orderId }, select: ['orderId', 'invoicePrefix', 'telephone', 'orderPrefixId', 'customerGstNo', 'shippingFirstname', 'shippingLastname', 'shippingCompany', 'shippingAddress1', 'shippingAddress2', 'shippingCity',
+                    'shippingPostcode', 'shippingCountry', 'shippingZone', 'paymentFirstname', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity', 'telephone',
+                    'paymentPostcode', 'paymentCountry', 'paymentZone', 'createdDate', 'currencyCode', 'currencySymbolLeft', 'currencySymbolRight'],
+            });
+            if (!orderData) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Order Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const vendor = yield this.vendorService.findOne({ where: { vendorId } });
+            if (!vendor) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Vendor Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const invoice = yield this.vendorInvoiceService.findOne({ where: { orderId, vendorId } });
+            if (!invoice) {
+                const orderProducts = yield this.orderProductService.find({ select: ['orderProductId', 'productId', 'name', 'quantity', 'total', 'productPrice', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'skuName', 'couponDiscountAmount'], where: { orderId } });
+                for (const orderProduct of orderProducts) {
+                    const val = yield this.vendorProductService.findOne({ where: { productId: orderProduct.productId } });
+                    if (val !== undefined) {
+                        const newVendorInvoice = new VendorInvoice_1.VendorInvoice();
+                        newVendorInvoice.vendorId = val.vendorId;
+                        newVendorInvoice.invoicePrefix = orderData.invoicePrefix;
+                        newVendorInvoice.orderId = orderData.orderId;
+                        newVendorInvoice.email = orderData.email;
+                        newVendorInvoice.total = 0;
+                        newVendorInvoice.shippingFirstname = orderData.shippingFirstname;
+                        newVendorInvoice.shippingLastname = orderData.shippingLastname;
+                        yield this.vendorInvoiceService.create(newVendorInvoice);
+                        const vendorInvoiceData = yield this.vendorInvoiceService.findOne({ where: { vendorId: val.vendorId, orderId: orderData.orderId } });
+                        vendorInvoiceData.total = vendorInvoiceData.total + +orderProduct.total;
+                        const stringPad = String(vendorInvoiceData.vendorInvoiceId).padStart(5, '0');
+                        vendorInvoiceData.invoiceNo = 'INV'.concat(stringPad);
+                        yield this.vendorInvoiceService.create(vendorInvoiceData);
+                        const newVendorInvoiceItem = new VendorInvoiceItem_1.VendorInvoiceItem();
+                        newVendorInvoiceItem.vendorInvoiceId = vendorInvoiceData.vendorInvoiceId;
+                        newVendorInvoiceItem.orderProductId = orderProduct.orderProductId;
+                        yield this.vendorInvoiceItemService.create(newVendorInvoiceItem);
+                    }
+                }
+            }
+            let amount = parseFloat('0.00');
+            const invoiceData = yield this.vendorInvoiceService.findOne({ where: { orderId, vendorId } });
+            orderData.productList = yield this.vendorInvoiceItemService.findAll({ where: { vendorInvoiceId: invoiceData.vendorInvoiceId }, select: ['orderProductId', 'vendorInvoiceId', 'vendorInvoiceItemId'] }).then((val) => {
+                const productVal = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const vendorOrderProduct = yield this.orderProductService.findOne({ select: ['orderProductId', 'productId', 'name', 'quantity', 'total', 'productPrice', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'skuName', 'couponDiscountAmount'], where: { orderProductId: value.orderProductId } });
+                    const product = yield this.productService.findOne({ select: ['sku', 'hsn'], where: { productId: vendorOrderProduct.productId } });
+                    const obj = {};
+                    obj.basePrice = vendorOrderProduct.basePrice;
+                    obj.taxType = vendorOrderProduct.taxType;
+                    obj.taxValue = vendorOrderProduct.taxValue;
+                    obj.discountAmount = vendorOrderProduct.discountAmount;
+                    obj.discountedAmount = vendorOrderProduct.discountedAmount;
+                    obj.couponDiscountAmount = vendorOrderProduct.couponDiscountAmount;
+                    obj.sku = product.sku;
+                    obj.skuName = vendorOrderProduct.skuName;
+                    obj.hsn = product.hsn;
+                    if (obj.taxType === 2) {
+                        obj.taxValueInAmount = (+vendorOrderProduct.basePrice * ((+vendorOrderProduct.taxValue) / 100)).toFixed(2);
+                    }
+                    else {
+                        obj.taxValueInAmount = vendorOrderProduct.taxValue;
+                    }
+                    obj.productId = vendorOrderProduct.productId;
+                    obj.name = vendorOrderProduct.name;
+                    obj.quantity = vendorOrderProduct.quantity;
+                    obj.total = vendorOrderProduct.total;
+                    obj.productPrice = vendorOrderProduct.productPrice;
+                    const amt = vendorOrderProduct.total;
+                    amount += parseFloat(amt);
+                    return obj;
+                }));
+                const results = Promise.all(productVal);
+                return results;
+            });
+            const settings = yield this.settingService.findOne();
+            const settingDetails = settings;
+            orderData.vendor = vendor;
+            orderData.currencyCode = orderData.currencyCode;
+            orderData.symbolLeft = orderData.currencySymbolLeft;
+            orderData.symbolRight = orderData.currencySymbolRight;
+            orderData.invoiceNo = invoiceData.invoiceNo;
+            orderData.invoicePrefix = invoiceData.invoicePrefix;
+            let toWords;
+            if (orderData.currencyCode === 'INR') {
+                toWords = new to_words_1.ToWords({ localeCode: 'en-IN' });
+            }
+            else {
+                toWords = new to_words_1.ToWords({ localeCode: 'en-US' });
+            }
+            const words = toWords.convert(amount, { currency: true });
+            orderData.currencyInWords = words;
+            let image;
+            if (env_1.env.imageserver === 's3') {
+                image = yield this.s3Service.resizeImageBase64(settingDetails.storeLogo, settingDetails.storeLogoPath, '150', '150');
+            }
+            else {
+                image = yield this.imageService.resizeImageBase64(settingDetails.storeLogo, settingDetails.storeLogoPath, '150', '150');
+            }
+            orderData.logo = image;
+            const htmlData = yield this.pdfService.readHtmlToString('vendor-invoice', orderData);
+            const pathName = `./Invoice_${invoiceData.invoiceNo + invoiceData.invoiceNo}.pdf`;
+            yield this.pdfService.htmlPdf(htmlData, pathName);
+            return new Promise((resolve, reject) => {
+                response.download(pathName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(pathName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
+    // Vendor Order List API
+    /**
+     * @api {get} /api/admin-vendor-order/vendor-order-list  Vendor Order list API
+     * @apiGroup Admin Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword search by orderId, company name
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} amountFrom search by starting amount
+     * @apiParam (Request body) {String} amountTo search by ending Amount
+     * @apiParam (Request body) {String} vendorIds search by vendorIds
+     * @apiParam (Request body) {String} orderStatus search by orderStatus
+     * @apiParam (Request body) {String} count count
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully got order list",
+     *      "data":{
+     *      "orderId" : "",
+     *      "orderStatusId" : "",
+     *      "customerName" : "",
+     *      "totalAmount" : "",
+     *      "dateModified" : "",
+     *      "status" : "",
+     *      }
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-vendor-order/vendor-order-list
+     * @apiErrorExample {json} order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderListtt(limit, offset, keyword, vendorIds, orderStatus, startDate, endDate, amountFrom, amountTo, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const date = endDate + ' 23:59:59';
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const select = [
+                'VendorOrders.vendorOrderId as vendorOrderId',
+                'VendorOrders.orderId as orderId',
+                'VendorOrders.vendorId as vendorId',
+                'VendorOrders.subOrderId as subOrderId',
+                'orderDetail.createdDate as createdDate',
+                'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                'orderDetail.currencySymbolRight as currencySymbolRight',
+                'orderDetail.shippingFirstname as customerFirstName',
+                'orderDetail.paymentStatus as paymentStatus',
+                'VendorOrders.total as total',
+                'VendorOrders.commission as commission',
+                'orderDetail.isActive as isActive',
+                'orderDetail.shippingCity as shippingCity',
+                'orderDetail.shippingCountry as shippingCountry',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                'orderStatus.name as orderStatusName',
+                'orderStatus.colorCode as orderColorCode',
+                'vendor.companyName as companyName'
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                },
+                {
+                    tableName: 'VendorOrders.vendor',
+                    aliasName: 'vendor',
+                },
+                {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+                {
+                    tableName: 'VendorOrders.orderStatus',
+                    aliasName: 'orderStatus',
+                },
+            ];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderDetail.paymentStatus',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'VendorOrders.makeSettlement',
+                op: 'and',
+                value: 0,
+            }, {
+                name: 'orderProduct.cancelRequestStatus',
+                op: 'raw',
+                sign: '!=',
+                value: 1,
+            });
+            if (vendorIds && vendorIds !== undefined) {
+                whereConditions.push({
+                    name: 'vendor.vendorId',
+                    op: 'IN',
+                    value: vendorIds.split(','),
+                });
+            }
+            if (orderStatus && orderStatus !== undefined) {
+                whereConditions.push({
+                    name: 'VendorOrders.subOrderStatusId',
+                    op: 'IN',
+                    value: orderStatus.split(','),
+                });
+            }
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`orderDetail`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDateMin,
+                });
+            }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`orderDetail`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDateMin,
+                });
+            }
+            if (amountFrom && amountFrom !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`total`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: amountFrom,
+                });
+            }
+            if (amountTo && amountTo !== '') {
+                whereConditions.push({
+                    name: '`VendorOrders`.`total`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: amountTo,
+                });
+            }
+            const searchConditions = [];
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['vendor.companyName', 'orderProduct.orderProductPrefixId'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            const sort = [];
+            sort.push({
+                name: 'orderDetail.createdDate',
+                order: 'DESC',
+            });
+            if (count) {
+                const orderCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+                const successCount = {
+                    status: 1,
+                    message: 'Successfully got the vendor order count.',
+                    data: orderCount,
+                };
+                return response.status(200).send(successCount);
+            }
+            const orderList = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const orderResponse = orderList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = value;
+                const defCommission = (value.commission && value.commission > 0) ? value.commission : 0;
+                const commission = value.total * (defCommission / 100);
+                temp.CommissionAmount = commission.toFixed(2);
+                temp.NetAmount = value.total - temp.CommissionAmount;
+                return temp;
+            }));
+            const paymentListDetails = yield Promise.all(orderResponse);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete order list.',
+                data: paymentListDetails,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+};
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('customerName')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('orderPrefixId')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('vendorName')),
+    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Object, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorAdminOrderController.prototype, "orderList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-detail'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorAdminOrderController.prototype, "orderDetail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-order-log-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-sales']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('vendorOrderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorAdminOrderController.prototype, "orderLogList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:orderId'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('orderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('archiveFlag')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorAdminOrderController.prototype, "makeArchive", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-export-pdf'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('vendorId')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorAdminOrderController.prototype, "orderExportPdf", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-order-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'settlement order list']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('vendorIds')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('orderStatus')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('amountFrom')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('amountTo')),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(10, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(11, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorAdminOrderController.prototype, "orderListtt", null);
+VendorAdminOrderController = tslib_1.__decorate([
+    (0, routing_controllers_1.JsonController)('/admin-vendor-order'),
+    tslib_1.__metadata("design:paramtypes", [VendorOrderService_1.VendorOrdersService,
+        OrderService_1.OrderService,
+        OrderProductService_1.OrderProductService,
+        VendorService_1.VendorService,
+        ProductService_1.ProductService,
+        ProductImageService_1.ProductImageService,
+        VendorOrderLogService_1.VendorOrderLogService,
+        OrderStatusService_1.OrderStatusService,
+        PdfService_1.PdfService,
+        SettingService_1.SettingService,
+        S3Service_1.S3Service,
+        VendorInvoiceService_1.VendorInvoiceService,
+        VendorInvoiceItemService_1.VendorInvoiceItemService,
+        VendorProductService_1.VendorProductService,
+        ImageService_1.ImageService,
+        CustomerService_1.CustomerService])
+], VendorAdminOrderController);
+exports.VendorAdminOrderController = VendorAdminOrderController;
+//# sourceMappingURL=VendorOrderController.js.map

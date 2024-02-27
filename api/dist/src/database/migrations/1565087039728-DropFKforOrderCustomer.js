@@ -1,1 +1,36 @@
-'use strict';const a800_0x3a716f=a800_0x592b;function a800_0x592b(_0x130dd3,_0xfd04){const _0x5c1009=a800_0x5c10();return a800_0x592b=function(_0x592b17,_0x50db60){_0x592b17=_0x592b17-0x1db;let _0x4992ad=_0x5c1009[_0x592b17];return _0x4992ad;},a800_0x592b(_0x130dd3,_0xfd04);}(function(_0x21a618,_0x2be942){const _0x577714=a800_0x592b,_0xbba457=_0x21a618();while(!![]){try{const _0x220ed5=-parseInt(_0x577714(0x1e4))/0x1+-parseInt(_0x577714(0x1e3))/0x2+-parseInt(_0x577714(0x1e0))/0x3+-parseInt(_0x577714(0x1f1))/0x4+-parseInt(_0x577714(0x1e9))/0x5*(parseInt(_0x577714(0x1df))/0x6)+parseInt(_0x577714(0x1de))/0x7+parseInt(_0x577714(0x1ee))/0x8;if(_0x220ed5===_0x2be942)break;else _0xbba457['push'](_0xbba457['shift']());}catch(_0x4ad4f1){_0xbba457['push'](_0xbba457['shift']());}}}(a800_0x5c10,0xe7dfb));Object[a800_0x3a716f(0x1db)](exports,'__esModule',{'value':!![]}),exports[a800_0x3a716f(0x1e5)]=void 0x0;const tslib_1=require(a800_0x3a716f(0x1eb)),typeorm_1=require('typeorm');class DropFKforOrderCustomer1565087039728{constructor(){const _0x1f1b6a=a800_0x3a716f;this[_0x1f1b6a(0x1e2)]=new typeorm_1[(_0x1f1b6a(0x1dc))]({'name':'fk_order_customer1','columnNames':['customer_id'],'referencedColumnNames':['id'],'referencedTableName':_0x1f1b6a(0x1f0),'onDelete':'CASCADE'});}['up'](_0x393e4f){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x408942=a800_0x592b,_0x4a0606=yield _0x393e4f[_0x408942(0x1ea)](_0x408942(0x1ec)),_0x34cf55=_0x4a0606['foreignKeys'][_0x408942(0x1ef)](_0x44a39d=>_0x44a39d['columnNames'][_0x408942(0x1ed)](_0x408942(0x1e1))!==-0x1);_0x34cf55&&(yield _0x393e4f[_0x408942(0x1e6)](_0x4a0606,this['tableForeignKey']));});}[a800_0x3a716f(0x1e7)](_0x40fa66){return tslib_1['__awaiter'](this,void 0x0,void 0x0,function*(){const _0x5d534b=a800_0x592b,_0x32743d=yield _0x40fa66[_0x5d534b(0x1ea)]('order'),_0x21335e=_0x32743d[_0x5d534b(0x1dd)][_0x5d534b(0x1ef)](_0x5f00a0=>_0x5f00a0[_0x5d534b(0x1e8)][_0x5d534b(0x1ed)](_0x5d534b(0x1e1))!==-0x1);_0x21335e&&(yield _0x40fa66['dropForeignKey'](_0x32743d,this[_0x5d534b(0x1e2)]));});}}exports[a800_0x3a716f(0x1e5)]=DropFKforOrderCustomer1565087039728;function a800_0x5c10(){const _0xae4e49=['foreignKeys','1079246xCVPjJ','6LidRmx','5420814LHYOOS','customer_id','tableForeignKey','94290fLxggm','1830246UapRUv','DropFKforOrderCustomer1565087039728','dropForeignKey','down','columnNames','3855895sTSgmu','getTable','tslib','order','indexOf','46739136kRRPbk','find','customer','2365228TyBzJd','defineProperty','TableForeignKey'];a800_0x5c10=function(){return _0xae4e49;};return a800_0x5c10();}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DropFKforOrderCustomer1565087039728 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class DropFKforOrderCustomer1565087039728 {
+    constructor() {
+        this.tableForeignKey = new typeorm_1.TableForeignKey({
+            name: 'fk_order_customer1',
+            columnNames: ['customer_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'customer',
+            onDelete: 'CASCADE',
+        });
+    }
+    up(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('order');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('customer_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+    down(queryRunner) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const table = yield queryRunner.getTable('order');
+            const ifDataExsist = table.foreignKeys.find(fk => fk.columnNames.indexOf('customer_id') !== -1);
+            if (ifDataExsist) {
+                yield queryRunner.dropForeignKey(table, this.tableForeignKey);
+            }
+        });
+    }
+}
+exports.DropFKforOrderCustomer1565087039728 = DropFKforOrderCustomer1565087039728;
+//# sourceMappingURL=1565087039728-DropFKforOrderCustomer.js.map

@@ -1,1 +1,23 @@
-'use strict';var a305_0x4c56e2=a305_0x3a83;(function(_0x516ba4,_0xa8a961){var _0x40f233=a305_0x3a83,_0x3a472a=_0x516ba4();while(!![]){try{var _0x59753d=-parseInt(_0x40f233(0x1a5))/0x1+-parseInt(_0x40f233(0x1a4))/0x2+parseInt(_0x40f233(0x1a1))/0x3*(-parseInt(_0x40f233(0x1a7))/0x4)+-parseInt(_0x40f233(0x1ab))/0x5+-parseInt(_0x40f233(0x1a0))/0x6*(parseInt(_0x40f233(0x19f))/0x7)+parseInt(_0x40f233(0x1a2))/0x8+-parseInt(_0x40f233(0x1ac))/0x9*(-parseInt(_0x40f233(0x1a6))/0xa);if(_0x59753d===_0xa8a961)break;else _0x3a472a['push'](_0x3a472a['shift']());}catch(_0x3c9878){_0x3a472a['push'](_0x3a472a['shift']());}}}(a305_0x4af1,0x44c7e));function a305_0x3a83(_0x28606f,_0x5676df){var _0x4af19b=a305_0x4af1();return a305_0x3a83=function(_0x3a8357,_0xb06e57){_0x3a8357=_0x3a8357-0x19f;var _0x5ddc2e=_0x4af19b[_0x3a8357];return _0x5ddc2e;},a305_0x3a83(_0x28606f,_0x5676df);}function a305_0x4af1(){var _0x516819=['2763Thqqgt','1559888rWRqCI','CreateSettingRequest','666926enGQWI','214092undTBp','15723170NIorFQ','636GYbWra','reflect-metadata','__esModule','defineProperty','1334495KUvKSu','9KqyqyU','28OWGzjT','787026HUCypk'];a305_0x4af1=function(){return _0x516819;};return a305_0x4af1();}Object[a305_0x4c56e2(0x1aa)](exports,a305_0x4c56e2(0x1a9),{'value':!![]}),exports[a305_0x4c56e2(0x1a3)]=void 0x0,require(a305_0x4c56e2(0x1a8));class CreateSettingRequest{}exports['CreateSettingRequest']=CreateSettingRequest;
+"use strict";
+/*
+ * spurtcommerce API
+ * version 4.8.4
+ * Copyright (c) 2021 piccosoft ltd
+ * Author piccosoft ltd <support@piccosoft.com>
+ * Licensed under the MIT license.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateSettingRequest = void 0;
+const tslib_1 = require("tslib");
+const class_validator_1 = require("class-validator");
+require("reflect-metadata");
+class CreateSettingRequest {
+}
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'siteUrl is Required..!',
+    }),
+    tslib_1.__metadata("design:type", String)
+], CreateSettingRequest.prototype, "siteUrl", void 0);
+exports.CreateSettingRequest = CreateSettingRequest;
+//# sourceMappingURL=CreateSettingRequest.js.map
