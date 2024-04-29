@@ -110,7 +110,8 @@ You can find our extended documentation on our [www.spurtcommerce.dev](https://w
 🐞 If you spot a bug, please [submit a detailed issue](https://github.com/spurtcommerce/multivendor-marketplace/issues/new), and wait for assistance.
 
 🤔 If you have a question or feature request, please [start a new discussion](https://github.com/orgs/spurtcommerce/discussions/new/choose). 
-
+  
+🤔 This project is tested with BrowserStack
 
 ## ❯ Maintainers
 Spurtcommerce is developed and maintain by [Piccosoft Software Labs India (P) Limited,](https://www.piccosoft.com).
