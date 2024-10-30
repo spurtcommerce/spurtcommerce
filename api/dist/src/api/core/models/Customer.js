@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -18,10 +18,10 @@ const CustomerGroup_1 = require("./CustomerGroup");
 const Order_1 = require("./Order");
 const Vendor_1 = require("./Vendor");
 const Country_1 = require("./Country");
-const CustomerDocument_1 = require("./CustomerDocument");
 const class_validator_1 = require("class-validator");
 const productViewLog_1 = require("./productViewLog");
 const CustomerCart_1 = require("./CustomerCart");
+const ExportLog_1 = require("./ExportLog");
 let Customer = class Customer extends BaseModel_1.BaseModel {
     static hashPassword(password) {
         return new Promise((resolve, reject) => {
@@ -65,6 +65,14 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'last_name' }),
     tslib_1.__metadata("design:type", String)
 ], Customer.prototype, "lastName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'gender' }),
+    tslib_1.__metadata("design:type", String)
+], Customer.prototype, "gender", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'dob' }),
+    tslib_1.__metadata("design:type", String)
+], Customer.prototype, "dob", void 0);
 tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, typeorm_1.Column)({ name: 'username' }),
@@ -178,6 +186,22 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Number)
 ], Customer.prototype, "siteId", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'address2' }),
+    tslib_1.__metadata("design:type", Number)
+], Customer.prototype, "address2", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'landmark' }),
+    tslib_1.__metadata("design:type", String)
+], Customer.prototype, "landmark", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'mail_otp' }),
+    tslib_1.__metadata("design:type", Number)
+], Customer.prototype, "mailOtp", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'mail_otp_expire_time' }),
+    tslib_1.__metadata("design:type", String)
+], Customer.prototype, "mailOtpExpireTime", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.ManyToOne)(type => CustomerGroup_1.CustomerGroup, customergroup => customergroup.customer),
     (0, typeorm_1.JoinColumn)({ name: 'customer_group_id' }),
     tslib_1.__metadata("design:type", CustomerGroup_1.CustomerGroup)
@@ -192,13 +216,13 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Array)
 ], Customer.prototype, "order", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.OneToOne)(type => ExportLog_1.ExportLog, exportLog => exportLog.user),
+    tslib_1.__metadata("design:type", ExportLog_1.ExportLog)
+], Customer.prototype, "exportLog", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => productViewLog_1.ProductViewLog, productviewlog => productviewlog.customer),
     tslib_1.__metadata("design:type", Array)
 ], Customer.prototype, "productviewlog", void 0);
-tslib_1.__decorate([
-    (0, typeorm_1.OneToMany)(type => CustomerDocument_1.CustomerDocument, customerDocument => customerDocument.customer),
-    tslib_1.__metadata("design:type", Array)
-], Customer.prototype, "customerDocument", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => CustomerCart_1.CustomerCart, customerCart => customerCart.customer),
     tslib_1.__metadata("design:type", Array)

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -40,9 +40,12 @@ let UserService = class UserService {
             });
         }
         if (keyword) {
-            condition.where = {
-                firstName: (0, typeorm_1.Like)('%' + keyword + '%'),
-            };
+            condition.where = [{
+                    firstName: (0, typeorm_1.Like)('%' + keyword + '%'),
+                },
+                {
+                    lastName: (0, typeorm_1.Like)('%' + keyword + '%'),
+                }];
         }
         condition.order = {
             createdDate: 'DESC',

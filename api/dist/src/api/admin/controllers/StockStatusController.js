@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -49,7 +49,7 @@ let StockStatusController = class StockStatusController {
             if (StockStatusSave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully created a new StockStatus.',
+                    message: 'Successfully created a new stock status',
                     data: StockStatusSave,
                 };
                 return response.status(200).send(successResponse);
@@ -57,7 +57,7 @@ let StockStatusController = class StockStatusController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to create the StockStatus.',
+                    message: 'Unable to create the stock status',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -95,7 +95,7 @@ let StockStatusController = class StockStatusController {
             if (!stockStatus) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid stockStatus',
+                    message: 'Invalid stock status',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -105,7 +105,7 @@ let StockStatusController = class StockStatusController {
             if (stockStatusSave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated the stockStatus.',
+                    message: 'Successfully updated the stock status',
                     data: stockStatusSave,
                 };
                 return response.status(200).send(successResponse);
@@ -113,7 +113,7 @@ let StockStatusController = class StockStatusController {
             else {
                 const errorResponse = {
                     status: 1,
-                    message: 'Unable to update the stockStatus.',
+                    message: 'Unable to update the stock status',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -133,7 +133,11 @@ let StockStatusController = class StockStatusController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get stockStatus list",
-     *      "data":"{}"
+     *      "data":"[{
+     *                "stockStatusId": "",
+     *                "name": "",
+     *                "isActive": ""
+     *              }],"
      *      "status": "1"
      * }
      * @apiSampleRequest /api/stock-status/stock-status-list
@@ -159,7 +163,7 @@ let StockStatusController = class StockStatusController {
             if (stockStatusList) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got all stockStatus List',
+                    message: 'Successfully got all stock status list',
                     data: stockStatusList,
                 };
                 return response.status(200).send(successResponse);
@@ -167,7 +171,7 @@ let StockStatusController = class StockStatusController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to get stockStatusList',
+                    message: 'unable to get stock status list',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -202,7 +206,7 @@ let StockStatusController = class StockStatusController {
             if (!stockStatus) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid stock Status Id.',
+                    message: 'Invalid stock Status Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -210,14 +214,14 @@ let StockStatusController = class StockStatusController {
             if (deleteStockStatus) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the stockStatus.',
+                    message: 'Successfully deleted the stock status',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the stockStatus',
+                    message: 'Unable to delete the stock status',
                 };
                 return response.status(400).send(errorResponse);
             }

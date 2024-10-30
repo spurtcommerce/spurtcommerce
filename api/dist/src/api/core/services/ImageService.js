@@ -1,7 +1,7 @@
 "use strict";
 /*
  * SpurtCommerce API
- * version 4.8.4
+ * version 4.8.1
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -13,13 +13,20 @@ const typedi_1 = require("typedi");
 const path = tslib_1.__importStar(require("path"));
 const fs = tslib_1.__importStar(require("fs"));
 const extract = require("extract-zip");
+const routing_controllers_1 = require("routing-controllers");
+const env_1 = require("../../../../src/env");
 let ImageService = class ImageService {
     // Bucket list
     listFolders(limit = 0, marker = '', folderName = '') {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const filteredPath = path.normalize(folderName).replace(/^(\.\.(\/|\\|$))+/, '');
-            const directoryPath = path.join(process.cwd(), 'uploads' + '/' + filteredPath);
-            const files = yield this.readDir(directoryPath);
+            const directoryPath = path.join(process.cwd(), 'uploads', filteredPath);
+            const notAllowFolder = [];
+            if (folderName === '') {
+                notAllowFolder.push(...['category', 'logo', 'qrcode', 'storelogo', 'storeLogo', 'user', 'vendordocument', 'language', 'customer', 'blog', 'banner', 'video']);
+            }
+            const fileUnsanitized = yield this.readDir(directoryPath);
+            const files = fileUnsanitized.filter((file) => notAllowFolder.length ? !notAllowFolder.includes(file) : true);
             console.log(JSON.stringify(files) + 'files');
             const contents = [];
             const commonPrefix = [];
@@ -115,7 +122,6 @@ let ImageService = class ImageService {
     }
     UIqrcode(folderName, base64Data) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            // const qrCode = require('qrcode');
             return new Promise((resolve, reject) => {
                 fs.writeFile(folderName, base64Data, (err) => {
                     if (err) {
@@ -129,7 +135,7 @@ let ImageService = class ImageService {
     // create folder
     createFolder(folderName = '') {
         const filteredPath = path.normalize(folderName).replace(/^(\.\.(\/|\\|$))+/, '');
-        const directoryPath = path.join(process.cwd(), 'uploads' + '/' + filteredPath);
+        const directoryPath = path.join(process.cwd(), 'uploads', filteredPath);
         return new Promise((resolve, reject) => {
             if (fs.existsSync(directoryPath)) {
                 resolve({ ETAG: new Date() });
@@ -144,6 +150,12 @@ let ImageService = class ImageService {
     }
     // upload image
     imageUpload(folderName = '', base64Image) {
+        const sizeInBytes = 4 * Math.ceil((base64Image.length / 3)) * 0.5624896334383812;
+        const sizeInKb = sizeInBytes / 1024;
+        const allowedFileSizeInKb = +env_1.env.imageUploadSize * 1024;
+        if (sizeInKb > allowedFileSizeInKb) {
+            throw new routing_controllers_1.BadRequestError(`File size too large, must be lees than ${+env_1.env.imageUploadSize} mb`);
+        }
         const filteredPath = path.normalize(folderName).replace(/^(\.\.(\/|\\|$))+/, '');
         const directoryPath = path.join(process.cwd(), 'uploads' + '/' + filteredPath);
         return new Promise((resolve, reject) => {
@@ -183,20 +195,20 @@ let ImageService = class ImageService {
                     .resize(widthString, heightString)
                     .toBuffer((error, buffer) => {
                     if (error) {
-                        reject(error);
+                        return resolve(undefined);
                     }
                     else {
-                        resolve(buffer);
+                        return resolve(buffer);
                     }
                 });
             });
         });
     }
     // Image resize
-    resizeImageBase64(imgName = '', imgPath = '', widthString = '', heightString = '') {
+    resizeImageBase64(directory, widthString = '', heightString = '') {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const directoryPath = path.join(process.cwd(), 'uploads' + '/' + imgPath + imgName);
-            const ext = imgName.split('.');
+            const directoryPath = path.join(process.cwd(), directory);
+            const ext = directory.split('.');
             const imagePrefix = 'data:image/' + ext[1] + ';base64,';
             return new Promise((resolve, reject) => {
                 const gm = require('gm').subClass({ imageMagick: true });
@@ -209,6 +221,21 @@ let ImageService = class ImageService {
                     else {
                         resolve(imagePrefix + buffer.toString('base64'));
                     }
+                });
+            });
+        });
+    }
+    // Image resize
+    getFile(directory) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const directoryPath = path.join(process.cwd(), directory);
+            return new Promise((res, rej) => {
+                fs.readFile(directoryPath, (err, data) => {
+                    if (err) {
+                        console.error('Error reading the file:', err);
+                        return rej(err);
+                    }
+                    return res(data);
                 });
             });
         });
@@ -296,53 +323,66 @@ let ImageService = class ImageService {
         });
     }
     extractZip(fileName = '', distPath = '') {
-        return new Promise((resolve, reject) => {
-            extract(fileName, { dir: distPath }, ((er) => {
-                if (er) {
-                    reject(er);
-                }
-                resolve({ success: true, message: 'Successfully Extract Zip' });
-            }));
-        });
+        return new Promise((resolve, reject) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield extract(fileName, { dir: distPath });
+            resolve({ success: true, message: 'Successfully Extract Zip' });
+        }));
     }
     // search folders
-    getFolder(folderName = '') {
+    getFolder(folderName = '', vendorPrefix) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             return new Promise((resolve, reject) => tslib_1.__awaiter(this, void 0, void 0, function* () {
-                const pathName = path.join(process.cwd(), 'uploads');
-                const files = yield this.readDir(pathName);
+                const pathName = path.join(process.cwd(), 'uploads', vendorPrefix ? `${vendorPrefix}` : '');
+                console.log(pathName, 'pathName');
+                const unsanitised = yield this.readDir(pathName);
+                const notAllowFolder = ['category', 'logo', 'qrcode', 'storelogo', 'storeLogo', 'user', 'vendordocument', 'language', 'customer', 'blog', 'banner', 'video'];
+                // notAllowFolder.push('products');
+                const files = unsanitised.filter((file) => (notAllowFolder.length && !vendorPrefix) ? !notAllowFolder.includes(file) : true);
+                // const files = unsanitised;
                 const contents = [];
                 const commonPrefix = [];
+                console.log(files, 'files');
                 if (folderName !== '') {
-                    files.forEach((file) => tslib_1.__awaiter(this, void 0, void 0, function* () {
-                        if (Array.isArray(file) === false) {
-                            const filesName = file.toLowerCase();
+                    for (const _file of files) {
+                        if (Array.isArray(_file) === false) {
+                            const filesName = _file.toLowerCase();
                             if (filesName.includes(folderName.toLowerCase())) {
-                                commonPrefix.push({ Prefix: file + '/' });
-                            }
-                        }
-                        else {
-                            for (const fileArray of file) {
-                                const lowerCaseName = fileArray.toLowerCase();
-                                if (lowerCaseName.includes(folderName.toLowerCase())) {
-                                    commonPrefix.push({ Prefix: fileArray + '/' });
+                                const pathfile = path.resolve(path.join(process.cwd(), 'uploads', vendorPrefix ? vendorPrefix : '', _file));
+                                const isDir = yield this.isDirCheck(pathfile);
+                                if (isDir) {
+                                    commonPrefix.push({
+                                        Prefix: (vendorPrefix ? `${vendorPrefix}/` : '') + _file + '/',
+                                    });
+                                }
+                                else {
+                                    contents.push({
+                                        Key: (vendorPrefix ? `${vendorPrefix}/` : '') + _file,
+                                    });
                                 }
                             }
                         }
-                    }));
+                        else {
+                            for (const fileArray of _file) {
+                                const lowerCaseName = fileArray.toLowerCase();
+                                if (lowerCaseName.includes(folderName.toLowerCase())) {
+                                    commonPrefix.push({ Prefix: (vendorPrefix ? `${vendorPrefix}/` : '') + fileArray + '/' });
+                                }
+                            }
+                        }
+                    }
                 }
                 else {
                     for (const file of files) {
-                        const pathfile = path.resolve(path.join(process.cwd(), 'uploads' + '/' + file));
+                        const pathfile = path.resolve(path.join(process.cwd(), 'uploads', vendorPrefix ? vendorPrefix : '', file));
                         const isDir = yield this.isDirCheck(pathfile);
                         if (isDir) {
                             commonPrefix.push({
-                                Prefix: file + '/',
+                                Prefix: (vendorPrefix ? `${vendorPrefix}/` : '') + file + '/',
                             });
                         }
                         else {
                             contents.push({
-                                Key: file,
+                                Key: (vendorPrefix ? `${vendorPrefix}/` : '') + file,
                             });
                         }
                     }
@@ -381,6 +421,19 @@ let ImageService = class ImageService {
             resolve(directoryPath);
         });
     }
+    getDocument(key) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const directoryPath = path.join(process.cwd(), 'uploads' + '/' + key);
+            return new Promise((resolve, reject) => {
+                fs.readFile(directoryPath, (err, data) => {
+                    if (err) {
+                        throw err;
+                    }
+                    return resolve(data);
+                });
+            });
+        });
+    }
     escapeChar(data) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const val = data
@@ -405,6 +458,33 @@ let ImageService = class ImageService {
                 .replace(/é/g, '&eacute;')
                 .replace(/€/g, '&euro;')
                 .replace(/£/g, '&pound;');
+            return val;
+        });
+    }
+    escapeChars(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const val = data
+                .replace(/&amp;/g, '&')
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&quotes;/g, '"')
+                .replace(/&quot;/g, `'`)
+                .replace(/&sbquo;/g, ',')
+                .replace(/&equals;/g, '=')
+                .replace(/&hyphen;/g, '-')
+                .replace(/&hellip;/g, '…')
+                .replace(/&commat;/g, '@')
+                .replace(/&copy;/g, '©')
+                .replace(/&hash;/g, '#')
+                .replace(/&ldquo;/g, '“')
+                .replace(/&rsquo;/g, '’')
+                .replace(/&trade;/g, '™')
+                .replace(/&reg;/g, '®')
+                .replace(/&ndash;/g, '–')
+                .replace(/&eacute;/g, 'é')
+                .replace(/&euro;/g, '€')
+                .replace(/&pound;/g, '£')
+                .replace(/&quot;/g, '');
             return val;
         });
     }

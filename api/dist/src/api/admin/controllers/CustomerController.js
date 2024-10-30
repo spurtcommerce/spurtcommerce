@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -11,7 +11,6 @@ exports.CustomerController = void 0;
 const tslib_1 = require("tslib");
 require("reflect-metadata");
 const routing_controllers_1 = require("routing-controllers");
-const AWS = tslib_1.__importStar(require("aws-sdk"));
 const class_transformer_1 = require("class-transformer");
 const env_1 = require("../../../env");
 const CustomerService_1 = require("../../core/services/CustomerService");
@@ -35,6 +34,10 @@ const customer_1 = require("@spurtcommerce/customer");
 const typeorm_1 = require("typeorm");
 const ExportLog_1 = require("../../core/models/ExportLog");
 const ExportLogService_1 = require("../../core/services/ExportLogService");
+const client_s3_1 = require("@aws-sdk/client-s3");
+const s3 = new client_s3_1.S3({
+    region: env_1.aws_setup.AWS_DEFAULT_REGION,
+});
 let CustomerController = class CustomerController {
     constructor(customerService, orderProductService, customerGroupService, settingService, productViewLogService, vendorService, vendorProductService, loginLogService, vendorOrdersService, emailTemplateService, exportLogService) {
         this.customerService = customerService;
@@ -80,7 +83,20 @@ let CustomerController = class CustomerController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Customer Created successfully",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *              "customerGroupId": "",
+     *              "firstName": "",
+     *              "username": "",
+     *              "email": "",
+     *              "mobileNumber": "",
+     *              "password": "",
+     *              "mailStatus": "",
+     *              "deleteFlag": "",
+     *              "isActive": "",
+     *              "createdDate": "",
+     *              "id": ""
+     *              }
      * }
      * @apiSampleRequest /api/admin-customer
      * @apiErrorExample {json} Customer error
@@ -93,7 +109,7 @@ let CustomerController = class CustomerController {
             if (resultUser) {
                 const successResponse = {
                     status: 1,
-                    message: 'A Customer is already registered with this email Id.',
+                    message: 'A buyer is already registered with this email Id',
                 };
                 return response.status(400).send(successResponse);
             }
@@ -101,6 +117,7 @@ let CustomerController = class CustomerController {
                 const password = yield User_1.User.hashPassword(customerParam.password);
                 newCustomer.customerGroupId = customerParam.customerGroupId;
                 newCustomer.firstName = customerParam.username;
+                newCustomer.lastName = customerParam.lastName;
                 const emailId = customerParam.email;
                 newCustomer.username = emailId;
                 newCustomer.email = emailId;
@@ -113,20 +130,19 @@ let CustomerController = class CustomerController {
                 const customerSave = yield this.customerService.create(newCustomer);
                 if (customerSave) {
                     if (+customerParam.mailStatus === 1) {
-                        console.log('mailStatus:', customerParam.mailStatus);
                         const emailContent = yield this.emailTemplateService.findOne(4);
                         const logo = yield this.settingService.findOne();
-                        const message = emailContent.content.replace('{name}', customerParam.username).replace('{username}', customerParam.email).replace('{password}', customerParam.password);
+                        const message = emailContent.content.replace('{name}', customerParam.username).replace('{username}', customerParam.email).replace('{storeName}', logo.siteName).replace('{password}', customerParam.password).replace('{storeName}', logo.siteName);
                         const redirectUrl = env_1.env.storeRedirectUrl;
                         const mailContents = {};
                         mailContents.logo = logo;
                         mailContents.emailContent = message;
                         mailContents.redirectUrl = redirectUrl;
-                        mailContents.productDetailData = undefined;
+                        mailContents.productDetailData = '';
                         mail_services_1.MAILService.sendMail(mailContents, customerParam.email, emailContent.subject, false, false, '');
                         const successResponse = {
                             status: 1,
-                            message: 'Successfully created new customer with email Id and password and email sent.',
+                            message: 'Successfully created new buyer with email Id and password and email sent',
                             data: customerSave,
                         };
                         return response.status(200).send(successResponse);
@@ -134,7 +150,7 @@ let CustomerController = class CustomerController {
                     else {
                         const successResponse = {
                             status: 1,
-                            message: 'Customer Created Successfully',
+                            message: 'Buyer created successfully',
                             data: customerSave,
                         };
                         return response.status(200).send(successResponse);
@@ -144,7 +160,7 @@ let CustomerController = class CustomerController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Password does not match.',
+                    message: 'Password does not match',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -167,36 +183,37 @@ let CustomerController = class CustomerController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get customer list",
-     *      "data":{
-     *      "customerGroupId" : "",
-     *      "username" : "",
-     *      "email" : "",
-     *      "mobileNUmber" : "",
-     *      "password" : "",
-     *      "avatar" : "",
-     *      "avatarPath" : "",
-     *      "status" : "",
-     *      "safe" : "",
-     *      }
      *      "status": "1"
+     *      "data":{
+     *              "customerGroupId" : "",
+     *              "username" : "",
+     *              "email" : "",
+     *              "mobileNUmber" : "",
+     *              "password" : "",
+     *              "avatar" : "",
+     *              "avatarPath" : "",
+     *              "status" : "",
+     *              "safe" : "",
+     *      }
      * }
      * @apiSampleRequest /api/admin-customer
      * @apiErrorExample {json} customer error
      * HTTP/1.1 500 Internal Server Error
      */
-    customerList(limit, offset, name, status, email, customerGroup, date, count, response) {
+    customerList(limit, offset, name, keyword, status, email, customerGroup, date, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = [
                 'Customer.id as id',
                 'Customer.firstName as firstName',
                 'Customer.email as email',
                 'Customer.createdDate as createdDate',
+                'Customer.modifiedDate as modifiedDate',
                 'Customer.isActive as isActive',
                 'Customer.username as username',
                 'customerGroup.name as customerGroupName',
                 'Customer.lastName as lastName',
             ];
-            const customerList = yield (0, customer_1.getCustomerList)((0, typeorm_1.getConnection)(), select, limit, offset, name, status ? 1 : 0, email, customerGroup, date, count ? 1 : 0);
+            const customerList = yield (0, customer_1.getCustomerList)((0, typeorm_1.getConnection)(), select, limit, offset, name, status, email, customerGroup, keyword, date, count ? 1 : 0);
             return response.status(200).send({
                 status: customerList.status,
                 message: customerList.message,
@@ -216,7 +233,7 @@ let CustomerController = class CustomerController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully deleted customer.",
+     *      "message": "Successfully deleted customer",
      *      "status": "1"
      * }
      * @apiSampleRequest /api/admin-customer/:id
@@ -233,7 +250,7 @@ let CustomerController = class CustomerController {
             if (!customer) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid customer Id.',
+                    message: 'Invalid buyer Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -247,24 +264,27 @@ let CustomerController = class CustomerController {
                 if (product) {
                     const errorResponse = {
                         status: 0,
-                        message: 'This customer have vendor account, you have to first delete the products mapped to this Vendor.',
+                        message: 'This buyer have seller account, you have to first delete the products mapped to this seller',
                     };
                     return response.status(400).send(errorResponse);
                 }
+                vendor.isDelete = 1;
+                vendor.isActive = 0;
+                yield this.vendorService.create(vendor);
             }
             customer.deleteFlag = 1;
             const deleteCustomer = yield this.customerService.create(customer);
             if (deleteCustomer) {
                 const successResponse = {
                     status: 1,
-                    message: 'Customer Deleted Successfully',
+                    message: 'Buyer deleted successfully',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to change delete flag status.',
+                    message: 'Unable to change delete flag status',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -300,7 +320,20 @@ let CustomerController = class CustomerController {
      * HTTP/1.1 200 OK
      * {
      *      "message": " Customer is updated successfully",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *              "customerGroupId": "",
+     *              "firstName": "",
+     *              "username": "",
+     *              "email": "",
+     *              "mobileNumber": "",
+     *              "password": "",
+     *              "mailStatus": "",
+     *              "deleteFlag": "",
+     *              "isActive": "",
+     *              "createdDate": "",
+     *              "id": ""
+     *      }
      * }
      * @apiSampleRequest /api/admin-customer/:id
      * @apiErrorExample {json} updateCustomer error
@@ -316,7 +349,7 @@ let CustomerController = class CustomerController {
             if (!customer) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid customer id.',
+                    message: 'Invalid buyer id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -347,18 +380,19 @@ let CustomerController = class CustomerController {
                         return response.status(400).send(errorTypeResponse);
                     }
                     const name = 'Img_' + Date.now() + '.' + type;
-                    const s3 = new AWS.S3();
                     const path = 'customer/';
                     const base64Data = Buffer.from(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                    const params = {
+                    const command = new client_s3_1.PutObjectCommand({
                         Bucket: env_1.aws_setup.AWS_BUCKET,
                         Key: 'customer/' + name,
                         Body: base64Data,
-                        ACL: 'public-read',
-                        ContentEncoding: 'base64',
-                        ContentType: `image/${type}`,
-                    };
-                    s3.upload(params, (err, data) => {
+                        // ACL: 'public-read',
+                        // ContentEncoding: 'base64',
+                        // ContentType: `image/${imageType}`,
+                        // Bucket: "test-bucket",
+                        // Key: "hello-s3.txt",
+                    });
+                    s3.send(command, (err, data) => {
                         if (err) {
                             throw err;
                         }
@@ -368,6 +402,7 @@ let CustomerController = class CustomerController {
                 }
                 customer.customerGroupId = customerParam.customerGroupId;
                 customer.firstName = customerParam.username;
+                customer.lastName = customerParam.lastName;
                 customer.username = customerParam.email;
                 customer.email = customerParam.email;
                 customer.mobileNumber = customerParam.mobileNumber;
@@ -378,7 +413,7 @@ let CustomerController = class CustomerController {
                         passwordValidatingMessage.push('Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters');
                         const errResponse = {
                             status: 0,
-                            message: "You have an error in your request's body. Check 'errors' field for more details!",
+                            message: "You have an error in your request's body. Check 'errors' field for more details",
                             data: { message: passwordValidatingMessage },
                         };
                         return response.status(422).send(errResponse);
@@ -393,7 +428,7 @@ let CustomerController = class CustomerController {
                 if (customerSave) {
                     const successResponse = {
                         status: 1,
-                        message: 'Customer Updated Successfully',
+                        message: 'Buyer updated successfully',
                         data: customerSave,
                     };
                     return response.status(200).send(successResponse);
@@ -402,7 +437,7 @@ let CustomerController = class CustomerController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Password does not match.',
+                    message: 'Password does not match',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -416,21 +451,24 @@ let CustomerController = class CustomerController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     * "message": "Successfully get customer Details",
-     * "data":{
-     * "customerGroupId" : "",
-     * "username" : "",
-     * "email" : "",
-     * "mobileNumber" : "",
-     * "password" : "",
-     * "avatar" : "",
-     * "avatarPath" : "",
-     * "newsletter" : "",
-     * "status" : "",
-     * "safe" : "",
-     * }
-     * "status": "1"
-     * }
+     *      "status": "1"
+     *      "message": "Successfully get customer Details",
+     *      "data":{
+     *           "id": "",
+     *           "firstName": "",
+     *           "email": "",
+     *           "mobileNumber": "",
+     *           "address": "",
+     *           "avatar": "",
+     *           "avatarPath": "",
+     *           "customerGroupId": "",
+     *           "lastLogin": "",
+     *           "mailStatus": "",
+     *           "isActive": "",
+     *           "siteId": "",
+     *           "customerGroupName": ""
+     *      }
+     *      }
      * @apiSampleRequest /api/admin-customer/customer-detail/:id
      * @apiErrorExample {json} customer error
      * HTTP/1.1 500 Internal Server Error
@@ -438,25 +476,25 @@ let CustomerController = class CustomerController {
     customerDetails(Id, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const customer = yield this.customerService.findOne({
-                select: ['id', 'firstName', 'email', 'mobileNumber', 'address', 'lastLogin', 'isActive', 'mailStatus', 'customerGroupId', 'avatar', 'avatarPath', 'siteId'],
+                select: ['id', 'firstName', 'email', 'mobileNumber', 'address', 'lastLogin', 'isActive', 'mailStatus', 'customerGroupId', 'avatar', 'avatarPath', 'siteId', 'createdDate', 'modifiedDate'],
                 where: { id: Id },
             });
             if (!customer) {
                 const errorResponse = {
                     status: 0,
-                    message: 'invalid CustomerId',
+                    message: 'invalid buyerId',
                 };
                 return response.status(400).send(errorResponse);
             }
             const groupName = yield this.customerGroupService.findOne({
                 where: {
-                    groupId: customer.customerGroupId,
+                    id: customer.customerGroupId,
                 },
             });
             customer.customerGroupName = (groupName && groupName.name !== undefined) ? groupName.name : '';
             const successResponse = {
                 status: 1,
-                message: 'successfully got Customer details.',
+                message: 'successfully got buyer details',
                 data: customer,
             };
             return response.status(200).send(successResponse);
@@ -473,10 +511,19 @@ let CustomerController = class CustomerController {
      *      "status": "1"
      *      "message": "Successfully get customer list",
      *      "data":{
-     *      "location" : "",
-     *      "name" : "",
-     *      "created date" : "",
-     *      "isActive" : "",
+     *           "id": "",
+     *           "firstName": "",
+     *           "email": "",
+     *           "mobileNumber": "",
+     *           "address": "",
+     *           "avatar": "",
+     *           "avatarPath": "",
+     *           "customerGroupId": "",
+     *           "lastLogin": "",
+     *           "mailStatus": "",
+     *           "isActive": "",
+     *           "siteId": "",
+     *           "customerGroupName": ""
      *      }
      * }
      * @apiSampleRequest /api/admin-customer/recent-customerlist
@@ -495,7 +542,7 @@ let CustomerController = class CustomerController {
             const customerList = yield this.customerService.list(0, 0, 0, WhereConditions, order, 0);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got Customer list.',
+                message: 'Successfully got buyer list',
                 data: (0, class_transformer_1.instanceToPlain)(customerList),
             };
             return response.status(200).send(successResponse);
@@ -511,7 +558,8 @@ let CustomerController = class CustomerController {
      * {
      *      "message": "Successfully get Today customer count",
      *      "data":{
-     *      }
+     *              "customerCount": ""
+     *              }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/admin-customer/today-customercount
@@ -525,7 +573,7 @@ let CustomerController = class CustomerController {
             const customerCount = yield this.customerService.todayCustomerCount(todaydate);
             const successResponse = {
                 status: 1,
-                message: 'Successfully get customerCount',
+                message: 'Successfully get buyer count',
                 data: customerCount,
             };
             return response.status(200).send(successResponse);
@@ -566,20 +614,30 @@ let CustomerController = class CustomerController {
                     if (product) {
                         const errorResponse = {
                             status: 0,
-                            message: 'Choosen customer have vendor account, you have to first delete the products mapped to this Vendor.',
+                            message: 'Choosen buyer have seller account, you have to first delete the products mapped to this seller',
                         };
                         return response.status(400).send(errorResponse);
                     }
                 }
-                const dataId = yield this.customerService.findOne(id);
+                const dataId = yield this.customerService.findOne({ where: { id } });
                 if (dataId === undefined) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Please choose a Customer that you want to delete.',
+                        message: 'Please choose a buyer that you want to delete',
                     };
                     return response.status(400).send(errorResponse);
                 }
                 else {
+                    const vendorExist = yield this.vendorService.findOne({
+                        where: {
+                            customerId: id,
+                        },
+                    });
+                    if (vendorExist) {
+                        vendorExist.isDelete = 1;
+                        vendorExist.isActive = 0;
+                        yield this.vendorService.create(vendorExist);
+                    }
                     dataId.deleteFlag = 1;
                     return yield this.customerService.create(dataId);
                 }
@@ -588,7 +646,7 @@ let CustomerController = class CustomerController {
             if (deleteCustomer) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted customer.',
+                    message: 'Successfully deleted buyer',
                 };
                 return response.status(200).send(successResponse);
             }
@@ -603,7 +661,7 @@ let CustomerController = class CustomerController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully download the Customer Excel List..!!",
+     *      "message": "Successfully download the Customer Excel List",
      *      "status": "1",
      *      "data": {},
      * }
@@ -630,18 +688,18 @@ let CustomerController = class CustomerController {
                     'Customer.lastName as lastName',
                     'Customer.mobileNumber as mobileNumber',
                 ];
-                customerAllIds = yield (0, customer_1.getCustomerList)((0, typeorm_1.getConnection)(), select, 0, 0, '', status ? 1 : 0, '', '', '', 0).then((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                customerAllIds = yield (0, customer_1.getCustomerList)((0, typeorm_1.getConnection)(), select, 0, 0, '', status, '', '', '', '', 0).then((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                     const customerIds = value.data.map((data) => data.id);
                     return customerIds;
                 }));
             }
             const customerid = customerId && customerId !== '' ? customerId.split(',') : customerAllIds;
             for (const id of customerid) {
-                const dataId = yield this.customerService.findOne(id);
+                const dataId = yield this.customerService.findOne({ where: { id } });
                 if (dataId === undefined) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid customerId',
+                        message: 'Invalid buyerId',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -662,7 +720,7 @@ let CustomerController = class CustomerController {
             worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             for (const id of customerid) {
-                const dataId = yield this.customerService.findOne(id);
+                const dataId = yield this.customerService.findOne({ where: { id } });
                 if (dataId.lastName === null) {
                     dataId.lastName = '';
                 }
@@ -704,7 +762,7 @@ let CustomerController = class CustomerController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully download the All Customer Excel List..!!",
+     *      "message": "Successfully download the All Customer Excel List",
      *      "status": "1",
      *      "data": {},
      * }
@@ -716,7 +774,7 @@ let CustomerController = class CustomerController {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const excel = require('exceljs');
             const workbook = new excel.Workbook();
-            const worksheet = workbook.addWorksheet('Bulk Customer Export');
+            const worksheet = workbook.addWorksheet('Bulk Buyer Export');
             const rows = [];
             const search = [];
             if (name !== undefined && name !== '') {
@@ -783,7 +841,6 @@ let CustomerController = class CustomerController {
             worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             for (const customer of customerList) {
-                console.log('customer:', customer);
                 if (customer.lastName === null) {
                     customer.lastName = '';
                 }
@@ -815,8 +872,15 @@ let CustomerController = class CustomerController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get customer count",
-     *      "data":{},
      *      "status": "1"
+     *     "data":{
+     *              "allCustomerCount": 50
+     *              "activeCustomerCount": 40
+     *              "inActiveCustomerCount: 10
+     *              "allCustomerGroupCount": 5
+     *              "activeCustomerGroupCount": 4
+     *              "inActiveCustomerGroupCount": 1
+     *      },
      * }
      * @apiSampleRequest /api/admin-customer/customer-count
      * @apiErrorExample {json} customer error
@@ -885,7 +949,7 @@ let CustomerController = class CustomerController {
             customer.inActiveCustomerGroup = inActiveCustomerGroupCount;
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the Customer Count',
+                message: 'Successfully got the buyer Count',
                 data: customer,
             };
             return response.status(200).send(successResponse);
@@ -904,17 +968,25 @@ let CustomerController = class CustomerController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get order product list",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": " [{
+     *                   "productName": "",
+     *                   "orderId": 29,
+     *                   "createdDate": "2024-07-12T13:20:03.000Z",
+     *                   "image": "printed bhagalpuri art silk saree1710481555207.png",
+     *                   "containerName": "women ethnic/"
+     *               }]"
      * }
      * @apiSampleRequest /api/admin-customer/order-product-list
      * @apiErrorExample {json} OrderProductList error
      * HTTP/1.1 500 Internal Server Error
      */
-    orderProductList(limit, offset, count, customerId, response) {
+    orderProductList(limit, offset, count, emailId, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = [
                 'OrderProduct.name as productName',
                 'order.orderId as orderId',
+                'order.email as email',
                 'order.createdDate as createdDate',
                 'productImage.image as image',
                 'productImage.containerName as containerName',
@@ -933,12 +1005,20 @@ let CustomerController = class CustomerController {
                     aliasName: 'productImage',
                 },
             ];
+            // const whereconditions = [];
+            // if (+customerId) {
+            //     whereconditions.push({
+            //         name: 'order.customerId',
+            //         op: 'and',
+            //         value: +customerId,
+            //     });
+            // }
             const whereconditions = [];
-            if (+customerId) {
+            if (emailId && emailId !== '') {
                 whereconditions.push({
-                    name: 'order.customerId',
+                    name: 'order.email',
                     op: 'and',
-                    value: +customerId,
+                    value: `'` + emailId + `'`,
                 });
             }
             whereconditions.push({
@@ -980,7 +1060,14 @@ let CustomerController = class CustomerController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get product view log list",
-     *      "status": "1"
+     *      "status": "1",
+     *       "data": [{
+     *                 "productId": "108",
+     *                 "createdDate": "2024-04-03T06:25:50.000Z",
+     *                 "productName": "PristiveFashionHub Women Codding Long Anarkali Dress Material Gown With Duppta",
+     *                 "image": "gown61710504383210.jpeg",
+     *                 "containerName": "
+     *              }]
      * }
      * @apiSampleRequest /api/admin-customer/product-view-log-list
      * @apiErrorExample {json} ProductViewLogList error
@@ -1052,7 +1139,13 @@ let CustomerController = class CustomerController {
      *      "status": "1"
      *      "message": "Successfully get vendor graph list",
      *      "data":{
-     *      }
+     *           "companyName": "",
+     *           "productCount": "",
+     *           "productSoldCount": "",
+     *           "deliveryCount": "",
+     *           "outOfStockCount": "",
+     *           "pendingStockCount": ""
+     *            }
      * }
      * @apiSampleRequest /api/admin-customer/vendor-graph-list
      * @apiErrorExample {json} sales error
@@ -1062,7 +1155,7 @@ let CustomerController = class CustomerController {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             if (vendorId !== 0) {
                 const vendor = yield this.vendorService.findOne({
-                    select: ['companyName'],
+                    select: ['companyName', 'createdDate', 'modifiedDate'],
                     where: {
                         vendorId,
                     },
@@ -1070,7 +1163,7 @@ let CustomerController = class CustomerController {
                 if (!vendor) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid Vendor.',
+                        message: 'Invalid Vendor',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -1086,14 +1179,14 @@ let CustomerController = class CustomerController {
                 vendor.pendingStockCount = pendingStock !== undefined ? pendingStock : 0;
                 const successResponses = {
                     status: 1,
-                    message: 'Successfully got the vendor graph list',
+                    message: 'Successfully got the seller graph list',
                     data: vendor,
                 };
                 return response.status(200).send(successResponses);
             }
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the vendor graph list',
+                message: 'Successfully got the seller graph list',
                 data: {},
             };
             return response.status(200).send(successResponse);
@@ -1116,8 +1209,12 @@ let CustomerController = class CustomerController {
      * {
      *      "status": "1"
      *      "message": "Successfully get customer visit list",
-     *      "data":{
-     *      }
+     *      "data":[{
+     *              "visitCount": "2",
+     *              "dayOfMonth": "19",
+     *              "month": "3",
+     *              "year": "2024"
+     *             }],
      * }
      * @apiSampleRequest /api/admin-customer/customer-visit-list
      * @apiErrorExample {json} customer list error
@@ -1128,9 +1225,44 @@ let CustomerController = class CustomerController {
             const customervisitList = yield this.loginLogService.customerVisitList(month, year);
             return response.status(200).send({
                 status: 1,
-                message: 'Successfully got the customer visit list',
+                message: 'Successfully got the buyer visit list',
                 data: customervisitList,
             });
+        });
+    }
+    // Update Bulk Vendor Customer Status
+    /**
+     * @api {get} /api/admin-customer/bulk-status Admin Vendor Update Customer Status
+     * @apiGroup Customer
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number[]} customerIds customerIds
+     * @apiParam (Request body) {Number} statusId statusId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated the bulk category status",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/admin-customer/bulk-status
+     * @apiErrorExample {json} Admin Vendor Update Customer Status error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateVendorCustomerStatus(params, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customerIds = params.customerIds;
+            const updateCustomerValue = [];
+            if (customerIds.length) {
+                for (const customerId of customerIds) {
+                    const findCustomer = yield this.customerService.findOne({ where: { id: customerId, deleteFlag: 0 } });
+                    if (!findCustomer) {
+                        return response.status(400).send({ status: 0, message: 'Invalid buyer Id' });
+                    }
+                    findCustomer.isActive = params.statusId;
+                    updateCustomerValue.push(findCustomer);
+                }
+                yield this.customerService.create(updateCustomerValue);
+                return response.status(200).send({ status: 1, message: 'Successfully updated the bulk buyer status' });
+            }
         });
     }
 };
@@ -1145,18 +1277,19 @@ tslib_1.__decorate([
 ], CustomerController.prototype, "addCustomer", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)(),
-    (0, routing_controllers_1.Authorized)(['admin', 'list-customer']),
+    (0, routing_controllers_1.Authorized)(['admin-vendor', 'list-customer']),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('name')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('email')),
-    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('customerGroup')),
-    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('date')),
-    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('email')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('customerGroup')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('date')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CustomerController.prototype, "customerList", null);
 tslib_1.__decorate([
@@ -1222,7 +1355,7 @@ tslib_1.__decorate([
     tslib_1.__param(2, (0, routing_controllers_1.Req)()),
     tslib_1.__param(3, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String, Number, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [String, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CustomerController.prototype, "excelCustomerView", null);
 tslib_1.__decorate([
@@ -1253,10 +1386,10 @@ tslib_1.__decorate([
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('customerId')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('emailId')),
     tslib_1.__param(4, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Number, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, String, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CustomerController.prototype, "orderProductList", null);
 tslib_1.__decorate([
@@ -1291,6 +1424,14 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Number, Number, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CustomerController.prototype, "customerVisitList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/bulk-status'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerController.prototype, "updateVendorCustomerStatus", null);
 CustomerController = tslib_1.__decorate([
     (0, routing_controllers_1.JsonController)('/admin-customer'),
     tslib_1.__metadata("design:paramtypes", [CustomerService_1.CustomerService,

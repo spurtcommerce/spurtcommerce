@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -62,5 +62,13 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], CreateAddress.prototype, "company", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    tslib_1.__metadata("design:type", String)
+], CreateAddress.prototype, "firstName", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsOptional)(),
+    tslib_1.__metadata("design:type", Number)
+], CreateAddress.prototype, "phoneNumber", void 0);
 exports.CreateAddress = CreateAddress;
 //# sourceMappingURL=CreateAddressRequest.js.map

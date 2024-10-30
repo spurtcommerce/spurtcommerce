@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -18,6 +18,7 @@ const VendorCategory_1 = require("./VendorCategory");
 const CategoryPath_1 = require("./CategoryPath");
 const class_validator_1 = require("class-validator");
 const VendorGroupCategory_1 = require("./VendorGroupCategory");
+const CategoryTranslation_1 = require("./CategoryTranslation");
 let Category = class Category extends BaseModel_1.BaseModel {
     createDetails() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -73,6 +74,10 @@ tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => ProductToCategory_1.ProductToCategory, productToCategory => productToCategory.category),
     tslib_1.__metadata("design:type", Array)
 ], Category.prototype, "productToCategory", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)((type) => CategoryTranslation_1.CategoryTranslation, categoryTranslation => categoryTranslation.category),
+    tslib_1.__metadata("design:type", Array)
+], Category.prototype, "categoryTranslation", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => VendorCategory_1.VendorCategory, vendorCategory => vendorCategory.category),
     tslib_1.__metadata("design:type", Array)

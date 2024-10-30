@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -16,19 +16,19 @@ const env_1 = require("../../../env");
 const Banner_1 = require("../../core/models/Banner");
 const CreateBannerRequest_1 = require("./requests/CreateBannerRequest");
 const UpdateBannerRequest_1 = require("./requests/UpdateBannerRequest");
-const S3Service_1 = require("../../core/services/S3Service");
-const ImageService_1 = require("../../core/services/ImageService");
 const DeleteBannerRequest_1 = require("./requests/DeleteBannerRequest");
 const fs = tslib_1.__importStar(require("fs"));
 const ProductService_1 = require("../../core/services/ProductService");
 const CategoryService_1 = require("../../core/services/CategoryService");
+const typeorm_1 = require("typeorm");
+const BannerImage_1 = require("../../core/models/BannerImage");
+const BannerImageService_1 = require("../../core/services/BannerImageService");
 let BannerController = class BannerController {
-    constructor(bannerService, s3Service, imageService, productService, categoryService) {
+    constructor(bannerService, productService, categoryService, bannerImageService) {
         this.bannerService = bannerService;
-        this.s3Service = s3Service;
-        this.imageService = imageService;
         this.productService = productService;
         this.categoryService = categoryService;
+        this.bannerImageService = bannerImageService;
     }
     // Create Banner
     /**
@@ -36,27 +36,60 @@ let BannerController = class BannerController {
      * @apiGroup Banner
      * @apiParam (Request body) {String{..255}} title title
      * @apiParam (Request body) {String} [content] content
-     * @apiParam (Request body) {String} image image
      * @apiParam (Request body) {String} [link] link
      * @apiParam (Request body) {String} [position] position
      * @apiParam (Request body) {Number} status status
      * @apiParam (Request body) {Number} [linkType] linkType
+     * @apiParam (Request body) {Array} [bannerImage] bannerImage
      * @apiHeader {String} Authorization
      * @apiParamExample {json} Input
      * {
      *      "title" : "",
      *      "content" : "",
-     *      "image" : "",
      *      "link" : "",
      *      "position" : "",
      *      "status" : "",
      *      "linkType" : "",
+     *      "bannerImage": [{
+     *                      "containerName": "",
+     *                      "image": "",
+     *                      "isPrimary": ""
+     *                      }]
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
+     *      "status": "1",
      *      "message": "New banner is created successfully",
-     *      "status": "1"
+     *      "data": "{
+     *                "createdBy": "",
+     *                "createdDate": "",
+     *                "modifiedBy": "",
+     *                "modifiedDate": "",
+     *                "bannerId": 1,
+     *                "title": "",
+     *                "sortOrder": "",
+     *                "url": "",
+     *                "link": "",
+     *                "content": "",
+     *                "position": "",
+     *                "bannerGroupId": 1,
+     *                "containerName": "",
+     *                "viewPageCount": "",
+     *                "isActive": "",
+     *                "linkType": "",
+     *                "bannerImages": [{
+     *                                  "imageName": "",
+     *                                  "imagePath": "",
+     *                                  "isPrimary": "",
+     *                                  "createdDate": "",
+     *                                  "modifiedDate": "",
+     *                                  "id": "",
+     *                                  "bannerId": "",
+     *                                  "isActive": "",
+     *                                  "isDelete": ""
+     *                                  }]
+     *                }"
      * }
      * @apiSampleRequest /api/banner
      * @apiErrorExample {json} Banner error
@@ -67,87 +100,75 @@ let BannerController = class BannerController {
             if (+bannerParam.linkType !== 1 && (bannerParam.link === undefined || bannerParam.link === '')) {
                 return response.status(400).send({
                     status: 0,
-                    message: 'link is required',
+                    message: 'Link is required',
                 });
             }
-            const image = bannerParam.image;
-            if (image) {
-                const type = image.split(';')[0].split('/')[1];
-                const availableTypes = env_1.env.availImageTypes.split(',');
-                if (!availableTypes.includes(type)) {
-                    const errorTypeResponse = {
-                        status: 0,
-                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
-                    };
-                    return response.status(400).send(errorTypeResponse);
-                }
-                const name = 'Img_' + Date.now() + '.' + type;
-                const path = 'banner/';
-                const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                if (env_1.env.imageserver === 's3') {
-                    yield this.s3Service.imageUpload((path + name), base64Data, type);
-                }
-                else {
-                    yield this.imageService.imageUpload((path + name), base64Data);
-                }
-                const newBanner = new Banner_1.Banner();
-                newBanner.title = bannerParam.title;
-                newBanner.content = bannerParam.content;
-                newBanner.image = name;
-                newBanner.imagePath = path;
-                let link;
-                link = bannerParam.link;
-                if (+bannerParam.linkType === 2) {
-                    const product = yield this.productService.findOne({
-                        where: {
-                            productSlug: link,
-                        },
-                    });
-                    if (!product) {
-                        return response.status(400).send({
-                            status: 0,
-                            message: 'Invalid product slug.',
-                        });
-                    }
-                    newBanner.linkType = bannerParam.linkType;
-                }
-                else if (+bannerParam.linkType === 3) {
-                    const category = yield this.categoryService.findOne({
-                        where: {
-                            categorySlug: link,
-                        },
-                    });
-                    if (!category) {
-                        return response.status(400).send({
-                            status: 0,
-                            message: 'Invalid category slug',
-                        });
-                    }
-                    newBanner.linkType = bannerParam.linkType;
-                }
-                else {
-                    newBanner.linkType = bannerParam.linkType;
-                }
-                newBanner.link = link;
-                newBanner.position = bannerParam.position;
-                newBanner.isActive = bannerParam.status;
-                const bannerSave = yield this.bannerService.create(newBanner);
-                if (bannerSave) {
-                    const successResponse = {
-                        status: 1,
-                        message: 'Successfully created new banner.',
-                        data: bannerSave,
-                    };
-                    return response.status(200).send(successResponse);
-                }
-                else {
-                    const errorResponse = {
-                        status: 0,
-                        message: 'Unable to create new banner. ',
-                    };
-                    return response.status(400).send(errorResponse);
-                }
+            const bannerExist = yield this.bannerService.findOne({
+                where: {
+                    position: bannerParam.position,
+                },
+            });
+            if (bannerExist) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Banner Position Already Exist.!',
+                });
             }
+            const newBanner = new Banner_1.Banner();
+            newBanner.title = bannerParam.title;
+            newBanner.content = bannerParam.content;
+            let link;
+            link = bannerParam.link;
+            if (+bannerParam.linkType === 2) {
+                const product = yield this.productService.findOne({
+                    where: {
+                        productSlug: link,
+                    },
+                });
+                if (!product) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'Invalid product slug',
+                    });
+                }
+                newBanner.linkType = bannerParam.linkType;
+            }
+            else if (+bannerParam.linkType === 3) {
+                const category = yield this.categoryService.findOne({
+                    where: {
+                        categorySlug: link,
+                    },
+                });
+                if (!category) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'Invalid category slug',
+                    });
+                }
+                newBanner.linkType = bannerParam.linkType;
+            }
+            else {
+                newBanner.linkType = bannerParam.linkType;
+            }
+            newBanner.link = link;
+            newBanner.position = bannerParam.position;
+            newBanner.isActive = bannerParam.status;
+            const bannerImages = [];
+            bannerParam.bannerImage.forEach((subImage) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const newBannerImage = new BannerImage_1.BannerImage();
+                newBannerImage.imageName = subImage.image;
+                newBannerImage.imagePath = subImage.containerName;
+                newBannerImage.isPrimary = subImage.isPrimary;
+                bannerImages.push(newBannerImage);
+            }));
+            newBanner.bannerImages = bannerImages;
+            const bannerSave = yield this.bannerService.create(newBanner);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully created new banner',
+                data: bannerSave,
+            };
+            return response.status(200).send(successResponse);
         });
     }
     // Banner List
@@ -163,17 +184,28 @@ let BannerController = class BannerController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
+     *      "status": "1"
      *      "message": "Successfully got banner list",
      *      "data":"{
-     *      "bannerId": "",
-     *      "title": "",
-     *      "content": "",
-     *      "image": "",
-     *      "imagePath": "",
-     *      "link": "",
-     *      "position": "",
-     *      }"
-     *      "status": "1"
+     *              "bannerId": 1,
+     *              "title": "",
+     *              "content": "",
+     *              "image": "",
+     *              "imagePath": "",
+     *              "link": "",
+     *              "position": "",
+     *              "bannerImages": [
+     *                  {
+     *                      "createdDate": "",
+     *                      "modifiedDate": "",
+     *                      "id": "",
+     *                      "imageName": "",
+     *                      "imagePath": "",
+     *                      "isPrimary": "",
+     *                      "bannerId": "",
+     *                      }
+     *                  ]
+     *              }"
      * }
      * @apiSampleRequest /api/banner
      * @apiErrorExample {json} Banner error
@@ -181,7 +213,7 @@ let BannerController = class BannerController {
      */
     bannerList(limit, offset, keyword, status, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const select = ['bannerId', 'title', 'image', 'imagePath', 'content', 'link', 'position', 'isActive', 'linkType'];
+            const select = [];
             const search = [
                 {
                     name: 'title',
@@ -193,8 +225,13 @@ let BannerController = class BannerController {
                     value: status,
                 },
             ];
+            const relations = [
+                {
+                    tableName: 'bannerImages',
+                },
+            ];
             const WhereConditions = [];
-            const bannerList = yield this.bannerService.list(limit, offset, select, search, WhereConditions, count);
+            const bannerList = yield this.bannerService.list(limit, offset, select, relations, search, WhereConditions, count);
             if (count) {
                 const successRes = {
                     status: 1,
@@ -211,7 +248,7 @@ let BannerController = class BannerController {
                 }
                 else if (+temp.linkType === 3) {
                     const categoryRedirectUrl = env_1.env.categoryRedirectUrl;
-                    temp.link = categoryRedirectUrl.concat(temp.link);
+                    temp.link = categoryRedirectUrl.concat(temp.link).concat('?offset=0');
                 }
                 else {
                     temp.link = temp.link;
@@ -239,7 +276,7 @@ let BannerController = class BannerController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully deleted Banner.",
+     *      "message": "Successfully deleted Banner",
      *      "status": "1"
      * }
      * @apiSampleRequest /api/banner/:id
@@ -256,7 +293,7 @@ let BannerController = class BannerController {
             if (!banner) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid Banner Id.',
+                    message: 'Invalid Banner Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -264,14 +301,14 @@ let BannerController = class BannerController {
             if (deleteBanner) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted banner.',
+                    message: 'Successfully deleted banner',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete banner.',
+                    message: 'Unable to delete banner',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -284,28 +321,63 @@ let BannerController = class BannerController {
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} bannerId Banner bannerId
      * @apiParam (Request body) {String{..255}} title Banner title
-     * @apiParam (Request body) {String} image Banner image
+     * @apiParam (Request body) {String} bannerImages Banner images
      * @apiParam (Request body) {String} [content] Banner content
      * @apiParam (Request body) {String{..255}} [link] Banner link
      * @apiParam (Request body) {Number} [position] Banner position
      * @apiParam (Request body) {Number} status status
      * @apiParam (Request body) {Number} [linkType] 1--> static 2--> product 3--> category
+     * @apiParam (Request body) {Array} [bannerImage] bannerImage
      * @apiParamExample {json} Input
      * {
      *      "bannerId" : "",
      *      "title" : "",
-     *      "image" : "",
      *      "content" : "",
      *      "link" : "",
      *      "position" : "",
      *      "status" : "",
      *      "linkType" : "",
+     *      "bannerImage": [{
+     *                      "containerName": "",
+     *                      "image": "",
+     *                      "isPrimary": ""
+     *                      }]
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully updated banner.",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": "{
+     *                "createdBy": "",
+     *                "createdDate": "",
+     *                "modifiedBy": "",
+     *                "modifiedDate": "",
+     *                "bannerId": "",
+     *                "title": "",
+     *                "sortOrder": "",
+     *                "url": "",
+     *                "link": "",
+     *                "content": "",
+     *                "position": "",
+     *                "bannerGroupId": "",
+     *                "bannerImages": "",
+     *                "containerName": "",
+     *                "viewPageCount": "",
+     *                "isActive": "",
+     *                "linkType": "",
+     *                "bannerImages": [
+     *                  {
+     *                      "createdDate": "",
+     *                      "modifiedDate": "",
+     *                      "id": "",
+     *                      "imageName": "",
+     *                      "imagePath": "",
+     *                      "isPrimary": "",
+     *                      "bannerId": "",
+     *                      }
+     *                  ]
+     *              }"
      * }
      * @apiSampleRequest /api/banner/:id
      * @apiErrorExample {json} Banner error
@@ -316,43 +388,40 @@ let BannerController = class BannerController {
             if (+bannerParam.linkType !== 1 && (bannerParam.link === undefined || bannerParam.link === '')) {
                 return response.status(400).send({
                     status: 0,
-                    message: 'link is required',
+                    message: 'Link is required',
                 });
             }
+            const bannerImageId = [];
+            bannerParam.bannerImage.forEach((bannerImage) => {
+                if (bannerImage.bannerImageId) {
+                    bannerImageId.push(bannerImage.bannerImageId);
+                }
+            });
+            yield this.bannerImageService.delete({ id: (0, typeorm_1.Not)((0, typeorm_1.In)(bannerImageId)), bannerId: bannerParam.bannerId });
             const banner = yield this.bannerService.findOne({
                 where: {
                     bannerId: bannerParam.bannerId,
                 },
+                relations: ['bannerImages'],
             });
             if (!banner) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid Banner Id.',
+                    message: 'Invalid Banner Id',
                 };
                 return response.status(400).send(errorResponse);
             }
-            const image = bannerParam.image;
-            if (image) {
-                const type = image.split(';')[0].split('/')[1];
-                const availableTypes = env_1.env.availImageTypes.split(',');
-                if (!availableTypes.includes(type)) {
-                    const errorTypeResponse = {
-                        status: 0,
-                        message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
-                    };
-                    return response.status(400).send(errorTypeResponse);
-                }
-                const name = 'Img_' + Date.now() + '.' + type;
-                const path = 'banner/';
-                const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                if (env_1.env.imageserver === 's3') {
-                    yield this.s3Service.imageUpload((path + name), base64Data, type);
-                }
-                else {
-                    yield this.imageService.imageUpload((path + name), base64Data);
-                }
-                banner.image = name;
-                banner.imagePath = path;
+            const bannerExist = yield this.bannerService.findOne({
+                where: {
+                    bannerId: (0, typeorm_1.Not)(bannerParam.bannerId),
+                    position: bannerParam.position,
+                },
+            });
+            if (bannerExist) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Banner Position Already Exist.!',
+                });
             }
             banner.title = bannerParam.title;
             banner.content = bannerParam.content;
@@ -367,7 +436,7 @@ let BannerController = class BannerController {
                 if (!product) {
                     return response.status(400).send({
                         status: 0,
-                        message: 'Invalid product slug.',
+                        message: 'Invalid product slug',
                     });
                 }
                 banner.linkType = bannerParam.linkType;
@@ -392,22 +461,24 @@ let BannerController = class BannerController {
             banner.link = link;
             banner.position = bannerParam.position;
             banner.isActive = bannerParam.status;
-            const bannerSave = yield this.bannerService.create(banner);
-            if (bannerSave) {
-                const successResponse = {
-                    status: 1,
-                    message: 'Successfully updated banner.',
-                    data: bannerSave,
-                };
-                return response.status(200).send(successResponse);
-            }
-            else {
-                const errorResponse = {
-                    status: 0,
-                    message: 'Unable to update the banner. ',
-                };
-                return response.status(400).send(errorResponse);
-            }
+            bannerParam.bannerImage.forEach((bannerImage) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const newbannerImage = new BannerImage_1.BannerImage();
+                if (bannerImage.bannerImageId) {
+                    newbannerImage.id = bannerImage.bannerImageId;
+                }
+                newbannerImage.imageName = bannerImage.image;
+                newbannerImage.imagePath = bannerImage.containerName;
+                newbannerImage.isPrimary = bannerImage.isPrimary;
+                newbannerImage.bannerId = bannerParam.bannerId;
+                yield this.bannerImageService.create(newbannerImage);
+            }));
+            const bannerSave = yield this.bannerService.update(banner);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully updated banner',
+                data: bannerSave,
+            };
+            return response.status(200).send(successResponse);
         });
     }
     // Delete Multiple Banner API
@@ -423,7 +494,7 @@ let BannerController = class BannerController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     * "message": "Successfully deleted Banner.",
+     * "message": "Successfully deleted Banner",
      * "status": "1"
      * }
      * @apiSampleRequest /api/banner/delete-banner
@@ -439,7 +510,7 @@ let BannerController = class BannerController {
                 if (dataId === undefined) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Please choose a banner that you want to delete.',
+                        message: 'Please choose a banner that you want to delete',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -450,7 +521,7 @@ let BannerController = class BannerController {
             }
             const successResponse = {
                 status: 1,
-                message: 'Successfully deleted Banner.',
+                message: 'Successfully deleted banner',
             };
             return response.status(200).send(successResponse);
         });
@@ -464,8 +535,12 @@ let BannerController = class BannerController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get banner count",
-     *      "data":{},
      *      "status": "1"
+     *      "data": "{
+     *      "totalBanner": "",
+     *      "activeBanner": "",
+     *      "inActiveBanner": ""
+     *      }"
      * }
      * @apiSampleRequest /api/banner/banner-count
      * @apiErrorExample {json} Banner error
@@ -477,7 +552,7 @@ let BannerController = class BannerController {
             const select = [];
             const search = [];
             const WhereConditions = [];
-            const allBannerCount = yield this.bannerService.list(0, 0, select, search, WhereConditions, 1);
+            const allBannerCount = yield this.bannerService.list(0, 0, select, [], search, WhereConditions, 1);
             const whereConditionsActive = [
                 {
                     name: 'isActive',
@@ -485,7 +560,7 @@ let BannerController = class BannerController {
                     value: 1,
                 },
             ];
-            const activeBannerCount = yield this.bannerService.list(0, 0, select, search, whereConditionsActive, 1);
+            const activeBannerCount = yield this.bannerService.list(0, 0, select, [], search, whereConditionsActive, 1);
             const whereConditionsInActive = [
                 {
                     name: 'isActive',
@@ -493,7 +568,7 @@ let BannerController = class BannerController {
                     value: 0,
                 },
             ];
-            const inActiveBannerCount = yield this.bannerService.list(0, 0, select, search, whereConditionsInActive, 1);
+            const inActiveBannerCount = yield this.bannerService.list(0, 0, select, [], search, whereConditionsInActive, 1);
             banner.totalBanner = allBannerCount;
             banner.activeBanner = activeBannerCount;
             banner.inActiveBanner = inActiveBannerCount;
@@ -514,21 +589,50 @@ let BannerController = class BannerController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
+     *      "status": "1",
      *      "message": "Successfully got Banner detail",
-     *      "data": "{}"
-     *      "status": "1"
+     *      "data": "{
+     *               "createdBy": "",
+     *               "createdDate": "",
+     *               "modifiedBy": "",
+     *               "modifiedDate": "",
+     *               "bannerId": "",
+     *               "title": "",
+     *               "sortOrder": "",
+     *               "url": "",
+     *               "link": "",
+     *               "content": "",
+     *               "position": "",
+     *               "bannerGroupId": "",
+     *               "containerName": "",
+     *               "viewPageCount": "",
+     *               "isActive": "",
+     *               "linkType": "",
+     *               "bannerImages": [{
+     *                                    "createdDate": "",
+     *                                    "modifiedDate": "",
+     *                                    "id": "",
+     *                                    "imageName": "",
+     *                                    "imagePath": "",
+     *                                    "isPrimary": "",
+     *                                    "bannerId": "",
+     *                                    }]
+     *               }"
      * }
      * @apiSampleRequest /api/banner/banner-detail
      * @apiErrorExample {json} banner Detail error
      * HTTP/1.1 500 Internal Server Error
      */
     BannerDetail(bannerId, response) {
+        var _a, _b;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const banner = yield this.bannerService.findOne({
                 where: {
                     bannerId,
                 },
+                relations: ['bannerImages'],
             });
+            banner.content = (_b = (_a = banner.content) === null || _a === void 0 ? void 0 : _a.replace(/"/g, `'`)) !== null && _b !== void 0 ? _b : '';
             if (!banner) {
                 const errorResponse = {
                     status: 0,
@@ -552,7 +656,7 @@ let BannerController = class BannerController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully download the Banner Excel List..!!",
+     *      "message": "Successfully download the Banner Excel List",
      *      "status": "1",
      *      "data": {},
      * }
@@ -698,8 +802,9 @@ tslib_1.__decorate([
 ], BannerController.prototype, "bannerView", null);
 BannerController = tslib_1.__decorate([
     (0, routing_controllers_1.JsonController)('/banner'),
-    tslib_1.__metadata("design:paramtypes", [BannerService_1.BannerService, S3Service_1.S3Service,
-        ImageService_1.ImageService, ProductService_1.ProductService, CategoryService_1.CategoryService])
+    tslib_1.__metadata("design:paramtypes", [BannerService_1.BannerService,
+        ProductService_1.ProductService, CategoryService_1.CategoryService,
+        BannerImageService_1.BannerImageService])
 ], BannerController);
 exports.BannerController = BannerController;
 //# sourceMappingURL=BannerController.js.map

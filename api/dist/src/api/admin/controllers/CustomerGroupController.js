@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -11,7 +11,6 @@ exports.CustomerGroupController = void 0;
 const tslib_1 = require("tslib");
 require("reflect-metadata");
 const routing_controllers_1 = require("routing-controllers");
-const DeleteCustomerGroupRequest_1 = require("./requests/DeleteCustomerGroupRequest");
 const CreateCustomerGroupRequest_1 = require("./requests/CreateCustomerGroupRequest");
 const CustomerGroupService_1 = require("../../core/services/CustomerGroupService");
 const CustomerService_1 = require("../../core/services/CustomerService");
@@ -35,12 +34,21 @@ let CustomerGroupController = class CustomerGroupController {
      *      "name" : "",
      *      "description" : "",
      *      "status" : "",
+     *      "colorcode": ""
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
      *      "message": "New Customer group is created successfully",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *              "name": "",
+     *              "description": "",
+     *              "colorCode": "",
+     *              "isActive": "",
+     *              "createdDate": "",
+     *              "groupId": ""
+     *      }
      * }
      * @apiSampleRequest /api/customer-group
      * @apiErrorExample {json} createCustomer error
@@ -56,7 +64,7 @@ let CustomerGroupController = class CustomerGroupController {
             if (customer) {
                 const errorResponse = {
                     status: 0,
-                    message: 'This Customer Group already exists.',
+                    message: 'This Customer Group already exists',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -77,7 +85,7 @@ let CustomerGroupController = class CustomerGroupController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to save Customer Group.',
+                    message: 'Unable to save Customer Group',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -103,7 +111,15 @@ let CustomerGroupController = class CustomerGroupController {
      * HTTP/1.1 200 OK
      * {
      *      "message": " Customer Group is updated successfully",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *              "name": "",
+     *              "description": "",
+     *              "colorCode": "",
+     *              "isActive": "",
+     *              "createdDate": "",
+     *              "groupId": ""
+     *              }
      * }
      * @apiSampleRequest /api/customer-group/:id
      * @apiErrorExample {json} update-customer-group error
@@ -113,13 +129,13 @@ let CustomerGroupController = class CustomerGroupController {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const customer = yield this.customerGroupService.findOne({
                 where: {
-                    groupId: id,
+                    id,
                 },
             });
             if (!customer) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid group Id.',
+                    message: 'Invalid group Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -132,7 +148,7 @@ let CustomerGroupController = class CustomerGroupController {
             if (customerGroupSaveResponse) {
                 const successResponse = {
                     status: 1,
-                    message: 'Customer Group updated successfully.',
+                    message: 'Customer Group updated successfully',
                     data: customerGroupSaveResponse,
                 };
                 return response.status(200).send(successResponse);
@@ -140,7 +156,7 @@ let CustomerGroupController = class CustomerGroupController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the Customer Group.',
+                    message: 'Unable to update the Customer Group',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -153,6 +169,7 @@ let CustomerGroupController = class CustomerGroupController {
      * @apiParam (Request body) {Number} limit limit
      * @apiParam (Request body) {Number} offset offset
      * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} groupName groupName
      * @apiParam (Request body) {String} status status
      * @apiParam (Request body) {String} count count in number or boolean
      * @apiHeader {String} Authorization
@@ -160,16 +177,22 @@ let CustomerGroupController = class CustomerGroupController {
      * HTTP/1.1 200 OK
      * {
      *    "message": "Successfully get customer group list",
-     *    "data":"{}"
      *    "status": "1"
+     *    "data":{
+     *           "groupId": "",
+     *           "name": "",
+     *           "description": "",
+     *           "colorCode": "",
+     *           "isActive": ""
+     *    },
      *  }
      * @apiSampleRequest /api/customer-group
      * @apiErrorExample {json} customergroup error
      * HTTP/1.1 500 Internal Server Error
      */
-    customergroupList(limit, offset, keyword, status, count, response) {
+    customergroupList(limit, offset, groupName, keyword, status, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const select = ['groupId', 'name', 'description', 'colorCode', 'isActive'];
+            const select = ['id', 'name', 'description', 'colorCode', 'isActive', 'createdDate', 'modifiedDate'];
             const whereConditions = [
                 {
                     name: 'name',
@@ -182,6 +205,13 @@ let CustomerGroupController = class CustomerGroupController {
                     value: status,
                 },
             ];
+            if (groupName) {
+                whereConditions.push({
+                    name: 'name',
+                    op: 'like',
+                    value: groupName,
+                });
+            }
             const customerGroupList = yield this.customerGroupService.list(limit, offset, select, whereConditions, count);
             const successResponse = {
                 status: 1,
@@ -211,61 +241,104 @@ let CustomerGroupController = class CustomerGroupController {
      * @apiErrorExample {json} CustomerGroup error
      * HTTP/1.1 500 Internal Server Error
      */
-    deleteGroup(group, response, request) {
+    deleteGroup(id, response, request) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const groupId = yield this.customerGroupService.findOne({
                 where: {
-                    groupId: group.groupId,
+                    id,
                 },
             });
             if (!groupId) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid group Id.',
+                    message: 'Invalid group Id',
                 };
                 return response.status(400).send(errorResponse);
             }
             const defaultGroupId = yield this.customerGroupService.findOne({
                 where: {
-                    groupId: group.groupId,
+                    id,
                     name: 'default',
                 },
             });
             if (defaultGroupId) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You cannot delete this customer group.',
+                    message: 'You cannot delete this customer group',
                 };
                 return response.status(400).send(errorResponse);
             }
             const findCustomer = yield this.customerService.findOne({
                 where: {
-                    customerGroupId: group.groupId,
+                    customerGroupId: id,
                     deleteFlag: 0,
                 },
             });
             if (findCustomer) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You cannot delete this Customer group as Users are mapped to it.',
+                    message: 'You cannot delete this Customer group as Users are mapped to it',
                 };
                 return response.status(400).send(errorResponse);
             }
-            const deleteGroup = yield this.customerGroupService.delete(group.groupId);
+            const deleteGroup = yield this.customerGroupService.delete(id);
             if (deleteGroup) {
                 const successResponse = {
                     status: 1,
-                    message: 'Group Deleted Successfully.',
+                    message: 'Group deleted successfully',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the group.',
+                    message: 'Unable to delete the group',
                 };
                 return response.status(400).send(errorResponse);
             }
+        });
+    }
+    // Detail Customer Group API
+    /**
+     * @api {delete} /api/customer-group/:id Detail Customer Group API
+     * @apiGroup CustomerGroup
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} groupId  groupId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Got Customer Group",
+     *      "status": "1",
+     *      "data":{
+     *           "name": "",
+     *           "description": "",
+     *           "colorCode": "",
+     *           "isActive": ""
+     *            },
+     * }
+     * @apiSampleRequest /api/customer-group/:id
+     * @apiErrorExample {json} CustomerGroup error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    detailGroup(id, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const group = yield this.customerGroupService.findOne({
+                where: {
+                    id,
+                },
+            });
+            if (!group) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid group Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            return response.status(400).send({
+                status: 0,
+                message: 'Successfully Got Customer Group',
+                data: group,
+            });
         });
     }
 };
@@ -293,24 +366,35 @@ tslib_1.__decorate([
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
-    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('groupName')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CustomerGroupController.prototype, "customergroupList", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Delete)('/:id'),
     (0, routing_controllers_1.Authorized)(['admin', 'delete-customer-group']),
-    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__param(2, (0, routing_controllers_1.Req)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [DeleteCustomerGroupRequest_1.DeleteCustomerGroupRequest, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CustomerGroupController.prototype, "deleteGroup", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/:id'),
+    (0, routing_controllers_1.Authorized)('admin'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CustomerGroupController.prototype, "detailGroup", null);
 CustomerGroupController = tslib_1.__decorate([
     (0, routing_controllers_1.JsonController)('/customer-group'),
     tslib_1.__metadata("design:paramtypes", [CustomerGroupService_1.CustomerGroupService, CustomerService_1.CustomerService])

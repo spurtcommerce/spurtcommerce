@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -22,7 +22,7 @@ let CurrencyController = class CurrencyController {
     }
     // Create Currency API
     /**
-     * @api {post} /api/currency/add-currency Add Currency API
+     * @api {post} /api/currency Add Currency API
      * @apiGroup Currency
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String{..30}} title Currency title
@@ -41,10 +41,18 @@ let CurrencyController = class CurrencyController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully created new Currency.",
-     *      "status": "1"
+     *      "message": "Successfully created new Currency",
+     *      "status": "1",
+     *      "data":{
+     *              "title": "",
+     *              "code": "",
+     *              "symbolLeft": "",
+     *              "isActive": "",
+     *              "createdDate": "",
+     *              "currencyId": ""
+     *             }
      * }
-     * @apiSampleRequest /api/currency/add-currency
+     * @apiSampleRequest /api/currency
      * @apiErrorExample {json} Currency error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -59,7 +67,7 @@ let CurrencyController = class CurrencyController {
             if (existsCurrency) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You already added this Currency.',
+                    message: 'Currency name already exists',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -73,7 +81,7 @@ let CurrencyController = class CurrencyController {
             if (currencySave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully added new currency.',
+                    message: 'Successfully added new currency',
                     data: currencySave,
                 };
                 return response.status(200).send(successResponse);
@@ -81,7 +89,7 @@ let CurrencyController = class CurrencyController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to create currency.',
+                    message: 'Unable to create currency',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -100,57 +108,58 @@ let CurrencyController = class CurrencyController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get currency list",
-     *      "data":{
-     *       "currencyId" : "",
-     *       "title" : "",
-     *       "code" : "",
-     *       "value" : "",
-     *       "update" : "",
-     *      }
      *      "status": "1"
+     *      "message": "Successfully get currency list",
+     *      "data":[{
+     *       "createdDate": "2022-10-04T06:15:48.000Z",
+     *       "modifiedDate": "2024-08-05T09:12:36.000Z",
+     *       "currencyId": 73,
+     *       "title": "שקל",
+     *       "code": "ILS",
+     *       "symbolLeft": null,
+     *       "symbolRight": "₪",
+     *       "isActive": 1
+     *   }]
      * }
-     * @apiSampleRequest /api/currency/currencylist
+     * @apiSampleRequest /api/currency
      * @apiErrorExample {json} Currency error
      * HTTP/1.1 500 Internal Server Error
      */
     currencyList(limit, offset, keyword, status, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = ['currencyId', 'title', 'code', 'symbolLeft', 'symbolRight', 'modifiedDate', 'createdDate', 'isActive'];
-            const search = [
-                {
-                    name: 'title',
-                    op: 'like',
+            const search = [];
+            if (keyword === null || keyword === void 0 ? void 0 : keyword.trim()) {
+                search.push({
+                    name: ['Currency.title', 'Currency.code'],
                     value: keyword,
-                },
-            ];
+                });
+            }
             search.push({
                 name: 'isActive',
                 op: 'like',
                 value: status,
             });
             const WhereConditions = [];
-            const currencyList = yield this.currencyService.list(limit, offset, select, search, WhereConditions, count);
-            if (currencyList) {
-                const successResponse = {
+            const currencyList = yield this.currencyService.list(limit, offset, select, WhereConditions, search, count);
+            if (count) {
+                return response.status(200).send({
                     status: 1,
-                    message: 'Successfully got the complete currency list.',
+                    message: 'Successfully got the currency count',
                     data: currencyList,
-                };
-                return response.status(200).send(successResponse);
+                });
             }
-            else {
-                const errorResponse = {
-                    status: 0,
-                    message: 'unable to list currency',
-                };
-                return response.status(400).send(errorResponse);
-            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete currency list',
+                data: currencyList,
+            };
+            return response.status(200).send(successResponse);
         });
     }
     // update Currency
     /**
-     * @api {put} /api/currency/update-currency/:id Update Currency API
+     * @api {put} /api/currency/:id Update Currency API
      * @apiGroup Currency
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} currencyId Currency currencyId
@@ -171,10 +180,17 @@ let CurrencyController = class CurrencyController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully updated Currency.",
-     *      "status": "1"
+     *      "message": "Successfully updated Currency",
+     *      "status": "1",
+     *      "data":{
+     *              "currencyId" : "",
+     *              "title" : "",
+     *              "code" : "",
+     *              "value" : "",
+     *              "update" : "",
+     *      }
      * }
-     * @apiSampleRequest /api/currency/update-currency/:id
+     * @apiSampleRequest /api/currency/:id
      * @apiErrorExample {json} Currency error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -188,7 +204,7 @@ let CurrencyController = class CurrencyController {
             if (!currency) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid currency Id.',
+                    message: 'Invalid currency Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -202,7 +218,7 @@ let CurrencyController = class CurrencyController {
             if (existsCurrency) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You already added this Currency.',
+                    message: 'Currency name already exists',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -215,7 +231,7 @@ let CurrencyController = class CurrencyController {
             if (currencySave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated the currency.',
+                    message: 'Successfully updated the currency',
                     data: currencySave,
                 };
                 return response.status(200).send(successResponse);
@@ -223,7 +239,7 @@ let CurrencyController = class CurrencyController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the currency.',
+                    message: 'Unable to update the currency',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -231,7 +247,7 @@ let CurrencyController = class CurrencyController {
     }
     // delete Currency API
     /**
-     * @api {delete} /api/currency/delete-currency/:id Delete Currency API
+     * @api {delete} /api/currency/:id Delete Currency API
      * @apiGroup Currency
      * @apiHeader {String} Authorization
      * @apiParamExample {json} Input
@@ -241,10 +257,10 @@ let CurrencyController = class CurrencyController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully deleted currency.",
+     *      "message": "Successfully deleted currency",
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/currency/delete-currency/:id
+     * @apiSampleRequest /api/currency/:id
      * @apiErrorExample {json} Currency error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -258,7 +274,7 @@ let CurrencyController = class CurrencyController {
             if (!currency) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid currency Id.',
+                    message: 'Invalid currency Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -266,14 +282,14 @@ let CurrencyController = class CurrencyController {
             if (deleteCurrency === undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfullly deleted the currency.',
+                    message: 'Successfullly deleted the currency',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the currency.',
+                    message: 'Unable to delete the currency',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -281,7 +297,7 @@ let CurrencyController = class CurrencyController {
     }
 };
 tslib_1.__decorate([
-    (0, routing_controllers_1.Post)('/add-currency'),
+    (0, routing_controllers_1.Post)(),
     (0, routing_controllers_1.Authorized)(['admin', 'create-currency']),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
@@ -290,7 +306,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CurrencyController.prototype, "addCurrency", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/currencylist'),
+    (0, routing_controllers_1.Get)(),
     (0, routing_controllers_1.Authorized)(['admin', 'list-currency']),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
@@ -303,7 +319,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CurrencyController.prototype, "currencyList", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Put)('/update-currency/:id'),
+    (0, routing_controllers_1.Put)('/:id'),
     (0, routing_controllers_1.Authorized)(['admin', 'edit-currency']),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
@@ -312,7 +328,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CurrencyController.prototype, "updateCurrency", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Delete)('/delete-currency/:id'),
+    (0, routing_controllers_1.Delete)('/:id'),
     (0, routing_controllers_1.Authorized)(['admin', 'delete-currency']),
     tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        @media only screen and (max-width: 600px) {
+            .inner-table {
+                padding: 40px 16px !important;
+            }
+
+            .product-detail {
+                padding-right: 10px !important;
+            }
+        }
+    </style>
+</head>
+
+<body style=" font-family: 'Inter', sans-serif;margin: 0;padding: 0;">
+    <table width=" 100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color: #F9F9F9;">
+        <tbody>
+            <tr>
+                <td style="padding:40px 16px 40px 16px; ">
+
+                    <table style="max-width:  744px; margin:0 auto; " width=" 100%" cellpadding="0" cellspacing="0"
+                        role="presentation">
+                        <tr>
+                            <td>
+                                <table width=" 100%" cellpadding="0" cellspacing="0" role="presentation"
+                                    style="background-color: #FFFFFF; padding: 40px 32px;" class="inner-table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <table width=" 100%" cellpadding="0" cellspacing="0"
+                                                    role="presentation">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="center" style="padding: 40px;">
+                                                                <img src="<%=baseUrl%>/media/image-resize/?width=216&height=160&path=<%=logo.emailLogoPath%>&name=<%=logo.emailLogo%>"
+                                                                    alt="logo" style="width: 152px;
+                                                                height: 40px;">
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td
+                                                                style="padding: 40px 30px 30px; border-width: 1px 0 1px 0; border-color:#D8DEE3; border-style: solid;">
+                                                                <table width=" 100%" cellpadding="0" cellspacing="0"
+                                                                    role="presentation">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <%- emailContent %>
+                                                                                
+                                                                                <% console.log(emailContent); %>
+                                                                                <% console.log('This is a message from EJS!'); %>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td
+                                                                                style="background-color: #F9F9FC;padding: 16px;">
+                                                                                <table width=" 100%" cellpadding="0"
+                                                                                    cellspacing="0" role="presentation">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <h3
+                                                                                                    style="color: #262626;font-size: 14px;line-height: 24px;font-weight: normal;margin: 0 0 24px 0;">
+                                                                                                    Customer Information
+                                                                                                </h3>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <table width=""
+                                                                                                    cellpadding="0"
+                                                                                                    cellspacing="0"
+                                                                                                    role="presentation">
+                                                                                                    <tbody>
+                                                                                                        <tr>
+                                                                                                            <th
+                                                                                                                style=" vertical-align:top; text-align:left;padding-right: 10px; color: #262626; font-size: 14px; line-height:24px;font-weight: 600;padding-bottom: 8px;">
+                                                                                                                Order
+                                                                                                                Id:
+                                                                                                            </th>
+                                                                                                            <td
+                                                                                                                style=" vertical-align:top; text-align:left; color: #262626; font-size: 14px; line-height: 24px;font-weight: normal; padding-bottom: 8px;">
+                                                                                                                <%= orderData.orderPrefixId
+                                                                                                                    %>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th
+                                                                                                                style=" vertical-align:top; text-align:left; padding-right: 10px;color: #262626; font-size: 14px; line-height:24px;font-weight: 600;padding-bottom: 8px;">
+                                                                                                                Order
+                                                                                                                Date:
+                                                                                                            </th>
+                                                                                                            <td
+                                                                                                                style=" vertical-align:top; text-align:left;color: #262626; font-size: 14px; line-height: 24px;font-weight: normal;padding-bottom: 8px;">
+                                                                                                                <%=
+                                                                                                                    today%>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th
+                                                                                                                style=" vertical-align:top; text-align:left;padding-right: 10px;color: #262626; font-size: 14px; line-height:24px;font-weight: 600;padding-bottom: 8px;">
+                                                                                                                Customer
+                                                                                                                Name:
+                                                                                                            </th>
+                                                                                                            <td
+                                                                                                                style=" vertical-align:top; text-align:left;color: #262626; font-size: 14px; line-height: 24px;font-weight: normal;padding-bottom: 8px;">
+                                                                                                                <%= orderData.shippingFirstname
+                                                                                                                    %>
+                                                                                                                    <%= orderData.shippingLastname
+                                                                                                                        %>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th
+                                                                                                                style=" vertical-align:top; text-align:left;padding-right: 10px;color: #262626; font-size: 14px; line-height:24px;font-weight: 600;padding-bottom: 8px;">
+                                                                                                                Email
+                                                                                                                Address:
+                                                                                                            </th>
+                                                                                                            <td
+                                                                                                                style=" vertical-align:top; text-align:left;color: #262626; font-size: 14px; line-height: 24px;font-weight: normal;padding-bottom: 8px;">
+                                                                                                                <%= orderData.email
+                                                                                                                    %>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th
+                                                                                                                style=" vertical-align:top; text-align:left;padding-right: 10px;color: #262626; font-size: 14px; line-height:24px;font-weight: 600;padding-bottom: 8px;">
+                                                                                                                Mobile
+                                                                                                                Number:
+                                                                                                            </th>
+                                                                                                            <td
+                                                                                                                style=" vertical-align:top; text-align:left;color: #262626; font-size: 14px; line-height: 24px;font-weight: normal;padding-bottom: 8px;">
+                                                                                                                <%= orderData.telephone
+                                                                                                                    %>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th
+                                                                                                                style=" vertical-align:top; text-align:left;padding-right: 10px;color: #262626; font-size: 14px; line-height:24px;font-weight: 600;">
+                                                                                                                Shipping
+                                                                                                                address:
+                                                                                                            </th>
+                                                                                                            <td
+                                                                                                                style=" vertical-align:top; text-align:left;color: #262626; font-size: 14px; line-height: 24px;font-weight: normal;">
+                                                                                                                <%= orderData.shippingAddress1
+                                                                                                                    %>
+                                                                                                                    <br>
+                                                                                                                    <%= orderData.shippingAddress2
+                                                                                                                        %>
+                                                                                                                        <br>
+                                                                                                                        <%= orderData.shippingCity
+                                                                                                                            %>
+                                                                                                                            ,
+                                                                                                                            <%= orderData.shippingPostcode
+                                                                                                                                %>
+                                                                                                                                .
+                                                                                                                                <br>
+                                                                                                                                <%= orderData.shippingCountry
+                                                                                                                                    %>
+                                                                                                            </td>
+                                                                                                        </tr>
+
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+
+
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td style="padding: 40px 0 0 0;">
+                                                                                <table width=" 100%" cellpadding="0"
+                                                                                    cellspacing="0" role="presentation">
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <h2
+                                                                                                style="font-size: 14px;line-height: 24px;font-weight: 600;color: #1F2328;margin:0 0 16px 0;">
+                                                                                                PRODUCT DETAILS</h2>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <table width=" 100%"
+                                                                                                cellpadding="0"
+                                                                                                cellspacing="0"
+                                                                                                role="presentation">
+                                                                                                <tbody>
+                                                                                                    <tr>
+
+                                                                                                        <td>
+                                                                                                            <table
+                                                                                                                width=" 100%"
+                                                                                                                cellpadding="0"
+                                                                                                                cellspacing="0"
+                                                                                                                role="presentation">
+                                                                                                                <tbody>
+                                                                                                                    <% var
+                                                                                                                        tax=0;
+                                                                                                                        var
+                                                                                                                        subtotal=0;
+                                                                                                                        var
+                                                                                                                        couponDiscount=0;
+                                                                                                                        var
+                                                                                                                        discount=0;
+                                                                                                                        for(var
+                                                                                                                        n=0;
+                                                                                                                        n
+                                                                                                                        <
+                                                                                                                        productDetailData.length
+                                                                                                                        ;
+                                                                                                                        n++)
+                                                                                                                        {
+                                                                                                                        subtotal
+                                                                                                                        +=parseFloat(productDetailData[n].productInformationData.basePrice) * productDetailData[n].productInformationData.quantity;
+                                                                                                                        couponDiscount
+                                                                                                                        +=parseFloat(productDetailData[n].productInformationData.couponDiscountAmount);
+                                                                                                                        discount
+                                                                                                                        +=parseFloat(productDetailData[n].productInformationData.discountAmount);
+                                                                                                                        var
+                                                                                                                        basePrice=parseFloat(productDetailData[n].productInformationData.basePrice);
+                                                                                                                        var
+                                                                                                                        total=parseFloat(productDetailData[n].productInformationData.total);
+                                                                                                                        %>
+                                                                                                                        <% var
+                                                                                                                            taxValueInAmount=0;
+                                                                                                                            if
+                                                                                                                            (productDetailData[n].productInformationData.taxType===2)
+                                                                                                                            {
+                                                                                                                            taxValueInAmount=productDetailData[n].productInformationData.basePrice
+                                                                                                                            *
+                                                                                                                            (productDetailData[n].productInformationData.taxValue
+                                                                                                                            /
+                                                                                                                            100);
+                                                                                                                            tax
+                                                                                                                            +=parseFloat(taxValueInAmount)
+                                                                                                                            *
+                                                                                                                            productDetailData[n].productInformationData.quantity;
+                                                                                                                            }
+                                                                                                                            else
+                                                                                                                            {
+                                                                                                                            taxValueInAmount=productDetailData[n].productInformationData.taxValue;
+                                                                                                                            tax
+                                                                                                                            +=parseFloat(taxValueInAmount)
+                                                                                                                            *
+                                                                                                                            productDetailData[n].productInformationData.quantity;
+                                                                                                                            }
+                                                                                                                            %>
+                                                                                                                            <tr>
+                                                                                                                                <td
+                                                                                                                                    style="border-width:1px 0 ; border-style: solid; border-color: #D8DEE3; padding: 16px 0; width: 24px;height: 24px;">
+                                                                                                                                    <img src="<%=baseUrl%>/media/image-resize/?width=60&height=60&path=<%=productDetailData[n].productImage.containerName%>&name=<%= productDetailData[n].productImage.image%>"
+                                                                                                                                        alt="product"
+                                                                                                                                        style="width: 93px;height: 93px; vertical-align: middle;padding: 4.5px;">
+                                                                                                                                </td>
+                                                                                                                                <td class="product-detail"
+                                                                                                                                    style="padding:16px 40px 16px 10px; border-width:1px 0 ; border-style: solid; border-color: #D8DEE3;">
+                                                                                                                                    <h4
+                                                                                                                                        style="color: #262626;font-size: 14px;line-height: 18px;font-weight: normal;margin: 0 0 8px 0;">
+                                                                                                                                        <%= productDetailData[n].productInformationData.name
+                                                                                                                                            %>
+                                                                                                                                    </h4>
+                                                                                                                                    <h5
+                                                                                                                                        style="font-size: 14px;line-height: 17px;font-weight: 600;color: #262626;margin:0 0 16px 0;">
+                                                                                                                                        <%= orderData.currencySymbolLeft%><%= basePrice ? basePrice.toFixed(2) : '0.00'%><%= orderData.currencySymbolRight%>
+                                                                                                                                    </h5>
+                                                                                                                                    <p
+                                                                                                                                        style="margin: 0;font-size: 14px;line-height: 17px;color: #333333;">
+                                                                                                                                        Quantity
+                                                                                                                                        :
+                                                                                                                                        <%= productDetailData[n].productInformationData.quantity
+                                                                                                                                            %>
+                                                                                                                                    </p>
+                                                                                                                                </td>
+                                                                                                                                <td
+                                                                                                                                    style="border-width:1px 0 ; border-style: solid; border-color: #D8DEE3; padding: 16px 0;">
+                                                                                                                                    <h5
+                                                                                                                                        style="color: #262626; font-weight: 600; font-size: 14px;line-height: 17px; margin: 0;">
+                                                                                                                                        <%= orderData.currencySymbolLeft%><%= total ? total.toFixed(2) : '' %><%= orderData.currencySymbolRight %>
+                                                                                                                                    </h5>
+                                                                                                                                </td>
+                                                                                                                            </tr>
+                                                                                                                            <% }
+                                                                                                                                %>
+
+                                                                                                                                <tr>
+                                                                                                                                    <td>
+
+                                                                                                                                    </td>
+                                                                                                                                    <td
+                                                                                                                                        style="font-size: 14px;line-height: 18px;font-weight: normal;color: #262626; text-align: end; padding:40px 40px 8px 10px;">
+                                                                                                                                        Item
+                                                                                                                                        Subtotal
+                                                                                                                                    </td>
+                                                                                                                                    <td
+                                                                                                                                        style="font-size:
+                                                                                                                        14px;line-height:
+                                                                                                                        18px;font-weight:
+                                                                                                                        normal;color:
+                                                                                                                        #262626; padding:40px 0 8px 0;">
+                                                                                                                                        <%= orderData.currencySymbolLeft%><%= subtotal.toFixed(2)%><%= orderData.currencySymbolRight%>
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+                                                                                                                                <tr>
+                                                                                                                                    <td>
+
+                                                                                                                                    </td>
+                                                                                                                                    <td
+                                                                                                                                        style="font-size: 14px;line-height: 18px;font-weight: normal;color: #262626; text-align: end; padding:5px 40px 5px 10px;">
+                                                                                                                                        Tax
+                                                                                                                                    </td>
+                                                                                                                                    <td
+                                                                                                                                        style="font-size:
+                                                                                                                        14px;line-height:
+                                                                                                                        17px;font-weight:
+                                                                                                                        normal;color:
+                                                                                                                        #262626;  padding:8px 0 5px 0;">
+                                                                                                                                        <%= orderData.currencySymbolLeft%><%= (tax ? tax.toFixed(2) : '0.00')%><%= orderData.currencySymbolRight%>
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+                                                                                                                                <tr>
+                                                                                                                                    <td>
+
+                                                                                                                                    </td>
+                                                                                                                                    <td
+                                                                                                                                        style="font-size: 14px;line-height: 18px;font-weight: normal;color: #262626; text-align: end; padding:5px 40px 5px 10px;">
+                                                                                                                                        Discount
+                                                                                                                                    </td>
+                                                                                                                                    <td
+                                                                                                                                        style="font-size:
+                                                                                                                        14px;line-height:
+                                                                                                                        17px;font-weight:
+                                                                                                                        normal;color:
+                                                                                                                        #262626;  padding:8px 0 5px 0;">
+                                                                                                                                        <%= orderData.currencySymbolLeft%><%= (discount ? discount.toFixed(2) : '0.00')%><%= orderData.currencySymbolRight%>
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+                                                                                                                                <tr>
+                                                                                                                                    <td>
+
+                                                                                                                                    </td>
+                                                                                                                                    <td
+                                                                                                                                        style="font-size: 14px;line-height: 18px;font-weight: normal;color: #262626; text-align: end; padding:5px 40px 5px 10px;">
+                                                                                                                                        Coupon
+                                                                                                                                        Discount
+                                                                                                                                    </td>
+                                                                                                                                    <td
+                                                                                                                                        style="font-size:
+                                                                                                                        14px;line-height:
+                                                                                                                        17px;font-weight:
+                                                                                                                        normal;color:
+                                                                                                                        #262626;  padding:8px 0 5px 0;">
+                                                                                                                                        <%= orderData.currencySymbolLeft%><%= (orderData.discountAmount ? (orderData.discountAmount).toFixed(2) : '0.00')%><%= orderData.currencySymbolRight%>
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+                                                                                                                                <tr>
+                                                                                                                                    <td>
+
+                                                                                                                                    </td>
+                                                                                                                                    <td
+                                                                                                                                        style="font-size: 14px;line-height: 17px;font-weight:600;color: #262626; text-align: end; padding:20px 40px 20px 10px;">
+                                                                                                                                        Grand Subtotal
+                                                                                                                                    </td>
+                                                                                                                                    <td
+                                                                                                                                        style="font-size:
+                                                                                                                        14px;line-height:
+                                                                                                                        17px;font-weight:
+                                                                                                                        600;color:
+                                                                                                                        #262626;  padding:20px 0 20px 0;">
+                                                                                                                                        <%= orderData.currencySymbolLeft%><%= orderData.total%><%= orderData.currencySymbolRight%>
+                                                                                                                                    </td>
+                                                                                                                                </tr>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </td>
+
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+
+
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+
+
+                                                        <tr>
+                                                            <td style="padding-top: 40px;">
+                                                                <h3
+                                                                    style=" text-align: center; margin: 0  0 3px 0 ;color: #262626; font-size: 14px;line-height: 18px;font-weight: normal;">
+                                                                    Happy Shopping</h3>
+                                                                <p
+                                                                    style=" text-align: center; margin:0; color: #262626;font-size: 14px;line-height: 17px;font-weight: 600;">
+                                                                    <%=logo.siteName%>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td align="center" style="padding: 30px 30px 30px;">
+                                                                <a href="<%=logo.facebook%>"
+                                                                    style="display: inline-block;background-color: #529551;border-radius: 50%;width: 24px;height: 24px; text-align: center;">
+                                                                    <img src="<%=logoBaseUrl%>/assets/img/facebook.png"
+                                                                        alt="facebook"
+                                                                        style="width: 24px;height: 24px; vertical-align: middle;padding: 4.5px;"></a>
+                                                                <a href="<%=logo.linkedinLogo%>"
+                                                                    style="display: inline-block;background-color: #529551;border-radius: 50%;width: 24px;height: 24px; text-align: center;margin-left:12px;"><img
+                                                                        src="<%=logoBaseUrl%>/assets/img/linkedin.png"
+                                                                        alt="linkedin"
+                                                                        style="width: 24px;height: 24px; vertical-align: middle;padding: 4.5px"></a>
+                                                                <a href="<%=logo.twitter%>"
+                                                                    style="display: inline-block;background-color: #529551;border-radius: 50%;width: 24px;height: 24px; text-align: center;margin-left:12px;"><img
+                                                                        src="<%=logoBaseUrl%>/assets/img/x.png" alt="x"
+                                                                        style="width: 24px;height: 24px; vertical-align: middle;padding: 4.5px"></a>
+                                                                <a href="<%=logo.youtube%>"
+                                                                    style="display: inline-block;background-color: #529551;border-radius: 50%;width: 24px;height: 24px; text-align: center;margin-left:12px;"><img
+                                                                        src="<%=logoBaseUrl%>/assets/img/youtube.png"
+                                                                        alt="youtube"
+                                                                        style="width: 24px;height: 24px; vertical-align: middle;padding: 4.5px"></a>
+                                                                <a href="<%=logo.instagram%>"
+                                                                    style="display: inline-block;background-color: #529551;border-radius: 50%;width: 24px;height: 24px; text-align: center;margin-left:12px;"><img
+                                                                        src="<%=logoBaseUrl%>/assets/img/instagram.png"
+                                                                        alt="instagram"
+                                                                        style="width: 24px;height: 24px; vertical-align: middle;padding: 4.5px"></a>
+                                                                <p
+                                                                    style="color: #000000;font-size:14px; line-height:21px;font-weight:normal;margin:16px 0 0 0;">
+                                                                    <%=logo.siteName%>,
+                                                                        <%=logo.storeAddress1%>,
+                                                                            <%=logo.storeAddress2%>,
+                                                                                <%=logo.storeCity%>,
+                                                                                    <%=logo.countryName%>
+                                                                                        .
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </td>
+
+
+                        </tr>
+
+
+        </tbody>
+    </table>
+    </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            <table width=" 100%" cellpadding="0" cellspacing="0" role="presentation">
+                <tr>
+                    <td align="center">
+                        <a href="javascript:void(0) "
+                            style="font-size: 12px; display: inline-block; text-decoration: none; line-height: 20px; color: #A5A5A5; font-weight: normal; text-align: center; padding:24px 0 44px 0;margin: 0;">
+                            To
+                            unsubscribe from these mailings, you may opt out here.</a>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+    </table>
+
+
+
+    </td>
+    </tr>
+
+
+
+    </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -34,12 +34,19 @@ let AdminPermissionController = class AdminPermissionController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get page list",
-     *      "data":{
-     *      "pageId" : "",
-     *      "title" : "",
-     *      "content" : "",
-     *      "active" : ""
-     *      }
+     *      "data": [{
+     *              "moduleGroupId": 61,
+     *              "name": "Settings Delivery Location",
+     *              "slugName": "settings-delivery-location",
+     *              "sortOrder": 1,
+     *              "permissionModule": [
+     *                {
+     *                  "moduleId": 210,
+     *                  "name": "Add Delivery Location",
+     *                  "slugName": "add-delivery-location",
+     *                  "moduleGroupId": 61
+     *                }]
+     *              }],
      *      "status": "1"
      * }
      * @apiSampleRequest /api/permission-module/list
@@ -69,7 +76,7 @@ let AdminPermissionController = class AdminPermissionController {
             const value = yield Promise.all(promise);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete list of pages.',
+                message: 'Successfully got the complete list of pages',
                 data: value,
             };
             return response.status(200).send(successResponse);
@@ -121,7 +128,7 @@ let AdminPermissionController = class AdminPermissionController {
                 if (!roleDetail) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid Reference Id.',
+                        message: 'Invalid Reference Id',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -129,7 +136,7 @@ let AdminPermissionController = class AdminPermissionController {
                     if (user.userGroupId === roleDetail.groupId) {
                         const errorResponse = {
                             status: 0,
-                            message: 'You cannot update the role as currently the user is mapped to it.',
+                            message: 'You cannot update the role as currently the user is mapped to it',
                         };
                         return response.status(400).send(errorResponse);
                     }
@@ -142,14 +149,14 @@ let AdminPermissionController = class AdminPermissionController {
                 if (!userDetail) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid Reference Id.',
+                        message: 'Invalid Reference Id',
                     };
                     return response.status(400).send(errorResponse);
                 }
-                if (request.user.userId === refId) {
+                if (request.user.userId !== refId) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Current user permission cannot update',
+                        message: 'Permission denied to perform this action',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -158,7 +165,7 @@ let AdminPermissionController = class AdminPermissionController {
             }
             const successResponse = {
                 status: 1,
-                message: 'Successfully updated the permission.',
+                message: 'Successfully updated the permission',
                 data: saveResponse,
             };
             return response.status(200).send(successResponse);

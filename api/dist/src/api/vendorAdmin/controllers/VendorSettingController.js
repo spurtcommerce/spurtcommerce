@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -31,7 +31,13 @@ let VendorAdminSettingController = class VendorAdminSettingController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully Created Vendor Setting.",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *      "vendorGlobalSettingId": "",
+     *      "defaultCommission": "",
+     *      "createdBy": "",
+     *      "createDate": "",
+     *  }
      * }
      * @apiSampleRequest /api/vendor-setting/create-vendor-settings
      * @apiErrorExample {json} addSettings error
@@ -46,7 +52,7 @@ let VendorAdminSettingController = class VendorAdminSettingController {
                 const createdData = yield this.vendorGlobalSettingService.create(newSettings);
                 const successResponse = {
                     status: 1,
-                    message: 'Settings created Successfully.',
+                    message: 'Settings created Successfully',
                     data: createdData,
                 };
                 return response.status(200).send(successResponse);
@@ -56,7 +62,7 @@ let VendorAdminSettingController = class VendorAdminSettingController {
                 const updatedData = yield this.vendorGlobalSettingService.create(settingValue);
                 const successResponse = {
                     status: 1,
-                    message: 'Settings Updated Successfully.',
+                    message: 'Settings Updated Successfully',
                     data: updatedData,
                 };
                 return response.status(200).send(successResponse);
@@ -72,7 +78,9 @@ let VendorAdminSettingController = class VendorAdminSettingController {
      * {
      *      "status": "1"
      *      "message": "Successfully get vendor settings",
-     *      "data":"{}"
+     *      "data": {
+     *      "defaultCommission":""
+     *     }
      * }
      * @apiSampleRequest /api/vendor-setting/get-vendor-settings
      * @apiErrorExample {json} getSettings error
@@ -90,7 +98,7 @@ let VendorAdminSettingController = class VendorAdminSettingController {
             }
             const successResponse = {
                 status: 1,
-                message: 'Successfully get vendor settings',
+                message: 'Successfully got seller settings',
                 data: {
                     defaultCommission: settingValue.defaultCommission,
                 },

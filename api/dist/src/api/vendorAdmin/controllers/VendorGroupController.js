@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -20,6 +20,7 @@ const VendorGroupCategory_1 = require("../../core/models/VendorGroupCategory");
 const CategoryPathService_1 = require("../../core/services/CategoryPathService");
 const VendorProductService_1 = require("../../core/services/VendorProductService");
 const CategoryService_1 = require("../../core/services/CategoryService");
+const fs = tslib_1.__importStar(require("fs"));
 let VendorGroupController = class VendorGroupController {
     constructor(vendorGroupService, vendorService, vendorGroupCategoryService, categoryPathService, vendorProductService, categoryService) {
         this.vendorGroupService = vendorGroupService;
@@ -51,7 +52,14 @@ let VendorGroupController = class VendorGroupController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "New Vendor group is created successfully",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *               "name": "",
+     *               "isActive": "",
+     *               "commission": "",
+     *               "createdDate": "",
+     *               "groupId":""
+     *     }
      * }
      * @apiSampleRequest /api/vendor-group
      * @apiErrorExample {json} createVendor error
@@ -63,7 +71,7 @@ let VendorGroupController = class VendorGroupController {
             if (categories.length === 0) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Category Ids cannot be empty.',
+                    message: 'Category Ids cannot be empty',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -76,7 +84,7 @@ let VendorGroupController = class VendorGroupController {
             if (vendor) {
                 const errorResponse = {
                     status: 0,
-                    message: 'This Vendor Group already exists.',
+                    message: 'This Vendor Group already exists',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -99,7 +107,7 @@ let VendorGroupController = class VendorGroupController {
                 }
                 const successResponse = {
                     status: 1,
-                    message: 'Vendor Group Created Successfully',
+                    message: 'Seller group created successfully',
                     data: vendorGroupSaveResponse,
                 };
                 return response.status(200).send(successResponse);
@@ -107,7 +115,7 @@ let VendorGroupController = class VendorGroupController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to save Vendor Group.',
+                    message: 'Unable to save seller group',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -135,7 +143,13 @@ let VendorGroupController = class VendorGroupController {
      * HTTP/1.1 200 OK
      * {
      *      "message": " Vendor Group is updated successfully",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *      "name": "",
+     *      "isActive": ,
+     *      "commission": "",
+     *      "groupId": "",
+     *   }
      * }
      * @apiSampleRequest /api/vendor-group/:id
      * @apiErrorExample {json} update-vendor-group error
@@ -147,7 +161,7 @@ let VendorGroupController = class VendorGroupController {
             if (categories.length === 0) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Category Ids should not be empty.',
+                    message: 'Category Ids should not be empty',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -159,7 +173,7 @@ let VendorGroupController = class VendorGroupController {
             if (!vendor) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid group Id.',
+                    message: 'Invalid group Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -190,7 +204,7 @@ let VendorGroupController = class VendorGroupController {
                 }
                 const successResponse = {
                     status: 1,
-                    message: 'Vendor Group updated successfully.',
+                    message: 'Seller Group updated successfully',
                     data: vendorGroupSaveResponse,
                 };
                 return response.status(200).send(successResponse);
@@ -198,7 +212,7 @@ let VendorGroupController = class VendorGroupController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the Vendor Group.',
+                    message: 'Unable to update the seller group',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -218,34 +232,51 @@ let VendorGroupController = class VendorGroupController {
      * HTTP/1.1 200 OK
      * {
      *    "message": "Successfully get vendor group list",
-     *    "data":"{}"
+     *    "data":"    {
+     *       "groupId": "",
+     *       "name": "",
+     *       "description": "",
+     *       "commission": "",
+     *       "isActive": "",
+     *       "vendorCount": "",
+     *       "categoryCount": ""
+     *    }"
      *    "status": "1"
      *  }
      * @apiSampleRequest /api/vendor-group
      * @apiErrorExample {json} vendor-group-list error
      * HTTP/1.1 500 Internal Server Error
      */
-    vendorgroupList(limit, offset, keyword, status, count, response) {
+    vendorgroupList(limit, offset, keyword, groupName, status, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const select = ['groupId', 'name', 'description', 'isActive', 'commission'];
+            const select = ['groupId', 'name', 'description', 'isActive', 'commission', 'createdDate', 'modifiedDate'];
             const whereConditions = [
-                {
-                    name: 'name',
-                    op: 'like',
-                    value: keyword,
-                },
                 {
                     name: 'isActive',
                     op: 'like',
                     value: status,
                 },
             ];
+            if (keyword) {
+                whereConditions.push({
+                    name: 'name',
+                    op: 'like',
+                    value: keyword,
+                });
+            }
+            if (groupName) {
+                whereConditions.push({
+                    name: 'name',
+                    op: 'like',
+                    value: groupName,
+                });
+            }
             const relation = [];
             const vendorGroupList = yield this.vendorGroupService.list(limit, offset, select, relation, whereConditions, count);
             if (count) {
                 return response.status(200).send({
                     status: 1,
-                    message: 'Successfully got vendor group list count',
+                    message: 'Successfully got seller group list count',
                     data: vendorGroupList,
                 });
             }
@@ -258,7 +289,7 @@ let VendorGroupController = class VendorGroupController {
             const result = yield Promise.all(vendorGroups);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got all vendor group List',
+                message: 'Successfully got all seller group List',
                 data: result,
             };
             return response.status(200).send(successResponse);
@@ -290,7 +321,7 @@ let VendorGroupController = class VendorGroupController {
             if (!groupId) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid group Id.',
+                    message: 'Invalid group Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -304,7 +335,7 @@ let VendorGroupController = class VendorGroupController {
             if (defaultGroupId) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You cannot delete this vendor group.',
+                    message: 'You cannot delete this seller group',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -317,7 +348,7 @@ let VendorGroupController = class VendorGroupController {
             if (findVendor) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You cannot delete this Vendor group as Vendors are mapped to it.',
+                    message: 'You cannot delete this seller group as Vendors are mapped to it',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -334,14 +365,14 @@ let VendorGroupController = class VendorGroupController {
             if (deleteGroup) {
                 const successResponse = {
                     status: 1,
-                    message: 'Vendor Group Deleted Successfully.',
+                    message: 'Seller group deleted successfully',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the vendor group.',
+                    message: 'Unable to delete the seller group',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -356,7 +387,30 @@ let VendorGroupController = class VendorGroupController {
      * HTTP/1.1 200 OK
      * {
      * "message": "Successfully get vendor group details",
-     * "status": "1"
+     * "status": "1",
+     * "data" :{
+     *   "name": "",
+     *   "commission": "",
+     *   "isActive": ""
+     * ,
+     *   "vendorGroupCategory": [
+     *       {
+     *           "createdBy": ""
+     *           "createdDate": ""
+     *           "modifiedBy": "",
+     *           "modifiedDate": "",
+     *           "categoryId": "",
+     *           "name": "",
+     *           "image": "",
+     *           "imagePath": "",
+     *           "parentInt": "",
+     *           "sortOrder": "",
+     *           "categorySlug": "",
+     *           "isActive": "",
+     *           "categoryDescription": "",
+     *           "levels": "",
+     *           "productAvailable": ""
+     *       }
      * }
      * @apiSampleRequest /api/vendor-group/vendor-group-details/:id
      * @apiErrorExample {json} vendorgroup error
@@ -373,7 +427,7 @@ let VendorGroupController = class VendorGroupController {
             if (!vendorGroup) {
                 return response.status(400).send({
                     status: 0,
-                    message: 'Invalid vendor group Id',
+                    message: 'Invalid seller group Id',
                 });
             }
             vendorGroup.vendorGroupCategory = yield this.vendorGroupCategoryService.findAll({
@@ -402,7 +456,7 @@ let VendorGroupController = class VendorGroupController {
             });
             const successRes = {
                 status: 1,
-                message: 'Successfully got vendor group details.',
+                message: 'Successfully got seller group details',
                 data: vendorGroup,
             };
             return response.status(200).send(successRes);
@@ -417,8 +471,13 @@ let VendorGroupController = class VendorGroupController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get vendor group count",
-     *      "data":{},
-     *      "status": "1"
+     *      "data": {
+     *               "totalVendors": "",
+     *               "activeVendors": "",
+     *              "inActiveVendors": ""
+     *     }
+     *  }
+     *     "status": "1"
      * }
      * @apiSampleRequest /api/vendor-group/vendor-group-count
      * @apiErrorExample {json} vendorGroup error
@@ -452,10 +511,100 @@ let VendorGroupController = class VendorGroupController {
             vendorGroup.inActiveVendors = inActiveVendorGroupCount ? inActiveVendorGroupCount : 0;
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the vendor group count',
+                message: 'Successfully got the seller group count',
                 data: vendorGroup,
             };
             return response.status(200).send(successResponse);
+        });
+    }
+    // Vendor Details Excel Document Download
+    /**
+     * @api {get} /api/vendor-group/vendor-group-excel Vendor Group Excel
+     * @apiGroup VendorGroup
+     * @apiParam (Request body) {String} sellerGroupIds sellerGroupIds
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the Vendor Group Excel List",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-group/vendor-group-excel
+     * @apiErrorExample {json} Vendor Excel List error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    exportVendorGroup(sellerGroupIds, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Vendor Group Sheet');
+            const rows = [];
+            worksheet.columns = [
+                { header: 'Seller Group Id', key: 'groupId', size: 16, width: 15 },
+                { header: 'Group Name', key: 'name', size: 16, width: 30 },
+                { header: 'Seller Count', key: 'vendorCount', size: 16, width: 15 },
+                { header: 'Commission', key: 'commission', size: 16, width: 15 },
+                { header: 'Status', key: 'isActive', size: 16, width: 20 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            if (sellerGroupIds) {
+                const groupIds = sellerGroupIds.split(',');
+                for (const id of groupIds) {
+                    const dataId = yield this.vendorGroupService.findOne(id);
+                    if (dataId === undefined) {
+                        const errorResponse = {
+                            status: 0,
+                            message: `Invalid seller group id: ${id}`,
+                        };
+                        return response.status(400).send(errorResponse);
+                    }
+                }
+                for (const id of groupIds) {
+                    const group = yield this.vendorGroupService.findOne({ where: { groupId: id } });
+                    const sellerCount = yield this.vendorGroupService.vendorCount(+id);
+                    if (group) {
+                        rows.push([group.groupId, group.name, sellerCount, group.commission, group.isActive]);
+                    }
+                }
+            }
+            else {
+                const whereConditions = [];
+                const sellerGroups = yield this.vendorGroupService.list(0, 0, [], [], whereConditions, false);
+                if (+sellerGroups.length === 0) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'list is empty',
+                    });
+                }
+                for (const data of sellerGroups) {
+                    const sellerGroup = yield this.vendorGroupService.findOne({
+                        where: {
+                            groupId: data.groupId,
+                        },
+                    });
+                    const vendorCount = yield this.vendorGroupService.vendorCount(data.groupId);
+                    rows.push([sellerGroup.groupId, sellerGroup.name, vendorCount, sellerGroup.commission, sellerGroup.isActive]);
+                }
+            }
+            // Add all rows data in sheet
+            rows.sort((a, b) => a[0] - b[0]);
+            worksheet.addRows(rows);
+            const fileName = './SellerGroupExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
         });
     }
 };
@@ -484,11 +633,12 @@ tslib_1.__decorate([
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('groupName')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorGroupController.prototype, "vendorgroupList", null);
 tslib_1.__decorate([
@@ -518,6 +668,16 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorGroupController.prototype, "vendorGroupCount", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-group-excel'),
+    (0, routing_controllers_1.Authorized)('admin'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('sellerGroupIds')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorGroupController.prototype, "exportVendorGroup", null);
 VendorGroupController = tslib_1.__decorate([
     (0, routing_controllers_1.JsonController)('/vendor-group'),
     tslib_1.__metadata("design:paramtypes", [VendorGroupService_1.VendorGroupService,

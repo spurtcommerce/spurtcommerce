@@ -18,7 +18,7 @@ let AdminGmailController = class AdminGmailController {
         // ---
     }
     /**
-     * @api {post} /api/admin-gmail/update-setting update Gmail Credential API
+     * @api {post} /api/admin-gmail/update-setting Update Gmail Credential API
      * @apiGroup Oauth
      * @apiParam (Request body) {String{..255}} clientId clientId
      * @apiParam (Request body) {String{..255}} clientSecret clientSecret

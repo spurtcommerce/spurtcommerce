@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -23,12 +23,6 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], VendorRegisterRequest.prototype, "firstName", void 0);
 tslib_1.__decorate([
-    (0, class_validator_1.MaxLength)(32, {
-        message: 'lastname should be maximum 32 character',
-    }),
-    tslib_1.__metadata("design:type", String)
-], VendorRegisterRequest.prototype, "lastName", void 0);
-tslib_1.__decorate([
     (0, class_validator_1.MinLength)(8, {
         message: 'password must contain minimum 8 character',
     }),
@@ -38,10 +32,6 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], VendorRegisterRequest.prototype, "password", void 0);
-tslib_1.__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    tslib_1.__metadata("design:type", String)
-], VendorRegisterRequest.prototype, "confirmPassword", void 0);
 tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)({
         message: 'Email Id is required',
@@ -58,10 +48,12 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], VendorRegisterRequest.prototype, "companyName", void 0);
 tslib_1.__decorate([
-    (0, class_validator_1.IsNotEmpty)({
-        message: 'Display name is required',
-    }),
-    tslib_1.__metadata("design:type", String)
-], VendorRegisterRequest.prototype, "displayName", void 0);
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], VendorRegisterRequest.prototype, "otp", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Number)
+], VendorRegisterRequest.prototype, "industryId", void 0);
 exports.VendorRegisterRequest = VendorRegisterRequest;
 //# sourceMappingURL=VendorRegistrationRequest.js.map

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -48,8 +48,20 @@ const VendorService_1 = require("../../core/services/VendorService");
 const CustomerService_1 = require("../../core/services/CustomerService");
 const to_words_1 = require("to-words");
 const VendorPayment_1 = require("../../core/models/VendorPayment");
+const PaymentItemsService_1 = require("../../core/services/PaymentItemsService");
+const PaymentArchiveService_1 = require("../../core/services/PaymentArchiveService");
+const PaymentService_1 = require("../../core/services/PaymentService");
+const VendorGroupService_1 = require("../../core/services/VendorGroupService");
+const VendorSettingService_1 = require("../../core/services/VendorSettingService");
+const PaymentItems_1 = require("../../core/models/PaymentItems");
+const Payment_1 = require("../../core/models/Payment");
+const typeorm_1 = require("typeorm");
+const SkuService_1 = require("../../../../src/api/core/services/SkuService");
+const OrderStatusToFullfillmentService_1 = require("../../../../src/api/core/services/OrderStatusToFullfillmentService");
+const OrderFullfillmentStatusService_1 = require("../../../../src/api/core/services/OrderFullfillmentStatusService");
+// import { In } from 'typeorm';
 let VendorOrderController = class VendorOrderController {
-    constructor(vendorOrdersService, orderService, orderProductService, pluginService, vendorProductService, productImageService, vendorOrderLogService, productService, pdfService, countryService, zoneService, s3Service, vendorOrderArchiveLogService, vendorOrderArchiveService, orderStatusService, orderProductLogService, emailTemplateService, vendorPaymentService, vendorPaymentArchiveService, vendorInvoiceService, vendorInvoiceItemService, vendorService, imageService, settingService, customerService) {
+    constructor(vendorOrdersService, orderService, orderProductService, pluginService, vendorProductService, productImageService, vendorOrderLogService, productService, pdfService, countryService, zoneService, s3Service, vendorOrderArchiveLogService, vendorOrderArchiveService, orderStatusService, orderProductLogService, emailTemplateService, vendorPaymentService, vendorPaymentArchiveService, vendorInvoiceService, vendorInvoiceItemService, vendorService, imageService, settingService, customerService, paymentItemsService, paymentArchiveService, paymentService, vendorGroupService, vendorGlobalSettingService, skuService, orderStatusToFullfillmentService, orderFullfillmentStatusService) {
         this.vendorOrdersService = vendorOrdersService;
         this.orderService = orderService;
         this.orderProductService = orderProductService;
@@ -75,11 +87,19 @@ let VendorOrderController = class VendorOrderController {
         this.imageService = imageService;
         this.settingService = settingService;
         this.customerService = customerService;
+        this.paymentItemsService = paymentItemsService;
+        this.paymentArchiveService = paymentArchiveService;
+        this.paymentService = paymentService;
+        this.vendorGroupService = vendorGroupService;
+        this.vendorGlobalSettingService = vendorGlobalSettingService;
+        this.skuService = skuService;
+        this.orderStatusToFullfillmentService = orderStatusToFullfillmentService;
+        this.orderFullfillmentStatusService = orderFullfillmentStatusService;
         // --
     }
     // Recent order List API
     /**
-     * @api {get}  Recent Vendor Order list API
+     * @api {Get} /api/vendor-order/recent-order-list Recent Vendor Order list API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -89,20 +109,20 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get recent order list",
+     *      "message": "Successfully got the complete order list.",
      *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
+     *      "orderId" : 1,
+     *      "orderStatusId" : 1,
      *      "customerName" : "",
      *      "totalAmount" : "",
      *      "dateAdded" : "",
      *      "dateModified" : "",
-     *      "status" : "",
+     *      "status" : 1,
      *      }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/recent-order-list
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} orderlist error
      * HTTP/1.1 500 Internal Server Error
      */
     vendorRecentOrderList(limit, offset, status, count, request, response) {
@@ -131,7 +151,7 @@ let VendorOrderController = class VendorOrderController {
             if (count) {
                 const Response = {
                     status: 1,
-                    message: 'Successfully got count.',
+                    message: 'Successfully got count',
                     data: orderList,
                 };
                 return response.status(200).send(Response);
@@ -161,7 +181,7 @@ let VendorOrderController = class VendorOrderController {
             const results = yield Promise.all(ordersList);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete order list.',
+                message: 'Successfully got the complete order list',
                 data: results,
             };
             return response.status(200).send(successResponse);
@@ -169,7 +189,7 @@ let VendorOrderController = class VendorOrderController {
     }
     //  Order Detail API
     /**
-     * @api {get} /api/vendor-order/order-detail/:vendorOrderId  Order Detail API
+     * @api {Get} /api/vendor-order/order-detail/:vendorOrderId  Order Detail API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParamExample {json} Input
@@ -181,7 +201,53 @@ let VendorOrderController = class VendorOrderController {
      * {
      *      "message": "Successfully show the Order Detail..!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data": {
+     *          "createdDate": "2024-08-01T10:28:17.000Z",
+     *          "vendorOrderId": 702,
+     *          "subOrderId": "INV-20240801612101",
+     *          "vendorId": 10,
+     *          "subOrderStatusId": 5,
+     *          "orderProductId": 1150,
+     *          "orderId": 612,
+     *          "total": "4100.00",
+     *          "trackingUrl": "",
+     *          "trackingNo": "",
+     *          "productList": [
+     *              {
+     *                  "orderProductId": 1150,
+     *                  "productId": 928,
+     *                  "orderProductPrefixId": "INV-202408016121",
+     *                  "name": "SONME ENTERPRISES Men",
+     *                  "quantity": 1,
+     *                  "discountAmount": "0.00",
+     *                  "basePrice": "4000.00",
+     *                  "taxType": 1,
+     *                  "taxValue": 100,
+     *                  "total": "4100.00",
+     *                  "discountedAmount": "0.00",
+     *                  "skuName": "SKU83838",
+     *                  "couponDiscountAmount": "",
+     *                  "image": "200608478556.jpeg",
+     *                  "containerName": ""
+     *              }
+     *          ],
+     *          "customerFirstName": "Henry ",
+     *          "shippingAddress1": "34 pier",
+     *          "shippingAddress2": "Malitios street",
+     *          "shippingCity": "Chennai",
+     *          "shippingPostcode": "627005",
+     *          "shippingCountry": "India",
+     *          "shippingZone": "Tamil Nadu",
+     *          "orderPrefixId": "INV-20240801612",
+     *          "email": "example@gmail.com",
+     *          "mobileNumber": "9789929028",
+     *          "orderStatusName": "Order Delivered",
+     *          "statusColorCode": "#501332",
+     *          "paymentMethod": "CashOnDelivery",
+     *          "currencySymbolLeft": "",
+     *          "currencySymbolRight": "$",
+     *          "paymentStatus": 0
+     *      },
      * }
      * @apiSampleRequest /api/vendor-order/order-detail/:vendorOrderId
      * @apiErrorExample {json} Order Detail error
@@ -200,14 +266,35 @@ let VendorOrderController = class VendorOrderController {
                 };
                 return response.status(400).send(errorResponse);
             }
-            orderData.productList = yield this.orderProductService.find({ where: { orderProductId: orderData.orderProductId }, select: ['orderProductId', 'name', 'quantity', 'total', 'productId', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'skuName', 'orderProductPrefixId'] }).then((val) => {
+            orderData.productList = yield this.orderProductService.find({
+                where: { orderProductId: orderData.orderProductId },
+                select: ['orderProductId', 'name', 'quantity', 'total', 'productId', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'skuName', 'orderProductPrefixId', 'priceGroupDetailId', 'orderStatusId', 'trackingUrl', 'trackingNo', 'fullfillmentStatusId', 'tags'],
+            }).then((val) => {
                 const vendorOrder = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    var _a, _b, _c, _d, _e;
                     const ProductImage = yield this.productImageService.findOne({ where: { productId: value.productId, defaultImage: 1 } });
                     const temp = value;
                     if (ProductImage) {
                         temp.image = ProductImage.image;
                         temp.containerName = ProductImage.containerName;
                     }
+                    const orderStatus = yield this.orderStatusService.findOne({
+                        where: { orderStatusId: temp.orderStatusId },
+                        select: ['name', 'colorCode'],
+                    });
+                    const orderFullfillmentStatus = yield this.orderFullfillmentStatusService.findOne({
+                        where: { id: temp.fullfillmentStatusId },
+                        select: ['name', 'colorCode'],
+                    });
+                    temp.orderFullfillmentStatusName = (_a = orderFullfillmentStatus === null || orderFullfillmentStatus === void 0 ? void 0 : orderFullfillmentStatus.name) !== null && _a !== void 0 ? _a : '';
+                    temp.orderFullfillmentStatusColorCode = (_b = orderFullfillmentStatus === null || orderFullfillmentStatus === void 0 ? void 0 : orderFullfillmentStatus.colorCode) !== null && _b !== void 0 ? _b : '';
+                    if (orderStatus) {
+                        temp.orderStatusName = orderStatus.name;
+                        temp.statusColorCode = orderStatus.colorCode;
+                    }
+                    temp.tags = (_c = temp.tags) !== null && _c !== void 0 ? _c : '';
+                    temp.trackingUrl = (_d = temp.trackingUrl) !== null && _d !== void 0 ? _d : '';
+                    temp.trackingNo = (_e = temp.trackingNo) !== null && _e !== void 0 ? _e : '';
                     return temp;
                 }));
                 const results = Promise.all(vendorOrder);
@@ -215,7 +302,6 @@ let VendorOrderController = class VendorOrderController {
             });
             const order = yield this.orderService.findOrder({
                 where: { orderId: orderData.orderId },
-                select: ['shippingFirstname', 'shippingAddress1', 'shippingAddress2', 'shippingCity', 'shippingPostcode', 'shippingCountry', 'currencySymbolLeft', 'currencySymbolRight', 'shippingZone', 'paymentMethod', 'paymentStatus', 'orderPrefixId', 'email', 'telephone'],
             });
             const plugin = yield this.pluginService.findOne({ where: { id: order.paymentMethod } });
             const orderStatusData = yield this.orderStatusService.findOne({
@@ -229,6 +315,13 @@ let VendorOrderController = class VendorOrderController {
             orderData.shippingPostcode = order.shippingPostcode;
             orderData.shippingCountry = order.shippingCountry;
             orderData.shippingZone = order.shippingZone;
+            orderData.paymentFirstname = order.paymentFirstname;
+            orderData.paymentAddress1 = order.paymentAddress1;
+            orderData.paymentAddress2 = order.paymentAddress2;
+            orderData.paymentCity = order.paymentCity;
+            orderData.paymentPostcode = order.paymentPostcode;
+            orderData.paymentCountry = order.paymentCountry;
+            orderData.paymentZone = order.paymentZone;
             orderData.orderPrefixId = order.orderPrefixId;
             orderData.email = order.email;
             orderData.mobileNumber = order.telephone;
@@ -245,7 +338,7 @@ let VendorOrderController = class VendorOrderController {
             orderData.paymentStatus = order.paymentStatus;
             const successResponse = {
                 status: 1,
-                message: 'Successfully shown the order Detail. ',
+                message: 'Successfully shown the order detail',
                 data: orderData,
             };
             return response.status(200).send(successResponse);
@@ -253,15 +346,60 @@ let VendorOrderController = class VendorOrderController {
     }
     //  Order Detail API
     /**
-     * @api {get} /api/vendor-order/archive-order-detail/:vendorOrderArchiveId  Order Detail API
+     * @api {Get} /api/vendor-order/archive-order-detail/:vendorOrderArchiveId  Order Detail API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully show the Arhicve Order Detail..!!",
+     *      "message": "Successfully show the Archive Order Detail..!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data": {
+     *          "createdDate": "2024-07-22T08:36:38.000Z",
+     *          "subOrderId": "INV-20240705330102",
+     *          "vendorId": 10,
+     *          "subOrderStatusId": 3,
+     *          "orderId": 330,
+     *          "order_product_Id": 618,
+     *          "commission": 10,
+     *          "total": "5434.00",
+     *          "productList": [
+     *              {
+     *                  "orderProductId": 618,
+     *                  "productId": 1006,
+     *                  "orderProductPrefixId": "INV-202407053302",
+     *                  "name": "Skybags Rubik 78 Cms Large Check-In Polyester Soft Sided 4 Wheels 360 Degree Rotation Luggage/Speed_Wheel Suitcase/Trolley Bag- Blue, 47 Centimeters",
+     *                  "quantity": 1,
+     *                  "discountAmount": "0.00",
+     *                  "basePrice": "5434.00",
+     *                  "taxType": 1,
+     *                  "taxValue": 0,
+     *                  "total": "5434.00",
+     *                  "discountedAmount": "0.00",
+     *                  "skuName": "Skybags213",
+     *                  "couponDiscountAmount": "",
+     *                  "image": "travel5_1717047649884.jpeg",
+     *                  "containerName": "new one/"
+     *              }
+     *          ],
+     *          "customerFirstName": "testing",
+     *          "shippingAddress1": "vhbbh",
+     *          "shippingAddress2": "gghh",
+     *          "shippingCity": "bhb",
+     *          "shippingPostcode": "996669",
+     *          "shippingCountry": "India",
+     *          "shippingZone": "Tamil Nadu",
+     *          "orderPrefixId": "INV-20240705330",
+     *          "email": "piccotalent170@gmail.com",
+     *          "mobileNumber": "7373737373",
+     *          "orderStatusName": "Packing in progress",
+     *          "statusColorCode": "#f71d1d",
+     *          "paymentMethod": "CashOnDelivery",
+     *          "currencySymbolLeft": "₹",
+     *          "currencySymbolRight": "",
+     *          "paymentFlag": "",
+     *          "paymentStatus": 0
+     *      },
      * }
      * @apiSampleRequest /api/vendor-order/archive-order-detail/:vendorOrderArchiveId
      * @apiErrorExample {json} Order Detail error
@@ -280,14 +418,34 @@ let VendorOrderController = class VendorOrderController {
                 };
                 return response.status(400).send(errorResponse);
             }
-            orderData.productList = yield this.orderProductService.find({ where: { orderProductId: orderData.order_product_Id }, select: ['orderProductId', 'name', 'quantity', 'total', 'productId', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'skuName', 'orderProductPrefixId'] }).then((val) => {
+            orderData.productList = yield this.orderProductService.find({
+                where: { orderProductId: orderData.order_product_Id },
+                select: ['orderProductId', 'name', 'quantity', 'total', 'productId', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'skuName', 'orderProductPrefixId', 'orderStatusId', 'trackingUrl', 'trackingNo', 'fullfillmentStatusId'],
+            }).then((val) => {
                 const vendorOrder = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    var _a, _b, _c, _d;
                     const ProductImage = yield this.productImageService.findOne({ where: { productId: value.productId, defaultImage: 1 } });
                     const temp = value;
                     if (ProductImage) {
                         temp.image = ProductImage.image;
                         temp.containerName = ProductImage.containerName;
                     }
+                    const orderStatus = yield this.orderStatusService.findOne({
+                        where: { orderStatusId: temp.orderStatusId },
+                        select: ['name', 'colorCode'],
+                    });
+                    const orderFullfillmentStatus = yield this.orderStatusService.findOne({
+                        where: { orderStatusId: temp.fullfillmentStatusId },
+                        select: ['name', 'colorCode'],
+                    });
+                    temp.orderFullfillmentStatusName = (_a = orderFullfillmentStatus === null || orderFullfillmentStatus === void 0 ? void 0 : orderFullfillmentStatus.name) !== null && _a !== void 0 ? _a : '';
+                    temp.orderFullfillmentStatusColorCode = (_b = orderFullfillmentStatus === null || orderFullfillmentStatus === void 0 ? void 0 : orderFullfillmentStatus.colorCode) !== null && _b !== void 0 ? _b : '';
+                    if (orderStatus) {
+                        temp.orderStatusName = orderStatus.name;
+                        temp.statusColorCode = orderStatus.colorCode;
+                    }
+                    temp.trackingUrl = (_c = temp.trackingUrl) !== null && _c !== void 0 ? _c : '';
+                    temp.trackingNo = (_d = temp.trackingNo) !== null && _d !== void 0 ? _d : '';
                     return temp;
                 }));
                 const results = Promise.all(vendorOrder);
@@ -295,7 +453,7 @@ let VendorOrderController = class VendorOrderController {
             });
             const order = yield this.orderService.findOrder({
                 where: { orderId: orderData.orderId },
-                select: ['shippingFirstname', 'shippingAddress1', 'shippingAddress2', 'shippingCity', 'shippingPostcode', 'shippingCountry', 'currencySymbolLeft', 'currencySymbolRight', 'shippingZone', 'paymentMethod', 'paymentFlag', 'paymentStatus', 'orderPrefixId', 'email', 'telephone'],
+                // select: ['shippingFirstname', 'shippingAddress1', 'shippingAddress2', 'shippingCity', 'shippingPostcode', 'shippingCountry', 'currencySymbolLeft', 'currencySymbolRight', 'shippingZone', 'paymentMethod', 'paymentFlag', 'paymentStatus', 'orderPrefixId', 'email', 'telephone'],
             });
             const plugin = yield this.pluginService.findOne({ where: { id: order.paymentMethod } });
             const orderStatusData = yield this.orderStatusService.findOne({
@@ -309,6 +467,13 @@ let VendorOrderController = class VendorOrderController {
             orderData.shippingPostcode = order.shippingPostcode;
             orderData.shippingCountry = order.shippingCountry;
             orderData.shippingZone = order.shippingZone;
+            orderData.paymentFirstname = order.paymentFirstname;
+            orderData.paymentAddress1 = order.paymentAddress1;
+            orderData.paymentAddress2 = order.paymentAddress2;
+            orderData.paymentCity = order.paymentCity;
+            orderData.paymentPostcode = order.paymentPostcode;
+            orderData.paymentCountry = order.paymentCountry;
+            orderData.paymentZone = order.paymentZone;
             orderData.orderPrefixId = order.orderPrefixId;
             orderData.email = order.email;
             orderData.mobileNumber = order.telephone;
@@ -325,7 +490,7 @@ let VendorOrderController = class VendorOrderController {
             orderData.paymentStatus = order.paymentStatus;
             const successResponse = {
                 status: 1,
-                message: 'Successfully shown the archive order Detail. ',
+                message: 'Successfully shown the archive order detail',
                 data: orderData,
             };
             return response.status(200).send(successResponse);
@@ -333,19 +498,22 @@ let VendorOrderController = class VendorOrderController {
     }
     // Today order count API
     /**
-     * @api {get} /api/vendor-order/today-vendor-order-count Today Vendor Order Count API
+     * @api {Get} /api/vendor-order/today-vendor-order-count Today Vendor Order Count API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get Today order count",
-     *      "data":{
-     *      }
+     *      "data": {
+     *        "totalOrderCount": 1,
+     *        "todayOrderCount": 1,
+     *        "paidCount": 1
+     *           }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/today-vendor-order-count
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} orderCount error
      * HTTP/1.1 500 Internal Server Error
      */
     orderCount(request, response) {
@@ -363,15 +531,18 @@ let VendorOrderController = class VendorOrderController {
     }
     // Order Counts
     /**
-     * @api {get} /api/vendor-order/order-counts order counts
+     * @api {Get} /api/vendor-order/order-counts Order Counts
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get Today order count",
-     *      "data":{
-     *      }
+     *       "data": {
+     *        "totalOrderCount": 1,
+     *        "todayOrderCount": 1,
+     *        "paidCount": 1
+     *           }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/order-counts
@@ -399,7 +570,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // Delete Order API
     /**
-     * @api {delete} /api/vendor-order/delete-vendor-order/:id Delete Vendor Order API
+     * @api {Delete} /api/vendor-order/delete-order/:id Delete Vendor Order API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParamExample {json} Input
@@ -409,7 +580,7 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     * "message": "Successfully deleted Vendor Order.",
+     * "message": "Order Deleted Successfully",
      * "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/delete-order/:id
@@ -437,7 +608,7 @@ let VendorOrderController = class VendorOrderController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to delete Order',
+                    message: 'unable to delete order',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -445,33 +616,47 @@ let VendorOrderController = class VendorOrderController {
     }
     // update Order Status API
     /**
-     * @api {put} /api/vendor-order/update-order-status/:vendorOrderId Update OrderStatus API
+     * @api {Put} /api/vendor-order/update-order-status/:vendorOrderId Update OrderStatus API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} subOrderStatusId OrderStatus subOrderStatusId
      * @apiParamExample {json} Input
      * {
-     *      "subOrderStatusId" : "",
+     *      "vendorOrderId" : "",
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully updated orderStatus.",
-     *      "status": "1"
+     *  "message": "Successfully updated the order status.",
+     *  "status": "1",
+     *   "data": {
+     *   "createdBy": "",
+     *   "createdDate": "",
+     *   "modifiedBy": "",
+     *   "modifiedDate": "",
+     *   "vendorOrderId": 251,
+     *   "subOrderId": "",
+     *   "vendorId": "",
+     *   "subOrderStatusId": "",
+     *   "orderProductId": "",
+     *   "orderId": "",
+     *   "total": "",
+     *   "commission": "",
+     *   "trackingUrl": "",
+     *   "trackingNo": "",
+     *   "makeSettlement": "",
+     *   "name": ""
+     *   }
      * }
      * @apiSampleRequest /api/vendor-order/update-order-status/:vendorOrderId
      * @apiErrorExample {json} OrderStatus error
      * HTTP/1.1 500 Internal Server Error
      */
-    updateOrderStatus(vendorOrderId, subOrderStatusId, request, response) {
+    orderStatusUpdate(vendorOrderId, subOrderStatusId, fullfillmentStatusId, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const val = yield this.orderStatusService.findOne({ where: { orderStatusId: subOrderStatusId } });
-            if (val.isVendor !== 1) {
-                const errorResponse = {
-                    status: 0,
-                    message: 'Access Restricted to change status.',
-                };
-                return response.status(400).send(errorResponse);
+            const updateVendorStatus = yield this.updateOrderStatus(vendorOrderId, subOrderStatusId, fullfillmentStatusId, request);
+            if (updateVendorStatus.status === 0) {
+                return response.status(400).send(updateVendorStatus);
             }
             const vendorOrder = yield this.vendorOrdersService.findOne({
                 where: {
@@ -481,9 +666,170 @@ let VendorOrderController = class VendorOrderController {
             if (!vendorOrder) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid Vendor Order',
+                    message: 'Invalid seller order',
                 };
-                return response.status(400).send(errorResponse);
+                return errorResponse;
+            }
+            return response.status(200).send(updateVendorStatus);
+        });
+    }
+    // Update Order Product API
+    /**
+     * @api {Put} /api/vendor-order/:vendorOrderId/order-product Update Product API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorOrderId vendorOrderId
+     * @apiParamExample {json} Input
+     * {
+     *      "tags" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *  "message": "Successfully Updated OrderProduct ..!",
+     *  "status": "1",
+     * }
+     * }
+     * @apiSampleRequest /api/vendor-order/:vendorOrderId/order-product
+     * @apiErrorExample {json} OrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderProductUpdate(vendorOrderId, payload, request, response) {
+        var _a;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorOrder = yield this.vendorOrdersService.findOne({
+                where: {
+                    vendorOrderId, vendorId: request.user.vendorId,
+                },
+            });
+            if (!vendorOrder) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid seller order',
+                };
+                return errorResponse;
+            }
+            const orderProduct = yield this.orderProductService.findOne({
+                where: {
+                    orderProductId: vendorOrder.orderProductId,
+                },
+            });
+            orderProduct.tags = (_a = payload.tags) !== null && _a !== void 0 ? _a : orderProduct.tags;
+            yield this.orderProductService.createData(orderProduct);
+            return response.status(200).send({
+                status: 1,
+                message: `Successfully updated order product`,
+                data: orderProduct,
+            });
+        });
+    }
+    // Retry Payment API
+    /**
+     * @api {get} /api/vendor-order/order Put Update Order
+     * @apiGroup Store order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} isBackOrder isBackOrder
+     * @apiParam (Request body) {String} vendorOrderIds vendorOrderIds
+     * @apiParamExample {json} Input
+     * {
+     *      "isBackOrder" : "",
+     *      "vendorOrderIds" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Updated Order..!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/order
+     * @apiErrorExample {json} Store order error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateOrder(payload, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const validVendorOrders = yield this.vendorOrdersService.findAll({ where: { vendorOrderId: (0, typeorm_1.In)(payload.vendorOrderIds), vendorId: request.user.vendorId } });
+            const orderIds = validVendorOrders.map((vendorOrder) => vendorOrder.orderId);
+            const outOfStockError = [];
+            const validBackOrderIds = [];
+            for (const id of orderIds) {
+                const orderProduct = yield this.orderProductService.findOne({ where: { orderId: id } });
+                const sku = yield this.skuService.findOne({ where: { skuName: orderProduct.skuName } });
+                if (sku.quantity < orderProduct.quantity) {
+                    outOfStockError.push(orderProduct);
+                }
+                else {
+                    sku.quantity -= orderProduct.quantity;
+                    yield this.skuService.create(sku);
+                    // const product = await this.productService.findOne({ where: { productId: orderProduct.productId } });
+                    // await this.productService.update(orderProduct.productId, { quantity: product.quantity - orderProduct.quantity });
+                    validBackOrderIds.push(id);
+                }
+            }
+            yield this.orderService.bulkUpdateByIds(validBackOrderIds, { backOrders: payload.backOrder });
+            return response.status(200).send({
+                status: 1,
+                message: `Successfully updated order`,
+                data: {
+                    error: outOfStockError,
+                },
+            });
+        });
+    }
+    // Bulk update Order Status API
+    /**
+     * @api {put} /api/vendor-order/bulk-update-order-status Bulk Update OrderStatus API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number[]} vendorOrderIds vendorOrderIds
+     * @apiParam (Request body) {Number} subOrderStatusId subOrderStatusId
+     * @apiParamExample {json} Input
+     * {
+     *      "vendorOrderIds" : [],
+     *      "subOrderStatusId": number
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated orderStatus.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-order/bulk-update-order-status
+     * @apiErrorExample {json} OrderStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    bulkOrderStatusUpdate(params, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorOrderIds = params.vendorOrderIds;
+            for (const vendorOrderId of vendorOrderIds) {
+                const updateVendorStatus = yield this.updateOrderStatus(vendorOrderId, params.subOrderStatusId, params.fullfillmentStatusId, request);
+                if (updateVendorStatus.status === 0) {
+                    return response.status(400).send(updateVendorStatus);
+                }
+            }
+            return response.status(200).send({ status: 1, message: 'Successfully updated the order status' });
+        });
+    }
+    updateOrderStatus(vendorOrderId, subOrderStatusId, fullfillmentStatusId, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const val = yield this.orderStatusService.findOne({ where: { orderStatusId: subOrderStatusId } });
+            if (val.isVendor !== 1 || val.isActive !== 1) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Access Restricted to change status',
+                };
+                return errorResponse;
+            }
+            const vendorOrder = yield this.vendorOrdersService.findOne({
+                where: {
+                    vendorOrderId, vendorId: request.user.vendorId,
+                },
+            });
+            if (!vendorOrder) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid seller Order',
+                };
+                return errorResponse;
             }
             const orderProductStatus = yield this.orderProductService.findOne({
                 where: {
@@ -495,7 +841,7 @@ let VendorOrderController = class VendorOrderController {
                     status: 0,
                     message: 'Cancel request for this product is approved, so you cannot update order status',
                 };
-                return response.status(400).send(errorResponse);
+                return errorResponse;
             }
             const vendorOrderLog = new VendorOrderLog_1.VendorOrderLog();
             vendorOrderLog.vendorId = vendorOrder.vendorId;
@@ -508,6 +854,12 @@ let VendorOrderController = class VendorOrderController {
             vendorOrder.subOrderStatusId = subOrderStatusId;
             const orderStatusUpdate = yield this.vendorOrdersService.update(vendorOrder.vendorOrderId, vendorOrder);
             orderProductStatus.orderStatusId = subOrderStatusId;
+            orderProductStatus.fullfillmentStatusId = fullfillmentStatusId;
+            if (subOrderStatusId === 4) {
+                orderProductStatus.cancelRequest = 1;
+                orderProductStatus.cancelRequestStatus = 1;
+                orderProductStatus.cancelReasonDescription = 'Cancelled by Seller';
+            }
             const orderProductStatusUpdate = yield this.orderProductService.update(orderProductStatus.orderProductId, orderProductStatus);
             const orderProductLog = new OrderProductLog_1.OrderProductLog();
             orderProductLog.model = orderProductStatusUpdate.model;
@@ -537,33 +889,34 @@ let VendorOrderController = class VendorOrderController {
                 const logo = yield this.settingService.findOne();
                 const order = yield this.orderService.findOrder(orderProductStatus.orderId);
                 const orderStatus = yield this.orderStatusService.findOne(subOrderStatusId);
-                const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{title}', orderProductStatusUpdate.name).replace('{status}', orderStatus.name).replace('{order}', order.orderPrefixId);
+                const orderFullfillmentStatus = yield this.orderFullfillmentStatusService.findOne(fullfillmentStatusId);
+                const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{title}', orderProductStatusUpdate.name).replace('{status}', `${orderStatus.name} ${orderFullfillmentStatus ? `Fullfillment ${orderFullfillmentStatus.name}` : ''}`).replace('{order}', order.orderPrefixId);
                 const redirectUrl = env_1.env.storeRedirectUrl;
                 const mailContents = {};
                 mailContents.logo = logo;
                 mailContents.emailContent = message;
                 mailContents.redirectUrl = redirectUrl;
-                mailContents.productDetailData = undefined;
+                mailContents.productDetailData = '';
                 mail_services_1.MAILService.sendMail(mailContents, order.email, emailContent.subject, false, false, '');
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated the order status.',
+                    message: 'Successfully updated the order status',
                     data: orderStatusUpdate,
                 };
-                return response.status(200).send(successResponse);
+                return successResponse;
             }
             else {
                 const errorResponse = {
                     status: 1,
-                    message: 'unable to update OrderStatus.',
+                    message: 'unable to update OrderStatus',
                 };
-                return response.status(400).send(errorResponse);
+                return errorResponse;
             }
         });
     }
     // Vendor Order Status List API
     /**
-     * @api {get} /api/vendor-order/vendor-order-status-list OrderStatus List API
+     * @api {Get} /api/vendor-order/vendor-order-status-list OrderStatus List API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -575,49 +928,79 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get vendor order status list",
-     *      "data":"{}"
-     *      "status": "1"
+     *      "message": "Successfully got the complete order status list",
+     *      "data": [
+     *        {
+     *       "createdBy": 1,
+     *       "createdDate": "",
+     *       "modifiedBy": 1,
+     *       "modifiedDate": "",
+     *       "orderStatusId": 1,
+     *       "name": "",
+     *       "isActive": "",
+     *       "priority": "",
+     *       "parentId": 1,
+     *       "defaultStatus": 1,
+     *       "isAdmin": "",
+     *       "isVendor": 1,
+     *       "isBuyer": 1,
+     *       "isApi": 1,
+     *       "colorCode": ""
+     *         }]
+     *       "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/vendor-order-status-list
-     * @apiErrorExample {json} OrderStatus error
+     * @apiErrorExample {json} orderStatusList error
      * HTTP/1.1 500 Internal Server Error
      */
-    orderStatusList(limit, offset, keyword, status, orderStatus, count, response) {
+    orderStatusList(limit, offset, keyword, status, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const select = ['orderStatusId', 'name', 'colorCode', 'priority', 'isActive'];
-            const search = [
+            const select = ['orderStatusId', 'name', 'colorCode', 'priority', 'isActive', 'defaultStatus', 'isAdmin', 'isVendor', 'isBuyer', 'isApi'];
+            const search = [];
+            const WhereConditions = [
                 {
+                    name: 'isVendor',
+                    value: 1,
+                },
+            ];
+            if (keyword) {
+                search.push({
                     name: 'name',
                     op: 'like',
                     value: keyword,
-                }, {
+                });
+            }
+            if (status) {
+                search.push({
                     name: 'isActive',
                     op: 'like',
                     value: status,
-                },
-            ];
-            const orderStatusList = yield this.orderStatusService.list(limit, offset, select, search, [], count);
-            if (orderStatusList) {
-                const successResponse = {
+                });
+            }
+            const orderStatusList = yield this.orderStatusService.list(limit, offset, select, search, WhereConditions, count);
+            if (!count) {
+                const orderStatusWithFullFillmentStatusList = yield Promise.all(orderStatusList.map((orderStatus) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    const fullFillmentStatusIds = (yield this.orderStatusToFullfillmentService.findAll({ where: { orderStatusId: orderStatus.orderStatusId } })).map((orderToFullfillmentStatus) => orderToFullfillmentStatus.orderFulfillmentStatusId);
+                    orderStatus.fullfillmentStatus = yield this.orderFullfillmentStatusService.findAll({ where: { id: (0, typeorm_1.In)(fullFillmentStatusIds), isActive: status ? +status : 1 } });
+                    return orderStatus;
+                })));
+                return response.status(200).send({
                     status: 1,
-                    message: 'Successfully got the complete order status list.',
-                    data: orderStatusList,
-                };
-                return response.status(200).send(successResponse);
+                    message: 'Successfully got the complete order status list',
+                    data: orderStatusWithFullFillmentStatusList,
+                });
             }
-            else {
-                const errorResponse = {
-                    status: 0,
-                    message: 'unable to get OrderStatus.',
-                };
-                return response.status(400).send(errorResponse);
-            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the complete order status list',
+                data: orderStatusList,
+            };
+            return response.status(200).send(successResponse);
         });
     }
     // Vendor order List based on order status API
     /**
-     * @api {get} /api/vendor-order/vendor-orders-based-status-list Vendor order List based on order status API
+     * @api {Get} /api/vendor-order/vendor-orders-based-status-list Vendor order List based on order status API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -630,12 +1013,12 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get vendor order list",
+     *      "message": "Successfully got the complete order status list.",
      *      "data":"{}"
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/vendor-orders-based-status-list
-     * @apiErrorExample {json} OrderStatus error
+     * @apiErrorExample {json} VendorOrderBasedStatusList error
      * HTTP/1.1 500 Internal Server Error
      */
     vendorOrderBasedStatusList(limit, offset, vendorOrderLimit, vendorOrderOffset, keyword, status, count, request, response) {
@@ -714,7 +1097,7 @@ let VendorOrderController = class VendorOrderController {
             if (results) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got the complete order status list.',
+                    message: 'Successfully got the complete order status list',
                     data: results,
                 };
                 return response.status(200).send(successResponse);
@@ -723,7 +1106,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // Vendor order detail based on order status API
     /**
-     * @api {get} /api/vendor-order/vendor-orders-based-status-details/:orderStatusId Vendor order detail bases on order status API
+     * @api {Get} /api/vendor-order/vendor-orders-based-status-details/:orderStatusId Vendor order detail bases on order status API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -732,12 +1115,29 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get the vendor order details ",
-     *      "data":"{}"
+     *      "message": "Successfully got the vendor order details ",
+     *       "data": [
+     *        {
+     *       "createdBy": "",
+     *       "createdDate": "",
+     *       "modifiedBy":  "",
+     *       "modifiedDate": "",
+     *       "orderStatusId": 1,
+     *       "name": "",
+     *       "isActive": "",
+     *       "priority": "",
+     *       "parentId": "",
+     *       "defaultStatus": ""
+     *       "isAdmin": "",
+     *       "isVendor": "",
+     *       "isBuyer": "",
+     *       "isApi": "",
+     *       "colorCode": ""
+     *              }]
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/vendor-orders-based-status-details/:orderStatusId
-     * @apiErrorExample {json} OrderStatus error
+     * @apiErrorExample {json} VendorOrderStatusDetails error
      * HTTP/1.1 500 Internal Server Error
      */
     vendorOrderStatusDetails(orderStatusId, limit, offset, count, request, response) {
@@ -796,7 +1196,7 @@ let VendorOrderController = class VendorOrderController {
                 const orderListCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, selectOrder, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 return response.status(200).send({
                     status: 1,
-                    message: 'Successfully got the vendor order count',
+                    message: 'Successfully got the seller order count',
                     data: orderListCount,
                 });
             }
@@ -804,7 +1204,7 @@ let VendorOrderController = class VendorOrderController {
             if (orderList) {
                 return response.status(200).send({
                     status: 1,
-                    message: 'Successfully got the vendor order details.',
+                    message: 'Successfully got the seller order details',
                     data: orderList,
                 });
             }
@@ -812,7 +1212,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // Vendor order count based on order status API
     /**
-     * @api {get} /api/vendor-order/vendor-orders-based-status-count Vendor order count based on order status API
+     * @api {Get} /api/vendor-order/vendor-orders-based-status-count Vendor order count based on order status API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -828,7 +1228,7 @@ let VendorOrderController = class VendorOrderController {
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/vendor-orders-based-status-count
-     * @apiErrorExample {json} OrderStatus error
+     * @apiErrorExample {json} OrderListCount error
      * HTTP/1.1 500 Internal Server Error
      */
     orderListCount(limit, offset, vendorLimit, vendorOffset, keyword, status, count, request, response) {
@@ -889,7 +1289,7 @@ let VendorOrderController = class VendorOrderController {
             if (results) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got the vendor order status count.',
+                    message: 'Successfully got the seller order status count',
                     data: results,
                 };
                 return response.status(200).send(successResponse);
@@ -898,14 +1298,14 @@ let VendorOrderController = class VendorOrderController {
     }
     // order log List API
     /**
-     * @api {get} /api/vendor-order/vendorOrderLoglist Vendor Order Log List API
+     * @api {Get} /api/vendor-order/vendorOrderLoglist Vendor Order Log List API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} vendorOrderId vendorOrderId
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get vendor order log list",
+     *      "message": "Successfully got the complete Vendor Order Status Log list",
      *      "data":{
      *      "orderId" : "",
      *      "orderStatusId" : "",
@@ -918,7 +1318,7 @@ let VendorOrderController = class VendorOrderController {
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/vendorOrderLoglist
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} orderLogList error
      * HTTP/1.1 500 Internal Server Error
      */
     orderLogList(vendorOrderId, response) {
@@ -932,7 +1332,7 @@ let VendorOrderController = class VendorOrderController {
                 },
             ];
             const orderList = yield this.vendorOrderLogService.list(0, 0, select, WhereConditions, 0);
-            const orderStatuss = yield this.orderStatusService.findAll({ select: ['orderStatusId', 'name'], where: { isActive: 1, parentId: 7 }, order: { priority: 'ASC' } });
+            const orderStatuss = yield this.orderStatusService.findAll({ select: ['orderStatusId', 'name'], where: { isActive: 1 }, order: { priority: 'ASC' } });
             const order = orderStatuss.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                 const user = orderList.find(item => item.subOrderStatusId === value.orderStatusId);
                 const temp = value;
@@ -947,7 +1347,7 @@ let VendorOrderController = class VendorOrderController {
             const result = yield Promise.all(order);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete Vendor Order Status Log list.',
+                message: 'Successfully got the complete seller Order Status Log list',
                 data: result,
             };
             return response.status(200).send(successResponse);
@@ -955,7 +1355,7 @@ let VendorOrderController = class VendorOrderController {
     }
     //  Top Selling Product List API
     /**
-     * @api {get} /api/vendor-order/top-selling-productlist  Top selling ProductList API
+     * @api {Get} /api/vendor-order/top-selling-productlist  Top selling ProductList API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} duration 1-> thisWeek 2-> thisMonth 3-> thisYear
@@ -964,7 +1364,7 @@ let VendorOrderController = class VendorOrderController {
      * {
      *      "message": "Successfully get top selling product..!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data": "",
      * }
      * @apiSampleRequest /api/vendor-order/top-selling-productlist
      * @apiErrorExample {json} top selling product error
@@ -986,15 +1386,15 @@ let VendorOrderController = class VendorOrderController {
             const value = yield Promise.all(promise);
             const successResponse = {
                 status: 1,
-                message: 'Successfully get Top Selling Product..!',
+                message: 'Successfully got yop selling product',
                 data: value,
             };
             return response.status(200).send(successResponse);
         });
     }
-    //  update shipping information API
+    //  Update shipping information API
     /**
-     * @api {post} /api/vendor-order/update-shipping-information   update shipping information API
+     * @api {Post} /api/vendor-order/update-shipping-information   Update shipping information API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} vendorOrderId VendorOrderId
@@ -1002,7 +1402,7 @@ let VendorOrderController = class VendorOrderController {
      * @apiParam (Request body) {String} trackingNo shipping tracking no
      * @apiParamExample {json} Input
      * {
-     *   "orderId" : "",
+     *   "VendorOrderId" : "",
      *   "trackingUrl" : "",
      *   "trackingNo" : "",
      * }
@@ -1013,7 +1413,7 @@ let VendorOrderController = class VendorOrderController {
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/update-shipping-information
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} UpdateShippingInformation error
      * HTTP/1.1 500 Internal Server Error
      */
     updateShippingInformation(vendorOrderId, trackingUrl, trackingNo, request, response) {
@@ -1022,7 +1422,7 @@ let VendorOrderController = class VendorOrderController {
             if (!updateOrder) {
                 const errResponse = {
                     status: 0,
-                    message: 'Invalid Vendor Order',
+                    message: 'Invalid seller order',
                 };
                 return response.status(400).send(errResponse);
             }
@@ -1059,7 +1459,7 @@ let VendorOrderController = class VendorOrderController {
     }
     //  Order Export PDF API
     /**
-     * @api {get} /api/vendor-order/order-export-pdf  Order Export PDF API
+     * @api {Get} /api/vendor-order/order-export-pdf  Order Export PDF API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} vendorOrderId vendorOrderId
@@ -1067,15 +1467,8 @@ let VendorOrderController = class VendorOrderController {
      * {
      *      "vendorOrderId" : "",
      * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully show the Order Detail..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
      * @apiSampleRequest /api/vendor-order/order-export-pdf
-     * @apiErrorExample {json} Order Detail error
+     * @apiErrorExample {json} OrderExportPdf error
      * HTTP/1.1 500 Internal Server Error
      */
     // Order Detail Function
@@ -1087,10 +1480,12 @@ let VendorOrderController = class VendorOrderController {
             if (!orderData) {
                 const errResponse = {
                     status: 0,
-                    message: 'Invalid Vendor Order',
+                    message: 'Invalid seller Order',
                 };
                 return response.status(400).send(errResponse);
             }
+            const vendor = yield this.vendorService.findOne({ where: { vendorId: orderData.vendorId } });
+            orderData.vendor = vendor;
             orderData.productList = yield this.orderProductService.find({ where: { orderProductId: orderData.orderProductId }, select: ['orderProductId', 'name', 'quantity', 'total', 'productId', 'productPrice', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount'] }).then((val) => {
                 const vendorOrder = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                     const ProductImage = yield this.productImageService.findOne({ where: { productId: value.productId, defaultImage: 1 } });
@@ -1114,7 +1509,7 @@ let VendorOrderController = class VendorOrderController {
             const order = yield this.orderService.findOrder({
                 where: { orderId: orderData.orderId },
                 select: ['invoicePrefix', 'invoiceNo', 'orderPrefixId', 'shippingFirstname', 'shippingLastname', 'shippingAddress1', 'shippingAddress2', 'shippingCity', 'shippingPostcode', 'shippingCountry',
-                    'paymentFirstname', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity',
+                    'paymentFirstname', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity', 'currencyCode',
                     'paymentPostcode', 'paymentCountry', 'currencySymbolLeft', 'currencySymbolRight', 'shippingZone', 'paymentMethod'],
             });
             const plugin = yield this.pluginService.findOne({ where: { id: order.paymentMethod } });
@@ -1147,16 +1542,24 @@ let VendorOrderController = class VendorOrderController {
             orderData.invoiceNo = order.invoiceNo;
             orderData.invoicePrefix = order.invoicePrefix;
             orderData.orderPrefixId = order.orderPrefixId;
+            orderData.currencyCode = order.currencyCode;
             let image;
             if (env_1.env.imageserver === 's3') {
                 image = yield this.s3Service.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '50', '50');
+                const error = (image === null || image === void 0 ? void 0 : image.name) || '';
+                if (error.toLowerCase() === 'error') {
+                    return response.status(400).json({
+                        status: 0,
+                        message: 'Invalid image in S3 bucket',
+                    });
+                }
             }
             else {
-                image = yield this.imageService.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '50', '50');
+                image = yield this.imageService.resizeImageBase64(settingDetails.invoiceLogoPath + settingDetails.invoiceLogo, '50', '50');
             }
             orderData.logo = image;
-            const htmlData = yield this.pdfService.readHtmlToString('invoice', orderData);
-            const pathName = `./Invoice_${order.invoicePrefix + order.invoiceNo}.pdf`;
+            const htmlData = yield this.pdfService.readHtmlToString('vendor-invoice', orderData);
+            const pathName = `./ Invoice_${order.invoicePrefix + order.invoiceNo}.pdf`;
             yield this.pdfService.htmlPdf(htmlData, pathName);
             return new Promise((resolve, reject) => {
                 response.download(pathName, (err, data) => {
@@ -1173,7 +1576,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // Make Vendor Order Archive API
     /**
-     * @api {post} /api/vendor-order/make-vendor-order-archive Make Vendor Order Archive API
+     * @api {Post} /api/vendor-order/make-vendor-order-archive Make Vendor Order Archive API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} vendorOrderId Vendor Order Id
@@ -1184,11 +1587,11 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully Archive",
+     *      "message": "Successfully order archived",
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/make-vendor-order-archive
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} MakeArchive error
      * HTTP/1.1 500 Internal Server Error
      */
     makeArchive(vendorOrderId, request, response) {
@@ -1201,7 +1604,7 @@ let VendorOrderController = class VendorOrderController {
             if (!vendorOrder) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid Vendor Order',
+                    message: 'Invalid seller Order',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -1255,14 +1658,14 @@ let VendorOrderController = class VendorOrderController {
             yield this.vendorOrdersService.delete(vendorOrder);
             const successResponse = {
                 status: 1,
-                message: 'Successfully revoked archived order',
+                message: 'Successfully order archived',
             };
             return response.status(200).send(successResponse);
         });
     }
     // Revoke Vendor Order Archive API
     /**
-     * @api {post} /api/vendor-order/revoke-vendor-order-archive Revoke Vendor Order Archive API
+     * @api {Post} /api/vendor-order/revoke-vendor-order-archive Revoke Vendor Order Archive API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} vendorOrderArchiveId Vendor Order Archive Id
@@ -1277,7 +1680,7 @@ let VendorOrderController = class VendorOrderController {
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/revoke-vendor-order-archive
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} RevokeArchive error
      * HTTP/1.1 500 Internal Server Error
      */
     revokeArchive(vendorOrderArchiveId, request, response) {
@@ -1290,7 +1693,7 @@ let VendorOrderController = class VendorOrderController {
             if (!vendorOrderArchive) {
                 const errorResponse = {
                     status: 0,
-                    message: 'invalid Vendor Order Archive Id',
+                    message: 'invalid seller order Archive Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -1350,7 +1753,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // Archive Order List API
     /**
-     * @api {get} /api/vendor-order/archive-order-list  Archive Order list API
+     * @api {Get} /api/vendor-order/archive-order-list  Archive Order list API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -1361,7 +1764,7 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully got archive order list",
+     *      "message": "Successfully got the complete order archive list",
      *      "data":{
      *      "orderId" : "",
      *      "orderStatusId" : "",
@@ -1373,10 +1776,10 @@ let VendorOrderController = class VendorOrderController {
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/archive-order-list
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} ArchiveOrderList error
      * HTTP/1.1 500 Internal Server Error
      */
-    archiveOrderList(limit, offset, keyword, startDate, endDate, deliverylist, orderId, count, request, response) {
+    archiveOrderList(limit, offset, keyword, startDate, endDate, deliverylist, orderId, count, dateAdded, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -1403,7 +1806,9 @@ let VendorOrderController = class VendorOrderController {
                 'order.shippingCountry as shippingCountry',
                 'orderProduct.orderProductPrefixId as orderProductPrefixId',
                 'orderProduct.discountAmount as discountAmount',
-                'orderProduct.couponDiscountAmount as couponDiscountAmount',
+                'orderProduct.orderStatusId as orderStatusId',
+                'orderProduct.fullfillmentStatusId as fullfillmentStatusId',
+                'orderProduct.quantity as quantity',
                 'orderProduct.discountedAmount as discountedAmount'
             ];
             const relations = [
@@ -1456,6 +1861,12 @@ let VendorOrderController = class VendorOrderController {
                     value: orderId.toLowerCase(),
                 });
             }
+            if (dateAdded) {
+                searchConditions.push({
+                    name: ['order.createdDate'],
+                    value: dateAdded,
+                });
+            }
             const sort = [];
             sort.push({
                 name: 'order.createdDate',
@@ -1463,18 +1874,33 @@ let VendorOrderController = class VendorOrderController {
             });
             const orderArchiveList = yield this.vendorOrderArchiveService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
             const orderArchiveResponse = orderArchiveList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                var _a, _b;
                 const temp = value;
                 const defCommission = (value.commission && value.commission > 0) ? value.commission : 0;
                 let commission;
                 commission = value.total * (defCommission / 100);
                 temp.NetAmount = value.total - commission;
                 temp.CommissionAmount = commission;
+                const orderStatus = yield this.orderStatusService.findOne({
+                    where: { orderStatusId: temp.orderStatusId },
+                    select: ['name', 'colorCode'],
+                });
+                const orderFullfillmentStatus = yield this.orderStatusService.findOne({
+                    where: { orderStatusId: temp.fullfillmentStatusId },
+                    select: ['name', 'colorCode'],
+                });
+                temp.orderFullfillmentStatusName = (_a = orderFullfillmentStatus === null || orderFullfillmentStatus === void 0 ? void 0 : orderFullfillmentStatus.name) !== null && _a !== void 0 ? _a : '';
+                temp.orderFullfillmentStatusColorCode = (_b = orderFullfillmentStatus === null || orderFullfillmentStatus === void 0 ? void 0 : orderFullfillmentStatus.colorCode) !== null && _b !== void 0 ? _b : '';
+                if (orderStatus) {
+                    temp.orderStatusName = orderStatus.name;
+                    temp.statusColorCode = orderStatus.colorCode;
+                }
                 return temp;
             }));
             const paymentListDetails = yield Promise.all(orderArchiveResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete order archive list.',
+                message: 'Successfully got the complete order archive list',
                 data: paymentListDetails,
             };
             return response.status(200).send(successResponse);
@@ -1482,7 +1908,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // Archive Order List Count API
     /**
-     * @api {get} /api/vendor-order/archive-order-list-count  Archive Order list count API
+     * @api {Get} /api/vendor-order/archive-order-list-count  Archive Order list count API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -1493,7 +1919,7 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully got archive order list count",
+     *      "message": "Successfully got the complete order archive list count",
      *      "data":{
      *      "orderId" : "",
      *      "orderStatusId" : "",
@@ -1505,10 +1931,10 @@ let VendorOrderController = class VendorOrderController {
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/archive-order-list-count
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} ArchiveOrderListCount error
      * HTTP/1.1 500 Internal Server Error
      */
-    archiveOrderListCount(limit, offset, keyword, startDate, endDate, deliverylist, count, request, response) {
+    archiveOrderListCount(limit, offset, keyword, startDate, endDate, dateAdded, deliverylist, count, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -1580,6 +2006,12 @@ let VendorOrderController = class VendorOrderController {
                     value: keyword.toLowerCase(),
                 });
             }
+            if (dateAdded) {
+                searchConditions.push({
+                    name: ['order.createdDate'],
+                    value: dateAdded,
+                });
+            }
             const sort = [];
             sort.push({
                 name: 'order.createdDate',
@@ -1588,7 +2020,7 @@ let VendorOrderController = class VendorOrderController {
             const orderArchiveList = yield this.vendorOrderArchiveService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete order archive list count.',
+                message: 'Successfully got the complete order archive list count',
                 data: orderArchiveList,
             };
             return response.status(200).send(successResponse);
@@ -1596,7 +2028,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // Order List API
     /**
-     * @api {get} /api/vendor-order/order-list  Order list API
+     * @api {Get} /api/vendor-order/order-list  Order list API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -1613,22 +2045,40 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully got order list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
+     *      "message": "Successfully got the complete order list.",
+     *      "data":[
+     *          {
+     *       "vendorOrderId": "",
+     *       "orderId": "",
+     *       "vendorId": "",
+     *       "subOrderId": "",
+     *       "subOrderStatusId": 1,
+     *       "orderStatusName": "",
+     *       "orderColorCode": "",
+     *       "orderStatusId": "",
+     *       "createdDate": "",
+     *       "currencySymbolLeft": "",
+     *       "currencySymbolRight": "",
+     *       "customerFirstName": "",
+     *       "paymentStatus": "",
+     *       "total": "",
+     *       "commission": "",
+     *       "isActive": "",
+     *       "shippingCity": "",
+     *       "orderProductPrefixId": "",
+     *       "discountAmount": "",
+     *       "discountedAmount": "",
+     *       "orderPrefixId": "",
+     *       "NetAmount": "",
+     *       "CommissionAmount": ""
+     *       }]
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/order-list
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} orderList error
      * HTTP/1.1 500 Internal Server Error
      */
-    orderListtt(limit, offset, customerName, orderId, amount, keyword, orderStatus, startDate, endDate, deliverylist, dateAdded, count, request, response) {
+    orderListtt(limit, offset, customerName, orderId, amount, keyword, isBackOrder, skuName, paymentProcess, orderStatus, tags, startDate, endDate, sortBy, sortOrder, deliverylist, dateAdded, count, statusType, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -1643,21 +2093,26 @@ let VendorOrderController = class VendorOrderController {
                 'orderStatus.colorCode as orderColorCode',
                 'orderDetail.orderStatusId as orderStatusId',
                 'orderDetail.createdDate as createdDate',
+                'orderDetail.modifiedDate as modifiedDate',
                 'orderDetail.currencySymbolLeft as currencySymbolLeft',
                 'orderDetail.currencySymbolRight as currencySymbolRight',
                 'orderDetail.shippingFirstname as customerFirstName',
                 'orderDetail.paymentStatus as paymentStatus',
+                'orderDetail.backOrders as backOrder',
                 'VendorOrders.total as total',
                 'VendorOrders.commission as commission',
                 'orderDetail.isActive as isActive',
                 'orderDetail.shippingCity as shippingCity',
                 'orderProduct.orderProductPrefixId as orderProductPrefixId',
                 'orderProduct.discountAmount as discountAmount',
+                'orderProduct.quantity as quantity',
+                'orderProduct.tags as tags',
+                'orderProduct.fullfillmentStatusId as fullfillmentStatusId',
+                'orderFullfillmentStatus.name as orderFullfillmentStatusName',
+                'orderFullfillmentStatus.colorCode as orderFullfillmentStatusCode',
                 'orderProduct.orderProductPrefixId as orderProductPrefixId',
                 'orderProduct.discountedAmount as discountedAmount',
                 'order.orderPrefixId as orderPrefixId',
-                'customer.firstName as firstName',
-                'customer.lastName as lastName',
             ];
             const relations = [
                 {
@@ -1673,12 +2128,13 @@ let VendorOrderController = class VendorOrderController {
                     aliasName: 'orderProduct',
                 },
                 {
-                    tableName: 'VendorOrders.order',
-                    aliasName: 'order',
+                    tableName: 'orderProduct.orderFullfillmentStatus',
+                    op: 'left',
+                    aliasName: 'orderFullfillmentStatus',
                 },
                 {
-                    tableName: 'order.customer',
-                    aliasName: 'customer',
+                    tableName: 'VendorOrders.order',
+                    aliasName: 'order',
                 },
             ];
             const groupBy = [];
@@ -1710,11 +2166,7 @@ let VendorOrderController = class VendorOrderController {
             }, {
                 name: 'orderDetail.paymentProcess',
                 op: 'and',
-                value: 1,
-            }, {
-                name: 'orderDetail.backOrders',
-                op: 'and',
-                value: 0,
+                value: paymentProcess ? 1 : 0,
             });
             if (+deliverylist) {
                 whereConditions.push({
@@ -1723,6 +2175,10 @@ let VendorOrderController = class VendorOrderController {
                     value: 1,
                 });
             }
+            searchConditions.push({
+                name: 'orderDetail.backOrders',
+                value: isBackOrder === 1 ? [1] : [0, 2],
+            });
             if (startDate && startDate !== '') {
                 whereConditions.push({
                     name: '`orderDetail`.`created_date`',
@@ -1745,28 +2201,54 @@ let VendorOrderController = class VendorOrderController {
                     value: dateAdded,
                 });
             }
+            if (tags) {
+                searchConditions.push({
+                    name: ['orderProduct.tags'],
+                    value: tags,
+                });
+            }
             if (customerName && customerName !== '') {
                 searchConditions.push({
                     name: ['orderDetail.shippingFirstname'],
                     value: customerName,
                 });
             }
+            if (statusType && statusType !== '') {
+                searchConditions.push({
+                    name: ['orderStatus.name'],
+                    value: statusType,
+                });
+            }
             if (keyword === null || keyword === void 0 ? void 0 : keyword.trim()) {
                 searchConditions.push({
-                    name: ['orderDetail.shippingFirstname', 'orderDetail.shippingCity', 'order.orderPrefixId', 'VendorOrders.total'],
+                    name: ['orderDetail.shippingFirstname', 'orderDetail.shippingCity', 'order.orderPrefixId', 'VendorOrders.total', 'orderProduct.tags'],
                     value: keyword.toLowerCase(),
                 });
             }
             const sort = [];
-            sort.push({
-                name: 'orderDetail.createdDate',
-                order: 'DESC',
-            });
+            if (sortBy === 'buyerName') {
+                sort.push({
+                    name: 'orderDetail.shippingFirstname',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
+            if (sortBy === 'location') {
+                sort.push({
+                    name: 'orderDetail.shippingCity',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
+            if (sortBy === 'orderDate' || !sortBy || sortBy === 'orderId') {
+                sort.push({
+                    name: 'orderDetail.createdDate',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
             if (count) {
                 const orderCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 return response.status(200).send({
                     status: 1,
-                    message: 'Successfully got the vendor orders count',
+                    message: 'Successfully got the seller orders count',
                     data: orderCount,
                 });
             }
@@ -1783,20 +2265,148 @@ let VendorOrderController = class VendorOrderController {
             const paymentListDetails = yield Promise.all(orderResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete order list.',
+                message: 'Successfully got the complete order list',
                 data: paymentListDetails,
             };
             return response.status(200).send(successResponse);
         });
     }
+    // Vendor Order Export API
+    /**
+     * @api {Get} /api/vendor-order/order-list-export Vendor Order Export API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorOrderId vendorOrderId
+     * @apiSampleRequest /api/vendor-order/order-list-export
+     * @apiErrorExample {json} OrderListExport error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    orderListExport(vendorOrderId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                'VendorOrders.vendorOrderId as vendorOrderId',
+                'VendorOrders.orderId as orderId',
+                'VendorOrders.vendorId as vendorId',
+                'VendorOrders.subOrderId as subOrderId',
+                // 'VendorOrders.subOrderStatusId as subOrderStatusId',
+                'orderStatus.name as orderStatusName',
+                // 'orderStatus.colorCode as orderColorCode',
+                // 'orderDetail.orderStatusId as orderStatusId',
+                'orderDetail.createdDate as createdDate',
+                'orderDetail.currencySymbolLeft as currencySymbolLeft',
+                'orderDetail.currencySymbolRight as currencySymbolRight',
+                'orderDetail.shippingFirstname as customerFirstName',
+                'orderDetail.paymentStatus as paymentStatus',
+                'VendorOrders.total as total',
+                // 'VendorOrders.commission as commission',
+                // 'orderDetail.isActive as isActive',
+                'orderDetail.shippingCity as shippingCity',
+                // 'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                // 'orderProduct.discountAmount as discountAmount',
+                // 'orderProduct.orderProductPrefixId as orderProductPrefixId',
+                // 'orderProduct.discountedAmount as discountedAmount',
+                'order.orderPrefixId as orderPrefixId',
+                // 'customer.firstName as firstName',
+                // 'customer.lastName as lastName',
+            ];
+            const relations = [
+                {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
+                },
+                {
+                    tableName: 'VendorOrders.orderStatus',
+                    aliasName: 'orderStatus',
+                },
+                {
+                    tableName: 'VendorOrders.orderProduct',
+                    aliasName: 'orderProduct',
+                },
+                {
+                    tableName: 'VendorOrders.order',
+                    aliasName: 'order',
+                },
+            ];
+            const whereConditions = [];
+            if (vendorOrderId === null || vendorOrderId === void 0 ? void 0 : vendorOrderId.length) {
+                whereConditions.push({
+                    name: 'VendorOrders.vendorOrderId',
+                    op: 'IN',
+                    value: vendorOrderId,
+                });
+            }
+            const groupBy = [];
+            const searchConditions = [];
+            whereConditions.push({
+                name: 'VendorOrders.vendorId',
+                op: 'and',
+                value: request.user.vendorId,
+            }, {
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'orderDetail.backOrders',
+                op: 'and',
+                value: 0,
+            });
+            const sort = [];
+            sort.push({
+                name: 'orderDetail.createdDate',
+                order: 'DESC',
+            });
+            const orderList = yield this.vendorOrdersService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const excel = require('exceljs');
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Bulk Archive Order Archive Excel');
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'VendorOrderId', key: 'vendorOrderId', size: 16, width: 15 },
+                { header: 'OrderId', key: 'orderPrefixId', size: 16, width: 15 },
+                { header: 'orderDate', key: 'createdDate', size: 16, width: 15 },
+                { header: 'CustomerName', key: 'customerFirstName', size: 16, width: 15 },
+                { header: 'CustomerAddress', key: 'shippingCity', size: 16, width: 24 },
+                { header: 'TotalAmount', key: 'total', size: 16, width: 15 },
+                { header: 'OrderStatusName', key: 'orderStatusName', size: 16, width: 15 },
+                // { header: 'NetAmount', key: 'NetAmount', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const rows = [];
+            orderList.map((orders) => {
+                var _a;
+                rows.push([orders.vendorOrderId, orders.orderPrefixId, orders.createdDate, orders.customerFirstName, orders.shippingCity, ((_a = orders === null || orders === void 0 ? void 0 : orders.currencySymbolLeft) !== null && _a !== void 0 ? _a : orders.currencySymbolRight) + ' ' + orders.total, orders.orderStatusName]);
+            });
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './VendorOrderExcel_' + Date.now() + '.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            return new Promise((resolve, reject) => {
+                response.download(fileName, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else {
+                        fs.unlinkSync(fileName);
+                        return response.end();
+                    }
+                });
+            });
+        });
+    }
     // Bulk Archive Order Export API
     /**
-     * @api {get} /api/vendor-order/bulk-archive-order-export  Bulk Archive Order Export API
+     * @api {Get} /api/vendor-order/bulk-archive-order-export  Bulk Archive Order Export API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} vendorId vendorId
      * @apiSampleRequest /api/vendor-order/bulk-archive-order-export
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} archiveOrderExportBulk error
      * HTTP/1.1 500 Internal Server Error
      */
     archiveOrderExportBulk(vendorId, request, response) {
@@ -1906,12 +2516,12 @@ let VendorOrderController = class VendorOrderController {
     }
     // Archive Order Export API
     /**
-     * @api {get} /api/vendor-order/archive-order-export  Archive Order Export API
+     * @api {Get} /api/vendor-order/archive-order-export  Archive Order Export API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} vendorOrderArchiveId vendorOrderArchiveId
      * @apiSampleRequest /api/vendor-order/archive-order-export
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} ArchiveOrderExport error
      * HTTP/1.1 500 Internal Server Error
      */
     archiveOrderExport(vendorOrderArchiveId, request, response) {
@@ -2005,7 +2615,7 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully got cancel order list",
+     *      "message": "Successfully got the complete cancel order list.",
      *      "data":{
      *      "orderId" : "",
      *      "orderStatusId" : "",
@@ -2017,7 +2627,7 @@ let VendorOrderController = class VendorOrderController {
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/cancel-order-list
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} cancelorderListtt error
      * HTTP/1.1 500 Internal Server Error
      */
     cancelorderListtt(limit, offset, keyword, startDate, endDate, count, request, response) {
@@ -2116,7 +2726,7 @@ let VendorOrderController = class VendorOrderController {
                 const orderListCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const successRes = {
                     status: 1,
-                    message: 'Successfully got the cancel request count.',
+                    message: 'Successfully got the cancel request count',
                     data: orderListCount,
                 };
                 return response.status(200).send(successRes);
@@ -2134,15 +2744,15 @@ let VendorOrderController = class VendorOrderController {
             const paymentListDetails = yield Promise.all(orderResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete cancel order list.',
+                message: 'Successfully got the complete cancel order list',
                 data: paymentListDetails,
             };
             return response.status(200).send(successResponse);
         });
     }
-    // update Vendor Order Cancel Request Status API
+    // Update Vendor Order Cancel Request Status API
     /**
-     * @api {put} /api/vendor-order/update-vendor-order-cancel-request/:orderProductId Update Vendor Order Cancel Request Status API
+     * @api {Put} /api/vendor-order/update-vendor-order-cancel-request/:orderProductId Update Vendor Order Cancel Request Status API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} cancelStatusId send 1 -> approved 2 ->rejected
@@ -2157,7 +2767,7 @@ let VendorOrderController = class VendorOrderController {
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/update-vendor-order-cancel-request/:orderProductId
-     * @apiErrorExample {json} Vendor Order error
+     * @apiErrorExample {json} UpdateVendorOrderCancelStatus error
      * HTTP/1.1 500 Internal Server Error
      */
     updateVendorOrderCancelStatus(orderProductId, cancelStatusId, request, response) {
@@ -2182,7 +2792,7 @@ let VendorOrderController = class VendorOrderController {
             if (!vendorOrder) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid orderProductId for vendor',
+                    message: 'Invalid orderProductId for seller',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -2210,7 +2820,7 @@ let VendorOrderController = class VendorOrderController {
             mailContents.logo = logo;
             mailContents.emailContent = message;
             mailContents.redirectUrl = redirectUrl;
-            mailContents.productDetailData = undefined;
+            mailContents.productDetailData = '';
             mail_services_1.MAILService.sendMail(mailContents, order.email, emailContent.subject, false, false, '');
             if (orderProductStatusUpdate !== undefined) {
                 const successResponse = {
@@ -2223,7 +2833,7 @@ let VendorOrderController = class VendorOrderController {
             else {
                 const errorResponse = {
                     status: 1,
-                    message: 'unable to update Order Cancel Status.',
+                    message: 'unable to update Order Cancel Status',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -2231,7 +2841,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // update Bulk Order Cancel Request Status API
     /**
-     * @api {get} /api/vendor-order/update-bulk-vendor-order-cancel-request Update bulk Vendor Order Cancel Request Status API
+     * @api {Get} /api/vendor-order/update-bulk-vendor-order-cancel-request Update bulk Vendor Order Cancel Request Status API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} orderProductId
@@ -2243,11 +2853,11 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully updated Bulk order cancel status.",
+     *      "message": "Successfully updated the order cancel status.",
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-order/update-bulk-vendor-order-cancel-request
-     * @apiErrorExample {json} Vendor Order error
+     * @apiErrorExample {json} UpdateBulkVendorOrderCancelStatus error
      * HTTP/1.1 500 Internal Server Error
      */
     updateBulkVendorOrderCancelStatus(orderProductId, cancelStatusId, request, response) {
@@ -2280,7 +2890,7 @@ let VendorOrderController = class VendorOrderController {
                 if (!vendorOrder) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid orderProductId for vendor',
+                        message: 'Invalid orderProductId for seller',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -2312,29 +2922,22 @@ let VendorOrderController = class VendorOrderController {
                 mailContents.logo = logo;
                 mailContents.emailContent = message;
                 mailContents.redirectUrl = redirectUrl;
-                mailContents.productDetailData = undefined;
+                mailContents.productDetailData = '';
                 mail_services_1.MAILService.sendMail(mailContents, order.email, emailContent.subject, false, false, '');
             }
             const successResponse = {
                 status: 1,
-                message: 'Successfully updated the order cancel status.',
+                message: 'Successfully updated the order cancel status',
             };
             return response.status(200).send(successResponse);
         });
     }
     // Export bulk order cancel request
     /**
-     * @api {get} /api/vendor-order/vendor-order-cancel-excel-list Vendor Order Cancel Excel list
+     * @api {Get} /api/vendor-order/vendor-order-cancel-excel-list Vendor Order Cancel Excel list
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} orderProductId orderProductId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download the Vendor Order Cancel Excel List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
      * @apiSampleRequest /api/vendor-order/vendor-order-cancel-excel-list
      * @apiErrorExample {json} Vendor Order Cancel Excel List error
      * HTTP/1.1 500 Internal Server Error
@@ -2430,18 +3033,11 @@ let VendorOrderController = class VendorOrderController {
     }
     // Export bulk Vendor order cancel request api
     /**
-     * @api {get} /api/vendor-order/bulk-vendor-order-cancel-excel-list Bulk Order Cancel Excel list
+     * @api {Get} /api/vendor-order/bulk-vendor-order-cancel-excel-list Bulk Order Cancel Excel list
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download the Bulk Order Cancel Excel List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
      * @apiSampleRequest /api/vendor-order/bulk-vendor-order-cancel-excel-list
-     * @apiErrorExample {json} Order Cancel Excel List error
+     * @apiErrorExample {json} BulkExportVendorOrderCancelRequest List error
      * HTTP/1.1 500 Internal Server Error
      */
     bulkExportVendorOrderCancelRequest(request, response) {
@@ -2590,7 +3186,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // invoice list API
     /**
-     * @api {get} /api/vendor-order/vendor-invoice-list Vendor Invoice List API
+     * @api {Get} /api/vendor-order/vendor-invoice-list Vendor Invoice List API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -2598,7 +3194,9 @@ let VendorOrderController = class VendorOrderController {
      * @apiParam (Request body) {String} startDate startDate
      * @apiParam (Request body) {String} endDate endDate
      * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} count count
+     * @apiParam (Request body) {Number} count count
+     * @apiParam (Request body) {String} firstName firstName
+     * @apiParam (Request body) {String} lastName lastName
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
@@ -2687,7 +3285,7 @@ let VendorOrderController = class VendorOrderController {
                 const orderListCount = yield this.vendorInvoiceService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const successRes = {
                     status: 1,
-                    message: 'Successfully got the cancel request count.',
+                    message: 'Successfully got the cancel request count',
                     data: orderListCount,
                 };
                 return response.status(200).send(successRes);
@@ -2707,7 +3305,7 @@ let VendorOrderController = class VendorOrderController {
             if (invoiceList) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got the vendor invoice list.',
+                    message: 'Successfully got the vendor invoice list',
                     data: vendorInvoiceList,
                 };
                 return response.status(200).send(successResponse);
@@ -2715,7 +3313,7 @@ let VendorOrderController = class VendorOrderController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to get list.',
+                    message: 'unable to get list',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -2723,23 +3321,12 @@ let VendorOrderController = class VendorOrderController {
     }
     //  Order invoice export PDF API
     /**
-     * @api {get} /api/vendor-order/order-invoice-export-pdf  Order Invoice Export PDF API
+     * @api {Get} /api/vendor-order/order-invoice-export-pdf  Order Invoice Export PDF API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} orderId orderId
-     * @apiParamExample {json} Input
-     * {
-     *      "orderId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully show the Order Detail..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
      * @apiSampleRequest /api/vendor-order/order-invoice-export-pdf
-     * @apiErrorExample {json} Order Detail error
+     * @apiErrorExample {json} OrderInvoiceExportPdf error
      * HTTP/1.1 500 Internal Server Error
      */
     // Order Detail Function
@@ -2825,14 +3412,14 @@ let VendorOrderController = class VendorOrderController {
             orderData.currencyInWords = words;
             let image;
             if (env_1.env.imageserver === 's3') {
-                image = yield this.s3Service.resizeImageBase64(settingDetails.storeLogo, settingDetails.storeLogoPath, '150', '150');
+                image = yield this.s3Service.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '150', '150');
             }
             else {
-                image = yield this.imageService.resizeImageBase64(settingDetails.storeLogo, settingDetails.storeLogoPath, '150', '150');
+                image = yield this.imageService.resizeImageBase64(settingDetails.invoiceLogoPath + settingDetails.invoiceLogo, '150', '30');
             }
             orderData.logo = image;
             const htmlData = yield this.pdfService.readHtmlToString('vendor-invoice', orderData);
-            const pathName = `./Invoice_${orderData.invoicePrefix + orderData.invoiceNo}.pdf`;
+            const pathName = `./ Invoice_${orderData.invoicePrefix + orderData.invoiceNo}.pdf`;
             yield this.pdfService.htmlPdf(htmlData, pathName);
             return new Promise((resolve, reject) => {
                 response.download(pathName, (err, data) => {
@@ -2849,7 +3436,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // Vendor Report List API
     /**
-     * @api {get} /api/vendor-order/sales-report-list  Sales Report list API
+     * @api {Get} /api/vendor-order/sales-report-list  Sales Report list API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -2861,13 +3448,52 @@ let VendorOrderController = class VendorOrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully got vendor sales report list",
-     *      "data":{
-     *      }
      *      "status": "1"
+     *      "message": "Successfully got vendor sales list.",
+     *     "data": [{
+     *       "productName": "Sneakers",
+     *       "buyers": [
+     *           {
+     *               "vendorOrderId": 363,
+     *               "orderId": 361,
+     *               "companyState": "",
+     *               "vendorId": 10,
+     *               "orderProductPrefixId": "INV-202407113611",
+     *               "quantity": 1,
+     *               "name": "Sneakers",
+     *               "price": "825.00",
+     *               "basePrice": "800.00",
+     *               "skuName": "Sneakers123",
+     *               "taxType": 1,
+     *               "taxValue": 25,
+     *               "total": "825.00",
+     *               "subOrderId": "INV-20240711361101",
+     *               "commission": 10,
+     *               "createdDate": "2024-07-24T08:19:08.000Z",
+     *               "currencySymbolLeft": "$",
+     *               "currencySymbolRight": "",
+     *               "cancelRequestStatus": 0,
+     *               "paymentZone": "",
+     *               "productName": "Sneakers",
+     *               "orderStatusName": "Order Placed",
+     *               "orderColorCode": "#6798e3",
+     *               "invoiceNo": "INV00186",
+     *               "invoicePrefix": "INV",
+     *               "firstName": "Anangan",
+     *               "lastName": "R",
+     *               "discountAmount": "0.00",
+     *               "couponDiscountAmount": null,
+     *               "customerGroup": null,
+     *               "paymentType": "CashOnDelivery",
+     *               "ipAddress": "2405:201:e061:e03c:58f3:e0f4:e66b:979e"
+     *           }
+     *       ]
+     *   }],
+     * "total": 825,
+     * "orderCount": 1
      * }
      * @apiSampleRequest /api/vendor-order/sales-report-list
-     * @apiErrorExample {json} Vendor Order error
+     * @apiErrorExample {json} VendorSalesReportList error
      * HTTP/1.1 500 Internal Server Error
      */
     vendorSalesReportList(limit, offset, startDate, endDate, productId, count, request, response) {
@@ -2988,7 +3614,7 @@ let VendorOrderController = class VendorOrderController {
                 const vendorOrderCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], sortOrder, true, true);
                 const countResponse = {
                     status: 1,
-                    message: 'Successfully got vendor sales count.',
+                    message: 'Successfully got seller sales count',
                     data: vendorOrderCount,
                 };
                 return response.status(200).send(countResponse);
@@ -3018,7 +3644,7 @@ let VendorOrderController = class VendorOrderController {
             const orderCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, subOrderSelect, subOrderWhereConditions, [], subOrderRelations, [], sortOrder, true, true);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got vendor sales list.',
+                message: 'Successfully got seller sales list',
                 data: result, total, orderCount,
             };
             return response.status(200).send(successResponse);
@@ -3026,7 +3652,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // Total sales report Download
     /**
-     * @api {get} /api/vendor-order/sales-report-export-list sales report excel download
+     * @api {Get} /api/vendor-order/sales-report-export-list Sales report excel download
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -3034,13 +3660,6 @@ let VendorOrderController = class VendorOrderController {
      * @apiParam (Request body) {String} startDate search by startDate
      * @apiParam (Request body) {String} endDate search by endDate
      * @apiParam (Request body) {String} productId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download total sales report excel List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
      * @apiSampleRequest /api/vendor-order/sales-report-export-list
      * @apiErrorExample {json} Total sales report excel error
      * HTTP/1.1 500 Internal Server Error
@@ -3311,13 +3930,13 @@ let VendorOrderController = class VendorOrderController {
                 image = yield this.s3Service.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '100', '100');
             }
             else {
-                image = yield this.imageService.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '100', '100');
+                image = yield this.imageService.resizeImageBase64(settingDetails.invoiceLogoPath + settingDetails.invoiceLogo, '100', '100');
             }
             orderData.logo = image;
             const htmlData = yield this.pdfService.readHtmlToString('vendor-invoice', orderData);
             const pathPrefix = Math.floor((Math.random() * 100) + 1);
             const fileName = `output_${pathPrefix}.pdf`;
-            const path = `${process.cwd()}/${fileName}`;
+            const path = `${process.cwd()} / ${fileName}`;
             yield this.pdfService.htmlPdf(htmlData, path);
             const attachments = [{
                     name: fileName,
@@ -3334,7 +3953,7 @@ let VendorOrderController = class VendorOrderController {
             mailContents.emailContent = message;
             mailContents.redirectUrl = redirectUrl;
             mailContents.orderData = orderData;
-            mailContents.productDetailData = undefined;
+            mailContents.productDetailData = '';
             console.log(customer.email, 'customer.emailcustomer.email');
             yield mail_services_1.MAILService.sendMail(mailContents, customer.email, emailContent.subject, false, true, attachments);
             yield fs.unlinkSync(path);
@@ -3365,12 +3984,13 @@ let VendorOrderController = class VendorOrderController {
      * HTTP/1.1 500 Internal Server Error
      */
     // Order Cancel Request List Function
-    backOrderProductList(limit, offset, customerName, orderId, amount, keyword, orderStatus, count, request, response) {
+    backOrderProductList(limit, offset, customerName, orderId, amount, dateAdded, keyword, orderStatus, skuName, count, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = [
                 'Order.createdDate as createdDate',
                 'Order.orderId as orderId',
                 'Order.shippingFirstname as customerFirstName',
+                'Order.shippingLastname as customerLastName',
                 'Order.shippingCity as shippingCity',
                 'Order.shippingCountry as shippingCountry',
                 'Order.shippingZone as shippingZone',
@@ -3382,13 +4002,13 @@ let VendorOrderController = class VendorOrderController {
                 'orderProduct.productId as productId',
                 'orderProduct.name as name',
                 'orderProduct.total as total',
+                'orderProduct.skuName as skuName',
                 'orderProduct.orderProductPrefixId as orderProductPrefixId',
                 'orderProduct.productPrice as productPrice',
                 'orderProduct.quantity as quantity',
-                'customer.firstName as firstName',
-                'customer.lastName as lastName',
                 'vendorOrders.subOrderStatusId as subOrderStatusId',
                 'vendorOrders.total as total',
+                'vendorOrders.vendorOrderId as vendorOrderId',
             ];
             const relations = [
                 {
@@ -3398,10 +4018,11 @@ let VendorOrderController = class VendorOrderController {
                     tableName: 'orderProduct.vendorOrders',
                     op: 'left',
                     aliasName: 'vendorOrders',
-                }, {
-                    tableName: 'Order.customer',
-                    aliasName: 'customer',
-                }
+                },
+                // {
+                //     tableName: 'Order.customer',
+                //     aliasName: 'customer',
+                // }
             ];
             const groupBy = [];
             const whereConditions = [];
@@ -3420,13 +4041,6 @@ let VendorOrderController = class VendorOrderController {
                     value: +amount,
                 });
             }
-            // if (customerName && customerName !== '') {
-            //     whereConditions.push({
-            //         name: ['Order.shippingFirstname'],
-            //         op: 'and',
-            //         value: customerName,
-            //     });
-            // }
             whereConditions.push({
                 name: 'Order.backOrders',
                 op: 'and',
@@ -3435,6 +4049,7 @@ let VendorOrderController = class VendorOrderController {
                 name: 'vendorOrders.vendorId',
                 op: 'and',
                 value: request.user.vendorId,
+                // value: 9,
             });
             const searchConditions = [];
             if (orderId && orderId !== '') {
@@ -3445,14 +4060,26 @@ let VendorOrderController = class VendorOrderController {
             }
             if (keyword && keyword !== '') {
                 searchConditions.push({
-                    name: ['orderProduct.name', 'orderProduct.orderProductPrefixId', 'customer.firstName', 'vendorOrders.total', 'vendorOrders.subOrderStatusId', 'Order.shippingFirstname'],
+                    name: ['orderProduct.name', 'orderProduct.orderProductPrefixId', 'vendorOrders.total', 'vendorOrders.subOrderStatusId', 'Order.shippingFirstname', 'orderProduct.skuName'],
                     value: keyword.toLowerCase(),
                 });
             }
             if (customerName && customerName !== '') {
                 searchConditions.push({
-                    name: ['customer.firstName', 'customer.lastName', 'Order.shippingFirstname'],
+                    name: ['Order.shippingFirstname', 'Order.shippingLastname'],
                     value: customerName.toLowerCase(),
+                });
+            }
+            if (skuName && skuName !== '') {
+                searchConditions.push({
+                    name: ['orderProduct.skuName'],
+                    value: skuName,
+                });
+            }
+            if (dateAdded) {
+                searchConditions.push({
+                    name: ['Order.created_date'],
+                    value: dateAdded,
                 });
             }
             const sort = [];
@@ -3464,7 +4091,7 @@ let VendorOrderController = class VendorOrderController {
                 const orderCount = yield this.orderService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const Response = {
                     status: 1,
-                    message: 'Successfully get Count. ',
+                    message: 'Successfully get Count',
                     data: orderCount,
                 };
                 return response.status(200).send(Response);
@@ -3496,7 +4123,7 @@ let VendorOrderController = class VendorOrderController {
             const result = yield Promise.all(promises);
             const successResponse = {
                 status: 1,
-                message: 'Successfully shown the Back Order list. ',
+                message: 'Successfully shown the Back Order list',
                 data: result,
             };
             return response.status(200).send(successResponse);
@@ -3524,7 +4151,7 @@ let VendorOrderController = class VendorOrderController {
      * @apiErrorExample {json} vendor invoice error
      * HTTP/1.1 500 Internal Server Error
      */
-    vendorFailedOrderList(limit, offset, keyword, startDate, endDate, customerName, orderId, amount, orderStatus, count, request, response) {
+    vendorFailedOrderList(limit, offset, keyword, startDate, endDate, customerName, orderId, amount, orderStatus, dateAdded, count, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -3589,6 +4216,12 @@ let VendorOrderController = class VendorOrderController {
                     value: customerName.toLowerCase(),
                 });
             }
+            if (dateAdded) {
+                searchConditions.push({
+                    name: ['VendorInvoice.createdDate'],
+                    value: dateAdded,
+                });
+            }
             if (keyword && keyword !== '') {
                 searchConditions.push({
                     name: ['VendorInvoice.shippingFirstname', 'VendorInvoice.shippingLastname', 'VendorInvoice.invoiceNo', 'orderDetail.orderPrefixId', 'VendorInvoice.total'],
@@ -3610,7 +4243,7 @@ let VendorOrderController = class VendorOrderController {
                 const orderListCount = yield this.vendorInvoiceService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const successRes = {
                     status: 1,
-                    message: 'Successfully got the cancel request count.',
+                    message: 'Successfully got the cancel request count',
                     data: orderListCount,
                 };
                 return response.status(200).send(successRes);
@@ -3635,6 +4268,19 @@ let VendorOrderController = class VendorOrderController {
                             tempVal.quantity = products.quantity;
                             tempVal.skuName = products.skuName;
                             tempVal.total = products.total;
+                            tempVal.productId = products.productId;
+                            const productImage = yield this.productImageService.findOne({
+                                where: { productId: products.productId, defaultImage: 1 },
+                                select: ['image', 'containerName'],
+                            });
+                            if (productImage !== undefined) {
+                                tempVal.image = productImage.image;
+                                tempVal.containerName = productImage.containerName;
+                            }
+                            else {
+                                tempVal.image = '';
+                                tempVal.containerName = '';
+                            }
                         }
                         return tempVal;
                     }));
@@ -3647,7 +4293,7 @@ let VendorOrderController = class VendorOrderController {
             if (failedOrderList) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got the vendor failed Order list.',
+                    message: 'Successfully got the vendor failed Order list',
                     data: vendorFailedOrderList,
                 };
                 return response.status(200).send(successResponse);
@@ -3655,7 +4301,7 @@ let VendorOrderController = class VendorOrderController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to get list.',
+                    message: 'unable to get list',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -3801,22 +4447,16 @@ let VendorOrderController = class VendorOrderController {
     }
     // Export Backorder list api
     /**
-     * @api {get} /api/vendor-order/back-order-excel-list back order Excel list
+     * @api {Get} /api/vendor-order/back-order-excel-list Back order Excel list
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} orderProductId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download Order Cancel Excel List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
      * @apiSampleRequest /api/vendor-order/back-order-excel-list
      * @apiErrorExample {json} Back Order Excel List error
      * HTTP/1.1 500 Internal Server Error
      */
     backOrderExport(orderProductId, request, response) {
+        var _a;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const excel = require('exceljs');
             const workbook = new excel.Workbook();
@@ -3855,6 +4495,13 @@ let VendorOrderController = class VendorOrderController {
             ];
             const groupBy = [];
             const whereConditions = [];
+            if (orderProductId && orderProductId !== '') {
+                whereConditions.push({
+                    name: 'vendorOrders.orderProductId',
+                    op: 'IN',
+                    value: orderProductId,
+                });
+            }
             whereConditions.push({
                 name: 'Order.backOrders',
                 op: 'and',
@@ -3863,10 +4510,6 @@ let VendorOrderController = class VendorOrderController {
                 name: 'vendorOrders.vendorId',
                 op: 'and',
                 value: request.user.vendorId,
-            }, {
-                name: 'vendorOrders.orderProductId',
-                op: 'IN',
-                value: orderProductId,
             });
             const searchConditions = [];
             const sort = [];
@@ -3905,7 +4548,7 @@ let VendorOrderController = class VendorOrderController {
                 const right = order.currencySymbolRight;
                 const left = order.currencySymbolLeft;
                 if (left === null && right === null) {
-                    rows.push([order.orderPrefixId, order.orderProductPrefixId, order.customerFirstName, order.email, order.name, order.productPrice, order.quantity, order.total]);
+                    rows.push([order.orderPrefixId, order.orderProductPrefixId, order.customerFirstName, order.email, order.name, order.productPrice, order.quantity, ((_a = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _a !== void 0 ? _a : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + order.total]);
                 }
                 else {
                     if (left !== undefined) {
@@ -3935,22 +4578,16 @@ let VendorOrderController = class VendorOrderController {
     }
     // Export Failed Order list api
     /**
-     * @api {get} /api/vendor-order/failed-order-excel-list failed order Excel list
+     * @api {Get} /api/vendor-order/failed-order-excel-list Failed order Excel list
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} orderId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download Failed Order Excel List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
      * @apiSampleRequest /api/vendor-order/failed-order-excel-list
      * @apiErrorExample {json} Failed Order Excel List error
      * HTTP/1.1 500 Internal Server Error
      */
     failedOrderExportExcel(orderId, request, response) {
+        var _a, _b, _c, _d, _e;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const excel = require('exceljs');
             const workbook = new excel.Workbook();
@@ -3987,11 +4624,14 @@ let VendorOrderController = class VendorOrderController {
                 name: 'orderDetail.paymentProcess',
                 op: 'and',
                 value: 0,
-            }, {
-                name: 'VendorInvoice.orderId',
-                op: 'IN',
-                value: orderId,
             });
+            if (orderId && orderId !== '') {
+                whereConditions.push({
+                    name: 'VendorInvoice.orderId',
+                    op: 'IN',
+                    value: orderId,
+                });
+            }
             const sort = [];
             sort.push({
                 name: 'VendorInvoice.createdDate',
@@ -4022,7 +4662,7 @@ let VendorOrderController = class VendorOrderController {
                     for (const items of productItems) {
                         const products = yield this.orderProductService.findOne({ orderProductId: items.orderProductId });
                         if (products) {
-                            rows.push([products.orderProductPrefixId, order.orderPrefixId, products.name, products.quantity, products.productPrice, products.discountAmount, products.couponDiscountAmount, products.total]);
+                            rows.push([products.orderProductPrefixId, order.orderPrefixId, products.name, products.quantity, ((_a = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _a !== void 0 ? _a : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + products.productPrice, ((_b = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _b !== void 0 ? _b : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + products.discountAmount, (_d = ((_c = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _c !== void 0 ? _c : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + products.couponDiscountAmount) !== null && _d !== void 0 ? _d : 0.00, ((_e = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _e !== void 0 ? _e : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + products.total]);
                         }
                     }
                 }
@@ -4162,7 +4802,7 @@ let VendorOrderController = class VendorOrderController {
     }
     // Getting A Child Order Status List Based On Parent List API
     /**
-     * @api {get} /api/vendor-order/vendor-order-status-list-based-on-parent Getting A Child Order Status List Based On Parent List API
+     * @api {Get} /api/vendor-order/vendor-order-status-list-based-on-parent Getting A Child Order Status List Based On Parent List API
      * @apiGroup Vendor Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -4172,26 +4812,28 @@ let VendorOrderController = class VendorOrderController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully got order status list based on parent",
-     *      "data":"{}"
-     *      "status": "1"
+     *      "status": 1
      * }
-     * @apiSampleRequest /api/vendor-order/order-status/vendor-order-status-list-based-on-parent
+     * @apiSampleRequest /api/vendor-order/vendor-order-status-list-based-on-parent
      * @apiErrorExample {json} OrderStatusListBasedOnParent error
      * HTTP/1.1 500 Internal Server Error
      */
     orderStatusListBasedOnParent(limit, offset, parentId, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const fullfillmentStatusIds = (yield this.orderStatusToFullfillmentService.findAll({ where: { orderStatusId: parentId !== null && parentId !== void 0 ? parentId : 0 } })).map((orderStatusToFullfillment) => orderStatusToFullfillment.orderFulfillmentStatusId);
             const WhereConditions = [];
             WhereConditions.push({
-                name: 'parentId',
-                value: parentId,
+                name: 'id',
+                value: (0, typeorm_1.In)(fullfillmentStatusIds),
+            }, {
+                name: 'isActive',
+                value: 1,
             });
-            const orderStatusList = yield this.orderStatusService.list(limit, offset, [], [], WhereConditions, false);
-            console.log('orderStatusList:', orderStatusList);
+            const orderStatusList = yield this.orderFullfillmentStatusService.list(limit, offset, [], [], WhereConditions, false);
             if (orderStatusList) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got order status list based on parent.',
+                    message: 'Successfully got order status list based on parent',
                     data: orderStatusList,
                 };
                 return response.status(200).send(successResponse);
@@ -4199,7 +4841,7 @@ let VendorOrderController = class VendorOrderController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to get order status list based on parent.',
+                    message: 'unable to get order status list based on parent',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -4207,8 +4849,8 @@ let VendorOrderController = class VendorOrderController {
     }
     // Purchased Customer List
     /**
-     * @api {get} /api/vendor-order/purchased-customer-list Purchased Customer List
-     * @apiGroup Vendor Product
+     * @api {Get} /api/vendor-order/purchased-customer-list Purchased Customer List
+     * @apiGroup Vendor Order
      * @apiHeader {string} Authorization
      * @apiParam (Request body) {Number} offset offset
      * @apiParam (Request body) {Number} limit limit
@@ -4216,25 +4858,26 @@ let VendorOrderController = class VendorOrderController {
      * @apiParam (Request body) {String} customerName search by customerName
      * @apiParam (Request body) {String} email search by email
      * @apiparam (request body) {String} mobileNumber search by mobileNumber
+     * @apiParam (Request body) {String} keyword keyword
      * @apiSuccessExample {json} success
      * HTTP/1.1 200 ok
      * {
      *      "status": "1",
-     *      "message": "successfully get the data",
+     *      "message": "Successfully Got Vendor Order List..!",
      *      "data": {},
      * }
      * @apiSampleRequest api/vendor-order/purchased-customer-list
      * @apiErrorExample {json} error
      * HTTP/1.1 500 internal server error
      */
-    purchasedCustomers(offset, limit, count, customerName, customerGroupName, email, mobileNumber, keyword, response, request) {
+    purchasedCustomers(offset, limit, count, customerName, customerGroupName, email, mobileNumber, status, keyword, response, request) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = [
-                'DISTINCT order.customerId as customerId',
-                `orderCustomer.email as email`,
-                `orderCustomer.firstName as firstName`,
-                `orderCustomer.lastName as lastName`,
-                `orderCustomer.mobileNumber as mobileNumber`,
+                'MAX(order.customerId) as customerId',
+                `MAX(order.email) as email`,
+                `MAX(order.shippingFirstname) as firstName`,
+                `MAX(order.shippingLastname) as lastName`,
+                `MAX(order.telephone) as mobileNumber`,
                 `orderCustomer.customerGroupId as customerGroupId`,
                 `MAX(order.shippingAddress1) as shippingAddress1`,
                 `MAX(order.shippingAddress2) as shippingAddress2`,
@@ -4256,11 +4899,14 @@ let VendorOrderController = class VendorOrderController {
                 },
                 {
                     tableName: 'order.customer',
+                    op: 'cond',
+                    cond: `orderCustomer.email = order.email`,
                     aliasName: 'orderCustomer',
                 },
                 {
                     tableName: 'orderCustomer.customerGroup',
                     aliasName: 'customerGroup',
+                    op: 'left',
                 },
                 {
                     tableName: 'order.orderProduct',
@@ -4273,29 +4919,46 @@ let VendorOrderController = class VendorOrderController {
                     op: 'and',
                     value: request.user.vendorId,
                 },
+                {
+                    name: 'order.paymentProcess',
+                    op: 'and',
+                    value: 1,
+                },
+                {
+                    name: 'order.paymentStatus',
+                    op: 'and',
+                    value: 1,
+                },
             ];
+            if (status === 1 || status === 0) {
+                whereConditions.push({
+                    name: 'orderCustomer.isActive',
+                    op: 'and',
+                    value: status,
+                });
+            }
             const searchConditions = [];
             if (keyword && keyword !== '') {
                 searchConditions.push({
-                    name: ['orderCustomer.email', 'orderCustomer.lastName', 'orderCustomer.firstName', 'orderCustomer.mobile', 'customerGroup.name'],
+                    name: ['order.email', 'order.shippingLastname', 'order.shippingFirstname', 'order.telephone', 'customerGroup.name'],
                     value: keyword.toLowerCase(),
                 });
             }
             if (customerName === null || customerName === void 0 ? void 0 : customerName.trim()) {
                 searchConditions.push({
-                    name: [`orderCustomer.firstName`, `orderCustomer.lastName`],
+                    name: ['order.shippingLastname', 'order.shippingFirstname'],
                     value: customerName,
                 });
             }
             if (mobileNumber === null || mobileNumber === void 0 ? void 0 : mobileNumber.trim()) {
                 searchConditions.push({
-                    name: [`orderCustomer.mobileNumber`],
+                    name: [`order.telephone`],
                     value: mobileNumber,
                 });
             }
             if (email === null || email === void 0 ? void 0 : email.trim()) {
                 searchConditions.push({
-                    name: [`orderCustomer.email`],
+                    name: [`order.email`],
                     value: email,
                 });
             }
@@ -4307,7 +4970,7 @@ let VendorOrderController = class VendorOrderController {
             }
             const groupBy = [
                 {
-                    name: 'order.customerId',
+                    name: 'order.email',
                 },
                 {
                     name: `orderCustomer.id`,
@@ -4322,11 +4985,21 @@ let VendorOrderController = class VendorOrderController {
             const vendorOrders = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
             return response.status(200).send({
                 status: 1,
-                message: `Successfully Got Vendor Order List..!`,
+                message: `Successfully Got Seller Order List`,
                 data: vendorOrders instanceof Array ? count ? vendorOrders.length : vendorOrders : vendorOrders,
             });
         });
     }
+    // Export Vendor Customer api
+    /**
+     * @api {Get} /api/vendor-order/export-customer Export Vendor Customer api
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} customerId customerId
+     * @apiSampleRequest /api/vendor-order/export-customer
+     * @apiErrorExample {json} ExportVendorCustomer List error
+     * HTTP/1.1 500 Internal Server Error
+     */
     exportVendorCustomer(customerId, response, request) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const excel = require('exceljs');
@@ -4398,15 +5071,16 @@ let VendorOrderController = class VendorOrderController {
             ];
             if (customerId && customerId !== '') {
                 const customerIds = customerId.split(',');
+                // const orderIds = await this.orderService.find({ where: { email: In(emailId) }, select: ['orderId'] });
                 whereConditions.push({
-                    name: 'order.customerId',
+                    name: 'order.orderId',
                     op: 'IN',
                     value: customerIds,
                 });
             }
             const groupBy = [
                 {
-                    name: 'order.customerId',
+                    name: 'order.orderId',
                 },
                 {
                     name: `orderCustomer.id`,
@@ -4438,7 +5112,32 @@ let VendorOrderController = class VendorOrderController {
             });
         });
     }
-    customerPurchasedProductList(request, response, customerId, limit, offset, count, productName, sku) {
+    // Purchased Customer Product List
+    /**
+     * @api {Get} /api/vendor-order/customer-purchased-product Purchased Customer Product List
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} count count
+     * @apiParam (Request body) {String} productName search by productName
+     * @apiParam (Request body) {Number} id search by id
+     * @apiparam (request body) {String} sku search by sku
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiSuccessExample {json} success
+     * HTTP/1.1 200 ok
+     * {
+     *      "status": "1",
+     *      "message": "Successfully Got Order Product List..!",
+     *      "data": {},
+     * }
+     * @apiSampleRequest api/vendor-order/customer-purchased-product
+     * @apiErrorExample {json} CustomerPurchasedProductList error
+     * HTTP/1.1 500 internal server error
+     */
+    customerPurchasedProductList(request, response, 
+    // @Param('id') customerId: number,
+    emailId, limit, offset, count, productName, sku) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = [
                 'orderProduct.orderProductId as orderProductId',
@@ -4446,7 +5145,11 @@ let VendorOrderController = class VendorOrderController {
                 'orderProduct.name as productName',
                 'order.createdDate as orderedDate',
                 'orderProduct.productId as productId',
+                'order.orderPrefixId as orderPrefixId',
+                'order.email as email',
+                'orderProduct.orderProductPrefixId as orderProductPrefixId',
                 'orderStatus.name as orderStatus',
+                'orderDetail.shippingCity as shippingCity',
                 '(SELECT productImage.image from product_image as productImage where productImage.default_image = 1 AND productImage.product_id = productId LIMIT 1) as image',
                 '(SELECT productImage.container_name from product_image as productImage where productImage.default_image = 1 AND productImage.product_id = productId LIMIT 1) as containerName',
             ];
@@ -4454,6 +5157,10 @@ let VendorOrderController = class VendorOrderController {
                 {
                     tableName: 'VendorOrders.order',
                     aliasName: 'order',
+                },
+                {
+                    tableName: 'VendorOrders.orderDetail',
+                    aliasName: 'orderDetail',
                 },
                 {
                     tableName: 'order.orderProduct',
@@ -4488,9 +5195,19 @@ let VendorOrderController = class VendorOrderController {
                     value: request.user.vendorId,
                 },
                 {
-                    name: 'order.customerId',
+                    name: 'order.paymentProcess',
                     op: 'and',
-                    value: customerId,
+                    value: 1,
+                },
+                {
+                    name: 'order.paymentStatus',
+                    op: 'and',
+                    value: 1,
+                },
+                {
+                    name: 'order.email',
+                    op: 'and',
+                    value: `'` + emailId + `'`,
                 },
             ];
             const sort = [
@@ -4506,28 +5223,34 @@ let VendorOrderController = class VendorOrderController {
             const orderProductStatusList = yield Promise.all(orderProductList.map((orderProduct) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                 const orderProductView = orderProduct;
                 const orderStatus = yield this.orderProductLogService.find({ where: { orderProductId: orderProduct.orderProductId }, relations: ['orderStatus'] });
-                orderProductView.orderStatus = orderStatus.map((orderStat) => ({
-                    orderStatusId: orderStat.orderStatus.orderStatusId,
-                    statusName: orderStat.orderStatus.name,
-                    createdOn: orderStat.createdDate,
-                }));
+                orderProductView.orderStatus = orderStatus.map((orderStat) => {
+                    var _a, _b;
+                    return ({
+                        orderStatusId: (_a = orderStat === null || orderStat === void 0 ? void 0 : orderStat.orderStatus) === null || _a === void 0 ? void 0 : _a.orderStatusId,
+                        statusName: (_b = orderStat.orderStatus) === null || _b === void 0 ? void 0 : _b.name,
+                        createdOn: orderStat.createdDate,
+                    });
+                });
                 return orderProductView;
             })));
             return response.status(200).send({
                 status: 1,
-                message: `Successfully Got Order Product List..!`,
+                message: `Successfully Got Order Product List`,
                 data: orderProductStatusList,
             });
         });
     }
     // product Viewed Customer
     /**
-     * @api {get} /api/vendor-order/product-viewed-customer product Viewed Customer
-     * @apiGroup Vendor Product
+     * @api {Get} /api/vendor-order/product-viewed-customer Product Viewed Customer
+     * @apiGroup Vendor Order
      * @apiHeader {string} Authorization
      * @apiParam (Request body) {Number} offset offset
      * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} count count
      * @apiParam (Request body) {String} customerId customerId
+     * @apiParam (Request body) {String} productName productName
+     * @apiParam (Request body) {String} sku sku
      * @apiSuccessExample {json} success
      * HTTP/1.1 200 ok
      * {
@@ -4536,7 +5259,7 @@ let VendorOrderController = class VendorOrderController {
      *      "data": {},
      * }
      * @apiSampleRequest api/vendor-order/product-viewed-customer
-     * @apiErrorExample {json} error
+     * @apiErrorExample {json} VendorProductViewedCustomer error
      * HTTP/1.1 500 internal server error
      */
     vendorProductViewedCustomer(limit, offset, customerId, productName, sku, count, response, request) {
@@ -4597,7 +5320,14 @@ let VendorOrderController = class VendorOrderController {
             if (!count) {
                 const resultList = yield Promise.all(customerViewLogList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                     const temp = value;
-                    const productImage = yield this.productImageService.findAll({ where: { productId: temp.productId } });
+                    const productImage = yield this.productImageService.findAll({
+                        where: {
+                            productId: temp.productId,
+                        },
+                        order: {
+                            sortOrder: 'ASC',
+                        },
+                    });
                     temp.productImage = productImage;
                     return temp;
                 })));
@@ -4608,6 +5338,18 @@ let VendorOrderController = class VendorOrderController {
             }
         });
     }
+    // Export Order Ivoice List API
+    /**
+     * @api {Get} /api/vendor-order/export-order-invoice-list Export Order Ivoice List API
+     * @apiGroup Vendor Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} limit limit
+     * @apiParam (Request body) {String} vendorInvoiceId vendorInvoiceId
+     * @apiParam (Request body) {String} offset offset
+     * @apiSampleRequest /api/vendor-order/export-order-invoice-list
+     * @apiErrorExample {json} Export Order Ivoice List List error
+     * HTTP/1.1 500 Internal Server Error
+     */
     exportOrderIvoiceList(vendorInvoiceId, limit, offset, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const vendorInvoiceIds = vendorInvoiceId && vendorInvoiceId !== '' ? vendorInvoiceId.split(',') : [];
@@ -4683,6 +5425,131 @@ let VendorOrderController = class VendorOrderController {
             });
         });
     }
+    //  update payment status API
+    /**
+     * @api {Post} /api/vendor-order/update-payment-status update payment Status API
+     * @apiGroup Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} orderId Order Id
+     * @apiParam (Request body) {Number} paymentStatusId 1->paid 2->fail 3-> refund
+     * @apiParamExample {json} Input
+     * {
+     *   "orderId" : "",
+     *   "paymentStatusId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated payment status.",
+     *      "status": "1",
+     *      "data": {
+     *       }
+     * }
+     * @apiSampleRequest /api/vendor-order/update-payment-status
+     * @apiErrorExample {json} UpdatePaymentStatus error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updatePaymentStatus(orderId, paymentStatusId, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const updateOrder = yield this.orderService.findOrder(orderId);
+            if (!updateOrder) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid order Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            updateOrder.paymentStatus = paymentStatusId;
+            updateOrder.paymentFlag = paymentStatusId;
+            const plugin = yield this.pluginService.findOne({ where: { id: updateOrder.paymentMethod } });
+            updateOrder.paymentType = plugin.pluginName;
+            yield this.orderService.create(updateOrder);
+            if (paymentStatusId === 1) {
+                const findPayment = yield this.paymentService.findOne({ where: { orderId } });
+                if (findPayment) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Payment has been made for this order',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                const paymentParams = new Payment_1.Payment();
+                paymentParams.orderId = updateOrder.orderId;
+                const date = new Date();
+                paymentParams.paidDate = (0, moment_1.default)(date).format('YYYY-MM-DD HH:mm:ss');
+                paymentParams.paymentAmount = updateOrder.total;
+                const payments = yield this.paymentService.create(paymentParams);
+                let i;
+                const orderProduct = yield this.orderProductService.find({ where: { orderId: updateOrder.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'discountAmount', 'discountedAmount', 'couponDiscountAmount'] });
+                for (i = 0; i < orderProduct.length; i++) {
+                    const paymentItems = new PaymentItems_1.PaymentItems();
+                    paymentItems.paymentId = payments.paymentId;
+                    paymentItems.orderProductId = orderProduct[i].orderProductId;
+                    paymentItems.totalAmount = orderProduct[i].total;
+                    paymentItems.productName = orderProduct[i].name;
+                    paymentItems.productQuantity = orderProduct[i].quantity;
+                    paymentItems.productPrice = orderProduct[i].productPrice;
+                    const payItem = yield this.paymentItemsService.create(paymentItems);
+                    const vendorProduct = yield this.vendorProductService.findOne({ where: { productId: orderProduct[i].productId } });
+                    if (vendorProduct) {
+                        const vendor = yield this.vendorService.findOne({ where: { vendorId: vendorProduct.vendorId } });
+                        const vendorGroup = yield this.vendorGroupService.findOne({
+                            where: {
+                                groupId: vendor.vendorGroupId,
+                            },
+                        });
+                        const vendorOrders = yield this.vendorOrdersService.findOne({ where: { vendorId: vendorProduct.vendorId, orderProductId: orderProduct[i].orderProductId } });
+                        if (vendorOrders) {
+                            const vendorPayments = new VendorPayment_1.VendorPayment();
+                            vendorPayments.vendorId = vendorProduct.vendorId;
+                            vendorPayments.paymentItemId = payItem.paymentItemId;
+                            vendorPayments.vendorOrderId = vendorOrders.vendorOrderId;
+                            vendorPayments.amount = orderProduct[i].total;
+                            if (+vendorProduct.vendorProductCommission > 0) {
+                                vendorPayments.commissionAmount = vendorPayments.amount * (+vendorProduct.vendorProductCommission / 100);
+                            }
+                            else if (+vendor.commission > 0) {
+                                vendorPayments.commissionAmount = vendorPayments.amount * (+vendor.commission / 100);
+                            }
+                            else if (vendorGroup !== undefined && +vendorGroup.commission > 0) {
+                                vendorPayments.commissionAmount = vendorPayments.amount * (+vendorGroup.commission / 100);
+                            }
+                            else {
+                                const defaultCommission = yield this.vendorGlobalSettingService.findOne();
+                                const defCommission = defaultCommission.defaultCommission;
+                                vendorPayments.commissionAmount = vendorPayments.amount * (+defCommission / 100);
+                            }
+                            yield this.vendorPaymentService.create(vendorPayments);
+                        }
+                    }
+                }
+            }
+            else {
+                const vendorOrder = yield this.vendorOrdersService.findOne({ orderId });
+                if (vendorOrder) {
+                    const vendorPayment = yield this.vendorPaymentService.findOne({
+                        vendorOrderId: vendorOrder.vendorOrderId,
+                    });
+                    yield this.vendorPaymentService.delete(vendorPayment.vendorPaymentId);
+                }
+                const paymentArchive = yield this.paymentArchiveService.findOne({
+                    where: {
+                        orderId,
+                    },
+                });
+                if (paymentArchive) {
+                    yield this.paymentArchiveService.delete({ orderId });
+                }
+                yield this.paymentService.delete({ orderId });
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully updated the Payment Status',
+                data: updateOrder,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
 };
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/recent-order-list'),
@@ -4750,12 +5617,44 @@ tslib_1.__decorate([
     (0, routing_controllers_1.Authorized)('vendor'),
     tslib_1.__param(0, (0, routing_controllers_1.Param)('vendorOrderId')),
     tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('subOrderStatusId')),
+    tslib_1.__param(2, (0, routing_controllers_1.BodyParam)('fullfillmentStatusId')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderStatusUpdate", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/:vendorOrderId/order-product'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('vendorOrderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(2, (0, routing_controllers_1.Req)()),
     tslib_1.__param(3, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
-], VendorOrderController.prototype, "updateOrderStatus", null);
+], VendorOrderController.prototype, "orderProductUpdate", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/order'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "updateOrder", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/bulk-update-order-status'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "bulkOrderStatusUpdate", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/vendor-order-status-list'),
     (0, routing_controllers_1.Authorized)('vendor'),
@@ -4763,11 +5662,10 @@ tslib_1.__decorate([
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('status')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('orderStatus')),
-    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "orderStatusList", null);
 tslib_1.__decorate([
@@ -4887,10 +5785,11 @@ tslib_1.__decorate([
     tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('deliverylist')),
     tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('orderId')),
     tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('dateAdded')),
+    tslib_1.__param(9, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(10, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, String, Object, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, String, Object, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "archiveOrderList", null);
 tslib_1.__decorate([
@@ -4901,12 +5800,13 @@ tslib_1.__decorate([
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
-    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('deliverylist')),
-    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(7, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('dateAdded')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('deliverylist')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, Object, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Number, Object, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "archiveOrderListCount", null);
 tslib_1.__decorate([
@@ -4918,18 +5818,35 @@ tslib_1.__decorate([
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('orderId')),
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('amount')),
     tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('orderStatus')),
-    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('startDate')),
-    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('endDate')),
-    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('deliverylist')),
-    tslib_1.__param(10, (0, routing_controllers_1.QueryParam)('dateAdded')),
-    tslib_1.__param(11, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(12, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(13, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('isBackOrder')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('skuName')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('paymentProcess')),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('orderStatus')),
+    tslib_1.__param(10, (0, routing_controllers_1.QueryParam)('tags')),
+    tslib_1.__param(11, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(12, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(13, (0, routing_controllers_1.QueryParam)('sortBy')),
+    tslib_1.__param(14, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(15, (0, routing_controllers_1.QueryParam)('deliverylist')),
+    tslib_1.__param(16, (0, routing_controllers_1.QueryParam)('dateAdded')),
+    tslib_1.__param(17, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(18, (0, routing_controllers_1.QueryParam)('statusType')),
+    tslib_1.__param(19, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(20, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, String, String, Number, String, Object, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Number, Number, Number, String, String, String, String, String, String, Number, String, Object, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "orderListtt", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/order-list-export'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('vendorOrderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Array, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "orderListExport", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/bulk-archive-order-export'),
     (0, routing_controllers_1.Authorized)('vendor'),
@@ -5081,13 +5998,15 @@ tslib_1.__decorate([
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('customerName')),
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('orderId')),
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('amount')),
-    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('orderStatus')),
-    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('dateAdded')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('orderStatus')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('skuName')),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(10, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(11, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Number, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Number, String, String, String, String, Number, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "backOrderProductList", null);
 tslib_1.__decorate([
@@ -5102,11 +6021,12 @@ tslib_1.__decorate([
     tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('orderId')),
     tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('amount')),
     tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('orderStatus')),
-    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(10, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(11, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('dateAdded')),
+    tslib_1.__param(10, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(11, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(12, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, String, String, String, Object, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "vendorFailedOrderList", null);
 tslib_1.__decorate([
@@ -5171,11 +6091,12 @@ tslib_1.__decorate([
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('customerGroupName')),
     tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('email')),
     tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('mobileNumber')),
-    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
-    tslib_1.__param(9, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(10, (0, routing_controllers_1.Req)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, String, String, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, String, String, String, String, Number, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "purchasedCustomers", null);
 tslib_1.__decorate([
@@ -5189,23 +6110,23 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "exportVendorCustomer", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/customer-purchased-product/:id'),
+    (0, routing_controllers_1.Get)('/customer-purchased-product'),
     (0, routing_controllers_1.Authorized)('vendor'),
     tslib_1.__param(0, (0, routing_controllers_1.Req)()),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
-    tslib_1.__param(2, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('emailId')),
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
     tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('productName')),
     tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('sku')),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object, Object, Number, Number, Number, Object, String, String]),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, String, Number, Number, Object, String, String]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "customerPurchasedProductList", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Authorized)('vendor'),
     (0, routing_controllers_1.Get)('/product-viewed-customer'),
+    (0, routing_controllers_1.Authorized)('vendor'),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('customerId')),
@@ -5230,6 +6151,16 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [String, Number, Number, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "exportOrderIvoiceList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/update-payment-status'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('orderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('paymentStatusId')),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorOrderController.prototype, "updatePaymentStatus", null);
 VendorOrderController = tslib_1.__decorate([
     (0, routing_controllers_1.JsonController)('/vendor-order'),
     tslib_1.__metadata("design:paramtypes", [VendorOrderService_1.VendorOrdersService,
@@ -5256,7 +6187,15 @@ VendorOrderController = tslib_1.__decorate([
         VendorService_1.VendorService,
         ImageService_1.ImageService,
         SettingService_1.SettingService,
-        CustomerService_1.CustomerService])
+        CustomerService_1.CustomerService,
+        PaymentItemsService_1.PaymentItemsService,
+        PaymentArchiveService_1.PaymentArchiveService,
+        PaymentService_1.PaymentService,
+        VendorGroupService_1.VendorGroupService,
+        VendorSettingService_1.VendorGlobalSettingService,
+        SkuService_1.SkuService,
+        OrderStatusToFullfillmentService_1.OrderStatusToFullfillmentService,
+        OrderFullfillmentStatusService_1.OrderFullfillmentStatusService])
 ], VendorOrderController);
 exports.VendorOrderController = VendorOrderController;
 //# sourceMappingURL=VendorOrderController.js.map

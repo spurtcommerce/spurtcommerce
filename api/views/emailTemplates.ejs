@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        @media only screen and (max-width: 600px) {
+            .inner-table {
+                padding: 40px 16px !important;
+            }
+        }
+    </style>
+</head>
+
+<body style=" font-family: 'Inter', sans-serif;margin: 0;padding: 0;">
+    <table width=" 100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color: #F9F9F9;">
+
+        <tbody>
+            <tr>
+                <td style="padding:40px 16px 40px 16px; ">
+
+                    <table style="width: 100%; margin:0 auto; ">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table width=" 100%" cellpadding="0" cellspacing="0" role="presentation"
+                                        style="background-color: #FFFFFF; padding: 40px 32px;" class="inner-table">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <table width=" 100%" cellpadding="0" cellspacing="0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="center" style="padding:30px;">
+                                                                    <img
+                                                                        src="<%=baseUrl%>/media/image-resize/?width=216&height=160&name=<%=logo.emailLogo%>&path=<%=logo.emailLogoPath%>">
+                                                                </td>
+                                                            </tr>
+                                                            <% if (productInfo.length> 0) { %>
+                                                                <%= console.log(productInfo.length) %>
+                                                                    <tr>
+                                                                        <td
+                                                                            style="padding: 40px 20px; border-width: 1px 0 1px 0; border-color:#D8DEE3; border-style: solid;">
+                                                                            <%- unescape(emailContent) %>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="padding: 0 0 16px 0;">
+                                                                            <h2
+                                                                                style="font-size: 16px;line-height: 24px;font-weight: 600;color: #1F2328;margin:0 0 16px 0;">
+                                                                                Product Detail:</h2>
+                                                                            <table width=" 100%" cellpadding="0"
+                                                                                cellspacing="0" role="presentation">
+                                                                                <tbody>
+                                                                                    <% productInfo.forEach((data)=> { %>
+                                                                                        <tr>
+
+                                                                                            <td
+                                                                                                style="padding: 16px 0; border-width:1px 0 ; border-style: solid; border-color: #D8DEE3;">
+                                                                                                <table width=" 100%"
+                                                                                                    cellpadding="0"
+                                                                                                    cellspacing="0"
+                                                                                                    role="presentation">
+                                                                                                    <tbody>
+                                                                                                        <tr>
+                                                                                                            <td
+                                                                                                                style="width: 10%;">
+                                                                                                                <img width="93"
+                                                                                                                    height="93"
+                                                                                                                    src="<%=baseUrl%>/media/image-resize/?width=93&height=93&name=<%=data.productImageName%>&path=<%=data.productImagePath%>"
+                                                                                                                    alt="product">
+                                                                                                            </td>
+                                                                                                            <td class="product-detail"
+                                                                                                                style="padding:0 40px 0 10px;">
+                                                                                                                <h4
+                                                                                                                    style="color: #262626;font-size: 14px;line-height: 18px;font-weight: normal;margin: 0 0 8px 0;">
+                                                                                                                    <%= data.productName
+                                                                                                                        %>
+                                                                                                                </h4>
+                                                                                                                <h5
+                                                                                                                    style="font-size: 14px;line-height: 17px;font-weight: 600;color: #262626;margin:0 0 16px 0;">
+                                                                                                                    <%= data.currencySymbol
+                                                                                                                        +
+                                                                                                                        data.price
+                                                                                                                        %>
+                                                                                                                </h5>
+                                                                                                                <p
+                                                                                                                    style="margin: 0;font-size: 14px;line-height: 17px;color: #333333;">
+                                                                                                                    SKU
+                                                                                                                    :
+                                                                                                                    <%= data.sku
+                                                                                                                        %>
+                                                                                                                </p>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </td>
+
+                                                                                        </tr>
+                                                                                        <% }); %>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <% } else {%>
+                                                                        <tr>
+                                                                            <td
+                                                                                style="padding: 40px 20px; border-width: 1px 0 1px 0; border-color:#D8DEE3; border-style: solid;">
+                                                                                <%- unescape(emailContent) %>
+                                                                                <% var isRegards = regardsRequired === 0 ? 0 : 1; %>
+                                                                                <% if (isRegards) { %>
+                                                                                    <p
+                                                                                        style="font-size: 14px;line-height: 17px;color: #1F2328; margin: 30px 0 5px 0;  font-weight: normal;">
+                                                                                        Regards,
+                                                                                    </p>
+                                                                                    <h3
+                                                                                        style="font-size: 14px;line-height: 17px;color: #1F2328; margin: 0 0 5px 0;  font-weight: 600;">
+                                                                                        <%=logo.siteName%>
+                                                                                    </h3>
+                                                                                    <p
+                                                                                        style="font-size: 14px;line-height: 17px;color: #1F2328; margin: 0 0 0 0;  font-weight: normal;">
+                                                                                        <!-- <a href="<%=redirectUrl%>"
+                                                                                            style="color: blue; text-decoration:underline;"> -->
+                                                                                            <!-- <%=redirectUrl%> -->
+                                                                                        <!-- </a> -->
+                                                                                    </p>
+                                                                                <% } else {%>
+                                                                                    <tr>
+                                                                                        <td style="padding-top: 40px;">
+                                                                                            <h3
+                                                                                                style=" text-align: center; margin: 0  0 3px 0 ;color: #262626; font-size: 14px;line-height: 18px;font-weight: normal;">
+                                                                                                Happy Shopping</h3>
+                                                                                            <p
+                                                                                                style=" text-align: center; margin:0; color: #262626;font-size: 14px;line-height: 17px;font-weight: 600;">
+                                                                                                <%=logo.siteName%></p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <% } %>
+                                                                            </td>
+                                                                        </tr>
+                                                                        
+                                                                        <% } %>
+                                                                            <tr>
+                                                                            <tr>
+                                                                                <td align="center"
+                                                                                    style="padding: 40px 30px 30px;">
+                                                                                    <a href="<%=logo.facebook%>"
+                                                                                        style="display: inline-block;background-color: #529551;border-radius: 50%;width: 24px;height: 24px; text-align: center;">
+                                                                                        <img src="<%=logoBaseUrl%>/assets/img/facebook.png"
+                                                                                            alt="facebook"
+                                                                                            style="width: 24px;height: 24px; vertical-align: middle;padding: 4.5px;"></a>
+                                                                                    <a href="<%=logo.linkedin%>"
+                                                                                        style="display: inline-block;background-color: #529551;border-radius: 50%;width: 24px;height: 24px; text-align: center;margin-left:12px;"><img
+                                                                                            src="<%=logoBaseUrl%>/assets/img/linkedin.png"
+                                                                                            alt="linkedin"
+                                                                                            style="width: 24px;height: 24px; vertical-align: middle;padding: 4.5px"></a>
+                                                                                    <a href="<%=logo.twitter%>"
+                                                                                        style="display: inline-block;background-color: #529551;border-radius: 50%;width: 24px;height: 24px; text-align: center;margin-left:12px;"><img
+                                                                                            src="<%=logoBaseUrl%>/assets/img/x.png"
+                                                                                            alt="x"
+                                                                                            style="width: 24px;height: 24px; vertical-align: middle;padding: 4.5px"></a>
+                                                                                    <a href="<%=logo.youtube%>"
+                                                                                        style="display: inline-block;background-color: #529551;border-radius: 50%;width: 24px;height: 24px; text-align: center;margin-left:12px;"><img
+                                                                                            src="<%=logoBaseUrl%>/assets/img/youtube.png"
+                                                                                            alt="youtube"
+                                                                                            style="width: 24px;height: 24px; vertical-align: middle;padding: 4.5px"></a>
+                                                                                    <a href="<%=logo.instagram%>"
+                                                                                        style="display: inline-block;background-color: #529551;border-radius: 50%;width: 24px;height: 24px; text-align: center;margin-left:12px;"><img
+                                                                                            src="<%=logoBaseUrl%>/assets/img/instagram.png"
+                                                                                            alt="instagram"
+                                                                                            style="width: 24px;height: 24px; vertical-align: middle;padding: 4.5px"></a>
+                                                                                    <p
+                                                                                        style="color: #000000;font-size:14px; line-height:21px;font-weight:normal;margin:16px 0 0 0;">
+                                                                                            <%=logo.storeAddress1%>,
+                                                                                                <%=logo.storeAddress2%>,
+                                                                                                    <%=logo.storeCity%>,
+                                                                                                        <%=logo.countryName%>
+                                                                                                            .
+                                                                                    </p>
+                                                                                </td>
+                                                                            </tr>
+                                            </tr>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </td>
+
+
+            </tr>
+
+        </tbody>
+    </table>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+    </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            <table width=" 100%" cellpadding="0" cellspacing="0" role="presentation">
+                <tr>
+                    <td align="center">
+                        <a href="javascript:void(0) "
+                            style="font-size: 12px; display: inline-block; text-decoration: none; line-height: 20px; color: #A5A5A5; font-weight: normal; text-align: center; padding:24px 0 44px 0;margin: 0;">
+                            To
+                            unsubscribe from these mailings, you may opt out here.</a>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+    </table>
+
+
+
+    </td>
+    </tr>
+
+
+
+    </tbody>
+    </table>
+
+</body>
+
+</html>

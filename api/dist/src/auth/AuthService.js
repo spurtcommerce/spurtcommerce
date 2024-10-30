@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -93,7 +93,22 @@ let AuthService = class AuthService {
                 }, relations: ['customer'],
             });
             if (vendors) {
-                if (vendors.customer.isActive === 1 && vendors.customer.deleteFlag === 0) {
+                if (vendors.isActive === 1 && vendors.isDelete === 0 && vendors.approvalFlag === 1) {
+                    return vendors;
+                }
+            }
+            return undefined;
+        });
+    }
+    validateUnapprovedVendor(userId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendors = yield this.vendorRepository.findOne({
+                where: {
+                    vendorId: userId,
+                }, relations: ['customer'],
+            });
+            if (vendors) {
+                if (vendors.isActive === 1 && vendors.isDelete === 0) {
                     return vendors;
                 }
             }

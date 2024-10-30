@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -14,6 +14,7 @@ const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
 const Logger_1 = require("../../../decorators/Logger");
 const index_1 = require("typeorm/index");
 const ZoneRepository_1 = require("../repositories/ZoneRepository");
+const Zone_1 = require("../models/Zone");
 let ZoneService = class ZoneService {
     constructor(zoneRepository, log) {
         this.zoneRepository = zoneRepository;
@@ -71,12 +72,145 @@ let ZoneService = class ZoneService {
             condition.take = limit;
             condition.skip = offset;
         }
+        condition.order = { createdDate: 'DESC' };
         if (count) {
             return this.zoneRepository.count(condition);
         }
         else {
             return this.zoneRepository.find(condition);
         }
+    }
+    listByQueryBuilder(limit, offset, select = [], whereConditions = [], searchConditions = [], relations = [], groupBy = [], sort = [], count = false, rawQuery = false) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield (0, index_1.getConnection)().getRepository(Zone_1.Zone).createQueryBuilder();
+            // Select
+            if (select && select.length > 0) {
+                query.select(select);
+            }
+            // Join
+            if (relations && relations.length > 0) {
+                relations.forEach((joinTb) => {
+                    if (joinTb.op === 'left') {
+                        query.leftJoin(joinTb.tableName, joinTb.aliasName);
+                    }
+                    else if (joinTb.op === 'leftCond') {
+                        query.leftJoin(joinTb.tableName, joinTb.aliasName, joinTb.cond);
+                    }
+                    else if (joinTb.op === 'inner-select') {
+                        query.innerJoinAndSelect(joinTb.tableName, joinTb.aliasName);
+                    }
+                    else if (joinTb.op === 'left-select') {
+                        query.leftJoinAndSelect(joinTb.tableName, joinTb.aliasName);
+                    }
+                    else if (joinTb.op === 'left-select-cond') {
+                        query.leftJoinAndSelect(joinTb.tableName, joinTb.aliasName, joinTb.cond);
+                    }
+                    else {
+                        query.innerJoin(joinTb.tableName, joinTb.aliasName);
+                    }
+                });
+            }
+            // Where
+            if (whereConditions && whereConditions.length > 0) {
+                whereConditions.forEach((item) => {
+                    if (item.op === 'where' && item.sign === undefined) {
+                        query.where(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'and' && item.sign === undefined) {
+                        query.andWhere(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'and' && item.sign !== undefined) {
+                        query.andWhere(' \'' + item.name + '\'' + ' ' + item.sign + ' \'' + item.value + '\'');
+                    }
+                    else if (item.op === 'raw' && item.sign !== undefined) {
+                        query.andWhere(item.name + ' ' + item.sign + ' \'' + item.value + '\'');
+                    }
+                    else if (item.op === 'or' && item.sign === undefined) {
+                        query.orWhere(item.name + ' = ' + item.value);
+                    }
+                    else if (item.op === 'IN' && item.sign === undefined) {
+                        query.andWhere(item.name + ' IN (' + item.value + ')');
+                    }
+                });
+            }
+            // Keyword Search
+            if (searchConditions && searchConditions.length > 0) {
+                searchConditions.forEach((table) => {
+                    if ((table.name && table.name instanceof Array && table.name.length > 0) && (table.value && table.value instanceof Array && table.value.length > 0)) {
+                        const namesArray = table.name;
+                        namesArray.forEach((name, index) => {
+                            query.andWhere(new index_1.Brackets(qb => {
+                                const valuesArray = table.value;
+                                valuesArray.forEach((value, subIndex) => {
+                                    if (subIndex === 0) {
+                                        qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                        return;
+                                    }
+                                    qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                });
+                            }));
+                        });
+                    }
+                    else if (table.name && table.name instanceof Array && table.name.length > 0) {
+                        query.andWhere(new index_1.Brackets(qb => {
+                            const namesArray = table.name;
+                            namesArray.forEach((name, index) => {
+                                if (index === 0) {
+                                    qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                                    return;
+                                }
+                                qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                            });
+                        }));
+                    }
+                    else if (table.value && table.value instanceof Array && table.value.length > 0) {
+                        query.andWhere(new index_1.Brackets(qb => {
+                            const valuesArray = table.value;
+                            valuesArray.forEach((value, index) => {
+                                if (index === 0) {
+                                    qb.andWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                    return;
+                                }
+                                qb.orWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                            });
+                        }));
+                    }
+                });
+            }
+            // GroupBy
+            if (groupBy && groupBy.length > 0) {
+                let i = 0;
+                groupBy.forEach((item) => {
+                    if (i === 0) {
+                        query.groupBy(item.name);
+                    }
+                    else {
+                        query.addGroupBy(item.name);
+                    }
+                    i++;
+                });
+            }
+            // orderBy
+            if (sort && sort.length > 0) {
+                sort.forEach((item) => {
+                    query.orderBy('' + item.name + '', '' + item.order + '');
+                });
+            }
+            // Limit & Offset
+            if (limit && limit > 0) {
+                query.limit(limit);
+                query.offset(offset);
+            }
+            if (!count) {
+                if (rawQuery) {
+                    return query.getRawMany();
+                }
+                return query.getMany();
+            }
+            else {
+                return query.getCount();
+            }
+        });
     }
     // delete Zone
     delete(id) {

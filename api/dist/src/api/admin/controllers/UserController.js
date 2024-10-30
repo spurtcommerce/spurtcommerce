@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -56,11 +56,26 @@ let UserController = class UserController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "data": "{
-     *         "token":''
-     *      }",
      *      "message": "Successfully login",
      *      "status": "1"
+     *      "data": "{
+     *              "token": "",
+     *              "user": {
+     *                 "createdDate": "",
+     *                 "userId": "",
+     *                 "avatar": "",
+     *                 "avatarPath": "",
+     *                 "isActive": "",
+     *                 "code": "",
+     *                 "address": "",
+     *                 "deleteFlag": "",
+     *                 "linkExpires": "",
+     *                 "userGroup": {
+     *                    "createdDate": "",
+     *                    "groupId": "",
+     *                    "name": ""
+     *                       }
+     *            }",
      * }
      * @apiSampleRequest /api/auth/login
      * @apiErrorExample {json} Login error
@@ -80,12 +95,12 @@ let UserController = class UserController {
                 if (yield User_1.User.comparePassword(user, loginParam.password)) {
                     // create a token
                     const token = jsonwebtoken_1.default.sign({ id: user.userId, role: 'admin' }, env_1.env.jwtSecret, {
-                        expiresIn: '4h',
+                        expiresIn: env_1.env.jwtExpiryTime.toString(),
                     });
                     if (user.usergroup.isActive === 0) {
                         const errorResponse = {
                             status: 0,
-                            message: 'InActive Role.',
+                            message: 'Role is InActive',
                         };
                         return response.status(400).send(errorResponse);
                     }
@@ -110,7 +125,7 @@ let UserController = class UserController {
                         const ciphertextToken = Crypto.AES.encrypt(token, env_1.env.cryptoSecret).toString();
                         const successResponse = {
                             status: 1,
-                            message: 'Logged in successfully.',
+                            message: 'Logged in successfully',
                             data: {
                                 token: ciphertextToken,
                                 user: (0, class_transformer_1.instanceToPlain)(user),
@@ -123,7 +138,7 @@ let UserController = class UserController {
                 else {
                     const errorResponse = {
                         status: 0,
-                        message: 'Wrong Login Information.',
+                        message: 'Login Information provided is invalid',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -131,7 +146,7 @@ let UserController = class UserController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Wrong Login Information.',
+                    message: 'Login Information provided is invalid',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -149,9 +164,30 @@ let UserController = class UserController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get user list",
-     *      "data":"{}"
      *      "status": "1"
+     *      "message": "Successfully get user list",
+     *      "data": {
+     *              "username": "",
+     *              "password": "",
+     *              "firstName": "",
+     *              "lastName": "",
+     *              "email": "",
+     *              "deleteFlag": "",
+     *              "isActive": "",
+     *              "createdDate": "",
+     *              "userId": ""
+     *              "userGroup": {
+     *                     "createdBy": "",
+     *                     "createdDate": "",
+     *                     "modifiedBy": "",
+     *                     "modifiedDate": "",
+     *                     "groupId": "",
+     *                     "name": "",
+     *                     "slug": "",
+     *                     "permission": "",
+     *                     "isActive": ""
+     *      }
+     *   }
      * }
      * @apiSampleRequest /api/auth/userlist
      * @apiErrorExample {json} User Profile error
@@ -164,11 +200,11 @@ let UserController = class UserController {
                     name: 'deleteFlag',
                     value: 0,
                 }];
-            const user = yield this.userService.list(limit, offset, ['userId', 'username', 'firstName', 'lastName', 'email', 'address', 'phoneNumber', 'avatar', 'avatarPath', 'password', 'createdDate'], relation, WhereConditions, keyword, count);
+            const user = yield this.userService.list(limit, offset, ['userId', 'username', 'firstName', 'lastName', 'email', 'address', 'phoneNumber', 'avatar', 'avatarPath', 'password', 'createdDate', 'modifiedDate'], relation, WhereConditions, keyword, count);
             const successResponse = {
                 status: 1,
                 data: user,
-                message: 'Successfully get All user List',
+                message: 'Successfully got all user list',
             };
             return response.status(200).send(successResponse);
         });
@@ -197,7 +233,19 @@ let UserController = class UserController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "New User is created successfully",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *              "username": "",
+     *              "password": "",
+     *              "firstName": "",
+     *              "lastName": "",
+     *              "email": "",
+     *              "deleteFlag": "",
+     *              "userGroupId": "",
+     *              "isActive": "",
+     *              "createdDate": "",
+     *              "userId": ""
+     *              }
      * }
      * @apiSampleRequest /api/auth/create-user
      * @apiErrorExample {json} createUser error
@@ -215,7 +263,7 @@ let UserController = class UserController {
             if (userGroupExistRecord.length === 0) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid user Group Id.',
+                    message: 'Invalid user Group Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -228,7 +276,7 @@ let UserController = class UserController {
             if (user) {
                 const errorResponse = {
                     status: 0,
-                    message: 'This user already exists.',
+                    message: 'This user already exists',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -245,19 +293,19 @@ let UserController = class UserController {
             const userSaveResponse = yield this.userService.create(newUserParams);
             // sending login Credential email to new user
             if (userSaveResponse) {
-                const emailContent = yield this.emailTemplateService.findOne(7);
-                const message = emailContent.content.replace('{name}', createParam.username).replace('{username}', createParam.email).replace('{password}', createParam.password);
-                const redirectUrl = env_1.env.adminRedirectUrl;
                 const logo = yield this.settingService.findOne();
+                const emailContent = yield this.emailTemplateService.findOne(7);
+                const message = emailContent.content.replace('{name}', createParam.firstName + ' ' + createParam.lastName ? createParam.lastName : '').replace('{username}', createParam.email).replace('{password}', createParam.password).replace('{storeName}', logo.siteName).replace('{storeName}', logo.siteName);
+                const redirectUrl = env_1.env.adminRedirectUrl;
                 const mailContents = {};
                 mailContents.logo = logo;
                 mailContents.emailContent = message;
                 mailContents.redirectUrl = redirectUrl;
-                mailContents.productDetailData = undefined;
+                mailContents.productDetailData = '';
                 mail_services_1.MAILService.sendMail(mailContents, createParam.email, emailContent.subject, false, false, '');
                 const successResponse = {
                     status: 1,
-                    message: 'User Created Successfully',
+                    message: 'User created successfully',
                     data: userSaveResponse,
                 };
                 return response.status(200).send(successResponse);
@@ -299,7 +347,7 @@ let UserController = class UserController {
             if (request.user.userId === id) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You cannot Edit logged in User',
+                    message: 'You cannot edit logged in user',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -313,7 +361,21 @@ let UserController = class UserController {
             if (userGroupExistRecord.length === 0) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid user Group Id.',
+                    message: 'Invalid user group id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const user = yield this.userService.findOne({
+                where: {
+                    username: createParam.username,
+                    deleteFlag: 0,
+                    userId: (0, typeorm_1.Not)(id),
+                },
+            });
+            if (user) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'This user already exists',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -327,7 +389,7 @@ let UserController = class UserController {
                     passwordValidatingMessage.push('Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
                     const errResponse = {
                         status: 0,
-                        message: "You have an error in your request's body. Check 'errors' field for more details!",
+                        message: "You have an error in your request's body. Check 'errors' field for more details",
                         data: { message: passwordValidatingMessage },
                     };
                     return response.status(422).send(errResponse);
@@ -343,14 +405,14 @@ let UserController = class UserController {
             if (userSaveResponse) {
                 const successResponse = {
                     status: 1,
-                    message: 'User updated successfully.',
+                    message: 'User updated successfully',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the user.',
+                    message: 'Unable to update the user',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -377,7 +439,7 @@ let UserController = class UserController {
             if (request.user.userId === id) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You cannot edit this user as this user is logged in at the moment.',
+                    message: 'You cannot delete this user as this user is logged in at the moment',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -389,7 +451,7 @@ let UserController = class UserController {
             if (!user) {
                 const errResponse = {
                     status: 1,
-                    message: 'Invalid User Id.',
+                    message: 'Invalid user id',
                 };
                 return response.status(400).send(errResponse);
             }
@@ -398,14 +460,14 @@ let UserController = class UserController {
             if (deleteUser) {
                 const successResponse = {
                     status: 1,
-                    message: 'User Deleted successfully.',
+                    message: 'User deleted successfully',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the user.',
+                    message: 'Unable to delete the user',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -440,7 +502,7 @@ let UserController = class UserController {
             if (!user) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid email Id.',
+                    message: 'Invalid email Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -456,19 +518,19 @@ let UserController = class UserController {
             mailContents.logo = logo;
             mailContents.emailContent = message;
             mailContents.redirectUrl = redirectUrl;
-            mailContents.productDetailData = undefined;
+            mailContents.productDetailData = '';
             const sendMailRes = mail_services_1.MAILService.sendMail(mailContents, user.email, emailContent.subject, false, false, '');
             if (sendMailRes) {
                 const successResponse = {
                     status: 1,
-                    message: 'Your password has been sent to your email inbox.',
+                    message: 'Your password has been sent to your email inbox',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Error in sending email.',
+                    message: 'Error in sending email',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -506,7 +568,7 @@ let UserController = class UserController {
             if (!user) {
                 const errResponse = {
                     status: 0,
-                    message: 'Invalid user Id.',
+                    message: 'Invalid user Id',
                 };
                 return response.status(400).send(errResponse);
             }
@@ -515,7 +577,7 @@ let UserController = class UserController {
                 if (val) {
                     const errResponse = {
                         status: 0,
-                        message: 'Existing password and New password should not match',
+                        message: 'Existing password and new password should not match',
                     };
                     return response.status(400).send(errResponse);
                 }
@@ -525,7 +587,7 @@ let UserController = class UserController {
                     passwordValidatingMessage.push('Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
                     const errResponse = {
                         status: 0,
-                        message: "You have an error in your request's body. Check 'errors' field for more details!",
+                        message: "You have an error in your request's body. Check 'errors' field for more details",
                         data: { message: passwordValidatingMessage },
                     };
                     return response.status(422).send(errResponse);
@@ -535,14 +597,14 @@ let UserController = class UserController {
                 if (updateUser) {
                     const successResponse = {
                         status: 1,
-                        message: 'Your password changed successfully.',
+                        message: 'Your password changed successfully',
                     };
                     return response.status(200).send(successResponse);
                 }
             }
             const errorResponse = {
                 status: 0,
-                message: 'Your old password is wrong.',
+                message: 'Your old password is wrong',
             };
             return response.status(400).send(errorResponse);
         });
@@ -569,7 +631,41 @@ let UserController = class UserController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully updated User.",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *              "createdBy": "",
+     *              "createdDate": "",
+     *              "modifiedBy": "",
+     *              "modifiedDate": "",
+     *              "userId": "",
+     *              "userGroupId": "",
+     *              "username": "",
+     *              "password": "",
+     *              "firstName": "",
+     *              "lastName": "",
+     *              "email": "",
+     *              "avatar": "",
+     *              "avatarPath": "",
+     *              "isActive": "",
+     *              "code": "",
+     *              "ip": "",
+     *              "phoneNumber": "",
+     *              "address": "",
+     *              "deleteFlag": "",
+     *              "linkExpires": "",
+     *              "forgetPasswordKey": "",
+     *              "permission": "",
+     *              "userGroup": {
+     *                "createdBy": "",
+     *                "createdDate": "",
+     *                "modifiedBy": "",
+     *                "modifiedDate": "",
+     *                "groupId": "",
+     *                "name": "",
+     *                "slug": "",
+     *                "permission": "",
+     *                "isActive": ""
+     * }
      * }
      * @apiSampleRequest /api/auth/edit-profile
      * @apiErrorExample {json} User error
@@ -585,7 +681,7 @@ let UserController = class UserController {
             if (!user) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid User Id.',
+                    message: 'Invalid User Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -603,23 +699,11 @@ let UserController = class UserController {
                 const name = 'Img_' + Date.now() + '.' + type;
                 const path = 'user/';
                 const base64Data = Buffer.from(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                const stringLength = avatar.replace(/^data:image\/\w+;base64,/, '').length;
-                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                const sizeInKb = sizeInBytes / 1024;
-                if (+sizeInKb <= 2048) {
-                    if (env_1.env.imageserver === 's3') {
-                        yield this.s3Service.imageUpload((path + name), base64Data, type);
-                    }
-                    else {
-                        yield this.imageService.imageUpload((path + name), base64Data);
-                    }
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload((path + name), base64Data, type);
                 }
                 else {
-                    const errorResponse = {
-                        status: 0,
-                        message: 'Not able to update as the file size is too large.',
-                    };
-                    return response.status(400).send(errorResponse);
+                    yield this.imageService.imageUpload((path + name), base64Data);
                 }
                 user.avatar = name;
                 user.avatarPath = path;
@@ -633,7 +717,7 @@ let UserController = class UserController {
             if (userSave) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated the profile.',
+                    message: 'Successfully updated the profile',
                     data: userSave,
                 };
                 return response.status(200).send(successResponse);
@@ -641,7 +725,7 @@ let UserController = class UserController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to edit the profile.',
+                    message: 'Unable to edit the profile',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -668,7 +752,7 @@ let UserController = class UserController {
             if (!token) {
                 const successResponseBeforeToken = {
                     status: 1,
-                    message: 'Successfully Logout.',
+                    message: 'Successfully logout',
                 };
                 return response.status(200).send(successResponseBeforeToken);
             }
@@ -683,7 +767,7 @@ let UserController = class UserController {
             if (!user) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid token.',
+                    message: 'Invalid token',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -691,7 +775,7 @@ let UserController = class UserController {
             if (!deleteToken) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully Logout.',
+                    message: 'Successfully logout',
                 };
                 return response.status(200).send(successResponse);
             }
@@ -724,7 +808,7 @@ let UserController = class UserController {
             if (!customer) {
                 const errResponse = {
                     status: 1,
-                    message: 'If the user is registered a link to reset the password will be sent to the user’s email address.',
+                    message: 'If the user is registered, a link to reset the password will be sent to the user’s email address',
                 };
                 return response.status(200).send(errResponse);
             }
@@ -743,13 +827,13 @@ let UserController = class UserController {
             const mailContents = {};
             mailContents.logo = logo;
             mailContents.emailContent = message;
-            mailContents.redirectUrl = redirectUrl;
-            mailContents.productDetailData = undefined;
+            mailContents.redirectUrl = env_1.env.adminRedirectUrl;
+            mailContents.productDetailData = '';
             const sendMailRes = mail_services_1.MAILService.sendMail(mailContents, customer.email, emailContent.subject, false, false, '');
             if (sendMailRes) {
                 const successResponse = {
                     status: 1,
-                    message: 'If the user is registered a link to reset the password will be sent to the user’s email address.',
+                    message: 'If the user is registered a , to reset the password will be sent to the user’s email address',
                 };
                 return response.status(200).send(successResponse);
             }
@@ -790,7 +874,7 @@ let UserController = class UserController {
             if ((0, moment_1.default)(customer.linkExpires).format('YYYY-MM-DD HH:mm:ss') < (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')) {
                 const expirationError = {
                     status: 2,
-                    message: 'Your forgot password link got expired, try again.',
+                    message: 'Your forgot password link got expired, try again',
                 };
                 return response.status(200).send(expirationError);
             }
@@ -804,7 +888,7 @@ let UserController = class UserController {
             else {
                 const successResponse = {
                     status: 3,
-                    message: 'This link has been used already. please try again',
+                    message: 'This link has been used already. please try a different one',
                 };
                 return response.status(200).send(successResponse);
             }
@@ -856,7 +940,7 @@ let UserController = class UserController {
                 passwordValidatingMessage.push('Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
                 const errResponse = {
                     status: 0,
-                    message: "You have an error in your request's body. Check 'errors' field for more details!",
+                    message: "You have an error in your request's body. Check 'errors' field for more details",
                     data: { message: passwordValidatingMessage },
                 };
                 return response.status(422).send(errResponse);
@@ -865,10 +949,10 @@ let UserController = class UserController {
             const matchEmail = new RegExp(partsOfThreeLetters.join('|'), 'i').test(newPassword);
             if (matchEmail === true) {
                 const validationMessage = [];
-                validationMessage.push('Password must not duplicate any part of the email address');
+                validationMessage.push('Password must not contain any part of the email address');
                 const passwordDuplicateErrorResponse = {
                     status: 0,
-                    message: "You have an error in your request's body. Check 'errors' field for more details!",
+                    message: "You have an error in your request's body. Check 'errors' field for more details",
                     data: { message: validationMessage },
                 };
                 return response.status(422).send(passwordDuplicateErrorResponse);
@@ -896,7 +980,21 @@ let UserController = class UserController {
      * {
      *      "message": "Successfully Get the Profile..!",
      *      "status": "1"
-     *       "data":{}
+     *     "data": {
+     *     "userId": "",
+     *     "username": "",
+     *     "email": "",
+     *     "avatar": "",
+     *     "avatarPath": "",
+     *     "address": "",
+     *     "createdDate": "",
+     *     "firstName": "",
+     *     "lastName": "",
+     *     "deleteFlag": "",
+     *     "phoneNumber": "",
+     *     "isActive": "",
+     *     "code": "",
+     *   }
      * }
      * @apiSampleRequest /api/auth/get-profile
      * @apiErrorExample {json} Get Profile error
@@ -905,10 +1003,10 @@ let UserController = class UserController {
     // Get Profile Function
     getProfile(request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const resultData = yield this.userService.findOne({ select: ['username', 'userId', 'email', 'address', 'avatar', 'avatarPath', 'createdDate', 'deleteFlag', 'firstName', 'lastName', 'phoneNumber', 'isActive', 'code'], where: { userId: request.user.userId } });
+            const resultData = yield this.userService.findOne({ select: ['username', 'userId', 'email', 'address', 'avatar', 'avatarPath', 'createdDate', 'modifiedDate', 'deleteFlag', 'firstName', 'lastName', 'phoneNumber', 'isActive', 'code'], where: { userId: request.user.userId } });
             const successResponse = {
                 status: 1,
-                message: 'Successfully Get the Profile.',
+                message: 'Successfully got the profile',
                 data: resultData,
             };
             return response.status(200).send(successResponse);

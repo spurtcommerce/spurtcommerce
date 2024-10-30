@@ -1,7 +1,7 @@
 "use strict";
 /*
  * SpurtCommerce API
- * version 4.8.4
+ * version 5.0.0
  * http://api.spurtcommerce.com
  *
  * Copyright (c) 2021 PICCOSOFT
@@ -15,6 +15,7 @@ const typedi_1 = require("typedi");
 const path = tslib_1.__importStar(require("path"));
 const ejs = require("ejs");
 const moment_1 = tslib_1.__importDefault(require("moment"));
+const fs_1 = tslib_1.__importDefault(require("fs"));
 let PdfService = class PdfService {
     createPDFFile(htmlString, isDownload = false, reportGeneratedBy = '') {
         const pdf = require('html-pdf-node');
@@ -86,6 +87,11 @@ let PdfService = class PdfService {
             const pdfOptions = {
                 format: 'Letter',
                 border: '10mm',
+                childProcessOptions: {
+                    env: {
+                        OPENSSL_CONF: '/dev/null',
+                    },
+                },
             };
             return new Promise((resolve, reject) => {
                 pdf.create(htmlData, pdfOptions).toFile(pathName, (err, res) => {
@@ -94,6 +100,23 @@ let PdfService = class PdfService {
                     }
                     resolve(res);
                 });
+            });
+        });
+    }
+    decodeBase64AndSave(filePath, fileName, base64String) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // Decode base64 to binary data
+            const pdfBuffer = Buffer.from(base64String, 'base64');
+            // Construct the full file path
+            const fullFilePath = `${filePath}/${fileName}`;
+            // Write buffer to a PDF file
+            return fs_1.default.writeFile(fullFilePath, pdfBuffer, (err) => {
+                if (err) {
+                    console.error('Error saving the file:', err);
+                }
+                else {
+                    console.log(`File saved successfully: ${fullFilePath}`);
+                }
             });
         });
     }

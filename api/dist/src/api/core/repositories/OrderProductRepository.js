@@ -4,7 +4,7 @@ exports.OrderProductRepository = void 0;
 const tslib_1 = require("tslib");
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -15,8 +15,18 @@ let OrderProductRepository = class OrderProductRepository extends typeorm_1.Repo
     topPerformingProduct(limit, offset, count, duration) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const query = yield this.manager.createQueryBuilder(OrderProduct_1.OrderProduct, 'OrderProduct');
-            query.select(['COUNT(OrderProduct.product_id) as topPerformingProductCount', 'MAX(OrderProduct.name) as productName', 'MAX(OrderProduct.product_id) as productId', 'MAX(productImage.image) as image',
-                'MAX(productImage.container_name) as containerName', 'MAX(productImage.default_image) as defaultImage', 'MAX(vendorProducts.vendor_id) as vendor', 'MAX(vendor.company_name) as companyName']);
+            query.select([
+                'COUNT(OrderProduct.product_id) as topPerformingProductCount',
+                'MAX(OrderProduct.name) as productName',
+                'MAX(OrderProduct.product_id) as productId',
+                'MAX(productImage.image) as image',
+                'MAX(productImage.container_name) as containerName',
+                'MAX(productImage.default_image) as defaultImage',
+                'MAX(vendorProducts.vendor_id) as vendor',
+                'MAX(vendor.company_name) as companyName',
+                'Max(OrderProduct.createdDate) as createdDate',
+                'Max(OrderProduct.modifiedDate) as modifiedDate'
+            ]);
             query.innerJoin('OrderProduct.productInformationDetail', 'productInformationDetail');
             query.leftJoin('OrderProduct.product', 'product');
             query.leftJoin('productInformationDetail.productImage', 'productImage');
@@ -38,6 +48,7 @@ let OrderProductRepository = class OrderProductRepository extends typeorm_1.Repo
             }
             query.groupBy('OrderProduct.product_id');
             query.orderBy('topPerformingProductCount', 'DESC');
+            query.orderBy('MAX(OrderProduct.createdDate)', 'DESC');
             query.limit(limit);
             query.offset(offset);
             if (count) {

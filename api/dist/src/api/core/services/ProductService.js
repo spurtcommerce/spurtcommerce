@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -97,6 +97,13 @@ let ProductService = class ProductService {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const newProduct = yield this.productRepository.save(product);
             return newProduct;
+        });
+    }
+    // Bulk Create
+    bulkCreate(productData) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newProducts = yield this.productRepository.save(productData);
+            return newProducts;
         });
     }
     // update product

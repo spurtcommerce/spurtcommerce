@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -18,7 +18,7 @@ let AdminGmapController = class AdminGmapController {
     }
     // Gmap settings Updated API
     /**
-     * @api {post} /api/admin-gmap/update-setting gmap setting Updated API
+     * @api {post} /api/admin-gmap/update-setting Gmap Setting Updated API
      * @apiGroup Admin Gmap
      * @apiHeader {string} Authorized
      * @apiParam (requestBody) {string} clientId clientId

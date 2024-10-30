@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -10,7 +10,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.spurtConnectLoader = void 0;
 const tslib_1 = require("tslib");
 const path = tslib_1.__importStar(require("path"));
-const routes_1 = require("../plugin-manager/routes");
+// import { ROUTER } from '../plugin-manager/routes';
 const express_session_1 = tslib_1.__importDefault(require("express-session"));
 const express_validator_1 = tslib_1.__importDefault(require("express-validator"));
 const env_1 = require("../env");
@@ -32,7 +32,7 @@ const spurtConnectLoader = (settings) => {
         const sessionStore = new MySQLStore(options);
         expressApp
             // view engine setup
-            .set('views', path.join(__dirname, '../../../', 'views'))
+            .set('views', path.join(__dirname, '../../', 'views'))
             .set('view engine', 'ejs')
             .use(expressEjsLayout)
             .set('layout', 'pages/layouts/common')
@@ -50,9 +50,9 @@ const spurtConnectLoader = (settings) => {
             next();
         })
             .use(flash());
-        for (const route of routes_1.ROUTER) {
-            expressApp.use(route.path, route.middleware, route.handler);
-        }
+        // for (const route of ROUTER) {
+        //     expressApp.use(route.path, route.middleware, route.handler);
+        // }
     }
 };
 exports.spurtConnectLoader = spurtConnectLoader;

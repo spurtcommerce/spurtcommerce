@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -72,7 +72,7 @@ let SiteFilterController = class SiteFilterController {
                 if (findCategory) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Duplicate category.',
+                        message: 'Duplicate category',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -108,7 +108,7 @@ let SiteFilterController = class SiteFilterController {
             }
             const successResponse = {
                 status: 1,
-                message: 'Successfully created a new Filter.',
+                message: 'Successfully created a new Filter',
             };
             return response.status(200).send(successResponse);
         });
@@ -206,7 +206,7 @@ let SiteFilterController = class SiteFilterController {
             }
             const successResponse = {
                 status: 1,
-                message: 'Successfully updated the site filter.',
+                message: 'Successfully updated the site filter',
                 data: filter,
             };
             return response.status(200).send(successResponse);
@@ -224,18 +224,31 @@ let SiteFilterController = class SiteFilterController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get site filter list",
-     *      "data":"{}"
+     *      "data":"[{
+     *                "id": "",
+     *                "filterName": "",
+     *                "category": "",
+     *                "varient": [],
+     *                "attribute": []"
+     *              }]
      *      "status": "1"
      * }
      * @apiSampleRequest /api/site-filter/site-filter-list
      * @apiErrorExample {json} Site filter error
      * HTTP/1.1 500 Internal Server Error
      */
-    siteFilterList(limit, offset, count, response) {
+    siteFilterList(limit, offset, keyword, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = ['id', 'filterName'];
             const relation = [];
             const WhereConditions = [];
+            if (keyword) {
+                WhereConditions.push({
+                    name: 'filterName',
+                    op: 'like',
+                    value: keyword,
+                });
+            }
             const filterList = yield this.siteFilterService.list(limit, offset, select, relation, WhereConditions, count);
             if (count) {
                 const countResponse = {
@@ -295,7 +308,7 @@ let SiteFilterController = class SiteFilterController {
             if (!siteFilter) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid filter Id.',
+                    message: 'Invalid filter Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -305,14 +318,14 @@ let SiteFilterController = class SiteFilterController {
             if (deleteFilter) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the filter.',
+                    message: 'Successfully deleted the filter',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to delete the filter.',
+                    message: 'unable to delete the filter',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -320,14 +333,55 @@ let SiteFilterController = class SiteFilterController {
     }
     // filter Detail
     /**
-     * @api {get} /api/site-filter/filter-detail/:id filter Detail API
+     * @api {get} /api/site-filter/filter-detail/:id Filter Detail API
      * @apiGroup Site Filter
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully got filter detail",
-     *      "data": "{}"
+     *      "data": "{
+     *               "createdBy": null,
+     *               "createdDate": "2024-07-20T06:23:11.000Z",
+     *               "modifiedBy": null,
+     *               "modifiedDate": "2024-07-20T06:23:11.000Z",
+     *               "id": 32,
+     *               "filterName": "Dresss",
+     *               "isActive": null,
+     *               "siteFilterCategory": [
+     *                 {
+     *                   "createdBy": null,
+     *                   "createdDate": "2024-07-09T13:42:21.000Z",
+     *                   "modifiedBy": null,
+     *                   "modifiedDate": "2024-07-22T06:01:36.000Z",
+     *                   "categoryId": 1304,
+     *                   "name": "Dresses",
+     *                   "image": null,
+     *                   "imagePath": null,
+     *                   "parentInt": 0,
+     *                   "sortOrder": 1,
+     *                   "categorySlug": "dresses4511",
+     *                   "isActive": "1",
+     *                   "categoryDescription": "",
+     *                   "levels": "Dresses"
+     *                 }
+     *               ],
+     *               "siteFiltersection": [
+     *                 {
+     *                   "id": 321,
+     *                   "filterId": 32,
+     *                   "sectionId": null,
+     *                   "sectionName": "Material",
+     *                   "sectionType": 2,
+     *                   "sectionSlug": "material",
+     *                   "sequence": null,
+     *                   "sectionItem": [
+     *                     {
+     *                       "id": 923,
+     *                       "filterSectionId": 321,
+     *                       "itemName": "leather",
+     *                       "itemSlug": "leather"
+     *                     },"
      *      "status": "1"
      * }
      * @apiSampleRequest /api/site-filter/filter-detail/:id
@@ -411,10 +465,11 @@ tslib_1.__decorate([
     (0, routing_controllers_1.Authorized)(['admin', 'filter-list']),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
-    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], SiteFilterController.prototype, "siteFilterList", null);
 tslib_1.__decorate([

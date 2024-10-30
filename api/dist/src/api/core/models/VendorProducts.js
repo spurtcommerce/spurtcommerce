@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -85,6 +85,10 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'common_product_date' }),
     tslib_1.__metadata("design:type", String)
 ], VendorProducts.prototype, "commonProductDate", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'reject_reason', type: 'json', default: {} }),
+    tslib_1.__metadata("design:type", Array)
+], VendorProducts.prototype, "rejectReason", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.ManyToOne)(type => ProductModel_1.Product, product => product.vendorProducts),
     (0, typeorm_1.JoinColumn)({ name: 'product_id' }),

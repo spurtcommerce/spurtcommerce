@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * http://api.spurtcommerce.com
  *
  * Copyright (c) 2021 piccosoft ltd
@@ -115,7 +115,7 @@ let ServiceController = class ServiceController {
             if (serviceSave) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully added a new service.',
+                    message: 'Successfully added a new service',
                     data: serviceSave,
                 };
                 return response.status(200).send(successResponse);
@@ -144,7 +144,15 @@ let ServiceController = class ServiceController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get service list",
-     *      "data":"{}"
+     *      "data":"{
+     *              "serviceId",
+     *              "title",
+     *              "mobile",
+     *              "description",
+     *              "price",
+     *              "isActive",
+     *              "createdDate",
+     *      }"
      *      "status": "1"
      * }
      * @apiSampleRequest /api/service/service-list
@@ -206,7 +214,7 @@ let ServiceController = class ServiceController {
             const results = yield Promise.all(services);
             const successResponse = {
                 status: 1,
-                message: 'successfully got the complete service list.',
+                message: 'successfully got the complete service list',
                 data: results,
             };
             return response.status(200).send(successResponse);
@@ -257,7 +265,7 @@ let ServiceController = class ServiceController {
             if (!service) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid service Id.',
+                    message: 'Invalid service Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -307,7 +315,7 @@ let ServiceController = class ServiceController {
             if (serviceSave) {
                 const successResponse = {
                     status: 1,
-                    message: 'Sucessfully updated the service.',
+                    message: 'Sucessfully updated the service',
                     data: serviceSave,
                 };
                 return response.status(200).send(successResponse);
@@ -315,7 +323,7 @@ let ServiceController = class ServiceController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the service.',
+                    message: 'Unable to update the service',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -346,7 +354,7 @@ let ServiceController = class ServiceController {
             if (!service) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid service Id.',
+                    message: 'Invalid service Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -358,14 +366,14 @@ let ServiceController = class ServiceController {
             if (!deleteService) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the service. ',
+                    message: 'Successfully deleted the service',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the service.',
+                    message: 'Unable to delete the service',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -400,7 +408,7 @@ let ServiceController = class ServiceController {
                 if (dataId === undefined) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid Service Id.',
+                        message: 'Invalid Service Id',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -416,7 +424,7 @@ let ServiceController = class ServiceController {
             if (deleteServices) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the Service.',
+                    message: 'Successfully deleted the Service',
                 };
                 return response.status(200).send(successResponse);
             }
@@ -435,7 +443,13 @@ let ServiceController = class ServiceController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get service enquiry list",
-     *      "data":"{}"
+     *      "data": {
+     *              "serviceId": "",
+     *              "name": "",
+     *              "email": "",
+     *              "mobile": "",
+     *              "comments": ""
+     *              }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/service/service-enquiry-list
@@ -462,7 +476,7 @@ let ServiceController = class ServiceController {
             if (count) {
                 const successResponse = {
                     status: 1,
-                    message: 'successfully got the count.',
+                    message: 'successfully got the count',
                     data: serviceEnquiryList,
                 };
                 return response.status(200).send(successResponse);
@@ -470,7 +484,7 @@ let ServiceController = class ServiceController {
             if (serviceEnquiryList) {
                 const successResponse = {
                     status: 1,
-                    message: 'successfully got the enquiry list.',
+                    message: 'successfully got the enquiry list',
                     data: serviceEnquiryList,
                 };
                 return response.status(200).send(successResponse);
@@ -517,14 +531,14 @@ let ServiceController = class ServiceController {
             if (!deleteEnquiry) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the enquiry. ',
+                    message: 'Successfully deleted the enquiry',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the enquiry.',
+                    message: 'Unable to delete the enquiry',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -559,7 +573,7 @@ let ServiceController = class ServiceController {
                 if (dataId === undefined) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid Enquiry Id.',
+                        message: 'Invalid Enquiry Id',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -571,7 +585,7 @@ let ServiceController = class ServiceController {
             if (deleteEnquiry) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the Enquiry.',
+                    message: 'Successfully deleted the Enquiry',
                 };
                 return response.status(200).send(successResponse);
             }
@@ -579,7 +593,7 @@ let ServiceController = class ServiceController {
     }
     //  Service Export Excel Document Download
     /**
-     * @api {get} /api/service/service-excel-list service Excel download
+     * @api {get} /api/service/service-excel-list Service Excel download
      * @apiGroup Service
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {string} serviceId service Id
@@ -647,7 +661,7 @@ let ServiceController = class ServiceController {
     }
     // leads Details Excel Document Download
     /**
-     * @api {get} /api/service/leads-excel-list leads Excel download
+     * @api {get} /api/service/leads-excel-list Leads Excel download
      * @apiGroup Service
      * @apiParam (Request body) {string} leadsId leadsId
      * @apiSuccessExample {json} Success
@@ -777,7 +791,7 @@ let ServiceController = class ServiceController {
             serviceData.category = results;
             const successResponse = {
                 status: 1,
-                message: 'successfully got the service detail.',
+                message: 'successfully got the service detail',
                 data: serviceData,
             };
             return response.status(200).send(successResponse);
@@ -812,7 +826,7 @@ let ServiceController = class ServiceController {
             service.totalEnquires = serviceEnquiryCount;
             const successResponse = {
                 status: 1,
-                message: 'successfully got the dashboard count.',
+                message: 'successfully got the dashboard count',
                 data: service,
             };
             return response.status(200).send(successResponse);

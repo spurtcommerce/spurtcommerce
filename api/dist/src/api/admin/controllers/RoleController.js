@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -16,6 +16,7 @@ const CreateRoleRequest_1 = require("./requests/CreateRoleRequest");
 const UserGroupService_1 = require("../../core/services/UserGroupService");
 const UserService_1 = require("../../core/services/UserService");
 const UserGroup_1 = require("../../core/models/UserGroup");
+const typeorm_1 = require("typeorm");
 let RoleController = class RoleController {
     constructor(userGroupService, userService) {
         this.userGroupService = userGroupService;
@@ -36,8 +37,14 @@ let RoleController = class RoleController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "New Role is created successfully",
+     *      "message": "Role saved successfully.",
      *      "status": "1"
+     *      "data": {
+     *              "name": "",
+     *              "isActive": "",
+     *              "slug": "",
+     *              "createdDate": "",
+     *              }
      * }
      * @apiSampleRequest /api/role/create-role
      * @apiErrorExample {json} createRole error
@@ -54,7 +61,7 @@ let RoleController = class RoleController {
             if (role) {
                 const errorResponse = {
                     status: 0,
-                    message: 'This role already exists.',
+                    message: 'This role already exists',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -66,7 +73,7 @@ let RoleController = class RoleController {
             if (userGroupSaveResponse) {
                 const successResponse = {
                     status: 1,
-                    message: 'Role saved successfully.',
+                    message: 'Role saved successfully',
                     data: userGroupSaveResponse,
                 };
                 return response.status(200).send(successResponse);
@@ -74,7 +81,7 @@ let RoleController = class RoleController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to save the Role.',
+                    message: 'Unable to save the role',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -97,7 +104,14 @@ let RoleController = class RoleController {
      * HTTP/1.1 200 OK
      * {
      *      "message": " Role is updated successfully",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *              "name": "",
+     *              "isActive": "",
+     *              "slug": "",
+     *              "createdDate": "",
+     *              "groupId": ""
+     *            }
      * }
      * @apiSampleRequest /api/role/update-role/:id
      * @apiErrorExample {json} updateRole error
@@ -117,8 +131,21 @@ let RoleController = class RoleController {
                 };
                 return response.status(400).send(errorResponse);
             }
+            // const checkRole = await this.userGroupService.findOne({where: {name: }})
             const newRoleParams = new UserGroup_1.UserGroup();
             const slugName = createRoleParam.name.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+            const checkRole = yield this.userGroupService.findOne({
+                where: {
+                    slug: slugName, groupId: (0, typeorm_1.Not)(id),
+                },
+            });
+            if (checkRole) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'This role already exists',
+                };
+                return response.status(400).send(errorResponse);
+            }
             if (role.slug !== 'admin') {
                 newRoleParams.name = createRoleParam.name;
                 newRoleParams.isActive = createRoleParam.status;
@@ -135,7 +162,7 @@ let RoleController = class RoleController {
                 else {
                     const errorResponse = {
                         status: 0,
-                        message: 'Unable to update the Role.',
+                        message: 'Unable to update the Role',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -162,7 +189,11 @@ let RoleController = class RoleController {
      * HTTP/1.1 200 OK
      * {
      *    "message": "Successfully get role list",
-     *    "data":"{}"
+     *    "data": [{
+     *       "groupId": "",
+     *       "name": "",
+     *       "isActive": ""
+     *          }]
      *    "status": "1"
      *  }
      * @apiSampleRequest /api/role/rolelist
@@ -187,7 +218,7 @@ let RoleController = class RoleController {
             const roleList = yield this.userGroupService.list(limit, offset, select, whereConditions, count);
             const successResponse = {
                 status: 1,
-                message: 'Successfully get all role List',
+                message: 'Successfully get all role list',
                 data: roleList,
             };
             return response.status(200).send(successResponse);
@@ -223,7 +254,7 @@ let RoleController = class RoleController {
             if (!roleId) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid role Id.',
+                    message: 'Invalid role Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -243,12 +274,13 @@ let RoleController = class RoleController {
             const finduser = yield this.userService.findOne({
                 where: {
                     userGroupId: role.groupId,
+                    deleteFlag: 0,
                 },
             });
             if (finduser) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You cannot delete this role, as users are mapped to this role.',
+                    message: 'You cannot delete this role, as users are mapped to this role',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -256,14 +288,14 @@ let RoleController = class RoleController {
             if (deleteRole) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the role.',
+                    message: 'Successfully deleted the role',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the role.',
+                    message: 'Unable to delete the role',
                 };
                 return response.status(400).send(errorResponse);
             }

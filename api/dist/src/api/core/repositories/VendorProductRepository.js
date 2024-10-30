@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -149,7 +149,7 @@ let VendorProductsRepository = class VendorProductsRepository extends typeorm_1.
             query.select(['COUNT(vendorProducts.vendorId) as vendorCount', 'MIN(sku.price) as minimumPrice']);
             query.leftJoin('vendorProducts.sku', 'sku');
             query.where('vendorProducts.product_id = :value', { value: id });
-            query.andWhere('vendorProducts.reuseStatus = 1 AND vendorProducts.reuse = 1');
+            query.andWhere('vendorProducts.reuse = 1');
             return query.getRawOne();
         });
     }

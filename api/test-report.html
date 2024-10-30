@@ -1,0 +1,3307 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Test Report</title>
+  <style type="text/css">
+    html,
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    body {
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .jesthtml-content {
+      margin: 0 auto;
+      max-width: 70rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+    }
+
+    #title {
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    #logo {
+      height: 4rem;
+    }
+
+    #timestamp {
+      color: #777;
+      margin-top: 0.5rem;
+    }
+
+    /** SUMMARY */
+    #summary {
+      color: #333;
+      margin: 2rem 0;
+      display: flex;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+
+    #summary>div {
+      margin-right: 2rem;
+      background: #eee;
+      padding: 1rem;
+      min-width: 15rem;
+    }
+
+    #summary>div:last-child {
+      margin-right: 0;
+    }
+
+    @media only screen and (max-width: 720px) {
+      #summary {
+        flex-direction: column;
+      }
+
+      #summary>div {
+        margin-right: 0;
+        margin-top: 2rem;
+      }
+
+      #summary>div:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .summary-total {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .summary-passed {
+      color: #4f8a10;
+      border-left: 0.4rem solid #4f8a10;
+      padding-left: 0.5rem;
+    }
+
+    .summary-failed,
+    .summary-obsolete-snapshots {
+      color: #d8000c;
+      border-left: 0.4rem solid #d8000c;
+      padding-left: 0.5rem;
+    }
+
+    .summary-pending {
+      color: #9f6000;
+      border-left: 0.4rem solid #9f6000;
+      padding-left: 0.5rem;
+    }
+
+    .summary-empty {
+      color: #999;
+      border-left: 0.4rem solid #999;
+    }
+
+    .test-result {
+      padding: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .test-result:last-child {
+      border: 0;
+    }
+
+    .test-result.passed {
+      background-color: #dff2bf;
+      color: #4f8a10;
+    }
+
+    .test-result.failed {
+      background-color: #ffbaba;
+      color: #d8000c;
+    }
+
+    .test-result.pending {
+      background-color: #ffdf61;
+      color: #9f6000;
+    }
+
+    .test-info {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .test-suitename {
+      width: 20%;
+      text-align: left;
+      font-weight: bold;
+      word-break: break-word;
+    }
+
+    .test-title {
+      width: 40%;
+      text-align: left;
+      font-style: italic;
+    }
+
+    .test-status {
+      width: 20%;
+      text-align: right;
+    }
+
+    .test-duration {
+      width: 10%;
+      text-align: right;
+      font-size: 0.75rem;
+    }
+
+    .failureMessages {
+      padding: 0 1rem;
+      margin-top: 1rem;
+      border-top: 1px dashed #d8000c;
+    }
+
+    .failureMessages.suiteFailure {
+      border-top: none;
+    }
+
+    .failureMsg {
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .suite-container {
+      margin-bottom: 2rem;
+    }
+
+    .suite-info {
+      padding: 1rem;
+      background-color: #eee;
+      color: #777;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.25rem;
+    }
+
+    .suite-info .suite-path {
+      word-break: break-all;
+      flex-grow: 1;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+
+    .suite-info .suite-time {
+      margin-left: 0.5rem;
+      padding: 0.2rem 0.3rem;
+      font-size: 0.75rem;
+    }
+
+    .suite-info .suite-time.warn {
+      background-color: #d8000c;
+      color: #fff;
+    }
+
+    /* CONSOLE LOGS */
+    .suite-consolelog {
+      margin-bottom: 0.25rem;
+      padding: 1rem;
+      background-color: #efefef;
+    }
+
+    .suite-consolelog-header {
+      font-weight: bold;
+    }
+
+    .suite-consolelog-item {
+      padding: 0.5rem;
+    }
+
+    .suite-consolelog-item pre {
+      margin: 0.5rem 0;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .suite-consolelog-item-origin {
+      color: #777;
+      font-weight: bold;
+    }
+
+    .suite-consolelog-item-message {
+      color: #000;
+      font-size: 1rem;
+      padding: 0 0.5rem;
+    }
+
+    /* OBSOLETE SNAPSHOTS */
+    .suite-obsolete-snapshots {
+      margin-bottom: 0.25rem;
+      padding: 1rem;
+      background-color: #ffbaba;
+      color: #d8000c;
+    }
+
+    .suite-obsolete-snapshots-header {
+      font-weight: bold;
+    }
+
+    .suite-obsolete-snapshots-item {
+      padding: 0.5rem;
+    }
+
+    .suite-obsolete-snapshots-item pre {
+      margin: 0.5rem 0;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .suite-obsolete-snapshots-item-message {
+      color: #000;
+      font-size: 1rem;
+      padding: 0 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="jesthtml-content">
+    <header>
+      <h1 id="title">Test Report</h1>
+    </header>
+    <div id="metadata-container">
+      <div id="timestamp">Started: 2023-05-18 13:29:39</div>
+      <div id="summary">
+        <div id="suite-summary">
+          <div class="summary-total">Suites (70)</div>
+          <div class="summary-passed">1 passed</div>
+          <div class="summary-failed">69 failed</div>
+          <div class="summary-pending summary-empty">0 pending</div>
+        </div>
+        <div id="test-summary">
+          <div class="summary-total">Tests (300)</div>
+          <div class="summary-passed">3 passed</div>
+          <div class="summary-failed">297 failed</div>
+          <div class="summary-pending summary-empty">0 pending</div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-1" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ProductModelValidation.test.ts</div>
+        <div class="suite-time warn">15.568s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductValidations</div>
+            <div class="test-title">Product should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.006s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductValidations</div>
+            <div class="test-title">Should not validate Product without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductValidations</div>
+            <div class="test-title">Should not validate Product without valid product sku</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductValidations</div>
+            <div class="test-title">Should not validate Product without valid quantity</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductValidations</div>
+            <div class="test-title">Should not validate Product without valid stock status id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductValidations</div>
+            <div class="test-title">Should not validate Product without valid product image</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductValidations</div>
+            <div class="test-title">Should not validate Product valid without price</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductValidations</div>
+            <div class="test-title">Should not validate Product without valid amount</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductValidations</div>
+            <div class="test-title">Should not validate Product without valid isActive</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductValidations</div>
+            <div class="test-title">Should not validate Product without valid product name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductValidations</div>
+            <div class="test-title">Should not validate Product without valid product image</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-2" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/OrderProductLogValidation.test.ts</div>
+        <div class="suite-time">0.782s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProductLog Validations</div>
+            <div class="test-title">OrderProductLog should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.01s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProductLog Validations</div>
+            <div class="test-title">Should not validate OrderProductLog without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProductLog Validations</div>
+            <div class="test-title">Should not validate OrderProductLog without valid order product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProductLog Validations</div>
+            <div class="test-title">Should not validate OrderProductLog without valid product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProductLog Validations</div>
+            <div class="test-title">Should not validate OrderProductLog without valid order id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProductLog Validations</div>
+            <div class="test-title">Should not validate OrderProductLog without valid order product name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProductLog Validations</div>
+            <div class="test-title">Should not validate OrderProductLog without valid order product total</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProductLog Validations</div>
+            <div class="test-title">Should not validate OrderProductLog without valid quantity</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProductLog Validations</div>
+            <div class="test-title">Should not validate OrderProductLog without valid product price</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.004s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-3" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/OrderLogValidation.test.ts</div>
+        <div class="suite-time warn">30.908s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderLog Validations</div>
+            <div class="test-title">OrderLog should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderLog Validations</div>
+            <div class="test-title">Should not validate OrderLog without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderLog Validations</div>
+            <div class="test-title">Should not validate OrderLog without valid order log id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderLog Validations</div>
+            <div class="test-title">Should not validate OrderLog without valid firstname</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderLog Validations</div>
+            <div class="test-title">Should not validate OrderLog without valid email</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderLog Validations</div>
+            <div class="test-title">Should not validate OrderLog without valid telephone</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderLog Validations</div>
+            <div class="test-title">Should not validate OrderLog without valid shippingAddress1</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.007s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-4" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/AddressValidation.test.ts</div>
+        <div class="suite-time">0.663s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">AddressValidations</div>
+            <div class="test-title">Address should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">AddressValidations</div>
+            <div class="test-title">Should not validate Address without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">AddressValidations</div>
+            <div class="test-title">Should not validate Address without customer id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">AddressValidations</div>
+            <div class="test-title">Should not validate Address without address1</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">AddressValidations</div>
+            <div class="test-title">Should not validate Address without city</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">AddressValidations</div>
+            <div class="test-title">Should not validate Address without state</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">AddressValidations</div>
+            <div class="test-title">Should not validate Address without address type</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-5" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/OrderProductValidation.test.ts</div>
+        <div class="suite-time">0.746s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProduct Validations</div>
+            <div class="test-title">OrderProduct should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.006s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProduct Validations</div>
+            <div class="test-title">Should not validate OrderProduct without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProduct Validations</div>
+            <div class="test-title">Should not validate OrderProduct without valid product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProduct Validations</div>
+            <div class="test-title">Should not validate OrderProduct without valid order id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProduct Validations</div>
+            <div class="test-title">Should not validate OrderProduct without valid name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProduct Validations</div>
+            <div class="test-title">Should not validate OrderProduct without valid total</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderProduct Validations</div>
+            <div class="test-title">Should not validate OrderProduct without valid order status id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-6" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/PromotionalBannerValidation.test.ts</div>
+        <div class="suite-time">0.638s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PromotionalBannerValidations</div>
+            <div class="test-title">PromotionalBanner should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PromotionalBannerValidations</div>
+            <div class="test-title">Should not validate PromotionalBanner without valid bannerId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PromotionalBannerValidations</div>
+            <div class="test-title">Should not validate PromotionalBanner without valid bannerTitle</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PromotionalBannerValidations</div>
+            <div class="test-title">Should not validate PromotionalBanner without valid image</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PromotionalBannerValidations</div>
+            <div class="test-title">Should not validate PromotionalBanner without valid expireDate</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PromotionalBannerValidations</div>
+            <div class="test-title">Should not validate PromotionalBanner without valid banner link type</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-7" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/VendorInvoiceValidation.test.ts</div>
+        <div class="suite-time">0.583s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorInvoice Validations</div>
+            <div class="test-title">VendorInvoice should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.011s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorInvoice Validations</div>
+            <div class="test-title">Should not validate VendorInvoice without vendorInvoiceId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorInvoice Validations</div>
+            <div class="test-title">Should not validate VendorInvoice without orderId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorInvoice Validations</div>
+            <div class="test-title">Should not validate VendorInvoice without vendorId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorInvoice Validations</div>
+            <div class="test-title">Should not validate VendorInvoice without invoiceNo</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorInvoice Validations</div>
+            <div class="test-title">Should not validate VendorInvoice without email</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-8" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/SettlementItemValidation.test.ts</div>
+        <div class="suite-time">0.574s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">SettlementItem Validations</div>
+            <div class="test-title">SettlementItem should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">SettlementItem Validations</div>
+            <div class="test-title">Should not validate SettlementItem without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">SettlementItem Validations</div>
+            <div class="test-title">Should not validate SettlementItem without valid companyName</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">SettlementItem Validations</div>
+            <div class="test-title">Should not validate SettlementItem without valid vendorId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">SettlementItem Validations</div>
+            <div class="test-title">Should not validate SettlementItem without valid vendorOrderId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">SettlementItem Validations</div>
+            <div class="test-title">Should not validate SettlementItem without valid settlementId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-9" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ContactValidation.test.ts</div>
+        <div class="suite-time">0.535s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ContactValidations</div>
+            <div class="test-title">Contact should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ContactValidations</div>
+            <div class="test-title">Should not validate Contact without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ContactValidations</div>
+            <div class="test-title">Should not validate Contact without valid name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ContactValidations</div>
+            <div class="test-title">Should not validate Contact without valid email</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ContactValidations</div>
+            <div class="test-title">Should not validate Contact without valid message</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ContactValidations</div>
+            <div class="test-title">Should not validate Contact without valid phone number</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-10" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/JobValidation.test.ts</div>
+        <div class="suite-time">0.536s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">JobValidations</div>
+            <div class="test-title">Job should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">JobValidations</div>
+            <div class="test-title">Should not validate Job without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">JobValidations</div>
+            <div class="test-title">Should not validate Job without valid job title</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.007s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">JobValidations</div>
+            <div class="test-title">Should not validate Job without valid contact person</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">JobValidations</div>
+            <div class="test-title">Should not validate Job without valid contact person email</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">JobValidations</div>
+            <div class="test-title">Should not validate Job without valid contact person mobile number</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-11" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/OrderValidation.test.ts</div>
+        <div class="suite-time">0.554s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Order Validations</div>
+            <div class="test-title">Order should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Order Validations</div>
+            <div class="test-title">Should not validate Order without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Order Validations</div>
+            <div class="test-title">Should not validate Order without valid firstname</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Order Validations</div>
+            <div class="test-title">Should not validate Order without valid email</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Order Validations</div>
+            <div class="test-title">Should not validate Order without valid telephone</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Order Validations</div>
+            <div class="test-title">Should not validate Order without valid shippingaddress1</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-12" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ProductPriceLogValidation.test.ts</div>
+        <div class="suite-time">0.798s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductPriceLog Validations</div>
+            <div class="test-title">ProductPriceLog should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductPriceLog Validations</div>
+            <div class="test-title">Should not validate ProductPriceLog without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductPriceLog Validations</div>
+            <div class="test-title">Should not validate ProductPriceLog without valid product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductPriceLog Validations</div>
+            <div class="test-title">Should not validate ProductPriceLog without valid sku</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductPriceLog Validations</div>
+            <div class="test-title">Should not validate ProductPriceLog without valid price</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductPriceLog Validations</div>
+            <div class="test-title">Should not validate ProductPriceLog without valid vendor Id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-13" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/Banner.test.ts</div>
+        <div class="suite-time">0.546s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">BannerValidations</div>
+            <div class="test-title">Banner should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.01s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">BannerValidations</div>
+            <div class="test-title">Should not validate Banner without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">BannerValidations</div>
+            <div class="test-title">Should not validate Banner without valid title</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">BannerValidations</div>
+            <div class="test-title">Should not validate Banner without is active</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">BannerValidations</div>
+            <div class="test-title">Should not validate Banner without image</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">BannerValidations</div>
+            <div class="test-title">Should not validate Banner without image path</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-14" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/UserValidations.test.ts</div>
+        <div class="suite-time">0.676s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">UserValidations</div>
+            <div class="test-title">UserValidations should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.008s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">UserValidations</div>
+            <div class="test-title">Should not validate UserValidations without userGroupId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">UserValidations</div>
+            <div class="test-title">Should not validate UserValidations without password</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">UserValidations</div>
+            <div class="test-title">Should not validate UserValidations without email</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">UserValidations</div>
+            <div class="test-title">Should not validate UserValidations without email</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-15" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/VendorPaymentArchiveValidation.test.ts</div>
+        <div class="suite-time">0.593s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorPaymentArchive Validations</div>
+            <div class="test-title">VendorPaymentArchive should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorPaymentArchive Validations</div>
+            <div class="test-title">Should not validate VendorPaymentArchive without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorPaymentArchive Validations</div>
+            <div class="test-title">Should not validate VendorPaymentArchive without vendorId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorPaymentArchive Validations</div>
+            <div class="test-title">Should not validate VendorPaymentArchive without vendorOrderId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorPaymentArchive Validations</div>
+            <div class="test-title">Should not validate VendorPaymentArchive without amount</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-16" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/VendorOrderArchiveValidation.test.ts</div>
+        <div class="suite-time warn">25.672s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrderArchive Validations</div>
+            <div class="test-title">VendorOrderArchive should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrderArchive Validations</div>
+            <div class="test-title">Should not validate VendorOrderArchive without vendorOrderArchiveId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrderArchive Validations</div>
+            <div class="test-title">Should not validate VendorOrderArchive without vendorId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrderArchive Validations</div>
+            <div class="test-title">Should not validate VendorOrderArchive without orderId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrderArchive Validations</div>
+            <div class="test-title">Should not validate VendorOrderArchive without order product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.004s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-17" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/PageValidation.test.ts</div>
+        <div class="suite-time warn">30.752s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Page Validations</div>
+            <div class="test-title">Page should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Page Validations</div>
+            <div class="test-title">Should not validate Page without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Page Validations</div>
+            <div class="test-title">Should not validate Page without valid title</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Page Validations</div>
+            <div class="test-title">Should not validate Page without valid isActive</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Page Validations</div>
+            <div class="test-title">Should not validate Page without valid content</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Page Validations</div>
+            <div class="test-title">Should not validate Page without valid page group Id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.007s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-18" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/CustomerValidations.test.ts</div>
+        <div class="suite-time">0.662s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerValidations</div>
+            <div class="test-title">Customer should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.006s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerValidations</div>
+            <div class="test-title">Should not validate Customer without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerValidations</div>
+            <div class="test-title">Should not validate Customer without valid user name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerValidations</div>
+            <div class="test-title">Should not validate Customer without valid password</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerValidations</div>
+            <div class="test-title">Should not validate Customer without valid email</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-19" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/EmailTemplateValidations.test.ts</div>
+        <div class="suite-time">0.724s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">EmailTemplate Validations</div>
+            <div class="test-title">EmailTemplate should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">EmailTemplate Validations</div>
+            <div class="test-title">Should not validate EmailTemplate without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.007s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">EmailTemplate Validations</div>
+            <div class="test-title">Should not validate EmailTemplate without valid subject</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">EmailTemplate Validations</div>
+            <div class="test-title">Should not validate EmailTemplate without valid title</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">EmailTemplate Validations</div>
+            <div class="test-title">Should not validate EmailTemplate without valid content</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-20" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/VendorOrderLogValidation.test.ts</div>
+        <div class="suite-time warn">25.602s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrderLog Validations</div>
+            <div class="test-title">VendorOrderLog should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrderLog Validations</div>
+            <div class="test-title">Should not validate VendorOrderLog without vendorOrderLogId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrderLog Validations</div>
+            <div class="test-title">Should not validate VendorOrderLog without vendorId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrderLog Validations</div>
+            <div class="test-title">Should not validate VendorOrderLog without vendorOrderId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrderLog Validations</div>
+            <div class="test-title">Should not validate VendorOrderLog without orderId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-21" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/VendorPaymentValidation.test.ts</div>
+        <div class="suite-time warn">25.626s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorPayment Validations</div>
+            <div class="test-title">VendorPayment should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorPayment Validations</div>
+            <div class="test-title">Should not validate VendorPayment without vendorPaymentId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorPayment Validations</div>
+            <div class="test-title">Should not validate VendorPayment without vendorId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorPayment Validations</div>
+            <div class="test-title">Should not validate VendorPayment without order id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorPayment Validations</div>
+            <div class="test-title">Should not validate VendorPayment without amount</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.004s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-22" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/CustomerCartValidations.test.ts</div>
+        <div class="suite-time">0.616s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerCart Validations</div>
+            <div class="test-title">CustomerCart should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerCart Validations</div>
+            <div class="test-title">Should not validate CustomerCart without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerCart Validations</div>
+            <div class="test-title">Should not validate CustomerCart without valid product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerCart Validations</div>
+            <div class="test-title">Should not validate CustomerCart without valid customer id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerCart Validations</div>
+            <div class="test-title">Should not validate CustomerCart without valid product name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.008s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-23" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/PermissionModuleValidation.test.ts</div>
+        <div class="suite-time">0.693s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PermissionModule Validations</div>
+            <div class="test-title">PermissionModule should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.006s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PermissionModule Validations</div>
+            <div class="test-title">Should not validate PermissionModule without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PermissionModule Validations</div>
+            <div class="test-title">Should not validate PermissionModule without valid name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PermissionModule Validations</div>
+            <div class="test-title">Should not validate PermissionModule without valid slugName</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PermissionModule Validations</div>
+            <div class="test-title">Should not validate PermissionModule without valid module group Id </div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-24" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/VendorOrderValidation.test.ts</div>
+        <div class="suite-time warn">25.616s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrders Validations</div>
+            <div class="test-title">VendorOrders should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrders Validations</div>
+            <div class="test-title">Should not validate VendorOrder without vendorOrderId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrders Validations</div>
+            <div class="test-title">Should not validate VendorOrder without vendorId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrders Validations</div>
+            <div class="test-title">Should not validate VendorOrder without orderId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorOrders Validations</div>
+            <div class="test-title">Should not validate VendorOrder without total</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-25" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ProductViewLogValidation.test.ts</div>
+        <div class="suite-time">0.636s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductViewLog Validations</div>
+            <div class="test-title">ProductViewLog should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductViewLog Validations</div>
+            <div class="test-title">Should not validate ProductViewLog without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductViewLog Validations</div>
+            <div class="test-title">Should not validate ProductViewLog without valid productId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductViewLog Validations</div>
+            <div class="test-title">Should not validate ProductViewLog without valid customerId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductViewLog Validations</div>
+            <div class="test-title">Should not validate ProductViewLog without valid email</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-26" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/PaymentItemValidation.test.ts</div>
+        <div class="suite-time warn">25.641s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentItems Validations</div>
+            <div class="test-title">PaymentItems should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentItems Validations</div>
+            <div class="test-title">Should not validate PaymentItems without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentItems Validations</div>
+            <div class="test-title">Should not validate PaymentItems without valid order product</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentItems Validations</div>
+            <div class="test-title">Should not validate PaymentItems without valid payment id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentItems Validations</div>
+            <div class="test-title">Should not validate PaymentItems without valid total amount</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-27" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ProductDiscountValidation.test.ts</div>
+        <div class="suite-time">0.659s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductDiscountValidations</div>
+            <div class="test-title">ProductDiscount should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductDiscountValidations</div>
+            <div class="test-title">Should not validate ProductDiscount without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductDiscountValidations</div>
+            <div class="test-title">Should not validate ProductDiscount without product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductDiscountValidations</div>
+            <div class="test-title">Should not validate ProductDiscount without valid price</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductDiscountValidations</div>
+            <div class="test-title">Should not validate ProductDiscount without valid skuId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-28" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ProductSpecialValidation.test.ts</div>
+        <div class="suite-time">0.57s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductSpecial Validations</div>
+            <div class="test-title">ProductSpecial should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.011s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductSpecial Validations</div>
+            <div class="test-title">Should not validate ProductSpecial without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductSpecial Validations</div>
+            <div class="test-title">Should not validate ProductSpecial without valid product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductSpecial Validations</div>
+            <div class="test-title">Should not validate ProductSpecial without valid price</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductSpecial Validations</div>
+            <div class="test-title">Should not validate ProductSpecial without valid skuId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-29" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/VendorOrderProductValidation.test.ts</div>
+        <div class="suite-time">0.716s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorOrderProducts Validations</div>
+            <div class="test-title">VendorOrderProducts should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.006s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorOrderProducts Validations</div>
+            <div class="test-title">Should not validate VendorOrderProducts without vendorOrderProductId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorOrderProducts Validations</div>
+            <div class="test-title">Should not validate VendorOrderProducts without vendorOrderId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorOrderProducts Validations</div>
+            <div class="test-title">Should not validate VendorOrderProducts without orderProductId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-30" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/SettlementValidation.test.ts</div>
+        <div class="suite-time">0.49s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Settlement Validations</div>
+            <div class="test-title">Settlement should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Settlement Validations</div>
+            <div class="test-title">Should not validate Settlement without title</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Settlement Validations</div>
+            <div class="test-title">Should not validate Settlement without valid totalAmount</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Settlement Validations</div>
+            <div class="test-title">Should not validate Settlement without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-31" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/CustomerWishlist.test.ts</div>
+        <div class="suite-time">0.554s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerWishlistValidations</div>
+            <div class="test-title">CustomerWishlist should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerWishlistValidations</div>
+            <div class="test-title">Should not validate CustomerWishlist without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerWishlistValidations</div>
+            <div class="test-title">Should not validate CustomerWishlist without valid customer id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerWishlistValidations</div>
+            <div class="test-title">Should not validate CustomerWishlist without valid product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-32" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/CustomerDocument.test.ts</div>
+        <div class="suite-time warn">20.58s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerDocument Validations</div>
+            <div class="test-title">CustomerDocument should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerDocument Validations</div>
+            <div class="test-title">Should not validate CustomerDocument without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerDocument Validations</div>
+            <div class="test-title">Should not validate CustomerDocument without valid customer id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerDocument Validations</div>
+            <div class="test-title">Should not validate CustomerDocument without valid title</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-34" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/PermissionModuleGroupValidation.test.ts</div>
+        <div class="suite-time">0.558s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PermissionModuleGroup Validations</div>
+            <div class="test-title">PermissionModuleGroup should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PermissionModuleGroup Validations</div>
+            <div class="test-title">Should not validate PermissionModuleGroup without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PermissionModuleGroup Validations</div>
+            <div class="test-title">Should not validate PermissionModuleGroup without valid name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PermissionModuleGroup Validations</div>
+            <div class="test-title">Should not validate PermissionModuleGroup without valid slug name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-35" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/VendorProductValidation.test.ts</div>
+        <div class="suite-time warn">20.627s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorProducts Validations</div>
+            <div class="test-title">VendorProducts should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorProducts Validations</div>
+            <div class="test-title">Should not validate VendorProducts without valid vendorProductId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorProducts Validations</div>
+            <div class="test-title">Should not validate VendorProducts without valid productId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorProducts Validations</div>
+            <div class="test-title">Should not validate VendorProducts without valid vendorId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.004s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-36" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/VendorCategoryValidation.test.ts</div>
+        <div class="suite-time">0.664s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorCategory Validations</div>
+            <div class="test-title">VendorCategory should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorCategory Validations</div>
+            <div class="test-title">Should not validate VendorCategory without vendorCategoryId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorCategory Validations</div>
+            <div class="test-title">Should not validate VendorCategory without categoryId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">VendorCategory Validations</div>
+            <div class="test-title">Should not validate VendorCategory without vendorId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-37" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/PaymentItemArchiveValidation.test.ts</div>
+        <div class="suite-time">0.65s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentItemsArchive Validations</div>
+            <div class="test-title">PaymentItemsArchive should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.006s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentItemsArchive Validations</div>
+            <div class="test-title">Should not validate PaymentItemsArchive without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentItemsArchive Validations</div>
+            <div class="test-title">Should not validate PaymentItemsArchive without valid order id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentItemsArchive Validations</div>
+            <div class="test-title">Should not validate PaymentItemsArchive without valid amount</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-38" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/PromotionalBannerItemValidation.test.ts</div>
+        <div class="suite-time">0.57s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PromotionalBannerItemValidations</div>
+            <div class="test-title">PromotionalBannerItem should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PromotionalBannerItemValidations</div>
+            <div class="test-title">Should not validate PromotionalBannerItem without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PromotionalBannerItemValidations</div>
+            <div class="test-title">Should not validate PromotionalBannerItem without valid bannerId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PromotionalBannerItemValidations</div>
+            <div class="test-title">Should not validate PromotionalBannerItem without valid refId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-40" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/PriceUpdateFileLogValidation.test.ts</div>
+        <div class="suite-time">0.511s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PriceUpdateFileLog Validations</div>
+            <div class="test-title">PriceUpdateFileLog should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.01s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PriceUpdateFileLog Validations</div>
+            <div class="test-title">Should not validate PriceUpdateFileLog without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PriceUpdateFileLog Validations</div>
+            <div class="test-title">Should not validate PriceUpdateFileLog without valid vendor id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PriceUpdateFileLog Validations</div>
+            <div class="test-title">Should not validate PriceUpdateFileLog without valid title</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-41" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/LanguageValidation.test.ts</div>
+        <div class="suite-time">0.518s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">LanguageValidations</div>
+            <div class="test-title">Language should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">LanguageValidations</div>
+            <div class="test-title">Should not validate Language without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">LanguageValidations</div>
+            <div class="test-title">Should not validate Language without valid name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">LanguageValidations</div>
+            <div class="test-title">Should not validate Language without valid code</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-42" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ProductTirePriceValidation.test.ts</div>
+        <div class="suite-time warn">20.581s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductTirePrice Validations</div>
+            <div class="test-title">ProductTirePrice should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductTirePrice Validations</div>
+            <div class="test-title">Should not validate ProductTirePrice without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductTirePrice Validations</div>
+            <div class="test-title">Should not validate ProductTirePrice without valid product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductTirePrice Validations</div>
+            <div class="test-title">Should not validate ProductTirePrice without valid product price</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-43" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/PaymentArchive.test.ts</div>
+        <div class="suite-time">0.58s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentArchive Validations</div>
+            <div class="test-title">PaymentArchive should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentArchive Validations</div>
+            <div class="test-title">Should not validate PaymentArchive without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentArchive Validations</div>
+            <div class="test-title">Should not validate PaymentArchive without valid order id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">PaymentArchive Validations</div>
+            <div class="test-title">Should not validate PaymentArchive without valid amount</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-44" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/CurrencyValidations.test.ts</div>
+        <div class="suite-time">0.556s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CurrencyValidations</div>
+            <div class="test-title">Currency should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.007s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CurrencyValidations</div>
+            <div class="test-title">Should not validate Currency without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CurrencyValidations</div>
+            <div class="test-title">Should not validate Currency without valid title</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CurrencyValidations</div>
+            <div class="test-title">Should not validate Currency without valid currency code</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.003s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-45" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/LoginLogValidation.test.ts</div>
+        <div class="suite-time">0.676s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">LoginLogValidations</div>
+            <div class="test-title">LoginLog should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.009s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">LoginLogValidations</div>
+            <div class="test-title">Should not validate LoginLog without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">LoginLogValidations</div>
+            <div class="test-title">Should not validate LoginLog without valid email</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">LoginLogValidations</div>
+            <div class="test-title">Should not validate LoginLog without valid customer id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-46" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/AccessTokenValidation.test.ts</div>
+        <div class="suite-time">0.531s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">AccessTokenValidations</div>
+            <div class="test-title">AccessToken succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">AccessTokenValidations</div>
+            <div class="test-title">Should not validate AccessToken without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">AccessTokenValidations</div>
+            <div class="test-title">Should not validate AccessToken without valid user id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">AccessTokenValidations</div>
+            <div class="test-title">Should not validate AccessToken without valid token</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-47" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/CategoryValidation.test.ts</div>
+        <div class="suite-time">0.557s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Category Validations</div>
+            <div class="test-title">Category should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Category Validations</div>
+            <div class="test-title">Should not validate Category without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Category Validations</div>
+            <div class="test-title">Should not validate Category without valid name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Category Validations</div>
+            <div class="test-title">Should not validate Category without valid sort order</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-48" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/PaymentValidation.test.ts</div>
+        <div class="suite-time">0.569s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Payment Validations</div>
+            <div class="test-title">Payment should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Payment Validations</div>
+            <div class="test-title">Should not validate Payment without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Payment Validations</div>
+            <div class="test-title">Should not validate Payment without valid order id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Payment Validations</div>
+            <div class="test-title">Should not validate Payment without valid amount</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-49" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/OrderTotalValidations.test.ts</div>
+        <div class="suite-time">0.523s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderTotalValidations</div>
+            <div class="test-title">Order Total should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderTotalValidations</div>
+            <div class="test-title">Should not validate Order Total without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderTotalValidations</div>
+            <div class="test-title">Should not validate Order Total without valid order id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderTotalValidations</div>
+            <div class="test-title">Should not validate Order Total without valid order value</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-50" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/StockLogValidation.test.ts</div>
+        <div class="suite-time">0.511s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">StockLog Validations</div>
+            <div class="test-title">StockLog should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">StockLog Validations</div>
+            <div class="test-title">Should not validate StockLog without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">StockLog Validations</div>
+            <div class="test-title">Should not validate StockLog without valid productId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">StockLog Validations</div>
+            <div class="test-title">Should not validate StockLog without valid orderId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-51" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/UserGroupValidations.test.ts</div>
+        <div class="suite-time">0.525s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">UserGroupValidations</div>
+            <div class="test-title">UserGroup should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">UserGroupValidations</div>
+            <div class="test-title">Should not validate UserGroup without groupId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">UserGroupValidations</div>
+            <div class="test-title">Should not validate UserGroup without name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">UserGroupValidations</div>
+            <div class="test-title">Should not validate UserGroup without slug</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-52" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ZoneValidation.test.ts</div>
+        <div class="suite-time">0.718s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Zone Validations</div>
+            <div class="test-title">Zone should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Zone Validations</div>
+            <div class="test-title">Should not validate Zone without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Zone Validations</div>
+            <div class="test-title">Should not validate Zone without valid country id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Zone Validations</div>
+            <div class="test-title">Should not validate Zone without valid Zone name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-53" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/TaxValidation.test.ts</div>
+        <div class="suite-time">0.506s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">TaxValidations</div>
+            <div class="test-title">Tax always have a missing one or more field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">TaxValidations</div>
+            <div class="test-title">Tax id should not be empty</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">TaxValidations</div>
+            <div class="test-title">Tax name should not be empty</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">TaxValidations</div>
+            <div class="test-title">Tax status should not be empty</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-54" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/VendorGlobalSettingsValidation.test.ts</div>
+        <div class="suite-time">0.497s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorGlobalSetting Validations</div>
+            <div class="test-title">VendorGlobalSetting should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorGlobalSetting Validations</div>
+            <div class="test-title">Should not validate VendorGlobalSetting without settingId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename"> VendorGlobalSetting Validations</div>
+            <div class="test-title">Should not validate VendorGlobalSetting without defaultCommission</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.007s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-55" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/e2e/api/users.test.ts</div>
+        <div class="suite-time warn">52.53s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">/api/users</div>
+            <div class="test-title">GET: / should return a list of users</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.142s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-56" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/middlewares/ErrorHandlerMiddleware.test.ts</div>
+        <div class="suite-time">0.519s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result passed">
+          <div class="test-info">
+            <div class="test-suitename">ErrorHandlerMiddleware</div>
+            <div class="test-title">Should not print stack out in production</div>
+            <div class="test-status">passed</div>
+            <div class="test-duration">0.017s</div>
+          </div>
+        </div>
+        <div class="test-result passed">
+          <div class="test-info">
+            <div class="test-suitename">ErrorHandlerMiddleware</div>
+            <div class="test-title">Should print stack out in development</div>
+            <div class="test-status">passed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-58" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/OrderCancelReasonValidation.test.ts</div>
+        <div class="suite-time">0.548s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderCancelReason Validations</div>
+            <div class="test-title">OrderCancelReason should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderCancelReason Validations</div>
+            <div class="test-title">Should not validate OrderCancelReason without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderCancelReason Validations</div>
+            <div class="test-title">Should not validate OrderCancelReason without valid reason</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-59" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/CustomerActivity.test.ts</div>
+        <div class="suite-time">0.559s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerActivity Validations</div>
+            <div class="test-title">CustomerActivity should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.006s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerActivity Validations</div>
+            <div class="test-title">Should not validate CustomerActivity without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerActivity Validations</div>
+            <div class="test-title">Should not validate CustomerActivity without valid customer id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-60" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/CustomerGroupValidation.test.ts</div>
+        <div class="suite-time">0.958s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerGroup Validations</div>
+            <div class="test-title">CustomerGroup should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerGroup Validations</div>
+            <div class="test-title">Should not validate CustomerGroup without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CustomerGroup Validations</div>
+            <div class="test-title">Should not validate CustomerGroup without valid customer group name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-61" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/CategoryPathValidation.test.ts</div>
+        <div class="suite-time warn">15.701s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CategoryPath Validations</div>
+            <div class="test-title">CategoryPath should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.003s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CategoryPath Validations</div>
+            <div class="test-title">Should not validate CategoryPath without valid category path id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">CategoryPath Validations</div>
+            <div class="test-title">Should not validate CategoryPath without valid category id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-62" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/StockStatusValidation.test.ts</div>
+        <div class="suite-time">0.58s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">StockStatus Validations</div>
+            <div class="test-title">Stockstatus should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">StockStatus Validations</div>
+            <div class="test-title">Should not validate StockStatus without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">StockStatus Validations</div>
+            <div class="test-title">Should not validate StockStatus without valid name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-63" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ProductToCategoryValidation.test.ts</div>
+        <div class="suite-time warn">15.683s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductToCategory Validations</div>
+            <div class="test-title">ProductToCategory should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.004s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductToCategory Validations</div>
+            <div class="test-title">Should not validate ProductToCategory without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductToCategory Validations</div>
+            <div class="test-title">Should not validate ProductToCategory without valid product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">5.004s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-64" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/PageGroupValidation.test.ts</div>
+        <div class="suite-time">0.586s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Page group Validations</div>
+            <div class="test-title">Page group should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Page group Validations</div>
+            <div class="test-title">Should not validate Page group without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Page group Validations</div>
+            <div class="test-title">Should not validate Page group without valid group name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-65" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ProductStockAlertValidation.test.ts</div>
+        <div class="suite-time">0.811s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductStockAlert Validations</div>
+            <div class="test-title">ProductStockAlert should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.012s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductStockAlert Validations</div>
+            <div class="test-title">Should not validate ProductStockAlert without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductStockAlert Validations</div>
+            <div class="test-title">Should not validate ProductStockAlert without valid product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-66" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ProductImageValidation.test.ts</div>
+        <div class="suite-time">0.701s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductImageValidations</div>
+            <div class="test-title">Product Image should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductImageValidations</div>
+            <div class="test-title">Should not validate Product Image without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.009s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ProductImageValidations</div>
+            <div class="test-title">Should not validate Product Image without valid product id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-67" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/OrderStatusValidation.test.ts</div>
+        <div class="suite-time">0.634s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderStatusValidations</div>
+            <div class="test-title">Order Status should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderStatusValidations</div>
+            <div class="test-title">Should not validate Order Status without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">OrderStatusValidations</div>
+            <div class="test-title">Should not validate Order Status without valid name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-68" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/ActivityValidation.test.ts</div>
+        <div class="suite-time">0.535s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ActivityValidations</div>
+            <div class="test-title">Activity should succeed with all required fields</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.005s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ActivityValidations</div>
+            <div class="test-title">Should not validate Activity without valid id</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">ActivityValidations</div>
+            <div class="test-title">Should not validate Activity without valid name</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.001s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-69" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/unit/validations/VendorValidation.test.ts</div>
+        <div class="suite-time">0.613s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Vendor Validations</div>
+            <div class="test-title">Vendor should succeed with all required field</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.006s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Vendor Validations</div>
+            <div class="test-title">Should not validate Vendor without valid vendorId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+        <div class="test-result failed">
+          <div class="test-info">
+            <div class="test-suitename">Vendor Validations</div>
+            <div class="test-title">Should not validate Vendor without valid customerId</div>
+            <div class="test-status">failed</div>
+            <div class="test-duration">0.002s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="suite-70" class="suite-container">
+      <div class="suite-info">
+        <div class="suite-path">/home/picco/Desktop/Antlijefri/SPURT/Spurt Main/Pre-dev
+          Branch/spurtcommerce-main-api/test/e2e/api/info.test.ts</div>
+        <div class="suite-time">2.128s</div>
+      </div>
+      <div class="suite-tests">
+        <div class="test-result passed">
+          <div class="test-info">
+            <div class="test-suitename">/api</div>
+            <div class="test-title">GET: / should return the api-version</div>
+            <div class="test-status">passed</div>
+            <div class="test-duration">0.067s</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

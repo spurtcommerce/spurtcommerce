@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -84,6 +84,9 @@ let OrderProductService = class OrderProductService {
                 relations.forEach((joinTb) => {
                     if (joinTb.op === 'left') {
                         query.leftJoin(joinTb.tableName, joinTb.aliasName);
+                    }
+                    else if (joinTb.op === 'left-cond') {
+                        query.leftJoin(joinTb.tableName, joinTb.aliasName, joinTb.cond);
                     }
                     else {
                         query.innerJoin(joinTb.tableName, joinTb.aliasName);

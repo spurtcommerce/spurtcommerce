@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -35,10 +35,16 @@ let BannerService = class BannerService {
         return this.bannerRepository.save(banner);
     }
     // banner List
-    list(limit, offset, select = [], search = [], whereConditions = [], count) {
+    list(limit, offset, select = [], relations = [], search = [], whereConditions = [], count) {
         const condition = {};
         if (select && select.length > 0) {
             condition.select = select;
+        }
+        condition.relations = [];
+        if (relations && relations.length > 0) {
+            relations.forEach((table) => {
+                condition.relations.push(table.tableName);
+            });
         }
         condition.where = {};
         if (whereConditions && whereConditions.length > 0) {
@@ -62,7 +68,6 @@ let BannerService = class BannerService {
             condition.skip = offset;
         }
         condition.order = {
-            position: 'ASC',
             createdDate: 'DESC',
         };
         if (count) {

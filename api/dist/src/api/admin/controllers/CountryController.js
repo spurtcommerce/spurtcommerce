@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -22,7 +22,7 @@ let CountryController = class CountryController {
     }
     // Create Country API
     /**
-     * @api {post} /api/country/add-country Add Country API
+     * @api {post} /api/country Add Country API
      * @apiGroup Country
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String{..30}} name Country name
@@ -42,10 +42,18 @@ let CountryController = class CountryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully created new Country.",
-     *      "status": "1"
+     *      "message": "Successfully added new Country",
+     *      "status": "1",
+     *      "data":"{
+     *              "name": "India",
+     *              "isoCode2": "IN",
+     *              "isoCode3": "IND",
+     *              "postcodeRequired": "600041",
+     *              "isActive": 1,
+     *              "countryId": 99
+     *              }"
      * }
-     * @apiSampleRequest /api/country/add-country
+     * @apiSampleRequest /api/country
      * @apiErrorExample {json} Country error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -61,7 +69,7 @@ let CountryController = class CountryController {
             if (existCountry) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You have already added this country.',
+                    message: 'Country name already exists',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -73,7 +81,7 @@ let CountryController = class CountryController {
             if (checkCountry) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You have already added this country.',
+                    message: 'Country name already exists',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -87,7 +95,7 @@ let CountryController = class CountryController {
             if (countrySave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully added new country.',
+                    message: 'Successfully added new country',
                     data: countrySave,
                 };
                 return response.status(200).send(successResponse);
@@ -95,7 +103,7 @@ let CountryController = class CountryController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to add the country. ',
+                    message: 'Unable to add the country',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -125,10 +133,18 @@ let CountryController = class CountryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully updated Country.",
-     *      "status": "1"
+     *      "message": "Successfully updated Country",
+     *      "status": "1",
+     *      "data":"{
+     *              "name": "INDIA",
+     *              "isoCode2": "I",
+     *              "isoCode3": "IND",
+     *              "postcodeRequired": "600041",
+     *              "isActive": 1,
+     *              "countryId": 99
+     *              }"
      * }
-     * @apiSampleRequest /api/country/update-country/:id
+     * @apiSampleRequest /api/country/:id
      * @apiErrorExample {json} Country error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -142,7 +158,35 @@ let CountryController = class CountryController {
             if (!country) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid country Id.',
+                    message: 'Invalid country Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const existCountry = yield this.countryService.findOne({
+                where: {
+                    name: countryParam.name,
+                    isoCode2: countryParam.isoCode2,
+                    isoCode3: countryParam.isoCode3,
+                    countryId: (0, typeorm_1.Not)(countryParam.countryId),
+                },
+            });
+            if (existCountry) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Country name already exists',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const checkCountry = yield this.countryService.findOne({
+                where: {
+                    name: (0, typeorm_1.Raw)(alias => `LOWER(${alias}) = '${countryParam.name.toLowerCase()}'`),
+                    countryId: (0, typeorm_1.Not)(countryParam.countryId),
+                },
+            });
+            if (checkCountry) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Country name already exists',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -155,7 +199,7 @@ let CountryController = class CountryController {
             if (countrySave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated country.',
+                    message: 'Successfully updated country',
                     data: countrySave,
                 };
                 return response.status(200).send(successResponse);
@@ -163,7 +207,7 @@ let CountryController = class CountryController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the country.',
+                    message: 'Unable to update the country',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -171,7 +215,7 @@ let CountryController = class CountryController {
     }
     // Country List API
     /**
-     * @api {get} /api/country/countrylist Country List API
+     * @api {get} /api/country Country List API
      * @apiGroup Country
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -182,50 +226,66 @@ let CountryController = class CountryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
+     *      "status": "1"
      *      "message": "Successfully got country list",
      *      "data":{
-     *      "countryId"
-     *      "name"
-     *      "isoCode2"
-     *      "isoCode3"
-     *      "addressFormat"
-     *      "postcodeRequired"
-     *      "status"
+     *              "countryId" : 99
+     *              "name" : "INDIA"
+     *              "isoCode2" : "IN"
+     *              "isoCode3" : "INDIA"
+     *              "addressFormat" : ""
+     *              "postcodeRequired" : ""
+     *              "status" : ""
      *      }
-     *      "status": "1"
      * }
-     * @apiSampleRequest /api/country/countrylist
+     * @apiSampleRequest /api/country
      * @apiErrorExample {json} Country error
      * HTTP/1.1 500 Internal Server Error
      */
     countryList(limit, offset, keyword, status, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const select = ['countryId', 'name', 'isoCode2', 'isoCode3', 'postcodeRequired', 'isActive'];
-            const search = [
-                {
-                    name: 'name',
-                    op: 'like',
+            const select = [];
+            const search = [];
+            const sort = [{
+                    name: 'Country.createdDate',
+                    order: 'DESC',
+                }];
+            if (keyword === null || keyword === void 0 ? void 0 : keyword.trim()) {
+                search.push({
+                    name: ['Country.name', 'Country.isoCode2', 'Country.isoCode3'],
                     value: keyword,
-                }, {
-                    name: 'isActive',
-                    op: 'like',
-                    value: status,
-                },
-            ];
+                });
+            }
             const WhereConditions = [];
-            const countryList = yield this.countryService.list(limit, offset, select, search, WhereConditions, count);
+            if (status) {
+                WhereConditions.push({
+                    name: 'Country.isActive',
+                    op: 'and',
+                    value: status,
+                });
+            }
+            if (count) {
+                const countryCount = yield this.countryService.listByQueryBuilder(limit, offset, select, WhereConditions, search, [], [], sort, true, false);
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got all Country Count',
+                    data: countryCount,
+                };
+                return response.status(200).send(successResponse);
+            }
+            const countryList = yield this.countryService.listByQueryBuilder(limit, offset, select, WhereConditions, search, [], [], [], false, false);
             if (countryList) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got country List',
+                    message: 'Successfully get all country List',
                     data: countryList,
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
-                    status: 0,
-                    message: 'unable to get countryList',
+                    status: 1,
+                    message: 'Unable to get country List',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -246,10 +306,10 @@ let CountryController = class CountryController {
      *      "status": "1"
      *      "message": "Successfully  got country Id.",
      *      "data": {
-     *                  "countryId"
+     *                  "countryId" : 99
      *             }
      * }
-     * @apiSampleRequest /api/country/delete-country/:id
+     * @apiSampleRequest /api/country/:countryName
      * @apiErrorExample {json} Country error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -259,7 +319,7 @@ let CountryController = class CountryController {
             if (!country) {
                 const successResponses = {
                     status: 0,
-                    message: 'Enter Valid Country Name ',
+                    message: 'Enter Valid Country Name',
                 };
                 return response.status(200).send(successResponses);
             }
@@ -273,7 +333,7 @@ let CountryController = class CountryController {
     }
     // Delete Country API
     /**
-     * @api {delete} /api/country/delete-country/:id Delete Country API
+     * @api {delete} /api/country/:id Delete Country API
      * @apiGroup Country
      * @apiHeader {String} Authorization
      * @apiParamExample {json} Input
@@ -283,10 +343,10 @@ let CountryController = class CountryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully deleted Country.",
+     *      "message": "Successfully deleted Country",
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/country/delete-country/:id
+     * @apiSampleRequest /api/country/:id
      * @apiErrorExample {json} Country error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -300,7 +360,7 @@ let CountryController = class CountryController {
             if (!country) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid Country Id.',
+                    message: 'Invalid Country Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -308,14 +368,14 @@ let CountryController = class CountryController {
             if (deleteCountry) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the country.',
+                    message: 'Successfully deleted the country',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the country.',
+                    message: 'Unable to delete the country',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -323,7 +383,7 @@ let CountryController = class CountryController {
     }
 };
 tslib_1.__decorate([
-    (0, routing_controllers_1.Post)('/add-country'),
+    (0, routing_controllers_1.Post)(),
     (0, routing_controllers_1.Authorized)(['admin', 'create-country']),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
@@ -332,7 +392,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CountryController.prototype, "addCountry", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Put)('/update-country/:id'),
+    (0, routing_controllers_1.Put)('/:id'),
     (0, routing_controllers_1.Authorized)(['admin', 'edit-country']),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
@@ -341,7 +401,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CountryController.prototype, "updateCountry", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/countrylist'),
+    (0, routing_controllers_1.Get)(),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
@@ -354,9 +414,9 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CountryController.prototype, "countryList", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/get-country-id'),
+    (0, routing_controllers_1.Get)('/:countryName'),
     (0, routing_controllers_1.Authorized)(['admin']),
-    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('countryName')),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('countryName')),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
     tslib_1.__param(2, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
@@ -364,7 +424,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CountryController.prototype, "getCountryId", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Delete)('/delete-country/:id'),
+    (0, routing_controllers_1.Delete)('/:id'),
     (0, routing_controllers_1.Authorized)(['admin', 'delete-country']),
     tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),

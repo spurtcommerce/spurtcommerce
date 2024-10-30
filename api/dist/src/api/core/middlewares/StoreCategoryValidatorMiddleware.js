@@ -10,12 +10,6 @@ function StoreCategoryValidator(req, res, next) {
         const settingService = (0, typeorm_1.getManager)().getRepository(Setting_1.Settings);
         const origin = req.get('origin');
         const AccessKey = req.get('key');
-        // if (!origin) {
-        //     return res.status(400).send({
-        //         status: 0,
-        //         message: `Request Dosen't Contain Valid Origin Header..!`,
-        //     });
-        // }
         const siteData = yield settingService.findOne({
             accessKey: AccessKey,
         });

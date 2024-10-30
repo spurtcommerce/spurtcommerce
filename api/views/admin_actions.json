@@ -38,7 +38,7 @@
         },
         {
             "id": "7",
-            "action": "add-product",
+            "action": "product",
             "value": "Product",
             "route": "product"
         },

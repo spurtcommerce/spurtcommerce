@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -39,6 +39,15 @@ function authorizationChecker(connection) {
             }
             else if (roles[0] === 'vendor') {
                 action.request.user = yield authService.validateVendor(userId.id);
+                if (action.request.user === undefined) {
+                    log.warn('Invalid credentials given');
+                    return false;
+                }
+                log.info('Successfully checked credentials');
+                return true;
+            }
+            else if (roles[0] === 'vendor-unapproved') {
+                action.request.user = yield authService.validateUnapprovedVendor(userId.id);
                 if (action.request.user === undefined) {
                     log.warn('Invalid credentials given');
                     return false;

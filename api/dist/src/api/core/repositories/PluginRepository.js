@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -15,8 +15,8 @@ let PluginRepository = class PluginRepository extends typeorm_1.Repository {
     pluginList(limit, offset, count) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const query = yield this.manager.createQueryBuilder(Plugin_1.Plugins, 'plugins');
-            query.select(['plugins.pluginName', 'plugins.pluginType', 'plugins.pluginStatus', 'plugins.slugName']);
-            query.where('plugins.pluginType NOT IN (:names)', { names: ['Payment', 'Oauth'] });
+            query.select(['plugins.pluginName', 'plugins.pluginType', 'plugins.pluginStatus', 'plugins.slugName', 'plugins.pluginAdditionalInfo']);
+            query.where('plugins.pluginType NOT IN (:names)', { names: ['Payment'] }); // 'Oauth'
             if (limit > 0) {
                 query.limit(limit);
                 query.offset(offset);

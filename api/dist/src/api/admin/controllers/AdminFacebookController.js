@@ -19,7 +19,7 @@ let AdminFacebookController = class AdminFacebookController {
     }
     // update Facebook Credential API
     /**
-     * @api {post} /api/admin-facebook/update-setting update Facebook Credential API
+     * @api {post} /api/admin-facebook/update-setting Update Facebook Credential API
      * @apiGroup Oauth
      * @apiParam (Request body) {String{..255}} clientId clientId
      * @apiParam (Request body) {String{..255}} clientSecret clientSecret

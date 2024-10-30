@@ -1,13 +1,13 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
- * Copyright (c) 2021 piccosoft ltd
+ * version 5.0.0
+ * Copyright (c) 2number21 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Vendor = void 0;
+exports.Vendor = exports.KycStatus = void 0;
 const tslib_1 = require("tslib");
 const typeorm_1 = require("typeorm");
 const BaseModel_1 = require("./BaseModel");
@@ -24,6 +24,17 @@ const class_validator_1 = require("class-validator");
 const VendorCategory_1 = require("./VendorCategory");
 const VendorGroup_1 = require("../models/VendorGroup");
 const VendorContact_1 = require("./VendorContact");
+const Industry_1 = require("./Industry");
+const Country_1 = require("./Country");
+const VendorMedia_1 = require("./VendorMedia");
+var KycStatus;
+(function (KycStatus) {
+    KycStatus["VERIFIED"] = "verified";
+    KycStatus["REJECTED"] = "rejected";
+    KycStatus["SUBMITTED"] = "submitted";
+    KycStatus["IN_REVIEW"] = "in-review";
+    KycStatus["PENDING"] = "pending";
+})(KycStatus = exports.KycStatus || (exports.KycStatus = {}));
 let Vendor = class Vendor extends BaseModel_1.BaseModel {
     createDetails() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -59,6 +70,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Number)
 ], Vendor.prototype, "commission", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'industry_id' }),
+    tslib_1.__metadata("design:type", Number)
+], Vendor.prototype, "industryId", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'contact_person_name' }),
     tslib_1.__metadata("design:type", String)
 ], Vendor.prototype, "contactPersonName", void 0);
@@ -74,6 +89,10 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'company_name' }),
     tslib_1.__metadata("design:type", String)
 ], Vendor.prototype, "companyName", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'company_location' }),
+    tslib_1.__metadata("design:type", String)
+], Vendor.prototype, "companyLocation", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'company_address1' }),
     tslib_1.__metadata("design:type", String)
@@ -139,6 +158,22 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], Vendor.prototype, "paymentInformation", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'verification', type: 'json', default: {} }),
+    tslib_1.__metadata("design:type", Object)
+], Vendor.prototype, "verification", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'verification_comment', type: 'json', default: {} }),
+    tslib_1.__metadata("design:type", Array)
+], Vendor.prototype, "verificationComment", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'verification_detail_comment', type: 'json', default: {} }),
+    tslib_1.__metadata("design:type", Array)
+], Vendor.prototype, "verificationDetailComment", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'bank_account', type: 'json', default: {} }),
+    tslib_1.__metadata("design:type", Object)
+], Vendor.prototype, "bankAccount", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'approval_flag' }),
     tslib_1.__metadata("design:type", Number)
 ], Vendor.prototype, "approvalFlag", void 0);
@@ -150,6 +185,14 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'approved_date' }),
     tslib_1.__metadata("design:type", String)
 ], Vendor.prototype, "approvalDate", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_active' }),
+    tslib_1.__metadata("design:type", Number)
+], Vendor.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_delete' }),
+    tslib_1.__metadata("design:type", Number)
+], Vendor.prototype, "isDelete", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'company_cover_image' }),
     tslib_1.__metadata("design:type", String)
@@ -199,6 +242,55 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], Vendor.prototype, "ifscCode", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'business_segment' }),
+    tslib_1.__metadata("design:type", String)
+], Vendor.prototype, "businessSegment", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'business_type' }),
+    tslib_1.__metadata("design:type", String)
+], Vendor.prototype, "businessType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'mail_otp' }),
+    tslib_1.__metadata("design:type", Number)
+], Vendor.prototype, "mailOtp", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'login_otp_expire_time' }),
+    tslib_1.__metadata("design:type", String)
+], Vendor.prototype, "loginOtpExpireTime", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'business_number' }),
+    tslib_1.__metadata("design:type", String)
+], Vendor.prototype, "businessNumber", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'preferred_shipping_method' }),
+    tslib_1.__metadata("design:type", String)
+], Vendor.prototype, "preferredShippingMethod", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'capabilities', type: 'json', default: {} }),
+    tslib_1.__metadata("design:type", Array)
+], Vendor.prototype, "capabilities", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'vendor_description' }),
+    tslib_1.__metadata("design:type", String)
+], Vendor.prototype, "vendorDescription", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_email_verify' }),
+    tslib_1.__metadata("design:type", Number)
+], Vendor.prototype, "isEmailVerify", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'personalized_settings', type: 'json', default: {} }),
+    tslib_1.__metadata("design:type", Object)
+], Vendor.prototype, "personalizedSettings", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({
+        name: 'kyc_status',
+        type: 'enum',
+        enum: KycStatus,
+        default: 'pending',
+    }),
+    tslib_1.__metadata("design:type", String)
+], Vendor.prototype, "kycStatus", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.OneToOne)(type => Customer_1.Customer),
     (0, typeorm_1.JoinColumn)({ name: 'customer_id' }),
     tslib_1.__metadata("design:type", Customer_1.Customer)
@@ -208,6 +300,16 @@ tslib_1.__decorate([
     (0, typeorm_1.JoinColumn)({ name: 'vendor_group_id' }),
     tslib_1.__metadata("design:type", VendorGroup_1.VendorGroup)
 ], Vendor.prototype, "vendorGroup", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => Industry_1.Industry, industry => industry),
+    (0, typeorm_1.JoinColumn)({ name: 'industry_id' }),
+    tslib_1.__metadata("design:type", Industry_1.Industry)
+], Vendor.prototype, "industry", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => Country_1.Country, country => country),
+    (0, typeorm_1.JoinColumn)({ name: 'company_country_id' }),
+    tslib_1.__metadata("design:type", Country_1.Country)
+], Vendor.prototype, "country", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => VendorProducts_1.VendorProducts, vendorproducts => vendorproducts.vendor),
     tslib_1.__metadata("design:type", Array)
@@ -244,6 +346,10 @@ tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => VendorContact_1.VendorContact, vendorContact => vendorContact.vendor),
     tslib_1.__metadata("design:type", VendorContact_1.VendorContact)
 ], Vendor.prototype, "vendorContact", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => VendorMedia_1.VendorMedia, vendorMedia => vendorMedia.vendor),
+    tslib_1.__metadata("design:type", Array)
+], Vendor.prototype, "vendorMedia", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.BeforeInsert)(),
     tslib_1.__metadata("design:type", Function),

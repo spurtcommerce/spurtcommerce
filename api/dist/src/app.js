@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -51,37 +51,4 @@ const log = new logger_1.Logger(__filename);
 })
     .then(() => (0, banner_1.banner)(log))
     .catch(error => log.error('Application is crashed: ' + error));
-// const fs = require('fs');
-// function data (){
-//     const dir = 'dist';
-//     if (fs.existsSync(dir)) {
-//         fs.readFile('dist/src/loaders/publicLoader.js', 'utf8', (err: any, dataV: any) => {
-//         if (err) {
-//             return console.log(err);
-//         }
-//         const sourcePath = 'path.join(__dirname, ' + "'../../'" + ', ' + "'views/assets')";
-//         const destPath = 'path.join(__dirname, ' + "'../../../'" + ', ' + "'views/assets')";
-//         console.log(sourcePath + 'sourcePath');
-//         console.log(destPath + 'destPath');
-//         const result = dataV.replace(sourcePath , destPath);
-//         fs.writeFile('dist/src/loaders/publicLoader.js', result, 'utf8', (errW) => {
-//             if (errW) { return console.log(errW); }
-//         });
-//         });
-//         fs.readFile('dist/src/loaders/spurtConnectLoader.js', 'utf8', (err1: any,data1: any) => {
-//             if (err1) {
-//                 return console.log(err1);
-//             }
-//             const spurtSourcePath = 'path.join(__dirname, ' + "'../../'" + ', ' + "'views')";
-//             const spurtDestPath = 'path.join(__dirname, ' + "'../../../'" + ', ' + "'views')";
-//             console.log(spurtSourcePath + 'spurtSourcePath');
-//             console.log(spurtDestPath + 'spurtDestPath');
-//             const result1 = data1.replace(spurtSourcePath , spurtDestPath);
-//             fs.writeFile('dist/src/loaders/spurtConnectLoader.js', result1, 'utf8', (err2) => {
-//                 if (err2) { return console.log(err2); }
-//             });
-//         });
-//     }
-// }
-// data();
 //# sourceMappingURL=app.js.map

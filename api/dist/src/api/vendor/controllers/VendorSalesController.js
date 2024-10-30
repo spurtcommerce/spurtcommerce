@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -39,30 +39,42 @@ let VendorSaleController = class VendorSaleController {
     }
     // Payment List API
     /**
-     * @api {get} /api/vendor-sales/payment-list  Payment list API
+     * @api {Get} /api/vendor-sales/payment  Payment list API
      * @apiGroup Vendor Sales
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
      * @apiParam (Request body) {Number} offset offset
      * @apiParam (Request body) {String} keyword search by orderId, customer name
      * @apiParam (Request body) {String} startDate search by startDate
-     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} orderId orderId
+     * @apiParam (Requst body) {String} endDate search by endDate
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully got payment list",
+     *      "message": "Successfully got the payment count !!",
      *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
+     *      "vendorPaymentId" : "",
+     *      "vendorOrderId" : "",
+     *      "subOrderId" : "",
+     *      "customerFirstName" : "",
+     *      "shippingCity" : "",
+     *      "shippingCountry" : "",
+     *      "shippingZone" : "",
+     *      "currencyCode" : "",
+     *      "currencySymbolLeft" : "",
+     *      "currencySymbolRight" : "",
+     *      "createdDate" : "",
+     *      "amount" : "",
+     *      "commissionAmount" : "",
+     *      "orderStatusName" : "",
+     *      "orderStatusColorCode" : "",
+     *      "makeSettlement" : "",
+     *      "orderProductPrefixId" : ""
      *      }
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/vendor-sales/payment-list
-     * @apiErrorExample {json} order error
+     * @apiSampleRequest /api/vendor-sales/payment
+     * @apiErrorExample {json} paymentList error
      * HTTP/1.1 500 Internal Server Error
      */
     paymentList(limit, offset, keyword, startDate, endDate, deliverylist, count, orderId, request, response) {
@@ -152,7 +164,7 @@ let VendorSaleController = class VendorSaleController {
             if (count) {
                 const successResponses = {
                     status: 1,
-                    message: 'Successfully got the payment count !!',
+                    message: 'Successfully got the payment count',
                     data: orderList,
                 };
                 return response.status(200).send(successResponses);
@@ -165,7 +177,7 @@ let VendorSaleController = class VendorSaleController {
             const paymentListDetails = yield Promise.all(orderResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete payment list.',
+                message: 'Successfully got the complete payment list',
                 data: paymentListDetails,
             };
             return response.status(200).send(successResponse);
@@ -173,7 +185,7 @@ let VendorSaleController = class VendorSaleController {
     }
     // Payment List count API
     /**
-     * @api {get} /api/vendor-sales/payment-list-count  Payment list Count API
+     * @api {Get} /api/vendor-sales/payment  Payment list Count API
      * @apiGroup Vendor Sales
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -184,12 +196,11 @@ let VendorSaleController = class VendorSaleController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully got payment list count",
-     *      "data":{
-     *      }
+     *      "message": "Successfully got the complete payment list count.",
+     *      "data": ""
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/vendor-sales/payment-list
+     * @apiSampleRequest /api/vendor-sales/payment
      * @apiErrorExample {json} order error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -267,7 +278,7 @@ let VendorSaleController = class VendorSaleController {
             const orderList = yield this.vendorPaymentService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete payment list count.',
+                message: 'Successfully got the complete payment list count',
                 data: orderList,
             };
             return response.status(200).send(successResponse);
@@ -282,26 +293,39 @@ let VendorSaleController = class VendorSaleController {
      * @apiParam (Request body) {Number} offset offset
      * @apiParam (Request body) {String} status 0->inactive 1-> active
      * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} price price
+     * @apiParam (Request body) {String} productName productName
+     * @apiParam (Request body) {String} sku sku
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} createdDate createdDate
      * @apiParam (Request body) {Number} count count
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get your product earnings list",
      *      "data":{
+     *      "vendorProductId" : "",
+     *      "vendorProductCommission" : "",
+     *      "quotationAvailable" : "",
+     *      "approvalFlag" : "",
      *      "vendorId" : "",
-     *      "vendorName" : "",
-     *      "productName" : "",
+     *      "productId" : "",
+     *      "pincodeBasedDelivery" : "",
+     *      "name" : "",
      *      "sku" : "",
-     *      "model" : "",
-     *      "price" : "",
+     *      "productPrice" : "",
      *      "quantity" : "",
-     *      "status" : "",
+     *      "vendorName" : "",
+     *      "sortOrder" : "",
+     *      "isActive" : "",
+     *      "productSlug" : "",
+     *      "createdDate" : "",
+     *      "keywords" : "",
+     *      "attributeKeyword" : "",
      *      }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-sales/vendor-earning-list
-     * @apiErrorExample {json} vendor error
+     * @apiErrorExample {json} vendorProductList error
      * HTTP/1.1 500 Internal Server Error
      */
     vendorProductList(limit, offset, status, keyword, createdDate, price, productName, sku, count, request, response) {
@@ -378,7 +402,7 @@ let VendorSaleController = class VendorSaleController {
                 const vendorProductListCount = yield this.vendorProductService.listByQueryBuilder(limit, offset, selects, whereCondition, searchConditions, relations, groupBy, sort, true, true);
                 const sucResponse = {
                     status: 1,
-                    message: 'Successfully got Vendor Product list.',
+                    message: 'Successfully got Vendor Product list',
                     data: vendorProductListCount,
                 };
                 return response.status(200).send(sucResponse);
@@ -419,7 +443,7 @@ let VendorSaleController = class VendorSaleController {
             const results = yield Promise.all(productList);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got your product Earnings list.',
+                message: 'Successfully got your product Earnings list',
                 data: results,
             };
             return response.status(200).send(successResponse);
@@ -427,18 +451,11 @@ let VendorSaleController = class VendorSaleController {
     }
     // Vendor Earning Export Download
     /**
-     * @api {get} /api/vendor-sales/earning-export Vendor Earning Export
+     * @api {Get} /api/vendor-sales/earning-export Vendor Earning Export
      * @apiGroup Vendor Sales
      * @apiParam (Request body) {Number} vendorId vendorId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download the vendor earning List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
      * @apiSampleRequest /api/vendor-sales/earning-export
-     * @apiErrorExample {json} All Customer Excel List error
+     * @apiErrorExample {json} EarningExport error
      * HTTP/1.1 500 Internal Server Error
      */
     earningExport(vendorId, request, response) {
@@ -513,20 +530,13 @@ let VendorSaleController = class VendorSaleController {
     }
     // recent sales export Download
     /**
-     * @api {get} /api/vendor-sales/sales-export Sales list Export
+     * @api {Get} /api/vendor-sales/sales-export Sales list Export
      * @apiGroup Vendor Sales
      * @apiParam (Request body) {Number} vendorId vendorId
      * @apiParam (Request body) {String} startDate startDate
      * @apiParam (Request body) {String} endDate endDate
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download the vendor sales List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
      * @apiSampleRequest /api/vendor-sales/sales-export
-     * @apiErrorExample {json} All Customer Excel List error
+     * @apiErrorExample {json} Sales Export error
      * HTTP/1.1 500 Internal Server Error
      */
     salesExport(vendorId, startDate, endDate, request, response) {
@@ -644,19 +654,22 @@ let VendorSaleController = class VendorSaleController {
     }
     // payment Counts
     /**
-     * @api {get} /api/vendor-sales/payment-counts payment counts
+     * @api {Get} /api/vendor-sales/payment-counts Payment counts
      * @apiGroup Vendor Sales
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully got payment counts",
+     *      "message": "Successfully get Today order count",
      *      "data":{
+     *      "buyersCount": "",
+     *      "salesCount": "",
+     *      "revenue": ""
      *      }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-sales/payment-counts
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} Sales Counts error
      * HTTP/1.1 500 Internal Server Error
      */
     salesCounts(request, response) {
@@ -709,18 +722,11 @@ let VendorSaleController = class VendorSaleController {
     }
     // vendor sales export Download
     /**
-     * @api {get} /api/vendor-sales/vendor-sales-export Vendor sales list Export
+     * @api {Get} /api/vendor-sales/vendor-sales-export Vendor sales list Export
      * @apiGroup Vendor Sales
      * @apiParam (Request body) {String} vendorOrderId vendorOrderId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download the vendor sales List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
      * @apiSampleRequest /api/vendor-sales/vendor-sales-export
-     * @apiErrorExample {json} All Customer Excel List error
+     * @apiErrorExample {json} Vendor Sales Export error
      * HTTP/1.1 500 Internal Server Error
      */
     vendorSalesExport(vendorOrderId, request, response) {
@@ -729,7 +735,14 @@ let VendorSaleController = class VendorSaleController {
             const workbook = new excel.Workbook();
             const worksheet = workbook.addWorksheet('Vendor sales export detail');
             const rows = [];
-            const splitOrder = vendorOrderId.split(',');
+            let splitOrder;
+            if (vendorOrderId === '') {
+                const orderList = yield this.vendorOrdersService.findAll({ select: ['vendorOrderId'], where: { vendorId: request.user.vendorId, order: { paymentProcess: 1, paymentStatus: 1 } }, relations: ['order'] });
+                splitOrder = orderList.map((val => val.vendorOrderId));
+            }
+            else {
+                splitOrder = vendorOrderId.split(',');
+            }
             for (const data of splitOrder) {
                 const value = parseInt(data, 10);
                 const dataId = yield this.vendorOrdersService.searchOrderListt(value, 1);
@@ -787,18 +800,11 @@ let VendorSaleController = class VendorSaleController {
     }
     // Vendor Product Earning Export Download
     /**
-     * @api {get} /api/vendor-sales/product-earning-export Vendor Product Earning Export
+     * @api {Get} /api/vendor-sales/product-earning-export Vendor Product Earning Export
      * @apiGroup Vendor Sales
      * @apiParam (Request body) {String} productId productId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download the vendor product earning List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
      * @apiSampleRequest /api/vendor-sales/product-earning-export
-     * @apiErrorExample {json} All Customer Excel List error
+     * @apiErrorExample {json} Product Earning Export error
      * HTTP/1.1 500 Internal Server Error
      */
     productEarningExport(productId, request, response) {
@@ -880,7 +886,7 @@ let VendorSaleController = class VendorSaleController {
     }
     // Make Vendor payment Archive API
     /**
-     * @api {post} /api/vendor-sales/make-vendor-payment-archive Make Vendor Payment Archive API
+     * @api {Post} /api/vendor-sales/make-vendor-payment-archive Make Vendor Payment Archive API
      * @apiGroup Vendor Sales
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} vendorPaymentId VendorPaymentId
@@ -891,11 +897,11 @@ let VendorSaleController = class VendorSaleController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully Archived Payments",
+     *      "message": "Successfully archived your payments",
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-sales/make-vendor-payment-archive
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} MakePaymentArchive error
      * HTTP/1.1 500 Internal Server Error
      */
     makePaymentArchive(vendorPaymentId, request, response) {
@@ -908,7 +914,7 @@ let VendorSaleController = class VendorSaleController {
             if (!vendorPayment) {
                 const errorResponse = {
                     status: 0,
-                    message: 'invalid Vendor Payment Id',
+                    message: 'invalid seler payment Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -929,7 +935,7 @@ let VendorSaleController = class VendorSaleController {
     }
     // Archive Payment List API
     /**
-     * @api {get} /api/vendor-sales/archive-payment-list  Archive-Payment list API
+     * @api {Get} /api/vendor-sales/archive-payment-list  Archive-Payment list API
      * @apiGroup Vendor Sales
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -937,6 +943,10 @@ let VendorSaleController = class VendorSaleController {
      * @apiParam (Request body) {String} keyword search by orderId, customer name
      * @apiParam (Request body) {String} startDate search by startDate
      * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} customerName search by customerName
+     * @apiParam (Request body) {String} deliverylist search by deliverylist
+     * @apiParam (Request body) {String} subOrderId search by subOrderId
+     * @apiParam (Request body) {Number} count count
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
@@ -952,10 +962,17 @@ let VendorSaleController = class VendorSaleController {
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-sales/archive-payment-list
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} PaymentArchiveList error
      * HTTP/1.1 500 Internal Server Error
      */
     paymentArchiveList(limit, offset, keyword, startDate, endDate, customerName, deliverylist, subOrderId, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const getPaymentArchiveLists = yield this.getPaymentArchiveList(limit, offset, keyword, startDate, endDate, customerName, deliverylist, subOrderId, count, request);
+            return response.status(200).send(getPaymentArchiveLists);
+        });
+    }
+    getPaymentArchiveList(limit, offset, keyword, startDate, endDate, customerName, deliverylist, subOrderId, count, request) {
+        var _a;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -1054,6 +1071,14 @@ let VendorSaleController = class VendorSaleController {
                 order: 'DESC',
             });
             const orderList = yield this.vendorPaymentArchiveService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            if (count) {
+                const successResponseCount = {
+                    status: 1,
+                    message: 'Successfully got the complete payment count',
+                    data: (_a = orderList === null || orderList === void 0 ? void 0 : orderList.length) !== null && _a !== void 0 ? _a : 0,
+                };
+                return successResponseCount;
+            }
             const orderResponse = orderList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                 const temp = value;
                 temp.NetAmount = value.amount - value.commissionAmount;
@@ -1090,20 +1115,21 @@ let VendorSaleController = class VendorSaleController {
             const paymentListDetails = yield Promise.all(orderResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete payment list.',
+                message: 'Successfully got the complete payment list',
                 data: paymentListDetails,
             };
-            return response.status(200).send(successResponse);
+            return successResponse;
         });
     }
     // Archive Payment List count API
     /**
-     * @api {get} /api/vendor-sales/archive-payment-list-count  Archive-Payment list count API
+     * @api {Get} /api/vendor-sales/archive-payment-list-count  Archive-Payment list count API
      * @apiGroup Vendor Sales
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
      * @apiParam (Request body) {Number} offset offset
      * @apiParam (Request body) {String} keyword search customer name
+     * @apiParam (Request body) {String} orderId search by orderId
      * @apiParam (Request body) {String} startDate search by startDate
      * @apiParam (Request body) {String} endDate search by endDate
      * @apiSuccessExample {json} Success
@@ -1111,118 +1137,40 @@ let VendorSaleController = class VendorSaleController {
      * {
      *      "message": "Successfully got archive payment list count",
      *      "data":{
+     *      "vendorArchivePaymentId" : "",
+     *      "vendorOrderId" : "",
+     *      "subOrderId" : "",
+     *      "customerFirstName" : "",
+     *      "shippingCity" : "",
+     *      "shippingCountry" : "",
+     *      "shippingZone" : "",
+     *      "currencyCode" : "",
+     *      "currencySymbolLeft" : "",
+     *      "currencySymbolRight" : "",
+     *      "createdDate" : "",
+     *      "amount" : "",
+     *      "commissionAmount" : "",
      *      }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor-sales/archive-payment-list-count
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} PaymentArchiveListCount error
      * HTTP/1.1 500 Internal Server Error
      */
-    paymentArchiveListCount(limit, offset, keyword, startDate, endDate, deliverylist, orderId, count, request, response) {
+    paymentArchiveListCount(limit, offset, keyword, customerName, subOrderId, startDate, endDate, deliverylist, orderId, count, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
-            const date = endDate + ' 23:59:59';
-            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
-            const select = [
-                'VendorPaymentArchive.id as vendorArchivePaymentId',
-                'VendorPaymentArchive.vendorOrderId as vendorOrderId',
-                'orderDetail.shippingFirstname as customerFirstName',
-                'orderDetail.shippingCity as shippingCity',
-                'orderDetail.shippingCountry as shippingCountry',
-                'orderDetail.shippingZone as shippingZone',
-                'orderDetail.currencyCode as currencyCode',
-                'orderDetail.currencySymbolLeft as currencySymbolLeft',
-                'orderDetail.currencySymbolRight as currencySymbolRight',
-                'VendorPaymentArchive.createdDate as createdDate',
-                'VendorPaymentArchive.amount as amount',
-                'VendorPaymentArchive.commissionAmount as commissionAmount',
-            ];
-            const relations = [
-                {
-                    tableName: 'VendorPaymentArchive.paymentItems',
-                    aliasName: 'paymentItems',
-                },
-                {
-                    tableName: 'paymentItems.payment',
-                    aliasName: 'payment',
-                },
-                {
-                    tableName: 'payment.orderDetail',
-                    aliasName: 'orderDetail',
-                },
-            ];
-            const groupBy = [];
-            const whereConditions = [];
-            whereConditions.push({
-                name: 'VendorPaymentArchive.vendorId',
-                op: 'and',
-                value: request.user.vendorId,
-            });
-            if (startDate && startDate !== '') {
-                whereConditions.push({
-                    name: '`VendorPaymentArchive`.`created_date`',
-                    op: 'raw',
-                    sign: '>=',
-                    value: startDateMin,
-                });
-            }
-            if (endDate && endDate !== '') {
-                whereConditions.push({
-                    name: '`VendorPaymentArchive`.`created_date`',
-                    op: 'raw',
-                    sign: '<=',
-                    value: endDateMin,
-                });
-            }
-            const searchConditions = [];
-            if (keyword && keyword !== '') {
-                searchConditions.push({
-                    name: ['orderDetail.shippingFirstname'],
-                    value: keyword.toLowerCase(),
-                });
-            }
-            if (orderId && orderId !== '') {
-                searchConditions.push({
-                    name: ['orderProduct.orderProductPrefixId'],
-                    value: orderId,
-                });
-            }
-            const sort = [];
-            sort.push({
-                name: 'VendorPaymentArchive.createdDate',
-                order: 'DESC',
-            });
-            const orderList = yield this.vendorPaymentArchiveService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
-            const successResponse = {
-                status: 1,
-                message: 'Successfully got the complete payment list count.',
-                data: orderList,
-            };
-            return response.status(200).send(successResponse);
+            const getPaymentArchiveLists = yield this.getPaymentArchiveList(limit, offset, keyword, startDate, endDate, customerName, deliverylist, subOrderId, count, request);
+            return response.status(200).send(getPaymentArchiveLists);
         });
     }
     // Archive Payment Export API
     /**
-     * @api {get} /api/vendor-sales/bulk-archive-payment-export  Bulk Archive Payment Export API
+     * @api {Get} /api/vendor-sales/bulk-archive-payment-export  Bulk Archive Payment Export API
      * @apiGroup Vendor Sales
      * @apiParam (Request body) {Number} vendorId vendorId
      * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got archive payment list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
-     *      "status": "1"
-     * }
      * @apiSampleRequest /api/vendor-sales/bulk-archive-payment-export
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} PaymentArchiveExportBulk error
      * HTTP/1.1 500 Internal Server Error
      */
     paymentArchiveExportBulk(vendorId, count, request, response) {
@@ -1337,26 +1285,12 @@ let VendorSaleController = class VendorSaleController {
     }
     // Archive Payment Export API
     /**
-     * @api {get} /api/vendor-sales/archive-payment-export  Archive Payment Export API
+     * @api {Get} /api/vendor-sales/archive-payment-export  Archive Payment Export API
      * @apiGroup Vendor Sales
      * @apiParam (Request body) {String} vendorPaymentArchiveId vendorPaymentArchiveId
      * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got archive payment list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
-     *      "status": "1"
-     * }
      * @apiSampleRequest /api/vendor-sales/archive-payment-export
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} PaymentArchiveExport error
      * HTTP/1.1 500 Internal Server Error
      */
     paymentArchiveExport(vendorPaymentArchiveId, count, request, response) {
@@ -1364,7 +1298,14 @@ let VendorSaleController = class VendorSaleController {
             const excel = require('exceljs');
             const workbook = new excel.Workbook();
             const worksheet = workbook.addWorksheet('Payment Archive detail');
-            const splitPaymentArchive = vendorPaymentArchiveId.split(',');
+            let splitPaymentArchive;
+            if (vendorPaymentArchiveId && vendorPaymentArchiveId !== '') {
+                splitPaymentArchive = vendorPaymentArchiveId.split(',');
+            }
+            else {
+                const archivePayment = yield this.vendorPaymentArchiveService.findAll({});
+                splitPaymentArchive = archivePayment.map(value => value.id);
+            }
             for (const record of splitPaymentArchive) {
                 const dataId = yield this.vendorPaymentArchiveService.findOne({ where: { id: record } });
                 if (dataId === undefined) {
@@ -1443,7 +1384,7 @@ let VendorSaleController = class VendorSaleController {
     }
 };
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/payment-list'),
+    (0, routing_controllers_1.Get)('/payment'),
     (0, routing_controllers_1.Authorized)('vendor'),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
@@ -1460,7 +1401,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorSaleController.prototype, "paymentList", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/payment-list'),
+    (0, routing_controllers_1.Get)('/payment'),
     (0, routing_controllers_1.Authorized)('vendor'),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
@@ -1524,6 +1465,7 @@ tslib_1.__decorate([
 ], VendorSaleController.prototype, "salesCounts", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/vendor-sales-export'),
+    (0, routing_controllers_1.Authorized)('vendor'),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('vendorOrderId')),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
     tslib_1.__param(2, (0, routing_controllers_1.Res)()),
@@ -1574,15 +1516,17 @@ tslib_1.__decorate([
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
-    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('deliverylist')),
-    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('orderId')),
-    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('customerName')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('subOrderId')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('deliverylist')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(10, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(11, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, String, Object, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, Number, String, Object, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorSaleController.prototype, "paymentArchiveListCount", null);
 tslib_1.__decorate([
@@ -1597,6 +1541,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorSaleController.prototype, "paymentArchiveExportBulk", null);
 tslib_1.__decorate([
+    (0, routing_controllers_1.Authorized)('vendor'),
     (0, routing_controllers_1.Get)('/archive-payment-export'),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('vendorPaymentArchiveId')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('count')),

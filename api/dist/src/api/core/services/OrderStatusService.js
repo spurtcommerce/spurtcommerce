@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -27,6 +27,12 @@ let OrderStatusService = class OrderStatusService {
             return newOrderStatus;
         });
     }
+    update(condition, orderStatus) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const newOrderStatus = yield this.orderStatusRepository.update(condition, orderStatus);
+            return newOrderStatus;
+        });
+    }
     // find one orderStatus
     findOne(orderStatus) {
         return this.orderStatusRepository.findOne(orderStatus);
@@ -43,7 +49,6 @@ let OrderStatusService = class OrderStatusService {
         }
         condition.where = {};
         if (whereConditions && whereConditions.length > 0) {
-            console.log('whereConditions:', whereConditions);
             whereConditions.forEach((item) => {
                 condition.where[item.name] = item.value;
             });
@@ -65,6 +70,7 @@ let OrderStatusService = class OrderStatusService {
         }
         condition.order = {
             priority: 'ASC',
+            createdDate: 'DESC',
         };
         if (count) {
             return this.orderStatusRepository.count(condition);

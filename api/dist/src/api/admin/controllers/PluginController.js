@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -27,7 +27,7 @@ let PluginController = class PluginController {
     }
     // Plugin List API
     /**
-     * @api {get} /api/plugins/list Plugin List API
+     * @api {get} /api/plugins Plugin List API
      * @apiGroup Product
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} module Module
@@ -36,9 +36,19 @@ let PluginController = class PluginController {
      * {
      *      "status": "1"
      *      "message": "Successfully get product list",
-     *      "data":"{}"
+     *      "data":"{
+     *      "pluginName": "",
+     *      "pluginAvatar": "",
+     *      "pluginAvatarPath": "",
+     *      "pluginType": "",
+     *      "pluginAdditionalInfo": "",
+     *      "pluginFormInfo": "",
+     *      "pluginStatus": "",
+     *      "pluginTimestamp": "",
+     *      "routes": ""
+     *      }"
      * }
-     * @apiSampleRequest /api/plugins/list
+     * @apiSampleRequest /api/plugins
      * @apiErrorExample {json} productList error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -54,7 +64,7 @@ let PluginController = class PluginController {
             const pluginList = yield this.pluginService.list(0, 0, [], [], whereConditions, false);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the plugin list.',
+                message: 'Successfully got the plugin list',
                 data: (0, class_transformer_1.instanceToPlain)(pluginList),
             };
             return response.status(200).send(successResponse);
@@ -62,7 +72,7 @@ let PluginController = class PluginController {
     }
     // Plugin Detail API
     /**
-     * @api {get} /api/plugins/detail/:id Plugin Detail API
+     * @api {get} /api/plugins/:id Plugin Detail API
      * @apiGroup Product
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} id Plugin Id
@@ -71,9 +81,19 @@ let PluginController = class PluginController {
      * {
      *      "status": "1"
      *      "message": "Successfully get product list",
-     *      "data":"{}"
+     *      "data":"{
+     *      "pluginName": "",
+     *      "pluginAvatar": "",
+     *      "pluginAvatarPath": "",
+     *      "pluginType": "",
+     *      "pluginAdditionalInfo": "",
+     *      "pluginFormInfo": "",
+     *      "pluginStatus": "",
+     *      "pluginTimestamp": "",
+     *      "routes": ""
+     *      }"
      * }
-     * @apiSampleRequest /api/plugins/detail/:id
+     * @apiSampleRequest /api/plugins/:id
      * @apiErrorExample {json} productList error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -100,7 +120,7 @@ let PluginController = class PluginController {
             }
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the plugin Detail.',
+                message: 'Successfully got the plugin detail',
                 data: pluginFormData ? pluginFormData : pluginDetail,
             };
             return response.status(200).send(successResponse);
@@ -108,7 +128,7 @@ let PluginController = class PluginController {
     }
     // Update Plugin Status API
     /**
-     * @api {put} /api/plugins/update/plugin-status/:id Update Plugin Status API
+     * @api {put} /api/plugins/:id Update Plugin Status API
      * @apiGroup Product
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} pluginStatus
@@ -117,9 +137,11 @@ let PluginController = class PluginController {
      * {
      *      "status": "1"
      *      "message": "Successfully updated plugin status",
-     *      "data":"{}"
+     *      "data": {
+     *      "isActive": ""
+     *      }
      * }
-     * @apiSampleRequest /api/plugins/update/plugin-status/:id
+     * @apiSampleRequest /api/plugins/:id
      * @apiErrorExample {json} productList error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -156,6 +178,62 @@ let PluginController = class PluginController {
             });
         });
     }
+    // Update Plugin
+    /**
+     * @api {put} /api/plugins/logo/:id Update Plugin API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} pluginAdditionalInfo
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully updated plugin",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/plugins/logo/:id
+     * @apiErrorExample {json} plugin update error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updatePlugin(id, payload, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const plugin = yield this.pluginService.findOne({
+                where: {
+                    id,
+                },
+            });
+            if (!plugin) {
+                return response.status(400).send({
+                    status: 0,
+                    message: `Invalid Plugin Id`,
+                });
+            }
+            plugin.pluginAdditionalInfo = payload.pluginAdditionalInfo ? JSON.stringify(payload.pluginAdditionalInfo) : plugin.pluginAdditionalInfo;
+            const pluginSave = yield this.pluginService.create(plugin);
+            return response.status(200).send({
+                status: 1,
+                message: `Successfully updated plugin`,
+                data: pluginSave,
+            });
+        });
+    }
+    // Update Plugin
+    /**
+     * @api {put} /api/plugins/logo/:id Update Plugin API
+     * @apiGroup Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} image image
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully updated the plugin image",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/plugins/logo/:id
+     * @apiErrorExample {json} plugin update error
+     * HTTP/1.1 500 Internal Server Error
+     */
     updatePluginLogo(pluginId, updateParam, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const plugin = yield this.pluginService.findOne({
@@ -184,23 +262,11 @@ let PluginController = class PluginController {
             const path = 'logo/';
             const base64Only = updateParam.image.split(',')[1];
             const base64Data = Buffer.from(base64Only, 'base64');
-            const stringLength = base64Only.length;
-            const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-            const sizeInKb = sizeInBytes / 1024;
-            if (+sizeInKb <= 2048) {
-                if (env_1.env.imageserver === 's3') {
-                    yield this.s3Service.imageUpload((path + name), base64Data, mimeType);
-                }
-                else {
-                    yield this.imageService.imageUpload((path + name), base64Data);
-                }
+            if (env_1.env.imageserver === 's3') {
+                yield this.s3Service.imageUpload((path + name), base64Data, mimeType);
             }
             else {
-                const errorResponse = {
-                    status: 0,
-                    message: 'Not able to upload as the file size is too large.',
-                };
-                return response.status(400).send(errorResponse);
+                yield this.imageService.imageUpload((path + name), base64Data);
             }
             plugin.pluginAvatar = name;
             plugin.pluginAvatarPath = path;
@@ -225,7 +291,7 @@ let PluginController = class PluginController {
     }
 };
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/list'),
+    (0, routing_controllers_1.Get)(),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('module')),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
@@ -234,7 +300,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], PluginController.prototype, "pluginList", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/detail/:id')
+    (0, routing_controllers_1.Get)('/:id')
     // @Authorized()
     ,
     tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
@@ -244,7 +310,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], PluginController.prototype, "pluginDetail", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Put)('/update/plugin-status/:id'),
+    (0, routing_controllers_1.Put)('/:id'),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
     tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
@@ -253,6 +319,15 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Number, UpdatePluginStatus_1.UpdatePluginStatus, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], PluginController.prototype, "updatePluginStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/logo/:id'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], PluginController.prototype, "updatePlugin", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Put)('/logo/:id'),
     tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),

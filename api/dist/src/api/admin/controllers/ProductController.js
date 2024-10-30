@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -14,9 +14,7 @@ const routing_controllers_1 = require("routing-controllers");
 const ProductService_1 = require("../../core/services/ProductService");
 const ProductToCategoryService_1 = require("../../core/services/ProductToCategoryService");
 const ProductImageService_1 = require("../../core/services/ProductImageService");
-const ProductModel_1 = require("../../core/models/ProductModel");
 const ProductDiscount_1 = require("../../core/models/ProductDiscount");
-const VendorProducts_1 = require("../../core/models/VendorProducts");
 const ProductSpecial_1 = require("../../core/models/ProductSpecial");
 const class_transformer_1 = require("class-transformer");
 const DeleteProductRequest_1 = require("./requests/DeleteProductRequest");
@@ -38,14 +36,11 @@ const CustomerService_1 = require("../../core/services/CustomerService");
 const fs = require("fs");
 const TaxService_1 = require("../../core/services/TaxService");
 const PaymentService_1 = require("../../core/services/PaymentService");
-const path = tslib_1.__importStar(require("path"));
 const ImageService_1 = require("../../core/services/ImageService");
 const CategoryPathService_1 = require("../../core/services/CategoryPathService");
 const ProductTirePriceService_1 = require("../../core/services/ProductTirePriceService");
 const SkuService_1 = require("../../core/services/SkuService");
 const SkuModel_1 = require("../../core/models/SkuModel");
-const env_1 = require("../../../env");
-const S3Service_1 = require("../../core/services/S3Service");
 const VendorProductService_1 = require("../../core/services/VendorProductService");
 const ProductVideoService_1 = require("../../core/services/ProductVideoService");
 const ProductVideo_1 = require("../../core/models/ProductVideo");
@@ -53,18 +48,16 @@ const VendorService_1 = require("../../core/services/VendorService");
 const VendorPaymentService_1 = require("../../core/services/VendorPaymentService");
 const CustomerCartService_1 = require("../../core/services/CustomerCartService");
 const pluginLoader_1 = require("../../../loaders/pluginLoader");
-const BulkImportRequest_1 = require("./requests/BulkImportRequest");
-const CategoryModel_1 = require("../../core/models/CategoryModel");
-const CategoryPath_1 = require("../../core/models/CategoryPath");
 const product_1 = require("@spurtcommerce/product");
-const PluginService_1 = require("../../core/services/PluginService");
 const ExportLog_1 = require("../../core/models/ExportLog");
 const ExportLogService_1 = require("../../core/services/ExportLogService");
 const uncino_1 = tslib_1.__importDefault(require("uncino"));
 const typeorm_1 = require("typeorm");
+// import { TranslationMiddleware } from '../../core/middlewares/TranslationMiddleware';
 const hooks = (0, uncino_1.default)();
+// @UseBefore(TranslationMiddleware)
 let ProductController = class ProductController {
-    constructor(productService, productToCategoryService, productImageService, categoryService, orderProductService, orderService, productViewLogService, productDiscountService, productSpecialService, customerService, taxService, paymentService, categoryPathService, productTirePriceService, skuService, s3Service, productVideoService, imageService, vendorProductService, vendorServie, vendorPaymentService, customerCartService, bulkImport, pluginService, exportLogService) {
+    constructor(productService, productToCategoryService, productImageService, categoryService, orderProductService, orderService, productViewLogService, productDiscountService, productSpecialService, customerService, taxService, paymentService, categoryPathService, productTirePriceService, skuService, productVideoService, imageService, vendorProductService, vendorServie, vendorPaymentService, customerCartService, exportLogService) {
         this.productService = productService;
         this.productToCategoryService = productToCategoryService;
         this.productImageService = productImageService;
@@ -80,15 +73,12 @@ let ProductController = class ProductController {
         this.categoryPathService = categoryPathService;
         this.productTirePriceService = productTirePriceService;
         this.skuService = skuService;
-        this.s3Service = s3Service;
         this.productVideoService = productVideoService;
         this.imageService = imageService;
         this.vendorProductService = vendorProductService;
         this.vendorServie = vendorServie;
         this.vendorPaymentService = vendorPaymentService;
         this.customerCartService = customerCartService;
-        this.bulkImport = bulkImport;
-        this.pluginService = pluginService;
         this.exportLogService = exportLogService;
     }
     // Product List API
@@ -108,7 +98,31 @@ let ProductController = class ProductController {
      * {
      *      "status": "1"
      *      "message": "Successfully get product list",
-     *      "data":"{}"
+     *      "data":"[{
+     *                "productId": "",
+     *                "sku": "",
+     *                "name": "",
+     *                "quantity": "",
+     *                "keywords": "",
+     *                "price": "",
+     *                "skuId": "",
+     *                "productSlug": "",
+     *                "isActive": "",
+     *                "dateAvailable": "",
+     *                "width": "",
+     *                "height": "",
+     *                "length": "",
+     *                "weight": "",
+     *                "image": "",
+     *                "containerName": "",
+     *                "defaultImage": "",
+     *                "modifiedPrice": "",
+     *                "productDiscount": "",
+     *                "productSpecial": "",
+     *                "globe": "",
+     *                "pricerefer": "",
+     *                "flag": ""
+     *              }]"
      * }
      * @apiSampleRequest /api/product
      * @apiErrorExample {json} productList error
@@ -136,7 +150,9 @@ let ProductController = class ProductController {
                 'isActive',
                 'price',
                 'containerName',
-            ], limit, offset, keyword, sku, status, price, count);
+            ], limit, offset, keyword, undefined, sku, status, price, count
+            // request.languageId
+            );
             return response.status(200).send(list);
         });
     }
@@ -243,7 +259,41 @@ let ProductController = class ProductController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully created new product.",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *                "name": "",
+     *                "description": "",
+     *                "productSlug": "",
+     *                "sku": "",
+     *                "upc": "",
+     *                "hsn": "",
+     *                "quantity": "",
+     *                "quotationAvailable": "",
+     *                "serviceCharges": "",
+     *                "price": "",
+     *                "taxType": "",
+     *                "taxValue": "",
+     *                "stockStatusId": "",
+     *                "skuId": "",
+     *                "shipping": "",
+     *                "dateAvailable": "",
+     *                "isActive": "",
+     *                "isFeatured": "",
+     *                "todayDeals": "",
+     *                "sortOrder": "",
+     *                "height": "",
+     *                "weight": "",
+     *                "length": "",
+     *                "width": "",
+     *                "hasTirePrice": "",
+     *                "keywords": "",
+     *                "owner": "",
+     *                "createdBy": "",
+     *                "createdDate": "",
+     *                "productId": "",
+     *                "isSimplified": "",
+     *                "modifiedDate": ""
+     *     }
      * }
      * @apiSampleRequest /api/product
      * @apiErrorExample {json} AddProduct error
@@ -410,7 +460,7 @@ let ProductController = class ProductController {
             if ((product.tax < 0)) {
                 const errorResponse = {
                     status: 0,
-                    message: 'tax should not be in negative',
+                    message: 'Tax should not be in negative',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -748,6 +798,9 @@ let ProductController = class ProductController {
                 where: {
                     productId: productDetail.productId,
                 },
+                order: {
+                    sortOrder: 'ASC',
+                },
             });
             productDetails.Category = yield this.productToCategoryService.findAll({
                 select: ['categoryId', 'productId'],
@@ -756,7 +809,6 @@ let ProductController = class ProductController {
                 const category = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                     const categoryValue = yield this.categoryService.findOne({ where: { categoryId: value.categoryId } });
                     const categoryLevel = yield this.categoryPathService.findCategoryLevel(categoryValue.categorySlug);
-                    console.log(categoryLevel, 'categoryLevelcategoryLevel');
                     categoryValue.levels = categoryLevel.levels;
                     const temp = categoryValue;
                     return temp;
@@ -818,6 +870,14 @@ let ProductController = class ProductController {
                 const results = Promise.all(tirePrice);
                 return results;
             });
+            // vendor detail
+            const vendorInfo = yield this.vendorProductService.findOne({ where: { productId: id }, relations: ['vendor', 'vendor.customer'] });
+            productDetails.vendor = {
+                vendorName: vendorInfo.vendor.customer.firstName,
+                companyName: vendorInfo.vendor.companyName,
+                companyLogo: vendorInfo.vendor.companyLogo,
+                companyLogoPath: vendorInfo.vendor.companyLogoPath,
+            };
             productDetails.productVideo = yield this.productVideoService.findOne({
                 select: ['id', 'name', 'path', 'type', 'productId'],
                 where: { productId: productDetail.productId },
@@ -901,7 +961,15 @@ let ProductController = class ProductController {
      * {
      *      "message": "Successfully get top 5 repeatedly purchased customer list!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data":[{
+     *               "customerId": "",
+     *               "firstName": "",
+     *               "lastName": "",
+     *               "avatar": "",
+     *               "avatarPath": "",
+     *               "paymentCity": "",
+     *               "orderCount": ""
+     *             },,
      * }
      * @apiSampleRequest /api/product/top-five-repeatedly-purchased-customers
      * @apiErrorExample {json} top five repeatedly purchased customer list error
@@ -918,6 +986,8 @@ let ProductController = class ProductController {
                 'customer.avatarPath as avatarPath',
                 '(SELECT ca.city as paymentCity FROM address ca WHERE ca.customer_id = MAX(Order.customerId) LIMIT 1) as paymentCity',
                 'COUNT(Order.orderId) as orderCount',
+                'customer.createdDate as createdDate',
+                'customer.modifiedDate as modifiedDate',
             ];
             const relations = [{
                     tableName: 'Order.customer',
@@ -969,7 +1039,16 @@ let ProductController = class ProductController {
      * {
      *      "message": "Successfully get top performing product list!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data": [{
+     *                "topPerformingProductCount": "7",
+     *                "productName": "Dream Catcher with Lights",
+     *                "productId": 1130,
+     *                "image": "dream1_1717400542385.jpeg",
+     *                "containerName": "",
+     *                "defaultImage": 1,
+     *                "vendor": 9,
+     *                "companyName": "Fathima silks"
+     *              }],
      * }
      * @apiSampleRequest /api/product/top-performing-products
      * @apiErrorExample {json} top performing product list error
@@ -977,7 +1056,17 @@ let ProductController = class ProductController {
      */
     topPerformingProucts(limit, offset, count, duration, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const topPerformingProducts = yield this.orderProductService.topPerformingProducts(limit, offset, count, duration);
+            const topPerformingProducts = yield this.orderProductService.topPerformingProducts(limit, offset, false, duration);
+            if (count) {
+                const totalCount = topPerformingProducts.reduce((accumulator, value) => {
+                    return accumulator + Number(value.topPerformingProductCount);
+                }, 0);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got the top performing product count',
+                    data: totalCount,
+                });
+            }
             if (topPerformingProducts !== '' && topPerformingProducts !== undefined) {
                 return response.status(200).send({
                     status: 1,
@@ -1004,7 +1093,7 @@ let ProductController = class ProductController {
      * {
      *      "message": "Successfully get dashboard customers count",
      *      "status": "1",
-     *      "data": {},
+     *      "data": ""
      * }
      * @apiSampleRequest /api/product/dashboard/admin-customers-count
      * @apiErrorExample {json} dashboard customers count list error
@@ -1024,7 +1113,7 @@ let ProductController = class ProductController {
     }
     // Dashboard Orders Count API
     /**
-     * @api {get} /api/product/dashboard-admin/orders-count Dashboard Orders Count API
+     * @api {get} /api/product/orders-count Dashboard Orders Count API
      * @apiGroup Product
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
@@ -1033,9 +1122,9 @@ let ProductController = class ProductController {
      * {
      *      "message": "Successfully get dashboard orders and vendor count based on orders",
      *      "status": "1",
-     *      "data": {},
+     *      "data": "",
      * }
-     * @apiSampleRequest /api/product/dashboard-admin/orders-count
+     * @apiSampleRequest /api/dashboard/orders-count
      * @apiErrorExample {json} dashboard orders count list error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1054,7 +1143,7 @@ let ProductController = class ProductController {
     }
     // Dashboard Average Order Value API
     /**
-     * @api {get} /api/product/dashboard-average-order-value Dashboard Average Order Value API
+     * @api {get} /api/dashboard/average-order-value Dashboard Average Order Value API
      * @apiGroup Product
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
@@ -1063,9 +1152,9 @@ let ProductController = class ProductController {
      * {
      *      "message": "Successfully get average order value",
      *      "status": "1",
-     *      "data": {},
+     *      "data": "1108.07"
      * }
-     * @apiSampleRequest /api/product/dashboard-average-order-value
+     * @apiSampleRequest /api/dashboard/average-order-value
      * @apiErrorExample {json} average order value error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1086,7 +1175,7 @@ let ProductController = class ProductController {
     }
     // Dashboard Get Total Revenue API
     /**
-     * @api {get} /api/product/dashboard-total-revenue Dashboard Get Total Revenue API
+     * @api {get} /api/product/total-revenue Dashboard Get Total Revenue API
      * @apiGroup Product
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
@@ -1095,9 +1184,9 @@ let ProductController = class ProductController {
      * {
      *      "message": "Successfully get total revenue amount",
      *      "status": "1",
-     *      "data": {},
+     *      "data": 32134.01
      * }
-     * @apiSampleRequest /api/product/dashboard-total-revenue
+     * @apiSampleRequest /api/product/total-revenue
      * @apiErrorExample {json} total revenue error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1117,7 +1206,7 @@ let ProductController = class ProductController {
     }
     // Dashboard Average Conversion Ratio API
     /**
-     * @api {get} /api/product/dashboard-average-conversion-ratio Dashboard Average Conversion Ratio API
+     * @api {get} /api/dashboard/average-conversion-ratio Dashboard Average Conversion Ratio API
      * @apiGroup Product
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
@@ -1126,9 +1215,9 @@ let ProductController = class ProductController {
      * {
      *      "message": "Successfully get average conversion ratio",
      *      "status": "1",
-     *      "data": {},
+     *      "data": "",
      * }
-     * @apiSampleRequest /api/product/dashboard-average-conversion-ratio
+     * @apiSampleRequest /api/dashboard/average-conversion-ratio
      * @apiErrorExample {json} average conversion ratio error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1155,7 +1244,14 @@ let ProductController = class ProductController {
      * {
      *      "message": "Successfully get top ten weekly sales list",
      *      "status": "1",
-     *      "data": {},
+     *      "data": [{
+     *                "productName": "",
+     *                "productId": 1,
+     *                "value": [{
+     *                    "value": "",
+     *                    "days": 10
+     *                  }]
+     *              }]
      * }
      * @apiSampleRequest /api/product/dashboard/graph-weekly-saleslist
      * @apiErrorExample {json} dashboard graph weekly sales list error
@@ -1208,6 +1304,22 @@ let ProductController = class ProductController {
      * {
      *      "message": "successfully listed recent product selling!",
      *      "status": "1"
+     *      "data": "[{
+     *                 "productId": 929,
+     *                 "orderId": 410,
+     *                 "ProductName": "LG Gram16",
+     *                 "Quantity": 1,
+     *                 "Total": "118499.00",
+     *                 "CreatedDate": "2024-07-20T08:55:42.000Z",
+     *                 "skuName": "LG45676543",
+     *                 "invoiceNo": "INV00410",
+     *                 "invoicePrefix": "INV",
+     *                 "orderStatusId": 1,
+     *                 "orderPrefixId": "INV-20240720410",
+     *                 "image": "LGGRAM~1_1716895001645.jpeg",
+     *                 "containerName": "",
+     *                 "defaultImage": "1"
+     *               }]"
      * }
      * @apiSampleRequest /api/product/recent-selling-product
      * @apiErrorExample {json} Selling Product List error
@@ -1223,7 +1335,8 @@ let ProductController = class ProductController {
                 'OrderProduct.name as ProductName',
                 'OrderProduct.quantity as Quantity',
                 'OrderProduct.total as Total',
-                'OrderProduct.createdDate as CreatedDate',
+                'OrderProduct.createdDate as createdDate',
+                'OrderProduct.modifiedDate as modifiedDate',
                 'OrderProduct.skuName as skuName',
                 'product.invoiceNo as invoiceNo',
                 'product.invoicePrefix as invoicePrefix',
@@ -1272,7 +1385,22 @@ let ProductController = class ProductController {
      * {
      *      "message": "Successfully got Product view Log List..!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data": [{
+     *               "createdBy": "",
+     *               "createdDate": "",
+     *               "modifiedBy": "",
+     *               "modifiedDate": "",
+     *               "id": "",
+     *               "productId": "",
+     *               "customerId": "",
+     *               "firstName": "",
+     *               "lastName": "",
+     *               "username": "",
+     *               "email": "",
+     *               "mobileNumber": "",
+     *               "address": "",
+     *               "isActive": ""
+     *               }]
      * }
      * @apiSampleRequest /api/product/viewLog-list
      * @apiErrorExample {json} ViewLog List error
@@ -1315,7 +1443,22 @@ let ProductController = class ProductController {
      * {
      *      "message": "Successfully got Product view Log List..!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data": [{
+     *                "createdBy": null,
+     *                "createdDate": "2024-03-26T07:06:33.000Z",
+     *                "modifiedBy": null,
+     *                "modifiedDate": null,
+     *                "id": 218,
+     *                "productId": 51,
+     *                "customerId": 1,
+     *                "firstName": "adithya",
+     *                "lastName": "",
+     *                "username": "piccotalents191@gmail.com",
+     *                "email": "piccotalents191@gmail.com",
+     *                "mobileNumber": null,
+     *                "address": null,
+     *                "isActive": null
+     *              }],
      * }
      * @apiSampleRequest /api/product/customerProductView-list/:id
      * @apiErrorExample {json} customerProductView List error
@@ -1373,6 +1516,7 @@ let ProductController = class ProductController {
                     'productId',
                     'sku',
                     'productName',
+                    'description',
                     'quantity',
                     'keywords',
                     'productSlug',
@@ -1389,7 +1533,9 @@ let ProductController = class ProductController {
                     'isActive',
                     'price',
                     'containerName',
-                ], 0, 0, '', sku, status, 0, false).then((value) => {
+                ], 0, 0, '', '', sku, status, 0, false
+                // request.languageId
+                ).then((value) => {
                     console.log(value.data.map((data) => +data.productId));
                     const productListIds = value.data.map((data) => +data.productId);
                     return productListIds;
@@ -1404,6 +1550,7 @@ let ProductController = class ProductController {
             newExportLog.module = 'Manage Products';
             newExportLog.recordAvailable = productIds.length;
             newExportLog.createdBy = request.user.userId;
+            newExportLog.createdBy = 80;
             yield this.exportLogService.create(newExportLog);
             return new Promise((resolve, reject) => {
                 response.download(excelFile, (err, data) => {
@@ -1637,6 +1784,7 @@ let ProductController = class ProductController {
                 return response.status(400).send(errorResponse);
             }
             const orderProductId = yield this.orderProductService.productPaymentProcess(productid);
+            console.log(orderProductId, 'delete result');
             if (orderProductId) {
                 const errorResponse = {
                     status: 0,
@@ -1821,7 +1969,7 @@ let ProductController = class ProductController {
      * {
      *      "status": "1"
      *      "message": "Successfully get dashboard count",
-     *      "data":"{}"
+     *      "data":"{ "products": "" }"
      * }
      * @apiSampleRequest /api/product/dashboard-count
      * @apiErrorExample {json} product error
@@ -1870,7 +2018,7 @@ let ProductController = class ProductController {
      * {
      *      "status": "1"
      *      "message": "Successfully get total vendor and total product count",
-     *      "data":"{}"
+     *      "data":"{ "products": "" }"
      * }
      * @apiSampleRequest /api/product/dashboard-admin-totalvendor-totalproduct-count
      * @apiErrorExample {json} dashboard admin total vendor and total product count error
@@ -1881,7 +2029,7 @@ let ProductController = class ProductController {
             const dashboardAdmin = {};
             const select = [];
             const whereConditions = [{
-                    name: 'vendor.customerId',
+                    name: 'vendor.vendorId',
                     op: 'where',
                     value: 0,
                 }];
@@ -1893,9 +2041,12 @@ let ProductController = class ProductController {
             const totalCustomerCount = yield this.customerService.list(0, 0, search, whereConditionsForCustomers, 0, true);
             const totalVendorCount = yield this.vendorServie.vendorList(0, 0, select, [], search, whereConditions, true);
             const totalProductCount = yield this.productService.list(0, 0, select, [], [], search, 0, true);
+            // find only vendor prodcuct
+            const vendorProductCount = yield this.vendorProductService.findAll();
             dashboardAdmin.customers = totalCustomerCount;
             dashboardAdmin.vendors = totalVendorCount;
             dashboardAdmin.products = totalProductCount;
+            dashboardAdmin.vendorProduct = vendorProductCount.length;
             const successResponse = {
                 status: 1,
                 message: 'successfully got the dashboard total vendor and total product count.',
@@ -1914,7 +2065,12 @@ let ProductController = class ProductController {
      * {
      *      "status": "1"
      *      "message": "Successfully get product count",
-     *      "data":"{}"
+     *      "data":"{
+     *              "totalProduct": "",
+     *              "activeProduct": "",
+     *              "inActiveProduct": "",
+     *              "totalCategory": ""
+     *              }"
      * }
      * @apiSampleRequest /api/product/product-count
      * @apiErrorExample {json} productCount error
@@ -1944,7 +2100,7 @@ let ProductController = class ProductController {
                 },
             ];
             const inActiveProductCount = yield this.productService.list(0, 0, select, relation, whereConditionsInActive, search, 0, 1);
-            const allCategoryCount = yield this.categoryService.list(0, 0, select, search, WhereConditions, 0, 1);
+            const allCategoryCount = yield this.categoryService.list(0, 0, select, search, WhereConditions, [], 0, 1);
             product.totalProduct = allProductCount;
             product.activeProduct = activeProductCount;
             product.inActiveProduct = inActiveProductCount;
@@ -1955,647 +2111,6 @@ let ProductController = class ProductController {
                 data: product,
             };
             return response.status(200).send(successResponse);
-        });
-    }
-    // Import Product data
-    /**
-     * @api {post} /api/product/import-product-data Import product Data
-     * @apiGroup Product
-     * @apiParam (Request body) {String} file File
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully saved imported data..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/product/import-product-data
-     * @apiErrorExample {json} Import product Data
-     * HTTP/1.1 500 Internal Server Error
-     */
-    ImportProductPrice(files, request, response) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            // --
-            const StreamZip = require('node-stream-zip');
-            const random = Math.floor((Math.random() * 100) + 1);
-            const name = files.originalname;
-            const type = name.split('.')[1];
-            const mainFileName = './product_' + random + '.' + type;
-            yield this.imageService.writeFile(mainFileName, files.buffer);
-            const rimraf = require('rimraf');
-            // check zip contains invalid file
-            const zip = new StreamZip({ file: path.join(process.cwd(), mainFileName) });
-            const AcceptedFiles = ['xlsx', 'zip'];
-            const zipRead = yield new Promise((resolved, reject) => {
-                zip.on('ready', () => {
-                    const errExtension = [];
-                    for (const entry of Object.values(zip.entries())) {
-                        const fileNameEntries = (Object.values(entry)[16]).split('.')[1];
-                        if (AcceptedFiles.includes(fileNameEntries) === false) {
-                            errExtension.push(fileNameEntries);
-                        }
-                    }
-                    resolved(errExtension);
-                    // Do not forget to close the file once you're done
-                    zip.close();
-                });
-            });
-            if (zipRead.length > 0) {
-                rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
-                    if (err) {
-                        throw err;
-                    }
-                }));
-                fs.unlinkSync(path.join(process.cwd(), mainFileName));
-                return response.status(400).send({
-                    status: 0,
-                    message: 'The file you uploaded contains some invalid extensions',
-                });
-            }
-            const resolve = require('path').resolve;
-            const distPath = resolve('product_' + random);
-            yield this.imageService.extractZip(mainFileName, distPath);
-            const directoryPath = path.join(process.cwd(), 'product_' + random);
-            const mainFiles = yield this.readDir(directoryPath);
-            // check the image zip contains invalid data
-            for (const fileExtNames of mainFiles) {
-                const fileType = fileExtNames.split('.')[1];
-                if (fileType === 'zip') {
-                    const czip = new StreamZip({ file: path.join(process.cwd(), 'product_' + random + '/' + fileExtNames) });
-                    const cAcceptedFiles = ['png', 'jpg', 'jpeg'];
-                    const czipRead = yield new Promise((resolved, reject) => {
-                        czip.on('ready', () => {
-                            const cerrExtension = [];
-                            for (const entry of Object.values(czip.entries())) {
-                                const cfileNameEntries = (Object.values(entry)[16]).split('.')[1];
-                                if (cfileNameEntries) {
-                                    if (cAcceptedFiles.includes(cfileNameEntries) === false) {
-                                        cerrExtension.push(cfileNameEntries);
-                                    }
-                                }
-                            }
-                            resolved(cerrExtension);
-                            czip.close();
-                        });
-                    });
-                    if (czipRead.length > 0) {
-                        fs.unlinkSync(path.join(process.cwd(), mainFileName));
-                        return response.status(400).send({
-                            status: 0,
-                            message: 'The file you uploaded contains some invalid extensions',
-                        });
-                    }
-                }
-            }
-            try {
-                for (const fileNames of mainFiles) {
-                    const fileType = fileNames.split('.')[1];
-                    if (fileType === 'xlsx') {
-                        if (fileNames === 'productData.xlsx') {
-                            const directoryPathh = path.join(process.cwd(), 'product_' + random + '/' + fileNames);
-                            const result = yield this.imageService.xlsxToJson(directoryPathh);
-                            const forExport = yield this.bulkImport.validateAndFormatData(result);
-                            if (forExport.errorStatus) {
-                                const findDuplicateSku = forExport.data.find((obj) => obj.Error.includes('give some other name'));
-                                fs.unlinkSync(mainFileName);
-                                if (findDuplicateSku) {
-                                    throw new Error('Duplicate sku name, give some other name');
-                                }
-                                throw new Error('Oops! Data format mismatch detected');
-                            }
-                            const authorization = request.headers.authorization;
-                            const createProduct = yield this.bulkProductImport(result, authorization);
-                            return response.status(200).send({ status: 1, message: createProduct });
-                        }
-                    }
-                    else if (fileNames === 'image.zip') {
-                        const directPath = path.join(process.cwd(), 'product_' + random + '/' + fileNames);
-                        yield this.imageService.extractZip(directPath, distPath);
-                        const directoryPat = path.join(process.cwd(), 'product_' + random + '/' + 'image');
-                        const filesss = yield this.readDir(directoryPat);
-                        for (const fileNme of filesss) {
-                            const image2base64 = require('image-to-base64');
-                            const imagePath = directoryPat + '/' + fileNme;
-                            const imageType = fileNme.split('.')[1];
-                            image2base64(imagePath)
-                                .then((responsee) => tslib_1.__awaiter(this, void 0, void 0, function* () {
-                                const base64Data = Buffer.from(responsee, 'base64');
-                                if (env_1.env.imageserver === 's3') {
-                                    yield this.s3Service.imageUpload((fileNme), base64Data, imageType);
-                                }
-                                else {
-                                    yield this.imageService.imageUpload((fileNme), base64Data);
-                                }
-                            }))
-                                .catch((error) => {
-                                throw error;
-                            });
-                        }
-                    }
-                    else {
-                        rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
-                            if (err) {
-                                throw err;
-                            }
-                        }));
-                        fs.unlinkSync(mainFileName);
-                        throw new Error('Only xlsx and zip file are accepted');
-                    }
-                }
-                rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
-                    if (err) {
-                        throw err;
-                    }
-                }));
-                fs.unlinkSync(mainFileName);
-                const successResponse = {
-                    status: 1,
-                    message: 'Product Imported Successfully',
-                };
-                return response.status(200).send(successResponse);
-            }
-            catch (error) {
-                return response.status(400).send({
-                    status: 0,
-                    message: error.message,
-                });
-            }
-        });
-    }
-    bulkProductImport(jsonData, authorization) {
-        var _a, _b, _c, _d, _e, _f, _g, _h;
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const productNames = jsonData.map(value => value.Name);
-            const filterName = productNames.filter((item, index) => productNames.indexOf(item) === index);
-            const productRequest = yield this.bulkImport.bulkImportRequest(filterName, jsonData);
-            // Create category data
-            const categoryProduct = [];
-            for (const categorydata of productRequest) {
-                const categoryIds = [];
-                for (const data of categorydata.category) {
-                    const categoryArr = (_a = data.category) === null || _a === void 0 ? void 0 : _a.split('>');
-                    console.log(categoryArr, 'categoryArrcategoryArr', categorydata.category);
-                    const length = categoryArr.length;
-                    if (length === 1) {
-                        const ifCategory = yield this.categoryService.findCategory(categoryArr[0], 0);
-                        if (!ifCategory) {
-                            const newCategory = new CategoryModel_1.Category();
-                            const randomNumber = Math.floor(Math.random() * 90) + 10;
-                            newCategory.name = categoryArr[0];
-                            newCategory.sortOrder = 1;
-                            newCategory.parentInt = 0;
-                            newCategory.categorySlug = categoryArr[0] + randomNumber;
-                            newCategory.isActive = 1;
-                            const createCategoryData = yield this.categoryService.create(newCategory);
-                            const newCategoryPath = new CategoryPath_1.CategoryPath();
-                            newCategoryPath.categoryId = createCategoryData.categoryId;
-                            newCategoryPath.pathId = createCategoryData.categoryId;
-                            newCategoryPath.level = 0;
-                            yield this.categoryPathService.create(newCategoryPath);
-                            data.categoryId = createCategoryData.categoryId;
-                            categoryIds.push(data);
-                            console.log(categoryIds, 'categoryIdscategoryIdscategoryIds');
-                        }
-                        else {
-                            data.categoryId = ifCategory.categoryId;
-                            categoryIds.push(data);
-                        }
-                    }
-                    else {
-                        let index = 0;
-                        let categoryIdss = 0;
-                        let sortOrder = 1;
-                        for (const value of categoryArr) {
-                            if (index === 0) {
-                                const ifCategory = yield this.categoryService.findCategory(categoryArr[index], 0);
-                                if (!ifCategory) {
-                                    const newCategory = new CategoryModel_1.Category();
-                                    const randomNumber = Math.floor(Math.random() * 90) + 10;
-                                    newCategory.name = value;
-                                    newCategory.sortOrder = sortOrder;
-                                    newCategory.parentInt = 0;
-                                    newCategory.categorySlug = categoryArr[0] + randomNumber;
-                                    newCategory.isActive = 1;
-                                    const createCategory = yield this.categoryService.create(newCategory);
-                                    categoryIdss = createCategory.categoryId;
-                                    const newCategoryPath = new CategoryPath_1.CategoryPath();
-                                    newCategoryPath.categoryId = createCategory.categoryId;
-                                    newCategoryPath.pathId = createCategory.categoryId;
-                                    newCategoryPath.level = 0;
-                                    yield this.categoryPathService.create(newCategoryPath);
-                                    sortOrder++;
-                                }
-                                else {
-                                    categoryIdss = ifCategory.categoryId;
-                                }
-                            }
-                            else {
-                                const parentCategoryName = categoryArr[index - 1];
-                                const ifCategory = yield this.categoryService.findCategory(parentCategoryName.toLowerCase(), 0);
-                                const paentInt = ifCategory.categoryId ? ifCategory.categoryId : 0;
-                                const checkCategory = yield this.categoryService.findCategory(value.toLowerCase(), paentInt);
-                                if (!checkCategory && ifCategory) {
-                                    const newCategory = new CategoryModel_1.Category();
-                                    const randomNumber = Math.floor(Math.random() * 90) + 10;
-                                    newCategory.categorySlug = categoryArr[0] + randomNumber;
-                                    newCategory.name = value;
-                                    newCategory.sortOrder = sortOrder;
-                                    newCategory.parentInt = ifCategory.categoryId;
-                                    newCategory.isActive = 1;
-                                    const createCategory = yield this.categoryService.create(newCategory);
-                                    categoryIdss = createCategory.categoryId;
-                                    // create category path
-                                    const getAllPath = yield this.categoryPathService.find({
-                                        where: { categoryId: createCategory.parentInt },
-                                        order: { level: 'ASC' },
-                                    });
-                                    let level = 0;
-                                    for (const paths of getAllPath) {
-                                        const CategoryPathLoop = new CategoryPath_1.CategoryPath();
-                                        CategoryPathLoop.categoryId = createCategory.categoryId;
-                                        CategoryPathLoop.pathId = paths.pathId;
-                                        CategoryPathLoop.level = level;
-                                        yield this.categoryPathService.create(CategoryPathLoop);
-                                        level++;
-                                        sortOrder++;
-                                    }
-                                    const newCategoryPath = new CategoryPath_1.CategoryPath();
-                                    newCategoryPath.categoryId = createCategory.categoryId;
-                                    newCategoryPath.pathId = createCategory.categoryId;
-                                    newCategoryPath.level = level;
-                                    yield this.categoryPathService.create(newCategoryPath);
-                                }
-                                else {
-                                    categoryIdss = checkCategory.categoryId;
-                                }
-                            }
-                            index++;
-                        }
-                        data.categoryId = categoryIdss;
-                        categoryIds.push(data);
-                    }
-                }
-                categorydata.category = categoryIds;
-                categoryProduct.push(categorydata);
-            }
-            // create product datas...
-            for (const data of categoryProduct) {
-                if (data.Price === '' || data.Name === '') {
-                    throw new Error('Product Price or Product Name should not empty');
-                }
-                const product = new ProductModel_1.Product();
-                product.sku = data.SKU;
-                product.upc = data.UPC;
-                product.hsn = data.HSN;
-                product.quantity = data.Quantity;
-                // const taxType = data.TaxType?.toLowerCase() === 'percentage' ? 2 : 1;
-                product.taxType = 1;
-                product.taxValue = (_b = data.Tax) !== null && _b !== void 0 ? _b : 0;
-                product.stockStatusId = data.StockStatusId;
-                product.shipping = data.Required_Shipping;
-                const serviceCharge = {};
-                serviceCharge.productCost = data.Price;
-                serviceCharge.packingCost = data.PackageCost ? data.PackageCost : 0;
-                serviceCharge.shippingCost = data.ShippingCost ? data.ShippingCost : 0;
-                serviceCharge.others = product.others ? product.others : 0;
-                product.serviceCharges = JSON.stringify(serviceCharge);
-                product.price = +serviceCharge.productCost + +serviceCharge.packingCost + +serviceCharge.shippingCost + +serviceCharge.others;
-                product.price = data.Price;
-                product.dateAvailable = data.DateAvailable;
-                // saving sku //
-                // const findSku = await this.skuService.findOne({ where: { skuName: product.sku } });
-                // if (findSku) {
-                //     throw new Error('duplicate sku name, give some other name');
-                // }
-                const newSku = new SkuModel_1.Sku();
-                newSku.skuName = data.SKU;
-                newSku.price = data.Price;
-                newSku.quantity = data.Quantity ? Math.round(data.Quantity) : 1;
-                newSku.isActive = 1;
-                const saveSku = yield this.skuService.create(newSku);
-                // ending sku //
-                product.skuId = saveSku.id;
-                product.name = data.Name;
-                product.description = data.Description;
-                product.shipping = 1;
-                product.stockStatusId = 1;
-                product.isFeatured = 0;
-                product.todayDeals = 0;
-                product.isActive = 0;
-                product.sortOrder = 1;
-                product.isSimplified = 1;
-                // adding category name and product name in keyword field for keyword search
-                const rowsArr = [];
-                if (data.category.length > 0) {
-                    const categories = data.category;
-                    for (const categorys of categories) {
-                        const categoryNames = yield this.categoryService.findOne({
-                            where: {
-                                categoryId: categorys.categoryId,
-                            },
-                        });
-                        const categoryName = '~' + categoryNames.name + '~';
-                        rowsArr.push(categoryName);
-                    }
-                }
-                rowsArr.push('~' + data.Name + '~');
-                const values = rowsArr.toString();
-                product.keywords = values;
-                const metaTagTitle = data.ProductSlug ? data.ProductSlug : data.Name;
-                const slug = metaTagTitle.trim();
-                const dataValue = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
-                product.productSlug = yield this.validate_slug(dataValue);
-                product.height = (_c = data.Height !== '') !== null && _c !== void 0 ? _c : data.Height;
-                product.weight = (_d = data.Weight !== '') !== null && _d !== void 0 ? _d : data.Height;
-                product.width = (_e = data.Width !== '') !== null && _e !== void 0 ? _e : data.Width;
-                product.length = (_f = data.Length !== '') !== null && _f !== void 0 ? _f : data.Length;
-                const savedProduct = yield this.productService.create(product);
-                if (data.VendorId) {
-                    const vendor = yield this.vendorServie.findOne({
-                        where: {
-                            vendorId: data.VendorId,
-                        },
-                    });
-                    if (vendor) {
-                        const vendorProduct = new VendorProducts_1.VendorProducts();
-                        vendorProduct.vendorId = data.VendorId;
-                        vendorProduct.productId = savedProduct.productId;
-                        vendorProduct.approvalFlag = 0;
-                        yield this.vendorProductService.create(vendorProduct);
-                    }
-                }
-                if (data.Images) {
-                    const images = data.Images;
-                    const findI = images.toString().includes(',');
-                    if (findI === true) {
-                        const image = data.Images.split(',');
-                        for (const img of image) {
-                            const productImage = new ProductImage_1.ProductImage();
-                            productImage.image = img;
-                            productImage.containerName = '';
-                            productImage.productId = savedProduct.productId;
-                            yield this.productImageService.create(productImage);
-                        }
-                    }
-                    else {
-                        const productImage = new ProductImage_1.ProductImage();
-                        productImage.image = images;
-                        productImage.containerName = '';
-                        productImage.productId = savedProduct.productId;
-                        yield this.productImageService.create(productImage);
-                    }
-                    const findImage = yield this.productImageService.findOne({ productId: savedProduct.productId });
-                    findImage.defaultImage = 1;
-                    yield this.productImageService.create(findImage);
-                }
-                if (data.category.length >= 1) {
-                    for (const category of data.category) {
-                        const newProductToCategory = new ProductToCategory_1.ProductToCategory();
-                        newProductToCategory.productId = savedProduct.productId;
-                        newProductToCategory.categoryId = category.categoryId;
-                        newProductToCategory.isActive = 1;
-                        this.productToCategoryService.create(newProductToCategory);
-                    }
-                }
-                // Create Variant
-                const findProductVariantbuteStatus = yield this.pluginService.findOne({ where: { pluginName: 'ProductVariants', pluginStatus: 1 } });
-                if (data.variant.length > 0 && data.variant[0].variantSku !== '' && data.variant[0].variantSku && findProductVariantbuteStatus) {
-                    const variantData = data.variant;
-                    for (const datas of variantData) {
-                        yield hooks.removeHook('product-variant', 'MPV-namespace');
-                        if (pluginLoader_1.pluginModule.includes('ProductVariants')) {
-                            // Add variant hook
-                            hooks.addHook('product-variant', 'MPV-namespace', () => tslib_1.__awaiter(this, void 0, void 0, function* () {
-                                const importPath = '../../../../add-ons/ProductVariants/BulkProductVariant';
-                                const variant = yield require(importPath);
-                                return yield variant.variantProcess(datas, savedProduct.productId);
-                            }));
-                            // Run variant hook
-                            // const results =
-                            yield hooks.runHook('product-variant');
-                            // if (jsonData && results.status === 0) {
-                            //     return ({ status: 0, message: 'Invalid varient Sku !!' });
-                            // }
-                        }
-                    }
-                    // update sku quantity
-                    let quantity = 0;
-                    console.log(variantData);
-                    for (const quadata of variantData) {
-                        quantity = quantity + ((_g = quadata.variantQuantity) !== null && _g !== void 0 ? _g : 0);
-                        console.log(quantity);
-                    }
-                    if (data.variant.length > 0 && pluginLoader_1.pluginModule.includes('ProductVariants')) {
-                        const findSkuValue = yield this.skuService.findOne({ where: { id: savedProduct.skuId } });
-                        findSkuValue.quantity = quantity;
-                        yield this.skuService.create(findSkuValue);
-                        savedProduct.isSimplified = 0;
-                        yield this.productService.create(savedProduct);
-                    }
-                }
-                // Create Attribute
-                // const findProductAttributeStatus = await this.pluginService.findOne({ where: { pluginName: 'ProductAttribute', pluginStatus: 1 } });
-                // if (data.attribute.length > 0) {
-                //     await hooks.removeHook('product-attribute', 'MPA-namespace');
-                //     if (pluginModule.includes('VendorProductAttribute') && findProductAttributeStatus) {
-                //         hooks.addHook('product-attribute', 'MPA-namespace', async () => {
-                //             const importPath = '../../../../add-ons/ProductAttribute/BulkProductAttribute';
-                //             const variant = await require(importPath);
-                //             return await variant.attributeProcess(data.attribute, savedProduct.productId);
-                //         });
-                //         await hooks.runHook('product-attribute');
-                //     }
-                // }
-                const discountData = data.productDiscount;
-                // Product Discount
-                if (discountData.length > 0) {
-                    for (const discount of discountData) {
-                        const newdiscountData = new ProductDiscount_1.ProductDiscount();
-                        const skuData = yield this.skuService.findOne({ where: { skuName: discount.sku } });
-                        newdiscountData.skuId = skuData.id;
-                        newdiscountData.productId = savedProduct.productId;
-                        newdiscountData.quantity = 1;
-                        newdiscountData.priority = discount.discountPriority;
-                        newdiscountData.price = discount.discountPrice;
-                        newdiscountData.dateStart = moment(discount.discountStartDate).toISOString();
-                        newdiscountData.dateEnd = moment(discount.discountEndDate).toISOString();
-                        if (discount.discountPriority !== undefined && discount.discountStartDate !== undefined && discount.discountEndDate !== undefined) {
-                            yield this.productDiscountService.create(newdiscountData);
-                        }
-                    }
-                }
-                // Product Special
-                if (data.productSpecialPrice.length > 0) {
-                    const productSpecials = data.productSpecialPrice;
-                    for (const special of productSpecials) {
-                        const specialPriceData = new ProductSpecial_1.ProductSpecial();
-                        const skuData = yield this.skuService.findOne({ where: { skuName: special.sku } });
-                        specialPriceData.skuId = skuData.id;
-                        specialPriceData.productId = savedProduct.productId;
-                        specialPriceData.priority = special.priority;
-                        specialPriceData.price = special.price;
-                        specialPriceData.dateStart = moment(special.startDate).toISOString();
-                        specialPriceData.dateEnd = moment(special.endDate).toISOString();
-                        if (special.priority !== undefined && special.price !== undefined && special.startDate !== undefined && special.startDate !== undefined && special.endDate !== undefined) {
-                            yield this.productSpecialService.create(specialPriceData);
-                        }
-                    }
-                }
-                // Product tire price
-                if (data.productTirePrice.length > 0) {
-                    const tirePrice = data.productTirePrice;
-                    for (const tire of tirePrice) {
-                        const productTirePrice = new ProductTirePrice_1.ProductTirePrice();
-                        const skuData = yield this.skuService.findOne({ where: { skuName: tire.sku } });
-                        productTirePrice.skuId = skuData.id;
-                        productTirePrice.productId = savedProduct.productId;
-                        productTirePrice.quantity = tire.quantity;
-                        productTirePrice.price = tire.price;
-                        if (tire.quantity !== undefined && tire.price !== undefined) {
-                            yield this.productTirePriceService.create(productTirePrice);
-                        }
-                    }
-                }
-                // product video
-                if (data.video.length > 0) {
-                    for (const videoData of data.video) {
-                        const productVideo = new ProductVideo_1.ProductVideo();
-                        productVideo.productId = savedProduct.productId;
-                        productVideo.path = videoData;
-                        productVideo.type = 2;
-                        yield this.productVideoService.create(productVideo);
-                    }
-                }
-                const axios = require('axios');
-                const headers = {
-                    'Authorization': authorization,
-                    'Content-Type': 'application/json',
-                };
-                // Create Related Product
-                const relatedProductsId = (_h = data === null || data === void 0 ? void 0 : data.RelatedProductId) === null || _h === void 0 ? void 0 : _h.split(',');
-                const findProductRelated = yield this.pluginService.findOne({ where: { pluginName: 'ProductRelated', pluginStatus: 1 } });
-                if ((relatedProductsId === null || relatedProductsId === void 0 ? void 0 : relatedProductsId.length) > 0 && pluginLoader_1.pluginModule.includes('ProductRelated') && findProductRelated && relatedProductsId[0] !== '') {
-                    const relatedProductObject = {
-                        productId: savedProduct.productId,
-                        relatedProductId: relatedProductsId,
-                    };
-                    yield axios.post(env_1.env.baseUrl + '/product-related/update-product-related', relatedProductObject, { headers });
-                }
-                // Create product Seo
-                const findSeo = yield this.pluginService.findOne({ where: { pluginName: 'Seo', pluginStatus: 1 } });
-                if ((data === null || data === void 0 ? void 0 : data.MetaTagTitle) && (data === null || data === void 0 ? void 0 : data.MetaTagDescription) && (data === null || data === void 0 ? void 0 : data.MetaTagKeyword) && (data === null || data === void 0 ? void 0 : data.MetaTagTitle) !== '' && (data === null || data === void 0 ? void 0 : data.MetaTagDescription) !== '' && (data === null || data === void 0 ? void 0 : data.MetaTagKeyword) !== '') {
-                    if (pluginLoader_1.pluginModule.includes('Seo') && findSeo) {
-                        const seoObject = {
-                            metaTagTitle: data === null || data === void 0 ? void 0 : data.MetaTagTitle,
-                            metaTagDescription: data === null || data === void 0 ? void 0 : data.MetaTagDescription,
-                            metaTagKeyword: data === null || data === void 0 ? void 0 : data.MetaTagKeyword,
-                        };
-                        const seoUpload = axios.post(env_1.env.baseUrl + '/product-seo/' + savedProduct.productId, seoObject, { headers });
-                        console.log(seoUpload, 'seoUploadseoUploadseoUpload');
-                    }
-                }
-            }
-            const successMessage = 'Bulk product data created successfully!';
-            return successMessage;
-        });
-    }
-    // Download sample zip for product import
-    /**
-     * @api {get} /api/product/download-product-sample Download Product Import Sample Zip
-     * @apiGroup Product
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download the file..!!",
-     *      "status": "1",
-     * }
-     * @apiSampleRequest /api/product/download-product-sample
-     * @apiErrorExample {json} Download Data
-     * HTTP/1.1 500 Internal Server Error
-     */
-    downloadSample(response) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const excel = require('exceljs');
-            // product list excel
-            const productWorkbook = new excel.Workbook();
-            const productWorksheet = productWorkbook.addWorksheet('product List');
-            const products = [];
-            // Excel sheet column define
-            productWorksheet.columns = [
-                { header: 'productId', key: 'id', size: 16, width: 15 },
-                { header: 'ProductName', key: 'first_name', size: 16, width: 15 },
-            ];
-            productWorksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-            productWorksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-            const product = yield this.productService.find({ select: ['productId', 'name'] });
-            for (const prod of product) {
-                products.push([prod.productId, prod.name]);
-            }
-            products.push(['If you want to map multiple related Product to product,you have to give relatedProductId splitted with commas (,) ']);
-            productWorksheet.addRows(products);
-            const productFileName = './demo/Productlist.xlsx';
-            yield productWorkbook.xlsx.writeFile(productFileName);
-            // for category excel
-            const workbook = new excel.Workbook();
-            const worksheet = workbook.addWorksheet('Category List');
-            const rows = [];
-            // Excel sheet column define
-            worksheet.columns = [
-                { header: 'CategoryId', key: 'id', size: 16, width: 15 },
-                { header: 'Levels', key: 'first_name', size: 16, width: 15 },
-            ];
-            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-            const select = [
-                'CategoryPath.categoryId as categoryId',
-                'category.name as name',
-                'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'CategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',
-            ];
-            const relations = [
-                {
-                    tableName: 'CategoryPath.category',
-                    aliasName: 'category',
-                },
-                {
-                    tableName: 'CategoryPath.path',
-                    aliasName: 'path',
-                },
-            ];
-            const groupBy = [
-                {
-                    name: 'CategoryPath.category_id',
-                },
-            ];
-            const whereConditions = [];
-            const searchConditions = [];
-            const sort = [];
-            const vendorCategoryList = yield this.categoryPathService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
-            for (const id of vendorCategoryList) {
-                rows.push([id.categoryId, id.levels]);
-            }
-            rows.push(['If you want to map multiple category to product,you have to give categoryId splitted with commas (,) ']);
-            // Add all rows data in sheet
-            worksheet.addRows(rows);
-            const fileName = './demo/Category.xlsx';
-            yield workbook.xlsx.writeFile(fileName);
-            const zipfolder = require('zip-a-folder');
-            yield zipfolder.zip(path.join(process.cwd(), 'demo'), path.join(process.cwd(), 'demo.zip'));
-            const file = path.basename('/demo.zip');
-            return new Promise(() => {
-                response.download(file, 'demo.zip');
-            });
-        });
-    }
-    readDir(pathfile) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            return new Promise((subresolve, subreject) => {
-                fs.readdir(pathfile, (error, files) => {
-                    if (error) {
-                        subreject(error);
-                    }
-                    subresolve(files);
-                });
-            });
         });
     }
     // update stock  API
@@ -2629,7 +2144,65 @@ let ProductController = class ProductController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully updated product stock.",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *               "createdBy": "",
+     *               "createdDate": "",
+     *               "modifiedBy": "",
+     *               "modifiedDate": "",
+     *               "productId": "",
+     *               "sku": "",
+     *               "upc": "",
+     *               "hsn": "",
+     *               "location": "",
+     *               "quantity": "",
+     *               "minimumQuantity": "",
+     *               "subtractStock": "",
+     *               "stockStatusId": "",
+     *               "quotationAvailable": "",
+     *               "image": "",
+     *               "imagePath": "",
+     *               "manufacturerId": "",
+     *               "shipping": "",
+     *               "serviceCharges": "",
+     *               "taxType": "",
+     *               "taxValue": "",
+     *               "price": "",
+     *               "priceUpdateFileLogId": "",
+     *               "dateAvailable": "",
+     *               "sortOrder": "",
+     *               "name": "",
+     *               "description": "",
+     *               "amount": "",
+     *               "keywords": "",
+     *               "discount": "",
+     *               "deleteFlag": "",
+     *               "isFeatured": "",
+     *               "todayDeals": "",
+     *               "condition": "",
+     *               "rating": "",
+     *               "wishListStatus": "",
+     *               "productSlug": "",
+     *               "isActive": "",
+     *               "width": "",
+     *               "height": "",
+     *               "length": "",
+     *               "weight": "",
+     *               "hasStock": "",
+     *               "isSimplified": "",
+     *               "owner": "",
+     *               "isCommon": "",
+     *               "skuId": "",
+     *               "hasTirePrice": "",
+     *               "outOfStockThreshold": "",
+     *               "notifyMinQuantity": "",
+     *               "minQuantityAllowedCart": "",
+     *               "maxQuantityAllowedCart": "",
+     *               "enableBackOrders": "",
+     *               "pincodeBasedDelivery": "",
+     *               "attributeKeyword": "",
+     *               "settedAsCommonOn": ""
+     *                }
      * }
      * @apiSampleRequest /api/product/update-stock
      * @apiErrorExample {json} stock error
@@ -2645,7 +2218,7 @@ let ProductController = class ProductController {
             if (!product) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid product Id.',
+                    message: 'Invalid product Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -2661,14 +2234,14 @@ let ProductController = class ProductController {
                 if (!sku) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid sku Id.',
+                        message: 'Invalid sku Id',
                     };
                     return response.status(400).send(errorResponse);
                 }
                 if (sku.quantity < value.outOfStockThreshold) {
                     const errorResponse = {
                         status: 0,
-                        message: 'outOfStockThreshold should be less than original quantity.',
+                        message: 'outOfStockThreshold should be less than original quantity',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -2677,6 +2250,7 @@ let ProductController = class ProductController {
                 sku.minQuantityAllowedCart = value.minQuantityAllowedCart ? value.minQuantityAllowedCart : sku.minQuantityAllowedCart;
                 sku.maxQuantityAllowedCart = value.maxQuantityAllowedCart ? value.maxQuantityAllowedCart : sku.maxQuantityAllowedCart;
                 sku.enableBackOrders = value.enableBackOrders ? value.enableBackOrders : sku.enableBackOrders;
+                sku.backOrderStockLimit = value.backOrderStockLimit ? value.backOrderStockLimit : sku.backOrderStockLimit;
                 valArr.push(sku);
             }
             yield this.skuService.create(valArr);
@@ -2684,7 +2258,7 @@ let ProductController = class ProductController {
             if (productValue) {
                 const successResponse = {
                     status: 1,
-                    message: 'successfully updated stock .',
+                    message: 'successfully updated stock',
                     data: productValue,
                 };
                 return response.status(200).send(successResponse);
@@ -2718,7 +2292,14 @@ let ProductController = class ProductController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully added tire price.",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *              "productId": "",
+     *              "quantity": "",
+     *              "price": "",
+     *              "createdDate": "",
+     *              "id": ""
+     *              }
      * }
      * @apiSampleRequest /api/product/add-tire-price
      * @apiErrorExample {json} tire price error
@@ -2734,7 +2315,7 @@ let ProductController = class ProductController {
             if (!product) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid product Id.',
+                    message: 'Invalid product Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -2750,7 +2331,7 @@ let ProductController = class ProductController {
             if (productSave) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully added tire price for this product.',
+                    message: 'Successfully added tire price for this product',
                     data: productSave,
                 };
                 return response.status(200).send(successResponse);
@@ -2789,7 +2370,7 @@ let ProductController = class ProductController {
             if (!tire) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid Id.',
+                    message: 'Invalid id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -2797,7 +2378,7 @@ let ProductController = class ProductController {
             if (deleteTirePrice) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted.',
+                    message: 'Successfully deleted',
                 };
                 return response.status(200).send(successResponse);
             }
@@ -2827,7 +2408,17 @@ let ProductController = class ProductController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get tire price list",
-     *      "data":"{}"
+     *      "data": [{
+     *                 "createdBy": "",
+     *                 "createdDate": "",
+     *                 "modifiedBy": "",
+     *                 "modifiedDate": "",
+     *                 "id": "",
+     *                 "productId": "",
+     *                 "skuId": "",
+     *                 "quantity": "",
+     *                 "price": ""
+     *               }]"
      *      "status": "1"
      * }
      * @apiSampleRequest /api/product/get-product-tire-price-list
@@ -2868,7 +2459,26 @@ let ProductController = class ProductController {
      * {
      *      "status": "1"
      *      "message": "Successfully get product list",
-     *      "data":"{}"
+     *      "data": [{
+     *                 "productId": "",
+     *                 "sku":"",
+     *                 "name":"",
+     *                 "quantity":"",
+     *                 "price":"",
+     *                 "productSlug":"",
+     *                 "isActive":"",
+     *                 "hasStock":"",
+     *                 "hasTirePrice":"",
+     *                 "outOfStockThreshold":"",
+     *                 "notifyMinQuantity":"",
+     *                 "minQuantityAllowedCart":"",
+     *                 "maxQuantityAllowedCart":"",
+     *                 "maxQuantityAllowedCart":"",
+     *                 "enableBackOrders":"",
+     *                 "modifiedDate":"",
+     *                 "isSimplified":"",
+     *                 "skuId":""
+     *              }]
      * }
      * @apiSampleRequest /api/product/inventory-product-list
      * @apiErrorExample {json} productList error
@@ -2901,7 +2511,7 @@ let ProductController = class ProductController {
             if (count) {
                 const successRes = {
                     status: 1,
-                    message: 'Successfully got count ',
+                    message: 'Successfully got count',
                     data: productLists,
                 };
                 return response.status(200).send(successRes);
@@ -2916,7 +2526,7 @@ let ProductController = class ProductController {
             const value = yield Promise.all(promise);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete product list. ',
+                message: 'Successfully got the complete product list',
                 data: value,
             };
             return response.status(200).send(successResponse);
@@ -2924,7 +2534,7 @@ let ProductController = class ProductController {
     }
     //  Update sku for product API
     /**
-     * @api {post} /api/product/update-sku   update sku API
+     * @api {post} /api/product/update-sku   Update sku API
      * @apiGroup Product
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -3034,7 +2644,7 @@ let ProductController = class ProductController {
             if (count) {
                 const successRes = {
                     status: 1,
-                    message: 'Successfully got count ',
+                    message: 'Successfully got count',
                     data: productLists,
                 };
                 return response.status(200).send(successRes);
@@ -3057,7 +2667,7 @@ let ProductController = class ProductController {
             const value = yield Promise.all(promise);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete product list. ',
+                message: 'Successfully got the complete product list',
                 data: value,
             };
             return response.status(200).send(successResponse);
@@ -3107,7 +2717,7 @@ let ProductController = class ProductController {
             const value = yield Promise.all(promise);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete product list. ',
+                message: 'Successfully got the complete product list',
                 data: value,
             };
             return response.status(200).send(successResponse);
@@ -3201,7 +2811,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], ProductController.prototype, "dashboardCustomerCount", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/dashboard-admin/orders-count'),
+    (0, routing_controllers_1.Get)('/orders-count'),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('duration')),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
@@ -3211,7 +2821,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], ProductController.prototype, "dashboardOrderCount", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/dashboard-average-order-value'),
+    (0, routing_controllers_1.Get)('/average-order-value'),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('duration')),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
@@ -3221,7 +2831,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], ProductController.prototype, "averageOrderValue", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/dashboard-total-revenue'),
+    (0, routing_controllers_1.Get)('/total-revenue'),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('duration')),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
@@ -3231,7 +2841,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], ProductController.prototype, "dashboardTotalRevenue", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/dashboard-average-conversion-ratio'),
+    (0, routing_controllers_1.Get)('/average-conversion-ratio'),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('duration')),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
@@ -3308,8 +2918,9 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], ProductController.prototype, "ExportAllProducts", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Delete)('/:id'),
-    (0, routing_controllers_1.Authorized)(['admin', 'delete-product']),
+    (0, routing_controllers_1.Delete)('/:id')
+    // @Authorized(['admin', 'delete-product'])
+    ,
     tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__param(2, (0, routing_controllers_1.Req)()),
@@ -3358,23 +2969,6 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], ProductController.prototype, "productCount", null);
-tslib_1.__decorate([
-    (0, routing_controllers_1.Post)('/import-product-data'),
-    (0, routing_controllers_1.Authorized)(['admin', 'import-product']),
-    tslib_1.__param(0, (0, routing_controllers_1.UploadedFile)('file')),
-    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], ProductController.prototype, "ImportProductPrice", null);
-tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/download-product-sample'),
-    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], ProductController.prototype, "downloadSample", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Post)('/update-stock'),
     (0, routing_controllers_1.Authorized)(),
@@ -3480,15 +3074,12 @@ ProductController = tslib_1.__decorate([
         CategoryPathService_1.CategoryPathService,
         ProductTirePriceService_1.ProductTirePriceService,
         SkuService_1.SkuService,
-        S3Service_1.S3Service,
         ProductVideoService_1.ProductVideoService,
         ImageService_1.ImageService,
         VendorProductService_1.VendorProductService,
         VendorService_1.VendorService,
         VendorPaymentService_1.VendorPaymentService,
         CustomerCartService_1.CustomerCartService,
-        BulkImportRequest_1.BulkImport,
-        PluginService_1.PluginService,
         ExportLogService_1.ExportLogService])
 ], ProductController);
 exports.ProductController = ProductController;

@@ -61,6 +61,21 @@ let SanitizeMiddleware = class SanitizeMiddleware {
                 }
                 return true;
             };
+            const isValid3 = (name) => {
+                if (name.includes('<')) {
+                    return false;
+                }
+                if (name.includes('>')) {
+                    return false;
+                }
+                if (name.includes('*')) {
+                    return false;
+                }
+                if (name.includes('^')) {
+                    return false;
+                }
+                return true;
+            };
             const isValidColourCode = (input) => {
                 if (input.includes("'")) {
                     return false;
@@ -133,9 +148,15 @@ let SanitizeMiddleware = class SanitizeMiddleware {
             if (data) {
                 for (const [key, value] of Object.entries(data)) {
                     if (key !== 'password' && key !== 'confirmPassword' && key !== 'newPassword' && key !== 'oldPassword' && key !== 'productDescription' && key !== 'description'
-                        && key !== 'metaTagDescription' && key !== 'metaTagTitle' && key !== 'categoryDescription' && key !== 'widgetDescription' && key !== 'companyDescription' && key !== 'content' && key !== 'metaTagContent') {
+                        && key !== 'metaTagDescription' && key !== 'metaTagTitle' && key !== 'categoryDescription' && key !== 'widgetDescription' && key !== 'companyDescription' &&
+                        key !== 'content' && key !== 'metaTagContent' && key !== 'vendorDescription' && key !== 'companyName') {
                         if (key === 'productName' || key === 'permission') {
                             if (!isValid2(value.toString())) {
+                                return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
+                            }
+                        }
+                        else if (key === 'widgetLongTitle') {
+                            if (!isValid3(value.toString())) {
                                 return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
                             }
                         }
@@ -179,6 +200,12 @@ let SanitizeMiddleware = class SanitizeMiddleware {
                                 return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
                             }
                         }
+                        else if (key === 'widgetLongTitle') {
+                            if (!isValid3(value.toString())) {
+                                return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
+                            }
+                            return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
+                        }
                         else if (key === 'colorcode' || key === 'colorCode') {
                             if (!isValidColourCode(value.toString())) {
                                 return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
@@ -211,12 +238,18 @@ let SanitizeMiddleware = class SanitizeMiddleware {
             data = req.query;
             if (data) {
                 for (const [key, value] of Object.entries(data)) {
-                    if (key !== 'password' && key !== 'confirmPassword' && key !== 'newPassword' && key !== 'oldPassword' && key !== 'productDescription' && key !== 'description'
+                    if (key !== 'password' && key !== 'confirmPassword' && key !== 'newPassword' && key !== 'oldPassword' && key !== 'productDescription' && key !== 'description' && key !== 'attribute'
                         && key !== 'metaTagDescription' && key !== 'metaTagTitle' && key !== 'categoryDescription' && key !== 'widgetDescription' && key !== 'companyDescription' && key !== 'content' && key !== 'metaTagContent') {
                         if (key === 'productName' || key === 'permission' || key === 'keyword') {
                             if (!isValid2(value.toString())) {
                                 return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
                             }
+                        }
+                        else if (key === 'widgetLongTitle') {
+                            if (!isValid3(value.toString())) {
+                                return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
+                            }
+                            return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
                         }
                         else if (key === 'colorcode' || key === 'colorCode') {
                             if (!isValidColourCode(value.toString())) {

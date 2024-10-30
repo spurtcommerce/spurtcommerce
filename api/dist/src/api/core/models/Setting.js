@@ -60,6 +60,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], Settings.prototype, "storeOwner", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'store_name' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "storeName", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'store_description' }),
     tslib_1.__metadata("design:type", String)
 ], Settings.prototype, "storeDescription", void 0);
@@ -182,6 +186,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Number)
 ], Settings.prototype, "defaultCountry", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_guest_allowed' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "isGuestAllowed", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'country' }),
     tslib_1.__metadata("design:type", String)
 ], Settings.prototype, "country", void 0);
@@ -201,6 +209,38 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'instagram' }),
     tslib_1.__metadata("design:type", String)
 ], Settings.prototype, "instagram", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'linkedin' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "linkedin", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'youtube' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "youtube", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'youtube_logo' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "youtubeLogo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'x_logo' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "xLogo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'linkedin_logo' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "linkedinLogo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'facebook_logo' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "facebookLogo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'instagram_logo' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "instagramLogo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'social_path' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "socialPath", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'invoice_prefix' }),
     tslib_1.__metadata("design:type", String)
@@ -229,6 +269,34 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'default_website' }),
     tslib_1.__metadata("design:type", Number)
 ], Settings.prototype, "defaultWebsite", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'default_language_id' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "defaultLanguageId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'admin_logo' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "adminLogo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'admin_logo_path' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "adminLogoPath", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'seller_logo' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "sellerLogo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'seller_logo_path' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "sellerLogoPath", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'seller_logo2' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "sellerLogo2", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'seller_logo2_path' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "sellerLogo2Path", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.BeforeInsert)(),
     tslib_1.__metadata("design:type", Function),

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -33,8 +33,9 @@ const to_words_1 = require("to-words");
 const moment_1 = tslib_1.__importDefault(require("moment"));
 const CustomerService_1 = require("../../core/services/CustomerService");
 const fs = tslib_1.__importStar(require("fs"));
+const OrderFullfillmentStatusService_1 = require("../../../../src/api/core/services/OrderFullfillmentStatusService");
 let VendorAdminOrderController = class VendorAdminOrderController {
-    constructor(vendorOrdersService, orderService, orderProductService, vendorService, productService, productImageService, vendorOrderLogService, orderStatusService, pdfService, settingService, s3Service, vendorInvoiceService, vendorInvoiceItemService, vendorProductService, imageService, customerService) {
+    constructor(vendorOrdersService, orderService, orderProductService, vendorService, productService, productImageService, vendorOrderLogService, orderStatusService, pdfService, settingService, s3Service, vendorInvoiceService, vendorInvoiceItemService, vendorProductService, imageService, customerService, orderFullfillmentStatusService) {
         this.vendorOrdersService = vendorOrdersService;
         this.orderService = orderService;
         this.orderProductService = orderProductService;
@@ -51,6 +52,7 @@ let VendorAdminOrderController = class VendorAdminOrderController {
         this.vendorProductService = vendorProductService;
         this.imageService = imageService;
         this.customerService = customerService;
+        this.orderFullfillmentStatusService = orderFullfillmentStatusService;
     }
     // order List API
     /**
@@ -67,29 +69,45 @@ let VendorAdminOrderController = class VendorAdminOrderController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get order list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
+     *      "data":  {
+     *       "vendorNames": "",
+     *       "customerId": "",
+     *       "createdDate": "",
+     *       "orderId": "",
+     *       "total": "",
+     *       "currencySymbolLeft": "",
+     *       "currencySymbolRight": "",
+     *       "orderPrefixId": "",
+     *       "orderStatusId": "",
+     *       "shippingFirstName": "",
+     *       "shippingCity": "",
+     *       "shippingCountry": "",
+     *       "orderStatus": {
+     *           "orderStatusId": "",
+     *           "name": "",
+     *           "colorCode": ""
+     *       },
+     *       "productCount": "",
+     *       "vendorCount": "",
+     *       "vendorName": [
+     *           "picconew"
+     *       ]
+     *   }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/admin-vendor-order
      * @apiErrorExample {json} order error
      * HTTP/1.1 500 Internal Server Error
      */
-    orderList(limit, offset, customerName, orderPrefixId, startDate, endDate, count, vendorName, request, response) {
+    orderList(keyword, limit, offset, customerName, orderPrefixId, dateAdded, startDate, endDate, count, vendorName, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            // const startDateMin = moment(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
             const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const select = [
                 'MAX(customer.firstName) as vendorNames',
                 'orderDetail.customerId as customerId',
                 'orderDetail.createdDate as createdDate',
+                'orderDetail.modifiedDate as modifiedDate',
                 'MAX(orderDetail.orderId) as orderId',
                 'orderDetail.total as total',
                 'orderDetail.currencySymbolLeft as currencySymbolLeft',
@@ -98,6 +116,8 @@ let VendorAdminOrderController = class VendorAdminOrderController {
                 'orderDetail.orderStatusId as orderStatusId',
                 'orderDetail.shippingFirstname as shippingFirstName',
                 'orderDetail.shippingCity as shippingCity',
+                'orderDetail.paymentStatus as paymentStatus',
+                'orderDetail.paymentProcess as paymentProcess',
                 'orderDetail.shippingCountry as shippingCountry'
             ];
             const relations = [
@@ -120,14 +140,6 @@ let VendorAdminOrderController = class VendorAdminOrderController {
                 },
             ];
             const whereConditions = [];
-            // if (startDate && startDate !== '') {
-            //     whereConditions.push({
-            //         name: '`orderDetail`.`created_date`',
-            //         op: 'raw',
-            //         sign: '>=',
-            //         value: startDateMin,
-            //     });
-            // }
             whereConditions.push({
                 name: 'orderDetail.paymentProcess',
                 op: 'and',
@@ -148,6 +160,12 @@ let VendorAdminOrderController = class VendorAdminOrderController {
                     value: customerName.toLowerCase(),
                 });
             }
+            if (dateAdded) {
+                searchConditions.push({
+                    name: ['`orderDetail`.`created_date`'],
+                    value: dateAdded,
+                });
+            }
             if (startDate && startDate !== '') {
                 searchConditions.push({
                     name: ['`orderDetail`.`created_date`'],
@@ -166,20 +184,18 @@ let VendorAdminOrderController = class VendorAdminOrderController {
                     value: vendorName.toLowerCase(),
                 });
             }
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['shipping_firstname', 'customer.firstName', 'orderDetail.orderPrefixId'],
+                    value: keyword.toLowerCase(),
+                });
+            }
             const sort = [];
             sort.push({
                 name: 'orderDetail.createdDate',
                 order: 'DESC',
             });
-            const orderList = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, count, true);
-            if (count) {
-                const Response = {
-                    status: 1,
-                    message: 'Successfully got count.',
-                    data: orderList,
-                };
-                return response.status(200).send(Response);
-            }
+            const orderList = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
             const orderStatus = orderList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                 const status = yield this.orderStatusService.findOne({
                     where: { orderStatusId: value.orderStatusId },
@@ -213,9 +229,17 @@ let VendorAdminOrderController = class VendorAdminOrderController {
                 return temp;
             }));
             const results = yield Promise.all(orderStatus);
+            if (count) {
+                const Response = {
+                    status: 1,
+                    message: 'Successfully got count',
+                    data: results.length,
+                };
+                return response.status(200).send(Response);
+            }
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete order list.',
+                message: 'Successfully got the complete order list',
                 data: results,
             };
             return response.status(200).send(successResponse);
@@ -236,7 +260,55 @@ let VendorAdminOrderController = class VendorAdminOrderController {
      * {
      *      "message": "Successfully show the Order Detail..!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data": [
+     *          {
+     *              "createdDate": "2024-07-11T06:52:23.000Z",
+     *              "vendorOrderId": 240,
+     *              "subOrderId": "INV-20240711360101",
+     *              "vendorId": 10,
+     *              "subOrderStatusId": 1,
+     *              "orderProductId": 665,
+     *              "orderId": 360,
+     *              "total": "825.00",
+     *              "trackingUrl": null,
+     *              "trackingNo": null,
+     *              "productList": [
+     *                  {
+     *                      "orderProductId": 665,
+     *                      "productId": 1558,
+     *                      "orderProductPrefixId": "INV-202407113601",
+     *                      "name": "Sneakers",
+     *                      "quantity": 1,
+     *                      "discountAmount": "0.00",
+     *                      "basePrice": "800.00",
+     *                      "taxType": 1,
+     *                      "taxValue": 25,
+     *                      "total": "825.00",
+     *                      "discountedAmount": "0.00",
+     *                      "skuName": "Sneakers123",
+     *                      "couponDiscountAmount": null,
+     *                      "image": "Codify4_1701864306097.jpeg",
+     *                      "containerName": "spurtt/"
+     *                  }
+     *              ],
+     *              "customerFirstName": "vhg",
+     *              "shippingAddress1": "vhhh",
+     *              "shippingAddress2": "zsxfvgbhng",
+     *              "shippingCity": "hjhh",
+     *              "shippingPostcode": "3696",
+     *              "shippingCountry": "India",
+     *              "shippingZone": "Tamil Nadu",
+     *              "orderPrefixId": "INV-20240711360",
+     *              "email": "goyivip327@lucvu.com",
+     *              "mobileNumber": "966855",
+     *              "orderStatusName": "Order Placed",
+     *              "statusColorCode": "#6798e3",
+     *              "paymentMethod": "CashOnDelivery",
+     *              "currencySymbolLeft": "$",
+     *              "currencySymbolRight": "",
+     *              "paymentStatus": 0
+     *          }
+     *      ]
      * }
      * @apiSampleRequest /api/admin-vendor-order/order-detail
      * @apiErrorExample {json} Order Detail error
@@ -247,16 +319,20 @@ let VendorAdminOrderController = class VendorAdminOrderController {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const orderData = yield this.orderService.findOrder({
                 where: { orderId: orderid }, select: ['orderId', 'orderStatusId', 'customerId', 'email', 'telephone', 'invoiceNo', 'invoicePrefix', 'orderPrefixId', 'shippingFirstname', 'shippingLastname', 'shippingAddress1',
-                    'shippingAddress2', 'shippingCity', 'email', 'shippingZone', 'shippingPostcode', 'shippingCountry', 'customerId', 'createdDate', 'currencyCode', 'currencySymbolLeft', 'currencySymbolRight', 'paymentStatus', 'paymentFlag'],
+                    'shippingAddress2', 'shippingCity', 'email', 'shippingZone', 'shippingPostcode', 'shippingCountry', 'customerId', 'createdDate', 'modifiedDate', 'currencyCode', 'currencySymbolLeft', 'currencySymbolRight', 'paymentStatus', 'paymentFlag'],
             });
             orderData.productList = yield this.vendorOrdersService.findAll({ where: { orderId: orderid }, select: ['vendorOrderId', 'orderId', 'vendorId', 'subOrderId', 'subOrderStatusId', 'orderProductId', 'total'] }).then((val) => {
                 const productVal = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    var _a, _b, _c, _d, _e, _f;
                     const tempVal = value;
                     const vendor = yield this.vendorService.findOne({
                         where: { vendorId: value.vendorId },
                         select: ['customerId', 'companyName', 'companyAddress1', 'companyAddress2', 'companyCity', 'companyState', 'companyCountryId'],
                     });
-                    const vendorOrderProduct = yield this.orderProductService.find({ select: ['orderProductId', 'productId', 'name', 'quantity', 'total', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'orderProductPrefixId', 'skuName'], where: { orderProductId: value.orderProductId } });
+                    const vendorOrderProduct = yield this.orderProductService.find({
+                        select: ['orderProductId', 'productId', 'name', 'quantity', 'total', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'orderProductPrefixId', 'skuName', 'orderStatusId', 'trackingUrl', 'trackingNo', 'fullfillmentStatusId', 'tags'],
+                        where: { orderProductId: value.orderProductId },
+                    });
                     for (const product of vendorOrderProduct) {
                         const productImage = yield this.productImageService.findOne({
                             where: { productId: product.productId, defaultImage: 1 },
@@ -288,6 +364,24 @@ let VendorAdminOrderController = class VendorAdminOrderController {
                         tempVal.discountedAmount = product.discountedAmount;
                         tempVal.couponDiscountAmount = product.couponDiscountAmount;
                         tempVal.skuName = product.skuName;
+                        tempVal.trackingUrl = (_a = product.trackingUrl) !== null && _a !== void 0 ? _a : '';
+                        tempVal.trackingNo = (_b = product.trackingNo) !== null && _b !== void 0 ? _b : '';
+                        tempVal.tags = (_c = product.tags) !== null && _c !== void 0 ? _c : '';
+                        const orderStatus = yield this.orderStatusService.findOne({
+                            where: { orderStatusId: product.orderStatusId },
+                            select: ['name', 'colorCode'],
+                        });
+                        if (orderStatus) {
+                            tempVal.orderStatusName = orderStatus.name;
+                            tempVal.statusColorCode = orderStatus.colorCode;
+                        }
+                        const orderFullfillmentStatus = yield this.orderFullfillmentStatusService.findOne({
+                            where: { id: product.fullfillmentStatusId },
+                            select: ['name', 'colorCode'],
+                        });
+                        tempVal.fullfillmentStatusId = (_d = product.fullfillmentStatusId) !== null && _d !== void 0 ? _d : '';
+                        tempVal.orderFullfillmentStatusName = (_e = orderFullfillmentStatus === null || orderFullfillmentStatus === void 0 ? void 0 : orderFullfillmentStatus.name) !== null && _e !== void 0 ? _e : '';
+                        tempVal.orderFullfillmentStatusColorCode = (_f = orderFullfillmentStatus === null || orderFullfillmentStatus === void 0 ? void 0 : orderFullfillmentStatus.colorCode) !== null && _f !== void 0 ? _f : '';
                     }
                     tempVal.companyName = vendor.companyName;
                     tempVal.companyAddress1 = vendor.companyAddress1;
@@ -328,7 +422,7 @@ let VendorAdminOrderController = class VendorAdminOrderController {
             orderData.total = ttl;
             const successResponse = {
                 status: 1,
-                message: 'Successfully shown the order Detail. ',
+                message: 'Successfully shown the order detail',
                 data: orderData,
             };
             return response.status(200).send(successResponse);
@@ -344,15 +438,11 @@ let VendorAdminOrderController = class VendorAdminOrderController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully got vendor order log list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateAdded" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
+     *      "data": {
+     *       "orderStatusId": 1,
+     *       "name": "Order Placed",
+     *       "createdDate": "2024-06-10T05:10:45.000Z"
+     *   }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/admin-vendor-order/vendor-order-log-list
@@ -370,7 +460,7 @@ let VendorAdminOrderController = class VendorAdminOrderController {
                 },
             ];
             const orderList = yield this.vendorOrderLogService.list(0, 0, select, WhereConditions, 0);
-            const orderStatuss = yield this.orderStatusService.findAll({ select: ['orderStatusId', 'name'], where: { isActive: 1 }, orderBy: { priority: 'ASC' } });
+            const orderStatuss = yield this.orderStatusService.findAll({ select: ['orderStatusId', 'name', 'createdDate', 'modifiedDate'], where: { isActive: 1 }, orderBy: { priority: 'ASC' } });
             const order = orderStatuss.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                 const user = orderList.find(item => item.subOrderStatusId === value.orderStatusId);
                 const temp = value;
@@ -385,7 +475,7 @@ let VendorAdminOrderController = class VendorAdminOrderController {
             const result = yield Promise.all(order);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete Vendor Order Status Log list.',
+                message: 'Successfully got the complete seller order status log list',
                 data: result,
             };
             return response.status(200).send(successResponse);
@@ -405,7 +495,75 @@ let VendorAdminOrderController = class VendorAdminOrderController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully .",
-     *      "status": "1"
+     *      "status": "1",
+     *       "data": [{
+     *                   "createdBy": "",
+     *                   "createdDate": "2024-04-03T06:26:26.000Z",
+     *                   "modifiedBy": "",
+     *                   "modifiedDate": "2024-08-03 10:45:11",
+     *                   "orderId": 6,
+     *                   "customerId": 2,
+     *                   "currencyId": 1,
+     *                   "shippingZoneId": "",
+     *                   "paymentZoneId": null,
+     *                   "shippingCountryId": 99,
+     *                   "paymentCountryId": null,
+     *                   "invoiceNo": null,
+     *                   "invoicePrefix": "INV",
+     *                   "firstname": null,
+     *                   "lastname": null,
+     *                   "email": "piccotalent108@gmail.com",
+     *                   "telephone": "8876567656",
+     *                   "fax": null,
+     *                   "shippingFirstname": "santhosh",
+     *                   "shippingLastname": "",
+     *                   "shippingCompany": "Santhosh",
+     *                   "shippingAddress1": "Chennai",
+     *                   "shippingAddress2": "Chennai",
+     *                   "shippingCity": "Chennai",
+     *                   "shippingPostcode": "606603",
+     *                   "shippingCountry": "India",
+     *                   "shippingZone": "Tamil Nadu",
+     *                   "shippingAddressFormat": "",
+     *                   "shippingMethod": null,
+     *                   "paymentFirstname": "santhosh",
+     *                   "paymentLastname": "",
+     *                   "paymentCompany": "Santhosh",
+     *                   "paymentAddress1": "Chennai",
+     *                   "paymentAddress2": "Chennai",
+     *                   "paymentCity": "Chennai",
+     *                   "paymentPostcode": "606603",
+     *                   "paymentCountry": "India",
+     *                   "paymentZone": "Tamil Nadu",
+     *                   "paymentAddressFormat": "",
+     *                   "paymentMethod": "1",
+     *                   "comment": null,
+     *                   "couponCode": null,
+     *                   "discountAmount": null,
+     *                   "amount": null,
+     *                   "total": null,
+     *                   "reward": null,
+     *                   "orderStatusId": 1,
+     *                   "orderPrefixId": null,
+     *                   "affiliateId": null,
+     *                   "commision": null,
+     *                   "currencyCode": "INR",
+     *                   "currencyValue": null,
+     *                   "currencySymbolLeft": "₹",
+     *                   "currencySymbolRight": "",
+     *                   "ip": "::1",
+     *                   "paymentFlag": null,
+     *                   "paymentStatus": 0,
+     *                   "trackingUrl": null,
+     *                   "trackingNo": null,
+     *                   "orderName": null,
+     *                   "paymentType": null,
+     *                   "paymentProcess": 1,
+     *                   "paymentDetails": null,
+     *                   "backOrders": 0,
+     *                   "isActive": 1,
+     *                   "customerGstNo": ""
+     *  }]
      * }
      * @apiSampleRequest /api/admin-vendor/:orderId
      * @apiErrorExample {json} vendor approval error
@@ -413,15 +571,11 @@ let VendorAdminOrderController = class VendorAdminOrderController {
      */
     makeArchive(orderId, archiveFlag, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const order = yield this.orderService.findOne({
-                where: {
-                    orderId,
-                },
-            });
+            const order = yield this.orderService.find({ where: { orderId } });
             if (!order) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid order Id.',
+                    message: 'Invalid order Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -430,7 +584,7 @@ let VendorAdminOrderController = class VendorAdminOrderController {
             if (archiveFlag === 0) {
                 const sucResponse = {
                     status: 1,
-                    message: 'Successfully Revoked this order.',
+                    message: 'Successfully Revoked this order',
                     data: orderSave,
                 };
                 return response.status(200).send(sucResponse);
@@ -438,7 +592,7 @@ let VendorAdminOrderController = class VendorAdminOrderController {
             else {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully Archived this product.',
+                    message: 'Successfully Archived this product',
                     data: orderSave,
                 };
                 return response.status(200).send(successResponse);
@@ -487,7 +641,7 @@ let VendorAdminOrderController = class VendorAdminOrderController {
             if (!vendor) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid Vendor Id',
+                    message: 'Invalid Seller Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -571,10 +725,17 @@ let VendorAdminOrderController = class VendorAdminOrderController {
             orderData.currencyInWords = words;
             let image;
             if (env_1.env.imageserver === 's3') {
-                image = yield this.s3Service.resizeImageBase64(settingDetails.storeLogo, settingDetails.storeLogoPath, '150', '150');
+                image = yield this.s3Service.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '150', '150');
+                const error = (image === null || image === void 0 ? void 0 : image.name) || '';
+                if (error.toLowerCase() === 'error') {
+                    return response.status(400).json({
+                        status: 0,
+                        message: 'Invalid image in S3 bucket',
+                    });
+                }
             }
             else {
-                image = yield this.imageService.resizeImageBase64(settingDetails.storeLogo, settingDetails.storeLogoPath, '150', '150');
+                image = yield this.imageService.resizeImageBase64(settingDetails.invoiceLogoPath + settingDetails.invoiceLogo, '150', '150');
             }
             orderData.logo = image;
             const htmlData = yield this.pdfService.readHtmlToString('vendor-invoice', orderData);
@@ -612,21 +773,35 @@ let VendorAdminOrderController = class VendorAdminOrderController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully got order list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
+     *      "data":        {
+     *       "vendorOrderId": "",
+     *       "orderId": "",
+     *       "vendorId": "",
+     *       "subOrderId": "",
+     *       "createdDate": "",
+     *       "currencySymbolLeft": "",
+     *       "currencySymbolRight": "",
+     *       "customerFirstName": "",
+     *       "paymentStatus": "",
+     *       "total": "",
+     *       "commission": "",
+     *       "isActive": "",
+     *       "shippingCity": "",
+     *       "shippingCountry": "",
+     *       "orderProductPrefixId": "",
+     *       "orderStatusName": "",
+     *       "orderColorCode": "",
+     *       "companyName": "",
+     *       "CommissionAmount": "",
+     *       "NetAmount": ""
+     *   }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/admin-vendor-order/vendor-order-list
      * @apiErrorExample {json} order error
      * HTTP/1.1 500 Internal Server Error
      */
-    orderListtt(limit, offset, keyword, vendorIds, orderStatus, startDate, endDate, amountFrom, amountTo, count, request, response) {
+    orderListtt(limit, offset, keyword, vendorIds, orderStatus, startDate, endDate, amountFrom, amountTo, count, request, response, companyName) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -637,6 +812,7 @@ let VendorAdminOrderController = class VendorAdminOrderController {
                 'VendorOrders.vendorId as vendorId',
                 'VendorOrders.subOrderId as subOrderId',
                 'orderDetail.createdDate as createdDate',
+                'orderDetail.modifiedDate as modifiedDate',
                 'orderDetail.currencySymbolLeft as currencySymbolLeft',
                 'orderDetail.currencySymbolRight as currencySymbolRight',
                 'orderDetail.shippingFirstname as customerFirstName',
@@ -742,6 +918,12 @@ let VendorAdminOrderController = class VendorAdminOrderController {
                     value: keyword.toLowerCase(),
                 });
             }
+            if (companyName === null || companyName === void 0 ? void 0 : companyName.trim()) {
+                searchConditions.push({
+                    name: ['vendor.companyName'],
+                    value: companyName.toLowerCase(),
+                });
+            }
             const sort = [];
             sort.push({
                 name: 'orderDetail.createdDate',
@@ -751,7 +933,7 @@ let VendorAdminOrderController = class VendorAdminOrderController {
                 const orderCount = yield this.vendorOrdersService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const successCount = {
                     status: 1,
-                    message: 'Successfully got the vendor order count.',
+                    message: 'Successfully got the seller order count',
                     data: orderCount,
                 };
                 return response.status(200).send(successCount);
@@ -768,7 +950,7 @@ let VendorAdminOrderController = class VendorAdminOrderController {
             const paymentListDetails = yield Promise.all(orderResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete order list.',
+                message: 'Successfully got the complete order list',
                 data: paymentListDetails,
             };
             return response.status(200).send(successResponse);
@@ -778,18 +960,20 @@ let VendorAdminOrderController = class VendorAdminOrderController {
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)(),
     (0, routing_controllers_1.Authorized)(),
-    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
-    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
-    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('customerName')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('orderPrefixId')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('startDate')),
-    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('endDate')),
-    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('vendorName')),
-    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('customerName')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('orderPrefixId')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('dateAdded')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('vendorName')),
+    tslib_1.__param(10, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(11, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Object, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [String, Number, Number, String, String, String, String, String, Object, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorAdminOrderController.prototype, "orderList", null);
 tslib_1.__decorate([
@@ -848,8 +1032,9 @@ tslib_1.__decorate([
     tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('count')),
     tslib_1.__param(10, (0, routing_controllers_1.Req)()),
     tslib_1.__param(11, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(12, (0, routing_controllers_1.QueryParam)('companyName')),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, String, String, Object, Object, Object, String]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorAdminOrderController.prototype, "orderListtt", null);
 VendorAdminOrderController = tslib_1.__decorate([
@@ -869,7 +1054,8 @@ VendorAdminOrderController = tslib_1.__decorate([
         VendorInvoiceItemService_1.VendorInvoiceItemService,
         VendorProductService_1.VendorProductService,
         ImageService_1.ImageService,
-        CustomerService_1.CustomerService])
+        CustomerService_1.CustomerService,
+        OrderFullfillmentStatusService_1.OrderFullfillmentStatusService])
 ], VendorAdminOrderController);
 exports.VendorAdminOrderController = VendorAdminOrderController;
 //# sourceMappingURL=VendorOrderController.js.map

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -106,6 +106,9 @@ let CustomerCartService = class CustomerCartService {
                     else if (joinTb.op === 'leftCond') {
                         query.leftJoin(joinTb.tableName, joinTb.aliasName, joinTb.cond);
                     }
+                    else if (joinTb.op === 'inner-cond') {
+                        query.innerJoin(joinTb.tableName, joinTb.aliasName, joinTb.cond);
+                    }
                     else {
                         query.innerJoin(joinTb.tableName, joinTb.aliasName);
                     }
@@ -134,6 +137,9 @@ let CustomerCartService = class CustomerCartService {
                     }
                     else if (item.op === 'IS NULL' && item.sign === undefined) {
                         query.orWhere(item.name + 'IS NULL' + item.value);
+                    }
+                    else if (item.op === 'AND NULL' && item.sign === undefined) {
+                        query.andWhere(item.name + ' IS NULL' + item.value);
                     }
                     else if (item.op === 'where' && item.sign === 'like') {
                         query.andWhere('LOWER(' + item.name + ')LIKE \'%' + item.value + '%\'');

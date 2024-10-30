@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -40,7 +40,15 @@ let SettingController = class SettingController {
      * {
      *      "status": "1"
      *      "message": "Successfully get settings",
-     *      "data":"{}"
+     *      "data":"[{
+     *                "id": "",
+     *                "storeName": "",
+     *                "storeUrl": "",
+     *                "isActive": "",
+     *                "maintenance": "",
+     *                "storeDescription": "",
+     *                "pendingStatus": ""
+     *              }]"
      * }
      * @apiSampleRequest /api/settings
      * @apiErrorExample {json} getSettings error
@@ -67,6 +75,7 @@ let SettingController = class SettingController {
                         temp.symbolLeft = '';
                         temp.symbolRight = '';
                     }
+                    temp.kycMandate = env_1.env.kycMandate;
                     return temp;
                 }));
                 const value = yield Promise.all(promise);
@@ -89,6 +98,27 @@ let SettingController = class SettingController {
             return response.status(200).send(successResponse);
         });
     }
+    // Get Store Setting API
+    /**
+     * @api {get} /api/settings/store-setting Get Setting API
+     * @apiGroup Settings
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get settings",
+     *      "data":"{
+     *       "id": "",
+     *       "currencyCode": "",
+     *       "symbolLeft": "",
+     *       "symbolRight": "",
+     *       }"
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/settings/store-setting
+     * @apiErrorExample {json} getSettings error
+     * HTTP/1.1 500 Internal Server Error
+     */
     settingsListSpecific(response, request) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const settings = yield this.settingService.findOne({
@@ -125,7 +155,65 @@ let SettingController = class SettingController {
      * {
      *      "status": "1"
      *      "message": "Successfully get settings",
-     *      "data":"{}"
+     *     "data": {
+     *        "currencyCode": "",
+     *        "symbolLeft": "",
+     *        "symbolRight": "",
+     *        "createdBy": "",
+     *        "createdDate": "",
+     *        "modifiedBy": "",
+     *        "modifiedDate": "",
+     *        "settingsId": "",
+     *        "siteUrl": "",
+     *        "metaTagTitle": "",
+     *        "metaTagDescription": "",
+     *        "metaTagKeyword": "",
+     *        "siteName": "",
+     *        "businessName": "",
+     *        "storeOwner": "",
+     *        "storeDescription": "",
+     *        "accessKey": "",
+     *        "siteCategory": "",
+     *        "storeAddress1": "",
+     *        "storeAddress2": "",
+     *        "storeCity": "",
+     *        "storePostalCode": "",
+     *        "countryId": "",
+     *        "zoneId": "",
+     *        "orderStatus": "",
+     *        "storeEmail": "",
+     *        "storeTelephone": "",
+     *        "storeFax": "",
+     *        "storeLogo": "",
+     *        "storeLogoPath": "",
+     *        "emailLogo": "",
+     *        "emailLogoPath": "",
+     *        "invoiceLogo": "",
+     *        "invoiceLogoPath": "",
+     *        "maintenanceMode": "",
+     *        "storeLanguageName": "",
+     *        "storeSecondaryLanguageName": "",
+     *        "storeCurrencyId": "",
+     *        "currencySymbol": "",
+     *        "currencyFormat": "",
+     *        "storeImage": "",
+     *        "storeImagePath": "",
+     *        "dateFormat": "",
+     *        "timeFormat": "",
+     *        "defaultCountry": "",
+     *        "country": "",
+     *        "facebook": "",
+     *        "google": "",
+     *        "instagram": "",
+     *        "invoicePrefix": "",
+     *        "categoryProductCount": "",
+     *        "itemsPerPage": "",
+     *        "isActive": "",
+     *        "addons": "{ }",
+     *        "pendingStatus": "",
+     *        "defaultWebsite": "",
+     *        "countryIds": [""]
+     *       }
      * }
      * @apiSampleRequest /api/settings/:id
      * @apiErrorExample {json} getSettings error
@@ -141,7 +229,7 @@ let SettingController = class SettingController {
             if (!settings) {
                 return response.status(400).send({
                     status: 0,
-                    message: `Invalid Setting Id..!`,
+                    message: `Invalid Setting Id`,
                 });
             }
             const currencyData = yield this.currencyService.findOne({ where: { currencyId: settings.storeCurrencyId } });
@@ -156,7 +244,7 @@ let SettingController = class SettingController {
     }
     // create and update settings API
     /**
-     * @api {post} /api/settings/create-settings Create Settings API
+     * @api {post} /api/settings Create Settings API
      * @apiGroup Settings
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} siteUrl  store siteurl
@@ -221,14 +309,75 @@ let SettingController = class SettingController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully created setting.",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *        "currencyCode": "",
+     *        "symbolLeft": "",
+     *        "symbolRight": "",
+     *        "createdBy": "",
+     *        "createdDate": "",
+     *        "modifiedBy": "",
+     *        "modifiedDate": "",
+     *        "settingsId": "",
+     *        "siteUrl": "",
+     *        "metaTagTitle": "",
+     *        "metaTagDescription": "",
+     *        "metaTagKeyword": "",
+     *        "siteName": "",
+     *        "businessName": "",
+     *        "storeOwner": "",
+     *        "storeDescription": "",
+     *        "accessKey": "",
+     *        "siteCategory": "",
+     *        "storeAddress1": "",
+     *        "storeAddress2": "",
+     *        "storeCity": "",
+     *        "storePostalCode": "",
+     *        "countryId": "",
+     *        "zoneId": "",
+     *        "orderStatus": "",
+     *        "storeEmail": "",
+     *        "storeTelephone": "",
+     *        "storeFax": "",
+     *        "storeLogo": "",
+     *        "storeLogoPath": "",
+     *        "emailLogo": "",
+     *        "emailLogoPath": "",
+     *        "invoiceLogo": "",
+     *        "invoiceLogoPath": "",
+     *        "maintenanceMode": "",
+     *        "storeLanguageName": "",
+     *        "storeSecondaryLanguageName": "",
+     *        "storeCurrencyId": "",
+     *        "currencySymbol": "",
+     *        "currencyFormat": "",
+     *        "storeImage": "",
+     *        "storeImagePath": "",
+     *        "dateFormat": "",
+     *        "timeFormat": "",
+     *        "defaultCountry": "",
+     *        "country": "",
+     *        "facebook": "",
+     *        "google": "",
+     *        "instagram": "",
+     *        "invoicePrefix": "",
+     *        "categoryProductCount": "",
+     *        "itemsPerPage": "",
+     *        "isActive": "",
+     *        "addons": "{ }",
+     *        "pendingStatus": "",
+     *        "defaultWebsite": "",
+     *        "countryIds": [
+     *                   ""
+     *           ]
+     *       }
      * }
-     * @apiSampleRequest /api/settings/create-settings
+     * @apiSampleRequest /api/settings
      * @apiErrorExample {json} addSettings error
      * HTTP/1.1 500 Internal Server Error
      */
     createSettings(settings, response, request) {
-        var _a, _b, _c;
+        var _a, _b, _c, _d;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const settingValue = yield this.settingService.findOne({
                 where: {
@@ -244,7 +393,7 @@ let SettingController = class SettingController {
                 if (duplicateSiteExist) {
                     return response.status(400).send({
                         status: 0,
-                        message: `Url Already Exist..!`,
+                        message: `Url already exists`,
                     });
                 }
                 const newSettings = new Setting_1.Settings();
@@ -278,7 +427,7 @@ let SettingController = class SettingController {
                 }
                 newSettings.defaultWebsite = settings.defaultWebsite;
                 newSettings.pendingStatus = settings.pendingStatus;
-                newSettings.country = settings.country.toString();
+                newSettings.country = (_a = settings.country) === null || _a === void 0 ? void 0 : _a.toString();
                 if (settings.siteCategory) {
                     newSettings.siteCategory = settings.siteCategory;
                 }
@@ -296,29 +445,17 @@ let SettingController = class SettingController {
                     const name = 'Img_' + Date.now() + '.' + type;
                     const path = 'storeLogo/';
                     const base64Data = new Buffer(logo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                    const stringLength = logo.replace(/^data:image\/\w+;base64,/, '').length;
-                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                    const sizeInKb = sizeInBytes / 1024;
-                    if (+sizeInKb <= 2048) {
-                        if (env_1.env.imageserver === 's3') {
-                            yield this.s3Service.imageUpload((path + name), base64Data, type);
-                        }
-                        else {
-                            yield this.imageService.imageUpload((path + name), base64Data);
-                        }
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((path + name), base64Data, type);
                     }
                     else {
-                        const errorResponse = {
-                            status: 0,
-                            message: 'File size is too large, give less than 2 mb. ',
-                        };
-                        return response.status(400).send(errorResponse);
+                        yield this.imageService.imageUpload((path + name), base64Data);
                     }
                     newSettings.storeLogo = name;
                     newSettings.storeLogoPath = path;
                 }
-                if (settings.emailLogo) {
-                    const emaillogo = settings.emailLogo;
+                if (settings.mailImage) {
+                    const emaillogo = settings.mailImage;
                     const type = emaillogo.split(';')[0].split('/')[1];
                     const availableTypes = env_1.env.availImageTypes.split(',');
                     if (!availableTypes.includes(type)) {
@@ -331,26 +468,83 @@ let SettingController = class SettingController {
                     const emailLogoName = 'EmailLogo_' + Date.now() + '.' + type;
                     const emailLogoPath = 'storeLogo/';
                     const base64Data = new Buffer(emaillogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                    const stringLength = emailLogoPath.replace(/^data:image\/\w+;base64,/, '').length;
-                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                    const sizeInKb = sizeInBytes / 1024;
-                    if (+sizeInKb <= 2048) {
-                        if (env_1.env.imageserver === 's3') {
-                            yield this.s3Service.imageUpload((emailLogoPath + emailLogoName), base64Data, type);
-                        }
-                        else {
-                            yield this.imageService.imageUpload((emailLogoPath + emailLogoName), base64Data);
-                        }
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((emailLogoPath + emailLogoName), base64Data, type);
                     }
                     else {
-                        const errorResponse = {
-                            status: 0,
-                            message: 'File size is too large, give less than 2 mb. ',
-                        };
-                        return response.status(400).send(errorResponse);
+                        yield this.imageService.imageUpload((emailLogoPath + emailLogoName), base64Data);
                     }
                     newSettings.emailLogo = emailLogoName;
                     newSettings.emailLogoPath = emailLogoPath;
+                }
+                if (settings.adminLogo) {
+                    const adminLogo = settings.adminLogo;
+                    const type = adminLogo.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const adminLogoName = 'AdminLogo' + Date.now() + '.' + type;
+                    const adminLogoPath = 'storeLogo/';
+                    const base64Data = new Buffer(adminLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((adminLogoPath + adminLogoName), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((adminLogoPath + adminLogoName), base64Data);
+                    }
+                    newSettings.adminLogo = adminLogoName;
+                    newSettings.adminLogoPath = adminLogoPath;
+                }
+                if (settings.sellerLogo) {
+                    const sellerLogo = settings.sellerLogo;
+                    const type = sellerLogo.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const sellerLogoName = 'sellerLogo' + Date.now() + '.' + type;
+                    const sellerLogoPath = 'storeLogo/';
+                    const base64Data = new Buffer(sellerLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((sellerLogoPath + sellerLogoName), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((sellerLogoPath + sellerLogoName), base64Data);
+                    }
+                    newSettings.sellerLogo = sellerLogoName;
+                    newSettings.sellerLogoPath = sellerLogoPath;
+                }
+                if (settings.sellerLogo2) {
+                    const sellerLogo2 = settings.sellerLogo2;
+                    const type = sellerLogo2.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const sellerLogoName2 = 'sellerLogo' + Date.now() + '.' + type;
+                    const sellerLogoPath2 = 'storeLogo/';
+                    const base64Data = new Buffer(sellerLogo2.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((sellerLogoPath2 + sellerLogoName2), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((sellerLogoPath2 + sellerLogoName2), base64Data);
+                    }
+                    newSettings.sellerLogo2 = sellerLogoName2;
+                    newSettings.sellerLogo2Path = sellerLogoPath2;
                 }
                 if (settings.invoiceLogo) {
                     const invoiceLogo = settings.invoiceLogo;
@@ -366,23 +560,11 @@ let SettingController = class SettingController {
                     const InvoiceLogoName = 'InvoiceLogo_' + Date.now() + '.' + type;
                     const InvoiceLogoPath = 'storeLogo/';
                     const base64Data = new Buffer(invoiceLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                    const stringLength = invoiceLogo.replace(/^data:image\/\w+;base64,/, '').length;
-                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                    const sizeInKb = sizeInBytes / 1024;
-                    if (+sizeInKb <= 2048) {
-                        if (env_1.env.imageserver === 's3') {
-                            yield this.s3Service.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data, type);
-                        }
-                        else {
-                            yield this.imageService.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data);
-                        }
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data, type);
                     }
                     else {
-                        const errorResponse = {
-                            status: 0,
-                            message: 'File size is too large, give less than 2 mb. ',
-                        };
-                        return response.status(400).send(errorResponse);
+                        yield this.imageService.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data);
                     }
                     newSettings.invoiceLogo = InvoiceLogoName;
                     newSettings.invoiceLogoPath = InvoiceLogoPath;
@@ -400,8 +582,10 @@ let SettingController = class SettingController {
                     newSettings.facebook = settings.facebook;
                     newSettings.twitter = settings.twitter;
                     newSettings.instagram = settings.instagram;
+                    newSettings.youtube = settings.youtube;
+                    newSettings.linkedin = settings.linkedIn;
                     newSettings.isActive = +settings.status;
-                    newSettings.accessKey = (_a = settings.accessKey) === null || _a === void 0 ? void 0 : _a.trim();
+                    newSettings.accessKey = (_b = settings.accessKey) === null || _b === void 0 ? void 0 : _b.trim();
                 }
                 const createdData = yield this.settingService.create(newSettings);
                 if (createdData.defaultWebsite) {
@@ -411,7 +595,7 @@ let SettingController = class SettingController {
                 }
                 const successResponse = {
                     status: 1,
-                    message: 'Settings created Successfully.',
+                    message: 'Settings created Successfulll',
                     data: createdData,
                 };
                 return response.status(200).send(successResponse);
@@ -426,7 +610,7 @@ let SettingController = class SettingController {
                     if (duplicateSiteExist && duplicateSiteExist.settingsId !== settings.settingId) {
                         return response.status(400).send({
                             status: 0,
-                            message: `Url Already Exist..!`,
+                            message: `Url already exists`,
                         });
                     }
                 }
@@ -458,32 +642,9 @@ let SettingController = class SettingController {
                 settingValue.country = (settings === null || settings === void 0 ? void 0 : settings.country) ? settings.country.toString() : settingValue.country;
                 settingValue.defaultWebsite = settings.defaultWebsite;
                 settingValue.pendingStatus = settings.pendingStatus;
-                settingValue.accessKey = (_b = settings.accessKey) === null || _b === void 0 ? void 0 : _b.trim();
-                if ((_c = settings.siteCategory) === null || _c === void 0 ? void 0 : _c.trim()) {
-                    // const error: string[] = [];
-                    // const masterCategoryList: string[] = (await this.categoryService.find({
-                    //     select: ['categorySlug'],
-                    // })).map((category) => { return `'${category.categorySlug}'`});
-                    // const oldCategory: string[] = settingValue.siteCategory.split(',');
+                settingValue.accessKey = (_c = settings.accessKey) === null || _c === void 0 ? void 0 : _c.trim();
+                if ((_d = settings.siteCategory) === null || _d === void 0 ? void 0 : _d.trim()) {
                     const newCategory = settings.siteCategory.split(',');
-                    // newCategory.map(category => {
-                    //     // if (!masterCategoryList.includes(`'${category}'`)) {
-                    //     //     return response.status(400).send({
-                    //     //         status: 0,
-                    //     //         message: `Category ${category} Does Not Exist..!`,
-                    //     //     });
-                    //     // }
-                    //     if (oldCategory.includes(category)) {
-                    //         error.push(category);
-                    //     }
-                    //     return category;
-                    // });
-                    // if (error?.length > 0) {
-                    //     return response.status(400).send({
-                    //         status: 0,
-                    //         message: `Category ${error.map((errorMessage: string) => errorMessage)} Already Mapped..!`,
-                    //     });
-                    // }
                     settingValue.siteCategory = newCategory.toString();
                 }
                 if (settings.storeLogo) {
@@ -500,29 +661,17 @@ let SettingController = class SettingController {
                     const name = 'Img_' + Date.now() + '.' + type;
                     const path = 'storeLogo/';
                     const base64Data = new Buffer(logo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                    const stringLength = logo.replace(/^data:image\/\w+;base64,/, '').length;
-                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                    const sizeInKb = sizeInBytes / 1024;
-                    if (+sizeInKb <= 2048) {
-                        if (env_1.env.imageserver === 's3') {
-                            yield this.s3Service.imageUpload((path + name), base64Data, type);
-                        }
-                        else {
-                            yield this.imageService.imageUpload((path + name), base64Data);
-                        }
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((path + name), base64Data, type);
                     }
                     else {
-                        const errorResponse = {
-                            status: 0,
-                            message: 'File size is too large, give less than 2 mb. ',
-                        };
-                        return response.status(400).send(errorResponse);
+                        yield this.imageService.imageUpload((path + name), base64Data);
                     }
                     settingValue.storeLogo = name;
                     settingValue.storeLogoPath = path;
                 }
-                if (settings.emailLogo) {
-                    const emaillogo = settings.emailLogo;
+                if (settings.mailImage) {
+                    const emaillogo = settings.mailImage;
                     const type = emaillogo.split(';')[0].split('/')[1];
                     const availableTypes = env_1.env.availImageTypes.split(',');
                     if (!availableTypes.includes(type)) {
@@ -535,26 +684,83 @@ let SettingController = class SettingController {
                     const emailLogoName = 'EmailLogo_' + Date.now() + '.' + type;
                     const emailLogoPath = 'storeLogo/';
                     const base64Data = new Buffer(emaillogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                    const stringLength = emaillogo.replace(/^data:image\/\w+;base64,/, '').length;
-                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                    const sizeInKb = sizeInBytes / 1024;
-                    if (+sizeInKb <= 2048) {
-                        if (env_1.env.imageserver === 's3') {
-                            yield this.s3Service.imageUpload((emailLogoPath + emailLogoName), base64Data, type);
-                        }
-                        else {
-                            yield this.imageService.imageUpload((emailLogoPath + emailLogoName), base64Data);
-                        }
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((emailLogoPath + emailLogoName), base64Data, type);
                     }
                     else {
-                        const errorResponse = {
-                            status: 0,
-                            message: 'File size is too large, give less than 2 mb. ',
-                        };
-                        return response.status(400).send(errorResponse);
+                        yield this.imageService.imageUpload((emailLogoPath + emailLogoName), base64Data);
                     }
                     settingValue.emailLogo = emailLogoName;
                     settingValue.emailLogoPath = emailLogoPath;
+                }
+                if (settings.adminLogo) {
+                    const adminLogo = settings.adminLogo;
+                    const type = adminLogo.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const adminLogoName = 'AdminLogo' + Date.now() + '.' + type;
+                    const adminLogoPath = 'storeLogo/';
+                    const base64Data = new Buffer(adminLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((adminLogoPath + adminLogoName), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((adminLogoPath + adminLogoName), base64Data);
+                    }
+                    settingValue.adminLogo = adminLogoName;
+                    settingValue.adminLogoPath = adminLogoPath;
+                }
+                if (settings.sellerLogo) {
+                    const sellerLogo = settings.sellerLogo;
+                    const type = sellerLogo.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const sellerLogoName = 'sellerLogo' + Date.now() + '.' + type;
+                    const sellerLogoPath = 'storeLogo/';
+                    const base64Data = new Buffer(sellerLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((sellerLogoPath + sellerLogoName), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((sellerLogoPath + sellerLogoName), base64Data);
+                    }
+                    settingValue.sellerLogo = sellerLogoName;
+                    settingValue.sellerLogoPath = sellerLogoPath;
+                }
+                if (settings.sellerLogo2) {
+                    const sellerLogo2 = settings.sellerLogo2;
+                    const type = sellerLogo2.split(';')[0].split('/')[1];
+                    const availableTypes = env_1.env.availImageTypes.split(',');
+                    if (!availableTypes.includes(type)) {
+                        const errorTypeResponse = {
+                            status: 0,
+                            message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
+                        };
+                        return response.status(400).send(errorTypeResponse);
+                    }
+                    const sellerLogoName2 = 'sellerLogo' + Date.now() + '.' + type;
+                    const sellerLogoPath2 = 'storeLogo/';
+                    const base64Data = new Buffer(sellerLogo2.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((sellerLogoPath2 + sellerLogoName2), base64Data, type);
+                    }
+                    else {
+                        yield this.imageService.imageUpload((sellerLogoPath2 + sellerLogoName2), base64Data);
+                    }
+                    settingValue.sellerLogo2 = sellerLogoName2;
+                    settingValue.sellerLogo2Path = sellerLogoPath2;
                 }
                 if (settings.invoiceLogo) {
                     const invoiceLogo = settings.invoiceLogo;
@@ -562,23 +768,11 @@ let SettingController = class SettingController {
                     const InvoiceLogoName = 'InvoiceLogo_' + Date.now() + '.' + extType;
                     const InvoiceLogoPath = 'storeLogo/';
                     const base64Data = new Buffer(invoiceLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                    const stringLength = invoiceLogo.replace(/^data:image\/\w+;base64,/, '').length;
-                    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                    const sizeInKb = sizeInBytes / 1024;
-                    if (+sizeInKb <= 2048) {
-                        if (env_1.env.imageserver === 's3') {
-                            yield this.s3Service.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data, extType);
-                        }
-                        else {
-                            yield this.imageService.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data);
-                        }
+                    if (env_1.env.imageserver === 's3') {
+                        yield this.s3Service.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data, extType);
                     }
                     else {
-                        const errorResponse = {
-                            status: 0,
-                            message: 'File size is too large, give less than 2 mb. ',
-                        };
-                        return response.status(400).send(errorResponse);
+                        yield this.imageService.imageUpload((InvoiceLogoPath + InvoiceLogoName), base64Data);
                     }
                     settingValue.invoiceLogo = InvoiceLogoName;
                     settingValue.invoiceLogoPath = InvoiceLogoPath;
@@ -596,6 +790,8 @@ let SettingController = class SettingController {
                     settingValue.facebook = settings.facebook;
                     settingValue.twitter = settings.twitter;
                     settingValue.instagram = settings.instagram;
+                    settingValue.youtube = settings.youtube;
+                    settingValue.linkedin = settings.linkedIn;
                     settingValue.isActive = settings.status;
                 }
                 const updatedData = yield this.settingService.create(settingValue);
@@ -606,7 +802,7 @@ let SettingController = class SettingController {
                 }
                 const successResponse = {
                     status: 1,
-                    message: 'Settings Updated Successfully.',
+                    message: 'Settings Updated Successfully',
                     data: updatedData,
                 };
                 return response.status(200).send(successResponse);
@@ -651,7 +847,7 @@ let SettingController = class SettingController {
             if (settingSave) {
                 const successResponse = {
                     status: 1,
-                    message: 'Maintainance mode updated successfully.',
+                    message: 'Maintainance mode updated successfully',
                     data: settingSave,
                 };
                 return response.status(200).send(successResponse);
@@ -659,7 +855,7 @@ let SettingController = class SettingController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to updated maintainance',
+                    message: 'Unable to update maintainance',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -701,7 +897,7 @@ let SettingController = class SettingController {
             }
             return response.status(200).send({
                 status: 1,
-                message: `AccessKey ${siteId ? 'Updated..!' : 'Generated..!'}`,
+                message: `AccessKey ${siteId ? 'Updated' : 'Generated'}`,
                 data: {
                     accessKey: siteId ? settingsSave.accessKey : (0, uuid_1.v4)(),
                 },

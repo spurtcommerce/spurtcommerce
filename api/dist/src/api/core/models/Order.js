@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -288,6 +288,10 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'customer_gst_no' }),
     tslib_1.__metadata("design:type", String)
 ], Order.prototype, "customerGstNo", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'payment_mobile_number' }),
+    tslib_1.__metadata("design:type", String)
+], Order.prototype, "paymentMobileNumber", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.ManyToOne)(type => OrderStatus_1.OrderStatus, orderStatus => orderStatus.statusOfOrder),
     (0, typeorm_1.JoinColumn)({ name: 'order_status_id' }),

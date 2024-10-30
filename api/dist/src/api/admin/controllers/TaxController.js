@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -39,7 +39,14 @@ let TaxController = class TaxController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully created new tax.",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *         "taxName": "",
+     *         "taxPercentage": "",
+     *         "taxStatus": "",
+     *         "createdDate": "",
+     *         "taxId": ""
+     *         }
      * }
      * @apiSampleRequest /api/tax/add-tax
      * @apiErrorExample {json} Zone error
@@ -51,7 +58,7 @@ let TaxController = class TaxController {
             if (existTax) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Tax name already exits.',
+                    message: 'Tax name already exits',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -63,7 +70,7 @@ let TaxController = class TaxController {
             if (taxSave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully created new tax.',
+                    message: 'Successfully created new tax',
                     data: taxSave,
                 };
                 return response.status(200).send(successResponse);
@@ -71,7 +78,7 @@ let TaxController = class TaxController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to create tax.',
+                    message: 'unable to create tax',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -95,7 +102,14 @@ let TaxController = class TaxController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully updated Tax.",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *              "taxName": "",
+     *              "taxPercentage": "",
+     *              "taxStatus": "",
+     *              "createdDate": "",
+     *              "taxId": ""
+     *              }
      * }
      * @apiSampleRequest /api/tax/update-tax/:taxId
      * @apiErrorExample {json} Tax error
@@ -119,7 +133,7 @@ let TaxController = class TaxController {
             if (existTax) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Tax name already exits.',
+                    message: 'Tax name already exits',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -130,7 +144,7 @@ let TaxController = class TaxController {
             if (taxSave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated the tax.',
+                    message: 'Successfully updated the tax',
                     data: taxSave,
                 };
                 return response.status(200).send(successResponse);
@@ -138,7 +152,7 @@ let TaxController = class TaxController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the tax.',
+                    message: 'Unable to update the tax',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -158,7 +172,13 @@ let TaxController = class TaxController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get tax list",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *              "taxId": ""
+     *              "taxName": "",
+     *              "taxPercentage": "",
+     *              "taxStatus": "",
+     *              }
      * }
      * @apiSampleRequest /api/tax/tax-list
      * @apiErrorExample {json} Tax error
@@ -177,7 +197,7 @@ let TaxController = class TaxController {
             const taxList = yield this.taxService.list(limit, offset, select, WhereConditions, keyword, count);
             const successResponse = {
                 status: 1,
-                message: 'Successfully get all tax List',
+                message: 'Successfully get all tax list',
                 data: taxList,
             };
             return response.status(200).send(successResponse);
@@ -212,7 +232,7 @@ let TaxController = class TaxController {
             if (!tax) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid tax Id.',
+                    message: 'Invalid tax Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -224,7 +244,7 @@ let TaxController = class TaxController {
             if (product) {
                 const errResponse = {
                     status: 0,
-                    message: 'You cannot delete this tax as it is already mapped to a product.',
+                    message: 'You cannot delete this tax as it is already mapped to a product',
                 };
                 return response.status(400).send(errResponse);
             }
@@ -232,14 +252,14 @@ let TaxController = class TaxController {
             if (deleteTax) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the Tax.',
+                    message: 'Successfully deleted the tax',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the tax.',
+                    message: 'Unable to delete the tax',
                 };
                 return response.status(400).send(errorResponse);
             }

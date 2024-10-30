@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -23,6 +23,7 @@ const VendorService_1 = require("../../core/services/VendorService");
 const VendorInvoiceService_1 = require("../../core/services/VendorInvoiceService");
 const fs = tslib_1.__importStar(require("fs"));
 const moment_1 = tslib_1.__importDefault(require("moment"));
+const typeorm_1 = require("typeorm");
 let SettlementController = class SettlementController {
     constructor(settlementItemService, vendorService, vendorInvoiceService, orderService, settlementService, orderProductService, vendorOrderService) {
         this.settlementItemService = settlementItemService;
@@ -64,7 +65,7 @@ let SettlementController = class SettlementController {
                 if (!findOrder) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid order Id.',
+                        message: 'Invalid order Id',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -111,7 +112,7 @@ let SettlementController = class SettlementController {
             yield this.settlementService.create(newSettlement);
             const successResponse = {
                 status: 1,
-                message: 'Successfully created new Settlement.',
+                message: 'Successfully created new settlement',
             };
             return response.status(200).send(successResponse);
         });
@@ -134,13 +135,14 @@ let SettlementController = class SettlementController {
      * {
      *      "message": "Successfully got order list",
      *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
+     *       "id": "",
+     *       "createdDate": "",
+     *       "title": "",
+     *       "currencySymbolLeft": "",
+     *       "currencySymbolRight": "",
+     *       "totalAmount": "",
+     *       "noOfOrders": "",
+     *   }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/settlement
@@ -152,6 +154,7 @@ let SettlementController = class SettlementController {
             const select = [
                 'Settlement.id as id',
                 'Settlement.createdDate as createdDate',
+                'Settlement.modifiedDate as modifiedDate',
                 'Settlement.title as title',
                 'Settlement.currencySymbolLeft as currencySymbolLeft',
                 'Settlement.currencySymbolRight as currencySymbolRight',
@@ -209,7 +212,7 @@ let SettlementController = class SettlementController {
                 const orderCount = yield this.settlementService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const successCount = {
                     status: 1,
-                    message: 'Successfully got settlement count.',
+                    message: 'Successfully got settlement count',
                     data: orderCount,
                 };
                 return response.status(200).send(successCount);
@@ -217,7 +220,7 @@ let SettlementController = class SettlementController {
             const orderList = yield this.settlementService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got settlement list.',
+                message: 'Successfully got settlement list',
                 data: orderList,
             };
             return response.status(200).send(successResponse);
@@ -246,17 +249,6 @@ let SettlementController = class SettlementController {
             const workbook = new excel.Workbook();
             const worksheet = workbook.addWorksheet('Settlement Detail Sheet');
             const rows = [];
-            const settlementid = settlementId.split(',');
-            for (const id of settlementid) {
-                const dataId = yield this.settlementService.findOne(id);
-                if (dataId === undefined) {
-                    const errorResponse = {
-                        status: 0,
-                        message: 'Invalid settlementId',
-                    };
-                    return response.status(400).send(errorResponse);
-                }
-            }
             worksheet.columns = [
                 { header: 'Title', key: 'title', size: 16, width: 30 },
                 { header: 'Settlement Date', key: 'createdDate', size: 16, width: 15 },
@@ -267,10 +259,16 @@ let SettlementController = class SettlementController {
             worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-            for (const id of settlementid) {
-                const dataId = yield this.settlementService.findOne(id);
+            // for (const id of settlementid) {
+            const condition = {};
+            if (settlementId.trim()) {
+                condition.where = { id: (0, typeorm_1.In)(settlementId.split(',')) };
+            }
+            const dataIds = yield this.settlementService.findAll(condition);
+            for (const dataId of dataIds) {
                 rows.push([dataId.title, dataId.createdDate, dataId.noOfOrders, dataId.totalAmount]);
             }
+            // }
             // Add all rows data in sheet
             worksheet.addRows(rows);
             const fileName = './SettlementExcel' + Date.now() + '.xlsx';
@@ -417,8 +415,19 @@ let SettlementController = class SettlementController {
      * HTTP/1.1 200 OK
      * {
      * "message": "Successfully get settlement detail",
-     * "data":{
-     * }
+     * "data": {
+     *   "createdBy": "",
+     *   "createdDate": "",
+     *   "modifiedBy": "",
+     *   "modifiedDate": "",
+     *   "id": "",
+     *   "title": "",
+     *   "noOfOrders": "",
+     *   "totalAmount": "",
+     *   "currencySymbolLeft": "",
+     *   "currencySymbolRight": "",
+     *   "items": []
+     *  }
      * "status": "1"
      * }
      * @apiSampleRequest /api/settlement/settlement/:id
@@ -435,7 +444,7 @@ let SettlementController = class SettlementController {
             });
             const successResponse = {
                 status: 1,
-                message: 'successfully got Settlement details. ',
+                message: 'successfully got Settlement details',
                 data: settlement,
             };
             return response.status(200).send(successResponse);
@@ -469,7 +478,7 @@ let SettlementController = class SettlementController {
                 if (!dataId) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid settlement Id.',
+                        message: 'Invalid settlement Id',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -479,7 +488,7 @@ let SettlementController = class SettlementController {
             }
             const successResponse = {
                 status: 1,
-                message: 'Successfully deleted the settlement.',
+                message: 'Successfully deleted the settlement',
             };
             return response.status(200).send(successResponse);
         });
@@ -500,8 +509,40 @@ let SettlementController = class SettlementController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully got vendor sales report list",
-     *      "data":{
-     *      }
+     *      "data": {
+     *       "vendorId": "",
+     *       "companyName": "",
+     *       "companyState": "",
+     *       "vendorOrderId": "",
+     *       "vendorOrderDetails": [
+     *           {
+     *               "vendorOrderId": "",
+     *               "orderId": "",
+     *               "vendorId": "",
+     *               "orderProductPrefixId": "",
+     *               "quantity": "",
+     *               "name": "",
+     *               "price": "",
+     *               "basePrice": "",
+     *               "skuName": "",
+     *               "taxType": "",
+     *               "taxValue": "",
+     *               "total": "",
+     *               "subOrderId": "",
+     *               "commission": "",
+     *               "createdDate": "",
+     *               "currencySymbolLeft": "",
+     *               "currencySymbolRight": "",
+     *               "cancelRequestStatus": "",
+     *               "paymentZone": "",
+     *               "productName": "",
+     *               "orderStatusName": "",
+     *               "orderColorCode": "",
+     *               "taxTypeValue": "",
+     *               "invoiceNo": "",
+     *               "invoicePrefix": ""
+     *           }
+     *      ]
      *      "status": "1"
      * }
      * @apiSampleRequest /api/settlement/vendor-sales-report-list
@@ -577,7 +618,7 @@ let SettlementController = class SettlementController {
                 const orderCount = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const successCount = {
                     status: 1,
-                    message: 'Successfully got sales report count.',
+                    message: 'Successfully got sales report count',
                     data: orderCount,
                 };
                 return response.status(200).send(successCount);
@@ -695,7 +736,7 @@ let SettlementController = class SettlementController {
             const orderListDetails = yield Promise.all(orderResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got vendor sales list.',
+                message: 'Successfully got seller list',
                 data: orderListDetails,
             };
             return response.status(200).send(successResponse);
@@ -717,8 +758,44 @@ let SettlementController = class SettlementController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully got total sales report list",
-     *      "data":{
-     *      }
+     *      "data": {
+     *       "vendorOrderId": "",
+     *       "orderPrefixId": "",
+     *       "orderId": "",
+     *       "orderProduct": [
+     *           {
+     *               "vendorId": "",
+     *               "companyName": "",
+     *               "companyState": "",
+     *               "vendorOrderId": "",
+     *               "orderId": "",
+     *               "orderProductPrefixId": "",
+     *               "quantity": "",
+     *               "orderProductId": "",
+     *               "name": "",
+     *               "price": "",
+     *               "basePrice": "",
+     *               "skuName": "",
+     *               "taxType": "",
+     *               "taxValue": "",
+     *               "total": "",
+     *               "subOrderId": "",
+     *               "commission": "",
+     *               "createdDate": "",
+     *               "currencySymbolLeft": "",
+     *               "currencySymbolRight": "",
+     *               "orderPrefixId": "",
+     *               "paymentZone": "",
+     *               "productName": "",
+     *               "cancelRequestStatus": "",
+     *               "orderStatusName": "",
+     *               "orderColorCode": "",
+     *               "invoiceNo": "",
+     *               "invoicePrefix": "",
+     *               "taxTypeValue": ""
+     *           }
+     *       ]
+     *   }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/settlement/total-sales-report-list
@@ -802,7 +879,7 @@ let SettlementController = class SettlementController {
                 const orderCount = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const successCount = {
                     status: 1,
-                    message: 'Successfully got sales report count.',
+                    message: 'Successfully got sales report count',
                     data: orderCount,
                 };
                 return response.status(200).send(successCount);
@@ -938,7 +1015,7 @@ let SettlementController = class SettlementController {
             const orderListDetails = yield Promise.all(orderResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got total vendor sales list.',
+                message: 'Successfully got total seller sales list',
                 data: orderListDetails,
             };
             return response.status(200).send(successResponse);
@@ -961,8 +1038,43 @@ let SettlementController = class SettlementController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully got Settlement report list",
-     *      "data":{
-     *      }
+     *      "data": {
+     *       "vendorId": "",
+     *       "companyName": "",
+     *       "companyState": "",
+     *       "subOrderStatusId": "",
+     *       "vendorOrderId": "",
+     *       "vendorOrderDetails": [
+     *           {
+     *               "vendorOrderId": "",
+     *               "orderId": "",
+     *               "vendorId": "",
+     *               "subOrderStatusId": "",
+     *               "orderProductPrefixId": "",
+     *               "quantity": "",
+     *               "name": "",
+     *               "price": "",
+     *               "basePrice": "",
+     *               "skuName": "",
+     *               "taxType": "",
+     *               "taxValue": "",
+     *               "total": "",
+     *               "subOrderId": "",
+     *               "commission": "",
+     *               "createdDate": "",
+     *               "currencySymbolLeft": "",
+     *               "currencySymbolRight": "",
+     *               "productName": "",
+     *               "paymentZone": "",
+     *               "cancelRequestStatus": "",
+     *               "orderStatusName": "",
+     *               "orderColorCode": "",
+     *               "makeSettlement": "",
+     *               "invoiceNo": "",
+     *               "invoicePrefix": "",
+     *               "taxTypeValue": "",
+     *               "settlementStatus": ""
+     *           }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/settlement/settlement-report-list
@@ -1060,7 +1172,7 @@ let SettlementController = class SettlementController {
                 const orderCount = yield this.vendorOrderService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const successCount = {
                     status: 1,
-                    message: 'Successfully got sales report count.',
+                    message: 'Successfully got sales report count',
                     data: orderCount,
                 };
                 return response.status(200).send(successCount);
@@ -1215,7 +1327,7 @@ let SettlementController = class SettlementController {
             const orderListDetails = yield Promise.all(orderResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got settlement report list.',
+                message: 'Successfully got settlement report list',
                 data: orderListDetails,
             };
             return response.status(200).send(successResponse);
@@ -1490,7 +1602,7 @@ let SettlementController = class SettlementController {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
-            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+            const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD');
             const excel = require('exceljs');
             const workbook = new excel.Workbook();
             const worksheet = workbook.addWorksheet('Total Vendor Sales Export sheet', { properties: { defaultColWidth: 35 } });
