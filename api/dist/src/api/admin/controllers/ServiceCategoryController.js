@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * http://api.spurtcommerce.com
  *
  * Copyright (c) 2021 piccosoft ltd
@@ -82,23 +82,11 @@ let ServiceCategoryController = class ServiceCategoryController {
                 const name = 'Img_' + Date.now() + '.' + type;
                 const path = 'category/';
                 const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
-                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                const sizeInKb = sizeInBytes / 1024;
-                if (+sizeInKb <= 2048) {
-                    if (env_1.env.imageserver === 's3') {
-                        yield this.s3Service.imageUpload((path + name), base64Data, type);
-                    }
-                    else {
-                        yield this.imageService.imageUpload((path + name), base64Data);
-                    }
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload((path + name), base64Data, type);
                 }
                 else {
-                    const errorResponse = {
-                        status: 0,
-                        message: 'Not able to upload as the file size is too large.',
-                    };
-                    return response.status(400).send(errorResponse);
+                    yield this.imageService.imageUpload((path + name), base64Data);
                 }
                 newCategory.image = name;
                 newCategory.imagePath = path;
@@ -131,7 +119,7 @@ let ServiceCategoryController = class ServiceCategoryController {
             if (categorySave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully created a new category.',
+                    message: 'Successfully created a new category',
                     data: categorySave,
                 };
                 return response.status(200).send(successResponse);
@@ -139,7 +127,7 @@ let ServiceCategoryController = class ServiceCategoryController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to create the category. ',
+                    message: 'Unable to create the category',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -186,7 +174,7 @@ let ServiceCategoryController = class ServiceCategoryController {
             if (!serviceCategoryId) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid category Id.',
+                    message: 'Invalid category Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -205,23 +193,11 @@ let ServiceCategoryController = class ServiceCategoryController {
                 const name = 'Img_' + Date.now() + '.' + type;
                 const path = 'category/';
                 const base64Data = Buffer.from(images.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                const stringLength = images.replace(/^data:image\/\w+;base64,/, '').length;
-                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                const sizeInKb = sizeInBytes / 1024;
-                if (+sizeInKb <= 2048) {
-                    if (env_1.env.imageserver === 's3') {
-                        yield this.s3Service.imageUpload((path + name), base64Data, type);
-                    }
-                    else {
-                        yield this.imageService.imageUpload((path + name), base64Data);
-                    }
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload((path + name), base64Data, type);
                 }
                 else {
-                    const errorResponse = {
-                        status: 0,
-                        message: 'Not able to upload as the file size is too large.',
-                    };
-                    return response.status(400).send(errorResponse);
+                    yield this.imageService.imageUpload((path + name), base64Data);
                 }
                 serviceCategoryId.image = name;
                 serviceCategoryId.imagePath = path;
@@ -258,7 +234,7 @@ let ServiceCategoryController = class ServiceCategoryController {
             if (categorySave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated the category.',
+                    message: 'Successfully updated the category',
                     data: categorySave,
                 };
                 return response.status(200).send(successResponse);
@@ -266,7 +242,7 @@ let ServiceCategoryController = class ServiceCategoryController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the category. ',
+                    message: 'Unable to update the category',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -286,7 +262,7 @@ let ServiceCategoryController = class ServiceCategoryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "successfully got the complete category list.",
+     *      "message": "successfully got the complete category list",
      *      "data":"{ }"
      *      "status": "1"
      * }
@@ -357,7 +333,7 @@ let ServiceCategoryController = class ServiceCategoryController {
                 const counts = yield this.serviceCategoryPathService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const sucResponse = {
                     status: 1,
-                    message: 'Successfully got the service category list.',
+                    message: 'Successfully got the service category list',
                     data: counts,
                 };
                 return response.status(200).send(sucResponse);
@@ -365,7 +341,7 @@ let ServiceCategoryController = class ServiceCategoryController {
             const vendorCategoryList = yield this.serviceCategoryPathService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the service category list.',
+                message: 'Successfully got the service category list',
                 data: vendorCategoryList,
             };
             return response.status(200).send(successResponse);
@@ -396,7 +372,7 @@ let ServiceCategoryController = class ServiceCategoryController {
             if (!serviceCategoryId) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid category Id.',
+                    message: 'Invalid category Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -404,7 +380,7 @@ let ServiceCategoryController = class ServiceCategoryController {
             if (parentCategoryId) {
                 const errorresponse = {
                     status: 0,
-                    message: 'You cannot delete this parent category as sub-categories are mapped to it.',
+                    message: 'You cannot delete this parent category as sub-categories are mapped to it',
                 };
                 return response.status(400).send(errorresponse);
             }
@@ -416,7 +392,7 @@ let ServiceCategoryController = class ServiceCategoryController {
             if (serviceToCategory) {
                 const errorresponse = {
                     status: 0,
-                    message: 'You cannot delete this service category as it is already mapped to a service.',
+                    message: 'You cannot delete this service category as it is already mapped to a service',
                 };
                 return response.status(400).send(errorresponse);
             }
@@ -428,14 +404,14 @@ let ServiceCategoryController = class ServiceCategoryController {
             if (!deleteCategory) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the category.',
+                    message: 'Successfully deleted the category',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the category. ',
+                    message: 'Unable to delete the category',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -500,11 +476,14 @@ let ServiceCategoryController = class ServiceCategoryController {
     serviceCategoryCount(keyword, status, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = [];
-            const search = [{
+            const search = [];
+            if (keyword) {
+                search.push({
                     name: 'name',
                     op: 'like',
                     value: keyword,
-                }];
+                });
+            }
             if (status) {
                 search.push({
                     name: 'isActive',
@@ -516,7 +495,7 @@ let ServiceCategoryController = class ServiceCategoryController {
             const serviceCategoryCount = yield this.serviceCategoryService.list(0, 0, select, search, WhereConditions, 0, 1);
             const successResponse = {
                 status: 1,
-                message: 'successfully got the service category count.',
+                message: 'successfully got the service category count',
                 data: serviceCategoryCount,
             };
             return response.status(200).send(successResponse);

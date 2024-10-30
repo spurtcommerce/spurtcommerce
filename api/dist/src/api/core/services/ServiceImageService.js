@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * http://api.spurtcommerce.com
  *
  * Copyright (c) 2021 piccosoft ltd
@@ -39,7 +39,6 @@ let ServiceImageService = class ServiceImageService {
     // update service images
     update(id, serviceImage) {
         this.log.info('Update a serviceImage');
-        // serviceImage.ServiceImageId = id;
         return this.serviceImageRepository.save(serviceImage);
     }
     // service Image List

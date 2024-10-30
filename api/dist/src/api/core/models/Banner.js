@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -13,6 +13,7 @@ const typeorm_1 = require("typeorm");
 const BaseModel_1 = require("./BaseModel");
 const moment = require("moment/moment");
 const class_validator_1 = require("class-validator");
+const BannerImage_1 = require("./BannerImage");
 let Banner = class Banner extends BaseModel_1.BaseModel {
     createDetails() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -53,7 +54,7 @@ tslib_1.__decorate([
 ], Banner.prototype, "content", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'position' }),
-    tslib_1.__metadata("design:type", Number)
+    tslib_1.__metadata("design:type", String)
 ], Banner.prototype, "position", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'banner_group_id' }),
@@ -61,15 +62,6 @@ tslib_1.__decorate([
 ], Banner.prototype, "bannerGroupId", void 0);
 tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
-    (0, typeorm_1.Column)({ name: 'image' }),
-    tslib_1.__metadata("design:type", String)
-], Banner.prototype, "image", void 0);
-tslib_1.__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, typeorm_1.Column)({ name: 'image_path' }),
-    tslib_1.__metadata("design:type", String)
-], Banner.prototype, "imagePath", void 0);
-tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'container_name' }),
     tslib_1.__metadata("design:type", String)
 ], Banner.prototype, "containerName", void 0);
@@ -86,6 +78,10 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'link_type' }),
     tslib_1.__metadata("design:type", Number)
 ], Banner.prototype, "linkType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)((type) => BannerImage_1.BannerImage, bannerImg => bannerImg.banners, { cascade: true }),
+    tslib_1.__metadata("design:type", Array)
+], Banner.prototype, "bannerImages", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.BeforeInsert)(),
     tslib_1.__metadata("design:type", Function),

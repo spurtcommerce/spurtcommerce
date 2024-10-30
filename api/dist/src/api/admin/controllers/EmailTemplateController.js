@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -51,7 +51,7 @@ let EmailTemplateController = class EmailTemplateController {
                     title: emailTemplateParam.title,
                 } });
             if (ifCheckTitle) {
-                return response.status(400).send({ status: 1, message: 'This title already exists. Please try another one!!' });
+                return response.status(400).send({ status: 1, message: 'This title already exists. Please try another one' });
             }
             const emailTemplate = new EmailTemplate_1.EmailTemplate();
             emailTemplate.title = emailTemplateParam.title;
@@ -63,7 +63,7 @@ let EmailTemplateController = class EmailTemplateController {
             if (emailTemplateSave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully created new email template.',
+                    message: 'Successfully created new email template',
                     data: emailTemplateSave,
                 };
                 return response.status(200).send(successResponse);
@@ -71,7 +71,7 @@ let EmailTemplateController = class EmailTemplateController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to create email template.',
+                    message: 'Unable to create email template',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -118,7 +118,7 @@ let EmailTemplateController = class EmailTemplateController {
             if (emailTemplateList) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got the complete email template list.',
+                    message: 'Successfully got the complete email template list',
                     data: emailTemplateList,
                 };
                 return response.status(200).send(successResponse);
@@ -126,7 +126,7 @@ let EmailTemplateController = class EmailTemplateController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to list emailTemplate',
+                    message: 'unable to list email template',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -151,7 +151,7 @@ let EmailTemplateController = class EmailTemplateController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully updated emailTemplate.",
+     *      "message": "Successfully updated emailTemplate",
      *      "status": "1"
      * }
      * @apiSampleRequest /api/email-template/update-email-template/:id
@@ -168,7 +168,7 @@ let EmailTemplateController = class EmailTemplateController {
             if (!emailTemplate) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid email template Id.',
+                    message: 'Invalid email template Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -177,7 +177,7 @@ let EmailTemplateController = class EmailTemplateController {
                     emailTemplateId: (0, typeorm_1.Not)(id),
                 } });
             if (ifCheckTitle) {
-                return response.status(400).send({ status: 1, message: 'This title already exists. Please try another one!!' });
+                return response.status(400).send({ status: 1, message: 'This title already exists. Please try another one' });
             }
             emailTemplate.title = emailTemplateParam.title;
             emailTemplate.subject = emailTemplateParam.subject;
@@ -187,7 +187,7 @@ let EmailTemplateController = class EmailTemplateController {
             if (templateSave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated the email template.',
+                    message: 'Successfully updated the email template',
                     data: templateSave,
                 };
                 return response.status(200).send(successResponse);
@@ -195,7 +195,7 @@ let EmailTemplateController = class EmailTemplateController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the emailTemplate.',
+                    message: 'Unable to update the email template',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -238,14 +238,14 @@ let EmailTemplateController = class EmailTemplateController {
             if (deleteEmailTemplate) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the email template.',
+                    message: 'Successfully deleted the email template',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the email template.',
+                    message: 'Unable to delete the email template',
                 };
                 return response.status(400).send(errorResponse);
             }

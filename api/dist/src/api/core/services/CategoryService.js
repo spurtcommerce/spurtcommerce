@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -39,7 +39,7 @@ let CategoryService = class CategoryService {
         });
     }
     // categoryList
-    list(limit, offset, select = [], search = [], whereConditions = [], sortOrder, count) {
+    list(limit, offset, select = [], search = [], whereConditions = [], relation = [], sortOrder, count) {
         const condition = {};
         if (select && select.length > 0) {
             condition.select = select;
@@ -49,6 +49,9 @@ let CategoryService = class CategoryService {
             whereConditions.forEach((item) => {
                 condition.where[item.name] = item.value;
             });
+        }
+        if (relation === null || relation === void 0 ? void 0 : relation.length) {
+            condition.relations = [...relation];
         }
         if (search && search.length > 0) {
             search.forEach((table) => {

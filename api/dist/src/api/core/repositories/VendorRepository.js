@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -15,13 +15,10 @@ const Customer_1 = require("../models/Customer");
 let VendorRepository = class VendorRepository extends typeorm_1.Repository {
     vendorList(limit, offset, select = [], relations = [], searchConditions = [], whereConditions = [], count) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            console.log('limit:', limit);
             const query = yield this.manager.createQueryBuilder(Vendor_1.Vendor, 'vendor');
-            console.log('select:', select);
             // Select
             if (select && select.length > 0) {
                 query.select(select);
-                console.log('selectin:', select);
             }
             // relations
             if (relations && relations.length > 0) {
@@ -42,8 +39,14 @@ let VendorRepository = class VendorRepository extends typeorm_1.Repository {
                     else if (operator === 'or' && table.value !== '') {
                         query.orWhere(table.name + ' LIKE ' + "\'%" + table.value + "%\'");
                     }
+                    else if (operator === 'orWhere' && table.value !== '') {
+                        query.orWhere(table.name + ' = ' + table.value);
+                    }
                     else if (operator === 'andWhere' && table.value !== undefined && table.value !== '') {
                         query.andWhere(table.name + ' = ' + table.value);
+                    }
+                    else if (operator === 'In' && table.value.length > 0) {
+                        query.andWhere(table.name + ' In(' + table.value + ')');
                     }
                 });
             }
@@ -53,11 +56,11 @@ let VendorRepository = class VendorRepository extends typeorm_1.Repository {
                     const operator = table.op;
                     if (operator === 'where' && table.value !== undefined) {
                         const subQb = this.manager
-                            .getRepository(Customer_1.Customer)
-                            .createQueryBuilder('customer')
-                            .select('id')
-                            .where('delete_flag = ' + table.value);
-                        query.where(table.name + ' IN (' + subQb.getSql() + ')');
+                            .getRepository(Vendor_1.Vendor)
+                            .createQueryBuilder('vendor')
+                            .select('vendor_id')
+                            .where('is_delete = ' + table.value);
+                        query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
                     }
                     else if (operator === 'email' && table.value !== undefined && table.value !== '') {
                         const subQb = this.manager
@@ -69,9 +72,9 @@ let VendorRepository = class VendorRepository extends typeorm_1.Repository {
                     }
                     else if (operator === 'status' && table.value !== undefined && table.value !== '') {
                         const subQb = this.manager
-                            .getRepository(Customer_1.Customer)
-                            .createQueryBuilder('customer')
-                            .select('id')
+                            .getRepository(Vendor_1.Vendor)
+                            .createQueryBuilder('vendor')
+                            .select('vendor_id')
                             .where('is_active = ' + table.value);
                         query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
                     }
@@ -87,11 +90,18 @@ let VendorRepository = class VendorRepository extends typeorm_1.Repository {
                             .orWhere('vendor.company_name LIKE ' + "'%" + table.value + "%'");
                         query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
                     }
+                    else if (operator === 'firstName' && table.value !== undefined && table.value !== '') {
+                        const subQb = this.manager
+                            .getRepository(Customer_1.Customer)
+                            .createQueryBuilder('customer')
+                            .select('id')
+                            .where('first_name = ' + table.value);
+                        query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
+                    }
                 });
             }
             // Limit & Offset
             if (limit && limit > 0) {
-                console.log('limitIn:', limit);
                 query.limit(limit);
                 query.offset(offset);
             }
@@ -134,7 +144,7 @@ let VendorRepository = class VendorRepository extends typeorm_1.Repository {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const query = yield this.manager.createQueryBuilder(Vendor_1.Vendor, 'vendor');
             query.where('vendor.displayNameUrl = :value', { value: name });
-            query.andWhere('customer.deleteFlag = :deleteFlag', { deleteFlag: 0 });
+            query.andWhere('vendor.isDelete = :deleteFlag', { deleteFlag: 0 });
             if (checkVendor === 1) {
                 query.andWhere('vendor.vendorId != :values', { values: vendorId });
             }

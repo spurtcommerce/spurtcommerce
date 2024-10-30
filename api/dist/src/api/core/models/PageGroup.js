@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -12,6 +12,7 @@ const tslib_1 = require("tslib");
 const typeorm_1 = require("typeorm");
 const BaseModel_1 = require("./BaseModel");
 const Page_1 = require("./Page");
+const PageGroupTranslation_1 = require("./PageGroupTranslation");
 const class_transformer_1 = require("class-transformer");
 const moment_1 = tslib_1.__importDefault(require("moment"));
 const class_validator_1 = require("class-validator");
@@ -46,6 +47,10 @@ tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => Page_1.Page, page => page.pageGroup),
     tslib_1.__metadata("design:type", Array)
 ], PageGroup.prototype, "page", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => PageGroupTranslation_1.PageGroupTranslation, pageGroupTranslation => pageGroupTranslation.pageGroup),
+    tslib_1.__metadata("design:type", Array)
+], PageGroup.prototype, "pageGroupTranslation", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.BeforeInsert)(),
     tslib_1.__metadata("design:type", Function),

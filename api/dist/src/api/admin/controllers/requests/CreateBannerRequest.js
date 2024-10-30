@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -22,11 +22,11 @@ tslib_1.__decorate([
 ], CreateBanner.prototype, "title", void 0);
 tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
-    tslib_1.__metadata("design:type", String)
-], CreateBanner.prototype, "image", void 0);
-tslib_1.__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
     tslib_1.__metadata("design:type", Number)
 ], CreateBanner.prototype, "status", void 0);
+tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", Array)
+], CreateBanner.prototype, "bannerImage", void 0);
 exports.CreateBanner = CreateBanner;
 //# sourceMappingURL=CreateBannerRequest.js.map

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -41,14 +41,39 @@ let VendorPaymentController = class VendorPaymentController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get payment list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
+     *      "data": {
+     *       "vendorPaymentId": "",
+     *       "orderId": "",
+     *       "orderStatusId": "",
+     *       "orderPrefixId": "",
+     *       "currencySymbolLeft": "",
+     *       "currencySymbolRight" : "",
+     *       "shippingFirstname": "",
+     *       "total": "",
+     *       "createdDate": "",
+     *       "paymentType": "",
+     *       "paymentDetails": "",
+     *       "customerId": "",
+     *       "isActive": "",
+     *
+     *               "price": "",
+     *               "discountAmount": "",
+     *               "discountedAmount": "",
+     *               "couponDiscountAmount": "",
+     *               "orderProductPrefixId": "",
+     *               "basePrice": "",
+     *               "skuName": "",
+     *               "total": "",
+     *               "subOrderId": "",
+     *               "commission": "",
+     *               "companyName": "",
+     *               "currencySymbolLeft": "",
+     *               "currencySymbolRight": "",
+     *               "commissionAmount": ""
+     *           }
+     *       ],
+     *       "commissionAmount": ""
+     *   }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/admin-vendor-payment/payment-list
@@ -70,6 +95,7 @@ let VendorPaymentController = class VendorPaymentController {
                 'orderDetail.shippingFirstname as shippingFirstname',
                 'orderDetail.total as total',
                 'MAX(VendorPayment.createdDate) as createdDate',
+                'MAX(VendorPayment.modifiedDate) as modifiedDate',
                 'orderDetail.paymentType as paymentType',
                 'orderDetail.paymentDetails as paymentDetails',
                 'orderDetail.customerId as customerId',
@@ -193,7 +219,7 @@ let VendorPaymentController = class VendorPaymentController {
             const paymentListDetails = yield Promise.all(paymentResponse);
             const successResponse = {
                 status: 1,
-                message: `Successfully got the complete payment ${count ? 'count.' : 'list.'}`,
+                message: `Successfully got the complete payment ${count ? 'count' : 'list'}`,
                 data: count ? paymentListDetails.length : paymentListDetails,
             };
             return response.status(200).send(successResponse);
@@ -212,22 +238,15 @@ let VendorPaymentController = class VendorPaymentController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get payment list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
+     *      "message": "Successfully got the complete payment list",
+     *      "data": "20"
      *      "status": "1"
      * }
      * @apiSampleRequest /api/admin-vendor-payment/payment-list-count
      * @apiErrorExample {json} order error
      * HTTP/1.1 500 Internal Server Error
      */
-    paymentListCount(limit, offset, customerName, startDate, endDate, response) {
+    paymentListCount(limit, offset, customerName, startDate, endDate, keyword, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -286,6 +305,12 @@ let VendorPaymentController = class VendorPaymentController {
                     value: customerName.toLowerCase(),
                 });
             }
+            if (keyword === null || keyword === void 0 ? void 0 : keyword.trim()) {
+                searchConditions.push({
+                    name: ['orderDetail.shippingFirstname', 'orderDetail.orderPrefixId', 'orderDetail.total'],
+                    value: keyword.toLowerCase(),
+                });
+            }
             const sort = [];
             sort.push({
                 name: 'VendorPayment.createdDate',
@@ -294,7 +319,7 @@ let VendorPaymentController = class VendorPaymentController {
             const paymentList = yield this.vendorPaymentService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, [], false, true);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete payment list.',
+                message: 'Successfully got the complete payment list',
                 data: paymentList.length,
             };
             return response.status(200).send(successResponse);
@@ -313,9 +338,16 @@ let VendorPaymentController = class VendorPaymentController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully show the Payment Detail..!!",
+     *      "message": "Successfully Got the Payment Detail..!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data": {
+     *       "quantity": "",
+     *       "name": "",
+     *       "price": "",
+     *       "total": "",
+     *       "commission": "",
+     *       "companyName": ""
+     *   },
      * }
      * @apiSampleRequest /api/admin-vendor-payment/payment-detail
      * @apiErrorExample {json} Order Detail error
@@ -357,7 +389,7 @@ let VendorPaymentController = class VendorPaymentController {
             const paymentList = yield this.vendorOrdersService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, [], false, true);
             const successResponse = {
                 status: 1,
-                message: 'Successfully shown the order Detail. ',
+                message: 'Successfully shown the order Detail',
                 data: paymentList,
             };
             return response.status(200).send(successResponse);
@@ -373,7 +405,13 @@ let VendorPaymentController = class VendorPaymentController {
      * {
      *      "message": "Successfully show the Payment Dashboard..!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data": {
+     *       "totalAmount": "",
+     *       "totalCommission": "",
+     *       "totalOrders": "",
+     *       "totalVendor": "",
+     *       "totalPaymentCount": ""
+     *     }
      * }
      * @apiSampleRequest /api/admin-vendor-payment/payment-dashboard-count
      * @apiErrorExample {json} Order Detail error
@@ -429,7 +467,7 @@ let VendorPaymentController = class VendorPaymentController {
             }
             const vendorWhereConditions = [
                 {
-                    name: 'vendor.customerId',
+                    name: 'vendor.vendorId',
                     op: 'where',
                     value: 0,
                 },
@@ -443,7 +481,7 @@ let VendorPaymentController = class VendorPaymentController {
             params.totalPaymentCount = paymentListCount;
             const successResponse = {
                 status: 1,
-                message: 'Successfully shown the order Detail. ',
+                message: 'Successfully shown the order detail',
                 data: params,
             };
             return response.status(200).send(successResponse);
@@ -767,7 +805,7 @@ let VendorPaymentController = class VendorPaymentController {
             if (!vendorPayment) {
                 const errorResponse = {
                     status: 0,
-                    message: 'invalid Vendor Payment Id.',
+                    message: 'invalid seller Payment Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -781,7 +819,7 @@ let VendorPaymentController = class VendorPaymentController {
             yield this.vendorPaymentService.delete(vendorPayment.vendorPaymentId);
             const successResponse = {
                 status: 1,
-                message: 'Successfully archived this payment.',
+                message: 'Successfully archived this payment',
             };
             return response.status(200).send(successResponse);
         });
@@ -801,12 +839,19 @@ let VendorPaymentController = class VendorPaymentController {
      * {
      *      "message": "Successfully get payment Archive list",
      *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
+     *       'vendorPaymentArchiveId' : "",
+     *       'orderId': "",
+     *       'orderStatusId': "",
+     *       'orderPrefixId': "",
+     *       'currencySymbolLeft' : "",
+     *       'currencySymbolRight': "",
+     *       'shippingFirstname' : "",
+     *       'total' : "",
+     *       'createdDate': "",
+     *       'paymentType': "",
+     *       'paymentDetails': "",
+     *       'customerId': "",
+     *       'isActive: ""
      *      }
      *      "status": "1"
      * }
@@ -951,7 +996,7 @@ let VendorPaymentController = class VendorPaymentController {
             const paymentListDetails = yield Promise.all(paymentResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete payment list.',
+                message: 'Successfully got the complete payment list',
                 data: paymentListDetails,
             };
             return response.status(200).send(successResponse);
@@ -980,9 +1025,10 @@ tslib_1.__decorate([
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('customerName')),
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
-    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorPaymentController.prototype, "paymentListCount", null);
 tslib_1.__decorate([

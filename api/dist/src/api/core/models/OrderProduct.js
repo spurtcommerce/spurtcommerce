@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -24,6 +24,7 @@ const PaymentItems_1 = require("./PaymentItems");
 const PaymentItemsArchive_1 = require("./PaymentItemsArchive");
 const class_validator_1 = require("class-validator");
 const OrderStatus_1 = require("./OrderStatus");
+const OrderFullfillmentStatus_1 = require("./OrderFullfillmentStatus");
 let OrderProduct = class OrderProduct extends BaseModel_1.BaseModel {
     createDetails() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -103,6 +104,14 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Number)
 ], OrderProduct.prototype, "orderStatusId", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'fullfillment_status_id' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProduct.prototype, "fullfillmentStatusId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'tags' }),
+    tslib_1.__metadata("design:type", String)
+], OrderProduct.prototype, "tags", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'tracking_url' }),
     tslib_1.__metadata("design:type", String)
 ], OrderProduct.prototype, "trackingUrl", void 0);
@@ -147,6 +156,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], OrderProduct.prototype, "couponDiscountAmount", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'price_group_detail_id' }),
+    tslib_1.__metadata("design:type", Number)
+], OrderProduct.prototype, "priceGroupDetailId", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.ManyToOne)(type => ProductModel_1.Product, product => product.orderProduct),
     (0, typeorm_1.JoinColumn)({ name: 'product_id' }),
     tslib_1.__metadata("design:type", ProductModel_1.Product)
@@ -166,6 +179,11 @@ tslib_1.__decorate([
     (0, typeorm_1.JoinColumn)({ name: 'order_status_id' }),
     tslib_1.__metadata("design:type", OrderStatus_1.OrderStatus)
 ], OrderProduct.prototype, "orderStatus", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToOne)(type => OrderFullfillmentStatus_1.OrderFullfillmentStatus),
+    (0, typeorm_1.JoinColumn)({ name: 'fullfillment_status_id' }),
+    tslib_1.__metadata("design:type", OrderFullfillmentStatus_1.OrderFullfillmentStatus)
+], OrderProduct.prototype, "orderFullfillmentStatus", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => VendorOrderProducts_1.VendorOrderProducts, vendorOrderProducts => vendorOrderProducts.orderproduct),
     tslib_1.__metadata("design:type", Array)

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -43,6 +43,8 @@ const ProductVideoService_1 = require("../../core/services/ProductVideoService")
 const ProductTirePrice_1 = require("../../core/models/ProductTirePrice");
 const ProductTirePriceService_1 = require("../../core/services/ProductTirePriceService");
 const ImageService_1 = require("../../core/services/ImageService");
+// import { vendorProductList } from '@spurtcommerce/marketplace';
+// import { getConnection } from 'typeorm';
 let VendorAdminProductController = class VendorAdminProductController {
     constructor(productService, productToCategoryService, productImageService, categoryService, productDiscountService, productSpecialService, vendorProductService, vendorService, emailTemplateService, settingService, taxService, categoryPathService, skuService, productVideoService, customerService, productTirePriceService, imageService) {
         this.productService = productService;
@@ -188,7 +190,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             if ((product.tax < 0)) {
                 const errorResponse = {
                     status: 0,
-                    message: 'tax should not be in negative',
+                    message: 'Tax should not be in negative',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -196,14 +198,14 @@ let VendorAdminProductController = class VendorAdminProductController {
             if (+newProduct.price === 0) {
                 return response.status(400).send({
                     status: 0,
-                    message: 'It is mandatory to mention price for the product.',
+                    message: 'Product price input is missing',
                 });
             }
             const productImage = product.image;
             if (productImage.length === 0) {
                 return response.status(400).send({
                     status: 0,
-                    message: 'Image should not be empty, it should have atleast one image.',
+                    message: 'Error ! Atleast one selection is mandatory',
                 });
             }
             newProduct.name = product.productName;
@@ -234,7 +236,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             if (findSku) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Duplicate SKU name, give some other name.',
+                    message: 'Duplicate SKU name, give some other name',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -349,12 +351,13 @@ let VendorAdminProductController = class VendorAdminProductController {
             vendorProducts.sku_id = saveSku.id;
             vendorProducts.vendorId = product.vendorId;
             vendorProducts.approvalFlag = 0;
+            vendorProducts.rejectReason = [];
             vendorProducts.vendorProductCommission = product.vendorProductCommission ? product.vendorProductCommission : 0;
             yield this.vendorProductService.create(vendorProducts);
             if (saveProduct) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully created the Product.',
+                    message: 'Successfully created the product',
                     data: saveProduct,
                 };
                 return response.status(200).send(successResponse);
@@ -362,7 +365,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to create the Product.',
+                    message: 'Unable to create the product',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -431,7 +434,7 @@ let VendorAdminProductController = class VendorAdminProductController {
      *      "defaultImage":""
      *      }
      *      ],
-     *       "relatedProductId":[ "", ""],
+     *       "relatedProductId":[],
      *      "hasTirePrice" : "",
      *      "tirePrices":[
      *      {
@@ -500,7 +503,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             if ((product.tax < 0)) {
                 const errorResponse = {
                     status: 0,
-                    message: 'tax should not be in negative',
+                    message: 'Tax should not be in negative',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -512,7 +515,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             if (!updateProduct) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid product Id.',
+                    message: 'Invalid product Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -544,7 +547,7 @@ let VendorAdminProductController = class VendorAdminProductController {
                 if (finddSku) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Duplicate SKU name, give some other name.',
+                        message: 'Duplicate SKU name, give some other name',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -644,7 +647,7 @@ let VendorAdminProductController = class VendorAdminProductController {
                     if (saveProduct.price <= discount.discountPrice) {
                         const errorResponse = {
                             status: 0,
-                            message: 'discount price should be less than original price.',
+                            message: 'discount price should be less than original price',
                         };
                         return response.status(400).send(errorResponse);
                     }
@@ -660,7 +663,7 @@ let VendorAdminProductController = class VendorAdminProductController {
                     else {
                         const errorResponse = {
                             status: 0,
-                            message: 'SKU does not exist in discount price.',
+                            message: 'SKU does not exist in discount price',
                         };
                         return response.status(400).send(errorResponse);
                     }
@@ -683,7 +686,7 @@ let VendorAdminProductController = class VendorAdminProductController {
                     if (saveProduct.price <= special.specialPrice) {
                         const errorResponse = {
                             status: 0,
-                            message: 'special price should be less than original price.',
+                            message: 'special price should be less than original price',
                         };
                         return response.status(400).send(errorResponse);
                     }
@@ -699,7 +702,7 @@ let VendorAdminProductController = class VendorAdminProductController {
                     else {
                         const errorResponse = {
                             status: 0,
-                            message: 'SKU does not exist in special price.',
+                            message: 'SKU does not exist in special price',
                         };
                         return response.status(400).send(errorResponse);
                     }
@@ -730,7 +733,7 @@ let VendorAdminProductController = class VendorAdminProductController {
                     else {
                         const errorResponse = {
                             status: 0,
-                            message: ' This SKU does not exist.',
+                            message: ' This SKU does not exist',
                         };
                         return response.status(400).send(errorResponse);
                     }
@@ -763,14 +766,14 @@ let VendorAdminProductController = class VendorAdminProductController {
             if (saveProduct) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated the Vendor Product.',
+                    message: 'Successfully updated the seller product',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the Vendor Product.',
+                    message: 'Unable to update the seller product.',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -792,29 +795,58 @@ let VendorAdminProductController = class VendorAdminProductController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get vendor product list",
-     *      "data":{
-     *      "vendorId" : "",
-     *      "vendorName" : "",
-     *      "productName" : "",
-     *      "sku" : "",
-     *      "model" : "",
-     *      "price" : "",
-     *      "quantity" : "",
-     *      "status" : "",
-     *      }
+     *       "data": {
+     *       "vendorProductId": 717,
+     *       "vendorProductCommission": "",
+     *       "quotationAvailable": "",
+     *       "approvalFlag": "",
+     *       "vendorId": "",
+     *       "companyLogo": "",
+     *       "companyLogoPath": "",
+     *       "productId": "",
+     *       "name": "",
+     *       "sku": "",
+     *       "skuId": ,
+     *       "productprice": "",
+     *       "quantity": "",
+     *       "vendorName": "",
+     *       "companyName": "",
+     *       "sortOrder": "",
+     *       "isActive": "",
+     *       "productSlug": "",
+     *       "width": "",
+     *       "height": "",
+     *       "length": "",
+     *       "weight": "",
+     *       "createdDate": "",
+     *       "keywords": "",
+     *       "isSimplified": ,
+     *       "attributeKeyword": "",
+     *       "image": "",
+     *       "containerName": "",
+     *       "price": "",
+     *       "modifiedPrice": "",
+     *       "productDiscount": "",
+     *       "productSpecial": "",
+     *       "pricerefer": "",
+     *       "flag": ""
+     *   }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/admin-vendor-product
      * @apiErrorExample {json} vendor error
      * HTTP/1.1 500 Internal Server Error
      */
-    vendorProductList(limit, offset, status, vendorId, keyword, price, count, response) {
+    vendorProductList(limit, offset, status, vendorId, keyword, price, approvalFlag, vendorName, updatedDate, companyName, productName, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const selects = ['VendorProducts.vendorProductId as vendorProductId',
                 'VendorProducts.vendorProductCommission as vendorProductCommission',
                 'VendorProducts.quotationAvailable as quotationAvailable',
                 'VendorProducts.approvalFlag as approvalFlag',
+                'VendorProducts.rejectReason as rejectReason',
                 'vendor.vendorId as vendorId',
+                'vendor.companyLogo as companyLogo',
+                'vendor.companyLogoPath as companyLogoPath',
                 'product.productId as productId',
                 'product.name as name',
                 'product.sku as sku',
@@ -822,6 +854,7 @@ let VendorAdminProductController = class VendorAdminProductController {
                 'product.price as productprice',
                 'product.quantity as quantity',
                 'customer.firstName as vendorName',
+                'vendor.companyName as companyName',
                 'product.sortOrder as sortOrder',
                 'product.isActive as isActive',
                 'product.productSlug as productSlug',
@@ -830,6 +863,7 @@ let VendorAdminProductController = class VendorAdminProductController {
                 'product.length as length',
                 'product.weight as weight',
                 'VendorProducts.createdDate as createdDate',
+                'VendorProducts.modifiedDate as modifiedDate',
                 'product.keywords as keywords',
                 'product.isSimplified as isSimplified',
                 'product.attributeKeyword as attributeKeyword',
@@ -869,20 +903,57 @@ let VendorAdminProductController = class VendorAdminProductController {
                     value: +vendorId,
                 });
             }
-            whereConditions.push({
-                name: 'VendorProducts.reuse',
-                op: 'IS NULL',
-                value: '',
-            }, {
+            whereConditions.push(
+            // {
+            //     name: 'VendorProducts.reuse',
+            //     op: 'IS NULL',
+            //     value: '',
+            // },
+            {
                 name: 'VendorProducts.reuseStatus',
                 op: 'and',
                 value: 0,
+            }, {
+                name: 'vendor.isDelete',
+                op: 'and',
+                value: 0,
             });
+            if (approvalFlag) {
+                whereConditions.push({
+                    name: 'VendorProducts.approvalFlag',
+                    op: 'and',
+                    value: +approvalFlag,
+                });
+            }
             const searchConditions = [];
             if (keyword) {
                 searchConditions.push({
-                    name: ['product.keywords', 'product.name', 'customer.first_name'],
+                    name: ['product.keywords', 'product.name', 'customer.first_name', 'vendor.companyName'],
                     value: keyword.toLowerCase(),
+                });
+            }
+            if (vendorName === null || vendorName === void 0 ? void 0 : vendorName.trim()) {
+                searchConditions.push({
+                    name: ['customer.first_name', 'customer.last_name'],
+                    value: vendorName.toLowerCase(),
+                });
+            }
+            if (companyName === null || companyName === void 0 ? void 0 : companyName.trim()) {
+                searchConditions.push({
+                    name: ['vendor.companyName'],
+                    value: companyName.toLowerCase(),
+                });
+            }
+            if (productName === null || productName === void 0 ? void 0 : productName.trim()) {
+                searchConditions.push({
+                    name: ['product.name'],
+                    value: productName.toLowerCase(),
+                });
+            }
+            if (updatedDate) {
+                searchConditions.push({
+                    name: ['VendorProducts.modifiedDate'],
+                    value: updatedDate,
                 });
             }
             const sort = [];
@@ -894,13 +965,13 @@ let VendorAdminProductController = class VendorAdminProductController {
                 const vendorProductListCount = yield this.vendorProductService.listByQueryBuilder(limit, offset, selects, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const sucResponse = {
                     status: 1,
-                    message: 'Successfully got Vendor Product list.',
+                    message: 'Successfully got seller product list',
                     data: vendorProductListCount,
                 };
                 return response.status(200).send(sucResponse);
             }
-            const vendorProductList = yield this.vendorProductService.listByQueryBuilder(limit, offset, selects, whereConditions, searchConditions, relations, groupBy, sort, false, true);
-            const productList = vendorProductList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorProductsList = yield this.vendorProductService.listByQueryBuilder(limit, offset, selects, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const productList = vendorProductsList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                 const temp = value;
                 if (value.productSpecial !== null) {
                     temp.pricerefer = value.productSpecial;
@@ -919,7 +990,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             const results = yield Promise.all(productList);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got Vendor Product list.',
+                message: 'Successfully got seler product list',
                 data: results,
             };
             return response.status(200).send(successResponse);
@@ -935,7 +1006,111 @@ let VendorAdminProductController = class VendorAdminProductController {
      * {
      *      "status": "1"
      *      "message": "Successfully get product Detail",
-     *      "data":"{}"
+     *      "data": {
+     *       "createdDate": "",
+     *       "productId": "",
+     *       "sku": "",
+     *       "upc": "",
+     *       "hsn": "",
+     *       "location": "",
+     *       "quantity": "",
+     *       "minimumQuantity": "",
+     *       "subtractStock": "",
+     *       "stockStatusId": "",
+     *       "quotationAvailable": "",
+     *       "image": "",
+     *       "imagePath": "",
+     *       "manufacturerId": "",
+     *       "shipping": "",
+     *       "serviceCharges": "{}",
+     *       "taxType": "",
+     *       "taxValue": "",
+     *       "price": "",
+     *       "priceUpdateFileLogId": "",
+     *       "dateAvailable": "",
+     *       "sortOrder": "",
+     *       "name": "",
+     *       "description": "",
+     *       "amount": null,
+     *       "keywords": "",
+     *       "discount": "",
+     *       "deleteFlag": "",
+     *       "isFeatured": "",
+     *       "todayDeals": "",
+     *       "condition": "",
+     *       "rating": "",
+     *       "wishListStatus": "",
+     *       "productSlug": "",
+     *       "isActive": "",
+     *       "width": "",
+     *       "height": "",
+     *       "length": "",
+     *       "weight": "",
+     *       "hasStock": "",
+     *       "priceType": "",
+     *       "isSimplified": "",
+     *       "owner": "",
+     *       "isCommon": "",
+     *       "skuId": "",
+     *       "hasTirePrice": "",
+     *       "outOfStockThreshold": "",
+     *       "notifyMinQuantity": "",
+     *       "minQuantityAllowedCart": "",
+     *       "maxQuantityAllowedCart": "",
+     *       "enableBackOrders": "",
+     *       "pincodeBasedDelivery": "",
+     *       "attributeKeyword": "",
+     *       "settedAsCommonOn": "",
+     *       "productHighlights": [
+     *       {
+     *           "data": ""
+     *       }
+     *   ],
+     *   "productCost": "",
+     *   "packingCost": "",
+     *   "shippingCost": "",
+     *   "tax": "",
+     *   "others": "",
+     *   "approvalflag": "",
+     *   "vendorId": "",
+     *   "vendorName": " ",
+     *   "productImage": [
+     *       {
+     *           "productId": "",
+     *           "image": "",
+     *           "containerName": "",
+     *           "defaultImage": ""
+     *       }
+     *   ],
+     *   "productVideo": {
+     *       "id": "",
+     *       "productId": "",
+     *       "name": "",
+     *       "path": "",
+     *       "type": "",
+     *   },
+     *   "Category": [
+     *       {
+     *           "createdBy": "",
+     *           "createdDate": "",
+     *           "modifiedBy": "",
+     *          "modifiedDate": "",
+     *           "categoryId": "",
+     *           "name": "",
+     *           "image": "",
+     *           "imagePath": "",
+     *           "parentInt": "",
+     *           "sortOrder": "",
+     *           "categorySlug": "",
+     *           "isActive": "",
+     *           "categoryDescription": "",
+     *           "levels": ""
+     *       }
+     *   ],
+     *   "productSpecialPrice": [],
+     *   "productTirePrices": [],
+     *   "productDiscountData": []
+     *  }
      * }
      * @apiSampleRequest /api/admin-vendor-product/vendor-product-detail/:id
      * @apiErrorExample {json} productDetail error
@@ -975,7 +1150,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             const productSku = yield this.skuService.findOne({ id: productDetails.skuId });
             productDetails.quantity = productSku ? productSku.quantity : productDetails.quantity;
             const vendorProduct = yield this.vendorProductService.findOne({
-                select: ['vendorId', 'productId', 'approvalFlag', 'vendorProductCommission'],
+                // select: ['vendorId', 'productId', 'approvalFlag', 'vendorProductCommission'],
                 where: { productId: id },
             });
             const vendor = yield this.vendorService.findOne({
@@ -987,6 +1162,7 @@ let VendorAdminProductController = class VendorAdminProductController {
                 where: { id: vendor.customerId },
             });
             productDetails.approvalflag = vendorProduct.approvalFlag;
+            productDetails.rejectReason = vendorProduct.rejectReason;
             productDetails.vendorId = vendorProduct.vendorId;
             productDetails.vendorProductCommission = vendorProduct.vendorProductCommission;
             productDetails.companyLogo = vendor.companyLogo;
@@ -1009,6 +1185,9 @@ let VendorAdminProductController = class VendorAdminProductController {
                 select: ['productId', 'image', 'containerName', 'defaultImage'],
                 where: {
                     productId: id,
+                },
+                order: {
+                    sortOrder: 'ASC',
                 },
             });
             productDetails.productVideo = yield this.productVideoService.findOne({
@@ -1086,7 +1265,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             });
             const successResponse = {
                 status: 1,
-                message: 'Successfully get productDetail',
+                message: 'Successfully got product petail',
                 data: productDetails,
             };
             return response.status(200).send(successResponse);
@@ -1166,7 +1345,7 @@ let VendorAdminProductController = class VendorAdminProductController {
                 name: 'VendorProducts.createdDate',
                 order: 'DESC',
             });
-            const vendorProductList = yield this.vendorProductService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, [], sort, false, true);
+            const vendorProductLists = yield this.vendorProductService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, [], sort, false, true);
             worksheet.columns = [
                 { header: 'Vendor Id', key: 'vendorId', size: 16, width: 15 },
                 { header: 'Vendor Name', key: 'VendorName', size: 16, width: 15 },
@@ -1196,7 +1375,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             worksheet.getCell('L1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('M1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('N1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-            for (const products of vendorProductList) {
+            for (const products of vendorProductLists) {
                 const productDescription = products.description;
                 const dataDescription = productDescription.replace(/(&nbsp;|(<([^>]+)>))/ig, '');
                 rows.push([products.vendorId,
@@ -1232,7 +1411,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             worksheet1.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet1.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             const special = [];
-            for (const vendorSpecial of vendorProductList) {
+            for (const vendorSpecial of vendorProductLists) {
                 const specialPrices = yield this.productSpecialService.findAll({ where: { productId: vendorSpecial.productId } });
                 for (const specialPrice of specialPrices) {
                     const productName = yield this.productService.findOne({ where: { productId: specialPrice.productId } });
@@ -1259,7 +1438,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             worksheet2.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet2.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             const discount = [];
-            for (const vendorDiscount of vendorProductList) {
+            for (const vendorDiscount of vendorProductLists) {
                 const discountPrices = yield this.productDiscountService.findAll({ where: { productId: vendorDiscount.productId } });
                 for (const discountPrice of discountPrices) {
                     const productName = yield this.productService.findOne({ where: { productId: discountPrice.productId } });
@@ -1282,8 +1461,15 @@ let VendorAdminProductController = class VendorAdminProductController {
             worksheet3.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet3.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             const productimage = [];
-            for (const venImage of vendorProductList) {
-                const images = yield this.productImageService.findAll({ where: { productId: venImage.productId } });
+            for (const venImage of vendorProductLists) {
+                const images = yield this.productImageService.findAll({
+                    where: {
+                        productId: venImage.productId,
+                    },
+                    order: {
+                        sortOrder: 'ASC',
+                    },
+                });
                 for (const image of images) {
                     const productName = yield this.productService.findOne({ where: { productId: image.productId } });
                     productimage.push([image.productId, productName.name, image.containerName, image.image, image.defaultImage]);
@@ -1301,7 +1487,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             worksheet4.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet4.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             const relatedCategory = [];
-            for (const venCategory of vendorProductList) {
+            for (const venCategory of vendorProductLists) {
                 const categories = yield this.productToCategoryService.findAll({ where: { productId: venCategory.productId } });
                 for (const category of categories) {
                     const categoryName = yield this.categoryService.findOne({ where: { categoryId: category.categoryId } });
@@ -1342,7 +1528,8 @@ let VendorAdminProductController = class VendorAdminProductController {
      * @apiErrorExample {json} Allproduct Excel List error
      * HTTP/1.1 500 Internal Server Error
      */
-    ExportAllProductsById(productId, request, response) {
+    ExportAllProductsById(productId, price, request, response) {
+        var _a, _b;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const excel = require('exceljs');
             const workbook = new excel.Workbook();
@@ -1381,8 +1568,19 @@ let VendorAdminProductController = class VendorAdminProductController {
             worksheet.getCell('O1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('P1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('Q1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-            const productsid = productId.split(',');
-            for (const id of productsid) {
+            // const productIds = await this.productService.find({});
+            // console.log(productIds[1],'ppppppppppppp');
+            // productIds.map((val: any) => {
+            // console.log(val,'ppppppppppppp');
+            // const getProductId = val.productId;
+            // return getProductId;
+            // });
+            // const productsid: any = productId.split(',');
+            // const productid = productId?.length > 0 ? productId : productIds;
+            const productData = yield this.productService.findAll().then((products) => products.map(product => product.productId));
+            // console.log(productData, 'pppppppppppppp');
+            const productIds = (productId === null || productId === void 0 ? void 0 : productId.length) > 0 ? productId : productData;
+            for (const id of productIds) {
                 const dataId = yield this.productService.findOne(id);
                 if (dataId === undefined) {
                     const errorResponse = {
@@ -1392,14 +1590,18 @@ let VendorAdminProductController = class VendorAdminProductController {
                     return response.status(400).send(errorResponse);
                 }
             }
-            for (const product of productsid) {
+            for (const product of productIds) {
                 const data = yield this.productService.findOne(product);
                 const productDescription = data.description;
-                const dataDescription = productDescription.replace(/(&nbsp;|(<([^>]+)>))/ig, '');
+                const dataDescription = (_a = productDescription === null || productDescription === void 0 ? void 0 : productDescription.replace(/(&nbsp;|(<([^>]+)>))/ig, '')) !== null && _a !== void 0 ? _a : '';
                 const vendorProduct = yield this.vendorProductService.findOne({ select: ['vendorId'], where: { productId: data.productId } });
-                const vendors = yield this.vendorService.findOne({ select: ['customerId'], where: { vendorId: vendorProduct.vendorId } });
-                const customer = yield this.customerService.findOne({ select: ['firstName'], where: { id: vendors.customerId } });
-                rows.push([vendorProduct.vendorId, customer.firstName, data.productId, data.name, dataDescription.trim(), data.price, data.sku, data.upc, data.quantity, data.isFeatured, data.todaysDeals, data.condition, data.rating, data.isActive]);
+                let vendors;
+                let customer;
+                if (vendorProduct) {
+                    vendors = yield this.vendorService.findOne({ select: ['customerId'], where: { vendorId: vendorProduct.vendorId } });
+                    customer = yield this.customerService.findOne({ select: ['firstName'], where: { id: vendors.customerId } });
+                }
+                rows.push([vendorProduct === null || vendorProduct === void 0 ? void 0 : vendorProduct.vendorId, customer === null || customer === void 0 ? void 0 : customer.firstName, data.productId, data.name, (_b = dataDescription === null || dataDescription === void 0 ? void 0 : dataDescription.trim()) !== null && _b !== void 0 ? _b : '', data.price, data.sku, data.upc, data.quantity, data.isFeatured, data.todaysDeals, data.condition, data.rating, data.isActive]);
             }
             // Add all rows data in sheet
             worksheet.addRows(rows);
@@ -1421,8 +1623,8 @@ let VendorAdminProductController = class VendorAdminProductController {
             worksheet1.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet1.getCell('G1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             const special = [];
-            const productid = productId.split(',');
-            for (const products of productid) {
+            // const productid: any = productId.split(',');
+            for (const products of productIds) {
                 const specialPrices = yield this.productSpecialService.findAll({ where: { productId: products } });
                 for (const specialPrice of specialPrices) {
                     const productName = yield this.productService.findOne({ where: { productId: specialPrice.productId } });
@@ -1449,7 +1651,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             worksheet2.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet2.getCell('F1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             const discount = [];
-            const disproductsid = productId.split(',');
+            const disproductsid = productIds;
             for (const products of disproductsid) {
                 const discountPrices = yield this.productDiscountService.findAll({ where: { productId: products } });
                 for (const discountPrice of discountPrices) {
@@ -1473,9 +1675,14 @@ let VendorAdminProductController = class VendorAdminProductController {
             worksheet3.getCell('D1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet3.getCell('E1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             const productimage = [];
-            const imageProductId = productId.split(',');
+            const imageProductId = productIds;
             for (const products of imageProductId) {
-                const images = yield this.productImageService.findAll({ where: { productId: products } });
+                const images = yield this.productImageService.findAll({
+                    where: { productId: products },
+                    order: {
+                        sortOrder: 'ASC',
+                    },
+                });
                 for (const image of images) {
                     const productName = yield this.productService.findOne({ where: { productId: image.productId } });
                     productimage.push([image.productId, productName.name, image.containerName, image.image, image.defaultImage]);
@@ -1493,7 +1700,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             worksheet6.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet6.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             const relatedCategory = [];
-            const relatedProductId = productId.split(',');
+            const relatedProductId = productIds;
             for (const products of relatedProductId) {
                 const categories = yield this.productToCategoryService.findAll({ where: { productId: products } });
                 for (const category of categories) {
@@ -1538,7 +1745,8 @@ let VendorAdminProductController = class VendorAdminProductController {
      * @apiErrorExample {json} product approval error
      * HTTP/1.1 500 Internal Server Error
      */
-    productApproval(id, approvalFlag, request, response) {
+    productApproval(id, approvalFlag, reason, request, response) {
+        var _a, _b;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const vendorProduct = yield this.vendorProductService.findOne({
                 where: {
@@ -1548,50 +1756,70 @@ let VendorAdminProductController = class VendorAdminProductController {
             if (!vendorProduct) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid product Id.',
-                };
-                return response.status(400).send(errorResponse);
-            }
-            if (vendorProduct.approvalFlag === 1) {
-                const errorResponse = {
-                    status: 0,
-                    message: 'This Product is already approved.',
+                    message: 'Invalid product Id',
                 };
                 return response.status(400).send(errorResponse);
             }
             vendorProduct.approvalFlag = approvalFlag;
-            vendorProduct.approvedBy = request.user.userId;
+            if (reason === null || reason === void 0 ? void 0 : reason.trim()) {
+                vendorProduct.rejectReason.push({
+                    date: moment().format('YYYY-MM-DD HH:mm:ss'),
+                    comment: reason,
+                });
+            }
+            vendorProduct.approvedBy = approvalFlag === 1 ? request.user.userId : undefined;
             const today = new Date().toISOString().slice(0, 10);
-            vendorProduct.approvalDate = today;
+            vendorProduct.approvalDate = approvalFlag === 1 ? today : undefined;
             const vendorProductSave = yield this.vendorProductService.create(vendorProduct);
             const vendor = yield this.vendorService.findOne({ select: ['customerId'], where: { vendorId: vendorProductSave.vendorId } });
             const vendorCustomer = yield this.customerService.findOne({ select: ['firstName', 'email'], where: { id: vendor.customerId } });
-            if (vendorProductSave) {
+            if (vendorProductSave.approvalFlag === 1) {
                 const emailContent = yield this.emailTemplateService.findOne(16);
                 const setting = yield this.settingService.findOne();
                 const product = yield this.productService.findOne({ select: ['name'], where: { productId: id } });
-                const message = emailContent.content.replace('{name}', vendorCustomer.firstName).replace('{sitename}', setting.storeName).replace('{productname}', product.name);
+                const message = emailContent.content.replace('{name}', vendorCustomer.firstName).replace('{siteName}', setting.siteName).replace('{productname}', product.name).replace('{productLink}', env_1.env.productRedirectUrl + product.productSlug).replace('{siteUrl}', setting.siteUrl).replace('{siteName}', setting.siteName);
                 const redirectUrl = env_1.env.vendorRedirectUrl;
                 const mailContents = {};
                 mailContents.logo = setting;
                 mailContents.emailContent = message;
                 mailContents.redirectUrl = redirectUrl;
-                mailContents.productDetailData = undefined;
-                console.log('vendorcustomer.email:', vendorCustomer.email);
-                mail_services_1.MAILService.sendMail(mailContents, vendorCustomer.email, emailContent.subject, false, false, '');
+                mailContents.productDetailData = '';
+                mail_services_1.MAILService.sendMail(mailContents, vendorCustomer.email, emailContent.subject.replace('{siteName}', setting.siteName), false, false, '');
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully Approved this Product and sent an Approval mail to vendor . ',
+                    message: 'Successfully Approved this Product and sent an Approval mail to seller',
                     data: vendorProductSave,
                 };
                 return response.status(200).send(successResponse);
             }
-            else {
-                const errorResponse = {
-                    status: 0,
-                    message: 'Unable to approve the product.',
+            else if (vendorProductSave.approvalFlag === 2) {
+                const product = yield this.productService.findOne({ where: { productId: id }, relations: ['productImage'] });
+                product.isActive = 0;
+                yield this.productService.create(product);
+                const setting = yield this.settingService.findOne();
+                const productData = {};
+                productData.productName = product.name;
+                productData.productImageName = product.productImage[0].image;
+                productData.productImagePath = product.productImage[0].containerName;
+                productData.currencySymbol = (_a = setting.currencySymbol) !== null && _a !== void 0 ? _a : '';
+                productData.price = (_b = product.price) !== null && _b !== void 0 ? _b : '';
+                productData.sku = product.sku;
+                const emailContent = yield this.emailTemplateService.findOne(43);
+                const message = emailContent.content.replace('{name}', vendorCustomer.firstName).replace('{XXXXXX}', reason !== null && reason !== void 0 ? reason : '');
+                const redirectUrl = env_1.env.vendorRedirectUrl;
+                const mailContents = {};
+                mailContents.logo = setting;
+                mailContents.templateName = 'emailTemplates.ejs';
+                mailContents.emailContent = message;
+                mailContents.redirectUrl = redirectUrl;
+                mailContents.productInfo = [productData];
+                mail_services_1.MAILService.sendMail(mailContents, vendorCustomer.email, emailContent.subject, false, false, '');
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully Rejected this Product and sent an mail to seller',
+                    data: vendorProductSave,
                 };
-                return response.status(400).send(errorResponse);
+                return response.status(200).send(successResponse);
             }
         });
     }
@@ -1609,7 +1837,67 @@ let VendorAdminProductController = class VendorAdminProductController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully updated status.",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *      "createdBy": "",
+     *      "createdDate": "",
+     *      "modifiedBy": "",
+     *      "modifiedDate": "",
+     *      "productId": "",
+     *      "sku": "",
+     *      "upc": "",
+     *      "hsn": "",
+     *      "location": "",
+     *      "quantity": "",
+     *      "minimumQuantity": "",
+     *      "subtractStock": "",
+     *      "stockStatusId": "",
+     *      "quotationAvailable": "",
+     *      "image": "",
+     *      "imagePath": "",
+     *      "manufacturerId": "",
+     *      "shipping": "",
+     *      "serviceCharges": "{}",
+     *      "taxType": "",
+     *      "taxValue": "",
+     *      "price": "",
+     *      "priceUpdateFileLogId": "",
+     *      "dateAvailable": "",
+     *      "sortOrder": "",
+     *      "name": "T",
+     *      "description": "",
+     *      "amount": null,
+     *      "keywords": "",
+     *      "discount": "",
+     *      "deleteFlag": "",
+     *      "isFeatured": "",
+     *      "todayDeals": "",
+     *      "condition": "",
+     *      "rating": "",
+     *      "wishListStatus": "",
+     *      "productSlug": "",
+     *      "isActive": "",
+     *      "width": "",
+     *      "height": "",
+     *      "length": "",
+     *      "weight": "",
+     *      "hasStock": "",
+     *      "priceType": "",
+     *      "isSimplified": "",
+     *      "owner": "",
+     *      "isCommon": "",
+     *      "skuId": "",
+     *      "hasTirePrice": "",
+     *      "outOfStockThreshold": "",
+     *      "notifyMinQuantity": "",
+     *      "minQuantityAllowedCart": "",
+     *      "maxQuantityAllowedCart": "",
+     *      "enableBackOrders": "",
+     *      "pincodeBasedDelivery": "",
+     *      "attributeKeyword": "",
+     *      "settedAsCommonOn": "",
+     *      "productHighlights": ""
+     *   }
      * }
      * @apiSampleRequest /api/admin-vendor-product/add-product-status/:id
      * @apiErrorExample {json} product approval error
@@ -1625,19 +1913,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             if (!product) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid product Id.',
-                };
-                return response.status(400).send(errorResponse);
-            }
-            const vendorProduct = yield this.vendorProductService.findOne({
-                where: {
-                    productId: id,
-                },
-            });
-            if (vendorProduct.approvalFlag === 0) {
-                const errorResponse = {
-                    status: 0,
-                    message: 'You can change the status of the product only after you approved the vendor.',
+                    message: 'Invalid product Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -1646,7 +1922,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             if (vendorProductSave) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully Updated Status . ',
+                    message: 'Successfully Updated Status',
                     data: vendorProductSave,
                 };
                 return response.status(200).send(successResponse);
@@ -1658,6 +1934,54 @@ let VendorAdminProductController = class VendorAdminProductController {
                 };
                 return response.status(400).send(errorResponse);
             }
+        });
+    }
+    // Update bulk Status for vendors product  API
+    /**
+     * @api {put} /api/admin-vendor-product/bulk-status bulk update Vendor Product Status API
+     * @apiGroup Admin Vendor Product
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {number} status either should be 1 or 0
+     * @apiParamExample {json} Input
+     * {
+     *      "statusId" : 1,
+     *      "productIds": ""
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully updated status.",
+     *      "status": "1",
+     * }
+     * }
+     * @apiSampleRequest /api/admin-vendor-product/bulk-status
+     * @apiErrorExample {json} product approval error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    updateBlukProductStatus(productIds, statusId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const splitProduct = productIds.split(',');
+            for (const id of splitProduct) {
+                const findProduct = yield this.productService.findOne({
+                    where: {
+                        productId: id,
+                    },
+                });
+                if (!findProduct) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid product Id',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                findProduct.isActive = statusId;
+                yield this.productService.create(findProduct);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully Updated Status',
+            };
+            return response.status(200).send(successResponse);
         });
     }
     // Update Vendor Product Commission
@@ -1695,7 +2019,7 @@ let VendorAdminProductController = class VendorAdminProductController {
                 if (!findProduct) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid product Id.',
+                        message: 'Invalid product Id',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -1704,7 +2028,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             }
             const successResponse = {
                 status: 1,
-                message: 'Successfully Updated the Commission.',
+                message: 'Successfully Updated the Commission',
             };
             return response.status(200).send(successResponse);
         });
@@ -1718,7 +2042,11 @@ let VendorAdminProductController = class VendorAdminProductController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get vendor product count",
-     *      "data":{},
+     *      "data":{
+     *      "totalProduct": "",
+     *      "activeProduct": "",
+     *      "inActiveProduct": "",
+     * },
      *      "status": "1"
      * }
      * @apiSampleRequest /api/admin-vendor-product/vendor-product-count
@@ -1790,7 +2118,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             vendorProduct.inActiveProduct = inActiveVendorProductCount;
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the vendor product count',
+                message: 'Successfully got the seller product count',
                 data: vendorProduct,
             };
             return response.status(200).send(successResponse);
@@ -1847,10 +2175,15 @@ tslib_1.__decorate([
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('vendorId')),
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('keyword')),
     tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('price')),
-    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('approvalFlag')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('vendorName')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('updatedDate')),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('companyName')),
+    tslib_1.__param(10, (0, routing_controllers_1.QueryParam)('productName')),
+    tslib_1.__param(11, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(12, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Number, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, String, String, String, String, Number, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorAdminProductController.prototype, "vendorProductList", null);
 tslib_1.__decorate([
@@ -1876,24 +2209,26 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorAdminProductController.prototype, "ExportAllProducts", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/vendor-product-excel-list'),
+    (0, routing_controllers_1.Post)('/vendor-product-excel-list'),
     (0, routing_controllers_1.Authorized)(['admin', 'export-market-place-product']),
-    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('productId')),
-    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('productId')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('price')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Array, Number, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorAdminProductController.prototype, "ExportAllProductsById", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Put)('/approve-product/:id'),
     (0, routing_controllers_1.Authorized)(['admin', 'approve-market-place-product']),
     tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
-    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('approvalFlag')),
-    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('approvalFlag', { required: true })),
+    tslib_1.__param(2, (0, routing_controllers_1.BodyParam)('reason')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorAdminProductController.prototype, "productApproval", null);
 tslib_1.__decorate([
@@ -1907,6 +2242,17 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorAdminProductController.prototype, "addProductStatus", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/bulk-status'),
+    (0, routing_controllers_1.Authorized)('admin'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('productIds')),
+    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('statusId')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorAdminProductController.prototype, "updateBlukProductStatus", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Put)(),
     (0, routing_controllers_1.Authorized)(),

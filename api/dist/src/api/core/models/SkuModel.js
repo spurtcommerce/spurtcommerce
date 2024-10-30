@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -67,6 +67,10 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'enable_back_orders' }),
     tslib_1.__metadata("design:type", Number)
 ], Sku.prototype, "enableBackOrders", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'back_order_stock_limit' }),
+    tslib_1.__metadata("design:type", Number)
+], Sku.prototype, "backOrderStockLimit", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'vendor_id' }),
     tslib_1.__metadata("design:type", Number)

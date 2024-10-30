@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -13,7 +13,19 @@ const typeorm_1 = require("typeorm");
 const Zone_1 = require("./Zone");
 const Customer_1 = require("./Customer");
 const class_validator_1 = require("class-validator");
-let Country = class Country {
+const BaseModel_1 = require("./BaseModel");
+const moment_1 = tslib_1.__importDefault(require("moment"));
+let Country = class Country extends BaseModel_1.BaseModel {
+    createDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.createdDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
+    updateDetails() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.modifiedDate = (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss');
+        });
+    }
 };
 tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
@@ -53,6 +65,18 @@ tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => Customer_1.Customer, customer => customer.country),
     tslib_1.__metadata("design:type", Array)
 ], Country.prototype, "customer", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeInsert)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Country.prototype, "createDetails", null);
+tslib_1.__decorate([
+    (0, typeorm_1.BeforeUpdate)(),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], Country.prototype, "updateDetails", null);
 Country = tslib_1.__decorate([
     (0, typeorm_1.Entity)('country')
 ], Country);

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * http://api.spurtcommerce.com
  *
  * Copyright (c) 2021 piccosoft ltd
@@ -75,6 +75,10 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'routes' }),
     tslib_1.__metadata("design:type", String)
 ], Plugins.prototype, "routes", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'display_Name' }),
+    tslib_1.__metadata("design:type", String)
+], Plugins.prototype, "displayName", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.BeforeInsert)(),
     tslib_1.__metadata("design:type", Function),

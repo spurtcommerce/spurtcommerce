@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -14,15 +14,13 @@ const routing_controllers_1 = require("routing-controllers");
 const Page_1 = require("../../core/models/Page");
 const CreatePageRequest_1 = require("./requests/CreatePageRequest");
 const PageService_1 = require("../../core/services/PageService");
-const ImageService_1 = require("../../core/services/ImageService");
 const UpdatePageRequest_1 = require("./requests/UpdatePageRequest");
 const DeletePageRequest_1 = require("./requests/DeletePageRequest");
 const PageGroupService_1 = require("../../core/services/PageGroupService");
 let PageController = class PageController {
-    constructor(pageService, pageGroupService, imageService) {
+    constructor(pageService, pageGroupService) {
         this.pageService = pageService;
         this.pageGroupService = pageGroupService;
-        this.imageService = imageService;
     }
     // Create Page API
     /**
@@ -47,16 +45,26 @@ let PageController = class PageController {
      * {
      *      "message": "New page is created successfully",
      *      "status": "1"
+     *      "data": {
+     *                  "title": "",
+     *                  "content": "",
+     *                  "isActive": 1,
+     *                  "pageGroupId": 1,
+     *                  "slugName": "",
+     *                  "createdDate": "",
+     *                  "pageId": 1
+     *               }
      * }
      * @apiSampleRequest /api/page
      * @apiErrorExample {json} Page error
      * HTTP/1.1 500 Internal Server Error
      */
     createPage(pageParam, response) {
+        var _a;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const page = new Page_1.Page();
             page.title = pageParam.title;
-            page.content = pageParam.content ? yield this.imageService.escapeChar(pageParam.content) : '';
+            page.content = (_a = pageParam.content) !== null && _a !== void 0 ? _a : '';
             page.isActive = pageParam.active;
             page.pageGroupId = pageParam.pageGroupId;
             const metaTagTitle = pageParam.pageSlug ? pageParam.pageSlug : pageParam.title;
@@ -67,7 +75,7 @@ let PageController = class PageController {
             if (pageSave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully created a new page.',
+                    message: 'Successfully created a new page',
                     data: pageSave,
                 };
                 return response.status(200).send(successResponse);
@@ -75,7 +83,7 @@ let PageController = class PageController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to create page.',
+                    message: 'Unable to create page',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -95,12 +103,17 @@ let PageController = class PageController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get page list",
-     *      "data":{
-     *      "pageId" : "",
-     *      "title" : "",
-     *      "content" : "",
-     *      "active" : "",
-     *      }
+     *      "data": [
+     *                  {
+     *                     "pageId": 57,
+     *                     "title": "About us",
+     *                     "content": "",
+     *                     "pageGroupId": 4,
+     *                     "slugName": "about-us1",
+     *                     "isActive": 1,
+     *                     "pageGroupName": "Policy"
+     *                   }
+     *              ]
      *      "status": "1"
      * }
      * @apiSampleRequest /api/page
@@ -109,7 +122,7 @@ let PageController = class PageController {
      */
     pageList(limit, offset, keyword, status, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const select = ['pageId', 'title', 'pageGroupId', 'content', 'isActive', 'slugName'];
+            const select = [];
             const search = [
                 {
                     name: 'title',
@@ -135,6 +148,7 @@ let PageController = class PageController {
             const promise = pageList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                 const data = yield this.pageGroupService.findOne({ where: { groupId: result.pageGroupId } });
                 const temp = result;
+                // temp.content = await this.imageService.escapeChars(temp.content);
                 if (data) {
                     temp.pageGroupName = data.groupName;
                 }
@@ -146,7 +160,7 @@ let PageController = class PageController {
             const value = yield Promise.all(promise);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete list of pages.',
+                message: 'Successfully got the complete list of pages',
                 data: value,
             };
             return response.status(200).send(successResponse);
@@ -177,12 +191,28 @@ let PageController = class PageController {
      * {
      *      "message": " Page is updated successfully",
      *      "status": "1"
+     *      "data": {
+     *                 "createdBy": 1,
+     *                 "createdDate": "",
+     *                 "modifiedBy": 1,
+     *                 "modifiedDate": "",
+     *                 "pageId": 57,
+     *                 "title": "",
+     *                 "intro": "",
+     *                 "content": "",
+     *                 "pageGroupId": 2,
+     *                 "sortOrder": 1,
+     *                 "slugName": "",
+     *                 "viewPageCount": 1,
+     *                 "isActive": 1
+     *              }
      * }
      * @apiSampleRequest /api/page/:id
      * @apiErrorExample {json} updatePage error
      * HTTP/1.1 500 Internal Server Error
      */
     updatePage(pageParam, response) {
+        var _a;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const page = yield this.pageService.findOne({
                 where: {
@@ -192,12 +222,12 @@ let PageController = class PageController {
             if (!page) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid page id.',
+                    message: 'Invalid page id',
                 };
                 return response.status(400).send(errorResponse);
             }
             page.title = pageParam.title;
-            page.content = pageParam.content ? yield this.imageService.escapeChar(pageParam.content) : '';
+            page.content = (_a = pageParam.content) !== null && _a !== void 0 ? _a : '';
             page.isActive = pageParam.active;
             page.pageGroupId = pageParam.pageGroupId;
             const metaTagTitle = pageParam.pageSlug ? pageParam.pageSlug : pageParam.title;
@@ -208,7 +238,7 @@ let PageController = class PageController {
             if (pageSave) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated the page.',
+                    message: 'Successfully updated the page',
                     data: pageSave,
                 };
                 return response.status(200).send(successResponse);
@@ -216,7 +246,7 @@ let PageController = class PageController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the page.',
+                    message: 'Unable to update the page',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -251,7 +281,7 @@ let PageController = class PageController {
             if (!page) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid pageId.',
+                    message: 'Invalid pageId',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -259,14 +289,14 @@ let PageController = class PageController {
             if (deletePage) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the page.',
+                    message: 'Successfully deleted the page',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the page.',
+                    message: 'Unable to delete the page',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -301,7 +331,7 @@ let PageController = class PageController {
                 if (dataId === undefined) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Please choose a page that you want to delete.',
+                        message: 'Please choose a page that you want to delete',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -312,7 +342,7 @@ let PageController = class PageController {
             }
             const successResponse = {
                 status: 1,
-                message: 'Successfully deleted the page.',
+                message: 'Successfully deleted the page',
             };
             return response.status(200).send(successResponse);
         });
@@ -326,7 +356,11 @@ let PageController = class PageController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get page count",
-     *      "data":{},
+     *      "data": {
+     *                   "totalPage": 14,
+     *                   "activePage": 13,
+     *                   "inActivePage": 1
+     *               }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/page/page-count
@@ -378,10 +412,24 @@ let PageController = class PageController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully got Page detail",
-     *      "data": "{}"
+     *      "data": {
+     *                 "createdBy": 1,
+     *                 "createdDate": "",
+     *                 "modifiedBy": 1,
+     *                 "modifiedDate": "",
+     *                 "pageId": 1,
+     *                 "title": "1",
+     *                 "intro": "",
+     *                 "content": "1",
+     *                 "pageGroupId": 1,
+     *                 "sortOrder": 1,
+     *                 "slugName": "1",
+     *                 "viewPageCount": 1,
+     *                 "isActive": 1
+     *               }
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/page/page-detail
+     * @apiSampleRequest /api/page/:pageId
      * @apiErrorExample {json} page Detail error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -488,9 +536,9 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], PageController.prototype, "pageCount", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/page-detail'),
+    (0, routing_controllers_1.Get)('/:pageId'),
     (0, routing_controllers_1.Authorized)(),
-    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('pageId')),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('pageId')),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [Number, Object]),
@@ -498,7 +546,7 @@ tslib_1.__decorate([
 ], PageController.prototype, "PageDetail", null);
 PageController = tslib_1.__decorate([
     (0, routing_controllers_1.JsonController)('/page'),
-    tslib_1.__metadata("design:paramtypes", [PageService_1.PageService, PageGroupService_1.PageGroupService, ImageService_1.ImageService])
+    tslib_1.__metadata("design:paramtypes", [PageService_1.PageService, PageGroupService_1.PageGroupService])
 ], PageController);
 exports.PageController = PageController;
 //# sourceMappingURL=PageController.js.map

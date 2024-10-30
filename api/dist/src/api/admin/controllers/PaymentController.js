@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce marketplace API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -45,14 +45,38 @@ let PaymentController = class PaymentController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get payment list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
+     *      "data":[{
+     *              "paymentId": 15,
+     *              "orderId": 405,
+     *              "orderStatusId": 1,
+     *              "orderPrefixId": "INV-20240717405",
+     *              "currencySymbolLeft": "$",
+     *              "currencySymbolRight": "",
+     *              "shippingFirstname": "Anangan",
+     *              "total": "118499.00",
+     *              "createdDate": "2024-07-17T13:06:00.000Z",
+     *              "paymentType": "CashOnDelivery",
+     *              "paymentDetails": null,
+     *              "customerId": 16,
+     *              "isActive": 1,
+     *              "paymentMethod": "1",
+     *              "subOrderDetails": [
+     *                {
+     *                  "orderProductId": 714,
+     *                  "orderProductPrefixId": "INV-202407174051",
+     *                  "productId": 929,
+     *                  "orderId": 405,
+     *                  "quantity": 1,
+     *                  "name": "LG Gram16",
+     *                  "price": "118499.00",
+     *                  "basePrice": "118499.00",
+     *                  "total": "118499.00",
+     *                  "discountAmount": "0.00",
+     *                  "discountedAmount": "0.00",
+     *                  "couponDiscountAmount": null,
+     *                  "skuName": "LG45676543"
+     *                }]
+     *              }]
      *      "status": "1"
      * }
      * @apiSampleRequest /api/payment/payment-list
@@ -171,7 +195,7 @@ let PaymentController = class PaymentController {
             const paymentListDetails = yield Promise.all(paymentResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete payment list.',
+                message: 'Successfully got the complete payment list',
                 data: paymentListDetails,
             };
             return response.status(200).send(successResponse);
@@ -190,15 +214,8 @@ let PaymentController = class PaymentController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get payment list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
+     *      "message": "Successfully get payment list count",
+     *      "data": 100,
      *      "status": "1"
      * }
      * @apiSampleRequest /api/payment/payment-list-count
@@ -259,7 +276,7 @@ let PaymentController = class PaymentController {
             const paymentList = yield this.paymentService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, [], true, true);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the payment list count.',
+                message: 'Successfully got the payment list count',
                 data: paymentList,
             };
             return response.status(200).send(successResponse);
@@ -546,7 +563,7 @@ let PaymentController = class PaymentController {
             if (!payment) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid Payment Id.',
+                    message: 'Invalid Payment Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -578,7 +595,7 @@ let PaymentController = class PaymentController {
             yield this.paymentService.delete(payment);
             const successResponse = {
                 status: 1,
-                message: 'Successfully Archived this payment.',
+                message: 'Successfully Archived this payment',
             };
             return response.status(200).send(successResponse);
         });
@@ -598,12 +615,19 @@ let PaymentController = class PaymentController {
      * {
      *      "message": "Successfully get Archive payment list",
      *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
+     *              "paymentArchiveId" : "",
+     *              "createdDate" : "",
+     *              "orderId" : "",
+     *              "orderStatusId" : "",
+     *              "orderPrefixId" : "",
+     *              "currencySymbolLeft" : "",
+     *              "currencySymbolRight" : "",
+     *              "shippingFirstname" : "",
+     *              "total" : "",
+     *              "paymentType" : "",
+     *              "paymentDetails" : "",
+     *              "customerId" : "",
+     *              "isActive": ""
      *      }
      *      "status": "1"
      * }
@@ -708,7 +732,7 @@ let PaymentController = class PaymentController {
             const paymentListDetails = yield Promise.all(paymentResponse);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete archive payment list.',
+                message: 'Successfully got the complete archive payment list',
                 data: paymentListDetails,
             };
             return response.status(200).send(successResponse);
@@ -728,8 +752,7 @@ let PaymentController = class PaymentController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get Archive payment count",
-     *      "data":{
-     *      }
+     *      "data":""
      *      "status": "1"
      * }
      * @apiSampleRequest /api/payment/archive-payment-list-count
@@ -795,7 +818,7 @@ let PaymentController = class PaymentController {
             const paymentList = yield this.paymentArchiveService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the complete archive payment list count.',
+                message: 'Successfully got the complete archive payment list count',
                 data: paymentList,
             };
             return response.status(200).send(successResponse);
@@ -879,7 +902,7 @@ let PaymentController = class PaymentController {
                     if (!dataId) {
                         const errorResponse = {
                             status: 0,
-                            message: 'Invalid payment Archive Id.',
+                            message: 'Invalid payment Archive Id',
                         };
                         return response.status(400).send(errorResponse);
                     }

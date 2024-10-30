@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -28,14 +28,16 @@ const typeorm_1 = require("typeorm");
 const product_1 = require("@spurtcommerce/product");
 const ExportLog_1 = require("../../core/models/ExportLog");
 const ExportLogService_1 = require("../../core/services/ExportLogService");
+const VendorGroupCategoryService_1 = require("../../core/services/VendorGroupCategoryService");
 let CategoryController = class CategoryController {
-    constructor(categoryService, productToCategoryService, categoryPathService, s3Service, imageService, exportLogService) {
+    constructor(categoryService, productToCategoryService, categoryPathService, s3Service, imageService, exportLogService, vendorGroupCategoryService) {
         this.categoryService = categoryService;
         this.productToCategoryService = productToCategoryService;
         this.categoryPathService = categoryPathService;
         this.s3Service = s3Service;
         this.imageService = imageService;
         this.exportLogService = exportLogService;
+        this.vendorGroupCategoryService = vendorGroupCategoryService;
     }
     // create Category API
     /**
@@ -61,8 +63,18 @@ let CategoryController = class CategoryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully created new Category.",
-     *      "status": "1"
+     *      "message": "Successfully created new Category",
+     *      "status": "1",
+     * *    "data": {
+     *               "name": "",
+     *               "parentInt": "",
+     *               "sortOrder": "",
+     *               "categorySlug": "",
+     *               "isActive": "",
+     *               "categoryDescription": "",
+     *               "createdDate": "",
+     *               "categoryId": ""
+     *              }
      * }
      * @apiSampleRequest /api/category
      * @apiErrorExample {json} Category error
@@ -87,23 +99,11 @@ let CategoryController = class CategoryController {
                 name = 'Img_' + Date.now() + '.' + type;
                 path = 'category/';
                 const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
-                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                const sizeInKb = sizeInBytes / 1024;
-                if (+sizeInKb <= 2048) {
-                    if (env_1.env.imageserver === 's3') {
-                        yield this.s3Service.imageUpload((path + name), base64Data, type);
-                    }
-                    else {
-                        yield this.imageService.imageUpload((path + name), base64Data);
-                    }
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload((path + name), base64Data, type);
                 }
                 else {
-                    const errorResponse = {
-                        status: 0,
-                        message: 'Not able to update as the file size is too large.',
-                    };
-                    return response.status(400).send(errorResponse);
+                    yield this.imageService.imageUpload((path + name), base64Data);
                 }
             }
             const categorySave = yield (0, product_1.categoryCreate)((0, typeorm_1.getConnection)(), {
@@ -150,8 +150,17 @@ let CategoryController = class CategoryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully updated Category.",
-     *      "status": "1"
+     *      "message": "Successfully updated Category",
+     *      "status": "1",
+     *      "data":  {
+     *                 "name": "",
+     *                 "parentInt": "",
+     *                 "sortOrder": "",
+     *                 "categorySlug": "",
+     *                 "isActive": "",
+     *                 "categoryDescription": "",
+     *                 "createdDate": "",
+     *               }
      * }
      * @apiSampleRequest /api/category/:id
      * @apiErrorExample {json} Category error
@@ -168,7 +177,7 @@ let CategoryController = class CategoryController {
             if (!categoryId) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid category Id.',
+                    message: 'Invalid category Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -187,23 +196,11 @@ let CategoryController = class CategoryController {
                 const name = 'Img_' + Date.now() + '.' + type;
                 const path = 'category/';
                 const base64Data = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                const stringLength = image.replace(/^data:image\/\w+;base64,/, '').length;
-                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                const sizeInKb = sizeInBytes / 1024;
-                if (+sizeInKb <= 2048) {
-                    if (env_1.env.imageserver === 's3') {
-                        yield this.s3Service.imageUpload((path + name), base64Data, type);
-                    }
-                    else {
-                        yield this.imageService.imageUpload((path + name), base64Data);
-                    }
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload((path + name), base64Data, type);
                 }
                 else {
-                    const errorResponse = {
-                        status: 0,
-                        message: 'Not able to update as the file size is too large.',
-                    };
-                    return response.status(400).send(errorResponse);
+                    yield this.imageService.imageUpload((path + name), base64Data);
                 }
                 categoryId.image = name;
                 categoryId.imagePath = path;
@@ -258,7 +255,7 @@ let CategoryController = class CategoryController {
             if (categorySave !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated category.',
+                    message: 'Successfully updated category',
                     data: (0, class_transformer_1.instanceToPlain)(categorySave),
                 };
                 return response.status(200).send(successResponse);
@@ -266,7 +263,7 @@ let CategoryController = class CategoryController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the category. ',
+                    message: 'Unable to update the category',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -285,7 +282,7 @@ let CategoryController = class CategoryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully deleted Category.",
+     *      "message": "Successfully deleted Category",
      *      "status": "1"
      * }
      * @apiSampleRequest /api/category/:id
@@ -313,7 +310,7 @@ let CategoryController = class CategoryController {
             if (!categoryId) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid category Id.',
+                    message: 'Invalid category Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -325,7 +322,15 @@ let CategoryController = class CategoryController {
             if (parentCategoryId) {
                 const errorresponse = {
                     status: 0,
-                    message: 'You cannot delete this parent category as sub-categories are mapped to it. ',
+                    message: 'You cannot delete this parent category as sub-categories are mapped to it',
+                };
+                return response.status(400).send(errorresponse);
+            }
+            const vendorGroupCategory = yield this.vendorGroupCategoryService.findOne({ where: { categoryId: category.categoryId } });
+            if (vendorGroupCategory) {
+                const errorresponse = {
+                    status: 0,
+                    message: 'You cannot delete this category as it is mapped to a vendor group',
                 };
                 return response.status(400).send(errorresponse);
             }
@@ -337,14 +342,14 @@ let CategoryController = class CategoryController {
             if (!deleteCategory) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted category.',
+                    message: 'Successfully deleted category',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the category. ',
+                    message: 'Unable to delete the category',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -358,24 +363,81 @@ let CategoryController = class CategoryController {
      * @apiParam (Request body) {Number} limit limit
      * @apiParam (Request body) {Number} offset offset
      * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} name name
      * @apiParam (Request body) {Number} sortOrder sortOrder
      * @apiParam (Request body) {Number} status status
      * @apiParam (Request body) {String} count count in number or boolean
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "successfully got the complete category list.",
-     *      "data":"{ }"
+     *      "message": "successfully got the complete category list",
      *      "status": "1"
+     *      "data":"[{
+     *              "categoryId": "",
+     *              "sortOrder": "",
+     *              "parentInt": "",
+     *              "name": "",
+     *              "image": "",
+     *              "imagePath": "",
+     *              "isActive": "",
+     *              "createdDate": "",
+     *              "categorySlug": "",
+     *              "levels": ""
+     *               }]"
      * }
      * @apiSampleRequest /api/category
      * @apiErrorExample {json} Category error
      * HTTP/1.1 500 Internal Server Error
      */
-    categorylist(limit, offset, keyword, sortOrder, status, count, response) {
+    categorylist(limit, offset, keyword, sortOrder, status, count, name, response) {
         var _a;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const listCategory = yield (0, product_1.categoryList)((0, typeorm_1.getConnection)(), limit, offset, keyword, status, sortOrder);
+            const listCategory = yield (0, product_1.categoryList)((0, typeorm_1.getConnection)(), limit, offset, keyword, status, name, sortOrder);
+            return response.status(listCategory.status ? 200 : 400).send({
+                status: listCategory.status,
+                message: listCategory.message,
+                data: (_a = listCategory.data) !== null && _a !== void 0 ? _a : undefined,
+            });
+        });
+    }
+    // Category List API
+    /**
+     * @api {get} /api/category Category List API
+     * @apiGroup Category
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} keyword keyword
+     * @apiParam (Request body) {String} name name
+     * @apiParam (Request body) {Number} sortOrder sortOrder
+     * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {String} count count in number or boolean
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "successfully got the complete category list",
+     *      "status": "1"
+     *      "data":"[{
+     *              "categoryId": "",
+     *              "sortOrder": "",
+     *              "parentInt": "",
+     *              "name": "",
+     *              "image": "",
+     *              "imagePath": "",
+     *              "isActive": "",
+     *              "createdDate": "",
+     *              "categorySlug": "",
+     *              "levels": ""
+     *               }]"
+     * }
+     * @apiSampleRequest /api/category
+     * @apiErrorExample {json} Category error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    categorylistBySite(limit, offset, keyword, sortOrder, status, count, name, response) {
+        var _a;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const listCategory = yield (0, product_1.categoryList)((0, typeorm_1.getConnection)(), limit, offset, keyword, status, name, sortOrder);
             return response.status(listCategory.status ? 200 : 400).send({
                 status: listCategory.status,
                 message: listCategory.message,
@@ -385,7 +447,7 @@ let CategoryController = class CategoryController {
     }
     // Category List Tree API
     /**
-     * @api {get} /api/category-list-intree Category List InTree API
+     * @api {get} /api/category/category-intree Category List InTree API
      * @apiGroup Category
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -396,11 +458,28 @@ let CategoryController = class CategoryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "successfully got the complete category list.",
-     *      "data":"{}"
      *      "status": "1"
+     *      "message": "successfully got the complete category list",
+     *      "data":"[{
+     *               "categoryId": 1304,
+     *               "name": "Dresses",
+     *               "image": "",
+     *               "imagePath": "",
+     *               "parentInt": 0,
+     *               "sortOrder": 1,
+     *               "isActive": "1",
+     *               "children": [{
+     *                   "categoryId": 1311,
+     *                   "name": "cotton-shirts",
+     *                   "image": "",
+     *                   "imagePath": "",
+     *                   "parentInt": 1304,
+     *                   "sortOrder": 1,
+     *                   "isActive": "1"
+     *                 }]
+     *   }]
      * }
-     * @apiSampleRequest /api/category-list-intree
+     * @apiSampleRequest /api/category/category-intree
      * @apiErrorExample {json} Category error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -415,7 +494,7 @@ let CategoryController = class CategoryController {
                 },
             ];
             const WhereConditions = [];
-            const category = yield this.categoryService.list(limit, offset, select, search, WhereConditions, sortOrder, count);
+            const category = yield this.categoryService.list(limit, offset, select, search, WhereConditions, [], sortOrder, count);
             if (count) {
                 const successResponse = {
                     status: 1,
@@ -431,7 +510,7 @@ let CategoryController = class CategoryController {
                 });
                 const successResponse = {
                     status: 1,
-                    message: 'successfully got the complete category list.',
+                    message: 'successfully got the complete category list',
                     data: categoryLists,
                 };
                 return response.status(200).send(successResponse);
@@ -440,16 +519,16 @@ let CategoryController = class CategoryController {
     }
     // Update Category Slug API
     /**
-     * @api {put} /api/update-category-slug Update Category Slug API
+     * @api {put} /api/category/category-slug Update Category Slug API
      * @apiGroup Category
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully updated Category Slug.",
-     *      "status": "1"
+     *      "message": "Successfully updated Category Slug",
+     *      "status": "1",
      * }
-     * @apiSampleRequest /api/update-category-slug
+     * @apiSampleRequest /api/category/category-slug
      * @apiErrorExample {json} Category error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -501,14 +580,14 @@ let CategoryController = class CategoryController {
             yield this.categoryService.create(arr);
             const successResponse = {
                 status: 1,
-                message: 'Successfully updated the category slug.',
+                message: 'Successfully updated the category slug',
             };
             return response.status(200).send(successResponse);
         });
     }
     // Category List API
     /**
-     * @api {get} /api/category-count Category Count API
+     * @api {get} /api/category/category-count Category Count API
      * @apiGroup Category
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -519,20 +598,22 @@ let CategoryController = class CategoryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "successfully got the complete category count.",
-     *      "data":"{ }"
      *      "status": "1"
+     *      "message": "successfully got the complete category count",
+     *      "data":"{
+     *               "productCount": 20
+     *              }"
      * }
-     * @apiSampleRequest /api/category-count
+     * @apiSampleRequest /api/category/category-count
      * @apiErrorExample {json} Category error
      * HTTP/1.1 500 Internal Server Error
      */
-    categorycount(limit, offset, keyword, sortOrder, status, response) {
+    categorycount(limit, offset, keyword, name, sortOrder, status, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const productCount = yield this.categoryService.categoryCount(limit, offset, keyword, sortOrder, status);
+            const productCount = yield this.categoryService.categoryCount(limit, offset, (keyword === '' || keyword === undefined ? name : keyword), sortOrder, status);
             const successResponse = {
                 status: 1,
-                message: 'Successfully get Category Count',
+                message: 'Successfully get category count',
                 data: {
                     productCount: productCount.categoryCount,
                 },
@@ -542,7 +623,7 @@ let CategoryController = class CategoryController {
     }
     // category Detail
     /**
-     * @api {get} /api/category-detail Category Detail API
+     * @api {get} /api/category/category-detail Category Detail API
      * @apiGroup Category
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} categoryId categoryId
@@ -550,10 +631,24 @@ let CategoryController = class CategoryController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully got Category detail",
-     *      "data": "{}"
      *      "status": "1"
+     *      "data":{
+     *           "createdBy": "",
+     *           "createdDate": "",
+     *           "modifiedBy": "",
+     *           "modifiedDate": "2024-05-17T12:46:35.000Z",
+     *           "categoryId": 6,
+     *           "name": "Mens Top Wear",
+     *           "image": "Img_1715949995235.png",
+     *           "imagePath": "category/",
+     *           "parentInt": 304,
+     *           "sortOrder": 1,
+     *           "categorySlug": "mens-top-wear11111111111",
+     *           "isActive": "1",
+     *           "categoryDescription": ""
+     *  }
      * }
-     * @apiSampleRequest /api/category-detail
+     * @apiSampleRequest /api/category/category-detail
      * @apiErrorExample {json} category error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -581,7 +676,7 @@ let CategoryController = class CategoryController {
     }
     // Category Excel Document download
     /**
-     * @api {get} /api/category-excel-list Category Excel
+     * @api {get} /api/category/category-excel-list Category Excel
      * @apiGroup Category
      * @apiParam (Request body) {String} categoryId categoryId
      * @apiParam (Request body) {String} keyword keyword
@@ -589,15 +684,15 @@ let CategoryController = class CategoryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully download the Category Excel List..!!",
+     *      "message": "Successfully download the Category Excel List",
      *      "status": "1",
      *      "data": {},
      * }
-     * @apiSampleRequest /api/category-excel-list
+     * @apiSampleRequest /api/category/category-excel-list
      * @apiErrorExample {json} category Excel List error
      * HTTP/1.1 500 Internal Server Error
      */
-    categoryExcelListDownload(categoryId, keyword, sortOrder, request, response) {
+    categoryExcelListDownload(categoryId, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const excel = require('exceljs');
             const workbook = new excel.Workbook();
@@ -624,53 +719,29 @@ let CategoryController = class CategoryController {
                     aliasName: 'path',
                 },
             ];
-            const groupBy = [
-                {
+            const groupBy = [{
                     name: 'CategoryPath.category_id',
-                },
-            ];
+                }];
             const whereConditions = [];
-            if (categoryId) {
+            if ((categoryId === null || categoryId === void 0 ? void 0 : categoryId.length) > 0) {
                 whereConditions.push({
                     name: 'category.categoryId',
                     op: 'IN',
                     value: categoryId,
                 });
             }
-            // else {
-            //     return response.status(400).send({
-            //         status: 0,
-            //         message: 'Choose atleast one category.',
-            //     });
-            // }
             const searchConditions = [];
-            if (keyword && keyword !== '') {
-                searchConditions.push({
-                    name: ['category.name'],
-                    value: keyword,
-                });
-            }
             const sort = [];
-            if (sortOrder) {
-                sort.push({
-                    name: 'sortOrder',
-                    order: sortOrder === 2 ? 'DESC' : 'ASC',
-                });
-            }
-            else {
-                sort.push({
-                    name: 'createdDate',
-                    order: 'DESC',
-                });
-            }
             const categoryLists = yield this.categoryPathService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
             // Excel sheet column define
             worksheet.columns = [
-                { header: 'Image', key: 'image', size: 16, width: 30 },
+                { header: 'Category Id', key: 'categoryId', size: 16, width: 30 },
                 { header: 'Category Name', key: 'name', size: 16, width: 30 },
-                { header: 'Levels', key: 'parentInt', size: 16, width: 60 },
+                { header: 'Parent Category', key: 'parentInt', size: 16, width: 30 },
+                { header: 'Levels', key: 'levels', size: 16, width: 60 },
                 { header: 'Sort Order', key: 'sortOrder', size: 16, width: 15 },
                 { header: 'Status', key: 'isActive', size: 16, width: 15 },
+                { header: 'Image', key: 'image', size: 16, width: 30 },
             ];
             worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
@@ -684,7 +755,7 @@ let CategoryController = class CategoryController {
                 else {
                     data.isActive = 'In-Active';
                 }
-                rows.push([data.image, data.name, data.levels, data.sortOrder, data.isActive]);
+                rows.push([data.categoryId, data.name, data.parentInt, data.levels, data.sortOrder, data.isActive, data.image]);
             }
             // Add all rows data in sheet
             worksheet.addRows(rows);
@@ -694,7 +765,7 @@ let CategoryController = class CategoryController {
             const newExportLog = new ExportLog_1.ExportLog();
             newExportLog.module = 'Product Categories';
             newExportLog.recordAvailable = categoryLists.length;
-            newExportLog.createdBy = request.user.userId;
+            newExportLog.createdBy = 1;
             yield this.exportLogService.create(newExportLog);
             return new Promise((resolve, reject) => {
                 response.download(fileName, (err, data) => {
@@ -711,7 +782,7 @@ let CategoryController = class CategoryController {
     }
     // Category Export All Excel API
     /**
-     * @api {get} /api/category-export-all Category Export All API
+     * @api {get} /api/category/category-export-all Category Export All API
      * @apiGroup Category
      * @apiParam (Request body) {Number} status status
      * @apiParam (Request body) {String} keyword keyword
@@ -719,11 +790,11 @@ let CategoryController = class CategoryController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully download the category Excel List..!!",
+     *      "message": "Successfully download the category Excel List",
      *      "status": "1",
      *      "data": {},
      * }
-     * @apiSampleRequest /api/category-export-all
+     * @apiSampleRequest /api/category/category-export-all
      * @apiErrorExample {json} Category Excel List error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -849,7 +920,7 @@ let CategoryController = class CategoryController {
     }
 };
 tslib_1.__decorate([
-    (0, routing_controllers_1.Post)('/category'),
+    (0, routing_controllers_1.Post)(),
     (0, routing_controllers_1.Authorized)(['admin', 'create-category']),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
@@ -858,7 +929,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CategoryController.prototype, "addCategory", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Put)('/category/:id'),
+    (0, routing_controllers_1.Put)('/:id'),
     (0, routing_controllers_1.Authorized)(['admin', 'edit-category']),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
@@ -868,7 +939,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CategoryController.prototype, "updateCategory", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Delete)('/category/:id'),
+    (0, routing_controllers_1.Delete)(),
     (0, routing_controllers_1.Authorized)(['admin', 'delete-category']),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
@@ -878,7 +949,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CategoryController.prototype, "deleteCategory", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/category'),
+    (0, routing_controllers_1.Get)(),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
@@ -886,13 +957,29 @@ tslib_1.__decorate([
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sortOrder')),
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
     tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('name')),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object, String, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CategoryController.prototype, "categorylist", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/category-list-intree'),
+    (0, routing_controllers_1.Get)(),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('name')),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object, String, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CategoryController.prototype, "categorylistBySite", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/category-intree'),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
@@ -905,7 +992,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CategoryController.prototype, "categoryListTree", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Put)('/update-category-slug'),
+    (0, routing_controllers_1.Put)('/category-slug'),
     tslib_1.__param(0, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [Object]),
@@ -917,11 +1004,12 @@ tslib_1.__decorate([
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sortOrder')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
-    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('name')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('status')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Number, String, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CategoryController.prototype, "categorycount", null);
 tslib_1.__decorate([
@@ -937,12 +1025,10 @@ tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/category-excel-list'),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('categoryId')),
-    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('sortOrder')),
-    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Array, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CategoryController.prototype, "categoryExcelListDownload", null);
 tslib_1.__decorate([
@@ -957,13 +1043,14 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], CategoryController.prototype, "categoryExportAll", null);
 CategoryController = tslib_1.__decorate([
-    (0, routing_controllers_1.JsonController)(),
+    (0, routing_controllers_1.JsonController)('/category'),
     tslib_1.__metadata("design:paramtypes", [CategoryService_1.CategoryService,
         ProductToCategoryService_1.ProductToCategoryService,
         CategoryPathService_1.CategoryPathService,
         S3Service_1.S3Service,
         ImageService_1.ImageService,
-        ExportLogService_1.ExportLogService])
+        ExportLogService_1.ExportLogService,
+        VendorGroupCategoryService_1.VendorGroupCategoryService])
 ], CategoryController);
 exports.CategoryController = CategoryController;
 //# sourceMappingURL=CategoryController.js.map

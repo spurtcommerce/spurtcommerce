@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -33,19 +33,22 @@ const VendorProductService_1 = require("../../core/services/VendorProductService
 const OrderStatusService_1 = require("../../core/services/OrderStatusService");
 const SettingService_1 = require("../../core/services/SettingService");
 const CurrencyService_1 = require("../../core/services/CurrencyService");
-const CustomerDocument_1 = require("../../core/models/CustomerDocument");
-const CustomerDocumentService_1 = require("../../core/services/CustomerDocumentService");
 const AccessTokenModel_1 = require("../../core/models/AccessTokenModel");
 const AccessTokenService_1 = require("../../core/services/AccessTokenService");
 const moment_1 = tslib_1.__importDefault(require("moment"));
-const CustomerDocument_2 = require("../../core/models/CustomerDocument");
-const VendorDocumentLogService_1 = require("../../core/services/VendorDocumentLogService");
-const VendorDocumentLogModel_1 = require("../../core/models/VendorDocumentLogModel");
-const VendorDocumentLogModel_2 = require("../../core/models/VendorDocumentLogModel");
 const marketplace_1 = require("@spurtcommerce/marketplace");
 const typeorm_1 = require("typeorm");
+const VendorVerifiedRequest_1 = require("./requests/VendorVerifiedRequest");
+const Vendor_1 = require("../../core/models/Vendor");
+const MailChangeRequest_1 = require("./requests/MailChangeRequest");
+const EmailChangeOtpRequest_1 = require("./requests/EmailChangeOtpRequest");
+const CheckDisplayNameRequest_1 = require("./requests/CheckDisplayNameRequest");
+const entities_index_1 = require("../../../common/entities-index");
+const VendorMediaService_1 = require("../../../api/core/services/VendorMediaService");
+const RegistraionOtpService_1 = require("../../../api/core/services/RegistraionOtpService");
+const UserService_1 = require("../../../api/core/services/UserService");
 let VendorController = class VendorController {
-    constructor(customerService, vendorService, emailTemplateService, vendorCategoryService, s3Service, imageService, loginLogService, vendorOrdersService, vendorProductService, settingService, currencyService, orderStatusService, accessTokenService, customerDocumentService, vendorDocumentLogService) {
+    constructor(customerService, vendorService, emailTemplateService, vendorCategoryService, s3Service, imageService, loginLogService, vendorOrdersService, vendorProductService, settingService, currencyService, orderStatusService, accessTokenService, vendorMediaService, registrationOtpService, userService) {
         this.customerService = customerService;
         this.vendorService = vendorService;
         this.emailTemplateService = emailTemplateService;
@@ -59,12 +62,76 @@ let VendorController = class VendorController {
         this.currencyService = currencyService;
         this.orderStatusService = orderStatusService;
         this.accessTokenService = accessTokenService;
-        this.customerDocumentService = customerDocumentService;
-        this.vendorDocumentLogService = vendorDocumentLogService;
+        this.vendorMediaService = vendorMediaService;
+        this.registrationOtpService = registrationOtpService;
+        this.userService = userService;
+    }
+    // Vendor Send Otp API
+    /**
+     * @api {Post} /api/vendor/send-otp Vendor Send Otp API
+     * @apiGroup Vendor
+     * @apiParamExample {json} Input
+     * {
+     *    "emailId": ""
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *    "status": 1,
+     *    "message": "OTP successfully sent to the provided email address"
+     * }
+     * @apiSampleRequest /api/vendor/send-otp
+     * @apiErrorExample {json} vendorSendOtp error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorSendOtp(emailId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = yield this.customerService.findOne({ where: { email: emailId, deleteFlag: 0 } });
+            if (customer) {
+                const vendor = yield this.vendorService.findOne({ where: { customerId: customer.id, isDelete: 0 } });
+                if (vendor) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'Account already exist.Please login',
+                    });
+                }
+            }
+            const otp = yield this.registrationOtpService.findOne({ where: { emailId, userType: 1 } });
+            if (otp) {
+                yield this.registrationOtpService.delete(otp.id);
+            }
+            const random = Math.floor(Math.random() * 900000) + 100000;
+            const newUserOtp = new entities_index_1.RegistrationOtp();
+            newUserOtp.emailId = emailId;
+            newUserOtp.userType = 1;
+            newUserOtp.otp = random;
+            newUserOtp.createdDate = ((0, moment_1.default)().add(3, 'h')).format('YYYY-MM-DD HH:mm:ss');
+            const createUserOTP = yield this.registrationOtpService.create(newUserOtp);
+            // send mail
+            const logo = yield this.settingService.findOne();
+            const findEmailTemplate = yield this.emailTemplateService.findOne({ where: { title: 'otp', isActive: 1 } });
+            const templateDate = findEmailTemplate.content.replace('{3}', createUserOTP.otp).replace('{appName}', logo.siteName).replace('{type}', 'Seller').replace('{type}', 'Seller').replace('{siteName}', logo.siteName).replace('{duration}', 3);
+            const mailContent = {};
+            // split base url
+            mailContent.loginOTP = random;
+            mailContent.logo = logo;
+            mailContent.productInfo = [];
+            mailContent.baseUrl = env_1.env.baseUrl;
+            mailContent.emailContent = templateDate;
+            mailContent.productDetailData = undefined;
+            mailContent.redirectUrl = env_1.env.vendorRedirectUrl;
+            mailContent.templateName = 'emailTemplates.ejs';
+            const mailSubject = findEmailTemplate.subject.replace('{siteName}', logo.siteName);
+            mail_services_1.MAILService.sendMail(mailContent, emailId, mailSubject, false, false, '');
+            return response.status(createUserOTP ? 200 : 400).send({
+                status: createUserOTP ? 1 : 0,
+                message: createUserOTP ? 'OTP successfully sent to the provided email address' : 'Failed to send the OTP',
+            });
+        });
     }
     // Customer Register API
     /**
-     * @api {post} /api/vendor/register register API
+     * @api {Post} /api/vendor/register Register API
      * @apiGroup Vendor
      * @apiParam (Request body) {String{..32}} firstName first Name
      * @apiParam (Request body) {String{..32}} [lastName] last Name
@@ -75,23 +142,55 @@ let VendorController = class VendorController {
      * @apiParam (Request body) {String} confirmPassword Confirm Password
      * @apiParam (Request body) {String{..96}} emailId Vendor Email Id
      * @apiParam (Request body) {String{..15}} [phoneNumber] User Phone Number
+     * @apiParam (Request body) {Number} otp otp
+     * @apiParam (Request body) {Number} industryId industryId
      * @apiParamExample {json} Input
      * {
+     *      "emailId" : "",
+     *      "password" : "",
      *      "firstName" : "",
      *      "lastName" : "",
-     *      "contactPersonName" : "",
-     *      "password" : "",
-     *      "confirmPassword" : "",
-     *      "emailId" : "",
-     *      "phoneNumber" : "",
+     *      "industryId" : "",
      *      "companyName" : "",
-     *      "displayName" : "",
+     *      "contactPersonName" : "",
+     *      "phoneNumber" : "",
+     *      "otp": ""
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
      *      "message": "Thank you for registering with us for selling your product and please check your email",
-     *      "status": "1"
+     *      "status": "1",
+     *       "data": {
+     *       "companyEmailId": "",
+     *       "industryId": 1,
+     *       "companyName": "",
+     *       "approvalFlag": 1,
+     *       "customerId": 1,
+     *       "verification": {
+     *       "email": "",
+     *       "policy": "",
+     *       "category": "",
+     *       "decision": "",
+     *       "document": "",
+     *       "storeFront": "",
+     *       "bankAccount": "",
+     *       "paymentInfo": "",
+     *       "companyDetail": "",
+     *       "deliveryMethod": "",
+     *       "subscriptionPlan": "",
+     *       "distributionPoint": ""
+     *          },
+     *       "verificationComment": "",
+     *       "verificationDetailComment": "",
+     *       "createdDate": "",
+     *       "vendorId": 1,
+     *       "bankAccount": "",
+     *       "capabilities": "",
+     *       "vendorPrefixId": 1,
+     *       "modifiedDate": ""
+     *          }
+     *          }
      * }
      * @apiSampleRequest /api/vendor/register
      * @apiErrorExample {json} Vendor Register error
@@ -99,36 +198,357 @@ let VendorController = class VendorController {
      */
     // Vendor Register Function
     register(registerParam, request, response) {
+        var _a, _b;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const vendorSave = yield (0, marketplace_1.vendorRegister)((0, typeorm_1.getConnection)(), {
-                body: registerParam,
-                ip: (request.headers['x-forwarded-for'] ||
-                    request.connection.remoteAddress ||
-                    request.socket.remoteAddress ||
-                    request.connection.socket.remoteAddress).split(',')[0],
-                vendorRedirectUrl: env_1.env.vendorRedirectUrl,
-                adminRedirectUrl: env_1.env.adminRedirectUrl,
+            // Email Validation
+            const resultUser = yield this.customerService.findOne({
+                where: {
+                    email: registerParam.emailId, deleteFlag: 0,
+                },
             });
-            if (vendorSave.status === 0) {
-                return response.status(400).send({
-                    status: vendorSave.status,
-                    message: vendorSave.message,
+            // otp mail check
+            const otpMailCheck = yield this.registrationOtpService.findOne({ where: { emailId: registerParam.emailId, isActive: 1, isDelete: 0 } });
+            // Chek otp-validation
+            const checkOtp = yield this.registrationOtpService.findOne({ where: { emailId: registerParam.emailId, userType: 1, otp: registerParam.otp, isActive: 1, isDelete: 0 } });
+            const logo = yield this.settingService.findOne();
+            if (resultUser) {
+                const vendorInfo = yield this.vendorService.findOne({ where: { customerId: resultUser.id, isDelete: 0 } });
+                if (vendorInfo) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'You have already registered please login',
+                    };
+                    return response.status(400).send(successResponse);
+                }
+                else {
+                    if (!otpMailCheck) {
+                        return response.status(400).send({
+                            status: 0,
+                            message: `Please enter valid otp`,
+                        });
+                    }
+                    if (!checkOtp) {
+                        return response.status(200).send({ status: 0, message: 'Please enter a valid OTP' });
+                    }
+                    if ((0, moment_1.default)(checkOtp.createdDate).format('YYYY-MM-DD HH:mm:ss') < (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')) {
+                        return response.status(400).send({
+                            status: 0,
+                            message: 'Your OTP Got Expired',
+                        });
+                    }
+                    if (registerParam.password) {
+                        const customer = yield this.customerService.findOne({ where: { email: registerParam.emailId, deleteFlag: 0 } });
+                        customer.firstName = registerParam.firstName;
+                        customer.lastName = registerParam.lastName;
+                        customer.customerGroupId = 1;
+                        customer.password = yield Customer_1.Customer.hashPassword(registerParam.password);
+                        customer.username = registerParam.emailId;
+                        customer.mobileNumber = registerParam.phoneNumber;
+                        customer.isActive = 1;
+                        customer.deleteFlag = 0;
+                        customer.siteId = 2;
+                        const customerUpdated = yield this.customerService.create(customer);
+                        // delete otp
+                        yield this.registrationOtpService.delete(checkOtp.id);
+                        if (customerUpdated) {
+                            // save vendor
+                            const vendor = new Vendor_1.Vendor();
+                            vendor.companyEmailId = registerParam.emailId;
+                            vendor.industryId = registerParam.industryId;
+                            vendor.companyName = registerParam.companyName;
+                            const slug = registerParam.companyName;
+                            const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+                            vendor.vendorSlugName = data;
+                            vendor.approvalFlag = 0;
+                            vendor.customerId = customerUpdated.id;
+                            vendor.verification = {
+                                policy: 0,
+                                email: 1,
+                                decision: 0,
+                                category: 0,
+                                document: 0,
+                                storeFront: 0,
+                                bankAccount: 0,
+                                paymentInfo: 0,
+                                companyDetail: 0,
+                                deliveryMethod: 0,
+                                subscriptionPlan: 0,
+                                distributionPoint: 0,
+                            };
+                            vendor.kycStatus = Vendor_1.KycStatus.PENDING;
+                            vendor.verificationComment = [];
+                            vendor.verificationDetailComment = [];
+                            vendor.personalizedSettings = {
+                                defaultLanguage: 0,
+                                timeFormat: '',
+                                timeZone: '',
+                                dateFormat: '',
+                            };
+                            const saveVendor = yield this.vendorService.create(vendor);
+                            const stringPad = String(saveVendor.vendorId).padStart(4, '0');
+                            vendor.vendorPrefixId = 'Sel'.concat(stringPad);
+                            yield this.vendorService.update(saveVendor.vendorId, vendor);
+                            // const emailContent = await this.emailTemplateService.findOne(11);
+                            // const emailContentAdmin = await this.emailTemplateService.findOne(12);
+                            // // const logo = await this.settingService.findOne();
+                            // const message = emailContent.content.replace('{name}', registerParam.firstName).replace('{storeName}', logo.siteName).replace('{storeName}', logo.siteName);
+                            // const redirectUrl = env.vendorRedirectUrl;
+                            // const mailContents: any = {};
+                            // mailContents.logo = logo;
+                            // mailContents.emailContent = message;
+                            // mailContents.redirectUrl = redirectUrl;
+                            // mailContents.productDetailData = '';
+                            // MAILService.sendMail(mailContents, registerParam.emailId, emailContent.subject.replace('{siteName}', logo.siteName), false, false, '');
+                            // const admincusMessage = emailContentAdmin.content.replace('{vendorName}', resultUser.firstName);
+                            // const adminId: any = [];
+                            // const adminUser = await this.userService.findAll({ select: ['username'], where: { userGroupId: 1, deleteFlag: 0 } });
+                            // for (const user of adminUser) {
+                            //     const val = user.username;
+                            //     adminId.push(val);
+                            // }
+                            // const adminRedirectUrl = env.adminRedirectUrl;
+                            // const mailContent: any = {};
+                            // mailContent.logo = logo;
+                            // mailContent.emailContent = admincusMessage;
+                            // mailContent.redirectUrl = adminRedirectUrl;
+                            // mailContent.productDetailData = undefined;
+                            // MAILService.sendMail(mailContent, adminId, emailContentAdmin.subject.replace('{siteName}', logo.storeName), false, false, '');
+                            // return response.status(200).send({
+                            //     status: saveVendor.status ?? 1,
+                            //     message: `Thank you for expressing your interest and registering with ${logo.storeName} for selling your products. Kindly wait for admin approval`,
+                            //     data: saveVendor,
+                            // });
+                            let sendMailRes;
+                            const kycMandateCheck = env_1.env.kycMandate;
+                            if (+kycMandateCheck === 1) {
+                                const emailContentVendor = yield this.emailTemplateService.findOne(11);
+                                const cusMessage = emailContentVendor.content.replace('{name}', resultUser.firstName).replace('{siteName}', logo.siteName).replace('{siteName}', logo.siteName).replace('{siteUrl}', logo.siteUrl);
+                                const venMailContents = {};
+                                venMailContents.logo = logo;
+                                const redirectUrl1 = env_1.env.vendorRedirectUrl;
+                                venMailContents.emailContent = cusMessage;
+                                venMailContents.redirectUrl = redirectUrl1;
+                                venMailContents.productDetailData = undefined;
+                                sendMailRes = mail_services_1.MAILService.sendMail(venMailContents, resultUser.email, emailContentVendor.subject, false, false, '');
+                            }
+                            else {
+                                const notMandateEmail = yield this.emailTemplateService.findOne(56);
+                                const notMadateContent = notMandateEmail.content.replace('{name}', resultUser.firstName).replace('{siteName}', logo.siteName);
+                                const notMandateVenMailContents = {};
+                                notMandateVenMailContents.logo = logo;
+                                const redirectUrl1 = env_1.env.vendorRedirectUrl;
+                                notMandateVenMailContents.emailContent = notMadateContent;
+                                notMandateVenMailContents.redirectUrl = redirectUrl1;
+                                notMandateVenMailContents.productDetailData = undefined;
+                                sendMailRes = mail_services_1.MAILService.sendMail(notMandateVenMailContents, resultUser.email, notMandateEmail.subject.replace('{siteName}', logo.siteName), false, false, '');
+                            }
+                            const emailContentAdmins = yield this.emailTemplateService.findOne(12);
+                            const admincusMessages = emailContentAdmins.content.replace('{name}', 'Admin').replace('{sellerName}', registerParam.firstName).replace('{siteName}', logo.siteName).replace('{siteName}', logo.siteName);
+                            const adminIds = [];
+                            const adminUsers = yield this.userService.findAll({ select: ['username'], where: { userGroupId: 1, deleteFlag: 0 } });
+                            for (const user of adminUsers) {
+                                const val = user.username;
+                                adminIds.push(val);
+                            }
+                            const adminRedirectUrls = env_1.env.adminRedirectUrl;
+                            const mailContentss = {};
+                            mailContentss.logo = logo;
+                            mailContentss.emailContent = admincusMessages;
+                            mailContentss.redirectUrl = adminRedirectUrls;
+                            mailContentss.productDetailData = undefined;
+                            mail_services_1.MAILService.sendMail(mailContentss, adminIds, emailContentAdmins.subject.replace('{sellerName}', resultUser.firstName), false, false, '');
+                            if (sendMailRes) {
+                                const successResponse = {
+                                    status: 1,
+                                    message: `Thank you for expressing your interest and registering with ${logo.storeName} for selling your products. Kindly wait for admin approval`,
+                                    data: (0, class_transformer_1.instanceToPlain)(resultUser),
+                                };
+                                return response.status(200).send(successResponse);
+                            }
+                            else {
+                                const errorResponse = {
+                                    status: 0,
+                                    message: 'Registration successful, but unable to send email',
+                                };
+                                return response.status(400).send(errorResponse);
+                            }
+                        }
+                        // let sendMailRes;
+                        // const kycMandateCheck = env.kycMandate;
+                        // if (+kycMandateCheck === 1) {
+                        //     const emailContentVendor = await this.emailTemplateService.findOne(11);
+                        //     const cusMessage = emailContentVendor.content.replace('{name}', resultUser.firstName).replace('{siteName}', logo.siteName).replace('{siteName}', logo.siteName).replace('{siteUrl}', logo.siteUrl);
+                        //     const venMailContents: any = {};
+                        //     venMailContents.logo = logo;
+                        //     const redirectUrl1 = env.vendorRedirectUrl;
+                        //     venMailContents.emailContent = cusMessage;
+                        //     venMailContents.redirectUrl = redirectUrl1;
+                        //     venMailContents.productDetailData = undefined;
+                        //     sendMailRes = MAILService.sendMail(venMailContents, resultUser.email, emailContentVendor.subject, false, false, '');
+                        // } else {
+                        //     const notMandateEmail = await this.emailTemplateService.findOne(56);
+                        //     const notMadateContent = notMandateEmail.content.replace('{name}', resultUser.firstName).replace('{siteName}', logo.siteName);
+                        //     const notMandateVenMailContents: any = {};
+                        //     notMandateVenMailContents.logo = logo;
+                        //     const redirectUrl1 = env.vendorRedirectUrl;
+                        //     notMandateVenMailContents.emailContent = notMadateContent;
+                        //     notMandateVenMailContents.redirectUrl = redirectUrl1;
+                        //     notMandateVenMailContents.productDetailData = undefined;
+                        //     sendMailRes = MAILService.sendMail(notMandateVenMailContents, resultUser.email, notMandateEmail.subject.replace('{siteName}', logo.siteName), false, false, '');
+                        // }
+                        // const emailContentAdmins = await this.emailTemplateService.findOne(12);
+                        // const admincusMessages = emailContentAdmins.content.replace('{name}', 'Admin').content.replace('{sellerName}', resultUser.firstName).replace('{siteName}', logo.siteName).replace('{siteName}', logo.siteName);
+                        // const adminIds: any = [];
+                        // const adminUsers = await this.userService.findAll({ select: ['username'], where: { userGroupId: 1, deleteFlag: 0 } });
+                        // for (const user of adminUsers) {
+                        //     const val = user.username;
+                        //     adminIds.push(val);
+                        // }
+                        // const adminRedirectUrls = env.adminRedirectUrl;
+                        // const mailContentss: any = {};
+                        // mailContentss.logo = logo;
+                        // mailContentss.emailContent = admincusMessages;
+                        // mailContentss.redirectUrl = adminRedirectUrls;
+                        // mailContentss.productDetailData = undefined;
+                        // MAILService.sendMail(mailContentss, adminIds, emailContentAdmins.subject.replace('{sellerName}', resultUser.firstName), false, false, '');
+                        // if (sendMailRes) {
+                        //     const successResponse: any = {
+                        //         status: 1,
+                        //         message: `Thank you for expressing your interest and registering with ${logo.storeName} for selling your products. Kindly wait for admin approval`,
+                        //         data: instanceToPlain(resultUser),
+                        //     };
+                        //     return response.status(200).send(successResponse);
+                        // } else {
+                        //     const errorResponse: any = {
+                        //         status: 0,
+                        //         message: 'Registration successful, but unable to send email',
+                        //     };
+                        //     return response.status(400).send(errorResponse);
+                        // }
+                    }
+                    const errorPasswordResponse = {
+                        status: 0,
+                        message: 'A mismatch between password and confirm password',
+                    };
+                    return response.status(400).send(errorPasswordResponse);
+                }
+            }
+            else {
+                if (!otpMailCheck) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: `Invalid Email Id..!`,
+                    });
+                }
+                if (!checkOtp) {
+                    return response.status(400).send({ status: 0, message: 'Please enter a valid OTP' });
+                }
+                if ((0, moment_1.default)(checkOtp.createdDate).format('YYYY-MM-DD HH:mm:ss') < (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'Your OTP Got Expired',
+                    });
+                }
+                const setting = yield this.settingService.findOne();
+                const newCustomer = new Customer_1.Customer();
+                newCustomer.firstName = registerParam.firstName;
+                newCustomer.lastName = (_a = registerParam.lastName) !== null && _a !== void 0 ? _a : '';
+                newCustomer.username = registerParam.emailId;
+                newCustomer.email = registerParam.emailId;
+                newCustomer.isActive = 1;
+                newCustomer.deleteFlag = 0;
+                newCustomer.siteId = setting.settingsId;
+                const customerPassword = yield Customer_1.Customer.hashPassword(registerParam.password);
+                newCustomer.password = customerPassword;
+                const saveCustomer = yield this.customerService.create(newCustomer);
+                // delete otp
+                yield this.registrationOtpService.delete(checkOtp.id);
+                // save vendor
+                const newVendor = new Vendor_1.Vendor();
+                newVendor.companyEmailId = registerParam.emailId;
+                newVendor.industryId = registerParam.industryId;
+                newVendor.companyName = registerParam.companyName;
+                const slug = registerParam.companyName;
+                const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+                newVendor.vendorSlugName = data;
+                newVendor.approvalFlag = 0;
+                newVendor.customerId = saveCustomer.id;
+                newVendor.verification = {
+                    policy: 0,
+                    email: 1,
+                    decision: 0,
+                    category: 0,
+                    document: 0,
+                    storeFront: 0,
+                    bankAccount: 0,
+                    paymentInfo: 0,
+                    companyDetail: 0,
+                    deliveryMethod: 0,
+                    subscriptionPlan: 0,
+                    distributionPoint: 0,
+                };
+                newVendor.kycStatus = Vendor_1.KycStatus.PENDING;
+                newVendor.verificationComment = [];
+                newVendor.verificationDetailComment = [];
+                newVendor.personalizedSettings = {
+                    defaultLanguage: 0,
+                    timeFormat: '',
+                    timeZone: '',
+                    dateFormat: '',
+                };
+                const saveVendor = yield this.vendorService.create(newVendor);
+                const stringPad = String(saveVendor.vendorId).padStart(4, '0');
+                newVendor.vendorPrefixId = 'Sel'.concat(stringPad);
+                yield this.vendorService.update(saveVendor.vendorId, newVendor);
+                const kycMandateCheck2 = env_1.env.kycMandate;
+                if (+kycMandateCheck2 === 1) {
+                    const emailContent = yield this.emailTemplateService.findOne(11);
+                    const message = emailContent.content.replace('{name}', registerParam.firstName).replace('{siteName}', logo.siteName).replace('{siteName}', logo.siteName).replace('{siteUrl}', logo.siteUrl);
+                    const redirectUrl = env_1.env.vendorRedirectUrl;
+                    const mailContents = {};
+                    mailContents.logo = logo;
+                    mailContents.emailContent = message;
+                    mailContents.redirectUrl = redirectUrl;
+                    mailContents.productDetailData = '';
+                    mail_services_1.MAILService.sendMail(mailContents, registerParam.emailId, emailContent.subject, false, false, '');
+                }
+                else {
+                    const notMandateEmail = yield this.emailTemplateService.findOne(56);
+                    const notMadateContent = notMandateEmail.content.replace('{name}', registerParam.firstName).replace('{siteName}', logo.siteName);
+                    const notMandateVenMailContents = {};
+                    notMandateVenMailContents.logo = logo;
+                    const redirectUrl1 = env_1.env.vendorRedirectUrl;
+                    notMandateVenMailContents.emailContent = notMadateContent;
+                    notMandateVenMailContents.redirectUrl = redirectUrl1;
+                    notMandateVenMailContents.productDetailData = undefined;
+                    mail_services_1.MAILService.sendMail(notMandateVenMailContents, registerParam.emailId, notMandateEmail.subject.replace('{siteName}', logo.siteName), false, false, '');
+                }
+                const emailContentAdmins = yield this.emailTemplateService.findOne(12);
+                const adminIds = [];
+                const adminUsers = yield this.userService.findAll({ select: ['username'], where: { userGroupId: 1, deleteFlag: 0 } });
+                for (const user of adminUsers) {
+                    const val = user.username;
+                    adminIds.push(val);
+                }
+                const admincusMessages = emailContentAdmins.content.replace('{name}', 'Admin').replace('{sellerName}', registerParam.firstName).replace('{siteName}', logo.siteName).replace('{siteName}', logo.siteName);
+                const adminRedirectUrls = env_1.env.adminRedirectUrl;
+                const mailContentss = {};
+                mailContentss.logo = logo;
+                mailContentss.emailContent = admincusMessages;
+                mailContentss.redirectUrl = adminRedirectUrls;
+                mailContentss.productDetailData = undefined;
+                mail_services_1.MAILService.sendMail(mailContentss, adminIds, emailContentAdmins.subject.replace('{sellerName}', registerParam.firstName), false, false, '');
+                return response.status(200).send({
+                    status: (_b = saveVendor.status) !== null && _b !== void 0 ? _b : 1,
+                    message: `Thank you for expressing your interest and registering with ${logo.storeName} for selling your products. Kindly wait for admin approval`,
+                    data: saveVendor,
                 });
             }
-            const adminMail = vendorSave.data.adminEmail;
-            const vendorMail = vendorSave.data.vendorEmail;
-            mail_services_1.MAILService.sendMail(adminMail.mailContent, adminMail.email, adminMail.subject, adminMail.bcc, adminMail.isAttachment, adminMail.attachmentDetails);
-            mail_services_1.MAILService.sendMail(vendorMail.mailContent, vendorMail.email, vendorMail.subject, vendorMail.bcc, vendorMail.isAttachment, vendorMail.attachmentDetails);
-            return response.status(200).send({
-                status: vendorSave.status,
-                message: `Thank you for expressing your interest and registering with Spurtcommerce for selling your products. Kindly wait for admin approval`,
-                data: vendorSave.data.resultData,
-            });
         });
     }
     // Login API
     /**
-     * @api {post} /api/vendor/login login API
+     * @api {Post} /api/vendor/login Login API
      * @apiGroup Vendor
      * @apiParam (Request body) {String} emailId User Email Id
      * @apiParam (Request body) {String} password User Password
@@ -140,12 +560,29 @@ let VendorController = class VendorController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "data": "{
-     *         "token":''
-     *      }",
-     *      "message": "Successfully loggedIn",
-     *      "status": "1"
-     * }
+     *        "data": "{
+     *         "token":'',
+     *         "user": {
+     *          "id": 1,
+     *          "firstName": "",
+     *          "email": "",
+     *          "mobileNumber": "",
+     *          "avatar": "",
+     *          "avatarPath": "",
+     *          "vendorId": 1,
+     *          "vendorPrefixId": 1,
+     *          "currencyCode": "",
+     *          "currencySymbolLeft": "",
+     *          "currencySymbolRight": "",
+     *          "lastName": "",
+     *          "username": ""
+     *             }
+     *                }
+     *                 }
+     *              }",
+     *        "message": "Successfully loggedIn",
+     *        "status": "1"
+     *         }
      * @apiSampleRequest /api/vendor/login
      * @apiErrorExample {json} Login error
      * HTTP/1.1 500 Internal Server Error
@@ -155,22 +592,30 @@ let VendorController = class VendorController {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const resultData = yield this.customerService.findOne({
                 select: ['id', 'firstName', 'email', 'mobileNumber', 'password', 'avatar', 'avatarPath', 'isActive'],
-                where: { email: loginParam.emailId, deleteFlag: 0 },
+                where: { email: loginParam.emailId },
             });
             if (resultData === undefined) {
                 const notFountResponse = {
                     status: 0,
-                    message: 'Wrong Login Information.',
+                    message: 'Invalid Username',
+                    data: 1,
                 };
                 return response.status(400).send(notFountResponse);
             }
             const findVendor = yield this.vendorService.findOne({
-                where: { customerId: resultData.id, approvalFlag: 1 },
+                where: { customerId: resultData.id, isDelete: 0 },
             });
             if (findVendor === undefined) {
                 const errorUserNameResponse = {
                     status: 0,
-                    message: 'Wrong Login Information.',
+                    message: 'Login Information provided is invalid',
+                };
+                return response.status(400).send(errorUserNameResponse);
+            }
+            if (findVendor.verification.email === 0 || findVendor.verification.email === 2) {
+                const errorUserNameResponse = {
+                    status: 0,
+                    message: 'Account email verification pending',
                 };
                 return response.status(400).send(errorUserNameResponse);
             }
@@ -185,17 +630,24 @@ let VendorController = class VendorController {
                     resultData.currencySymbolRight = currencyVal.symbolRight;
                 }
             }
-            if (resultData.isActive === 0) {
+            if (findVendor.isActive === 0) {
                 const errorUserInActiveResponse = {
                     status: 0,
-                    message: 'Wrong Login Information.',
+                    message: 'Your Account Currently In Active - Contact Admin',
+                };
+                return response.status(400).send(errorUserInActiveResponse);
+            }
+            if (+env_1.env.kycMandate === 0 && findVendor.approvalFlag === 0) {
+                const errorUserInActiveResponse = {
+                    status: 0,
+                    message: 'Your Account Approval Is Under Pending',
                 };
                 return response.status(400).send(errorUserInActiveResponse);
             }
             if (yield Customer_1.Customer.comparePassword(resultData, loginParam.password)) {
                 // create a token
                 const token = jsonwebtoken_1.default.sign({ id: findVendor.vendorId, role: 'vendor' }, env_1.env.jwtSecret, {
-                    expiresIn: '4h',
+                    expiresIn: env_1.env.jwtExpiryTime.toString(),
                 });
                 const loginLog = new LoginLog_1.LoginLog();
                 loginLog.customerId = resultData.id;
@@ -225,53 +677,227 @@ let VendorController = class VendorController {
                 resultData.username = '';
                 const successResponse = {
                     status: 1,
-                    message: 'Loggedin successfully',
+                    message: 'Logged In successfully',
                     data: {
                         token: ciphertextToken,
-                        user: (0, class_transformer_1.instanceToPlain)(resultData),
+                        user: (0, class_transformer_1.instanceToPlain)(resultData), findVendor,
                     },
                 };
                 return response.status(200).send(successResponse);
             }
             const errorResponse = {
                 status: 0,
-                message: 'Wrong Login Information.',
+                message: 'Wrong Password',
+                data: 2,
             };
             return response.status(400).send(errorResponse);
         });
     }
+    // update pending Status API
+    /**
+     * @api {put} /api/vendor/pending-status/update/:id Update Pending Status API
+     * @apiGroup Vendor
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} id id
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully update pending status..!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor/pending-status/update/:id
+     * @apiErrorExample {json} vendor error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    pendingStatusUpdate(id, request, response) {
+        var _a, _b;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorInfo = yield this.vendorService.findOne({ where: { vendorId: id }, relations: ['customer'] });
+            if (!vendorInfo) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid seller Id',
+                });
+            }
+            vendorInfo.kycStatus = Vendor_1.KycStatus.SUBMITTED;
+            yield this.vendorService.create(vendorInfo);
+            // Maill send
+            const adminId = [];
+            const adminUser = yield this.userService.findAll({ select: ['username'], where: { userGroupId: 1, deleteFlag: 0 } });
+            for (const user of adminUser) {
+                const val = user.username;
+                adminId.push(val);
+            }
+            const emailContentAdmin = yield this.emailTemplateService.findOne(52);
+            const setting = yield this.settingService.findOne();
+            const message = emailContentAdmin.content.replace('{name}', 'Admin').replace('{selerName}', vendorInfo.customer.firstName + ' ' + ((_a = vendorInfo.customer) === null || _a === void 0 ? void 0 : _a.lastName)).replace('{sellerId}', vendorInfo.vendorId).replace('{submissionDate}', vendorInfo.modifiedDate);
+            const redirectUrl = env_1.env.adminRedirectUrl;
+            const mailContents = {};
+            mailContents.logo = setting;
+            mailContents.emailContent = message;
+            mailContents.redirectUrl = redirectUrl;
+            mailContents.productDetailData = '';
+            mail_services_1.MAILService.sendMail(mailContents, adminId, emailContentAdmin.subject, false, false, '');
+            const emailContentVendor = yield this.emailTemplateService.findOne(53);
+            const message2 = emailContentVendor.content.replace('{name}', vendorInfo.customer.firstName + ' ' + ((_b = vendorInfo.customer) === null || _b === void 0 ? void 0 : _b.lastName));
+            const redirectUrl2 = env_1.env.adminRedirectUrl;
+            const mailContents2 = {};
+            mailContents2.logo = setting;
+            mailContents2.emailContent = message2;
+            mailContents2.redirectUrl = redirectUrl2;
+            mailContents2.productDetailData = '';
+            mail_services_1.MAILService.sendMail(mailContents2, vendorInfo.customer.email, emailContentVendor.subject, false, false, '');
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully update pending status',
+            });
+        });
+    }
     // Get vendor profile API
     /**
-     * @api {get} /api/vendor/vendor-profile Vendor Get Profile  API
+     * @api {Get} /api/vendor/vendor-profile Vendor Get Profile  API
      * @apiGroup  Vendor
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     * "message": "Successfully got vendor Details",
-     * "data":{
-     * "vendorId" : "",
-     * "firstName" : "",
-     * "lastName" : "",
-     * "email" : "",
-     * "mobileNumber" : "",
-     * "avatar" : "",
-     * "avatarPath" : "",
-     * "commission" : "",
-     * "status" : "",
-     * }
-     * "status": "1"
+     *  "status": "1"
+     *  "message": "successfully got Vendor profile.",
+     *  "data": {
+     *   "createdBy": 1,
+     *   "createdDate": "",
+     *   "modifiedBy": 1,
+     *   "modifiedDate": "",
+     *   "vendorId": 1,
+     *   "vendorPrefixId": 1,
+     *   "customerId": 1,
+     *   "vendorGroupId": 1,
+     *   "commission": "",
+     *   "industryId": 1,
+     *   "contactPersonName": "",
+     *   "vendorSlugName": "",
+     *   "designation": "",
+     *   "companyName": "",
+     *   "companyLocation": "",
+     *   "companyAddress1": "",
+     *   "companyAddress2": "",
+     *   "companyCity": "",
+     *   "companyState": "",
+     *   "zoneId": 1,
+     *   "companyCountryId": 1,
+     *   "pincode": "",
+     *   "companyDescription": "",
+     *   "companyMobileNumber": "",
+     *   "companyEmailId": 1,
+     *   "companyWebsite": "",
+     *   "companyTaxNumber": "",
+     *   "companyPanNumber": "",
+     *   "companyLogo": "",
+     *   "companyLogoPath": "",
+     *   "paymentInformation": "",
+     *   "verification": {
+     *       "email": "",
+     *       "policy": "",
+     *       "category": "",
+     *       "decision": "",
+     *       "document": "",
+     *       "storeFront": "",
+     *       "bankAccount": "",
+     *       "paymentInfo": "",
+     *       "companyDetail": "",
+     *       "deliveryMethod": "",
+     *       "subscriptionPlan": "",
+     *       "distributionPoint": ""
+     *    },
+     *    "verificationComment": [],
+     *    "verificationDetailComment": [],
+     *    "bankAccount": {
+     *       "bic": "",
+     *       "ifsc": "",
+     *       "branch": "",
+     *       "bankName": "",
+     *       "accountNumber": "",
+     *       "accountCreatedOn": ""
+     *     },
+     *    "approvalFlag": "",
+     *    "approvedBy": "",
+     *    "approvalDate": "",
+     *    "companyCoverImage": "",
+     *    "companyCoverImagePath": "",
+     *    "displayNameUrl": "",
+     *    "instagram": "",
+     *    "twitter": "",
+     *    "youtube": "",
+     *    "facebook": "",
+     *    "whatsapp": "",
+     *    "bankName": "",
+     *    "bankAccountNumber": "",
+     *    "accountHolderName": "",
+     *    "ifscCode": "",
+     *    "businessSegment": "",
+     *    "businessType": "",
+     *    "mailOtp": "",
+     *    "loginOtpExpireTime": "",
+     *    "businessNumber": "",
+     *    "preferredShippingMethod": "",
+     *    "capabilities": [
+     *       {
+     *           "data": "",
+     *           "status": 1
+     *       }
+     *       ],
+     *    "vendorDescription": "",
+     *    "isEmailVerify": "",
+     *    "customerDetail": {
+     *       "firstName": "",
+     *       "lastName": "",
+     *       "email": "",
+     *       "mobileNumber": "",
+     *       "avatar": "",
+     *       "avatarPath": "",
+     *       "isActive": 1,
+     *       "dob": "",
+     *       "gender": ""
+     *    },
+     *    "countryName": "",
+     *    "vendorCategories": [],
+     *    "vendorMedia": [
+     *       {
+     *           "createdBy": 1,
+     *           "createdDate": "",
+     *           "modifiedBy": 1,
+     *           "modifiedDate": "",
+     *           "id": 1,
+     *           "vendorId": 1,
+     *           "fileName": "",
+     *           "filePath": "",
+     *           "mediaType": "",
+     *           "defaultImage": "",
+     *           "videoType": "",
+     *           "sortOrder": "",
+     *           "showHomePage": "",
+     *           "url": "",
+     *           "title": "",
+     *           "isActive": 1,
+     *           "isDelete": 1
+     *         },
      * }
      * @apiSampleRequest /api/vendor/vendor-profile
      * @apiErrorExample {json} vendor error
      * HTTP/1.1 500 Internal Server Error
      */
     vendorDetails(request, response) {
+        var _a, _b;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const vendorDetail = yield (0, marketplace_1.getVendorProfile)((0, typeorm_1.getConnection)(), { vendorId: request.user.vendorId });
+            const customerInfo = yield this.customerService.findOne({ where: { id: vendorDetail.data.customerId } });
+            vendorDetail.data.customerDetail.dob = (_a = customerInfo === null || customerInfo === void 0 ? void 0 : customerInfo.dob) !== null && _a !== void 0 ? _a : '';
+            vendorDetail.data.customerDetail.gender = (_b = customerInfo === null || customerInfo === void 0 ? void 0 : customerInfo.gender) !== null && _b !== void 0 ? _b : '';
+            const vendorMedia = yield this.vendorMediaService.findAll({ where: { vendorId: request.user.vendorId } });
+            vendorDetail.data.vendorMedia = vendorMedia;
             const successResponse = {
                 status: 1,
-                message: 'successfully got Vendor profile. ',
+                message: 'successfully got seller profile',
                 data: vendorDetail.data,
             };
             return response.status(200).send(successResponse);
@@ -279,7 +905,7 @@ let VendorController = class VendorController {
     }
     // Vendor Category List API
     /**
-     * @api {get} /api/vendor/vendor-category-list Vendor Category List API
+     * @api {Get} /api/vendor/category-list Vendor Category List API
      * @apiGroup  Vendor
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -290,15 +916,29 @@ let VendorController = class VendorController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get vendor category list",
-     *      "data":{
-     *       "vendorId" : "",
-     *       "vendorCategoryId" : "",
-     *       "categoryId" : "",
-     *       "commission" : "",
-     *      }
+     *      "data":[{
+     *      "createdBy": 1,
+     *      "createdDate": "",
+     *      "modifiedBy": 1,
+     *      "modifiedDate": "",
+     *      "id": 1,
+     *      "vendorId": 1,
+     *      "fileName": "",
+     *      "filePath": "",
+     *      "mediaType": "",
+     *      "defaultImage": 1,
+     *      "videoType": 1,
+     *      "sortOrder": "",
+     *      "showHomePage": "",
+     *      "url": "",
+     *      "title": "",
+     *      "isActive": 1,
+     *      "isDelete": 1
+     *        ]
+     *        }
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/vendor/vendor-category-list
+     * @apiSampleRequest /api/vendor/category-list
      * @apiErrorExample {json} Vendor category error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -309,7 +949,7 @@ let VendorController = class VendorController {
             if (vendorCategoryList) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got the vendor category list.',
+                    message: 'Successfully got the seller category list',
                     data: vendorCategoryList,
                 };
                 return response.status(200).send(successResponse);
@@ -317,7 +957,7 @@ let VendorController = class VendorController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to list vendor category list',
+                    message: 'unable to list seller category list',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -325,7 +965,7 @@ let VendorController = class VendorController {
     }
     // Change Password API
     /**
-     * @api {put} /api/vendor/change-password Change Password API
+     * @api {Put} /api/vendor/change-password Change Password API
      * @apiGroup Vendor
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} oldPassword User oldPassword
@@ -338,11 +978,11 @@ let VendorController = class VendorController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully Password changed",
+     *      "message": "Your password changed successfully",
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor/change-password
-     * @apiErrorExample {json} User error
+     * @apiErrorExample {json} changePassword error
      * HTTP/1.1 500 Internal Server Error
      */
     changePassword(newPassword, oldPassword, request, response) {
@@ -355,7 +995,7 @@ let VendorController = class VendorController {
             if (!vendor) {
                 const errResponse = {
                     status: 0,
-                    message: 'Invalid vendorId',
+                    message: 'Invalid seller id',
                 };
                 return response.status(400).send(errResponse);
             }
@@ -375,7 +1015,7 @@ let VendorController = class VendorController {
                     passwordValidatingMessage.push('Password must contain at least one number or one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
                     const errResponse = {
                         status: 0,
-                        message: "You have an error in your request's body. Check 'errors' field for more details!",
+                        message: "You have an error in your request's body. Check 'errors' field for more details",
                         data: { message: passwordValidatingMessage },
                     };
                     return response.status(422).send(errResponse);
@@ -392,14 +1032,14 @@ let VendorController = class VendorController {
             }
             const errorResponse = {
                 status: 0,
-                message: 'Your old password is wrong.',
+                message: 'Your old password is wrong',
             };
             return response.status(400).send(errorResponse);
         });
     }
     // Forgot Password API
     /**
-     * @api {post} /api/vendor/forgot-password Forgot Password API
+     * @api {Post} /api/vendor/forgot-password Forgot Password API
      * @apiGroup Vendor
      * @apiParam (Request body) {String} email User email
      * @apiParamExample {json} Input
@@ -409,11 +1049,11 @@ let VendorController = class VendorController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Thank you. Your password send to your email",
+     *      "message": "Your password has been sent to your email inbox.",
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor/forgot-password
-     * @apiErrorExample {json} User error
+     * @apiErrorExample {json} forgotPassword error
      * HTTP/1.1 500 Internal Server Error
      */
     forgotPassword(forgotPasswordParam, response) {
@@ -436,7 +1076,7 @@ let VendorController = class VendorController {
             if (findVendor === undefined) {
                 const errorUserNameResponse = {
                     status: 0,
-                    message: 'Invalid EmailId',
+                    message: 'Invalid emailId',
                 };
                 return response.status(400).send(errorUserNameResponse);
             }
@@ -452,19 +1092,19 @@ let VendorController = class VendorController {
             mailContents.logo = logo;
             mailContents.emailContent = message;
             mailContents.redirectUrl = redirectUrl;
-            mailContents.productDetailData = undefined;
+            mailContents.productDetailData = '';
             const sendMailRes = mail_services_1.MAILService.sendMail(mailContents, user.email, emailContent.subject, false, false, '');
             if (sendMailRes) {
                 const successResponse = {
                     status: 1,
-                    message: 'Your password has been sent to your email inbox.',
+                    message: 'Your password has been sent to your email inbox',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'error in sending email.',
+                    message: 'error in sending email',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -511,7 +1151,7 @@ let VendorController = class VendorController {
      *      "companyAddress2" : "",
      *      "companyCity" : "",
      *      "companyState" : "",
-     *      "companyCountryId" : "",
+     *      "companyCountryId" : 1,
      *      "pincode" : "",
      *      "companyMobileNumber" : "",
      *      "companyEmailId" : "",
@@ -519,19 +1159,124 @@ let VendorController = class VendorController {
      *      "companyTaxNumber" : "",
      *      "companyPanNumber" : "",
      *      "paymentInformation" : "",
+     *      "capabilities": [
+     *      {
+     *          "data": "",
+     *          "status": ""
+     *      }
+     *     ],
+     *      "vendorMedia": [
+     *      {
+     *      "fileName": "",
+     *      "filePath": "",
+     *      "mediaType": "",
+     *      "videoType": "",
+     *      "showHomePage": "",
+     *      "status": "",
+     *      "url": "",
+     *      "defaultImage": "",
+     *      "title": "",
+     *      "vendorId": 1
+     *      }
+     *  ],
+     *      "vendorDescription": ""
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "status": "1",
-     *      "message": "Edited successfully"
-     *      "data" : "{}"
+     * "status": "1",
+     * "message": "Edited successfully"
+     * "data": {
+     *   "createdDate": "",
+     *   "id": 1,
+     *   "firstName": "",
+     *   "lastName": "",
+     *   "gender": "",
+     *   "dob": "",
+     *   "username": "",
+     *   "email": "",
+     *   "mobileNumber": "",
+     *   "local": "",
+     *   "oauthData": "",
+     *   "avatar": "",
+     *   "avatarPath": "",
+     *   "lastLogin": "",
+     *   "linkExpires": "",
+     *   "lockedOn": "",
+     *   "siteId": 1,
+     *    "mailOtp": "",
+     *   "mailOtpExpireTime": ""
+     *    },
+     *   "vendor": {
+     *   "createdBy": "",
+     *   "createdDate": "",
+     *   "modifiedBy": "",
+     *   "modifiedDate": "",
+     *   "vendorId": 1,
+     *   "vendorPrefixId": 1,
+     *   "customerId": 1,
+     *   "vendorGroupId": 1,
+     *   "commission": "",
+     *   "industryId": 1,
+     *   "contactPersonName": "",
+     *   "vendorSlugName": "",
+     *   "companyState": "",
+     *   "companyDescription": "",
+     *   "companyLogo": "",
+     *   "companyLogoPath": "",
+     *   "verification": {
+     *       "email": "",
+     *       "policy": "",
+     *       "category": "",
+     *       "decision": "",
+     *       "document": "",
+     *       "storeFront": "",
+     *       "bankAccount": "",
+     *       "paymentInfo": "",
+     *       "companyDetail": "",
+     *       "deliveryMethod": "",
+     *       "subscriptionPlan": "",
+     *       "distributionPoint": ""
+     *     },
+     *   "verificationComment": [],
+     *   "verificationDetailComment": [],
+     *   "bankAccount": {
+     *       "bic": "",
+     *       "ifsc": "",
+     *       "branch": "",
+     *       "bankName": "",
+     *       "accountNumber": "",
+     *       "accountCreatedOn": "",
+     *       "accountHolderName": ""
+     *    },
+     *   "approvalFlag": "",
+     *   "approvedBy": "",
+     *   "approvalDate": "",
+     *   "companyCoverImage": "",
+     *   "companyCoverImagePath": "",
+     *   "twitter": "",
+     *   "bankName": "",
+     *   "bankAccountNumber": "",
+     *   "accountHolderName": "",
+     *   "ifscCode": "",
+     *   "mailOtp": "",
+     *   "loginOtpExpireTime": "",
+     *   "capabilities": [
+     *       {
+     *           "data": "",
+     *           "status": "",
+     *           "modelStatus": ""
+     *       }
+     *    ],
+     *   "isEmailVerify": 1,
+     *   "avatar": ""
+     *    }
      * }
      * @apiSampleRequest /api/vendor/edit-vendor/:customerId
      * @apiErrorExample {json} Edit Vendor API error
      * HTTP/1.1 500 Internal Server Error
      */
-    update(updateParam, customerId, response) {
+    update(updateParam, customerId, response, request) {
         var _a, _b;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const vendor = yield this.vendorService.findOne({
@@ -553,27 +1298,18 @@ let VendorController = class VendorController {
                 const name = 'Img_' + Date.now() + '.' + type;
                 const path = 'logo/';
                 const base64Data = Buffer.from(companyLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                const stringLength = companyLogo.replace(/^data:image\/\w+;base64,/, '').length;
-                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                const sizeInKb = sizeInBytes / 1024;
-                console.log(sizeInKb + 'kbbbb');
-                if (+sizeInKb <= 4096) {
-                    if (env_1.env.imageserver === 's3') {
-                        yield this.s3Service.imageUpload((path + name), base64Data, type);
-                    }
-                    else {
-                        yield this.imageService.imageUpload((path + name), base64Data);
-                    }
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload((path + name), base64Data, type);
                 }
                 else {
-                    const errorResponse = {
-                        status: 0,
-                        message: 'File size is too large, give less than 4 mb. ',
-                    };
-                    return response.status(400).send(errorResponse);
+                    yield this.imageService.imageUpload((path + name), base64Data);
                 }
                 vendor.companyLogo = name;
                 vendor.companyLogoPath = path;
+            }
+            else if (updateParam.companyLogo === '') {
+                vendor.companyLogo = '';
+                vendor.companyLogoPath = '';
             }
             const companyCoverImage = updateParam.companyCoverImage;
             if (companyCoverImage) {
@@ -581,58 +1317,111 @@ let VendorController = class VendorController {
                 const imgName = 'Img_' + Date.now() + '.' + covertype;
                 const imgPath = 'logo/';
                 const coverbase64Data = Buffer.from(companyCoverImage.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                const stringLength = companyCoverImage.replace(/^data:image\/\w+;base64,/, '').length;
-                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                const sizeInKb = sizeInBytes / 1024;
-                console.log(sizeInKb + 'kbbbb');
-                if (+sizeInKb <= 4096) {
-                    if (env_1.env.imageserver === 's3') {
-                        yield this.s3Service.imageUpload((imgPath + imgName), coverbase64Data, covertype);
-                    }
-                    else {
-                        yield this.imageService.imageUpload((imgPath + imgName), coverbase64Data);
-                    }
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload((imgPath + imgName), coverbase64Data, covertype);
                 }
                 else {
-                    const errorResponse = {
-                        status: 0,
-                        message: 'File size is too large, give less than 4 mb. ',
-                    };
-                    return response.status(400).send(errorResponse);
+                    yield this.imageService.imageUpload((imgPath + imgName), coverbase64Data);
                 }
                 vendor.companyCoverImage = imgName;
                 vendor.companyCoverImagePath = imgPath;
             }
             vendor.companyName = updateParam.companyName;
+            if (updateParam === null || updateParam === void 0 ? void 0 : updateParam.companyName) {
+                const slug = updateParam.companyName;
+                const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+                vendor.vendorSlugName = data;
+            }
             vendor.avatar = updateParam.avatar;
-            vendor.accountHolderName = updateParam.companyAccountHolderName;
-            vendor.bankAccountNumber = updateParam.companyAccountNumber;
-            vendor.bankName = updateParam.companyBankName;
             vendor.companyAddress1 = updateParam.companyAddress1;
             vendor.facebook = updateParam.companyFacebook;
             vendor.companyAddress2 = updateParam.companyAddress2;
             vendor.companyCity = updateParam.companyCity;
             vendor.companyState = (_a = updateParam.state) !== null && _a !== void 0 ? _a : '';
-            vendor.zoneId = (_b = updateParam.zoneId) !== null && _b !== void 0 ? _b : 0;
+            vendor.zoneId = updateParam.zoneId;
             vendor.designation = updateParam.designation;
             vendor.companyCountryId = updateParam.companyCountryId;
             vendor.pincode = updateParam.pincode;
-            vendor.companyMobileNumber = updateParam.companyMobileNumber ? updateParam.companyMobileNumber : 0;
+            vendor.companyMobileNumber = updateParam.companyMobileNumber;
             vendor.companyEmailId = updateParam.companyEmailId;
             vendor.companyWebsite = updateParam.companyWebsite;
             vendor.companyTaxNumber = updateParam.companyTaxNumber;
             vendor.companyPanNumber = updateParam.companyPanNumber;
-            vendor.ifscCode = updateParam.companyIFSC;
             vendor.companyGstNumber = updateParam.companyGstNumber;
             vendor.whatsapp = updateParam.companyWhatsapp;
             vendor.youtube = updateParam.companyYoutube;
             vendor.instagram = updateParam.companyInstagram;
             vendor.countryName = updateParam.countryName;
             vendor.paymentInformation = updateParam.paymentInformation;
-            yield this.vendorService.update(vendor.vendorId, vendor);
+            vendor.businessSegment = updateParam.businessSegment;
+            vendor.businessType = updateParam.businessType;
+            vendor.businessNumber = updateParam.companyBusinessNumber;
+            vendor.preferredShippingMethod = updateParam.preferredShippingMethod;
+            vendor.displayNameUrl = updateParam.displayName;
+            vendor.companyLocation = updateParam.companyLocation;
+            // Bank Info
+            if (updateParam.bankPayload) {
+                const account = {};
+                account.accountHolderName = updateParam.bankPayload.companyAccountHolderName;
+                account.accountNumber = updateParam.bankPayload.companyAccountNumber;
+                account.ifsc = updateParam.bankPayload.companyIFSC;
+                account.branch = updateParam.bankPayload.companyAccountBranch;
+                account.accountCreatedOn = updateParam.bankPayload.companyAccountCreatedOn;
+                account.bankName = updateParam.bankPayload.companyAccountBankName;
+                account.bic = updateParam.bankPayload.companyAccountBic;
+                account.bankAddress1 = updateParam.bankPayload.bankAddress1;
+                account.bankAddress2 = updateParam.bankPayload.bankAddress2;
+                account.bankArea = updateParam.bankPayload.bankArea;
+                account.bankCity = updateParam.bankPayload.bankCity;
+                account.bankCountryId = updateParam.bankPayload.bankCountryId;
+                account.bankStateId = updateParam.bankPayload.bankStateId;
+                account.bankPincode = updateParam.bankPayload.bankPincode;
+                vendor.bankAccount = account;
+            }
+            if (updateParam.capabilities) {
+                vendor.capabilities = updateParam.capabilities;
+            }
+            // vendor media
+            if ((updateParam === null || updateParam === void 0 ? void 0 : updateParam.vendorMedia.length) > 0) {
+                // single create check
+                updateParam.vendorMedia.forEach((mediaParam) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    yield this.vendorMediaService.delete({ vendorId: vendor.vendorId, mediaType: mediaParam.mediaType });
+                    const saveVendorMedia = new entities_index_1.VendorMedia();
+                    if (mediaParam.mediaType === 1) {
+                        saveVendorMedia.fileName = mediaParam.fileName;
+                        saveVendorMedia.filePath = mediaParam.filePath;
+                        saveVendorMedia.defaultImage = mediaParam.defaultImage;
+                        saveVendorMedia.mediaType = mediaParam.mediaType;
+                        saveVendorMedia.vendorId = request.user.vendorId;
+                        saveVendorMedia.title = mediaParam.title;
+                        saveVendorMedia.isActive = mediaParam.status;
+                    }
+                    else {
+                        saveVendorMedia.fileName = mediaParam.fileName;
+                        saveVendorMedia.filePath = mediaParam.filePath;
+                        saveVendorMedia.mediaType = mediaParam.mediaType;
+                        // 1 > upload 2 > url
+                        saveVendorMedia.videoType = mediaParam.videoType;
+                        saveVendorMedia.showHomePage = mediaParam.showHomePage === true ? 1 : 0;
+                        saveVendorMedia.url = mediaParam.url;
+                        saveVendorMedia.isActive = mediaParam.status;
+                        saveVendorMedia.vendorId = request.user.vendorId;
+                        saveVendorMedia.title = mediaParam.title;
+                    }
+                    yield this.vendorMediaService.create(saveVendorMedia);
+                }));
+            }
+            vendor.vendorDescription = updateParam.vendorDescription;
+            if (updateParam === null || updateParam === void 0 ? void 0 : updateParam.personalizedSetting) {
+                vendor.personalizedSettings.defaultLanguage = updateParam.personalizedSetting.defaultLanguage;
+                vendor.personalizedSettings.dateFormat = updateParam.personalizedSetting.dateFormat;
+                vendor.personalizedSettings.timeFormat = updateParam.personalizedSetting.timeFormat;
+                vendor.personalizedSettings.timeZone = updateParam.personalizedSetting.timeZone;
+            }
+            yield this.vendorService.create(vendor);
             const customer = yield this.customerService.findOne({
                 where: {
-                    id: vendor.customerId,
+                    id: customerId,
                 },
             });
             const avatar = updateParam.avatar;
@@ -649,28 +1438,15 @@ let VendorController = class VendorController {
                 const name = 'Img_' + Date.now() + '.' + type;
                 const path = 'customer/';
                 const base64Data = Buffer.from(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-                const stringLength = avatar.replace(/^data:image\/\w+;base64,/, '').length;
-                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                const sizeInKb = sizeInBytes / 1024;
-                console.log(sizeInKb + 'kbbbb');
-                if (+sizeInKb <= 4096) {
-                    if (customer.avatarPath && customer.avatar) {
-                        const deleteService = env_1.env.imageserver === 's3' ? this.s3Service : this.imageService;
-                        yield deleteService.deleteFile(customer.avatarPath + '/' + customer.avatar);
-                    }
-                    if (env_1.env.imageserver === 's3') {
-                        yield this.s3Service.imageUpload((path + name), base64Data, type);
-                    }
-                    else {
-                        yield this.imageService.imageUpload((path + name), base64Data);
-                    }
+                if (customer.avatarPath && customer.avatar) {
+                    const deleteService = env_1.env.imageserver === 's3' ? this.s3Service : this.imageService;
+                    yield deleteService.deleteFile(customer.avatarPath + '/' + customer.avatar);
+                }
+                if (env_1.env.imageserver === 's3') {
+                    yield this.s3Service.imageUpload((path + name), base64Data, type);
                 }
                 else {
-                    const errorResponse = {
-                        status: 0,
-                        message: 'File size is too large, give less than 4 mb. ',
-                    };
-                    return response.status(400).send(errorResponse);
+                    yield this.imageService.imageUpload((path + name), base64Data);
                 }
                 customer.avatar = name;
                 customer.avatarPath = path;
@@ -684,15 +1460,23 @@ let VendorController = class VendorController {
                 customer.avatarPath = '';
             }
             customer.firstName = updateParam.firstName;
-            customer.lastName = updateParam.lastName;
-            customer.email = updateParam.email;
+            customer.lastName = (_b = updateParam.lastName) !== null && _b !== void 0 ? _b : '';
             customer.mobileNumber = updateParam.mobileNumber;
-            const editCustomer = yield this.customerService.update(customer.customerId, customer);
+            customer.gender = updateParam.gender;
+            customer.dob = updateParam.dob;
+            customer.address = updateParam.companyAddress1;
+            customer.address2 = updateParam.companyAddress2;
+            customer.countryId = updateParam.companyCountryId;
+            customer.zoneId = updateParam.zoneId;
+            customer.city = updateParam.companyCity;
+            customer.pincode = updateParam.pincode;
+            customer.landmark = updateParam.landmark;
+            const editCustomer = yield this.customerService.create(customer);
             if (editCustomer) {
                 const successResponse = {
                     status: 1,
-                    message: 'Updated successfully',
-                    data: (0, class_transformer_1.instanceToPlain)(customer),
+                    message: `Successfully Updated ..!`,
+                    data: (0, class_transformer_1.instanceToPlain)(editCustomer), vendor,
                 };
                 return response.status(200).send(successResponse);
             }
@@ -700,19 +1484,25 @@ let VendorController = class VendorController {
     }
     // Dashboard Counts
     /**
-     * @api {get} /api/vendor/total-Dashboard-counts Total Dashboard Counts
+     * @api {Get} /api/vendor/total-Dashboard-counts Total Dashboard Counts
      * @apiGroup Vendor
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully got total dashboard counts",
-     *      "data":{
-     *      }
-     *      "status": "1"
-     * }
+     *  "message": "Successfully get Total Dashboard count",
+     *  "data": {
+     *   "inActiveVendorProductList": "",
+     *   "activeProductCount": "",
+     *   "totalProductCount": "",
+     *   "totalOrderCount": "",
+     *   "salesCount": "",
+     *   "revenue": ""
+     *        }
+     *      "status": 1
+     *    }
      * @apiSampleRequest /api/vendor/total-Dashboard-counts
-     * @apiErrorExample {json} order error
+     * @apiErrorExample {json} totalProductCounts error
      * HTTP/1.1 500 Internal Server Error
      */
     totalProductCounts(request, response) {
@@ -737,6 +1527,10 @@ let VendorController = class VendorController {
                 name: 'product.isActive',
                 op: 'and',
                 value: 1,
+            }, {
+                name: 'VendorProducts.reuse',
+                op: 'IS NULL',
+                value: '',
             });
             const vendorActiveProductListCount = yield this.vendorProductService.listByQueryBuilder(0, 0, [], whereCondition, [], relations, [], [], true, true);
             const inactiveWhereCondition = [];
@@ -748,18 +1542,34 @@ let VendorController = class VendorController {
                 name: 'product.isActive',
                 op: 'and',
                 value: 0,
+            }, {
+                name: 'VendorProducts.reuse',
+                op: 'IS NULL',
+                value: '',
             });
             const vendorInactiveProductListCount = yield this.vendorProductService.listByQueryBuilder(0, 0, [], inactiveWhereCondition, [], relations, [], [], true, true);
-            const select = [];
-            const relation = [];
-            const WhereConditions = [
+            // const select = [];
+            // const relation = [];
+            // const WhereConditions = [
+            //     {
+            //         name: 'vendorId',
+            //         op: 'where',
+            //         value: request.user.vendorId,
+            //     },
+            // ];
+            const totalWhereCondition = [
                 {
-                    name: 'vendorId',
-                    op: 'where',
+                    name: 'vendor.vendorId',
+                    op: 'and',
                     value: request.user.vendorId,
                 },
+                {
+                    name: 'VendorProducts.reuse',
+                    op: 'IS NULL',
+                    value: '',
+                },
             ];
-            const totalProductCount = yield this.vendorProductService.list(0, 0, select, relation, WhereConditions, '', 0);
+            const totalProductCount = yield this.vendorProductService.listByQueryBuilder(0, 0, [], totalWhereCondition, [], relations, [], [], true, true);
             const orderList = yield this.vendorOrdersService.searchOrderList(request.user.vendorId, '', '', '', '', 0);
             const buyerAndRevenueCount = yield this.vendorOrdersService.getBuyersCount(request.user.vendorId);
             const revenue = yield this.vendorOrdersService.getTotalVendorRevenue(request.user.vendorId);
@@ -780,7 +1590,7 @@ let VendorController = class VendorController {
                 data: {
                     inActiveVendorProductList: vendorInactiveProductListCount,
                     activeProductCount: vendorActiveProductListCount,
-                    totalProductCount: totalProductCount.length,
+                    totalProductCount,
                     totalOrderCount: orderList.length,
                     salesCount: buyerAndRevenueCount.salesCount,
                     revenue: totalRevenue,
@@ -789,18 +1599,26 @@ let VendorController = class VendorController {
             return response.status(200).send(successResponse);
         });
     }
-    //  order chart API
+    //  Order chart API
     /**
-     * @api {get} /api/vendor/order-graph  order graph API
+     * @api {Get} /api/vendor/order-graph  Order Graph API
      * @apiGroup Vendor
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} duration 1-> thisWeek 2-> thisMonth 3-> thisYear
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get order statics..!!",
-     *      "status": "1",
-     *      "data": {},
+     *     "message": "Successfully get order statics..!!",
+     *     "status": "1",
+     *     "data": {
+     *     "value": [
+     *       {
+     *           "orderStatusId": "",
+     *           "name": "",
+     *           "isActive": 1,
+     *           "colorCode": "",
+     *           "orderCount": ""
+     *       }
      * }
      * @apiSampleRequest /api/vendor/order-graph
      * @apiErrorExample {json} order statics error
@@ -829,250 +1647,8 @@ let VendorController = class VendorController {
             const value = yield Promise.all(promise);
             const successResponse = {
                 status: 1,
-                message: 'Successfully get order count..!',
+                message: 'Successfully get order count',
                 data: { value, orderCount: orderCount.orderCount },
-            };
-            return response.status(200).send(successResponse);
-        });
-    }
-    // Upload Vendor Document
-    /**
-     * @api {post} /api/vendor/upload-customer-document Upload Vendor Document
-     * @apiGroup Vendor
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} title title
-     * @apiParam (Request body) {String} customerData File
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully saved imported data..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/vendor/upload-customer-document
-     * @apiErrorExample {json} Import Customer Data
-     * HTTP/1.1 500 Internal Server Error
-     */
-    uploadCustomerDocument(file, title, documentId, request, response) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const mime = require('mime');
-            const vendor = yield this.vendorService.findOne({
-                vendorId: request.user.vendorId,
-            });
-            if (!vendor) {
-                const errResponse = {
-                    status: 0,
-                    message: 'Invalid vendorId',
-                };
-                return response.status(400).send(errResponse);
-            }
-            const base64Data = Buffer.from(file.replace(/^data:([A-Za-z-+\/]+);base64,/, ''), 'base64');
-            const mimeType = this.base64MimeType(file);
-            const fileType = mime.getExtension(mimeType);
-            const availableTypes = env_1.env.availAllowTypes.split(',');
-            if (!availableTypes.includes(fileType)) {
-                const errorTypeResponse = {
-                    status: 0,
-                    message: 'Only ' + env_1.env.availAllowTypes + ' types are allowed',
-                };
-                return response.status(400).send(errorTypeResponse);
-            }
-            // Re-Upload
-            if (documentId) {
-                const ifDocument = yield this.customerDocumentService.findOne({ where: { customerDocumentId: documentId } });
-                if (!ifDocument) {
-                    return response.status(400).send({ message: 'Invalid document Id !!' });
-                }
-                const ifTitleExiat = yield this.customerDocumentService.findOne({ where: { title, customerDocumentId: (0, typeorm_1.Not)(documentId), customerId: vendor.customerId } });
-                if (ifTitleExiat) {
-                    return response.status(400).send({ status: 0, message: 'Duplicate title name, give unique title !!' });
-                }
-                const uploadPath = ifDocument.path;
-                const fileName = ifDocument.name;
-                if (fileType === 'pdf' || fileType === 'PDF') {
-                    if (env_1.env.imageserver === 's3') {
-                        yield yield this.s3Service.deleteFile(uploadPath + fileName);
-                        yield this.s3Service.fileUpload((uploadPath + fileName), base64Data, mimeType);
-                    }
-                    else {
-                        yield this.imageService.deleteFile(uploadPath + fileName);
-                        yield this.imageService.fileUpload((uploadPath + fileName), base64Data);
-                    }
-                }
-                else {
-                    return response.status(400).send({ status: 0, message: 'Only allow pdf format!' });
-                }
-                ifDocument.title = title;
-                ifDocument.documentStatus = CustomerDocument_2.DocumentStatus.Pending;
-                const updateDocument = yield this.customerDocumentService.update(documentId, ifDocument);
-                const newVendorDocumentLog = new VendorDocumentLogModel_1.VendorDocumentLog();
-                newVendorDocumentLog.documentId = updateDocument.customerDocumentId;
-                newVendorDocumentLog.status = VendorDocumentLogModel_2.DocumentLogStatus.ReUploaded;
-                yield this.vendorDocumentLogService.create(newVendorDocumentLog);
-                if (updateDocument) {
-                    const successResponse = {
-                        status: 1,
-                        message: 'Document Uploaded Successfully',
-                    };
-                    return response.status(200).send(successResponse);
-                }
-            }
-            else {
-                // upload
-                const ifTitleExiat = yield this.customerDocumentService.findOne({ where: { title, customerId: vendor.customerId } });
-                if (ifTitleExiat) {
-                    return response.status(400).send({ status: 0, message: 'Duplicate title name, give unique title !!' });
-                }
-                let uploadPath;
-                let fileName;
-                if (fileType === 'pdf' || fileType === 'PDF') {
-                    uploadPath = 'vendordocument/';
-                    fileName = 'VendorDocument_' + Date.now() + '.' + fileType;
-                    if (env_1.env.imageserver === 's3') {
-                        yield this.s3Service.fileUpload((uploadPath + fileName), base64Data, mimeType);
-                    }
-                    else {
-                        yield this.imageService.fileUpload((uploadPath + fileName), base64Data);
-                    }
-                }
-                else {
-                    return response.status(400).send({ status: 0, message: 'Only allow pdf format!' });
-                }
-                const newCustomerData = new CustomerDocument_1.CustomerDocument();
-                newCustomerData.customerId = vendor.customerId;
-                newCustomerData.title = title;
-                newCustomerData.name = fileName;
-                newCustomerData.path = 'vendordocument/';
-                newCustomerData.documentStatus = CustomerDocument_2.DocumentStatus.Pending;
-                const createCustomerDocument = yield this.customerDocumentService.create(newCustomerData);
-                const newVendorDocumentLog = new VendorDocumentLogModel_1.VendorDocumentLog();
-                newVendorDocumentLog.documentId = createCustomerDocument.customerDocumentId;
-                newVendorDocumentLog.status = VendorDocumentLogModel_2.DocumentLogStatus.Uploaded;
-                yield this.vendorDocumentLogService.create(newVendorDocumentLog);
-                const successResponse = {
-                    status: 1,
-                    message: 'Document Uploaded Successfully',
-                };
-                return response.status(200).send(successResponse);
-            }
-        });
-    }
-    // Download Vendor Document API
-    /**
-     * @api {get} /api/vendor/download-customer-document/:customerDocumentId Download Vendor Document API
-     * @apiGroup Vendor
-     * @apiParamExample {json} Input
-     * {
-     *      "customerDocumentId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     * "message": "Successfully download customer document file.",
-     * "status": "1"
-     * }
-     * @apiSampleRequest /api/vendor/download-customer-document/:customerDocumentId
-     * @apiErrorExample {json} Download error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    downloadCustomerDocument(customerDocumentId, response, request) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const customerDocument = yield this.customerDocumentService.findOne(customerDocumentId);
-            if (customerDocument === undefined) {
-                const errorResponse = {
-                    status: 0,
-                    message: 'Invalid customer document Id',
-                };
-                return response.status(400).send(errorResponse);
-            }
-            const file = customerDocument.name;
-            const filePath = customerDocument.path;
-            let val;
-            if (env_1.env.imageserver === 's3') {
-                val = yield this.s3Service.fileDownload(filePath, file);
-                console.log(val, 'val1');
-            }
-            else {
-                val = yield this.imageService.fileDownload(filePath, file);
-                console.log(val, 'val2');
-            }
-            if (val) {
-                return new Promise((resolve, reject) => {
-                    response.download(val, file);
-                });
-            }
-            else {
-                return response.status(400).send({ status: 0, message: 'Download Failed' });
-            }
-        });
-    }
-    // Get Vendor Document List
-    /**
-     * @api {get} /api/vendor/customer-document-list Get Vendor Document List
-     * @apiGroup Vendor
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     * "message": "Successfully get customer document list",
-     * "data":{},
-     * "status": "1"
-     * }
-     * @apiSampleRequest /api/vendor/customer-document-list
-     * @apiErrorExample {json} customer error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    customerDocumentList(limit, offset, count, request, response) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const vendor = yield this.vendorService.findOne({
-                where: {
-                    vendorId: request.user.vendorId,
-                },
-            });
-            if (!vendor) {
-                const errResponse = {
-                    status: 1,
-                    message: 'Invalid Vendor',
-                };
-                return response.status(400).send(errResponse);
-            }
-            const select = ['customerDocumentId', 'customerId', 'title', 'name', 'path', 'documentStatus', 'createdDate'];
-            const whereConditions = [
-                {
-                    name: 'customerId',
-                    value: vendor.customerId,
-                },
-            ];
-            const search = [];
-            const customerDoc = yield this.customerDocumentService.list(limit, offset, select, search, whereConditions, count).then((docValue) => tslib_1.__awaiter(this, void 0, void 0, function* () {
-                if (typeof docValue === 'number') {
-                    return docValue;
-                }
-                const documentMapping = docValue.map((documentValue) => tslib_1.__awaiter(this, void 0, void 0, function* () {
-                    const parentTemp = documentValue;
-                    const findDocumentLog = yield this.vendorDocumentLogService.findAll({ documentId: documentValue.customerDocumentId }).then((docLogValue) => {
-                        const logMapping = docLogValue.map((logValue) => {
-                            const temp = logValue;
-                            temp.status = VendorDocumentLogModel_2.DocumentLogStatus[temp.status];
-                            return temp;
-                        });
-                        return logMapping;
-                    });
-                    const resultData = yield Promise.all(findDocumentLog);
-                    parentTemp.timeLine = resultData;
-                    console.log(parentTemp, 'resultDataresultData');
-                    return parentTemp;
-                }));
-                const finalResult = Promise.all(documentMapping);
-                return finalResult;
-            }));
-            const successResponse = {
-                status: 1,
-                message: 'successfully list the customer document',
-                data: customerDoc,
             };
             return response.status(200).send(successResponse);
         });
@@ -1090,18 +1666,19 @@ let VendorController = class VendorController {
     }
     // forget password link
     /**
-     * @api {get} /api/vendor/forgot-password-link Forgot Password Link API
+     * @api {put} /api/vendor/forgot-password-link Forgot Password Link API
      * @apiGroup  Vendor
      * @apiParam (Request body) {String} email User email
      * @apiParamExample {json} Input
      * {
-     *      "email" : "",
+     *      "emailId" : "",
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": ""
      * }
      * @apiSampleRequest /api/vendor/forgot-password-link
      * @apiErrorExample {json} store b2b error
@@ -1115,15 +1692,13 @@ let VendorController = class VendorController {
             if (!customer) {
                 const errResponse = {
                     status: 0,
-                    message: 'Invalid email',
+                    message: 'Invalid Email! The email you have entered is not registered with us',
                 };
                 return response.status(400).send(errResponse);
             }
             const Crypto = require('crypto-js');
             const val = Crypto.AES.encrypt(customer.email, env_1.env.cryptoSecret).toString();
             const encryptedKey = Buffer.from(val).toString('base64');
-            console.log(val + 'val');
-            console.log(encryptedKey + 'encryptedKey');
             customer.forgetPasswordKey = encryptedKey;
             customer.linkExpires = (0, moment_1.default)().add(20, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             yield this.customerService.update(customer.id, customer);
@@ -1135,32 +1710,32 @@ let VendorController = class VendorController {
             const mailContents = {};
             mailContents.logo = logo;
             mailContents.emailContent = message;
-            mailContents.redirectUrl = redirectUrl;
-            mailContents.productDetailData = undefined;
-            const sendMailRes = mail_services_1.MAILService.sendMail(mailContents, customer.email, emailContent.subject, false, false, '');
-            if (sendMailRes) {
-                const successResponse = {
-                    status: 1,
-                    message: 'Reset Password link has been sent to your email inbox.',
-                    data: encryptedKey,
-                };
-                return response.status(200).send(successResponse);
+            mailContents.redirectUrl = env_1.env.vendorRedirectUrl;
+            mailContents.productDetailData = '';
+            const vendor = yield this.vendorService.findOne({ where: { customerId: customer.customerId } });
+            if (vendor.verification.email === 1) {
+                mail_services_1.MAILService.sendMail(mailContents, customer.email, emailContent.subject, false, false, '');
             }
+            const successResponse = {
+                status: 1,
+                message: 'Reset Password link has been sent to your email inbox.',
+            };
+            return response.status(200).send(successResponse);
         });
     }
     // forget password key check
     /**
-     * @api {get} /api/vendor/forgot-password-key-check Forgot Password Key check API
+     * @api {Get} /api/vendor/forgot-password-key-check Forgot Password Key check API
      * @apiGroup   Vendor
-     * @apiParam (Request body) {String} key key
+     * @apiParam (Request body) {String} encryptedKey key
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully",
+     *      "message": "Valid key",
      *      "status": "1"
      * }
      * @apiSampleRequest /api/vendor/forgot-password-key-check/:key
-     * @apiErrorExample {json} store b2b error
+     * @apiErrorExample {json} keyCheck error
      * HTTP/1.1 500 Internal Server Error
      */
     keyCheck(encryptedKey, response) {
@@ -1181,7 +1756,7 @@ let VendorController = class VendorController {
             if ((0, moment_1.default)(customer.linkExpires).format('YYYY-MM-DD HH:mm:ss') < (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')) {
                 const expirationError = {
                     status: 2,
-                    message: 'Your forgot password link got expired, try again.',
+                    message: 'Your forgot password link got expired, try again',
                 };
                 return response.status(200).send(expirationError);
             }
@@ -1195,7 +1770,7 @@ let VendorController = class VendorController {
             else {
                 const successResponse = {
                     status: 3,
-                    message: 'This link has been used already. please try again',
+                    message: 'This link has been used already. please try a different one',
                 };
                 return response.status(200).send(successResponse);
             }
@@ -1203,7 +1778,7 @@ let VendorController = class VendorController {
     }
     // reset password
     /**
-     * @api {put} /api/vendor/reset-password  Reset Password API
+     * @api {Put} /api/vendor/reset-password  Reset Password API
      * @apiGroup  Vendor
      * @apiParam (Request body) {String} newPassword  newPassword
      * @apiParam (Request body) {String} key  key
@@ -1215,11 +1790,12 @@ let VendorController = class VendorController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully Password changed",
-     *      "status": "1"
+     *      "message": "Your has been password changed successfully",
+     *      "status": "1",
+     *      "data": ""
      * }
      * @apiSampleRequest /api/vendor/reset-password
-     * @apiErrorExample {json} store b2b error
+     * @apiErrorExample {json} resetPassword error
      * HTTP/1.1 500 Internal Server Error
      */
     resetPassword(newPassword, request, response) {
@@ -1255,7 +1831,7 @@ let VendorController = class VendorController {
     }
     // Logout API
     /**
-     * @api {post} /api/vendor/logout Log Out API
+     * @api {Post} /api/vendor/logout Log Out API
      * @apiGroup Vendor
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
@@ -1303,7 +1879,315 @@ let VendorController = class VendorController {
             }
         });
     }
+    // Seller start selling
+    /**
+     * @api {Post} /api/vendor/start-selling SellerStartSelling API
+     * @apiGroup Vendor
+     * @apiParam (Request body) {String} emailId emailId
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Create Your Bussiness Account..!",
+     * }
+     * @apiSampleRequest /api/vendor/start-selling
+     * @apiErrorExample {json} startSellingError
+     * HTTP/1.1 500 Internal Server Error
+     */
+    startSelling(emailId, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorData = yield this.vendorService.findOne({ where: { customer: { email: emailId, deleteFlag: 0 } }, relations: ['customer'] });
+            if (vendorData) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'You Have Already Bussiness Account With As. To Continue Kindly Login',
+                });
+            }
+            return response.status(200).send({
+                status: 1,
+                message: 'Create Your Bussiness Account',
+            });
+        });
+    }
+    // Varify vendor API
+    /**
+     * @api {Post} /api/vendor/verify Varify vendor API
+     * @apiGroup Vendor
+     * @apiParam (Request Body) {number} key key (Required)
+     * @apiParam (Request Body) {number} username username (Required)
+     * @apiParam (Request Body) {number} password password (Required)
+     * @apiSuccessExample {json} success
+     * HTTP/1.1 200 Ok
+     * {
+     *      "status": "1",
+     *      "message": "Vendor Verified Successfully",
+     * }
+     * @apiSampleRequest /api/vendor/verify
+     * @apiErrorExample {json} VarifyMailKeyCheck Error
+     * HTTP/1.1 500 Internal server error
+     */
+    VarifyMailKeyCheck(payload, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const tokenKey = request.body.key;
+            if (!tokenKey) {
+                const keyError = {
+                    status: 1,
+                    message: 'Token is missing',
+                };
+                return response.status(400).send(keyError);
+            }
+            const Crypto = require('crypto-js');
+            const encryptedKey = payload.key;
+            const bytes = Crypto.AES.decrypt(Buffer.from(encryptedKey, 'base64').toString('ascii'), env_1.env.cryptoSecret);
+            const decodedTokenKey = bytes.toString(Crypto.enc.Utf8);
+            const customer = yield this.customerService.findOne({
+                where: { email: decodedTokenKey, deleteFlag: 0 },
+            });
+            if (!customer) {
+                const errResponse = {
+                    status: 1,
+                    message: 'Invalid token. please try again',
+                };
+                return response.status(400).send(errResponse);
+            }
+            const username = yield this.customerService.findOne({
+                where: { username: payload.username, deleteFlag: 0 },
+            });
+            if (!username) {
+                const errResponse = {
+                    status: 0,
+                    message: 'Invalid seller username',
+                };
+                return response.status(400).send(errResponse);
+            }
+            const password = yield Customer_1.Customer.comparePassword(customer, payload.password);
+            if (!password) {
+                const errResponse = {
+                    status: 0,
+                    message: 'Invalid seller password',
+                };
+                return response.status(400).send(errResponse);
+            }
+            const vendor = yield this.vendorService.findOne({
+                where: { customerId: customer.id },
+            });
+            vendor.verification.email = 1;
+            const updateVendor = yield this.vendorService.update(vendor.vendorId, vendor);
+            const logo = yield this.settingService.findOne();
+            const findEmailTemplate = yield this.emailTemplateService.findOne({ where: { emailTemplateId: 47, isActive: 1 } });
+            const templateDate = findEmailTemplate.content.replace('{name}', customer.firstName.concat(customer.lastName)).replace('{companyName}', logo.businessName).replace('{companyName}', logo.businessName).replace('{vendorUrl}', env_1.env.storeRedirectUrl);
+            const mailContent = {};
+            mailContent.productInfo = [];
+            mailContent.logo = logo;
+            mailContent.baseUrl = env_1.env.baseUrl;
+            mailContent.emailContent = templateDate;
+            mailContent.productDetailData = undefined;
+            mailContent.redirectUrl = undefined;
+            mailContent.templateName = 'emailTemplates.ejs';
+            const mailSubject = findEmailTemplate.subject;
+            mail_services_1.MAILService.sendMail(mailContent, payload.username, mailSubject, false, false, '');
+            if (updateVendor) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Seller verified successfully',
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Change mail API
+    /**
+     * @api {Put} /api/vendor/mail/link Change mail API
+     * @apiGroup Vendor
+     * @apiHeader {String} Authorization
+     * @apiParam (Request Body) {String} emailId emailId
+     * @apiParam (Request Body) {String} password password
+     * @apiSuccessExample {json} success
+     * HTTP/1.1 200 Ok
+     * {
+     *      "status": "1",
+     *      "message": "Email Send Successfuly.",
+     * }
+     * @apiSampleRequest /api/vendor/mail/link
+     * @apiErrorExample {json} ChangeMail Error
+     * HTTP/1.1 500 Internal server error
+     */
+    // change mail
+    ChangeMail(mailChangeParam, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = request.user.customer;
+            const checkMail = yield this.customerService.findOne({ where: { email: mailChangeParam.emailId } });
+            if (checkMail) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Given Email Address Already Exist',
+                });
+            }
+            const customerPassword = mailChangeParam.password;
+            const decodedPassword = yield Customer_1.Customer.comparePassword(customer, customerPassword);
+            if (!decodedPassword) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid Password',
+                });
+            }
+            const crypto = require('crypto');
+            const createOtp = crypto.randomInt(100000, 900000);
+            const updateCustomer = new Vendor_1.Vendor();
+            updateCustomer.mailOtp = createOtp;
+            updateCustomer.loginOtpExpireTime = ((0, moment_1.default)().add(3, 'h')).format('YYYY-MM-DD HH:mm:ss');
+            const otpStore = yield this.vendorService.update(request.user.vendorId, updateCustomer);
+            if (!otpStore) {
+                return response.status(400).send({
+                    status: 1,
+                    message: 'Email Send Failed',
+                });
+            }
+            const logo = yield this.settingService.findOne();
+            const findEmailTemplate = yield this.emailTemplateService.findOne({ where: { title: 'change_mail', isActive: 1 } });
+            const templateDate = findEmailTemplate.content.replace('{name}', customer.firstName + ' ' + customer.lastName ? customer.lastName : '').replace('{otp}', createOtp).replace('{companyName}', logo.businessName);
+            const mailContent = {};
+            mailContent.productInfo = [];
+            mailContent.logo = logo;
+            mailContent.baseUrl = env_1.env.baseUrl;
+            mailContent.emailContent = templateDate;
+            mailContent.productDetailData = undefined;
+            mailContent.redirectUrl = env_1.env.vendorRedirectUrl;
+            mailContent.templateName = 'emailTemplates.ejs';
+            const mailSubject = findEmailTemplate.subject;
+            mail_services_1.MAILService.sendMail(mailContent, mailChangeParam.emailId, mailSubject, false, false, '');
+            return response.status(200).send({
+                status: 1,
+                message: 'Email Send Successfuly',
+            });
+        });
+    }
+    // mail verify API
+    /**
+     * @api {Put} /api/vendor/mail/verify Mail Verify API
+     * @apiGroup Vendor
+     * @apiHeader {String} Authorization
+     * @apiParam (Request Body) {Number} otp otp
+     * @apiParam (Request Body) {String} emailId emailId
+     * @apiSuccessExample {json} success
+     * HTTP/1.1 200 Ok
+     * {
+     *      "status": "1",
+     *      "message": "Email Updated Successfully.",
+     * }
+     * @apiSampleRequest /api/vendor/mail/verify
+     * @apiErrorExample {json} ChangeMailVerify Error
+     * HTTP/1.1 500 Internal server error
+     */
+    ChangeMailVerify(mailVerifyParams, response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const customer = request.user.customer;
+            const vendorInfo = yield this.vendorService.findOne({ where: { vendorId: request.user.vendorId } });
+            if (vendorInfo.mailOtp !== +mailVerifyParams.otp) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid OTP',
+                });
+            }
+            if (vendorInfo.loginOtpExpireTime > (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss')) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'OTP Got Expired',
+                });
+            }
+            const customerInfo = new Customer_1.Customer();
+            customerInfo.id = customer.id;
+            customerInfo.email = mailVerifyParams.emailId;
+            customerInfo.username = mailVerifyParams.emailId;
+            customerInfo.password = customer.password;
+            yield this.customerService.create(customerInfo);
+            return response.status(200).send({
+                status: 1,
+                message: 'Email Updated Successfully',
+            });
+        });
+    }
+    // Check Vendor Display Name API
+    /**
+     * @api {Post} /api/vendor/check-display-name-url Check Vendor Display Name API
+     * @apiGroup Admin vendor
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorId
+     * @apiParam (Request body) {String} displayNameURL  Display Name / URL
+     * @apiParamExample {json} Input
+     * {
+     *      "vendorId": 1,
+     *      "displayNameURL" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Display name is available",
+     * }
+     * @apiSampleRequest /api/vendor/check-display-name-url
+     * @apiErrorExample {json}checkDisplayNameURLadmin vendor error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    checkDisplayNameURL(checkname, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const name = checkname.displayNameURL.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+            if (checkname.vendorId) {
+                const checkVendor = yield this.vendorService.findOne({
+                    where: {
+                        vendorId: checkname.vendorId,
+                    },
+                });
+                if (!checkVendor) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Invalid seller',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                const isExist = yield this.vendorService.validateDisplayUrlName(name, 1, checkname.vendorId);
+                if (isExist) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'Display name already exists',
+                    });
+                }
+                else {
+                    return response.status(200).send({
+                        status: 1,
+                        message: 'Display name available',
+                    });
+                }
+            }
+            else {
+                const isExist = yield this.vendorService.validateDisplayUrlName(name, 0, 0);
+                if (isExist) {
+                    const errorResponse = {
+                        status: 0,
+                        message: 'Display name already exists',
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+                else {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Display name available',
+                    };
+                    return response.status(200).send(successResponse);
+                }
+            }
+        });
+    }
 };
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/send-otp'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('emailId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "vendorSendOtp", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Post)('/register'),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
@@ -1323,8 +2207,18 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorController.prototype, "login", null);
 tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/pending-status/update/:id'),
+    (0, routing_controllers_1.Authorized)('vendor-unapproved'),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "pendingStatusUpdate", null);
+tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/vendor-profile'),
-    (0, routing_controllers_1.Authorized)('vendor'),
+    (0, routing_controllers_1.Authorized)('vendor-unapproved'),
     tslib_1.__param(0, (0, routing_controllers_1.Req)()),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
@@ -1332,7 +2226,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorController.prototype, "vendorDetails", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/vendor-category-list'),
+    (0, routing_controllers_1.Get)('/category-list'),
     (0, routing_controllers_1.Authorized)('vendor'),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
@@ -1346,7 +2240,7 @@ tslib_1.__decorate([
 ], VendorController.prototype, "vendorCategoryList", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Put)('/change-password'),
-    (0, routing_controllers_1.Authorized)('vendor'),
+    (0, routing_controllers_1.Authorized)('vendor-unapproved'),
     tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('newPassword')),
     tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('oldPassword')),
     tslib_1.__param(2, (0, routing_controllers_1.Req)()),
@@ -1365,12 +2259,13 @@ tslib_1.__decorate([
 ], VendorController.prototype, "forgotPassword", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Put)('/edit-vendor/:customerId'),
-    (0, routing_controllers_1.Authorized)('vendor'),
+    (0, routing_controllers_1.Authorized)('vendor-unapproved'),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Param)('customerId')),
     tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [UpdateVendorRequest_1.UpdateVendorRequest, Number, Object]),
+    tslib_1.__metadata("design:paramtypes", [UpdateVendorRequest_1.UpdateVendorRequest, Number, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorController.prototype, "update", null);
 tslib_1.__decorate([
@@ -1393,41 +2288,8 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorController.prototype, "topSellingProductList", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Post)('/upload-customer-document'),
-    (0, routing_controllers_1.Authorized)('vendor'),
-    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('customerData')),
-    tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('title')),
-    tslib_1.__param(2, (0, routing_controllers_1.BodyParam)('documentId')),
-    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String, String, Number, Object, Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], VendorController.prototype, "uploadCustomerDocument", null);
-tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/download-customer-document/:customerDocumentId'),
-    tslib_1.__param(0, (0, routing_controllers_1.Param)('customerDocumentId')),
-    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
-    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], VendorController.prototype, "downloadCustomerDocument", null);
-tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/customer-document-list'),
-    (0, routing_controllers_1.Authorized)('vendor'),
-    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
-    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
-    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object, Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], VendorController.prototype, "customerDocumentList", null);
-tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/forgot-password-link'),
-    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('email')),
+    (0, routing_controllers_1.Put)('/forgot-password-link'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('emailId')),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__param(2, (0, routing_controllers_1.Req)()),
     tslib_1.__metadata("design:type", Function),
@@ -1453,13 +2315,60 @@ tslib_1.__decorate([
 ], VendorController.prototype, "resetPassword", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Post)('/logout'),
-    (0, routing_controllers_1.Authorized)('vendor'),
+    (0, routing_controllers_1.Authorized)('vendor-unapproved'),
     tslib_1.__param(0, (0, routing_controllers_1.Req)()),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorController.prototype, "logout", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/start-selling'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('emailId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "startSelling", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/verify'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [VendorVerifiedRequest_1.VendorVerifiedRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "VarifyMailKeyCheck", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/mail/link'),
+    (0, routing_controllers_1.Authorized)('vendor-unapproved'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [MailChangeRequest_1.MailChangeRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "ChangeMail", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Put)('/mail/verify'),
+    (0, routing_controllers_1.Authorized)('vendor-unapproved'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [EmailChangeOtpRequest_1.EmailChangeOtp, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "ChangeMailVerify", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/check-display-name-url'),
+    (0, routing_controllers_1.Authorized)('vendor-unapproved'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CheckDisplayNameRequest_1.CheckDisplayNameRequest, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorController.prototype, "checkDisplayNameURL", null);
 VendorController = tslib_1.__decorate([
     (0, routing_controllers_1.JsonController)('/vendor'),
     tslib_1.__metadata("design:paramtypes", [CustomerService_1.CustomerService,
@@ -1475,8 +2384,9 @@ VendorController = tslib_1.__decorate([
         CurrencyService_1.CurrencyService,
         OrderStatusService_1.OrderStatusService,
         AccessTokenService_1.AccessTokenService,
-        CustomerDocumentService_1.CustomerDocumentService,
-        VendorDocumentLogService_1.VendorDocumentLogService])
+        VendorMediaService_1.VendorMediaService,
+        RegistraionOtpService_1.RegistrationOtpService,
+        UserService_1.UserService])
 ], VendorController);
 exports.VendorController = VendorController;
 //# sourceMappingURL=VendorController.js.map

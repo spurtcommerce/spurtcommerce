@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -30,6 +30,12 @@ let PageGroupController = class PageGroupController {
      * {
      *      "pageGroupName" : "",
      *      "status" : "",
+     *      "data": {
+     *          "groupName": "",
+     *          "isActive": 1,
+     *          "createdDate": "",
+     *          "groupId": 1
+     *       }
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
@@ -72,24 +78,28 @@ let PageGroupController = class PageGroupController {
      * @apiParam (Request body) {Number} limit limit
      * @apiParam (Request body) {Number} offset offset
      * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {Number} groupName groupName
      * @apiParam (Request body) {Number} count count should be number or boolean
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get Page Group list API",
-     *      "data":{
-     *       "groupId" : "",
-     *       "pageGroupName" : "",
-     *      }
+     *      "data":[
+     *                  {
+     *                      "groupId" : "",
+     *                      "pageGroupName" : "",
+     *                      "isActive": 1
+     *                  }
+     *              ]
      *      "status": "1"
      * }
      * @apiSampleRequest /api/page-group
      * @apiErrorExample {json} Page Group error
      * HTTP/1.1 500 Internal Server Error
      */
-    PageGrouplist(limit, offset, status, count, response) {
+    PageGrouplist(limit, offset, status, count, keyword, groupName, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const select = ['groupId', 'groupName', 'isActive'];
+            const select = [];
             const search = [
                 {
                     name: 'isActive',
@@ -97,6 +107,20 @@ let PageGroupController = class PageGroupController {
                     value: status,
                 },
             ];
+            if (keyword === null || keyword === void 0 ? void 0 : keyword.trim()) {
+                search.push({
+                    name: 'groupName',
+                    op: 'like',
+                    value: keyword,
+                });
+            }
+            if (groupName === null || groupName === void 0 ? void 0 : groupName.trim()) {
+                search.push({
+                    name: 'groupName',
+                    op: 'like',
+                    value: groupName,
+                });
+            }
             const WhereConditions = [];
             const relations = [];
             const pageGroupList = yield this.pageGroupService.list(limit, offset, select, search, relations, WhereConditions, count);
@@ -117,7 +141,11 @@ let PageGroupController = class PageGroupController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get page group count",
-     *      "data":{},
+     *      "data": {
+     *                 "totalPage": 18,
+     *                 "activePage": 7,
+     *                 "inActivePage": 11
+     *              },
      *      "status": "1"
      * }
      * @apiSampleRequest /api/page-group/pagegroup-count
@@ -175,6 +203,15 @@ let PageGroupController = class PageGroupController {
      * {
      *      "message": "Successfully updated page group.",
      *      "status": "1"
+     *      "data": {
+     *                 "createdBy": 1,
+     *                 "createdDate": "",
+     *                 "modifiedBy": 1,
+     *                 "modifiedDate": "",
+     *                 "groupId": 1,
+     *                 "groupName": "",
+     *                 "isActive": 1
+     *               }
      * }
      * @apiSampleRequest /api/page-group/:id
      * @apiErrorExample {json} Page Group error
@@ -195,12 +232,22 @@ let PageGroupController = class PageGroupController {
                 return response.status(400).send(errorResponse);
             }
             group.groupName = pageGroupName;
+            const page = yield this.pageService.findOne({ where: { pageGroupId: id } });
+            if (page) {
+                if (status === 0) {
+                    const errorResponse = {
+                        status: 0,
+                        message: `Can't inactive page group, mapped with page's`,
+                    };
+                    return response.status(400).send(errorResponse);
+                }
+            }
             group.isActive = status;
             const groupSave = yield this.pageGroupService.create(group);
             if (groupSave) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated the Page Group.',
+                    message: 'Successfully updated the Page group',
                     data: groupSave,
                 };
                 return response.status(200).send(successResponse);
@@ -208,7 +255,7 @@ let PageGroupController = class PageGroupController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the Page Group',
+                    message: 'Unable to update the Page group',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -239,7 +286,7 @@ let PageGroupController = class PageGroupController {
             if (!pageGroup) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid page Id.',
+                    message: 'Invalid page Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -251,7 +298,7 @@ let PageGroupController = class PageGroupController {
             if (page) {
                 const errorResponse = {
                     status: 0,
-                    message: 'You cannot delete this group as pages are mapped to it.',
+                    message: 'You cannot delete this group as pages are mapped to it',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -259,14 +306,14 @@ let PageGroupController = class PageGroupController {
             if (deleteGroup) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfullly deleted the group.',
+                    message: 'Successfullly deleted the group',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to delete the group.',
+                    message: 'Unable to delete the group',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -281,8 +328,16 @@ let PageGroupController = class PageGroupController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get page Group",
-     *      "data":"{}"
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *                   "createdBy": 1,
+     *                   "createdDate": "",
+     *                   "modifiedBy": 1,
+     *                   "modifiedDate": "",
+     *                   "groupId": 1,
+     *                   "groupName": "",
+     *                   "isActive": 1
+     *               }
      * }
      * @apiSampleRequest /api/page-group/get-page-group/:id
      * @apiErrorExample {json} Page Group error
@@ -324,9 +379,11 @@ tslib_1.__decorate([
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('status')),
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('groupName')),
+    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, String, String, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], PageGroupController.prototype, "PageGrouplist", null);
 tslib_1.__decorate([

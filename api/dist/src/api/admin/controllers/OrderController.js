@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -81,7 +81,7 @@ let OrderController = class OrderController {
     }
     // order List API
     /**
-     * @api {get} /api/order/orderlist Order List API
+     * @api {get} /api/order Order List API
      * @apiGroup Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -95,19 +95,29 @@ let OrderController = class OrderController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get order list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateAdded" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
      *      "status": "1"
+     *      "message": "Successfully shown the order list",
+     *      "data":{
+     *              "NoOfItems": "",
+     *              "orderProductId": "",
+     *              "createdDate": "",
+     *              "orderPrefixId": "",
+     *              "orderId": "",
+     *              "shippingFirstname": "",
+     *              "total": "",
+     *              "currencyCode": "",
+     *              "currencySymbolLeft": "",
+     *              "currencySymbolRight": "",
+     *              "orderStatusId": "",
+     *              "modifiedDate": "",
+     *              "shippingAddress1": "",
+     *              "shippingAddress2": "",
+     *              "shippingCity": "",
+     *              "shippingPostcode": "",
+     *              "shippingZone": ""
+     *              }
      * }
-     * @apiSampleRequest /api/order/orderlist
+     * @apiSampleRequest /api/order
      * @apiErrorExample {json} order error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -207,96 +217,284 @@ let OrderController = class OrderController {
             return response.status(200).send(successResponse);
         });
     }
-    //  Order Detail API
+    // Sales Report List API
     /**
-     * @api {get} /api/order/order-detail  Order Detail API
+     * @api {get} /api/order/sales-report-list Sales Report list API
      * @apiGroup Order
      * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} orderId Order Id
-     * @apiParamExample {json} Input
-     * {
-     *      "orderId" : "",
-     * }
+     * @apiParam (Request body) {Number} limit limit
+     * @apiParam (Request body) {Number} offset offset
+     * @apiParam (Request body) {String} startDate search by startDate
+     * @apiParam (Request body) {String} endDate search by endDate
+     * @apiParam (Request body) {String} productId
+     * @apiParam (Request body) {String} count count
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully show the Order Detail..!!",
-     *      "status": "1",
-     *      "data": {},
+     *      "message": "Successfully got sales report list",
+     *      "data":[{
+     *               "orderProductId": "" ,
+     *               "productName": "",
+     *               "productId": "",
+     *               "orderId": "",
+     *               "firstName": "",
+     *               "lastName": "",
+     *               "orderProductPrefixId": "",
+     *               "quantity": "",
+     *               "total": "",
+     *               "discountedAmount": "",
+     *               "orderStatusId": "",
+     *               "discountAmount": "",
+     *               "createdDate": "",
+     *               "productPrice": "",
+     *               "basePrice": "",
+     *               "couponDiscountAmount": "",
+     *               "orderStatusName": "",
+     *               "paymentType": "",
+     *               "ipAddress": ""
+     *           }],
+     *      "status": "1"
      * }
-     * @apiSampleRequest /api/order/order-detail
-     * @apiErrorExample {json} Order Detail error
+     * @apiSampleRequest /api/order/sales-report-list
+     * @apiErrorExample {json} settlement error
      * HTTP/1.1 500 Internal Server Error
      */
-    // Order Detail Function
-    orderDetail(orderid, request, response) {
+    salesReport(limit, offset, categoryId, productId, startDate, endDate, count, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const orderData = yield this.orderService.findOrder({
-                where: { orderId: orderid }, select: ['orderId', 'orderStatusId', 'customerId', 'telephone', 'invoiceNo', 'paymentStatus', 'invoicePrefix', 'orderPrefixId', 'shippingFirstname', 'shippingLastname', 'shippingCompany', 'shippingAddress1',
-                    'shippingAddress2', 'shippingCity', 'email', 'shippingZone', 'shippingPostcode', 'shippingCountry', 'shippingAddressFormat',
-                    'paymentFirstname', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity', 'customerGstNo',
-                    'paymentPostcode', 'paymentCountry', 'paymentZone', 'paymentAddressFormat', 'total', 'customerId', 'createdDate', 'currencyCode', 'currencySymbolLeft', 'currencySymbolRight'],
+            const select = [
+                ('DISTINCT OrderProduct.orderProductId as orderProductId'),
+                'productInformationDetail.productId as productId',
+                'productInformationDetail.name as productName',
+                'customer.firstName as firstName',
+                'customer.lastName as lastName',
+                'OrderProduct.orderProductPrefixId as orderProductPrefixId',
+                'OrderProduct.quantity as quantity',
+                'OrderProduct.total as total',
+                'OrderProduct.discountedAmount as discountedAmount',
+                'OrderProduct.orderStatusId as orderStatusId',
+                'OrderProduct.discountAmount as discountAmount',
+                'OrderProduct.createdDate as createdDate',
+                'OrderProduct.productPrice as productPrice',
+                'OrderProduct.basePrice as basePrice',
+                'OrderProduct.couponDiscountAmount as couponDiscountAmount',
+                'orderStatus.name as orderStatusName',
+                'customerGroup.name as customerGroup',
+                'order.paymentType as paymentType',
+                'order.ip as ipAddress'
+            ];
+            const relations = [];
+            const groupBy = [];
+            const whereConditions = [];
+            whereConditions.push({
+                name: '`order`.`payment_process`',
+                op: 'and',
+                value: 1,
+            }, {
+                name: '`order`.`payment_status`',
+                op: 'and',
+                value: 1,
+            }, {
+                name: '`OrderProduct`.`cancel_request_status`',
+                op: 'and',
+                value: 0,
             });
-            if (!orderData) {
-                const errorResponse = {
-                    status: 0,
-                    message: 'Invalid Order Id',
-                };
-                return response.status(400).send(errorResponse);
+            if (productId) {
+                relations.push({
+                    tableName: 'OrderProduct.productInformationDetail',
+                    aliasName: 'productInformationDetail',
+                }, {
+                    tableName: 'OrderProduct.order',
+                    aliasName: 'order',
+                }, {
+                    tableName: 'OrderProduct.orderStatus',
+                    aliasName: 'orderStatus',
+                }, {
+                    tableName: 'order.customer',
+                    aliasName: 'customer',
+                }, {
+                    tableName: 'customer.customerGroup',
+                    op: 'left',
+                    aliasName: 'customerGroup',
+                });
+                whereConditions.push({
+                    name: 'OrderProduct.productId',
+                    op: 'IN',
+                    value: productId,
+                });
             }
-            orderData.productList = yield this.orderProductService.find({
-                where: { orderId: orderid }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'trackingUrl', 'trackingNo', 'orderStatusId', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'orderStatusId',
-                    'skuName', 'orderProductPrefixId', 'modifiedDate', 'cancelReason', 'cancelReasonDescription', 'cancelRequestStatus', 'cancelRequest'],
-            }).then((val) => {
-                const productVal = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
-                    const rating = undefined;
-                    const productImage = yield this.productImageService.findOne({ select: ['image', 'containerName'], where: { productId: value.productId, defaultImage: 1 } });
-                    const tempVal = value;
-                    tempVal.taxType = value.taxType;
-                    tempVal.taxValue = value.taxValue;
-                    if (productImage) {
-                        tempVal.image = productImage.image;
-                        tempVal.containerName = productImage.containerName;
-                    }
-                    const orderProductStatusData = yield this.orderStatusService.findOne({
-                        where: { orderStatusId: value.orderStatusId },
-                        select: ['name', 'colorCode'],
-                    });
-                    if (orderProductStatusData) {
-                        tempVal.orderStatusName = orderProductStatusData.name;
-                        tempVal.statusColorCode = orderProductStatusData.colorCode;
-                    }
-                    if (value.taxType === 2) {
-                        tempVal.taxValueInAmount = (+value.basePrice * (+value.taxValue / 100)).toFixed(2);
-                    }
-                    else {
-                        tempVal.taxValueInAmount = +value.taxValue;
-                    }
-                    if (rating !== undefined) {
-                        tempVal.rating = rating.rating;
-                        tempVal.review = rating.review;
-                    }
-                    else {
-                        tempVal.rating = 0;
-                        tempVal.review = '';
-                    }
-                    return tempVal;
-                }));
-                const results = Promise.all(productVal);
-                return results;
-            });
-            const orderStatusData = yield this.orderStatusService.findOne({
-                where: { orderStatusId: orderData.orderStatusId },
-                select: ['name', 'colorCode'],
-            });
-            if (orderStatusData) {
-                orderData.orderStatusName = orderStatusData.name;
-                orderData.statusColorCode = orderStatusData.colorCode;
+            if (startDate && startDate !== '') {
+                whereConditions.push({
+                    name: '`OrderProduct`.`created_date`',
+                    op: 'raw',
+                    sign: '>=',
+                    value: startDate + ' 00:00:00',
+                });
             }
+            if (endDate && endDate !== '') {
+                whereConditions.push({
+                    name: '`OrderProduct`.`created_date`',
+                    op: 'raw',
+                    sign: '<=',
+                    value: endDate + ' 23:59:59',
+                });
+            }
+            const searchConditions = [];
+            const sort = [];
+            sort.push({
+                name: 'OrderProduct.createdDate',
+                order: 'DESC',
+            });
+            const orderList = yield this.orderProductService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            const result = [];
+            let total = 0;
+            const groupByKey = key => array => array.reduce((objectsByKeyValue, obj) => {
+                const value = obj[key];
+                objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
+                return objectsByKeyValue;
+            }, {});
+            const groupByType = groupByKey('productName');
+            const groupByPeriodTypeArray = groupByType(orderList);
+            const groupByPeriodTypeObject = Object.keys(groupByPeriodTypeArray);
+            if (groupByPeriodTypeObject && groupByPeriodTypeObject.length > 0) {
+                groupByPeriodTypeObject.forEach((periodType) => {
+                    const temp = {};
+                    temp.productName = periodType;
+                    temp.buyers = groupByPeriodTypeArray[periodType] && groupByPeriodTypeArray[periodType].length > 0 ? groupByPeriodTypeArray[periodType] : [];
+                    for (const val of groupByPeriodTypeArray[periodType]) {
+                        total += +val.total;
+                    }
+                    result.push(temp);
+                });
+            }
+            const orderCount = yield this.orderProductService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
             const successResponse = {
                 status: 1,
-                message: 'Successfully shown the order Detail',
-                data: orderData,
+                message: 'Successfully got the sales report list',
+                data: result, total, orderCount,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Dashboard Transaction List API
+    /**
+     * @api {get} /api/order/transaction-list Dashboard Transaction List API
+     * @apiGroup Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} year year
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get transaction list",
+     *      "data":{
+     *      }
+     * }
+     * @apiSampleRequest /api/order/transaction-list
+     * @apiErrorExample {json} transaction list error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    transactionList(year, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const transactionlist = yield this.orderService.transactionList(year);
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully got the transaction list',
+                data: transactionlist,
+            });
+        });
+    }
+    // sales Graph List API
+    /**
+     * @api {get} /api/order/sales-graph-list Sales Graph List API
+     * @apiGroup Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} year year
+     * @apiParam (Request body) {String} month month
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get sales graph list",
+     *      "data":{
+     *      }
+     * }
+     * @apiSampleRequest /api/order/sales-graph-list
+     * @apiErrorExample {json} sales error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    salesGraphList(year, month, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderList = yield this.orderProductService.salesGraphList(year, month);
+            const promises = orderList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                const temp = result;
+                return temp;
+            }));
+            const finalResult = yield Promise.all(promises);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully got the sales count list',
+                data: finalResult,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Product list API
+    /**
+     * @api {get} /api/order/product-list Product list API
+     * @apiGroup Order
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Limit suggestion Showing Successfully..!",
+     *      "status": "1",
+     *      "data": "[{
+     *                 "productId": 1678,
+     *                 "productToCategoryId": 7639,
+     *                 "categoryId": 314,
+     *                 "name": "HP Laser MFP 1188fnw, Wireless, Print, Copy, Scan",
+     *                 "categoryName": "Multifunction Printer"
+     *              }]",
+     * }
+     * @apiSampleRequest /api/order/product-list
+     * @apiErrorExample {json} Customer Limits error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Product List Function
+    productList(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const select = [
+                ('DISTINCT Product.productId as productId'),
+                'MAX(productToCategory.productToCategoryId) as productToCategoryId',
+                'MAX(productToCategory.categoryId) as categoryId',
+                'Product.name as name',
+                'MAX(category.name) as categoryName'
+            ];
+            const whereCondition = [];
+            const searchConditions = [];
+            const relations = [{
+                    tableName: 'Product.productToCategory',
+                    op: 'left',
+                    aliasName: 'productToCategory',
+                }, {
+                    tableName: 'productToCategory.category',
+                    op: 'left',
+                    aliasName: 'category',
+                }];
+            const groupBy = [{
+                    name: 'Product.productId',
+                }];
+            const sort = [];
+            sort.push({
+                name: 'Product.createdDate',
+                order: 'DESC',
+            });
+            const productData = yield this.productService.listByQueryBuilder(0, 0, select, whereCondition, searchConditions, relations, groupBy, sort, false, true);
+            // _.groupBy(productData, 'make')
+            const successResponse = {
+                status: 1,
+                message: 'Limit suggestion Showing Successfully',
+                data: productData,
             };
             return response.status(200).send(successResponse);
         });
@@ -392,7 +590,7 @@ let OrderController = class OrderController {
                     image = yield this.s3Service.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '110', '30');
                 }
                 else {
-                    image = yield this.imageService.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '50', '50');
+                    image = yield this.imageService.resizeImageBase64(settingDetails.invoiceLogoPath + settingDetails.invoiceLogo, '110', '30');
                 }
             }
             catch (error) {
@@ -403,7 +601,6 @@ let OrderController = class OrderController {
             }
             orderData.logo = image;
             const htmlData = yield this.pdfService.readHtmlToString('invoice', orderData);
-            // const pathPrefix = Math.floor((Math.random() * 100) + 1);
             const pathName = `./Invoice_${orderData.invoicePrefix + orderData.invoiceNo}.pdf`;
             yield this.pdfService.htmlPdf(htmlData, pathName);
             return new Promise((resolve, reject) => {
@@ -429,8 +626,12 @@ let OrderController = class OrderController {
      * {
      *      "status": "1"
      *      "message": "Successfully get sales count list",
-     *      "data":{
-     *      }
+     *      "data": [{
+     *                "ordercount": "",
+     *                "month": "",
+     *                "year": "",
+     *                "monthYear": ""
+     *              }]
      * }
      * @apiSampleRequest /api/order/saleslist
      * @apiErrorExample {json} sales error
@@ -456,72 +657,9 @@ let OrderController = class OrderController {
             return response.status(200).send(successResponse);
         });
     }
-    // sales Graph List API
-    /**
-     * @api {get} /api/order/sales-graph-list Sales Graph List API
-     * @apiGroup Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} year year
-     * @apiParam (Request body) {String} month month
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get sales graph list",
-     *      "data":{
-     *      }
-     * }
-     * @apiSampleRequest /api/order/sales-graph-list
-     * @apiErrorExample {json} sales error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    salesGraphList(year, month, response) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const orderList = yield this.orderProductService.salesGraphList(year, month);
-            const promises = orderList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
-                const temp = result;
-                return temp;
-            }));
-            const finalResult = yield Promise.all(promises);
-            const successResponse = {
-                status: 1,
-                message: 'Successfully got the sales count list',
-                data: finalResult,
-            };
-            return response.status(200).send(successResponse);
-        });
-    }
-    // Dashboard Transaction List API
-    /**
-     * @api {get} /api/order/transaction-list Dashboard Transaction List API
-     * @apiGroup Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} year year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get transaction list",
-     *      "data":{
-     *      }
-     * }
-     * @apiSampleRequest /api/order/transaction-list
-     * @apiErrorExample {json} transaction list error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    transactionList(year, response) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const transactionlist = yield this.orderService.transactionList(year);
-            return response.status(200).send({
-                status: 1,
-                message: 'Successfully got the transaction list',
-                data: transactionlist,
-            });
-        });
-    }
     // total order amount API
     /**
-     * @api {get} /api/order/total-order-amount total Order Amount API
+     * @api {get} /api/order/total-order-amount Total Order Amount API
      * @apiGroup Order
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
@@ -562,9 +700,9 @@ let OrderController = class OrderController {
             }
         });
     }
-    // today order amount API
+    // Today order amount API
     /**
-     * @api {get} /api/order/today-order-amount today Order Amount API
+     * @api {get} /api/order/today-order-amount Today Order Amount API
      * @apiGroup Order
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
@@ -600,7 +738,7 @@ let OrderController = class OrderController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to get the today order amount',
+                    message: 'unable to got the today order amount',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -663,7 +801,7 @@ let OrderController = class OrderController {
             if (val.isAdmin !== 1) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Access Restricted to change status.',
+                    message: 'Access 2estricted to change status',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -671,7 +809,7 @@ let OrderController = class OrderController {
             if (!updateOrder) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid order Id.',
+                    message: 'Invalid order Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -685,7 +823,7 @@ let OrderController = class OrderController {
             if (orderSave) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated the Order Status',
+                    message: 'Successfully updated the 0rder status',
                     data: orderSave,
                 };
                 return response.status(200).send(successResponse);
@@ -693,7 +831,7 @@ let OrderController = class OrderController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Unable to update the Order Status.',
+                    message: 'Unable to update the Order Status',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -783,7 +921,6 @@ let OrderController = class OrderController {
                     op: 'and',
                     value: 0,
                 });
-                console.log(whereConditions, 'whereConditionswhereConditions');
                 const searchConditions = [];
                 const sort = [];
                 sort.push({
@@ -937,7 +1074,7 @@ let OrderController = class OrderController {
             }
             const successResponse = {
                 status: 1,
-                message: 'Order Deleted Successfully',
+                message: 'Order deleted successfully',
             };
             return response.status(200).send(successResponse);
         });
@@ -1000,9 +1137,9 @@ let OrderController = class OrderController {
             return response.status(200).send(successResponse);
         });
     }
-    //  update payment status API
+    //  Update Payment Status API
     /**
-     * @api {post} /api/order/update-payment-status update payment Status API
+     * @api {post} /api/order/update-payment-status Update Payment Status API
      * @apiGroup Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} orderId Order Id
@@ -1079,7 +1216,10 @@ let OrderController = class OrderController {
                             vendorPayments.vendorOrderId = vendorOrders.vendorOrderId;
                             vendorPayments.amount = orderProduct[i].total;
                             if (+vendorProduct.vendorProductCommission > 0) {
-                                vendorPayments.commissionAmount = vendorPayments.amount * (vendorProduct.vendorProductCommission / 100);
+                                vendorPayments.commissionAmount = vendorPayments.amount * (+vendorProduct.vendorProductCommission / 100);
+                            }
+                            else if (+vendor.commission > 0) {
+                                vendorPayments.commissionAmount = vendorPayments.amount * (+vendor.commission / 100);
                             }
                             else if (vendorGroup !== undefined && +vendorGroup.commission > 0) {
                                 vendorPayments.commissionAmount = vendorPayments.amount * (+vendorGroup.commission / 100);
@@ -1087,7 +1227,7 @@ let OrderController = class OrderController {
                             else {
                                 const defaultCommission = yield this.vendorGlobalSettingService.findOne();
                                 const defCommission = defaultCommission.defaultCommission;
-                                vendorPayments.commissionAmount = vendorPayments.amount * (defCommission / 100);
+                                vendorPayments.commissionAmount = vendorPayments.amount * (+defCommission / 100);
                             }
                             yield this.vendorPaymentService.create(vendorPayments);
                         }
@@ -1122,7 +1262,7 @@ let OrderController = class OrderController {
     }
     //  update shipping information API
     /**
-     * @api {post} /api/order/update-shipping-information  update shipping information API
+     * @api {post} /api/order/update-shipping-information  Update Shipping Information API
      * @apiGroup Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} orderId Order Id
@@ -1176,7 +1316,7 @@ let OrderController = class OrderController {
     }
     //  Update Order Product Shipping Information API
     /**
-     * @api {post} /api/order/update-order-product-shipping-information update order product shipping information API
+     * @api {post} /api/order/update-order-product-shipping-information Update Order Product Shipping Information API
      * @apiGroup Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} orderProductId Order Product Id
@@ -1255,7 +1395,40 @@ let OrderController = class OrderController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully updated orderProductStatus.",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *              "createdBy": "",
+     *              "createdDate": "",
+     *              "modifiedBy": "",
+     *              "modifiedDate": "",
+     *              "orderProductId": "",
+     *              "productId": "",
+     *              "orderProductPrefixId": "",
+     *              "orderId": "",
+     *              "name": "",
+     *              "model": "",
+     *              "quantity": "",
+     *              "productPrice": "",
+     *              "discountAmount": "",
+     *              "basePrice": "",
+     *              "taxType": "",
+     *              "taxValue": "",
+     *              "total": "",
+     *              "discountedAmount": "",
+     *              "orderStatusId": "",
+     *              "trackingUrl": "",
+     *              "trackingNo": "",
+     *              "trace": "",
+     *              "tax": "",
+     *              "cancelRequest": "",
+     *              "cancelRequestStatus": "",
+     *              "cancelReason": "",
+     *              "cancelReasonDescription": "",
+     *              "isActive": "",
+     *              "skuName": "",
+     *              "vendorId": "",
+     *              "couponDiscountAmount": ""
+     *    }
      * }
      * @apiSampleRequest /api/order/update-order-product-status/:orderProductId
      * @apiErrorExample {json} OrderStatus error
@@ -1267,7 +1440,7 @@ let OrderController = class OrderController {
             if (val.isAdmin !== 1) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Access Restricted to change status.',
+                    message: 'Access Restricted to change status',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -1336,7 +1509,7 @@ let OrderController = class OrderController {
                 mailContents.logo = logo;
                 mailContents.emailContent = message;
                 mailContents.redirectUrl = redirectUrl;
-                mailContents.productDetailData = undefined;
+                mailContents.productDetailData = '';
                 console.log('order.email:', order.email);
                 mail_services_1.MAILService.sendMail(mailContents, order.email, emailContent.subject, false, false, '');
                 const successResponse = {
@@ -1349,7 +1522,7 @@ let OrderController = class OrderController {
             else {
                 const errorResponse = {
                     status: 1,
-                    message: 'Unable to update the Order Product Status',
+                    message: 'Unable to update the order product Status',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -1432,9 +1605,14 @@ let OrderController = class OrderController {
      * {
      *      "status": "1"
      *      "message": "Successfully get order count",
-     *      "data":{
-     *      "count" : "",
-     *      }
+     *      "data": {
+     *        "todayOrderCount": {
+     *        "orderCount": ""
+     *         },
+     *        "totalOrderAmount": "",
+     *        "todayOrderAmount": "",
+     *        "totalOrder": ""
+     *           }
      * }
      * @apiSampleRequest /api/order/order-count
      * @apiErrorExample {json} order error
@@ -1462,7 +1640,7 @@ let OrderController = class OrderController {
             orders.totalOrder = orderList;
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the Order Counts',
+                message: 'Successfully got the order counts',
                 data: orders,
             };
             return response.status(200).send(successResponse);
@@ -1483,7 +1661,36 @@ let OrderController = class OrderController {
      * {
      *      "message": "Successfully show the Order List..!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data": [{
+     *               "createdDate": "2024-07-19T13:39:31.000Z",
+     *               "orderId": 408,
+     *               "customerFirstName": "Abinesh",
+     *               "shippingCity": "Tiruvanamalai",
+     *               "shippingCountry": "India",
+     *               "shippingZone": "Tamil Nadu",
+     *               "currencyCode": "USD",
+     *               "currencySymbolLeft": "$",
+     *               "currencySymbolRight": null,
+     *               "orderProductId": 718,
+     *               "orderProductStatusId": 7,
+     *               "productId": 1553,
+     *               "name": " kurta",
+     *               "total": "1000.00",
+     *               "orderProductPrefixId": "INV-202407194081",
+     *               "productPrice": "1000.00",
+     *               "quantity": 1,
+     *               "cancelRequest": 1,
+     *               "cancelRequestStatus": 1,
+     *               "cancelReason": "Wrongly Ordered",
+     *               "cancelReasonDescription": "wrongly ordered ",
+     *               "discountAmount": "0.00",
+     *               "discountedAmount": "0.00",
+     *               "couponDiscountAmount": null,
+     *               "image": "20151314-011710502910738.jpeg",
+     *               "containerName": "",
+     *               "orderStatusName": "Order cancelled",
+     *               "orderStatusColorCode": "#f40337"
+     *              }],
      * }
      * @apiSampleRequest /api/order/order-cancel-request-list
      * @apiErrorExample {json} Order Cancel Request List error
@@ -1658,7 +1865,7 @@ let OrderController = class OrderController {
             mailContents.logo = logo;
             mailContents.emailContent = message;
             mailContents.redirectUrl = redirectUrl;
-            mailContents.productDetailData = undefined;
+            mailContents.productDetailData = '';
             console.log('email:', order.email);
             mail_services_1.MAILService.sendMail(mailContents, order.email, emailContent.subject, false, false, '');
             if (orderProductStatusUpdate !== undefined) {
@@ -1671,7 +1878,7 @@ let OrderController = class OrderController {
             else {
                 const errorResponse = {
                     status: 1,
-                    message: 'Unable to update the Order Cancel Status',
+                    message: 'Unable to update the Order cancel status',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -1749,7 +1956,7 @@ let OrderController = class OrderController {
                 mailContents.logo = logo;
                 mailContents.emailContent = message;
                 mailContents.redirectUrl = redirectUrl;
-                mailContents.productDetailData = undefined;
+                mailContents.productDetailData = '';
                 console.log('order.email:', order.email);
                 mail_services_1.MAILService.sendMail(mailContents, order.email, emailContent.subject, false, false, '');
             }
@@ -1789,7 +1996,7 @@ let OrderController = class OrderController {
                 if (dataId.length === 0) {
                     const errorResponse = {
                         status: 0,
-                        message: 'Invalid orderProductId',
+                        message: 'Invalid order product id',
                     };
                     return response.status(400).send(errorResponse);
                 }
@@ -2039,18 +2246,38 @@ let OrderController = class OrderController {
      * {
      *      "message": "Successfully show the Back Order List..!!",
      *      "status": "1",
-     *      "data": {},
+     *      "data": {
+     *          "createdDate": "",
+     *          "orderId": "",
+     *          "customerFirstName": "",
+     *          "shippingCity": "",
+     *          "shippingCountry": "",
+     *          "shippingZone": "",
+     *          "currencyCode": "",
+     *          "currencySymbolLeft": "",
+     *          "currencySymbolRight": ""
+     *          "orderProductId": "",
+     *          "orderProductStatusId": "",
+     *          "productId": ""
+     *          "name": "",
+     *          "total": "",
+     *          "orderProductPrefixId": ""
+     *          "productPrice": "",
+     *          "quantity": "",
+     *              }
      * }
      * @apiSampleRequest /api/order/back-order-list
      * @apiErrorExample {json} back order List error
      * HTTP/1.1 500 Internal Server Error
      */
     // Order Cancel Request List Function
-    backOrderProductList(limit, offset, keyword, count, request, response) {
+    backOrderProductList(limit, offset, dateAdded, keyword, orderLineNo, orderId, customerName, count, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = [
                 'Order.createdDate as createdDate',
+                'Order.modifiedDate as modifiedDate',
                 'Order.orderId as orderId',
+                'Order.orderPrefixId as orderPrefixId',
                 'Order.shippingFirstname as customerFirstName',
                 'Order.shippingCity as shippingCity',
                 'Order.shippingCountry as shippingCountry',
@@ -2083,8 +2310,32 @@ let OrderController = class OrderController {
             const searchConditions = [];
             if (keyword && keyword !== '') {
                 searchConditions.push({
-                    name: ['orderProduct.name', 'orderProduct.orderProductPrefixId', 'Order.shippingFirstname'],
+                    name: ['orderProduct.name', 'orderProduct.orderProductPrefixId', 'Order.shippingFirstname', 'Order.orderPrefixId'],
                     value: keyword.toLowerCase(),
+                });
+            }
+            if (orderLineNo && orderLineNo !== '') {
+                searchConditions.push({
+                    name: ['orderProduct.orderProductPrefixId'],
+                    value: orderLineNo,
+                });
+            }
+            if (orderId && orderId !== '') {
+                searchConditions.push({
+                    name: ['Order.orderPrefixId'],
+                    value: orderId,
+                });
+            }
+            if (dateAdded) {
+                searchConditions.push({
+                    name: ['Order.createdDate'],
+                    value: dateAdded,
+                });
+            }
+            if (customerName && customerName !== '') {
+                searchConditions.push({
+                    name: ['Order.shippingFirstname'],
+                    value: customerName.toLowerCase(),
                 });
             }
             const sort = [];
@@ -2096,7 +2347,7 @@ let OrderController = class OrderController {
                 const orderCount = yield this.orderService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const Response = {
                     status: 1,
-                    message: 'Successfully got the Count',
+                    message: 'Successfully got the count',
                     data: orderCount,
                 };
                 return response.status(200).send(Response);
@@ -2152,21 +2403,26 @@ let OrderController = class OrderController {
      * {
      *      "message": "Successfully get order list",
      *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateAdded" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
+     *              "orderId" : "",
+     *              "orderStatusId" : "",
+     *              "orderPrefixId" : "",
+     *              "shippingFirstname" : "",
+     *              "total" : "",
+     *              "createdDate" : "",
+     *              "customerId" : "",
+     *              "isActive" : "",
+     *              "modifiedDate" : "",
+     *              "currencyCode" : "",
+     *              "currencySymbolLeft" : "",
+     *              "currencySymbolRight" : "",
+     *              }
      *      "status": "1"
      * }
      * @apiSampleRequest /api/order/failed-order-list
      * @apiErrorExample {json} order error
      * HTTP/1.1 500 Internal Server Error
      */
-    failedOrderList(limit, offset, orderId, orderStatusId, customerName, totalAmount, dateAdded, count, response) {
+    failedOrderList(limit, offset, orderId, keyword, orderStatusId, customerName, totalAmount, dateAdded, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = ['orderId', 'orderStatusId', 'orderPrefixId', 'shippingFirstname', 'total', 'createdDate', 'customerId', 'isActive', 'modifiedDate', 'currencyCode', 'currencySymbolLeft', 'currencySymbolRight'];
             const search = [
@@ -2201,8 +2457,28 @@ let OrderController = class OrderController {
                     value: 0,
                 },
             ];
+            if (keyword && keyword !== '') {
+                search.push({
+                    name: 'orderPrefixId',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'shippingFirstname',
+                    op: 'like',
+                    value: keyword,
+                }, {
+                    name: 'total',
+                    op: 'where',
+                    value: keyword,
+                }, {
+                    name: 'createdDate',
+                    op: 'like',
+                    value: keyword,
+                });
+            }
+            const relations = ['orderProduct'];
             const WhereConditions = [];
-            const failedOrderList = yield this.orderService.list(limit, offset, select, search, WhereConditions, 0, count);
+            const failedOrderList = yield this.orderService.list(limit, offset, select, search, WhereConditions, relations, count);
             if (count) {
                 const Response = {
                     status: 1,
@@ -2218,6 +2494,8 @@ let OrderController = class OrderController {
                 });
                 const temp = value;
                 temp.orderStatus = status;
+                temp.quantity = value.orderProduct.length;
+                delete temp.orderProduct;
                 return temp;
             }));
             const results = yield Promise.all(orderStatus);
@@ -2229,9 +2507,9 @@ let OrderController = class OrderController {
             return response.status(200).send(successResponse);
         });
     }
-    //  move failedOrder into mainOrder API
+    //  Move failedOrder into mainOrder API
     /**
-     * @api {post} /api/order/update-main-order update FailedOrder into mainOrder API
+     * @api {post} /api/order/update-main-order Update FailedOrder into MainOrder API
      * @apiGroup Order
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} orderId Order Id
@@ -2298,6 +2576,7 @@ let OrderController = class OrderController {
                     const vendorProduct = yield this.vendorProductService.findOne({ where: { productId: orderProduct[i].productId } });
                     if (vendorProduct) {
                         const vendor = yield this.vendorService.findOne({ where: { vendorId: vendorProduct.vendorId } });
+                        const vendorGroup = yield this.vendorGroupService.findOne({ where: { groupId: vendor.vendorGroupId, isActive: 1 } });
                         const vendorOrders = yield this.vendorOrdersService.findOne({ where: { vendorId: vendorProduct.vendorId, orderProductId: orderProduct[i].orderProductId } });
                         const vendorPayments = new VendorPayment_1.VendorPayment();
                         vendorPayments.vendorId = vendorProduct.vendorId;
@@ -2305,15 +2584,18 @@ let OrderController = class OrderController {
                         vendorPayments.vendorOrderId = vendorOrders.vendorOrderId;
                         vendorPayments.amount = orderProduct[i].total;
                         if (vendorProduct.vendorProductCommission > 0) {
-                            vendorPayments.commissionAmount = vendorPayments.amount * (vendorProduct.vendorProductCommission / 100);
+                            vendorPayments.commissionAmount = vendorPayments.amount * (+vendorProduct.vendorProductCommission / 100);
                         }
                         else if (vendor.commission > 0) {
-                            vendorPayments.commissionAmount = vendorPayments.amount * (vendor.commission / 100);
+                            vendorPayments.commissionAmount = vendorPayments.amount * (+vendor.commission / 100);
+                        }
+                        else if (vendorGroup !== undefined && +vendorGroup.commission > 0) {
+                            vendorPayments.commissionAmount = vendorPayments.amount * (+vendorGroup.commission / 100);
                         }
                         else {
                             const defaultCommission = yield this.vendorGlobalSettingService.findOne();
                             const defCommission = defaultCommission.defaultCommission;
-                            vendorPayments.commissionAmount = vendorPayments.amount * (defCommission / 100);
+                            vendorPayments.commissionAmount = vendorPayments.amount * (+defCommission / 100);
                         }
                         yield this.vendorPaymentService.create(vendorPayments);
                     }
@@ -2362,199 +2644,6 @@ let OrderController = class OrderController {
                 status: 1,
                 message: 'Successfully shown the order count',
                 data: orderList,
-            };
-            return response.status(200).send(successResponse);
-        });
-    }
-    // Product list API
-    /**
-     * @api {get} /api/order/product-list Product list API
-     * @apiGroup Order
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Limit suggestion Showing Successfully..!",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/order/product-list
-     * @apiErrorExample {json} Customer Limits error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    // Product List Function
-    productList(response) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const select = [
-                ('DISTINCT Product.productId as productId'),
-                'MAX(productToCategory.productToCategoryId) as productToCategoryId',
-                'MAX(productToCategory.categoryId) as categoryId',
-                'Product.name as name',
-                'MAX(category.name) as categoryName'
-            ];
-            const whereCondition = [];
-            const searchConditions = [];
-            const relations = [{
-                    tableName: 'Product.productToCategory',
-                    op: 'left',
-                    aliasName: 'productToCategory',
-                }, {
-                    tableName: 'productToCategory.category',
-                    op: 'left',
-                    aliasName: 'category',
-                }];
-            const groupBy = [{
-                    name: 'Product.productId',
-                }];
-            const sort = [];
-            sort.push({
-                name: 'Product.createdDate',
-                order: 'DESC',
-            });
-            const productData = yield this.productService.listByQueryBuilder(0, 0, select, whereCondition, searchConditions, relations, groupBy, sort, false, true);
-            // _.groupBy(productData, 'make')
-            const successResponse = {
-                status: 1,
-                message: 'Limit suggestion Showing Successfully..!',
-                data: productData,
-            };
-            return response.status(200).send(successResponse);
-        });
-    }
-    // Sales Report List API
-    /**
-     * @api {get} /api/order/sales-report-list Sales Report list API
-     * @apiGroup Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} startDate search by startDate
-     * @apiParam (Request body) {String} endDate search by endDate
-     * @apiParam (Request body) {String} productId
-     * @apiParam (Request body) {String} count count
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got sales report list",
-     *      "data":{
-     *      }
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/order/sales-report-list
-     * @apiErrorExample {json} settlement error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    salesReport(limit, offset, categoryId, productId, startDate, endDate, count, request, response) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const select = [
-                ('DISTINCT OrderProduct.orderProductId as orderProductId'),
-                'productInformationDetail.productId as productId',
-                'productInformationDetail.name as productName',
-                'customer.firstName as firstName',
-                'customer.lastName as lastName',
-                'OrderProduct.orderProductPrefixId as orderProductPrefixId',
-                'OrderProduct.quantity as quantity',
-                'OrderProduct.total as total',
-                'OrderProduct.discountedAmount as discountedAmount',
-                'OrderProduct.orderStatusId as orderStatusId',
-                'OrderProduct.discountAmount as discountAmount',
-                'OrderProduct.createdDate as createdDate',
-                'OrderProduct.productPrice as productPrice',
-                'OrderProduct.basePrice as basePrice',
-                'OrderProduct.couponDiscountAmount as couponDiscountAmount',
-                'orderStatus.name as orderStatusName',
-                'customerGroup.name as customerGroup',
-                'order.paymentType as paymentType',
-                'order.ip as ipAddress'
-            ];
-            const relations = [];
-            const groupBy = [];
-            const whereConditions = [];
-            whereConditions.push({
-                name: '`order`.`payment_process`',
-                op: 'and',
-                value: 1,
-            }, {
-                name: '`order`.`payment_status`',
-                op: 'and',
-                value: 1,
-            }, {
-                name: '`OrderProduct`.`cancel_request_status`',
-                op: 'and',
-                value: 0,
-            });
-            if (productId) {
-                relations.push({
-                    tableName: 'OrderProduct.productInformationDetail',
-                    aliasName: 'productInformationDetail',
-                }, {
-                    tableName: 'OrderProduct.order',
-                    aliasName: 'order',
-                }, {
-                    tableName: 'OrderProduct.orderStatus',
-                    aliasName: 'orderStatus',
-                }, {
-                    tableName: 'order.customer',
-                    aliasName: 'customer',
-                }, {
-                    tableName: 'customer.customerGroup',
-                    op: 'left',
-                    aliasName: 'customerGroup',
-                });
-                whereConditions.push({
-                    name: 'OrderProduct.productId',
-                    op: 'IN',
-                    value: productId,
-                });
-            }
-            if (startDate && startDate !== '') {
-                whereConditions.push({
-                    name: '`OrderProduct`.`created_date`',
-                    op: 'raw',
-                    sign: '>=',
-                    value: startDate + ' 00:00:00',
-                });
-            }
-            if (endDate && endDate !== '') {
-                whereConditions.push({
-                    name: '`OrderProduct`.`created_date`',
-                    op: 'raw',
-                    sign: '<=',
-                    value: endDate + ' 23:59:59',
-                });
-            }
-            const searchConditions = [];
-            const sort = [];
-            sort.push({
-                name: 'OrderProduct.createdDate',
-                order: 'DESC',
-            });
-            const orderList = yield this.orderProductService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
-            const result = [];
-            let total = 0;
-            const groupByKey = key => array => array.reduce((objectsByKeyValue, obj) => {
-                const value = obj[key];
-                objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
-                return objectsByKeyValue;
-            }, {});
-            const groupByType = groupByKey('productName');
-            const groupByPeriodTypeArray = groupByType(orderList);
-            const groupByPeriodTypeObject = Object.keys(groupByPeriodTypeArray);
-            if (groupByPeriodTypeObject && groupByPeriodTypeObject.length > 0) {
-                groupByPeriodTypeObject.forEach((periodType) => {
-                    const temp = {};
-                    temp.productName = periodType;
-                    temp.buyers = groupByPeriodTypeArray[periodType] && groupByPeriodTypeArray[periodType].length > 0 ? groupByPeriodTypeArray[periodType] : [];
-                    for (const val of groupByPeriodTypeArray[periodType]) {
-                        total += +val.total;
-                    }
-                    result.push(temp);
-                });
-            }
-            const orderCount = yield this.orderProductService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
-            const successResponse = {
-                status: 1,
-                message: 'Successfully got the sales report list',
-                data: result, total, orderCount,
             };
             return response.status(200).send(successResponse);
         });
@@ -2704,9 +2793,182 @@ let OrderController = class OrderController {
             });
         });
     }
+    //  Order Detail API
+    /**
+     * @api {get} /api/order/:orderId  Order Detail API
+     * @apiGroup Order
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} orderId Order Id
+     * @apiParamExample {json} Input
+     * {
+     *      "orderId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully show the Order Detail..!!",
+     *      "status": "1",
+     *      "data": {
+     *               "createdDate": "2024-06-28T07:26:54.000Z",
+     *               "orderId": 11,
+     *               "customerId": 0,
+     *               "invoiceNo": null,
+     *               "invoicePrefix": "INV",
+     *               "email": "piccotalent194@gmail.com",
+     *               "telephone": "123567890",
+     *               "shippingFirstname": "spurtcommerce",
+     *               "shippingLastname": "spurtcommerce",
+     *               "shippingCompany": "spurtcommerce",
+     *               "shippingAddress1": "Chennai",
+     *               "shippingAddress2": "Chennai2",
+     *               "shippingCity": "Chennai3",
+     *               "shippingPostcode": "123",
+     *               "shippingCountry": "Belarus",
+     *               "shippingZone": "India",
+     *               "shippingAddressFormat": "",
+     *               "paymentFirstname": null,
+     *               "paymentLastname": null,
+     *               "paymentCompany": null,
+     *               "paymentAddress1": null,
+     *               "paymentAddress2": null,
+     *               "paymentCity": null,
+     *               "paymentPostcode": null,
+     *               "paymentCountry": null,
+     *               "paymentZone": null,
+     *               "paymentAddressFormat": "",
+     *               "total": null,
+     *               "orderStatusId": 1,
+     *               "orderPrefixId": null,
+     *               "currencyCode": null,
+     *               "currencySymbolLeft": null,
+     *               "currencySymbolRight": null,
+     *               "paymentStatus": 0,
+     *               "customerGstNo": null,
+     *               "productList": [
+     *                 {
+     *                   "modifiedDate": null,
+     *                   "orderProductId": 2,
+     *                   "productId": 1,
+     *                   "orderProductPrefixId": "INV-20240628111",
+     *                   "orderId": 11,
+     *                   "name": "Printed Floral Print Daily Wear Chiffon Saree White",
+     *                   "model": "Printed Floral Print Daily Wear Chiffon Saree White",
+     *                   "quantity": 1,
+     *                   "productPrice": "599.00",
+     *                   "discountAmount": "0.00",
+     *                   "basePrice": "599.00",
+     *                   "taxType": 1,
+     *                   "taxValue": 0,
+     *                   "total": "599.00",
+     *                   "discountedAmount": "0.00",
+     *                   "orderStatusId": 1,
+     *                   "trackingUrl": null,
+     *                   "trackingNo": null,
+     *                   "cancelRequest": 0,
+     *                   "cancelRequestStatus": 0,
+     *                   "cancelReason": null,
+     *                   "cancelReasonDescription": null,
+     *                   "skuName": "sar4534",
+     *                   "couponDiscountAmount": null,
+     *                   "image": "printed bhagalpuri art silk saree1710481555207.png",
+     *                   "containerName": "women ethnic/",
+     *                   "orderStatusName": "Order Placed",
+     *                   "statusColorCode": "#6798e3",
+     *                   "taxValueInAmount": 0,
+     *                   "rating": 0,
+     *                   "review": ""
+     *                 }
+     *               ],
+     *               "orderStatusName": "Order Placed",
+     *               "statusColorCode": "#6798e3"
+     * }
+     * @apiSampleRequest /api/order/:orderId
+     * @apiErrorExample {json} Order Detail error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    // Order Detail Function
+    orderDetail(orderid, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderData = yield this.orderService.findOrder({
+                where: { orderId: orderid }, select: ['orderId', 'orderStatusId', 'customerId', 'telephone', 'invoiceNo', 'paymentStatus', 'invoicePrefix', 'orderPrefixId', 'shippingFirstname', 'shippingLastname', 'shippingCompany', 'shippingAddress1',
+                    'shippingAddress2', 'shippingCity', 'email', 'shippingZone', 'shippingPostcode', 'shippingCountry', 'shippingAddressFormat',
+                    'paymentFirstname', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity', 'customerGstNo',
+                    'paymentPostcode', 'paymentCountry', 'paymentZone', 'paymentAddressFormat', 'total', 'customerId', 'createdDate', 'currencyCode', 'currencySymbolLeft', 'currencySymbolRight'],
+            });
+            if (!orderData) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Order Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            orderData.productList = yield this.orderProductService.find({
+                where: { orderId: orderid }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'trackingUrl', 'trackingNo', 'orderStatusId', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'orderStatusId',
+                    'skuName', 'orderProductPrefixId', 'modifiedDate', 'cancelReason', 'cancelReasonDescription', 'cancelRequestStatus', 'cancelRequest', 'priceGroupDetailId', 'fullfillmentStatusId'],
+            }).then((val) => {
+                const productVal = val.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    var _a, _b;
+                    const rating = undefined;
+                    const productImage = yield this.productImageService.findOne({ select: ['image', 'containerName'], where: { productId: value.productId, defaultImage: 1 } });
+                    const tempVal = value;
+                    tempVal.taxType = value.taxType;
+                    tempVal.taxValue = value.taxValue;
+                    if (productImage) {
+                        tempVal.image = productImage.image;
+                        tempVal.containerName = productImage.containerName;
+                    }
+                    const orderProductStatusData = yield this.orderStatusService.findOne({
+                        where: { orderStatusId: value.orderStatusId },
+                        select: ['name', 'colorCode'],
+                    });
+                    if (orderProductStatusData) {
+                        tempVal.orderStatusName = orderProductStatusData.name;
+                        tempVal.statusColorCode = orderProductStatusData.colorCode;
+                    }
+                    const orderFullfillmentStatus = yield this.orderStatusService.findOne({
+                        where: { orderStatusId: tempVal.fullfillmentStatusId },
+                        select: ['name', 'colorCode'],
+                    });
+                    tempVal.orderFullfillmentStatusName = (_a = orderFullfillmentStatus === null || orderFullfillmentStatus === void 0 ? void 0 : orderFullfillmentStatus.name) !== null && _a !== void 0 ? _a : '';
+                    tempVal.orderFullfillmentStatusColorCode = (_b = orderFullfillmentStatus === null || orderFullfillmentStatus === void 0 ? void 0 : orderFullfillmentStatus.colorCode) !== null && _b !== void 0 ? _b : '';
+                    if (value.taxType === 2) {
+                        tempVal.taxValueInAmount = (+value.basePrice * (+value.taxValue / 100)).toFixed(2);
+                    }
+                    else {
+                        tempVal.taxValueInAmount = +value.taxValue;
+                    }
+                    if (rating !== undefined) {
+                        tempVal.rating = rating.rating;
+                        tempVal.review = rating.review;
+                    }
+                    else {
+                        tempVal.rating = 0;
+                        tempVal.review = '';
+                    }
+                    return tempVal;
+                }));
+                const results = Promise.all(productVal);
+                return results;
+            });
+            const orderStatusData = yield this.orderStatusService.findOne({
+                where: { orderStatusId: orderData.orderStatusId },
+                select: ['name', 'colorCode'],
+            });
+            if (orderStatusData) {
+                orderData.orderStatusName = orderStatusData.name;
+                orderData.statusColorCode = orderStatusData.colorCode;
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully shown the order detail',
+                data: orderData,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
 };
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/orderlist'),
+    (0, routing_controllers_1.Get)(),
     (0, routing_controllers_1.Authorized)(['admin', 'list-order']),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
@@ -2722,15 +2984,48 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], OrderController.prototype, "orderList", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/order-detail'),
+    (0, routing_controllers_1.Get)('/sales-report-list'),
+    (0, routing_controllers_1.Authorized)(['admin', 'sales-report-list']),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('categoryId')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('productId')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderController.prototype, "salesReport", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/transaction-list'),
     (0, routing_controllers_1.Authorized)(),
-    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('orderId')),
-    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('year')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderController.prototype, "transactionList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/sales-graph-list'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('year')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('month')),
     tslib_1.__param(2, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [String, String, Object]),
     tslib_1.__metadata("design:returntype", Promise)
-], OrderController.prototype, "orderDetail", null);
+], OrderController.prototype, "salesGraphList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/product-list'),
+    (0, routing_controllers_1.Authorized)(''),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderController.prototype, "productList", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/order-export-pdf')
     // @Authorized()
@@ -2751,25 +3046,6 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [String, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], OrderController.prototype, "salesList", null);
-tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/sales-graph-list'),
-    (0, routing_controllers_1.Authorized)(),
-    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('year')),
-    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('month')),
-    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String, String, Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], OrderController.prototype, "salesGraphList", null);
-tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/transaction-list'),
-    (0, routing_controllers_1.Authorized)(),
-    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('year')),
-    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], OrderController.prototype, "transactionList", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/total-order-amount'),
     (0, routing_controllers_1.Authorized)(),
@@ -2962,12 +3238,16 @@ tslib_1.__decorate([
     (0, routing_controllers_1.Authorized)(['admin', 'back-order-list']),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
-    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(4, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('dateAdded')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('orderLineNo')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('customerName')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, Object, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], OrderController.prototype, "backOrderProductList", null);
 tslib_1.__decorate([
@@ -2976,19 +3256,21 @@ tslib_1.__decorate([
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('orderId')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('orderStatusId')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('customerName')),
-    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('totalAmount')),
-    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('dateAdded')),
-    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('orderStatusId')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('customerName')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('totalAmount')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('dateAdded')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, String, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], OrderController.prototype, "failedOrderList", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Post)('/update-main-order'),
-    (0, routing_controllers_1.Authorized)(['admin', 'move-failed-order-to-main-order']),
+    (0, routing_controllers_1.Post)('/update-main-order')
+    // @Authorized(['admin', 'move-failed-order-to-main-order'])
+    ,
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
@@ -3009,30 +3291,6 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], OrderController.prototype, "orderCountForList", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/product-list'),
-    (0, routing_controllers_1.Authorized)(''),
-    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], OrderController.prototype, "productList", null);
-tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/sales-report-list'),
-    (0, routing_controllers_1.Authorized)(['admin', 'sales-report-list']),
-    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
-    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
-    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('categoryId')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('productId')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('startDate')),
-    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('endDate')),
-    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(7, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Object, Object, Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], OrderController.prototype, "salesReport", null);
-tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/sales-report-excel-list'),
     (0, routing_controllers_1.Authorized)(['admin', 'sales-report-export']),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
@@ -3047,6 +3305,16 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], OrderController.prototype, "salesExcelReport", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/:orderId'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], OrderController.prototype, "orderDetail", null);
 OrderController = tslib_1.__decorate([
     (0, routing_controllers_1.JsonController)('/order'),
     tslib_1.__metadata("design:paramtypes", [OrderService_1.OrderService,

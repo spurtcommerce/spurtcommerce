@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -24,7 +24,7 @@ let VendorCategoryController = class VendorCategoryController {
     }
     // Create vendor category API
     /**
-     * @api {post} /api/vendor-category/create-vendor-category Create Vendor Category API
+     * @api {post} /api/vendor-categorCreate Vendor Category API
      * @apiGroup Admin Vendor Category
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number}  vendorId vendorId
@@ -40,10 +40,15 @@ let VendorCategoryController = class VendorCategoryController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully added category",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *      "vendorId": "",
+     *      "categoryId": "",
+     *      "vendorCommission": "",
+     *      "vendorCategoryId": ""
      * }
-     * @apiSampleRequest /api/vendor-category/create-vendor-category
-     * @apiErrorExample {json} vendor category  error
+     * }
+     * @apiSampleRequest /api/vendor-categor     * @apiErrorExample {json} vendor category  error
      * HTTP/1.1 500 Internal Server Error
      */
     createVendorCategory(vendorCategories, response) {
@@ -62,7 +67,7 @@ let VendorCategoryController = class VendorCategoryController {
             if (categoryVendor !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully added vendor category.',
+                    message: 'Successfully added seller category',
                     data: categoryVendor,
                 };
                 return response.status(200).send(successResponse);
@@ -70,7 +75,7 @@ let VendorCategoryController = class VendorCategoryController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to add vendor category',
+                    message: 'unable to add seller category',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -78,7 +83,7 @@ let VendorCategoryController = class VendorCategoryController {
     }
     // Update vendor category API
     /**
-     * @api {put} /api/vendor-category/update-vendor-category Update Vendor Category API
+     * @api {put} /api/vendor-categorUpdate Vendor Category API
      * @apiGroup Admin Vendor Category
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} vendorId vendorId
@@ -94,9 +99,15 @@ let VendorCategoryController = class VendorCategoryController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully update",
-     *      "status": "1"
+     *      "status": "1",
+     *      "data": {
+     *      "vendorId": "",
+     *      "vendorCategoryId": "",
+     *      "categoryId": "",
+     *      "vendorCategoryCommission": ""
      * }
-     * @apiSampleRequest /api/vendor-category/update-vendor-category
+     * }
+     * @apiSampleRequest /api/vendor-category
      * @apiErrorExample {json} vendor category  error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -124,7 +135,7 @@ let VendorCategoryController = class VendorCategoryController {
             if (categoryVendor !== undefined) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully updated vendor category.',
+                    message: 'Successfully updated seller category',
                     data: categoryVendor,
                 };
                 return response.status(200).send(successResponse);
@@ -132,7 +143,7 @@ let VendorCategoryController = class VendorCategoryController {
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to update the vendor category',
+                    message: 'unable to update the seller category',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -140,7 +151,7 @@ let VendorCategoryController = class VendorCategoryController {
     }
     // Vendor Category List API
     /**
-     * @api {get} /api/vendor-category/vendorCategoryList/:id Vendor Category List API
+     * @api {get} /api/vendor-category/category/:id Vendor Category List API
      * @apiGroup Admin Vendor Category
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -150,15 +161,16 @@ let VendorCategoryController = class VendorCategoryController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get vendor category list",
-     *      "data":{
-     *       "vendorId" : "",
-     *       "vendorCategoryId" : "",
-     *       "categoryId" : "",
-     *       "commission" : "",
-     *      }
+     *      "data":[{
+     *               "categoryId": "",
+     *               "sortOrder": "",
+     *               "parentInt": "",
+     *               "name": "",
+     *               "levels": ""
+     *             }],
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/vendor-category/vendorCategoryList/:id
+     * @apiSampleRequest /api/vendor-category/category/:id
      * @apiErrorExample {json} Vendor category error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -210,7 +222,7 @@ let VendorCategoryController = class VendorCategoryController {
             const results = yield Promise.all(findProduct);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the vendor category list.',
+                message: 'Successfully got the seller category list',
                 data: results,
             };
             return response.status(200).send(successResponse);
@@ -228,10 +240,12 @@ let VendorCategoryController = class VendorCategoryController {
      * HTTP/1.1 200 OK
      * {
      *      "message": "Successfully get vendor category list",
-     *      "data":{
-     *       "vendorId" : "",
-     *       "vendorCategoryId" : "",
-     *       "categoryId" : "",
+     *       "data": {
+     *       "categoryId": "",
+     *       "sortOrder": "",
+     *       "parentInt": "",
+     *       "name": "",
+     *       "levels": ""
      *      }
      *      "status": "1"
      * }
@@ -283,7 +297,7 @@ let VendorCategoryController = class VendorCategoryController {
             const vendorCategoryList = yield this.categoryPathService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
             const successResponse = {
                 status: 1,
-                message: 'Successfully got the vendor category list.',
+                message: 'Successfully got the seller category list',
                 data: vendorCategoryList,
             };
             return response.status(200).send(successResponse);
@@ -314,7 +328,7 @@ let VendorCategoryController = class VendorCategoryController {
             if (!vendor) {
                 const errorResponse = {
                     status: 0,
-                    message: 'Invalid vendory Category Id.',
+                    message: 'Invalid seller Category Id',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -322,14 +336,14 @@ let VendorCategoryController = class VendorCategoryController {
             if (deleteVendor) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the vendor category.',
+                    message: 'Successfully deleted the seller category',
                 };
                 return response.status(200).send(successResponse);
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'unable to delete the vendor category',
+                    message: 'unable to delete the seller category',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -337,7 +351,7 @@ let VendorCategoryController = class VendorCategoryController {
     }
 };
 tslib_1.__decorate([
-    (0, routing_controllers_1.Post)('/create-vendor-category'),
+    (0, routing_controllers_1.Post)(),
     (0, routing_controllers_1.Authorized)(['admin', 'assign-category']),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
@@ -346,7 +360,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorCategoryController.prototype, "createVendorCategory", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Put)('/update-vendor-category'),
+    (0, routing_controllers_1.Put)(),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
@@ -355,7 +369,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorCategoryController.prototype, "updateVendorCategory", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/vendorCategoryList/:id'),
+    (0, routing_controllers_1.Get)('/category/:id'),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('limit')),

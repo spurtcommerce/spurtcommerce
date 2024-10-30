@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -12,13 +12,13 @@ const tslib_1 = require("tslib");
 const express_1 = tslib_1.__importDefault(require("express"));
 const bodyParser = tslib_1.__importStar(require("body-parser"));
 const routing_controllers_1 = require("routing-controllers");
-// import { authorizationChecker } from '../auth/authorizationChecker';
 const currentUserChecker_1 = require("../auth/currentUserChecker");
 const controllers = tslib_1.__importStar(require("../common/controller-index"));
 const middlewares = tslib_1.__importStar(require("../common/middleware-index"));
 const lusca_1 = tslib_1.__importDefault(require("lusca"));
 const fs_1 = tslib_1.__importDefault(require("fs"));
 const env_1 = require("../env");
+const path_1 = tslib_1.__importDefault(require("path"));
 const expressLoader = (settings) => {
     if (settings) {
         const connection = settings.getData('connection');
@@ -32,6 +32,7 @@ const expressLoader = (settings) => {
         app.use(bodyParser.json({ limit: '50mb' }));
         app.use(lusca_1.default.xframe('SAMEORIGIN'));
         app.use(lusca_1.default.xssProtection(true));
+        app.use(express_1.default.static(path_1.default.join(process.cwd(), '/views')));
         const expressApp = (0, routing_controllers_1.useExpressServer)(app, {
             cors: true,
             classTransformer: true,
@@ -47,13 +48,12 @@ const expressLoader = (settings) => {
             /**
              * Authorization features
              */
-            authorizationChecker: authService(connection, env_1.env.jwtSecret, env_1.env.cryptoSecret),
+            authorizationChecker: authService(connection, env_1.env.jwtSecret, env_1.env.cryptoSecret, {}),
             currentUserChecker: (0, currentUserChecker_1.currentUserChecker)(connection),
         });
         // Run application to listen on given port
         if (!env_1.env.isTest) {
             const server = expressApp.listen(env_1.env.app.port);
-            // server.timeout = 80;
             settings.setData('express_server', server);
         }
         // Here we can set the data for other loaders

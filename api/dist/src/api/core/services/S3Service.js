@@ -1,7 +1,7 @@
 "use strict";
 /*
  * SpurtCommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -9,16 +9,21 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.S3Service = void 0;
 const tslib_1 = require("tslib");
-const AWS = tslib_1.__importStar(require("aws-sdk")); // Load the SDK for JavaScript
+// import * as AWS from 'aws-sdk'; // Load the SDK for JavaScript
 const typedi_1 = require("typedi");
 const env_1 = require("../../../env");
 const fs = tslib_1.__importStar(require("fs"));
-const s3 = new AWS.S3();
+const client_s3_1 = require("@aws-sdk/client-s3");
+const routing_controllers_1 = require("routing-controllers");
+const s3 = new client_s3_1.S3({
+    region: env_1.aws_setup.AWS_DEFAULT_REGION,
+});
+const s3Client = new client_s3_1.S3Client({
+    region: env_1.aws_setup.AWS_DEFAULT_REGION,
+});
 let S3Service = class S3Service {
     // Bucket list
     listBucker(limit = 0, marker = '', folderName = '') {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-        // Create the parameters for calling createBucket
         const bucketParams = {
             Bucket: env_1.aws_setup.AWS_BUCKET,
             MaxKeys: limit,
@@ -37,8 +42,6 @@ let S3Service = class S3Service {
     }
     // create folder
     createFolder(folderName = '') {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-        // Create the parameters for calling createBucket
         const bucketParams = {
             Bucket: env_1.aws_setup.AWS_BUCKET,
             Key: folderName,
@@ -54,8 +57,6 @@ let S3Service = class S3Service {
     }
     // delete folder
     deleteFolder(folderName = '') {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-        // Create the parameters for calling createBucket
         const bucketParams = {
             Bucket: env_1.aws_setup.AWS_BUCKET,
             Prefix: folderName,
@@ -83,8 +84,6 @@ let S3Service = class S3Service {
     }
     // delete file
     deleteFile(fileName = '') {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-        // Create the parameters for calling createBucket
         const bucketParams = {
             Bucket: env_1.aws_setup.AWS_BUCKET,
             Key: fileName,
@@ -100,42 +99,35 @@ let S3Service = class S3Service {
     }
     // Image resize
     resizeImage(imgName = '', imgPath = '', widthString = '', heightString = '') {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-        // Create the parameters for calling createBucket
-        const getParams = {
-            Bucket: env_1.aws_setup.AWS_BUCKET,
-            Key: imgPath + imgName, // path to the object you're looking for
-        };
-        return new Promise((resolve, reject) => {
-            s3.getObject(getParams, (err, data) => {
-                if (err) {
-                    return reject(err);
-                }
-                if (data) {
-                    const gm = require('gm').subClass({ imageMagick: true });
-                    return gm(data.Body)
-                        .resize(widthString, heightString)
-                        .toBuffer((error, buffer) => {
-                        if (error) {
-                            throw error;
-                        }
-                        else {
-                            return resolve(buffer);
-                        }
-                    });
-                }
-                else {
-                    return resolve(false);
-                }
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const client = new client_s3_1.S3Client({
+                region: env_1.aws_setup.AWS_DEFAULT_REGION,
+            });
+            const response = yield client.send(new client_s3_1.GetObjectCommand({
+                Bucket: env_1.aws_setup.AWS_BUCKET,
+                Key: imgPath + imgName,
+            }));
+            const byteArray = yield response.Body.transformToByteArray();
+            const buffer = Buffer.from(byteArray);
+            return new Promise((resolve) => {
+                const gm = require('gm').subClass({ imageMagick: true });
+                return gm(buffer)
+                    .resize(widthString, heightString)
+                    .toBuffer((error, data) => {
+                    if (error) {
+                        throw error;
+                    }
+                    else {
+                        return resolve(data);
+                    }
+                });
             });
         });
     }
     // Image resize
     resizeImageBase64(imgName = '', imgPath = '', widthString, heightString) {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
         const ext = imgName.split('.');
         const imagePrefix = 'data:image/' + ext[1] + ';base64,';
-        // Create the parameters for calling createBucket
         const getParams = {
             Bucket: env_1.aws_setup.AWS_BUCKET,
             Key: imgPath + imgName, // path to the object you're looking for
@@ -165,63 +157,53 @@ let S3Service = class S3Service {
         });
     }
     // delete file
-    imageUpload(folderName = '', base64Image, imageType) {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-        const params = {
+    imageUpload(folderName = '', base64Image, imageType, fileType) {
+        const sizeInBytes = 4 * Math.ceil((base64Image.length / 3)) * 0.5624896334383812;
+        const sizeInKb = sizeInBytes / 1024;
+        const allowedFileSizeInKb = +env_1.env.imageUploadSize * 1024;
+        if (sizeInKb > allowedFileSizeInKb) {
+            throw new routing_controllers_1.BadRequestError(`File size too large, must be lees than ${+env_1.env.imageUploadSize} mb`);
+        }
+        const command = new client_s3_1.PutObjectCommand({
             Bucket: env_1.aws_setup.AWS_BUCKET,
             Key: folderName,
             Body: base64Image,
-            ACL: 'public-read',
             ContentEncoding: 'base64',
-            ContentType: imageType,
-        };
-        console.log('awsParams:', params);
+            ContentType: fileType === 0 ? imageType : imageType,
+        });
         return new Promise((resolve, reject) => {
-            return s3.upload(params, (err, data) => {
+            return s3Client.send(command, (err, data) => {
                 if (err) {
                     return reject(err);
                 }
-                console.log('data:', data);
-                const locationArray = data.Location.split('/');
-                console.log('locationArray before pop:', locationArray);
-                locationArray.pop();
-                console.log('locationArray after pop:', locationArray);
-                const locationPath = locationArray.join('/');
-                console.log('locationPath:', locationPath);
-                return resolve({ path: locationPath });
+                return resolve(data);
             });
         });
     }
     // delete file
     videoUpload(folderName = '', base64Image, imageType) {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-        const params = {
+        const command = new client_s3_1.PutObjectCommand({
             Bucket: env_1.aws_setup.AWS_BUCKET,
             Key: folderName,
             Body: base64Image,
-            ACL: 'public-read',
-            ContentEncoding: 'base64',
-            ContentType: `${imageType}`,
-        };
+        });
         return new Promise((resolve, reject) => {
-            return s3.upload(params, (err, data) => {
+            return s3Client.send(command, (err, data) => {
                 if (err) {
                     return reject(err);
                 }
-                const locationArray = data.Location.split('/');
-                locationArray.pop();
-                const locationPath = locationArray.join('/');
-                return resolve({ path: locationPath });
+                // const locationArray = data.Location.split('/');
+                // locationArray.pop();
+                // const locationPath = locationArray.join('/');
+                return resolve(data);
             });
         });
     }
     // search folder
-    getFolder(folderName = '') {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-        // Create the parameters for calling createBucket
+    getFolder(folderName = '', vendorPrefix) {
         const bucketParams = {
             Bucket: env_1.aws_setup.AWS_BUCKET,
-            Prefix: folderName,
+            Prefix: vendorPrefix ? `${vendorPrefix}/${folderName}` : folderName,
             Delimiter: '/',
         };
         return new Promise((resolve, reject) => {
@@ -234,56 +216,72 @@ let S3Service = class S3Service {
         });
     }
     fileUpload(folderName = '', base64Data, imageType) {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-        const params = {
+        const command = new client_s3_1.PutObjectCommand({
             Bucket: env_1.aws_setup.AWS_BUCKET,
             Key: folderName,
             Body: base64Data,
-            ACL: 'public-read',
-            ContentEncoding: 'base64',
-            ContentType: imageType,
-        };
+        });
         return new Promise((resolve, reject) => {
-            return s3.upload(params, (err, data) => {
+            return s3Client.send(command, (err, data) => {
                 if (err) {
                     return reject(err);
                 }
-                const locationArray = data.Location.split('/');
-                locationArray.pop();
-                const locationPath = locationArray.join('/');
-                return resolve({ path: locationPath });
+                return resolve(data);
             });
         });
     }
     fileDownload(folderName = '', dataFile) {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-        const params = {
-            Bucket: env_1.aws_setup.AWS_BUCKET,
-            Key: folderName + dataFile, // type is not required
-        };
-        return new Promise((resolve, reject) => {
-            s3.getObject(params, (err, data) => {
-                if (err) {
-                    return reject(err);
-                }
-                fs.writeFileSync(dataFile, data.Body);
-                return resolve(dataFile);
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const command = new client_s3_1.GetObjectCommand({
+                Bucket: env_1.aws_setup.AWS_BUCKET,
+                Key: folderName + dataFile,
             });
+            try {
+                const response = yield s3.send(command);
+                const str = yield response.Body.transformToByteArray();
+                fs.writeFileSync(dataFile, str);
+                return dataFile;
+            }
+            catch (err) {
+                console.error(err);
+            }
         });
     }
     videoFileDownload(folderName = '', dataFile, directoryPath = '') {
-        AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-        const params = {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const command = new client_s3_1.GetObjectCommand({
+                Bucket: env_1.aws_setup.AWS_BUCKET,
+                Key: folderName + '/' + dataFile,
+            });
+            try {
+                const response = yield s3.send(command);
+                const str = yield response.Body.transformToByteArray();
+                fs.writeFileSync(directoryPath, str);
+                return directoryPath;
+                console.log(str);
+            }
+            catch (err) {
+                console.error(err);
+            }
+        });
+    }
+    getDocument(key) {
+        // Create the parameters for calling createBucket
+        const getParams = {
             Bucket: env_1.aws_setup.AWS_BUCKET,
-            Key: folderName + '/' + dataFile, // type is not required
+            Key: key, // path to the object you're looking for
         };
         return new Promise((resolve, reject) => {
-            s3.getObject(params, (err, data) => {
+            s3.getObject(getParams, (err, data) => {
                 if (err) {
                     return reject(err);
                 }
-                fs.writeFileSync(directoryPath, data.Body);
-                return resolve(directoryPath);
+                if (data) {
+                    return resolve(data.Body.transformToByteArray());
+                }
+                else {
+                    return resolve(false);
+                }
             });
         });
     }

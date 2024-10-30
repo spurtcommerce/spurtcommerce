@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -9,9 +9,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CustomerGroup = void 0;
 const tslib_1 = require("tslib");
-const class_validator_1 = require("class-validator");
 const typeorm_1 = require("typeorm");
-const class_transformer_1 = require("class-transformer");
 const Customer_1 = require("./Customer");
 const BaseModel_1 = require("./BaseModel");
 const moment = require("moment");
@@ -28,17 +26,14 @@ let CustomerGroup = class CustomerGroup extends BaseModel_1.BaseModel {
     }
 };
 tslib_1.__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
     (0, typeorm_1.PrimaryGeneratedColumn)({ name: 'id' }),
     tslib_1.__metadata("design:type", Number)
-], CustomerGroup.prototype, "groupId", void 0);
+], CustomerGroup.prototype, "id", void 0);
 tslib_1.__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
     (0, typeorm_1.Column)({ name: 'name' }),
     tslib_1.__metadata("design:type", String)
 ], CustomerGroup.prototype, "name", void 0);
 tslib_1.__decorate([
-    (0, class_transformer_1.Exclude)(),
     (0, typeorm_1.Column)({ name: 'description' }),
     tslib_1.__metadata("design:type", String)
 ], CustomerGroup.prototype, "description", void 0);
@@ -47,10 +42,17 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], CustomerGroup.prototype, "colorCode", void 0);
 tslib_1.__decorate([
-    (0, class_transformer_1.Exclude)(),
+    (0, typeorm_1.Column)({ name: 'vendor_id' }),
+    tslib_1.__metadata("design:type", Number)
+], CustomerGroup.prototype, "vendorId", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'is_active' }),
     tslib_1.__metadata("design:type", Number)
 ], CustomerGroup.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_delete' }),
+    tslib_1.__metadata("design:type", Number)
+], CustomerGroup.prototype, "isDelete", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => Customer_1.Customer, customer => customer.customerGroup),
     tslib_1.__metadata("design:type", Array)

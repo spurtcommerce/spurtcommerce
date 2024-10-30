@@ -4,7 +4,7 @@ exports.AdminAuditLogController = void 0;
 const tslib_1 = require("tslib");
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -30,7 +30,28 @@ let AdminAuditLogController = class AdminAuditLogController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
+     *      "status": "1",
      *      "message": "Successfully get Attribute Group list API",
+     *      "data": [{
+     *              "createdBy": "",
+     *              "createdDate": "",
+     *              "modifiedBy": "",
+     *              "modifiedDate": "",
+     *              "auditLogId": 1,
+     *              "userId": 1,
+     *              "userName": "'""
+     *              "method": "",
+     *              "requestUrl": "",
+     *              "object": "",
+     *              "logType": "",
+     *              "description": "",
+     *              "params": "{}",
+     *              "browserInfo": {
+     *                 "ip": 127.0.0.1,
+     *                 "browser": ""
+     *                },
+     *              "module": ""
+     *              }]
      * }
      * @apiSampleRequest /api/auditlog/auditLog-list
      * @apiErrorExample {json} Attribute Group error
@@ -85,7 +106,7 @@ let AdminAuditLogController = class AdminAuditLogController {
             if (count) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got a audit log count.',
+                    message: 'Successfully got a audit log count',
                     data: auditLog,
                 };
                 return response.status(200).send(successResponse);
@@ -99,7 +120,7 @@ let AdminAuditLogController = class AdminAuditLogController {
                 const result = yield Promise.all(log);
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got a audit log list.',
+                    message: 'Successfully got a audit log list',
                     data: result,
                 };
                 return response.status(200).send(successResponse);
@@ -117,7 +138,11 @@ let AdminAuditLogController = class AdminAuditLogController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
+     *      "status": "1",
      *      "message": "Successfully get Attribute Group list API",
+     *      "data": [{
+     *                "module": ""
+     *              }]
      * }
      * @apiSampleRequest /api/auditlog/module-list
      * @apiErrorExample {json} Attribute Group error
@@ -141,7 +166,7 @@ let AdminAuditLogController = class AdminAuditLogController {
             if (count) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got a module log count.',
+                    message: 'Successfully got a module log count',
                     data: moduleLog,
                 };
                 return response.status(200).send(successResponse);
@@ -149,7 +174,7 @@ let AdminAuditLogController = class AdminAuditLogController {
             else {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully got a module log list.',
+                    message: 'Successfully got a module log list',
                     data: moduleLog,
                 };
                 return response.status(200).send(successResponse);
@@ -170,7 +195,7 @@ let AdminAuditLogController = class AdminAuditLogController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     * "message": "Successfully deleted Audit log.",
+     * "message": "Successfully deleted Audit logs",
      * "status": "1"
      * }
      * @apiSampleRequest /api/auditlog/delete-auditlog
@@ -182,7 +207,7 @@ let AdminAuditLogController = class AdminAuditLogController {
             if (fromDate === '' || toDate === '') {
                 const errorResponse = {
                     status: 0,
-                    message: 'Dates should not be empty.',
+                    message: 'Dates should not be empty',
                 };
                 return response.status(400).send(errorResponse);
             }
@@ -199,14 +224,15 @@ let AdminAuditLogController = class AdminAuditLogController {
             yield this.auditLogService.delete(deleteLog);
             return response.status(200).send({
                 status: 1,
-                message: 'Successfully deleted Audit logs.',
+                message: 'Successfully deleted Audit logs',
             });
         });
     }
 };
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/auditLog-list'),
-    (0, routing_controllers_1.Authorized)(['admin', 'audit-log']),
+    (0, routing_controllers_1.Get)('/auditLog-list')
+    // @Authorized(['admin', 'audit-log'])
+    ,
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),

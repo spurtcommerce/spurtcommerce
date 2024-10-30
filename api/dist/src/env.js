@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sms = exports.mfa = exports.aws_setup = exports.mail = exports.env = void 0;
+exports.gcp = exports.sms = exports.aws_setup = exports.mail = exports.env = void 0;
 const tslib_1 = require("tslib");
 /*
  * SpurtCommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -28,7 +28,7 @@ exports.env = {
     isTest: process.env.NODE_ENV === 'test',
     isDevelopment: process.env.NODE_ENV === 'development',
     app: {
-        name: (0, env_1.getOsEnv)('APP_NAME'),
+        name: pkg.name,
         version: pkg.version,
         description: pkg.description,
         host: (0, env_1.getOsEnv)('APP_HOST'),
@@ -37,21 +37,13 @@ exports.env = {
         port: (0, env_1.normalizePort)(process.env.PORT || (0, env_1.getOsEnv)('APP_PORT')),
         banner: (0, env_1.toBool)((0, env_1.getOsEnv)('APP_BANNER')),
         dirs: {
-            migrations: (0, env_1.getOsPaths)('TYPEORM_MIGRATIONS'),
-            migrationsDir: (0, env_1.getOsPath)('TYPEORM_MIGRATIONS_DIR'),
-            entities: (0, env_1.getOsPaths)('TYPEORM_ENTITIES'),
-            entitiesDir: (0, env_1.getOsPath)('TYPEORM_ENTITIES_DIR'),
-            controllers: (0, env_1.getOsPaths)('CONTROLLERS'),
-            middlewares: (0, env_1.getOsPaths)('MIDDLEWARES'),
             interceptors: (0, env_1.getOsPaths)('INTERCEPTORS'),
             subscribers: (0, env_1.getOsPaths)('SUBSCRIBERS'),
-            resolvers: (0, env_1.getOsPaths)('RESOLVERS'),
         },
-        socketPort: (0, env_1.getOsEnv)('SOCKET_PORT'),
+        socketPort: (0, env_1.getOsEnvOptional)('SOCKET_PORT'),
     },
     log: {
         level: (0, env_1.getOsEnv)('LOG_LEVEL'),
-        json: (0, env_1.toBool)((0, env_1.getOsEnvOptional)('LOG_JSON')),
         output: (0, env_1.getOsEnv)('LOG_OUTPUT'),
     },
     db: {
@@ -78,10 +70,9 @@ exports.env = {
         enabled: (0, env_1.toBool)((0, env_1.getOsEnv)('SWAGGER_ENABLED')),
         route: (0, env_1.getOsEnv)('SWAGGER_ROUTE'),
         file: (0, env_1.getOsEnv)('SWAGGER_FILE'),
-        username: (0, env_1.getOsEnv)('SWAGGER_USERNAME'),
-        password: (0, env_1.getOsEnv)('SWAGGER_PASSWORD'),
     },
     imageserver: (0, env_1.getOsEnv)('IMAGE_SERVER'),
+    imageUploadSize: (0, env_1.getOsEnv)('IMAGE_UPLOAD_SIZE'),
     storeUrl: (0, env_1.getOsEnv)('STORE_URL'),
     cancelUrl: (0, env_1.getOsEnv)('CANCEL_URL'),
     baseUrl: (0, env_1.getOsEnv)('BASE_URL'),
@@ -97,14 +88,14 @@ exports.env = {
     loginAttemptsCount: (0, env_1.getOsEnv)('LOGIN_ATTEPMTS_COUNT'),
     loginAttemptsMinutes: (0, env_1.getOsEnv)('LOGIN_ATTEPMTS_MINUTES'),
     jwtSecret: (0, env_1.getOsEnv)('JWT_SECRET'),
+    jwtExpiryTime: (0, env_1.getOsEnv)('JWT_EXPIRY_TIME'),
     cryptoSecret: (0, env_1.getOsEnv)('CRYPTO_SECRET'),
     availImageTypes: (0, env_1.getOsEnv)('AVAILABLE_IMAGE_TYPES'),
     availAllowTypes: (0, env_1.getOsEnv)('AVAILABLE_ALLOW_TYPES'),
-    pluginHomeRedirectUrl: (0, env_1.getOsEnv)('PLUGIN_HOME_REDIRECT_URL'),
-    verificationCodeExpirationTime: (0, env_1.getOsEnv)('VERIFICATION_CODE_EXPIRATION_TIME'),
+    vendorMailVerifyUrl: (0, env_1.getOsEnv)('VENDOR_MAIL_VERIFY_URL'),
+    kycMandate: (0, env_1.getOsEnv)('KYC_MANDATE'),
 };
 exports.mail = {
-    SERVICE: (0, env_1.getOsEnv)('MAIL_DRIVER'),
     HOST: (0, env_1.getOsEnv)('MAIL_HOST'),
     PORT: (0, env_1.getOsEnv)('MAIL_PORT'),
     SECURE: (0, env_1.getOsEnv)('MAIL_SECURE'),
@@ -121,11 +112,6 @@ exports.aws_setup = {
     AWS_DEFAULT_REGION: (0, env_1.getOsEnv)('AWS_DEFAULT_REGION'),
     AWS_BUCKET: (0, env_1.getOsEnv)('AWS_BUCKET'),
 };
-// Mfa Config
-exports.mfa = {
-    TEMP_TOKEN_EXPIRY: (0, env_1.getOsEnv)('MFA_TEMP_TOKEN_EXPIRY'),
-    TEMP_TOKEN_SECRET: (0, env_1.getOsEnv)('MFA_TEMP_TOKEN_SECRET'),
-};
 // sms Config
 exports.sms = {
     USER_NAME: (0, env_1.getOsEnvOptional)('USER_NAME'),
@@ -135,5 +121,11 @@ exports.sms = {
     SMS_TYPE: (0, env_1.getOsEnvOptional)('SMS_TYPE'),
     API_KEY: (0, env_1.getOsEnvOptional)('API_KEY'),
     TEMPLATE_ID: (0, env_1.getOsEnvOptional)('TEMPLATE_ID'),
+};
+// Google Cloud Access Key
+exports.gcp = {
+    GCP_CDN_FILEPATH: (0, env_1.getOsEnv)('GCP_CDN_FILEPATH'),
+    GCP_CDN_PROJECT_ID: (0, env_1.getOsEnv)('GCP_CDN_PROJECT_ID'),
+    GCP_CDN_BUCKET: (0, env_1.getOsEnv)('GCP_CDN_BUCKET'),
 };
 //# sourceMappingURL=env.js.map

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -26,6 +26,7 @@ const productViewLog_1 = require("./productViewLog");
 const ProductSpecial_1 = require("./ProductSpecial");
 const ProductDiscount_1 = require("./ProductDiscount");
 const ProductVideo_1 = require("./ProductVideo");
+const ProductTranslation_1 = require("./ProductTranslation");
 let Product = class Product extends BaseModel_1.BaseModel {
     createDetails() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -204,6 +205,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Number)
 ], Product.prototype, "hasStock", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'price_type' }),
+    tslib_1.__metadata("design:type", Number)
+], Product.prototype, "priceType", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'is_simplified' }),
     tslib_1.__metadata("design:type", Number)
 ], Product.prototype, "isSimplified", void 0);
@@ -256,10 +261,18 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], Product.prototype, "settedAsCommonOn", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'product_highlights', type: 'json', default: [] }),
+    tslib_1.__metadata("design:type", Object)
+], Product.prototype, "productHighlights", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.OneToOne)(type => SkuModel_1.Sku, skuDetail => skuDetail.product),
     (0, typeorm_1.JoinColumn)({ name: 'sku_id' }),
     tslib_1.__metadata("design:type", SkuModel_1.Sku)
 ], Product.prototype, "skuDetail", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)((type) => ProductTranslation_1.ProductTranslation, productTranslation => productTranslation.product),
+    tslib_1.__metadata("design:type", Array)
+], Product.prototype, "productTranslation", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => ProductToCategory_1.ProductToCategory, productToCategory => productToCategory.product),
     tslib_1.__metadata("design:type", Array)

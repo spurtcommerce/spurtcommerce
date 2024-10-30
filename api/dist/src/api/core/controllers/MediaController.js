@@ -1,7 +1,7 @@
 "use strict";
 /*
  * SpurtCommerce API
- * version 4.8.4
+ * version 5.0.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -9,7 +9,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MediaController = void 0;
 const tslib_1 = require("tslib");
-const AWS = tslib_1.__importStar(require("aws-sdk")); // Load the SDK for JavaScript
 const routing_controllers_1 = require("routing-controllers");
 const CreateFolderNameRequest_1 = require("./requests/CreateFolderNameRequest");
 const CreateFileNameRequest_1 = require("./requests/CreateFileNameRequest");
@@ -22,22 +21,20 @@ const fs = tslib_1.__importStar(require("fs"));
 const globPath = tslib_1.__importStar(require("path"));
 const DeleteMultipleImage_1 = require("./requests/DeleteMultipleImage");
 const MultipleImageUpload_1 = require("./requests/MultipleImageUpload");
-AWS.config.update({
-    accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID,
-    secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY,
-    region: env_1.aws_setup.AWS_DEFAULT_REGION,
-});
-// const s3 = new AWS.S3();
+const DocumentService_1 = require("../services/DocumentService");
+const GCPService_1 = require("../services/GCPService");
 let MediaController = class MediaController {
-    constructor(s3Service, imageService, settingService, currencyService) {
+    constructor(s3Service, imageService, settingService, currencyService, documentService, gcpService) {
         this.s3Service = s3Service;
         this.imageService = imageService;
         this.settingService = settingService;
         this.currencyService = currencyService;
+        this.documentService = documentService;
+        this.gcpService = gcpService;
     }
     // Get Bucket Object List API
     /**
-     * @api {get} /api/media/bucket-object-list bucket-object-list
+     * @api {get} /api/media/bucket-object-list Bucket-object-list
      * @apiGroup media
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit list limit
@@ -59,20 +56,82 @@ let MediaController = class MediaController {
      * HTTP/1.1 500 Internal Server Error
      */
     ObjectList(folderName, limit, marker, request, response) {
+        var _a, _b;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             let val;
             if (env_1.env.imageserver === 's3') {
-                val = yield this.s3Service.listBucker(limit, marker, folderName.toLowerCase());
-                val.Contents.forEach((item, index) => {
+                val = yield this.s3Service.listBucker(limit, marker, folderName.toLowerCase().trim());
+                (_a = val.Contents) === null || _a === void 0 ? void 0 : _a.forEach((item, index) => {
                     const str = item.Key;
                     if (str.charAt(str.length - 1) === '/') {
                         val.Contents.splice(index, 1);
                     }
                 });
-                val.Contents.sort((a, b) => {
+                (_b = val.Contents) === null || _b === void 0 ? void 0 : _b.sort((a, b) => {
                     return b.LastModified - a.LastModified;
                 });
-                console.log(JSON.stringify(val.Contents) + 'contents');
+            }
+            else {
+                val = yield this.imageService.listFolders(limit, marker, folderName.toLowerCase());
+            }
+            if (val) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully get bucket object list',
+                    data: val,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Get Bucket Object List API
+    /**
+     * @api {get} /api/media/vendor-bucket-object-list bucket-object-list
+     * @apiGroup media
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} limit list limit
+     * @apiParam (Request body) {String} marker from where to list
+     * @apiParam (Request body) {String} folderName Specific Folder Name
+     * @apiParamExample {json} Input
+     * {
+     *      "limit" : "",
+     *      "folderName" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get bucket object list!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/media/bucket-object-list
+     * @apiErrorExample {json} media error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorObjectList(folderName, limit, marker, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            let val;
+            const vendorPrefix = folderName.split('/');
+            if (vendorPrefix[0] !== request.user.vendorPrefixId.toLowerCase()) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Folder Access',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            if (env_1.env.imageserver === 's3') {
+                val = yield this.s3Service.listBucker(limit, marker, folderName.toLowerCase());
+                if (val.Contents) {
+                    val.Contents.forEach((item, index) => {
+                        const str = item.Key;
+                        if (str.charAt(str.length - 1) === '/') {
+                            val.Contents.splice(index, 1);
+                        }
+                    });
+                    val.Contents.sort((a, b) => {
+                        return b.LastModified - a.LastModified;
+                    });
+                    console.log(JSON.stringify(val.Contents) + 'contents');
+                }
             }
             else {
                 val = yield this.imageService.listFolders(limit, marker, folderName.toLowerCase());
@@ -89,7 +148,7 @@ let MediaController = class MediaController {
     }
     // Get Bucket Object COUNT API
     /**
-     * @api {get} /api/media/bucket-object-count bucket-object-count
+     * @api {get} /api/media/bucket-object-count Bucket-object-count
      * @apiGroup media
      * @apiParam (Request body) {Number} limit list limit
      * @apiParam (Request body) {Number} marker from where to list
@@ -116,11 +175,17 @@ let MediaController = class MediaController {
             let count = 0;
             while (isTruncated) {
                 try {
-                    const respons = yield yield this.s3Service.listBucker(limit, marker, folderName);
-                    count += respons.Contents.length + respons.CommonPrefixes.length;
-                    isTruncated = respons.IsTruncated;
-                    if (isTruncated) {
-                        marker = respons.Contents.slice(-1)[0].Key;
+                    if (env_1.env.imageserver === 's3') {
+                        const respons = yield yield this.s3Service.listBucker(limit, marker, folderName);
+                        count += respons.Contents.length + respons.CommonPrefixes.length;
+                        isTruncated = respons.IsTruncated;
+                        if (isTruncated) {
+                            marker = respons.Contents.slice(-1)[0].Key;
+                        }
+                    }
+                    else if (env_1.env.imageserver === 'gcp') {
+                        const respons = yield this.gcpService.listBlobs(limit, marker, folderName);
+                        count += respons.Contents.length + respons.CommonPrefixes.length;
                     }
                 }
                 catch (error) {
@@ -162,12 +227,59 @@ let MediaController = class MediaController {
                 val = yield this.s3Service.createFolder(folderNameValidation.folderName);
             }
             else {
-                val = yield this.imageService.createFolder(folderNameValidation.folderName);
+                val = yield this.imageService.createFolder(folderNameValidation.folderName.toLowerCase());
             }
             if (val) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully created the folder.',
+                    message: 'Successfully created the folder',
+                    data: val,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Create Bucket Object --- Like Folder
+    /**
+     * @api {post} /api/media/vendor-create-folder Create Folder
+     * @apiGroup media
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} folderName Specific Folder Name
+     * @apiParamExample {json} Input
+     * {
+     *      "folderName" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully Created folder!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/media/vendor-create-folder
+     * @apiErrorExample {json} media error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    vendorCreateFolder(folderNameValidation, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            let val;
+            const vendorPrefix = folderNameValidation.folderName.split('/');
+            if (vendorPrefix[0] !== request.user.vendorPrefixId.toLowerCase()) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Folder Access',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            if (env_1.env.imageserver === 's3') {
+                val = yield this.s3Service.createFolder(folderNameValidation.folderName);
+            }
+            else {
+                val = yield this.imageService.createFolder(folderNameValidation.folderName.toLowerCase());
+            }
+            if (val) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully created the folder',
                     data: val,
                 };
                 return response.status(200).send(successResponse);
@@ -176,7 +288,7 @@ let MediaController = class MediaController {
     }
     // Delete Bucket Object --- Like Folder
     /**
-     * @api {post} /api/media/delete-folder delete folder API
+     * @api {post} /api/media/delete-folder Delete folder API
      * @apiGroup media
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} folderName Specific Folder Name
@@ -200,7 +312,7 @@ let MediaController = class MediaController {
             if (val) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the folder.',
+                    message: 'Successfully deleted the folder',
                 };
                 return response.status(200).send(successResponse);
             }
@@ -208,7 +320,7 @@ let MediaController = class MediaController {
     }
     // Delete file API
     /**
-     * @api {get} /api/media/delete-file delete file API
+     * @api {get} /api/media/delete-file Delete file API
      * @apiGroup media
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} fileName  File Name
@@ -231,7 +343,7 @@ let MediaController = class MediaController {
             if (fileName === '') {
                 const successResponse = {
                     status: 0,
-                    message: 'Please choose a file.',
+                    message: 'Please choose a file',
                 };
                 return response.status(400).send(successResponse);
             }
@@ -239,13 +351,16 @@ let MediaController = class MediaController {
             if (env_1.env.imageserver === 's3') {
                 val = yield this.s3Service.deleteFile(fileName);
             }
+            else if (env_1.env.imageserver === 'gcp') {
+                val = yield this.gcpService.deleteFile(fileName);
+            }
             else {
                 val = yield this.imageService.deleteFile(fileName);
             }
             if (val) {
                 const successResponse = {
                     status: 1,
-                    message: 'Successfully deleted the file.',
+                    message: 'Successfully deleted the file',
                 };
                 return response.status(200).send(successResponse);
             }
@@ -261,7 +376,10 @@ let MediaController = class MediaController {
      * @apiHeader {String} Authorization
      * @apiParamExample {json} Input
      *    {
-     *      "file":"",
+     *      "fileName":"",
+     *      "image": "",
+     *      "fileType": "",
+     *      "documentId": "",
      *      "path" : "",
      *    }
      * @apiSuccessExample {json} Success
@@ -279,54 +397,86 @@ let MediaController = class MediaController {
      *    }
      */
     uploadFile(fileNameRequest, request, response) {
+        var _a;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const base64 = fileNameRequest.image;
-            const path = fileNameRequest.path;
-            AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
-            const base64Data = Buffer.from(base64.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-            const type = base64.split(';')[0].split('/')[1];
-            const availableTypes = env_1.env.availImageTypes.split(',');
-            if (!availableTypes.includes(type)) {
-                const errorTypeResponse = {
-                    status: 0,
-                    message: 'Only ' + env_1.env.availImageTypes + ' types are allowed',
-                };
-                return response.status(400).send(errorTypeResponse);
-            }
-            let name;
+            const path = (_a = fileNameRequest.path) !== null && _a !== void 0 ? _a : 'documents/';
             const fileName = fileNameRequest.fileName;
-            if (fileName) {
-                const originalName = fileName.split('.')[0];
-                name = originalName + '_' + Date.now() + '.' + type;
+            const base64Data = Buffer.from(base64.split(',')[1], 'base64');
+            const type = base64.split(';')[0].split(':')[1].toString();
+            const mime = require('mime');
+            const ext = mime.getExtension(type);
+            const availableImageType = env_1.env.availImageTypes.split(',');
+            let name;
+            if (fileNameRequest.fileType === 0) {
+                if (!availableImageType.includes(ext)) {
+                    const errorTypeResponse = {
+                        status: 0,
+                        message: 'Only ' + env_1.env.availImageTypes + ' Types are Allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                if (fileName) {
+                    const originalName = fileName.split('.')[0];
+                    name = originalName + '_' + Date.now() + '.' + ext;
+                }
+                else {
+                    name = 'Img_' + Date.now() + '.' + ext;
+                }
             }
-            else {
-                name = 'Img_' + Date.now() + '.' + type;
+            let docSize = 0;
+            if (fileNameRequest.fileType === 1) {
+                const documentManger = yield this.documentService.findOne({ where: { id: fileNameRequest.documentId } });
+                if (!documentManger) {
+                    return response.status(200).send({
+                        status: 0,
+                        message: `Invalid Document Id`,
+                    });
+                }
+                const documentExtType = documentManger.documentType.split(',');
+                if (!documentExtType.includes(ext)) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: `Invalid Extension '.${ext}' for Document -- ${documentManger.documentName}`,
+                    });
+                }
+                docSize = documentManger.maxUploadSize;
+                if (fileName) {
+                    const originalName = fileName.split('.')[0];
+                    name = originalName + '_' + Date.now() + '.' + ext;
+                }
+                else {
+                    name = 'DOC_' + Date.now() + '.' + ext;
+                }
             }
             const stringLength = base64.replace(/^data:image\/\w+;base64,/, '').length;
             const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
             const sizeInKb = sizeInBytes / 1024;
-            let val;
-            if (+sizeInKb <= 4096) {
+            const allowedSize = +docSize === 0 ? +env_1.env.imageUploadSize * 1024 : +docSize;
+            if (+sizeInKb <= allowedSize) {
                 if (env_1.env.imageserver === 's3') {
-                    val = yield this.s3Service.imageUpload((path === '' ? name : path + name), base64Data, type);
+                    yield this.s3Service.imageUpload(path === '' ? name : path + name, base64Data, type, fileNameRequest.fileType);
+                }
+                else if (env_1.env.imageserver === 'gcp') {
+                    yield this.gcpService.upload(path === '' ? name : path + name, base64Data, type);
                 }
                 else {
-                    val = yield this.imageService.imageUpload((path === '' ? name : path + name), base64Data);
+                    yield this.imageService.imageUpload((path === '' ? name : path + name), base64Data);
                 }
             }
             else {
                 const errorResponse = {
                     status: 0,
-                    message: 'Not able to update as the file size is too large.',
+                    message: 'Not Able To Update as The File Size Is Too Large',
                 };
                 return response.status(400).send(errorResponse);
             }
             const successResponse = {
                 status: 1,
-                message: 'Image successfully uploaded.',
+                message: 'Image Uploaded Successfully',
                 data: {
-                    image: name,
-                    path: val.path,
+                    file: name,
+                    path,
                 },
             };
             return response.status(200).send(successResponse);
@@ -359,20 +509,19 @@ let MediaController = class MediaController {
     uploadVideo(files, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const name = files.originalname;
-            const path = 'video/';
-            let val;
+            const path = 'video';
             if (env_1.env.imageserver === 's3') {
-                val = yield this.s3Service.videoUpload((path + name), files.buffer, 'multipart/form-data');
+                yield this.s3Service.videoUpload((path + name), files.buffer, 'multipart/form-data');
             }
             else {
-                val = yield this.imageService.videoUpload((path + name), files.buffer);
+                yield this.imageService.videoUpload((path + name), files.buffer);
             }
             const successResponse = {
                 status: 1,
-                message: 'Video successfully uploaded.',
+                message: 'Video successfully uploaded',
                 data: {
                     image: name,
-                    path: val.path,
+                    path,
                 },
             };
             return response.status(200).send(successResponse);
@@ -400,11 +549,11 @@ let MediaController = class MediaController {
      *        "status": 0,
      *    }
      */
-    image_resize(width, height, name, path, request, response) {
+    image_resize(width, height, name, imagePath, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const widthString = width;
             const heightString = height;
-            const imgPath = path;
+            const imgPath = imagePath;
             const imgName = name;
             const ext = imgName.split('.');
             const validExtensions = ['jpg', 'jpeg', 'png', 'svg'];
@@ -424,17 +573,53 @@ let MediaController = class MediaController {
                     });
                 }
                 else {
-                    return response.status(400).send({ status: 0, message: 'Only jpg/jpeg/png/PNG/JPG formats are allowed for image upload.' });
+                    return response.status(400).send({ status: 0, message: 'Only jpg/jpeg/png/PNG/JPG formats are allowed for image upload' });
                 }
             }
             else {
-                return response.status(400).send({ status: 0, message: 'Only jpg/jpeg/png/PNG/JPG formats are allowed for image upload.' });
+                return response.status(400).send({ status: 0, message: 'Only jpg/jpeg/png/PNG/JPG formats are allowed for image upload' });
+            }
+        });
+    }
+    documentPreview(key, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (!(key === null || key === void 0 ? void 0 : key.trim())) {
+                return response.status(400).send({
+                    status: 0,
+                    message: `Invalid Key`,
+                });
+            }
+            const keyAsArray = key.split('/');
+            const name = keyAsArray[keyAsArray.length - 1];
+            const ext = name.split('.')[1];
+            if (env_1.env.availAllowTypes.includes(ext)) {
+                const mime = require('mime');
+                const appType = mime.getType(ext);
+                if (env_1.env.imageserver === 's3') {
+                    const val = yield this.s3Service.getDocument(key);
+                    return new Promise(() => {
+                        response.writeHead(200, { 'Content-Type': appType });
+                        response.write(val, 'binary');
+                        response.end(undefined, 'binary');
+                    });
+                }
+                else {
+                    const val = yield this.imageService.getDocument(key);
+                    return new Promise(() => {
+                        response.writeHead(200, { 'Content-Type': appType });
+                        response.write(val, 'binary');
+                        response.end(undefined, 'binary');
+                    });
+                }
+            }
+            else {
+                return response.status(400).send({ status: 0, message: `Only ${env_1.env.availAllowTypes.toString()} are Allowed` });
             }
         });
     }
     // Get folder API
     /**
-     * @api {get} /api/media/search-folder search Folder API
+     * @api {get} /api/media/search-folder Search Folder API
      * @apiGroup media
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} folderName  folderName
@@ -452,7 +637,7 @@ let MediaController = class MediaController {
      * @apiErrorExample {json} media error
      * HTTP/1.1 500 Internal Server Error
      */
-    getFolder(folderName, request, response) {
+    getFolder(folderName, vendorPrefix, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             let val;
             const originalFileName = folderName.toLowerCase();
@@ -469,7 +654,7 @@ let MediaController = class MediaController {
                 const finalCommonPrefixes = [];
                 let i = 1;
                 for (const data of array) {
-                    val = yield this.s3Service.getFolder(data);
+                    val = yield this.s3Service.getFolder(data, vendorPrefix !== null && vendorPrefix !== void 0 ? vendorPrefix : '');
                     if (i === 1) {
                         initialtData.push(val);
                     }
@@ -512,7 +697,103 @@ let MediaController = class MediaController {
                 }
             }
             else {
-                val = yield this.imageService.getFolder(folderName);
+                val = yield this.imageService.getFolder(folderName, vendorPrefix !== null && vendorPrefix !== void 0 ? vendorPrefix : '');
+            }
+            if (val) {
+                const successResponse = {
+                    status: 1,
+                    message: 'Successfully got folder details',
+                    data: val,
+                };
+                return response.status(200).send(successResponse);
+            }
+        });
+    }
+    // Get folder API
+    /**
+     * @api {get} /api/media/vendor-search-folder search Folder API
+     * @apiGroup media
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {String} folderName  folderName
+     * @apiParamExample {json} Input
+     * {
+     *      "FolderName" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully get Folder!",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/media/vendor-search-folder
+     * @apiErrorExample {json} media error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    getVendorFolder(folderName, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            let val;
+            const originalFileName = folderName.toLowerCase();
+            if (env_1.env.imageserver === 's3') {
+                const fileName = folderName;
+                const firstIndex = fileName[0];
+                const array = [];
+                array.push(firstIndex.toLowerCase());
+                array.push(firstIndex.toUpperCase());
+                const initialtData = [];
+                const contents = [];
+                const commonPrefixes = [];
+                const finalContents = [];
+                const finalCommonPrefixes = [];
+                let i = 1;
+                for (const data of array) {
+                    val = yield this.s3Service.getFolder(data, request.user.vendorPrefixId.toLowerCase());
+                    if (i === 1) {
+                        initialtData.push(val);
+                    }
+                    i++;
+                    contents.push(val === null || val === void 0 ? void 0 : val.Contents);
+                    commonPrefixes.push(val.CommonPrefixes);
+                }
+                // contents
+                for (const data of contents) {
+                    if (data) {
+                        for (const values of data) {
+                            const strValue = values.Key.toLowerCase();
+                            if (strValue.includes(originalFileName)) {
+                                finalContents.push(values);
+                            }
+                        }
+                    }
+                }
+                // finalommonPrefixes
+                for (const data of commonPrefixes) {
+                    if (data) {
+                        for (const values of data) {
+                            const strValue = values.Prefix.toLowerCase();
+                            if (strValue.includes(originalFileName)) {
+                                finalCommonPrefixes.push(values);
+                            }
+                        }
+                    }
+                }
+                const mapping = yield initialtData.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    value.Contents = finalContents;
+                    value.CommonPrefixes = finalCommonPrefixes;
+                    value.Prefix = folderName;
+                    return value;
+                }));
+                const resultData = yield Promise.all(mapping);
+                if (resultData) {
+                    const successResponse = {
+                        status: 1,
+                        message: 'Successfully got folder details',
+                        data: resultData[0],
+                    };
+                    return response.status(200).send(successResponse);
+                }
+            }
+            else {
+                val = yield this.imageService.getFolder(folderName, request.user.vendorPrefixId.toLowerCase());
             }
             if (val) {
                 const successResponse = {
@@ -526,7 +807,7 @@ let MediaController = class MediaController {
     }
     // Video preview API
     /**
-     * @api {get} /api/media/video-preview-s3 video-preview-s3 API
+     * @api {get} /api/media/video-preview-s3 Video-preview-s3 API
      * @apiGroup media
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} name  name
@@ -548,7 +829,7 @@ let MediaController = class MediaController {
      */
     video_preview_s3(filename, path, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const directoryPath = globPath.join(process.cwd(), 'uploads' + '/video/' + filename);
+            const directoryPath = globPath.join(process.cwd(), 'uploads/' + 'video/' + filename);
             const fileExists = yield fs.existsSync(directoryPath);
             if (fileExists) {
                 // file exists
@@ -556,8 +837,7 @@ let MediaController = class MediaController {
                     return response.sendFile(directoryPath, filename);
                 });
             }
-            const finalPath = String(path[path.length - 1]) === '/' ? path.substring(0, path.length - 1) : path;
-            const val = yield this.s3Service.videoFileDownload(finalPath, filename, directoryPath);
+            const val = yield this.s3Service.videoFileDownload(path, filename, directoryPath);
             if (val) {
                 return new Promise((resolve, reject) => {
                     return response.sendFile(val, filename);
@@ -614,7 +894,7 @@ let MediaController = class MediaController {
     }
     // upload multi image
     /**
-     * @api {Post} /api/media/upload-multi-image multi image-upload
+     * @api {Post} /api/media/upload-multi-image Multi image-upload
      * @apiHeader {String} Authorization
      * @apiGroup media
      * @apiParam (Request body) {String} image image
@@ -643,8 +923,6 @@ let MediaController = class MediaController {
                 const imageName = originalName.toLowerCase() + Date.now() + '.' + imageType;
                 const base64Data = Buffer.from(imageValue.replace(/^data:image\/\w+;base64,/, ''), 'base64');
                 const availableTypes = env_1.env.availImageTypes.split(',');
-                const stringLength = imageValue.replace(/^data:image\/\w+;base64,/, '').length;
-                AWS.config.update({ accessKeyId: env_1.aws_setup.AWS_ACCESS_KEY_ID, secretAccessKey: env_1.aws_setup.AWS_SECRET_ACCESS_KEY });
                 if (!availableTypes.includes(imageType)) {
                     const errorTypeResponse = {
                         status: 0,
@@ -652,23 +930,11 @@ let MediaController = class MediaController {
                     };
                     return response.status(400).send(errorTypeResponse);
                 }
-                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-                const sizeInKb = sizeInBytes / 1024;
-                if (+sizeInKb <= 4096) {
-                    if (env_1.env.imageserver === 's3') {
-                        console.log('hii working s3 service.....');
-                        val = yield this.s3Service.imageUpload((imgPath === '' ? imageName : imgPath + imageName), base64Data, imageType);
-                    }
-                    else {
-                        val = yield this.imageService.imageUpload((imgPath === '' ? imageName : imgPath + imageName), base64Data);
-                    }
+                if (env_1.env.imageserver === 's3') {
+                    val = yield this.s3Service.imageUpload((imgPath === '' ? imageName : imgPath + imageName), base64Data, imageType, multipleImage.fileType);
                 }
                 else {
-                    const errorResponse = {
-                        status: 0,
-                        message: 'Not able to update as the file size is too large.',
-                    };
-                    return response.status(400).send(errorResponse);
+                    val = yield this.imageService.imageUpload((imgPath === '' ? imageName : imgPath + imageName), base64Data);
                 }
                 return val;
             }));
@@ -691,7 +957,7 @@ let MediaController = class MediaController {
     }
     // delete multiple image
     /**
-     * @api {Post} /api/media/multiple-delete delete multiple image
+     * @api {Post} /api/media/multiple-delete Delete multiple image
      * @apiHeader {String} Authorization
      * @apiGroup media
      * @apiParam (Request body) {String} delete deleting image imgPath
@@ -711,10 +977,10 @@ let MediaController = class MediaController {
             let val;
             const result = image.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                 if (env_1.env.imageserver === 's3') {
-                    val = yield this.s3Service.deleteFile(value.pathName + value.fileName);
+                    val = yield this.s3Service.deleteFile(value);
                 }
                 else {
-                    val = yield this.imageService.deleteFile(value.pathName + value.fileName);
+                    val = yield this.imageService.deleteFile(value);
                 }
                 return val;
             }));
@@ -755,9 +1021,8 @@ let MediaController = class MediaController {
     }
 };
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/bucket-object-list')
-    // @Authorized('admin-vendor')
-    ,
+    (0, routing_controllers_1.Get)('/bucket-object-list'),
+    (0, routing_controllers_1.Authorized)('admin'),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('folderName')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('marker')),
@@ -767,6 +1032,18 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [String, Number, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], MediaController.prototype, "ObjectList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-bucket-object-list'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('folderName')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('marker')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Number, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], MediaController.prototype, "vendorObjectList", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/bucket-object-count'),
     (0, routing_controllers_1.Authorized)('admin-vendor'),
@@ -781,7 +1058,7 @@ tslib_1.__decorate([
 ], MediaController.prototype, "ObjectCount", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Post)('/create-folder'),
-    (0, routing_controllers_1.Authorized)('admin-vendor'),
+    (0, routing_controllers_1.Authorized)('admin'),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
     tslib_1.__param(2, (0, routing_controllers_1.Res)()),
@@ -789,6 +1066,16 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [CreateFolderNameRequest_1.FolderNameRequest, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], MediaController.prototype, "CreateFolder", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/vendor-create-folder'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [CreateFolderNameRequest_1.FolderNameRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], MediaController.prototype, "vendorCreateFolder", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Post)('/delete-folder'),
     (0, routing_controllers_1.Authorized)('admin-vendor'),
@@ -810,8 +1097,9 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], MediaController.prototype, "DeleteFile", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Post)('/upload-file'),
-    (0, routing_controllers_1.Authorized)('admin-vendor'),
+    (0, routing_controllers_1.Post)('/upload-file')
+    // @Authorized('admin-vendor')
+    ,
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
     tslib_1.__param(2, (0, routing_controllers_1.Res)()),
@@ -842,15 +1130,35 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], MediaController.prototype, "image_resize", null);
 tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/document'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('key')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], MediaController.prototype, "documentPreview", null);
+tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/search-folder'),
-    (0, routing_controllers_1.Authorized)('admin-vendor'),
+    (0, routing_controllers_1.Authorized)('admin'),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('folderName')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('vendorPrefix')),
+    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], MediaController.prototype, "getFolder", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/vendor-search-folder'),
+    (0, routing_controllers_1.Authorized)('vendor'),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('folderName')),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
     tslib_1.__param(2, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
-], MediaController.prototype, "getFolder", null);
+], MediaController.prototype, "getVendorFolder", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/video-preview-s3'),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('name')),
@@ -878,9 +1186,8 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], MediaController.prototype, "multiImage", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Post)('/multiple-delete')
-    // @Authorized('admin-vendor')
-    ,
+    (0, routing_controllers_1.Post)('/multiple-delete'),
+    (0, routing_controllers_1.Authorized)('admin-vendor'),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
@@ -903,7 +1210,9 @@ MediaController = tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [S3Service_1.S3Service,
         ImageService_1.ImageService,
         SettingService_1.SettingService,
-        CurrencyService_1.CurrencyService])
+        CurrencyService_1.CurrencyService,
+        DocumentService_1.DocumentService,
+        GCPService_1.GCPService])
 ], MediaController);
 exports.MediaController = MediaController;
 //# sourceMappingURL=MediaController.js.map
