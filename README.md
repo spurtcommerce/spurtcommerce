@@ -1,13 +1,34 @@
+<h1 align="center" style="border-bottom: none">
+    <div>
+       <a style="color:#36f" href="https://www.spurtcommerce.com/#gh-light-mode-only">
+            <img src="https://www.spurtcommerce.com/spurtcommerce.svg" width="318px" alt="Spurtcommerce logo" />
+            <br>
+           🎉 <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"> <strong>Spurtcommerce v5.0 is now available!</strong> 
+        </a>
+    </div>
+    Opensource Multi Vendor Marketplace for B2C , B2B  <br>
+</h1>
 
 <p align="center">
-  <a href="https://www.spurtcommerce.com/#gh-light-mode-only">
-    <img src="https://www.spurtcommerce.com/spurtcommerce.svg" width="318px" alt="Spurtcommerce logo" />
-  </a>
-   
+ Build with Nodejs + TypeScript + Angular + React + MySQL and PostgreSQL
 </p>
-<h3 align="center">Open Source Multi Vendor Marketplace for Ecommerce Solution - Self hosted </h3>
-<p align="center"> Build with Nodejs + TypeScript + Angular + React + MySQL and PostgreSQL</p>
-<p align="center"><a href="https://www.spurtcommerce.com/price-details"> Support PRO</a> · <a href="https://www.spurtcommerce.com/price-details"> Frontend </a> ·  <a href="https://www.spurtcommerce.com/price-details"> API Suite </a></p>
+
+
+<p align="center">
+    <a href="http://www.spurtcommerce.com"><b>Website</b></a> •
+    <a href="https://discord.com/invite/hyW4MXXn8n"><b>Discord</b></a> •
+    <a href="https://www.spurtcommerce.com/price-details"><b>Community</b></a> •
+    <a href="https://x.com/Spurtcommerce"><b>Twitter</b></a> •
+    <a href="https://www.reddit.com/r/Spurtcommerce/"><b>Reddit</b></a> •
+    <a href="https://www.spurtcommerce.dev"><b>Documentation</b></a>
+</p>
+
+![video avi](https://github.com/spurtcommerce/spurtcommerce/spurt.gif)
+
+
+
+
+
 <br />
 <p align="center">
   <a href="https://github.com/spurtcommerce/multivendor-marketplace/releases">
