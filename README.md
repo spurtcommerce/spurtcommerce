@@ -23,7 +23,7 @@
     <a href="https://www.spurtcommerce.dev"><b>Documentation</b></a>
 </p>
 
-![video avi](https://github.com/spurtcommerce/spurtcommerce/spurt.gif)
+![video avi](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/spurt.gif)
 
 
 
