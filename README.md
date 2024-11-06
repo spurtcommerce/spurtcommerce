@@ -23,13 +23,6 @@
     <a href="https://www.spurtcommerce.dev"><b>Documentation</b></a>
 </p>
 
-![video avi](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/spurt.gif)
-
-![video avi](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/assets/spurt2.gif)
-
-
-
-
 <br />
 <p align="center">
   <a href="https://github.com/spurtcommerce/multivendor-marketplace/releases">
@@ -43,7 +36,17 @@
     <img src="https://img.shields.io/github/repo-size/spurtcommerce/deployment?color=orange" alt="GitHub repo size" />
   </a>
 </p>
+
+![video avi](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/assets/spurt.gif)
+
+![video avi](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/assets/spurt2.gif)
+
+
+
+
+
 <br />
+
 # Join Our Community
 
 <a href="https://discord.com/invite/hyW4MXXn8n" target="_blank">
