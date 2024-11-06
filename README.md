@@ -25,6 +25,7 @@
 
 ![video avi](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/spurt.gif)
 
+![video avi](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/assets/spurt2.gif)
 
 
 
@@ -43,6 +44,11 @@
   </a>
 </p>
 <br />
+# Join Our Community
+
+<a href="https://discord.com/invite/hyW4MXXn8n" target="_blank">
+<img src="https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/assets/spurtcommerce-discord.jpg" alt="">
+</a>
 
 > [!IMPORTANT]
 > 🎉 <strong>Spurtcommerce 5.0.0 is now available!</strong> Read more in the <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"><strong>announcement post</strong></a>.
@@ -113,6 +119,12 @@ Completion of above steps should successfully setup frontend builds of all 3 pan
 * Admin panel be accessed by http://{your-domian or IP}:{your-port}/admin/#/auth/login
 
 Above steps concludes successful installation and setup of Spurtcommerce Marketplace solution build in your local (or) server.
+
+# Screenshots
+![2](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/assets/spurtcommerce-github-2.jpg)
+![3](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/assets/spurtcommerce-github-3.jpg)
+![4](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/assets/spurtcommerce-github-6.jpg)
+![5](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/assets/spurtcommerce-github-1.jpg)
 
 
 ## 🤔 Support , Document and Help
