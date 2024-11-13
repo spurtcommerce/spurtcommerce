@@ -1,0 +1,22 @@
+<div class="loading" *ngIf="(orderSandbox.orderStatusListLoading$ | async)">
+    <app-loader></app-loader>
+</div>
+<div class="example-container" *ngFor="let array of (orderSandbox.orderStatusList$| async)">
+    <h2 class="title">{{array.name}}</h2>
+    <div cdkDropList [id]="array.orderStatusId" [cdkDropListData]="array.vendorOrders" [cdkDropListConnectedTo]="connectedTo" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of array.vendorOrders" cdkDrag (cdkDragEnded)="dragEnd($event, item)">
+            <div class="olpc-top flex">
+                <h2 (click)="goToOrders(item?.vendorOrderId)">{{item.orderProductPrefixId}}</h2>
+                <p>{{item.createdDate | date: 'dd MMM yyyy h:mm a'}}</p>
+            </div>
+            <div class="olpc-row flex">
+                <div class="olpc-img op-img flex">{{((item?.firstName).charAt(0)) | uppercase}}</div>
+                <div class="olpc-rht">
+
+                    <h3 class="flex"> {{item.firstName}} <span> {{item?.currencySymbolLeft}}{{item.total | currency:currencyCode:'' }}{{item?.currencySymbolRight}}</span> </h3>
+                    <p class="flex"><img alt="Location" title="Location" src="assets/imgs/location.svg"> <span *ngIf="item.shippingCity">{{item.shippingCity}},</span><span *ngIf="item.shippingZone">{{item.shippingZone}},</span><span *ngIf="item.shippingCountry">{{item.shippingCountry}}</span>                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

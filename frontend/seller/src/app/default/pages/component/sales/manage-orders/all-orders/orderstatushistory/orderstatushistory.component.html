@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h1>{{'common.Order Status History'|translate}} : <span>{{subOrederId}}</span></h1>
+</div>
+<div class="osh-body" >
+    <ng-container *ngFor="let array of statusHistory;let i=index">
+        <div class="osh-card" [ngClass]="{'completed':array?.createdDate}">
+            <h4>{{array.name}} <span><i>{{(array?.createdDate)| date: '(dd/MM/YYY hh:mm aa)'}}</i></span></h4>
+            <p>{{content[array.name]}}</p>          
+        </div>
+    </ng-container>
+    <!-- <div class="osh-card completed current-prev">
+        <h4>{{'microService.new.Shipped'|translate}} <span>26 Jun 2023, 11:30 am</span></h4>
+        <p>You will be updating the Customer that the order is shipped.</p>
+    </div>
+    <div class="osh-card completed current">
+        <h4>{{'microService.new.OutForDelivery'|translate}}</h4>
+        <p>You will be updating the customer that the order is getting delivered.</p>
+    </div>
+    
+    <div class="osh-card" >
+        <h4>{{'microService.new.Delivered'|translate}}</h4>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipsc</p>
+    </div> -->
+        <!-- 'current-prev current':statusHistory[i-1]?.createdDate && !array?.createdDate -->
+</div>
+<div class="product-save-btn">
+    <button class="prev" (click)="dismiss()">{{'common.Cancel' | translate}}</button>
+</div>

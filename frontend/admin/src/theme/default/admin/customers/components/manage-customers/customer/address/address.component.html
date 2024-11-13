@@ -1,0 +1,68 @@
+<div class="address" style="background: #fff;">
+    <div class="modal-header">
+        <h4 class="modal-header__title" id="modal-basic-title" *ngIf="addressId">
+            {{'Customers.Customer.UpdateAddress'| translate}}</h4>
+
+        <h4 *ngIf="!addressId" class="modal-header__title" id="modal-basic-title">
+            {{'Customers.Customer.AddAddress'| translate}}</h4>
+        <button type="button" class="bton close-modal" aria-label="Close" (click)="close()">
+            <img src="assets/img/modal-close.svg" alt="">
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                <div class="col-lg-6 col-xs-12">
+                    <app-common-form [type]="dynamicObjControls[val]?.type" [control]="dynamicObjControls[val]?.control"
+                        [label]="dynamicObjControls[val]?.label" [inputId]="dynamicObjControls[val]?.inputId"
+                        [aliasName]="dynamicObjControls[val]?.aliasName"
+                        [placeholder]="dynamicObjControls[val]?.placeholder" [submitted]="submitted"
+                        [customData]="dynamicObjControls[val]?.customData"
+                        [optionalErrorMessage]="dynamicObjControls[val]?.optionalErrorMessage"
+                        [mandatory]="dynamicObjControls[val]?.mandatory">
+                    </app-common-form>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="modal-action-btns flex">
+                    <button *ngIf="addressId" [appHideIfUnauthorized]="'update-customer-address'" (click)="onSubmit()"
+                        type="submit">{{'Customers.Customer.UpdateAddress'| translate}}</button>
+                    <button *ngIf="!addressId" [appHideIfUnauthorized]="'add-customer-address'" (click)="onSubmit()"
+                        type="submit">{{'Customers.Customer.AddAddress'| translate}}</button>
+                </div>
+            </div>
+        </div>
+        <ng-container *ngIf="addressList?.length > 0">
+            <hr [appHideIfUnauthorized]="'customer-address-list'">
+            <div class="product-table">
+                <div class="table-responsive" [appHideIfUnauthorized]="'customer-address-list'">
+
+                    <!-- common table -->
+                    <app-common-table [customTemplate]="{addressType:itemTemplateRef}" [HeadArray]="customTable"
+                        [GridArray]="addressList" (buttonChangeEvent)="buttonAction($event)"
+                        [selectAll]="tableCheckbox">
+                    </app-common-table>
+
+
+                    <!-- add address -->
+                    <ng-template #itemTemplateRef let-item let-index="index">
+                        <span *ngIf="item.addressType == 1">
+                            {{'Customers.Customer.Billing'| translate}}
+                        </span>
+                        <span *ngIf="item.addressType == 0">
+                            {{'Customers.Customer.Shipping'| translate}}
+                        </span>
+                    </ng-template>
+
+                    <!-- pagination -->
+                    <div class="pagination flex" *ngIf="(sandbox.addAddressList$ |async)?.length > 10">
+                        <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+                            [totalItems]="sandbox.addressListCount$ | async" [pageSize]="limit"
+                            (pageChange)="onPageChange($event)">
+                        </app-reusable-pagination>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

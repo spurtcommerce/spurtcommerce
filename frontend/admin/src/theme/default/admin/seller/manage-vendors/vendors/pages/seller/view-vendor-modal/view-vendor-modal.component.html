@@ -1,0 +1,38 @@
+<div class="row products-section vendor-section">
+    <div class="vd-stat-modal">
+
+        <div class="vd-stat-content">
+
+            <a (click)="close()" href="javascript:void(0)" class="closemod"> <img src="assets/img/close.svg" alt=""> </a>
+
+            <h3>{{details.title}}</h3>
+
+            <div class="flex vds-row">
+                <p>{{'marketplace.seller.documentName'| translate}}</p>
+                <h4>{{details.name}}</h4>
+            </div>
+            <div class="flex vds-row">
+                <p>{{'marketplace.seller.ReceivedOn'| translate}}</p>
+                <h4> <i>{{details.createdDate | date: 'dd-MM-YYY, hh:mm aa'}}</i></h4>
+            </div>
+            <div class="flex vds-row vds-row-stat">
+                <p>{{'marketplace.seller.Status'| translate}}</p>
+                <ng-select name="" id="" [(ngModel)]="statusval" style="width:50%" [clearable]="false" [searchable]="false">
+                    <ng-option value="0">{{'Sales.Orders.Reject'| translate}}</ng-option>
+                    <ng-option value="1">{{'marketplace.seller.Approved'| translate}}</ng-option>
+                    <ng-option value="2">{{'Sales.Orders.Pending'| translate}}</ng-option>
+                </ng-select>
+            </div>
+
+            <div class="vds-note">
+                <p>{{'marketplace.seller.Notes'| translate}}</p>
+                <textarea name="" id="" rows="6"></textarea>
+            </div>
+
+            <div class="flex vds-submit"> <button (click)="submit()">{{'marketplace.seller.Save'| translate}}</button> </div>
+
+           
+        </div>
+
+    </div>
+</div>

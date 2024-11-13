@@ -1,0 +1,44 @@
+<!-- close Icon  -->
+<div class="flex setting2-inner-header">
+    <h3 class="modal-header__title">{{updatetitle ? 'Update Country' : 'Add Country' | translate}}</h3>
+    <button (click)="close()" class="close-modal"> <img src="assets/img/modal-close.svg"> </button>
+</div>
+<div class="modal-body">
+    <ng-container>
+        <div class="ap-body-col">
+            <div class="form-group">
+                <ng-container *ngFor="let val of  _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                      <ng-container *ngIf="val=='postalCode'">
+                        <div class="form-group">
+                            <label>{{'Settings.Local.Country.PostalCodeRequired' | translate}}</label>
+                            <div class="radio">
+                                <mat-radio-group  [formControl]="dynamicObjControls[val]?.control" fxLayout="column" fxLayoutGap=".25rem">
+                                    <mat-radio-button [value]="'Yes'">{{'Settings.Local.Country.Yes' |
+                                        translate}}</mat-radio-button>
+                                    <mat-radio-button [value]="'No'">{{'Settings.Local.Country.No' |
+                                        translate}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                      </ng-container>
+                      <ng-container *ngIf="val !='postalCode'">
+                        <app-common-form [type]="dynamicObjControls[val]?.type" [control]="dynamicObjControls[val]?.control"
+                        [label]="dynamicObjControls[val]?.label" [inputId]="dynamicObjControls[val]?.inputId"
+                        [aliasName]="dynamicObjControls[val]?.aliasName" [placeholder]="dynamicObjControls[val]?.placeholder"
+                        [submitted]="submitted" [customData]="dynamicObjControls[val]?.customData"
+                        [mandatory]="dynamicObjControls[val]?.mandatory">
+                      </app-common-form>
+                      </ng-container>
+                </ng-container>
+          </div>
+          
+        </div>
+      </ng-container>
+ 
+</div>
+
+
+<div class="action-button-container flex">
+    <button (click)="close()" class="button-reg btn-md tertiary">{{'common.Cancel'| translate}}</button>
+    <button type="submit" (click)="onSubmit()" class="button-reg btn-md primary">{{'Settings.Local.Save' | translate}}</button>
+</div>

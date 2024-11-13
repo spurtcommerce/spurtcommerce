@@ -1,0 +1,107 @@
+.card {
+
+    width: 100%;
+}
+
+.dropdown-toggle::after {
+    display: none!important;
+}
+
+.form-group {
+    margin-bottom: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 13px!important;
+    text-align: left; 
+    cursor: pointer;
+}
+
+.margin {
+    margin-top: -6px;
+    margin-bottom: 10px;
+}
+
+.product-wrap .product-table .table .custom-checkbox {
+    top: 0px;
+
+}
+
+.custom-control-input:focus~.custom-control-label::before {
+    box-shadow: unset !important;
+}
+
+.custom-control-label {
+    cursor: pointer !important;
+    
+}
+
+// .custom-control-label::after {
+//     top: 0px !important;
+    
+// }
+
+th {
+    color: #525252;
+}
+
+.layout-mar {
+    margin-top: 58px;
+}
+
+.mar {
+    margin-top: -15px
+}
+
+.Artboard-1 {
+    width: 91px;
+    height: 83px;
+    background-color: #ffffff;
+}
+
+.body {
+    background-color: white;
+}
+
+
+
+:host ::ng-deep .dropdown-item.active,
+.dropdown-item:active {
+    color: black !important;
+    text-decoration: none !important;
+    background-color: #fff !important;
+}
+
+.table-responsive {
+    overflow-x: unset !important;
+}
+
+.lst-xpnd {
+    position: absolute;
+    right: 0px;
+}
+
+
+
+.table tr td .dropdown-menu {
+    min-width: 130px;
+}
+
+.spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.view {
+    cursor: pointer; 
+    position: relative;
+}
+
+.detail {
+    cursor: pointer;
+    font-weight: 600;
+// text-decoration: underline;
+}

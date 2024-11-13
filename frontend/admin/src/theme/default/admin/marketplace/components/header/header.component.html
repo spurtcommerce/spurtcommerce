@@ -1,0 +1,182 @@
+<div class="vendor-nav flex">
+    <div class="sub-nav-menus">
+        <div class="dd" [appHideIfUnauthorized]="'approved-product'" [multipleHide]="['approved-product','rejected-product','waiting-approval-product','common-product']">
+            <div class="dd-a">
+                <a href="javascript:void(0)" [appHideIfUnauthorized]="'approved-product'"
+                    [routerLink]="['/vendors/manage-products']" [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/package.svg"></span>{{'marketplace.seller.ManageProducts'|translate}}
+                    <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="checked" id="check" (click)="$event.stopPropagation(); onClick($event)">
+            <div class="dd-c">
+                <ul>
+                    
+                    <li [appHideIfUnauthorized]="'approved-product'">
+                        <a href="#" [routerLink]="['/vendors/manage-products/seller-products']" [routerLinkActive]="'active'">
+                            {{'marketplace.common.AllProducts' | translate}}
+                        </a>
+                    </li>   
+                    <li [appHideIfUnauthorized]="'approved-product'">
+                        <a href="#" [routerLink]="['/vendors/manage-products/approval']" [routerLinkActive]="'active'">
+                            {{'marketplace.common.ApprovedProducts' | translate}}
+                        </a>
+                    </li>                    
+                    <li [appHideIfUnauthorized]="'rejected-product'">
+                        <a href="#" [routerLink]="['/vendors/manage-products/reject']" [routerLinkActive]="'active'">
+                            {{'marketplace.common.RejectedProducts' | translate}} 
+                        </a>
+                    </li>
+
+                    <li [appHideIfUnauthorized]="'waiting-approval-product'">
+                        <a href="#" [routerLink]="['/vendors/manage-products/Waiting']" [routerLinkActive]="'active'"> 
+                            {{'marketplace.common.WaitingForApprovals' | translate}}  
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'common-product'">
+                        <a href="#" [routerLink]="['/vendors/manage-products/common-vendor-products/list']" [routerLinkActive]="'active'"> 
+                            {{'marketplace.common.CommonProduct' | translate}}  
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="dd" [appHideIfUnauthorized]="'product-categories'" [multipleHide]="['product-categories','product-data-export','product-qr']">
+            <div class="dd-a">
+                <a href="javascript:void(0)" [appHideIfUnauthorized]="'product-categories'"
+                [routerLink]="['/vendors/product-config']" [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/product-config.svg"></span>
+                    {{'marketplace.common.ProductConfiguration' | translate}} 
+                            <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="checked1" id="check" (click)="$event.stopPropagation(); onClick1($event)">
+            <div class="dd-c">
+                <ul>
+                    <li [appHideIfUnauthorized]="'product-categories'">
+                        <a href="#" [routerLink]="['/vendors/product-config/categories']" [routerLinkActive]="'active'">
+                            {{'marketplace.common.Categories' | translate}}
+                        </a>
+                    </li>
+
+                    <li [appHideIfUnauthorized]="'product-qr'">
+                        <a href="#" [routerLink]="['/vendors/product-config/product-qr']" [routerLinkActive]="'active'">
+                            {{'marketplace.common.ProductQR' | translate}}     
+                        </a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+
+        <div class="dd" [appHideIfUnauthorized]="'product-order'"
+            [multipleHide]="['product-order','product-payment','product-abondoned-carts']">
+            <div class="dd-a">
+                <a href="javascript:void(0)" [routerLink]="['/vendors/manage-sales']" [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/manage-sales.svg"></span>
+                    {{'marketplace.seller.ManageSales'|translate}}
+                    <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="salesChecked" id="check"
+                (click)="$event.stopPropagation(); onClickSales($event)">
+            <div class="dd-c">
+                <ul>
+                    <li [appHideIfUnauthorized]="'product-order'">
+                        <a href="#" [routerLink]="['/vendors/manage-sales/sales/order']" [routerLinkActive]="'active'">
+                            {{'marketplace.seller.Orders'|translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'product-order'">
+                        <a href="#" [routerLink]="['/vendors/manage-sales/back-orders']" [routerLinkActive]="'active'">
+                            {{'Sales.nav.BackOrders'|translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'product-order'">
+                        <a href="#" [routerLink]="['/vendors/manage-sales/failed-orders']" [routerLinkActive]="'active'">
+                            {{'Sales.nav.FailedOrders'|translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'product-payment'">
+                        <a href="#" [routerLink]="['/vendors/manage-sales/payment/list']" [routerLinkActive]="'active'">
+                            {{'marketplace.seller.Payments'|translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'product-abondoned-carts'">
+                        <a href="#" [routerLink]="['/vendors/manage-sales/abandoned']" [routerLinkActive]="'active'">
+                            {{'Sales.Abandoned.AbandonedCarts' | translate}}  
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="dd" [appHideIfUnauthorized]="'settlement-product'"
+            [multipleHide]="['settlement-product','settlement-product-history']">
+            <div class="dd-a">
+                <a href="javascript:void(0)" [routerLink]="['/vendors/manage-settlement']"
+                [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/manage-settlements.svg"></span>
+                    {{'marketplace.common.ManageSettelments' | translate}} 
+                             <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="settlementsChecked" id="check"
+                (click)="$event.stopPropagation(); onClickSettlements($event)">
+            <div class="dd-c">
+                <ul>
+                    <li [appHideIfUnauthorized]="'settlement-product'">
+                        <a href="#" [routerLink]="['/vendors/manage-settlement/settlement/settlement-order']"
+                            [routerLinkActive]="'active'">
+                            {{'marketplace.common.CreateSettlements' | translate}}          
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'settlement-product-history'">
+                        <a href="#" [routerLink]="['/vendors/manage-settlement/settlement/settlement-history']"
+                            [routerLinkActive]="'active'">
+                            {{'marketplace.common.History' | translate}}      
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="dd" [appHideIfUnauthorized]="'product-sales-report'"
+            [multipleHide]="['product-sales-report','product-total-report','product-sales-by-seller-report','list-settlement-report']">
+            <div class="dd-a">
+                <a href="javascript:void(0)" [routerLink]="['/vendors/reports']" [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/reports.svg"></span>
+                    {{'marketplace.seller.Reports'|translate}}
+                    <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="reportsChecked" id="check"
+                (click)="$event.stopPropagation(); onClickReports($event)">
+            <div class="dd-c">
+                <ul>
+                    <li [appHideIfUnauthorized]="'product-sales-report'">
+                        <a href="#" [routerLink]="['/vendors/reports/reports']" [routerLinkActive]="'active'">
+                            {{'marketplace.common.SalesReport' | translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'product-total-report'">
+                        <a href="#" [routerLink]="['/vendors/reports/sales-report']" [routerLinkActive]="'active'">
+                            {{'marketplace.common.TotalSaleReport' | translate}}     
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'product-sales-by-seller-report'">
+                        <a href="#" [routerLink]="['/vendors/reports/vendor-report']" [routerLinkActive]="'active'">
+                            {{'marketplace.seller.SalesbyVendor'|translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'settlement-report-list'">
+                        <a href="#" [routerLink]="['/vendors/reports/settlement-report']" [routerLinkActive]="'active'">
+                            {{'marketplace.seller.Settlement'|translate}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

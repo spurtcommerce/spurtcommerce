@@ -1,0 +1,65 @@
+<div>
+        <form (ngSubmit)="onSubmit(loginForm.value)" [formGroup]="loginForm" autocomplete="off">
+            <h1>{{'Profile.Login.AdminLogin' | translate}}</h1>
+            <div class="form-group first">
+                <label for="">Username *</label>
+                <input type="text" (focusout)="focusouterrorShow()" (input)="changeUSername()" class="form-control" placeholder="{{'placeholder.User Name'|translate}}" formControlName="userName" [ngClass]="{
+            validationcolor:
+              (loginForm.get('userName').hasError('required') &&
+                loginForm.get('userName').touched &&
+                ifSubmitted == true) ||
+              badResponse == true || emailInvalidShow
+          }" />
+                <div class="validation-error" *ngIf="
+            loginForm.get('userName').hasError('required') &&
+            loginForm.get('userName').touched &&
+            ifSubmitted == true
+          ">
+                    {{'Profile.Login.Error.Usernamerequired' | translate}}
+                </div>
+                <div class="validation-error" *ngIf="(emailInvalidShow)"
+>
+                    {{'Profile.Login.Error.Incorrectemail' | translate}}
+
+                </div>
+            </div>
+            <div class="form-group" style="position: relative;">
+                <label for="">Password *</label>
+                <input type="password" passwordshow class="form-control" autocomplete="new-password" placeholder="{{'placeholder.Password'|translate}}" formControlName="password" [ngClass]="{
+            validationcolor:
+              (loginForm.get('password').hasError('required') &&
+                loginForm.get('password').touched &&
+                ifSubmitted == true) ||
+              badResponse == true
+          }" (keydown.space)="$event.preventDefault()" />
+                <div class="validation-error" *ngIf="
+            loginForm.get('password').hasError('required') &&
+            loginForm.get('password').touched &&
+            ifSubmitted == true
+          ">
+
+                    {{'Profile.Login.Error.Passwordrequired' | translate}}
+                </div>
+            </div>
+            <div class="validation-error" *ngIf="badResponse == true">
+
+                {{'Profile.Login.Error.UsernameorPasswordisincorrect' | translate}}
+            </div>
+            <div class="login-flexx">
+                <div class="custom-control custom-checkbox mr-sm-2">
+                    <input type="checkbox" [(ngModel)]="keepMeSignIn" [ngModelOptions]="{standalone: true}" class="custom-control-input" id="checkbox1" />
+                    <label style="cursor: pointer;" class="custom-control-label" for="checkbox1"> Keep me signed in  </label>
+                </div>
+                <a href="javascript:void(0)"  [routerLink]="['/auth/forgot-password']">
+                    Forgot your password?
+                </a>
+            </div>
+            <button class="form-btn">
+                <span *ngIf="(authSandbox.loginLoading$ | async)" class="spinner-border spinner-border-sm " style="margin-left:20px;width:23px;height:23px"aria-hidden="true"></span>
+                <span *ngIf="!(authSandbox.loginLoading$ | async)">{{'Profile.Login.login' | translate}}</span>
+            </button>
+            <!-- <div class="forgot">
+                {{'Profile.Login.Error.Cantlogin?' | translate}}
+            </div> -->
+        </form>
+</div>

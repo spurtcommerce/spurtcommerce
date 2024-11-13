@@ -1,0 +1,17 @@
+<div class="modal-body">
+    <button type="button" class="close" (click)="close()">
+        <span aria-hidden="true" style="background-color:white">&times;</span>
+    </button>
+    <h3>{{'sellerNew.Confirmation' | translate}}</h3>
+    <p>{{'sellerNew.ApproveTheInitialSignupRequest' | translate}}
+    </p>
+    <p>{{'sellerNew.AreYouSure' | translate}}</p>
+    
+      
+    <h4></h4>
+
+    <div class="delete-btns flex">
+        <button type="button" class="btn btn-danger" (click)="close()">{{'common.Cancel'|translate}} </button>
+        <button type="button" class="btn btn-success" (click)="proceed()">{{'sellerNew.Proceed' | translate}} </button>
+    </div>
+</div>

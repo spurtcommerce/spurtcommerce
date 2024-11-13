@@ -1,0 +1,236 @@
+<div class="spinner-wrapper">
+</div>
+<div *ngIf="orderSandbox.invoiceDetailLoading$ | async" class="loading-data">{{orderSandbox.settingDetailLoading$ |
+    async}}
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+
+<div class="row vieworder-wrap" *ngIf="(orderSandbox.getOrderDetail$ | async) as detail">
+
+    <div class="vs-order-detail" *ngIf="(orderSandbox.getOrderDetail$ | async) as detail">
+
+
+
+    </div>
+    <!-- Order Wrap -->
+
+    <div class="details-order-wrap" *ngIf="(orderSandbox.getOrderDetail$ | async) as detail">
+
+        <div class="details-order-card flex">
+
+            <div class="doc-col">
+                <h3>{{'Sales.Orders.Detailsoforder'| translate}}</h3>
+                <div class="docc-content">
+                    <h4> <span>{{'Sales.Orders.OrderId'| translate}}</span> <b>{{detail.orderPrefixId}}</b> </h4>
+                    <h4><span>{{'Sales.Orders.Datetime'| translate}}</span> {{detail.createdDate |
+                        dynamicDate:'dd-MMM-yyyy:h:mm a'}}</h4>
+                    <h4><span>{{'Sales.Orders.TotalItems'| translate}}</span> {{detail?.productList.length}}</h4>
+                    <h4><span>{{'Sales.Orders.Ordervalue'| translate}}</span> {{detail.total| currencysymbol}} </h4>
+                </div>
+            </div>
+            <!-- col -->
+
+            <div class="doc-col">
+                <h3>{{'Sales.Orders.Customerdetails'| translate}}</h3>
+                <div class="docc-content">
+                    <h4><span>{{'common.Name'|translate}}</span> <b>{{detail.shippingFirstname}}</b></h4>
+                    <h4><span>{{'Sales.Orders.Email'| translate}}</span> {{detail.email}}</h4>
+                    <h4><span>{{'Sales.Orders.Mobile'| translate}}</span> {{detail.telephone}}</h4>
+                </div>
+            </div>
+            <!-- col -->
+
+            <div class="doc-col">
+                <h3>{{'Sales.Orders.Deliveryaddress'| translate}}</h3>
+                <div class="docc-content">
+                    <p>{{detail.shippingAddress1}}</p>
+                    <p>{{detail.shippingAddress2}}</p>
+                    <p>{{detail.shippingCity}}</p>
+                    <p>{{detail.shippingZone}}</p>
+                    <p>{{detail.shippingPostcode}}</p>
+                </div>
+            </div>
+
+            <div class="doc-col">
+                <h3>{{'marketplace.sales.PaymentStatus'|translate}}</h3>
+                <div class="docc-content">
+                    <div class="toggle products-section">
+                        <div class="vst-col2" *ngIf="(orderSandbox.getOrderDetail$ | async)?.paymentStatus === 0">
+                            <button class="button-reg btn-sm primary" (click)="changePayment()">
+                                {{'marketplace.sales.UpdatePayment'| translate}} </button>
+                        </div>
+
+                        <div class="vst-col2" *ngIf="(orderSandbox.getOrderDetail$ | async)?.paymentStatus === 1">
+                            <p class="paid-sts">{{'marketplace.sales.Paid'| translate}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="doc-col">
+                <h3>{{'Sales.Orders.Invoice'| translate}}</h3>
+                <div class="vst-col4 flex dropdown d-inline-block" ngbDropdown>
+                    <div class="form-group">
+                            <ng-select style="min-width: 110px;" [searchable]="false" [clearable]="false"
+                                placeholder="{{'marketplace.sales.SelectInvoice'| translate}}"
+                                [items]="orderSandbox.vendorListForOrderDetails$ | async" bindLabel="companyName"
+                                bindValue="vendorId" (change)="onChange($event)" [(ngModel)]="selectInvoice">
+                            </ng-select>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="order-detail-list">
+
+        <div class="odl-row flex" *ngFor="let subArray of detail?.productList"
+            [ngClass]="{'active' : subArray.productId === productDetails.productId}">
+            <div class="odlr-lft">
+                <div class="odlrl-top flex">
+                    <div class="odlrl-top-img">
+                        <img style="max-width: 100%;
+                          max-height: 100%;" [src]="
+                            ImageUrl +
+                            '?path=' +
+                            subArray.containerName +
+                            '&name=' +
+                            subArray.image +
+                            '&width=100&height=100'
+                          " onError="this.src='/assets/error-images/Load-icon-Products.png';" class="vendor-img"
+                            [alt]="subArray.name" />
+                    </div>
+                    <div class="odlrl-content">
+                        <h3>{{subArray?.name}}</h3>
+                        <h5>{{subArray?.orderProductPrefixId}}</h5>
+                        <div class="flex odlrl-cont-list">
+                            <div class="odlrl-cl-col">
+                                <p>{{'Sales.Orders.QTY'| translate}}</p>
+                                <h4>{{subArray?.quantity}}</h4>
+                            </div>
+                            <div class="odlrl-cl-col">
+                                <p>{{'Sales.Orders.Price'| translate}}</p>
+                                <h4> {{subArray?.basePrice| currencysymbol}}</h4>
+                            </div>
+                            <div class="odlrl-cl-col">
+                                <p>{{'Sales.Orders.Discount'| translate}}</p>
+                                <h4 *ngIf="subArray.discountAmount!=='0.00'"> {{subArray.discountAmount|
+                                    currencysymbol}} </h4>
+                                <h4 *ngIf="subArray.discountAmount==='0.00' || subArray.discountAmount===null">-</h4>
+                            </div>
+                            <div class="odlrl-cl-col">
+                                <p>{{'Sales.Orders.Tax'| translate}}</p>
+                                <h4 *ngIf="subArray?.taxType === 2">{{subArray?.taxValue}}%</h4>
+                                <h4 class="quantity" *ngIf="subArray?.taxType !== 2"> {{subArray?.taxValue|
+                                    currencysymbol}} </h4>
+                            </div>
+                            <div class="odlrl-cl-col">
+                                <p>{{'Sales.nav.CouponDiscount' | translate}}</p>
+                                <h4 *ngIf="subArray.couponDiscountAmount!==null"> {{subArray.couponDiscountAmount|
+                                    currencysymbol}} </h4>
+                                <h4
+                                    *ngIf="subArray.couponDiscountAmount=='0.00' || subArray.couponDiscountAmount===null">
+                                    -</h4>
+                            </div>
+                            <div class="odlrl-cl-col">
+                                <p>{{'Sales.Orders.Total'| translate}}</p>
+                                <h4> {{subArray?.total| currencysymbol}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="odlrl-btm">
+                    <a href="javascript:void(0)"> {{'Sales.Orders.OrderStatusHistory'| translate}} <img
+                            src="assets/img/edit.svg" alt="" width="12px" (click)="ordersstatushistory(subArray)"
+                            class="cursor"> </a>
+                </div>
+            </div>
+            <div class="odlr-stat">
+                <h5> {{'Sales.Orders.OrderStatus'| translate}}</h5>
+                <!-- <h3>{{subArray?.orderStatusName}}</h3> -->
+                <div class="stat-result" [ngStyle]="{background: subArray?.statusColorCode}"><span
+                        style="color: white">{{subArray?.orderStatusName}}</span></div>
+                <p><i>
+                        {{(subArray?.modifiedDate!==null?subArray?.modifiedDate:detail?.createdDate) | dynamicDate:
+                        '(dd/MM/YYY
+                        hh:mm aa)'}}</i></p>
+                <div class="odlr-stat-mod" *ngIf="orderstatusmodel===subArray">
+                    <a> <img src="assets/img/close.svg" class="cursor" alt="" (click)="closeorderstatus()"> </a>
+                    <p> {{'Sales.Orders.ChangeorderStatus'| translate}}</p>
+                    <ng-select style="width:100% !important" appendTo="body"
+                        placeholder="{{'placeholder.Select Customer Group'|translate}}" [clearable]="false"
+                        [searchable]="false" [(ngModel)]="productDetail.orderStatusId">
+                        <ng-option *ngFor="let data of statusList"
+                            [value]="data.orderStatusId">{{data.name}}</ng-option>
+                    </ng-select>
+                    <button style="margin-top: 14px;"
+                        (click)="onItemProductChange(productDetail.orderStatusId, productDetail.orderProductId)">{{'marketplace.product.Save'|translate}}</button>
+                </div>
+            </div>
+            <div class="odlr-stat" *ngIf="subArray?.orderFullfillmentStatusName" >
+                <h5> {{'fullfillment.Fulfillment'| translate}}</h5>
+                <!-- <h3>{{subArray?.orderStatusName}}</h3> -->
+                <div class="stat-result" [ngStyle]="{background: subArray?.orderFullfillmentStatusColorCode}"><span
+                        style="color: white">{{subArray?.orderFullfillmentStatusName}}</span></div>
+                <p><i>
+                        {{(subArray?.modifiedDate!==null?subArray?.modifiedDate:detail?.createdDate) | dynamicDate:
+                        '(dd/MM/YYY
+                        hh:mm aa)'}}</i></p>
+                <div class="odlr-stat-mod" *ngIf="orderstatusmodel===subArray">
+                    <a> <img src="assets/img/close.svg" class="cursor" alt="" (click)="closeorderstatus()"> </a>
+                    <p> {{'Sales.Orders.ChangeorderStatus'| translate}}</p>
+                    <ng-select style="width:100% !important" appendTo="body"
+                        placeholder="{{'placeholder.Select Customer Group'|translate}}" [clearable]="false"
+                        [searchable]="false" [(ngModel)]="productDetail.orderStatusId">
+                        <ng-option *ngFor="let data of statusList"
+                            [value]="data.orderStatusId">{{data.name}}</ng-option>
+                    </ng-select>
+                    <button style="margin-top: 14px;"
+                        (click)="onItemProductChange(productDetail.orderStatusId, productDetail.orderProductId)">{{'marketplace.product.Save'|translate}}</button>
+                </div>
+            </div>
+
+            <!-- order racking info -->
+            <div class="odlr-ship-info">
+                <h3>{{'Sales.Orders.ShippingInformation'| translate}}</h3>
+                <p>{{'Sales.Orders.TrackingID'| translate}} : {{subArray?.trackingNo}}</p>
+                <p> {{'Sales.Orders.URL'| translate}} : <span style="color:blue">{{subArray?.trackingUrl}}</span></p>
+            </div>
+
+            <!-- Ship -->
+            <div class="odh-mod" *ngIf="ordershistory===subArray">
+                <a class="closemod"> <img src="assets/img/close.svg" class="cursor" alt=""
+                        (click)="closeorderhistory()"> </a>
+                <h3>{{'Sales.Orders.OrderStatusHistory'| translate}} >{{subArray?.name}}</h3>
+                <!-- <swiper class="swiper-container odh-stat" fxFlex="auto" [config]="config">
+                <div style="padding-top:24px" class="odh-stat-col swiper-slide" *ngFor="let log of (orderSandbox.getOrdersLogList$ | async)" [ngClass]="{'odh-stat-col-completed' : log.createdDate !== ''}">
+                    <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+                        <h4>{{log?.name}}</h4>
+                        <p><i>{{log?.createdDate | date: '(dd/MM/YYY hh:mm aa)'}}</i></p>
+                    </div>
+
+                </div>
+            </swiper> -->
+
+                <div class="position-relative">
+                    <div class="pre-btn"><img src="assets/img/arrow-left.svg"></div>
+                    <div class="swiper-container odh-stat" fxFlex="auto" style="display: flex;">
+                        <div style="padding-top:24px; flex-grow: 1;" class="odh-stat-col swiper-slide"
+                            *ngFor="let log of (orderSandbox.getOrdersLogList$ | async)"
+                            [ngClass]="{'odh-stat-col-completed' : log.createdDate !== ''}">
+                            <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+                                <h4>{{log?.name}}</h4>
+                                <p><i>{{log?.createdDate | date: '(dd/MM/YYY hh:mm aa)'}}</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="next-btn"><img src="assets/img/arrow-right.svg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

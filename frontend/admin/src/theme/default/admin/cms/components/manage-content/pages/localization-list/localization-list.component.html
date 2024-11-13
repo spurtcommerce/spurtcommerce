@@ -1,0 +1,100 @@
+<div (keyup.Tab)="focusInput()" class="row products-section vendor-section">
+    <div class="flex filter-row">
+        <div class="filter-lft">
+            <a class="to-back" (click)="back()">
+                <img src="assets/imgs/back.svg" alt=""> 
+            </a>
+            <h2>{{'CMS.Pages.Pages' | translate}} ({{ (sandbox.pageLocalizationCount$ | async)}})</h2>
+        </div>
+        <div class="filter-rht flex">
+            <div class="added-filter flex" *ngFor="let filter of filterSearch | keyvalue">
+                <div class="added-filter-col flex" *ngIf="filter.value">
+                    <span>{{ filter.key }} : {{ getStatusDisplay(filter.key, filter.value) }} </span>
+                    <button (click)="removeFilter(filter)">
+                        <img src="assets/img/close.svg" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="filter-search">
+                <input type="text" placeholder="Search" appNoLeadingSpace (change)="keywordchange($event.target.value)"
+                    [(ngModel)]="keyword" (keydown.enter)="searchList()" #myInput />
+
+                <span> / </span>
+            </div>
+
+            <!-- <button  class="button-reg primary btn-sm" [appHideIfUnauthorized]="'create-customer'">
+                {{'marketplace.common.Back' | translate}}
+            </button> -->
+        </div>
+    </div>
+</div>
+<div class="flex product-wrap example-full-width">
+
+    <div class="product-table">
+
+        <!-- Loader -->
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="sandbox.pageLocalizationListLoading | async"
+                style="transform: translate(38%, 50%);position:absolute">
+            </app-global-loader>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            {{'CMS.Pages.Title' | translate}}
+                        </th>
+                        <th scope="col" class="text-center" *ngFor="let list of languageList">
+                            {{list.name}}
+                        </th>
+                        <th>{{'Sales.Orders.LastUpdated' | translate}}</th>
+                        <th class="text-center" scope="col" [appHideIfUnauthorized]="" [multipleHide]="['edit-page']">
+                            {{'marketplace.seller.Action'| translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let page of pageListArray; let i = index">
+                        <td> {{ page.title? page.title : '-' }} </td>
+                        <td class="text-center" *ngFor="let lang of languageList">
+                            <img *ngIf="page.languageIDS.includes(lang.languageId); else elseBlock"
+                                src="assets/imgs/tick-green.svg">
+                            <ng-template #elseBlock>
+                                <a href="javascript:void(0)" class="link-text" (click)="editPage(page)">{{'marketplace.common.Add' | translate}}</a>
+                            </ng-template>
+                        </td>
+                        <td class="text-nowrap"> {{ page.lastModifieDate ? (page.lastModifieDate | dynamicDate:'dd/MM/yyyy hh:mm a') : (page.createdDate | dynamicDate:'dd/MM/yyyy') }}</td>
+                        <td class="text-center action-btn" [appHideIfUnauthorized]=""
+                            [multipleHide]="['edit-customer','delete-customer']">
+                            <div class="dropdown" ngbDropdown>
+                                <button ngbDropdownToggle> <img src="assets/img/elliptical-h.svg" alt=""> </button>
+                                <div ngbDropdownMenu class="dropdown-menu-end">
+                                    <button [appHideIfUnauthorized]="'edit-customer'" (click)="editPage(page)"> <img
+                                            src="assets/img/edit.svg" alt="">  {{'marketplace.seller.Edit'| translate}}
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- No Data Found -->
+            <div class="nodata-found"
+                *ngIf="(sandbox.pageLocalizationList$ | async)?.length == 0 && (sandbox.pageLocalizationListLoaded | async)">
+                <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+                <h5>{{'marketplace.payments.DataNotFound'| translate}}</h5>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination flex" *ngIf="(sandbox.pageLocalizationCount$ | async) > pageSize">
+            <app-reusable-pagination [type]="'numbers'"
+                [currentPage]="currentPage" [totalItems]="sandbox.pageLocalizationCount$ | async" [pageSize]="pageSize"
+                (pageChange)="onPageChange($event)">
+            </app-reusable-pagination>
+        </div>
+
+    </div>
+</div>

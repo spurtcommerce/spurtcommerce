@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5892" data-name="Rectangle 5892" width="56" height="56" rx="8" fill="#fff" opacity="0.728"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_5893" data-name="Rectangle 5893" width="32" height="32" transform="translate(-8396 3752)" fill="#fff" stroke="#fff" stroke-width="2"/>
+    </clipPath>
+  </defs>
+  <g id="pricing" transform="translate(8406 -3742)">
+    <g id="Mask_Group_937" data-name="Mask Group 937" transform="translate(-8406 3742)" clip-path="url(#clip-path)">
+      <g id="Group-2" transform="translate(-10.493 -16.323)">
+        <path id="Polygon" d="M38.767,0,77.534,22.153V66.458L38.767,88.61,0,66.458V22.153Z" transform="translate(0)" fill="#078e05" fill-rule="evenodd"/>
+        <path id="Path-8" d="M0,87.109l.018-44.15,38.825,66.106Z" transform="translate(0 -20.454)" fill="#028400" fill-rule="evenodd"/>
+        <path id="Path-9" d="M0,22.137,77.5,66.464,38.867,0Z" fill="#027600" fill-rule="evenodd"/>
+        <path id="Path-10" d="M73.649.25,112.2,22.412,97.975,42.745Z" transform="translate(-34.668 -0.119)" fill="#02ad00" fill-rule="evenodd"/>
+      </g>
+    </g>
+    <g id="Mask_Group_961" data-name="Mask Group 961" transform="translate(2 2)" clip-path="url(#clip-path-2)">
+      <g id="dollar-01-stroke-rounded_3_" data-name="dollar-01-stroke-rounded (3)" transform="translate(-8390.146 3753.171)">
+        <path id="Path_7272" data-name="Path 7272" d="M29.106,13.973c0-3.353-4.164-6.07-9.3-6.07s-9.3,2.718-9.3,6.07,2.537,5.2,9.3,5.2,10.146,1.734,10.146,6.07-4.543,6.07-10.146,6.07S9.659,28.6,9.659,25.247" transform="translate(-9.659 -4.78)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+        <path id="Path_7273" data-name="Path 7273" d="M21.951,4.39V7.06m0,26.989V31.38" transform="translate(-11.024 -4.39)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

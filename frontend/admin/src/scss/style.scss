@@ -1,0 +1,104 @@
+/*
+Template Name: Admin Template
+Author: Niravjoshi / Wrappixel
+File: scss
+*/
+
+//(Required file)
+@import 'variable';
+// Import Bootstrap source files (Required file)
+// @import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+//This is for the components (Required file)
+@import 'components';
+//This is for the pages (if you are not using some pages you can remove that style from pages folder)
+@import 'pages';
+//This is for the widgets (Required file)
+@import 'widgets/widgets';
+//This is for the horizontal version if you are not using horizontal version you can remove this
+@import 'horizontal/horizontal';
+//This is for the responsive (Required file)
+@import 'responsive';
+//In This scss you can write your scss
+@import 'custom';
+//This is for the icons (Required file)
+@import 'icons/font-awesome/css/fontawesome-all.css';
+@import 'icons/simple-line-icons/css/simple-line-icons.css';
+@import 'icons/weather-icons/css/weather-icons.min.css';
+@import 'icons/themify-icons/themify-icons.css';
+@import 'icons/flag-icon-css/flag-icon.min.css';
+@import "icons/material-design-iconic-font/css/materialdesignicons.min.css";
+@import "icons/crypto-icons/cryptocoins.css";
+// this is for the perfect scrollbar
+// @import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+.invalid {
+    border: 1px solid #f62d51 !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.table> :not(:first-child) {
+    border-top: 0px solid currentColor;
+}
+
+.table td,
+.table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.text-right {
+    text-align: right!important;
+}
+
+.table> :not(caption)>*>* {
+    // padding: 0.5rem 0.5rem;
+    // background-color: var(--bs-table-bg);
+    border-bottom-width: 0;
+}
+
+
+.data-product-not-available {
+    margin: auto !important;
+    margin-top: 100px !important;
+    max-width: 530px;
+    width: 90%;
+    margin: 32px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 144px;
+    gap: 14px;
+    position: relative;
+    border-radius: 7px;
+    background-color: #f6faff;
+    padding-top: 35px;
+    img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: -45px;
+    }
+    p {
+        font-size: 16px;
+        font-weight: normal;
+        color: #386aaf;
+    }
+    button {
+        padding: 7px 11px 7px 12px;
+        border-radius: 4px;      
+        background-color: #386aaf;
+        font-size: 13px;
+        font-weight: 500;
+        color: #fff;
+    }
+}

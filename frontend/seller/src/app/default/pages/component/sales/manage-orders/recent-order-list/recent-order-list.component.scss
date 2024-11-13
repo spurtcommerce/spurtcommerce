@@ -1,0 +1,113 @@
+.btn-group {
+    white-space: nowrap;
+}
+.btn-group .btn {
+    float: none;
+    display: inline-block;
+}
+.btn + .dropdown-toggle {
+    margin-left: -4px;
+}
+
+
+.dropdown .dropdown-menu form .input-group input , .dropdown .dropdown-menu form .input-group ng-select{
+    width: 100%;
+}
+.table-responsive .no-data{
+    text-align: center;
+    color: #1a1b1c;
+}
+.pagination {
+    padding: 1.5rem 0;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 50px;
+    p {
+        font-weight: 300;
+        font-size: 0.875rem;
+        color: #5D636D;
+        span {
+            font-weight: 500;
+        }
+    }
+    .pagi-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto; 
+        gap: 0.5rem;
+        a {
+            width: 2.5rem;
+            aspect-ratio: 1;
+            border: 1px solid #CED4DA;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: #4F575E;
+            &:first-child {
+                opacity: 0.5;
+            }
+            &.active {
+                border: 1px solid #407BFF;
+                color: #407BFF;
+            }
+        }
+    }
+}
+
+
+
+
+/* make sidebar nav vertical */
+
+@media (min-width: 992px) {}
+
+@media screen and (max-width: 992px) and (min-width: 767px) {
+
+}
+
+@media screen and (max-width: 992px) {
+
+}
+
+@media screen and (max-width: 766px) and (min-width: 500px) {
+
+}
+
+@media screen and (max-width: 500px) {
+
+}
+
+.search-menu::-webkit-input-placeholder { /* Edge */
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #c6c6c6;  }
+  
+ .search-menu:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #c6c6c6;  }
+  
+.search-menu::placeholder {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #c6c6c6;
+  }

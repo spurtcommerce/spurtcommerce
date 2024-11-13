@@ -1,0 +1,106 @@
+<div class="spinner-wrapper">
+    <app-global-loader [isShow]="orderSandbox.viewOrderDetailsLoading$ | async" style="transform: translate(38%, 50%);"></app-global-loader>
+</div>
+
+<div class=""  *ngIf="(orderSandbox.viewOrderDetails$ | async) as detail">
+
+    <div class="verify-seller-info">
+        <a href="javascript:void(0)"> <img src="assets/imgs/back.svg" alt="" (click)="Back()"> </a>
+        <h2>{{detail.orderPrefixId}}</h2>
+        <div class="verify-seller-info-col">
+            Created on: <span>{{detail.createdDate | date:'dd-MMM-yyyy:h:mm a'}}</span>
+        </div>
+        <button class="button-reg ms-auto btn-sm" [appHideIfUnauthorized]="'move-failed-order-to-main-order'" (click)="moveToMainOrder(detail)"> {{'common.Move to Main Order'| translate}} </button>
+    </div>
+
+    <div class="verify-header m-0">
+        <div class="verify-header-lft">
+            <div class="verify-header-row flex">
+                <!-- <div class="verify-header-image">
+                    <img src="assets/imgs/seller-img.png" alt="">
+                </div> -->
+                <div class="verify-header-inner-row flex">
+                    <div class="verify-header-lft-row flex">
+                        <div class="title-align">
+                            <p> <span> {{'Sales.Orders.Name'| translate}} </span> {{detail.shippingFirstname}} {{detail.shippingLastname}} </p>
+                            <p> <span> {{'Sales.Orders.Email'| translate}} </span> {{detail.email}} </p>
+                            <p> <span>{{'Sales.Orders.Mobile'| translate}} </span> {{detail.telephone}} </p>
+                        </div>
+                    </div>
+                    <div class="verify-header-lft-row flex">
+                        <div class="title-align">
+                            <p> 
+                                <span> {{'Sales.Orders.Address'| translate}} </span> 
+                                {{detail.shippingAddress1}} {{detail.shippingAddress2}}, {{detail.shippingCity}}, {{detail.shippingZone}}, {{detail.shippingCountry}} {{detail.shippingPostcode}}
+                            </p>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex addproduct-wrap p-3">
+        <div class="card ap-general">
+            <div class="ap-header sub-sub-header">
+                <h3 class="d-flex">
+                    Order Information
+                    <div class="d-inline-flex ms-auto">
+                        <span class="status-badge" [style.background-color]="subArray?.statusColorCode">{{subArray?.orderStatusName}}</span>
+                    </div>
+                </h3>
+                <p>View the details of a specific order, including Order ID, customer name, email, contact number, shipping address, product name, quantity, price, discount, tax, coupon discount, and total order value.</p>
+            </div>
+            <div class="ap-body">
+                <div *ngFor="let subArray of detail?.productList" (click)="getOrderDetails(subArray)" [ngClass]="{'active' : subArray?.productId === productDetail?.productId}">
+                    <div class="product-table">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th class="text-center">{{'Sales.Orders.Quantity'| translate}}</th>
+                                        <th class="text-right">{{'Sales.Orders.Price'| translate}}</th>
+                                        <th class="text-right">{{'Sales.Orders.Discount'| translate}}</th>
+                                        <th class="text-right">{{'Sales.Orders.Tax'| translate}}</th>
+                                        <th class="text-right">{{'Sales.nav.CouponDiscount'|translate}}</th>
+                                        <th class="text-right">{{'Sales.Orders.Total'| translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="product-image"> 
+                                            <img  [src]="
+                                imageUrl +
+                                '?path=' +
+                                subArray.containerName +
+                                '&name=' +
+                                subArray.image +
+                                '&width=100&height=100'
+        
+                              " onError="this.src='/assets/error-images/Load-icon-Products.png';" class="vendor-img" [alt]="subArray.name" /> </td>
+                                        <td width="45%">
+                                            <h4>{{subArray?.name}} <span *ngIf="detail?.orderType === 'game'">(Round ID: {{subArray?.drawNo}})</span></h4>
+                                            <span class="id">{{subArray?.skuName}}</span>
+                                            <p>{{subArray?.varientName}}</p>
+                                        </td>
+                                        <td class="text-center">{{subArray?.quantity}}</td>
+                                        <td class="text-right price"> {{subArray?.basePrice| currencysymbol}}</td>
+                                        <td class="text-right price"> {{subArray.discountAmount| currencysymbol}} </td>
+                                        <td class="text-right" *ngIf="subArray?.taxType === 2">{{subArray?.taxValue}}%</td>
+                                        <td class="text-right" *ngIf="subArray?.taxType !== 2"> {{subArray?.taxValue| currencysymbol}} </td>
+                                        <td class="text-right price"> {{subArray.couponDiscountAmount ? subArray.couponDiscountAmount : 0| currencysymbol}} </td>
+                                        <td class="price text-right"> {{subArray?.total| currencysymbol}} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

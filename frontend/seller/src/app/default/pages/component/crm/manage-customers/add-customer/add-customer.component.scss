@@ -1,0 +1,151 @@
+::ng-deep.delete-confirm.modal {
+  top: 0 !important;
+}
+
+.overall-style {
+  padding: 20px 30px 30px;
+}
+
+.head-modal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #ececf1;
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #202123;
+    margin: 0;
+  }
+  button {
+    border: 0;
+    background-color: transparent;
+  }
+}
+
+.header-data {
+  display: flex;
+  justify-content: space-between;
+}
+.header-data input {
+  display: block;
+  width: 100%;
+  border: 1px solid #ebeff3;
+  height: 2rem;
+  border-radius: 0.1875rem;
+  padding: 0 0.5rem;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  color: #333;
+  background-image: url("../../../../../../../assets/imgs/search-white.svg");
+  background-repeat: no-repeat !important;
+  background-position: right 0.5rem center;
+}
+.left-data {
+  border: thin solid #ebeff3;
+  padding: 0.5rem;
+  height: calc(100vh - 32rem);
+  overflow-y: auto;
+  min-height: 20rem;
+}
+
+.details-div {
+  padding: 0.25rem;
+  display: grid;
+  grid-template-columns: 1fr 1.0625rem;
+  grid-gap: 1rem;
+  gap: 1rem;
+}
+.data-array {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.125rem;
+}
+.btn-add {
+  width: 1.0625rem;
+  height: 1.0625rem;
+  border-radius: 0.1875rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6fafe;
+  border: 0;
+}
+.combined-array {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3rem;
+  gap: 3rem;
+  margin-top: 1.5rem;
+}
+.heading-customer {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(71, 88, 103);
+  margin-bottom: 1rem;
+}
+.right-array {
+  border: thin solid #ebeff3;
+  padding: 0.5rem;
+  height: calc(100vh - 32rem);
+  overflow-y: auto;
+  min-height: 20rem;
+}
+.footer-content {
+  display: flex;
+  background-color: #f9f9f9;
+  height: 4.1875rem;
+  justify-content: flex-end;
+  align-items: center;
+  padding-inline: 2rem;
+  gap: 1.5rem;
+}
+.upload-btn {
+  min-width: 4.75rem;
+  height: 2.1875rem;
+  padding-inline: 1rem;
+  background-color: #0e2a3e;
+  color: #d0dfe8;
+}
+.cancel-btn {
+  min-width: 4.75rem;
+  height: 2.1875rem;
+  padding-inline: 1rem;
+  border: thin solid #d0dfe8;
+  background-color: #f1f8ff;
+  color: #0e2a3e;
+}
+.delete-btn {
+  position: absolute;
+  border: none;
+  right: 14px;
+  top: 10px;
+  width: 60px;
+  height: 42px;
+  background-color: transparent;
+}
+::ng-deep.modal-dialog-centered {
+  max-width: 70rem;
+}
+
+.disableClass {
+  opacity: 0.5;
+  cursor: default;
+}
+
+::ng-deep.permisson-modal.modal.fade .modal-dialog {
+  max-width: 55.087rem !important;
+}
+
+.nodata {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 2rem;
+  min-height: unset;
+  height: 100%;
+  text-align: center;
+}

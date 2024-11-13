@@ -1,0 +1,1203 @@
+<div class="multisitelist-wrapper">
+    <div class="multisitelist-title flex">
+        <a class="to-back" [routerLink]="['/settings/multiple-websites/list']">
+            <img src="assets/imgs/back.svg" alt="">
+         </a>
+        <h3 *ngIf="[null,'', undefined].includes(settingId);else yyy">{{'Additional.Create new site'|translate}}</h3>
+        <ng-template #yyy>
+            <h3>{{'Additional.Edit site'|translate}}</h3> : {{siteName}}
+        </ng-template>
+    </div>
+    <form [formGroup]="multipleWebsitesForm">
+        <ul ngbNav #nav="ngbNav" [(activeId)]="actives" class="nav-tabs nav">
+            <li [ngbNavItem]="1">
+                <a ngbNavLink> <span> {{'Additional.General'|translate}} </span> </a>
+                <ng-template ngbNavContent>
+
+                    <div class="flex addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                              <h3>{{'Additional.Websites details'|translate}}</h3>
+
+                              <p>{{'Additional.Website_Details'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="ap-form-row">
+                                    
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                          <label>{{'Additional.Site Name'|translate}}*</label>
+                                          <div class="fg-row">
+                                                <input type="text" appNoLeadingSpace class="form-control" formControlName="siteName"
+                                                    placeholder="{{'placeholder.Enter Site Name'|translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls.siteName.errors && submitted==true}">
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.siteName.errors && submitted==true">
+                                                    {{'Additional.Site Name is required'|translate}}                    
+                                                </div>
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.get('siteName').hasError('maxlength')&&submitted==true">
+                                                    {{'Settings.generalsettings.Error.Mustbemaximum255characterslong'| translate}}
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.Site URL'|translate}}*
+                                                <button type="button" class="tooltip-btn" placement="end"
+                                                ngbTooltip="Enter your site url. Eg: https://your-domain-url/">
+                                                    <img src="assets/img/info-ico.svg" />
+                                                </button>
+                                            </label>
+                                            <div>                                                
+                                                <div class="fg-row fg-url">
+                                                    <div class="fg-lable">WWW</div>
+                                                    <input type="text" class="form-control" formControlName="siteURL" appNoLeadingSpace
+                                                        placeholder="{{'placeholder.Enter Site URL'|translate}}"
+                                                        [ngClass]="{'validationcolor':multipleWebsitesForm.controls.siteURL.errors && submitted==true}">
+                                                </div>      
+                                                <div *ngIf="multipleWebsitesForm.get('siteURL').touched">
+                                                    <div class="validation-error"
+                                                       *ngIf="multipleWebsitesForm.controls.siteURL.value == '' && submitted==true">
+                                                       {{'Settings.generalsettings.Error.URLmustbevalid'| translate}}
+                                                    </div>
+                                                    <div class="validation-error"
+                                                       *ngIf="multipleWebsitesForm?.get('siteURL')?.errors['pattern'] && submitted==true">
+                                                       {{'Settings.generalsettings.Error.InvalidUrl'| translate}}
+                                                    </div>
+                                                </div>              
+                                            </div>                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.Short description'|translate}}*</label>
+                                            <div class="fg-row">
+                                                <input type="text" class="form-control" formControlName="shortDescription" appNoLeadingSpace
+                                                    placeholder="{{'placeholder.Enter Short description'|translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls.shortDescription.errors && submitted==true}">
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.shortDescription?.errors?.required && submitted==true">
+                                                    {{'Additional.short Description is required'|translate}}
+                                                </div>
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.shortDescription.errors?.maxlength">
+                                                    {{'common.Maximum 255 characters'| translate}}
+                                                </div>  
+                                            </div>                                            
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="flex addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                              <h3>{{'Additional.Company details'|translate}}</h3>
+                              <p>{{'Additional.Company_Details'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="ap-form-row6">
+                                    
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.Business Name'|translate}}*
+                                                    <button type="button" class="tooltip-btn" placement="end"
+                                                        ngbTooltip="Enter the business name">
+                                                        <img src="assets/img/info-ico.svg" />
+                                                    </button>
+                                            </label>
+                                            <div class="fg-row">
+                                                <input type="text" class="form-control" formControlName="businessName" appNoLeadingSpace
+                                                    placeholder="{{'placeholder.Enter Business Name'|translate}}"
+                                                    [ngClass]="{'validationcolor':(multipleWebsitesForm.controls.businessName.errors && submitted==true)||multipleWebsitesForm.controls['businessName'].hasError('pattern')}">
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.businessName.invalid && submitted==true">
+                                                    {{'Additional.business Name is required'|translate}}
+                                                </div>
+
+                                                <div *ngIf="(multipleWebsitesForm.controls['businessName'].hasError('pattern') && (multipleWebsitesForm.controls['businessName'].dirty))"
+                    class="validation-error">{{'ValidationsErrorMessage.Onlyalphabetsnumbersspacesdollarsignscommasapostrophesampersandsandhyphensareallowed'|translate}}.</div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.Business Owner'|translate}}*
+                                                <button type="button" class="tooltip-btn" placement="end"
+                                                    ngbTooltip="Enter the business owner">
+                                                    <img src="assets/img/info-ico.svg" />
+                                                </button>
+                                            </label>
+                                            <div class="fg=row">                                                
+                                                <input type="text" class="form-control" formControlName="businessOwnerName" appNoLeadingSpace
+                                                placeholder="{{'placeholder.Enter Business Owner'|translate}}"
+                                                [ngClass]="{'validationcolor':(multipleWebsitesForm.controls.businessOwnerName.errors && submitted==true||multipleWebsitesForm.controls['businessOwnerName'].hasError('pattern'))}">
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.businessOwnerName.invalid && submitted==true">
+                                                    {{'Additional.business Owner Name is required'|translate}}
+                                                </div> 
+                                                <div class="validation-error" *ngIf="multipleWebsitesForm.controls['businessOwnerName'].hasError('pattern')">
+                                                    {{'ValidationsErrorMessage.Allowonlyalphabetsspaces'| translate}}</div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.Email'|translate}}*</label>
+                                            <div class="fg-row">
+                                                <input type="text" class="form-control" formControlName="email" appNoLeadingSpace
+                                                placeholder="{{'placeholder.Enter Email Address'|translate}}"
+                                                [ngClass]="{ 'validationcolor': multipleWebsitesForm.controls.email.errors && submitted==true}">
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.email.invalid && submitted==true">
+                                                    {{'Additional.Email must be a valid email address'|translate}}
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>  
+                                    
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.Mobile'|translate}}*</label>
+                                            <div class="fg-row">
+                                                <input type="text" class="form-control" appOnlyNumber maxlength="15" appNoLeadingSpace
+                                                    placeholder="{{'placeholder.Enter Mobile Number'|translate}}"
+                                                    formControlName="mobile"
+                                                    [ngClass]="{ 'validationcolor': multipleWebsitesForm.controls.mobile.errors && submitted==true}">
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.mobile.invalid && submitted==true">
+                                                    {{'Additional.Mobile Number is required'|translate}}
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>  
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="flex addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                              <h3>{{'Additional.Address Details'|translate}}</h3>
+
+                              <p>{{'Additional.Address_Details'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="ap-form-row6">
+                                    
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.AddressLine'|translate}} 1*
+                                            </label>
+                                            <div class="fg-row">
+                                                <input type="text" class="form-control" formControlName="address1" appNoLeadingSpace
+                                                    placeholder="{{'placeholder.Enter Address1'|translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls.address1.errors && submitted==true}">
+                                                <div class="validation-error"
+                                                        *ngIf="multipleWebsitesForm.controls.address1.invalid && submitted==true">
+                                                        {{'Additional.Address is required'|translate}}
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.AddressLine'|translate}} 2*
+                                            </label>
+                                            <div class="fg=row">                                                
+                                                <input type="text" class="form-control" formControlName="address2" appNoLeadingSpace
+                                                    placeholder="{{'placeholder.Enter Address2'|translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls.address2.errors && submitted==true}">
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.address2.invalid && submitted==true">
+                                                    {{'Additional.Address is required'|translate}}
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.Country'|translate}}*</label>
+                                            <div class="fg-row">
+                                                <ng-select  placeholder="{{'placeholder.select country'|translate}}" 
+                                                    [ngClass]="{'error-fields':multipleWebsitesForm.get('country').hasError('required')&&submitted==true}"
+                                                    [searchable]="true" formControlName="country" [clearable]="false"
+                                                    (change)="selectCountry($event)">
+                                                    <ng-option *ngFor="let array of countryList" [value]='array.countryId'>{{ array.name
+                                                        }}
+                                                    </ng-option>
+                                                </ng-select>
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.country.invalid && submitted==true">
+                                                    {{'Additional.Country is required'|translate}}
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>  
+                                    
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.State/Province'|translate}}*</label>
+                                            <div class="fg-row">
+                                                <ng-select placeholder="{{'placeholder.Select State'|translate}}"
+                                                    [ngClass]="{'error-fields':multipleWebsitesForm.get('state').hasError('required')&&submitted==true}"
+                                                    [searchable]="true" formControlName="state" [clearable]="false">
+                                                    <ng-option *ngFor=" let array of stateList"
+                                                        [value]='array.zoneId'>{{ array.name }}</ng-option>
+                                                </ng-select>
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.state.invalid && submitted==true">
+                                                    {{'Additional.State is required'|translate}}
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>  
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.City'|translate}}*</label>
+                                            <div class="fg-row">
+                                                <input type="text" class="form-control" formControlName="city" appNoLeadingSpace
+                                                placeholder="{{'placeholder.Enter City'|translate}}"
+                                                [ngClass]="{'validationcolor':multipleWebsitesForm.controls.city.errors && submitted==true}">
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.city.invalid && submitted==true">
+                                                    {{'Additional.City is required'|translate}}
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>  
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.Zip/Postal Code'|translate}}*</label>
+                                            <div class="fg-row">
+                                                <input type="text" class="form-control" formControlName="postcode" maxlength="6" appNoLeadingSpace
+                                                    appOnlyNumber placeholder="{{'placeholder.Enter Postal Code'|translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls.postcode.errors && submitted==true}">
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.postcode.invalid && submitted==true">
+                                                    {{'Additional.Postcode is required'|translate}}
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div> 
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="flex addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+
+                              <h3>{{'Additional.Site_Logo_Updates'|translate}}</h3>
+                                 <p>{{'Additional.Site_Logo_Update'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="ap-form-row site-logo-upload">
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'Additional.Website logo'|translate}}*
+                                                <p>{{'Additional.Upload logo for website'|translate}}</p>
+                                            </label>
+                                            <div class="multi-upload-logo">
+                                                <div class="multi-upload-logo-innr logo">
+                                                    <div *ngIf="!postImageUrl" class="imageView">
+                                                        <img src="assets/img/upload-img.svg" alt="">
+                                                        <p>{{'Additional.upload-simple'|translate}}</p>
+                                                        <input type="file" accept="image/*" #filePath (change)="uploadStoreLogo($event)" title="">
+                                                    </div>
+                                                    <div *ngIf="postImageUrl" class="multi-upload-logo-innr logo ">
+                                                        <img *ngIf="postImageUrl !== ''" [src]="postImageUrl" >
+                                                        <input type="file" accept="image/*" #filePath (change)="uploadStoreLogo($event)" title="">
+                                                    </div>
+                                                </div>                                                
+                                                <h6 ><sup class="imp"> *</sup>{{'catalog.Error.Support'|translate}}</h6>
+                                                <!-- <div *ngIf="websiteimageSizeError" class="upload-error validation-error">{{ 'catalog.Error.Imageshouldbelessthan2MB' | translate }}</div>
+                                                <div *ngIf="websiteimagetypeError" class="upload-error validation-error">
+                                                    {{ 'catalog.Error.Pleaseuploadimageonly(.png,.jpg,.jpeg)' | translate }}
+                                                </div> -->
+                                                <div *ngIf="['',null,undefined].includes(postImageUrl)&& submitted==true"
+                                                    class="validation-error">
+                                                    {{'Additional.Please Upload image'|translate}}
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'Settings.generalsettings.InvoiceLogo' | translate}}*
+                                                <p>{{'Settings.generalsettings.Upload logo for Invoice' | translate}}</p>
+                                            </label>
+                                            <div class="multi-upload-logo">
+                                                <div class="multi-upload-logo-innr logo">
+                                                    <input type="file" name="invoiceImg" title="" (change)="uploadInvoiceImage($event)" accept="image/*" #filePath3>
+                                                    <img *ngIf="postInvoiceImageUrl !== ''" [src]="postInvoiceImageUrl" class="up-img" [alt]="invoiceImg">
+                                                    <img *ngIf="postInvoiceImageUrl === ''" src="assets/img/upload-img.svg" class="up-img">                        
+                                                </div>                                                
+                                                <h6><sup class="imp"> *</sup>{{support}}</h6>
+                                                <!-- <div *ngIf="invoiceimageSizeError" class="upload-error validation-error">{{ 'catalog.Error.Imageshouldbelessthan2MB' | translate }}</div>
+                                                <div *ngIf="invoiceimagetypeError" class="upload-error validation-error">
+                                                    {{ 'catalog.Error.Pleaseuploadimageonly(.png,.jpg,.jpeg)' | translate }}
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'Settings.generalsettings.Email Temlate Logo' | translate}}*
+                                                <p>{{'Settings.generalsettings.Upload logo for Email Template' | translate}}</p>
+                                            </label>
+                                            <div class="multi-upload-logo">
+                                                <div class="multi-upload-logo-innr logo">
+                                                    <input  type="file" name="mailImg" title="" (change)="uploadMailImage($event)" accept="image/*" #filePath3>
+                                                    <img *ngIf="postEmailImageUrl !== ''"  [src]="postEmailImageUrl" [alt]="mailImg">
+                                                    <img *ngIf="postEmailImageUrl === ''"  src="assets/img/upload-img.svg" class="up-img">
+                                                </div>                                                
+                                                <h6><sup class="imp"> *</sup>{{support}}</h6>
+                                                <!-- <div *ngIf="mailimageSizeError" class="upload-error validation-error">{{ 'catalog.Error.Imageshouldbelessthan2MB' | translate }}</div>
+                                                <div *ngIf="mailimagetypeError" class="upload-error validation-error">
+                                                    {{ 'catalog.Error.Pleaseuploadimageonly(.png,.jpg,.jpeg)' | translate }}
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">Admin Logo*
+                                                <p>Upload logo for Admin</p>
+                                            </label>
+                                            <div class="multi-upload-logo">
+                                                <div class="multi-upload-logo-innr logo">
+                                                    <input  type="file" name="mailImg" title="" (change)="uploadAdminImage($event)" accept="image/*" #filePath4>
+                                                    <img *ngIf="postAdminImageUrl !== ''"  [src]="postAdminImageUrl" [alt]="mailImg">
+                                                    <img *ngIf="postAdminImageUrl === ''"  src="assets/img/upload-img.svg" class="up-img">
+                                                </div>                                                
+                                                <h6><sup class="imp"> *</sup>{{support}}</h6>
+                                                <div *ngIf="['',null,undefined].includes(postAdminImageUrl)&& submitted==true"
+                                                class="validation-error">
+                                                {{'Additional.Please Upload image'|translate}}
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">Seller Logo-Expanded View*
+                                                <p>Upload logo for Seller</p>
+                                            </label>
+                                            <div class="multi-upload-logo">
+                                                <div class="multi-upload-logo-innr logo">
+                                                    <input  type="file" name="mailImg" title="" (change)="uploadSellerImage($event)" accept="image/*" #filePath5>
+                                                    <img *ngIf="postSellerImageUrl !== ''"  [src]="postSellerImageUrl" [alt]="mailImg">
+                                                    <img *ngIf="postSellerImageUrl === ''"  src="assets/img/upload-img.svg" class="up-img">
+                                                </div>                                                
+                                                <h6><sup class="imp"> *</sup>{{support}}</h6>
+                                                <div *ngIf="['',null,undefined].includes(postSellerImageUrl)&& submitted==true"
+                                                class="validation-error">
+                                                {{'Additional.Please Upload image'|translate}}
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">        
+                                        <div class="form-group">
+                                            <label class="d-block">Seller Logo-Collapse View*
+                                                <p>Upload logo for Seller</p>
+                                            </label>
+                                            <div class="multi-upload-logo">
+                                                <div class="multi-upload-logo-innr logo">
+                                                    <input  type="file" name="mailImg" title="" (change)="uploadSellerImageMini($event)" accept="image/*" #filePath6>
+                                                    <img *ngIf="miniPostSellerImageUrl !== ''"  [src]="miniPostSellerImageUrl" [alt]="mailImg">
+                                                    <img *ngIf="miniPostSellerImageUrl === ''"  src="assets/img/upload-img.svg" class="up-img">
+                                                </div>                                                
+                                                <h6><sup class="imp"> *</sup>{{support}}</h6>
+                                                <div *ngIf="['',null,undefined].includes(miniPostSellerImageUrl)&& submitted==true"
+                                                class="validation-error">
+                                                {{'Additional.Please Upload image'|translate}}
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                </ng-template>
+            </li>
+            <!-- <li [ngbNavItem]="2">
+                <a ngbNavLink> <span> {{'Additional.Product category'|translate}} </span> </a>
+                <ng-template ngbNavContent>
+                    <div class="multi-prd-category-top flex" *ngIf="settingId">
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Site Name'|translate}}</p>
+                            <h4 class="">{{detailsData.siteName}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Site URL'|translate}}</p>
+                            <h4 class="">{{detailsData.siteUrl}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Short description'|translate}}</p>
+                            <h4>{{detailsData.storeDescription}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'attributes.status'|translate}}</p>
+                            <h4 class="active">{{detailsData.isActive == 1 ? 'Active' : 'In-Active'}}</h4>
+                        </div>
+                    </div>
+                    <div class="addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                                <h3>{{'Additional.Category selection'|translate}}</h3>
+                                <p>{{'Additional.Choose categories for the website'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="flex categories-row">
+                                    <div class="categories-col">
+                                        <h3 class="sub-sub-header">{{'Additional.Available Categories'|translate}}</h3>
+                                        <div class="categories-col-innr">
+                                            <div class="form-group search-categories">
+                                                <input type="text" class="search"  appNoLeadingSpace [(ngModel)]="searchText"  [ngModelOptions]="{standalone: true}"
+                                                    placeholder="{{'Additional.Available Categories'|translate}}">
+                                            </div>
+        
+                                            <ul class="flex category-list over-flowx">
+                                                <ng-container *ngFor="let arr of categoryList | filter:searchText; let i =index">
+                                                    <li (click)="selectCategory(arr,i)" style="cursor: pointer">
+                                                        <div class="drag"> <img src="assets/img/drag.svg" alt=""> </div>
+                                                        <p>{{arr.levels}}</p>
+                                                        <a href="javascript:void(0)"><img src="assets/img/add-outline-dark.svg"
+                                                                alt="add">
+                                                        </a>   
+                                                    </li>
+                                                </ng-container>
+                                                <li class="noData-txt" *ngIf="(categoryList | filter:searchText).length == 0">{{'Validation.No Data Found' | translate}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="categories-col">
+                                        <h3 class="sub-sub-header">{{'Additional.Selected categories'|translate}}* </h3>
+                                        <div class="categories-col-innr">
+                                            <div class="form-group search-categories">
+                                                <input type="text" class="search" appNoLeadingSpace formControlName="selectedCategories"
+                                                    placeholder="{{'Additional.Selected categories'|translate}}" [(ngModel)]="searchAssignCategory">
+                                            </div>
+                                            <ul class="flex category-list " *ngIf="show!=true || settingId" style="cursor: pointer">
+                                                <span>
+                                                    <ng-container>
+                                                        <li *ngFor="let selected of selectedCategories| filter:searchAssignCategory;let i=index"
+                                                            (click)="removeCategory(selected,i)">
+                                                            <div class="drag"> <img src="assets/img/drag.svg" alt=""> </div>
+                                                            <p>{{selected.levels}}</p>
+                                                            <a href="javascript:void(0)">
+                                                                <img src="assets/img/minus-dark.svg" alt="delete"> 
+                                                            </a>
+                                                        </li>
+                                                    </ng-container>
+                                                    <li class="noData-txt" *ngIf="(selectedCategories| filter:searchAssignCategory).length == 0">{{'Validation.No Data Found' | translate}}</li>
+                                                </span>
+            
+                                            </ul>
+            
+                                        </div>
+                                        <div class="validation-error" *ngIf="tempCategoryData?.length == 0 && submitted==true">
+                                            {{'Additional.selectedCategoriesIsRequired' | translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </ng-template>
+            </li> -->
+            <li [ngbNavItem]="3">
+                <a ngbNavLink> <span> {{'Additional.Site Localisation'|translate}} </span></a>
+                <ng-template ngbNavContent>
+                    <div class="multi-prd-category-top flex" *ngIf="settingId">
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Site Name'|translate}}</p>
+                            <h4 class="">{{detailsData.siteName}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Site URL'|translate}}</p>
+                            <h4 class="">{{detailsData.siteUrl}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Short description'|translate}}</p>
+                            <h4>{{detailsData.storeDescription}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'attributes.status'|translate}}</p>
+                            <h4 class="active">{{detailsData.isActive == 1 ? 'Active' : 'In-Active'}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                                <h3>{{'Additional.Currency details'|translate}}</h3>
+                                <p>{{'Additional.Choose the relevant currency'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="ap-form-row6">
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'Additional.Currency'|translate}}*
+                                                <button type="button" class="tooltip-btn" placement="end"
+                                                    ngbTooltip="Select the Currency">
+                                                    <img src="assets/img/info-ico.svg" />
+                                                </button>
+                                            </label>
+                                            <div class="fg-row">
+                                                <ng-select [searchable]="false" placeholder="{{'placeholder.Select Currency'|translate}}"
+                                                    [ngClass]="{'error-fields':multipleWebsitesForm.get('currency').hasError('required')&&submitted==true}" placeholder="Select Currency"
+                                                    [appDisableIfUnauthorized]="'edit-general-settings'" formControlName="currency" (change)="currencySymbol($event)"
+                                                    [clearable]="false">
+                                                    <ng-option *ngFor="let currencylist of currencysandbox.currencyList$ | async"
+                                                        [value]='currencylist.currencyId'> {{currencylist.title}}</ng-option>
+                                                </ng-select>
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.currency.errors && submitted==true">
+                                                    {{'Additional.currencyIsRequired'| translate}}
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'Additional.Symbol'|translate}}*
+                                            </label>
+                                            <div class="fg-row"> 
+                                                <input type="text" class="form-control" appNoLeadingSpace
+                                                    placeholder="{{'Additional.Symbol'|translate}}" disabled
+                                                    formControlName="symbol">
+                                                    <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.symbol.errors && submitted==true">
+                                                    {{'Additional.Symbol is required'| translate}}
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                                <h3>{{'Additional.Language'|translate}}</h3>
+                                <p>{{'Additional.Choose the website languages'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="ap-form-row6">
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'Additional.Default language'|translate}}*
+                                                <button type="button" class="tooltip-btn" placement="end"
+                                                    ngbTooltip="Select the default language">
+                                                    <img src="assets/img/info-ico.svg" />
+                                                </button>
+                                            </label>
+                                            <div class="fg-row">
+                                                <ng-select [searchable]="true" placeholder="{{'placeholder.Select Default language'|translate}}"
+                                                    [ngClass]="{'error-fields':multipleWebsitesForm.get('defaultLanguage').hasError('required')&&submitted==true}"
+                                                    [appDisableIfUnauthorized]="'edit-general-settings'"
+                                                    formControlName="defaultLanguage" [clearable]="false" >
+                                                    <ng-option *ngFor="let langlist of languageSandbox.languageList$ | async"
+                                                        value='{{langlist.name}}'> {{langlist.name}}</ng-option>
+                                                </ng-select>
+                                                <div class="validation-error"
+                                                *ngIf="multipleWebsitesForm.controls.defaultLanguage.errors && submitted==true">
+                                                {{'Additional.Default Language is required'|translate}}
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'Additional.Secondary language'|translate}}*
+                                            </label>
+                                            <div class="fg-row">
+                                                <ng-select [searchable]="true" placeholder="{{'placeholder.Select Secondary language'|translate}}"
+                                                    [ngClass]="{'error-fields':multipleWebsitesForm.get('secondaryLanguage').hasError('required')&&submitted==true}"
+                                                    [appDisableIfUnauthorized]="'edit-general-settings'"
+                                                    formControlName="secondaryLanguage" [clearable]="false">
+                                                    <ng-option *ngFor="let langlist of languageSandbox.languageList$ | async"
+                                                        value='{{langlist.name}}'> {{langlist.name}}</ng-option>
+                                                </ng-select>
+                                                <div class="validation-error"
+                                                *ngIf="multipleWebsitesForm.controls.secondaryLanguage.errors && submitted==true">
+                                                {{'Additional.Secondary Language is required'|translate}}
+                                                </div>
+                                                <div class="validation-error" *ngIf="multipleWebsitesForm.controls.secondaryLanguage.value == multipleWebsitesForm.controls.defaultLanguage.value">
+                                                    {{'Validation.CannotChooseSameLanguage' | translate}}
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                                <h3>{{'Additional.Date & time format'|translate}}</h3>
+                                <p>{{'Additional.Choose relevant date & time format'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="ap-form-row6">
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{ 'Additional.Date format' | translate }}*
+                                            </label>
+                                            <div class="fg-row">
+                                                <ng-select   [searchable]="false" style="color: block;" (change)="updateDateFormat($event)" [(ngModal)]="selectedFormat"  [items]="dateFormats" placeholder="Select the date format" [clearable]="false" bindLabel="name"
+                                                    [bindValue]="value" formControlName="dateFormat"  [ngClass]="{'validationcolor': multipleWebsitesForm.controls.dateFormat.errors && submitted}">
+                                                </ng-select>
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.dateFormat.errors && submitted==true">
+                                                    {{ 'Additional.Date Format is required' | translate }}
+                                                </div>
+                                            </div> 
+                                          
+                                     
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'Additional.Time format'|translate}}*
+                                            </label>
+                                            <div class="fg-row">
+                                                <ng-select  [searchable]="false" [items]="timeDropdown" placeholder="Select the time format" [clearable]="false" bindLabel="name"
+                                                    bindValue="name" formControlName="timeFormat">
+                                                </ng-select>
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.timeFormat.errors && submitted==true">
+                                                    {{'Additional.Time Format is required'|translate}}
+                                                </div>
+                                            </div> 
+                          
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                                <h3>{{'Additional.Countries default'|translate}}</h3>
+                                <p>{{'Additional.Choose default country of service'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="ap-form-row6">
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'Additional.Default country'|translate}}*
+                                                <button type="button" class="tooltip-btn" placement="end"
+                                                    ngbTooltip="Select the Default Country">
+                                                    <img src="assets/img/info-ico.svg" />
+                                                </button>
+                                            </label>
+                                            <div class="fg-row">
+                                                <ng-select placeholder="{{'placeholder.select country'|translate}}" [searchable]="true"
+                                                    formControlName="defaultCountry" [clearable]="false"
+                                                    [ngClass]="{'error-fields':multipleWebsitesForm.get('defaultCountry').hasError('required')&&submitted==true}">
+                                                    <ng-option *ngFor="let array of (sellerSandbox.getCountryList$ | async)"
+                                                        [value]='array.countryId'>{{ array.name }}
+                                                    </ng-option>
+                                                </ng-select>
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.defaultCountry.errors && submitted==true">
+                                                    {{'Additional.Default Country is required'|translate}}
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>                                    
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                                <h3>{{'Additional.Countries others'|translate}}</h3>
+                                <p>{{'Additional.Choose countries where website services are available'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                
+                                <div class="flex categories-row">
+                                    <div class="categories-col">
+                                        <h3 class="sub-sub-header">{{'Additional.Country List'|translate}}</h3>
+                                        <div class="categories-col-innr">
+                                            <div class="form-group search-categories">
+                                                <input type="text" class="search" appNoLeadingSpace [(ngModel)]="countryListSearch" [ngModelOptions]="{standalone: true}"
+                                                    placeholder="{{'Additional.Country List'|translate}}">
+                                            </div>
+                                            <ul class="flex category-list over-flowx">
+                                                <li *ngFor="let array of countryLists | filter: countryListSearch; let i =index"
+                                                    (click)="selectCountryList(array,i)" style="cursor: pointer">
+                                                    <div class="drag"><img src="assets/img/drag.svg" alt=""></div>
+                                                    <p>{{ array.name }}</p>
+                                                    <a href="javascript:void(0)"><img src="assets/img/add-outline-dark.svg" alt="add"></a>
+                                                </li>
+                                                <li class="noData-txt" *ngIf="(countryLists | filter: countryListSearch ).length == 0">{{'Validation.No Data Found' | translate}}</li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="categories-col">
+                                        <h3 class="sub-sub-header">{{'Additional.Added Countries'|translate}}</h3>
+                                        <div class="categories-col-innr">
+                                            <div class="form-group search-categories">
+                                                <input type="text" class="search" appNoLeadingSpace formControlName="selectedCountries"
+                                                    placeholder="{{'Additional.Added Countries'|translate}}" [(ngModel)]="assignedCountryList">
+                                            </div>
+                                            <ul class="flex category-list " *ngIf="show!=true" style="cursor: pointer">
+                                                <span>
+                                                    <li *ngFor="let selected of selectedCountryList| filter: assignedCountryList;let i=index"
+                                                        (click)="removeCountryList(selected,i)">
+                                                        <div class="drag"><img src="assets/img/drag.svg" alt=""></div>
+                                                        <p>{{selected.name}}</p>
+                                                        <a href="javascript:void(0)">
+                                                            <img src="assets/img/minus-dark.svg" alt="delete"> </a>
+                                                    </li>
+                                    
+                                                    <li class="noData-txt" *ngIf="(selectedCountryList| filter: assignedCountryList).length == 0">{{'Validation.No Data Found' | translate}}</li>
+
+                                                </span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="4">
+                <a ngbNavLink> <span> {{'Additional.SEO & Social'|translate}} </span> </a>
+                <ng-template ngbNavContent>
+                    <div class="multi-prd-category-top flex" *ngIf="settingId">
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Site Name'|translate}}</p>
+                            <h4 class="">{{detailsData.siteName}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Site URL'|translate}}</p>
+                            <h4 class="">{{detailsData.siteUrl}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Short description'|translate}}</p>
+                            <h4>{{detailsData.storeDescription}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'attributes.status'|translate}}</p>
+                            <h4 class="active">{{detailsData.isActive == 1 ? 'Active' : 'In-Active'}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                                <h3>{{'Additional.SEO details'|translate}}</h3>
+                                <p>{{'Additional.Provide SEO details for the website'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="ap-form-row">
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'common.Meta Tag Title'| translate}}*
+                                            </label>
+                                            <div class="fg-row">
+                                                <input type="text" class="form-control" appNoLeadingSpace formControlName="metatitle"
+                                                    placeholder="{{'placeholder.Meta Tag Title'|translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls?.metatitle.errors && submitted==true}">
+                                                <div class="validation-error"
+                                                *ngIf="multipleWebsitesForm.controls?.metatitle?.errors?.required && submitted==true">
+                                                    {{'catalog.Error.couponDescriptionrequired'| translate}}
+                                                </div>
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls?.metatitle.errors?.maxlength">
+                                                    {{'common.Maximum 70 characters'| translate}}    
+                                                </div>  
+                                            </div> 
+                                        </div>
+                                    </div> 
+                                    
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'common.Meta Tag Description'| translate}}*
+                                            </label>
+                                            <div class="fg-row">
+                                                <input type="text" class="form-control" appNoLeadingSpace formControlName="metaDescription"
+                                                    placeholder="{{'common.Meta Tag Description'| translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls?.metaDescription.errors && submitted==true}">
+                                                    <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls?.metaDescription?.errors?.required && submitted==true">
+                                                        {{'common.Meta tag Description is required'| translate}}
+                                                    </div>
+                                                    <div class="validation-error"
+                                                        *ngIf="multipleWebsitesForm.controls?.metaDescription.errors?.maxlength">
+                                                        {{'common.Maximum 160 characters'| translate}}                        
+                                                    </div>
+                                            </div> 
+                                        </div>
+                                    </div> 
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'common.Meta Tag Keyword'| translate}}*
+                                            </label>
+                                            <div class="fg-row">
+                                                <input type="text" class="form-control" appNoLeadingSpace formControlName="keywords"
+                                                placeholder="{{'placeholder.Meta Tag Keyword'|translate}}"
+                                                [ngClass]="{'validationcolor':multipleWebsitesForm.controls?.keywords.errors && submitted==true}">
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls?.keywords.errors && submitted==true">
+                                                    {{'common.Meta tag keyword is required'| translate}}
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div> 
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                                <h3>{{'Additional.Social media'|translate}}</h3>
+                                <p>{{'Additional.Provide social media links for the website'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                               
+                                <div class="ap-form-row6">
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.Facebook link'|translate}}
+                                            </label>
+                                            <div class="fg-input fg-social">
+                                                <input type="text" class="form-control" formControlName="facebook" appNoLeadingSpace
+                                    placeholder="{{'placeholder.Enter Facebook link'|translate}}"
+                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls.facebook.errors && submitted==true}">
+                                                <span> <img src="assets/img/facebook-logo.svg" alt=""> Facebook </span>
+                                            </div>
+                                            <div class="validation-error" *ngIf="multipleWebsitesForm.controls.facebook?.invalid && submitted==true">
+                                                {{'Additional.Please_enter_a_valid_URL'|translate}}
+                                              </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'common.Instagram'|translate}}
+                                            </label>
+                                            <div class="fg-input fg-social">
+                                                <input type="text" class="form-control insta-link" appNoLeadingSpace formControlName="instagram"
+                                                    placeholder="{{'placeholder.Enter Instagram link'|translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls.instagram.errors && submitted==true}">
+                                                <span> <img src="assets/img/instagram-logo.svg" alt=""> {{'common.Instagram'|translate}} </span>                                                
+                                         
+                                                <div class="validation-error" *ngIf="multipleWebsitesForm.controls.instagram?.invalid && submitted==true">
+                                                    {{'Additional.Please_enter_a_valid_URL'|translate}}
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'common.Youtube'|translate}}
+                                            </label>
+                                            <div class="fg-input fg-social">
+                                                <input type="text" class="form-control youtube-link" appNoLeadingSpace formControlName="youtube"
+                                                    placeholder="{{'placeholder.EnterYoutubelink'|translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls.youtube.errors && submitted==true}">
+                                                <span> <img src="assets/img/youtube-logo.svg" alt=""> {{'common.Youtube'|translate}} </span>                                                
+                                            
+                                                <div class="validation-error" *ngIf="multipleWebsitesForm.controls.youtube?.invalid && submitted==true">
+                                                    {{'Additional.Please_enter_a_valid_URL'|translate}}
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>{{'Additional.Twitter link'|translate}}
+                                            </label>
+                                            <div class="fg-input fg-social">
+                                                <input type="text" class="form-control tw-link" appNoLeadingSpace formControlName="twitter"
+                                                    placeholder="{{'placeholder.Enter Twitter link'|translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls.twitter.errors && submitted==true}">
+                                                <span> <img src="assets/img/x-logo.svg" alt=""> Twitter </span>
+                                            </div>
+                                        
+                                            <div class="validation-error" *ngIf="multipleWebsitesForm.controls.twitter?.invalid && submitted==true">
+                                                {{'Additional.Please_enter_a_valid_URL'|translate}}
+                                              </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label>LinkedIn
+                                            </label>
+                                            <div class="fg-input fg-social">
+                                                <input type="text" class="form-control tw-link" appNoLeadingSpace formControlName="linkedIn"
+                                                    placeholder="{{'Enter LinkedIn link'|translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls.linkedIn.errors && submitted==true}">
+                                                <span> <img style="width: 16px;" src="assets/img/lin.svg" alt=""> LinkedIn </span>
+                                            </div>
+                                        
+                                            <div class="validation-error" *ngIf="multipleWebsitesForm.controls.linkedIn?.invalid && submitted==true">
+                                                {{'Additional.Please_enter_a_valid_URL'|translate}}
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="5">
+                <a ngbNavLink> <span> {{'Additional.Personalised'|translate}} </span> </a>
+                <ng-template ngbNavContent>
+                    <div class="multi-prd-category-top flex" *ngIf="settingId">
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Site Name'|translate}}</p>
+                            <h4 class="">{{detailsData.siteName}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Site URL'|translate}}</p>
+                            <h4 class="">{{detailsData.siteUrl}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Short description'|translate}}</p>
+                            <h4>{{detailsData.storeDescription}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'attributes.status'|translate}}</p>
+                            <h4 class="active">{{detailsData.isActive == 1 ? 'Active' : 'In-Active'}}</h4>
+                        </div>
+                    </div>
+
+
+                    <div class="addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                                <h3>{{'Additional.Invoice Prefix'|translate}}</h3>
+                                <p>{{'Additional.detail'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="ap-form-row6">
+
+                                    <div class="ap-body-col">
+                                        <div class="form-group">
+                                            <label class="d-block">{{'Additional.Invoice Prefix'|translate}} ( eg. INV, INV-0001)*
+                                            </label>
+                                            <div class="fg-row">
+                                                <input type="text" class="form-control" appNoLeadingSpace formControlName="invoice"
+                                                    placeholder="{{'placeholder.Enter Invoice Prefix'|translate}}"
+                                                    [ngClass]="{'validationcolor':multipleWebsitesForm.controls.invoice.errors && submitted==true}">
+                                                <div class="validation-error"
+                                                    *ngIf="multipleWebsitesForm.controls.invoice.errors && !multipleWebsitesForm.controls.invoice.invalid && submitted==true">
+                                                    {{'Additional.Invoice is required'|translate}}
+                                                </div>
+                                                <div class="validation-error"
+                                                *ngIf="multipleWebsitesForm.controls.invoice.invalid && submitted==true">
+                                                {{'common.Maximum 70 characters'|translate}}
+                                            </div>
+                                            </div> 
+                                        </div>
+                                    </div>  
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="6">
+                <a ngbNavLink> <span> {{'Additional.System'|translate}} </span> </a>
+                <ng-template ngbNavContent>
+                    <div class="multi-prd-category-top flex" *ngIf="settingId">
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Site Name'|translate}}</p>
+                            <h4 class="">{{detailsData.siteName}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Site URL'|translate}}</p>
+                            <h4 class="">{{detailsData.siteUrl}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'Additional.Short description'|translate}}</p>
+                            <h4>{{detailsData.storeDescription}}</h4>
+                        </div>
+                        <div class="multi-prd-category-col">
+                            <p>{{'attributes.status'|translate}}</p>
+                            <h4 class="active">{{detailsData.isActive == 1 ? 'Active' : 'In-Active'}}</h4>
+                        </div>
+                    </div>
+
+
+                    <div class="addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                                <h3>{{'Additional.Security access'|translate}}</h3>
+                                <p>{{'Additional.Generate access key for the website'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="multi-section-system">
+                                    <div class="multi-section-security">                            
+                                        <button *ngIf="!accessKey && !isGenerating" (click)="generateKey()">
+                                            {{'Additional.Click here generate Website Key'|translate}} </button>
+                                        <div class="validation-error" *ngIf="['',null,undefined].includes(websitekey) && submitted">
+                                            {{'Additional.Generating website Key'|translate}}
+                                        </div>
+                                        <div *ngIf="websitekey && isGenerating" class="generated-key">
+                                            <p>{{'Additional.Website Key'|translate}}:</p>
+                                            <p style="font-weight: bolder;">{{ websitekey }}</p>
+                                            <a href="javascript:void(0)"  (click)="copyToClipboard()"
+                                                cdkCopyToClipboard={{websitekey}}><img src="assets/imgs/copy.svg"/></a>
+                                        </div>
+                                        <div class="regen-key" *ngIf="websitekey"> <a href="javascript:void(0)"
+                                                [ngClass]="{removepointer: !['',null,undefined].includes(settingId)}"
+                                                (click)="resend()">{{'Additional.Regenerate Site Security Key'|translate}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="addproduct-wrap p-0">
+                        <div class="card ap-general">
+                            <div class="ap-header">
+                                <h3>{{'Additional.Website status'|translate}}</h3>
+                                <p>{{'Additional.Choose the current status of the website'|translate}}</p>
+                            </div>
+                            <div class="ap-body">
+                                <div class="multi-section-system">
+                                    <div class="multi-section-web">                            
+                                        <div class="system-web-status">
+                                            <h4>{{'Additional.Default website'|translate}}</h4>
+            
+                                            <div class="toggle" style="pointer-events: none; opacity: 0.5;">
+                                                <input class="tgl tgl-light" id="cb2" type="checkbox"
+                                                    formControlName="defaultWebsite" disabled
+                                                    (change)="getDefaultWebsite($event.target.checked)" />
+                                                <label class="tgl-btn" for="cb2"></label>
+                                            </div>
+                                            <p>{{'Additional.rutrum'|translate}}</p>
+                                        </div>
+                                        <div class="system-web-status">
+                                            <h4>{{'Additional.Active'|translate}}</h4>
+                                            <div class="toggle" style="pointer-events: none; opacity: 0.5;">
+                                                <input class="tgl tgl-light" id="cb1" type="checkbox" disabled formControlName="active"
+                                                    (change)="getActive($event.target.checked)" />
+                                                <label class="tgl-btn" for="cb1"></label>
+                                            </div>
+                                            <p>{{'Additional.rutrun'|translate}}</p>
+                                        </div>
+                                        <div class="system-web-status">
+                                            <h4>{{'Additional.Maintenance'|translate}}</h4>
+                                            <div class="toggle">
+                                                <input class="tgl tgl-light" id="cb4" type="checkbox" disabled formControlName="maintainence"
+                                                    (change)="getMaintainence($event.target.checked)" />
+                                                <label class="tgl-btn" for="cb4"></label>
+                                            </div>
+                                            <p>{{'Additional.rutruns'|translate}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </ng-template>
+            </li>
+        </ul>
+    </form>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+
+</div>
+
+<div class="action-button-container flex flex">
+    <button class="button-reg btn-md tertiary" [routerLink]="['/settings/multiple-websites/list']"> {{'Additional.Cancel'|translate}} </button>
+    <button type="button" class="button-reg btn-md primary" (click)="createWebsites()"> {{'Additional.Save'|translate}} </button>
+ </div>
+
+
+

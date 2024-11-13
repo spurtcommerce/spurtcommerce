@@ -1,0 +1,173 @@
+<app-pages-layout></app-pages-layout>
+
+<div *ngIf="appSandbox.groupListLoading$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="pagesForm">
+
+    <div class="flex addproduct-wrap">
+
+        <div class="card ap-general">
+
+            <div class="ap-header sub-sub-header">
+                <h3>{{'common.General Information'| translate}}</h3>
+                <p>{{'pageManage.pageListDetails' | translate}}</p>
+            </div>
+
+            <div class="ap-body">
+
+                <div class="ap-form-row6">
+
+                    <div class="ap-body-col ap-body-col-first">
+                        <div class="form-group">
+                            <label for="">{{'common.Page Title'| translate}} <sup class="supvalidation">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    ngbTooltip="A page title is a name or an identification for a particular page. The page title has to be relevant to the content on the page. The title should be appropriate enough so that when a user reads title, they should be able to expect the type of content in the text body.">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input class="form-control" type="text" appNoLeadingSpace formControlName="pageTitle"
+                                placeholder="{{'CMS.Placeholder.PageTitle'| translate}}"
+                                [ngClass]="{ 'is-invalid': submitted && f.pageTitle.errors }">
+                            <div *ngIf="submitted && f.pageTitle.errors" class="validation-error">
+                                <div *ngIf="f.pageTitle.errors.required">{{'CMS.Error.PageTitleIsRequired'| translate}}
+                                </div>
+                                <div class="error" *ngIf="pagesForm.get('pageTitle').hasError('maxlength')">
+                                    {{'CMS.BannerError.MustBe255CharacterLong'| translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label for="">{{'CMS.Pages.PageGroup'| translate}}<sup class="supvalidation">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    ngbTooltip="A group of pages that have similar content or content that are pertaining to a same area can be grouped together. For example, if the page group is About, different pages under that can be brand, team, etc. ">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <ng-select placeholder="{{'CMS.Pages.SelectGroup'| translate}}" [items]="groupList"
+                                [searchable]="true" [ngModelOptions]="{standalone: true}" [(ngModel)]="getGroupId"
+                                [id]="getGroupId" [multiple]="false" bindLabel="groupName" bindValue="groupId"
+                                [ngClass]="{ 'error-fields': submitted && ['', null, undefined].includes(this.getGroupId)}"
+                                [clearable]="false">
+                            </ng-select>
+                            <div *ngIf="submitted && ['', null, undefined].includes(this.getGroupId)" class="validation-error">
+                                <div *ngIf="['', null, undefined].includes(this.getGroupId)">{{'CMS.Error.PleaseSelectGroup'| translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+
+
+                            <div class="sidetoggle">
+                                <div>
+                                    <label for="">{{'CMS.Pages.pageSlug'| translate}}
+                                        <button type="button" class="tooltip-btn" placement="end"
+                                            ngbTooltip="A slug is the part of a URL that identifies a particular page on a website in an easy-to-read form. In other words, its the part of the URL that explains the pages content.">
+                                            <img src="assets/img/info-ico.svg" />
+                                        </button>
+                                    </label>
+                                    <input class="form-control" type="text" appNoLeadingSpace formControlName="pageSlug"
+                                        placeholder="{{'CMS.Placeholder.pageSlug'| translate}}">
+
+                                </div>
+                                <div>
+                                    <label for="">Status
+
+                                    </label>
+                                    <div class="toggle">
+                                        <input class="tgl tgl-light" id="cb1" type="checkbox"
+                                            (change)="statuschange($event)" [(ngModel)]="statusvalue"
+                                            [ngModelOptions]="{standalone: true}" />
+                                        <label class="tgl-btn" for="cb1"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="ap-body-col ap-body-col-fourth">
+                        <div class="form-group">
+                            <label for="">{{'CMS.Pages.PageContent'| translate}} <sup class="supvalidation">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    ngbTooltip="In this field, you can provide all the information that you want to convey to the end users. You can detail the information here and it is recommended that you use a simple and easy to understand language with easy readability for the user.">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <div class="ck-editor-custom">
+                                <ckeditor [editor]="editor" [config]="config" (ready)="ulpoadAdapterDrop($event)" [(ngModel)]="pagesForm.value.pageContent"
+                                    formControlName='pageContent' name='pageContent' class="cms_pages_validation"
+                                    [ngClass]="{'cke_chrome': !pagesForm.get('pageContent').valid && pagesForm.get('pageContent').touched&&submitted==true}">
+                                </ckeditor>
+                                <div class="validation-error"
+                                    *ngIf="pagesForm.get('pageContent').hasError('required') && pagesForm.get('pageContent').touched && submitted==true">
+                                    {{'CMS.Error.PageContentIsRequired'| translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- <div class="cms-group">
+                <h4></h4>
+                <p>{{'common.A page title is a name or an identification for a particular page. The page title has to be relevant to the content on the page. The title should be appropriate enough so that when a user reads title, they should be able to expect the type of content in the text body.'| translate}}</p>
+                <div class="cms-grp-row">
+                    <div class="cms-inp-group form-group">
+                        
+                    </div>
+                    <div class="toggle">
+                        <input class="tgl tgl-light" id="cb1" type="checkbox" (change)="statuschange($event)" [(ngModel)]="statusvalue" [ngModelOptions]="{standalone: true}" />
+                        <label class="tgl-btn" for="cb1"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cms-group">
+                <h4> </h4>
+                <div class="cms-grp-wdt flex">
+                    <p>{{'common.A group of pages that have similar content or content that are pertaining to a same area can be grouped together. For example, if the page group is About, different pages under that can be brand, team, etc.'| translate}} </p>
+                    <div class="cms-inp-group form-group">
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cms-group">
+                <h4></h4>
+                <div class="cms-grp-wdt flex">
+                    <p>{{'common.A slug is the part of a URL that identifies a particular page on a website in an easy-to-read form. In other words, its the part of the URL that explains the pages content.'| translate}}</p>
+                    <div class="cms-inp-group form-group">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="cms-group">
+                <h4></h4>
+                <p>{{'common.In this field, you can provide all the information that you want to convey to the end users. You can detail the information here and it is recommended that you use a simple and easy to understand language with easy readability for the user.'| translate}}</p>
+                
+            </div> -->
+
+    <div class="action-button-container flex">
+        <button class="button-reg btn-md tertiary" (click)="pagesCancel()">{{'CMS.Pages.Cancel'|translate}}</button>
+        <button class="button-reg btn-md primary" (click)="onSubmit()"> {{'CMS.Pages.Save'| translate}}</button>
+    </div>
+</form>

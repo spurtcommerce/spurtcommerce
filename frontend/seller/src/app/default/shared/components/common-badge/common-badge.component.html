@@ -1,0 +1,7 @@
+<span class="status-badge" [ngClass]="getClassMap()"  (click)="emitValue()"><img [src]="badge.image">{{ badge.text| translate}}</span>
+<!-- [ngClass]="badge.class" -->
+    <!-- active -->
+<!-- <span class="status-badge " style=" background-color: #d1e6b0;" *ngIf="array.approvalFlag==0"> {{'common.Waiting
+    Product' | translate}} </span>
+<span class="status-badge inactive" *ngIf="array.approvalFlag==2"> {{'common.Rejected
+    Product' | translate}} </span> -->

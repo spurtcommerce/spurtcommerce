@@ -1,0 +1,200 @@
+<div class="product-list-wrap">
+
+    <div class="allorders-filter-row flex">  
+    <h3>{{'common.Recentorders'|translate}}</h3>        
+    <div class="aofr-rht flex">  
+
+        <div class="select-per-page flex">
+            <ng-select [items]="perpage"
+               bindLabel="name"                  
+               [searchable]="false"
+               [clearable]="false"
+               (change)="GetPageLimit()"
+               [(ngModel)]="selectedpage">
+            </ng-select>
+            <p>{{'common.PerPage'|translate}}</p>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="searchShow()">
+                <img src="assets/imgs/search-dark.svg" alt="" class="default-icon">
+                <img src="assets/imgs/search-white.svg" alt="" class="dark-icon">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right filter-search" aria-labelledby="dropdownMenuButton"  #dropdownContent >
+                <form class="">
+                    <h4>{{'common.Search'|translate}}</h4>
+                    <div class="input-group">
+                        <div class="ig-row">
+                           <input type="text" class="form-input search" placeholder="{{'common.Search CustomerName'|translate}}"  
+                           [(ngModel)]="keyword" (input)="searchList()" [ngModelOptions]="{standalone:true}">
+                            <button type="button"  (click)='remove()'> 
+                                <img src="assets/imgs/close.svg" alt="" class="default-icon"> 
+                                <img src="assets/imgs/close-white2.svg" alt="" class="dark-icon"> 
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        
+        <div class="dropdown">
+            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="assets/imgs/filter.svg" alt="" class="default-icon">
+                <img src="assets/imgs/filter-white.svg" alt="" class="dark-icon">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right filter-menu-dropdown" #dropdownContentFilter  aria-labelledby="dropdownMenuButton">
+               <form action="" class="flex"  [formGroup]="filterForm">
+                   <div class="input-group">
+                       <p> {{'Sales.allorders.order id'|translate}}</p>
+                       <input type="text" formControlName="OrderId" required   placeholder="{{'common.Enter OrderId'|translate}}" name="id" class="order-id">
+                   </div>
+                   <div class="input-group">
+                       <p> {{'Sales.allorders.customer name'|translate}}</p>
+                       <input type="text" formControlName="CustomerName" required placeholder="{{'common.Enter CustomerName'|translate}}" class="cus-name">
+                   </div>
+                   <div class="input-group">
+                       <p> {{'Sales.allorders.total amount'|translate}}</p>                     
+                                <input type="text" formControlName="TotalAmount" required appOnlyNumber class="amount" placeholder="{{'common.Enter TotalAmount'|translate}}">
+                   </div>
+                  
+                   <button class="button-reg primary" (click)="applyFilter()">{{'common.apply filters'|translate}}</button>
+                   <a class="reset-filter" (click)="resetFilter()">{{'common.reset'|translate}}</a>
+
+               </form>
+               </div>
+           </div>
+        </div>
+
+        
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="table-responsive">
+    <!-- <span class="order-title header">{{'Sales.menu.recent orders'|translate}}</span> -->
+        <div class="olw-wrap">
+            <span class="sub-header">{{'Sales.shared.today'|translate}}</span><br><br>
+            <!-- <span class="no-data" *ngIf="(dashboardSandbox.todayOrderList$ | async)?.length === 0">{{'Sales.shared.today'|translate}}</span> -->
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th style="width: 322.727px;">{{'Sales.allorders.order id'|translate}}
+                        </th>
+                        <th>{{'Sales.allorders.customer name'|translate}}</th>  
+                        <th width="15%">{{'Sales.allorders.location'|translate}}</th>
+                        <th width="15%">{{'Sales.allorders.status'|translate}}</th>
+                        <th>{{'Sales.allorders.total amount'|translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                <tr *ngFor="let array of (dashboardSandbox.todayOrderList$ | async)">
+                    <td class="order-no cursor" (click)="goToOrders(array?.vendorOrderId)">
+                        {{array?.orderPrefixId}}</td>
+                    <td class="order-detail txt-ebold">{{array?.customerFirstName}}</td>
+                    <td class="order-detail"><img alt="Location" title="Location"
+                            src="assets/imgs/location.svg">{{array?.shippingCity}}, {{array?.shippingCountry}}</td>
+                    <td><span class="status"
+                            [ngClass]="{'paid': array.orderStatusName === 'paid', 'placed': array.orderStatusName === 'order-placed'}">{{array?.orderStatusName | uppercase}}</span>
+                    </td>
+                    <td class="txt-bold order-detail text-right"
+                        *ngIf="(array?.discountedAmount === null || array?.discountedAmount ==='0.00')" class="">
+                        {{array?.total |currencysymbol: (array?.currencySymbolLeft ? array?.currencySymbolLeft : (array?.currencySymbolRight ? array?.currencySymbolRight : ''))}}
+                       </td>
+                    <td class="txt-bold order-detail text-right"
+                        *ngIf="(array?.discountedAmount !== null && array?.discountedAmount !== '0.00')" class="">
+                         {{array?.discountedAmount | currencysymbol: (array?.currencySymbolLeft ? array?.currencySymbolLeft : (array?.currencySymbolRight ? array?.currencySymbolRight : ''))}}
+                       </td>
+                </tr>
+                </tbody>
+             </table>
+
+             <div class="nodata-row" *ngIf="(dashboardSandbox.todayOrderList$ | async)?.length === 0">
+                <img src="assets/imgs/nodata.svg" alt="">
+                <h4>{{'common.NoOrdersYet' | translate}}</h4>
+            </div>
+             
+
+           
+            <div class="flex-btn" *ngIf="(dashboardSandbox.todayOrderList$ | async)?.length > 0">
+                <button class="view-btn button-reg primary" (click)="viewAll()">{{'Sales.shared.view all'|translate}}</button>
+            </div>
+
+            <div class="pagination" *ngIf="(dashboardSandbox.todayOrderListCount$ | async)>0" >
+                <div class="page-row">
+                    <app-pagination class="active" [perPageCount]="perPageCount" [pages]="pageSize"  [index]="pageindex" [length]="(dashboardSandbox.todayOrderListCount$ | async)" (getPage)="onPageChange($event,value)"></app-pagination>
+            </div>
+            </div>
+        </div>
+        <div class="olw-wrap">
+            <span class="sub-header">{{'Sales.shared.yesterday'|translate}}</span><br><br>
+           
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th style="width: 322.727px;">{{'Sales.allorders.order id'|translate}}
+                        </th>
+                        <th>{{'Sales.allorders.customer name'|translate}}</th>  
+                        <th width="15%">{{'Sales.allorders.location'|translate}}</th>
+                        <th width="15%">{{'Sales.allorders.status'|translate}}</th>
+                        <th>{{'Sales.allorders.total amount'|translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                <tr *ngFor="let array of (dashboardSandbox.previousOrderList$ | async)">
+                    <td class="order-no cursor" (click)="goToOrders(array?.vendorOrderId)">
+                        {{array?.orderPrefixId}}</td>
+                    <td class="order-detail txt-ebold">{{array?.customerFirstName}}</td>
+                    <!-- <td class="order-detail txt-ebold">{{array?.customerName}}</td> -->
+                    <td class="order-detail txt-ebold"><img alt="Location" title="Location"
+                            src="assets/imgs/location.svg">{{array?.shippingCity}}, {{array?.shippingCountry}}</td>
+                    <td><span class="status"
+                            [ngClass]="{'paid': array.orderStatusName === 'paid', 'placed': array.orderStatusName === 'order-placed'}">{{array?.orderStatusName | uppercase}}</span>
+                    </td>
+
+                    <td class="txt-bold order-detail text-right">
+                      {{array?.total |currencysymbol:array?.currencySymbolLeft}}
+                        </td>
+                    <td class="txt-bold order-detail text-right">
+                       
+                       {{array?.discountedAmount |currencysymbol: (array?.currencySymbolLeft ? array?.currencySymbolLeft : (array?.currencySymbolRight ? array?.currencySymbolRight : ''))}}
+                       </td>
+                </tr>
+                </tbody>
+
+                         </table>
+
+                            <div class="nodata-row" *ngIf="(dashboardSandbox.previousOrderList$ | async)?.length === 0">
+                                <img src="assets/imgs/nodata.svg" alt="">
+                                <h4>{{'common.NoOrdersYet' | translate}}</h4>
+                            </div>
+
+
+  
+            <div class="flex-btn" *ngIf="(dashboardSandbox.previousOrderList$ | async)?.length > 0">
+                <button class="view-btn button-reg primary" (click)="viewAll()">{{'Sales.shared.view all'|translate}}</button>
+            </div>
+
+            <div class="pagination" *ngIf="(dashboardSandbox.previousOrderList$ | async).length>0" >
+                <div class="page-row">
+                    <app-pagination class="active" [perPageCount]="perPageCount" [pages]="pageSize"  [index]="pageindex" [length]="(dashboardSandbox.previousOrderListCount$ | async).length" (getPage)="onPageChange($event,value)"></app-pagination>
+            </div>
+            </div>
+           
+        </div>
+
+    </div>
+</div>
+
+
+

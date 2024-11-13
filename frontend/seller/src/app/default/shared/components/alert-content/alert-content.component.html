@@ -1,0 +1,8 @@
+<div class="info-row flexx" *ngIf="show" [class]="alert.class">
+    <a href="javascript:void(0)" class="info-close" (click)="closeicon()"> <img src="assets/imgs/close.svg" alt=""> </a>
+    <img [src]="alert.image">
+    <div class="info-content" >
+        <!-- <h4>You have not started a billing plan yet.</h4> -->
+        <p>{{alert.appendData | translate}} {{alert.content | translate}}</p>
+    </div>
+</div>

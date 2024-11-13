@@ -1,0 +1,22 @@
+<div class="overallClass">
+  <div class="header-content">
+    <div class="header-style">
+      <h3>{{'myShop.OTPVerification'|translate}}</h3>
+      <p>{{'myShop.AnOTPhas'|translate}}</p>
+      <a href="javascript:void(0)" (click)="resendOTP()">{{'myShop.ResendOTP'|translate}}</a>
+      <div class="otp-field">
+        <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+      </div>
+    </div>
+    <div>
+      <button class="cancel-btn">
+        <img src="assets/imgs/close.svg" alt="" (click)="close()" class="default-icon"/>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="product-save-btn modal-save-btn">
+  <button class="cancel" (click)="close()">{{'myShop.Cancel'|translate}}</button>
+  <button class="save" (click)="verifyOTP()">{{'myShop.Submit'|translate}}</button>
+</div>

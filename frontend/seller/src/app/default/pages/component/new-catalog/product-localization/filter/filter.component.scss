@@ -1,0 +1,13 @@
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    padding: 0px 0px 0px 1px;
+    width: 100%;
+}
+
+::ng-deep .floating-date .mat-form-field-wrapper {
+    padding: 0;
+    height: 2.2rem;
+}

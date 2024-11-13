@@ -1,0 +1,109 @@
+<!-- close icon  -->
+<!-- <div class="flex setting2-inner-header">
+    <h3 class="modal-header__title"> {{taxId ? 'Update Tax' : 'Add Tax'}} </h3>
+    <button (click)="close()" class="close-modal"> <img src="assets/img/modal-close.svg"> </button>
+</div>
+<div class="modal-body">
+    <form (ngSubmit)="onSubmit()" [formGroup]="taxForm" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label">{{'Settings.Local.Tax.TaxName' | translate}}<sup>*</sup></label>
+            <input type="text" placeholder="{{'Settings.Local.Tax.Title' | translate}}" class="form-control"
+                formControlName="title"
+                [ngClass]="{'validationcolor': taxForm.controls.title.errors && submitted}">
+            <div class="error"
+                *ngIf="taxForm.get('title').hasError('required') && taxForm.get('title').touched && submitted">
+                {{'Settings.Local.Tax.Error.Taxname' | translate}}
+            </div>
+            <div class="error"
+                *ngIf="taxForm.get('title').hasError('maxlength') && taxForm.get('title').touched && submitted">
+                {{'Settings.SiteSettings.Errors.Mustbemaximum255characterslong' | translate}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">{{'Settings.Local.Tax.Value' | translate}}<sup>*</sup></label>
+            <input type="text" (keypress)="numberOnly($event)"
+                placeholder="{{'Settings.Local.Tax.Number' | translate}}" class="form-control"
+                formControlName="value"
+                [ngClass]="{'validationcolor':!taxForm.get('value').valid && !taxForm.get('value').untouched && submitted}">
+            <div class="error"></div>
+            <div class="error"
+                *ngIf="taxForm.get('value').hasError('required') && taxForm.get('value').touched && submitted">
+                {{'Settings.Local.Tax.Error.valueisMustinnumber' | translate}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">{{'Settings.Local.Tax.Status' | translate}}
+                <sup>*</sup></label>
+            <ng-select placeholder="{{'Settings.Local.Language.SelectStatus' | translate}}"
+                [searchable]="false" formControlName="status"
+                data-placeholder="{{'placeholder.Choose Role'|translate}}"
+                [ngClass]="{'error-fields':!taxForm.get('status').valid && !taxForm.get('status').untouched && submitted}"
+                [clearable]="false">
+                <ng-option [value]="1">{{'Settings.Local.Tax.Enabled' | translate}}</ng-option>
+                <ng-option [value]="0">{{'Settings.Local.Tax.Disabled' | translate}}</ng-option>
+            </ng-select>
+            <div class="error"
+                *ngIf="taxForm.get('status').hasError('required') && taxForm.get('status').touched && submitted">
+                {{'Settings.Local.Tax.Error.statusisrequired' | translate}}
+            </div>
+        </div>        
+    </form>
+</div>
+<div class="action-button-container  flex">
+    <button (click)="close()" class="button-reg btn-md tertiary">{{'common.Cancel'| translate}}</button>
+    <button type="submit" class="button-reg btn-md primary">{{'Settings.Local.Save' | translate}}</button>
+</div> -->
+
+
+<!-- close icon  -->
+<div class="flex setting2-inner-header">
+    <h3 class="modal-header__title"> {{taxId ? 'Update Tax' : 'Add Tax'}} </h3>
+    <button (click)="close()" class="close-modal"> <img src="assets/img/modal-close.svg"> </button>
+</div>
+<div class="modal-body">
+    <ng-container *ngFor="let val of _Object.keys(dynamicObjControls);let i=index">
+    <!-- <form class="form-horizontal"> -->
+        <div class="form-group">
+            <app-common-form [type]="dynamicObjControls[val]?.type" [control]="dynamicObjControls[val]?.control"
+            [label]="dynamicObjControls[val]?.label" [inputId]="dynamicObjControls[val]?.inputId"
+            [aliasName]="dynamicObjControls[val]?.aliasName" [placeholder]="dynamicObjControls[val]?.placeholder"
+            [submitted]="submitted" [customData]="dynamicObjControls[val]?.customData"
+            [optionalErrorMessage]="dynamicObjControls[val]?.optionalErrorMessage"
+            [mandatory]="dynamicObjControls[val]?.mandatory">
+          </app-common-form>
+        </div>
+    </ng-container>
+        <!-- <div class="form-group">
+            <label class="control-label">{{'Settings.Local.Tax.Value' | translate}}<sup>*</sup></label>
+            <input type="text" (keypress)="numberOnly($event)"
+                placeholder="{{'Settings.Local.Tax.Number' | translate}}" class="form-control"
+                formControlName="value"
+                [ngClass]="{'validationcolor':!taxForm.get('value').valid && !taxForm.get('value').untouched && submitted}">
+            <div class="error"></div>
+            <div class="error"
+                *ngIf="taxForm.get('value').hasError('required') && taxForm.get('value').touched && submitted">
+                {{'Settings.Local.Tax.Error.valueisMustinnumber' | translate}}
+            </div>
+        </div> -->
+        <!-- <div class="form-group">
+            <label class="control-label">{{'Settings.Local.Tax.Status' | translate}}
+                <sup>*</sup></label>
+            <ng-select placeholder="{{'Settings.Local.Language.SelectStatus' | translate}}"
+                [searchable]="false" formControlName="status"
+                data-placeholder="{{'placeholder.Choose Role'|translate}}"
+                [ngClass]="{'error-fields':!taxForm.get('status').valid && !taxForm.get('status').untouched && submitted}"
+                [clearable]="false">
+                <ng-option [value]="1">{{'Settings.Local.Tax.Enabled' | translate}}</ng-option>
+                <ng-option [value]="0">{{'Settings.Local.Tax.Disabled' | translate}}</ng-option>
+            </ng-select>
+            <div class="error"
+                *ngIf="taxForm.get('status').hasError('required') && taxForm.get('status').touched && submitted">
+                {{'Settings.Local.Tax.Error.statusisrequired' | translate}}
+            </div>
+        </div>         -->
+    <!-- </form> -->
+</div>
+<div class="action-button-container  flex">
+    <button (click)="close()" class="button-reg btn-md tertiary">{{'common.Cancel'| translate}}</button>
+    <button type="button" (click)="onSubmit()" class="button-reg btn-md primary">{{'Settings.Local.Save' | translate}}</button>
+</div>

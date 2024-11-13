@@ -1,0 +1,39 @@
+<!-- <div class="profile_aside">
+    <div class="profile_aside__header">
+        <div class="profile_aside__header__avtar">
+            <img [src]="((sellerOnBoardingSandbox.getProfile$ | async)?.avatarName && (sellerOnBoardingSandbox.getProfile$ | async)?.avatarPath) ? (imageUrl + '?path=' + (sellerOnBoardingSandbox.getProfile$ | async)?.avatarPath + '&name=' + (sellerOnBoardingSandbox.getProfile$ | async)?.avatarName + '&width=300&height=300') : 'assets/imgs/default-profile.png'" alt="">
+        </div>
+        <h3>{{(sellerOnBoardingSandbox.getProfile$ | async)?.firstName}} {{(sellerOnBoardingSandbox.getProfile$ | async)?.lastName}}</h3>
+        <p>{{(sellerOnBoardingSandbox.getProfile$ | async)?.emailId}}</p>
+    </div>
+    <div Class="profile_aside__nav">
+        <ng-container *ngFor="let item of settingsSideMenu">
+            <a [routerLink]="[item.routerPath]" [ngClass]="{'disable_menu': item.isDisable}" routerLinkActive="router-link-active" ><img [src]="item.image" alt="">{{item.name}}</a>
+        </ng-container>
+    </div>
+</div>
+<div class="profile-container">
+    <router-outlet></router-outlet>
+</div> -->
+
+
+
+<div class="page-wrapper">
+    <div class="page-subnav">
+        <!-- <div class="profile_aside__header__avtar">
+            <img [src]="((sellerOnBoardingSandbox.getProfile$ | async)?.avatarName && (sellerOnBoardingSandbox.getProfile$ | async)?.avatarPath) ? (imageUrl + '?path=' + (sellerOnBoardingSandbox.getProfile$ | async)?.avatarPath + '&name=' + (sellerOnBoardingSandbox.getProfile$ | async)?.avatarName + '&width=300&height=300') : 'assets/imgs/default-profile.png'" alt="">
+        </div> -->
+        <h3>{{(sellerOnBoardingSandbox.getProfile$ | async)?.firstName}} {{(sellerOnBoardingSandbox.getProfile$ |
+            async)?.lastName}}</h3>
+        <p>{{(sellerOnBoardingSandbox.getProfile$ | async)?.emailId}}</p>
+        <div class="page-subnav-sublist">
+            <ng-container *ngFor="let item of settingsSideMenu">
+                <a [routerLink]="[item.routerPath]" [ngClass]="{'disable_menu': item.isDisable}"
+                    routerLinkActive="router-link-active"><img [src]="item.image" alt="">{{item.name}}</a>
+            </ng-container>
+        </div>
+    </div>
+    <div class="page-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>

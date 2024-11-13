@@ -1,0 +1,39 @@
+.modal-body {
+  h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #2A2E34;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.main-form {
+  padding: 1rem;
+  background-color: #F9F9FC;  
+}
+
+
+.error {
+  color: red;
+}
+
+
+
+
+    mat-spinner {
+    margin-top: -2px;
+    display: inline-flex;
+    color: white;
+      + span {
+          padding-left: 10px;
+          padding-bottom: 5px;
+      }
+    }
+
+.error {
+    color:red;
+}
+
+.spinner-button ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke:#fff;
+}

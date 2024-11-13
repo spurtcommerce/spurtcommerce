@@ -1,0 +1,87 @@
+
+<!-- Modal Header -->
+<div class="flex setting2-inner-header">
+    <h3 class="modal-header__title">Move to Main Order</h3>
+    <button type="button" class="close-modal" data-dismiss="modal" (click)="close()"> <img
+            src="assets/img/modal-close.svg" alt=""> </button>
+</div>
+
+<!-- Modal body -->
+<div class="modal-body">
+    <h3>{{'Sales.Orders.PaymentMethod'| translate}}</h3>
+    <form [formGroup]="failedOrderForm">
+        <div class="payment-method">
+            <div class="payment-method-col"  *ngFor="let list of sandbox.paymentList$ | async">
+                <mat-radio-button id="{{list.id}}" (click)="getPaymentId(list)"></mat-radio-button>
+                <span> <img [src]="imageUrl + '?path=' + list.pluginAvatarPath + '&name=' + list.pluginAvatar + '&width=60px&height=60px'" alt=""> </span>
+            </div>
+            <div class="error" style="margin-top:10px" *ngIf="!paymentSelected && submittedValues == true">
+                {{'Sales.Orders.Pleaseselectpaymentmethod'| translate}}
+            </div>
+        </div>
+        <!-- <table>
+            <tr>
+                <td width="80%">{{list.pluginName}}</td>
+                <td class="text-center">
+                    
+                </td>
+            </tr>
+            
+        </table> -->
+
+        <div class="main-form">
+            <div class="section">
+
+                <div class="form-group">
+                    <label>{{'Sales.Orders.PaymentRefId'| translate}}</label>
+                    <div class="ig-row">
+                        <input type="text" class="form-control" formControlName="paymentRefId">
+                        <div class="error" *ngIf=" failedOrderForm.get('paymentRefId').hasError('required') &&
+                        failedOrderForm.get('paymentRefId').touched &&
+                        submittedValues == true"> {{'Sales.Orders.Paymentrefidisrequired'| translate}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>{{'Sales.Orders.Payment Status'| translate}}</label>
+                    <div class="ig-row">
+                        <ng-select [placeholder]="'placeholder.Select'|translate" id=""
+                            formControlName="paymentStatus" [searchable]="false" [clearable]="false" 
+                            [ngClass]="{'error-fields' : failedOrderForm.get('paymentStatus').hasError('required') &&
+                        failedOrderForm.get('paymentStatus').touched &&
+                        submittedValues == true}">
+                            <ng-option [value]="1">{{'Sales.Orders.Paid'| translate}} </ng-option>
+                            <ng-option [value]="2">{{'Sales.Orders.Unpaid'| translate}}</ng-option>
+                        </ng-select>
+                        <div class="error" *ngIf=" failedOrderForm.get('paymentStatus').hasError('required') &&
+                        failedOrderForm.get('paymentStatus').touched &&
+                        submittedValues == true"> {{'Sales.Orders.Paymentstatusisrequired'| translate}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>{{'Sales.Orders.PaymentDetails'| translate}}</label>
+                    <div class="ig-row">
+                        <textarea name="detail" id="" cols="30" rows="10" formControlName="paymentDetails"></textarea>
+                        <div class="error" *ngIf=" failedOrderForm.get('paymentDetails').hasError('required') &&
+                        failedOrderForm.get('paymentDetails').touched &&
+                        submittedValues == true">{{'Sales.Orders.Paymentdetailsisrequired'| translate}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+<div class="action-button-container flex">
+    <button [disabled]="sandbox.moveToMainOrderLoading$ | async" type="button" class="button-reg btn-md primary spinner-button" data-dismiss="modal" (click)="submit()">
+        <mat-spinner diameter="20" *ngIf="sandbox.moveToMainOrderLoading$ | async"></mat-spinner>
+        {{'Sales.Orders.Submit'| translate}}
+    </button>
+</div>

@@ -1,0 +1,64 @@
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+    border-color: #f62d51;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: unset;
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.was-validated .custom-select:invalid,
+.custom-select.is-invalid {
+    border-color: #f62d51;
+    padding-right: calc(0.75em + 2.3125rem);
+    background: unset;
+}
+
+.dark-modal .modal-content {
+    background-color: #009efb;
+    color: white;
+}
+
+.dark-modal .close {
+    color: white;
+}
+
+.light-blue-backdrop {
+    background-color: #5cb3fd;
+}
+
+.image-manager .modal-dialog {
+    max-width: 70%;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+mat-checkbox-layout {
+    margin-bottom: -73px !important;
+    margin-left: -70px !important;
+}
+
+.error-field {
+    border: 1px solid red !important;
+}
+
+// :host ::ng-deep .fa,
+// .fas {
+//     margin-top: -24px !important;
+// }
+.fa,
+.fas {
+    margin-top: 6px;
+}
+
+.password-show-hide {
+    position: absolute;
+    top: 2.1875rem !important;
+    right: 0.5rem;
+    cursor: pointer;
+}

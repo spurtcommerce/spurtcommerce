@@ -1,0 +1,23 @@
+<div class="setup-wrapper">
+
+    <div class="setup-container localization-container">
+
+        <div class="loc-lay-title">
+            <h3 class="page-title">{{'Settings.nav.Sitesettings' | translate}}</h3>
+            <p class="text14">{{'Settings.paragraph.Admincancreateandmaintain' | translate}} </p>
+        </div>
+
+        <div class="card ap-general ap-info set-loc-card">  
+            <ul class="nav-tabs nav"> 
+                <li class="nav-item"><a [appHideIfUnauthorized]="'edit-seo-url'" [routerLinkActive]="'active'" [routerLink]="['/settings/site-settings/seo']" routerLinkActive="active" class="nav-link"> <span>{{'common.SEO'| translate}}</span> </a></li>
+            </ul>  
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<router-outlet></router-outlet>

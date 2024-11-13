@@ -1,0 +1,125 @@
+# Store #
+
+# OS generated files #
+store/.DS_Store
+store/Thumbs.db
+store/.tmp/
+store/src/api/schema.gql
+
+# Typing #
+store/typings/
+
+# Dist #
+store/dist/
+store/tsconfig.build.json
+
+# IDE #
+store/.idea/
+store/*.swp
+store/.awcache
+
+# Generated source-code #
+store/src/**/*.js
+store/src/**/*.js.map
+store/src/public/**/*
+store/test/**/*.js
+store/test/**/*.js.map
+store/coverage/
+store/test/preprocessor.js
+store/src/assets/.DS_Store
+store/node_modules
+
+
+# Admin #
+
+# OS generated files #
+admin/.DS_Store
+admin/Thumbs.db
+admin/.tmp/
+admin/src/api/schema.gql
+
+# Typing #
+admin/typings/
+
+# Dist #
+admin/dist/
+admin/tsconfig.build.json
+
+# IDE #
+admin/.idea/
+admin/*.swp
+admin/.awcache
+
+# Generated source-code #
+admin/src/**/*.js
+admin/src/**/*.js.map
+admin/src/public/**/*
+admin/test/**/*.js
+admin/test/**/*.js.map
+admin/coverage/
+admin/test/preprocessor.js
+admin/src/assets/.DS_Store
+admin/node_modules
+
+# Vendor #
+
+# OS generated files #
+vendor/.DS_Store
+vendor/Thumbs.db
+vendor/.tmp/
+vendor/src/api/schema.gql
+
+# Typing #
+vendor/typings/
+
+# Dist #
+vendor/dist/
+vendor/tsconfig.build.json
+
+# IDE #
+vendor/.idea/
+vendor/*.swp
+vendor/.awcache
+
+# Generated source-code #
+vendor/src/**/*.js
+vendor/src/**/*.js.map
+vendor/src/public/**/*
+vendor/test/**/*.js
+vendor/test/**/*.js.map
+vendor/coverage/
+vendor/test/preprocessor.js
+vendor/src/assets/.DS_Store
+vendor/node_modules
+
+# OS generated files #
+.DS_Store
+Thumbs.db
+.tmp/
+src/api/schema.gql
+
+# Typing #
+typings/
+
+# Dist #
+dist
+tsconfig.build.json
+
+# IDE #
+.idea/
+*.swp
+.awcache
+
+# Generated source-code #
+src/**/*.js
+src/**/*.js.map
+src/public/**/*
+test/**/*.js
+test/**/*.js.map
+coverage/
+test/preprocessor.js
+src/assets/.DS_Store
+node_modules
+package-lock.json
+# Cache Files #
+.angular

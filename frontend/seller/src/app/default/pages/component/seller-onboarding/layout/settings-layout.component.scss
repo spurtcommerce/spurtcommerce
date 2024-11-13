@@ -1,0 +1,75 @@
+// .profile_aside {
+//     background-color: #4C4644;
+//     width: 12.5rem;
+//     position: fixed;
+//     height: 100vh;
+
+//     .profile_aside__header {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         flex-direction: column;
+//         min-height: 12.3125rem;
+//         padding: 1rem;
+
+//         .profile_aside__header__avtar {
+//             width: 4.5rem;
+//             aspect-ratio: 1;
+//             border-radius: 50%;
+//             overflow: hidden;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             background-color: #D8E9F6;
+//             font-size: 2rem;
+//             font-weight: 400;
+//             color: #7DADCF;
+//         }
+
+//         h3 {
+//             font-size: .875rem;
+//             font-weight: 400;
+//             color: white;
+//             margin-block: 0.5rem 0.0625rem;
+//         }
+
+//         p {
+//             font-size: .75rem;
+//             font-weight: 400;
+//             color: white;
+//         }
+//     }
+
+//     .profile_aside__nav {
+//         max-height: calc(100vh - 17rem);
+//         overflow-y: auto;
+//         a {
+//             padding: 0.5rem 1rem;
+//             font-size: 0.8125rem;
+//             font-weight: 400;
+//             color: #BDC7CE;
+//             display: grid;
+//             grid-template-columns: 0.75rem 1fr;
+//             gap: 0.3125rem;
+//             align-items: center;
+//             &:hover,
+//             &.router-link-active {
+//                 background-color: rgba(255,255,255,0.2);
+//                 color: white;
+//             }
+//             &.disable_menu {
+//                 opacity: .6;
+//                 cursor: not-allowed;
+//             }
+//             img {
+//                 height: 12px;
+//                 width: 12px;
+//             }
+//         }
+//     }
+// }
+// .profile-container {
+//     padding-inline: 2.5rem;
+//     padding-block-end: 3rem;
+//     margin-left: 12.5rem;
+// }

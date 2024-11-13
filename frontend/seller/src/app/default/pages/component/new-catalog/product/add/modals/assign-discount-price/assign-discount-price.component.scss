@@ -1,0 +1,13 @@
+/* Hide the increase button */
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Optional */
+}
+
+/* Optional: Ensure consistency across browsers */
+input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+}

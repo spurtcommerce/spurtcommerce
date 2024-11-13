@@ -1,0 +1,52 @@
+<div class="local-content">
+    <div class="set-lay-notes flex">
+        <h4>{{'Settings.nav.Note:' | translate}}</h4>
+        <p>{{'Settings.paragraph.Admincanconfigurethenumberoforders' | translate}}</p>
+    </div>
+
+    <div class="setup-wrapper  setup-personalize">
+        <div class="setup-container flex">
+
+            <div class="setup-left">
+                <h3 class="sub-header">{{'Settings.personalize.order.Order' | translate}}</h3>
+                <p class="text14">{{'Settings.paragraph.Commonprefixforalltheordernumbers' | translate}}</p>
+
+            </div>
+            <div class="spinner-wrapper" style="display: flex;justify-content: center;justify-items: center;">
+                <app-global-loader [isShow]="sandbox.getSettingLoading$ | async" style="transform: translate(153%, 18%);position:absolute"></app-global-loader>
+            </div>
+            <div class="setup-right">
+                <form style="margin: 0;" [formGroup]="perOrderForm" class="form-horizontal m-t-20">
+                    <div class="sup-rht-section">
+
+                        <div class="suprs-form">
+                            <div class="suprs-form-row form-group flex">
+                                <label>{{'Settings.personalize.order.InvoicePrefix' | translate}} <sup>*</sup> </label>
+                                <div class="suprs-form-col">
+                                    <input  type="text" placeholder="Enter invoice prefix" formControlName="invoicePrefix" [ngClass]="{ 'is-invalid': submitted && f.invoicePrefix.errors }" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="suprs-form">
+                            <div class="suprs-form-row form-group flex">
+                                <label>{{'Settings.personalize.order.OrderStatus' | translate}} <sup>*</sup> </label>
+                                <div class="suprs-form-col">
+                                    <ng-select placeholder="{{'Settings.personalize.order.ChooseOrderStatus' | translate}}" [searchable]="false"  formControlName="orderStatus" [clearable]="false">
+                                        <ng-option *ngFor=" let orderStatuslist of statusList" [value]="orderStatuslist.orderStatusId">{{orderStatuslist.name}}</ng-option>
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex srbtn">
+                            <button class="button-reg btn-md primary"  (click)="onSubmit()">{{'Settings.Local.Save' | translate}}</button>
+                            <button class="button-reg btn-md tertiary"  [routerLink]="['/settings']">{{'Settings.personalize.order.Cancel' | translate}}</button>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

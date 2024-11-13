@@ -1,0 +1,159 @@
+<header>
+    <div class="header-list flexx">
+        <h1>{{'Sales.Order.AllOrders'|translate}}</h1>
+        <div class="header-list-rht ms-auto flexx"
+            [ngClass]="{'disable-div': (orderSandbox.allOrderListLoading$ | async) || (orderListArray?.length == 0 && formValueExists)}">
+
+            <!--item per page -->
+            <div class="per-page flexx">
+                <p>{{'common.PerPage'|translate}}</p>
+                <div class="ig-row">
+                    <ng-select [items]="pageSizeList" bindLabel="id" [searchable]="false" [clearable]="false"
+                        (change)="pageSizeChange($event)" [(ngModel)]="limit">
+                    </ng-select>
+                </div>
+            </div>
+                                    
+            <!--search filter -->
+            <div class="search-filter" ngbDropdown #dropdownContent="ngbDropdown">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                    ngbTooltip="{{'common.Filter'|translate}}" placement="bottom" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()">
+                    <img src="assets/imgs/search.svg" alt="" (click)="open()">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+                    <h5>{{'common.Search'|translate}}</h5>
+                    <form class="" (keyup.enter)="applyFilter()">
+                        <div class="input-group">
+                            <div class="ig-row">
+                                <app-reusable-forms [type]="dynamicObjControls.Search?.type"
+                                    [control]="dynamicObjControls.Search?.control"
+                                    [label]="dynamicObjControls.Search?.label"
+                                    [inputId]="dynamicObjControls.Search?.inputId"
+                                    [aliasName]="dynamicObjControls.Search?.aliasName"
+                                    [placeholder]="dynamicObjControls.Search?.placeholder"></app-reusable-forms>
+                                    
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!--filter  -->
+            <div class="search-filter" ngbDropdown #dropdownContentFilter="ngbDropdown" [autoClose]="false">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                    ngbTooltip="{{'common.Filter'|translate}}" placement="bottom" (click)="open()" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()">
+                    <img src="assets/imgs/filter.svg" alt="">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+
+                    <h5>{{'common.Filter'|translate}}</h5>
+                    <form action="" class="flex">
+                        <div class="filter-content">
+                            <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                                <app-reusable-forms *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+                                    [control]="dynamicObjControls[val]?.control"
+                                    [label]="dynamicObjControls[val]?.label"
+                                    [inputId]="dynamicObjControls[val]?.inputId"
+                                    [aliasName]="dynamicObjControls[val]?.aliasName"
+                                    [customData]="dynamicObjControls[val]?.customData"
+                                    [placeholder]="dynamicObjControls[val]?.placeholder"></app-reusable-forms>
+                                    
+                            </div>
+                        </div>
+                        <div class="filter-action">
+                            <button class="button-reg btn-sm primary" (click)="applyFilter()">
+                                {{'common.apply filters'|translate}}</button>
+                            <button class="button-reg btn-sm trans-btn"
+                                (click)="filterReset('')">{{'common.reset'|translate}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Dynmaic Columns -->
+            <app-dynamic-columns [filterColumns]="backupColumns" (selectedColumns)="saveColumns($event)">
+            </app-dynamic-columns>
+        </div>
+    </div>
+</header>
+<!-- filter -->
+<div class="filter-result-row flexx" *ngIf="formValueExists">
+    <h4>{{'common.Filter' | translate}}:</h4>
+    <ng-container *ngFor="let filter of backupFormValue | keyvalue; trackBy: trackByIndex">
+        <div class="filter-result-col" *ngIf="!['', null, undefined].includes(filter.value)">
+            <span>{{ filter.key }} : </span>
+            
+            <ng-container [ngSwitch]="filter.key">
+                <ng-container *ngSwitchCase="'Update On'">
+                    {{ filter.value | date: 'dd/MM/YYYY' }}
+                </ng-container>
+                <ng-container *ngSwitchCase="'Status'">
+                    {{ filter.value==1 ?'Active':'In-active'}}
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                    {{ filter.value }}
+                </ng-container>
+            </ng-container>
+            
+            <button (click)="removeFilter(filter)" class="remove-btn">
+                <img src="assets/imgs/close-sm.svg" alt="" />
+            </button>
+        </div>
+    </ng-container>
+    <a href="javascript:void(0)" class="clear" (click)="filterReset('clearAll')">{{'common.ClearFilters' |
+        translate}}</a>
+
+</div>
+<div class="page-content">
+
+    <!--content -->
+    <app-alert-content *ngIf="orderListArray?.length > 0" [alert]="alertConfig"></app-alert-content>
+
+    <!--Loader -->
+    <div class="loading" *ngIf="(orderSandbox.allOrderListLoading$ | async)">
+        <app-loader></app-loader>
+    </div>
+
+
+
+    <!-- common -table -->
+    <app-common-table *ngIf="orderListArray.length > 0 && (orderSandbox.allOrderListLoaded$ | async)" [HeadArray]="dynamicColumnFields" [GridArray]="orderListArray" [selectAll]="tableCheckbox"
+        (buttonChangeEvent)="buttonAction($event)" [customTemplate]="{productStatus:itemTemplateRef,activeStatus:itemTemplateRefStatus}">
+    </app-common-table>
+    <ng-template #itemTemplateRef let-item let-index="index">
+        <app-common-badge
+            [badge]="badgeConfig.hasOwnProperty(item.imageMenuStatus)?badgeConfig[item.imageMenuStatus]:badgeConfig['default']"></app-common-badge>
+    </ng-template>
+    <ng-template #itemTemplateRefStatus let-item let-index="index">
+        <app-common-badge
+            [badge]="badgeStatusMappings.hasOwnProperty(item.active)?badgeStatusMappings[item.active]:''"></app-common-badge>
+    </ng-template>
+    <!--No data found -->
+
+
+
+    <div class="nodata flexx" *ngIf="orderListArray.length === 0 && (orderSandbox.allOrderListLoaded$ | async)">
+        <span><img src="assets/imgs/nodata.svg" alt=""></span>
+        <h4>
+            <ng-container *ngIf="formValueExists; else nodatafound">
+                {{'common.NoDataAvailablefortheFilteredCriteria'|translate}}
+            </ng-container>
+            <ng-template #nodatafound>
+                {{'Sales.Order.Noordersareadded'|translate}}
+            </ng-template>
+        </h4>
+
+    </div>
+
+
+    <!--pagination -->
+        <app-reusable-pagination  class="pagination flexx" *ngIf="orderListArray.length > 0 && (orderSandbox.allOrderListLoaded$ | async)"
+            [currentPage]="1" [pageSize]="limit" [totalItems]="orderSandbox.getAllOrderListcount$ | async"
+            (pageChange)="onPageChange($event)"></app-reusable-pagination>
+</div>
+
+
+<!-- bulk action -->
+<app-bulk-action *ngIf="selectedDatas?.length>0" [bulkList]="bulkActions" [count]="selectedDatas?.length"
+    (actionEvent)="actionType($event)"></app-bulk-action>

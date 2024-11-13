@@ -1,0 +1,10 @@
+.loading {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.disabled-class {
+    pointer-events: none;
+    opacity: 0.5;
+  }

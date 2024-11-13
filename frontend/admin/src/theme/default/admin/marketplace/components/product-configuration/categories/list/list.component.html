@@ -1,0 +1,155 @@
+<div *ngIf="categorySandbox.CategoryExportExcelLoading$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+<div class="flex filter-row">
+    <div class="filter-lft">
+        <h2>{{'marketplace.common.Categories' | translate}} ({{categorySandbox.getCategoriesListCount$ | async}})</h2>
+    </div>
+    <div class="filter-rht flex" (keyup.Tab)="focusInput()">
+        <div class="added-filter flex" *ngFor="let filter of filterSearch | keyvalue">
+            <div class="added-filter-col flex" *ngIf="filter.value">
+                <span>{{ filter.key }} : {{ getStatusDisplay(filter.key, filter.value) }} </span>
+                <button (click)="removeFilter(filter)">
+                    <img src="assets/img/close.svg" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="filter-search">
+            <input type="text" appNoLeadingSpace [placeholder]="'marketplace.common.Search' | translate" [(ngModel)]="keyword" #myInput (keydown.enter)="searchList()"
+                (change)="keywordchange($event.target.value)" (keyup)="($event.target.value === '' ? removeFilter({'key':'keyword','value':$event.target.value})  : '') ">
+            <span> / </span>
+        </div>
+
+        <div class="dropdown filter-dropdown" ngbDropdown #myDropdown="ngbDropdown" [autoClose]="false">
+            <button class="button-reg tertiary btn-sm" ngbDropdownToggle> <img src="assets/img/filter.svg" alt="">
+                {{'marketplace.common.Filters' | translate}}   </button>
+            <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+                <app-spurt-catalog-categories-filter (progressEmit)="receiveProgress($event)"
+                    (FormEmit)="formchange($event)">
+                </app-spurt-catalog-categories-filter>
+            </div>
+        </div>
+
+        <button class="button-reg primary btn-sm" (click)="addCategories()"
+            *ngIf="(categorySandbox.getCategoriesList$ | async)?.length > 0"
+            [appHideIfUnauthorized]="'create-category'">+ {{'catalog.categories.AddCategory'| translate}}
+        </button>
+
+        <button class="button-reg primary btn-sm" (click)="localization()"
+            *ngIf="(categorySandbox.getCategoriesList$ | async)?.length > 0"
+            [appHideIfUnauthorized]="'add-category-localization'">+ 
+            {{'marketplace.common.Localization' | translate}}  
+        </button>
+    </div>
+</div>
+
+<div class="flex product-wrap example-full-width">
+    <div class="product-table">
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="categorySandbox.getCategoriesListRequestLoading$ | async"
+                style="transform: translate(38%, 50%);position:absolute"></app-global-loader>
+        </div>
+        <div class="table-responsive">
+            <table class="table" *ngIf="(categorySandbox.getCategoriesList$ | async)?.length > 0">
+                <thead>
+                    <tr>
+                        <th scope="col" [appHideIfUnauthorized]="" style="width: 35px;"
+                        [multipleHide]="['export-category','bulk-delete-category']">
+                            <div class="custom-control custom-checkbox" style="top:0px">
+                                <input *ngIf="categorySandbox.getCategoriesList$ | async" type="checkbox"
+                                    class="custom-control-input" id="checkbox1" (change)="selectAll()"
+                                    [(ngModel)]="selectedAll" [ngModelOptions]="{standalone: true}" />
+                                <label style="cursor: pointer;" class="custom-control-label" for="checkbox1"></label>
+                            </div>
+                        </th>
+                        <th scope="col">{{'catalog.product.Image'| translate}}</th>
+                        <th scope="col" width="20%">{{'catalog.categories.CategoryName'| translate}}</th>
+                        <th scope="col" width="37%">{{'catalog.categories.Levels'| translate}}</th>
+                        <th class="text-center" scope="col">{{'catalog.categories.SortOrder'| translate}}</th>
+                        <th class="text-center" scope="col" width="100px" class="text-center">
+                            {{'catalog.product.Status'| translate}}</th>
+                        <th scope="col" class="text-center" [appHideIfUnauthorized]=""
+                            [multipleHide]="['edit-category','delete-category']">{{'catalog.categories.Action'|
+                            translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of productListArray;let i=index">
+                        <th scope="row" [appHideIfUnauthorized]=""
+                        [multipleHide]="['export-category','bulk-delete-category']">
+                            <div class="custom-control custom-checkbox" style="top:0px">
+                                <input type="checkbox" class="custom-control-input" (change)="checkIfAllSelected()"
+                                    id="{{ data.categoryId }}" [ngModelOptions]="{ standalone: true }"
+                                    [(ngModel)]="data.selected" />
+                                <label style="cursor: pointer;" class="custom-control-label"
+                                    for="{{ data.categoryId }}"></label>
+                            </div>
+                        </th>
+                        <td class="product-image"><span class="st" (click)="editCategory(data)"
+                                style="cursor: pointer;">
+                                <img *ngIf="data.imagePath"
+                                    [src]="imageUrl + '?path=' + data.imagePath + '&name=' + data.image + '&width=60&height=60'"
+                                    onError="this.src='/assets/error-images/Load-icon-Products.png';"
+                                    (load)="categoryImageLoading(data.categoryId)"
+                                    [hidden]="!categoryImage[data.categoryId]" [alt]="data.name">
+                                <img src="./assets/error-images/Load-icon-Products.png" alt="error-img"
+                                    [hidden]="categoryImage[data.categoryId]">
+                            </span> 
+                        </td>
+                        <td class="name"><span class="st" (click)="editCategory(data)"
+                                style="cursor: pointer;">{{data.name}}</span></td>
+                        <td><span class="st" (click)="editCategory(data)"
+                                style="cursor: pointer;">{{data.levels}}</span></td>
+                        <td class="text-center"><span class="st" (click)="editCategory(data)"
+                                style="cursor: pointer;">{{data.sortOrder}}</span></td>
+                        <td class="text-center">
+                            <div *ngIf="data.isActive == 1">
+                                <span class="tags-action tag-active">{{'marketplace.seller.Active'| translate}}</span>
+                            </div>
+                            <div *ngIf="data.isActive == 0">
+                                <span class="tags-action tag-inactive">{{'Settings.Role.InActive'| translate}}</span>
+                            </div>
+                        </td>
+                        <td class="text-center action-btn" [appHideIfUnauthorized]=""
+                            [multipleHide]="['edit-category','delete-category']">
+                            <div class="dropdown" ngbDropdown>
+                                <button ngbDropdownToggle> <img src="assets/img/elliptical-h.svg" alt=""> </button>
+                                <div ngbDropdownMenu>
+                                    <button [appHideIfUnauthorized]="'edit-category'" (click)="editCategory(data)"> <img
+                                            src="assets/img/edit.svg" alt=""> {{'marketplace.common.Edit' | translate}} 
+                                    </button>
+                                    <button [appHideIfUnauthorized]="'delete-category'"
+                                        (click)="deleteCategory(data.categoryId)">
+                                        <img src="assets/img/delete-new.svg" alt="">{{'marketplace.common.Delete' | translate}} 
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="data-product-not-available" *ngIf="(categorySandbox.getCategoriesList$ | async)?.length==0">
+                <img src="assets/img/empty-box.svg" alt="">
+                <p>{{'catalog.nav.Itemsnotfound'|translate}}</p>
+                <button (click)="addCategories()">{{'catalog.nav.Addcategories'|translate}}</button>
+            </div>
+            <app-reusable-pagination *ngIf="(categorySandbox.getCategoriesList$ | async)?.length>0" [type]="'numbers'"
+                [currentPage]="currentPage" [totalItems]="categorySandbox.getCategoriesListCount$ | async"
+                [pageSize]="pageSize" (pageChange)="onPageChange($event)">
+            </app-reusable-pagination>
+        </div>
+    </div>
+    <!--Table-->
+</div>
+
+<div class="selected-container flex" *ngIf="filterDataId.length > 0">
+    <p>{{filterDataId.length}} {{'marketplace.common.itemsSelected' | translate}} </p>
+    <div class="selected-btn flex">
+        <button [ngClass]="{'blur':filterDataId.length==0}" [disabled]="filterDataId.length==0"
+            href="javascript:void(0)" (click)="deleteCategory()"> <img src="assets/img/trash-white.svg" alt="">
+            {{'marketplace.common.Delete' | translate}}  </button>
+        <button [ngClass]="{'blur':filterDataId.length==0}" [disabled]="filterDataId.length==0" (click)="exportExcel()"
+            href="javascript:void(0)"> <img src="assets/img/export-white.svg" alt=""> {{'marketplace.common.Export' | translate}} </button>
+    </div>
+    <button (click)="deselectAll()">{{'marketplace.common.DeselectAll' | translate}} </button>
+</div>

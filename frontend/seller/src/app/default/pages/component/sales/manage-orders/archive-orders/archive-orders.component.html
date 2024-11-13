@@ -1,0 +1,168 @@
+<header>
+    <div class="header-list flexx">
+        <h1>{{'common.Archiveorders'|translate}}</h1>
+        <div class="header-list-rht ms-auto flexx"
+            [ngClass]="{'disable-div': (orderSandbox.downloadInvoiceLoading$ | async) &&(orderSandbox.archiveOrderList$ | async)?.length === 0|| initalLoading || filterDataId?.length>0}">
+            <!--Item per page -->
+            <div class="per-page flexx">
+                <p>{{'common.PerPage'|translate}}</p>
+                <div class="ig-row">
+                    <ng-select [items]="pageSizeList" bindLabel="id" [searchable]="false" [clearable]="false"
+                        (change)="pageSizeChange($event)" [(ngModel)]="limit">
+                    </ng-select>
+                </div>
+            </div>
+            <!--search filter -->
+            <div class="search-filter" ngbDropdown #dropdownContent="ngbDropdown">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                    ngbTooltip="{{'common.Search'|translate}}" placement="bottom" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()">
+                    <img src="assets/imgs/search.svg" alt="" (click)="open()">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+                    <h5>{{'common.Search'|translate}}</h5>
+                    <form class="" (keyup.enter)="applyFilter()">
+                        <div class="input-group">
+                            <div class="ig-row">
+                                <app-reusable-forms [type]="dynamicObjControls.Search?.type"
+                                    [control]="dynamicObjControls.Search?.control"
+                                    [label]="dynamicObjControls.Search?.label"
+                                    [inputId]="dynamicObjControls.Search?.inputId"
+                                    [aliasName]="dynamicObjControls.Search?.aliasName"
+                                    [placeholder]="dynamicObjControls.Search?.placeholder"></app-reusable-forms>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+             <!-- sort -->
+             <app-common-sort [sortOption]="sortOption" (valueChanged)="SortValueChange($event)" (valueChangedOrder)="SortValueChangeOrder($event)"></app-common-sort>
+
+            <!-- Multiple Filter -->
+            <div class="search-filter" [autoClose]="false"
+                [ngClass]="{'disabled-class': (orderSandbox.archiveOrderList$ | async)?.length === 0 && (orderSandbox. archiveOrderListLoaded$ | async)}"
+                ngbDropdown #dropdownContentFilter="ngbDropdown">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button" ngbTooltip="Filter" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()"
+                    placement="bottom">
+                    <img src="assets/imgs/filter.svg" alt="">
+                </button>
+
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+                    <form>
+                        <div>
+                            <h5 class="txt-hed">{{'payments.Filter'|translate}}</h5>
+                        </div>
+                        <div class="form-groups">
+                            <form>
+                                <div class="filter-content">
+                                    <div
+                                        *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                                        <app-reusable-forms *ngIf="val !== 'Search'"
+                                            [type]="dynamicObjControls[val]?.type"
+                                            [control]="dynamicObjControls[val]?.control"
+                                            [label]="dynamicObjControls[val]?.label"
+                                            [inputId]="dynamicObjControls[val]?.inputId"
+                                            [aliasName]="dynamicObjControls[val]?.aliasName"
+                                            [placeholder]="dynamicObjControls[val]?.placeholder"></app-reusable-forms>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="filter-action" style="text-align: end;">
+                            <button class="button-reg btn-sm primary" (click)="applyFilter()">
+                                {{'payments.ApplyFilters'|translate}}</button>
+                            <button class="button-reg btn-sm trans-btn" (click)="filterReset('')">
+                                {{'payments.Reset'|translate}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Dynamic Column Filter -->
+            <app-dynamic-columns [filterColumns]="backupColumns" (selectedColumns)="saveColumns($event)">
+            </app-dynamic-columns>
+        </div>
+    </div>
+</header>
+<!-- Filtered Data & Clear Filter -->
+<div class="filter-result-row flexx" *ngIf="formValueExists">
+    <h4>{{'common.Filter' | translate}}:</h4>
+    <ng-container *ngFor="let filter of backupFormValue | keyvalue;trackBy: trackByIndex">
+        <div class="filter-result-col" *ngIf="!['',null,undefined].includes(filter.value)">
+
+            <span>{{ filter.key }} : </span>
+            <ng-container *ngIf="filter.key == 'fromDate';else withoutDateParam">
+                {{ filter.value | date:'dd/MM/YYYY'}}
+            </ng-container>
+            <ng-container *ngIf="filter.key == 'toDate'">
+                {{ filter.value | date:'dd/MM/YYYY'}}
+            </ng-container>
+            <ng-template #withoutDateParam>
+                {{ filter.value}}
+            </ng-template>
+            <a href="javascript:void(0)" (click)="removeFilter(filter)"><img src="assets/imgs/close-sm.svg" alt=""></a>
+        </div>
+    </ng-container>
+    <a href="javascript:void(0)" class="clear" (click)="filterReset('clearAll')">
+        {{'common.ClearFilters' |translate}}</a>
+</div>
+<!-- Page Content -->
+<div class="page-content">
+
+    <!--content -->
+    <app-alert-content *ngIf="(orderSandbox.archiveOrderList$ | async)?.length > 0"
+        [alert]="alertConfig"></app-alert-content>
+
+    <!--Loader -->
+    <div class="loading" *ngIf="(orderSandbox.archiveOrderListLoading$ | async)">
+        <app-loader></app-loader>
+    </div>
+    <!-- common -table -->
+    <app-common-table *ngIf="(orderSandbox.archiveOrderList$ | async)?.length>0" [HeadArray]="dynamicColumnFields"
+        [GridArray]="(orderSandbox.archiveOrderList$ | async)" [selectAll]="tableCheckbox"
+        (buttonChangeEvent)="buttonAction($event)" [customTemplate]="{pending:itemTemplateRef,color:itemTemplateRefcolor,orderFullfillmentStatusName: itemTemplatefulfillment, payment: itemTemplatepayment}">
+    </app-common-table>
+    <ng-template #itemTemplateRef let-item let-index="index">
+        <span href="javascript:void(0)" (click)="goToArchieveDetail(item.vendorOrderArchiveId)"
+            class="cursor">{{item.orderPrefixId}}</span>
+    </ng-template>
+    <ng-template #itemTemplateRefcolor let-item let-index="index">
+        <span class="status-badge" href="javascript:void(0)"
+            [ngStyle]="{background: item.orderColorCode}">{{item.orderStatusName}}</span>
+    </ng-template>
+
+    <ng-template #itemTemplatefulfillment let-item let-index="index">
+        <span class="status-badge" href="javascript:void(0)"
+            [ngStyle]="{background: item.orderFullfillmentStatusCode}">{{item.orderFullfillmentStatusName}}</span>
+    </ng-template>
+    <ng-template #itemTemplatepayment let-item let-index="index">
+        <span *ngIf="item.paymentStatus == 0" style="background-color: #ffe0c2;" class="status-badge" href="javascript:void(0)"
+            >Pending</span>
+            <span *ngIf="item.paymentStatus == 1" style="background-color: #c4f8c4;" class="status-badge" href="javascript:void(0)"
+            >success</span>
+            <span *ngIf="item.paymentStatus == 2" style="background-color: #CE3B18;" class="status-badge" href="javascript:void(0)"
+            >Failed</span>
+    </ng-template>
+
+    <!--No data found -->
+    <div class="nodata flexx" *ngIf="(orderSandbox.archiveOrderList$ | async)?.length === 0 && (orderSandbox. archiveOrderListLoaded$ | async)">
+        <span><img src="assets/imgs/nodata.svg" alt=""></span>
+        <h4>
+            <ng-container *ngIf="formValueExists; else nodatafound">
+                {{'common.NoDataAvailablefortheFilteredCriteria'|translate}}
+            </ng-container>
+            <ng-template #nodatafound>
+                {{'common.NoArchivedOrders'|translate}}
+            </ng-template>
+        </h4>
+    </div>
+</div>
+
+<!--pagination -->
+<app-reusable-pagination [ngClass]="{'disable-div':filterDataId?.length>0}" *ngIf="(orderSandbox.archiveOrderListCount$ | async) >0" class="pagination flexx" [currentPage]="currentPage" [pageSize]="limit"
+    [totalItems]="count"
+    (pageChange)="onPageChange($event)"></app-reusable-pagination>
+
+<!-- bulk action -->
+<app-bulk-action *ngIf="filterDataId?.length>0" [bulkList]="bulkActions" [count]="filterDataId?.length"
+    (actionEvent)="actionType($event)"></app-bulk-action>

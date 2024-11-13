@@ -1,0 +1,37 @@
+<!-- <div class="cm-header flex">
+  <h3>{{vall}} {{'common.Selected Categories'|translate}}</h3>
+  <button class="close flexx" (click)="goToEditcatalog()">
+    <img src="assets/imgs/edit-blue.svg" alt="" class="" /> 
+
+    {{'common.Edit'|translate}}
+  </button>
+</div>
+<div class="cm-body">
+  <div class="cm-list flexx" *ngFor="let data of userModel;let last=last">
+    <div *ngFor="let index of data.vendorCategory">
+      {{ index.categoryName }} <span >,</span>
+    </div>
+  </div>
+</div>
+<div class="cm-footer">
+  <button (click)="close()">{{'common.Close'|translate}}</button>
+</div> -->
+
+
+<div class="modal-header">
+  <h1>{{vall}} {{'common.Selected Categories'|translate}}</h1>
+
+  <!-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna erat, se diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p> -->
+</div>
+<div class="modal-body category-list-modal">
+  <div class="cm-list" *ngFor="let data of userModel;let last=last">
+    <div *ngFor="let index of data.vendorCategory" class="modalcategoriesFont">
+       {{ index.categoryName }}       
+    </div>
+  </div>
+</div>
+
+<div class="product-save-btn">
+  <button class="prev" (click)="close()">Cancel</button>
+  <!-- <button class="save">Save</button> -->
+</div>

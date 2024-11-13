@@ -1,0 +1,88 @@
+<!-- Header -->
+<div class="head-modal">
+    <h3>
+        <ng-container *ngIf="detailsId;else Add">
+            {{'CRM.Update Customer' | translate}}
+        </ng-container>
+        <ng-template #Add>
+            {{'CRM.Add Customer' | translate}}
+        </ng-template>
+    </h3>
+    <!-- <button (click)="close()"><img src="assets/imgs/close-modal.svg" alt="" class="default-icon"></button> -->
+</div>
+<div class="overall-style">
+    <!-- Available Customers -->
+    <div class="prodcut-add-categories">
+        <div class="prodcut-add-categories-col">
+            <div class="categories-heading">
+                <h4 class="heading-customer"> {{'CRM.Available Customers' | translate}}</h4>
+                <p>{{'content.AvailableCustomers' | translate}}</p>
+            </div>
+            <div class="input-group categories-search">
+                <div class="ig-row">
+                    <input type="text" placeholder="{{'CRM.Search Customer Name' | translate}}" [(ngModel)]="name">
+                    <div class="input-info">/</div>
+                </div>
+            </div>
+            <div class="product-categories-list">
+                <div class="product-categories-list-row"
+                    *ngFor="let item of customerList | search:['customerName']:name;let i=index">
+                    <div class="drag-icon">
+                        <img src="assets/imgs/drag.svg" alt="">
+                    </div>
+                    <div class="categories-list-txt">
+                        {{item.customerName}}
+                    </div>
+                    <button class="btn-add" (click)="addDataArray(item,i)"><img src="assets/imgs/add-plus.svg"
+                            alt=""></button>
+                </div>
+                <div *ngIf="customerList.length == 0" class="nodata flexx">
+                    <p>{{'common.NoCatogoriesAvailabe' | translate}}</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- Selected Cistomer -->
+        <div class="prodcut-add-categories-col">
+            <div class="categories-heading">
+                <h4 class="heading-customer">{{'CRM.Selected Customers' | translate}}</h4>
+                <p>{{'content.SelectedCustomers' | translate}}</p>
+            </div>
+            <div class="input-group categories-search">
+                <div class="ig-row">
+                    <input type="text" placeholder="{{'CRM.Search Customer Name' | translate}}"
+                        [(ngModel)]="selectedName">
+                    <div class="input-info">/</div>
+                </div>
+            </div>
+            <div class="product-categories-list">
+                <div class="product-categories-list-row"
+                    *ngFor="let data of rightDataArray| search:['customerName']:selectedName; let i=index">
+                    <div class="drag-icon">
+                        <img src="assets/imgs/drag.svg" alt="">
+                    </div>
+                    <div class="categories-list-txt">
+                        {{data.customerName}}
+                    </div>
+                    <button class="btn-add" (click)="cancelData(data,i)">
+                        <p class="mb-0">-</p>
+                    </button>
+                </div>
+                <div *ngIf="rightDataArray.length == 0" class="nodata flexx">
+                    <p>{{'common.NoCatogoriesAvailabe' | translate}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Submit and Cancel -->
+<div class="product-save-btn modal-save-btn">
+    <button class="prev" (click)="close()">{{'common.Cancel' | translate}}</button>
+    <button class="save" [ngClass]="{disableClass:rightDataArray == 0}" [disabled]="rightDataArray == 0"
+        (click)="saveCustomer()">
+        <ng-container *ngIf="detailsId;else create">
+            {{'common.Update' | translate}}
+        </ng-container>
+        <ng-template #create>{{'common.Create' | translate}}</ng-template>
+    </button>
+</div>

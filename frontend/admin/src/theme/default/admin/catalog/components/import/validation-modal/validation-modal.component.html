@@ -1,0 +1,25 @@
+<div class="modal-body">
+    <button type="button" class="close" (click)="dismiss()">
+        <span aria-hidden="true" style="background-color:white">&times;</span>
+    </button>
+    <p>Please Select Required Params</p>
+    <div class="errormessage">
+        <ng-container *ngFor="let item of text; let last = last">
+            <span>{{item}}</span><span *ngIf="!last">,</span>
+        </ng-container>
+    </div>
+  
+
+    <!-- <p>{{text}}</p> -->
+
+
+    <!-- <h4> Record Name </h4> -->
+    <h4></h4>
+    <!-- <h4>  {{'CommonFormAll.Doyouwanttodelete'| translate}} </h4> -->
+    <div class="delete-btns flex">
+        <button type="button" class="btn btn-success" (click)="dismiss()">Ok </button>
+        <!-- <button type="button" class="btn btn-success" (click)="deleteContent()">{{'common.Delete'|translate}}  </button> -->
+        <!-- <button type="button" class="btn btn-danger" (click)="close()"> {{'CommonFormAll.Cancel' | translate}}  </button>
+        <button type="button" class="btn btn-success" (click)="deleteContent()"> {{'CommonFormAll.Yes' | translate}}</button> -->
+    </div>
+</div>

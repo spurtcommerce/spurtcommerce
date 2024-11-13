@@ -1,0 +1,230 @@
+<app-header-layout></app-header-layout>
+<div class="vvcd-top flex ">
+    <div class="vvcd-lft flex" *ngIf="settingSandbox.pageDetail$ | async as array">
+        <div class="vvcdt-img" style="border: 1px solid #eeeeee">
+            <img style="max-width: 100%; max-height: 100%;" [src]="
+          ImageUrl +
+          '?path=' +
+          array.customerDetail.avatarPath +
+          '&name=' +
+          array.customerDetail.avatar +
+          '&width=100&height=100'
+        " onError="this.src='assets/error-images/Load-icon-Products.png';" class="vendor-img" [alt]=" array.customerDetail.avatar" />
+        </div>
+        <div class="flex vvcdtnme">
+            <div class="vvcdt-nme">
+                <h4><span>{{ array.vendorPrefixId }}</span></h4>
+                <h3>
+                    {{ array.customerDetail.firstName }}
+                    <span class="">
+            <div *ngIf="array?.customerDetail?.isActive === 1">
+              <span class="tag-active" style="    width: 72px;
+                margin-left: -10px;
+                color: #56b768;
+                display: inline-block;
+                padding: 5px 20px;
+                font-size: 12px;  ">{{'marketplace.seller.Active'| translate}}</span>
+            </div>
+            <div *ngIf="array.customerDetail.isActive === 0">
+                <span class="tag-inactive" style="width: 90px;
+              margin-left: -10px;
+              color: #f14e6e;
+              display: inline-block;
+              padding: 5px 20px;
+              font-size: 12px;">{{'marketplace.product.In-Active'| translate}}</span>
+            </div>
+            </span>
+            </h3>
+            <p>{{'marketplace.product.CompanyName:'| translate}} {{ array.companyName }}</p>
+        </div>
+        <div class="vvcdt-nme">
+            <p class="flex">
+                <img src="assets/img/mobile-icon.png" alt="mobile" /> {{ array.customerDetail.mobileNumber }}
+            </p>
+            <p class="flex">
+                <img src="assets/img/mail-icon.png" alt="email" /> {{ array.customerDetail.email }}
+            </p>
+        </div>
+        <ul class="flex">
+            <li *ngFor="let vendor of array?.vendorCategories">{{ vendor.categoryName}}</li>
+
+        </ul>
+    </div>
+    <!--vvcdnme-->
+</div>
+<div class="vvcd-comm flex">
+    <div class="flex comm-appl" *ngIf="editSetCommissionField === false && (settingSandbox.getCommissionResponse$ | async)?.defaultCommission > -1">
+        <span *ngIf="settingSandbox.getCommissionResponse$ | async as data"> {{vendorCommissionVal}}% </span> &nbsp;{{'marketplace.product.CommissionApplied'| translate}}
+        <a href="javascript:void(0)" (click)="editSetCommission()" [appHideIfUnauthorized]="'set-vendor-commission'"><img src="assets/img/edit-icon.png" alt="edit" />
+        </a>
+    </div>
+    <div class="flex comm-set">
+        <a href="javascript:void(0)" *ngIf="CommissionButton === false && (settingSandbox.getCommissionResponse$ | async)?.defaultCommission === 0" (click)="setCommissionButton()">{{'marketplace.product.SetCommission'| translate}}</a>
+    </div>
+    <div class="flex comm-set-inp" *ngIf="CommissionButton === true">
+        <p *ngIf="editSetCommissionField === true">{{'marketplace.product.SetCommission'| translate}}</p>
+        <form class="csi-row flex" *ngIf="editSetCommissionField === true" [formGroup]="setCommissionForm">
+            <input type="text" class="form-control" formControlName="defaultCommission" appOnlyNumber (keypress)="maxLengthCheck($event)" />
+            <a href="javascript:void(0)" (click)="setCommission()"><img src="assets/img/tick-round-green.png" alt="add" />
+            </a>
+            <a href="javascript:void(0)" (click)="clearCommission()"><img src="assets/img/minus-red-ico-big.png" add="delete" />
+            </a>
+        </form>
+    </div>
+</div>
+</div>
+<!--Top-->
+
+<div class="cccwrap-row">
+
+    <div class="tabset">
+
+        <!-- Tab 1 -->
+        <input type="radio" name="tabset" id="tab1" value="0" aria-controls="marzen" [checked]="selectAssign" (change)="changeTab($event.target.value)">
+        <label for="tab1">{{'marketplace.product.AssignCategory'| translate}}</label>
+        <!-- Tab 2 -->
+        <input type="radio" name="tabset" id="tab2" value="1" aria-controls="rauchbier" [checked]="!selectAssign" (change)="changeTab($event.target.value)">
+        <label for="tab2">{{'marketplace.product.SetCommission'| translate}}</label>
+
+
+        <div class="tab-panels">
+            <section id="marzen" class="tab-panel">
+
+                <div class="flex assign-category">
+
+                    <div class="ac-select">
+
+                        <h3>{{'marketplace.product.AvailableCategory'| translate}}</h3>
+
+                        <div class="ac-card">
+
+                            <input type="text" class="search" [(ngModel)]="searchText">
+
+                            <div class="form-group clearall flex" *ngIf="settingSandbox.getTempCategoryListResponse$ | async as list">
+                                <button [appHideIfUnauthorized]="'assign-category'" (click)="addAllCategory(list)">{{'marketplace.product.SelectAll'| translate}}</button>
+                            </div>
+                            <div class="sc-box" *ngIf="(settingSandbox.getCategoryListRequestLoaded$ | async)">
+                                <div class="sc-box-in">
+                                    <div class="form-group" *ngFor="let data of (settingSandbox.getCategoryListResponse$ | async) | filter : searchText">
+                                        <div (click)="addCategory(data)" class="cursor">
+                                            <span class="cat-name">{{ data.levels }}</span>
+                                            <img style="float: right;" [appHideIfUnauthorized]="'assign-category'" src="assets/img/add-blue-circle.svg" alt="add">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="ac-select ac-select2" [appHideIfUnauthorized]="'assign-category'">
+
+                        <h3>{{'marketplace.product.SelectedCategory'| translate}}</h3>
+
+                        <div class="ac-card">
+
+                            <input type="text" class="search" [(ngModel)]="searchSelectedText">
+
+                            <div class="form-group clearall flex" >
+                                <button (click)="removeAllCategory()" >{{'marketplace.product.ClearAll'| translate}}</button>
+                            </div>
+
+                            <div class="sc-box">
+                                <div class="sc-box-in">
+
+                                    <div class="form-group flex" *ngFor="let select of selectedCategory | filter : searchSelectedText">
+                                        <div [title]="select.productAvailable === 1 ? 'Product is mapped for this category' : ''" style="width: 100%;">
+                                            <span (click)="removecategory(select)" class="cat-name cursor" [ngClass]="{'disable': select.productAvailable === 1}" [title]="select.productAvailable === 1 ? 'Product is mapped for this category' : ''">{{ select.levels }}</span>
+                                            <img [appHideIfUnauthorized]="'assign-category'" (click)="removecategory(select)" class="cursor" [ngClass]="{'disable': select.productAvailable === 1}" style="float: right;" src="assets/img/delete.svg" alt="delete">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="assign cursor" [appHideIfUnauthorized]="'assign-category'" *ngIf="selectedCategory?.length > 0 || clear" (click)="createCategory()">{{'marketplace.product.Assign'| translate}}</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+            <section id="rauchbier" class="tab-panel">
+
+                <div class="flex set-comm-row">
+
+                    <div class="flex soc-wrap" *ngIf="overallCommissionField">
+                        <h3>{{'marketplace.product.SetoverallCommission'| translate}}</h3>
+                        <input type="text" (keypress)="numberOnly($event)" (keyup)="getCommission($event.target.value)"> <span>%</span>
+                        <button class="cursor" style="background-color: green;" *ngIf="productSandbox.productList$ | async as list" (click)="setOverallCommision(list)">{{'marketplace.product.ApplyCommission'| translate}}</button>
+                    </div>
+                    <div class="product-table">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th width="30%">{{'marketplace.product.ProductName'| translate}}</th>
+                                        <th>{{'marketplace.product.Sku'| translate}}</th>
+                                        <th>{{'marketplace.product.Price'| translate}}</th>
+                                        <th>
+                                            <div class="form-group" [appHideIfUnauthorized]="'set-commission'">
+                                                <input type="checkbox" id="per" [checked]="overallCommissionField" (change)="changeCommissionField($event)" *ngIf="(productSandbox.vendorProductListCount$ | async) !==  0">
+                                                <label for="per"  *ngIf="(productSandbox.vendorProductListCount$ | async) !==  0"></label><span style="margin-left: 30px;">{{'marketplace.product.% Commission'| translate}}</span>
+                                            </div>
+                                        </th>
+                                        <th>{{'marketplace.product.Status'| translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let array of (productSandbox.productList$ | async)">
+                                        <td>
+                                            <div class="flex sc-product">
+                                                <div class="scp-img"> <img [src]="
+                    ImageUrl +
+                    '?path=' +
+                    array.productImage?.containerName +
+                    '&name=' +
+                    array.productImage?.image +
+                    '&width=100&height=100'
+                    " onError="this.src='./assets/error-images/Load-icon-Products.png';" class="product-img" [alt]="array.name" /> </div>
+                                                <div class="scp-content">
+                                                    {{array?.name}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>{{array?.sku}}</td>
+                                        <td>{{array?.productprice | currencysymbol: (commonSandbox.settings$ | async)}}</td>
+                                        <td>
+                                            <div class="flex sc-com">
+                                                <input type="text" class="inpu" (keypress)="numberOnly($event)" [disabled]="overallCommissionField" [value]="array?.vendorProductCommission" (keyup)="getCommission($event.target.value)">
+                                                <span>%</span>
+                                                <img class="cursor" src="assets/img/save.svg" alt="save" [appHideIfUnauthorized]="'set-commission'" (click)="setCommissionForSingleProduct(array?.productId)">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="toggle">
+                                                <input class="tgl tgl-light" [id]="array.vendorProductId" type="checkbox" [(ngModel)]="array.isActive" [disabled]="array.approvalFlag === 0" />
+                                                <label class="tgl-btn" [for]="array.vendorProductId"></label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <span style="    display: block; width: 100%;
+    text-align: center;" *ngIf="(productSandbox.vendorProductListCount$ | async) ===  0"> 
+     {{'marketplace.product.NoProductsfound' | translate}}
+</span>
+                    <div class="view-right" style="margin-left: auto;" *ngIf="(productSandbox.vendorProductListCount$ | async) > 0">
+
+
+                        <mat-paginator [length]="(productSandbox.vendorProductListCount$ | async)" [pageSize]="pageSize" [pageIndex]="index" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)">
+                        </mat-paginator>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+
+</div>

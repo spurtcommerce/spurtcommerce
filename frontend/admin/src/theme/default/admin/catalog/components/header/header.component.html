@@ -1,0 +1,87 @@
+<div class="subtoolbar catalogtoolbar">
+    <div class="sub-nav-menu">
+        <div class="dd" [appHideIfUnauthorized]="'catalog-product'" [multipleHide]="['catalog-product','catalog-category','product-varient','product-attribute','product-localization','product-qr']">
+            <div class="dd-a">
+                <a href="javascript:void(0)" [appHideIfUnauthorized]="'catalog-product'" [routerLink]="['/catalog/manage-products']" [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/package.svg" alt="product"><img src="assets/img/header-icons/package-on.svg" alt="product"></span> {{'catalog.nav.ManageProducts' | translate}}
+                    <img src="assets/img/caret-dropdown.svg" alt="" class="acrt-drop-dflt">
+                    <img src="assets/img/caret-down.svg" alt="" class="acrt-drop-on">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="checked" id="check" (click)="$event.stopPropagation(); onClick($event)">
+            <div class="dd-c">
+                <ul>
+                    <li [appHideIfUnauthorized]="'catalog-product'" >
+                        <a href="javascript:void(0)" [routerLink]="['/catalog/manage-products/product']" [routerLinkActive]="'active'">
+                            {{'catalog.nav.Product'| translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'catalog-category'" >
+                        <a href="javascript:void(0)" [routerLink]="['/catalog/manage-products/categories']" [routerLinkActive]="'active'">
+                            {{'catalog.nav.ProductCategories'|translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'product-varient'">
+                        <a href="javascript:void(0)" [routerLink]="['/catalog/manage-products/product_variant/product-list']" [routerLinkActive]="'active'">
+                            {{'catalog.nav.ProductVariants'|translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'product-attribute'" >
+                        <a href="javascript:void(0)" [routerLink]="['/catalog/manage-products/product_attribute/product-list']" [routerLinkActive]="'active'">
+                            {{'catalog.nav.ProductAtrributes'|translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'product-localization'" >
+                        <a href="javascript:void(0)" [routerLink]="['/catalog/manage-products/localization']" [routerLinkActive]="'active'">
+                            Product Localization
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="''" >
+                        <a href="javascript:void(0)" [routerLink]="['/catalog/manage-products/golive']" [routerLinkActive]="'active'">
+                            {{'common.Go Live'| translate}} 
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'product-qr'" >
+                        <a href="javascript:void(0)" [routerLink]="['/catalog/manage-products/product-qr/product-qr-list']" [routerLinkActive]="'active'">
+                            {{'common.Product QR'| translate}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="dd"[appHideIfUnauthorized]="'catalog-product'" [multipleHide]="['data-import','export-data','catalog-import']">
+            <div class="dd-a">
+                <a href="javascript:void(0)" [appHideIfUnauthorized]="'catalog-product'" [routerLink]="['/catalog/import']" [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/package.svg" alt="product"><img src="assets/img/header-icons/package-on.svg" alt="product"></span> {{'catalog.nav.ManageImports' | translate}}
+                    <img src="assets/img/caret-dropdown.svg" alt="" class="acrt-drop-dflt">
+                    <img src="assets/img/caret-down.svg" alt="" class="acrt-drop-on">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="importChecked" id="check" (click)="$event.stopPropagation(); onImportClick($event)">
+            <div class="dd-c">
+                <ul>
+
+                    <li [appHideIfUnauthorized]="'data-import'" >
+                        <a href="javascript:void(0)" [routerLink]="['/vendors/product-config/data-import']" [routerLinkActive]="'active'">
+                           {{'breadcrumbs.Bulk Import Mapping' | translate}} 
+                        </a>
+                    </li>
+
+                    <li [appHideIfUnauthorized]="'export-data'" >
+                        <a href="javascript:void(0)" [routerLink]="['/catalog/import/export-data']" [routerLinkActive]="'active'">
+                            {{'common.DataExport'| translate}} 
+                        </a>
+                    </li>
+
+                    <li [appHideIfUnauthorized]="'catalog-import'" >
+                        <a href="javascript:void(0)" [routerLink]="['/catalog/import/import-products']" [routerLinkActive]="'active'">
+                            {{'breadcrumbs.Bulk Products Mapping' | translate}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</div>

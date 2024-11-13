@@ -1,0 +1,166 @@
+
+<header>
+    <div class="header-list flexx">
+        <h1>{{'Catalog.localization.ProductLocalization'|translate}} </h1>
+
+        <div class="header-list-rht ms-auto flexx" [ngClass]="{'disable-div':  _Object.keys(filter).length > 0 && productListArray?.length == 0 && (productLocalizationSanbox.getProductLocalizationLoaded | async)} ">
+
+            <!-- PER PAGE -->
+            <div class="per-page flexx">
+                <p> {{'common.PerPage'|translate}}</p>
+                <div class="ig-row">
+                    <ng-select [items]="perpage" bindLabel="name" [searchable]="false" [clearable]="false"
+                        (change)="GetPageLimit()" [(ngModel)]="selectedpage">
+                    </ng-select>
+                </div>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="search-filter" ngbDropdown #dropdownContent="ngbDropdown">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button" ngbTooltip="Search" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()"
+                    placement="bottom">
+                    <img src="assets/imgs/search.svg" alt="">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+                    <h5>{{'common.Search' | translate}}</h5>
+                    <div class="input-group">
+                        <div class="ig-row">
+                            <input type="text" class="form-input search" appNoLeadingSpace
+                                placeholder="{{'common.Search ProductName,SKU'|translate}}"
+                                (keyup.enter)="searchList($event.target.value)" [(ngModel)]="keyword"
+                                [ngModelOptions]="{standalone:true}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--FILTER-->
+            <div class="search-filter" ngbDropdown #dropdownContentFilter="ngbDropdown">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button" ngbTooltip="Filter" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()"
+                    placement="bottom">
+                    <img src="assets/imgs/filter.svg" alt="">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+                    <h5>{{'common.Filter' | translate}}</h5>
+                    <app-product-localization-filter (progressEmits)="receiveProgress($event)"
+                        (formEmits)="filterForm($event)" [pageSize]="limit">
+                    </app-product-localization-filter>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="filter-result-row flexx" *ngIf=" _Object.keys(filter).length > 0">
+    <h4>{{'common.Filter' | translate}}:</h4>
+    <div class="filter-result-col" *ngFor="let key of  _Object.keys(filter)">{{ key }} :<span>{{ filter[key] }}</span>
+        <a href="javascript:void(0)" (click)="removefilter(key)"><img src="assets/imgs/close-sm.svg" alt=""></a>
+    </div>
+    <a *ngIf="selectAll==true" href="javascript:void(0)" class="clear" (click)="allClearFilter()">{{'common.ClearFilters' | translate}}</a>
+</div>
+
+
+<div class="page-content">
+      <!--content -->
+      <app-alert-content *ngIf="productListArray?.length > 0" [alert]="alertConfig"></app-alert-content>
+
+    <!-- <div class="info-row flexx" *ngIf="productListArray?.length > 0">
+        <a href="javascript:void(0)" class="info-close"> <img src="assets/imgs/close.svg" alt=""> </a>
+        <img src="assets/imgs/info-circle-green.svg" alt="">
+        <div class="info-content">
+            <h4>You have not started a billing plan yet.</h4>
+            <p>{{'common.ProductLocalNote' | translate}}</p>
+        </div>
+    </div> -->
+    <div class="spinner-wrapper" *ngIf="productLocalizationSanbox.getProductLocalizationLoading | async">
+        <app-loader></app-loader>
+    </div>
+    <div class="table-responsive">
+        <table class="table"
+            *ngIf="(productLocalizationSanbox.getProductLocalization$ | async)?.length > 0 && (productLocalizationSanbox.getProductLocalizationLoaded | async)">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        {{ 'Catalog.localization.ProductInfo' | translate }}
+                    </th>
+                    <th scope="col" *ngFor="let list of languageList" class="text-center"> {{list.name}} </th>
+                    <th>
+                        {{ 'Catalog.localization.LastUpdated' | translate }}
+                    </th>
+                    <th class="text-center" scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of productListArray;let i = index">
+                    <td>
+                        <div class="d-flex align-items-center product-details">
+                            <span class="avatar avatar-xs online avatar-rounded">
+                                <img alt="Product Image" title="Product Image"
+                                    [src]="imageUrl + '?path=' + product?.containerName + '&name=' + product?.image + '&width=300&height=300'"
+                                    onError="this.src='assets/imgs/no-image.jpg';">
+                            </span>
+                            <div class="inline-flex">
+                                <span *ngIf="product.name?.length > 100; else fullTextDisplay"
+                                    matTooltip="{{ product.name }}" matTooltipPosition="above">
+                                    <a href="javascript:void(0)" >{{product.truncatedText }}...</a> 
+                              </span>
+                              <span *ngIf="product.name?.length < 100">
+                                <a style="pointer-events: none;" href="javascript:void(0)">{{product.name}} </a>
+                                <p></p>
+                              </span>
+                            </div>
+                        </div>
+                    </td>
+                    <td *ngFor="let lang of languageList"  class="text-center">
+
+                        <img *ngIf="product.languageIDS.includes(lang.languageId); else elseBlock"
+                            src="assets/imgs/tick-green.svg" class="d-inline-block">
+
+                        <ng-template #elseBlock>
+                            <a href="javascript:void(0)" class="link-text" (click)="editProduct(product)">Add</a>
+                        </ng-template>
+                    </td>
+                    <td>
+                        {{product.lastModifieDate ? (product.lastModifieDate | dynamicDate:'dd/MM/yyyy') : '-'}}
+                    </td>
+                    <td class="text-right" [appHideIfUnauthorized]="" [multipleHide]="['edit-product']">
+                        <div class="dropdown" ngbDropdown>
+                            <i class="fa fa-ellipsis-v cursor" style="padding: 0 15px"
+                                id="dropdownMenuButton_{{ product.productId }}" ngbDropdownToggle></i>
+                            <div ngbDropdownMenu [attr.aria-labelledby]="'dropdownMenuButton_' + product.productId"
+                                class="dropdown-menu text-center" style="padding: 0px;">
+                                <a [appHideIfUnauthorized]="'edit-product'" class="dropdown-item" ngbDropdownItem
+                                    href="javascript:void(0)" (click)="editProduct(product)"> <img
+                                        src="assets/imgs/edit.svg" alt="">
+                                    {{'common.Edit' | translate}}
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Modal -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- NO DATA FOUND -->
+
+        <div class="nodata flexx"
+            *ngIf="(productLocalizationSanbox.getProductLocalization$ | async)?.length == 0 && (productLocalizationSanbox.getProductLocalizationLoaded | async)">
+            <span><img src="assets/imgs/nodata.svg" alt=""></span>
+            <h4>
+                {{_Object.keys(filter).length == 0 ? 'No Data are added !':'No Data Available For The Filtered Criteria'}}
+            </h4>
+            <!-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p> -->
+        </div>
+
+
+        <!-- PAGINATION -->
+        <ng-container *ngIf="pagination !=false && (productLocalizationSanbox.getProductLocalization$ | async)?.length > 0">
+            <app-reusable-pagination 
+            class="pagination flexx" [type]="'numbers'"
+            [currentPage]="currentPage" [pageSize]="limit" [totalItems]="count" (pageChange)="onPageChange($event)">
+            </app-reusable-pagination>
+        </ng-container>
+    </div>
+</div>

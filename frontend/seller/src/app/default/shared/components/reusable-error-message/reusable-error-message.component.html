@@ -1,0 +1,16 @@
+<ng-container *ngIf="submitted && controls?.errors"  >
+    <div *ngFor="let err of controls.errors | keyvalue" class="error">
+        <ng-container [ngSwitch]="err.key">
+            <ng-container *ngSwitchCase="'required'">
+                <!-- {{errorMessagesData[err.key].replace('{controlName}',aliasName)}} -->
+                {{aliasName|translate}} is required
+            </ng-container>
+            <ng-container *ngSwitchCase="['minlength','maxlength'].includes(err.key)?err.key:''">
+                {{aliasName|translate}} {{errorMessagesData[err.key].replace('{requiredLength}',controls.errors[err.key].requiredLength)}}
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+                {{errorMessagesData[err.key]|translate}}
+            </ng-container>
+        </ng-container>
+    </div>
+</ng-container>

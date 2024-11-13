@@ -1,0 +1,19 @@
+<div class="modal-heading">
+  <h3>{{'common.Delete Confirmation'|translate}}</h3>
+  <p *ngIf="VariantMessage" style="text-align: center;">Cannot recover a deleted {{VariantMessage}}. Are you sure you want to proceed with deletion ?</p>
+  <p *ngIf="!VariantMessage">{{'common.Are you sure want to delete this'|translate}} {{this.deleteMessage}} ?</p>
+</div>
+<div class="modal-body">
+
+</div>
+<div class="product-save-btn modal-save-btn">
+  <button type="button" class="cancel"  data-dismiss="modal" (click)="close()">
+    <!-- {{'Catalog.common.No'|translate}} -->
+    {{'common.Cancel'|translate}}
+  </button>
+  <button type="button" class="save" data-dismiss="modal" (click)="deleteContent()">
+    <!-- {{'Catalog.common.Yes'|translate}} -->
+    {{'common.Delete'|translate}}
+  </button>
+</div>
+<!-- <button data-dismiss="modal"  (click)="close()" class="close"> <img src="assets/imgs/close.svg" alt="" class="default-icon"> -->

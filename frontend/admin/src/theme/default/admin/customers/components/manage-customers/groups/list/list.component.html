@@ -1,0 +1,116 @@
+<div class="flex filter-row">
+    <div class="filter-lft">
+        <h2>Buyer Groups ({{buyerGroupCount}})</h2>
+    </div>
+    <div class="filter-rht flex">
+        <div class="added-filter flex" *ngFor="let filter of filterSearch | keyvalue">
+            <div class="added-filter-col flex" *ngIf="filter.value">
+                <span>{{ filter.key }} : {{ getStatusDisplay(filter.key, filter.value) }} </span>
+                <button (click)="removeFilter(filter)">
+                    <img src="assets/img/close.svg" alt="">
+                </button>
+            </div>
+            
+        </div>
+        <div class="filter-search">
+            <input type="text" placeholder="Search" [(ngModel)]="keyword" (keydown.enter)="searchList()"
+                (change)="keywordchange($event.target.value)" (keyup)="($event.target.value === '' ? removeFilter({'key':'keyword','value':$event.target.value})  : '') ">
+            <span> / </span>
+        </div>
+
+        <div class="dropdown filter-dropdown" ngbDropdown #myDropdown="ngbDropdown" [autoClose]="false">
+            <button class="button-reg tertiary btn-sm" ngbDropdownToggle> <img src="assets/img/filter.svg" alt="">
+                Filters </button>
+            <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+                <app-customer-filter (progressEmits)="receiveProgress($event)"
+                    (FromEmit)="formchange($event)"></app-customer-filter>
+            </div>
+        </div>
+        <button class="button-reg primary btn-sm" (click)="addCustomerGroup()"
+            *ngIf="(sandbox.getCustomersGroupList$ | async)?.length > 0"
+            [appHideIfUnauthorized]="'create-customer-group'">
+            + 
+            Add Buyer Group
+        </button>
+    </div>
+</div>
+
+
+
+<div class="flex product-wrap example-full-width">
+  
+
+    <div class="product-table">
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="sandbox.getCustomersGroupListLoading$ | async"
+                style="transform: translate(38%, 50%);position:absolute"></app-global-loader>
+        </div>
+        <div class="table-responsive">
+            <table class="table" *ngIf="(sandbox.getCustomersGroupList$ | async)?.length > 0">
+                <thead>
+                    <tr>
+                        <th scope="col">{{'CMS.PageGroup.GroupName'|translate}}</th>
+                        <th scope="col">{{'CMS.Blog.Description'|translate}}</th>
+                        <th scope="col">{{'Customers.Group.ColorCode'|translate}}</th>
+                        <th>{{'Customers.Group.Status'|translate}}</th>
+                        <th scope="col" class="text-center" [appHideIfUnauthorized]=""
+                        [multipleHide]="['edit-customer-group','delete-customer-group']">
+                        {{ 'Customers.Customer.Action' | translate }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customersGrouplist of sandbox.getCustomersGroupList$ | async">
+
+                        <td class="td_css name" (click)="editGroup(customersGrouplist)"
+                            style="position: relative; cursor: pointer;">
+                            <span style="padding:6px; font-size: 1px ;margin-right: 5px;display: inline-block;"
+                                [ngStyle]="{ color: 'white', background: customersGrouplist.colorCode }">
+                            </span> {{ customersGrouplist.name ? customersGrouplist.name: '-' }}
+                        </td>
+                        <td (click)="editGroup(customersGrouplist)" style="position: relative; cursor: pointer;">
+                            {{ customersGrouplist.description ? customersGrouplist.description : '-'}}</td>
+                        <td (click)="(customersGrouplist)" style="position: relative; cursor: pointer;">
+                            {{ customersGrouplist.colorCode ? customersGrouplist.colorCode : '-'}}</td>
+
+
+                        <td>
+                            <div *ngIf="customersGrouplist.isActive === 1">
+                                <span class="tags-action tag-active">{{'marketplace.seller.Active'| translate}}</span>
+                            </div>
+                            <div *ngIf="customersGrouplist.isActive === 0">
+                                <span class="tags-action tag-inactive">{{ 'Settings.Role.InActive' | translate }}</span>
+                            </div>
+                        </td>
+                        <td class="text-center action-btn" [appHideIfUnauthorized]=""
+                            [multipleHide]="['edit-customer-group','delete-customer-group']">
+                            <div class="dropdown" ngbDropdown>
+                                <button ngbDropdownToggle> <img src="assets/img/elliptical-h.svg" alt=""> </button>
+                                <div ngbDropdownMenu>
+                                    <button [appHideIfUnauthorized]="'edit-customer-group'"
+                                        (click)="editGroup(customersGrouplist)"> 
+                                        <img src="assets/img/edit.svg" alt=""> Edit 
+                                    </button>
+                                    <button [appHideIfUnauthorized]="'delete-customer-group'"
+                                        (click)="deleteCustomerGroup(customersGrouplist.id)">
+                                        <img src="assets/img/delete-new.svg" alt=""> Delete 
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="data-product-not-available" *ngIf="(sandbox.getCustomersGroupList$ | async)?.length == 0">
+                <img src="assets/img/empty-box.svg" alt="">
+                <p>{{'Customers.Customer.Itemsnotfound'|translate}}</p>
+                <button (click)="addCustomerGroup()">Add Buyer Group</button>
+            </div>
+            <app-reusable-pagination *ngIf="(sandbox.getCustomersGroupList$ | async)?.length > 0" 
+                [type]="'numbers'" [currentPage]="currentPage"
+                [totalItems]="sandbox.getpagination$ | async" [pageSize]="pageSize" (pageChange)="onPageChange($event)">
+            </app-reusable-pagination>
+
+        </div>
+    </div>

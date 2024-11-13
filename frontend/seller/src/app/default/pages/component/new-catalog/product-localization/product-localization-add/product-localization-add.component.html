@@ -1,0 +1,70 @@
+<header>
+  <div class="header-list flexx">
+    <h1>{{'Catalog.localization.ProductLocalization'|translate}}</h1>
+  </div>
+</header>
+
+<div class="add-variant-wrapper product-add-container">
+  <div class="">
+    <div class="flex avw-header card ">
+      <div class="avwh-lft">
+        <div class="prod-img avwhl-img">
+          <img alt="Product Image" title="Product Image" *ngIf="productDetail?.productImage"
+            [src]="imageUrl + '?path=' + productDetail?.productImage[0]?.containerName + '&name=' + productDetail?.productImage[0]?.image + '&width=80&height=80'"
+            onError="this.src='assets/imgs/no-image.jpg';">
+        </div>
+        <div class="avwhl-content">
+          <h4>{{productDetail?.sku}}</h4>
+          <h3>{{productDetail?.name}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class='Language_page_wrapper__Qb2id undefined Language_page_wrapper_normal__oteTI Language_add_page_wrapper__KbanA'>
+    <div class='add_user_container add_role_container'>
+      <div class='inner-heading'>        
+        <h3> {{'Catalog.localization.Languages'|translate}} </h3>
+        <p>{{'newReq.localization' | translate}}</p>      </div>
+      <div class='languages_nav_list flexx'>
+        <a (click)="scrollToLanguage(lang.name)" *ngFor="let lang of languageList">{{ lang.name }}</a>
+      </div>
+      <div class='languges_card mb-4' *ngFor="let lang of languageList; let i = index" [id]="lang.name">
+        <div class="product-specs-heading mb-3">
+          <div class="product-specs-heading-lft">
+            <h4 class="d-flex justify-content-center align-items-center">
+              <img [src]="imageUrl + '?path=' + lang.imagePath + '&name=' +  lang.image + '&width=25&height=15'" />
+              {{ lang.name }}, <span>{{ lang.code }}</span>
+            </h4>
+          </div>
+        </div>
+        
+        <form [formGroup]="productForms[i]">
+          <input type="hidden" formControlName="languageId" [value]="lang.languageId" [placeholder]="lang.languageId">
+          <div class='languges_card__row'>
+            <div class='input-group mb-2'>
+              <label> {{'Catalog.localization.ProductTitle'|translate}} </label>
+              <div class="ig-row">
+                <input formControlName="productName" appNoLeadingSpace type="text" class='int' placeholder="{{'Catalog.localization.EnterProductTitle'|translate}}"/>
+              </div>
+            </div>
+            <div class='input-group'>
+              <label> {{'Catalog.localization.Description'|translate}} </label>
+              <div class="ig-row">
+                <ckeditor class='tex' [config]="config" [editor]="editor" formControlName="productDescription">
+                </ckeditor>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="product-save-btn flex mt-auto">
+      <button class="cancel" (click)="cancel()"> {{'common.Cancel'| translate}} </button>
+      <button class="save" (click)="save()">{{'common.Save'| translate}}
+      </button>
+    </div>
+
+  </div>

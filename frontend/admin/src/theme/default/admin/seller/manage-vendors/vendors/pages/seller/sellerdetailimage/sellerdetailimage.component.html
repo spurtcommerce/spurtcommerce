@@ -1,0 +1,7 @@
+<div class="sellerdetailimage-content">
+    <div class="sellerdetailimage-content-img">
+        <a href="javascript:void(0)" (click)="close()" class="close-modal"> <img src="assets/img/close.svg" alt=""> </a>
+        <img [src]="imageUrl + '?path=' + image?.filePath + '&name=' + image?.fileName + '&width=400&height=400'" 
+        onError="this.src='assets/error-images/Load-icon-Products.png';" [alt]="image?.fileName" />
+    </div>
+</div>

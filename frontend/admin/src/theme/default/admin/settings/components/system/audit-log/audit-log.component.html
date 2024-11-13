@@ -1,0 +1,108 @@
+<div class="local-content">
+
+    <div class="set-lay-notes flex">
+        <h4>{{'Settings.nav.Note:'|translate}}</h4>
+        <p>{{'Settings.nav.SettingAdmin'|translate}} </p>
+    </div>
+
+    <div class="setup-wrapper set-loc-wrapper">
+
+        <div class="setup-container localization-container">
+            <div class="card ap-general ap-info">
+                <!-- Date Form  -->
+                <form [formGroup]="auditLogForm">
+                    <div class="flex ap-body mb-3">
+
+                        <div class="form-group">
+                            <label>{{'Settings.nav.LogFrom'|translate}}</label>
+
+                            <input readonly style="cursor: pointer;" type="text" class="form-control date1"
+                                formControlName="fromDate" name="dp" id="cal-in" ngbDatepicker #d="ngbDatepicker"
+                                [maxDate]="todayDate" (click)="d.toggle()" />
+                            <div *ngIf="!(auditLogForm.value.fromDate || auditLogForm.value.toDate) && submitted === true"
+                                style="color: red;">
+                                {{'Settings.nav.PleaseChooseAtleastonedate'|translate}}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>{{'Settings.nav.LogTo'|translate}}</label>
+                            <input readonly style="cursor: pointer;" type="text" class="form-control date1"
+                                formControlName="toDate" name="dp" id="cal-in" ngbDatepicker ngbDatepicker
+                                #e="ngbDatepicker" [minDate]="auditLogForm.value.fromDate" (click)="e.toggle()" />
+                        </div>
+
+                        <div class="form-group">
+                            <button (click)="deleteDate()" class="button-reg btn-sm primary"
+                                style="margin-top: 30px;margin-left: 0px;">
+                                {{'Settings.Local.Delete' | translate}}
+                            </button>
+                        </div>
+
+
+                    </div>
+
+                    <!--Filter-->
+                    <div class="settings-right-wrapper">
+
+
+                    </div>
+                    <div class="setup-right">
+                        <div class="spinner-wrapper"
+                            style="display: flex;justify-content: center;justify-items: center;">
+                            <app-global-loader [isShow]="sandbox.auditLogListLoading$ | async"
+                                style="transform: translate(58%, 18%);position:absolute"></app-global-loader>
+                        </div>
+                        <div class="product-table">
+                            <div class="table-responsive">
+                                <app-common-table *ngIf="( sandbox.auditLogList$ | async)?.length > 0"
+                                    [HeadArray]="dynamicColumnFields" [GridArray]="sandbox.auditLogList$ | async"
+                                    (buttonChangeEvent)="buttonAction($event)"
+                                    [customTemplate]="{browser:itemTemplateRef}">
+                                </app-common-table>
+                                <ng-template #itemTemplateRef let-item let-index="index">
+                                    {{item.browserInfo.browser}}
+                                </ng-template>
+                                <div class="no_data" *ngIf="(sandbox.auditLogList$ | async)?.length == 0">
+                                    <p>{{'Settings.data.DataNotFound' | translate}}</p>
+                                </div>
+                                <div class="localize-header flex bg-transparent">
+                                    <div class="loc-hdr-lft d-inline-flex" *ngIf="(sandbox.getUsersList$ | async)?.length > 0 && (sandbox.auditLogListLoaded$| async) ">
+                                        <div class="input-group">
+                                            <p>{{'Settings.Local.Resultsperpage' | translate}}</p>
+                                            <div class="select">
+                                                <select [(ngModel)]="pageSize" [ngModelOptions]="{standalone: true}"
+                                                    (change)="pageLength()">
+                                                    <option
+                                                        *ngIf="pageSize!== '10' && pageSize!== '20' && pageSize!== '30'"
+                                                        value="{{pageSize}}">{{pageSize}}</option>
+                                                    <option value="10">10</option>
+                                                    <option value="20">20</option>
+                                                    <option value="30">30</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-inline-flex" *ngIf="(sandbox.getUsersList$ | async)?.length > 0 && (sandbox.auditLogListLoaded$| async) ">
+                                        <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+                                            [totalItems]="(sandbox.auditLogListCount$|async)" [pageSize]="pageSize"
+                                            (pageChange)="onPageChange($event)">
+                                        </app-reusable-pagination>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <!--Table-->
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

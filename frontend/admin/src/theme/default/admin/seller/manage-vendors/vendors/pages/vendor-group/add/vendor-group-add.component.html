@@ -1,0 +1,188 @@
+<div class="row products-section vendor-section  vendor-section-add" id="connect">
+<!-- loader -->
+    <div class="spinner-wrapper">
+        <app-global-loader [isShow]="vendorGroupSandbox.vendorGroupDetailLoading$ | async" style="transform: translate(38%, 366%); position: absolute; z-index: 3;">
+        </app-global-loader>
+    </div>
+
+    <!--Section Top-->
+    <form [formGroup]="vendorGroupAddForm">
+        <div class="addproduct-wrap">
+            <div class="card ap-general">
+                <div class="ap-header sub-sub-header">
+                    <h3> {{ id ? ('marketplace.seller.Update Seller Group' | translate) : ('marketplace.seller.Create Seller Group' | translate) }}</h3>
+                    <p>{{'marketplace.seller.SellerGroupContent' | translate}}</p>
+                </div>
+                <div class="ap-body">
+                    <div class="ap-form-row">
+                        <!--seller Group Name -->
+                        <div class="ap-body-col">
+                            <div class="form-group">
+                                <label>
+                                    {{'marketplace.seller.GroupName' | translate}} <sup>*</sup>
+                                    <button type="button" class="btn" placement="right"
+                                        ngbTooltip="You can provide a name for the seller group that you want to create and then the sellers mapped to that group will be under that group name.">
+                                        <img src="assets/img/info-ico.svg" alt="info" />
+                                    </button>
+                                </label>
+                                <input type="text" placeholder="{{'placeholder.Group Name'|translate}}"
+                                    appNoLeadingSpace class="form-control" [(ngModel)]="GroupName"
+                                    formControlName="GroupName"
+                                    [ngClass]="{'is-invalid': (submitted && f.GroupName.errors)|| vendorGroupAddForm.controls['GroupName'].hasError('pattern')}" required />
+                                <div *ngIf="submitted && f.GroupName.errors" class="validation-error">
+                                    <div *ngIf="f.GroupName.errors.required">{{'marketplace.Errors.Groupnameisrequired'
+                                        | translate}}</div>
+                                    <div *ngIf="vendorGroupAddForm.controls['GroupName'].hasError('minlength')">
+                                        {{'marketplace.Errors.Mustbeatleast3characterslong' | translate}}</div>
+                                    <div *ngIf="vendorGroupAddForm.controls['GroupName'].hasError('maxlength')">
+                                        {{'marketplace.Errors.Mustbemax32characterslong' | translate}}</div>
+                                </div>
+                                <div class="validation-error" *ngIf="vendorGroupAddForm.controls['GroupName'].hasError('pattern')">
+                                    {{'ValidationsErrorMessage.Allowonlyalphabetsspaces'| translate}}</div>
+                            </div>
+                        </div>
+                        <!-- commission -->
+                        <div class="ap-body-col">
+                            <div class="form-group">
+                                <label>
+                                    {{'marketplace.seller.Commissionforthisgroup' | translate}} <sup>*</sup>
+                                    <button type="button" class="btn" placement="right"
+                                        ngbTooltip="You can set up a common commission for a seller group and the sellers mapped to that group will be subjected to the commission that has been set up for the seller group.">
+                                        <img src="assets/img/info-ico.svg" alt="info" />
+                                    </button>
+                                </label>
+                                <div class="fg-commission-input">
+                                    <input placeholder="{{'placeholder.Commission for this group'|translate}}"
+                                        (keyup)="commissionValidate($event.target.value)" appOnlyNumber type="text"
+                                        class="form-control" formControlName="GroupCommission"
+                                        [ngClass]="{'is-invalid': submitted && f.GroupCommission.errors}" required>
+                                    <span>%</span>
+                                </div>
+                                <div *ngIf="submitted && f.GroupCommission.errors" class="validation-error">
+                                    <div *ngIf="f.GroupCommission.errors.required">
+                                        {{'common.Group commission is required'|translate}}</div>
+                                </div>
+                                <div class="validation-error">{{commissionError}}</div>
+                            </div>
+                        </div>
+                        <div class="ap-body-col">
+                            <div class="form-group">
+                                <label>{{'marketplace.seller.Status' | translate}}<sup>*</sup></label>
+                                <ng-select placeholder="{{'placeholder.Select Status'|translate}}" [searchable]="false"
+                                    [clearable]="false" formControlName="Status" id="inlineFormCustomSelect"
+                                    [ngClass]="{ 'error-fields': submitted && f.Status.errors }" required>
+                                    <ng-option [value]="1">{{'marketplace.seller.Active' | translate}}</ng-option>
+                                    <ng-option [value]="0">{{'marketplace.seller.InActive' | translate}}</ng-option>
+                                </ng-select>
+
+                                <div class="validation-error" *ngIf="f.Status.errors">
+                                    <div *ngIf="f.Status.errors.required && submitted">
+                                        {{'Customers.Error.StatusIsRequired'| translate}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--select Seller Group Categories -->
+            <div class="card ap-general">
+                <div class="ap-header sub-sub-header">
+                    <h3>{{'marketplace.seller.SellerGroupCategories' | translate}}</h3>
+                    <p>{{'marketplace.seller.SellerGroupCategoriesContent' | translate}}</p>
+                </div>
+                <!-- Available Categories -->
+                <section id="marzen" class="tab-content ap-body">
+                    <div class="flex categories-row">
+                        <div class="categories-col">
+                            <!-- [ngStyle]="{'color': submitted && selectedCategory.length==0 ? 'red' : 'black'}" -->
+                            <h3 class="sub-sub-header"
+                                >
+                                {{'catalog.product.AvailableCategories'| translate}} -
+                                <span *ngIf="settingSandbox.getCategoryListResponse$ | async as counts">
+                                    {{counts?.length}}
+                                </span>
+                            </h3>
+
+                            <div class="categories-col-innr" (keydown.enter)="$event.preventDefault()"
+                                (keyup.enter)="$event.preventDefault()">
+                                <div class="form-group search-categories">
+                                    <input class="example-full-width custom-search"
+                                        (keydown.enter)="$event.preventDefault()"
+                                        (keyup.enter)="$event.preventDefault()" type="text" [(ngModel)]="searchText"
+                                        [ngModelOptions]="{standalone: true}"
+                                        placeholder="{{'placeholder.search available category'|translate}}">
+                                    <!-- <span class="input-shortkey">/</span> -->
+                                </div>
+
+                                <ul class="flex category-list over-flowx" style="overflow-x: hidden;"
+                                    *ngIf="(settingSandbox.getCategoryListRequestLoaded$ | async)">
+                                    <span>
+                                        <li *ngFor="let data of (settingSandbox.getCategoryListResponse$ | async) | filter : searchText"
+                                            style="cursor: pointer">
+                                            <div class="drag"> <img src="assets/img/drag.svg" alt=""> </div>
+                                            <p (click)="addCategory(data)">{{ data.levels}}</p>
+                                            <a href="javascript:void(0)" (click)="addCategory(data)">
+                                                <img src="assets/img/plus.svg" alt="add" >
+                                            </a>
+                                        </li>
+                                    </span>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--Selected Categories  -->
+                        <div class="categories-col">
+                            <!-- [ngStyle]="{'color': submitted && selectedCategory.length==0 ? 'red' : 'black'}" -->
+                            <h3 class="sub-sub-header" >{{'catalog.product.SelectedCategories'| translate}} -
+                                {{selectedCategory?.length}}
+                            </h3>
+
+                            <div class="categories-col-innr">
+                                <div class="form-group search-categories">
+                                    <input type="text" class="example-full-width custom-search"
+                                        [(ngModel)]="searchSelectedText" [ngModelOptions]="{standalone: true}"
+                                        placeholder="{{'placeholder.search selected category'|translate}}">
+                                    <!-- <span class="input-shortkey">Ctrl + /</span> -->
+                                </div>
+
+                                <ul class="flex category-list over-flowx" style="cursor: pointer; overflow-x: hidden;">
+                                    <span>
+                                        <li *ngFor="let select of selectedCategory | filter : searchSelectedText">
+
+                                            <div class="drag"> <img src="assets/img/drag.svg" alt=""> </div>
+                                            <p (click)="removecategory(select)"
+                                                [ngClass]="{'disable': select.productAvailable === 1}"
+                                                [title]="select.productAvailable === 1 ? 'Product is mapped for this category' : ''">
+                                                {{ select.levels }}
+                                            </p>
+                                            <a href="javascript:void(0)" (click)="removecategory(select)">
+                                                <img [appHideIfUnauthorized]="'assign-category'"
+                                                     class="cursor"
+                                                    [ngClass]="{'disable': select.productAvailable === 1}"
+                                                    style="float: right;" src="assets/img/minus.svg" alt="delete">
+                                            </a>
+                                        </li>
+                                    </span>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="validation-error" >
+                            <div *ngIf="selectedCategory.length==0 && submitted">
+                                {{'Customers.Error.SelectedCategoriesIsRequired'| translate}}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="action-button-container flex">
+    <button class="button-reg btn-md tertiary" (click)="cancel()">{{'marketplace.seller.Cancel'| translate}}</button>
+    <button class="button-reg btn-md primary" id="final" (click)="onSubmit()">
+        {{ id ? ('marketplace.seller.Update Seller Group' | translate) : ('marketplace.seller.Create Seller Group' |
+        translate) }}
+    </button>
+</div>

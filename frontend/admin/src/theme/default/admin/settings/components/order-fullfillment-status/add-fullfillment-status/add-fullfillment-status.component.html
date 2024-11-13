@@ -1,0 +1,56 @@
+<div class="flex setting2-inner-header">
+    <h3 class="modal-header__title">{{updatetitle ? ("fullfillment.Update fullfillment Status" | translate) : ("fullfillment.Add fullfillment status" | translate)}}</h3>
+    <button (click)="close()" class="close-modal"><img src="assets/img/modal-close.svg"></button>
+</div>
+
+<div class="order-fulfillment-modal modal-body">    
+    <div class="ofm-content">
+        <p>{{'Settings.paragraph.Inquopertineant' | translate}} </p>
+    </div>
+    <div class="ofm-stat flex" [formGroup]="stockStatusForm">
+        <div class="input-group form-group">
+            <label>{{'Settings.Local.Orderstatus.OrderStatusName' | translate}} <sup>*</sup> </label>
+            <input class="form-control" type="text" formControlName="OrderStatusName" [ngClass]="{ 'validationcolor': submitted && f.OrderStatusName.errors,'disabled': defaultStatus==1 }">
+            <div *ngIf="submitted && f.OrderStatusName.errors" class="validation-error">
+                <div *ngIf="f.OrderStatusName.errors.required && submitted">
+                    {{'Settings.Local.Orderstatus.Error.OrderStatusNameisrequired' | translate}}
+                </div>
+            </div>
+        </div>
+        <div class="input-group form-group">
+            <label>{{'Settings.Local.Orderstatus.Priority' | translate}} <sup>*</sup> </label>
+            <input class="form-control" type="text" formControlName="priority" appOnlyNumber [ngClass]="{ 'validationcolor': submitted && f.priority.errors }">
+            <div *ngIf="submitted && f.priority.errors" class="validation-error">
+                <div *ngIf="f.priority.errors.required">
+                    {{'Settings.Local.Orderstatus.Error.Priorityisrequired' | translate}}
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group form-group">
+            <label>{{'Settings.Local.Orderstatus.ColorCode' | translate}} <sup>*</sup> </label> 
+            <input class="form-control" type="color" [(ngModel)]="color" [ngClass]="{ 'invalid': colorRequire }" [(colorPicker)]="color" formControlName="colorCode" (colorPickerChange)="onchange($event)" [value]="color" />
+            <div *ngIf="colorRequire" class="validation-error">
+                {{'Settings.Local.Orderstatus.Error.OrderStatusColorrequired' | translate}} 
+            </div>
+        </div>
+        <div class="input-group form-group" style="width:100%">
+            <label>{{'Settings.Local.Orderstatus.Status' | translate}} <sup>*</sup> </label>
+
+            <ng-select [clearable]="false" [searchable]="false" formControlName="status" placeholder="{{'Settings.Local.Language.SelectStatus' | translate}}" [ngClass]="{ 'error-fields': submitted && f.status.errors, 'disabled': defaultStatus==1 }">
+                <ng-option [value]="1">{{'Settings.Local.Orderstatus.Enabled' | translate}}</ng-option>
+                <ng-option [value]="0">{{'Settings.Local.Orderstatus.Disabled' | translate}}</ng-option>
+            </ng-select>
+            <div style="margin-top: 12px;" *ngIf="submitted && f.status.errors" class="validation-error">
+                <div *ngIf="f.status.errors.required">
+                    {{'Settings.Local.Orderstatus.Error.OrderStatusisrequired' | translate}}
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<div class="action-button-container flex">
+    <button class="button-reg btn-md tertiary" (click)="close()">{{'Settings.system.Cancel' | translate}}</button>
+    <button class="button-reg btn-md primary" (click)="add()">{{'Settings.system.Save' | translate}}</button>
+</div>

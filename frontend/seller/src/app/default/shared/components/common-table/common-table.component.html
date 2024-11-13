@@ -1,0 +1,182 @@
+<div *ngIf="dynamicFieldShowHide">
+    <div style="display: flex;justify-content: flex-end;">
+        <button class="btn btn-primary" (click)="dynamicFieldDivShow = !dynamicFieldDivShow">Add Fields</button>
+    </div>
+    <div style="display: flex;gap: 20px;height: 93px;background: grey;align-items: center;justify-content: flex-end;"
+        *ngIf="dynamicFieldDivShow">
+        <ng-container *ngFor="let vals of HeadArray;trackBy: trackByIndex">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+                    [(ngModel)]="vals.checked">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                    {{vals.displayName}}
+                </label>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+
+<div class="table-responsive ">
+    <table class="table">
+        <thead>
+            <tr>
+
+
+                <ng-container *ngFor="let head of HeadArray;trackBy: trackByIndex">
+
+                    <!-- <th 
+                        [hidden]="head.hasOwnProperty('isDisable') && head.isDisable"  *ngIf="head.checked"> 
+
+
+                         <ng-container *ngIf="head?.type === 'checkBox'" >
+                                <div class="form-check" >
+                                    <div class="check-col">
+                                    <input class="form-check-input" type="checkbox" [(ngModel)]="selectAll.isSelectAll"
+                                        (change)="checkBoxEvent('selectAll')">
+                                    </div>
+                            </div>
+                        </ng-container>
+                                   {{head.displayName|translate}}
+                    </th> -->
+
+
+                        <th [width]="head?.customStyle?.trow?.width" [height]="head?.customStyle?.trow?.height"
+                        [class]="head?.customStyle?.trow?.class" *ngIf="head.checked" [hidden]="head.hasOwnProperty('isDisable') && head.isDisable">
+                        <ng-container *ngIf="head?.type === 'checkBox' && head?.isEnableSelectall">
+                            <div class="form-check" >
+                                    <div class="check-col">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="selectAll.isSelectAll"
+                                    (change)="checkBoxEvent('selectAll')">
+                                </div>
+                                </div>
+                        </ng-container>
+                        {{head.displayName|translate}}
+                    </th>
+
+             
+                </ng-container>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of GridArray;let sr=index; trackBy: trackByIndex">
+                <ng-container *ngFor="let head of HeadArray; trackBy: trackByIndex">
+                    <ng-container *ngIf="head.checked">
+                        <ng-container [ngSwitch]="head.type">
+
+                            <!-- <td class="check-col" *ngSwitchCase="'checkBox'">
+                                <div class="form-check" title="Click To Export">
+                                    <input type="checkbox" class="form-check-input" [(ngModel)]="item.checked"
+                                        (change)="checkBoxEvent()">
+                                    <label class="d-none"></label>
+                                </div>
+                            </td> -->
+                            <td [width]="head?.customStyle?.tbody?.width"
+                                        [height]="head?.customStyle?.tbody?.height"
+                                        [class]="head?.customStyle?.tbody?.class" [hidden]="head.hasOwnProperty('isDisable') && head.isDisable ">
+                                <ng-container *ngSwitchCase="'snum'">
+                                    {{sr+1}}
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'template'">
+                                    <ng-container
+                                        *ngTemplateOutlet="customTemplate[head.id]; context: { $implicit: item, index: sr }"></ng-container>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'checkBox'" >
+                                    <div class="form-check" title="Click To Export">
+                                        <div class="check-col">
+                                        <input type="checkbox" class="form-check-input" [(ngModel)]="item.checked"
+                                            (change)="checkBoxEvent()">
+                                        </div>
+                                        <!-- <label class="d-none"></label> -->
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'toggle'">
+                                    <div class="toggle-group d-inline-block">
+                                        <input class="tgl tgl-light" [(ngModel)]="item[head.id]" id="{{ sr}}"
+                                            (change)="toggleEvent(item,$event.target.checked)" type="checkbox"
+                                            [disabled]="item.isDisabled"
+                                            [ngClass]="{'toggleButton':item.isDisabled==true}" />
+                                        <label class="tgl-btn" for="{{ sr}}"
+                                            [ngClass]="{'toggleButton':item.isDisabled==true}"></label>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'bagde'">
+                                    <div class="toggle">
+                                        <input class="tgl tgl-light" [(ngModel)]="item[head.id]" id="{{ sr}}"
+                                            (change)="toggleEvent(item,$event.target.checked)" type="checkbox" />
+                                        <label class="tgl-btn" for="{{ sr}}"></label>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'image'">
+                                    <img class="text-center" [src]="item[head.id]">
+                                </ng-container>
+
+                                <ng-container *ngSwitchCase="'date'">
+                                    <!-- {{item[head.id]?(item[head.id] | date: head.hasOwnProperty('format') ?
+                                    head?.format: customDateFormat):''}} -->
+                                    {{item[head.id]? (item[head.id]| sellerDynamicDate): '-'}}
+                                </ng-container>
+
+                                <ng-container *ngSwitchCase="'currencySymbol'">
+                                    <!-- {{item[head.id]?(item[head.id] | date: head.hasOwnProperty('format') ?
+                                    head?.format: customDateFormat):''}} -->
+                                    {{item[head.id] | currencysymbol}}
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'buttonGroup'">
+                                    <ng-container *ngFor="let val of head.buttons; trackBy: trackByIndex">
+                                        <button [class]="val?.customStyle?.tbody?.class"
+                                            (click)="buttonChange(val.key,item,sr)"
+                                            [ngClass]="{'disabledTag':val.hasOwnProperty('isDisable') && val.isDisable}">{{val.displayName | translate}}</button>
+                                    </ng-container>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'threeDotMenu'">
+
+                                    <div class="dropdown d-inline-block" ngbDropdown  container="body">
+                                        <button class="dropdown-toggle" ngbDropdownToggle> <img src="assets/imgs/v-dots.svg" alt=""> </button>
+                                        <div ngbDropdownMenu [attr.aria-labelledby]="'dropdownMenuButton_' + index"
+                                            class="dropdown-menu  dropdown-menu-right">
+                                            <h5>Actions</h5>
+                                            <ng-container *ngFor="let menu of head?.menuData; trackBy: trackByIndex">
+
+
+                                                <a href="javascript:void(0)" ngbDropdownItem href="javascript:void(0)" class="threeDotMenuStyle"
+                                                    (click)="dropDownEvent(item,head,menu,sr)"
+                                                    [ngClass]="{'hide':menu.hasOwnProperty('isDisable') && menu.isDisable}">
+                                                    <img *ngIf="menu.img" [src]="menu.img" alt=""> {{menu.displayName | translate}} </a>
+
+
+
+                                                <!-- <a class="dropdown-item" ngbDropdownItem
+                                            href="javascript:void(0)" (click)="dropDownEvent(item,head,menu,sr)" [ngClass]="{'hide':menu.hasOwnProperty('isDisable') && menu.isDisable}"> <img *ngIf="menu.img"
+                                                [src]="menu.img" alt="edit">
+                                            {{menu.name}}</a> -->
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'imageMenu'">
+                                    <ng-container *ngFor="let menu of head?.menuData;let indexBtn = index; trackBy: trackByIndex">
+                                        <button [style.padding-left]="indexBtn!=0 && indexBtn>=1 ? '20px' : ''" style="background: transparent;
+                                        border: 0;
+                                        padding-left: 20px;" (click)="dropDownEvent(item,head,menu,sr)"> <img
+                                                [src]="menu.img" alt=""
+                                                [ngClass]="{'hide':menu.hasOwnProperty('isDisable') && menu.isDisable}">
+                                        </button>
+                                    </ng-container>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'default'">
+                                    {{!['',null,undefined].includes(item[head.id])?item[head.id]:'-'}}
+                                    <ng-container *ngIf="head.additional">
+                                        <br />
+                                        <span>
+                                            {{!['',null,undefined].includes(item[head.additionalValue])?item[head.additionalValue]:'-'}}</span>
+                                    </ng-container>
+                                </ng-container>
+                            </td>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

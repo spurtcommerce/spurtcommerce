@@ -1,0 +1,11 @@
+
+
+<div *ngIf="!noInternetConnection">
+    <router-outlet></router-outlet>
+</div>
+
+<div class="nointernet" *ngIf="noInternetConnection">
+    <img src="assets/imgs/nointernet.svg" alt="">
+    <h2>{{'Shared.Oops!'|translate}}</h2>
+    <p>{{'Shared.NoInternetconnectionfound'|translate}}. <br>{{'Shared.Checkyourconnectionortryagain'|translate}}</p>
+</div>

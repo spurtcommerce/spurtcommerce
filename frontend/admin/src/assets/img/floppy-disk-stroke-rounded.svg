@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="13.2" viewBox="0 0 12 13.2">
+  <g id="floppy-disk-stroke-rounded" transform="translate(-2.4 -1.4)">
+    <path id="Path_6832" data-name="Path 6832" d="M8,19.2V17.4c0-1.131,0-1.7.351-2.049S9.269,15,10.4,15s1.7,0,2.049.351.351.917.351,2.049v1.8" transform="translate(-2 -5.2)" fill="none" stroke="#2a2e34" stroke-linejoin="round" stroke-width="1.2"/>
+    <path id="Path_6833" data-name="Path 6833" d="M10,7h2.4" transform="translate(-2.8 -2)" fill="none" stroke="#2a2e34" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    <path id="Path_6834" data-name="Path 6834" d="M3,7.915C3,5.169,3,3.8,3.832,2.926q.046-.048.094-.094C4.8,2,6.169,2,8.915,2a3.636,3.636,0,0,1,1.263.114,3.8,3.8,0,0,1,1.009.709l1.318,1.1A3.864,3.864,0,0,1,13.63,5.08a3.864,3.864,0,0,1,.17,1.607V8.6c0,2.25,0,3.375-.573,4.163a3,3,0,0,1-.664.664C11.775,14,10.65,14,8.4,14s-3.375,0-4.163-.573a3,3,0,0,1-.664-.664C3,11.975,3,10.85,3,8.6Z" fill="none" stroke="#2a2e34" stroke-width="1.2"/>
+  </g>
+</svg>

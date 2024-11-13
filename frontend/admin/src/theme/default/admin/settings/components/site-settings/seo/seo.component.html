@@ -1,0 +1,63 @@
+<div class="local-content">
+    <div class="set-lay-notes flex">
+        <h4>{{'Settings.nav.Note:' | translate}}</h4>
+        <p>{{'Settings.paragraph.SEOfriendlywithmetatags' | translate}} </p>
+    </div>
+
+    <div class="setup-wrapper setup-personalize">
+        <div class="setup-container flex">
+            <div class="spinner-wrapper" style="display: flex;justify-content: center;justify-items: center;">
+                <app-global-loader [isShow]="seoSandbox.getSettingLoading$ | async"
+                    style="transform: translate(705%, 18%);position:absolute;z-index: 6;"></app-global-loader>
+            </div>
+
+            <div class="setup-left">
+                <h3 class="sub-header">{{'Settings.SiteSettings.seo.WhatSEOdetailsarerequired' | translate}}</h3>
+                <p class="text14"> •{{'common.Meta title can be between 60-70 characters with a highly searchable
+                    keyword.'| translate}} <br>• {{'common.Meta description can be a snippet to give an idea on the top
+                    products that are sold on eCommerce portal and this can range between 160-170 characters.'|
+                    translate}}<br> • {{'common.Meta keywords can be highly searchable keywords and those keywords that
+                    the target audience will be giving to search for the relevant eCommerce portal.'| translate}}</p>
+            </div>
+
+            <div class="setup-right">
+                <div class="form-horizontal">
+                    <div class="sup-rht-section">
+
+                        <ng-container
+                            *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                            <div class="ap-body-col">
+                                <div class="form-group">
+                                    <app-common-form [type]="dynamicObjControls[val]?.type"
+                                        [control]="dynamicObjControls[val]?.control"
+                                        [label]="dynamicObjControls[val]?.label"
+                                        [inputId]="dynamicObjControls[val]?.inputId"
+                                        [aliasName]="dynamicObjControls[val]?.aliasName"
+                                        [placeholder]="dynamicObjControls[val]?.placeholder" [submitted]="submitted"
+                                        [customData]="dynamicObjControls[val]?.customData"
+                                        [optionalErrorMessage]="dynamicObjControls[val]?.optionalErrorMessage"
+                                        [mandatory]="dynamicObjControls[val]?.mandatory">
+                                    </app-common-form>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <div class="flex srbtn">
+                            <button class="button-reg btn-md primary" (click)="onSubmit();" type="submit"
+                                [appHideIfUnauthorized]="'edit-seo-url'">{{'Settings.SiteSettings.Save' |
+                                translate}}</button>
+                            <button class="button-reg btn-md tertiary" (click)="seoCancel()"
+                                [appHideIfUnauthorized]="'edit-seo-url'">{{'Settings.SiteSettings.Cancel' |
+                                translate}}</button>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

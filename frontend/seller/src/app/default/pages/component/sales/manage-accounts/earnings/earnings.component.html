@@ -1,0 +1,202 @@
+
+<app-breadcrumbs></app-breadcrumbs>
+<div class="product-list-wrap" >
+    <div class="allorders-filter-row flex">
+                <h3>{{'common.Earnings'|translate}}</h3> 
+        
+                <div class="aofr-rht flex">  
+        
+                    <div class="select-per-page flex">
+                        <ng-select [items]="perpage"
+                           bindLabel="name"
+                           [searchable]="false"
+                           [clearable]="false"
+                           (change)="GetPageLimit()"
+                           [(ngModel)]="selectedpage">
+                        </ng-select>
+                        <p> {{'common.PerPage'|translate}}</p>
+                    </div>
+        
+                    
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="assets/imgs/search-dark.svg" alt="" class="default-icon">
+                            <img src="assets/imgs/search-white.svg" alt="" class="dark-icon">
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right filter-search" aria-labelledby="dropdownMenuButton" #dropdownContent>
+                            <form>
+                                <h4>{{'common.Search'|translate}}</h4>
+                                <div class="input-group">
+                                    <div class="ig-row">
+                                        <input type="text" class="form-input search" placeholder="{{'common.Search ProductName,SKU'|translate}}" (input)="searchList($event.target.value)"
+                                         [(ngModel)]="keyword" [ngModelOptions]="{standalone:true}">
+                                         <button type="button" (click)='remove()'> 
+                                            <img src="assets/imgs/close.svg" alt="" class="default-icon"> 
+                                            <img src="assets/imgs/close-white2.svg" alt="" class="dark-icon"> 
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="assets/imgs/filter.svg" alt="" class="default-icon">
+                            <img src="assets/imgs/filter-white.svg" alt="" class="dark-icon">
+                        </button>
+                        <div  class="dropdown-menu dropdown-menu-right filter-menu-dropdown" #dropdownContentFilter onclick="event.stopPropagation()" aria-labelledby="dropdownMenuButton">
+                          
+                            <form action="" class="flex"  [formGroup]="filterForm">
+                            <div class="input-group flex">
+                                <p>{{'Sales.stockupdate.SKU'|translate}}</p>
+                                <input type="text" formControlName="SKU" name="id" placeholder="{{'common.EnterSKU'|translate}}">
+                            </div> 
+                            
+                            <div class="input-group flex">
+                                <p>{{'Sales.payments.Product'|translate}}</p>
+                                <input type="email" formControlName="ProductName" name="id" placeholder="{{'common.Enter Product Name'|translate}}">
+                            </div>
+                            <button class="button-reg primary" (click)="applyFilter()">{{'common.apply filters'|translate}}</button>
+                             <a class="reset-filter" (click)="resetFilter()"> {{'common.reset'|translate}}</a>
+                            </form>
+                        </div>  
+                        
+                    </div>
+                
+              
+            <div class="aofr-rht flex">
+                <div *ngIf="(loader && selectedAll) || (loader && filterDataId.length > 0)  || (filterDataId.length > 0 && !loader && !selectedAll) "  class="search-right flex" (click)="exportEarnings()" [title]=" filterDataId.length === 0 ? 'Bulk export' : 'Export'">
+                    <button class="button-reg secondary" [ngClass]="{'my_class': filterDataId.length > 0}"> <img title="Export" alt="Export" src="assets/imgs/export.svg" style="width:16px"> {{'Sales.shared.export'|translate}}</button>
+                    <span class="multi-spin" *ngIf="(paymentSandbox.exportEarningLoading$ | async) || (paymentSandbox.MultipleEarningExportLoading$ | async)"><i class="fas fa-spinner fa-spin fa-2x" style="color: blue;"></i></span>
+                </div>
+                <div *ngIf=" (!loader && selectedAll) ||   (filterDataId.length === 0)"  class="search-right flex" (click)="exportEarnings()" [title]=" filterDataId.length > 0 ? 'Bulk export' : 'Export'">
+                    <button class="button-reg secondary" [ngClass]="{'disabled':(paymentSandbox.categoryList$ | async)?.length == 0,'my_class': filterDataId.length > 0}"> <img title="Export" alt="Export" src="assets/imgs/export.svg" style="width:16px"> {{'Sales.shared.export all'|translate}}</button>
+                    <span class="multi-spin" *ngIf="(paymentSandbox.exportEarningLoading$ | async) || (paymentSandbox.MultipleEarningExportLoading$ | async)"><i class="fas fa-spi
+                        Tools
+                        About 33,00,000 results (0.49 seconds) 
+                        Search Results
+                        Videos
+                        ￼
+                        10:15
+                        Angular form reset
+                        YouTube · kudvenkat
+                        10 minutes, 15 seconds
+                        01-May-2018
+                        10 key moments
+                         in this video
+                        ￼
+                        From 
+                        00:00
+                        Introduction
+                        ￼
+                        From 
+                        00:40
+                        Angular form reset confirmation
+                        ￼nner fa-spin fa-2x" style="color: blue;"></i></span>
+                </div> 
+            </div>
+
+          
+         </div>
+        
+        <!-- <div class="aofr-rht flex">
+
+            <div *ngIf="filterDataId.length >0" class="search-right flex" (click)="exportEarnings()" [title]=" filterDataId.length === 0 ? 'Bulk export' : 'Export'">
+                <button class="button-reg secondary"> <img title="Export" alt="Export" src="assets/imgs/export.svg" style="width:16px"> {{'Sales.shared.export'|translate}}</button>
+                <span class="multi-spin" *ngIf="(paymentSandbox.exportEarningLoading$ | async) || (paymentSandbox.MultipleEarningExportLoading$ | async)"><i class="fas fa-spinner fa-spin fa-2x" style="color: blue;"></i></span>
+            </div>
+            <div *ngIf="filterDataId.length === 0" class="search-right flex" (click)="exportEarnings()" [title]=" filterDataId.length > 0 ? 'Bulk export' : 'Export'">
+                <button class="button-reg secondary"> <img title="Export" alt="Export" src="assets/imgs/export.svg" style="width:16px"> {{'Sales.shared.export all'|translate}}</button>
+                <span class="multi-spin" *ngIf="(paymentSandbox.exportEarningLoading$ | async) || (paymentSandbox.MultipleEarningExportLoading$ | async)"><i class="fas fa-spi
+                    Tools
+                    About 33,00,000 results (0.49 seconds) 
+                    Search Results
+                    Videos
+                    ￼
+                    10:15
+                    Angular form reset
+                    YouTube · kudvenkat
+                    10 minutes, 15 seconds
+                    01-May-2018
+                    10 key moments
+                     in this video
+                    ￼
+                    From 
+                    00:00
+                    Introduction
+                    ￼
+                    From 
+                    00:40
+                    Angular form reset confirmation
+                    ￼nner fa-spin fa-2x" style="color: blue;"></i></span>
+            </div>
+
+            
+
+        </div> -->
+    </div>
+    
+
+    <div class="loading" *ngIf="(paymentSandbox.categoryListLoading$ | async)">
+        <app-loader></app-loader>
+    </div>
+   
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="40px">
+                        <div title="Click To Export" class="form-group" title="Click To Export">
+                            <input type="checkbox" id="checkbox1" [(ngModel)]="selectedAll" (change)="selectAll()" [ngModelOptions]="{standalone: true}">
+                            <label for="checkbox1"></label>
+                        </div>
+                    </th>
+                    <th width="35%">{{'Sales.payments.Product'|translate}}</th>
+                    <th>{{'Sales.stockupdate.SKU'|translate}}</th>
+                    <th class="text-center"> {{'Sales.payments.Total Sold'|translate}}</th>
+                    <th class="text-right">{{'Sales.payments.revenue'|translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let array of (paymentSandbox.categoryList$ | async); let i = index;">
+
+                    <div class="no-data" *ngIf="(paymentSandbox.categoryList$ | async)?.length === 0 && (paymentSandbox.categoryListLoaded$ | async)">
+                        <span>{{'Sales.payments.No Earnings found'|translate}}</span> </div>
+                    <td width="40px">
+                        <div title="Click To Export" class="form-group" title="Click To Export">
+                            <input type="checkbox" [id]="array.productId" class="custom-control-input chk" [(ngModel)]="array.selected" (change)="checkIfAllSelected()" [value]="array.productId" [ngModelOptions]="{standalone: true}">
+                            <label [for]="array.productId"></label>
+                        </div>
+                    </td>
+                    <td class="product-text">
+                        <p>{{array?.name}}</p>
+                    </td>
+                    <td>
+                        <span class="id">{{array?.sku}}</span>
+                    </td>
+                    <td class="text-center"> {{array?.soldCount == null ? 0 : array?.soldCount }} </td>
+                    <td class="text-right">{{ array?.totalRevenue !== 0 ? (array?.totalRevenue | currencysymbol) : '0.00' | currencysymbol }}
+                    </td>
+
+            </tbody>
+
+
+        </table>
+    </div>
+
+    <div class="nodata-row nodata-row-table" *ngIf="(paymentSandbox.categoryList$ | async)?.length == 0" >
+        <img src="assets/imgs/nodata.svg" alt="">
+        <h4>{{'common.NoEarningsYet' | translate}}</h4>
+    </div>
+
+</div>
+
+<div class="pagination" *ngIf="(paymentSandbox.EarningCount$ | async)>0">
+    <div class="page-row">
+        <app-pagination class="active" [perPageCount]="perPageCount" [pages]="pageSize"[index]="pageindex" [length]="paymentSandbox.EarningCount$ | async" (getPage)="onPageChange($event,value)"></app-pagination>
+    </div>
+ </div>
+
+
+

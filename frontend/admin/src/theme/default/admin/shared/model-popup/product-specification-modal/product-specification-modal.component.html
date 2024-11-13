@@ -1,0 +1,44 @@
+<!-- <div class="product-spec-header">
+    <h3>Category Name : {{name}}</h3>
+   
+    <button class="close clear" (click)="dismiss()"> <img src="assets/img/close.svg" alt=""> </button>
+</div>
+<div class="product-spec-body">
+    <h3>Product Specification</h3>
+    <div class="product-spec-row" *ngFor="let item of edit;index as i">
+        <h4>{{item.specificationName}}</h4>
+        <button (click)="delete(item.specificationId,i)"> <img src="assets/imgs/close-modal-dark.svg" alt=""> </button>
+        <button  class="handSymbolRemove" *ngIf="(FamilySandbox.familyprimaryDeleteLoading$ | async)" [disabled]="true"> <img src="assets/imgs/close-modal-dark.svg" alt=""> </button>
+        <button (click)="delete(item.specificationId,i)" *ngIf="!(FamilySandbox.familyprimaryDeleteLoading$ | async)" > <img src="assets/imgs/close-modal-dark.svg" alt=""> </button>
+    </div>
+    
+</div>
+<div class="btn-row">
+    <button class="button-reg btn-lg primary" (click)="save()">Save</button>
+    <button class="button-reg btn-lg secondary" (click)="cancel()">Cancel</button>
+</div>
+ -->
+
+
+
+
+<div class="product-spec-header">
+    <h3>{{'catalog.categories.CategoryName' |
+        translate}} : {{name}}</h3>
+   
+    <button class="close clear" (click)="close()" > <img src="assets/img/close.svg" alt=""> </button>
+</div>
+<div class="product-spec-body">
+    <h3>{{'Settings.Attribute.ProductSpecifications' |
+        translate}}</h3>
+    <div class="product-spec-row" *ngFor="let item of edit;index as i">
+        <h4>{{item.specificationName}}</h4>
+        <button  class="handSymbolRemove" *ngIf="(FamilySandbox.familyprimaryDeleteLoading$ | async)" [disabled]="true"> <img src="assets/imgs/close-modal-dark.svg" alt=""> </button>
+        <button (click)="delete(item.specificationId,i)" *ngIf="!(FamilySandbox.familyprimaryDeleteLoading$ | async)" > <img src="assets/imgs/close-modal-dark.svg" alt=""> </button>
+    </div>
+    
+</div>
+<div class="btn-row">
+    <button class="button-reg btn-lg primary" (click)="save()">{{'Settings.nav.Save'|translate}}</button>
+    <button class="button-reg btn-lg secondary" (click)="cancel()">{{'Settings.nav.Cancel'|translate}}</button>
+</div>

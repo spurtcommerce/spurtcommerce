@@ -1,0 +1,106 @@
+<div class="row products-section products-sub-section">
+
+    <div class="col-12">
+        <div class="flex filter-row">
+            <div class="filter-lft">
+                <div class="toggle">
+                    <p>Filter</p>
+                    <input class="tgl tgl-light" id="cb1" type="checkbox" [checked]="true"
+                        (change)="changeFilter($event)" />
+                    <label class="tgl-btn" for="cb1"></label>
+                </div>
+            </div>
+            <!--Lft-->
+            <!-- <div class="filter-nav-list"> </div> -->
+            <!--Right-->
+        </div>
+    </div>
+</div>
+<div class="flex product-wrap example-full-width">
+    <div *ngIf="buttoncheck == true" class="filter-section">
+        <div class="w3-container">
+            <!--FILTER-->
+            <app-product-localization-filter (progressEmits)="receiveProgress($event)" [pageSize]="pageSize">
+            </app-product-localization-filter>
+        </div>
+    </div>
+    <!--LIST-->
+    <div class="product-table" [ngClass]="{ changesize: buttoncheck == true }">
+        <div class="table-responsive">
+            <div class="spinner-wrapper">
+                <app-global-loader [isShow]="productLocalizationSanbox.getProductLocalizationLoading | async"
+                    style="transform: translate(740%, 300%); position:absolute;"></app-global-loader>
+            </div>
+            <table class="table"
+                *ngIf="(productLocalizationSanbox.getProductLocalization$ | async)?.length > 0 && (productLocalizationSanbox.getProductLocalizationLoaded | async)">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ 'catalog.product.Image' | translate }}</th>
+                        <th scope="col">{{ 'catalog.product.Sku' | translate }}</th>
+                        <th scope="col" width="30%"> {{ 'catalog.product.ProductsName' | translate }} </th>
+                        <th scope="col" *ngFor="let list of languageList"> {{list.name}} </th>
+                        <th> {{'Sales.Orders.LastUpdated' | translate}} </th>
+                        <th class="text-right" scope="col" [appHideIfUnauthorized]="" [multipleHide]="['edit-vendor']">
+                            {{'marketplace.seller.Action'| translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of productListArray;let i = index">
+                        <td class="product-image">
+                            <img [src]="imageUrl + '?path=' + product?.productImage[0]?.containerName + '&name=' + product?.productImage[0]?.image + '&width=60&height=60'"
+                                onError="this.src='assets/error-images/Load-icon-Products.png';" [alt]="product.name" />
+                        </td>
+                        <td>
+                            <span class="id"> {{ product.sku }} </span>
+                            <div *ngIf="product.isActive === 1">
+                                <span class="tags-action tag-active"
+                                    style="width: 60px;display: inline-block;padding: 1px 4px; ">{{
+                                    'Settings.Role.Active' | translate }}</span>
+                            </div>
+                            <div *ngIf="product.isActive === 0">
+                                <span class="tags-action tag-inactive"
+                                    style="width: 63px;display: inline-block;padding: 1px 4px; ">{{
+                                    'Settings.Role.InActive' | translate }}</span>
+                            </div>
+                        </td>
+                        <td> {{ product.name }} </td>
+                        <td *ngFor="let lang of languageList">
+
+                            <img *ngIf="product.languageIDS.includes(lang.languageId); else elseBlock"
+                                src="assets/imgs/tick-green.svg">
+
+                            <ng-template #elseBlock>
+                                <a style="color: #2e7fbf; text-decoration: underline; cursor: pointer;"
+                                    (click)="editProduct(product)">Add</a>
+                            </ng-template>
+                        </td>
+                        <td> {{product.lastModifieDate | date:'dd/MM/yyyy hh:mm a' }}</td>
+                        <td class="text-right" [appHideIfUnauthorized]="" [multipleHide]="['edit-product']">
+                            <div class="dropdown" ngbDropdown>
+                                <i class="fa fa-ellipsis-v cursor" style="padding: 0 15px"
+                                    id="dropdownMenuButton_{{ product.productId }}" ngbDropdownToggle></i>
+                                <div ngbDropdownMenu [attr.aria-labelledby]="'dropdownMenuButton_' + product.productId"
+                                    class="dropdown-menu" style="padding: 0px;">
+                                    <a [appHideIfUnauthorized]="'edit-product'" class="dropdown-item" ngbDropdownItem
+                                        href="javascript:void(0)" (click)="editProduct(product)"> <img
+                                            src="assets/img/edit-ico.png" alt="edit">
+                                        {{'marketplace.seller.Edit'| translate}}</a>
+                                </div>
+                            </div>
+                            <!-- Modal -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="data-product-not-available"
+                *ngIf="(productLocalizationSanbox.getProductLocalization$ | async)?.length == 0 && (productLocalizationSanbox.getProductLocalizationLoaded | async)">
+                <img src="assets/img/empty-box.svg" alt="empty-box">
+                <p>{{'catalog.product.Itemsnotfound' | translate}}</p>
+            </div>
+        </div>
+        <mat-paginator *ngIf="(productLocalizationSanbox.getProductLocalization$ | async)?.length > 0" #paginator
+            [length]="(productLocalizationSanbox.getProductLocalizationCount$ | async)" [pageSize]="pageSize"
+            [pageIndexs]="index" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)">
+        </mat-paginator>
+    </div>
+</div>

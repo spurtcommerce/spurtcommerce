@@ -1,0 +1,58 @@
+<app-cms-header></app-cms-header>
+<app-breadcrumb></app-breadcrumb>
+<div *ngIf="this.router.url.split('?')[0]!=='/customers/manage-customers/customer/add' &&
+this.router.url.split('?')[0]!=='/customers/manage-customers/customer/list' &&
+this.router.url.split('?')[0]!=='/customers/manage-customers/customer/view/'+id &&
+this.router.url.split('?')[0]!=='/customers/manage-customers/customer/edit/'+id  && 
+this.router.url.split('?')[0]!=='/customers/manage-customers/groups/add' &&
+this.router.url.split('?')[0]!=='/customers/manage-customers/groups/edit/'+id &&
+this.router.url.split('?')[0]!=='/customers/manage-customers/groups/list' ">
+
+
+    <div class="products-section-count">
+        <div class="product-ts-left">
+            <ul>
+                <li>
+                    <p>{{'Customers.Customer.TotalCustomer' | translate}} </p>
+                    <span *ngIf="(layoutSandbox.customerCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    <button type="button" placement="bottom" ngbTooltip="Total number of registered customers on the platform."><img src="assets/img/info-ico.svg" alt="info"></button>
+                    <h3 *ngIf="!(layoutSandbox.customerCountLoading$ | async)">{{(layoutSandbox.customerCount$ | async).totalCustomer}}</h3>
+                </li>
+                <li>
+                    <p>{{'Customers.Customer.ActiveCustomer' | translate}} </p>
+                    <span *ngIf="(layoutSandbox.customerCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    <button type="button" placement="bottom" ngbTooltip="Number of active customers on the platform."><img src="assets/img/info-ico.svg"alt="info"></button>
+                    <h3 *ngIf="!(layoutSandbox.customerCountLoading$ | async)">{{(layoutSandbox.customerCount$ | async).activeCustomer}}</h3>
+                </li>
+                <li>
+                    <p>{{'Customers.Customer.In-ActiveCustomer' | translate}}</p>
+                    <span *ngIf="(layoutSandbox.customerCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    <button type="button" placement="bottom" ngbTooltip="Number of in-active customers on the platform."><img src="assets/img/info-ico.svg" alt="info"></button>
+                    <h3 *ngIf="!(layoutSandbox.customerCountLoading$ | async)">{{(layoutSandbox.customerCount$ | async).inActiveCustomer}}</h3>
+                </li>
+
+                <li>
+                    <p>{{'Customers.Customer.TotalCustomerGroup' | translate}}</p>
+                    <span *ngIf="(layoutSandbox.customerCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    <button type="button" placement="bottom" ngbTooltip="Total number of customer groups on the platform."><img src="assets/img/info-ico.svg" alt="info"></button>
+                    <h3 *ngIf="!(layoutSandbox.customerCountLoading$ | async)">{{(layoutSandbox.customerCount$ | async).totalCustomerGroup}}</h3>
+                </li>                    
+                <li>
+                    <p>{{'Customers.Customer.ActiveCustomerGroup' | translate}} </p>
+                    <span *ngIf="(layoutSandbox.customerCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    <button type="button" placement="bottom" ngbTooltip="Total number of active customer groups on the platform."><img src="assets/img/info-ico.svg" alt="info"></button>
+                    <h3 *ngIf="!(layoutSandbox.customerCountLoading$ | async)">{{(layoutSandbox.customerCount$ | async).activeCustomerGroup}}</h3>
+                </li>
+                <li>
+                    <p>{{'Customers.Customer.In-ActiveCustomerGroup' | translate}}</p>
+                    <span *ngIf="(layoutSandbox.customerCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    <button type="button" placement="left" ngbTooltip="Total number of in-active customer groups on the platform."><img src="assets/img/info-ico.svg" alt="info"></button>
+                    <h3 *ngIf="!(layoutSandbox.customerCountLoading$ | async)">{{(layoutSandbox.customerCount$ | async).inActiveCustomerGroup}}</h3>
+                </li>
+            </ul>
+        </div>
+        <!--Left-->
+    </div>
+
+</div>
+<router-outlet></router-outlet>

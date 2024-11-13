@@ -1,0 +1,146 @@
+<!-- <div class="set-lay-notes flex" style="padding: 0 10px 10px 10px;">
+    <h4>{{'common.Note'|translate}} :</h4>
+    <p>{{'common.The admin can create different attribute groups under which they can add different attributes to describe the product.'|translate}}</p>
+</div> -->
+
+<!-- <div class="attributes-nav">
+    <a href="javascript:Void(0)">Manage Order & Fullfillment Mapping</a>
+  </div> -->
+  
+  <!-- <div class="flex filter-row"> -->
+    <!-- <div class="filter-lft"> -->
+      <!-- <h2> Family ( {{ FamilySandbox.familylistCount$ | async }} )</h2> -->
+      <!-- <h2>Total Order Assigned : {{assingedCategory?.length}} </h2> -->
+  
+      <!-- <div class="loc-hdr-lft">
+           <div class="input-group">
+            <p>{{'Settings.Local.Resultsperpage' | translate}}</p>
+            <div class="select">
+                <select [(ngModel)]="pageSize" (change)="FamilyList()">
+                  <option *ngIf="pageSize !== '10' && pageSize !== '20' && pageSize !== '30'" value="{{ pageSize }}">
+                  {{ pageSize }}
+                </option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+            </select>
+            </div>
+        </div>
+      </div> -->
+    <!-- </div> -->
+    <!-- <div class="filter-rht flex" (keyup.Tab)="focusInput()">
+      <div class="added-filter flex" *ngFor="let filter of filterSearch | keyvalue">
+        <div class="added-filter-col flex" *ngIf="filter.value">
+          <span>{{ filter.key }} : {{ filter.value }} </span>
+  
+          <button (click)="removeFilter(filter)">
+            <img src="assets/img/close.svg" alt="" />
+          </button>
+        </div>
+      </div>
+      <div class="filter-search">
+        <input type="text" placeholder="Search" [(ngModel)]="keyword" #myInput (keydown.enter)="searchList()"
+          (change)="keywordchange($event.target.value)" (keyup)="($event.target.value === '' ? removeFilter({'key':'keyword','value':$event.target.value})  : '') " />
+        <span> / </span>
+      </div>
+    </div> -->
+  <!-- </div> -->
+  
+  <!--Filter-->
+  <div class="flex product-wrap example-full-width mt-0">
+    <div class="product-table">
+      <div class="spinner-wrapper">
+      
+      </div>
+      <div class="product-table">
+        <div class="table-responsive heightFixing">
+          <table class="table"  (keyup.Tab)="focusInput()">
+            <thead>
+              <tr>
+                <th class="table-width">
+                  {{'fullfillment.Fullfillment Order List'|translate}}  
+               
+                </th>
+                <th class="table-width">{{'fullfillment.Available Order'|translate}}</th>
+                <th class="text-center">{{'fullfillment.Assign Order'|translate}}</th>
+                <!-- <th class="text-center">{{'attributes.Action'| translate}}</th> -->
+              </tr>
+            </thead>
+            <tbody>
+  
+              <tr *ngFor="let datas of (Orderfullfillmentsandbox.Orderfullfillmentlist$ | async);let i=index">
+                <td>{{datas.name}} </td>
+                <td>
+                  <ng-container *ngIf="datas.fullfillmentStatus.length==0">
+                    {{'fullfillment.Nil'|translate}}
+                  </ng-container>
+                  <ng-container *ngFor="let elemsec of datas.fullfillmentStatus; index as si; let last = last">
+                    <ng-container *ngIf="si < 3" >
+                      {{elemsec.name}}
+                      <ng-container *ngIf="!last">,</ng-container>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container *ngIf="datas.fullfillmentStatus.length > 3">
+                    ...
+                  </ng-container>
+                </td>
+                <td>
+                  <div class="dropdown assign-spec-dropdown" ngbDropdown>
+                    <button ngbDropdownToggle data-bs-toggle="dropdown">{{'attributes.SelectSpecification'|
+                      translate}}
+                    </button>
+                    <div ngbDropdownMenu class="dropdown-menu" style="padding: 0px;" aria-labelledby="dropdownMenuButton">
+                      <div class="input-group">
+                        <div class="ig-row">
+                        </div>
+                      </div>
+                      <div class="drop-list" *ngFor="let elem of datas.fullfillmentStatusDropDown;let i=index">
+                        <div class="dropItems flex" 
+                          >
+                          <p style="margin: 0;">{{ elem.name}}</p>
+                          <!-- (change)="ChangespecificationCheckboc($event,elem,datas,i)" -->
+                          <div class="chk-groups">
+                            <input type="checkbox" id="{{elem.id +'_'+ i+fi}}"
+                              
+                              [(ngModel)]="elem.isChecked"
+                              
+                              >
+                            <label for="{{elem.id  +'_'+ i+fi}}"></label>
+                          </div>
+                          <!-- [disabled]="datas.ids.includes(elem.orderStatusId)" -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <!-- <td class="text-center action-btn" [appHideIfUnauthorized]="" [multipleHide]="[  'delete-family' ]">
+                  <div class="dropdown" ngbDropdown>
+                    <button ngbDropdownToggle>
+                      <img src="assets/img/elliptical-h.svg" alt="" />
+                    </button>
+                    <div ngbDropdownMenu>
+                      <button [appHideIfUnauthorized]="'delete-family'"
+                        (click)="openproductspec(datas)">
+                        <img src="assets/img/delete-new.svg" alt="delete"> Delete
+                      </button>
+                    </div>
+                  </div>
+                </td> -->
+              </tr>
+            </tbody>
+          </table>
+       
+  
+        
+        </div>
+  
+      </div>
+      <div class="btn-row">
+        <button class="button-reg btn-md primary" 
+          (click)="save()">{{'marketplace.seller.Assign'| translate}}</button>
+        <button class="button-reg btn-md secondary" 
+          (click)="cancel()">{{'attributes.Cancel'| translate}}</button>
+      </div>
+  
+    </div>
+  </div>

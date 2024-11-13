@@ -1,0 +1,35 @@
+<div *ngIf="this.router.url.split('?')[0]!=='/cms/manage-banners/banners/add' &&
+this.router.url.split('?')[0]!=='/cms/manage-banners/banners/edit/'+id  ">
+
+
+
+<div class="row products-section">
+    <div class="col-12">
+        <div class="card">
+            <div class="product-ts-left">
+                <ul>
+                    <li>
+                        <p>{{'CMS.Pages.totalBanners'| translate}}</p>
+                        <span *ngIf="(sandbox.getBannerCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                        <button type="button" placement="bottom" ngbTooltip="Total number of created banners.  The number includes both active and in-active banners."> <img src="assets/img/info-ico.svg" alt="info"></button>
+                        <h3 *ngIf="!(sandbox.getBannerCountLoading$ | async)">{{(sandbox.getBannerCount$ | async)?.totalBanner}} </h3>
+                    </li>
+                    <li>
+                        <p>{{'CMS.Pages.activeBanners'| translate}}</p>
+                        <span *ngIf="(sandbox.getBannerCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                        <button type="button" placement="bottom" ngbTooltip="Total number of active banners. As it is active, it will display on the storefront."> <img src="assets/img/info-ico.svg" alt="info"></button>
+                        <h3 *ngIf="!(sandbox.getBannerCountLoading$ | async)">{{(sandbox.getBannerCount$ | async)?.activeBanner}}</h3>
+                    </li>
+                    <li>
+                        <p>{{'CMS.Pages.inactiveBanners'| translate}}</p>
+                        <span *ngIf="(sandbox.getBannerCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                        <button type="button" placement="left" ngbTooltip="Total number of in-active banners. As it is in-active, it will not display on the storefront."> <img src="assets/img/info-ico.svg" alt="info"></button>
+                        <h3 *ngIf="!(sandbox.getBannerCountLoading$ | async)">{{(sandbox.getBannerCount$ | async)?.inActiveBanner}} </h3>
+                    </li>
+                </ul>
+            </div>
+            <!--Left-->
+        </div>
+    </div>
+</div>
+</div>

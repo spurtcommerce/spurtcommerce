@@ -1,0 +1,7 @@
+<div class="breadcrumbs">
+    <ul class="flex">
+        <li *ngFor="let page of pageInfo;let i = index; let last = last"><span *ngIf="i>0"> <img src="assets/imgs/slash.svg" alt=""> </span><a [ngClass]="{'no-cursor': last}" href="javascript:void(0)" [routerLink]="page.url">{{page.title|translate}}</a></li>
+    </ul>
+</div>
+
+

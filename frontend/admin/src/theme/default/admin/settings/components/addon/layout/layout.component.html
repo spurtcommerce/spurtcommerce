@@ -1,0 +1,75 @@
+<div class="setup-wrapper">
+
+
+    <div class="setup-container localization-container">
+
+        <div class="loc-lay-title">
+            <h3 class="page-title">{{'Settings.nav.AddOns'|translate}}</h3>
+            <p class="text14">{{'Settings.nav.Add-ON'|translate}} </p>
+        </div>
+
+        <div class="card ap-general ap-info set-loc-card">
+            <div class="localize-tab">
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="set-lay-notes flex" style="padding: 0 10px 10px 10px;">
+    <h4>{{'Settings.nav.Note:'|translate}}</h4>
+    <p>{{'Settings.nav.Adminheader'|translate}}</p>
+</div> 
+
+<div class="setup-wrapper set-loc-wrapper">
+    <div class="setup-container localization-container">
+        <div class="card ap-general ap-info">
+            <div class="flex ap-body">
+
+                <div class="setup-right">
+                    <div class="product-table">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            {{'Settings.nav.Name'|translate}}
+                                        </th>
+                                        <th scope="col">{{'Settings.nav.Status'|translate}}</th>
+                                        <th scope="col" class="text-center">
+                                        {{'Settings.nav.Action'|translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngIf="pluginList">
+                                        <ng-container *ngFor="let list of pluginList">
+                                            <tr>
+                                                <td>{{list.pluginName}}</td>
+                                                <td>
+                                                    <div *ngIf="list.pluginStatus === 1">
+                                                        {{'marketplace.seller.Active'| translate}}
+                                                    </div>
+                                                    <div *ngIf="list.pluginStatus === 0">
+                                                        {{'Settings.nav.In-Active'|translate}}
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="dropdown" ngbDropdown>
+                                                        <i class="fa fa-ellipsis-v cursor" style="padding:0 15px" ngbDropdownToggle> </i>
+                                                        <div ngbDropdownMenu class="dropdown-menu">
+                                                            <a class="dropdown-item" ngbDropdownItem href="javascript:void(0)" (click)="configurePlugin(list.id)"> <img src="assets/img/edit.svg" alt="edit" /> {{'Settings.nav.Configure'|translate}} </a> 
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </ng-container>
+                                    </ng-container>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

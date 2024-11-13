@@ -1,0 +1,37 @@
+mat-radio-button {
+    padding: 1px 3px;
+}
+
+.settings-right-wrapper {
+    margin-top: 0px !important;
+}
+
+.setting1-inner-header {
+    margin-top: 40px !important;
+}
+.coc{
+    background: #f20a6d;
+    border: solid thin #dddddd;
+    color: white;
+    padding: 4px 16px;
+}
+:host{
+    /* width: calc(100% - 250px); */
+}
+.upload-btn{
+    font-size: 13px;
+    font-weight: 500;
+    color: #000000;
+    background-color: transparent;
+    border: solid 1px #078e05 !important;
+    color: #078e05 !important;
+    min-width: 116px!important;
+    height: 40px!important;
+    text-align: center!important;
+    display: flex!important;
+    justify-content: center!important;
+    margin-top: 12px!important;
+}
+:host ::ng-deep .toast-container{
+    top: 37px !important;
+} 

@@ -1,0 +1,173 @@
+<div (keyup.Tab)="focusInput()">
+
+  <div *ngIf="sellerSandbox.exportExcelLoading$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+  </div>
+
+
+  <div class="flex filter-row" (keyup.Tab)="focusInput()">
+    <div class="filter-lft">
+      <h2>{{ 'marketplace.seller.Vendors' | translate }} ({{(sellerSandbox.sellerListCount$ | async)}})</h2>
+    </div>
+
+    <div class="filter-rht flex">
+
+      <!-- filter -->
+      <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue; trackBy: trackByIndex">
+        <div class="added-filter-col flex filter-detail" *ngIf="!empty.includes(filter.value)">
+          <span>{{ filter.key }} : </span>
+          <ng-container [ngSwitch]="filter.key">
+            <ng-container *ngSwitchCase="'Status'">
+              {{ filter.value==1 ?'Active':'In-active'}}
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              {{ filter.value }}
+            </ng-container>
+          </ng-container>
+          <button (click)="removeFilter(filter)">
+            <img src="assets/img/close.svg" alt="" />
+          </button>
+        </div>
+      </div>
+
+      <!--search filter -->
+      <div class="filter-search">
+        <form class="" (keyup.enter)="applyFilter()">
+          <div class="input-group">
+            <div class="ig-row">
+              <app-common-form [type]="dynamicObjControls?.Search?.type" [control]="dynamicObjControls?.Search?.control"
+                [inputId]="dynamicObjControls?.Search?.inputId" [aliasName]="dynamicObjControls?.Search?.aliasName"
+                [placeholder]="dynamicObjControls?.Search?.placeholder">
+              </app-common-form>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!--filter  -->
+      <div class="dropdown filter-dropdown" ngbDropdown #myDropdown="ngbDropdown" [autoClose]="false">
+        <button class="button-reg tertiary btn-sm" ngbDropdownToggle>
+          <img src="assets/img/filter.svg" alt="">
+          {{'marketplace.common.Filters' | translate}}
+        </button>
+        <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+          <h4> {{'marketplace.common.QuickFilter' | translate}} </h4>
+          <form class="filter-form">
+            <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+              <app-common-form *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+                [control]="dynamicObjControls[val]?.control" [label]="dynamicObjControls[val]?.label"
+                [inputId]="dynamicObjControls[val]?.inputId" [aliasName]="dynamicObjControls[val]?.aliasName"
+                [placeholder]="dynamicObjControls[val]?.placeholder" [customData]="dynamicObjControls[val]?.customData">
+              </app-common-form>
+            </div>
+            <div class="filter-btn flex">
+              <button type="submit" (click)="applyFilter()" class="button-reg btn-sm primary">
+                {{ 'Customers.Customer.ApplyFilters' | translate }}
+              </button>
+              <button (click)="filterReset('')" class="button-reg btn-sm tertiary">
+                {{'Customers.Customer.Reset' | translate }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Add Vendor -->
+      <button (click)="addVendor()" class="button-reg primary btn-sm"
+        *ngIf="(sellerSandbox.getSellerList$ | async)?.length > 0" >
+        + {{ "marketplace.seller.AddVendor" | translate }}
+      </button>
+
+    </div>
+  </div>
+
+  <div class="flex product-wrap example-full-width">
+    <div class="product-table">
+
+      <!-- Loader -->
+      <div class="spinner-wrapper">
+        <app-global-loader [isShow]="sellerSandbox.getSellerListLoading$ | async"
+          style="transform: translate(0%, 50%); position: absolute"></app-global-loader>
+      </div>
+
+      <!--Table-->
+      <div class="table-responsive">
+
+        <!-- common table -->
+        <app-common-table
+          [customTemplate]="{productList:itemTemplateRef,detail:itemTemplateRefDetail,status:itemTemplateRefStatus ,onboardingStatus:itemTemplateRefOnboardingStatus,approvalStatus:itemTemplateRefapprovalStatus,sellerId:sellerIdRefStatus}"
+          [HeadArray]="customTable" [GridArray]="sellerArray" (buttonChangeEvent)="buttonAction($event)"
+          [selectAll]="tableCheckbox" >
+        </app-common-table>
+
+
+        <!--seller Id -->
+        <ng-template #sellerIdRefStatus let-item let-index="index">
+          <span class="detail" (click)="sellerdetails(item)">{{item.vendorPrefixId}}</span>
+        </ng-template>
+
+        <!--seller product list -->
+        <ng-template #itemTemplateRef let-item let-index="index">
+          <span class="link-text" style="cursor: pointer;" (click)="getProductList(item)">
+            {{item.productCount}}
+          </span>
+        </ng-template>
+
+        <!--seller detail page -->
+        <ng-template #itemTemplateRefDetail let-item let-index="index">
+          <span class="detail" style="cursor: pointer;" (click)="opensellerdetail(item.vendorId)">
+            {{item.customer.firstName + ' ' + item.customer.lastName }}
+          </span>
+        </ng-template>
+
+        <!--seller status -->
+        <ng-template #itemTemplateRefStatus let-item let-index="index">
+          <span *ngIf="item?.isActive == 1 " class="status-badge active" href="javascript:void(0)">{{'common.Active'|translate}}</span>
+          <span *ngIf="item?.isActive == 0 " class="status-badge inactive" href="javascript:void(0)">{{'common.In-Active'|translate}}</span>
+          <!-- <app-common-badge
+            [badge]="badgeStatusMappings.hasOwnProperty(item.isActive)?badgeStatusMappings[item.isActive]:''">
+          </app-common-badge> -->
+        </ng-template>
+
+        <!--onboarding status -->
+        <ng-template #itemTemplateRefOnboardingStatus let-item let-index="index">
+          <span *ngIf="item?.kycStatus == 'verified'" class="status-badge active" href="javascript:void(0)">{{'marketplace.seller.Verified'|translate}}</span>
+          <span *ngIf="item?.kycStatus == 'pending'" class="status-badge inactive" href="javascript:void(0)">{{'marketplace.seller.Pending'|translate}}</span>
+          <span *ngIf="item?.kycStatus == 'rejected'" class="status-badge rejected" href="javascript:void(0)">{{'marketplace.seller.Rejected'|translate}}</span>
+          <span *ngIf="item?.kycStatus == 'submitted'" class="status-badge submitted" href="javascript:void(0)">{{'marketplace.seller.Submitted'|translate}}</span>
+          <span *ngIf="item?.kycStatus == 'in-review'" class="status-badge in-review" href="javascript:void(0)">{{'marketplace.seller.InReview'|translate}}</span>
+      </ng-template>
+
+      <!-- approvalStatus -->
+      <ng-template #itemTemplateRefapprovalStatus let-item let-index="index">
+        <span *ngIf="item?.approvalFlag == 1" class="status-badge active" href="javascript:void(0)">{{'marketplace.common.Approved'|translate}}</span>
+        <span *ngIf="item?.approvalFlag == 0" class="status-badge inactive" href="javascript:void(0)">{{'marketplace.common.Pending'|translate}}</span>
+    </ng-template>
+
+
+        <!-- No Data Found -->
+        <div class="nodata-found" *ngIf="(sellerSandbox.getSellerList$ | async)?.length == 0">
+          <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+          <h5>{{'Settings.data.DataNotFound' | translate}}</h5>
+          <button class="button-reg btn-sm primary" (click)="addVendor()">
+            {{ "marketplace.seller.AddVendor" | translate }}
+          </button>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination flex" *ngIf="(sellerSandbox.getSellerList$ | async)?.length > 0">
+          <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+            [totalItems]="sellerSandbox.sellerListCount$ | async" [pageSize]="limit"
+            (pageChange)="onPageChange($event)">
+          </app-reusable-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- bulk action -->
+  <app-bulk-action *ngIf="selectedDatas?.length>0" [bulkList]="bulkAction" [count]="selectedDatas?.length"
+    (actionEvent)="actionType($event)">
+  </app-bulk-action>
+
+</div>

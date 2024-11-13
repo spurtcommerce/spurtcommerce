@@ -1,0 +1,11 @@
+<div class="modal-body">
+    <button type="button" style="border: none;" class="close" (click)="dismiss()">
+        <span aria-hidden="true" style="background-color:white">&times;</span>
+    </button>
+    <img src="assets/img/info-triangle.svg">
+    <h4 style="text-align: center; width: 95%; margin: 1rem;">{{errorMsg}} </h4>
+    <div class="delete-btns flex">
+        <button type="button" class="btn btn-danger" (click)="dismiss()"> {{'CommonFormAll.No' | translate}} </button>
+        <button type="button" class="btn btn-success" (click)="accept()"> {{'CommonFormAll.Yes' | translate}}</button>
+    </div>
+</div>

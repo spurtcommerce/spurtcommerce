@@ -1,0 +1,134 @@
+
+.requiredColor {
+    
+    color: red;
+  }
+
+  .eyeButtonAlign{
+   position: relative;
+   
+  }
+
+   .fa-eye ,.fa-eye-slash {
+  position: absolute;
+  bottom: 12px;
+    right: 19px;
+    cursor: pointer;
+}
+  
+.form-date{
+  justify-content: space-between;
+  align-items: center;
+  input {
+      width: calc(100% - 30px);
+  }
+}
+
+::ng-deep .cdk-overlay-container {
+  z-index: 2000;
+}
+
+.txt {
+  display: block;
+  width: 100%;
+  height: 2.125rem;
+  border-radius: 0px;
+  border: solid 1px #D4D5D8;
+  background-color: #fff;
+  padding: 0 .5rem;
+  font-size: .8125rem;
+  font-weight: 400;
+  color: #000;
+
+}
+.form-groups {
+  margin-bottom: 1rem;
+  position: relative;
+}
+.label {
+  width: 100%;
+  margin-bottom: .125rem;
+  font-size: .75rem;
+  font-weight: 500;
+  color: #353740;
+}
+
+.text-area {
+  display: block;
+    width: 100%;
+    border: 1px solid #ebeff3;
+    height: 2rem;
+    border-radius: 0.1875rem;
+    padding: 0 0.5rem;
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1.125rem;
+    color: #333;
+    height: 7.5rem;
+    padding: 0.5rem;
+}
+.disabledTag {
+  pointer-events: none;
+}
+
+.error1{
+  border: 1px solid red !important;
+}
+.form-groups
+   .form-control {
+    height: 2.125rem;
+    padding-inline: .5rem;
+    font-size: .875rem;
+    font-weight: 400;
+    color: #353740;
+    border-radius: .3125rem;
+    border: solid 1px #D9D9E3;
+  }
+
+  ::ng-deep .ig-row .ng-select .ng-select-container {
+    // height: 2.125rem !important;
+    // min-height: 2.125rem;
+  }
+
+.form-control .date{
+  background-image: url(../../../../../../src//assets/imgs/calendar.svg);
+  background-position: left 10px center;
+  background-repeat: no-repeat;
+  background-size: 14px;
+  padding-left: 36px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group-append {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.form-control {
+  z-index: 1;
+}
+
+.labelDesign{
+  font-size: .75rem;
+}
+
+.show {
+  position: absolute;
+  right: 0.75rem;
+  top: 2.4rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #333333;
+  background-color: transparent;
+  border: 0;
+  z-index: 1;
+}

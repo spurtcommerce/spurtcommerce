@@ -1,0 +1,87 @@
+<div class="modal-heading">
+    <h3>{{'Catalog.common.Assign Discount Price' | translate}}</h3>
+    <p>{{'Catalog.common.AssignDiscountDescription' | translate}}</p>
+</div>
+<div class="modal-body">
+    <div class="sku-code">{{'Catalog.common.SKU' | translate}} : {{getdata?.sku}}</div>
+    <form [formGroup]="formgroup">
+        <div class="details-row2">
+            <div class="input-group">
+                <label>
+                    {{'Catalog.common.Priority' | translate}} <sup>*</sup>
+                    <p>{{'Catalog.common.PriorityDescription' | translate}}</p>
+                </label>
+                <div class="ig-row">
+
+                    <input type="number" formControlName="Priority" min="1" appNospace placeholder="{{'Catalog.common.EnterPriority' | translate}}">
+                </div>
+                <div class="error" style="position: absolute;top: 100%;color: red;font-size: 13px;"
+                    *ngIf="formgroup.controls['Priority'].hasError('required') && submit==true">
+                    {{'Catalog.common.Priorityisrequired' | translate}}
+                </div>
+            </div>
+            <div class="input-group">
+                <label>
+                    {{'Catalog.common.Price' | translate}} <sup>*</sup>
+                    <p>{{'Catalog.common.PriceDescription' | translate}}</p>
+                </label>
+                <div class="ig-row">
+                    <input type="number" formControlName="Price" appNospace (input)="pricechange($event)" 
+                        placeholder="{{'Catalog.common.EnterPrice' | translate}}">
+                </div>
+                <div class="error" style="position: absolute;top: 100%;color: red;font-size: 13px;"
+                    *ngIf="formgroup.controls['Price'].hasError('required') && submit==true">
+                    {{'Catalog.common.Priceisrequired' | translate}}
+                </div>
+                <div class="error" style="position: absolute;top: 100%;color: red;font-size: 13px;"
+                    *ngIf="errorMessage">
+                    {{errorMessage}}
+                </div>
+            </div>
+            <div class="input-group">
+                <label>
+                    {{'Catalog.common.DateStart' | translate}} <sup>*</sup>
+                    <p>{{'Catalog.common.StartDateDescription' | translate}}</p>
+                </label>
+                <div class="ig-row">
+                    <mat-form-field class="floating-date">
+                        <input matInput [matDatepicker]="dp1" formControlName="DateStart" [min]="MinDate"
+                            (dateChange)="onDateChange($event)">
+                        <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                        <mat-datepicker #dp1></mat-datepicker>
+                    </mat-form-field>
+
+                </div>
+                <div class="error" style="position: absolute;top: 100%;color: red;font-size: 13px;"
+                    *ngIf="formgroup.controls['DateStart'].hasError('required') && submit==true">
+                    {{'Catalog.common.Date Start is required' | translate}}
+                </div>
+            </div>
+            <div class="input-group">
+                <label>
+                    {{'Catalog.common.DateEnd' | translate}} <sup>*</sup>
+                    <p>{{'Catalog.common.EndDateDescription' | translate}}</p>
+                </label>
+                <div class="ig-row">
+                    <mat-form-field class="floating-date">
+                        <input matInput [matDatepicker]="dp2" formControlName="DateEnd" [min]="EndMinDate">
+                        <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                        <mat-datepicker #dp2></mat-datepicker>
+                    </mat-form-field>
+
+                </div>
+                <div class="error" style="position: absolute;top: 100%;color: red;font-size: 13px;"
+                    *ngIf="formgroup.controls['DateEnd'].hasError('required') && submit==true">
+                    {{'Catalog.common.Date End is required' | translate}}
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+<div class="product-save-btn modal-save-btn">
+    <button class="cancel" (click)="dismiss()">{{'common.Cancel' | translate}}</button>
+    <button class="save" (click)="save()">{{'common.Save' | translate}}</button>
+</div>

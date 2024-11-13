@@ -1,0 +1,220 @@
+<header>
+    <div class="header-list flexx">
+        <h1>{{'common.Customer Detail'|translate}}</h1>
+        <!---Back -->
+        <div class="header-list-rht ms-auto flexx">
+            <a href="javascript:void(0)" class="link-reg link-sm tertiary" [routerLink]="['/crm/customer']" [queryParams]="queryData">
+                {{'common.Back'|translate}}
+            </a>
+        </div>
+    </div>
+</header>
+<div class="page-content">
+    <div class="customer-left-div">
+        <div class="customer-profile">
+            <img alt="list name" title="profile image"
+                [src]="imageUrl + '?path=' + listDetails.params.containerName + '&name=' + listDetails.params.imageName+ '&width=50px&height=50px'"
+                onError="this.src='assets/imgs/no-image.jpg';">
+            <div class="customer-detail">
+                <h3>{{listDetails.params.firstName}} &nbsp;{{listDetails.params.lastName}}</h3>
+                <p>{{'CRM.Constituency' | translate}}</p>
+            </div>
+        </div>
+
+        <div class="customer-order-details">
+            <div class="customer-order-details-col">
+                <p>{{'common.Email'|translate}} :</p>
+                <h4>{{listDetails.params.email}}</h4>
+            </div>
+            <div class="customer-order-details-col">
+                <p>{{'common.Telephone'|translate}} :</p>
+                <h4> {{listDetails.params.mobileNumber}}</h4>
+            </div>
+            <div class="customer-order-details-col">
+                <p>{{'common.Address'|translate}} :</p>
+                <h4>{{listDetails.params.shippingAddress1}},{{listDetails.params.shippingAddress2}},{{listDetails.params.shippingCity}},{{listDetails.paramsshippingZone}}
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter -->
+    <header class="header-inner">
+        <div class="header-list flexx">
+            <h2>{{'common.History' | translate}}</h2>
+            <div class="header-list-rht ms-auto flexx">
+                <div class="search-filter dropdown" ngbDropdown #dropdownContentFilter="ngbDropdown">
+                    <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button" ngbTooltip="Filter" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()"
+                        placement="bottom">
+                        <img src="assets/imgs/filter.svg" alt="">
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+                        <h5>{{'common.Filter'|translate}}</h5>
+                        <form action="" class="flex">
+                            <div class="filter-content">
+                                <div
+                                    *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                                    <app-reusable-forms *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+                                        [control]="dynamicObjControls[val]?.control"
+                                        [label]="dynamicObjControls[val]?.label"
+                                        [inputId]="dynamicObjControls[val]?.inputId"
+                                        [aliasName]="dynamicObjControls[val]?.aliasName"
+                                        [customData]="dynamicObjControls[val]?.customData"
+                                        [placeholder]="dynamicObjControls[val]?.placeholder">
+                                    </app-reusable-forms>
+                                </div>
+                            </div>
+                            <div class="filter-action">
+                                <button class="button-reg btn-sm primary" (click)="applyFilter()">
+                                    {{'common.apply filters'|translate}}</button>
+                                <button class="button-reg btn-sm trans-btn"
+                                    (click)="filterReset()">{{'common.reset'|translate}}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="customer-right-div">
+        <ul class="nav mb-3 view-order-tab" id="pills-tab" role="tablist">
+            <!---Viewed product -->
+            <li class="nav-item" role="presentation" (click)="tabChanges(true)" style="cursor: pointer;">
+                <a class="nav-link" [ngClass]="{'active': show}">{{'common.Viewed product'|translate}} </a>
+            </li>
+            <!---Order Products -->
+            <li class="nav-item" role="presentation" (click)="tabChanges(false)" style="cursor: pointer;">
+                <a class="nav-link" [ngClass]="{'active': !show}">{{'common.Order Products'|translate}}</a>
+            </li>
+
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+            <!---Viewed product -->
+            <div *ngIf="show" style="display: initial !important" class="tab-pane" id="pills-home" role="tabpanel">
+                <!-- Loader -->
+                <div class="loading" *ngIf="(customerSandbox.ViewProductListLoading$ | async) && show == true">
+                    <app-loader></app-loader>
+                </div>
+                <!-- common -table -->
+                <app-common-table *ngIf="(customerSandbox.ViewProductList$ | async).length > 0"
+                    [HeadArray]="dynamicColumnFields1" [GridArray]="(customerSandbox.ViewProductList$ | async)"
+                    [selectAll]="tableCheckbox" [customTemplate]="{productName:itemTemplateRef}">
+                </app-common-table>
+                <ng-template #itemTemplateRef let-item let-index="index">
+                    <td>
+                        <div class="d-flex align-items-center product-details">
+                            <span class="avatar avatar-xs online avatar-rounded">
+                                <ng-container>
+                                    <img alt="Product Image" title="Product Image"
+                                        [src]="imageUrl + '?path=' + item.productImage[0].containerName + '&name=' + item.productImage[0].image + '&width=50px&height=50px'"
+                                        onError="this.src='assets/imgs/no-image.jpg';">
+                                </ng-container>
+                            </span>
+                            <div class="inline-flex">
+                                <a href="javascript:void(0)">{{item.productName}}</a>
+                                <p>{{item.sku}}</p>
+                            </div>
+                        </div>
+                    </td>
+                </ng-template>
+
+                <!-- No data content -->
+                <div class="nodata flexx"
+                    *ngIf="(customerSandbox.ViewProductList$|async)?.length == 0 && (customerSandbox.ViewProductListLoaded$|async)">
+                    <span><img src="assets/imgs/nodata.svg" alt=""></span>
+                    <h4><ng-container *ngIf="formValueExists ;else nodatafound">
+                            {{'common.NoDataAvailablefortheFilteredCriteria'|translate}}
+                        </ng-container>
+                        <ng-template #nodatafound>
+                            {{'common.NoViewProductsYet' | translate}}
+                        </ng-template>
+                    </h4>
+                </div>
+
+                <!-- Pagination -->
+                <div class="" *ngIf="show == true">
+                    <div *ngIf="(customerSandbox.ViewProductListCount$| async) > 0">
+
+                        <app-reusable-pagination class="pagination flexx" [type]="'numbers'" [currentPage]="currentPage"
+                            [pageSize]="limit" [totalItems]="(customerSandbox.ViewProductListCount$| async)"
+                            (pageChange)="onPageChange($event,show)">
+                        </app-reusable-pagination>
+                    </div>
+                </div>
+
+            </div>
+            <!---Order Products -->
+            <div *ngIf="!show" style="display: initial !important" class="tab-pane" id="pills-profile" role="tabpanel">
+                <!-- Loader -->
+                <div class="loading" *ngIf="(customerSandbox.OrderProductListLoading$ | async) && show == false">
+                    <app-loader></app-loader>
+                </div>
+                <!-- common -table -->
+                <app-common-table *ngIf="orderedList?.length > 0" [HeadArray]="dynamicColumnFields2"
+                    [GridArray]="orderedList" [selectAll]="tableCheckbox"
+                    [customTemplate]="{productName:itemTemplateRef1,orderStatus:itemTemplateRef2}">
+                </app-common-table>
+                <ng-template #itemTemplateRef1 let-item let-index="index">
+                    <td>
+                        <div class="d-flex align-items-center product-details">
+                            <span class="avatar avatar-xs online avatar-rounded">
+                                <ng-container>
+                                    <img alt="list name" title="list name"
+                                        [src]="imageUrl + '?path=' + item.containerName + '&name=' + item.image+ '&width=50px&height=50px'"
+                                        onError="this.src='assets/imgs/no-image.jpg';">
+                                </ng-container>
+                            </span>
+                            <div class="inline-flex">
+                                <a href="javascript:void(0)">{{item.productName}}</a>
+                                <p>{{item.sku}}</p>
+                            </div>
+                        </div>
+                    </td>
+                </ng-template>
+                <ng-template #itemTemplateRef2 let-item let-index="index">
+                    <td class="order-status text-center">
+                        <span *ngIf="item.orderStatus[item.orderIndex].orderStatusId==5 "
+                            class="delivered">{{'Status.Delivered' | translate}}</span>
+                        <span *ngIf="item.orderStatus[item.orderIndex].orderStatusId==7 "
+                            class="cancelled">{{'Status.Cancelled' | translate}}</span>
+                        <span
+                            *ngIf="item.orderStatus[item.orderIndex].orderStatusId==1 || item.orderStatus[item.orderIndex].orderStatusId==2"
+                            class="confirmed">{{'Status.Order Placed' | translate}}</span>
+                        <span *ngIf="item.orderStatus[item.orderIndex].orderStatusId==3"
+                            class="confirmed">{{'Status.Packing in progress' | translate}}</span>
+                        <span *ngIf="item.orderStatus[item.orderIndex].orderStatusId==4 "
+                            class="shipped">{{'Status.Shipped' | translate}}</span>
+                    </td>
+                </ng-template>
+
+
+                <!-- No data content -->
+                <div class="nodata flexx"
+                    *ngIf="(customerSandbox.OrderProductList$|async)?.length == 0 && (customerSandbox.OrderProductListLoaded$|async)">
+                    <span><img src="assets/imgs/nodata.svg" alt=""></span>
+                    <h4><ng-container *ngIf="formValueExists ;else nodatafound">
+                            {{'common.NoDataAvailablefortheFilteredCriteria'|translate}}
+                        </ng-container>
+                        <ng-template #nodatafound>
+                            {{'common.No Order Products yet'|translate}} !
+                        </ng-template>
+                    </h4>
+                </div>
+                <!-- Pagination -->
+                <div *ngIf="show == false">
+                    <div *ngIf="(customerSandbox.OrderProductListCount$ | async) > 0">
+
+                        <app-reusable-pagination class="pagination flexx" [type]="'numbers'" [currentPage]="currentPage"
+                            [pageSize]="limit" [totalItems]="(customerSandbox.OrderProductListCount$ | async)"
+                            (pageChange)="onPageChange($event,show)">
+                        </app-reusable-pagination>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

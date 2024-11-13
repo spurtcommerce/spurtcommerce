@@ -1,0 +1,58 @@
+<ul class="navbar-nav profile-bar">
+    <li>
+        <a mat-button [matMenuTriggerFor]="langMenu" #langMenuTrigger="matMenuTrigger" class="language-select mb-0">
+            <ng-container>
+                 <img style="width: 20px; height:13px;" [src]="imagePath + '?path=' + selectedImage?.imagePath + '&name=' + selectedImage?.image + '&width=20&height=20'" [alt]="selectedImage?.name">
+            </ng-container>
+            <!-- <span style="color: white">{{selectedImage?.name}}</span>
+            <img src="assets/img/caret-down.svg" style=" position: relative; top: 1px; margin-left: 1px;" alt=""> -->        
+        </a>
+        <mat-menu #langMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown language-menu language-dropdown blackStyle">
+            <mat-radio-group  (change)="Event(data.code)" *ngFor="let data of layoutSandbox.languageList$ | async ">
+                <button mat-menu-item>
+                    <mat-radio-button [value]="data.code" [checked]="data.code==selectedLanguge"> 
+                        <img style="width: 20px !important; height: 13px;"
+                        [src]="imagePath + '?path=' +data.imagePath + '&name='+ data.image + '&width=60&height=60'">
+                        <span class="cnty-nme">{{data.name}}</span>
+                    </mat-radio-button>
+                </button>
+            </mat-radio-group>
+        </mat-menu> 
+    </li>
+    <!-- *ngIf="isShowChat" -->
+        <ng-container  *ngIf="routerLinkCheck.chatConversation.length > 0">
+            <li  [appHideIfUnauthorized]="'chat'" >
+                <button class="chats" [routerLink]="['/chatconversation']" > 
+                    <!-- <div class="tool-hover">Add-On</div>  -->
+                    <img src="assets/imgs/chats.svg" alt="" > <span>{{getCount()}}</span></button>    
+            </li>
+        </ng-container>
+        
+        <li class="nav-item" placement="bottom-left">
+            <a class="settings" href="javascript:void(0)" [appHideIfUnauthorized]="'edit-general-settings'" [routerLink]="['/settings']" [routerLinkActive]="'active'">
+                <img src="assets/img/gear.svg" alt="user">
+            </a>
+        </li>
+    
+        <li class="nav-item dropdown profile-dropdown" style="cursor: default" ngbDropdown placement="bottom-right">
+            <a *ngIf="(layoutSandbox.user$ | async) as user" ngbDropdownToggle class="dropdown-toggle waves-effect waves-dark pro-pic"  href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span> <img [src]="getImage(user)" onError="this.src='./assets/img/avatar-img1.png';" alt=""> </span> {{(editProfileSandbox.getProfile$ | async)?.data?.firstName}}  
+            </a>
+            <div class="dropdown-menu dropdown-menu-right animated top-settings-menu" ngbDropdownMenu>
+                <div class="pb-user flex">
+                    <span> <img *ngIf='(editProfileSandbox.getProfile$ | async)?.data?.avatarPath'
+                        [src]="imageUrls + '?path=' + (editProfileSandbox.getProfile$ | async)?.data?.avatarPath + '&name=' + (editProfileSandbox.getProfile$ | async)?.data?.avatar + '&width=60&height=60'"
+                        alt="user-image" width="50">
+                   <img *ngIf='!(editProfileSandbox.getProfile$ | async)?.data?.avatarPath' src="./assets/images/user.svg"
+                        alt="user-image"> 
+                     </span> {{'Dashboard.Admin' | translate}}
+                </div>
+                <a class="dropdown-item" [routerLink]="['/../../editprofile']"> <img src="assets/img/my-profile.svg" alt="" /> {{'Dashboard.MyProfile' | translate}} </a>
+                <!-- <a class="dropdown-item" href="javascript:void(0)" [appHideIfUnauthorized]="'settings'" [routerLink]="['/settings']">  {{'Dashboard.Settings' | translate}}</a>  -->
+                <a class="dropdown-item" href="javascript:void(0)" (click)="logout.emit($event)"> <img src="assets/img/logout.svg" alt="" /> {{'Profile.user.Logout'| translate}} </a>
+            </div>
+        </li>
+        <!-- ============================================================== -->
+        <!-- User profile and search -->
+        <!-- ============================================================== -->
+    </ul>

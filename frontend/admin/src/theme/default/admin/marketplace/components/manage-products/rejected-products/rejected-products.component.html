@@ -1,0 +1,126 @@
+<div class="flex filter-row">
+  <div class="filter-lft">
+    <h2> {{'marketplace.common.RejectedProducts' | translate}} ({{sandbox.sellerProductCount$ | async}})</h2>
+  </div>
+
+  <div class="filter-rht flex">
+
+     <!-- filter -->
+     <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue; trackBy: trackByIndex">
+      <div class="added-filter-col flex filter-detail" *ngIf="!empty.includes(filter.value)">
+        <span>{{ filter.key }} : </span>
+        <ng-container [ngSwitch]="filter.key">
+          <ng-container *ngSwitchCase="'Date'">
+            {{ filter.value | date: 'dd/MM/YYYY' }}
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            {{ filter.value }}
+          </ng-container>
+        </ng-container>
+        <button (click)="removeFilter(filter)">
+          <img src="assets/img/close.svg" alt="" />
+        </button>
+      </div>
+    </div>
+
+    <!--search filter -->
+    <div class="filter-search">
+      <form class="" (keyup.enter)="applyFilter()">
+        <app-common-form [type]="dynamicObjControls?.Search?.type" [control]="dynamicObjControls?.Search?.control"
+          [label]="dynamicObjControls?.Search?.label" [inputId]="dynamicObjControls?.Search?.inputId"
+          [aliasName]="dynamicObjControls?.Search?.aliasName" [placeholder]="dynamicObjControls?.Search?.placeholder">
+        </app-common-form>
+      </form>
+    </div>
+
+    <!--filter  -->
+    <div class="dropdown filter-dropdown" ngbDropdown #myDropdown="ngbDropdown" [autoClose]="false">
+      <button class="button-reg tertiary btn-sm" ngbDropdownToggle>
+        <img src="assets/img/filter.svg" alt="">
+        {{'marketplace.common.Filters' | translate}}
+      </button>
+      <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+        <h4> {{'marketplace.common.QuickFilter' | translate}} </h4>
+        <form class="filter-form">
+          <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+            <app-common-form *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+              [control]="dynamicObjControls[val]?.control" [label]="dynamicObjControls[val]?.label"
+              [inputId]="dynamicObjControls[val]?.inputId" [aliasName]="dynamicObjControls[val]?.aliasName"
+              [placeholder]="dynamicObjControls[val]?.placeholder" [customData]="dynamicObjControls[val]?.customData">
+            </app-common-form>
+          </div>
+          <div class="filter-btn flex">
+            <button class="button-reg btn-sm primary" (click)="applyFilter()">
+              {{'marketplace.common.ApplyFilter' | translate}}
+            </button>
+            <button class="button-reg btn-sm tertiary" (click)="filterReset('')">
+              {{'marketplace.common.Reset' | translate}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex product-wrap example-full-width">
+  <div class="product-table">
+
+    <!--Loader -->
+    <div class="spinner-wrapper">
+      <app-global-loader [isShow]="sandbox.sellerProductListLoading$ | async"
+        style="transform: translate(38%, 50%);position:absolute">
+      </app-global-loader>
+    </div>
+    <div class="table-responsive">
+
+      <!-- common -table -->
+      <app-common-table *ngIf="(sandbox.sellerProductListLoaded$ | async) && rejectedProductList.length > 0"
+        [customTemplate]="{pennding:itemTemplateRef,price:itemTemplateRef1,name:itemTemplateRef2}"
+        [HeadArray]="customTable" [GridArray]="rejectedProductList" (buttonChangeEvent)="buttonAction($event)"
+        [selectAll]="tableCheckbox">
+      </app-common-table>
+
+      <ng-template #itemTemplateRef2 let-item let-index="index">
+        <div class="inline-flex cursor" (click)="goToDetail(item)">
+          <span *ngIf="item.name?.length > 80; else fullTextDisplay" matTooltip="{{ item.name }}"
+            matTooltipPosition="above">
+            {{item.truncatedText }}...
+          </span>
+          <ng-template #fullTextDisplay>
+            {{ item.name }}
+          </ng-template>
+        </div>
+      </ng-template>
+
+      <ng-template #itemTemplateRef1 let-item let-index="index">
+        <ng-container>
+          <span [matTooltip]="item.price"> {{item.price | currencysymbol}} </span>
+        </ng-container>
+      </ng-template>
+
+      <ng-template #itemTemplateRef let-item let-index="index">
+        <span class="status-badge rejected">
+          {{'marketplace.common.Rejected' | translate}}
+        </span>
+      </ng-template>
+
+      <!-- No Data Found -->
+      <div class="nodata-found" *ngIf="(sandbox.sellerProductListLoaded$ | async)  && rejectedProductList.length == 0">
+        <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+        <h5>{{'Marketing.ItemsNotFound'|translate}}</h5>
+      </div>
+
+      <!--pagination -->
+      <div class="pagination flex" *ngIf="(sandbox.sellerProductListLoaded$ | async) && (sandbox.sellerProductCount$ | async) > limit">
+        <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+          [totalItems]="sandbox.sellerProductCount$ | async" [pageSize]="limit" (pageChange)="onPageChange($event)">
+        </app-reusable-pagination>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bulk Action -->
+<app-bulk-action *ngIf="selectedDatas?.length > 0" [count]="selectedDatas?.length" [bulkList]="bulkAction"
+  (actionEvent)="actionType($event)">
+</app-bulk-action>

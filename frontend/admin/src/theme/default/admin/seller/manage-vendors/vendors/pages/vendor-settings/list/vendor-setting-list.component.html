@@ -1,0 +1,34 @@
+<app-header-layout></app-header-layout>
+<div class="flex vendorsettings-wrap">
+    <div class="vs-list">
+        <div class="vsl-top">
+            <h3>{{'marketplace.product.VendorList'| translate}}</h3>
+            <input type="text" placeholder="{{'placeholder.Search Keyword'|translate}}" #ckey (keyup)="searchVendor(ckey.value)" />
+        </div>
+        <div class="vsl-vendor" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" [scrollWindow]="false" (scrolled)="onProductScrollDown()">
+            <div class="vslv-row  flex" (click)="goToDetail(array?.vendorId)" [ngClass]="{'active' : activeOrderId === array?.vendorId}" *ngFor="let array of settingSandbox.getSettingList$ | async">
+                <img [src]="
+            ImageUrl +
+            '?path=' + 
+            array.avatarPath +
+            '&name=' +
+            array.avatar +
+            '&width=100&height=100'
+          " onError="this.src='assets/error-images/Load-icon-Products.png';" class="vendor-img" />
+                <div class="vslv-col">
+                    <h3>{{ array.firstName }}</h3>
+                    <p>{{'marketplace.product.CompanyName:'| translate}} {{ array.companyName }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="no_data" *ngIf="(settingSandbox.getSettingList$ | async)?.length == 0">
+            <p>{{'marketplace.product.DataNotFound'| translate}}</p>
+        </div>
+    </div>
+    <!--Left-->
+
+    <div class="vl-details">
+        <router-outlet></router-outlet>
+    </div>
+    <!--Right-->
+</div>

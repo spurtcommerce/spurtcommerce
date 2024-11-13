@@ -1,0 +1,33 @@
+
+<!-- <h1>mrvkjbkhffhbuyfvc</h1>
+<app-open-sidebar></app-open-sidebar>
+<h1>mrvkjbkhffhbuyfvc</h1>
+<router-outlet></router-outlet>
+<h1>mrvkjbkhffhbuyfvc</h1> -->
+<!-- <a href="www.google.com">poobals</a> -->
+<div class="page-wrapper">
+    <div class="page-subnav">
+        <h2>{{'myShop.MyAccount'|translate}}</h2>
+        <div class="page-subnav-sublist">
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/my-profile']">
+                <img  *ngIf="email==1;else noverifyemail" src="assets/imgs/check-green.svg" alt="" > {{'myShop.MyProfile'|translate}} 
+                <ng-template #noverifyemail> 
+                    <img  src="assets/imgs/check-grey.svg" alt="" >
+                </ng-template>
+            </a>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/seller-onboarding/seller-onboarding-Details']">
+                <img  *ngIf="ImageFlag==1;else verifedImage" src="assets/imgs/check-green.svg" alt="" >{{'newContent.MyBusiness'|translate}}
+                
+                <ng-template #verifedImage> 
+                    <img  src="assets/imgs/check-grey.svg" alt="" >
+                </ng-template>
+            </a>
+            <hr>
+            <a href="javascript:void(0)"  [routerLinkActive]="'active'" [routerLink]="['/my-account/myshop']">{{'myShop.MyShop'|translate}}</a>
+            <a href="javascript:void(0)"[routerLinkActive]="'active'" [routerLink]="['/my-account/personalised-setting']">{{'perSonalizedSettings.personalisedSetting' | translate}}</a>
+        </div>
+    </div>
+    <div class="page-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>

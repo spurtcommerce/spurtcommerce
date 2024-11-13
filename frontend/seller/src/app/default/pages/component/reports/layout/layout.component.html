@@ -1,0 +1,13 @@
+<div class="page-wrapper">
+    <div class="page-subnav" [ngClass]="{handSymbolRemove: allowUnapprovedSeller}">
+        <h2>{{'common.Reports' | translate}}</h2>
+        <div class="page-subnav-sublist">
+            <a href="javascript:void(0)" class="active">{{'Reports.SalesReport' | translate}} </a>
+
+
+        </div>
+    </div>
+    <div class="page-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>

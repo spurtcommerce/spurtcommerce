@@ -1,0 +1,66 @@
+# Admin #
+
+# OS generated files #
+.DS_Store
+Thumbs.db
+.tmp/
+src/api/schema.gql
+
+# Typing #
+typings/
+
+# Dist #
+dist/
+tsconfig.build.json
+
+# IDE #
+.idea/
+*.swp
+.awcache
+
+# Generated source-code #
+src/**/*.js
+src/**/*.js.map
+src/public/**/*
+test/**/*.js
+test/**/*.js.map
+coverage/
+test/preprocessor.js
+src/assets/.DS_Store
+node_modules
+
+# OS generated files #
+.DS_Store
+Thumbs.db
+.tmp/
+src/api/schema.gql
+
+# Typing #
+typings/
+
+# Dist #
+dist/
+tsconfig.build.json
+
+# IDE #
+.idea/
+*.swp
+.awcache
+
+# Generated source-code #
+src/**/*.js
+src/**/*.js.map
+src/public/**/*
+test/**/*.js
+test/**/*.js.map
+coverage/
+test/preprocessor.js
+src/assets/.DS_Store
+node_modules
+# Cache Files #
+.angular
+
+
+# package-lock #
+
+package-lock.json

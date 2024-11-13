@@ -1,0 +1,81 @@
+<!-- Header  -->
+<div class="setup-wrapper">
+  <div class="setup-container localization-container">
+    <div class="loc-lay-title">
+      <h3 class="page-title">{{ "Settings.nav.AddOns" | translate }}</h3>
+      <p class="text14">{{ "Settings.nav.AddonAdaptation" | translate }}</p>
+    </div>
+  </div>
+</div>
+<!-- Menu  -->
+<div class="local-content">
+  <div class="set-lay-notes flex">
+    <h4>{{ "Settings.nav.Note:" | translate }}</h4>
+    <p>{{ "Settings.nav.AdminNote" | translate }}</p>
+  </div>
+
+  <div class="setup-wrapper set-loc-wrapper">
+    <div class="setup-container localization-container">
+      <div class="card ap-general ap-info">
+        <div class="flex ap-body">
+          <div class="setup-right">
+            <!-- Spinner  -->
+            <div class="spinner-wrapper" style="
+                display: flex;
+                justify-content: center;
+                justify-items: center;
+              ">
+              <app-global-loader [isShow]="pluginListLoading"
+                style="transform: translate(58%, 18%); position: absolute"></app-global-loader>
+            </div>
+
+            <!-- Table Of Addon List  -->
+            <div class="product-table">
+              <div class="table-responsive">
+                <app-common-table *ngIf="pluginList?.length > 0" [HeadArray]="dynamicColumnFields"
+                  [GridArray]="pluginList" (buttonChangeEvent)="buttonAction($event)" [customTemplate]="{
+                    productAction: itemTemplateRef,
+                    status: itempTemplateName
+                  }">
+                </app-common-table>
+
+                <ng-template #itempTemplateName let-item let-index="index">
+                  <div class="toggle">
+                    <input class="tgl tgl-light" id="{{ index }}" [(ngModel)]="item.pluginStatus"
+                      (change)="onFilterChange($event, item)" type="checkbox" />
+                    <label class="tgl-btn" for="{{ index }}"></label>
+                  </div>
+                </ng-template>
+                <ng-template #itemTemplateRef let-item let-index="index">
+                  <div *ngIf="item.isEditable == 1" class="dropdown" ngbDropdown>
+                    <button ngbDropdownToggle class="link-text">
+                      <img src="assets/img/gear-grey.svg" alt="" />
+                    </button>
+                    <div ngbDropdownMenu>
+                   
+                      <a style="cursor: pointer;"  *ngIf="item.pluginName != 'ProductVariants'" [appHideIfUnauthorized]="'edit-customer'"
+                        (click)="configurePlugin(item)">
+                        <img src="assets/img/edit.svg" alt="" /> {{'marketplace.common.Edit' | translate}}
+                      </a>
+                      <a [routerLink]="[
+                          '/settings/add-on/settings/settingsLayout'
+                        ]" *ngIf="item.pluginName == 'ProductAttribute'"
+                        [appHideIfUnauthorized]="'delete-customer'"><img src="assets/img/edit.svg"
+                          alt="" />{{'Settings.Common.Config Settings' | translate}}</a>
+                      <a [routerLink]="[
+                          '/vendors/product-config/product_variant/settings/variants/variant-list'
+                        ]" *ngIf="item?.pluginName == 'ProductVariants'"
+                        [appHideIfUnauthorized]="'delete-customer'"><img src="assets/img/edit.svg" alt="" />
+                        {{'Settings.Common.Config Settings' | translate}}
+                      </a>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

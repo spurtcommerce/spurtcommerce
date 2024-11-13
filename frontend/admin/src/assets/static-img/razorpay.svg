@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5868" data-name="Rectangle 5868" width="56" height="56" rx="8" fill="#fff" opacity="0.728"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_5869" data-name="Rectangle 5869" width="32" height="32" transform="translate(-8540 4016)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="razorpay" transform="translate(8550 -4006)">
+    <g id="Mask_Group_925" data-name="Mask Group 925" transform="translate(-8550 4006)" clip-path="url(#clip-path)">
+      <g id="Group-2" transform="translate(-10.493 -16.323)">
+        <path id="Polygon" d="M38.767,0,77.534,22.153V66.458L38.767,88.61,0,66.458V22.153Z" transform="translate(0)" fill="#078e05" fill-rule="evenodd"/>
+        <path id="Path-8" d="M0,87.109l.018-44.15,38.825,66.106Z" transform="translate(0 -20.454)" fill="#028400" fill-rule="evenodd"/>
+        <path id="Path-9" d="M0,22.137,77.5,66.464,38.867,0Z" fill="#027600" fill-rule="evenodd"/>
+        <path id="Path-10" d="M73.649.25,112.2,22.412,97.975,42.745Z" transform="translate(-34.668 -0.119)" fill="#02ad00" fill-rule="evenodd"/>
+      </g>
+    </g>
+    <g id="Mask_Group_949" data-name="Mask Group 949" transform="translate(2 2)" clip-path="url(#clip-path-2)">
+      <g id="Page-1" transform="translate(-8537.609 4016.444)">
+        <g id="Group" transform="translate(0 0)">
+          <path id="Fill-17" d="M3.539,10.083,2.031,15.635l8.632-5.583L5.018,31.115l5.733.005L19.09.009Z" transform="translate(8.126 -0.009)" fill="#fff" fill-rule="evenodd"/>
+          <path id="Fill-19" d="M2.389,11.767.015,20.622H11.766L16.574,2.608,2.389,11.767" transform="translate(-0.015 10.489)" fill="#fff" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

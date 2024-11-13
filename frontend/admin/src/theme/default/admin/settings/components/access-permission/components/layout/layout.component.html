@@ -1,0 +1,30 @@
+<!-- Acess and permission  -->
+<div class="setup-wrapper">
+    <div class="setup-container localization-container">
+        <div class="loc-lay-title">
+            <h3 class="page-title">{{'Settings.nav.Accessandpermission'|translate}}</h3>
+            <p class="text14">{{'Settings.nav.SettingOrder'|translate}}</p>
+        </div>
+        
+        <!-- menu for role and user  -->
+        <div class="card ap-general ap-info set-loc-card">
+            <ul class="nav-tabs nav">
+                <li class="nav-item">
+                    <a [appHideIfUnauthorized]="'settings-role'"
+                        [routerLink]="['/settings/access-and-permission/role/list']" routerLinkActive="active"
+                        ariaCurrentWhenActive="edit-role-permission" class="nav-link">
+                        <span> {{'common.Roles'| translate}} </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a [appHideIfUnauthorized]="'settings-user'"
+                        [routerLink]="['/settings/access-and-permission/user/list']" routerLinkActive="active" class="nav-link">
+                        <span> {{'Settings.nav.Users'|translate}} </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Router outlet for pages  -->
+<router-outlet></router-outlet>

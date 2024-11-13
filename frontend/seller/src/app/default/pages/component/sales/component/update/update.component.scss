@@ -1,0 +1,263 @@
+.product-wrapper .product-right {
+    width: calc(100% - 0px);
+}
+
+.order-row {
+    justify-content: space-between;
+    .order-list {
+        width: 24%;
+        h3.ol-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #121111;
+            margin: 0 0 5px;
+            padding: 0 0 0 5px;
+        }
+        .order-search {
+            width: calc(100% - 0px);
+            background: white;
+            padding: 8px 10px;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 0px 0px;
+            box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.07);
+            input {
+                border: solid 1px #e5e5e5;
+                height: 40px;
+                line-height: 40px;
+                width: 100%;
+                font-size: 14px;
+                color: #000;
+                padding: 5px;
+                background: url(../../../../../../../assets/imgs/search-ico.svg) 97% no-repeat;
+            }
+        }
+        .orders-list-persons {
+            padding: 0 10px;
+            overflow-y: auto;
+            height: calc(100vh - 216px);
+            background: white;
+            box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.07);
+            .olp-card {
+                box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.07);
+                background-color: white;
+                margin-bottom: 5px;
+                padding: 10px;
+                .olpc-top {
+                    justify-content: space-between;
+                    align-items: center;
+                    h2 {
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #1d5ed8;
+                        margin: 0;
+                    }
+                    span {
+                        font-size: 11px;
+                        font-weight: 500;
+                        color: #3a7fa6;
+                        margin: 0;
+                        width: auto;
+                        height: 19px;
+                        border-radius: 9.5px;
+                        background-color: #def3ff;
+                        text-align: center;
+                        line-height: 19px;
+                        padding: 0 8px;
+                        text-transform: uppercase;
+                        &.op {
+                            color: #ac2d2d;
+                            background-color: #ffdede;
+                        }
+                    }
+                    p {
+                        font-size: 11px;
+                        font-weight: 500;
+                        color: #a1a1a1;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.olpc-row {
+    justify-content: space-between;
+    margin-top: 10px;
+    .olpc-img {
+        width: 40px;
+        height: 40px;
+        background-color: #def3ff;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        font-weight: 500;
+        color: #1d5ed8;
+        border-radius: 50%;
+        text-transform: uppercase;
+        &.op-img {
+            color: #ac2d2d;
+            background-color: #ffdede;
+        }
+        &.all-img {
+            color: #fff;
+            background-color: #b3a9f6;
+        }
+    }
+    .olpc-rht {
+        width: calc(100% - 40px);
+        padding-left: 18px;
+        h3 {
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: #222222;
+            margin-bottom: 10px;
+        }
+        p {
+            justify-content: flex-start;
+            align-items: flex-start;
+            font-size: 11px;
+            font-weight: 500;
+            color: #a1a1a1;
+            span {
+                
+            }
+            img {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+
+/* make sidebar nav vertical */
+
+@media (min-width: 992px) {}
+
+@media screen and (max-width: 992px) and (min-width: 767px) {}
+
+@media screen and (max-width: 992px) {}
+
+@media screen and (max-width: 766px) and (min-width: 500px) {}
+
+@media screen and (max-width: 500px) {}
+
+.example-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.example-list {
+    border: solid 1px #ccc;
+    min-height: 60px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+}
+
+.example-box {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.07);
+    background-color: white;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-bottom: none !important;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+    display: block !important;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+    border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #121111;
+    margin: 0 0 5px;
+    padding: 0 0 0 5px;
+}
+
+.example-container {
+    width: 23% !important;
+    margin: 10px 5px 0px 10px !important;
+    .example-list {
+        box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.07) !important;
+        padding: 10px !important;
+        border: none !important;
+    }
+}
+
+.olpc-top {
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1d5ed8;
+        margin: 0;
+    }
+    span {
+        font-size: 11px;
+        font-weight: 500;
+        color: #3a7fa6;
+        margin: 0;
+        width: auto;
+        height: 19px;
+        border-radius: 9.5px;
+        background-color: #def3ff;
+        text-align: center;
+        line-height: 19px;
+        padding: 0 8px;
+        text-transform: uppercase;
+        &.op {
+            color: #ac2d2d;
+            background-color: #ffdede;
+        }
+    }
+    p {
+        font-size: 11px;
+        font-weight: 500;
+        color: #a1a1a1;
+        margin: 0;
+    }
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+}

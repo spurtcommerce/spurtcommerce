@@ -1,0 +1,26 @@
+.settings-right-wrapper {
+    margin-top: 0px !important;
+}
+
+.coc{
+    background: #f20a6d;
+    border: solid thin #dddddd;
+    color: white;
+    padding: 4px 16px;
+}
+.status-badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.1875rem;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: #353740;
+    min-width: 5rem;
+    text-align: center;
+    &.active {
+        background-color: #C4F8C4;
+    }
+    &.inactive {
+        background-color: #FFCEC7;
+    }
+}

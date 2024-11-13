@@ -1,0 +1,127 @@
+<div class="subtoolbar cmstoolbar">
+    <div class="sub-nav-menu"> 
+        <div class="dd" [appHideIfUnauthorized]="'cms-pages'" [multipleHide]="['cms-pages','cms-page-group','cms-widgets','catalog-rating-review','cms-question-answer']">
+            <div class="dd-a">
+                <a href="javascript:void(0)"  [routerLink]="['/cms/manage-content']" [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/manage-pages.svg" alt="product"></span> {{'CMS.ManageContent.Manage Pages' | translate}}
+                    <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="checked" id="check" (click)="$event.stopPropagation(); onClick($event)">
+            <div class="dd-c">
+                <ul>
+                    <li [appHideIfUnauthorized]="'cms-pages'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-content/pages']" [routerLinkActive]="'active'">
+                            {{'CMS.ManageContent.Pages' | translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'cms-page-group'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-content/page-group']" [routerLinkActive]="'active'">
+                            {{'CMS.ManageContent.Page Group' | translate }}
+                        </a>
+                    </li>
+                    <li *ngIf="routerLinkCheck.promotionWidget.length > 0" [appHideIfUnauthorized]="'cms-widgets'">
+                        <a href="#" [routerLink]="['/cms/manage-content/promotion-widget/list']" [routerLinkActive]="'active'">
+                            {{'CMS.ManageContent.PromotionWidget' | translate}}
+                        </a>
+                    </li>
+                    <li *ngIf="routerLinkCheck.questionAndAnswer.length > 0" [appHideIfUnauthorized]="'cms-question-answer'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-content/question-answer/list']" [routerLinkActive]="'active'">
+                            {{'CMS.ManageContent.QuestionandAnswer' | translate}}
+                        </a>
+                    </li>
+                    <li *ngIf="routerLinkCheck.ratingAndReview.length > 0" [appHideIfUnauthorized]="'catalog-rating-review'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-content/rating-review/list']" [routerLinkActive]="'active'">
+                            {{'CMS.ManageContent.RatingsandReview' | translate}}
+                        </a>
+                    </li>
+
+                    <!-- <li [appHideIfUnauthorized]="'catalog-rating-review'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-content/promotion-widget/list']" [routerLinkActive]="'active'">
+                            reference rating
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="dd" [appHideIfUnauthorized]="'cms-pages'" [multipleHide]="['cms-banners']">
+            <div class="dd-a">
+                <a href="javascript:void(0)" [routerLink]="['/cms/manage-banners']" [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/manage-banners.svg" alt="product"></span> {{'CMS.Pages.ManageBanners' | translate}}
+                    <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="bannerChecked" id="check" (click)="$event.stopPropagation(); onBannerClick($event)">
+            <div class="dd-c">
+                <ul>
+                    <li [appHideIfUnauthorized]="'cms-banners'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-banners/banners']" [routerLinkActive]="'active'">
+                            {{'CMS.Pages.Banners' | translate}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="dd" [appHideIfUnauthorized]="'settings-site-seo'">
+            <div class="dd-a">
+                <a href="javascript:void(0)" [routerLink]="['/cms/manage-seo']" [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/manage-seo.svg" alt="product"></span> {{'CMS.Pages.ManageSEO' | translate}}
+                    <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="seoChecked" id="check" (click)="$event.stopPropagation(); onSeoClick($event)">
+            <div class="dd-c">
+                <ul>
+                    <li *ngIf="routerLinkCheck.productSeo.length > 0" [appHideIfUnauthorized]="'settings-site-seo'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-seo/product']" [routerLinkActive]="'active'">
+                            {{'CMS.ManageSEO.Product'| translate}}
+                        </a>
+                    </li>
+                    <li *ngIf="routerLinkCheck.categorySeo.length > 0" [appHideIfUnauthorized]="'settings-site-seo'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-seo/category']" [routerLinkActive]="'active'">
+                            {{'CMS.ManageSEO.Category' | translate}}
+                        </a> 
+                    </li>
+                    <li *ngIf="routerLinkCheck.pageSeo.length > 0" [appHideIfUnauthorized]="'settings-site-seo'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-seo/page']" [routerLinkActive]="'active'">
+                            {{'CMS.ManageSEO.Pages' | translate}}
+                        </a> 
+                    </li>
+                    <li *ngIf="routerLinkCheck.blogSeo.length > 0" [appHideIfUnauthorized]="'settings-site-seo'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-seo/blog']" [routerLinkActive]="'active'">
+                            {{'CMS.ManageSEO.Blog' | translate}}
+                        </a> 
+                    </li>
+                    <li *ngIf="routerLinkCheck.siteSeo.length > 0" [appHideIfUnauthorized]="'settings-site-seo'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-seo/sitemap']" [routerLinkActive]="'active'">
+                            {{'CMS.ManageSEO.SiteMap' | translate}}
+                        </a> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="dd"  [appHideIfUnauthorized]="'cms-pages'" [multipleHide]="['cms-blogs']">
+            <div class="dd-a">
+                <a href="javascript:void(0)" [routerLink]="['/cms/manage-blogs']" [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/package.svg" alt="product"></span> {{'CMS.Pages.ManageBlogs' | translate}}
+                    <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="blogChecked" id="check" (click)="$event.stopPropagation(); onBlogClick($event)">
+            <div class="dd-c">
+                <ul>
+                    <li *ngIf="routerLinkCheck.managePost.length > 0" [appHideIfUnauthorized]="'cms-blogs'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-blogs/posts']" [routerLinkActive]="'active'">
+                            Posts
+                        </a>
+                    </li>
+                    <li *ngIf="routerLinkCheck.manageCategories.length > 0" [appHideIfUnauthorized]="'cms-blogs'" >
+                        <a href="javascript:void(0)" [routerLink]="['/cms/manage-blogs/categories']" [routerLinkActive]="'active'">
+                            Categories
+                        </a> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

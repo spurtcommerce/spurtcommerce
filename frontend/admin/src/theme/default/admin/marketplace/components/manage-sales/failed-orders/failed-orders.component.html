@@ -1,0 +1,118 @@
+<div class="flex filter-row">
+    <div class="filter-lft">
+        <h2>{{'Sales.nav.FailedOrders'|translate}} ({{ sandbox.orderListCount$ | async}})</h2>
+    </div>
+
+    <div class="filter-rht flex">
+
+        <!-- filter -->
+        <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue; trackBy: trackByIndex">
+            <div class="added-filter-col flex filter-detail" *ngIf="!empty.includes(filter.value)">
+                <span>{{ filter.key }} : </span>
+                <ng-container [ngSwitch]="filter.key">
+                    <ng-container *ngSwitchCase="'Date'">
+                        {{ filter.value | date: 'dd/MM/YYYY' }}
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                        {{ filter.value }}
+                    </ng-container>
+                </ng-container>
+                <button (click)="removeFilter(filter)">
+                    <img src="assets/img/close.svg" alt="" />
+                </button>
+            </div>
+        </div>
+
+        <!--search filter -->
+        <div class="filter-search">
+            <form class="" (keyup.enter)="applyFilter()">
+                <app-common-form [type]="dynamicObjControls?.Search?.type"
+                    [control]="dynamicObjControls?.Search?.control" [label]="dynamicObjControls?.Search?.label"
+                    [inputId]="dynamicObjControls?.Search?.inputId" [aliasName]="dynamicObjControls?.Search?.aliasName"
+                    [placeholder]="dynamicObjControls?.Search?.placeholder">
+                </app-common-form>
+            </form>
+        </div>
+
+        <!--filter  -->
+        <div class="dropdown filter-dropdown" ngbDropdown #myDropdown="ngbDropdown" [autoClose]="false">
+            <button class="button-reg tertiary btn-sm" ngbDropdownToggle>
+                <img src="assets/img/filter.svg" alt="">
+                {{'marketplace.common.Filters' | translate}}
+            </button>
+            <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+                <h4> {{'marketplace.common.QuickFilter' | translate}} </h4>
+                <form class="filter-form">
+                    <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                        <app-common-form *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+                            [control]="dynamicObjControls[val]?.control" [label]="dynamicObjControls[val]?.label"
+                            [inputId]="dynamicObjControls[val]?.inputId"
+                            [aliasName]="dynamicObjControls[val]?.aliasName"
+                            [placeholder]="dynamicObjControls[val]?.placeholder"
+                            [customData]="dynamicObjControls[val]?.customData">
+                        </app-common-form>
+                    </div>
+                    <div class="filter-btn flex">
+                        <button class="button-reg btn-sm primary" (click)="applyFilter()">
+                            {{'marketplace.common.ApplyFilter' | translate}}
+                        </button>
+                        <button class="button-reg btn-sm tertiary" (click)="filterReset('')">
+                            {{'marketplace.common.Reset' | translate}}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flex product-wrap example-full-width">
+    <div class="product-table">
+        <!--Loader -->
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="sandbox.orderListLoading$ | async"
+                style="transform: translate(38%, 50%);position:absolute">
+            </app-global-loader>
+        </div>
+        <div class="table-responsive">
+
+            <!-- common -table -->
+            <app-common-table
+                [customTemplate]="{orderPrefixId: itemTemplateRef,price:itemTemplateRef1,status:itemTemplateRefcolor}"
+                [HeadArray]="customTable" [GridArray]="orderList" (buttonChangeEvent)="buttonAction($event)">
+            </app-common-table>
+
+            <!-- checkk id -->
+            <ng-template #itemTemplateRef let-item let-index="index">
+                <span class="id" [routerLink]="['/vendors/manage-sales/failed-orders-detail/' + item.orderId]"
+                    style="cursor: pointer;">{{item.orderPrefixId}}
+                </span>
+            </ng-template>
+
+            <ng-template #itemTemplateRef1 let-item let-index="index">
+                <ng-container>
+                    <span [matTooltip]="item.price" *ngIf="item.total"> {{item.total| currencysymbol}} </span>
+                </ng-container>
+            </ng-template>
+
+            <ng-template #itemTemplateRefcolor let-item let-index="index">
+                <span class="status-badge" href="javascript:void(0)"
+                    [ngStyle]="{background: item?.orderStatus?.colorCode}">{{item?.orderStatus?.name}}</span>
+            </ng-template>
+
+            <!--No data found -->
+            <div class="nodata-found" *ngIf="orderList?.length == 0">
+                <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+                <h5>{{'marketplace.payments.DataNotFound'| translate}}</h5>
+            </div>
+
+            <!--pagination -->
+            <div class="pagination flex" *ngIf="(sandbox.orderListCount$| async) > limit">
+                <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+                    [totalItems]="sandbox.orderListCount$  | async" [pageSize]="limit"
+                    (pageChange)="onPageChange($event)">
+                </app-reusable-pagination>
+            </div>
+        </div>
+    </div>
+</div>

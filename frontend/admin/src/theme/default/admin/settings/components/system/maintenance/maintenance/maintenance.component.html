@@ -1,0 +1,22 @@
+<div class="local-content">
+    <div class="set-lay-notes flex">
+        <h4>{{'Settings.nav.Note:' | translate}}</h4>
+        <p>{{'Settings.nav.SettingEnabling'|translate}} </p>
+    </div>
+    <div class="spinner-wrapper" *ngIf="sandbox.getSettingLoading$ | async">
+        <div class="row" style="position:absolute">
+            <img width="80px" height="80px" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+        </div>
+    </div>
+    <div class="maintenance-wrap">
+        <h3>{{'Settings.system.Entermaintenancemode' | translate}}</h3> 
+        <div class="maintenance-bx">{{'Settings.nav.SettingEntermaintenance'|translate}} </div>
+        <div class="radio flex">
+            <mat-radio-group fxLayout="column" [(ngModel)]="mode" fxLayoutGap=".25rem">
+                <mat-radio-button [value]="'1'">{{'Settings.system.Yes' | translate}}</mat-radio-button>
+                <mat-radio-button [value]="'0'">{{'Settings.system.No' | translate}}</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <button class="button-reg btn-md primary" (click)="submitMode()">{{'Settings.system.Save' | translate}}</button>
+    </div>
+</div>

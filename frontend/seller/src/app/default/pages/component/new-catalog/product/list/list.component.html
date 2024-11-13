@@ -1,0 +1,258 @@
+<header>
+
+    <div class="header-list flexx">
+        <h1>{{'common.Productlist'|translate}}</h1>
+        <div class="header-list-rht ms-auto flexx">
+            <!--Item per page -->
+            <div class="per-page flexx"
+                [ngClass]="{'disabled-class': (productSandbox.productListLoading$ | async) || initalLoading || ((productSandbox.productList$ | async)?.length == 0 && formValueExists) || selectedDatas?.length>0}">
+                <p> {{'common.PerPage'|translate}}</p>
+                <div class="ig-row">
+                    <ng-select [items]="pageSizeList" bindLabel="id" [searchable]="false" [clearable]="false"
+                        (change)="pageSizeChange($event)" [(ngModel)]="limit">
+                    </ng-select>
+                </div>
+            </div>
+
+            <!--search filter -->
+            <div class="search-filter" ngbDropdown #dropdownContent="ngbDropdown"
+                [ngClass]="{'disabled-class': (productSandbox.productListLoading$ | async) || initalLoading || ((productSandbox.productList$ | async)?.length == 0 && formValueExists) || selectedDatas?.length>0}">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                    ngbTooltip="{{'common.Search'|translate}}" placement="bottom" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()">
+                    <img src="assets/imgs/search.svg" alt="" (click)="open()">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+                    <h5>{{'common.Search'|translate}}</h5>
+                    <form class="" (keyup.enter)="applyFilter()">
+                        <div class="input-group">
+                            <div class="ig-row">
+                                <app-reusable-forms [type]="dynamicObjControls.Search?.type"
+                                    [control]="dynamicObjControls.Search?.control"
+                                    [label]="dynamicObjControls.Search?.label"
+                                    [inputId]="dynamicObjControls.Search?.inputId"
+                                    [aliasName]="dynamicObjControls.Search?.aliasName"
+                                    [placeholder]="dynamicObjControls.Search?.placeholder"></app-reusable-forms>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- sort -->
+            <app-common-sort [sortOption]="sortOption" (valueChanged)="SortValueChange($event)"
+                (valueChangedOrder)="SortValueChangeOrder($event)"></app-common-sort>
+
+            <!--filter  -->
+            <div class="search-filter" ngbDropdown #dropdownContentFilter="ngbDropdown" 
+                [ngClass]="{'disabled-class': (productSandbox.productListLoading$ | async) || initalLoading || ((productSandbox.productList$ | async)?.length == 0 && formValueExists) || selectedDatas?.length>0}">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                    ngbTooltip="{{'common.Filter'|translate}}" placement="bottom" (click)="open()" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()">
+                    <img src="assets/imgs/filter.svg" alt="">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+                    <h5>{{'common.Filter'|translate}}</h5>
+                    <form action="" class="flex">
+                        <div class="filter-content">
+                            <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                                <app-reusable-forms *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+                                    [control]="dynamicObjControls[val]?.control"
+                                    [label]="dynamicObjControls[val]?.label"
+                                    [inputId]="dynamicObjControls[val]?.inputId"
+                                    [aliasName]="dynamicObjControls[val]?.aliasName"
+                                    [customData]="dynamicObjControls[val]?.customData"
+                                    [placeholder]="dynamicObjControls[val]?.placeholder"></app-reusable-forms>
+                            </div>
+                        </div>
+                        <div class="filter-action">
+                            <button class="button-reg btn-sm primary" (click)="applyFilter()">
+                                {{'common.apply filters'|translate}}</button>
+                            <button class="button-reg btn-sm trans-btn"
+                                (click)="filterReset('')">{{'common.reset'|translate}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Dynmaic Columns -->
+            <app-dynamic-columns [filterColumns]="backupColumns"
+                [ngClass]="{'disabled-class': (productSandbox.productListLoading$ | async) || initalLoading || ((productSandbox.productList$ | async)?.length == 0 && formValueExists) || selectedDatas?.length>0}"
+                (selectedColumns)="saveColumns($event)">
+            </app-dynamic-columns>
+
+            <!-- Add product -->
+            <a href="javascript:Void(0)" (click)="addProduct()" class="link-reg link-sm primary"> +
+                {{'common.Create Product' | translate}} </a>
+        </div>
+    </div>
+</header>
+
+<!-- filter -->
+<div class="filter-result-row flexx" *ngIf="formValueExists">
+    <h4>{{'common.Filter' | translate}}:</h4>
+    <ng-container *ngFor="let filter of backupFormValue | keyvalue;trackBy: trackByIndex">
+        <div class="filter-result-col" *ngIf="!['',null,undefined].includes(filter.value)">
+            <span>{{ filter.key }} : </span>
+            <ng-container [ngSwitch]="filter.key">
+                <ng-container *ngSwitchCase="'Status'">
+                    {{ filter.value==1 ?'Active':'In-active'}}
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                    {{ filter.value }}
+                </ng-container>
+            </ng-container>
+            <button (click)="removeFilter(filter)" class="remove-btn">
+                <img src="assets/imgs/close-sm.svg" alt="" />
+            </button>
+        </div>
+    </ng-container>
+    <a href="javascript:void(0)" class="clear" (click)="filterReset('clearAll')">
+        {{'common.ClearFilters' |translate}}
+    </a>
+</div>
+
+<!-- product status and status tab -->
+<div class="inner-filter-row"
+    [ngClass]="{'disable-div': (productSandbox.productListLoading$ | async)  || ((productSandbox.productList$ | async)?.length == 0 && formValueExists) || selectedDatas?.length>0}">
+    <a (click)="tabRouting('2')"><a href="javascript:void(0)" class="active"
+            [ngClass]="{active: AlltabStatus=='2'}">{{'common.All' | translate}}</a></a>
+    <a (click)="tabRouting('1')"><a href="javascript:void(0)" [ngClass]="{active: AlltabStatus=='1'}">{{'common.Active'
+            | translate}}</a></a>
+    <a (click)="tabRouting('0')"><a href="javascript:void(0)"
+            [ngClass]="{active: AlltabStatus=='0'}">{{'common.Inactive' | translate}}</a></a>
+    <a (click)="tabRoutingFlag('1')"><a href="javascript:void(0)"
+            [ngClass]="{active: falgStatus=='1'}">{{'Sales.shared.Approve' | translate}}
+        </a></a>
+    <a (click)="tabRoutingFlag('2')"><a href="javascript:void(0)"
+            [ngClass]="{active: falgStatus=='2'}">{{'Sales.shared.Reject' | translate}}
+        </a></a>
+    <a (click)="tabRoutingFlag('0')"><a href="javascript:void(0)"
+            [ngClass]="{active: falgStatus=='0'}">{{'common.Waiting Product' | translate}}
+        </a></a>
+</div>
+
+
+<div class="page-content">
+
+    <!--content -->
+    <app-alert-content *ngIf="(productSandbox.productListLoaded$ | async) && productListArray?.length > 0"
+        [alert]="alertConfig"></app-alert-content>
+
+    <!--Loader -->
+    <div class="loading" *ngIf="(productSandbox.productListLoading$ | async)">
+        <app-loader></app-loader>
+    </div>
+
+    <!-- common -table -->
+    <app-common-table *ngIf="productListArray?.length > 0 && (productSandbox.productListLoaded$ | async)"
+        [HeadArray]="dynamicColumnFields" [GridArray]="productListArray" [selectAll]="tableCheckbox"
+        (buttonChangeEvent)="buttonAction($event)"
+        [customTemplate]="{pending:itemTemplateRef,names:itemTemplateRefName,price:itemTemplatePrice,activeStatus:itemTemplateRefStatus,approvalStatus:itemTemplateRefapprovalStatus,preview:itemTemplatePreview}">
+    </app-common-table>
+
+    <ng-template #itemTemplateRefName let-item let-index="index">
+
+        <div class="d-flex align-items-center product-details">
+            <span class="avatar avatar-xs online avatar-rounded cursor">
+                <img alt="Product Image" title="Product Image"
+                    [src]="imageUrl + '?path=' + item .containerName + '&name=' + item .image + '&width=300&height=300'"
+                    onError="this.src='assets/imgs/no-image.jpg';">
+            </span>
+
+            <div class="inline-flex cursor" (click)="goToEdit(item.productId)">
+                <span *ngIf=" item.name?.length > 100; else fullTextDisplay" matTooltip="{{ item.name }}"
+                    matTooltipPosition="above">
+                    <a href="javascript:void(0)">{{item.truncatedText }}...</a>
+                    <p>{{item.sku}}</p>
+                </span>
+                <ng-template #fullTextDisplay>
+                    <a href="javascript:void(0)"> {{item.name}} </a>
+                    <p>{{item.sku}}</p>
+                </ng-template>
+            </div>
+
+        </div>
+
+    </ng-template>
+
+    <ng-template #itemTemplateRef let-item let-index="index">
+
+        <ng-container >
+            <a href="javascript:void(0)" class="link-text link-cat-width" (click)="opencategory(item.productId)">
+                {{item?.vendorCategory?.length}}
+                <span *ngIf="item?.vendorCategory?.length <=1">
+                    {{'common.Category'|translate}}
+                </span>
+                <span *ngIf="item?.vendorCategory?.length > 1">
+                    {{'common.Categories'|translate}}
+                </span>
+            </a>
+        </ng-container>
+    </ng-template>
+
+    <ng-template #itemTemplatePrice let-item let-index="index">
+        <div class="text-end">
+            <span class="d-inline-block text-nowrap" *ngIf="item.flag == 1">
+                <del> {{item.price | currencysymbol}}</del>
+            </span>
+            <span class="d-inline-block text-nowrap" style="color: red" *ngIf="item.flag == 1">
+                {{ item.pricerefer | currencysymbol }}
+            </span>
+            <ng-container *ngIf="item.flag === 0 || item.flag===''">
+                <span class="d-inline-block text-nowrap" *ngIf="item.pricerefer">
+                    {{ item.pricerefer | currencysymbol }}
+                </span>
+                <span class="d-inline-block text-nowrap" *ngIf="!item.pricerefer">
+                    {{ item.productprice | currencysymbol}}
+                </span>
+            </ng-container>
+        </div>
+
+    </ng-template>
+    <ng-template #itemTemplateRefStatus let-item let-index="index">
+        <app-common-badge
+            [badge]="badgeStatusMappings.hasOwnProperty(item.isActive)?badgeStatusMappings[item.isActive]:''"></app-common-badge>
+    </ng-template>
+
+    <ng-template #itemTemplateRefapprovalStatus let-item let-index="index">
+        <app-common-badge [rejected]="item"
+            [badge]="badgeConfig.hasOwnProperty(item.approvalFlag)?badgeConfig[item.approvalFlag]:badgeConfig[item.approvalFlag]"
+            (rejectReason)="rejectReasonData($event)"></app-common-badge>
+    </ng-template>
+
+
+
+    <ng-template #itemTemplatePreview let-item let-index="index">
+        <a href="javascript:void(0)" class="link-text" (click)="productPreview(item)">
+            <img src="assets/imgs/globe.png" alt="preview"> Preview
+        </a>
+    </ng-template>
+    <!--No data found -->
+    <div class="nodata flexx"
+        *ngIf="(productSandbox.productListLoaded$ | async) && (productSandbox.productList$ | async).length == 0">
+        <span><img src="assets/imgs/nodata.svg" alt=""></span>
+        <h4>
+            <ng-container *ngIf="formValueExists; else nodatafound">
+                {{'common.NoDataAvailablefortheFilteredCriteria'|translate}}
+            </ng-container>
+            <ng-template #nodatafound>
+                No Products are added !
+
+            </ng-template>
+        </h4>
+    </div>
+
+
+    <!--Pagination -->
+    <ng-container>
+        <app-reusable-pagination [ngClass]="{'disable-div':selectedDatas?.length>0}"
+            *ngIf="(productSandbox.productListLoaded$ | async) && count>0" class="pagination flexx" [type]="'numbers'"
+            [currentPage]="currentPage" [pageSize]="limit" [totalItems]="count" (pageChange)="onPageChange($event)">
+        </app-reusable-pagination>
+    </ng-container>
+</div>
+
+
+<!-- bulk action -->
+<app-bulk-action *ngIf="selectedDatas?.length>0" [count]="selectedDatas?.length" [bulkList]="bulkAction"
+    (actionEvent)="actionType($event)"></app-bulk-action>
+

@@ -1,0 +1,35 @@
+<!-- permission page  -->
+<div class="flex main-header">
+    <h3>{{'Settings.nav.PermissionStatus'|translate}}</h3>
+    <div class="form-group">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="checkbox22" [(ngModel)]="selectAllPermission" (change)="selectAll($event.target.checked)" />
+            <label class="custom-control-label cursor-pointer chk-check" for="checkbox22"> {{'Settings.nav.SelectAll'|translate}} </label>
+        </div>
+    </div>
+</div>
+
+<div class="permission-wrap">
+
+    <span class="user" *ngIf="type === 'user'">{{'common.USER'| translate}} - <b>{{detail?.name | uppercase}}</b></span>
+    <span style="margin-left: 10px;" class="user-role">{{'common.ROLE'| translate}} - <b>{{detail?.role | uppercase}}</b></span>
+  
+<!-- list of permission module  -->
+
+    <div class="pw-row" *ngIf="(sandbox.permissionListLoaded$ | async) && (sandbox.permissionLoaded$ | async)">
+        <div class="pw-wrap-row" *ngFor="let main of sandbox.getPermissionsList$ | async">
+            <h3>{{main?.name}}</h3>
+            <div class="form-group pw-row-full flex">
+                <div class="custom-control custom-checkbox" *ngFor="let sub of main?.permissionModule">
+                    <input type="checkbox" class="custom-control-input" [value]="sub.moduleId" [(ngModel)]="sub.selected" [checked]="sub.selected" (change)="statusChange()" id="{{sub.moduleId}}" />
+                    <label class="custom-control-label cursor-pointer chk-check" for="{{sub.moduleId}}"> {{sub?.name}} </label>
+                </div>
+            </div>
+        </div>
+<!-- submit or cancel button  -->
+        <div class="action-button-container flex">
+            <button class="button-reg btn-md tertiary" (click)="cancel()"> {{'Settings.nav.Cancel'|translate}} </button>
+            <button class="button-reg btn-md primary" type="submit" (click)="save()">{{'Settings.nav.Save'|translate}} </button>
+        </div>
+    </div>
+</div>

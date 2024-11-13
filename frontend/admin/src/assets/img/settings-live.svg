@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+        <clipPath id="vjvaoukzga">
+            <path data-name="Rectangle 49" transform="translate(1240 275)" style="stroke:#273843;fill:#fff" d="M0 0h16v16H0z"/>
+        </clipPath>
+    </defs>
+    <g data-name="Mask Group 3" transform="translate(-1240 -275)" style="clip-path:url(#vjvaoukzga)">
+        <g data-name="Group 74" transform="translate(1240 275)">
+            <path data-name="Path 16" d="M0 0h16v16H0z" style="fill-rule:evenodd;fill:none"/>
+            <circle data-name="Ellipse 2" cx="3" cy="3" r="3" transform="translate(5 5)" style="stroke-linecap:round;stroke-linejoin:round;stroke-width:1.143px;fill:none;stroke:#273843"/>
+            <path data-name="Path 17" d="M11.479 4.069a5.186 5.186 0 0 1 .453.453l1.707.244a6.461 6.461 0 0 1 .636 1.534L13.24 7.679s.013.427 0 .642L14.275 9.7a6.461 6.461 0 0 1-.636 1.535l-1.707.244s-.293.312-.453.453l-.244 1.707a6.461 6.461 0 0 1-1.535.635L8.321 13.24a5.3 5.3 0 0 1-.642 0L6.3 14.275a6.461 6.461 0 0 1-1.535-.636l-.244-1.707a5.282 5.282 0 0 1-.453-.453l-1.708-.244A6.461 6.461 0 0 1 1.725 9.7L2.76 8.321s-.013-.427 0-.642L1.725 6.3a6.461 6.461 0 0 1 .636-1.535l1.707-.244a5.3 5.3 0 0 1 .453-.453l.244-1.707A6.461 6.461 0 0 1 6.3 1.726L7.679 2.76a5.3 5.3 0 0 1 .642 0L9.7 1.726a6.461 6.461 0 0 1 1.535.636l.244 1.707z" style="stroke-linecap:round;stroke-linejoin:round;stroke-width:1.143px;fill-rule:evenodd;fill:none;stroke:#273843"/>
+        </g>
+    </g>
+</svg>

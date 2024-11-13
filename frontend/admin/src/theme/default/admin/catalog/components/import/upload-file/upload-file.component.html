@@ -1,0 +1,243 @@
+<div class="import-innr-header">
+    <h3>{{ 'common.UploadFile' | translate }}</h3>
+    <ul class="flex">
+        <li [ngClass]="{ 'active': step === 1, 'completed': step > 1 }">
+            <span>{{[1].includes(step)?'1':''}}<img *ngIf="step > 1" src="assets/imgs/tick-green.svg" alt=""></span>
+            <p>{{ 'common.UploadFile' | translate }}</p>
+        </li>
+        <li [ngClass]="{ 'active': step === 2, 'completed': step > 2 }">
+            <span>{{[1,2].includes(step)?'2':''}}<img *ngIf="step > 2" src="assets/imgs/tick-green.svg" alt=""></span>
+            <p>{{'common.FieldMapping' | translate }}</p>
+        </li>
+        <li [ngClass]="{ 'active': step === 3, 'completed': step > 3 }">
+            <span>{{[1,2,3].includes(step)?'3':''}}<img *ngIf="step > 3" src="assets/imgs/tick-green.svg" alt=""></span>
+            <p>{{'common.ImageUpload' | translate }}</p>
+        </li>
+        <li [ngClass]="{ 'active': step === 4, 'completed': step > 4 }">
+            <span>{{[1,2,3,4].includes(step)?'4':''}}<img *ngIf="step > 4" src="assets/imgs/tick-green.svg"
+                    alt=""></span>
+            <p>{{ 'common.Review' | translate }}</p>
+        </li>
+        <li [ngClass]="{ 'active': step === 5, 'completed': step > 5 }">
+            <span>{{[1,2,3,4,5].includes(step)?'5':''}}<img *ngIf="step > 5" src="assets/imgs/tick-green.svg"
+                    alt=""></span>
+            <p>{{ 'common.Finish' | translate }}</p>
+        </li>
+    </ul>
+</div>
+
+<div *ngIf="step == 1">
+    <div class="upload-file-wrap">
+        <div class="upload-file-col">
+            <h4>{{fileName}}</h4>
+            <p>{{fileSize}} MB</p>
+            <h5>{{'common.FileUploaded'| translate}}</h5>
+            <button> <img src="assets/imgs/trash-red.svg" alt=""> </button>
+        </div>
+    </div>
+    <div class="import-next-cancel flex">
+        <button class="button-reg secondary" [routerLink]="['/vendors/product-config/data-import']"> {{'common.Cancel'|
+            translate}}</button>
+        <button class="button-reg primary" (click)="goToStep(2)"> {{'common.Next'| translate}} </button>
+    </div>
+</div>
+
+<div *ngIf="step == 2">
+    <div class="field-mapping">
+        <h4>{{fileName}}</h4>
+        <div class="field-mapping-innr-title">
+            <p>{{'common.FieldsMapping'| translate}}</p>
+        </div>
+        <div class="field-mapping-wrap">
+            <ul class="field-mapping-tabs">
+                <li> <a href="javascript:void(0)" class="active">{{'common.AllFields'|
+                        translate}} ({{header?.length}})</a> </li>
+                <li> <a href="javascript:void(0)">{{'common.MappedFields'| translate}} ({{rightSidevalueCount}})</a>
+                </li>
+                <li> <a href="javascript:void(0)">{{'common.UnmappedFields'| translate}} ({{unmappedvalue}})</a> </li>
+            </ul>
+            <div class="product-table">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{{'common.FieldsinFile'| translate}}</th>
+                                <th>{{'common.FieldsinSpurtCommerce'| translate}}</th>
+                                <th colspan="2" class="text-center">{{'common.SampleDataFromFile'| translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of header;index as i">
+                                <td>
+                                    {{row}}
+
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+
+                                        <ng-select placeholder="Select Fields To Import"
+                                            [(ngModel)]="dummyRightsideValue[i] " (change)="getindex($event,i)"
+                                            [clearable]="false">
+                                            <ng-option *ngFor="let data of optionDataArray" [value]="data"
+                                                [disabled]="data.disabled">
+                                                {{ data.name }}
+                                            </ng-option>
+                                        </ng-select>
+                                    </div>
+                                </td>
+                                <td>{{rightSidevalue[i]?.name}}</td>
+                                <td>{{rightSidevalue[i]?.value}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="import-next-cancel flex">
+        <div class="import-next-cancel-lft flex">
+            <a href="javascript:void(0)" (click)="resetMapping()"> {{'common.ResetMapping'| translate}} </a>
+            <!-- {{'common.reviewdata'| translate}} -->
+            <a href="javascript:void(0)" (click)="autoMapping()"> {{'common.AutoMap'| translate}} </a>
+        </div>
+        <button class="button-reg secondary" (click)="goToStep(1)"> {{'common.Previous'| translate}} </button>
+        <button class="button-reg primary" (click)="save()"> {{'common.Save'| translate}} &amp; {{'common.Next'|
+            translate}} </button>
+    </div>
+</div>
+
+
+<div *ngIf="step == 3">
+    <div class="import-wrapper">
+        <div class="import-inner">
+            <div class="form-group">
+                <label for="">{{'common.ImageUpload' | translate }}</label>
+                <div class="import-file-upload" [ngClass]="{errorStatus:![null,undefined,''].includes(ErrorStatus)}">
+                    <button> <img src="assets/img/upload-icon.svg" alt="">
+                        {{'common.BrowseFileToUpload'| translate}}
+
+                        <input type="file" (change)="onFileSelected($event)" accept=".zip">
+                    </button>
+                    <p>{{'common.Upload'| translate}} <span>Zip</span> {{'common.File'| translate}}</p>
+                    <span>{{zipFileName}}</span>
+                </div>
+
+                <p class="errorStatus_value validation-error">{{ErrorStatus|translate}}</p>
+            </div>
+            <div class="notex">
+                <p>{{'common.Lorem'| translate}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="import-next-cancel flex">
+        <button class="button-reg secondary" [ngClass]="{diasablecolorchange: sandbox.dataImportsListLoading | async}" [disabled]="sandbox.dataImportsListLoading | async" (click)="goToStep(2)"> {{'common.Previous'| translate}} </button>
+
+        <button   *ngIf="!(sandbox.dataImportsListLoaded | async) && !(sandbox.dataImportsListLoading | async)" class="button-reg primary"   type="submit"   (click)="uploadSuccess()"> {{'common.Save'| translate}} &amp; {{'common.Next'| translate}}  
+        </button>
+
+   <button   *ngIf ="sandbox.dataImportsListLoaded | async" class="button-reg primary"   type="submit"   (click)="uploadSuccess()"> {{'common.Save'| translate}} &amp; {{'common.Next'| translate}}  
+        </button>
+        <button *ngIf="sandbox.dataImportsListLoading | async" class="button-reg secondary" ><img style="height:30px" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" /></button>
+    </div>
+
+ 
+       
+    
+</div>
+
+<div *ngIf="step == 4">
+    <div class="field-mapping">
+        <h4>{{fileName}}</h4>
+        <div class="field-mapping-innr-title">
+            <p>{{'common.Lorem'| translate}}</p>
+        </div>
+        <div class="field-mapping-wrap">
+            <div class="product-table">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{{'common.FileName'| translate}}</th>
+                                <th>{{'common.UploadedDate'| translate}}</th>
+                                <th>{{'common.TotalNoData'| translate}}</th>
+                                <th>{{'common.MappedFields'| translate}}</th>
+                                <th>{{'common.UnmappedFields'| translate}}</th>
+                                <th *ngIf="imagestatus?.status == 1">{{'common.Upload Images' | translate }}</th>
+                                <th *ngIf="failed">{{'common.Status'| translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td (click)="export()" style="cursor: pointer;">{{fileName}}</td>
+                                <td>{{today | date:'dd-MM-yyyy'}}</td>
+                                <td>{{header?.length}}</td>
+                                <td>{{rightSidevalue.length}}</td>
+                                <td>{{unmappedvalue}}</td>
+                                <td *ngIf="imagestatus?.status == 1">{{'common.Completed'| translate}}</td>
+                                <td *ngIf="failed">{{'common.Completed'| translate}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="import-next-cancel flex">
+        <button class="button-reg secondary" (click)="goToStep(3)"> {{'common.BacktoPrevious'| translate}} </button>
+        <button class="button-reg primary" (click)="goToStep(5)"> {{'common.StartMigration'| translate}} </button>
+    </div>
+</div>
+<div *ngIf="step == 5">
+    <div class="field-mapping">
+        <div class="migration-success flex">
+            <button type='button' class="button-reg primary" (click)="importDatas()">{{'common.GetStarted'| translate}}
+            </button>
+            <div class="migration-success-flow flex" *ngIf="failed">
+                <img src="assets/imgs/file-green.svg" alt="">
+                <img src="assets/imgs/check-green-round.svg" alt="">
+                <img src="assets/imgs/logo-spurt.svg" alt="">
+            </div>
+            <p *ngIf="failed">{{'common.Themigrationhasbeencompletedsuccessfully'| translate}}!</p>
+            <p *ngIf="failed">{{'common.YoucannowstartusingtheCRM'| translate}}</p>
+            <div class="migration-success-flow migration-usuccess-flow flex" *ngIf="isSubmitted">
+                <img src="assets/imgs/file-green.svg" alt="">
+                <img src="assets/imgs/close-red.svg" alt="">
+                <img src="assets/imgs/logo-spurt.svg" alt="">
+            </div>
+
+            <p *ngIf="isSubmitted">{{'common.The migration has not been completed'| translate}}!</p>
+            <p *ngIf="isSubmitted">{{'common.Please check file you have uploaded'| translate}}</p>
+        </div>
+        <div class="field-mapping-wrap">
+            <div class="product-table">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{{'common.FileName'| translate}}</th>
+                                <th>{{'common.UploadedDate'| translate}}</th>
+                                <th>{{'common.TotalNoData'| translate}}</th>
+                                <th>{{'common.MappedFields'| translate}}</th>
+                                <th>{{'common.UnmappedFields'| translate}}</th>
+                                <th *ngIf="imagestatus?.status == 1">{{'common.Upload Images'| translate}}</th>
+                                <th *ngIf="failed">{{'common.Status'| translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td (click)="export()" style="cursor: pointer;">{{fileName}}</td>
+                                <td>{{today | date:'dd-MM-yyyy'}}</td>
+                                <td>{{header?.length}}</td>
+                                <td>{{rightSidevalue.length}}</td>
+                                <td>{{unmappedvalue}}</td>
+                                <td *ngIf="imagestatus?.status == 1">{{'common.Completed'| translate}}</td>
+                                <td *ngIf="failed">{{'common.Completed'| translate}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

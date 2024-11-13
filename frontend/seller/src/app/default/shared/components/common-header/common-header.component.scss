@@ -1,0 +1,47 @@
+.dropdown {
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .dropdown-menu {
+    width: 223px;
+    border-radius: 2px;
+    box-shadow: 0 8px 17px 0 rgba(19, 18, 18, 0.09);
+    background: white;
+    padding: 0px;
+    left: -182px;
+    top: 20px !important;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.11) !important;
+    border: none !important;
+    p {
+      font-size: 13px;
+      font-weight: normal;
+      color: #46489e;
+      padding: 10px 20px 10px;
+    }
+    a {
+      font-size: 13px;
+      font-weight: normal;
+      color: #919191;
+      width: 100%;
+      padding: 10px 20px;
+      display: block;
+    }
+    a:active {
+background-color: transparent !important;
+    }
+  }
+}
+header{
+  background-position: none; 
+   min-height: 0px !important; 
+  position: none !important;
+  height: 53px;
+  
+}
+::ng-deep .tootip {
+    animation-name: delayedFadeIn !important;
+    animation-duration: 1s !important; /* Adjust this duration */
+  }
+  

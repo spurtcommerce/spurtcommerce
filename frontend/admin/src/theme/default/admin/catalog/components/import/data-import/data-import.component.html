@@ -1,0 +1,52 @@
+<div class="import-title">
+    <h3>{{'common.ImportFile'| translate}} </h3>
+</div>
+<div class="import-wrapper">
+    <div class="import-inner">
+        <div class="form-group" >
+            <label for="">{{'common.FromModule'| translate}} <sup>*</sup>  </label>
+            <ng-select [items]="access"
+                    [clearable]="false"
+                    bindLabel="name"
+                    bindValue="name"
+                    placeholder="{{'common.SelectModule'| translate}}"
+                    [(ngModel)]="selectedaccess" (change)="uploadModel()"
+                    [ngClass]="{errorStatus:FileErrorStatue=='Validation.Please Select Module Name'}">
+            </ng-select>
+
+            <p *ngIf="FileErrorStatue=='Validation.Please Select Module Name'"   class="validation-error"   [ngClass]="{errorStatus_value: FileErrorStatue=='Validation.Please Select Module Name'}">{{FileErrorStatue |translate}}</p>
+        </div>
+        <div class="form-group"   >
+            <label for="" >{{'common.FromFile'| translate}} <sup>*</sup></label>
+            <div class="import-file-upload" [ngClass]="{errorStatus:['Validation.Pleace Upload Excel File','Validation.Only Excel File are allowed','Validation.File should be less than 2MB','Validation.No Data Found','Validation.Duplicate Value Found','Validation.Cannot use multiple files'].includes('ErrorStatus'|translate)}">
+          
+                <button> <img src="assets/img/upload-icon.svg" alt="">
+                    {{'common.BrowseFileToUpload'| translate}} <input type="file" (click)="$event.target.value=null" (change)="onFileChange($event)" multiple="false"  accept=".xlsx, .xls,.ods,.csv" > </button>
+                <p>{{'common.Upload'| translate}} <span>{{'common.CSV'| translate}}</span> or <span>{{'common.XLSX'| translate}}</span> {{'common.File'| translate}}</p>
+            
+                <div >
+                    <span *ngIf="fileName">{{fileName}}</span>
+                    <span *ngIf="!fileName">{{selectedFile?.name}}</span>
+                </div>
+            </div>   
+            <p  class="validation-error"  *ngIf="['Validation.Please Upload Excel File','Validation.Only Excel File are allowed','Validation.File should be less than 2MB','Validation.No Data Found','Validation.Duplicate Value Found','Validation.Cannot use multiple files'].includes(ErrorStatus)"  [ngClass]="{errorStatus_value:['Validation.Pleace Upload Excel File','Validation.Only Excel File are allowed','Validation.File should be less than 2MB','Validation.No Data Found','Validation.Duplicate Value Found','Validation.Cannot use multiple files'].includes(ErrorStatus)}">
+                {{ErrorStatus |translate}}</p>
+            <!-- <div class="import-inner" *ngIf="fileError">
+                <div class="import-inner-error flex">
+                    <img src="assets/imgs/file-error.svg" alt="">
+                    <h4>Uploaded File Error</h4>
+                    <p>Please Upload proper File to generate</p>
+                    <a href="javascript:void(0)">Back to Previous</a>
+                </div>
+            </div> -->
+            
+        </div>
+        <div class="notex">
+            <p>{{'common.Lorem'| translate}}</p>
+        </div>
+    </div>  
+</div>
+<div class="import-next-cancel flex">
+    <button class="button-reg secondary" [routerLink]="['/catalog/manage-products/product']"> {{'common.Cancel'| translate}} </button>
+    <button class="button-reg primary" (click)="ImportPage()" >{{'common.Next'| translate}} </button>
+</div>

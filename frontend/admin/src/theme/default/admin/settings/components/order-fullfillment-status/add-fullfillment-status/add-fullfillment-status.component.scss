@@ -1,0 +1,117 @@
+.order-fulfillment-modal {    
+    .ofm-content {
+        p {
+            font-size: 12px;
+            font-weight: normal;
+            color: #535353;
+            margin-bottom: 33px;
+        }
+    }
+    .ofm-stat {
+        // padding: 22px 9px 15px 13px;
+        // background-color: #eaeaea;
+        justify-content: space-between;
+        align-items: flex-start;
+        .input-group {
+            width: 45%;
+            margin-bottom: 20px;
+            p {
+                font-size: 14px;
+                font-weight: normal;
+                color: #555454;
+                margin: 0 0 11px;
+            }
+            input {
+               
+            }
+        }
+        .ig-ofm-stt {
+            width: calc(100% - 268px);
+            p {
+                font-size: 14px;
+                font-weight: normal;
+                color: #555454;
+                margin: 0 0 11px;
+            }
+            .ofm-ig-sts {
+                width: 100%;
+                justify-content: flex-start;
+                background-color: #fffdf3;
+                .custom-control {
+                    width: 25%;
+                    min-height: 41px;
+                    border: solid 1px #f6ebb3;
+                    border-right: 0;
+                    padding: 8px 0 0 10px;
+                    &:last-child {
+                        border-right: solid 1px #f6ebb3;
+                    }
+                    .custom-control-label {
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #7d7340;
+                    }
+                }
+            }
+        }
+    }
+    .ofs-gtn {
+        width: 100%;
+        background-color: #fff;
+        padding: 17px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        // button {
+        //     width: 91px;
+        //     height: 30px;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     font-size: 13px;
+        //     font-weight: 500;
+        //     color: #fff;
+        //     border-radius: 2px;
+        //     border: 0;
+        //     &.cancel {
+        //         background-color: transparent;
+        //         border: solid 1px #223948;
+        //         color: #223948;
+        //     }
+        // }
+    }
+}
+
+:host ::ng-deep .ng-select {
+    height: 36px;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.custom-control-input:checked~.custom-control-label::after {
+    left: 0.3rem !important;
+    top: 5px !important;
+    cursor: pointer;
+    width: 6px;
+    height: 11px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.validationcolor {
+    border: 1px solid red!important;
+    box-shadow: none !important;
+}
+
+.invalid {
+    box-shadow: none !important;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 9;
+    background-color: #cfcece !important;
+}

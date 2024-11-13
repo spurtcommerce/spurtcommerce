@@ -1,0 +1,92 @@
+<app-pageGroup-layout></app-pageGroup-layout>
+<div class="flex filter-row">
+    <div class="filter-lft">
+        <h2>{{'CMS.Pages.PageGroup' | translate}} ({{count}})</h2>
+    </div>
+    <div class="filter-rht flex" (keyup.Tab)="focusInput()">
+
+        <!-- Filtered Value -->
+        <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue;trackBy: trackByIndex">
+            <div class="added-filter-col flex" *ngIf="!empty.includes(filter.value)">
+                <span>{{filter.key}} : {{ filter.value }} </span>
+                <button (click)="removeFilter(filter)">
+                    <img src="assets/img/close.svg" alt="">
+                </button>
+            </div>
+        </div>
+
+        <!-- Filter -->
+        <div class="filter-search">
+            <form class="" (keyup.enter)="applyFilter()">
+                <app-common-form [type]="dynamicObjControls?.Search?.type"
+                    [control]="dynamicObjControls?.Search?.control" [label]="dynamicObjControls?.Search?.label"
+                    [inputId]="dynamicObjControls?.Search?.inputId" [aliasName]="dynamicObjControls?.Search?.aliasName"
+                    [placeholder]="dynamicObjControls?.Search?.placeholder">
+                </app-common-form>
+            </form>
+        </div>
+
+        <!-- Add Group -->
+        <button class="button-reg primary btn-sm" *ngIf="(appSandbox.pageGroupList$ | async)?.length > 0"
+            (click)="addPageGroup()" [appHideIfUnauthorized]="'add-page-group'"> + {{'CMS.PageGroup.AddGroup' |
+            translate}}
+        </button>
+
+        <!-- Add Localization -->
+        <button class="button-reg primary btn-sm" (click)="addLocalization()"
+            [appHideIfUnauthorized]="'add-page-group-localization'"> + {{'CMS.Pages.Localization' | translate}}
+        </button>
+    </div>
+</div>
+
+<div class="flex product-wrap example-full-width" (keyup.Tab)="focusInput()">
+    <div class="product-table">
+
+        <!-- Loader -->
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="appSandbox.getpageGrouplistloading$ | async"
+                style="transform: translate(58%, 18%);position:absolute"></app-global-loader>
+        </div>
+        <div class="table-responsive">
+            <!-- common -table -->
+            <app-common-table *ngIf="(appSandbox.pageGroupList$ | async)?.length > 0"
+                [customTemplate]="{groupName:itemTemplateRef1,isActive:itemTemplateRef2}" [HeadArray]="customTable"
+                [GridArray]="(appSandbox.pageGroupList$ | async)" (buttonChangeEvent)="buttonAction($event)">
+            </app-common-table>
+            <ng-template #itemTemplateRef1 let-item let-index="index">
+                <a href="javascript:void(0)" (click)="editPageGroup(item)" style="cursor: pointer;">
+                    {{item.groupName}}
+                </a>
+            </ng-template>
+            <ng-template #itemTemplateRef2 let-item let-index="index">
+                <div class="text-center" style="border-bottom: none;padding-left:0">
+                    <div *ngIf="item.isActive == 1" >
+                        <span class="tags-action tag-active">{{'marketplace.seller.Active'| translate}}</span>
+                    </div>
+                    <div *ngIf="item.isActive == 0">
+                        <span class="tags-action tag-inactive">{{'Settings.Role.InActive'| translate}}</span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+
+
+
+
+
+        <!-- No Data Found -->
+        <div class="nodata-found" *ngIf="(appSandbox.pageGroupList$ | async)?.length == 0">
+            <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+            <h5>{{'CMS.Pages.ItemsNotFound' | translate}}</h5>
+            <button class="button-reg btn-sm primary" (click)="addPageGroup()">
+                {{'CMS.Pages.AddGroup' | translate}}
+            </button>
+        </div>
+
+        <!-- Pagination -->
+        <app-reusable-pagination *ngIf="(appSandbox.pageGroupListCount$ | async) > limit" [type]="'numbers'"
+            [currentPage]="currentPage" [totalItems]="appSandbox.pageGroupListCount$ | async" [pageSize]="limit"
+            (pageChange)="onPageChange($event)">
+        </app-reusable-pagination>
+    </div>
+</div>

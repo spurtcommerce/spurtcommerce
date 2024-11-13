@@ -1,0 +1,94 @@
+<app-pages-layout></app-pages-layout>
+<div class="flex filter-row">
+    <div class="filter-lft">
+        <h2>{{'CMS.Pages.Pages' | translate}} ({{sandbox.pagesListCount$ | async}})</h2>
+    </div>
+
+    <div class="filter-rht flex" (keyup.Tab)="focusInput()">
+
+        <!-- filter -->
+        <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue;trackBy: trackByIndex">
+            <div class="added-filter-col flex filter-detail" *ngIf="!empty.includes(filter.value)">
+              <span>{{ filter.key }} : {{ filter.value}} </span>
+              <button (click)="removeFilter(filter)">
+                <img src="assets/img/close.svg" alt="" />
+              </button>
+            </div>
+          </div>
+
+        <!--search filter -->
+        <div class="filter-search">
+            <form class="" (keyup.enter)="applyFilter()">
+                <app-common-form [type]="dynamicObjControls?.Search?.type"
+                    [control]="dynamicObjControls?.Search?.control" [label]="dynamicObjControls?.Search?.label"
+                    [inputId]="dynamicObjControls?.Search?.inputId" [aliasName]="dynamicObjControls?.Search?.aliasName"
+                    [placeholder]="dynamicObjControls?.Search?.placeholder">
+                </app-common-form>
+            </form>
+        </div>
+
+        <button class="button-reg primary btn-sm" *ngIf="(sandbox.pagesList$ | async)?.length > 0"
+            (click)="addPage()" [appHideIfUnauthorized]="'create-pages'">+ {{'CMS.Pages.NewPage' | translate}}
+        </button>
+        <button class="button-reg primary btn-sm" (click)="addLocalization()"
+            [appHideIfUnauthorized]="'add-page-localization'"> + {{'CMS.Pages.Localization' | translate}}
+        </button>
+    </div>
+</div>
+
+<div class="flex product-wrap example-full-width">
+
+    <div class="product-table">
+        <!--Loader -->
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="sandbox.pagesListLoading$ | async"
+                style="transform: translate(58%, 18%);position:absolute">
+            </app-global-loader>
+        </div>
+        <div class="table-responsive">
+            <!-- common -table -->
+            <app-common-table [HeadArray]="customTable" [GridArray]="approvedProductList"
+                [customTemplate]="{pennding : itemTemplateRef, title : itemTemplateRef1, pageGroupName : itemTemplateRef2}"
+                (buttonChangeEvent)="buttonAction($event)" [selectAll]="tableCheckbox">
+            </app-common-table>
+
+            <ng-template #itemTemplateRef1 let-item let-index="index">
+                <p (click)="editPageList(item)" style="position: relative; cursor: pointer;">
+                    {{item.title}}</p>
+            </ng-template>
+
+            <ng-template #itemTemplateRef2 let-item let-index="index">
+                <p (click)="editPageList(item)" style="position: relative; cursor: pointer;">
+                    {{item.pageGroupName}}</p>
+            </ng-template>
+
+            <ng-template #itemTemplateRef let-item let-index="index">
+                <div *ngIf="item.isActive == 1">
+                    <span class="tags-action tag-active">{{'marketplace.seller.Active'| translate}}</span>
+                </div>
+                <div *ngIf="item.isActive == 0">
+                    <span class="tags-action tag-inactive">{{'Settings.Role.InActive'| translate}}</span>
+                </div>
+            </ng-template>
+
+            <!-- No Data Found -->
+          <div class="nodata-found" *ngIf="(sandbox.pagesList$ | async)?.length == 0">
+            <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+            <h5>{{'common.Items Not Found'| translate}}</h5>
+            <button class="button-reg btn-sm primary" (click)="addPage()"> 
+                {{'common.Add Page'| translate}}
+            </button>
+        </div>
+
+        </div>
+        <!--pagination -->
+        <app-reusable-pagination *ngIf="(sandbox.pagesListCount$ | async) > limit" [type]="'numbers'"
+            [currentPage]="currentPage" [totalItems]="sandbox.pagesListCount$ | async" [pageSize]="limit"
+            (pageChange)="onPageChange($event)">
+        </app-reusable-pagination>
+    </div>
+</div>
+
+<!-- Bulk Action -->
+<app-bulk-action *ngIf="selectedDatas?.length > 0" [count]="selectedDatas?.length" [bulkList]="bulkAction"
+    (actionEvent)="actionType($event)"></app-bulk-action>

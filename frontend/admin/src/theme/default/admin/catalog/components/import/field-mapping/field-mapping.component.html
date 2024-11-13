@@ -1,0 +1,74 @@
+<div class="import-innr-header">
+    <h3>Field Mapping</h3>
+    <ul class="flex">
+        <li class="active completed"> <span> <img src="assets/imgs/tick-green.svg" alt=""> </span>
+            <p>Upload File</p>
+        </li>
+        <li class="active"> <span>2</span>
+            <p>Field Mapping</p>
+        </li>
+        <li> <span>3</span>
+            <p>Review</p>
+        </li>
+        <li> <span>4</span>
+            <p>Finish</p>
+        </li>
+    </ul>
+</div>
+
+<div class="field-mapping">
+    <h4>Import Leads - {{fileName}}</h4>
+    <div class="field-mapping-innr-title">
+        <p>Fields Mapping</p>
+    </div>
+    <div class="field-mapping-wrap">
+        <ul class="field-mapping-tabs">
+            <li> <a href="javascript:void(0)" class="active">All Fields(75)</a> </li>
+            <li> <a href="javascript:void(0)">Mapped Fields(4)</a> </li>
+            <li> <a href="javascript:void(0)">Unmapped Fields(71)</a> </li>
+        </ul>
+        <div class="product-table">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Fields in File</th>
+                            <th>Fields in Spurt Commerce</th>
+                            <th colspan="2" class="text-center">Sample Data From File</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of header;index as i">
+                            <td>
+                                {{row}}
+
+                            </td>
+                            <td>
+                                <div class="dropdown">
+
+                                    <ng-select placeholder="Select Fields To Import" [(ngModel)]="dummyArray[i]"
+                                        (change)="getindex($event,i)">
+                                        <ng-option *ngFor="let car of cars" [value]="car" [disabled]="car.disabled">
+                                            {{ car.name }}
+                                        </ng-option>
+                                    </ng-select>
+                                </div>
+                            </td>
+                            <td>{{rightSidevalue[i]?.name}}</td>
+                            <td>{{rightSidevalue[i]?.value}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>s
+
+<div class="import-next-cancel flex">
+    <div class="import-next-cancel-lft flex">
+        <a href="javascript:void(0)"> Reset Mapping </a>review-data
+        <a href="javascript:void(0)"> Auto Map </a>
+    </div>
+    <button class="button-reg secondary" [routerLink]="['/vendors/product-config/upload-file']"> Previous </button>
+    <button class="button-reg primary" (click)="save()"> Save &amp; Next </button>
+</div>

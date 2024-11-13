@@ -1,0 +1,114 @@
+.card {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    width: 100%;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.pay-mdt {
+    display: inline-block;
+    border-radius: 30px;
+    padding: 5px 10px;
+    font-size: 10px;
+    color: #484848;
+    text-transform: capitalize;
+    font-weight: 600;
+    background-color: #ffe6c7;
+}
+
+.commission {
+    background-color: #FFF4DB;
+}
+
+.inactive {
+    width: 100% !important;
+}
+
+.vname {
+    font-weight: 700;
+    font-size: 13px !important;
+}
+
+.margin {
+    margin-top: -6px;
+    margin-bottom: 10px;
+}
+
+.product-wrap .product-table .table .custom-checkbox {
+    top: 0px;
+}
+
+th {
+    color: #525252;
+}
+
+.mar {
+    margin-top: -15px
+}
+
+.Artboard-1 {
+    width: 91px;
+    height: 83px;
+    background-color: #ffffff;
+}
+
+.body {
+    background-color: white;
+}
+
+
+.panel-body {
+    /* parent container of the menu */
+    overflow: auto;
+}
+
+:host ::ng-deep .dropdown-item.active,
+.dropdown-item:active {
+    color: black !important;
+    text-decoration: none !important;
+    background-color: #fff !important;
+}
+
+.lst-xpnd {
+    position: absolute;
+    right: 0px;
+}
+
+.inv-dtl {
+    cursor: pointer !important;
+}
+
+
+.export-data {
+    background: #82b9ff !important;
+}
+
+.acc-table {
+    background-color: unset !important;
+
+    tr,
+    td {
+        background-color: unset !important;
+    }
+}
+
+.spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.selected-container .selected-btn::after {
+    content: "";
+    position: absolute;
+    inset: auto;
+    width: 0;
+    height: 1;
+    background-color: transparent;
+}
+.filter-row .filter-rht .filter-dropdown .dropdown-menu .mat-mdc-form-field.floating-date {
+    overflow: hidden !important;
+}

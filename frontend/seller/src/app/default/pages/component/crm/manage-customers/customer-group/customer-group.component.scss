@@ -1,0 +1,90 @@
+.header-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.customer-list {
+  border: 1px solid #e1e6f3;
+  width: 100%;
+  margin: 0;
+  border-radius: 6px;
+  height: 40px;
+}
+.header-style h3 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.header-style p {
+  font-size: 18px;
+}
+.cancel-btn {
+  margin-top: 16px;
+  margin-right: 10px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  background-color: rgb(239, 239, 239);
+  padding: 2rem 1rem;
+  margin: 0;
+}
+.overallClass {
+  padding: 2rem 2rem 1rem !important;
+}
+
+.cancel-btn {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  margin: 0;
+  inset: 1rem 1rem auto auto;
+}
+
+.delete-btn {
+  border: none;
+  background-color: #d4d5d8;
+  border-radius: 5px;
+}
+.upload-btn {
+  border: none;
+  background-color: #e86d08;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.input-error {
+  border-color: red;
+  border-radius: 5px;
+}
+
+.disableClass {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.errorText {
+  color: red;
+}
+
+.remove-btn {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+::ng-deep.delete-confirm.modal.fade .modal-dialog {
+  max-width: 31.087rem !important;
+}
+
+input {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.loading {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+}

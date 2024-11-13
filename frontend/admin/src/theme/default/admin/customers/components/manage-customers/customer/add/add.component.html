@@ -1,0 +1,75 @@
+<div class="flex addproduct-wrap">
+  <!-- <div class="verify-seller-info">
+    <a href="javascript:void(0)"> <img src="assets/imgs/back.svg" alt=""> </a>
+    <h2 *ngIf="buyerId">{{buyerDetail?.firstName}}</h2>
+    <div class="verify-seller-info-col">
+        Created Date : <span></span>
+    </div>
+</div> -->
+  <!-- General -->
+  <div class="card ap-general">
+    <div class="ap-header sub-sub-header">
+      <h3>{{ 'Customers.Customer.CustomerDetails' | translate }}</h3>
+      <p>{{ 'Customers.Customer.enterManageBuyerDetails' | translate }}</p>
+    </div>
+
+    <div class="ap-body">
+      <div class="ap-form-row">
+        <ng-container *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+          <div class="ap-body-col" *ngIf="dynamicObjControls[val]?.section == 'buyer'">
+            <app-common-form [type]="dynamicObjControls[val]?.type" [control]="dynamicObjControls[val]?.control"
+              [label]="dynamicObjControls[val]?.label" [inputId]="dynamicObjControls[val]?.inputId"
+              [aliasName]="dynamicObjControls[val]?.aliasName" [placeholder]="dynamicObjControls[val]?.placeholder"
+              [submitted]="submitted" [customData]="dynamicObjControls[val]?.customData"
+              [optionalErrorMessage]="dynamicObjControls[val]?.optionalErrorMessage"
+              [mandatory]="dynamicObjControls[val]?.mandatory">
+            </app-common-form>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <!-- More Information -->
+  <div class="card ap-general">
+    <div class="ap-header sub-sub-header">
+      <h3>{{ 'Customers.Customer.MoreInformation' | translate }}</h3>
+      <p>{{ 'Customers.Customer.setBuyerPassword' | translate }}</p>
+    </div>
+
+    <div class="ap-body">
+      <div class="ap-form-row">
+        <ng-container *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+          <div class="ap-body-col" *ngIf="dynamicObjControls[val]?.section == 'moreInfo'">
+            <app-common-form [type]="dynamicObjControls[val]?.type" [control]="dynamicObjControls[val]?.control"
+              [label]="dynamicObjControls[val]?.label" [inputId]="dynamicObjControls[val]?.inputId"
+              [aliasName]="dynamicObjControls[val]?.aliasName" [placeholder]="dynamicObjControls[val]?.placeholder"
+              [submitted]="submitted" [customData]="dynamicObjControls[val]?.customData"
+              [optionalErrorMessage]="dynamicObjControls[val]?.optionalErrorMessage"
+              [mandatory]="dynamicObjControls[val]?.mandatory">
+            </app-common-form>
+          </div>
+        </ng-container>
+        <div class="ap-body-col">
+          <div class="form-group" style="margin-top: 30px;">
+            <div class="custom-control custom-checkbox ">
+              <input type="checkbox" class="custom-control-input " id="checkbox2" value="check"
+                [formControl]="dynamicObjControls.MailStatus?.control" style="cursor:inherit" />
+              <label class="custom-control-label" for="checkbox2">
+                {{'Customers.Customer.MailStatus'| translate}}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="action-button-container flex">
+  <button (click)="cancel()" class="button-reg btn-md tertiary">
+    {{ 'Customers.Customer.Cancel' | translate }}
+  </button>
+  <button class="button-reg btn-md primary" (click)="onSubmit()">
+    {{buyerId ? ('Customers.Customer.Update' | translate) : ('Customers.Customer.Save' | translate)}}
+  </button>
+</div>

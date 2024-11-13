@@ -1,0 +1,112 @@
+<div>
+    <div [hidden]="!loader" class="loading-data">
+        <img style="height: 8vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+    </div>
+</div>
+
+<div class="image-manager">
+    <div class="modal-header">
+        <!-- <div *ngIf="(mediaSandbox.getBucketListData$ | async)?.Prefix as prefix">
+            <h4 *ngIf="prefixPath == true" class="modal-title">
+                {{'common.Image Manager'|translate}} {{ prefix }}
+            </h4>
+        </div> -->
+        <h4 *ngIf="prefixPath == false" class="modal-title" id="modal-basic-title" style="font-weight: 600; font-size: 18px;">
+            {{'shared.imagemanagerpopup.Media'|translate}} {{ folderPathNames }}
+        </h4>
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+            <img src="assets/img/modal-close.svg" alt="">
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="flex search-nav">
+            <div class="search-section">
+                <input placeholder="{{'placeholder.Search'|translate}}" type="text" (keyup)="search_Folder($event.target.value)" />
+            </div>
+            <div class="img-action-links">
+                <ul class="flex" id="menu">
+                    <li *ngIf="(mediaSandbox.getBucketListData$ | async)?.Prefix as prefix">
+                        <a href="javascript:void(0)" placement="bottom" ngbTooltip="{{ 'catalog.product.ToolTip.Back' | translate }}"
+                            (click)="goBack(prefix)">
+                            <img src="assets/img/back_img_gallary.png" alt="back" />
+                        </a>                   
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" placement="bottom" ngbTooltip="{{ 'catalog.product.ToolTip.Refresh' | translate }}" (click)="refresh()">
+                            <img src="assets/img/Refresh.png" alt="refresh" />
+                        </a>
+                    </li>
+                    <li>
+                        <input id="check01" type="checkbox" name="menu" [(ngModel)]="isTooltip" />
+                        <label for="check01" placement="bottom" ngbTooltip="{{ 'catalog.product.ToolTip.NewFolder' | translate }}"><img src="assets/img/New Folder.png" alt="open"
+              /></label>
+
+                        <ul class="submenu">
+                            <li>{{'Dashboard.CreateFolder' | translate}}</li>
+                            <li>
+                                <input type="text" [(ngModel)]="textValue" />
+                                <button (click)="createFolder()">{{'Dashboard.Create' | translate}}</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" placement="bottom" ngbTooltip="{{ 'catalog.product.ToolTip.Delete' | translate }}" (click)="deleteFile()">
+                            <img src="assets/img/Delete New.png" alt="delete" />
+                        </a>
+                    </li>
+                    <input type="file" multiple (change)="uploadImageAction($event)" accept="image/*" #filePath style="display: none" />
+                    <li>
+                        <a (click)="uploadImage()" class="upload-lnk button-reg primary">
+                {{'Dashboard.Upload' | translate}}
+                        </a>
+                    </li>
+                    <li>
+                        <a *ngIf="checkedData.length > 0"  (click)="registerImage()" class="upload-lnk button-reg">
+                {{'Dashboard.Insert' | translate}}
+                        </a>
+
+             
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex image-row">
+            <div class="image-col" *ngFor="
+            let folder of (mediaSandbox.getBucketListData$ | async)
+              ?.CommonPrefixes
+          ">
+                <div class="img-bdy">
+                    <img src="assets/img/file-img.svg" alt="file-img" (click)="openFolder(folder.Prefix)" />
+                </div>
+                <p>{{ removeSlash(folder.Prefix) }}</p>
+            </div>
+
+
+            <div class="image-col" *ngFor="let images of imageContent; let i = index
+          ">
+          <!-- (click)="selectFile(images.Key)" -->
+                <div class="img-bdy">
+                   <img alt="Image" title="Image" class="cursor" [src]="imageUrls + '?width=120&height=120&path=' + '&name=' + images.Key">
+
+              <!-- <input *ngIf="user !== 'variant'" type="checkbox" value="{{ images.Key }}"[disabled]="!images.selected && maxLength == 5" (change)="fileCheckBox($event, images.Key, i)" /> -->
+                </div>
+                <p class="img-name" placement="top" ngbTooltip="{{enhanceName(images?.Key)}}">{{ enhanceName(images.Key) }}</p>
+
+                <input type="checkbox" class="iri-check" [(ngModel)]="images.selected" value="{{images.Key}}"
+                (change)="fileCheckBox($event, images.Key, i)" [disabled]="!images.selected && imageLimit >=5"
+                type="checkbox" [id]="images.Key" [checked]="images.selected" />
+                
+            </div>    
+            
+            <div class="imagemgrpop-load flex">
+                <button *ngIf="isLoadMore" class="load btn" (click)="getMoreBucketList()">{{'Dashboard.LoadMore' | translate}}</button>
+            </div>
+        
+        </div>
+
+        
+
+    </div>
+
+</div>

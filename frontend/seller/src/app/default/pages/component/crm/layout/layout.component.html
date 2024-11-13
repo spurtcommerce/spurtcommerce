@@ -1,0 +1,48 @@
+<!-- <app-open-sidebar></app-open-sidebar>
+<router-outlet></router-outlet> -->
+
+<div class="page-wrapper">
+    <div class="page-subnav" [ngClass]="{handSymbolRemove: allowUnapprovedSeller}">
+        <h2>{{'payments.CRM'|translate}}</h2>
+        <div class="page-subnav-sublist">
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/crm/customer']">{{'payments.Customer'|translate}}</a>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/crm/manage-customer/list']">
+                {{'payments.CustomerGroup'|translate}}</a>
+            <a *ngIf="ratingAndReviewAddon" href="javascript:void(0)"  [routerLink]="['/crm/manage-customer/rating-review']" [routerLinkActive]="'active'">{{'CMS.Pages.RatingandReview'|translate}}</a>
+            <a *ngIf="questionAnswerAddon" href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/crm/manage-customer/product-question-answer']">{{'CMS.Pages.QuestionandAnswer'|translate}}</a>
+        </div>
+    </div>
+    <div class="page-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<!-- 
+<div class="product-wrapper">
+    <div class="product-left" [ngClass]="{'produt-left-close' : !sideMenuOpen}">
+        <div class="manage-products">
+            <ul>
+                <li > <a class=""><span><img src="assets/imgs/sidebar-icons/groups-on.svg" alt=""></span>Customers 
+                    </a></li>
+                <li> <a><span><img src="assets/imgs/sidebar-icons/qa-on.svg" alt=""></span>Question and Answer</a>
+                </li>
+
+                <li><a class=""><span><img src="assets/imgs/sidebar-icons/rating-on.svg" alt=""></span>Rating and Reviews</a>
+                </li>
+                <li><a class=""><span><img src="assets/imgs/sidebar-icons/groups-on.svg" alt=""></span>Reports</a>
+                </li>
+            </ul>
+         
+        </div>
+    </div>
+
+    <div class="product-right" [ngClass]="{'product-full' : !sideMenuOpen}">
+
+       
+
+
+
+        <router-outlet></router-outlet>
+
+    </div>
+
+</div> -->

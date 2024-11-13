@@ -1,0 +1,26 @@
+.modal-title {
+    padding: 30px 30px 5px 30px;
+    border-bottom: 1px solid #eeeeee;
+    h4 {
+        text-align: center;
+        font-size: .875rem;
+    }
+}
+
+.close {
+    padding: 10px;
+    border: none;
+}
+
+.close:focus {
+    outline: none !important;
+}
+
+.modal-footer {
+    justify-content: center !important;
+}
+.modal-body {
+    p {
+        text-align: center;
+    }
+}

@@ -1,0 +1,33 @@
+<div *ngIf="this.router.url.split('?')[0]!=='/cms/manage-content/page-group/add' &&
+this.router.url.split('?')[0]!=='/cms/manage-content/page-group/edit/'+id &&
+this.router.url.split('?')[0]!=='/cms/manage-content/page-group/list'  ">
+
+
+<div class="row products-section">
+    <div class="col-12 ">
+        <div class="card">
+            <div class="product-ts-left">
+                <ul>
+                    <li>
+                        <p>{{'CMS.PageGroup.totalPages'| translate}}</p>
+                        <span *ngIf="(pageGroupSandbox.pageGroupCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                        <button type="button" placement="bottom" ngbTooltip="Total number of pagegroup on the platform."><img src="assets/img/info-ico.svg"alt="info"></button>
+                        <h3 *ngIf="!(pageGroupSandbox.pageGroupCountLoading$ | async)">{{(pageGroupSandbox.pageGroupCount$ | async)?.totalPage}}</h3>
+                    </li>
+                    <li>
+                        <p>{{'CMS.PageGroup.activePages'| translate}}</p>
+                        <span *ngIf="(pageGroupSandbox.pageGroupCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                        <button type="button" placement="bottom" ngbTooltip="Total number of active pagegroup on the platform."> <img src="assets/img/info-ico.svg" alt="info"></button>
+                        <h3 *ngIf="!(pageGroupSandbox.pageGroupCountLoading$ | async)">{{(pageGroupSandbox.pageGroupCount$ | async)?.activePage}}</h3>
+                    </li>
+                    <li>
+                        <p>{{'CMS.PageGroup.inactivePages'| translate}}</p>
+                        <span *ngIf="(pageGroupSandbox.pageGroupCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                        <button type="button" placement="left" ngbTooltip="Total number of in-active pagegroup on the platform."><img src="assets/img/info-ico.svg" alt="info"></button>
+                        <h3 *ngIf="!(pageGroupSandbox.pageGroupCountLoading$ | async)">{{(pageGroupSandbox.pageGroupCount$ | async)?.inActivePage}}</h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

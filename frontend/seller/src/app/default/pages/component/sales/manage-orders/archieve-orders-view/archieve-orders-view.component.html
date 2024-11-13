@@ -1,0 +1,278 @@
+<div *ngIf="(orderSandbox.archieveOrderDetail$ | async) as detail">
+    <ng-container *ngFor="let subArray of detail.productList">
+        <header>
+            <div class="header-list flexx">
+                <div class="header-list-lft flexx">
+                    <a href="javascript:void(0)" class="back-link" (click)="back()"> <img src="assets/imgs/back.svg"
+                            alt=""> </a>
+                    <h1>{{detail.orderPrefixId}}</h1>
+                    <div class="header-status-row flexx">
+                        <!-- order status -->
+                        <div class="status-col">
+                            <h4>Order Status</h4>
+                            <div class="status-col-row" [ngStyle]="{background: subArray?.statusColorCode}">
+                                <p>{{subArray?.orderStatusName}}</p>
+                            </div>
+                        </div>
+                        <!-- payment status -->
+                        <div class="status-col">
+                            <h4>Payment Status</h4>
+                            <div class="status-col-row stat-pay">
+                                <p>{{detail?.paymentStatus==1?'Paid':'Failed'}}</p>
+                            </div>
+                        </div>
+                        <!-- Fulfillment status -->
+                        <div class="status-col"
+                            *ngIf="!['',null,undefined].includes(subArray?.orderFullfillmentStatusName)">
+                            <h4>Fulfillment Status</h4>
+                            <div class="status-col-row stat-fulfill"
+                                [ngStyle]="{background: subArray?.orderFullfillmentStatusColorCode}">
+                                <p>{{subArray?.orderFullfillmentStatusName}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="all-orders-wrap" *ngIf="(orderSandbox.archieveOrderDetail$ | async) as detail">
+            <div class="all-orders-row">
+                <!-- order detail card -->
+                <div class="all-orders-col">
+                    <div class="all-orders-col-innr">
+                        <div class="all-orders-col-innr-row">
+                            <p>{{'Sales.allorders.order id'|translate}}</p>
+                            <h4>{{detail.orderPrefixId}}</h4>
+                        </div>
+                        <div class="all-orders-col-innr-row">
+                            <p>{{'Sales.allorders.Order Line No'|translate}}</p>
+                            <h4>{{detail.subOrderId}}</h4>
+                        </div>
+                        <div class="all-orders-col-innr-row">
+                            <p>{{'Sales.shared.date time'|translate}}</p>
+                            <h4>{{detail.createdDate | dynamicDate:'dd-MMM-yyyy:h:mm a'}}</h4>
+                        </div>
+                        <div class="all-orders-col-innr-row">
+                            <p>{{'Sales.OrderValue'|translate}}</p>
+                            <h4>{{detail.total | currencysymbol}}</h4>
+                        </div>
+                    </div>
+                    <div class="all-orders-col-innr">
+                        <div class="all-orders-col-innr-row">
+                            <p>{{'common.Customer Name'|translate}}</p>
+                            <h4>{{detail.customerFirstName}}</h4>
+                        </div>
+                        <div class="all-orders-col-innr-row">
+                            <p>{{'Sales.failedorders.Email'| translate}}</p>
+                            <h4>{{detail.email}}</h4>
+                        </div>
+                        <div class="all-orders-col-innr-row">
+                            <p>{{'Sales.shared.Mobile'| translate}}</p>
+                            <h4> {{detail.mobileNumber}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- address details -->
+                <div class="all-orders-status">
+                    <p>{{'common.Delivery Address'|translate}}</p>
+                    <h4 class="mb-4">{{detail.shippingAddress1}},
+                        {{detail.shippingAddress2}},
+                        {{detail.shippingCity}},
+                        {{detail.shippingCountry}},
+                        {{detail.shippingZone}},
+                        {{detail.shippingPostcode}}</h4>
+
+                    <p>Billing Address</p>
+                    <h4>{{detail.paymentAddress1}},
+                        {{detail.paymentAddress2}},
+                        {{detail.paymentCity}},
+                        {{detail.paymentCountry}},
+                        {{detail.paymentZone}},
+                        {{detail.paymentPostcode}}</h4>
+                </div>
+            </div>
+            <div class="allorders-detail-wrap" *ngIf="(orderSandbox.archieveOrderDetail$ | async) as details">
+                <ng-container *ngFor="let subArray of details?.productList">
+                    <div class="aodw-row">
+                        <div class="aodw-lft">
+                            <div class="aodwl-img">
+                                <img alt="Product Image" title="Product Image"
+                                    [src]="imageUrl + '?path=' + subArray .containerName + '&name=' + subArray .image + '&width=200&height=200'"
+                                    onError="this.src='assets/imgs/no-image.jpg';">
+                            </div>
+                            <div class="aodwl-content">
+                                <h3><a href="javascript:void(0)"> {{subArray?.name}} </a></h3>
+                                <p>{{subArray?.orderProductPrefixId}}</p>
+                            </div>
+                            <div class="personalized-pricing">
+                                <span *ngIf="!['',null,undefined,0].includes(priceGroupDetailId)">Personalized pricing
+                                    has been applied to this order!</span>
+                            </div>
+                            <!-- order detail table -->
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">{{'Sales.allorders.QTY'| translate}}</th>
+                                            <th>{{'Sales.Order.ItemStatus'| translate}}</th>
+                                            <th class="text-end">{{'Sales.shared.Price'| translate}}</th>
+                                            <th class="text-center">{{'Sales.shared.Discount'| translate}}</th>
+                                            <th class="text-end">{{'Sales.shared.Tax'| translate}}</th>
+                                            <th class="text-center">{{'Sales.failedorders.Coupon Discount'| translate}}
+                                            </th>
+                                            <th class="text-end">{{'Sales.failedorders.total'| translate}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">{{subArray?.quantity}}</td>
+                                            <td>{{details?.orderStatusName}}</td>
+                                            <td class="text-end">{{subArray?.basePrice | currencysymbol}}</td>
+                                            <td class="text-center">
+                                                <span *ngIf="subArray.discountAmount!=='0.00'">
+                                                    {{subArray.discountAmount | currencysymbol}}</span>
+                                                <span
+                                                    *ngIf="subArray.discountAmount==='0.00' || subArray.discountAmount===null">-</span>
+                                            </td>
+                                            <td class="text-end">
+                                                <span *ngIf="subArray?.taxType === 2">{{subArray?.taxValue}}%</span>
+                                                <span class="quantity" *ngIf="subArray?.taxType !== 2">
+                                                    {{subArray?.taxValue | currencysymbol}}</span>
+                                                <span *ngIf="subArray?.taxValue == 0">0</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span *ngIf="subArray.couponDiscountAmount!==null">
+                                                    {{subArray?.couponDiscountAmount | currencysymbol}}</span>
+                                                <span
+                                                    *ngIf="subArray.couponDiscountAmount=='0.00' || subArray.couponDiscountAmount===null">
+                                                    -</span>
+                                            </td>
+                                            <td class="text-end">{{subArray?.total| currencysymbol}}</td>
+                                        </tr>
+                                        <tr class="noborder">
+                                            <td class="text-end" colspan="6"> <b> Item Subtotal </b> </td>
+                                            <td class="text-end"> <b> {{subArray?.total | currencysymbol}}</b> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="aodw-os">
+                            <!-- tags -->
+                            <div class="aodwo-top">
+                                <p>Tags <a href="javascript:void(0)" (click)="openmanagetagsmodal()">Manage</a> </p>
+                                <div class="input-group">
+                                    <div class="ig-row">
+                                        <input type="text" placeholder="Find or Create tags">
+                                    </div>
+                                </div>
+                                <div class="tags-row flexx">
+                                    <div class="tags-col"> Rug <a href="javascript:void(0)"> <img
+                                                src="assets/imgs/close.svg" alt=""> </a> </div>
+                                    <div class="tags-col"> Shiraz Rug <a href="javascript:void(0)"> <img
+                                                src="assets/imgs/close.svg" alt=""> </a> </div>
+                                    <div class="tags-col"> Rug <a href="javascript:void(0)"> <img
+                                                src="assets/imgs/close.svg" alt=""> </a> </div>
+                                    <div class="tags-col"> Rug <a href="javascript:void(0)"> <img
+                                                src="assets/imgs/close.svg" alt=""> </a> </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="aodw-si">
+                            <!-- shipping information -->
+                            <div class="aodwsi-top">
+                                <h5>{{'Sales.shared.ShippingInformation'| translate}}</h5>
+                                <!-- trackingid -->
+                                <div class="ship-info-row flex">
+                                    <p> {{'Sales.shared.TrackingID'| translate}} : </p>
+                                    <a href="javascript:void(0)">
+                                        <span class="flex" style="gap:.5rem;">
+                                            <ng-container>
+                                                <a *ngIf="details.trackingNo"><img src="assets/imgs/edit-blue.svg"
+                                                        alt=""></a>
+                                            </ng-container>
+                                        </span>
+                                    </a>
+                                </div>
+                                <!-- tracking url -->
+                                <div class="ship-info-row flex" style="flex-wrap: nowrap;">
+                                    <p> {{'Sales.shared.URL'| translate}} : </p>
+                                    <a href="javascript:void(0)">
+                                        <span class="flex" style="gap:.5rem; flex-wrap: nowrap;">
+                                            <ng-container>
+                                                <a *ngIf="details.trackingUrl"><img style="min-width: 14px;"
+                                                        src="assets/imgs/edit-blue.svg" alt=""></a>
+                                            </ng-container>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <form [formGroup]="shippingFormId">
+
+                                <div class="chg-ord-stat" *ngIf="shippingmodel===1">
+                                    <div class="chg-ord-stat-innr">
+                                        <div class="chg-ord-stat-innr-row">
+                                            <h1> {{'Sales.shared.TrackingID'| translate}}</h1>
+                                            <div class="input-group">
+                                                <label for="">
+                                                    {{'common.'+button |
+                                                    translate}}&nbsp;{{'common.AddTrackingID'|translate}}*
+                                                    <p>{{'common.AddTrackingIDContent' | translate}}</p>
+                                                </label>
+                                                <div class="ig-row">
+                                                    <input type="text"
+                                                        placeholder="{{'common.EnterTrackingID' | translate}}"
+                                                        formControlName="id" appNoLeadingSpace
+                                                        [ngClass]="{'error-fields' : (shippingFormId.controls['id'].hasError('required') && shippingFormId.controls['id'].touched)}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-save-btn">
+                                            <button class="prev"
+                                                (click)="shippingclose()">{{'common.Cancel'|translate}}</button>
+                                            <button class="save"
+                                                (click)="updateShippingInfo('trackid')">{{'common.Save'|translate}}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div [formGroup]="shippingFormUrl" class="chg-ord-stat" *ngIf="shippingmodels===1">
+                                <div class="chg-ord-stat-innr">
+                                    <div class="chg-ord-stat-innr-row">
+                                        <h1> {{'Sales.shared.URL'| translate}}* </h1>
+                                        <div class="input-group">
+                                            <label for="">
+                                                {{'common.'+button |
+                                                translate}}&nbsp;{{'common.AddTrackingURL'|translate}}
+                                                <p>{{'common.AddTrackingURLContent' | translate}}</p>
+                                            </label>
+                                            <div class="ig-row">
+                                                <input type="text" placeholder="{{'common.EnterURL' | translate}}"
+                                                    formControlName="url" appNoLeadingSpace
+                                                    [ngClass]="{'error-fields' : ((shippingFormUrl.controls['url'].hasError('required') || shippingFormUrl.controls['url'].hasError('pattern')) && shippingFormUrl.controls['url'].touched) && submitted}">
+                                                <div style="color: red; font-size: smaller;"
+                                                    *ngIf="(shippingFormUrl.controls['url'].hasError('pattern') && shippingFormUrl.controls['url'].touched) && submitted">
+                                                    Invalid URL format.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-save-btn">
+                                        <button class="prev"
+                                            (click)="shippingclose()">{{'common.Cancel'|translate}}</button>
+                                        <button class="save"
+                                            (click)="updateShippingInfo('Url')">{{'common.Save'|translate}}</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </ng-container>
+
+            </div>
+        </div>
+    </ng-container>
+
+</div>

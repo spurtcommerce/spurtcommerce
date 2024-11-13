@@ -1,0 +1,219 @@
+<header>
+    <div class="header-list flexx">
+        <h1>{{'breadcrumbs.BackOrders'|translate}}</h1>
+        <div class="header-list-rht ms-auto flexx"
+            [ngClass]="{'disable-div': (orderSandbox.backOrderListLoading$ | async) ||initalLoading || (backOrderListArray?.length == 0 && formValueExists) ||filterData.length>0}">
+            <!--Item per page -->
+            <div class="per-page flexx">
+                <p>{{'common.PerPage'|translate}}</p>
+                <div class="ig-row">
+                    <ng-select [items]="pageSizeList" bindLabel="id" [searchable]="false" [clearable]="false"
+                        (change)="pageSizeChange($event)" [(ngModel)]="limit">
+                    </ng-select>
+                </div>
+            </div>
+
+            <!--Search filter -->
+            <div class="search-filter" ngbDropdown #dropdownContent="ngbDropdown">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                    ngbTooltip="{{'common.Search'|translate}}" placement="bottom" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()">
+                    <img src="assets/imgs/search.svg" alt="" (click)="open()">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+                    <h5>{{'common.Search'|translate}}</h5>
+                    <form class="" (keyup.enter)="applyFilter()">
+                        <div class="input-group">
+                            <div class="ig-row">
+                                <app-reusable-forms [type]="dynamicObjControls.Search?.type"
+                                    [control]="dynamicObjControls.Search?.control"
+                                    [label]="dynamicObjControls.Search?.label"
+                                    [inputId]="dynamicObjControls.Search?.inputId"
+                                    [aliasName]="dynamicObjControls.Search?.aliasName"
+                                    [placeholder]="dynamicObjControls.Search?.placeholder"></app-reusable-forms>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--Filter  -->
+            <div class="search-filter" ngbDropdown #dropdownContentFilter="ngbDropdown">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                    ngbTooltip="{{'common.Filter'|translate}}" placement="bottom" (click)="open()" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()">
+                    <img src="assets/imgs/filter.svg" alt="">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+
+                    <h5>{{'common.Filter'|translate}}</h5>
+                    <form action="" class="flex">
+                        <div class="filter-content">
+                            <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                                <app-reusable-forms *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+                                    [control]="dynamicObjControls[val]?.control"
+                                    [label]="dynamicObjControls[val]?.label"
+                                    [inputId]="dynamicObjControls[val]?.inputId"
+                                    [aliasName]="dynamicObjControls[val]?.aliasName"
+                                    [placeholder]="dynamicObjControls[val]?.placeholder"></app-reusable-forms>
+                            </div>
+                        </div>
+                        <div class="filter-action">
+                            <button class="button-reg btn-sm primary" (click)="applyFilter()">
+                                {{'common.apply filters'|translate}}</button>
+                            <button class="button-reg btn-sm trans-btn"
+                                (click)="filterReset('')">{{'common.reset'|translate}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Dynmaic Columns -->
+            <app-dynamic-columns [filterColumns]="backupColumns" (selectedColumns)="saveColumns($event)">
+            </app-dynamic-columns>
+        </div>
+    </div>
+</header>
+
+<!-- filter -->
+<div class="filter-result-row flexx" *ngIf="formValueExists">
+    <h4>{{'common.Filter' | translate}}:</h4>
+    <ng-container *ngFor="let filter of backupFormValue | keyvalue;trackBy: trackByIndex">
+        <div class="filter-result-col" *ngIf="!['',null,undefined].includes(filter.value)">
+            <span>{{ filter.key }} : </span>
+            {{ filter.value}}
+            <a href="javascript:void(0)" (click)="removeFilter(filter)"><img src="assets/imgs/close-sm.svg" alt=""></a>
+        </div>
+    </ng-container>
+    <a href="javascript:void(0)" class="clear" (click)="filterReset('clearAll')">
+        {{'common.ClearFilters' |translate}}
+    </a>
+</div>
+
+<div class="page-content">
+    <!--content -->
+    <app-alert-content *ngIf="backOrderListArray?.length > 0" [alert]="alertConfig"></app-alert-content>
+
+    <!--Loader -->
+    <div class="loading" *ngIf="(orderSandbox.backOrderListLoading$ | async)">
+        <app-loader></app-loader>
+    </div>
+
+    <!-- Table -->
+    <div class="table-responsive" *ngIf="backOrderListArray.length > 0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <!-- <th *ngIf="backupColumns['Sales.allorders.order id']" style="width: 32px;"></th> -->
+                    <th class="check-col" *ngIf="backupColumns['Sales.allorders.order id']">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="checkbox1"
+                                (change)="selectCheckAll($event.target.checked)" [(ngModel)]="selectedAll" />
+                        </div>
+                    </th>
+                    <th *ngIf="backupColumns['Sales.allorders.order id']">{{'Sales.shared.orders id'|translate}}</th>
+
+                    <th *ngIf="backupColumns['Sales.allorders.customer name']">{{'Sales.allorders.customer name'|translate}}</th>
+                    <th class="text-end price" *ngIf="backupColumns['Sales.allorders.total amount']">{{'Sales.allorders.total amount'|translate}}</th>
+                    <th *ngIf="backupColumns['Sales.backorders.Order Created']">{{'Sales.backorders.Order Created'|translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let array of backOrderListArray; let i = index;">
+                    <tr>
+                        <!-- (click)="openCloseRow(array.orderId)" -->
+                        <!-- <td *ngIf="backupColumns['Sales.allorders.order id']" class="text-center"
+                            style="cursor: pointer;padding-right: 0;" > -->
+
+                            <!-- <img alt="Close" class="ar-dwn-close lst-xpnd dark-icon"
+                                *ngIf="rowSelected==array.orderId" src="assets/imgs/caretdown-white.svg"
+                                style="width: 13px;" /> -->
+                            <!-- <img alt="Open" class=" lst-xpnd default-icon"
+                                *ngIf="rowSelected !== array.orderId" src="assets/imgs/caret-right.svg" /> -->
+
+                        <!-- </td> -->
+                        <td class="check-col" *ngIf="backupColumns['Sales.allorders.order id']">
+                            <div class="form-check" title="Click To Export">
+                                <input type="checkbox" class="form-check-input" (change)="checkIfAllSelected()"
+                                    id="{{ array.orderId }}" [ngModelOptions]="{ standalone: true }"
+                                    [(ngModel)]="array.selected" />
+                            </div>
+                        </td>
+                        <td *ngIf="backupColumns['Sales.allorders.order id']">
+                            <div class="d-flex align-items-center product-details fw-medium">
+                                <span (click)="openCloseRow(array.orderId)"  routerLinkActive="router-link-active"  style="cursor: pointer;" class="id" (click)="backOrderDetail(array.vendorOrderId)" > {{array?.orderProductPrefixId}} </span>
+                            </div>
+                        </td>
+
+                        <td *ngIf="backupColumns['Sales.allorders.customer name']">{{array?.customerFirstName}}</td>
+                        <td class="text-end  price" *ngIf="backupColumns['Sales.allorders.total amount']">
+                           {{array?.total| currencysymbol}}</td>
+                        <td *ngIf="backupColumns['Sales.backorders.Order Created']" >{{array?.createdDate |
+                            sellerDynamicDate}}</td>
+                    </tr>
+
+                    <tr *ngIf="rowSelected==array.orderId" class="orderidexpand">
+                        <td colspan="7">
+                            <table class="table cust-tbl">
+                                <thead>
+                                    <tr>
+
+                                        <th>{{'Sales.shared.Product Name'|translate}}</th>
+                                        <th class="text-center">{{'Sales.shared.Quantity'|translate}}</th>
+                                        <th class="text-right">{{'Sales.shared.Price'|translate}}</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        <td>
+                                            <div class="d-flex align-items-center product-details">
+                                                <span class="avatar avatar-xs online avatar-rounded">
+                                                    <img alt="Product Image" title="Product Image" *ngIf="array.image"
+                                                        [src]="imageUrl + '?path=' + array?.containerName + '&name=' + array.image + '&width=50&height=50'"
+                                                        onError="this.src='assets/imgs/no-image.jpg';">
+                                                </span>
+                                                <h4>{{array?.name}}</h4>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">{{array?.quantity}}</td>
+                                        <td class=" text-right">
+                                            {{array?.productPrice | currencysymbol}}</td>
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!--No data found -->
+    <div class="nodata flexx" *ngIf="(orderSandbox.backOrderList$ | async)?.length === 0 && (orderSandbox.backOrderListLoaded$ | async)">
+        <span><img src="assets/imgs/nodata.svg" alt=""></span>
+        <h4>
+            <ng-container *ngIf="formValueExists; else nodatafound">
+                {{'common.NoDataAvailablefortheFilteredCriteria'|translate}}
+            </ng-container>
+            <ng-template #nodatafound>
+                {{'Sales.Order.Noordersareadded'|translate}}
+            </ng-template>
+        </h4>
+    </div>
+
+    <!--pagination -->
+    <app-reusable-pagination [ngClass]="{'disable-div': filterData.length>0}" *ngIf="(orderSandbox.backOrderListCount$ | async) >0" class="pagination flexx" [currentPage]="currentPage" [pageSize]="limit"
+        [totalItems]="orderSandbox.backOrderListCount$ | async"
+        (pageChange)="onPageChange($event)"></app-reusable-pagination>
+
+
+</div>
+
+<!-- bulk action -->
+<app-bulk-action *ngIf="filterData?.length>0" [count]="filterData?.length" [bulkList]="bulkAction"
+    (actionEvent)="actionType($event)"></app-bulk-action>

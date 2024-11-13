@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5040" data-name="Rectangle 5040" width="16" height="16" transform="translate(-4411 -1034)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_448" data-name="Mask Group 448" transform="translate(4411 1034)" clip-path="url(#clip-path)">
+    <g id="customer_2_" data-name="customer (2)" transform="translate(-4411.465 -1034.533)">
+      <circle id="Ellipse_324" data-name="Ellipse 324" cx="0.533" cy="0.533" r="0.533" transform="translate(9.866 12.732)" fill="#fff"/>
+      <circle id="Ellipse_325" data-name="Ellipse 325" cx="0.533" cy="0.533" r="0.533" transform="translate(12.779 12.732)" fill="#fff"/>
+      <path id="Path_5522" data-name="Path 5522" d="M13.956,12.132H9.745V10.026a2.105,2.105,0,0,1,4.211,0v2.106Zm-3.145-1.067h2.078V10.026a1.039,1.039,0,0,0-2.077,0v1.039Z" fill="#fff"/>
+      <g id="Group_13967" data-name="Group 13967">
+        <path id="Path_5523" data-name="Path 5523" d="M14.093,16.533H9.608A1.735,1.735,0,0,1,7.947,15.28l-.575-2.012a1.728,1.728,0,0,1,1.662-2.2h5.635a1.728,1.728,0,0,1,1.661,2.2l-.575,2.013a1.736,1.736,0,0,1-1.661,1.253Zm-5.06-4.4a.661.661,0,0,0-.636.843l.575,2.012a.663.663,0,0,0,.635.479h4.485a.662.662,0,0,0,.635-.479l.575-2.013a.66.66,0,0,0-.635-.843Z" fill="#fff"/>
+        <path id="Path_5524" data-name="Path 5524" d="M6.4,6.933a3.2,3.2,0,1,1,3.2-3.2A3.2,3.2,0,0,1,6.4,6.933ZM6.4,1.6A2.133,2.133,0,1,0,8.533,3.733,2.135,2.135,0,0,0,6.4,1.6Z" fill="#fff"/>
+        <path id="Path_5525" data-name="Path 5525" d="M2.122,16.49A2.048,2.048,0,0,1,.533,14.465V11.909A5.986,5.986,0,0,1,5.5,5.935,5.867,5.867,0,0,1,9.923,7.042.538.538,0,0,1,10,7.836a.528.528,0,0,1-.706.065,4.791,4.791,0,0,0-3.225-.956A4.911,4.911,0,0,0,1.6,11.9V14.47a.982.982,0,0,0,.785.984.945.945,0,0,0,1.1-.931V12.132a.533.533,0,0,1,1.067,0v2.391A2.013,2.013,0,0,1,2.122,16.49Z" fill="#fff"/>
+        <path id="Path_5526" data-name="Path 5526" d="M6.668,16.533H2.605V15.467H6.668a.533.533,0,0,1,0,1.067Z" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

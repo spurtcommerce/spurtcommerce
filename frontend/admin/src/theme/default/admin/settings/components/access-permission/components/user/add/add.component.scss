@@ -1,0 +1,20 @@
+.form-group-pwd {
+    span {
+        position: absolute;
+        right: 5px;
+        top: 8px;
+    }
+}
+.cancel {
+    background-color: transparent;
+    border: solid 1px #078e05;
+    color: #078e05;
+}
+
+.error-class{
+    font-size: 0.875em;
+    color: red;
+}
+.password-show-hide{
+    top: 2.1875rem !important;
+}

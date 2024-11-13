@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+    <defs>
+        <clipPath id="d9gxsygoia">
+            <path data-name="Rectangle 5856" transform="translate(1056 479)" style="stroke:#0967c2;stroke-width:1.2px;fill:#fff" d="M0 0h15v15H0z"/>
+        </clipPath>
+    </defs>
+    <g data-name="Mask Group 919" transform="translate(-1056 -479)" style="clip-path:url(#d9gxsygoia)">
+        <g data-name="google-doc-stroke-rounded (8)">
+            <path data-name="Path 7233" d="M10.465 1.744v1.047c0 .987 0 1.48.306 1.787s.8.307 1.787.307H13.6" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke:#0967c2;stroke-width:1.2px" transform="translate(1055.128 478.128)"/>
+            <path data-name="Path 7234" d="M2.791 11.163V5.581c0-1.973 0-2.96.613-3.573S5 1.4 6.977 1.4h2.91a1.484 1.484 0 0 1 .556.053 1.485 1.485 0 0 1 .431.356l2.671 2.671a1.485 1.485 0 0 1 .356.431 1.485 1.485 0 0 1 .053.556v5.7c0 1.973 0 2.96-.613 3.573s-1.6.613-3.573.613H6.977c-1.973 0-2.96 0-3.573-.613s-.613-1.604-.613-3.577z" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke:#0967c2;stroke-width:1.2px" transform="translate(1055.128 478.128)"/>
+            <path data-name="Path 7235" d="M5.581 7.674h5.581M5.581 9.767h5.581M5.581 11.86h2.91" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke:#0967c2;stroke-width:1.2px" transform="translate(1055.128 478.128)"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,119 @@
+<div class="product-wrapper">
+    <div class="product-left" [ngClass]="{'produt-left-close' : !sideMenuOpen}">
+        <div class="manage-products">
+            <ul>
+                <li> <a class=""><span><img src="assets/imgs/header-icons/package-on-white.svg" alt=""></span>Dashboard
+                    </a></li>
+                <!-- <li> <a href="#" [routerLink]="['/product-configuration/varient/list']"
+                        [routerLinkActive]="'active'"><span><img src="assets/imgs/header-icons/package-on-white.svg"
+                                alt=""></span> {{'Varient Product'}}</a></li> -->
+
+                <li><a href="#" [routerLink]="['/new-catalog/products/list']"
+                        [routerLinkActive]="'active'" class=""><span><img src="assets/imgs/all-product-on.svg"
+                                alt=""></span>Product List</a></li>
+
+                <li><a class=""><span><img src="assets/imgs/attribute-on.svg" alt=""></span>
+                        PricingRule </a></li>
+                <li><a class="" [routerLink]="['/catalog/manage-products/list']"  ><span><img src="assets/imgs/all-product-on.svg"></span>
+                        Old Product List </a></li>
+                <!-- <li><a class=""><span><img src="assets/imgs/header-icons/package-on-white.svg" alt=""></span>
+                        {{'Subscribable
+                        Product'}}</a></li>
+                <li><a class=""><span><img src="assets/imgs/header-icons/package-on-white.svg" alt=""></span> {{'Virtual
+                        Product'}}</a></li> -->
+
+                <!-- <li> <a href="#" [routerLink]="['/catalog/manage-products/list']" [routerLinkActive]="'active'"
+                        class=""><span><img src="assets/imgs/header-icons/package-on-white.svg"
+                                alt=""></span>{{'Catalog.Product List'|translate}}
+                    </a></li> -->
+
+
+                <!-- <li><a href="#" [routerLink]="['/catalog/manage-products/product-attribute-list']"
+                        [routerLinkActive]="'active'"><span><img src="assets/imgs/header-icons/package-on-white.svg"
+                                alt=""></span> {{'Catalog.Product Attribute'|translate}}</a></li> -->
+            </ul>
+            <!-- <ul>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span>
+                                <img src="assets/imgs/header-icons/package.svg" alt="">
+                                <img src="assets/imgs/header-icons/package-on.svg" alt="" class="default-icon">
+                                <img src="assets/imgs/header-icons/package-on-white.svg" alt="" class="dark-icon">
+                            </span>
+                            {{'Catalog.Manage Products'|translate}}
+                            <img src="assets/imgs/header-icons/arrow-down.svg" alt="" class="default-icon">
+                            <img src="assets/imgs/caretdown-white.svg" alt="" class="dark-icon">
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a href="#" [routerLink]="['/catalog/manage-products/list']" [routerLinkActive]="'active'" class="">{{'Catalog.Product List'|translate}}
+                            </a>
+                            <a href="#" [routerLink]="['/catalog/manage-products/common-products']" [routerLinkActive]="'active'" class=""> {{'Catalog.Common Product'|translate}}</a>
+                            <a href="#" [routerLink]="['/product-configuration/varient/list']" [routerLinkActive]="'active'"> {{'Catalog.Product Variant'|translate}}</a>
+                            <a href="#" [routerLink]="['/catalog/manage-products/product-attribute-list']" [routerLinkActive]="'active'"> {{'Catalog.Product Attribute'|translate}}</a>
+                        </div>
+                    </div>
+                </li>
+            </ul> -->
+        </div>
+    </div>
+    <!--left-->
+
+    <div class="product-right" [ngClass]="{'product-full' : !sideMenuOpen}">
+
+        <app-breadcrumbs></app-breadcrumbs>
+        <div *ngIf="this.router.url.split('?')[0]!=='/product-configuration/varient/list' 
+            && this.router.url.split('?')[0]!=='/catalog/manage-products/common-products'
+             && this.router.url.split('?')[0]!=='/catalog/manage-products/product-attribute-list'
+              && this.router.url.split('?')[0]!=='/catalog/manage-products/product-variant-update/'+id
+               &&this.router.url.split('?')[0]!=='/catalog/manage-products/add' 
+               &&  this.router.url.split('?')[0]!=='/catalog/manage-products/edit/'+id 
+               && this.router.url!=='/catalog/manage-products/product-attribut-update/'+id">
+
+            <!-- <ul class="flex product-count">
+                <li>
+        
+                    <p>{{'Catalog.Total Products'|translate}}</p>
+        
+                    <span *ngIf="(productSandbox.totalProductCountLoading$ | async)" class="fa fa-circle-o-notch fa-spin"
+                        aria-hidden="true"></span>
+                    <button style="border: none; background: none;" type="button" placement="bottom"
+                        ngbTooltip="These are the list of total number of products listed on the eCommerce Portal."><img
+                            src="assets/imgs/info-ico.svg" alt="info"></button>
+                    <span *ngIf="!(productSandbox.totalProductCountLoading$ | async)">{{(productSandbox.totalProductCount$ |
+                        async)}}</span>
+                </li>
+                <li>
+        
+                    <p> {{'Catalog.Active Products'|translate}}</p>
+                    <span *ngIf="(productSandbox.activeProductCountLoading$ | async)" class="fa fa-circle-o-notch fa-spin"
+                        aria-hidden="true"></span>
+                    <button style="border: none; background: none;" type="button" placement="bottom"
+                        ngbTooltip="These are the list of products that are listed on the storefront and are active."><img
+                            src="assets/imgs/info-ico.svg" alt="info"></button>
+                    <span *ngIf="!(productSandbox.activeProductCountLoading$ | async)">{{(productSandbox.activeProductCount$ |
+                        async)}}</span>
+                </li>
+                <li>
+        
+                    <p>{{'Catalog.Inactive Products'|translate}}</p>
+                    <span *ngIf="(productSandbox.inActiveProductCountLoading$ | async)" class="fa fa-circle-o-notch fa-spin"
+                        aria-hidden="true"></span>
+                    <button style="border: none; background: none;" type="button" placement="left"
+                        ngbTooltip="These are the list of products that are created in the eCommerce portal, either by Admin or Vendor, however, not active."><img
+                            src="assets/imgs/info-ico.svg" alt="info"></button>
+                    <span *ngIf="!(productSandbox.inActiveProductCountLoading$ | async)">{{(productSandbox.inActiveProductCount$
+                        | async)}}</span>
+                </li>
+            </ul> -->
+        </div>
+
+
+
+        <router-outlet></router-outlet>
+
+    </div>
+    <!--left-->
+
+</div>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5194" data-name="Rectangle 5194" width="16" height="16" transform="translate(592 208)" fill="#fff" stroke="#2a2e34" stroke-width="1.2"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_488" data-name="Mask Group 488" transform="translate(-592 -208)" clip-path="url(#clip-path)">
+    <g id="chart-bubble-02-stroke-rounded" transform="translate(591.07 207.07)">
+      <circle id="Ellipse_372" data-name="Ellipse 372" cx="2.233" cy="2.233" r="2.233" transform="translate(1.488 2.977)" fill="none" stroke="#2a2e34" stroke-width="1.2"/>
+      <circle id="Ellipse_373" data-name="Ellipse 373" cx="2.977" cy="2.977" r="2.977" transform="translate(2.977 10.419)" fill="none" stroke="#2a2e34" stroke-width="1.2"/>
+      <circle id="Ellipse_374" data-name="Ellipse 374" cx="3.721" cy="3.721" r="3.721" transform="translate(8.93 1.488)" fill="none" stroke="#2a2e34" stroke-width="1.2"/>
+    </g>
+  </g>
+</svg>

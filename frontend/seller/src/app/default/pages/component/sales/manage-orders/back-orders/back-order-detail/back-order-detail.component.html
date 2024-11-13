@@ -1,0 +1,292 @@
+<div class="loading" *ngIf="(orderSandbox.backOrderDetailLoading$ | async)">
+    <app-loader></app-loader>
+</div>
+
+<div *ngIf="(orderSandbox.backOrderDetail$ | async) as detail">
+    <header>
+        <div class="header-list flexx">
+            <h1>{{detail.orderPrefixId}}</h1>
+            <div class="header-list-rht ms-auto flexx">
+                <!-- <button class="dropdown-toggle" (click)="openorderstatushistory()">
+                    <img src="assets/imgs/graph.svg" alt="">
+                </button> -->
+                <!-- <button class="dropdown-toggle" (click)="downloadInvoice(array)"> <img
+                        src="assets/imgs/download-new.svg" alt="">
+                    <i class="btn-new btn-ico flex"
+                        *ngIf="(orderSandbox.downloadInvoiceLoading$ | async) && selectedOrderId == array?.orderId"
+                        style="color: blue;"></i>
+                </button> -->
+                <button class="dropdown-toggle" (click)="back()"> {{'common.Back'|translate}} </button>
+            </div>
+        </div>
+    </header>
+    <div class="all-orders-wrap" *ngIf="(orderSandbox.backOrderDetail$ | async) as detail">
+        <div class="all-orders-row">
+            <div class="all-orders-col">
+                <div class="all-orders-col-innr">
+                    <div class="all-orders-col-innr-row">
+                        <p>{{'Sales.allorders.order id'|translate}}</p>
+                        <h4>{{detail.orderPrefixId}}</h4>
+                    </div>
+                    <div class="all-orders-col-innr-row">
+                        <p>{{'Sales.allorders.Order Line No'|translate}}</p>
+                        <h4>{{detail.subOrderId}}</h4>
+                    </div>
+                    <div class="all-orders-col-innr-row">
+                        <p>{{'Sales.shared.date time'|translate}}</p>
+                        <h4>{{detail.createdDate | dynamicDate:'dd-MMM-yyyy:h:mm a'}}</h4>
+                    </div>
+                    <div class="all-orders-col-innr-row">
+                        <p>{{'Sales.OrderValue'|translate}}</p>
+                        <h4>{{detail.total | currencysymbol}}</h4>
+                    </div>
+                </div>
+                <div class="all-orders-col-innr">
+                    <div class="all-orders-col-innr-row">
+                        <p>{{'common.Customer Name'|translate}}</p>
+                        <h4>{{detail.customerFirstName}}</h4>
+                    </div>
+                    <div class="all-orders-col-innr-row">
+                        <p>{{'Sales.failedorders.Email'| translate}}</p>
+                        <h4>{{detail.email}}</h4>
+                    </div>
+                    <div class="all-orders-col-innr-row">
+                        <p>{{'Sales.shared.Mobile'| translate}}</p>
+                        <h4> {{detail.mobileNumber}}</h4>
+                    </div>
+                </div>
+                <div class="all-orders-col-innr">
+                    <div class="all-orders-col-innr-row">
+                        <p>{{'common.Delivery Address'|translate}}</p>
+                        <h4>{{detail.shippingAddress1}}</h4>
+                        <h4>{{detail.shippingAddress2}}</h4>
+                        <h4>{{detail.shippingCity}}</h4>
+                        <h4>{{detail.shippingCountry}}</h4>
+                        <h4>{{detail.shippingPostcode}}</h4>
+                        <h4>{{detail.shippingZone}}</h4>
+                    </div>
+                    <!-- <div class="all-orders-col-innr-row">
+                        <p>{{'common.Billing Address'|translate}}</p>
+                        <h4>{{detail.shippingAddress2}}</h4>
+                    </div> -->
+                </div>
+            </div>
+            <!-- <div class="all-orders-status">
+                <p>{{'common.Payment Status'|translate}}</p>
+                <div class="all-ord-graph" *ngIf="detail.paymentStatus == 1">
+                    <img src="assets/imgs/checked.svg" alt="">
+                    <h4>{{'common.paid'|translate}}</h4>
+                </div>
+                <div class="all-ord-graph" *ngIf="detail.paymentStatus !== 1">
+                    <img src="assets/imgs/graph-rd.svg" alt="">
+                    <h4>{{'common.Pending'|translate}}</h4>
+                </div>
+                <a href="javascript:void(0)" (click)="openchangepaymentstatus(detail?.paymentStatus)">Change Status</a>
+            </div> -->
+        </div>
+        
+        <div class="allorders-detail-wrap" *ngIf="(orderSandbox.backOrderDetail$ | async) as details">
+
+            <ng-container *ngFor="let subArray of details?.productList">
+
+                <div class="aodw-row">
+                    <div class="aodw-lft">
+                        <div class="aodwl-img">
+                            <img alt="Product Image" title="Product Image"
+                            [src]="imageUrl + '?path=' + subArray .containerName + '&name=' + subArray .image + '&width=200&height=200'"
+                            onError="this.src='assets/imgs/no-image.jpg';">
+                        </div>
+                        <div class="aodwl-content">
+                            <h3><a href="javascript:void(0)"> {{subArray?.name}} </a></h3>
+                            <p>{{subArray?.orderProductPrefixId}}</p>
+                        </div>
+                        <div class="personalized-pricing">
+                            <span *ngIf="!['',null,undefined,0].includes(priceGroupDetailId)">Personalized pricing has been applied to this order!</span>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">{{'Sales.allorders.QTY'| translate}}</th>
+                                        <th>{{'Sales.Order.ItemStatus'| translate}}</th>
+                                        <th class="text-end">{{'Sales.shared.Price'| translate}}</th>
+                                        <th class="text-center">{{'Sales.shared.Discount'| translate}}</th>
+                                        <th class="text-end">{{'Sales.shared.Tax'| translate}}</th>
+                                        <th class="text-center">{{'Sales.failedorders.Coupon Discount'| translate}}</th>
+                                        <th class="text-end">{{'Sales.failedorders.total'| translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">{{subArray?.quantity}}</td>
+                                        <td>{{details?.orderStatusName}}</td>
+                                        <td class="text-end">{{subArray?.basePrice | currencysymbol}}</td>
+                                        <td class="text-center">
+                                            <span
+                                                *ngIf="subArray.discountAmount!=='0.00'">
+                                                {{subArray.discountAmount | currencysymbol}}</span>
+                                            <span
+                                                *ngIf="subArray.discountAmount==='0.00' || subArray.discountAmount===null">-</span>
+                                        </td>
+                                        <td class="text-end">
+                                            <span *ngIf="subArray?.taxType === 2">{{subArray?.taxValue}}%</span>
+                                            <span class="quantity"
+                                                *ngIf="subArray?.taxType !== 2">
+                                                {{subArray?.taxValue | currencysymbol}}</span>
+                                                <span *ngIf="subArray?.taxValue == 0">0</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span
+                                                *ngIf="subArray.couponDiscountAmount!==null">
+                                                {{subArray.couponDiscountAmount | currencysymbol}}</span>
+                                            <span
+                                                *ngIf="subArray.couponDiscountAmount=='0.00' || subArray.couponDiscountAmount===null">
+                                                -</span>
+                                        </td>
+                                        <td class="text-end">{{subArray?.total | currencysymbol}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- <div class="aodw-os">
+                        <div class="aodwo-top">
+                            <p>{{'Sales.shared.order status'| translate}} <a href="javascript:void(0)"
+                                    style="text-transform: capitalize;" (click)="getOrderDetails(subArray)">
+                                    {{'common.Change Status' | translate}}</a></p>
+                            <div class="stat-result" [ngStyle]="{
+                                background: details.productList[0].statusColorCode
+                              }" ><span style="color: white !important;">{{details.productList[0].orderStatusName}}</span></div>
+                        </div>
+                        <div class="aodwo-btm">
+
+                        </div>
+                        <div class="chg-ord-stat" *ngIf="orderstatusmodel===subArray">
+                            <div class="chg-ord-stat-innr">
+                                <div class="chg-ord-stat-innr-row">
+                                    <h1>{{'Sales.shared.order status'| translate}}</h1>
+                                    <div class="input-group">
+                                        <label for="">
+                                            {{'Sales.shared.order status'| translate}}
+                                            <p>{{'content.orderstatus' | translate}}</p>
+                                        </label>
+                                        <div class="ig-row">
+                                            <ng-select (change)="selectOrderStatus($event)" [searchable]="false"
+                                                [clearable]="false"
+                                                placeholder="{{'common.ChooseOrderStatus' | translate}}"
+                                                [(ngModel)]="details.subOrderStatusId"
+                                                (change)="orderstatusvalue($event)">
+                                                <ng-option class="capitalize"
+                                                    *ngFor="let array of (orderSandbox.orderStatusList$ | async)"
+                                                    [selected]="details?.subOrderStatusId === array.orderStatusId"
+                                                    [value]="array.orderStatusId">{{array?.name}}</ng-option>
+                                            </ng-select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-save-btn">
+                                    <button class="prev"
+                                        (click)="closeorderstatus()">{{'common.Cancel'|translate}}</button>
+                                    <button class="save"
+                                        (click)="apllyStatusChange(details?.orderStatusId, productDetail?.orderProductId,details)">{{'common.Save'|translate}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="aodw-si">
+                        <div class="aodwsi-top">
+                            <h5>{{'Sales.shared.ShippingInformation'| translate}}</h5>
+                            <div class="ship-info-row flex">
+                                <p> {{'Sales.shared.TrackingID'| translate}} </p>
+                                <a href="javascript:void(0)" (click)="shipping(details)">
+                                    <span class="flex" style="gap:.5rem;">
+                                        <ng-container>
+                                            {{details?.trackingNo ? details?.trackingNo :('common.Add Tracking ID for order' |
+                                            translate)}}
+                                            <a *ngIf="details.trackingNo"><img src="assets/imgs/edit-blue.svg"
+                                                    alt=""></a>
+                                        </ng-container>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="ship-info-row flex" style="flex-wrap: nowrap;">
+                                <p> {{'Sales.shared.URL'| translate}} </p>
+                                <a href="javascript:void(0)" (click)="shippings(details)">
+                                    <span class="flex" style="gap:.5rem; flex-wrap: nowrap;">
+                                        <ng-container>
+                                            {{details?.trackingUrl?details?.trackingUrl:('common.Add URL for Track order' |
+                                            translate)}}
+                                            <a *ngIf="details.trackingUrl"><img style="min-width: 14px;" src="assets/imgs/edit-blue.svg"
+                                                    alt=""></a>
+                                        </ng-container>
+                                        Add Tracking ID for order
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="aodwsi-btm">
+
+                        </div>
+                        <form [formGroup]="shippingFormId">
+
+                            <div class="chg-ord-stat" *ngIf="shippingmodel===1">
+                                <div class="chg-ord-stat-innr">
+                                    <div class="chg-ord-stat-innr-row">
+                                        <h1> {{'Sales.shared.TrackingID'| translate}}</h1>
+                                        <div class="input-group">
+                                            <label for="">
+                                                {{'common.'+button | translate}}&nbsp;{{'common.AddTrackingID'|translate}}*
+                                                <p>{{'common.AddTrackingIDContent' | translate}}</p>
+                                            </label>
+                                            <div class="ig-row">
+                                                <input type="text"
+                                                    placeholder="{{'common.EnterTrackingID' | translate}}"
+                                                    formControlName="id" appNoLeadingSpace
+                                                    [ngClass]="{'error-fields' : (shippingFormId.controls['id'].hasError('required') && shippingFormId.controls['id'].touched)}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-save-btn">
+                                        <button class="prev"
+                                            (click)="shippingclose()">{{'common.Cancel'|translate}}</button>
+                                        <button class="save"
+                                            (click)="updateShippingInfo('trackid')">{{'common.Save'|translate}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div [formGroup]="shippingFormUrl" class="chg-ord-stat" *ngIf="shippingmodels===1">
+                            <div class="chg-ord-stat-innr">
+                                <div class="chg-ord-stat-innr-row">
+                                    <h1> {{'Sales.shared.URL'| translate}}* </h1>
+                                    <div class="input-group">
+                                        <label for="">
+                                            {{'common.'+button | translate}}&nbsp;{{'common.AddTrackingURL'|translate}}
+                                            <p>{{'common.AddTrackingURLContent' | translate}}</p>
+                                        </label>
+                                        <div class="ig-row">
+                                            <input type="text" placeholder="{{'common.EnterURL' | translate}}"
+                                                formControlName="url" appNoLeadingSpace
+                                                [ngClass]="{'error-fields' : ((shippingFormUrl.controls['url'].hasError('required') || shippingFormUrl.controls['url'].hasError('pattern')) && shippingFormUrl.controls['url'].touched) && submitted}">
+                                                <div style="color: red; font-size: smaller;" *ngIf="(shippingFormUrl.controls['url'].hasError('pattern') && shippingFormUrl.controls['url'].touched) && submitted">Invalid URL format.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-save-btn">
+                                    <button class="prev"
+                                        (click)="shippingclose()">{{'common.Cancel'|translate}}</button>
+                                    <button class="save"
+                                        (click)="updateShippingInfo('Url')">{{'common.Save'|translate}}</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> -->
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+</div>

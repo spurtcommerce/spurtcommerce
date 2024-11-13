@@ -1,0 +1,470 @@
+/* LOGIN VALIDATION*/
+.read-only-page input,
+.read-only-page button {
+  pointer-events: none; 
+  opacity: 0.6;         
+}
+.validationcolor {
+    border-color: red !important;
+}
+.disable{
+    pointer-events: none; 
+    opacity: 0.6;    
+}
+.mat-expansion-panel-header.mat-expanded {
+    height: auto;
+    padding-block: 1.25rem 1rem;
+}
+.main-content {
+    .sub-content {
+        display: inline-block;
+        width: 18%;
+        margin: 0 10px 0px;
+        .toot-tip{
+            position: relative;
+            .hide-content{
+                position: absolute;
+                background-color: #1d2334;
+                color: #ffff;
+                padding: 10px;
+                text-align: center;
+                top: 0;
+                display: none;
+                left: 4px;
+                top: 1.5rem;
+                width: 300px;
+                border-radius: 4px;
+                font-weight: 300;
+                z-index: 10;
+            }
+            &:hover{
+                .hide-content{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.remove {
+    width: 20px !important;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 34px;
+}
+
+.add {
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+    img {
+        width: 23px;
+    }
+}
+
+.no-data {
+    display: block;
+    text-align: center;
+}
+
+.discount-main-content {
+    .sub-content {
+        display: inline-block;
+        width: 16%;
+        margin: 0 10px 10px;
+        vertical-align: top;
+    }
+}
+
+
+// option selected validator
+.optionValidator {
+    background: #ed571f !important;
+}
+
+.error {
+    color: red;
+}
+
+
+/* Blue */
+
+.info {
+    border-color: blue;
+    color: white;
+    background: blue;
+}
+
+.info:hover {
+    background: green;
+    color: white;
+}
+
+mat-radio-button {
+    padding: 1px 3px !important;
+}
+
+.datePiker {
+    padding: 3px 0px !important;
+}
+
+.error-field {
+    border: 1px soild #ff1e1e !important;
+}
+
+
+.ship {
+    margin-top: 34px;
+}
+
+.form-lft {
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+
+// toggle button
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 140px;
+    height: 34px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ca2222;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 21px;
+    left: 3px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2a6ab9;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(55px);
+    -ms-transform: translateX(55px);
+    transform: translateX(55px);
+}
+
+
+/*------ ADDED CSS ---------*/
+
+.on {
+    display: none;
+}
+
+.on,
+.off {
+    color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+}
+
+input:checked+.slider .on {
+    display: block;
+}
+
+input:checked+.slider .off {
+    display: none;
+}
+
+
+/*--------- END --------*/
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.round {
+    line-height: 48px;
+    color: #fff;
+    width: 79px;
+    height: 26px;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 100%;
+    background: #727273;
+    line-height: 52px;
+}
+
+.tier-inp {
+    width: 250px !important;
+}
+
+
+.pd-img {
+    .close {
+        background: black;
+        border-radius: 10px;
+        width: 15px;
+    }
+}
+
+.pd-img-upld {
+    cursor: pointer !important;
+}
+
+.icon-disabled {
+    pointer-events: none;
+    opacity: 0.65;
+    background: #fff;
+}
+
+.errorMsg {
+    color: red;
+    position: absolute;
+    top: 50px;
+    left: 17px;
+    width: 110px;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: serif;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.date-with {
+    width: 100%;
+}
+
+td {
+    vertical-align: top;
+}
+
+.ng-dropdown-panel {
+    display: block !important;
+}
+
+.vdo-col-row {
+    gap: 1rem;
+}
+
+.vdo-col {
+    height: 18px;
+    // margin: 24px 115.5px 8px 0;
+    font-size: 12px;
+    font-weight: 500; 
+    color: #474747;
+    padding-left: 0px;
+    margin-bottom: 5px;
+}
+
+.video-input {
+    width: 900px;
+    height: 40px;
+    // margin: 8px 300px 52px 0;
+    margin-bottom: 15px;
+    padding: 0 13px;
+    border-radius: 2px;
+    border: solid 1px #d7d2d2;
+    background-color: var(--white-three);
+    margin-left: 0px;
+}
+
+.video-button {
+    width: 100px;
+    height: 40px;
+    margin-left: 5px;
+    // margin: 0 0 0 318px;
+    // padding: 12px 26px 12px 27px;
+    border-radius: 2px;
+    border: solid 1px #016dd9;
+    background-color: #016dd9;
+    color: white;
+}
+
+.vdo-browse {
+    width: 145px;
+    height: 52px;
+    margin-left: 920px;
+    //   padding: 12px 15px 12px 16px;
+    border-radius: 2px;
+    border: solid 1px #016dd9;
+    background-color: #016dd9;
+    color: white;
+    position: absolute;
+}
+.video-upload{
+    display: flex;
+}
+
+::-webkit-file-upload-button {
+    display: none;
+}
+
+.youtube-embeded {
+    justify-content: space-between;
+    padding-inline: 1.5rem;
+}
+
+.custom-search{
+    border: 0rem;
+    border-bottom: 0.0625rem solid  rgb(0 0 0 / 18%);
+    width: 100%;
+    height: 47px;
+    padding: 0 40px 0 16px;
+    border: solid 0px #e8e6e6;
+    border-bottom: solid 1px #e8e6e6;
+    background-color: white;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+}
+
+.upload{
+    background: rgba(46,133,244,.05);
+    border: 1px dashed #2e85f4;
+    border-radius: 8px;
+    height: 72px;
+    max-width: 471px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #407bff;
+    position: relative;
+}
+.upload input{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+    font-size: 0;
+    cursor: pointer;
+}
+.download-file{
+    background: rgba(64,65,67,.05);
+    border: 0;
+    border-radius: 8px;
+    height: 72px;
+    max-width: 471px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #454648;
+    position: relative;
+    padding: 1rem;
+
+    p{
+        margin: 0;
+    }
+    .button-download{    
+        button{
+            height: 1.625rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.12875rem;
+            background-color: #f7f7f7;
+            gap: 0.5rem;
+            font-size: .8125rem;
+            font-weight: 400;
+            color: #222;
+            position: relative;
+            border: 0;
+        }
+    }
+}
+.button-download{
+    display: flex;
+    gap: 10px;
+}
+.btn-upload-files{
+    display: grid;
+    width: 50%;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+    gap: 10px;
+    align-items: center;
+}
+.text-error {
+    color: red;
+}
+.mtp-remove {
+    margin-top: 0px;
+}
+.mtp-add {
+    text-align: left;
+    padding-left: 28%;
+}
+.delete-img {
+    img {
+        width: 1rem;
+    }
+}
+.products-add-videos {
+    border: 1px solid #DEE2E6;
+    .data-col {
+        .form-group {
+            margin: 0;
+            padding: 20px; 
+            color: black;
+        }
+    }
+}
+
+.price-group .input-group-addon {
+    background: #f6f6f6b3 !important;
+}
+
+.price-cal {
+    margin: 0 10px 1.8rem  !important;
+}
+.price-flex{
+    display: flex;
+    align-items: center;
+}
+
+.tax-choice{
+    margin-top: 10px;
+}

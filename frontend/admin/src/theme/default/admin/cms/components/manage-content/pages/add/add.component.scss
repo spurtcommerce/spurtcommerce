@@ -1,0 +1,82 @@
+.cms-page-add-wrapper {
+    width: 100%;
+    min-height: calc(100vh - 170px);
+    background-color: #f7f7f7;
+    padding: 35px;
+    .cms-pa-container {
+        max-width: 758px;
+        width: 100%;
+        margin: auto;
+        h3 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #000;
+            margin: 0 0 20px;
+        }
+        .cms-group {
+            margin-bottom: 0px;
+            h4 {
+                font-size: 14px;
+                font-weight: 500;
+                color: #222;
+                margin: 0 0 8px;
+            }
+            p {
+                font-size: 14px;
+                font-weight: 400;
+                color: #948f8f;
+                margin: 0 0 15px;
+            }
+            .cms-inp-group {
+                width: 100%;
+                input {
+                    
+                }
+                textarea {                    
+                    height: 300px;
+                }
+            }
+            .cms-grp-row {
+                width: 100%;
+                position: relative;
+                .toggle {
+                    position: absolute;
+                    right: -60px;
+                    top: 10px;
+                }
+            }
+            .cms-grp-wdt {
+                width: 100%;
+                justify-content: space-between;
+                align-items: flex-start;
+                p {
+                    width: 48%;
+                }
+                .cms-inp-group {
+                    width: 48%;
+                    select {
+                        width: 100%;
+                        height: 48px;
+                        border: solid 1px #ccc;
+                        background-color: white;
+                        padding: 0 16px;
+                    }
+                }
+            }
+        }
+        .cmsbtn {
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            gap: 11px;
+            padding: 20px;
+        }
+    }
+}
+
+.is-invalid {
+    border-color: red !important;
+}
+// ::ng-deep.ck {
+// min-height: 500px !important;
+// } 

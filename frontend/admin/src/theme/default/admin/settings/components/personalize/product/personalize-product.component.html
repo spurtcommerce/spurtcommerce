@@ -1,0 +1,52 @@
+<div class="local-content">
+    <div class="set-lay-notes flex">
+        <h4>{{'Settings.nav.Note:' | translate}}</h4>
+        <p>{{'Settings.paragraph.Numberofproductsperpage' | translate}} </p>
+    </div>
+
+    <div class="setup-wrapper setup-personalize">
+        <div class="setup-container flex">
+
+            <div class="setup-left">
+                <h3 class="sub-header">{{'Settings.personalize.product.WhatProductdetailsarerequired' | translate}}</h3>
+                <p class="text14">{{'Settings.paragraph.Productsineachcategoryalso' | translate}} </p>
+            </div>
+
+            <div class="setup-right">
+                <div class="spinner-wrapper" style="display: flex;justify-content: center;justify-items: center;">
+                            <app-global-loader [isShow]="sandbox.getSettingLoading$ | async" style="transform: translate(-153%, 18%);position:absolute"></app-global-loader>
+                        </div>
+                <form style="margin: 0;" [formGroup]="perProductForm" class="form-horizontal m-t-20">
+                    <div class="sup-rht-section">
+
+                        <div class="suprs-form">
+                            <div class="suprs-form-row form-group flex">
+                                <label>{{'Settings.personalize.product.DefaultItemsPerPage' | translate}}<sup class="supvalidation">*</sup></label>
+                                <div class="suprs-form-col">
+                                    <input 
+                                        [(ngModel)]="perPage" 
+                                        appNumbersAllowed 
+                                        placeholder="Enter items per page" 
+                                        [appDisableIfUnauthorized]="'edit-personalize-product'" 
+                                        type="number" 
+                                        formControlName="itemPage" 
+                                        class="form-control" 
+                                    />
+                                </div>
+                                
+                            </div>
+                        </div>
+
+
+                        <div class="flex srbtn">                        
+                            <button class="button-reg btn-md primary" [disabled]="perPage === ''? true:false" (click)="onSubmit()" [appHideIfUnauthorized]="'edit-personalize-product'">{{'Settings.Local.Save' | translate}}</button>
+                            <button class="button-reg btn-md tertiary" [routerLink]="['/settings']" [appHideIfUnauthorized]="'edit-personalize-product'">{{'Settings.Local.Country.Cancel' | translate}}</button>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

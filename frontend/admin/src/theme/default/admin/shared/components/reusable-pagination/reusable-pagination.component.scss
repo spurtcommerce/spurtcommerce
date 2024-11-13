@@ -1,0 +1,30 @@
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px;
+  }
+  
+  .page-size-selector {
+    margin-left: 10px;
+  }
+  .number-button {
+    padding: 5px;
+    border: 1px solid grey;
+    margin: 2px;
+  }
+  /* Add any additional styling as needed */
+  

@@ -1,0 +1,61 @@
+// Variables;
+@import "../../variable";
+
+/*******************
+ Campaign
+*******************/
+
+.e-campaign {
+  .css-bar {
+    .data-text {
+      margin: 0 auto;
+      position: absolute;
+      left: 0;
+      z-index: 200;
+      right: 0;
+      top: 70px;
+      text-align: center;
+      .success-rate {
+        font-size: 60px;
+      }
+      .rate-label {
+        margin-top: -20px;
+      }
+    }
+  }
+  .c-cost {
+    padding: 10px 20px;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    i {
+      font-size: 48px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .e-campaign {
+    .c-cost {
+      margin: 0 auto;
+      width: 100%;
+    }
+    .stats {
+      text-align: center;
+    }
+  }
+}
+
+.css-bar-xlg {
+  width: 223px;
+  height: 223px;
+  font-size: 20px;
+}
+
+.css-bar-xlg:after,
+.css-bar-xlg > img {
+  width: 213px;
+  height: 213px;
+  margin-left: 5px;
+  margin-top: 5px;
+  line-height: 30px;
+}

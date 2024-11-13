@@ -1,0 +1,44 @@
+<div class="subtoolbar marketingtoolbar">
+    <div class="sub-nav-menu">
+      <div class="dd" [appHideIfUnauthorized]="'catalog-coupon'">
+          <div class="dd-a">
+              <a href="javascript:void(0)" [appHideIfUnauthorized]="'catalog-coupon'" [routerLink]="['/marketing/manage-promotions']" [routerLinkActive]="'active'">
+                  <span><img src="assets/img/header-icons/manage-promotions.svg" alt="product"></span> {{'Marketing.ManagePromotions'|translate}}
+                  <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+              </a>
+          </div>
+          <input type="checkbox" [checked]="checked" id="check" (click)="$event.stopPropagation(); onClick($event)">
+          <div class="dd-c">
+              <ul>
+                  <li [appHideIfUnauthorized]="'catalog-coupon'">
+                      <a href="#" [routerLink]="['/marketing/manage-promotions/coupon/list']" [routerLinkActive]="'active'">
+                        {{'Marketing.Coupons'|translate}}<span>Add-On</span>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  
+      <div class="dd"   [appHideIfUnauthorized]="'catalog-coupon'" [multipleHide]="['catalog-related-products']">
+          <div class="dd-a">
+              <a href="javascript:void(0)" [appHideIfUnauthorized]="'catalog-related-products'" [routerLink]="['/marketing/manage-cross-selling']"  [routerLinkActive]="'active'">
+                  <span><img src="assets/img/header-icons/manage-cross-selling.svg" alt="product"></span> {{'Marketing.ManageCrossSelling'|translate}}
+                  <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+              </a>
+          </div>
+          <input type="checkbox" [checked]="crossSellingChecked" id="onManageCrossSellingClick" (click)="$event.stopPropagation(); onManageCrossSellingClick($event)">
+          <div class="dd-c">
+              <ul>
+                  <li *ngIf="routerLinkCheck.relatedProducts.length > 0" [appHideIfUnauthorized]="'catalog-related-products'">
+                      <a href="#" [routerLink]="['/marketing/manage-cross-selling/related-products/list']" [routerLinkActive]="'active'">
+                        {{'Marketing.RelatedProducts'|translate}}
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  
+  
+  </div> 
+  

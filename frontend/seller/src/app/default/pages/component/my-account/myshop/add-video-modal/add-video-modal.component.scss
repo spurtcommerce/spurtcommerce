@@ -1,0 +1,30 @@
+.error-color {
+    border: 1px solid red !important;
+}
+
+.valid-color{
+    color: red;
+}
+.btn-disable{
+    opacity: 0.16;
+    cursor: default;
+}
+
+
+.embed-btn{
+    color: #fff;
+    background-color: #fc7937;
+    padding-inline: 1.5rem;
+    border-radius: 0.1875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 0;
+    gap: 0.3125rem;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+}

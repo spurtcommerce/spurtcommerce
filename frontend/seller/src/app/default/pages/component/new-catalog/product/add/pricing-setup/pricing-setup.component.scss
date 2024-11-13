@@ -1,0 +1,40 @@
+
+
+/* Hide the increase button */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Optional */
+}
+
+/* Optional: Ensure consistency across browsers */
+input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+.handsymbol{
+    cursor: pointer;
+}
+.removeHandSymbol{
+    pointer-events: none;
+    opacity: 0.5;
+}
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    height: fit-content !important;
+}
+
+.input-group label p {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #595959;
+    min-height: 36px !important;
+    margin: 0rem 0 0;
+}
+.radio-row {
+    margin-top: 2rem !important;
+}

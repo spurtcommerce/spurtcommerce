@@ -1,0 +1,109 @@
+.modal-content {
+  background: white !important;
+}
+.modal-header__title {
+  margin-bottom: 1rem;
+}
+
+.right {
+  position: fixed;
+  right: 0;
+  top: 0;
+  // width: 600px;
+  height: 100vh;
+  background: #fff;
+  z-index: 999;
+  box-shadow: -5px 2px 8px 0 #00000040;
+}
+
+.modal.right .modal-dialog {
+  position: fixed;
+  margin: auto;
+  width: 80%;
+  max-width: 60%;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  -o-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+.modal.right .modal-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.modal.right .modal-body {
+  padding: 15px 15px 10px;
+}
+
+/*Right*/
+
+.modal.right.fade .modal-dialog {
+  top: 200px;
+  right: -80%;
+  -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+  transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog,
+.modal.right.fade.show .modal-dialog {
+  right: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+
+.modal-content {
+  border-radius: 0;
+  border: none;
+}
+
+.modal-open .modal.settlement-modal.fade.in {
+  opacity: 1;
+}
+
+.modal-body button.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: white;
+  border: none;
+}
+
+.modal-body h3 {
+}
+
+.modal-body h4 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #222;
+  margin: 0px 0 10px;
+}
+.modal-body h5 {
+  margin: 25px 0 20px;
+}
+.modal-body table {
+}
+.error-msg {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: red;
+}
+
+.form-group {
+  margin-bottom: 26px;
+  position: relative;
+}
+
+.disable {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.title-align {
+  display: grid;
+  grid-template-columns: 0.5fr 10px 1fr;
+  align-items: baseline;
+}

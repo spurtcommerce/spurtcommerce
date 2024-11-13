@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h3>{{banerName}}</h3>
+    <button class="close-modal" (click)="dismiss()"> <img src="assets/imgs/close-modal.svg" alt=""> </button>
+</div>
+<div class="modal-body">
+    <div class="banner-image">
+        <div class="image-preview">
+            <img [src]="imageUrl + '?path=' +image?.imagePath + '&name=' +image?.imageName + '&width=300&height=300'" alt="sample image">
+            <!-- <img src="assets/imgs/seller-vid1.png" alt="sample image"> -->
+        </div>
+
+        <div class="banner-indicator">
+
+            <h3>{{indexAdded}}/{{bannerDetails.length}}</h3>
+
+            <div class="banner-list">
+                <!-- [src]="imageUrls + '?path=' + primaryImage[0]?.containerName + '&name=' + primaryImage[0]?.image + '&width=300&height=300'" -->
+                <div class="banner-list-child" *ngFor="let item of bannerDetails;let i = index">
+                    <img (click)="imageActive(item,i)"  [src]="imageUrl + '?path=' +item?.imagePath + '&name=' +item?.imageName + '&width=300&height=300'" alt="sample image">
+                    
+                </div>
+                <!-- <div class="banner-list-child">
+                    <img src="assets/imgs/sample-2.png" alt="sample image">
+                </div>
+                <div class="banner-list-child">
+                    <img src="assets/imgs/sample-3.png" alt="sample image">
+                </div>
+                <div class="banner-list-child">
+                    <img src="assets/imgs/sample-4.png" alt="sample image">
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+</div>

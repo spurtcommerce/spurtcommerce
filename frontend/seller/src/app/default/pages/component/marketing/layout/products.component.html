@@ -1,0 +1,45 @@
+<div class="page-wrapper">
+    <div class="page-subnav" [ngClass]="{handSymbolRemove: allowUnapprovedSeller}">
+        <h2>{{'Layout.Marketing' | translate}}</h2>
+        <div class="page-subnav-sublist">
+            <a *ngIf="addonData" href="javascript:void(0)" [routerLink]="['/marketing/manage-promotions']"
+                [routerLinkActive]="'active'">{{'Layout.Coupons' | translate}}</a>
+
+        </div>
+    </div>
+    <div class="page-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<!-- <div class="product-wrapper">
+
+    <div class="product-left" [ngClass]="{'produt-left-close' : !sideMenuOpen}">
+
+        <div class="manage-products">
+            <ul>
+                <li> <a href="javascript:void(0)" [routerLink]="['/marketing/manage-promotions/coupon']"
+                        [routerLinkActive]="'active'" class=""><span>
+                            <img src="assets/imgs/sidebar-icons/coupons-on.svg" alt=""></span>{{'Coupons'}}</a>
+                </li>
+                <li> <a href="javascript:void(0)" class=""><span>
+                    <img src="assets/imgs/sidebar-icons/campign.svg" alt=""></span>{{'Campigns'}}</a>
+                </li>
+            </ul>
+
+        </div>
+
+
+    </div>
+  
+
+    <div class="product-right" [ngClass]="{'product-full' : !sideMenuOpen}">
+
+        <app-breadcrumbs></app-breadcrumbs>
+
+        <router-outlet></router-outlet>
+
+    </div>
+   
+
+</div> -->

@@ -1,0 +1,77 @@
+<div class="local-content">
+    <div class="set-lay-notes flex">
+        <h4>{{'Settings.nav.Note:'|translate}}</h4>
+        <p>{{'Settings.nav.AdminLanguage'|translate}}</p>
+    </div>
+    <div class="flex filter-row">
+        <div class="filter-lft">
+            <h2> Total Language ( {{ languageSandbox.languagePagination$ | async }} )</h2>
+        </div>
+        <div class="filter-rht flex">
+                        <!-- filter -->
+                        <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue; trackBy: trackByIndex">
+                            <div class="added-filter-col flex filter-detail" *ngIf="!empty.includes(filter.value)">
+                                <span>{{ filter.key }} :{{filter.value}} </span>
+                                <button (click)="removeFilter(filter)">
+                                    <img src="assets/img/close.svg" alt="" />
+                                </button>
+                            </div>
+                        </div>
+                                 <!--search filter -->
+                        <div class="filter-search">
+                            <form class="" (keyup.enter)="applyFilter()">
+                                <div class="input-group">
+                                    <div class="ig-row">
+                                        <app-common-form [type]="dynamicObjControls?.Search?.type"
+                                            [control]="dynamicObjControls?.Search?.control" [label]="dynamicObjControls?.Search?.label"
+                                            [inputId]="dynamicObjControls?.Search?.inputId"
+                                            [aliasName]="dynamicObjControls?.Search?.aliasName"
+                                            [placeholder]="dynamicObjControls?.Search?.placeholder">
+                                        </app-common-form>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+            <button class="button-reg primary btn-sm" (click)="addLanguage('','add')"
+                [appHideIfUnauthorized]="'create-language'">
+                + {{'Settings.Local.Language.AddNewLanguage' | translate}}
+            </button>
+
+        </div>
+    </div>
+    <!-- Filter -->
+    <div class="flex product-wrap example-full-width" (keyup.Tab)="focusInput()">
+
+        <div class="product-table">
+            <div class="spinner-wrapper" style="display: flex;justify-content: center;justify-items: center;">
+                <app-global-loader [isShow]="languageSandbox.languageListLoading$ | async"
+                    style="transform: translate(58%, 18%);position:absolute"></app-global-loader>
+            </div>
+            <div class="product-table">
+                <div class="table-responsive">
+                    <app-common-table *ngIf="( languageSandbox.languageList$ | async)?.length > 0" [HeadArray]="dynamicColumnFields" [GridArray]="languageSandbox.languageList$ | async" 
+                        (buttonChangeEvent)="buttonAction($event)" [customTemplate]="{productStatus:itemTemplateRef}"> 
+                    </app-common-table>
+                    <ng-template #itemTemplateRef let-item let-index="index">
+                        <app-common-badge 
+                        [badge]="badgeStatusMappings.hasOwnProperty(item.isActive)?badgeStatusMappings[item.isActive]:''"></app-common-badge>
+                    </ng-template>
+                   
+                      <!-- no data found -->
+                <div class="nodata-found" *ngIf="(languageSandbox.languageList$ | async)?.length === 0 && languageSandbox.languageListLoaded$| async">
+                    <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+                    <h5>{{'Dashboard.NoDatafound'| translate}}</h5>
+                </div>
+
+                <!-- pagination -->
+                    <div class="pagination flex" *ngIf="( languageSandbox.languagePagination$ | async) > limit">
+                        <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+                            [totalItems]="languageSandbox.languagePagination$ | async" [pageSize]="limit"
+                            (pageChange)="onPageChange($event)">
+                        </app-reusable-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

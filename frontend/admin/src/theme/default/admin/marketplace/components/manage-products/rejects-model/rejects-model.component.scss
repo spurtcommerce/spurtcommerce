@@ -1,0 +1,138 @@
+.reject-popup{
+    .offcanvas-header  {
+        position: sticky;
+        top: 0;
+    }
+}
+
+.reject-card {
+    background-color: #F9F9FC;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.reject-card img {
+    width: 100%;
+}
+
+.reject-card h3 {
+    color: #2A2E34;
+    font-size: .875rem;
+    line-height: 1.0625rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+
+.reject-card strong{
+    color: #2A2E34;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    margin-bottom: .875rem;
+    display: block;
+}
+
+.reject-card-company {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: .5rem;
+}
+
+.reject-card-company p {
+    font-size: .75rem;
+    line-height: .9375rem;
+    font-weight: normal;
+    color: #2A2E34;
+    margin-bottom: 0;
+}
+
+.reject-reason label {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    color: #2A2E34;
+    font-size: .75rem;
+    line-height: .9375rem;
+    font-weight: normal;
+    margin-bottom: .5rem;
+
+}
+
+.reject-reason textarea {
+    border: .0625rem solid #E6EAED;
+    border-radius: .25rem;
+    height: 10rem;
+    width: 100%;
+    outline: none;
+    padding: .5rem;
+}
+
+.reject-header {
+    display: flex;
+    align-items: center;
+    padding: .625rem 1rem;
+    gap: 1rem;
+    width: 100%; 
+    border-bottom: .0625rem solid #E6EAED;
+
+}
+
+.reject-header h1 {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    color: #2A2E34;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+.btn-cancel {
+    border: .0625rem solid #223948;
+    border-radius: .1875rem;
+    color: #223948;
+    font-weight: 500;
+    font-size: .8125rem;
+    line-height: 1rem;
+    padding: .5rem 1rem;
+    background-color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-submit {
+    border: .0625rem solid #068E06;
+    background-color: #068E06;
+    border-radius: .1875rem;
+    padding: .5rem 1rem;
+    color: #FFFFFF;
+    font-size: .8125rem;
+    line-height: 1rem;
+    font-weight: 500;
+    border: none;
+}
+
+
+
+    
+    .is-invalid {
+        border: solid 1px red !important;
+    }
+
+    .dflt-img{
+        height: 108px;
+        img{
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .rjt-img{
+        img{
+            height: 100%;
+            object-fit: contain; 
+        }
+    }

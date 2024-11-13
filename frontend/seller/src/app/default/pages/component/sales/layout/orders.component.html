@@ -1,0 +1,18 @@
+
+<div class="page-wrapper">
+    <div class="page-subnav">
+        <h2>{{'breadcrumbs.sales' | translate}}</h2>
+        <div class="page-subnav-sublist" [ngClass]="{handSymbolRemove: allowUnapprovedSeller}">
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/sales/manage-orders/all-orders']">{{'Sales.layout.Orders'|translate}}</a>
+            <a href="javascript:void(0)"[routerLinkActive]="'active'"  [routerLink]="['/sales/manage-orders/back-orders-list']">{{'Sales.layout.BackOrders'|translate}}</a>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/sales/manage-orders/failed-orders-list']">{{'Sales.layout.FailedOrders'|translate}}</a>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/sales/manage-orders/archive-orders']">{{'Sales.layout.ArchiveOrders'|translate}}</a>
+            <a *ngIf="QuotationAddonRoute" href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/sales/manage-orders/quotation-list']">{{'Sales.layout.QuotationRequests'|translate}}</a>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/sales/manage-orders/inventory-lists']"> {{'Sales.layout.StockUpdate'|translate}}</a>
+            <a *ngIf="VariantInventoriesAddon" href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/sales/manage-orders/inventory']">{{'Sales.layout.VariantStockUpdate'|translate}}</a>
+        </div>
+    </div>
+    <div class="page-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,277 @@
+<header>
+    <h1>{{editId ? ((productsandbox.ProductUpdateDetails$ | async)?.data?.name + ('common.edit' | translate)) :
+        ('common.Create Product' | translate)}}</h1>
+</header>
+<div class="product-add-container">
+    <div class="product-add-nav">
+        <div class="product-add-nav-col completed">
+            <p>{{'common.Completed' | translate}}</p>
+            <h3>1. {{'common.Choose Categories' | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col completed">
+            <p>{{'common.Completed' | translate}}</p>
+            <h3>2. {{'common.Product Details' | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col completed">
+            <p>{{'common.Completed' | translate}}</p>
+            <h3>3. {{'common.Product Specification' | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col completed" *ngIf="ProductSeo==true">
+            <p>{{'common.Completed' | translate}}</p>
+            <h3>4. {{"common.Seo" | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col current">
+            <p>{{"common.Current" | translate}}</p>
+            <h3>5. {{'common.Pricing Setup' | translate}}</h3>
+        </div>
+
+    </div>
+    <div class="product-add-section">
+        <div class="inner-heading">
+            <h3>{{'common.PRICING SETUP' | translate}}</h3>
+            <p>{{'common.PriceSetupDescription' | translate}}</p>
+        </div>
+        <div class="product-specs-heading">
+            <div class="product-specs-heading-lft">
+                <h4>{{'common.Default Price' | translate}}</h4>
+                <p>{{'common.DefaultPriceDescription' | translate}}</p>
+            </div>
+        </div>
+        <form [formGroup]="DefaultPricemyForm" (ngSubmit)="onSubmit()">
+            <div class="details-row3">
+
+                <div class="input-group mb-35">
+                    <label>
+                        {{'common.ProductCost' | translate}} *
+                        <p>{{'common.ProductCostDescription' | translate}}</p>
+                    </label>
+                    <div class="ig-row">
+                        <div class="ig-group-row" [ngClass]="{removeHandSymbol:getupdateDetails?.isSimplified==0}">
+                            <span>{{symbol?.currencySymbol}}</span>
+                            <input type="number" formControlName="productCost" appNospace (input)="productCostChnage()"
+                                placeholder="{{'common.ProductCost' | translate}}"
+                                onKeyPress="if(this.value.length==8) return false;"
+                                [ngClass]="{'error-field':(DefaultPricemyForm.controls['productCost'].hasError('required')||DefaultPricemyForm.value.productCost == 0 && !DefaultPricemyForm.controls['productCost'].hasError('required'))}">
+                        </div>
+                    </div>
+                    <div class="error" style="position: absolute;top: 100%;color: red;font-size: 13px;"
+                        *ngIf="DefaultPricemyForm.controls['productCost'].hasError('required') && submit==true">
+                        {{'common.Productcostisrequired' | translate}}
+                    </div>
+                </div>
+                <div class="input-group mb-35">
+                    <label>
+                        {{'common.Tax' | translate}} *
+                        <p>{{'common.TaxDescription' | translate}}</p>
+                    </label>
+                    <div class="ig-row">
+
+
+
+
+                        <div class="ig-group-row position-relative" *ngIf="showData==false;else nnn">
+
+                            <span>{{symbol?.currencySymbol}}</span>
+                            <input type="number" formControlName="Tax" appNospace (input)="TaxChange($event)"
+                                placeholder="{{'common.Tax' | translate}}"
+                                onKeyPress="if(this.value.length==8) return false;">
+
+                            <div class="error" style="position: absolute;top: 100%;color: red;font-size: 13px;"
+                                *ngIf="DefaultPricemyForm.controls['Tax'].hasError('required') && submit==true">
+                                {{'common.Tax is required' | translate}}
+                            </div>
+                        </div>
+
+                        <ng-template #nnn>
+                            <ng-select style="border:none;padding:0px" class="col-12" [searchable]="false"
+                                placeholder="Tax" [(ngModel)]="Percentageavlue" (change)="PercentageChange($event)"
+                                [ngModelOptions]="{standalone: true}">
+                                <ng-option [value]="array" *ngFor="let array of taxList">
+                                    {{array.taxName}}-{{array.taxPercentage}}</ng-option>
+                            </ng-select>
+                        </ng-template>
+                        <div class="radio-row">
+                            <div class="radio handsymbol">
+                                <input id="radio-1" name="radio" type="radio" [checked]="valuecheckbox"
+                                    (input)="checkboxchange('value')">
+                                <label for="radio-1" class="radio-label handsymbol">
+                                    {{'common.Value' | translate}}
+                                    <p>{{'common.ValueLabel' | translate}}</p>
+                                </label>
+                            </div>
+                            <div class="radio handsymbol">
+                                <input id="radio-2" name="radio" type="radio" [checked]="percentagecheckbox"
+                                    (change)="checkboxchange('Percentage')">
+                                <label for="radio-2" class="radio-label handsymbol">
+                                    {{'common.Percentage' | translate}}
+                                    <p>{{'common.PercentageLabel' | translate}}</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-35">
+                    <label>
+                        {{'common.Total Cost (MRP)' | translate}} *
+                        <p>{{'common.ToatalCostLabel' | translate}}</p>
+                    </label>
+                    <div class="ig-row">
+                        <div class="ig-group-row">
+                            <span>{{symbol?.currencySymbol}}</span>
+                            <input type="text" formControlName="TotalCost" appNospace readonly
+                                placeholder="{{'common.Total Cost' | translate}}">
+                        </div>
+                    </div>
+                    <div class="error" style="position: absolute;top: 100%;color: red;font-size: 13px;"
+                        *ngIf="DefaultPricemyForm.controls['TotalCost'].hasError('required') && submit==true">
+                        {{'common.Total Cost is required' | translate}}
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="product-specs-heading">
+            <div class="product-specs-heading-lft">
+                <h4>{{'common.Assign Discount Price' | translate}}</h4>
+                <p>{{'CommonContent.VariantDiscount' | translate}}</p>
+            </div>
+            <button class="button-reg btn-lg secondary" [disabled]="!editId"
+                [ngClass]="{removeHandSymbol: !editId || getupdateDetails?.isSimplified==0}"
+                (click)="openassigndiscount()"> {{'common.Assign Discount Price' | translate}} </button>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>{{'common.SKU' | translate}}</th>
+                        <th class="text-center">{{'common.Priority' | translate}}</th>
+                        <th>{{'common.Price' | translate}}</th>
+                        <th>{{'common.Start Date' | translate}}</th>
+                        <th>{{'common.End Date' | translate}}</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of discountpricearray;let i =index">
+                        <td>{{item?.skuName}}</td>
+                        <td class="text-center">{{item.discountPriority}}</td>
+                        <td>${{item.discountPrice}}</td>
+                        <td>{{item.discountDateStart| date: 'dd MMM yyyy' }} </td>
+                        <td>{{item.discountDateEnd| date: 'dd MMM yyyy' }}</td>
+                        <td class="text-center">
+                            <div ngbDropdown container="body" class="d-inline-block">
+                                <button type="button" class="" id="dropdownBasic1" ngbDropdownToggle>
+                                    <img src="assets/imgs/v-dots.svg" alt="">
+                                </button>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                    <h5>{{'common.Actions' | translate}}</h5>
+                                    <a href="javascript:void(0)" ngbDropdownItem
+                                        (click)="editdiscountPrice(i,item,'discount')"> <img src="assets/imgs/edit.svg"
+                                            alt=""> {{'common.Edit' | translate}} </a>
+                                    <a href="javascript:void(0)" ngbDropdownItem
+                                        (click)="deteleDiscountandspecial(i,'discount')"> <img
+                                            src="assets/imgs/delete.svg" alt=""> {{'common.Delete' | translate}} </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+            <!--No data found -->
+            <div class="nodata flexx" *ngIf="discountpricearray?.length == 0">
+                <span><img src="assets/imgs/nodata.svg" alt=""></span>
+                <h4>
+                    No Discount Prices are added !
+                </h4>
+            </div>
+        </div>
+        <div class="product-specs-heading">
+            <div class="product-specs-heading-lft">
+                <h4>{{'common.Special Price' | translate}}</h4>
+                <p>{{'CommonContent.VariantSpecial' | translate}}</p>
+            </div>
+            <button class="button-reg btn-lg secondary" [disabled]="!editId"
+                [ngClass]="{removeHandSymbol: !editId || getupdateDetails?.isSimplified==0}"
+                (click)="OpenSpecialdiscount()"> {{'common.Assign Special Price' | translate}} </button>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>{{'common.SKU' | translate}}</th>
+                        <th class="text-center">{{'common.Priority' | translate}}</th>
+                        <th>{{'common.Price' | translate}}</th>
+                        <th>{{'common.Start Date' | translate}}</th>
+                        <th>{{'common.End Date' | translate}}</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of specialDiscountPriceArray;let i= index">
+                        <td>{{item?.skuName}}</td>
+                        <td class="text-center">{{item.specialPriority}}</td>
+                        <td>{{item.specialPrice | currencysymbol}}</td>
+                        <td>{{item.specialDateStart| date: 'dd MMM yyyy' }} </td>
+                        <td>{{item.specialDateEnd| date: 'dd MMM yyyy' }}</td>
+                        <td class="text-center">
+                            <div ngbDropdown container="body" class="d-inline-block">
+                                <button type="button" class="" id="dropdownBasic1" ngbDropdownToggle>
+                                    <img src="assets/imgs/v-dots.svg" alt="">
+                                </button>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                    <h5>{{'common.Actions' | translate}}</h5>
+                                    <a href="javascript:void(0)" ngbDropdownItem
+                                        (click)="editdiscountPrice(i,item,'special')"> <img src="assets/imgs/edit.svg"
+                                            alt=""> {{'common.Edit' | translate}} </a>
+                                    <a href="javascript:void(0)" ngbDropdownItem
+                                        (click)="deteleDiscountandspecial(i,'special')"> <img
+                                            src="assets/imgs/delete.svg" alt=""> {{'common.Delete' | translate}} </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--No data found -->
+            <div class="nodata flexx" *ngIf="specialDiscountPriceArray?.length == 0">
+                <span><img src="assets/imgs/nodata.svg" alt=""></span>
+                <h4>
+                    No Special Prices are added !
+                </h4>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="product-save-btn">
+    <button class="cancel" (click)="cancel()">{{'common.Cancel' | translate}}</button>
+    <button class="prev" (click)="prev()">{{'common.Previous' | translate}}</button>
+
+
+
+
+    <ng-container *ngIf="buttonSubmit ==true" class="removeHandSymbol">
+        <button class="save" [disabled]="!productsandbox.ProducteditLoading  | async">
+            <span *ngIf="productsandbox.ProducteditLoading  | async"><img src="assets/imgs/loading.gif" alt=""
+                    style="width: 20px;padding: 2px;"></span>
+            {{'common.Save' | translate}}</button>
+
+    </ng-container>
+
+    <button class="save" *ngIf="buttonSubmit ==false" [disabled]="!productsandbox.ProducteditLoading  | async"
+        (click)="onSubmit()">
+        <span *ngIf="productsandbox.ProducteditLoading  | async"><img src="assets/imgs/loading.gif" alt=""
+                style="width: 20px;padding: 2px;"></span>
+        {{'common.Save' | translate}}</button>
+
+
+
+
+    <!-- <button class="save" ><img src="assets/imgs/loading.gif" alt=""
+            style="width: 20px;padding: 2px;" *ngIf="buttonLoader==true"> Save</button> -->
+
+</div>

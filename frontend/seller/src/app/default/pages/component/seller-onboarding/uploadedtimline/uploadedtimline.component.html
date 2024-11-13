@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <h3>{{'common.Upload Document'|translate}}</h3>
+    <button (click)="dismiss()"><img src="assets/imgs/close-white.svg" alt="" class="default-icon img-dark"> <img
+            src="assets/imgs/close-modal.svg" alt="" class="default-icon"> </button>
+</div>
+<div class="timeline">
+    <!-- {{data | json}} -->
+    <div class="timeline-row" *ngFor="let array of data?.vendorDocumentLog; let last = last">
+        <ng-container *ngIf="array.status === 1">
+            <div class="timeline-card tc-upload" [ngClass]="{'timeline-cardss': last}">
+                <span>{{'Upload' | titlecase}}</span>
+                <a href="javascript:Void(0)">{{data.document.name}}</a>
+                <h4>{{'common.UploadOn' | translate}} {{array.createdDate| date: 'dd MMMM, yyyy'}} {{'common.At' |
+                    translate}} {{array.createdDate| date: "hh:mm a "}} 
+                </h4>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="array.status === 2">
+
+            <div class="timeline-card  tc-upload" [ngClass]="{'timeline-cardss': last}">
+                <span>{{ 'Re-Upload' | titlecase}} </span>
+                <a href="javascript:Void(0)">{{data.document.name}}</a>
+                <h4>{{'common.ReUploadOn' | translate}} {{array.createdDate| date: 'dd MMMM, yyyy'}} {{'common.At' |
+                    translate}} {{array.createdDate| date: "hh:mm a "}}
+                </h4>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="array.status === 3">
+            <div class="timeline-card tc-rejected" [ngClass]="{'timeline-cardss': last}">
+                <span>{{ 'Rejected' | titlecase}}</span>
+                <a href="javascript:Void(0)">{{data.document.name}}</a>
+                <h4>{{'common.Rejected' | translate}} {{array.createdDate| date: 'dd MMMM, yyyy'}} {{'common.At' |
+                    translate}} {{array.createdDate| date: "hh:mm a "}}
+                </h4>
+                <h4>{{'common.Reason' | translate}}:<span>{{array.reason}}</span></h4>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="array.status === 4">
+            <div class="timeline-card tc-approved" [ngClass]="{'timeline-cardss': last}">
+                <span>{{ 'Approved' | titlecase}}</span>
+                <a href="javascript:Void(0)">{{data.document.name}}</a>
+                <h4>{{'common.ApprovedOn' | translate}} {{array.createdDate| date: 'dd MMMM, yyyy'}} {{'common.At' |
+                    translate}} {{array.createdDate| date: "hh:mm a "}}
+                </h4>
+            </div>
+        </ng-container>
+
+    </div>
+</div>

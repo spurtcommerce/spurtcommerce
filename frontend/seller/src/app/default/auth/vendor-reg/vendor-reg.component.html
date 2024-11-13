@@ -1,0 +1,170 @@
+<div class="auth-wrapper">
+
+    <div class="auth-content">
+        <div class="logo"> <img [src]="logoPath" alt=""> </div>
+        <div class="auth-content-row">
+            <img src="assets/imgs/auth-img.svg" />
+            <h1>{{'Login.LoginHeadtxt' | translate}}</h1>
+            <ul>
+                <li>{{'Login.LoginDetail1' | translate}}</li>
+                <li>{{'Login.LoginDetail2' | translate}}</li>
+                <li>{{'Login.LoginDetail3' | translate}}</li>
+                <li>{{'Login.LoginDetail4' | translate}}</li>
+                <li>{{'Login.LoginDetail5' | translate}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="auth-form">
+
+        <div class="auth-form-innr">
+            <h2>{{'Login.SignUp' | translate}} 🚀</h2>
+            <div class="already-account">
+                {{'Login.AlreadyHaveAcc' | translate}} <a href="javascript:void(0)" [routerLink]="['/auth/login']"
+                    routerLinkActive="router-link-active">{{'Login.SignIn'| translate}}</a>
+            </div>
+            <form [formGroup]="signupForm">
+
+                <div class="auth-form-email">
+                    <div class="did-floating-label-content">
+                        <input class="did-floating-input" type="text" placeholder=" " (input)="changeemail()"
+                            (focusout)="focusouterrorShow()" appNoLeadingSpace formControlName="emailId"
+                            [ngClass]="{'error-color':signupForm.get('emailId').hasError('required') &&emailInvalidShow && submit ==true || emailValidation}"
+                            (input)="emailValidationChange()">
+                        <label class="did-floating-label">{{'Email Id' |translate}} <sup>*</sup></label>
+                        <div *ngIf="signupForm.get('emailId').errors " class="error-data">
+                            <div *ngIf="signupForm.get('emailId').hasError('required')  && submit ==true"
+                                class="error-data">{{'Email is required' | translate}}.</div>
+                            <div *ngIf="(emailInvalidShow)" class="error-data">{{'Please check the email you have
+                                entered.' | translate}}</div>
+                        </div>
+                        <div *ngIf="emailValidation" class="error-data error-color">{{'Email id already exist.Please
+                            check the email you have entered' | translate}}</div>
+                    </div>
+                    <button class="button-reg primary" type="button"
+                        [ngClass]="{disableClass:signupForm.controls['emailId'].invalid || !signupForm.value.emailId}"
+                        [disabled]="this.signupForm.controls['emailId'].invalid || !this.signupForm.value.emailId"
+                        (click)="sendOtp();checkOtp=true">
+                        <span>
+
+                        </span>{{resendOtp? 'Resend OTP':'Send OTP' }}</button>
+                </div>
+                <div class="did-floating-label-content mb-24">
+                    <input [maxlength]="6" class="did-floating-input" type="text" placeholder=" " formControlName="otp"
+                        appOnlyNumbers
+                        [ngClass]="{'error-color':(signupForm.get('otp').hasError('required') &&  submit == true) || otpValidation}"
+                        (input)="otpValidationChange()">
+                    <label class="did-floating-label">{{'Enter OTP' | translate}} <sup>*</sup></label>
+                    <div *ngIf="signupForm.get('otp').errors" class="error-data">
+
+                        <div *ngIf="(signupForm.get('otp').hasError('required') &&  submit == true)" class="error-data">
+                            OTP is required</div>
+                        <div *ngIf="(signupForm.get('otp').hasError('minlength') && submit == true && signupForm.controls['otp'].dirty )"
+                            class="error-data">Please enter 6 digit OTP.</div>
+                    </div>
+                    <div *ngIf="otpValidation" class="error-data error-color">{{'Please check the OTP you have entered'
+                        | translate}}</div>
+                </div>
+
+                <div class="form-select-col mb-24">
+                    <ng-select [items]="industryArray" bindLabel="name" bindValue="id" [clearable]="false"
+                        placeholder="Business/Domain/Industry" formControlName="industry"
+                        [ngClass]="{'error-color':(signupForm.get('industry').hasError('required') &&  submit == true)}">
+                    </ng-select>
+                    <div *ngIf="signupForm.get('industry').errors" class="error-data">
+                        <div *ngIf="(signupForm.get('industry').hasError('required') &&  submit == true|| signupForm.controls['industry'].dirty)"
+                            class="error-data">{{'Industry is required.' | translate }}</div>
+                    </div>
+                </div>
+
+                <div class="did-floating-label-content mb-24">
+                    <input class="did-floating-input" appNoLeadingSpace type="text" placeholder=" "
+                        formControlName="companyName"
+                        [ngClass]="{'error-color':(signupForm.get('companyName').hasError('required') && submit ==true) || signupForm.controls['companyName'].hasError('pattern')}">
+                    <label class="did-floating-label">{{'Company Name'| translate}} <sup>*</sup></label>
+                    <div *ngIf="signupForm.get('companyName').errors" class="error-data">
+                        <div *ngIf="(signupForm.get('companyName').hasError('required') && submit == true)"
+                            class="error-data">{{'Company name is required.' | translate}}</div>
+                        <div *ngIf="signupForm.get('companyName').hasError('pattern')" class="error-data">{{'Please
+                            enter a valid company name.' | translate}}</div>
+                            <div *ngIf="signupForm.controls['companyName'].hasError('pattern') && submit"
+                    class="error-data">{{'ValidationsErrorMessage.Onlyalphabetsnumbersspacesdollarsignscommasapostrophesampersandsandhyphensareallowed'|translate}}.</div>
+                    </div>
+                </div>
+
+                <div class="did-floating-label-content mb-24">
+                    <input class="did-floating-input" type="text" placeholder=" " formControlName="fullName"
+                        appNoLeadingSpace appNoSpecialChars
+                        [ngClass]="{'error-color':(signupForm.get('fullName').hasError('required') && submit==true) || signupForm.controls['fullName'].hasError('pattern')}">
+                    <label class="did-floating-label">{{'First Name' | translate}} <sup>*</sup></label>
+                    <div *ngIf="signupForm.get('fullName').errors " class="error-data">
+                        <div *ngIf="(signupForm.get('fullName').hasError('required') && submit== true)"
+                            class="error-data">{{'Seller name is required' | translate}}.</div>
+                            <div *ngIf="signupForm.controls['fullName'].hasError('pattern')"
+                            class="error-data">{{'ValidationsErrorMessage.Allowonlyalphabetsspaces'|translate}}.</div>
+
+                    </div>
+                </div>
+
+
+                <div class="did-floating-label-content mb-24">
+                    <input class="did-floating-input" type="text" placeholder=" " formControlName="lastName"
+                        appNoLeadingSpace appNoSpecialChars
+                        [ngClass]="{'error-color':signupForm.controls['lastName'].hasError('pattern')}">
+                    <label class="did-floating-label">{{'common.Last Name' | translate}}</label>
+                    <div *ngIf="signupForm.get('lastName').errors " class="error-data">
+                      
+                            <div *ngIf="signupForm.controls['lastName'].hasError('pattern')"
+                            class="error-data">{{'ValidationsErrorMessage.Allowonlyalphabetsspaces'|translate}}.</div>
+
+                    </div>
+                </div>
+                
+                <div class="did-floating-label-content password-content mb-24">
+                    <input class="did-floating-input" [type]="passwordFieldType" placeholder=" " appNoLeadingSpace
+                        formControlName="password" autocomplete="new-password"
+                        [ngClass]="{'error-color':(signupForm.get('password').hasError('required') && submit==true && signupForm.controls['password'].dirty )}">
+                    <label class="did-floating-label">Enter Password <sup>*</sup></label>
+                    <button class="show" (click)="togglePasswordVisibility()"> {{ showPassword ? 'Hide': 'Show' }}
+                    </button>
+                    <div *ngIf="signupForm.get('password').errors " class="error-data">
+                        <div *ngIf="(signupForm.get('password').hasError('required') && submit==true  && signupForm.controls['password'].dirty )"
+                            class="error-data">Password is required</div>
+                        <div *ngIf="(signupForm.get('password').hasError('minlength') && signupForm.controls['password'].dirty && !signupForm.get('password').hasError('required'))"
+                            class="error-data">Password must be at least 8 characters long</div>
+
+                        <div
+                            *ngIf="(signupForm.controls['password'].hasError('upperCase') && signupForm.controls['password'].dirty  && !signupForm.get('password').hasError('required'))">
+                            {{ upperCaseError }}</div>
+                        <div
+                            *ngIf="(signupForm.controls['password'].hasError('lowerCase') && signupForm.controls['password'].dirty  && !signupForm.get('password').hasError('required'))">
+                            {{ lowerCaseError }}</div>
+                        <div
+                            *ngIf="(signupForm.controls['password'].hasError('number') &&  signupForm.controls['password'].dirty  && !signupForm.get('password').hasError('required')) ">
+                            {{ numberError }}</div>
+                        <div
+                            *ngIf="(signupForm.controls['password'].hasError('specialChar') && signupForm.controls['password'].dirty && !signupForm.get('password').hasError('required')) ">
+                            {{ specialCharError }}</div>
+                    </div>
+                </div>
+                <div class="chk-group mb-24">
+                    <input type="checkbox" id="accept" name="" formControlName="termsAndConditions">
+                    <label for="accept">
+                        I Accept The <button class="termsandcondition"><a  target="_blank" [routerLink]="['/auth/terms-conditions']"> Terms and Conditions</a></button></label>
+                    <div *ngIf="signupForm.get('termsAndConditions').errors && submitted" class="error-data">
+                        <div *ngIf="(signupForm.get('termsAndConditions').hasError('required') && submit==true || signupForm.controls['termsAndConditions'].dirty)"
+                            class="error-data">
+                            You must accept the terms and conditions </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <button class="button-reg primary" [disabled]="!signupForm.valid"
+                [ngClass]="{disableClass: !signupForm.valid}" (click)="onSubmit()">
+                <span>
+                    <i *ngIf="authSandbox.registerLoading$ | async" class="fas fa-spinner fa-spin fa-5x"
+                        style="font-size: 16px;margin-right: 10px;"></i>
+                </span>Create Account</button>
+        </div>
+    </div>
+</div>

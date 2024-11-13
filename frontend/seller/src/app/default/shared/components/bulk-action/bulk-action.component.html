@@ -1,0 +1,12 @@
+<div class="action-container">
+    <ng-container *ngFor="let val of bulkList; let i = index">           
+        <div class="action-col" *ngIf="i==0">
+            <a href="javascript:void(0)" (click)="actionEvent.emit(val.id)"> <img [src]="val.image" > </a>
+            ({{count}}) {{'common.Selected'|translate}}
+        </div>
+        <ng-container *ngIf="i>0">
+            <a href="javascript:void(0)" (click)="actionEvent.emit(val.id)"> <img [src]="val.image">
+                {{val.name|translate}} </a>
+        </ng-container>
+    </ng-container>
+</div>

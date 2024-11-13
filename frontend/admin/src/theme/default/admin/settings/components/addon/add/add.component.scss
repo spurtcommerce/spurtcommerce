@@ -1,0 +1,29 @@
+.is-invalid {
+    border: solid 1px red !important;
+}
+.img-dflt{
+    margin-top: 1rem;
+    .input{
+        width: 30%;
+        img{
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
+    }
+    .upload-btn{
+        height: 33px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        background-color: #078e05;
+        font-size: 12px;
+        font-weight: 700;
+        color: #fff;
+        border: 0;
+        margin: 1rem 0 5px;
+        padding: 0px 1rem;
+    }
+}

@@ -1,0 +1,19 @@
+<div class="modal-body">
+    <button type="button" class="close" (click)="close()">
+        <span aria-hidden="true" style="background-color:white">&times;</span>
+    </button>
+    <h3>{{'common.Delete Confirmation'|translate}}</h3>
+    <p *ngIf="variantMessage"> Cannot recover a deleted {{variantMessage}}. Are you sure you want to proceed with deletion ?</p>
+    <p *ngIf="!variantMessage">{{'common.Are you sure want to delete this'|translate}}  {{deleteMessage}}?</p>
+
+
+    <!-- <h4> Record Name </h4> -->
+    <h4></h4>
+    <!-- <h4>  {{'CommonFormAll.Doyouwanttodelete'| translate}} </h4> -->
+    <div class="delete-btns flex">
+        <button type="button" class="btn btn-danger" (click)="close()">{{'common.Cancel'|translate}}  </button>
+        <button type="button" class="btn btn-success" (click)="deleteContent()">{{'common.Delete'|translate}}  </button>
+        <!-- <button type="button" class="btn btn-danger" (click)="close()"> {{'CommonFormAll.Cancel' | translate}}  </button>
+        <button type="button" class="btn btn-success" (click)="deleteContent()"> {{'CommonFormAll.Yes' | translate}}</button> -->
+    </div>
+</div>

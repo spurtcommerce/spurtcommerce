@@ -1,0 +1,217 @@
+.chat-header {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 2.0625rem;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    padding-inline: 0.75rem;
+    h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #027600;
+    }
+    button.close {
+        width: 1.26875rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: solid 1.7px #d8d8d8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 0.425rem;
+        }
+    }
+}
+.chat-body {                                        
+    max-height: calc(100vh - 3.063rem);
+    padding-bottom: 4rem;
+    overflow-y: auto;
+    padding-inline: 0.75rem;
+    .chat-day {
+        padding: 0.6875rem;
+        text-align: center;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #b6b6b6;
+    }
+    .cmc-row {
+        padding-right: 53px;
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        gap: 4px;
+        margin-bottom: 17px;
+        .cmcrtcont {
+            .cmcr-top {
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                display: flex;  
+                margin-bottom: 7px;          
+                h4 {
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: #5a5a5a;
+                    padding-top: 3px;
+                }
+                p {
+                    font-size: 10px;
+                    font-weight: 500;
+                    color: #b7b7b7;
+                }
+            }
+            .cmcr-content {
+                border-radius: 4px;
+                border: solid 1px #daf3da;          
+                background-color: #f0fff0;
+                padding: 8px 20px 8px 8px;
+                font-size: 13px;
+                font-weight: 500;
+                color: #798b79;
+                position: relative;
+                .dropdown {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    .dropdown-toggle {
+                        background-color: transparent;
+                        border: 0px;
+                        &::after {
+                            display: none;
+                        }
+                    }
+                    .dropdown-menu {
+                        padding: 0;
+                        min-width: 66px;
+                        a {
+                            display: grid;
+                            align-items: center;
+                            padding: 4px 9px;
+                            grid-template-columns: 10px 1fr;
+                            gap: 6px;
+                            font-size: 11px;
+                            font-weight: normal;
+                            color: #8c8c8c;
+                        }
+                    }
+                }
+                h5 {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: #5a5a5a;
+                    margin-bottom: 4px;
+                }
+                .cmcrc-reply {
+                    border-radius: 4px;
+                    border: solid 1px #def4de;                  
+                    background-color: #f9fff9;
+                    padding: 8px 15px;
+                    position: relative;
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: #798b79;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 8px;
+                        top: 8px;
+                        height: calc(100% - 16px);
+                        width: 2px;
+                        background-color: #97ca96;
+                    }
+                }
+                .product_img {
+                    display: block;
+                }
+            }              
+        }  
+        &.cmc-row-rht {
+            justify-content: flex-end;
+            padding-left: 33px;
+            padding-right: 0;
+            grid-template-columns: 1fr 30px;
+            .cmcrtcont {
+                .cmcr-content {
+                    border: solid 1px #ebebeb;
+                    background-color: #fbfbfb;
+                }
+            }
+            .cmcrt-lgo {
+                img {
+                    width: 100%;
+                }
+            }
+        }      
+    }
+}
+.chat-footer {
+    position: fixed;
+    width: 28.9375rem;
+    right: 0;
+    bottom: 0;
+    padding: 0.4375rem 0.75rem;
+    input {
+        width: 100%;
+        height: 2.5rem;
+        border-radius: 5px;
+        border: solid 1px #a0d8a0;      
+        background-color: #fbfbfb;
+        padding-inline: 2.5rem;
+    }
+    button {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background-color: transparent;
+        position: absolute;
+        &.attach {
+            left: 1.375rem;
+            top: 1rem;
+        }
+        &.send {
+            right: 1.375rem;
+            top: 0.7rem;
+        }
+    }
+    .cme-reply {
+        position: absolute;
+        bottom: 43px;
+        border-radius: 5px 5px 0 0;
+        border: solid 1px #a0d8a0;
+        background-color: #fbfbfb;
+        padding: 9px 22px;
+        width: calc(100% - 25px);
+        button {
+            position: absolute;
+            right: 0.365rem;
+            top: 0;
+            background-color: transparent;
+            border: 0;
+            opacity: 0.5;
+            img {
+                width: 12px;
+            }
+        }
+        h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #5a5a5a;
+            margin-bottom: 4px;
+        }
+        p {
+            font-size: 12px;
+            font-weight: 500;
+            color: #798b79;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 9px;
+            height: calc(100% - 18px);
+            width: 2px;
+            background-color: #97ca96;
+        }
+    }
+}

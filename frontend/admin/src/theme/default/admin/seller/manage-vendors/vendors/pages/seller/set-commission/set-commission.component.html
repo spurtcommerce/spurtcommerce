@@ -1,0 +1,181 @@
+<div *ngIf="settingSandbox.pageDetailsLoadingStatus$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+
+<div class="addproduct-wrap">
+    <div class="vendor-assign-cat-top">
+        <div class="vact-title">
+            <h3>{{'marketplace.seller.SetCommission' | translate}}</h3>
+            <p>{{'marketplace.seller.Specifythecommissionrate' | translate}}</p>
+        </div>
+
+        <div class="vact-row flex" *ngIf="settingSandbox.pageDetail$ | async as array">
+            <div class="vact-logo"> <img style="max-width: 100%; max-height: 100%;" [src]="
+                    ImageUrl +
+                    '?path=' +
+                    array.customerDetail.avatarPath +
+                    '&name=' +
+                    array.customerDetail.avatar +
+                    '&width=100&height=100'
+                " onError="this.src='assets/error-images/Load-icon-Products.png';" class="vendor-img"
+                    [alt]=" array.customerDetail.avatar" /> </div>
+            <div class="vact-content flex">
+                <div class="vactc-name">
+                    <h3>{{ array.customerDetail.firstName }}</h3>
+                    <div class="vactcn-btm flex">
+                        <span class="vactcn-id">{{ array.vendorPrefixId }}</span>
+                        <span class="vactcn-stat"
+                            *ngIf="array?.customerDetail?.isActive === 1">{{'marketplace.seller.Active'|
+                            translate}}</span>
+                        <span class="vactcn-inact" *ngIf="array.customerDetail.isActive === 0">
+                            {{'common.In-Active'|translate}}</span>
+                    </div>
+                </div>
+                <div class="vactc-cname">
+                    <h4>{{'marketplace.seller.CompanyName' | translate}}</h4>
+                    <div class="vactccn-rst">
+                        <h5>{{ array.companyName }}</h5>
+                    </div>
+                </div>
+                <div class="vactc-cname vactc-cd">
+                    <h4>{{'marketplace.seller.Contactdetails' | translate}}</h4>
+                    <div class="vactccn-rst">
+                        <h5>{{ array.customerDetail.mobileNumber }}</h5>
+                        <h5>{{ array.customerDetail.email }}</h5>
+                    </div>
+                </div>
+                <div class="vactc-cname vactc-dc">
+                    <h4>{{'marketplace.seller.DefaultCommission' | translate}}</h4>
+                    <div class="vactccn-rst"
+                        *ngIf="editSetCommissionField === false && (settingSandbox.getCommissionResponse$ | async)?.defaultCommission > -1">
+                        <h5 *ngIf="settingSandbox.getCommissionResponse$ | async as data">{{vendorCommissionVal}}%
+                            {{'marketplace.seller.CommissionApplied' | translate}}</h5>
+                        <a href="javascript:void(0)" [appHideIfUnauthorized]="'set-vendor-commission'"
+                            (click)="setdefaultcommission=!setdefaultcommission; editSetCommission()">{{'marketplace.seller.Setdefaultcommission'
+                            | translate}}</a>
+                    </div>
+                    <div class="vactccn-rst">
+                        <a href="javascript:void(0)" (click)="setdefaultcommission=!setdefaultcommission"
+                            *ngIf="CommissionButton === false && (settingSandbox.getCommissionResponse$ | async)?.defaultCommission === 0"
+                            (click)="setCommissionButton()">{{'marketplace.seller.Setdefaultcommission' |
+                            translate}}</a>
+                    </div>
+                    <div class="set-def-comm" *ngIf="setdefaultcommission">
+                        <a href="javascript:void(0)" class="sdc-close"> <img src="assets/img/close.svg" alt=""
+                                (click)="setdefaultcommission=!setdefaultcommission;editSetCommissionField = false">
+                        </a>
+                        <div class="sdc-row flex" style="display: flex !important;">
+                            <form class="csi-row flex" *ngIf="editSetCommissionField === true"
+                                [formGroup]="setCommissionForm">
+                                <div class="sdcr-inp">
+                                    <input type="text" formControlName="defaultCommission" appOnlyNumber
+                                        (keypress)="maxLengthCheck($event)"> <span>%</span>
+                                </div>
+                                <button (click)="setCommission();setdefaultcommission=!setdefaultcommission">
+                                    {{'marketplace.seller.Apply' | translate}}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="vactc-cname vactc-cat">
+                    <h4>{{'marketplace.seller.Categories' | translate}}</h4>
+                    <div class="vactccn-rst">
+                        <h5>{{ array.vendorCategoryCount }}</h5>
+                    </div>
+                </div>
+                <div class="vactc-cname vactc-cat">
+                    <h4>{{'marketplace.seller.Products' | translate}}</h4>
+                    <div class="vactccn-rst">
+                        <h5>{{ array.productCount }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- product table -->
+    <section id="rauchbier" class="tab-panel">
+        <div class="flex set-comm-row">
+            <div class="product-table">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr class="vd-tb-th-top">
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th class="set-comm-tb text-center" style="top: 27px;" width="25%">
+                                    % {{'marketplace.seller.Commission' | translate}}
+                                </th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th width="30%">{{'marketplace.product.ProductName'| translate}}</th>
+                                <th>{{'marketplace.product.Sku'| translate}}</th>
+                                <th>{{'marketplace.product.Price'| translate}}</th>
+                                <th class="set-comm-tb">
+                                    <div class="rad-comm flex">
+                                        <div class="radio">
+                                        </div>
+                                    </div>
+                                </th>
+                                <th>{{'marketplace.product.Status'| translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let array of (productSandbox.productList$ | async);let i=index">
+                                <td>
+                                    <div class="flex sc-product">
+                                        <div class="scp-img"> <img
+                                                [src]="ImageUrl + '?path=' + array.containerName + '&name=' + array.image + '&width=100&height=100'"
+                                                onError="this.src='./assets/error-images/Load-icon-Products.png';"
+                                                class="product-img" [alt]="array.name" /> </div>
+                                        <div class="scp-content">
+                                            {{array?.name}}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{array?.sku}}</td>
+                                <td>{{array?.productprice | currencysymbol : 'INR':'symbol-narrow':'4.2-2'}}</td>
+                                <!-- <td>{{array?.productprice}}</td> -->
+                                <td class="set-comm-tb" style="text-align: center;">
+                                    <div class="sc-com">
+                                        <input type="text" class="inpu" id="input{{i}}" (keypress)="numberOnly($event)"
+                                            [readOnly]="array?.productId!==productIdval"
+                                            [value]="array?.vendorProductCommission"
+                                            (keyup)="getCommission($event.target.value)">
+                                        <span> <img src="assets/img/percent.svg" alt=""> </span>
+                                    </div>
+                                    <button class="set-comm-btn"> <img src="assets/img/edit.svg" alt=""
+                                            (click)="edit(array?.productId,array,i);"> </button>
+                                    <button class="set-comm-btn"
+                                        (click)="setCommissionForSingleProduct(array?.productId,array)"> <img
+                                            class="cursor" src="assets/img/floppy-disk-stroke-rounded.svg" alt="save"
+                                            [appHideIfUnauthorized]="'set-commission'"> </button>
+                                </td>
+                                <td>
+                                     <app-common-badge [badge]="badgeStatusMappings.hasOwnProperty(array.isActive)?badgeStatusMappings[array.isActive]:''">
+                                    </app-common-badge>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- No Data Found -->
+                    <div class="nodata-found" *ngIf="(productSandbox.productList$ | async)?.length == 0">
+                        <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+                        <h5>{{'marketplace.seller.NoProductsfound' | translate}}</h5>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination flex" *ngIf="(productSandbox.productList$ | async)?.length > 0">
+                        <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+                            [totalItems]="productSandbox.vendorProductListCount$ | async" [pageSize]="limit"
+                            (pageChange)="onPageChange($event)">
+                        </app-reusable-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

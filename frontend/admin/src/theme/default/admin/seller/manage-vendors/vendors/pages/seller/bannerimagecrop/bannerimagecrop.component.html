@@ -1,0 +1,50 @@
+
+<div class="container-fluid content-overflow image-crop-modal">
+    <div class="model-header">
+    <h1>{{'Additional.Upload logo'|translate}}</h1>
+    <button (click)="modelClose()" class="btn-close"> 
+    </button>
+</div>
+    <div class="row  model-row">
+        <div class="col-12 modelStyle">
+            <image-cropper class="image-background " [imageChangedEvent]="imageChangedEvent"
+                [maintainAspectRatio]="true" format="png" (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded($event)" (cropperReady)="cropperReady($event)"
+                (loadImageFailed)="loadImageFailed()" [aspectRatio]="aspectRatio" [cropperMinWidth]="128"
+                [onlyScaleDown]="true" [roundCropper]="false" [canvasRotation]="canvasRotation"
+                [(transform)]="transform" [alignImage]="'center'" [allowMoveImage]="allowMoveImage"
+                backgroundColor="#282b32" output="blob" [style.display]="showCropper ? null : 'none'"
+                imageAltText="Alternative image text" [hidden]="hidden"
+                [containWithinAspectRatio]="containWithinAspectRatio"></image-cropper>
+        </div>
+
+
+        <div class="col-12 input-group">
+            <p>{{'Additional.Rotation'|translate}}</p>
+            <input class="rotationBar" [(ngModel)]="rotation" placeholder="{{'common.Rotation' | translate}}" type="range"
+                (ngModelChange)="updateRotation()" />
+            </div>
+            <div class="col-12 input-group">
+            <p>{{'Additional.Zoom'|translate}}</p>
+            <input class="zoomBar" type="range" (input)="zoom($event)">
+            
+            <!-- <button class="btn btn-primary" (click)="modelClose()">close</button> -->
+            &nbsp;&nbsp;&nbsp;
+         
+
+
+
+
+            <!-- <img
+  [src]="croppedImage"
+  [style.border]="croppedImage ? '1px solid black' : 'none'"
+/> -->
+        </div>
+    </div>
+    <div class="btn-sticky">
+
+    <button class="btn btn-align" (click)="submit()">{{'Additional.Crop'|translate}}</button>
+</div>
+</div>
+
+<!-- <img [src]="croppedImage" /> -->

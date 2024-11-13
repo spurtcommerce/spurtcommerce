@@ -1,0 +1,26 @@
+.success {
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    img {
+        width: 67px;
+    }
+    p {
+        margin: 30px 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: #151313;
+    }
+    button {
+        width: 119px;
+        height: 43px;
+        background-color: #1d5ed8;
+        line-height: 43px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        border: none;
+    }
+}

@@ -1,0 +1,25 @@
+<h4>Quick Filters</h4>
+<form class="filter-form" [formGroup]="statusFilterForm">
+    <div class="input-group">
+        <label for="keyboard">{{'CMS.PageGroup.GroupName'| translate}} </label>
+        <div class="ig-row">
+            <input type="text" formControlName="keyword" id="keyboard"
+                placeholder="{{'CMS.PageGroup.GroupName'| translate}}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="status">Status</label>
+        <div class="ig-row">
+            <ng-select placeholder="{{ 'marketplace.seller.SelectStatus' | translate }}" [searchable]="false"
+                [clearable]="false" id="status" formControlName="status">
+                <ng-option [value]="1">{{ "marketplace.seller.Active" | translate }}</ng-option>
+                <ng-option [value]="0">{{ "marketplace.seller.InActive" | translate }}</ng-option>
+            </ng-select>
+        </div>
+    </div>
+    <div class="filter-btn flex">
+        <button (click)="reset()" class="button-reg btn-sm tertiary">{{'CMS.Pages.Reset'| translate}}</button>
+        <button type="submit" (click)="onSubmit()" class="button-reg btn-sm primary">{{'CMS.Pages.ApplyFilters'|
+            translate}}</button>
+    </div>
+</form>
