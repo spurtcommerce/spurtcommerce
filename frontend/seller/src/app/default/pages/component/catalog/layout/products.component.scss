@@ -1,0 +1,112 @@
+    .content-wrapper {
+        padding: 8px 19px;
+        &.staff-wrapper {
+            padding: 39px 26px;
+        }
+    }
+    .active {
+        a {
+            font-weight: bold !important;
+        }
+    }
+    /* make sidebar nav vertical */
+    
+    @media (min-width: 992px) {}
+    
+    @media screen and (max-width: 992px) and (min-width: 767px) {
+        .s-col {
+            &.s-code {
+                width: 20%!important;
+                margin-bottom: 10px;
+            }
+            &.s-name {
+                width: 40%!important;
+                margin-bottom: 10px;
+            }
+            &.s-type {
+                width: 40%!important;
+                margin-bottom: 10px;
+            }
+            &.s-desc {
+                width: 20%!important;
+            }
+            &.s-mob {
+                width: 30%!important;
+            }
+            &.s-dob {
+                width: 30%!important;
+            }
+            &.s-action {
+                width: 20%!important;
+            }
+        }
+    }
+    
+    @media screen and (max-width: 992px) {
+        .staff-list-head {
+            display: none;
+        }
+    }
+    
+    @media screen and (max-width: 766px) and (min-width: 500px) {
+        .s-col {
+            &.s-code {
+                width: 20%!important;
+                margin-bottom: 10px;
+            }
+            &.s-name {
+                width: 40%!important;
+                margin-bottom: 10px;
+            }
+            &.s-type {
+                width: 40%!important;
+                margin-bottom: 10px;
+            }
+            &.s-desc {
+                width: 20%!important;
+            }
+            &.s-mob {
+                width: 30%!important;
+            }
+            &.s-dob {
+                width: 30%!important;
+            }
+            &.s-action {
+                width: 20%!important;
+            }
+        }
+    }
+    
+    @media screen and (max-width: 500px) {
+        .s-col {
+            &.s-code {
+                width: 100%!important;
+                margin-bottom: 10px;
+            }
+            &.s-name {
+                width: 100%!important;
+                margin-bottom: 10px;
+            }
+            &.s-type {
+                width: 100%!important;
+                margin-bottom: 10px;
+            }
+            &.s-desc {
+                width: 100%!important;
+                margin-bottom: 10px;
+            }
+            &.s-mob {
+                width: 100%!important;
+                margin-bottom: 10px;
+            }
+            &.s-dob {
+                width: 100%!important;
+                margin-bottom: 10px;
+            }
+            &.s-action {
+                width: 100%!important;
+                margin-bottom: 0px;
+                justify-content: flex-start!important;
+            }
+        }
+    }

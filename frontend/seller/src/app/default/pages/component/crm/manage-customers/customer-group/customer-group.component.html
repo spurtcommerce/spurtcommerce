@@ -1,0 +1,35 @@
+<div class="modal-heading">
+  <h3><ng-container *ngIf="groupId;else add">
+      {{'CRM.Update Customer Group' | translate}}
+    </ng-container>
+    <ng-template #add>
+      {{'CRM.Add Customer Group' | translate}}
+    </ng-template>
+  </h3>
+</div>
+<!-- Customer Group Name Input Box -->
+<div class="modal-body">
+  <div class="input-group">
+    <div class="loading"
+      *ngIf="(sandbox.customerGroupDetailLoading$ | async) || (sandbox.customerGroupUpdateLoading$ | async)">
+      <app-loader></app-loader>
+    </div>
+    <label>{{'CRM.Customer Group Name' | translate}} <span>*</span></label>
+    <div class="ig-row">
+      <input type="text" maxlength="100" class="customer-list" [(ngModel)]="data"
+        placeholder="{{'CRM.EnterCustomerGroupName' | translate}}"
+        [ngClass]=" {'input-error':submitted && emptyCheckArr.includes(data)}" appNoLeadingSpace>
+      <p *ngIf="submitted && ['',null,undefined].includes(data)" style="color: red;">{{'CRM.Group Name is required' |
+        translate}}</p>
+    </div>
+  </div>
+</div>
+<!-- Submit and Cancel -->
+<div class="product-save-btn modal-save-btn">
+  <button type="button" class="cancel" (click)="close()">
+    {{'common.Cancel'|translate}}
+  </button>
+  <button type="button" class="save" (click)="saveData()" data-dismiss="modal">
+    {{'common.Save'|translate}}
+  </button>
+</div>

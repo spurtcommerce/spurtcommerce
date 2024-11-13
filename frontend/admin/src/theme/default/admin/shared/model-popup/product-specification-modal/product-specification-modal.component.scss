@@ -1,0 +1,87 @@
+.product-spec-header {
+    min-height: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1.5rem; 
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-bottom: solid thin #F4F4F4;
+    h3 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #333333;
+    }
+    button {
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+    }
+}
+.product-spec-body {
+    margin: 1.25rem 0;
+    h3 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #333333;
+        padding-inline: 1rem;
+        padding-bottom: 0.625rem;
+        border-bottom: solid thin #F4F4F4;
+    }
+    .product-spec-row {
+        display: grid;
+        grid-template-columns: 1fr 1.5rem; 
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        border-bottom: solid thin #F4F4F4;
+        h4 {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #686868;
+        }
+        button {
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+            opacity: 0;
+            visibility: hidden;
+            height: 0.875rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: 0.625rem;
+                display: inline-block;
+            }
+        }
+        &:hover {
+            background-color: #F6FFF9;
+            h4 {
+                color: #000;
+            }
+            button {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.handSymbolRemove{
+    position: none;
+}
+
+.btn-row {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 4.5625rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5625rem;
+    background-color: #fafafa;
+    padding-inline: 1.6875rem;
+    z-index: 5;
+}

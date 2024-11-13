@@ -1,0 +1,73 @@
+.Approved {
+    padding: 0px 10px;
+    text-align: center;
+    background-color: #eefbf4;
+    color: #08d72e!important;
+    border-radius: 50px;
+    font-weight: 500;
+}
+.Rejected {
+    padding: 0px 10px;
+    text-align: center;
+    background-color: #FFF6F6;
+    color: #CA0C0B!important;
+    border-radius: 50px;
+    font-weight: 500;
+    border: solid thin #FFDAD9!important;
+}
+.Pending  {
+    padding: 0px 10px;
+    text-align: center;
+    background-color: #FFFAF6!important;
+    color: #CA6B0B!important;
+    border-radius: 50px;
+    font-weight: 500;
+    border: solid thin #FFEFD9!important;
+}
+
+.threeDotMenu{
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    border-radius: 3px;
+    border: solid 1px #D4D5D8;
+    background-color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    color: #222;
+  }
+  .export-style{
+    border: none !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+  }
+
+  :host ::ng-deep .dropdown-item.active,
+  .dropdown-item:active {
+    color: black !important;
+    text-decoration: none !important;
+    background-color: #fff !important;
+  }
+
+  ::ng-deep .modal-dialog.modal-lg {
+   
+    width:27% !important;
+}
+.imageAlign{
+  vertical-align: baseline !important;
+}
+.btn-align{
+
+  font-size: 13px !important; 
+}
+
+.searched-color{
+  background-color: #078e05 !important;
+  background-image: url('../../../../../../../../assets/imgs/search-white.svg');
+  background-repeat: no-repeat !important;
+  background-position: center;
+}
+
+.searched-color img{
+  display: none;
+}

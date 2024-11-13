@@ -1,0 +1,37 @@
+<div class="modal-heading">
+    <h3>{{'myShop.AddCapabilities'|translate}}</h3>
+</div>
+<form [formGroup]="capabilitesForm">
+<div class="modal-body">
+    
+    <div class="input-group mb-35">
+        <label>
+
+            {{'myShop.CapabilitiesName'|translate}} * 
+
+            <p>{{'myShop.AddCapabilitiesDescription'|translate}}</p>
+        </label>
+        <div class="ig-row" >
+            <input type="text" appNoLeadingSpace placeholder="{{'myShop.CapabilitiesName'|translate}}" formControlName="data" [ngClass]="{'error-color':capabilitesForm.controls['data'].hasError('required') && submitted}">
+            <div *ngIf="(capabilitesForm.controls['data'].hasError('required') && submitted )"
+                        class="error-data">{{'myShop.CapabilitiesNameisrequired'|translate}}</div>
+                       
+        </div>
+    </div>
+    <div class="capabilties-toggle d-flex">
+        <p>{{'myShop.DoyouwanttoshowitonStorefront'|translate}}</p>
+        <div class="on-off-toggle">
+            <input class="on-off-toggle__input" type="checkbox" id="bopis" formControlName="status"/>
+            <label for="bopis" class="on-off-toggle__slider"></label>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="product-save-btn modal-save-btn">
+    <button class="cancel" (click)="dismiss()">{{'myShop.Cancel'|translate}}</button>
+    <button class="save" (click)="save()">{{'myShop.Save'|translate}}</button>
+</div>
+</form>
+

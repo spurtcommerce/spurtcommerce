@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <h3 style="text-transform: capitalize;">{{productName}}</h3>
+    <button class="close-modal" (click)="dismiss()"> <img src="assets/imgs/close-modal.svg" alt=""> </button>
+</div>
+<div class="modal-body">
+    <div class="image-view-grid">
+        <div class="image-view-fullview">
+            <ng-container *ngIf="videoPlay == false">
+                <img [src]="imageUrls + '?path=' + image?.containerName + '&name=' + image?.image + '&width=500&height=500'"
+                    alt="">
+            </ng-container>
+            <ng-container *ngIf="!['',null,undefined].includes(expandVideo) && videoPlay">
+                <video [src]="expandVideo" #expandedVideoPlayer controls *ngIf="expandVideo" height="500"></video>
+            </ng-container>
+        </div>
+        <div class="image-view-sideview">
+            <a href="javascript:void(0)" class="image-view-col" (click)="PrimaryImageChange()"
+                [ngClass]="{'active': !['',null,undefined].includes(primaryActice) && primaryImageView}"> <img
+                    [src]="imageUrls + '?path=' + primaryImage[0]?.containerName + '&name=' + primaryImage[0]?.image + '&width=300&height=300'"
+                    alt="Product image"> </a>
+
+            <ng-container *ngFor="let item of imageGallery;let i=index">
+                <a href="javascript:void(0)" *ngIf="!['',null,undefined].includes(item?.image)"
+                    (click)="imageactive(i,item)" class="image-view-col"
+                    [ngClass]="{'active': ['',null,undefined].includes(primaryActice) && i==index}"> <img
+                        [src]="imageUrls + '?path=' + item?.containerName + '&name=' + item?.image + '&width=132&height=132'"
+                        alt="Product image"> </a>
+            </ng-container>
+            <ng-container *ngIf="!['',null,undefined].includes(video)">
+                <div class="expand-video image-view-col"  [ngClass]="{'active': videoPlay && !['',null,undefined].includes(primaryActice)}">
+                    <video [src]="video" #videoPlayer *ngIf="video" height="150"
+                    (click)="expandVideosData(video)"></video>
+                    <a href="javascript:void(0)" class="exapnd-video-image" (click)="expandVideosData(video)">
+                        <img src="assets/imgs/play.svg">
+                    </a>
+                </div>
+
+            </ng-container>
+        </div>
+    </div>
+</div>

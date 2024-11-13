@@ -1,0 +1,31 @@
+<div class="modal-heading">
+    <h3>{{'newReq.Manage Tags'| translate}}</h3>
+</div>
+<div class="modal-body">
+    <div class="input-group mb-4">
+        <label>
+          {{'newReq.Find or Create tags'| translate}}
+            <p>{{'newReq.tagcontent'| translate}}</p>
+        </label>
+        <div class="ig-row">
+            <input type="text" appNospace [(ngModel)]="tag" (input)="changeinput($event)" (keyup.enter)="enterapicall()" placeholder="{{'newReq.Find or Create tags'| translate}}">
+        </div>
+        <!-- <div class="error" style="position: absolute;top:108px;color: red;font-size: 13px;"
+        *ngIf="['',null,undefined].includes(tag) && submit==true">
+        {{'common.ProductNameIsRequired' | translate}}
+    </div> -->
+    </div>
+    <div class="created-tags">
+        <h4>{{'newReq.Created Tags'| translate}}</h4>
+        <div class="list-created-tags" >
+            <div class="form-check form-check-flex" *ngFor="let item of tagList;let i=index" (change)="changecheckbox($event,i,item)">
+                <input class="form-check-input" type="checkbox" value="" id="item+i" [checked]="item.checked">
+                <label class="form-check-label" for="item+i"> {{item?.name}} </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-save-btn modal-save-btn">
+    <button class="cancel" (click)="dismiss()">{{'newReq.Cancel' | translate}}</button>
+    <button class="save" (click)="save()">{{'newReq.Save' | translate}}</button>
+</div>

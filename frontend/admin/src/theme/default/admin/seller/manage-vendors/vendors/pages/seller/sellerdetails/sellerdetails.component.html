@@ -1,0 +1,210 @@
+<!-- loader -->
+<div class="spinner-wrapper">
+    <app-global-loader [isShow]="sellerSandbox.pageDetailsLoadingStatus$ | async"
+        style="transform: translate(3%, 500%); position: absolute; z-index: 3;">
+    </app-global-loader>
+</div>
+<!-- Customer Detail -->
+<div class="modal-header">
+    <div class="seller-img"
+        *ngIf="!['',null,undefined].includes(details?.customerDetail?.avatarPath) && !['',null,undefined].includes(details?.customerDetail?.avatar) ">
+        <img [src]="imageUrl + '?path=' + details?.customerDetail?.avatarPath + '&name=' + details?.customerDetail?.avatar + '&width=60&height=60'"
+            [alt]="details?.customerDetail?.avatar" />
+    </div>
+
+    <div class="seller-img"
+        *ngIf="['',null,undefined].includes(details?.customerDetail?.avatarPath) || ['',null,undefined].includes(details?.customerDetail?.avatar) ">
+        <img src="assets/error-images/Load-icon-Products.png" [alt]="details?.customerDetail?.avatar" />
+    </div>
+    <div class="seller-details">
+        <h1>{{details?.customerDetail?.firstName}}</h1>
+        <div class="seller-details-row flex">
+            <p>{{details?.vendorPrefixId}}</p>
+            <div class="sep"></div>
+            <p><span> <img src="assets/imgs/mobile.svg" alt=""> </span> {{details?.customerDetail?.mobileNumber}} </p>
+            <div class="sep"></div>
+            <p><span> <img src="assets/imgs/mail.svg" alt=""> </span> {{details?.customerDetail?.email}} </p>
+        </div>
+    </div>
+    <a href="javascript:void(0)" (click)="close()"> <img src="assets/imgs/close-modal.svg" alt=""> </a>
+</div>
+<!-- Company Detail  -->
+<div class="modal-body">
+    <div class="seller-company-detail">
+        <div class="seller-img"
+            *ngIf="!['',null,undefined].includes(details?.companyCoverImagePath) && !['',null,undefined].includes(details?.companyCoverImage) ">
+            <img [src]="imageUrl + '?path=' + details?.companyCoverImagePath + '&name=' + details?.companyCoverImage + '&width=60&height=60'"
+                onError="this.src='assets/error-images/Load-icon-Products.png';" [alt]="details?.companyName" />
+        </div>
+
+        <div class="seller-img"
+            *ngIf="['',null,undefined].includes(details?.companyCoverImagePath) || ['',null,undefined].includes(details?.companyCoverImage) ">
+            <img src="assets/error-images/Load-icon-Products.png" [alt]="details?.companyName" />
+        </div>
+        <div class="seller-details">
+            <h1> {{details?.companyName}} </h1>
+            <div class="seller-details-row flex">
+                <p><span> <img src="assets/imgs/mobile.svg" alt=""> </span> {{details?.companyMobileNumber}} </p>
+                <div class="sep"></div>
+                <p><span> <img src="assets/imgs/mail.svg" alt=""> </span> {{details?.companyEmailId ?
+                    details?.companyEmailId : details?.customerDetail?.email}} </p>
+                <div class="gst ms-auto" *ngIf="!['',null,undefined].includes(details?.companyTaxNumber)"><span>
+                        {{'marketplace.seller.GST' | translate}} :</span>
+                    {{details?.companyTaxNumber}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tabs -->
+    <ul class="nav nav-tabs sellerdetail-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                <span> <img src="assets/imgs/basics.svg" alt=""> {{'marketplace.seller.Basics' | translate}} </span>
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                <span> <img src="assets/imgs/certificates.svg" alt=""> {{'marketplace.seller.Certificates' | translate}}
+                </span>
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                <span> <img src="assets/imgs/images.svg" alt=""> {{'marketplace.seller.Images' | translate}}
+                </span>
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane"
+                type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">
+                <span> <img src="assets/imgs/videos.svg" alt=""> {{'marketplace.seller.Videos' | translate}}
+                </span>
+            </button>
+        </li>
+    </ul>
+    <!-- Basic Company Details -->
+    <div class="tab-content seller-tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+            tabindex="0">
+            <section>
+                <h3>{{'marketplace.seller.Performance' | translate}}</h3>
+                <h4>{{'marketplace.seller.SellerPerformance' | translate}}</h4>
+                <ul>
+                    <li>≤7h {{'marketplace.seller.averageresponsetime' | translate}}</li>
+                    <li>95.8% {{'marketplace.seller.on-timedeliveryrate' | translate}}</li>
+                    <li>{{'marketplace.seller.US' | translate}} {{details?.totalEarnings | currencysymbol :
+                        currencySymbol?.symbol}}+ {{details?.totalOrders}} {{'marketplace.seller.orders' | translate}}
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>{{'marketplace.seller.capabilities' | translate}}</h3>
+                <h4>{{'marketplace.seller.SellerCapabilities' | translate}}</h4>
+                <ul *ngFor="let capabilities of details?.myShop?.basicCompanyDetails?.capabilities">
+                    <li>{{capabilities?.data}}</li>
+                </ul>
+                <div class="nodata-found" *ngIf="!details?.myShop?.basicCompanyDetails?.capabilities">
+                    <span> <img src="assets/imgs/basics.svg" alt=""> </span>
+                    <h5>{{'marketplace.seller.DataNotFound' | translate}}</h5>
+                </div>
+            </section>
+            <section>
+                <h3>{{'marketplace.seller.CompanyDescription' | translate}}</h3>
+                <h4>{{'marketplace.seller.sellerDescription' | translate}}</h4>
+                <p *ngIf="details?.myShop?.basicCompanyDetails?.vendorDescription"
+                    [innerHTML]='details?.myShop?.basicCompanyDetails?.vendorDescription'>
+                </p>
+
+                <div class="nodata-found" *ngIf="!details?.myShop?.basicCompanyDetails?.vendorDescription">
+                    <span> <img src="assets/imgs/basics.svg" alt=""> </span>
+                    <h5>{{'marketplace.common.NoBasicsdetailsareaddedyet' | translate}}</h5>
+                </div>
+            </section>
+        </div>
+
+        <!-- Document -->
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <div class="product-table">
+                <div class="table-resposnive">
+                    <table class="table" *ngIf="details?.myShop?.vendorCertificate.length > 0">
+                        <thead>
+                            <tr>
+                                <th>{{'marketplace.seller.DocumentTitle' | translate}}</th>
+                                <th>{{'marketplace.seller.Documentname' | translate}}</th>
+                                <th>{{'marketplace.seller.Status' | translate}}</th>
+                                <th>{{'marketplace.seller.LastUploadedOn' | translate}}</th>
+                                <th class="text-center">{{'marketplace.seller.Action' | translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let documents of details?.myShop?.vendorCertificate">
+                                <td>{{documents?.document?.name}}</td>
+                                <td>{{documents?.fileName}}</td>
+                                <td>
+                                    <span class="tags-action tag-active"
+                                        [ngClass]="{'inactive': documents?.status == 0, 'active': documents?.status == 1, 'pending': documents?.status == 2}">
+                                        {{ documents?.status == 0 ? 'In-Active' : documents?.status == 1 ? 'Active' :
+                                        'Pending' }}
+                                    </span>
+                                </td>
+                                <td>{{documents?.createdDate | dynamicDate : 'dd/MM/yyyy hh:mm a'}}</td>
+                                <td class="action-btn text-center">
+                                    <button (click)="download(documents)">
+                                        <img src="assets/imgs/file-download-stroke-rounded.svg" alt="">
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="nodata-found" *ngIf="details?.myShop?.vendorCertificate.length == 0">
+                        <span> <img src="assets/imgs/certificates.svg" alt=""> </span>
+                        <h5>{{'marketplace.common.NoCertificatesdetailsareaddedyet' | translate}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Images -->
+        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+            <div class="sellerdetail-images">
+                <ng-container *ngFor="let image of details?.myShop?.vendorMedia">
+                    <a *ngIf="image?.mediaType == 1" href="javascript:void(0)" class="sellerdetail-images-col flexx"
+                        (click)="opensellerimage(image)">
+                        <img [src]="imageUrl + '?path=' + image?.filePath + '&name=' + image?.fileName + '&width=400&height=400'"
+                            onError="this.src='assets/error-images/Load-icon-Products.png';" [alt]="image?.fileName" />
+                    </a>
+                </ng-container>
+            </div>
+            <div class="nodata-found" *ngIf="details?.myShop?.vendorMedia?.length == 0">
+                <span> <img src="assets/imgs/images.svg" alt=""> </span>
+                <h5>{{'marketplace.common.NoImagesareaddedyet' | translate}}</h5>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+            <div class="sellerdetail-images sellerdetail-videos" *ngIf="details?.myShop?.vendorMedia?.length > 0">
+                <ng-container *ngFor="let video of details?.myShop?.vendorMedia">
+                    <div class="sellerdetail-images-col" *ngIf="video.mediaType == 2">
+                        <div class="sellerdetail-images-avt">
+                            <img [src]="video?.youtubeImage" alt="">
+                            <a href="javascript:void(0)" (click)="opensellervideo(video)">
+                                <img src="assets/imgs/yt.svg" alt="">
+                            </a>
+                        </div>
+                        <h3>{{'marketplace.seller.VideoTitle' | translate}}: {{video.title}}
+                        </h3>
+                        <p>{{video?.createdDate | dynamicDate : 'dd/MM/yyyy hh:mm a'}}</p>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="nodata-found" *ngIf="details?.myShop?.vendorMedia?.length == 0">
+                <span> <img src="assets/imgs/videos.svg" alt=""> </span>
+                <h5>{{'marketplace.common.NoVideosareaddedyet' | translate}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

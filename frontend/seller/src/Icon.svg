@@ -1,0 +1,657 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-Artboard_1">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard – 1" clip-path="url(#clip-Artboard_1)">
+    <rect width="32" height="32" fill="#fff"/>
+    <path id="Path" d="M5.3,0A3.18,3.18,0,0,1,6.348,3.216a4,4,0,0,0-.289,1.3c0,.148.019.167.241.334s.568.443.481.629-.116.266-.481.266-.356.154-.462.282-.067.344-.067.492-.491.122-.587.112-.193.01-.183.089.087.03.173.039.231,0,.414,0,.231.01.241.079-.01.138-.125.187-.193.177.048.3.424.325.375.511-.106.246-.462.285A3.58,3.58,0,0,1,2.217,7.032c-.674-.875-.674-.816-.789-1.2C1.5,6.658,1.4,7.022.869,7.14.542,7.17.282,7.209.2,6.678A2.3,2.3,0,0,1,.446,5.35C.321,5.212-.315,3.668.2,3.236c.25-.256.347-.541.982-.354.5.148.972.246.809,1a.342.342,0,0,0,.212.069c.067.01.087-.2.077-.462a2.8,2.8,0,0,1,1.531-1.9A1.965,1.965,0,0,0,5.3,0Z" transform="translate(9.06 3.514)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Oval" d="M.388.777A.388.388,0,1,0,0,.388" transform="translate(9.748 8.059) rotate(-97)" fill="none" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-2" data-name="Path" d="M0,.965A1.229,1.229,0,0,1,.572.072C.7-.035.98-.015.97.082.97.324.98.344.909.363S.051.713,0,.965Z" transform="translate(13.792 5.806)" fill="#e3161b"/>
+    <path id="Path-3" data-name="Path" d="M3.235,3.022C3.962,1.043,5.184,0,7.23,0c1.678.128,2.725.522,3.142,1.29a1.9,1.9,0,0,1-1.29,1.555,2.582,2.582,0,0,0-1.726,2.4C7.065,5.3,7.085,5.2,7.085,5.2A.812.812,0,0,0,7,4.509c-.233-.158-1.707-.906-1.871.473A3.572,3.572,0,0,0,5.407,6.5c-.776.177-1.319.433-1.949-1.043-.213.345-.873.492-1.3-.226a1.349,1.349,0,0,1-2.1,0c-.116-.335-.27-2.413,1.839-1.88a.8.8,0,0,1,.659-.679C2.741,2.687,3.06,2.648,3.235,3.022Z" transform="translate(3.906 2.188)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-4" data-name="Path" d="M0,.9C.132.57.5.364.64.187s.424-.295.508-.039.1.963-.047,1.022a1.262,1.262,0,0,1-.753-.049A1.137,1.137,0,0,1,0,.9Z" transform="translate(13.428 7.013)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+    <path id="Path-5" data-name="Path" d="M.037.721C-.074.346.077-.009.3,0a1.112,1.112,0,0,1,.06.515C.359.571.369.749.037.721Z" transform="translate(14.278 7.495)" fill="#e3161b"/>
+    <path id="Path-6" data-name="Path" d="M.364.844C.167.844-.051.751.011.479S.208-.055.437.01.593.282.593.376A.454.454,0,0,1,.364.844Z" transform="translate(9.546 9.305)" fill="none" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-7" data-name="Path" d="M4.429,6.695a17.923,17.923,0,0,0-.161-3.343.609.609,0,0,1,.127-.547c.137-.137.676-.732.725-.781L5.3,1.848a.124.124,0,0,0,.01-.176c-.137-.156-.372-.439-.539-.674a.123.123,0,0,0-.225.059c-.059.537-.245.84-.735.83a.182.182,0,0,1-.069-.02c-.441-.3-.618-.391-.363-1.357A2.606,2.606,0,0,1,3.513.178.136.136,0,0,0,3.483.032l-.01-.01a.118.118,0,0,0-.137,0A10.721,10.721,0,0,0,1.758,1.653a.089.089,0,0,1-.069.029c-.647.1-.951.215-1.108.4A5.171,5.171,0,0,0,0,4.417a.12.12,0,0,0,.039.078Z" transform="translate(5.906 8.822)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path_3" data-name="Path 3" d="M6,0A13.724,13.724,0,0,1,3.37,1.608c-2.09.67-2.7,0-3.37,1.608" transform="translate(8.211 3.528)" fill="none" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path_4" data-name="Path 4" d="M6.808.578S4.381-.36,2.7.578.741,2.186,0,2.521" transform="translate(7.47 2.95)" fill="none" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path_5" data-name="Path 5" d="M6.808.88A4.5,4.5,0,0,0,3.3.076a4.364,4.364,0,0,0-1.55.469c-.011.006-.393.328-.4.335A4.578,4.578,0,0,0,0,2.488" transform="translate(7.47 2.514)" fill="none" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path_6" data-name="Path 6" d="M5.73,0A23.684,23.684,0,0,0,2.1.547,5.223,5.223,0,0,0,0,1.742" transform="translate(8.481 3.528)" fill="none" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Shape_balance" data-name="Shape balance" d="M3.091,16.477h0A4.367,4.367,0,0,1,.415,15.47a1.282,1.282,0,0,1-.278-.29A.559.559,0,0,1,.1,14.49a5.024,5.024,0,0,0,.351-.919c.41-1.511.823-3.051,1.223-4.541.391-1.455.794-2.958,1.194-4.434A.494.494,0,0,0,2.8,4.137a.756.756,0,0,1,.06-.992,1.138,1.138,0,0,0,.261.031,2.029,2.029,0,0,0,.828-.236,3.443,3.443,0,0,1,.543-.205c0-.215,0-.427.008-.631.006-.31.011-.6,0-.905,0-.217.035-.431.29-.52A.42.42,0,0,0,5.117.193L5.1.1v0L5.081.012S5.075.005,5.076,0s.009,0,.017,0L5.6.036A.767.767,0,0,1,5.54.168.6.6,0,0,0,5.5.242a.219.219,0,0,0,.009.186A.246.246,0,0,0,5.7.52c.288.024.339.2.326.459C6,1.367,6,1.74,6,2.214a3.62,3.62,0,0,1,.476-.126,1.191,1.191,0,0,0,1-.624c.02-.05.13-.091.208-.091a.148.148,0,0,1,.046.006.286.286,0,0,1,.181.206c.351,1.894.86,3.782,1.353,5.607.287,1.065.585,2.167.847,3.259.048.18.1.346.167.6l0,.006s.062.239.181,1.028a1.756,1.756,0,0,1-.668,1.188,2.155,2.155,0,0,1-.577.336c-.159.028-.319.061-.474.093a5.9,5.9,0,0,1-1.17.161,6.5,6.5,0,0,1-1.21-.179c-.18-.038-.366-.077-.555-.111.025.079.048.158.071.235a5.1,5.1,0,0,0,.268.757.6.6,0,0,1-.085.7,2.782,2.782,0,0,1-.483.435,4.547,4.547,0,0,1-1.62.677A3.912,3.912,0,0,1,3.091,16.477Zm.37-11.239a.09.09,0,0,0-.03.006.09.09,0,0,1-.03.006l-.109,8.6c.363.048.731.1,1.088.151s.725.1,1.088.151a.721.721,0,0,0-.205-.907l-.174-.125a4.791,4.791,0,0,1-.5-.395.532.532,0,0,1-.109-.762,2.66,2.66,0,0,0,.3-.762.988.988,0,0,0,.024-.5c-.426-1.776-.867-3.567-1.294-5.3A.875.875,0,0,0,3.461,5.237Zm-.472-.061h0c-.083.307-.167.616-.249.914-.074.272-.148.542-.222.815-.079.3-.162.608-.242.9s-.163.6-.241.9-.165.614-.246.915c-.075.281-.15.561-.225.839-.064.246-.133.495-.2.735-.1.349-.2.709-.283,1.067-.044.18-.1.362-.148.537a6.12,6.12,0,0,0-.275,1.289c.424-.051.821-.095,1.205-.137h0c.355-.039.69-.076,1.029-.117.127-.395.234-7,.1-8.66ZM7.861,3.06c-.105.363-.244,7.2-.169,8.31.483.048.937.1,1.376.145h0c.178.024.359.06.534.095l.01,0a1.331,1.331,0,0,0,.228.027A.184.184,0,0,0,10,11.585c.042-.054.04-.155-.008-.349-.18-.732-.373-1.47-.559-2.184v0L9.312,8.6c-.448-1.72-.9-3.477-1.342-5.177A2.416,2.416,0,0,0,7.861,3.06Zm-.483.1c-.1.335-.193.672-.287,1s-.2.679-.294,1.022c-.47,1.647-1,3.513-1.535,5.334a1.307,1.307,0,0,0,.073,1.028l.163-.015q.9-.082,1.868-.167l.1-8.176A.377.377,0,0,0,7.42,3.17.178.178,0,0,1,7.378,3.157Zm-.314-.351c-.11.066-.224.128-.335.188a4.828,4.828,0,0,0-.572.345,2.658,2.658,0,0,1-1.414.448l-.5.052-.021,0-.526.054a.58.58,0,0,0-.121.568c.252,1.017.505,2.055.75,3.059.2.824.409,1.677.616,2.517a.858.858,0,0,0,.034.1c.015.038.035.09.062.167C5.47,8.79,5.9,7.3,6.307,5.854v0c.279-.98.568-1.993.853-2.985l-.048-.03ZM4.755.955,4.731,2.613c.085-.02.161-.043.234-.066s.123-.038.189-.055l.012-.81a.387.387,0,0,1,.048-.012.369.369,0,0,0,.049-.012c.049.139.1.276.154.408.038.1.077.2.112.294.257-.184.3-.561.169-1.439-.05.019-.1.042-.148.065a.914.914,0,0,1-.312.1H5.212a.907.907,0,0,1-.293-.077C4.866.994,4.813.974,4.755.955Z" transform="translate(21.102 10.65)" fill="#e3161b"/>
+    <path id="Shape" d="M.6,1.222a.6.6,0,0,1-.254-.061A.624.624,0,0,1,0,.6.627.627,0,0,1,.617,0a.611.611,0,0,1,.6.617.605.605,0,0,1-.483.593A.452.452,0,0,1,.6,1.222ZM.585.338a.278.278,0,0,0-.27.279.3.3,0,0,0,.278.29h.02A.263.263,0,0,0,.8.825a.281.281,0,0,0,.08-.2A.262.262,0,0,0,.811.43.283.283,0,0,0,.6.339Z" transform="translate(25.845 9.513)" fill="none" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.5"/>
+    <path id="Path-8" data-name="Path" d="M12.149,0a1.3,1.3,0,0,0-.133,1.04.516.516,0,0,1-.193.508c-.931.7-3.7,2.9-5.162,4.185a1.839,1.839,0,0,1-1.281.46L1,6.108,0,8.043a39.048,39.048,0,0,0,5.585.6A3.731,3.731,0,0,0,8.51,7.306l.169-.194a35.051,35.051,0,0,1,3.639-4.137c.508-.423,1.124-.1,1.668-.327.447-.181.351-.448.568-.665" transform="translate(12.68 9.03)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-9" data-name="Path" d="M0,1.387A1.1,1.1,0,0,0,.218.129.092.092,0,0,1,.29.008a.437.437,0,0,1,.532.4c.073.266.3,1.355-.133,1.584" transform="translate(24.793 7.679)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-10" data-name="Path" d="M.869.47.409.8A.264.264,0,0,1,.047.736h0A.264.264,0,0,1,.107.373L.567.047a.264.264,0,0,1,.363.06h0A.257.257,0,0,1,.869.47Z" transform="translate(25.665 9.019)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-11" data-name="Path" d="M1.014.47l-.6.423A.264.264,0,0,1,.047.833h0A.264.264,0,0,1,.107.47l.6-.423a.264.264,0,0,1,.363.06h0A.244.244,0,0,1,1.014.47Z" transform="translate(25.979 9.358)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-12" data-name="Path" d="M.82.47.409.748A.264.264,0,0,1,.047.688h0A.264.264,0,0,1,.107.325L.518.047a.264.264,0,0,1,.363.06h0A.257.257,0,0,1,.82.47Z" transform="translate(26.427 9.926)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-13" data-name="Path" d="M.627.47.409.627A.264.264,0,0,1,.047.567h0A.264.264,0,0,1,.107.2L.325.047a.264.264,0,0,1,.363.06h0A.257.257,0,0,1,.627.47Z" transform="translate(26.801 10.446)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-14" data-name="Path" d="M14.6,9.084a7.033,7.033,0,0,0,.3,1.333c.388,1.457.559,2.25.777,3.254a35.628,35.628,0,0,0,1.068,3.5c.085.3.68.777.1.826a7.27,7.27,0,0,0-2.137,0c-1.48.243-3.631.926-3.742.913-.206-.024-.218-.036-.145-.242a3.524,3.524,0,0,0,.085-.726c.484-1.4-.024-4.959-.024-4.959a16.152,16.152,0,0,1-.967,3.834C9.369,18,7.217,19.74,5.984,19.776c-3.542.23-4.642-1.633-5.15-4.354A38.857,38.857,0,0,1,0,8.37C.326,1.609,2.925.133,3.965.024c0,0-.048-.024.206-.024" transform="translate(1.353 10.904)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-15" data-name="Path" d="M.181,5.274c1.9-.992,6.443-3.06,8.97-4.693L8.111,0S2.527,2.782,0,3.943C.121,5.274.181,5.274.181,5.274Z" transform="translate(1.486 17.799)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-16" data-name="Path" d="M.711.073A2.817,2.817,0,0,0,.142.919a1.967,1.967,0,0,0-.1,1.028A2.167,2.167,0,0,1,.082.907,2.848,2.848,0,0,1,.614,0Z" transform="translate(12.236 21.839)" fill="#e3161b"/>
+    <path id="Path-17" data-name="Path" d="M.367.06A1.316,1.316,0,0,0,.125.568a1.824,1.824,0,0,0-.06.581A1.929,1.929,0,0,0,.15,1.73a1.767,1.767,0,0,0,.266.52,1.424,1.424,0,0,1-.29-.508A2.363,2.363,0,0,1,0,1.161,2.444,2.444,0,0,1,.041.568,1.525,1.525,0,0,1,.27,0Z" transform="translate(11.817 21.173)" fill="#e3161b"/>
+    <path id="Path-18" data-name="Path" d="M.977.06A5.942,5.942,0,0,0,.24,1.391a2.89,2.89,0,0,0-.193,1.5A2.925,2.925,0,0,1,.179,1.379,6.73,6.73,0,0,1,.88,0Z" transform="translate(10.615 19.105)" fill="#e3161b"/>
+    <path id="Path-19" data-name="Path" d="M1.206.06A9.1,9.1,0,0,0,.384,1.173,2.435,2.435,0,0,0,.106,1.8a1.842,1.842,0,0,0-.1.677A1.91,1.91,0,0,1,.07,1.79a2.987,2.987,0,0,1,.266-.641A8.381,8.381,0,0,1,1.121,0Z" transform="translate(9.939 19.395)" fill="#e3161b"/>
+    <path id="Path-20" data-name="Path" d="M3.832,0A7.169,7.169,0,0,0,0,4.306" transform="translate(7.264 19.516)" fill="none" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-21" data-name="Path" d="M.329.046A1.371,1.371,0,0,1,1.042.82a4.154,4.154,0,0,0,1.124,1.4c.411.314.846.75,1.173.956s.375.351.29.665-.351,1.838-.87,1.887C2.275,5.477.365,4.412.28,4.05a11.257,11.257,0,0,0-.1-2.528C.063.953-.155.324.172.119.244.046.256-.063.329.046Z" transform="translate(10.079 11.657)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-22" data-name="Path" d="M10.8,6.084C9.315,5.068,8.675,4.463,7.707,3.7A21.238,21.238,0,0,1,4.153,0,3.505,3.505,0,0,0,1.325,2.334a14.757,14.757,0,0,0-1.306,4.9,34.577,34.577,0,0,0,.1,3.665c1.281-.689,3.131-1.222,5.017-2.31s2.442-1.234,3.01-1.6A7.862,7.862,0,0,1,10.8,6.084Z" transform="translate(1.382 10.904)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <g id="Group" transform="translate(6.201 15.488)">
+      <path id="Path-23" data-name="Path" d="M0,0A21.69,21.69,0,0,0,3.155,2.431" transform="translate(0.024 0.048)" fill="#b5b5b5" stroke="#e3161b" stroke-width="0.1"/>
+      <path id="Path-24" data-name="Path" d="M.073,0a17.049,17.049,0,0,0,1.5,1.306c.266.206.532.387.81.581s.544.387.81.581c-.278-.194-.544-.375-.822-.556s-.556-.363-.822-.556A17.266,17.266,0,0,1,0,.085Z" transform="translate(0)" fill="#030001" stroke="#e3161b" stroke-width="0.1"/>
+    </g>
+    <g id="Group-2" data-name="Group" transform="translate(1.956 22.08)">
+      <ellipse id="Oval-2" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.062 0.097)" fill="#707070"/>
+      <ellipse id="Oval-3" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.098 0)" fill="#707070"/>
+      <path id="Oval-4" data-name="Oval" d="M0,0H0Z" transform="translate(0.037 0.051) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-5" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.115)" fill="#707070"/>
+      <path id="Oval-6" data-name="Oval" d="M0,0H0Z" transform="translate(0.009 0.191) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-7" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.249) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-8" data-name="Oval" d="M0,0H0Z" transform="translate(0.145 0.255) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-9" data-name="Oval" d="M0,0H0Z" transform="translate(0.214 0.203) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-10" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.231, 0.132)" fill="#707070"/>
+      <path id="Oval-11" data-name="Oval" d="M0,0H0Z" transform="translate(0.197 0.058) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-3" data-name="Group" transform="translate(2.499 21.814)">
+      <ellipse id="Oval-12" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.063 0.097)" fill="#707070"/>
+      <ellipse id="Oval-13" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.099 0)" fill="#707070"/>
+      <path id="Oval-14" data-name="Oval" d="M0,0H0Z" transform="translate(0.036 0.053) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-15" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.12)" fill="#707070"/>
+      <path id="Oval-16" data-name="Oval" d="M0,0H0Z" transform="translate(0.014 0.203) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-17" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.253) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-18" data-name="Oval" d="M0,0H0Z" transform="translate(0.144 0.256) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-19" data-name="Oval" d="M0,0H0Z" transform="translate(0.214 0.206) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-20" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.231, 0.133)" fill="#707070"/>
+      <path id="Oval-21" data-name="Oval" d="M0,0H0Z" transform="translate(0.197 0.061) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-4" data-name="Group" transform="translate(3.112 21.572)">
+      <ellipse id="Oval-22" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.066 0.097)" fill="#707070"/>
+      <ellipse id="Oval-23" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.091 0)" fill="#707070"/>
+      <path id="Oval-24" data-name="Oval" d="M0,0H0Z" transform="translate(0.041 0.048) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-25" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.123)" fill="#707070"/>
+      <path id="Oval-26" data-name="Oval" d="M0,0H0Z" transform="translate(0.003 0.195) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-27" data-name="Oval" d="M0,0H0Z" transform="translate(0.068 0.256) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-28" data-name="Oval" d="M0,0H0Z" transform="translate(0.149 0.253) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-29" data-name="Oval" d="M0,0H0Z" transform="translate(0.211 0.209) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-30" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.234, 0.12)" fill="#707070"/>
+      <path id="Oval-31" data-name="Oval" d="M0,0H0Z" transform="translate(0.192 0.047) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-5" data-name="Group" transform="translate(3.746 21.246)">
+      <ellipse id="Oval-32" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.073 0.097)" fill="#707070"/>
+      <ellipse id="Oval-33" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.097 0)" fill="#707070"/>
+      <path id="Oval-34" data-name="Oval" d="M0,0H0Z" transform="translate(0.045 0.045) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-35" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.119)" fill="#707070"/>
+      <path id="Oval-36" data-name="Oval" d="M0,0H0Z" transform="translate(0.014 0.203) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-37" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.252) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-38" data-name="Oval" d="M0,0H0Z" transform="translate(0.144 0.256) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-39" data-name="Oval" d="M0,0H0Z" transform="translate(0.213 0.206) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-40" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.23, 0.133)" fill="#707070"/>
+      <path id="Oval-41" data-name="Oval" d="M0,0H0Z" transform="translate(0.197 0.061) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-6" data-name="Group" transform="translate(4.379 20.931)">
+      <ellipse id="Oval-42" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.068 0.085)" fill="#707070"/>
+      <ellipse id="Oval-43" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.105 0)" fill="#707070"/>
+      <path id="Oval-44" data-name="Oval" d="M0,0H0Z" transform="translate(0.046 0.049) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-45" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.109)" fill="#707070"/>
+      <path id="Oval-46" data-name="Oval" d="M0,0H0Z" transform="translate(0.018 0.19) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-47" data-name="Oval" d="M0,0H0Z" transform="translate(0.07 0.241) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-48" data-name="Oval" d="M0,0H0Z" transform="translate(0.153 0.254) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-49" data-name="Oval" d="M0,0H0Z" transform="translate(0.225 0.2) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-50" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.237, 0.121)" fill="#707070"/>
+      <path id="Oval-51" data-name="Oval" d="M0,0H0Z" transform="translate(0.199 0.048) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-7" data-name="Group" transform="translate(5.065 20.544)">
+      <ellipse id="Oval-52" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.06 0.097)" fill="#707070"/>
+      <ellipse id="Oval-53" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.096 0)" fill="#707070"/>
+      <path id="Oval-54" data-name="Oval" d="M0,0H0Z" transform="translate(0.035 0.051) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-55" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.116)" fill="#707070"/>
+      <path id="Oval-56" data-name="Oval" d="M0,0H0Z" transform="translate(0.008 0.192) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-57" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.249) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-58" data-name="Oval" d="M0,0H0Z" transform="translate(0.143 0.255) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-59" data-name="Oval" d="M0,0H0Z" transform="translate(0.214 0.203) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-60" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.227, 0.121)" fill="#707070"/>
+      <path id="Oval-61" data-name="Oval" d="M0,0H0Z" transform="translate(0.188 0.051) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-8" data-name="Group" transform="translate(5.935 20.157)">
+      <ellipse id="Oval-62" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.072 0.097)" fill="#707070"/>
+      <ellipse id="Oval-63" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.096 0)" fill="#707070"/>
+      <path id="Oval-64" data-name="Oval" d="M0,0H0Z" transform="translate(0.044 0.046) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-65" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.12)" fill="#707070"/>
+      <path id="Oval-66" data-name="Oval" d="M0,0H0Z" transform="translate(0.007 0.193) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-67" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.253) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-68" data-name="Oval" d="M0,0H0Z" transform="translate(0.154 0.252) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-69" data-name="Oval" d="M0,0H0Z" transform="translate(0.213 0.207) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-70" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.229, 0.133)" fill="#707070"/>
+      <path id="Oval-71" data-name="Oval" d="M0,0H0Z" transform="translate(0.196 0.062) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-9" data-name="Group" transform="translate(6.629 19.794)">
+      <ellipse id="Oval-72" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.067 0.085)" fill="#707070"/>
+      <ellipse id="Oval-73" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.103 0)" fill="#707070"/>
+      <path id="Oval-74" data-name="Oval" d="M0,0H0Z" transform="translate(0.045 0.05) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-75" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.11)" fill="#707070"/>
+      <path id="Oval-76" data-name="Oval" d="M0,0H0Z" transform="translate(0.017 0.191) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-77" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.242) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-78" data-name="Oval" d="M0,0H0Z" transform="translate(0.152 0.255) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-79" data-name="Oval" d="M0,0H0Z" transform="translate(0.225 0.201) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-80" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.235, 0.121)" fill="#707070"/>
+      <path id="Oval-81" data-name="Oval" d="M0,0H0Z" transform="translate(0.198 0.05) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-10" data-name="Group" transform="translate(7.148 19.528)">
+      <ellipse id="Oval-82" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.081 0.097)" fill="#707070"/>
+      <ellipse id="Oval-83" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.105 0)" fill="#707070"/>
+      <path id="Oval-84" data-name="Oval" d="M0,0H0Z" transform="translate(0.055 0.044) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-85" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.114)" fill="#707070"/>
+      <path id="Oval-86" data-name="Oval" d="M0,0H0Z" transform="translate(0.017 0.192) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-87" data-name="Oval" d="M0,0H0Z" transform="translate(0.081 0.25) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-88" data-name="Oval" d="M0,0H0Z" transform="translate(0.164 0.251) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-89" data-name="Oval" d="M0,0H0Z" transform="translate(0.225 0.204) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-90" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.236, 0.121)" fill="#707070"/>
+      <path id="Oval-91" data-name="Oval" d="M0,0H0Z" transform="translate(0.198 0.052) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-11" data-name="Group" transform="translate(7.679 19.226)">
+      <ellipse id="Oval-92" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.069 0.085)" fill="#707070"/>
+      <ellipse id="Oval-93" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.106 0)" fill="#707070"/>
+      <path id="Oval-94" data-name="Oval" d="M0,0H0Z" transform="translate(0.047 0.05) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-95" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.11)" fill="#707070"/>
+      <path id="Oval-96" data-name="Oval" d="M0,0H0Z" transform="translate(0.018 0.191) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-97" data-name="Oval" d="M0,0H0Z" transform="translate(0.081 0.246) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-98" data-name="Oval" d="M0,0H0Z" transform="translate(0.154 0.254) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-99" data-name="Oval" d="M0,0H0Z" transform="translate(0.226 0.201) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-100" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.237, 0.121)" fill="#707070"/>
+      <path id="Oval-101" data-name="Oval" d="M0,0H0Z" transform="translate(0.199 0.049) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-12" data-name="Group" transform="translate(8.078 18.972)">
+      <ellipse id="Oval-102" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.069 0.097)" fill="#707070"/>
+      <ellipse id="Oval-103" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.093 0)" fill="#707070"/>
+      <path id="Oval-104" data-name="Oval" d="M0,0H0Z" transform="translate(0.041 0.049) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-105" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.125)" fill="#707070"/>
+      <path id="Oval-106" data-name="Oval" d="M0,0H0Z" transform="translate(0.01 0.206) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-107" data-name="Oval" d="M0,0H0Z" transform="translate(0.068 0.257) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-108" data-name="Oval" d="M0,0H0Z" transform="translate(0.151 0.253) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-109" data-name="Oval" d="M0,0H0Z" transform="translate(0.212 0.211) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-110" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.238, 0.132)" fill="#707070"/>
+      <path id="Oval-111" data-name="Oval" d="M0,0H0Z" transform="translate(0.202 0.056) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-13" data-name="Group" transform="translate(8.618 18.67)">
+      <ellipse id="Oval-112" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.061 0.097)" fill="#707070"/>
+      <ellipse id="Oval-113" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.098 0)" fill="#707070"/>
+      <path id="Oval-114" data-name="Oval" d="M0,0H0Z" transform="translate(0.036 0.051) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-115" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.116)" fill="#707070"/>
+      <path id="Oval-116" data-name="Oval" d="M0,0H0Z" transform="translate(0.008 0.192) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-117" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.25) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-118" data-name="Oval" d="M0,0H0Z" transform="translate(0.144 0.255) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-119" data-name="Oval" d="M0,0H0Z" transform="translate(0.214 0.203) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-120" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.231, 0.133)" fill="#707070"/>
+      <path id="Oval-121" data-name="Oval" d="M0,0H0Z" transform="translate(0.198 0.059) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-14" data-name="Group" transform="translate(9.076 18.44)">
+      <ellipse id="Oval-122" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.062 0.097)" fill="#707070"/>
+      <ellipse id="Oval-123" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.098 0)" fill="#707070"/>
+      <path id="Oval-124" data-name="Oval" d="M0,0H0Z" transform="translate(0.036 0.053) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-125" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.119)" fill="#707070"/>
+      <path id="Oval-126" data-name="Oval" d="M0,0H0Z" transform="translate(0.014 0.203) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-127" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.252) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-128" data-name="Oval" d="M0,0H0Z" transform="translate(0.144 0.256) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-129" data-name="Oval" d="M0,0H0Z" transform="translate(0.214 0.205) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-130" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.231, 0.133)" fill="#707070"/>
+      <path id="Oval-131" data-name="Oval" d="M0,0H0Z" transform="translate(0.197 0.061) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <path id="Path-25" data-name="Path" d="M0,2.274S.81.665,1.088,0c.5.411.6.363.508.714s-.23,1.548-.858,2C.363,2.48,0,2.274,0,2.274Z" transform="translate(12.148 14.69)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <g id="Group-15" data-name="Group" transform="translate(13.313 15.101)">
+      <ellipse id="Oval-132" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.081 0.097)" fill="#707070"/>
+      <ellipse id="Oval-133" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.105 0)" fill="#707070"/>
+      <path id="Oval-134" data-name="Oval" d="M0,0H0Z" transform="translate(0.054 0.045) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-135" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.115)" fill="#707070"/>
+      <path id="Oval-136" data-name="Oval" d="M0,0H0Z" transform="translate(0.017 0.193) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-137" data-name="Oval" d="M0,0H0Z" transform="translate(0.081 0.25) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-138" data-name="Oval" d="M0,0H0Z" transform="translate(0.164 0.252) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-139" data-name="Oval" d="M0,0H0Z" transform="translate(0.225 0.205) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-140" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.236, 0.122)" fill="#707070"/>
+      <path id="Oval-141" data-name="Oval" d="M0,0H0Z" transform="translate(0.199 0.053) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-16" data-name="Group" transform="translate(13.118 15.537)">
+      <ellipse id="Oval-142" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.07 0.097)" fill="#707070"/>
+      <ellipse id="Oval-143" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.106 0)" fill="#707070"/>
+      <path id="Oval-144" data-name="Oval" d="M0,0H0Z" transform="translate(0.046 0.052) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-145" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.114)" fill="#707070"/>
+      <path id="Oval-146" data-name="Oval" d="M0,0H0Z" transform="translate(0.018 0.192) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-147" data-name="Oval" d="M0,0H0Z" transform="translate(0.081 0.249) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-148" data-name="Oval" d="M0,0H0Z" transform="translate(0.154 0.255) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-149" data-name="Oval" d="M0,0H0Z" transform="translate(0.226 0.203) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-150" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.238, 0.121)" fill="#707070"/>
+      <path id="Oval-151" data-name="Oval" d="M0,0H0Z" transform="translate(0.199 0.051) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-17" data-name="Group" transform="translate(12.926 15.96)">
+      <ellipse id="Oval-152" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.068 0.085)" fill="#707070"/>
+      <ellipse id="Oval-153" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.104 0)" fill="#707070"/>
+      <path id="Oval-154" data-name="Oval" d="M0,0H0Z" transform="translate(0.046 0.05) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-155" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.11)" fill="#707070"/>
+      <path id="Oval-156" data-name="Oval" d="M0,0H0Z" transform="translate(0.018 0.191) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-157" data-name="Oval" d="M0,0H0Z" transform="translate(0.07 0.242) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-158" data-name="Oval" d="M0,0H0Z" transform="translate(0.153 0.255) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-159" data-name="Oval" d="M0,0H0Z" transform="translate(0.226 0.201) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-160" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.237, 0.121)" fill="#707070"/>
+      <path id="Oval-161" data-name="Oval" d="M0,0H0Z" transform="translate(0.199 0.049) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-18" data-name="Group" transform="translate(12.695 16.383)">
+      <ellipse id="Oval-162" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.07 0.097)" fill="#707070"/>
+      <ellipse id="Oval-163" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.094 0)" fill="#707070"/>
+      <path id="Oval-164" data-name="Oval" d="M0,0H0Z" transform="translate(0.042 0.048) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-165" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.124)" fill="#707070"/>
+      <path id="Oval-166" data-name="Oval" d="M0,0H0Z" transform="translate(0.011 0.206) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-167" data-name="Oval" d="M0,0H0Z" transform="translate(0.068 0.257) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-168" data-name="Oval" d="M0,0H0Z" transform="translate(0.152 0.253) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-169" data-name="Oval" d="M0,0H0Z" transform="translate(0.213 0.21) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-170" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.239, 0.132)" fill="#707070"/>
+      <path id="Oval-171" data-name="Oval" d="M0,0H0Z" transform="translate(0.203 0.055) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-19" data-name="Group" transform="translate(12.459 16.783)">
+      <ellipse id="Oval-172" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.076 0.097)" fill="#707070"/>
+      <ellipse id="Oval-173" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.1 0)" fill="#707070"/>
+      <path id="Oval-174" data-name="Oval" d="M0,0H0Z" transform="translate(0.045 0.047) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-175" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.124)" fill="#707070"/>
+      <path id="Oval-176" data-name="Oval" d="M0,0H0Z" transform="translate(0.015 0.204) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-177" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.256) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-178" data-name="Oval" d="M0,0H0Z" transform="translate(0.161 0.264) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-179" data-name="Oval" d="M0,0H0Z" transform="translate(0.224 0.215) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-180" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.233, 0.134)" fill="#707070"/>
+      <path id="Oval-181" data-name="Oval" d="M0,0H0Z" transform="translate(0.198 0.063) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <path id="Path-26" data-name="Path" d="M1.362,1.813C-.143,2.4.016,2.31,0,2.158s.131-.277.131-.65V1.12A3.749,3.749,0,0,1,1.147.844C1.916.705,4.846.221,5.745,0c.1.4.162.482.133.648s.728.728.194.534A11.539,11.539,0,0,0,1.362,1.813Z" transform="translate(12.172 27.618)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <g id="Group-20" data-name="Group" transform="translate(17.584 28.249)">
+      <ellipse id="Oval-182" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.069 0.097)" fill="#707070"/>
+      <ellipse id="Oval-183" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.093 0)" fill="#707070"/>
+      <path id="Oval-184" data-name="Oval" d="M0,0H0Z" transform="translate(0.041 0.048) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-185" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.124)" fill="#707070"/>
+      <path id="Oval-186" data-name="Oval" d="M0,0H0Z" transform="translate(0.004 0.195) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-187" data-name="Oval" d="M0,0H0Z" transform="translate(0.068 0.257) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-188" data-name="Oval" d="M0,0H0Z" transform="translate(0.151 0.254) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-189" data-name="Oval" d="M0,0H0Z" transform="translate(0.212 0.211) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-190" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.238, 0.133)" fill="#707070"/>
+      <path id="Oval-191" data-name="Oval" d="M0,0H0Z" transform="translate(0.202 0.057) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-21" data-name="Group" transform="translate(17.075 28.249)">
+      <ellipse id="Oval-192" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.069 0.097)" fill="#707070"/>
+      <ellipse id="Oval-193" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.093 0)" fill="#707070"/>
+      <path id="Oval-194" data-name="Oval" d="M0,0H0Z" transform="translate(0.043 0.045) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-195" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.118)" fill="#707070"/>
+      <path id="Oval-196" data-name="Oval" d="M0,0H0Z" transform="translate(0.005 0.193) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-197" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.251) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-198" data-name="Oval" d="M0,0H0Z" transform="translate(0.152 0.252) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-199" data-name="Oval" d="M0,0H0Z" transform="translate(0.213 0.206) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-200" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.224, 0.122)" fill="#707070"/>
+      <path id="Oval-201" data-name="Oval" d="M0,0H0Z" transform="translate(0.186 0.054) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-22" data-name="Group" transform="translate(16.548 28.253)">
+      <ellipse id="Oval-202" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.069 0.085)" fill="#707070"/>
+      <ellipse id="Oval-203" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.106 0)" fill="#707070"/>
+      <path id="Oval-204" data-name="Oval" d="M0,0H0Z" transform="translate(0.047 0.049) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-205" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.109)" fill="#707070"/>
+      <path id="Oval-206" data-name="Oval" d="M0,0H0Z" transform="translate(0.018 0.191) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-207" data-name="Oval" d="M0,0H0Z" transform="translate(0.081 0.246) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-208" data-name="Oval" d="M0,0H0Z" transform="translate(0.154 0.255) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-209" data-name="Oval" d="M0,0H0Z" transform="translate(0.226 0.201) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-210" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.237, 0.121)" fill="#707070"/>
+      <path id="Oval-211" data-name="Oval" d="M0,0H0Z" transform="translate(0.199 0.05) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-23" data-name="Group" transform="translate(15.946 28.314)">
+      <ellipse id="Oval-212" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.072 0.097)" fill="#707070"/>
+      <ellipse id="Oval-213" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.096 0)" fill="#707070"/>
+      <path id="Oval-214" data-name="Oval" d="M0,0H0Z" transform="translate(0.042 0.049) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-215" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.127)" fill="#707070"/>
+      <path id="Oval-216" data-name="Oval" d="M0,0H0Z" transform="translate(0.011 0.206) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-217" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.259) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-218" data-name="Oval" d="M0,0H0Z" transform="translate(0.157 0.265) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-219" data-name="Oval" d="M0,0H0Z" transform="translate(0.212 0.212) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-220" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.24, 0.132)" fill="#707070"/>
+      <path id="Oval-221" data-name="Oval" d="M0,0H0Z" transform="translate(0.203 0.057) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-24" data-name="Group" transform="translate(15.306 28.418)">
+      <ellipse id="Oval-222" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.072 0.097)" fill="#707070"/>
+      <ellipse id="Oval-223" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.096 0)" fill="#707070"/>
+      <path id="Oval-224" data-name="Oval" d="M0,0H0Z" transform="translate(0.044 0.045) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-225" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.12)" fill="#707070"/>
+      <path id="Oval-226" data-name="Oval" d="M0,0H0Z" transform="translate(0.007 0.193) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-227" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.253) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-228" data-name="Oval" d="M0,0H0Z" transform="translate(0.154 0.252) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-229" data-name="Oval" d="M0,0H0Z" transform="translate(0.213 0.207) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-230" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.229, 0.134)" fill="#707070"/>
+      <path id="Oval-231" data-name="Oval" d="M0,0H0Z" transform="translate(0.196 0.062) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-25" data-name="Group" transform="translate(14.706 28.581)">
+      <ellipse id="Oval-232" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.06 0.097)" fill="#707070"/>
+      <ellipse id="Oval-233" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.097 0)" fill="#707070"/>
+      <path id="Oval-234" data-name="Oval" d="M0,0H0Z" transform="translate(0.036 0.05) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-235" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.114)" fill="#707070"/>
+      <path id="Oval-236" data-name="Oval" d="M0,0H0Z" transform="translate(0.008 0.191) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-237" data-name="Oval" d="M0,0H0Z" transform="translate(0.07 0.247) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-238" data-name="Oval" d="M0,0H0Z" transform="translate(0.144 0.255) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-239" data-name="Oval" d="M0,0H0Z" transform="translate(0.214 0.202) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-240" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.228, 0.121)" fill="#707070"/>
+      <path id="Oval-241" data-name="Oval" d="M0,0H0Z" transform="translate(0.188 0.05) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-26" data-name="Group" transform="translate(14.116 28.721)">
+      <ellipse id="Oval-242" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.075 0.085)" fill="#707070"/>
+      <ellipse id="Oval-243" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.099 0)" fill="#707070"/>
+      <path id="Oval-244" data-name="Oval" d="M0,0H0Z" transform="translate(0.051 0.047) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-245" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.117)" fill="#707070"/>
+      <path id="Oval-246" data-name="Oval" d="M0,0H0Z" transform="translate(0.013 0.194) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-247" data-name="Oval" d="M0,0H0Z" transform="translate(0.08 0.253) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-248" data-name="Oval" d="M0,0H0Z" transform="translate(0.159 0.253) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-249" data-name="Oval" d="M0,0H0Z" transform="translate(0.223 0.207) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-250" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.242, 0.12)" fill="#707070"/>
+      <path id="Oval-251" data-name="Oval" d="M0,0H0Z" transform="translate(0.203 0.046) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-27" data-name="Group" transform="translate(13.705 28.805)">
+      <ellipse id="Oval-252" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.075 0.097)" fill="#707070"/>
+      <ellipse id="Oval-253" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.099 0)" fill="#707070"/>
+      <path id="Oval-254" data-name="Oval" d="M0,0H0Z" transform="translate(0.045 0.046) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-255" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.122)" fill="#707070"/>
+      <path id="Oval-256" data-name="Oval" d="M0,0H0Z" transform="translate(0.014 0.204) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-257" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.255) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-258" data-name="Oval" d="M0,0H0Z" transform="translate(0.16 0.264) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-259" data-name="Oval" d="M0,0H0Z" transform="translate(0.214 0.208) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-260" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.231, 0.134)" fill="#707070"/>
+      <path id="Oval-261" data-name="Oval" d="M0,0H0Z" transform="translate(0.197 0.063) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-28" data-name="Group" transform="translate(13.294 28.902)">
+      <ellipse id="Oval-262" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.063 0.097)" fill="#707070"/>
+      <ellipse id="Oval-263" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.1 0)" fill="#707070"/>
+      <path id="Oval-264" data-name="Oval" d="M0,0H0Z" transform="translate(0.037 0.05) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-265" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.116)" fill="#707070"/>
+      <path id="Oval-266" data-name="Oval" d="M0,0H0Z" transform="translate(0.01 0.191) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-267" data-name="Oval" d="M0,0H0Z" transform="translate(0.07 0.249) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-268" data-name="Oval" d="M0,0H0Z" transform="translate(0.146 0.255) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-269" data-name="Oval" d="M0,0H0Z" transform="translate(0.215 0.203) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-270" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.232, 0.133)" fill="#707070"/>
+      <path id="Oval-271" data-name="Oval" d="M0,0H0Z" transform="translate(0.198 0.059) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-29" data-name="Group" transform="translate(12.958 29.078)">
+      <ellipse id="Oval-272" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.066 0.097)" fill="#707070"/>
+      <ellipse id="Oval-273" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.09 0)" fill="#707070"/>
+      <path id="Oval-274" data-name="Oval" d="M0,0H0Z" transform="translate(0.04 0.047) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-275" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.121)" fill="#707070"/>
+      <path id="Oval-276" data-name="Oval" d="M0,0H0Z" transform="translate(0.003 0.195) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-277" data-name="Oval" d="M0,0H0Z" transform="translate(0.068 0.255) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-278" data-name="Oval" d="M0,0H0Z" transform="translate(0.149 0.253) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-279" data-name="Oval" d="M0,0H0Z" transform="translate(0.212 0.209) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-280" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.233, 0.12)" fill="#707070"/>
+      <path id="Oval-281" data-name="Oval" d="M0,0H0Z" transform="translate(0.192 0.047) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-30" data-name="Group" transform="translate(12.435 29.346)">
+      <ellipse id="Oval-282" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.078 0.085)" fill="#707070"/>
+      <ellipse id="Oval-283" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.102 0)" fill="#707070"/>
+      <path id="Oval-284" data-name="Oval" d="M0,0H0Z" transform="translate(0.054 0.044) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-285" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.113)" fill="#707070"/>
+      <path id="Oval-286" data-name="Oval" d="M0,0H0Z" transform="translate(0.016 0.192) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-287" data-name="Oval" d="M0,0H0Z" transform="translate(0.081 0.249) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-288" data-name="Oval" d="M0,0H0Z" transform="translate(0.162 0.252) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-289" data-name="Oval" d="M0,0H0Z" transform="translate(0.224 0.204) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-290" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.234, 0.122)" fill="#707070"/>
+      <path id="Oval-291" data-name="Oval" d="M0,0H0Z" transform="translate(0.197 0.052) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <path id="Path-27" data-name="Path" d="M3.336.629,2.454,0A16.018,16.018,0,0,0,0,1.222c.508.4.544.423.544.423A11.945,11.945,0,0,1,3.336.629Z" transform="translate(8.812 16.335)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <g id="Group-31" data-name="Group" transform="translate(9.28 17.472)">
+      <ellipse id="Oval-292" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.075 0.097)"/>
+      <ellipse id="Oval-293" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.1 0)"/>
+      <path id="Oval-294" data-name="Oval" d="M0,0H0Z" transform="translate(0.051 0.048) rotate(-40.002)"/>
+      <path id="Oval-295" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.12)"/>
+      <path id="Oval-296" data-name="Oval" d="M0,0H0Z" transform="translate(0.013 0.196) rotate(-30.001)"/>
+      <path id="Oval-297" data-name="Oval" d="M0,0H0Z" transform="translate(0.08 0.255) rotate(-70.001)"/>
+      <path id="Oval-298" data-name="Oval" d="M0,0H0Z" transform="translate(0.159 0.254) rotate(-19.999)"/>
+      <path id="Oval-299" data-name="Oval" d="M0,0H0Z" transform="translate(0.223 0.209) rotate(-59.999)"/>
+      <path id="Oval-300" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.243, 0.12)"/>
+      <path id="Oval-301" data-name="Oval" d="M0,0H0Z" transform="translate(0.203 0.047) rotate(-49.998)"/>
+    </g>
+    <g id="Group-32" data-name="Group" transform="translate(9.643 17.303)">
+      <ellipse id="Oval-302" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.075 0.097)"/>
+      <ellipse id="Oval-303" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.1 0)"/>
+      <path id="Oval-304" data-name="Oval" d="M0,0H0Z" transform="translate(0.045 0.046) rotate(-40.002)"/>
+      <path id="Oval-305" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.122)"/>
+      <path id="Oval-306" data-name="Oval" d="M0,0H0Z" transform="translate(0.015 0.204) rotate(-30.001)"/>
+      <path id="Oval-307" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.255) rotate(-70.001)"/>
+      <path id="Oval-308" data-name="Oval" d="M0,0H0Z" transform="translate(0.16 0.263) rotate(-19.999)"/>
+      <path id="Oval-309" data-name="Oval" d="M0,0H0Z" transform="translate(0.214 0.208) rotate(-59.999)"/>
+      <path id="Oval-310" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.232, 0.134)"/>
+      <path id="Oval-311" data-name="Oval" d="M0,0H0Z" transform="translate(0.197 0.063) rotate(-49.998)"/>
+    </g>
+    <g id="Group-33" data-name="Group" transform="translate(10.003 17.146)">
+      <ellipse id="Oval-312" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.066 0.097)"/>
+      <ellipse id="Oval-313" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.102 0)"/>
+      <path id="Oval-314" data-name="Oval" d="M0,0H0Z" transform="translate(0.04 0.049) rotate(-40.002)"/>
+      <path id="Oval-315" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.125)"/>
+      <path id="Oval-316" data-name="Oval" d="M0,0H0Z" transform="translate(0.002 0.196) rotate(-30.001)"/>
+      <path id="Oval-317" data-name="Oval" d="M0,0H0Z" transform="translate(0.068 0.258) rotate(-70.001)"/>
+      <path id="Oval-318" data-name="Oval" d="M0,0H0Z" transform="translate(0.148 0.254) rotate(-19.999)"/>
+      <path id="Oval-319" data-name="Oval" d="M0,0H0Z" transform="translate(0.211 0.211) rotate(-59.999)"/>
+      <path id="Oval-320" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.233, 0.121)"/>
+      <path id="Oval-321" data-name="Oval" d="M0,0H0Z" transform="translate(0.201 0.056) rotate(-49.998)"/>
+    </g>
+    <g id="Group-34" data-name="Group" transform="translate(10.402 16.94)">
+      <ellipse id="Oval-322" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.078 0.085)"/>
+      <ellipse id="Oval-323" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.102 0)"/>
+      <path id="Oval-324" data-name="Oval" d="M0,0H0Z" transform="translate(0.053 0.044) rotate(-40.002)"/>
+      <path id="Oval-325" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.113)"/>
+      <path id="Oval-326" data-name="Oval" d="M0,0H0Z" transform="translate(0.016 0.192) rotate(-30.001)"/>
+      <path id="Oval-327" data-name="Oval" d="M0,0H0Z" transform="translate(0.08 0.249) rotate(-70.001)"/>
+      <path id="Oval-328" data-name="Oval" d="M0,0H0Z" transform="translate(0.162 0.252) rotate(-19.999)"/>
+      <path id="Oval-329" data-name="Oval" d="M0,0H0Z" transform="translate(0.225 0.203) rotate(-59.999)"/>
+      <path id="Oval-330" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.234, 0.122)"/>
+      <path id="Oval-331" data-name="Oval" d="M0,0H0Z" transform="translate(0.198 0.052) rotate(-49.998)"/>
+    </g>
+    <g id="Group-35" data-name="Group" transform="translate(10.789 16.771)">
+      <ellipse id="Oval-332" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.065 0.097)"/>
+      <ellipse id="Oval-333" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.102 0)"/>
+      <path id="Oval-334" data-name="Oval" d="M0,0H0Z" transform="translate(0.037 0.053) rotate(-40.002)"/>
+      <path id="Oval-335" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.121)"/>
+      <path id="Oval-336" data-name="Oval" d="M0,0H0Z" transform="translate(0.016 0.203) rotate(-30.001)"/>
+      <path id="Oval-337" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.253) rotate(-70.001)"/>
+      <path id="Oval-338" data-name="Oval" d="M0,0H0Z" transform="translate(0.151 0.267) rotate(-19.999)"/>
+      <path id="Oval-339" data-name="Oval" d="M0,0H0Z" transform="translate(0.215 0.206) rotate(-59.999)"/>
+      <path id="Oval-340" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.234, 0.133)"/>
+      <path id="Oval-341" data-name="Oval" d="M0,0H0Z" transform="translate(0.198 0.061) rotate(-49.998)"/>
+    </g>
+    <g id="Group-36" data-name="Group" transform="translate(11.263 16.613)">
+      <ellipse id="Oval-342" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.075 0.097)"/>
+      <ellipse id="Oval-343" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.099 0)"/>
+      <path id="Oval-344" data-name="Oval" d="M0,0H0Z" transform="translate(0.044 0.048) rotate(-40.002)"/>
+      <path id="Oval-345" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.125)"/>
+      <path id="Oval-346" data-name="Oval" d="M0,0H0Z" transform="translate(0.014 0.205) rotate(-30.001)"/>
+      <path id="Oval-347" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.257) rotate(-70.001)"/>
+      <path id="Oval-348" data-name="Oval" d="M0,0H0Z" transform="translate(0.16 0.264) rotate(-19.999)"/>
+      <path id="Oval-349" data-name="Oval" d="M0,0H0Z" transform="translate(0.224 0.216) rotate(-59.999)"/>
+      <path id="Oval-350" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.232, 0.134)"/>
+      <path id="Oval-351" data-name="Oval" d="M0,0H0Z" transform="translate(0.197 0.064) rotate(-49.998)"/>
+    </g>
+    <path id="Path-28" data-name="Path" d="M5.917,0C5.083,2.141,4.1,5.721,5.591,8.443s1.233,2.31,1.475,2.709c.1.206,0,.1-.363.327a47.433,47.433,0,0,1-5.972,2.25c-.338.1-.338-.835-.423-1.476S-1.831.133,5.917,0Z" transform="translate(1.069 10.372)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path-29" data-name="Path" d="M3.288,2.189c-.907.339-2.116.75-2.527.883S.109,3.29.036,2.661L0,2.407S4.509.689,6.347,0a2.2,2.2,0,0,1,.338.617c0,.06.157.1-.048.169S3.3,2.2,3.288,2.189Z" transform="translate(1.438 20.919)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <g id="Group-37" data-name="Group" transform="translate(1.799 23.52)">
+      <ellipse id="Oval-352" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.061 0.097)" fill="#707070"/>
+      <ellipse id="Oval-353" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.098 0)" fill="#707070"/>
+      <path id="Oval-354" data-name="Oval" d="M0,0H0Z" transform="translate(0.035 0.053) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-355" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.119)" fill="#707070"/>
+      <path id="Oval-356" data-name="Oval" d="M0,0H0Z" transform="translate(0.014 0.203) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-357" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.252) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-358" data-name="Oval" d="M0,0H0Z" transform="translate(0.144 0.256) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-359" data-name="Oval" d="M0,0H0Z" transform="translate(0.213 0.206) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-360" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.23, 0.133)" fill="#707070"/>
+      <path id="Oval-361" data-name="Oval" d="M0,0H0Z" transform="translate(0.197 0.061) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-38" data-name="Group" transform="translate(2.234 23.375)">
+      <ellipse id="Oval-362" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.074 0.085)" fill="#707070"/>
+      <ellipse id="Oval-363" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.099 0)" fill="#707070"/>
+      <path id="Oval-364" data-name="Oval" d="M0,0H0Z" transform="translate(0.051 0.047) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-365" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.117)" fill="#707070"/>
+      <path id="Oval-366" data-name="Oval" d="M0,0H0Z" transform="translate(0.013 0.194) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-367" data-name="Oval" d="M0,0H0Z" transform="translate(0.08 0.253) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-368" data-name="Oval" d="M0,0H0Z" transform="translate(0.159 0.253) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-369" data-name="Oval" d="M0,0H0Z" transform="translate(0.223 0.207) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-370" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.242, 0.12)" fill="#707070"/>
+      <path id="Oval-371" data-name="Oval" d="M0,0H0Z" transform="translate(0.203 0.045) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-39" data-name="Group" transform="translate(2.682 23.217)">
+      <ellipse id="Oval-372" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.061 0.097)" fill="#707070"/>
+      <ellipse id="Oval-373" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.098 0)" fill="#707070"/>
+      <path id="Oval-374" data-name="Oval" d="M0,0H0Z" transform="translate(0.036 0.051) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-375" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.117)" fill="#707070"/>
+      <path id="Oval-376" data-name="Oval" d="M0,0H0Z" transform="translate(0.008 0.192) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-377" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.25) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-378" data-name="Oval" d="M0,0H0Z" transform="translate(0.144 0.255) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-379" data-name="Oval" d="M0,0H0Z" transform="translate(0.214 0.204) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-380" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.231, 0.133)" fill="#707070"/>
+      <path id="Oval-381" data-name="Oval" d="M0,0H0Z" transform="translate(0.197 0.059) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-40" data-name="Group" transform="translate(3.116 23.06)">
+      <ellipse id="Oval-382" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.074 0.097)" fill="#707070"/>
+      <ellipse id="Oval-383" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.099 0)" fill="#707070"/>
+      <path id="Oval-384" data-name="Oval" d="M0,0H0Z" transform="translate(0.044 0.048) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-385" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.126)" fill="#707070"/>
+      <path id="Oval-386" data-name="Oval" d="M0,0H0Z" transform="translate(0.013 0.206) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-387" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.258) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-388" data-name="Oval" d="M0,0H0Z" transform="translate(0.159 0.264) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-389" data-name="Oval" d="M0,0H0Z" transform="translate(0.223 0.217) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-390" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.243, 0.132)" fill="#707070"/>
+      <path id="Oval-391" data-name="Oval" d="M0,0H0Z" transform="translate(0.196 0.065) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-41" data-name="Group" transform="translate(3.563 22.915)">
+      <ellipse id="Oval-392" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.063 0.097)" fill="#707070"/>
+      <ellipse id="Oval-393" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.099 0)" fill="#707070"/>
+      <path id="Oval-394" data-name="Oval" d="M0,0H0Z" transform="translate(0.038 0.05) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-395" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0.002, 0.114)" fill="#707070"/>
+      <path id="Oval-396" data-name="Oval" d="M0,0H0Z" transform="translate(0 0.197) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-397" data-name="Oval" d="M0,0H0Z" transform="translate(0.067 0.259) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-398" data-name="Oval" d="M0,0H0Z" transform="translate(0.146 0.254) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-399" data-name="Oval" d="M0,0H0Z" transform="translate(0.216 0.201) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-400" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.23, 0.12)" fill="#707070"/>
+      <path id="Oval-401" data-name="Oval" d="M0,0H0Z" transform="translate(0.19 0.05) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-42" data-name="Group" transform="translate(3.999 22.758)">
+      <ellipse id="Oval-402" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.074 0.097)" fill="#707070"/>
+      <ellipse id="Oval-403" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.099 0)" fill="#707070"/>
+      <path id="Oval-404" data-name="Oval" d="M0,0H0Z" transform="translate(0.044 0.047) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-405" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.123)" fill="#707070"/>
+      <path id="Oval-406" data-name="Oval" d="M0,0H0Z" transform="translate(0.014 0.204) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-407" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.256) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-408" data-name="Oval" d="M0,0H0Z" transform="translate(0.159 0.264) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-409" data-name="Oval" d="M0,0H0Z" transform="translate(0.213 0.209) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-410" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.231, 0.133)" fill="#707070"/>
+      <path id="Oval-411" data-name="Oval" d="M0,0H0Z" transform="translate(0.196 0.063) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-43" data-name="Group" transform="translate(4.433 22.613)">
+      <ellipse id="Oval-412" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.075 0.097)" fill="#707070"/>
+      <ellipse id="Oval-413" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.112 0)" fill="#707070"/>
+      <path id="Oval-414" data-name="Oval" d="M0,0H0Z" transform="translate(0.051 0.049) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-415" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.121)" fill="#707070"/>
+      <path id="Oval-416" data-name="Oval" d="M0,0H0Z" transform="translate(0.013 0.196) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-417" data-name="Oval" d="M0,0H0Z" transform="translate(0.079 0.256) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-418" data-name="Oval" d="M0,0H0Z" transform="translate(0.159 0.254) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-419" data-name="Oval" d="M0,0H0Z" transform="translate(0.223 0.21) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-420" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.243, 0.12)" fill="#707070"/>
+      <path id="Oval-421" data-name="Oval" d="M0,0H0Z" transform="translate(0.203 0.048) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-44" data-name="Group" transform="translate(4.881 22.455)">
+      <ellipse id="Oval-422" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.074 0.097)" fill="#707070"/>
+      <ellipse id="Oval-423" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.098 0)" fill="#707070"/>
+      <path id="Oval-424" data-name="Oval" d="M0,0H0Z" transform="translate(0.045 0.045) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-425" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.12)" fill="#707070"/>
+      <path id="Oval-426" data-name="Oval" d="M0,0H0Z" transform="translate(0.014 0.203) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-427" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.253) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-428" data-name="Oval" d="M0,0H0Z" transform="translate(0.144 0.256) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-429" data-name="Oval" d="M0,0H0Z" transform="translate(0.214 0.206) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-430" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.231, 0.133)" fill="#707070"/>
+      <path id="Oval-431" data-name="Oval" d="M0,0H0Z" transform="translate(0.197 0.061) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-45" data-name="Group" transform="translate(5.292 22.286)">
+      <ellipse id="Oval-432" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.075 0.085)" fill="#707070"/>
+      <ellipse id="Oval-433" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.099 0)" fill="#707070"/>
+      <path id="Oval-434" data-name="Oval" d="M0,0H0Z" transform="translate(0.052 0.046) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-435" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.116)" fill="#707070"/>
+      <path id="Oval-436" data-name="Oval" d="M0,0H0Z" transform="translate(0.013 0.194) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-437" data-name="Oval" d="M0,0H0Z" transform="translate(0.068 0.248) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-438" data-name="Oval" d="M0,0H0Z" transform="translate(0.159 0.253) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-439" data-name="Oval" d="M0,0H0Z" transform="translate(0.223 0.206) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-440" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.243, 0.12)" fill="#707070"/>
+      <path id="Oval-441" data-name="Oval" d="M0,0H0Z" transform="translate(0.204 0.045) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-46" data-name="Group" transform="translate(5.633 22.153)">
+      <ellipse id="Oval-442" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.072 0.097)" fill="#707070"/>
+      <ellipse id="Oval-443" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.108 0)" fill="#707070"/>
+      <path id="Oval-444" data-name="Oval" d="M0,0H0Z" transform="translate(0.048 0.049) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-445" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.108)" fill="#707070"/>
+      <path id="Oval-446" data-name="Oval" d="M0,0H0Z" transform="translate(0.01 0.196) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-447" data-name="Oval" d="M0,0H0Z" transform="translate(0.077 0.256) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-448" data-name="Oval" d="M0,0H0Z" transform="translate(0.156 0.254) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-449" data-name="Oval" d="M0,0H0Z" transform="translate(0.22 0.209) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-450" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.239, 0.12)" fill="#707070"/>
+      <path id="Oval-451" data-name="Oval" d="M0,0H0Z" transform="translate(0.2 0.048) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-47" data-name="Group" transform="translate(6.069 21.996)">
+      <ellipse id="Oval-452" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.072 0.097)" fill="#707070"/>
+      <ellipse id="Oval-453" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.108 0)" fill="#707070"/>
+      <path id="Oval-454" data-name="Oval" d="M0,0H0Z" transform="translate(0.048 0.049) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-455" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.108)" fill="#707070"/>
+      <path id="Oval-456" data-name="Oval" d="M0,0H0Z" transform="translate(0.01 0.196) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-457" data-name="Oval" d="M0,0H0Z" transform="translate(0.077 0.256) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-458" data-name="Oval" d="M0,0H0Z" transform="translate(0.156 0.254) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-459" data-name="Oval" d="M0,0H0Z" transform="translate(0.22 0.21) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-460" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.239, 0.12)" fill="#707070"/>
+      <path id="Oval-461" data-name="Oval" d="M0,0H0Z" transform="translate(0.2 0.048) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-48" data-name="Group" transform="translate(6.486 21.814)">
+      <ellipse id="Oval-462" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.066 0.097)" fill="#707070"/>
+      <ellipse id="Oval-463" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.102 0)" fill="#707070"/>
+      <path id="Oval-464" data-name="Oval" d="M0,0H0Z" transform="translate(0.037 0.053) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-465" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.122)" fill="#707070"/>
+      <path id="Oval-466" data-name="Oval" d="M0,0H0Z" transform="translate(0.016 0.204) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-467" data-name="Oval" d="M0,0H0Z" transform="translate(0.069 0.255) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-468" data-name="Oval" d="M0,0H0Z" transform="translate(0.151 0.267) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-469" data-name="Oval" d="M0,0H0Z" transform="translate(0.225 0.213) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-470" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.234, 0.133)" fill="#707070"/>
+      <path id="Oval-471" data-name="Oval" d="M0,0H0Z" transform="translate(0.198 0.062) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-49" data-name="Group" transform="translate(6.86 21.633)">
+      <ellipse id="Oval-472" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.066 0.097)" fill="#707070"/>
+      <ellipse id="Oval-473" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.09 0)" fill="#707070"/>
+      <path id="Oval-474" data-name="Oval" d="M0,0H0Z" transform="translate(0.04 0.049) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-475" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.124)" fill="#707070"/>
+      <path id="Oval-476" data-name="Oval" d="M0,0H0Z" transform="translate(0.002 0.196) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-477" data-name="Oval" d="M0,0H0Z" transform="translate(0.068 0.257) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-478" data-name="Oval" d="M0,0H0Z" transform="translate(0.149 0.254) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-479" data-name="Oval" d="M0,0H0Z" transform="translate(0.211 0.21) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-480" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.233, 0.12)" fill="#707070"/>
+      <path id="Oval-481" data-name="Oval" d="M0,0H0Z" transform="translate(0.201 0.056) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-50" data-name="Group" transform="translate(7.257 21.464)">
+      <ellipse id="Oval-482" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.08 0.097)" fill="#707070"/>
+      <ellipse id="Oval-483" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.104 0)" fill="#707070"/>
+      <path id="Oval-484" data-name="Oval" d="M0,0H0Z" transform="translate(0.055 0.044) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-485" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.114)" fill="#707070"/>
+      <path id="Oval-486" data-name="Oval" d="M0,0H0Z" transform="translate(0.017 0.192) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-487" data-name="Oval" d="M0,0H0Z" transform="translate(0.081 0.25) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-488" data-name="Oval" d="M0,0H0Z" transform="translate(0.163 0.251) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-489" data-name="Oval" d="M0,0H0Z" transform="translate(0.225 0.204) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-490" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.236, 0.121)" fill="#707070"/>
+      <path id="Oval-491" data-name="Oval" d="M0,0H0Z" transform="translate(0.198 0.052) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-51" data-name="Group" transform="translate(7.577 21.318)">
+      <ellipse id="Oval-492" data-name="Oval" cx="0.048" cy="0.048" rx="0.048" ry="0.048" transform="translate(0.075 0.085)" fill="#707070"/>
+      <ellipse id="Oval-493" data-name="Oval" cx="0.024" cy="0.024" rx="0.024" ry="0.024" transform="translate(0.099 0)" fill="#707070"/>
+      <path id="Oval-494" data-name="Oval" d="M0,0H0Z" transform="translate(0.051 0.047) rotate(-40.002)" fill="#707070"/>
+      <path id="Oval-495" data-name="Oval" d="M0,0H0Z" transform="matrix(0.174, -0.985, 0.985, 0.174, 0, 0.117)" fill="#707070"/>
+      <path id="Oval-496" data-name="Oval" d="M0,0H0Z" transform="translate(0.013 0.194) rotate(-30.001)" fill="#707070"/>
+      <path id="Oval-497" data-name="Oval" d="M0,0H0Z" transform="translate(0.08 0.253) rotate(-70.001)" fill="#707070"/>
+      <path id="Oval-498" data-name="Oval" d="M0,0H0Z" transform="translate(0.159 0.253) rotate(-19.999)" fill="#707070"/>
+      <path id="Oval-499" data-name="Oval" d="M0,0H0Z" transform="translate(0.223 0.207) rotate(-59.999)" fill="#707070"/>
+      <path id="Oval-500" data-name="Oval" d="M0,0H0Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0.243, 0.12)" fill="#707070"/>
+      <path id="Oval-501" data-name="Oval" d="M0,0H0Z" transform="translate(0.203 0.045) rotate(-49.998)" fill="#707070"/>
+    </g>
+    <g id="Group-52" data-name="Group" transform="translate(9.32 16.575)">
+      <path id="Path-30" data-name="Path" d="M0,1.308c.931.46,3.494,1.851,3.929,2.008.749.375.895.5,1.511.472A24.725,24.725,0,0,0,9.006,3.1c.834-.23,1.946-.568,2.732-.822a.108.108,0,0,1,.145.073.3.3,0,0,0,.4.218,2.3,2.3,0,0,0,.774-.435.12.12,0,0,1,.193.06c.1.29.3.532.592.4.338-.145.556-.145.629-.508.012-.048.048-.1.1-.1.109-.012.193-.121.23-.278a.148.148,0,0,1,.109-.1c.278-.012.774-.339.121-1.052-.012,0-.012-.012-.024-.012-.411-.3-.351-.351-.653-.484a2,2,0,0,0-1.644.363c-.677.435-.822.484-.907.75l-5.222.593A3.18,3.18,0,0,1,4.3,1.49,9.145,9.145,0,0,1,2.817.341C2.152.631,0,1.308,0,1.308Z" transform="translate(0 0)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+      <path id="Path-31" data-name="Path" d="M0,0C.206.206.423.242.471.508" transform="translate(13.261 1.502)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+      <path id="Path-32" data-name="Path" d="M0,0C.266.242.749.738.689,1.173" transform="translate(13.817 0.825)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+      <path id="Path-33" data-name="Path" d="M0,0C.314-.012.858.665.858,1.077" transform="translate(14.216 0.316)" fill="#fff" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    </g>
+    <path id="Path_7" data-name="Path 7" d="M4.9,0S.672,1.345,0,4.839" transform="translate(0.97 12.71) rotate(-20)" fill="none" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path_7_Copy" data-name="Path 7 Copy" d="M6.619,0A9.137,9.137,0,0,0,0,6.472" transform="matrix(0.848, -0.53, 0.53, 0.848, 0.705, 14.642)" fill="none" stroke="#e3161b" stroke-miterlimit="10" stroke-width="0.2"/>
+    <path id="Path_2" data-name="Path 2" d="M.15.15" transform="translate(14.161 3.737)" fill="none" stroke="#979797" stroke-miterlimit="10" stroke-width="0.5"/>
+  </g>
+</svg>

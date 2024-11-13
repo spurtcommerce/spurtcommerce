@@ -1,0 +1,178 @@
+<div class="flex filter-row">
+    <div class="filter-lft">
+        <h2>{{'Sales.nav.BackOrders'|translate}} ({{ sandbox.backorderListCount$ | async}})</h2>
+    </div>
+
+    <div class="filter-rht flex">
+
+        <!-- filter -->
+        <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue; trackBy: trackByIndex">
+            <div class="added-filter-col flex filter-detail" *ngIf="!empty.includes(filter.value)">
+                <span>{{ filter.key }} : </span>
+                <ng-container [ngSwitch]="filter.key">
+                    <ng-container *ngSwitchCase="'Date'">
+                        {{ filter.value | date: 'dd/MM/YYYY' }}
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                        {{ filter.value }}
+                    </ng-container>
+                </ng-container>
+                <button (click)="removeFilter(filter)">
+                    <img src="assets/img/close.svg" alt="" />
+                </button>
+            </div>
+        </div>
+
+        <!--search filter -->
+        <div class="filter-search">
+            <form class="" (keyup.enter)="applyFilter()">
+                <app-common-form [type]="dynamicObjControls?.Search?.type"
+                    [control]="dynamicObjControls?.Search?.control" [label]="dynamicObjControls?.Search?.label"
+                    [inputId]="dynamicObjControls?.Search?.inputId" [aliasName]="dynamicObjControls?.Search?.aliasName"
+                    [placeholder]="dynamicObjControls?.Search?.placeholder">
+                </app-common-form>
+            </form>
+        </div>
+
+        <!--filter  -->
+        <div class="dropdown filter-dropdown" ngbDropdown #myDropdown="ngbDropdown" [autoClose]="false">
+            <button class="button-reg tertiary btn-sm" ngbDropdownToggle>
+                <img src="assets/img/filter.svg" alt="">
+                {{'marketplace.common.Filters' | translate}}
+            </button>
+            <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+                <h4> {{'marketplace.common.QuickFilter' | translate}} </h4>
+                <form class="filter-form">
+                    <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                        <app-common-form *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+                            [control]="dynamicObjControls[val]?.control" [label]="dynamicObjControls[val]?.label"
+                            [inputId]="dynamicObjControls[val]?.inputId"
+                            [aliasName]="dynamicObjControls[val]?.aliasName"
+                            [placeholder]="dynamicObjControls[val]?.placeholder"
+                            [customData]="dynamicObjControls[val]?.customData">
+                        </app-common-form>
+                    </div>
+                    <div class="filter-btn flex">
+                        <button class="button-reg btn-sm primary" (click)="applyFilter()">
+                            {{'marketplace.common.ApplyFilter' | translate}}
+                        </button>
+                        <button class="button-reg btn-sm tertiary" (click)="filterReset('')">
+                            {{'marketplace.common.Reset' | translate}}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flex product-wrap example-full-width">
+    <div class="product-table">
+        <!--Loader -->
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="sandbox.backorderListCountLoading$ | async"
+                style="transform: translate(38%, 50%);position:absolute">
+            </app-global-loader>
+        </div>
+        <div class="table-responsive">
+            <table class="table" id="myTable" *ngIf="(sandbox.backorderList$ |async)?.length>0">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">{{'Sales.Orders.OrderId'| translate}}</th>
+                        <th scope="col">{{'Sales.Orders.OrderLineNo'| translate}}</th>
+                        <th scope="col">{{'Sales.Orders.OrderCreated'| translate}}</th>
+                        <th scope="col" class="text-center">{{'Sales.Orders.Quantity' | translate}}</th>
+                        <th scope="col">{{'Sales.Orders.CustomerName'| translate}}</th>
+                        <th scope="col" class="text-right">{{'Sales.Orders.TotalAmount'| translate}}</th>
+                        <th scope="col" class="text-center">{{'Sales.Orders.Status'| translate}}</th>
+                    </tr>
+                </thead>
+                <tbody class="panel">
+                    <ng-container *ngFor="let list of orderList;let i = index">
+                        <tr>
+                            <td width="10px">
+                                <a style="cursor:pointer;" (click)="list.isCollapsed = !list.isCollapsed"
+                                    href="javascript:void(0)" class="lst-xpnd" [attr.aria-expanded]="!list.isCollapsed"
+                                    [attr.aria-controls]="'demo-' + (i + 1)">
+                                    <img [src]="list.isCollapsed ? 'assets/img/arrow-right-ico.png' : 'assets/img/arrow-drop.png'"
+                                        alt="right arrow" />
+                                </a>
+                            </td>
+                            <td class="vendid vname name">
+                                <span class="id" style="cursor:pointer;"
+                                    (click)="list.isCollapsed = !list.isCollapsed">{{list.orderPrefixId}}
+                                </span>
+                            </td>
+                            <td>{{list?.orderProductPrefixId ? list?.orderProductPrefixId : '-'}}</td>
+                            <td>
+                                {{list.createdDate | dynamicDate: "dd MMM yyyy h:mm a" }}
+                            </td>
+                            <td class="text-center">{{list.quantity}}</td>
+                            <td>{{list.customerFirstName}}</td>
+                            <td class="text-right">
+                                {{list.total | currencysymbol}}
+                            </td>
+                            <td class="text-center">
+                                <span class="status-badge" href="javascript:void(0)"
+                                    [ngStyle]="{background: list?.orderStatusColorCode}">{{list?.orderStatusName}}
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr id="demo-{{i + 1}}" class="acc-table" [ngbCollapse]="list.isCollapsed">
+                            <td colspan="8" class="hiddenRow" [@smoothCollapse]="list.isCollapsed?'initial':'final'">
+                                <table class="table">
+                                    <!-- <tr>
+                                        <th class="text-right" colspan="7">
+                                            <a href="javascript:void(0)" (click)="list.isCollapsed = !list.isCollapsed"
+                                                class="acc-tbl-close">
+                                                <img src="assets/img/close.svg" alt="">
+                                            </a>
+                                        </th>
+                                    </tr> -->
+                                    <thead>
+                                        <tr>
+                                            <th>{{'common.Image'| translate}}</th>
+                                            <th>{{'Sales.Orders.ProductName'| translate}}</th>
+                                            <th class="text-center">{{'Sales.Orders.Quantity'| translate}}</th>
+                                            <th class="text-right">{{'Sales.Orders.Price'| translate}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="product-image">
+                                                <img [src]="imageUrl + '?path=' + list?.containerName + '&name=' + list?.image + '&width=50&height=50'"onError="this.src='/assets/error-images/Load-icon-Products.png';">
+                                            </td>
+                                            <td style="white-space: normal;" width="50%">
+                                                {{list.name}}
+                                            </td>
+                                            <td class="text-center">{{list.quantity}}</td>
+                                            <td class="text-right">{{list.productPrice | currencysymbol}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+
+            <!--No data found -->
+            <div class="nodata-found" *ngIf="(sandbox.backorderListLoaded$ | async)  && orderList.length == 0">
+                <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+                <h5>{{'marketplace.payments.DataNotFound'| translate}}</h5>
+            </div>
+
+            <!--pagination -->
+            <div class="pagination flex"
+                *ngIf="(sandbox.backorderListLoaded$ | async) && (sandbox.backorderListCount$ | async) > limit">
+                <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+                    [totalItems]="sandbox.backorderListCount$ | async" [pageSize]="limit"
+                    (pageChange)="onPageChange($event)">
+                </app-reusable-pagination>
+            </div>
+        </div>
+    </div>
+</div>

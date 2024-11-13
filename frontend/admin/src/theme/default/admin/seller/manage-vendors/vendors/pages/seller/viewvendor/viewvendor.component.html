@@ -1,0 +1,175 @@
+<!-- <app-header-layout></app-header-layout> -->
+<div *ngIf="sellerSandbox.pageDetailsLoadingStatus$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+<div class="row products-section vendorview-section" *ngIf="(sellerSandbox.pageDetails$ | async) as detail">
+
+    <div class="asw__top flex">
+        <div class="bc-col flex">
+            <button (click)="backToVendorList()">
+                <img src="assets/img/arrow-back-dark.svg" alt="">
+            </button>
+            <h3>{{'marketplace.seller.Vendordetails' | translate}}</h3>
+        </div>
+    </div>
+
+    <div class="viewvendor-row flex">
+
+        <div class="vendor-detail-top">
+            <div class="vdt-card">
+                <div class="vdt-col flex">
+                    <div class="vdtctop flex">
+                        <div class="vdtc-img"> <img style="max-width: 100%;
+                            max-height: 100%;" [src]="
+                              ImageUrl +
+                              '?path=' +
+                              detail.customerDetail.avatarPath +
+                              '&name=' +
+                              detail.customerDetail.avatar +
+                              '&width=100&height=100'
+                            " onError="this.src='./assets/error-images/Load-icon-Products.png';" class="vendor-img"
+                                [alt]="detail.customerDetail.avatar" />
+                        </div>
+                        <div class="vdtcc-top flex">
+                            <h4>{{ detail.vendorPrefixId}}</h4>
+                            <span class="tags-action tag-inactive Inactives"
+                                *ngIf="detail.customerDetail.isActive ==0">{{'catalog.product.In-Active'|
+                                translate}}</span>
+                            <span class="tags-actiontag-active Actives"
+                                *ngIf="detail.customerDetail.isActive ==1">{{'marketplace.seller.Active'|
+                                translate}}</span>
+                        </div>
+                    </div>
+
+                    <div class="vdtc-content">
+                        <div class="vdtcc-grp">
+                            <p>{{'marketplace.seller.Companyname' | translate}}</p>
+                            <h3>{{ detail.customerDetail.firstName}}</h3>
+                        </div>
+                        <div class="vdtcc-grp">
+                            <p>{{'marketplace.seller.Mobile' | translate}}</p>
+                            <h3>{{ detail.customerDetail.mobileNumber}}</h3>
+                        </div>
+                        <div class="vdtcc-grp">
+                            <p>{{'marketplace.seller.Email' | translate}}</p>
+                            <h3>{{ detail.customerDetail.email}}</h3>
+                        </div>
+                        <div class="vdtcc-social flex">
+                            <a href="javascript:void(0)" *ngIf="detail.facebook !== null"
+                                (click)="goToSocialMedia(detail.facebook)"> <img src="assets/img/facebook-logo.svg"
+                                    alt=""> </a>
+                            <a href="javascript:void(0)" *ngIf="detail.instagram !== null"
+                                (click)="goToSocialMedia(detail.instagram)"> <img src="assets/img/instagram-logo.svg"
+                                    alt=""> </a>
+                            <a href="javascript:void(0)" *ngIf="detail.youtube !== null"
+                                (click)="goToSocialMedia(detail.youtube)"> <img src="assets/img/youtube-logo.svg"
+                                    alt=""> </a>
+                            <a href="javascript:void(0)" *ngIf="detail.twitter !== null"
+                                (click)="goToSocialMedia(detail.twitter)"> <img src="assets/img/twitter-logo.svg"
+                                    alt=""> </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- col -->
+            </div>
+            <div class="vdt-card">
+                <div class="vdt-col flex">
+                    <div class="vdtctop flex">
+                        <div class="vdtc-img"> <img style="max-width: 100%;
+                            max-height: 100%;" [src]="
+                              ImageUrl +
+                              '?path=' +
+                              detail.companyLogoPath +
+                              '&name=' +
+                              detail.companyLogo +
+                              '&width=100&height=100'" onError="this.src='assets/img/default company logo.svg';"
+                                [alt]="detail.companyLogo" class="vendor-img" />
+                        </div>
+                    </div>
+
+                    <div class="vdtc-content">
+                        <div class="vdtcc-grp">
+                            <p>{{'common.Company name'|translate}}</p>
+                            <h3>{{detail.companyName}}</h3>
+                        </div>
+                        <div class="vdtcc-grp">
+                            <p>{{'marketplace.seller.Mobile' | translate}}</p>
+                            <h3>{{ detail.companyMobileNumber ? detail.companyMobileNumber : '-'}}</h3>
+                        </div>
+                        <div class="vdtcc-grp">
+                            <p>{{'marketplace.seller.Email' | translate}}</p>
+                            <h3>{{ detail.customerDetail.email}}</h3>
+                        </div>
+                        <div class="vdtcc-grp">
+                            <p>{{'marketplace.seller.GST' | translate}}</p>
+                            <h3>{{detail.companyGstNumber ? detail.companyGstNumber: '-'}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- col -->
+            </div>
+        </div>
+        <div class="vievendor-right">
+            <div class="flex product-wrap example-full-width">
+                <div class="product-table">
+                    <ng-container *ngIf="(documentSandbox.getDocumentList$ | async) as datas">
+                        <!-- No data Found -->
+                        <div class="data-product-not-available" *ngIf="datas?.length == 0">
+                            <img src="assets/img/empty-box.svg" alt="">
+                            <h3 class="nodata">{{'marketplace.seller.NoDocumentsfound'| translate}}</h3>
+                        </div>
+                        <h4 style="padding: 0 10px;" *ngIf="datas?.length > 0">
+                            {{'marketplace.seller.Documents'|
+                            translate}} - {{datas.length}} </h4>
+                        <!-- {{datas | json}}fdf/dfg -->
+                        <div class="table-responsive" *ngIf="datas?.length > 0">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>{{'marketplace.seller.DocumentTitle' | translate}}</th>
+                                        <th>{{'marketplace.seller.Documentname' | translate}}</th>
+                                        <th>{{'marketplace.seller.Status' | translate}}</th>
+                                        <th>{{'marketplace.seller.LastUploadedOn' | translate}}</th>
+                                        <th class="text-center">{{'marketplace.seller.Action' | translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let array of list">
+                                        <!-- {{datas | json}}fgvbg -->
+                                        <td> {{array.document.name}}</td>
+                                        <td> {{array.fileName}} </td>
+                                        <td>
+                                            <span class="status"
+                                                [ngClass]="{'pending': array.isVerified == 0, 'active': array.isVerified == 1, 'inactive': array.isVerified == 2}">{{
+                                                array.isVerified == 0 ? 'Pending' : array.isVerified == 1 ? 'Approved' :
+                                                'Rejected' }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="date"> {{array.createdDate | date: 'dd-MM-YYY, hh:mm aa'}}
+                                            </span>
+                                        </td>
+                                        <td class="text-center action-btn">
+                                            <button (click)="download(array)"
+                                                [appHideIfUnauthorized]="'download-vendor-document'">
+                                                <img src="assets/img/download-dark.svg" alt="">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Pagination -->
+                            <!-- <div class="pagination flex" *ngIf="(documentSandbox.getDocumentList$ | async)?.length > 0">
+                                <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+                                    [totalItems]="documentSandbox.getDocumentListCount$ | async" [pageSize]="pageSize"
+                                    (pageChange)="onPageChange($event)">
+                                </app-reusable-pagination>
+                            </div> -->
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

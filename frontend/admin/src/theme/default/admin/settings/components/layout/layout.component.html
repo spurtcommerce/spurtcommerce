@@ -1,0 +1,15 @@
+<div class="settings-wrapper flex" style="display: grid;grid-template-columns: 250px auto 1fr;">
+    <div class="settings-aside">
+        <h3>{{'Settings.nav.settings' | translate}}</h3>
+        <a href="javascript:Void(0)" [routerLink]="['/settings/multiple-websites']" routerLinkActive="active" [appHideIfUnauthorized]="'settings-general-setting'"> <span class="orderfullfilment add-on"></span> {{'Additional.Multiple websites'|translate}} </a>
+        <a href="javascript:Void(0)" [routerLink]="['/settings/local']" routerLinkActive="active" class="" [appHideIfUnauthorized]="'settings-general-setting'" [multipleHide]="['delivery-location-list','list-country','list-zone','list-language','list-currency','list-tax']"> <span class="localization" ></span> {{'Settings.nav.Localization' | translate}}</a>
+        <a href="javascript:Void(0)" [routerLink]="['/settings/access-and-permission']" routerLinkActive="active" [appHideIfUnauthorized]="'settings-general-setting'"  [multipleHide]="['list-role','list-user']"> <span class="permission"></span> {{'Settings.nav.Accessandpermission' | translate}}</a>
+        <a href="javascript:Void(0)" [routerLink]="['/settings/sitesettings']" routerLinkActive="active" class="" [appHideIfUnauthorized]="'settings-general-setting'"[multipleHide]="['list-email-template']"> <span class="system"></span> {{'Settings.nav.System' | translate}}</a>
+        <a href="javascript:Void(0)" [routerLink]="['/settings/personalize']" routerLinkActive="active" class=""[appHideIfUnauthorized]="'settings-general-setting'" [multipleHide]="['edit-personalize-order','edit-personalize-product','list-email-template','settings-site-social',]"> <span class="personalize"></span> {{'Settings.nav.Personalize' | translate}}</a>
+        <a href="javascript:Void(0)" [routerLink]="['/settings/site-settings']" routerLinkActive="active" routerLinkActive="active"[appHideIfUnauthorized]="'settings-general-setting'" [multipleHide]="['settings-site-seo','settings-site-variant','filter-list','list-attribute','settings-site-attribute-groups']"> <span class="sitesettings"></span> {{'Settings.nav.SEO'|translate}} </a>
+        <a href="javascript:Void(0)" [routerLink]="['/settings/order-fullfillment']" routerLinkActive="active" routerLinkActive="active" [appHideIfUnauthorized]="'settings-general-setting'" [multipleHide]="['list-order-status','list-stock-status']"> <span class="orderfullfilment"></span> {{'Settings.nav.Order-fullfillmentstatus'|translate}} </a>
+        <a href="javascript:Void(0)" [routerLink]="['/settings/add-on']" routerLinkActive="active" [appHideIfUnauthorized]="'settings-general-setting'"> <span class="orderfullfilment add-on"></span> {{'Settings.nav.Add-Ons'|translate}} </a>
+        
+    </div>
+    <router-outlet></router-outlet>
+</div>

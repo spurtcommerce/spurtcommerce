@@ -1,0 +1,50 @@
+<div class="import-innr-header">
+    <h3>Data Migration</h3>
+    <ul class="flex">
+        <li class="active completed"> <span> <img src="assets/imgs/tick-green.svg" alt=""> </span> <p>Upload File</p> </li>
+        <li class="active completed"> <span> <img src="assets/imgs/tick-green.svg" alt=""> </span> <p>Field Mapping</p> </li>
+        <li class="active"> <span>3</span> <p>Review</p> </li>
+        <li> <span>4</span> <p>Finish</p> </li>
+    </ul>
+</div>
+
+<div class="field-mapping">
+    <h4>Import Leads - {{fileName}}</h4>
+    <div class="field-mapping-innr-title">
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet consectetur adipiscing elit sed do 
+            eiusmod tempor incididunt ut labore</p>
+    </div>
+    <div class="field-mapping-wrap">        
+        <div class="product-table">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>File Name</th>
+                            <th>Uploaded Date</th>
+                            <th>Total No.Data</th>
+                            <th>Mapped Fields</th>
+                            <th>Unmapped Fields</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{fileName}}</td>
+                            <td>03-12-2023</td>
+                            <td>1000</td>
+                            <td>800</td>
+                            <td>200</td>
+                            <td>Completed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="import-next-cancel flex">    
+    <button class="button-reg secondary" [routerLink]="['/vendors/product-config/field-mapping']" > Back to Previous </button>
+    <button class="button-reg primary"  [routerLink]="['/vendors/product-config/finish-data']"> Start Migration </button>
+</div>

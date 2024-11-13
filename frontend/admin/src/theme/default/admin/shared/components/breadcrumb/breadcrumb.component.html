@@ -1,0 +1,14 @@
+
+<div class="breadcrumbs-row">
+    <div class="bc-col mar">
+        <ul>
+           
+        <ng-container *ngFor="let breadcrumb of pageInfo?.urls; let last = last;">
+            <li *ngIf="!last" class="" [ngClass]="{handSymbolRemove: ['',null,undefined].includes(breadcrumb?.url)}"><a href="javascript:void(0)" [routerLink]="[breadcrumb.url]" routerLinkActive="router-link-active" >{{breadcrumb.title | translate}}</a></li>
+            <li *ngIf="last" style="pointer-events: none;">{{breadcrumb.title | translate}}</li>
+        </ng-container>
+        </ul>
+    </div>
+    <div class="bc-col-btn addserv addvend margin">
+    </div>
+</div>

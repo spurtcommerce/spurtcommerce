@@ -1,0 +1,105 @@
+<div class="flex filter-row">
+    <div class="filter-lft">
+        <a class="to-back" (click)="back()">
+            <img src="assets/imgs/back.svg" alt="">
+        </a>
+        <h2>{{'CMS.Pages.PageGroup' | translate}} ({{sandbox.pageGroupLocalizationCount$ | async}})</h2>
+    </div>
+    <div class="filter-rht flex" (keyup.Tab)="focusInput()">
+        <div class="added-filter flex" *ngFor="let filter of filterSearch | keyvalue">
+            <div class="added-filter-col flex" *ngIf="filter.value">
+                <span>{{ filter.key }} : {{ getStatusDisplay(filter.key, filter.value) }} </span>
+                <button (click)="removeFilter(filter)">
+                    <img src="assets/img/close.svg" alt="">
+                </button>
+            </div>
+
+        </div>
+        <div class="filter-search">
+            <input type="text" appNoLeadingSpace placeholder="Search" [(ngModel)]="keyword" #myInput
+                (keydown.enter)="searchList()" (change)="keywordchange($event.target.value)">
+            <span> / </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="flex product-wrap example-full-width">
+    <div class="product-table">
+        <!-- Loader -->
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="sandbox.pageGroupLocalizationListLoading | async"
+                style="transform: translate(38%, 50%);position:absolute"></app-global-loader>
+        </div>
+
+        <!-- Table -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            {{'CMS.PageGroup.GroupName' | translate}}
+                        </th>
+                        <th scope="col" class="text-center" *ngFor="let list of languageList">
+                            {{list.name}}
+                        </th>
+                        <th>{{'Sales.Orders.LastUpdated'| translate}}</th>
+                        <th class="text-center" scope="col" [appHideIfUnauthorized]=""
+                            [multipleHide]="['edit-pageGroup']">
+                            {{'marketplace.seller.Action'| translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pageGroup of pageGroupListArray; let i = index">
+                        <td> {{ pageGroup.groupName? pageGroup.groupName : '-' }} </td>
+                        <td class="text-center" *ngFor="let lang of languageList">
+
+                            <img *ngIf="pageGroup.languageIDS?.includes(lang.languageId); else elseBlock"
+                                src="assets/imgs/tick-green.svg">
+
+                            <ng-template #elseBlock>
+                                <a href="javascript:void(0)" class="link-text"
+                                    (click)="editPageGroup(pageGroup)">{{'CMS.Pages.Add' | translate}}</a>
+                            </ng-template>
+                        </td>
+                        <td class="text-nowrap"> 
+                            {{pageGroup.lastModifieDate ? (pageGroup.lastModifieDate | dynamicDate:'dd/MM/yyyy hh:mm a') : (pageGroup.createdDate | dynamicDate:'dd/MM/yyyy')}}
+                        </td>
+
+
+                        <td class="text-center action-btn" [appHideIfUnauthorized]=""
+                            [multipleHide]="['Edit-page-group','page-group-delete']">
+                            <div class="dropdown" ngbDropdown>
+                                <button ngbDropdownToggle>
+                                    <img src="assets/img/elliptical-h.svg" alt="">
+                                </button>
+                                <div ngbDropdownMenu class="dropdown-menu-end">
+                                    <button [appHideIfUnauthorized]="'Edit-page-group'"
+                                        (click)="editPageGroup(pageGroup)">
+                                        <img src="assets/img/edit.svg" alt=""> {{'marketplace.seller.Edit'| translate}}
+                                    </button>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- No Data Found -->
+            <div class="nodata-found"
+                *ngIf="(sandbox.pageGroupLocalizationList$ | async)?.length == 0 && (sandbox.pageGroupLocalizationListLoaded | async)">
+                <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+                <h5>{{'common.Items Not Found'| translate}}</h5>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination flex" *ngIf="(sandbox.pageGroupLocalizationCount$ | async) > pageSize">
+            <app-reusable-pagination  [type]="'numbers'"
+                [currentPage]="currentPage" [totalItems]="sandbox.pageGroupLocalizationCount$ | async"
+                [pageSize]="pageSize" (pageChange)="onPageChange($event)">
+            </app-reusable-pagination>
+        </div>
+    </div>
+</div>

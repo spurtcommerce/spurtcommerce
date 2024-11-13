@@ -1,0 +1,50 @@
+<div class="flex setting2-inner-header">
+    <h3 class="modal-header__title">{{'marketplace.settlement.Settlement'| translate}}</h3>
+    <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close" (click)="close()">
+        <img src="assets/img/modal-close.svg" alt="cancel">
+    </button>
+</div>
+
+<div class="modal-body">
+
+    
+
+<div class="title-align">
+<h4>{{'marketplace.settlement.Title'| translate}}</h4>    <span>:</span> <h4><b> {{(sandbox.settlementDetails$ | async)?.title}}</b></h4>  
+<h4>{{'marketplace.settlement.TotalOrders'| translate}} </h4>   <span>:</span> <h4><b>{{(sandbox.settlementDetails$ | async)?.noOfOrders}}</b></h4> 
+<h4>{{'marketplace.settlement.TotalSettlementValue'| translate}} </h4>   <span>:</span> <h4><b>{{ (sandbox.settlementDetails$ | async)?.totalAmount| currencysymbol}}</b></h4>
+</div>
+
+
+    <!-- <div class="input-group">
+        <h4 style="width: 100%">{{'marketplace.settlement.Title'| translate}} : <b> {{(sandbox.settlementDetails$ | async)?.title}}</b>
+        </h4>
+    </div>
+
+    <h4>{{'marketplace.settlement.TotalOrders:'| translate}} <b>{{(sandbox.settlementDetails$ | async)?.noOfOrders}}</b></h4>
+    <h4>{{'marketplace.settlement.TotalSettlementValue:'| translate}} <b>{{ (sandbox.settlementDetails$ | async)?.totalAmount| currencysymbol}}</b></h4> -->
+
+    <h5 class="header">{{'marketplace.settlement.SettlementDetails'| translate}}</h5>
+
+    <div class="product-table">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th width="25%" class="text-left">{{'marketplace.settlement.OrderLineNo'| translate}}</th>
+                        <th width="35%" class="text-left">{{'marketplace.payments.CompanyName'| translate}}</th>
+                        <th width="10%" class="text-right">{{'marketplace.payments.Amount'| translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let list of (sandbox.settlementDetails$ | async)?.items">
+                        <td>{{list.orderProductPrefixId}} </td>
+                        <td>{{ list.companyName }}</td>
+                        <td class="text-center">{{list.netAmount | currencysymbol}}</td>
+                    </tr>
+            </table>
+        </div>
+    </div>
+    
+</div>
+

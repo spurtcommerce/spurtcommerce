@@ -1,0 +1,291 @@
+<div class="flex filter-row">
+  <div class="filter-lft">
+    <h2> {{"marketplace.common.totalPaymentCount" | translate}} ({{(sandbox.historyListCount$ | async)}})</h2>
+  </div>
+
+  <div class="filter-rht flex">
+
+    <!-- filter -->
+    <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue;trackBy: trackByIndex">
+      <div class="added-filter-col flex filter-detail" *ngIf="!empty.includes(filter.value)">
+        <span>{{ filter.key }} : </span>
+        <ng-container [ngSwitch]="filter.key">
+          <ng-container *ngSwitchCase="'FromDate'">
+            {{ filter.value | date: 'dd/MM/yyyy' }}
+          </ng-container>
+          <ng-container *ngSwitchCase="'ToDate'">
+            {{ filter.value | date: 'dd/MM/yyyy' }}
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            {{ filter.value }}
+          </ng-container>
+        </ng-container>
+        <button (click)="removeFilter(filter)">
+          <img src="assets/img/close.svg" alt="" />
+        </button>
+      </div>
+    </div>
+
+    <!--search filter -->
+    <div class="filter-search">
+      <form class="" (keyup.enter)="applyFilter()">
+        <app-common-form [type]="dynamicObjControls?.Search?.type" [control]="dynamicObjControls?.Search?.control"
+          [label]="dynamicObjControls?.Search?.label" [inputId]="dynamicObjControls?.Search?.inputId"
+          [aliasName]="dynamicObjControls?.Search?.aliasName" [placeholder]="dynamicObjControls?.Search?.placeholder">
+        </app-common-form>
+      </form>
+    </div>
+
+    <!--filter  -->
+    <div class="dropdown filter-dropdown" ngbDropdown #myDropdown="ngbDropdown" [autoClose]="false">
+      <button class="button-reg tertiary btn-sm" ngbDropdownToggle>
+        <img src="assets/img/filter.svg" alt="">
+        {{'marketplace.common.Filters' | translate}}
+      </button>
+      <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+        <h4> {{'marketplace.common.QuickFilter' | translate}} </h4>
+        <form class="filter-form">
+          <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+            <app-common-form *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+              [control]="dynamicObjControls[val]?.control" [label]="dynamicObjControls[val]?.label"
+              [inputId]="dynamicObjControls[val]?.inputId" [aliasName]="dynamicObjControls[val]?.aliasName"
+              [placeholder]="dynamicObjControls[val]?.placeholder" [customData]="dynamicObjControls[val]?.customData">
+            </app-common-form>
+          </div>
+          <div class="filter-btn flex">
+            <button class="button-reg btn-sm primary" (click)="applyFilter()">
+              {{'marketplace.common.ApplyFilter' | translate}}
+            </button>
+            <button class="button-reg btn-sm tertiary" (click)="filterReset('')">
+              {{'marketplace.common.Reset' | translate}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex product-wrap example-full-width">
+  <div class="product-table">
+
+    <!--Loader -->
+    <div class="spinner-wrapper">
+      <app-global-loader [isShow]="sandbox.historyListLoading$ | async"
+        style="transform: translate(38%, 50%);position:absolute">
+      </app-global-loader>
+    </div>
+    <div class="table-responsive">
+
+      <!-- common -table -->
+      <app-common-table [customTemplate]="{ totalAmount: itemTemplateRef }" [HeadArray]="customTable"
+        [GridArray]="settlementList" (buttonChangeEvent)="buttonAction($event)" [selectAll]="tableCheckbox">
+      </app-common-table>
+
+      <ng-template #itemTemplateRef let-item let-index="index">
+        <span><span>{{item.totalAmount ? currency.symbol : ""}}</span> {{ item.totalAmount ? item.totalAmount: "-"
+          }}</span>
+      </ng-template>
+
+      <!--No data found -->
+      <div class="nodata-found" *ngIf="(sandbox.historyListLoaded$ | async)  && settlementList.length == 0">
+        <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+        <h5>{{'marketplace.payments.DataNotFound'| translate}}</h5>
+    </div>
+
+      <!--pagination -->
+      <div class="pagination flex"
+        *ngIf="(sandbox.historyListLoaded$ | async) && (sandbox.historyListCount$ | async) > limit">
+        <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+          [totalItems]="sandbox.historyListCount$ | async" [pageSize]="limit" (pageChange)="onPageChange($event)">
+        </app-reusable-pagination>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bulk Action -->
+<app-bulk-action *ngIf="selectedDatas?.length > 0" [count]="selectedDatas?.length" [bulkList]="bulkAction"
+  (actionEvent)="actionType($event)"></app-bulk-action>
+
+<!-- <div *ngIf="sandbox.excelLoading$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+
+<div class="row products-section vendor-section">
+    <div class="col-12">
+        <div class="flex filter-row">
+            <div class="filter-lft">
+                <h2>  {{"marketplace.common.totalPaymentCount"|translate}} ({{(sandbox.historyListCount$ | async)}})</h2>
+            </div>
+            <div class="filter-rht flex" (keyup.Tab)="focusInput()">
+                <div class="added-filter flex" *ngFor="let filter of filterSearch | keyvalue">
+                    <div class="added-filter-col flex" *ngIf="filter.value">
+                        <span>{{filter.key}} : {{ filter.value }} </span>
+                        <button (click)="removeFilter(filter)">
+                          <img src="assets/img/close.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-search">
+
+                    <input type="text" appNoLeadingSpace [placeholder]="'marketplace.common.Search'|translate" [(ngModel)]="keyword" #myInput (keydown.enter)="searchList()"
+                        (change)="keywordchange($event.target.value)">
+                    <span> / </span>
+                </div>
+                <div class="dropdown filter-dropdown" ngbDropdown #myDropdown="ngbDropdown" [autoClose]="false">
+                    <button class="button-reg tertiary btn-sm" ngbDropdownToggle> <img src="assets/img/filter.svg" alt="">
+                        {{"marketplace.common.Filters"|translate}}</button>
+                    <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+                        <form [formGroup]="filterForm" class="filter-form">
+                            <div class="input-group">
+                                <div class="ig-row"> 
+
+                                    <label for="firstName">{{'marketplace.payments.CompanyName'| translate}}</label>
+                                    <input type="text" appNoLeadingSpace class="form-control" placeholder="{{'placeholder.Company Name'|translate}}" formControlName="keyword" />
+                                </div>
+                            </div>
+                
+                            <div >
+                                <div class="form-group">
+                                    <label for="fromDate">{{'marketplace.payments.FromDate'| translate}}</label>
+                                    <div class="ig-row">
+                                        <mat-form-field class="floating-date">
+                                            <input matInput [matDatepicker]="pickerFromDate" placeholder="dd/mm/yyyy" class="date"
+                                                formControlName="fromDate" readonly>
+                                            <mat-datepicker-toggle matSuffix [for]="pickerFromDate"></mat-datepicker-toggle>
+                                            <mat-datepicker #pickerFromDate></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{ 'marketplace.payments.ToDate' | translate }}</label>
+                                    <div class="ig-row">
+                                        <mat-form-field class="floating-date">
+                                            <input matInput [matDatepicker]="pickerToDate" placeholder="dd/mm/yyyy" class="date"
+                                                formControlName="toDate" readonly>
+                                            <mat-datepicker-toggle matSuffix [for]="pickerToDate"></mat-datepicker-toggle>
+                                            <mat-datepicker #pickerToDate></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                
+                            <div class="ff-date-row flex">
+                                <div class="form-group">
+                                    <div class="ig-row">
+                                        <label for="firstName">{{'marketplace.settlement.RangeFrom'| translate}}</label>
+                                        <input type="text" appNoLeadingSpace appOnlyNumber class="form-control"
+                                            placeholder="{{'marketplace.settlement.RangeFrom'| translate}}" formControlName="rangeFrom" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="ig-row">
+                                        <label for="firstName">{{'marketplace.settlement.RangeTo'| translate}}</label>
+                                    <input type="text" appNoLeadingSpace appOnlyNumber class="form-control"
+                                        placeholder="{{'marketplace.settlement.RangeTo'| translate}}" formControlName="rangeTo" />
+                                    </div>
+                                 
+                                </div>
+                            </div>
+                            <div class="filter-btn flex">
+                                <button type="submit" class="button-reg btn-sm primary" (click)="applyFilter()">
+                                    {{'marketplace.product.ApplyFilters'| translate}} </button>
+                                <button class="button-reg btn-sm tertiary" (click)="resetFilter()">{{'marketplace.product.Reset'| translate}}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                
+             </div>
+          
+            
+              
+            </div>
+           
+     
+    </div>
+</div>
+
+<div class="flex product-wrap example-full-width">   
+    <div class="product-table" >
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="sandbox.historyListLoading$ | async" style="transform: translate(0%, 50%);position:absolute"></app-global-loader>
+        </div>
+        <div class="table-responsive">
+            <table style="margin: 0;" class="table" *ngIf="(sandbox.historyList$ | async)?.length > 0">
+                <thead>
+                    <tr>
+                        <th scope="col" width="35px">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" id="checkbox1" class="custom-control-input" [(ngModel)]="selectedAll" (change)="selectAll($event)" [ngModelOptions]="{standalone: true}">
+                                    <label style="cursor:pointer" class="custom-control-label" for="checkbox1"></label>
+                                </div>
+                            </div>
+                        </th>
+                        <th scope="col">{{'marketplace.settlement.Title'| translate}}</th>
+                        <th scope="col" class="text-center">{{'marketplace.settlement.SettlementDate'| translate}}</th>
+                        <th scope="col" class="text-center">{{'marketplace.settlement.NoofOrders'| translate}}</th>
+                        <th scope="col" class="text-right">{{'marketplace.settlement.TotalSettlementValue'| translate}}</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let array of sandbox.historyList$ | async">
+                        <th scope="row">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" [id]="array.id" class="custom-control-input chk" [(ngModel)]="array.selected" (change)="checkIfAllSelected()" [value]="array.productId" [ngModelOptions]="{standalone: true}">
+                                    <label style="cursor:pointer" class="custom-control-label" [for]="array.id"></label>
+                                </div>
+                            </div>
+                        </th>
+                        <td class="name">{{array.title}}</td>
+                        <td class="text-center">{{ array.createdDate | dynamicDate: "dd MMM yyyy" }}</td>
+                        <td class="text-center">{{ array.noOfOrders }}</td>
+                        <td class="text-right">
+                            <span>{{array.totalAmount?currency.symbol:""}}</span> {{ array.totalAmount?array.totalAmount:"-" }}</td>
+                        <td width="100px" class="text-center">
+                            <a href="javascript:void(0)" (click)="viewSettlementDetails(array)"> <img src="assets/img/eye.svg" alt="eye"> </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="data-product-not-available" *ngIf="(sandbox.historyList$ | async)?.length == 0">
+                <img src="assets/img/cloud-computing.svg" alt="">
+                <p>{{'Marketing.ItemsNotFound'|translate}}</p>
+            </div>
+
+
+            <div class="flex table-footer" *ngIf="(sandbox.historyList$ | async)?.length > 0">
+                <div class="view-rec"></div>
+                <div class="view-right">
+                     <app-reusable-pagination
+                    *ngIf="(sandbox.historyListCount$ | async)  > 0"
+                    [type]="'numbers'"
+                    [currentPage]="currentPage"
+                    [totalItems]="(sandbox.historyListCount$ | async)"
+                    [pageSize]="this.pageSize"
+                    (pageChange)="onPageChange($event)"
+                  ></app-reusable-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="selected-container flex" *ngIf="filterDataId.length >0">
+    <p>{{filterDataId.length}} {{"marketplace.common.itemsSelected"|translate}} </p>
+    <div class="selected-btn flex">
+        <button [ngClass]="{'blur':filterDataId.length==0}" [disabled]="filterDataId.length==0" (click)="exportPayment()"
+            href="javascript:void(0)"> <img src="assets/img/export-white.svg" alt="export">
+            {{"marketplace.common.Export"|translate}}   
+        </button>
+    </div>
+    <button class="custom-control-input"
+        id="deselectAllButton" (click)="deselectAll(payments)">
+        {{"marketplace.common.DeselectAll"|translate}} 
+    </button>
+</div> -->

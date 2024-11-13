@@ -1,0 +1,248 @@
+<div *ngIf="paymentSandbox.exportExcelLoading$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+<div class="row products-section vendor-section">
+
+    <!-- filter -->
+
+    <div class="row products-section vendor-section">
+        <div class="flex filter-row">
+            <div class="filter-lft">
+                <h2>{{"marketplace.common.payment" |translate}}({{ (paymentSandbox.getPaymentListCount$ | async) }})
+                </h2>
+            </div>
+            <div class="filter-rht flex">
+                <div class="added-filter flex" *ngFor="let filter of filterSearch | keyvalue">
+                    <div class="added-filter-col flex" *ngIf="filter.value">
+                        <span> {{ filter.key }} : {{ filter.value }} </span>
+                        <button (click)="removeFilter(filter)">
+                            <img src="assets/img/close.svg" alt="" />
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-search">
+                    <input type="text" appNoLeadingSpace [placeholder]="'marketplace.common.Search'|translate"
+                        [(ngModel)]="keyword" (change)="keywordchange($event.target.value)"
+                        (keydown.enter)="searchList()" #myInput />
+                    <span> / </span>
+                </div>
+                <div class="dropdown filter-dropdown" [autoClose]="false" ngbDropdown #myDropdown="ngbDropdown">
+                    <button class="button-reg tertiary btn-sm" ngbDropdownToggle>
+                        <img src="assets/img/filter.svg" alt="" /> {{"marketplace.common.Filters" |translate}}
+                    </button>
+                    <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+                        <form [formGroup]="paymentList" class="filter-form">
+
+                            <div class="input-group">
+                                <label for="firstName">{{'marketplace.payments.Customername'| translate}}</label>
+                                <div class="ig-row">
+                                    <input type="text" appNoLeadingSpace id="firstName" class="form-control"
+                                        formControlName="keywordInput"
+                                        placeholder="{{'marketplace.payments.Customername'| translate}}" />
+                                </div>
+                            </div>
+                            <div class="ff-date-row flex">
+
+                                <div class="form-group">
+                                    <label>{{ 'Customers.Customer.DateAdded' | translate }}</label>
+                                    <div class="ig-row">
+                                        <mat-form-field class="floating-date">
+                                            <input matInput [matDatepicker]="pickerFromDate" placeholder="dd/mm/yyyy"
+                                                class="date" formControlName="fromDateInput" readonly>
+                                            <mat-datepicker-toggle matSuffix
+                                                [for]="pickerFromDate"></mat-datepicker-toggle>
+                                            <mat-datepicker #pickerFromDate></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>{{ 'marketplace.payments.ToDate' | translate }}</label>
+                                    <div class="ig-row">
+                                        <mat-form-field class="floating-date">
+                                            <input matInput [matDatepicker]="pickerToDate" placeholder="dd/mm/yyyy"
+                                                class="date" formControlName="toDateInput" readonly>
+                                            <mat-datepicker-toggle matSuffix
+                                                [for]="pickerToDate"></mat-datepicker-toggle>
+                                            <mat-datepicker #pickerToDate></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-btn flex">
+                                <button class="button-reg btn-sm primary" type="button" (click)="onSubmit()">
+                                    {{'marketplace.common.ApplyFilter' | translate}}
+                                </button>
+                                <button class="button-reg btn-sm tertiary" type="button" (click)="reset()">
+                                    {{'marketplace.common.Reset' | translate}}
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Filter-->
+    <div class="flex product-wrap example-full-width">
+        <div class="product-table ">
+            <div class="spinner-wrapper">
+                <app-global-loader [isShow]="paymentSandbox.getPaymentListLoading$ | async"
+                    style="transform: translate(0%, 50%);position:absolute"></app-global-loader>
+            </div>
+            <div class="table-responsive">
+                <table class="table" id="myTable">
+                    <thead>
+                        <tr>
+                            <th class="check-table" scope="col" [appHideIfUnauthorized]="'export-all-payment'">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input *ngIf="paymentSandbox.getPaymentList$ | async as payments" type="checkbox"
+                                        class="custom-control-input" id="checkbox1" (change)="selectAll()"
+                                        [(ngModel)]="selectedAll" />
+                                    <label style="cursor: pointer;" class="custom-control-label"
+                                        for="checkbox1"></label>
+                                </div>
+                            </th>
+                            <th scope="col">{{'marketplace.payments.OrderID'| translate}}</th>
+
+                            <th scope="col">{{'marketplace.payments.Customername'| translate}}</th>
+                            <th scope="col">{{'marketplace.payments.PaymentDate'| translate}}
+                            </th>
+                            <th scope="col" width="120px" style="text-align: center">
+                                {{'marketplace.payments.TransactionID'|
+                                translate}}</th>
+                            <th scope="col" width="100px" style="text-align: right">{{'marketplace.payments.Amount'|
+                                translate}}</th>
+                            <th scope="col" width="100px" style="text-align: right" class="commission">
+                                {{'marketplace.payments.Commission'| translate}}</th>
+                            <th scope="col" width="150px" style="text-align: right;white-space: nowrap;">
+                                {{'marketplace.payments.( Amount - Commission )'| translate}} </th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="panel">
+                        <ng-container *ngFor="let payment of paymentSandbox.getPaymentList$ | async;let i = index">
+                            <tr>
+                                <th class="check-table" scope="row" [appHideIfUnauthorized]="'export-all-payment'">
+
+                                    <div class="custom-control custom-checkbox mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input" id="{{ payment.orderId }}"
+                                            [ngModelOptions]="{ standalone: true }" [(ngModel)]="payment.selected"
+                                            (change)="checkIfAllSelected()" />
+                                        <label style="cursor: pointer;" class="custom-control-label"
+                                            for="{{ payment.orderId }}"></label>
+                                    </div>
+
+                                </th>
+                                <td class="vendid name" style="cursor:pointer; position: relative;"
+                                    (click)="payment.isCollapsed = !payment.isCollapsed">
+                                    <span class="id">{{payment.orderPrefixId}}</span>
+                                </td>
+
+                                <td class="name">{{payment.shippingFirstname}}</td>
+                                <td>{{payment.createdDate | dynamicDate :'MMM d, y'}}</td>
+                                <td class="text-center">
+                                    <!-- <p>{{payment.paymentDetails}}</p> -->
+                                    <span class="tags-action tag-cod">{{payment.paymentType}}</span>
+                                </td>
+                                <td class="text-right text-nowrap">
+                                    {{payment.total| currencysymbol}}
+                                </td>
+                                <td class="commission text-right text-nowrap">
+                                    {{payment.commissionAmount| currencysymbol}}
+                                </td>
+                                <td class="text-right text-nowrap">
+                                    {{(payment.total - payment.commissionAmount)| currencysymbol}}
+                                </td>
+                            </tr>
+
+                            <tr id="demo-{{i + 1}}" class="acc-table" [ngbCollapse]="payment.isCollapsed">
+                                <td colspan="9" class="hiddenRow"
+                                    [@smoothCollapse]="payment.isCollapsed?'initial':'final'">
+                                    <table class="table">
+                                        <!-- <tr>
+                                            <th class="text-right" colspan="9"><a href="javascript:void(0)"
+                                                    (click)="payment.isCollapsed = !payment.isCollapsed"
+                                                    class="acc-tbl-close"> <img src="assets/img/close.svg" alt=""> </a>
+                                            </th>
+                                        </tr> -->
+                                        <thead>
+                                            <tr>
+                                                <th>{{'marketplace.payments.SubOrderID'| translate}}</th>
+                                                <th>{{'marketplace.payments.CompanyName'| translate}}</th>
+                                                <th>{{'marketplace.payments.Product'| translate}}</th>
+                                                <th class="text-center">{{'marketplace.product.Quantity'| translate}}</th>
+                                                <th class="text-right">{{'marketplace.payments.Amount'| translate}}</th>
+                                                <th class="text-right">{{'marketplace.product.Discount'| translate}}</th>
+                                                <th class="text-right">{{'marketplace.payments.CouponDiscount'| translate}}
+                                                </th>
+                                                <th class="text-right">{{'marketplace.payments.Commission'| translate}}</th>
+                                                <th class="text-right">{{'marketplace.payments.( Amount - Commission )'|
+                                                    translate}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let subOrder of payment.subOrderDetails">
+                                                <td class="oid">#{{subOrder.orderProductPrefixId}}</td>
+                                                <td>{{subOrder.companyName}}</td>
+                                                <td style="white-space: normal;" width="35%">{{subOrder.name}}</td>
+                                                <td class="text-center">{{subOrder.quantity}}</td>
+                                                <td class="text-right text-nowrap">
+                                                    {{subOrder.basePrice | currencysymbol}}
+                                                </td>
+                                                <td class="text-right text-nowrap">
+                                                    {{  (subOrder.discountAmount ? subOrder.discountAmount : 0) | currencysymbol  }}
+                                                </td>
+                                                <td class="text-right text-nowrap">
+                                                    {{ ((subOrder.couponDiscountAmount ? subOrder.couponDiscountAmount : 0)
+                                                    | currencysymbol)  }}
+                                                </td>
+                                                <td class="text-right text-nowrap">
+                                                    {{ (subOrder.commissionAmount | currencysymbol)  }}
+                                                </td>
+                                                <td class="text-right text-nowrap">
+                                                    {{ (subOrder.total - subOrder.commissionAmount) | currencysymbol
+                                                    }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+
+                <!-- No Data Found -->
+                <div class="nodata-found" *ngIf="(paymentSandbox.getPaymentList$ | async)?.length == 0 && !(paymentSandbox.getPaymentListLoading$ | async)">
+                    <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+                    <h5>{{'marketplace.payments.DataNotFound'| translate}}</h5>
+                </div>
+
+                <!-- Pagination -->
+                <app-reusable-pagination *ngIf="(paymentSandbox.getPaymentList$ | async)?.length > 0" [type]="'numbers'"
+                    [currentPage]="currentPage" [totalItems]="(paymentSandbox.getPaymentListCount$ | async)"
+                    [pageSize]="pageSize" (pageChange)="onPageChange($event)">
+                </app-reusable-pagination>
+            </div>
+        </div>
+        <!--Table-->
+    </div>
+
+    <div class="selected-container flex" *ngIf="filterDataId.length >0">
+        <p>{{filterDataId.length}} items selected</p>
+        <div class="selected-btn flex">
+
+            <button [ngClass]="{'blur':filterDataId.length==0}" [disabled]="filterDataId.length==0"
+                (click)="exportPayment()" href="javascript:void(0)"> <img src="assets/img/export-white.svg"
+                    alt="export">
+                Export </button>
+        </div>
+        <button *ngIf="paymentSandbox.getPaymentList$ | async as payments" class="custom-control-input"
+            id="deselectAllButton" (click)="deselectAll(payments)">
+            Deselect All
+        </button>
+    </div>

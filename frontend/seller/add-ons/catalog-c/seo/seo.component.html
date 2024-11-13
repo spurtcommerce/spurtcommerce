@@ -1,0 +1,64 @@
+<header>
+    <h1>{{editId ? (name + ('common.edit' | translate)) : ('common.Create Product' | translate)}}</h1>
+</header>
+
+<ng-container>
+
+
+    <div class="product-add-container">
+        <div class="product-add-nav">
+            <div class="product-add-nav-col completed">
+                <p>{{'common.Completed' | translate}}</p>
+                <h3>1. {{'common.Choose Categories' | translate}}</h3>
+            </div>
+            <div class="product-add-nav-col completed">
+                <p>{{'common.Completed' | translate}}</p>
+                <h3>2. {{'common.Product Details' | translate}}</h3>
+            </div>
+            <div class="product-add-nav-col completed">
+                <p>{{'common.Completed' | translate}}</p>
+                <h3>3. {{'common.Product Specification' | translate}}</h3>
+            </div>
+            <div class="product-add-nav-col current">
+                <p>{{"common.Current" | translate}}</p>
+                <h3>4. {{"common.Seo" | translate}}</h3>
+            </div>
+            <div class="product-add-nav-col">
+                <p>{{'common.Yet to create' | translate}}</p>
+                <h3>5. {{'common.Pricing Setup' | translate}}</h3>
+            </div>
+
+        </div>
+
+
+        <section class="addon-grd">
+
+            <!-- <header>
+                <h1>{{editId ? (name + ('common.edit' | translate)) : ('common.Create Product' | translate)}}</h1>
+            </header>
+             -->
+             <div class="data-product-not-available addon-style">
+                <img src="assets/imgs/add-on.svg" alt="">
+                <h3> {{'newReq.Seo' | translate}}</h3>
+                <p>{{'Catalog.common.Thisfeatureiscurrentlynotactiveforyou'|translate}} only for enterprise <a href="https://spurtcommerce.com/extension/b2csolutions/product-attribute" target="_blank" style="text-decoration: underline !important;">Buy Now</a>
+                </p>
+            </div>
+        
+        
+        </section>
+
+
+    </div>
+
+</ng-container>
+
+
+
+
+
+
+<div class="product-save-btn">
+    <button class="cancel" (click)="cancel()">{{'common.Cancel' | translate}}</button>
+    <button class="prev" (click)="prev()">{{'common.Previous' | translate}}</button>
+    <button class="save" (click)="next()">{{'common.Next' | translate}}</button>
+</div>

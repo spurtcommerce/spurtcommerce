@@ -1,0 +1,92 @@
+<header>
+    <h1>{{'perSonalizedSettings.personalisedSetting'|translate}}</h1>
+</header>
+<div class="page-content page-min-content">
+    <div class="details-row3 mb-35">
+
+        <!-- //choose Language -->
+        <div class="input-group">
+            <label for="">
+                {{'perSonalizedSettings.chooseLanguage'|translate}} 
+                <p>{{'perSonalizedSettings.chooseLanguageDescription'|translate}}</p>
+            </label>
+            <div class="ig-row">
+
+                <ng-select  (change)="Languagechange($event)" [items]="LanguageArray" bindValue="languageId" bindLabel="name"
+                     placeholder="{{'perSonalizedSettings.selectLanguage'|translate}}" [(ngModel)]="dataSet">
+
+                    <ng-template ng-label-tmp let-item="item">
+                        <div style="display: flex;align-items: center;gap:10px">
+                            <img height="10" width="15"
+                                    [src]="imageUrl + '?path=' + item?.imagePath + '&name=' + item?.image + '&width=200px&height=100px'" />
+                               <span style="font-size: .8125rem;">{{item?.name}}</span>
+                        </div>
+                    </ng-template>
+
+                    <ng-template ng-option-tmp let-item="item" let-index="index">
+                        <div style="display: flex;align-items: center;gap:10px">
+                            <img height="10" width="15"
+                                [src]="imageUrl + '?path=' + item?.imagePath + '&name=' + item?.image + '&width=200px&height=100px'" />
+                            <span style="font-size: .8125rem;">{{item.name}}</span>
+                        </div>
+
+                    </ng-template>
+
+                </ng-select>
+
+                <!-- <ng-select (change)="Languagechange($event)" [items]="LanguageArray" bindValue="name" bindLabel="name"
+                    [hideSelected]="true" [closeOnSelect]="false" placeholder="Select Language">
+                </ng-select> -->
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="">
+                {{'perSonalizedSettings.timeZone'|translate}}
+                <p>{{'perSonalizedSettings.timeZoneDescription'|translate}}</p>
+            </label>
+            <div class="ig-row">
+                <ng-select [items]="zone" [(ngModel)]="timeZone"
+                placeholder="{{'perSonalizedSettings.selectTimeZone'|translate}}"
+                bindLabel="name" 
+                bindValue="name" 
+               >
+     </ng-select>
+            </div>
+        </div>
+        <div></div>
+        <div class="input-group">
+            <label for="">
+                {{'perSonalizedSettings.dateFormat'|translate}}
+                <p>{{'perSonalizedSettings.dateFormatDescription'|translate}}</p>
+            </label>
+            <div class="ig-row">
+                <ng-select [items]="date" 
+                placeholder="{{'perSonalizedSettings.selectDateFormat'|translate}}"
+                bindLabel="name" 
+                bindValue="name" 
+                [(ngModel)]="dateFormatChange"
+               >
+     </ng-select>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="">
+                {{'perSonalizedSettings.timeFormat'|translate}} 
+                <p>{{'perSonalizedSettings.timeFormatDescription'|translate}}</p>
+            </label>
+            <div class="ig-row">
+                <ng-select [items]="time" 
+                placeholder="{{'perSonalizedSettings.selectTimeFormat'|translate}}"
+                bindLabel="name" 
+                bindValue="name"
+                [(ngModel)]="timeFormatChange" 
+               >
+     </ng-select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-save-btn">
+    <button class="cancel" (click)="cancel()">{{'perSonalizedSettings.cancel'|translate}}</button>
+    <button class="save" (click)="submit()">{{'perSonalizedSettings.save'|translate}}</button>
+</div>

@@ -1,0 +1,101 @@
+
+<div class="flex setting2-inner-header">
+  <h3 class="modal-header__title">{{'Settings.nav.UpdateSettings'|translate}}</h3>
+  <a href="javascript:void(0)" (click)="close()"> <img src="assets/imgs/close-modal.svg" alt=""> </a>
+</div>
+
+
+<div
+    class='Language_page_wrapper__Qb2id undefined Language_page_wrapper_normal__oteTI Language_add_page_wrapper__KbanA'>
+    <div class='add_user_container add_role_container'>
+     
+      
+        <div class="addproduct-wrap p-0">
+
+            <div class="card ap-general">
+               
+                <div class="ap-body">
+                  <form [formGroup]="myForm" *ngIf="pluginId != 2">
+                    <div class="row" *ngIf="jsonFormData?.controls && jsonFormData?.controls.length > 0">
+                      <ng-container *ngFor="let control of jsonFormData?.controls">
+                        <div class="col-lg-12 col-xs-12">
+                          <div class="form-group flex">
+                            <label style="width: auto; margin-right: 15px;" *ngIf="control.label !== ''">{{ control.label }}</label>
+                            <input *ngIf="['text','number'].includes(control.type)" #formValue type="{{control?.type}}"
+                              [formControlName]="control.name" [value]="control.value"
+                              [ngClass]="{ 'is-invalid': submitted && formValue.value == ''}" class="form-control" />
+                            <div class="toggle" *ngIf="control.type === 'checkbox'">
+                              <input class="tgl tgl-light" id="cb1" [formControlName]="control?.name" [checked]="control.value"
+                                type="checkbox" />
+                              <label class="tgl-btn" for="cb1"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </form>
+                  <!-- Form field for the toggle specification  -->
+                  <form [formGroup]="myForms" *ngIf="pluginData.pluginName == 'ProductAttribute'">
+                    <div class="row">
+                      <div class="col-lg-12 col-xs-12">
+                        <div class="form-group flex" style="gap: 140px;">
+                          <div>
+                            <label style="width: auto; margin-right: 15px;" for="simple">Simple</label>
+                            <div class="toggle">
+                              <input class="tgl tgl-light" id="simple" formControlName="simple" type="checkbox"
+                                (change)="onCheckboxChange('simple', $event)" />
+                              <label class="tgl-btn" for="simple"></label>
+                            </div>
+                          </div>
+                          <div>
+                            <label style="width: auto; margin-right: 15px;" for="advance">Advance</label>
+                            <div class="toggle">
+                              <input class="tgl tgl-light" id="advance" formControlName="advance" type="checkbox"
+                                (change)="onCheckboxChange('advance', $event)" />
+                              <label class="tgl-btn" for="advance"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+              
+              
+                  <!-- edit form for payment addon  -->
+                  <div class="col-lg-12 col-xs-12" *ngIf="pluginData.pluginType == 'Payment'">
+                    <div class="form-group">
+                      <div class="image-col">
+                        <div class="img-dflt">
+                          <div class="input">
+                            <img class="imege" *ngIf="!postImageUrl" src="assets/img/add-photo-big.png" alt="add photo">
+                            <img *ngIf="postImageUrl" [src]="postImageUrl">
+                          </div>
+                          <input type="file" name="userImg" (change)="uploadChange($event)" accept="image/*,.png,.jpeg" #filePath
+                            style="display: none">
+                          <button type="button" class="upload-btn" (click)="uploadButtonClick()">
+                            {{'Settings.Local.Language.UploadPic' | translate}}
+                          </button>
+                        </div>
+                        <p style="font-size: 10px">{{support}}</p>
+                        <span *ngIf="submitted && !postImageUrl"
+                          style="color:red; font-size: 12px;">{{'shared.imagemanagerpopup.ImageRequired' | translate}}</span>
+                        <div *ngIf="imageSizeError" class="upload-error validation-error"> {{ imageSizeSupport }} </div>
+                        <div *ngIf="imageTypeError" class="upload-error validation-error"> {{ imageTypeSupport }} </div>
+                      </div>
+              
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="action-button-container flex" *ngIf="pluginData.pluginName != 'ProductAttribute'">
+  <button class="button-reg btn-md tertiary" (click)="close()">{{'Settings.system.Cancel' | translate}}</button>
+  <button type="submit" class="button-reg btn-md primary"
+  (click)="pluginId != 1 ?onSubmit() : updateLogo()">{{'Settings.nav.Submit'|translate}}</button>
+</div>
+
+

@@ -1,0 +1,90 @@
+<div *ngIf="appSandbox.getCustomersGroupListLoading$ | async" class="loading-data">
+  <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+<div class="flex setting-inner-header">
+
+    <div class="settings-center-wrapper addnewuser">
+        <div class="new-user">
+            <form (ngSubmit)="onSubmit()" [formGroup]="customerGroupForm" class="form-horizontal m-t-20">
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="form-group">
+                          <!-- {{orderStatusInfo| json}} -->
+
+                            <label>{{'CMS.Job.Name'|translate}}<sup class="supvalidation">*</sup></label>
+                            <input type="text" formControlName="name" class="form-control" placeholder="{{'CMS.PageGroup.GroupName'|translate}}" [ngClass]="{'is-invalid': submitted && f.name.errors}" />
+                            <div *ngIf="submitted && f.name.errors" class="validation-error">
+                                <div *ngIf="f.name.errors.required">
+                                    {{'CMS.PageGroup.GroupNameIsRequired'|translate}}
+                                </div>
+                                <div *ngIf="customerGroupForm.controls['name'].hasError('maxlength')">{{'CMS.BannerError.MustBe30CharacterLong'|translate}}</div>
+                                <div *ngIf="customerGroupForm.controls['name'].hasError('pattern')">{{'marketplace.Errors.Mustbestring' | translate}}</div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="form-group">
+                            <label>{{'CMS.Blog.Description'|translate}}<sup class="supvalidation">*</sup></label>
+                            <input type="text" formControlName="description" class="form-control" placeholder="{{'CMS.Blog.Description'|translate}}" [ngClass]="{'is-invalid': submitted && f.description.errors}" />
+                            <div *ngIf="submitted && f.description.errors" class="validation-error">
+                                <div *ngIf="f.description.errors.required">
+                                    {{'Customers.Group.GroupDescriptionRequired'|translate}}
+                                </div>
+                                <div *ngIf="customerGroupForm.controls['description'].hasError('maxlength')">{{'CMS.BannerError.MustBe255CharacterLong'|translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label">{{ 'Settings.Local.Orderstatus.Status' | translate }}
+            <sup class="supvalidation">*</sup></label
+          >
+          <ng-select placeholder="{{ 'Customers.Customer.SelectStatus' | translate}}" [ngClass]="{ 'error-fields': submitted && f.status.errors }" [searchable]="false" formControlName="status" [clearable]="false">
+            <ng-option [value]='1'>{{
+              'Settings.Local.Orderstatus.Enabled' | translate
+            }}</ng-option>
+            <ng-option [value]='0'>{{
+              'Settings.Local.Orderstatus.Disabled' | translate
+            }}</ng-option>
+            </ng-select>
+          <div *ngIf="submitted && f.status.errors" class="validation-error">
+            <div *ngIf="f.status.errors.required">
+              {{'Customers.Group.GroupStatusIsRequired'|translate}} 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-xs-12">
+        <div class="form-group">
+          <label class="control-label">{{'Customers.Group.ColorCode'|translate}}<sup class="supvalidation">*</sup> </label><br />
+                            <input class="form-control" placeholder="{{'placeholder.Color Code'|translate}}" [(ngModel)]="color" [ngClass]="{ invalid: colorRequire }" [(colorPicker)]="color" formControlName="colorCode" (colorPickerChange)="onchange($event)" [value]="color" />
+                            <div *ngIf="colorRequire" class="validation-error">
+                                {{'Customers.Group.GroupStatusColorRequired'|translate}}
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+
+                        <div class="flex vac-btns">
+                            <button type="submit" class="button-reg primary">
+                              <img src="assets/img/tick-outline-white.svg" alt="save">
+                              {{ 'Settings.Local.Orderstatus.Save' | translate }}
+                            </button>
+                            <button (click)="backToList()" class="button-reg secondary">
+                              <img src="assets/img/close-outline-green.svg" alt="cancel">
+                              {{ 'Settings.Local.Orderstatus.Cancel' | translate }}
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

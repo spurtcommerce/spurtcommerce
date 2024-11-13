@@ -1,0 +1,182 @@
+<div class="product-list-wrap">
+
+    <div class="allorders-filter-row flex">
+
+
+        <h3>{{'common.Orderinvoice'|translate}}</h3>
+        <div class="aofr-rht flex"> 
+
+            <div class="select-per-page flex">
+                <ng-select [items]="perpage"
+                bindLabel="name"
+                [searchable]="false"
+                [(ngModel)]="selectedpage"
+                [clearable]="false"
+                (change)="GetPageLimit()"
+                >
+             </ng-select>
+                <p>{{'common.PerPage'|translate}}</p>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="assets/imgs/search-dark.svg" alt="" class="default-icon">
+                    <img src="assets/imgs/search-white.svg" alt="" class="dark-icon">
+                </button>
+              <div class="dropdown-menu dropdown-menu-right filter-search" aria-labelledby="dropdownMenuButton" #dropdownContent>
+                 <form class="">
+                         <h4>{{'common.Search'|translate}}
+                        </h4>
+                  <div class="input-group">
+                    <div class="ig-row">
+                           <input type="text" class="form-input search" placeholder="{{'common.Search Customer NameInvoice No'|translate}}	" (input)="searchList($event.target.value)"
+                               [(ngModel)]="keyword" [ngModelOptions]="{standalone:true}">
+                            <button (click)='remove()'> 
+                                <img src="assets/imgs/close.svg" alt="" class="default-icon"> 
+                                <img src="assets/imgs/close-white2.svg" alt="" class="dark-icon"> 
+                            </button>
+                      </div>
+                  </div>
+                 </form>
+              </div>
+       </div>
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="assets/imgs/filter.svg" alt="" class="default-icon">
+                        <img src="assets/imgs/filter-white.svg" alt="" class="dark-icon">
+                    </button>                  
+                    <div  class="dropdown-menu dropdown-menu-right filter-menu-dropdown" #dropdownContentFilter onclick="event.stopPropagation()" aria-labelledby="dropdownMenuButton">
+                        <form action="" class="flex" [formGroup]="filterForm">
+
+                            
+                            <div class="input-group ig-date">
+                                <p> {{'Sales.shared.from date'|translate}}</p>
+                                <input type="text" style="font-weight: 400; font-size: 12px;" readonly class="date" autocomplete="off" placeholder="From Date"
+                                    (dateSelect)="onDateSelect($event)" name="dp" id="cal-in" ngbDatepicker
+                                    #f="ngbDatepicker" formControlName="fromDate" [minDate]="" [maxDate]="minPickerDate"
+                                    (click)="f.toggle()">
+                                    <div class="error" style="color: red;position:absolute;bottom: -15px; font-size: 12px;">
+                                        {{dateError | translate}}
+                                    </div>
+                            </div>
+                            <div class="input-group ig-date">
+                                <p>{{'Sales.shared.to date'|translate}}</p>
+                                <input type="text" readonly class="date" name="dp" placeholder="To Date" style="font-weight: 400; font-size: 12px;" autocomplete="off" id="cal-in"
+                                    ngbDatepicker #d="ngbDatepicker" formControlName="toDate"
+                                    [ngClass]="{'disabled': dateError !== ''}" [minDate]="filterForm.value.fromDate"
+                                    [maxDate]="minPickerDate" (click)="setMinValue(d)">
+                                    <div class="error" *ngIf="isRequired"
+                                style="color: red;position:absolute;bottom: -15px; font-size: 12px;">
+                                {{'Sales.shared.to date is required'|translate}}
+                                </div>
+                            </div>
+                    
+                            <div class="input-group">
+                                <p> {{'Settings.nav.FirstName'|translate}}</p>
+                                 <input type="text" formControlName="FirstName" placeholder="{{'common.Enter FirstName'|translate}}" class="cus-name">
+                             </div>
+                             <div class="input-group">
+                                 <p> {{'Settings.nav.LastName'|translate}}</p>
+                                  <input type="text" formControlName="LastName" placeholder="{{'common.Enter LastName'|translate}}" class="cus-name">
+                              </div>
+                            <button class="button-reg primary" (click)="applyFilter()">{{'common.apply filters'|translate}}</button>
+                            <a class="reset-filter" (click)="resetFilter()"> {{'common.reset'|translate}}</a>
+                        </form>
+                    </div>
+                </div>   
+<!--                 
+                <div *ngIf="filterDataId.length > 0" class="search-right flex" [title]=" filterDataId.length === 0 ? 'Bulk export' : 'Export'">
+                    <button class="button-reg secondary" (click)="exportOrder()"> <img title="Export" alt="Export" style="width:16px" src="assets/imgs/export.svg">  {{'Sales.shared.export'|translate}}</button>
+                    <span class="multi-spin" *ngIf="(orderSandbox.exportArchiveOrderLoading$ | async)"><i
+                            class="fas fa-spinner fa-spin fa-2x" style="color: blue;"></i></span>
+                </div> -->
+            
+                <div *ngIf="filterDataId.length === 0" class="search-right flex" >
+                    <button class="button-reg secondary" [ngClass]="{'disabled':(orderSandbox.orderInvoiceList$| async)?.length === 0}" (click)="exportAllOrder()"> <img title="Export All" alt="Export All" src="assets/imgs/export.svg" style="width:16px"> {{'Sales.shared.export all'|translate}}</button>
+                    <span class="multi-spin" *ngIf="(orderSandbox.exportAllArchiveOrderLoading$ | async)"><i
+                            class="fas fa-spinner fa-spin fa-2x" style="color: blue;"></i></span>
+                </div>
+
+        </div>
+         </div>
+
+
+
+
+        
+
+
+<span *ngIf="filter && startDate && endDate " class="date-tag">From {{startDate | date: 'dd-MM-yyyy'}} To {{endDate | date: 'dd-MM-yyyy'}}
+    <img class="cursor" alt="Reset Filter" title="Reset Filter" (click)="resetDateFilter()" src="assets/imgs/close-white-ico.png">
+</span> 
+
+
+
+    <div class="loading" *ngIf="(orderSandbox.orderInvoiceListLoading$ | async)">
+        <app-loader></app-loader>
+    </div>
+    
+    <div class="table-responsive ">
+        <table class="table" [ngClass]="{'pay-table': (orderSandbox.downloadInvoiceLoading$ | async) || (orderSandbox.sendMailLoading$ | async)}">
+            <thead>
+                <tr>
+                    <th>{{'Sales.failedorders.Invoice No'|translate}}</th>
+                    <th>{{'Sales.failedorders.Customer'|translate}}</th>
+                    <th>{{'Sales.failedorders.Created Date'|translate}}</th>
+                    <th class="text-center">{{'Sales.failedorders.No of Products'|translate}}</th>
+                    <th class="text-right">{{'Sales.failedorders.Amount'|translate}}</th>
+                    <th class="text-right">{{'Sales.shared.action'|translate}}</th>
+
+                </tr>
+             </thead>
+            <tbody>
+                <tr *ngFor="let array of (orderSandbox.orderInvoiceList$ | async); let i = index;">
+
+                    <td>
+                        <span class="id">{{array?.invoiceNo}}</span>
+                    </td>
+                    <td >{{array.shippingFirstname}} {{array.shippingLastname}}</td>
+                    <td>{{array.createdDate | date:'dd/MM/yy'}}</td>
+                    <td class="text-center">{{array?.products}}</td>
+                    <td width="100px" class="price text-right">{{array?.total | currencysymbol: (array?.currencySymbolLeft ? array?.currencySymbolLeft : (array?.currencySymbolRight ? array?.currencySymbolRight : ''))}}</td>
+                    <td width="200px" class="text-right action-btn">
+                        <button (click)="downloadInvoice(array)"> 
+                            <img src="assets/imgs/download-lite.svg" alt="" class="default-icon">
+                            <img src="assets/imgs/download-white.svg" alt="" class="dark-icon">
+                            <i class="fas fa-spinner fa-spin fa-2x" *ngIf="(orderSandbox.downloadInvoiceLoading$ | async) && selectedOrderId == array?.orderId" style="color: blue;"></i>
+                        </button>
+                        <button  (click)="sendMail(array)"> 
+                            <img src="assets/imgs/mail-send.svg" alt="" title="Send Mail" class="default-icon">
+                            <img src="assets/imgs/mail-send-white.svg" alt="" title="Send Mail" class="dark-icon">
+                            <i class="fasz fa-spinner fa-spin fa-2x" *ngIf="(orderSandbox.sendMailLoading$ | async) && selectedOrderId == array?.orderId" style="color: blue;"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- <div class="no-data" *ngIf="(orderSandbox.archiveOrderList$ | async)?.length === 0 && (orderSandbox.archiveOrderListLoaded$ | async)">
+                    <span>{{'Sales.shared.no archive orders found'|translate}}</span> </div> -->
+    
+
+
+            </tbody>
+           
+         
+        
+
+        </table>
+   
+    <div class="nodata-row nodata-row-table" *ngIf="(orderSandbox.orderInvoiceList$| async)?.length === 0 && (orderSandbox. orderInvoiceListLoaded$ | async)" >
+        <img src="assets/imgs/nodata.svg" alt="">
+        <h4>{{'common.NoOrderInvoicesAvailableYet' | translate}}</h4>
+    </div>
+
+
+</div>
+
+
+
+
+
+<div class="pagination" *ngIf="(orderSandbox.orderInvoiceListCount$ | async)>0">
+    <div class="page-row">
+        <app-pagination class="active" [perPageCount]="perPageCount" [pages]="pageSize" [index]="pageindex" [length]="orderSandbox. orderInvoiceListCount$| async" (getPage)="onPageChange($event,value)"></app-pagination>
+    </div>

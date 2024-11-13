@@ -1,0 +1,57 @@
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.custom-control-input:focus~.custom-control-label::before {
+    box-shadow: unset !important;
+}
+
+.custom-control-label {
+    cursor: pointer !important;
+
+}
+
+:host ::ng-deep .dropdown-item.active,
+.dropdown-item:active {
+    color: black !important;
+    text-decoration: none !important;
+    background-color: #fff !important;
+}
+
+.table tr td .dropdown-menu {
+    min-width: 130px;
+}
+
+a {
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #acacac;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 !important;
+}
+
+
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+
+.toggleButton {
+    cursor: default !important;
+
+}
+
+.table-hover thead tr th:first-child {
+    width: 35px;
+}
+
+
+    .ellipsis-name {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap
+    }

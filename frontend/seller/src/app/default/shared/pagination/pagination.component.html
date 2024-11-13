@@ -1,0 +1,17 @@
+
+
+    <!-- <div class="" (click)="firstClick()">
+        <i class="fa fa-chevron-left page-left" style="padding: 0px"></i>
+    </div> -->
+
+    <button (click)="leftClick()">
+        <img src="assets/imgs/CaretLeft.svg" alt="">
+    </button>
+
+    <input readonly #paginatorInput class="paginator-input" value="{{ index}}" appOnlyNumber [ngModel]="index" />    
+
+    <button (click)="rightClick()">
+        <img src="assets/imgs/CaretRight.svg" alt="">
+    </button>
+
+    <p> of {{ length }}</p>

@@ -1,0 +1,173 @@
+
+.validation-error {
+    color: red !important;
+    font-size: 12px;
+}
+
+.is-invalid {
+    border-color: red !important;
+}
+
+.imege{
+        
+    }
+
+
+
+:host::ng-deep.ck-editor__editable_inline {
+    min-height: 200px !important;
+    } 
+    
+
+::ng-deep.ck.ck-label {
+   display: none !important;
+    } 
+
+    ::ng-deep.ck.ck-toolbar {
+        background: #f8f8f8 !important;
+    }
+    ::ng-deep.ck.ck-editor__main>.ck-editor__editable {
+        border: 1px solid #E6EAED !important;
+    }
+
+    ::ng-deep
+
+
+
+
+    .cms-blog-image {
+        width: 100%;
+        justify-content: flex-start;
+        background: #fff;
+        gap: 1rem;
+        .cmsbi-row {
+            width: 334px;
+            aspect-ratio: 3/2;
+            padding: 2rem 1.875rem;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            background-color: #F9F9FC;
+            position: relative;
+            h4 {
+                margin: 10px 0;
+                font-size: 14px;
+                font-weight: 500;
+                color: #222;
+            }
+            a {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                inset: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 3px;
+                font-size: 14px;
+                font-weight: normal;
+                color: #fff;
+                img {
+                    width: 2rem;
+                }
+                input {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    z-index: 1;
+                    font-size: 0;
+                    cursor: pointer;
+                }
+            }
+            .cmsbir-col {
+                width: 100%;
+                justify-content: flex-start;
+                align-items: center;
+                flex-direction: column;
+                gap: 1.5rem;
+                position: relative;
+                p {
+                    font-size: 12px;
+                    font-weight: normal;
+                    color: #948f8f;
+                    margin: 0;
+                }
+                
+            }
+        }
+        .image-row {
+            width: 334px;
+            aspect-ratio: 3/2;
+            border-radius: 0.1875rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #F9F9FC;
+            gap: 1rem;
+            padding: 0rem;
+            position: relative;
+            &:hover{
+                a{
+                    visibility: visible;
+                }
+            }
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+            }
+            p {
+                font-size: 0.75rem;
+                font-weight: 400;
+                margin: 0;
+            }
+            a {
+                position: absolute;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 1rem;
+                right: 1rem;
+                background-color: #F0F1F3;
+                visibility: hidden;
+                &:hover {
+                    background-color: #d4d6d9;
+                }
+            }
+        }
+
+        .cmsbi-addimg {
+            width: 137px;
+            position: relative;
+            img.cmsbiaimg {
+                width: 100%;
+            }
+            a {
+                position: absolute;
+                top: -6px;
+                right: -5px;
+                z-index: 1;
+                background-color: #fff;
+                border-radius: 50%;
+                width: 16px;
+                aspect-ratio: 1;
+                img {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .data-row {
+        gap: 1rem;
+        flex-wrap: wrap;
+  
+    }

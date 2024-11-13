@@ -1,0 +1,779 @@
+.product-wrap {
+    .filter-details {
+        display: none;
+    }
+    .product-table {
+        width: 100%!important;
+        .table-footer {
+            flex-wrap: wrap;
+            .view-rec {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+.id-col {
+    padding: 2px 9px 1px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    display: inline-block;
+    line-height: 15px;
+    background-color: rgb(103, 152, 227);
+    min-width: 120px;
+    text-align: center;
+}
+.card {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+    background-color: white;
+}
+
+.dropdown-toggle::after {
+    display: none!important;
+}
+.product-wrap {
+    .filter-details {
+        display: none;
+    }
+    .product-table {
+        width: 100%!important;
+        .table-footer {
+            flex-wrap: wrap;
+            .view-rec {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+.id-col {
+    padding: 2px 9px 1px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    display: inline-block;
+    line-height: 15px;
+    background-color: rgb(103, 152, 227);
+    min-width: 120px;
+    text-align: center;
+}
+.card {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+    background-color: white;
+}
+
+.dropdown-toggle::after {
+    display: none!important;
+}
+
+.form-group {
+    margin-bottom: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.pay-mdt {
+    display: inline-block;
+    border-radius: 30px;
+    padding: 5px 10px;
+    font-size: 10px;
+    color: #484848;
+    text-transform: capitalize;
+    font-weight: 600;
+    background-color: #E5FFE5;
+}
+
+.commission {
+    background-color: #FFF4DB;
+}
+
+.inactive {
+    width: 100% !important;
+}
+
+.vname {
+    font-weight: 700;
+    font-size: 13px!important;
+}
+
+.margin {
+    margin-top: -6px;
+    margin-bottom: 10px;
+}
+
+.product-wrap .product-table .table .custom-checkbox {
+    top: 0px;
+}
+
+
+.layout-mar {
+    margin-top: 58px;
+}
+
+.mar {
+    margin-top: -15px
+}
+
+.Artboard-1 {
+    width: 91px;
+    height: 83px;
+    background-color: #ffffff;
+}
+
+.body {
+    background-color: white;
+}
+
+
+.acc-table {
+    .acc-tbl-close {
+        color: #000;
+        font-size: 14px;
+    }
+    .table {
+        th {
+            
+            .acc-tbl-close {
+                position: static;
+                right: 5px;
+                top: 5px;
+            }
+        }
+        td {
+            
+            &.oid {
+                font-weight: bold;
+                color: #000000;
+            }
+            &.amt {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+:host ::ng-deep .dropdown-item.active,
+.dropdown-item:active {
+    color: black !important;
+    text-decoration: none !important;
+    background-color: #fff !important;
+}
+
+// managr stock
+.form-register {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    background: #f5e3ce;
+    font: bold 14px sans-serif;
+    text-align: center;
+}
+
+.form-register-with-email {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    background: #f5e3ce;
+    font: bold 14px sans-serif;
+    text-align: center;
+}
+
+.form-register-with-email .form-white-background {
+    padding: 5px 277px;
+}
+
+.form-register-with-email .form-row {
+    text-align: left;
+}
+
+.form-register-with-email .form-title-row {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.form-register-with-email h1 {
+    display: inline-block;
+    box-sizing: border-box;
+    color: #4c565e;
+    font-size: 24px;
+    padding: 0 20px 15px;
+    border-bottom: 2px solid #6caee0;
+    margin: 0;
+}
+
+.form-register-with-email .form-row>label .form-lft {
+    display: inline-block;
+    box-sizing: border-box;
+    color: #5f5f5f;
+    width: 200px;
+    text-align: right;
+    padding-right: 25px;
+}
+
+.mng-stoc input {
+    color: #5f5f5f;
+    box-sizing: border-box;
+    border: 1px solid #D4D5D8;
+    padding-left: 10px;
+    width: 120px;
+    height: 34px;
+    border-radius: 0.1875rem;
+}
+
+.mng-stoc select {
+    width: 120px;
+    padding: 2px;
+    background: white;
+    border: 1px solid #D4D5D8;
+    color: #5f5f5f;
+    height: 34px;
+    border-radius: 0.1875rem;
+}
+
+.form-register-with-email .form-checkbox input {
+    margin-left: 128px;
+    margin-right: 10px;
+    width: auto;
+    vertical-align: top;
+}
+
+.form-register-with-email .form-checkbox span a {
+    text-decoration: none;
+    color: #6caee0;
+}
+
+.mng-stoc button {
+    background-color: #222;
+    font-weight: 500;
+    padding: 0px 40px;
+    height: 2.125rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    margin-right: 0px;
+    border-radius: 0.1875rem;
+}
+
+// toggle button
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 90px;
+    height: 10px;
+    margin-right: 7px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ca2222;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 21px;
+    left: 3px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2a6ab9;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(55px);
+    -ms-transform: translateX(55px);
+    transform: translateX(55px);
+}
+
+
+/*------ ADDED CSS ---------*/
+
+.on {
+    display: none;
+}
+
+.on,
+.off {
+    color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+}
+
+input:checked+.slider .on {
+    display: block;
+}
+
+input:checked+.slider .off {
+    display: none;
+}
+
+
+/*--------- END --------*/
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.round {
+    line-height: 48px;
+    color: #fff;
+    width: 79px;
+    height: 26px;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 100%;
+    background: #727273;
+    line-height: 52px;
+}
+
+:host ::ng-deep .tooltip-inner {
+    max-width: 100% !important;
+}
+
+.lst-xpnd {
+    position: absolute;
+    right: 0px;
+}
+
+
+.loading {
+    display: flex;
+    justify-content: center;
+}
+
+
+.search-menu::-webkit-input-placeholder {
+    /* Edge */
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #c6c6c6;
+}
+
+.search-menu:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #c6c6c6;
+}
+
+.search-menu::placeholder {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #c6c6c6;
+}
+.invcollapse {
+    .lst-xpnd {
+        position: static;
+    }
+}
+.form-group {
+    margin-bottom: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.pay-mdt {
+    display: inline-block;
+    border-radius: 30px;
+    padding: 5px 10px;
+    font-size: 10px;
+    color: #484848;
+    text-transform: capitalize;
+    font-weight: 600;
+    background-color: #E5FFE5;
+}
+
+.commission {
+    background-color: #FFF4DB;
+}
+
+.inactive {
+    width: 100% !important;
+}
+
+.vname {
+    font-weight: 700;
+    font-size: 13px!important;
+}
+
+.margin {
+    margin-top: -6px;
+    margin-bottom: 10px;
+}
+
+.product-wrap .product-table .table .custom-checkbox {
+    top: 0px;
+}
+
+
+.layout-mar {
+    margin-top: 58px;
+}
+
+.mar {
+    margin-top: -15px
+}
+
+.Artboard-1 {
+    width: 91px;
+    height: 83px;
+    background-color: #ffffff;
+}
+
+.body {
+    background-color: white;
+}
+
+::ng-deep .delete-confirm {
+    .modal-content {
+        background-color: white !important;
+    }
+    .modal-dialog {
+        max-width: 300px !important;
+        position: absolute !important;
+        left: 50% !important;
+        top: 45% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 300px !important;
+    }
+}
+
+
+:host ::ng-deep .dropdown-item.active,
+.dropdown-item:active {
+    color: black !important;
+    text-decoration: none !important;
+    background-color: #fff !important;
+}
+
+// managr stock
+.form-register {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    background: #f5e3ce;
+    font: bold 14px sans-serif;
+    text-align: center;
+}
+
+.form-register-with-email {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    background: #f5e3ce;
+    font: bold 14px sans-serif;
+    text-align: center;
+}
+
+.form-register-with-email .form-white-background {
+    padding: 5px 277px;
+}
+
+.form-register-with-email .form-row {
+    text-align: left;
+}
+
+.form-register-with-email .form-title-row {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.form-register-with-email h1 {
+    display: inline-block;
+    box-sizing: border-box;
+    color: #4c565e;
+    font-size: 24px;
+    padding: 0 20px 15px;
+    border-bottom: 2px solid #6caee0;
+    margin: 0;
+}
+
+.form-register-with-email .form-row>label .form-lft {
+    display: inline-block;
+    box-sizing: border-box;
+    color: #5f5f5f;
+    width: 200px;
+    text-align: right;
+    padding-right: 25px;
+}
+
+
+.form-register-with-email .form-checkbox input {
+    margin-left: 128px;
+    margin-right: 10px;
+    width: auto;
+    vertical-align: top;
+}
+
+.form-register-with-email .form-checkbox span a {
+    text-decoration: none;
+    color: #6caee0;
+}
+
+
+// toggle button
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 90px;
+    height: 10px;
+    margin-right: 7px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ca2222;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 21px;
+    left: 3px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2a6ab9;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(55px);
+    -ms-transform: translateX(55px);
+    transform: translateX(55px);
+}
+
+
+/*------ ADDED CSS ---------*/
+
+.on {
+    display: none;
+}
+
+.on,
+.off {
+    color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+}
+
+input:checked+.slider .on {
+    display: block;
+}
+
+input:checked+.slider .off {
+    display: none;
+}
+
+
+/*--------- END --------*/
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+ .slider.round:before {
+    border-radius: 50%;
+ }
+//  .dropdown-menu.show {
+//     white-space: nowrap;
+//     display: block;
+//  }
+
+ .round {
+    line-height: 48px;
+    color: #fff;
+    width: 79px;
+    height: 26px;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 100%;
+    background: #727273;
+    line-height: 52px;
+   }
+
+:host ::ng-deep .tooltip-inner {
+    max-width: 100% !important;
+}
+
+.lst-xpnd {
+    position: absolute;
+    right: 0px;
+}
+
+
+.loading {
+    display: flex;
+    justify-content: center;
+}
+
+
+.search-menu::-webkit-input-placeholder {
+    /* Edge */
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #c6c6c6;
+}
+
+.search-menu:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #c6c6c6;
+}
+
+.search-menu::placeholder {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #c6c6c6;
+}
+.invcollapse {
+    .lst-xpnd {
+        position: static;
+    }
+}
+// .pagination {
+//     justify-content: flex-end;
+//     align-items: center;
+//     margin-right: 50px;
+//     p {
+//         font-weight: 300;
+//         font-size: 0.875rem;
+//         color: #5D636D;
+//         span {
+//             font-weight: 500;
+//         }
+//     }
+//     .pagi-row {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         margin: 0 auto; 
+//         gap: 0.5rem;
+//         a {
+//             width: 2.5rem;
+//             aspect-ratio: 1;
+//             border: 1px solid #CED4DA;
+//             border-radius: 4px;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             font-weight: 500;
+//             font-size: 0.875rem;
+//             color: #4F575E;
+//             &:first-child {
+//                 opacity: 0.5;
+//             }
+//             &.active {
+//                 border: 1px solid #407BFF;
+//                 color: #407BFF;
+//             }
+//         }
+//     }
+// }
+
+.dropdown .dropdown-menu form .input-group input , .dropdown .dropdown-menu form .input-group ng-select{
+    width: 100%;
+}
+
+.spinner-wrapper {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    inset: 50%;
+}
+
+.isDisable{
+    pointer-events: none;
+    opacity: 0.6;
+}
+.error-check{
+    color: red;
+}

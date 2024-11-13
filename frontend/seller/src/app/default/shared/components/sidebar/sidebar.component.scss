@@ -1,0 +1,53 @@
+
+
+.aside-bottom  a.active{
+    background-color: #ebfaeb;
+    color: #388d11;
+}
+
+
+.aside-bottom a {
+    width: 100%;
+}
+
+.handSymbolRemove {
+    pointer-events: none;
+}
+
+.new {
+    padding-left: 7px;
+    color: green;
+    font-size: 14px;
+    font-weight: 450;
+}
+
+
+.chatss:hover::after {
+    content: "Choose your preferred language";
+    position: absolute;
+    bottom: 100%;
+   
+    left: 50%;
+ 
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    opacity: 0.9;
+    z-index: 1;
+}
+.cusors{
+    cursor: pointer;
+}
+
+aside .dropdown-menu.show{
+    display: none;
+}
+
+aside:hover .dropdown-menu.show{
+    display: block;
+}

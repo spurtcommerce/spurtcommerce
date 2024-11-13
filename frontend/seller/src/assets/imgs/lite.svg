@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.5" height="20.5" viewBox="0 0 20.5 20.5">
+  <g id="Group" transform="translate(0.25 0.25)">
+    <g id="Oval" transform="translate(5.5 5.5)" fill="none" stroke="#fff" stroke-width="1.5">
+      <circle cx="4.5" cy="4.5" r="4.5" stroke="none"/>
+      <circle cx="4.5" cy="4.5" r="3.75" fill="none"/>
+    </g>
+    <path id="Path" d="M.667,3a.667.667,0,0,0,.667-.667V.667A.667.667,0,0,0,0,.667V2.333A.667.667,0,0,0,.667,3Z" transform="translate(9.333)" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+    <path id="Path-2" data-name="Path" d="M1.374,2.317a.667.667,0,1,0,.943-.943L1.138.2A.667.667,0,1,0,.2,1.138Z" transform="translate(2.733 2.733)" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+    <path id="Path-3" data-name="Path" d="M3,.667A.667.667,0,0,0,2.333,0H.667a.667.667,0,0,0,0,1.333H2.333A.667.667,0,0,0,3,.667Z" transform="translate(0 9.333)" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+    <path id="Path-4" data-name="Path" d="M1.374.2.2,1.375a.667.667,0,1,0,.943.943L2.317,1.139A.667.667,0,1,0,1.374.2Z" transform="translate(2.733 14.753)" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+    <path id="Path-5" data-name="Path" d="M.667,0A.667.667,0,0,0,0,.667V2.333a.667.667,0,1,0,1.333,0V.667A.667.667,0,0,0,.667,0Z" transform="translate(9.333 17)" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+    <path id="Path-6" data-name="Path" d="M1.139.2A.667.667,0,1,0,.2,1.139L1.375,2.318a.667.667,0,1,0,.943-.943Z" transform="translate(14.753 14.753)" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+    <path id="Path-7" data-name="Path" d="M2.333,0H.667a.667.667,0,0,0,0,1.333H2.333A.667.667,0,1,0,2.333,0Z" transform="translate(17 9.333)" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+    <path id="Path-8" data-name="Path" d="M.667,2.512a.665.665,0,0,0,.471-.2L2.317,1.138A.667.667,0,1,0,1.374.2L.2,1.374A.667.667,0,0,0,.667,2.512Z" transform="translate(14.754 2.733)" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+  </g>
+</svg>

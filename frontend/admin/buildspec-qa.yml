@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Build started on `date`
+      - npm install -g @angular/cli
+      - npm cache clear --force
+      - cd admin && npm install
+      - npm update --save
+  build:
+    commands:
+      - ng build --prod --configuration=qa
+      - aws s3 rm --recursive s3://spurtcommerce-qa/admin/
+      - aws s3 cp dist s3://spurtcommerce-qa/admin/ --recursive

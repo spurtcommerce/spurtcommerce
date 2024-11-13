@@ -1,0 +1,24 @@
+<div class="setup-wrapper">
+
+    <div class="setup-container localization-container">
+
+        <div class="loc-lay-title">
+            <h3 class="page-title">{{'Settings.nav.personalize' | translate}}</h3>
+            <p class="text14">{{'Settings.paragraph.Displayoftheproductlistandorderlist' | translate}}
+            </p>
+        </div>
+
+        <div class="card ap-general ap-info set-loc-card">
+            <ul class="nav-tabs nav"> 
+                <li class="nav-item"><a  [appHideIfUnauthorized]="'edit-personalize-product'" [routerLinkActive]="'active'" [routerLink]="['/settings/personalize/product']" class="nav-link"> <span>{{'Settings.nav.Product' | translate}}</span> </a></li>
+                <li class="nav-item"><a [appHideIfUnauthorized]="'edit-personalize-order'" [routerLinkActive]="'active'" [routerLink]="['/settings/personalize/order']" class="nav-link"> <span>{{'Settings.nav.Order' | translate}}</span></a>
+                <li class="nav-item"><a [appHideIfUnauthorized]="'list-email-template'" [routerLinkActive]="'active'" [routerLink]="['/settings/personalize/email-template']" class="nav-link"> <span>{{'Settings.nav.EmailTemplate' | translate}}</span></a>
+                <li class="nav-item"><a [appHideIfUnauthorized]="'edit-social-url'" [routerLinkActive]="'active'" [routerLink]="['/settings/personalize/social']" class="nav-link"> <span>{{'Settings.nav.SocialMediaKeys' | translate}}</span></a>
+            </ul>  
+        </div>
+
+    </div>
+
+</div>
+
+<router-outlet></router-outlet>

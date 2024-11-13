@@ -1,0 +1,35 @@
+
+  .eyeButtonAlign{
+   position: relative;
+   
+  }
+
+  .fa-eye-slash {
+    top: 2.4rem !important;
+}
+  
+.form-date{
+  justify-content: space-between;
+  align-items: center;
+  input {
+      width: calc(100% - 30px);
+  }
+}
+
+::ng-deep .cdk-overlay-container {
+  z-index: 2000;
+}
+ .search {
+  margin-bottom: 0px;
+ }
+ .requiredColor {
+  /* color: red; */
+ }
+ .error-message-field {
+  position: absolute;
+  top: 100%;
+ }
+
+.password-show-hide {
+  top: 2.1rem!important;
+}

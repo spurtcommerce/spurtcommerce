@@ -1,0 +1,56 @@
+<div *ngIf="(sandbox.downloadFileLoading$ | async)||(sandbox.uploadFileLoading$ | async)" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+<div class="col-12">
+    <div class="breadcrumbs-row noborder">
+       
+        <div class="bc-col">
+        </div>
+        <div class="bc-col-btn ap-col-btn flex search-exp bulk-header">
+            <button class="ripple flex" (click)="downloadFile()"> <img src="assets/img/download-white.svg" alt="download"> {{'catalog.product.Download Zip File'| translate}}</button>
+        </div>
+    </div>
+</div>
+
+<div class="bulk-update-price flex" *ngIf="initialPage">
+
+    <img src="assets/img/bulk-img.svg">
+
+    <h5>{{'catalog.product.YourBulkProductUpdatepageisempty'| translate}}</h5>
+
+    <ul class="flex">
+        <li class="flex"> <img src="assets/img/csv.svg" alt="download">{{'catalog.product.DownloadZIPFile'| translate}} </li>
+        <li class="flex"> <img src="assets/img/csv.svg" alt="update"> {{'catalog.product.UpdateProduct'| translate}} </li>
+        <li class="flex"> <img src="assets/img/csv.svg" alt="upload"> {{'catalog.product.UploadupdatedFile'| translate}} </li>
+    </ul>
+
+    <button class="ripple cursor" (click)="uploadZip()">{{'catalog.product.UploadZIPFile'| translate}} </button>
+
+</div>
+
+<div class="bup-file-upload" *ngIf="uploadPage">
+
+    <h3>{{'catalog.product.FileUpload'| translate}}</h3>
+
+    <div class="csv-upload flex">
+
+        <div class="browse-upload">
+            <p>{{'catalog.product.* Only .ZIP files accepted'| translate}}</p>
+            <div class="bu-box flex cursor">
+                <input class="cursor" #fileInput type="file" [(ngModel)]="uploadFile" accept=".zip" (change)="onUpload($event)">
+                <a href="javascript:void(0)">{{'catalog.product.BrowseanduploadFiles'| translate}}</a>
+            </div>
+            <div class="error" *ngIf="(!zipFile && uploadSubmit)"> {{'catalog.product.Nofilechosen'| translate}}</div>
+            <div class="fil-name">{{zipFileName}}</div>
+        </div>
+
+    </div>
+    <!--Row-->
+
+    <div class="all-btn flex">
+        <button type="submit" class="ripple allocate" (click)="uploadSuccess()">
+                <span>{{'catalog.product.Upload'| translate}}</span></button>
+        <button class="ripple" (click)="reset(fileInput)">{{'catalog.product.Reset'| translate}}</button>
+    </div>
+
+</div>

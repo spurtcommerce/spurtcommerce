@@ -1,0 +1,39 @@
+<div class="row products-section">
+  <div class="col-12">
+      <div class="card">
+          <div class="product-ts-left">
+              <ul>
+                <li>
+                    <p>{{'Sales.Orders.TotalOrder'| translate}}</p>
+                    <span *ngIf="(layoutSandbox.salesCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    <button type="button" placement="bottom" ngbTooltip="Total number of orders placed by all the customers on the platform."><img src="assets/img/info-ico.svg" alt="info"> </button>
+                    <h3 *ngIf="!(layoutSandbox.salesCountLoading$ | async)">{{(layoutSandbox.salesCount$ | async)?.totalOrder}} </h3>
+                </li>
+                <li>
+                    <p>{{'Sales.Orders.TodayOrder'| translate}}</p>
+                    <span *ngIf="(layoutSandbox.salesCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    <button type="button" placement="bottom" ngbTooltip="Total number of orders on this day."><img src="assets/img/info-ico.svg" alt="info"> </button>
+                    <ng-container *ngIf="!(layoutSandbox.salesCountLoading$ | async)">
+                      <h3 *ngIf="(layoutSandbox.salesCount$ | async) as count">{{count.todayOrderCount?.orderCount}} </h3>
+                    </ng-container>
+                </li>
+                <li>
+                    <p>{{'Sales.Orders.TotalOrderAmount'| translate}}</p>
+                    <span *ngIf="(layoutSandbox.salesCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    <button type="button" placement="bottom" ngbTooltip="Total amount earned on the orders."><img src="assets/img/info-ico.svg" alt="info"> </button>
+                    <h3 *ngIf="!(layoutSandbox.salesCountLoading$ | async)">{{(layoutSandbox.salesCount$ | async)?.totalOrderAmount | currencysymbol: (commonSandbox.settings$ | async)}} </h3>
+                </li>
+                <li>
+                    <p>{{'Sales.Orders.TodayOrderAmount'| translate}}</p>
+                    <span *ngIf="(layoutSandbox.salesCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    <button type="button" placement="left" ngbTooltip="Total amount earned on orders, on this day."><img src="assets/img/info-ico.svg" alt="info"> </button>
+                    <h3 *ngIf="!(layoutSandbox.salesCountLoading$ | async)">{{(layoutSandbox.salesCount$ | async)?.todayOrderAmount | currencysymbol: (commonSandbox.settings$ | async)}} </h3>
+                </li>
+              </ul>
+          </div>
+
+          <!--Left-->
+
+      </div>
+  </div>
+</div>

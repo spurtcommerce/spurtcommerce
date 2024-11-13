@@ -1,0 +1,28 @@
+.error-color {
+    border: 1px solid red !important;
+}
+
+.valid-color{
+    color: red;
+}
+.req-color{
+    color: red;
+}
+.disable-div {
+    opacity: 1;
+}
+
+.loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.documentLoading {
+    margin-top: 5%;
+    display: flex;
+    left: 46%;
+    position: absolute;
+    z-index: 999;
+  }

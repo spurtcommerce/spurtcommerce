@@ -1,0 +1,1113 @@
+<div class="verify-seller-info" *ngIf="disabaleState == true || id">
+    <a href="javascript:void(0)"> <img src="assets/imgs/back.svg" alt="" (click)="cancel()"> </a>
+    <h2>{{details?.customerDetail?.firstName}}</h2>
+    <div class="verify-seller-info-col">
+        Created Date : <span>{{details?.createdDate | date:'dd/MM/yy, HH:mm'}}</span>
+    </div>
+    <!-- <button class="ms-auto button-reg"> <img src="assets/imgs/square-unlock.svg" alt=""> Check-Out </button> -->
+</div>
+
+<div class="spinner-wrapper">
+    <app-global-loader [isShow]="sellerSandbox.pageDetailsLoadingStatus$ | async" style="transform: translate(38%, 366%); position: absolute; z-index: 3;">
+    </app-global-loader>
+</div>
+
+<form [formGroup]="sellerAddForm" autocomplete="off" >
+    <div class="addproduct-wrap" >
+        <div class="card ap-general" [ngClass]="{disabledForm:disabaleState ==true}">
+<div class="">
+    <div class="ap-header sub-sub-header">
+        <h3 class="d-flex">
+            {{'myShop.BasicProfile'|translate}}
+         
+        </h3>
+        <p>{{'myShop.BasicProfileDescription'|translate}} </p>
+    </div>
+    
+
+</div>
+            
+
+            <!-- Contact Person -->
+            <div class="ap-body " [ngClass]="{disabledForm:disabaleState ==true}">
+                <div class="ap-body-title">
+                    <h4>{{'common.Contact person'|translate}}</h4>
+                    <p>{{'marketplace.seller.ContactPersonInfo'|translate}}</p>
+                </div>
+                <div class="ap-form-row4">
+                    <div class="ap-body-col contact-person-upload">
+                        <div class="contact-person-img">
+                            <img *ngIf="postImageUrl" [src]="postImageUrl" class="avatar-image">
+                            <img *ngIf="!postImageUrl" src="assets/img/user.svg" alt="">
+                        </div>
+                        <div>
+                            <button class="button-reg btn-sm" [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}" >
+                                <img src="assets/img/upload-dark.svg" alt="">
+                                {{ 'marketplace.seller.UploadImage' | translate }}
+                                <input 
+                                    [ngClass]="{'disabledForm': disabaleState}" 
+                                    type="file" 
+                                    formControlName="avatar" 
+                                    accept="image/*" 
+                                    #filePath 
+                                    (change)="profileChange($event)" 
+                                    [disabled]="disabaleState" 
+                                    [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'pointer'}" 
+                                >
+                            </button>
+                            <p class="alignimage">{{'marketplace.seller.Atleast'|translate}} {{imageSupportSize}}</p>
+                        </div>
+                    </div>
+
+                    <!-- first name -->
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label  >{{'marketplace.seller.FirstName'| translate}} <sup class="red">*</sup>
+                                <button    type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.EnterthefirstnameoftheSeller' | translate">
+                                    <img src="assets/img/info-ico.svg"  />
+                                </button>
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                [readonly]="disabaleState" 
+                                [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}" 
+                                appNoLeadingSpace
+                                formControlName="firstName" placeholder="{{'marketplace.seller.FirstName'| translate}}"
+                                [ngClass]="{'is-invalid': (submitted && f.firstName.errors)||sellerAddForm.controls['firstName'].hasError('pattern')}" required />
+                            <div *ngIf="submitted && f.firstName.errors" class="validation-error">
+                                <div *ngIf="f.firstName.errors.required">
+                                    {{'marketplace.Errors.Firstnameisrequired'| translate}}</div>
+                            </div>
+                            <div class="validation-error" *ngIf="sellerAddForm.controls['firstName'].hasError('pattern')">
+                                {{'ValidationsErrorMessage.Allowonlyalphabetsspaces'| translate}}</div>
+                        </div>
+                    </div>
+                    <!-- last name -->
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label >{{'marketplace.seller.LastName'| translate}}
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.Enterthelastname' | translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input type="text" class="form-control"
+                                    [readonly]="disabaleState" 
+                                    formControlName="lastName" 
+                                    [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}" 
+                                    placeholder="{{'marketplace.seller.LastName'| translate}}"
+                                    [ngClass]="{'is-invalid':(submitted && f.lastName.errors) || sellerAddForm.controls['lastName'].hasError('pattern')}"
+                                    appNoLeadingSpace />
+                             <div *ngIf="submitted && f.lastName.errors" class="validation-error">
+                            </div>
+                                    <div class="validation-error" *ngIf="sellerAddForm.controls['lastName'].hasError('pattern')">
+                                        {{'ValidationsErrorMessage.Allowonlyalphabetsspaces'| translate}}</div>
+                        </div>
+                    </div>
+
+
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Email'| translate}} <sup class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.EntertheemailId'| translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input type="text" 
+                            class="form-control" 
+                            formControlName="email" 
+                            [readonly]="disabaleState" 
+                            [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}" 
+                            appNoLeadingSpace
+                                placeholder="{{'marketplace.seller.Email'| translate}}"
+                                [ngClass]="{'is-invalid': submitted && f?.email?.errors}" required />
+                            <div *ngIf="submitted && f?.email?.errors" class="validation-error">
+                                <div *ngIf="f.email.errors.required">
+                                    {{'marketplace.Errors.Emailisrequired'| translate}}
+                                </div>
+                                <div *ngIf="f.email.errors.email">
+                                    {{'marketplace.Errors.Emailmustbeavalidemailaddress'| translate}}
+                                </div>
+                                <div *ngIf="sellerAddForm.controls['email'].hasError('maxlength')">
+                                    {{'marketplace.Errors.Mustbemax96characterslong'| translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.MobileNumber'| translate}} <sup class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.Enterthemobilenumber' | translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input type="text" class="form-control"  appOnlyNumber
+                                formControlName="mobileNumber" 
+                                maxlength="15"
+                                [readonly]="disabaleState"
+                                [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}" 
+                                placeholder="{{'marketplace.seller.MobileNumber'| translate}}"
+                                [ngClass]="{'is-invalid': (submitted && f.mobileNumber.errors) || sellerAddForm.controls['mobileNumber'].hasError('maxlength')}" required />
+                            <div *ngIf="submitted && f.mobileNumber.errors" class="validation-error">
+                                <div *ngIf="f.mobileNumber.errors.required">
+                                    {{'marketplace.Errors.Mobilenumberisrequired'| translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- password -->
+            <div class="ap-body" *ngIf="!id" [ngClass]="{disabledForm:disabaleState ==true}">
+                <div class="ap-body-title">
+                    <h4>{{'common.Set password'|translate}}</h4>
+                    <p>{{'myShop.PasswordDescription'|translate}}</p>
+                </div>
+                <div class="ap-form-row6">
+                    <div class="ap-body-col">
+                        <div class="form-group" style="position: relative;">
+                            <label>{{'marketplace.seller.Password'| translate}} <sup class="red" *ngIf="!id">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.Setuppassword'| translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input #psd type="password" passwordshow class="form-control" formControlName="password"
+                                placeholder="{{'marketplace.seller.Password'| translate}}"
+                                (keyup)="enterPassword(psd.value)"
+                                [ngClass]="{'is-invalid': submitted && f.password.errors}" required
+                                (keydown.space)="$event.preventDefault()" autocomplete="new-password" />
+                            <div class="validation-error"
+                                *ngIf="submitted && sellerAddForm.controls['password'].hasError('required')">
+                                {{'marketplace.Errors.Passwordisrequired'| translate}}
+                            </div>
+                            <div class="validation-error"
+                                *ngIf="sellerAddForm.controls['password'].hasError('minlength')">
+                                {{'marketplace.Errors.Mustbeatleast8characters'| translate}}
+                            </div>
+                            <div class="validation-error"
+                                *ngIf="sellerAddForm.controls['password'].hasError('hasNumber')">
+                                {{'marketplace.Errors.Musthaveatleast1number'| translate}}
+                            </div>
+                            <div class="validation-error" *ngIf="sellerAddForm.controls['password'].hasError('hasSpecialCharacter') && submitted">{{'marketplace.Errors.Musthaveatleast1specialcharecter' | translate}}</div>
+                            <div class="validation-error"
+                                *ngIf="sellerAddForm.controls['password'].hasError('hasCapitalCase')">
+                                {{'marketplace.Errors.Mustcontainatleast1incapitalcase'| translate}}
+                            </div>
+                            <div class="validation-error"
+                                *ngIf="sellerAddForm.controls['password'].hasError('hasSmallCase')">
+                                {{'marketplace.Errors.Mustcontainatleast1insmallcase'| translate}}
+                            </div>
+                            <div class="validation-error"
+                                *ngIf="sellerAddForm.controls['password'].hasError('maxlength')">
+                                {{'common.Maximum 128 characters'|translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col" *ngIf="!id">
+                        <div *ngIf="!id" class="form-group" style="position: relative;">
+                            <label>{{'marketplace.seller.ConfirmPassword'| translate}} <sup class="red"
+                                    *ngIf="!id">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.Verifythepassword'| translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input type="password" passwordshow class="form-control" formControlName="confirmPassword"
+                                maxlength="128" placeholder="{{'marketplace.seller.ConfirmPassword'| translate}}"
+                                [ngClass]="{'is-invalid': submitted && f.confirmPassword.errors}" required
+                                (keydown.space)="$event.preventDefault()" />
+                            <div *ngIf="submitted && f.confirmPassword.errors" class="validation-error">
+                                <div *ngIf="f.confirmPassword.errors.required">
+                                    {{'marketplace.Errors.Confirmpasswordisrequired'| translate}}
+                                </div>
+                                <div *ngIf="f.confirmPassword.errors.mustMatch">
+                                    {{'marketplace.Errors.Passwordsmustmatch'| translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Company Details -->
+            <div class="ap-body" [ngClass]="{disabledForm:disabaleState ==true}">
+                <div class="ap-body-title">
+                    <div class="tickGren">
+                        <h4>{{'marketplace.seller.CompanyDetails'|translate}}</h4>
+                        <!-- <span *ngIf="details?.verification?.companyDetail == 1" class="tick"><img src="assets/img/verify-tick.svg" alt="">{{'marketplace.seller.Verified'|translate}}</span>
+                        <span *ngIf="details?.verification?.companyDetail == 0" class="ticks"><img src="assets/imgs/check-grey-round.svg" alt="">{{'marketplace.seller.NotVerified'|translate}}</span> -->
+                    </div>
+                    <p>{{'myProfile.CompanyDetailsDescription'|translate}}.</p>
+                </div>
+                <div class="ap-form-row6">
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'common.Company Name'|translate}} <sup class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    ngbTooltip="{{'marketplace.seller.Typethecompanyname'|translate}}">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input type="text" class="form-control"
+                                appNoLeadingSpace
+                                formControlName="companyName"
+                                placeholder="{{'placeholder.Company Name'|translate}}"
+                                [readonly]="disabaleState"
+                                [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                [ngClass]="{'is-invalid': (submitted && f.companyName.errors)||sellerAddForm.get('companyName').hasError('pattern')}" required />
+                            <div *ngIf="submitted && f.companyName.errors" class="validation-error">
+                                <div *ngIf="f.companyName.errors.required">
+                                    {{'marketplace.Errors.Companynameisrequired'| translate}}
+                                </div>
+                                <!-- <div *ngIf="sellerAddForm.controls['companyName'].hasError('maxlength')">
+                                    {{'marketplace.Errors.Mustbemax32characters'| translate}}</div> -->
+                            </div>
+                            <div class="validation-error" *ngIf="sellerAddForm.get('companyName').hasError('pattern')">
+                                {{'ValidationsErrorMessage.Onlyalphabetsnumbersspacesdollarsignscommasapostrophesampersandsandhyphensareallowed'|translate}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Vendorgroup' | translate}} <sup class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.MapthisSellertoanexistinggroup' | translate">
+                                    <img src="assets/img/info-ico.svg"  />
+                                </button>
+                            </label>
+                            <ng-select  
+                                [ngModel]="vendorGroupName"
+                                placeholder="{{'placeholder.Select Option'|translate}}" 
+                                [searchable]="true"
+                                [ngClass]="{ 'error-fields': submitted && f.vendorGroup.errors,'no-drop-disabled': disabaleState}"
+                                formControlName="vendorGroup" 
+                                [clearable]="false"
+                                [readonly]="disabaleState"
+                                [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                >
+                                <ng-container *ngFor="let arr of vendorGroupList.vendorGroup$ | async">
+                                    <ng-container *ngIf="arr.isActive == 1">
+                                        <ng-option [value]='arr.groupId' class="opt">{{arr.name}}</ng-option>
+                                    </ng-container>
+                                </ng-container>
+                            </ng-select>
+
+                            <div *ngIf="submitted && f.vendorGroup.errors" class="validation-error">
+                                <div *ngIf="f.vendorGroup.errors.required">
+                                    {{'common.vendorGroup is Required'|translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.DisplayName' | translate}}<sup class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    ngbTooltip="{{'marketplace.seller.ProvidethenameoftheSeller' | translate}}">
+                                    <img src="assets/img/info-ico.svg"  />
+                                </button>
+                            </label>
+                            <div class="fg-domain-row">
+                                <div class="fgdr-input" >
+                                    <span type="button" [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}" class="tooltip-btn" placement="top"
+                                    ngbTooltip="{{(layoutSandbox.settingDetails$|async)?.siteUrl ?
+                                        (layoutSandbox.settingDetails$|async)?.siteUrl +
+                                        'shop/':'http://ip/shop/'}}">{{(layoutSandbox.settingDetails$|async)?.siteUrl ?
+                                        (layoutSandbox.settingDetails$|async)?.siteUrl +
+                                        'shop/':'http://ip/shop/'}}</span>
+                                    <input type="text" class="form-control"
+                                         formControlName="displayName"
+                                         [(ngModel)]="checkAvail"
+                                         required appNoLeadingSpace
+                                         [readonly]="disabaleState"
+                                         [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                        [placeholder]="'marketplace.seller.EnterDisplayName' | translate">
+                                    <!-- <p *ngIf="displaySuccess" class="dname-success flex"><img
+                                            src="assets/img/tick-round-green.png" alt="">
+                                        {{'common.Display name is available'|translate}}</p> -->
+                                </div>
+                                <button [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}" class="button-reg primary" (click)="checkAvailability()"
+                                    [ngClass]="{'black-button': checkAvail != ''}" [disabled]="checkAvail == '' ||sellerAddForm.get('displayName').hasError('pattern') || sellerAddForm.get('displayName').hasError('maxlength')">
+                                    {{'common.Check availability'|translate}}</button>
+                            </div>
+                            <p *ngIf="displaySuccess" class="dname-success flex"><img
+                                src="assets/img/tick-round-green.png" alt="">
+                            {{'common.Display name is available'|translate}}</p>
+                            <p *ngIf="displayFailed" class="dname-success flex"><img
+                                src="assets/img/minus-red-ico-big.png" alt="">
+                            {{'common.Display name is not available'|translate}}</p>
+
+                            <div class="display-name">
+                                <p class="subtxt">{{'common.Display name should unique'|translate}}. </p>
+
+                                <div >
+                                    <p style="margin-bottom: 2px" class="validation-error"
+                                    *ngIf="sellerAddForm.get('displayName').hasError('pattern') ">
+                                    {{'common.special characters not allowed'|translate}}
+                                </p>
+                                <p style="margin-bottom: 2px" *ngIf="submitted && sellerAddForm.controls['displayName'].hasError('required')"class="validation-error">
+                                        {{'marketplace.seller.Displaynameisrequired' | translate}} 
+                                </p>
+                                <p style="margin-bottom: 2px" *ngIf="sellerAddForm.get('displayName').hasError('maxlength') " class="validation-error">
+                                    {{'Customers.Error.MustBe40CharacterLong' | translate}}  
+                                </p>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <div > 
+                                <label  for="">{{'marketplace.seller.Active'| translate}}</label>
+                                <div [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}" class="toggle" *ngIf="true">
+                                    <input   
+                                            (change)="statusChange($event.target.checked)"
+                                            formControlName="status"
+                                            class="tgl tgl-light" 
+                                            id="status" type="checkbox"  
+                                            [(ngModel)]="activeStatus"
+                                            [ngModelOptions]="{standalone: true}"
+                                            [checked]="activeStatus == 1" />
+                                    <label class="tgl-btn" for="status"></label>
+                                    <p>{{'marketplace.seller.Activate the vendor to display them on the storefront.' | translate}}</p>
+                                </div>
+                            </div>
+                            <!-- <div *ngIf="!id" style="max-width:360px;">
+                                <label for="">{{'marketplace.seller.EmailVerificationStatus' | translate}}</label>
+                                <div class="toggle">
+                                    <input formControlName="mailStatus"  [(ngModel)]="mailStatus1" class="tgl tgl-light"
+                                        id="mailStatus" type="checkbox" />
+                                    <label class="tgl-btn" for="mailStatus" style="width: 22%;"></label>
+                                    <p>{{'marketplace.seller.EmailVerificationDiscription' | translate}}</p>
+                                </div>
+                            </div> -->
+                        </div>
+                        <!-- approved seller -->
+                        <div class="form-group mt-3" >
+                            <label for="">{{'marketplace.seller.ApprovedSeller' | translate}}</label>
+                            <div  [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}" class="toggle" *ngIf="details?.approvalFlag !==1;else normal">
+                                <input (change)="approveSeller($event.target.checked,$event)" 
+                                    class="tgl tgl-light" id="approveVendor" type="checkbox" 
+                                     [(ngModel)]="approvalFlag" 
+                                     [ngModelOptions]="{standalone: true}"
+
+                                    [checked]="approvalFlag" />
+                                <label [ngClass]="{'disabled':toggleDisable === 1 }" class="tgl-btn" for="approveVendor"></label>
+                                <p>{{'marketplace.seller.ApproveSellerDiscription' | translate}}</p>
+                            </div>
+                        </div>
+                        <ng-template #normal>
+                            <span  class="tickss active"><img src="assets/img/verify-tick.svg" alt="">{{'fullfillment.Approved'| translate}}</span>  
+                        </ng-template>
+                    </div>
+
+                    <div class="ap-body-col ap-body-col-full">
+                        <div class="form-group">
+                            <label>
+                                {{'marketplace.seller.Aboutthecompany' | translate}}
+                                <button  type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.EnterthedetailsoftheSellerscompany' | translate ">
+                                    <img src="assets/img/info-ico.svg"  />
+                                </button>
+                            </label>
+                            <div class="ck-editor-custom" [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}">
+                                <ckeditor 
+                                    [editor]="editor" 
+                                    [config]="config" 
+                                    formControlName="companyDescription" 
+                                    [disabled]="disabaleState"
+                                    >
+                            </ckeditor>
+                                <div *ngIf="submitted && f.companyDescription.errors" class="validation-error">
+                                    <div *ngIf="f.companyDescription.errors.required">
+                                        {{'marketplace.Errors.Companydescriptionisrequired'| translate}}
+                                    </div>
+                                    <div *ngIf="sellerAddForm.controls['companyDescription'].hasError('maxlength')">
+                                        {{'marketplace.Errors.Mustbemax255characters'| translate}}</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Business Domain / Industry' | translate}}<sup
+                                    class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.EnterthedetailsoftheSellersindustry' | translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <ng-select [ngModel]="industryName"  
+                                placeholder="{{'placeholder.Select Option'|translate}}"
+                                [searchable]="true" 
+                                [ngClass]="{ 'error-fields': submitted && f.industry.errors,'no-drop-disabled': disabaleState }"
+                                formControlName="industry" 
+                                [clearable]="false"
+                                [readonly]="disabaleState"
+                                [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                >
+                                <ng-container *ngFor="let arr of industryListData">
+                                    <ng-container *ngIf="arr.isActive == 1">
+                                        <ng-option 
+                                        [value]="arr.id" 
+                                        class="opt">{{arr.name}}</ng-option>
+                                    </ng-container>
+                                </ng-container>
+                            </ng-select>
+
+
+                            <div *ngIf="submitted && f.industry.errors" class="validation-error">
+                                <div *ngIf="f.industry.errors.required">
+                                    {{'marketplace.seller.Industry is Required' | translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- company address -->
+            <div class="ap-body " [ngClass]="{disabledForm:disabaleState ==true}">
+                <div class="ap-body-title">
+                    <h4>{{'common.Company address'|translate}}</h4>
+                    <p>{{'myShop.BuisnessAddressDescription'|translate}}</p>
+                </div>
+                <div class="ap-form-row6">
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Address1' | translate}}<sup *ngIf="kycMandate == 1" class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.Address1Description' | translate ">
+                                    <img src="assets/img/info-ico.svg"  />
+                                </button>
+                            </label>
+                            <input type="text" class="form-control "
+                                [placeholder]="'marketplace.seller.Address1' | translate"
+                                formControlName="companyAddress1" 
+                                [readonly] = "disabaleState"
+                                [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}"
+                                appNoLeadingSpace
+                                [ngClass]="{'is-invalid':f.companyAddress1.errors && submitted}" />
+                            <div *ngIf="submitted && f.companyAddress1.errors" class="validation-error">
+                                <div *ngIf="sellerAddForm.controls['companyAddress1'].hasError('maxlength')">
+                                    {{'marketplace.Errors.Mustbemax128characters'| translate}}</div>
+                                <div *ngIf="sellerAddForm.controls['companyAddress1'].hasError('required') && submitted">
+                                    {{'ValidationsErrorMessage.CompanyAddress1isRequired'|translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Address2' | translate}}<sup *ngIf="kycMandate == 1" class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.Address2Description' | translate">
+                                    <img src="assets/img/info-ico.svg"  />
+                                </button>
+                            </label>
+                            <input type="text" class="form-control "
+                                [placeholder]="'marketplace.seller.Address2' | translate"
+                                [ngClass]="{'is-invalid': f.companyAddress2.errors && submitted}"
+                                [readonly] = "disabaleState"
+                                [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}"
+                                formControlName="companyAddress2"
+                                appNoLeadingSpace />
+                            <div *ngIf="submitted && f.companyAddress2.errors" class="validation-error">
+                                <div *ngIf="sellerAddForm.controls['companyAddress2'].hasError('maxlength')">
+                                    {{'marketplace.Errors.Mustbemax128characters'| translate}}</div>
+                                    <div *ngIf="sellerAddForm.controls['companyAddress2'].hasError('required') && submitted">
+                                    {{'ValidationsErrorMessage.CompanyAddress2isRequired'|translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.City'| translate}}
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.CityDescription' | translate">
+                                    <img src="assets/img/info-ico.svg"  />
+                                </button>
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="{{'marketplace.seller.City'| translate}}"
+                                   appNoLeadingSpace
+                                   [ngClass]="{'is-invalid': f.companyCity.errors}" 
+                                   formControlName="companyCity" 
+                                   [readonly] = "disabaleState"
+                                   [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                   />
+                            <div *ngIf="submitted && f.companyCity.errors" class="validation-error">
+                                <div *ngIf="sellerAddForm.controls['companyCity'].hasError('maxlength')">
+                                    {{'marketplace.Errors.Mustbemax128characters'| translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.State'| translate}} <sup *ngIf="kycMandate == 1" class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.StateDescription' | translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+
+                            <div
+                                *ngIf="((sellerSandbox.zoneList$ | async)?.length == 0);then inputState;else selectState">
+                            </div>
+                            <ng-template #selectState>
+                                <ng-select 
+                                    [ng-drop] = "true"
+                                    placeholder="{{'marketplace.seller.SelectState' | translate}}"
+                                    [ngClass]="{'error-fields':submitted && f.companyState.errors,'no-drop-disabled': disabaleState}" 
+                                    [searchable]="true"
+                                    formControlName="companyState" 
+                                    [clearable]="false"
+                                    [readonly]="disabaleState"
+                                    [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                    >
+                                    <ng-option *ngFor="let array of sellerSandbox.zoneList$ | async"
+                                        [value]='array.zoneId'>{{ array.name }}</ng-option>
+                                </ng-select>
+
+                            </ng-template>
+                            <ng-template #inputState>
+                                <input placeholder="{{'Customers.Customer.State'|translate}}" disabled
+                                    class="form-control">
+                            </ng-template>
+                            <div *ngIf="f.companyState.errors" class="validation-error">
+                                <div *ngIf="sellerAddForm.controls['companyState'].hasError('required') && submitted">
+                                    {{'common.State is Required'|translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Country'| translate}}<sup *ngIf="kycMandate == 1" class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.CountryDescription'| translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <ng-select placeholder="{{'marketplace.seller.SelectCountry'| translate}}"
+                                [searchable]="true" 
+                                formControlName="companyCountryId" 
+                                [clearable]="false"
+                                [readonly]="disabaleState"
+                                [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                [ngClass]="{'error-fields':submitted && f.companyCountryId.errors,'no-drop-disabled': disabaleState}"
+                                (change)="selectCountry($event)"
+                                [readonly]="disabaleState"
+                                [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                >
+                                <ng-option *ngFor="let array of sellerSandbox.getCountryList$ | async"
+                                    [value]='array.countryId'>{{ array.name }}</ng-option>
+                            </ng-select>
+                            <div *ngIf="submitted && f.companyCountryId.errors" class="validation-error">
+                                <div *ngIf="f.companyCountryId.errors.required">
+                                    {{'marketplace.Errors.CountryisRequired'| translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.PinCode' | translate}} <sup *ngIf="kycMandate == 1" class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.postalCode' | translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input type="text" class="form-control"
+                                [placeholder]="'marketplace.seller.PinCode' | translate"
+                                 appOnlyNumber
+                                [ngClass]="{'is-invalid': f.pincode.errors && submitted}" 
+                                formControlName="pincode"
+                                maxlength="6" 
+                                [readonly] = "disabaleState"
+                                [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}"
+                                />
+                            <div *ngIf="f.pincode.errors && submitted" class="validation-error">
+                                <div *ngIf="sellerAddForm.controls['pincode'].hasError('required')">
+                                    {{'Customers.Error.PostalcodeIsRequired'|translate}}</div>
+                            </div>
+                            <div *ngIf="f.pincode.errors && submitted" class="validation-error">
+                                <div *ngIf="sellerAddForm.controls['pincode'].hasError('minlength')">
+                                    {{'common.Postal Code Must be minimum four numbers'|translate}}</div>
+                            </div>
+                            <div *ngIf="f.pincode.errors && submitted" class="validation-error">
+                                <div *ngIf="sellerAddForm.controls['pincode'].hasError('maxlength')">
+                                    {{'common.Postal Code Must be maximum six numbers'|translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Tax-->
+        <div class="card ap-general" id="tax" [ngClass]="{disabledForm:disabaleState ==true}">
+            <div class="ap-header sub-sub-header">
+                <h3>{{'marketplace.seller.TaxDetails' | translate}}</h3>
+                <p>{{'myShop.TaxDescription'|translate}}</p>
+            </div>
+            <div class="ap-body">
+                <div class="ap-form-row6">
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'common.Tax Number'|translate}}
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.TaxDescription' | translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input appOnlyNumber type="text" 
+                                  [placeholder]="'common.Tax Number'|translate"
+                                   class="form-control"
+                                   formControlName="taxNumber"
+                                   [readonly] = "disabaleState"
+                                   [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}"
+                                  />
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Business Identification Number' | translate}}
+                                <button type="button" 
+                                        class="tooltip-btn" 
+                                        placement="end"
+                                        [ngbTooltip]="'marketplace.seller.IdentificationNumber' | translate"
+                                   >
+
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input type="text"
+                                [placeholder]="'marketplace.seller.Business Identification Number' | translate"
+                                class="form-control" appNoLeadingSpace 
+                                formControlName="businessNumber" 
+                                [readonly] = "disabaleState"
+                                [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}"
+                                />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bank Details -->
+        <div class="card ap-general" id="tax" [ngClass]="{disabledForm:disabaleState ==true}">
+            <div class="ap-header sub-sub-header">
+                <div class="tickGren">
+                    <h3>{{'marketplace.seller.Bank Account Information' | translate}}</h3>
+                    <!-- <span *ngIf="details?.verification?.bankAccount == 1" class="tick"><img src="assets/img/verify-tick.svg" alt="">{{'marketplace.seller.Verified'|translate}}</span>
+                    <span *ngIf="details?.verification?.bankAccount == 0" class="ticks"><img src="assets/imgs/check-grey-round.svg" alt="">{{'marketplace.seller.NotVerified'|translate}}</span> -->
+                </div>
+                <p>{{'myProfile.BankAccountInfo'|translate}}</p>
+            </div>
+            <!-- row - 1 -->
+            <div class="ap-body">
+                <div class="ap-form-row6">
+                    <!-- bank name -->
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Bank Name' | translate}}<sup *ngIf="kycMandate == 1" class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.BankNameDescription' | translate">
+                                    <img src="assets/img/info-ico.svg"  />
+                                </button>
+                            </label>
+                            <input type="text" 
+                                [placeholder]="'marketplace.seller.Bank Name' | translate"
+                                class="form-control" 
+                                appNoLeadingSpace 
+                                formControlName="bankName" 
+                                [readonly] = "disabaleState"
+                                [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}"
+                                [ngClass]="{'is-invalid':(f.bankName.errors && submitted) || sellerAddForm.controls['bankName'].hasError('pattern')}" />
+                                <div *ngIf="sellerAddForm.controls['bankName'].hasError('required') && submitted"
+                                class="validation-error">
+                                 {{'ValidationsErrorMessage.BankNameisRequired'|translate}}</div>
+                                <div *ngIf="sellerAddForm.controls['bankName'].hasError('pattern')"
+                                class="validation-error">
+                                {{'ValidationsErrorMessage.Onlyalphabetsnumbersandspacesareallowed'|translate}}</div>
+                        </div>
+                    </div>
+
+                    <!-- account holder name -->
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Account Holder Name' | translate}}<sup *ngIf="kycMandate == 1" class="red">*</sup>
+                                <button type="button" class="tooltip-btn" 
+                                       placement="end"
+                                    [ngbTooltip]="'marketplace.seller.Enter the Account Holder Name of the seller here' | translate ">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input type="text" [placeholder]="'marketplace.seller.Account Holder Name' | translate"
+                                class="form-control" 
+                                formControlName="accountHolderName" 
+                                appNoLeadingSpace 
+                                [readonly] = "disabaleState"
+                                [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}"
+                                [ngClass]="{'is-invalid':(f.accountHolderName.errors && submitted) || sellerAddForm.controls['accountHolderName'].hasError('pattern')}"  />
+                                <div *ngIf="sellerAddForm.controls['accountHolderName'].hasError('required') && submitted"
+                                class="validation-error">
+                    {{'ValidationsErrorMessage.AccountHolderNameisRequired'|translate}}</div>
+                                <div *ngIf="(sellerAddForm.controls['accountHolderName'].hasError('pattern'))"
+                                class="validation-error">
+                    {{'ValidationsErrorMessage.Allowonlyalphabetsspaces'|translate}}</div>
+                        </div>
+                    </div>
+
+                    <!-- branch -->
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Branch' | translate}}<sup *ngIf="kycMandate == 1" class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.BranchBank' | translate">
+                                    <img src="assets/img/info-ico.svg"  />
+                                </button>
+                            </label>
+                            <input  type="text" 
+                                    [placeholder]="'marketplace.seller.Branch' | translate" 
+                                    appNoLeadingSpace
+                                    class="form-control"
+                                    formControlName="branch" 
+                                    [ngClass]="{'is-invalid':(f.branch.errors && submitted) || sellerAddForm.controls['branch'].hasError('pattern')}"
+                                    [readonly] = "disabaleState"
+                                    [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                 />
+
+                                <div *ngIf="sellerAddForm.controls['branch'].hasError('required') && submitted"
+                                class="validation-error">
+                    {{'ValidationsErrorMessage.BranchisRequired'|translate}}</div>
+                                <div *ngIf="(sellerAddForm.controls['branch'].hasError('pattern'))"
+                    class="validation-error">
+                    {{'ValidationsErrorMessage.Onlyalphabetsnumbersandspacesareallowed'|translate}}</div>
+                        </div>
+                    </div>
+
+                    <!-- account number -->
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Account number' | translate}}<sup *ngIf="kycMandate == 1" class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.Accountnumber' | translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input type="text"
+                                    placeholder="{{'marketplace.seller.Account number' | translate}}" 
+                                    class="form-control"
+                                    formControlName="accountNumber" 
+                                    [readonly] = "disabaleState"
+                                    [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                    [ngClass]="{'is-invalid':(f.accountNumber.errors && submitted) || sellerAddForm.controls['accountNumber'].hasError('pattern')}" />
+                                <div *ngIf="sellerAddForm.controls['accountNumber'].hasError('required') && submitted"
+                                class="validation-error">
+                    {{'ValidationsErrorMessage.AccountNumberisRequired'|translate}}</div>
+                                <div *ngIf="(sellerAddForm.controls['accountNumber'].hasError('pattern'))"
+                    class="validation-error">
+                    {{'ValidationsErrorMessage.Onlynumbersareallowed'|translate}}</div>
+                        </div>
+                    </div>
+
+                    <!-- ifsc code -->
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.IFSC code' | translate}}<sup *ngIf="kycMandate == 1" class="red">*</sup>
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.EntertheIFSCcode' | translate">
+                                    <img src="assets/img/info-ico.svg"  />
+                                </button>
+                            </label>
+                            <input type="text" placeholder="{{'marketplace.seller.IFSC code' | translate}}"
+                                 class="form-control"
+                                 formControlName="ifscCode" 
+                                 [readonly] = "disabaleState"
+                                 [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                 appNoLeadingSpace [ngClass]="{'is-invalid':(f.ifscCode.errors && submitted) || sellerAddForm.controls['ifscCode'].hasError('pattern')}" />
+                                <div *ngIf="sellerAddForm.controls['ifscCode'].hasError('required') && submitted"
+                                class="validation-error">
+                    {{'ValidationsErrorMessage.IFSCCodeisRequired'|translate}}</div>
+                                <div *ngIf="(sellerAddForm.controls['ifscCode'].hasError('pattern'))"
+                    class="validation-error">
+                    {{'ValidationsErrorMessage.AllowonlyalphabetsandNumbers'|translate}}</div>
+                        </div>
+                    </div>
+
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.BIC or SWIFT code' | translate}}
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.BICorSWIFTcode' | translate ">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input type="text"
+                                  [placeholder]="'marketplace.seller.BIC or SWIFT code' | translate"
+                                  class="form-control" 
+                                  formControlName="swiftCodeBic" 
+                                  appNoLeadingSpace 
+                                  [ngClass]="{'is-invalid':sellerAddForm.controls['swiftCodeBic'].hasError('pattern')}" 
+                                  [readonly] = "disabaleState"
+                                  [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                   />
+                                <div *ngIf="(sellerAddForm.controls['swiftCodeBic'].hasError('pattern'))"
+                    class="validation-error">
+                    {{'ValidationsErrorMessage.AllowonlyalphabetsandNumbers'|translate}}</div>
+                        </div>
+                    </div>
+
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.Account Since' | translate}}
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.EntertheAccountSince' | translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input appOnlyNumber type="text" 
+                                   [placeholder]="'myShop.AccountSinceeg' | translate"
+                                   class="form-control" 
+                                   formControlName="accountSince" 
+                                   appNoLeadingSpace 
+                                   [readonly] = "disabaleState"
+                                   [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                   />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- image and logo -->
+        <div class="card ap-general" id="image" [ngClass]="{disabledForm:disabaleState ==true}">
+            <div class="ap-header sub-sub-header">
+                <div class="scrollContainer" style="height: 10px;" *ngIf="submitted"></div>
+                <h3>{{'common.Cover Image/logo'|translate}}</h3>
+                <p>{{'myShop.CompanyLogoDescription'|translate}}</p>
+            </div>
+
+            <div class="ap-body">
+                <div class="ap-form-row6">
+                    <!-- upload logo -->
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>
+                                {{'common.Upload logo' | translate}}
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.UplodLogo' | translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                         
+                            <div class="ap-upload-image flex" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+                                <img *ngIf="!postImageUrls" src="assets/img/add-img.svg" alt="">
+                                <p *ngIf="!postImageUrls">{{'marketplace.seller.Select a file or Drag here' |
+                                    translate}}</p>
+                                <button class="black-button" [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}" *ngIf="!postImageUrls">
+                                    {{'marketplace.seller.Browse' | translate}}
+                                    <input type="file" formControlName="companyLogo" accept="image/*" #filePathCompany
+                                        (change)="logoChange($event)">
+                                </button>
+                                <div class="uploaded-banner">
+                                    <img *ngIf="postImageUrls" [src]="postImageUrls" style="height:136px; width:222px">
+                                    <input type="file" formControlName="companyLogo" accept="image/*" #filePathCompany
+                                    (change)="logoChange($event)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- upload banner -->
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>
+                                {{'marketplace.seller.Uploadbannerimage' | translate}}
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.bannerimage' | translate">
+                                    <img src="assets/img/info-ico.svg"  />
+                                </button>
+                            </label>
+                            <div class="ap-upload-image ap-upload-banner" (dragover)="onDragOverBanner($event)" (drop)="onDropBanner($event)">
+                                <img *ngIf="!coverPostImageUrl" src="assets/img/add-img.svg" alt="">
+                                <p *ngIf="!coverPostImageUrl">{{'marketplace.seller.Select a file or Drag here' |
+                                    translate}}</p>
+                                <button class="black-button" [ngStyle]="{'pointer-events': disabaleState ? 'none' : 'auto'}" *ngIf="!coverPostImageUrl">
+                                    {{'marketplace.seller.Browse' | translate}}
+                                    <input type="file" formControlName="coverLogo" accept="image/*" #filePathCover
+                                        (change)="coverChange($event)">
+                                </button>
+                                <div class="uploaded-banner">
+                                    <input type="file" formControlName="coverLogo" accept="image/*" #filePathCover
+                                        (change)="coverChange($event)">
+                                    <img style="height: 136px; width: 100%;" *ngIf="coverPostImageUrl"
+                                        [src]="coverPostImageUrl">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+
+        <!-- social media -->
+        <div class="card ap-general" id="social" [ngClass]="{disabledForm:disabaleState ==true}">
+            <div class="ap-header sub-sub-header">
+                <h3>{{'common.Social media'|translate}}</h3>
+                <p>{{'marketplace.seller.Enterthesellerssocialmediaprofiles' | translate}}
+                </p>
+            </div>
+            <div class="ap-body">
+                <div class="ap-form-row6">
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'marketplace.seller.WhatsApp' | translate}}
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.EntertheURLforSellersWhatsApphandle'| translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <div class="fg-input fg-social">
+                                <input  type="text" 
+                                        class="form-control" 
+                                        appNoLeadingSpace 
+                                        formControlName="whatsApp"
+                                        [readonly] = "disabaleState"
+                                        [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                    [placeholder]="'marketplace.seller.EnterSellersWhatsAppUrl' | translate">
+                                <span> <img src="assets/imgs/whatsapp.svg" alt=""> {{'marketplace.seller.WhatsApp' |
+                                    translate}} </span>
+                            </div>
+                            <div *ngIf="f.whatsApp?.errors && submitted" class="validation-error">
+                                <div *ngIf="sellerAddForm?.controls?.['whatsApp'].hasError('maxlength')">
+                                    {{'marketplace.Errors.Mustbemax255characters'| translate}}
+                                </div>
+                                <div *ngIf="sellerAddForm?.controls?.['whatsApp'].errors?.pattern">
+                                    {{'marketplace.seller.InvalidWhatsAppURL' | translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'common.Instagram'|translate}}
+                                <button type="button"
+                                    class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.EntertheURLforSellersInstagramhandle'| translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <div class="fg-input fg-social">
+                                <input type="text" 
+                                     class="form-control" 
+                                     appNoLeadingSpace 
+                                     formControlName="instagram"
+                                     [readonly] = "disabaleState"
+                                     [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                    [placeholder]="'marketplace.seller.EnterSellersInstagramUrl' | translate">
+                                <span> <img src="assets/img/instagram-logo.svg" alt=""> {{'common.Instagram'|translate}}
+                                </span>
+                                <div *ngIf="f.instagram.errors && submitted" class="validation-error">
+                                    <div *ngIf="sellerAddForm.controls['instagram'].hasError('maxlength')">
+                                        {{'marketplace.Errors.Mustbemax255characters'| translate}}</div>
+                                    <div *ngIf="sellerAddForm.controls['instagram'].errors?.pattern">
+                                        {{'marketplace.seller.InvalidInstagramURL' | translate}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'common.Youtube' | translate}}
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.EntertheURLforSellersYoutubehandle'| translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <div class="fg-input fg-social">
+                                <input type="text" 
+                                      class="form-control"
+                                        appNoLeadingSpace 
+                                        formControlName="youtube"
+                                        [readonly] = "disabaleState"
+                                        [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                        [placeholder]="'marketplace.seller.EnterSellersYoutubeUrl' | translate">
+                                <span> <img src="assets/img/youtube-logo.svg" alt="">{{'marketplace.seller.Youtube' |
+                                    translate}} </span>
+                            </div>
+                            <div *ngIf="f.youtube.errors && submitted" class="validation-error">
+                                <div *ngIf="sellerAddForm.controls['youtube'].hasError('maxlength')">
+                                    {{'marketplace.Errors.Mustbemax255characters'| translate}}
+                                </div>
+                                <div *ngIf="sellerAddForm.controls['youtube'].errors?.pattern">
+                                    {{'marketplace.seller.InvalidYoutubeURL' | translate}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col">
+                        <div class="form-group">
+                            <label>{{'common.Facebook'|translate}}
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    [ngbTooltip]="'marketplace.seller.EntertheURLforSellersFacebookhandle'| translate">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <div class="fg-input fg-social">
+                                <input type="text" 
+                                       class="form-control" 
+                                       appNoLeadingSpace 
+                                       formControlName="facebook"
+                                       [readonly] = "disabaleState"
+                                       [ngStyle]="{'cursor': disabaleState ? 'no-drop' : 'auto'}"
+                                       [placeholder]="'marketplace.seller.EnterSellersFacebookUrl' | translate">
+                                <span> <img src="assets/img/facebook-logo.svg" alt="">{{'marketplace.seller.Facebook' |
+                                    translate}} </span>
+                            </div>
+                            <div *ngIf="f.facebook.errors && submitted" class="validation-error">
+                                <div *ngIf="sellerAddForm.controls['facebook'].hasError('maxlength')">
+                                    {{'marketplace.Errors.Mustbemax255characters'| translate}}
+                                </div>
+                                <div *ngIf="sellerAddForm.controls['facebook'].errors?.pattern">
+                                    {{'marketplace.seller.InvalidFacebookURL' | translate}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--social-->
+    </div>
+</form>
+<script>
+    $("#commentForm").validate();
+</script>
+
+<!-- Footer Save Cancel -->
+<div class="asw__top flex">
+    <div class="bc-col flex">
+    </div>
+    <div class="action-button-container flex" *ngIf="disabaleState == false">
+        <button class="button-reg btn-md tertiary" (click)="cancel()">
+            {{'marketplace.seller.Cancel'| translate}}
+        </button>
+        <button class="button-reg btn-md primary" id="final" (click)="onSubmit()">
+            {{id?'Update Seller':'Create Seller'}}
+        </button>
+    </div>
+</div>

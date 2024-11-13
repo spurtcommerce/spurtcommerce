@@ -1,0 +1,71 @@
+.avatar {
+    vertical-align: middle;
+    width: 75px !important;
+    height: 75px !important;
+    border-radius: 50%;
+}
+
+.viewcustomer-wrap {
+    background: white;
+    margin: 10px auto 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: flex-start;
+    width: calc(100% - 30px);
+    grid-gap: 2rem;
+    gap: 2rem;
+}
+
+.viewcustomer-wrap .buying-history h4 span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 0px;
+    font-size: 13px;
+    font-weight: 500;
+    vertical-align: middle;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background: #21ad64;
+    color: white;
+}
+
+.vch-detail {
+    width: calc(100% - 0px);
+    padding-left: 0px;
+    h4 {
+        font-size: 1rem;
+    }
+}
+
+.view-prod-img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.no-data {
+    min-height: 100px;
+    text-align: center;
+    margin: auto;
+    padding-top: 45px;
+}
+.spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.back-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.5rem 0;
+    button {
+        background-color: #222;
+        font-size: 0.75rem;
+        color: #fff;
+        margin: 0;
+    }
+}

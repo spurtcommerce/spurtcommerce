@@ -1,0 +1,167 @@
+<div class="pagination flex" [ngSwitch]="type">
+  <div class="page-count flex" *ngSwitchCase="'numbers'">
+    <button
+      class="icon-button"
+      [disabled]="currentPage === 1"
+      (click)="goToPreviousPage()"
+    >
+      <img src="assets/img/arrow-left.svg" alt="" />
+    </button>
+    <ng-container *ngFor="let page of pages" class="page-count flex">
+      <button
+        [ngClass]="{
+          active: currentPage === page,
+          inactive: currentPage !== page
+        }"
+        (click)="goToPage(page)"
+      >
+        {{ page }}
+      </button>
+    </ng-container>
+    <button
+      class="icon-button"
+      [disabled]="currentPage === totalPages"
+      (click)="goToNextPage()"
+    >
+      <img src="assets/img/arrow-right.svg" alt="" />
+    </button>
+    <p>{{"marketplace.common.Page" |translate}}</p>    
+    <input [value]="currentPage" (input)="Gotogivenpage($event.target.value)" readonly="true"/>
+    <div class="page-info">of {{ totalPages }}</div>
+  </div>
+
+  <div *ngSwitchCase="'fullnumbers'">
+    <ng-container *ngFor="let page of totalPageItems; let i = index">
+      <button
+        class="number-button"
+        [disabled]="currentPage === page"
+        (click)="goToPage(page)"
+      >
+        {{ page }}
+      </button>
+    </ng-container>
+  </div>
+</div>
+<!-- <div *ngSwitchCase="'singlenumber'">
+            <div class="pagination-container">
+                <div class="pagination-controls">
+                    <button class="icon-button" [disabled]="currentPage === 1" (click)="goToFirstPage()">
+                        &lt;&lt;
+                    </button>
+                    <button class="icon-button" [disabled]="currentPage === 1" (click)="goToPreviousPage()">
+                        &lt;
+                    </button>
+        
+                    <button class="icon-button">
+                        {{ currentPage }}
+                    </button>
+        
+                    <button class="icon-button" [disabled]="currentPage === totalPages" (click)="goToNextPage()">
+                        &gt;
+                    </button>
+                    <button class="icon-button" [disabled]="currentPage === totalPages" (click)="goToLastPage()">
+                        &gt;&gt;
+                    </button>
+                </div>
+            </div>
+        </div> -->
+<!--     
+    
+  <div *ngSwitchCase="'singlenumberWithPrevNext'">  
+    <div class="vendor-paginator">
+        <div class="pag-arrow"  (click)="goToPreviousPage()">
+            <img src="assets/imgs/pagi-arrow-left-white.svg" alt="" class="default-icon"><
+            <img src="assets/imgs/pagi-arrow-left-white.svg" alt="" class="dark-icon">
+        </div>
+        <input readonly  class="paginator-input" value="{{ currentPage }}" appOnlyNumber [ngModel]="currentPage" />    
+        <div class="pag-arrow" (click)="goToNextPage()">
+            <img src="assets/imgs/pagi-arrow-right-white.svg" alt="" class="default-icon">>
+            <img src="assets/imgs/pagi-arrow-right-white.svg" alt="" class="dark-icon">
+        </div>
+        <div class="paginator-message"> of {{ totalPages }}</div>
+
+    </div>    -->
+<!-- <div class="pagination-container">
+     
+      <div class="pagination-controls">
+        <button class="icon-button" [disabled]="currentPage === 1" (click)="goToFirstPage()">
+          &lt;&lt;
+        </button>
+        <button class="icon-button" [disabled]="currentPage === 1" (click)="goToPreviousPage()">
+          &lt;
+        </button>
+    
+        <button class="number-button">
+          {{ currentPage }} 
+        </button>
+        
+        <button class="icon-button" [disabled]="currentPage === totalPages" (click)="goToNextPage()">
+          &gt;
+        </button>
+        <button class="icon-button" [disabled]="currentPage === totalPages" (click)="goToLastPage()">
+          &gt;&gt;
+        </button>
+        of {{totalPages}}
+      </div>
+    </div> -->
+
+<!--     
+        <div *ngSwitchCase="'numbersWithButton'">  
+    <div class="pagination-container">
+      <div class="pagination-controls">
+        <button class="icon-button" [disabled]="currentPage === 1" (click)="goToFirstPage()">
+          &lt;&lt;
+        </button>
+        <button class="icon-button" [disabled]="currentPage === 1" (click)="goToPreviousPage()">
+          &lt;
+        </button>
+    
+        <ng-container *ngFor="let page of pages">
+          <button class="icon-button" [disabled]="currentPage === page" (click)="goToPage(page)">
+            {{ page }}
+          </button>
+        </ng-container>
+    
+        <button class="icon-button" [disabled]="currentPage === totalPages" (click)="goToNextPage()">
+          &gt;
+        </button>
+        <button class="icon-button" [disabled]="currentPage === totalPages" (click)="goToLastPage()">
+          &gt;&gt;
+        </button>
+        <ng-container *ngTemplateOutlet="pageSizeSelectorTemplate"></ng-container>
+      </div>
+    </div>
+        </div>
+    
+        <div *ngSwitchDefault>
+            <div class="pagination-container">
+                <div class="pagination-controls">
+                    <button class="icon-button" [disabled]="currentPage === 1" (click)="goToFirstPage()">
+                        << 
+                    </button>
+                            <button class="icon-button" [disabled]="currentPage === 1" (click)="goToPreviousPage()">
+                                < 
+                            </button>
+                                    <span>Records: {{ currentPageStart }} - {{ currentPageEnd }} of {{ totalItems }}</span>
+                                    <button class="icon-button" [disabled]="currentPage === totalPages"
+                                        (click)="goToNextPage()">
+                                        >
+                                    </button>
+                                    <button class="icon-button" [disabled]="currentPage === totalPages"
+                                        (click)="goToLastPage()">
+                                        >>
+                                    </button>
+                                    <ng-container *ngTemplateOutlet="pageSizeSelectorTemplate"></ng-container>
+                </div>
+            </div>
+        </div>
+</div>
+    
+    
+    <ng-template #pageSizeSelectorTemplate>
+      <div class="page-size-selector">
+        <select [(ngModel)]="pageSize" (change)="onPageSizeChange($event)">
+          <option *ngFor="let option of pageSizeOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+    </ng-template>        -->

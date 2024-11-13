@@ -1,0 +1,15 @@
+<div class="selected-container flex">
+    <ng-container *ngFor="let item of bulkList; let i=index; trackBy: trackByIndex">
+        <p *ngIf="i == 0">{{count}} {{ item?.name | translate}} </p>
+        <div *ngIf="i > 0 && item.id !== 'resetCheckbox'" class="selected-btn flex">
+            <button (click)="actionEvent.emit(item?.id)" href="javascript:void(0)" [ngClass]="{'blur':item.length==0}"
+                [disabled]="item.length==0"> <img [src]="item?.image" alt="">
+                {{ item?.name | translate}}
+            </button>
+        </div>
+        <button *ngIf="i > 0 && item.id == 'resetCheckbox'" (click)="actionEvent.emit(item?.id)"
+            href="javascript:void(0)">
+            {{ item?.name | translate}}
+        </button>
+    </ng-container>
+</div>

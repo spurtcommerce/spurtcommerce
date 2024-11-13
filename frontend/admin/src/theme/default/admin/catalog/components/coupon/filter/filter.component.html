@@ -1,0 +1,17 @@
+<form [formGroup]="filterForm" class="filter-form">
+    <div class="form-group">
+        <label>{{'catalog.coupon.CouponName'| translate}} </label>
+        <input type="text" formControlName="couponNameList" class="form-control" id="Keyword" aria-describedby="emailHelp" placeholder="{{'catalog.coupon.EnterCouponName'| translate}}">
+    </div>
+    <div class="form-group">
+        <label>{{'catalog.coupon.Status'| translate}}</label>
+        <ng-select class="sol-fm" placeholder="{{'catalog.product.Select Status'| translate}}" [searchable]="false" id="inlineFormCustomSelect" formControlName="status" [clearable]="false">
+            <ng-option [value]="1">{{'marketplace.seller.Active'| translate}}</ng-option>
+            <ng-option [value]="0">{{'catalog.coupon.In-Active'| translate}}</ng-option>
+        </ng-select>
+    </div>
+    <div class="filter-btns">
+        <button type="submit" (click)="filter()" class="btn">{{'catalog.product.ApplyFilters'| translate}}</button>
+        <button (click)="reset()" class="btn reset">{{'catalog.product.Reset'| translate}}</button>
+    </div>
+</form>

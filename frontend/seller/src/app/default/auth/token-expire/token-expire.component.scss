@@ -1,0 +1,24 @@
+.card{
+    box-shadow: 0 2px 10px #00000026;
+    background-color: #fff;
+    width: 70%;
+    margin: auto;
+    padding: 3% 5%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 26px;
+    text-align: center;
+    img{
+        width: 70px;
+    }
+    p{
+    color: #8c8b8b;
+    font-weight: 500;
+    }
+    p:nth-child(2) {
+        font-size: 12px;
+      }
+
+}

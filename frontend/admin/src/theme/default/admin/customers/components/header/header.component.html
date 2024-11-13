@@ -1,0 +1,29 @@
+<div class="subtoolbar customertoolbar">
+
+  <div class="sub-nav-menu">
+    <div class="dd" [appHideIfUnauthorized]="'buyers-data'" [multipleHide]="['buyers-data']">
+        <div class="dd-a">
+            <a href="javascript:void(0)" [appHideIfUnauthorized]="'buyers-data'" [routerLink]="['/customers/manage-customers']" [routerLinkActive]="'active'">
+                <span><img src="assets/img/header-icons/manage-buyer.svg" alt="product"></span>{{'Customers.Customer.ManageCustomers' | translate}}       
+                <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+            </a>
+        </div>
+        <input type="checkbox" [checked]="checked" id="check" (click)="$event.stopPropagation(); onClick($event)">
+        <div class="dd-c">
+            <ul>
+                <li [appHideIfUnauthorized]="'buyers-data'">
+                    <a href="#" [routerLink]="['/customers/manage-customers/customer']" [routerLinkActive]="'active'">
+                        {{'Customers.Customer.Customer' | translate}}
+                    </a>
+
+                </li>
+                <!-- <li [appHideIfUnauthorized]="'customer-groups'">
+                    <a href="javascript:void(0)" [routerLink]="['/customers/manage-customers/groups']" [routerLinkActive]="'active'">
+                         Buyer Groups
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</div>
+</div> 

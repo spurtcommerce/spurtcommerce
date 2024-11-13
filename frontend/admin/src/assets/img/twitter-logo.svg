@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" viewBox="0 0 15 15">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4883" data-name="Rectangle 4883" width="15" height="15" transform="translate(56 1954)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_29" data-name="Mask Group 29" transform="translate(-56 -1954)" clip-path="url(#clip-path)">
+    <path id="twitter_3_" data-name="twitter (3)" d="M8.9,6.351,14.36,0H13.066L8.321,5.515,4.532,0H.161l5.73,8.34L.161,15H1.456l5.01-5.824,4,5.824h4.371L8.9,6.351ZM7.123,8.413l-.581-.83L1.923.975H3.912L7.64,6.307l.581.83,4.846,6.932H11.077L7.123,8.413Z" transform="translate(56 1954)"/>
+  </g>
+</svg>

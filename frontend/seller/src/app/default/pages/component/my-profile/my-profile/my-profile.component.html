@@ -1,0 +1,327 @@
+<!-- My Profile -->
+<header>
+  <h1>{{'myShop.MyProfile'|translate}}</h1>
+</header>
+<!-- Logo -->
+<div class="page-content mb-4 pt-4">
+
+  <div class="inner-heading">
+    <h3>{{'myShop.BasicProfile'|translate}}</h3>
+    <p>{{'myShop.BasicProfileDescription'|translate}} </p>
+  </div>
+
+  <div class="input-group">
+    <label> {{'myShop.CompanyLogo'|translate}}
+      <p>{{'myShop.CompanyLogoDescription'|translate}}</p>
+    </label>
+    <div class="company-logo">
+      <div class="company-logo-img">
+        <img [src]="uploadProfileImage ? uploadProfileImage : 'assets/imgs/img.svg'" alt="profile">
+      </div>
+      <div class="company-logo-content">
+        <a style="position: relative;" href="javascript:void(0)" class="link-reg link-sm primary"> <input type="file"
+            class="img-banner" accept="image/*" #filePath (change)="logoChange($event)" />
+          {{'myShop.UploadLogo'|translate}} </a>
+        <a href="javascript:void(0)" class="link-reg link-sm tertiary" (click)="removeImage()">{{'myShop.RemoveLogo'|translate}} </a>
+        <p>{{'myShop.AtleastPNGJPGfil'|translate}} {{imagedimension}}</p>
+      </div>
+    </div>
+  </div>
+  <!-- Reusable Form -->
+  <form>
+
+    <div class="details-row2">
+
+      <div class="input-group">
+        <div class="ig-row">
+          <app-reusable-forms [type]="profileFormFields.firstName?.type"
+            [control]="profileFormFields.firstName?.control" [label]="profileFormFields.firstName?.label"
+            [inputId]="profileFormFields.firstName?.inputId" [aliasName]="profileFormFields.firstName?.aliasName"
+            [placeholder]="profileFormFields.firstName?.placeholder" [content]="profileFormFields.firstName?.content"
+            [submitted]="submitted" [mandatory]="profileFormFields.firstName?.mandatory"  [optionalErrorMessage]="profileFormFields.firstName?.optionalErrorMessage"></app-reusable-forms>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="ig-row">
+          <app-reusable-forms [type]="profileFormFields.lastName?.type" [control]="profileFormFields.lastName?.control"
+            [label]="profileFormFields.lastName?.label" [inputId]="profileFormFields.lastName?.inputId"
+            [aliasName]="profileFormFields.lastName?.aliasName" [placeholder]="profileFormFields.lastName?.placeholder"
+            [content]="profileFormFields.lastName?.content" [submitted]="submitted"  [optionalErrorMessage]="profileFormFields.lastName?.optionalErrorMessage"></app-reusable-forms>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="ig-row">
+          <app-reusable-forms [type]="profileFormFields.gender?.type" [control]="profileFormFields.gender?.control"
+            [label]="profileFormFields.gender?.label" [inputId]="profileFormFields.gender?.inputId"
+            [aliasName]="profileFormFields.gender?.aliasName" [placeholder]="profileFormFields.gender?.placeholder"
+            [customData]="profileFormFields.gender?.customData" [content]="profileFormFields.gender?.content"
+            [submitted]="submitted" [mandatory]="profileFormFields.gender?.mandatory"></app-reusable-forms>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="ig-row">
+          <app-reusable-forms [type]="profileFormFields.dateOfBirth?.type"
+            [control]="profileFormFields.dateOfBirth?.control" [label]="profileFormFields.dateOfBirth?.label"
+            [inputId]="profileFormFields.dateOfBirth?.inputId" [aliasName]="profileFormFields.dateOfBirth?.aliasName"
+            [placeholder]="profileFormFields.dateOfBirth?.placeholder" [maxDate]="profileFormFields.dateOfBirth?.maxDate"
+            [content]="profileFormFields.dateOfBirth?.content" [mandatory]="profileFormFields.dateOfBirth?.mandatory" [submitted]="submitted"></app-reusable-forms>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="ig-row">
+          <app-reusable-forms [type]="profileFormFields.mobileNumber?.type"
+            [control]="profileFormFields.mobileNumber?.control" [label]="profileFormFields.mobileNumber?.label"
+            [inputId]="profileFormFields.mobileNumber?.inputId" [aliasName]="profileFormFields.mobileNumber?.aliasName"
+            [placeholder]="profileFormFields.mobileNumber?.placeholder"
+            [content]="profileFormFields.mobileNumber?.content" [mandatory]="profileFormFields.mobileNumber?.mandatory" [submitted]="submitted"></app-reusable-forms>
+        </div>
+      </div>
+
+
+
+      <!-- <div class="input-group">
+        <div class="ig-row">
+          <app-reusable-forms [type]="profileFormFields.role?.type" [control]="profileFormFields.role?.control"
+            [label]="profileFormFields.role?.label" [inputId]="profileFormFields.role?.inputId"
+            [aliasName]="profileFormFields.role?.aliasName" [placeholder]="profileFormFields.role?.placeholder"
+            [content]="profileFormFields.role?.content"></app-reusable-forms>
+        </div>
+      </div> -->
+
+    </div>
+
+  </form>
+
+  <hr class="sep">
+  <!-- Account Detail -->
+  <div class="inner-heading">
+    <h3>{{'myShop.Account'|translate}}</h3>
+    <p>{{'myShop.AccountDescription'|translate}}</p>
+  </div>
+
+  <div class="details-row2">
+
+    <div class="profile_container__content__account">
+      <h4>{{'myShop.EmailVeriﬁcation'|translate}} :
+        <div class="flexx">
+          <img
+            [src]="(userDetails?.verification.email== 1) ? 'assets/imgs/verify-tick.svg' : 'assets/imgs/unverify-tick.svg'"
+            alt="">
+          <span
+            [ngClass]="{'verified__txt': userDetails?.verification.email == 1, 'unverified__txt': userDetails?.verification.email !== 1}">{{userDetails?.verification.email
+            == 1 ? ('payments.Verified'|translate):('payments.Pending'|translate)}}</span>
+        </div>
+      </h4>
+      <p>{{'myShop.UpdateEmailDescription'|translate}}</p>
+      <div class="input-group">
+        <div class="ig-row ">
+          <input type="text" [value]="userDetails?.customerDetail?.email" readonly/>
+          <button type="button" data-bs-toggle="modal" data-bs-target="#changeEmailModal" class="check-btn">{{'myShop.ChangeEmail'|translate}}</button>
+        </div>
+      </div>
+      <!-- <a data-bs-toggle="modal" data-bs-target="#changeEmailModal">{{'myShop.ChangeEmail'|translate}}</a> -->
+    </div>
+
+    <div class="profile_container__content__account">
+      <h4>{{'myShop.Password'|translate}}</h4>
+      <p>{{'myShop.UpdatePasswordDescription'|translate}}</p>
+      <a data-bs-toggle="modal" data-bs-target="#changePasswordModal">{{'myShop.ChangePassword'|translate}}</a>
+    </div>
+
+  </div>
+
+  <!-- <hr class="sep"> -->
+
+  <!-- <div class="inner-heading">
+    <h3>{{'myShop.LoginInfo'|translate}}</h3>
+    <p>{{'myShop.LoginDescription'|translate}}</p>
+  </div> -->
+  <!-- Email and Password -->
+  <!-- <form>
+
+    <div class="details-row2">
+      <div class="input-group">
+        <div class="ig-row">
+          <app-reusable-forms [type]="profileFormFields.email?.type" [control]="profileFormFields.email?.control"
+            [label]="profileFormFields.email?.label" [inputId]="profileFormFields.email?.inputId" 
+            [aliasName]="profileFormFields.email?.aliasName" [placeholder]="profileFormFields.email?.placeholder"
+            [content]="profileFormFields.email?.content" [submitted]="submitted" [isDisabled]="profileFormFields.email?.isDisabled"></app-reusable-forms>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="ig-row">
+          <app-reusable-forms [type]="profileFormFields.password?.type" [control]="profileFormFields.password?.control"
+            [label]="profileFormFields.password?.label" [inputId]="profileFormFields.password?.inputId"
+            [aliasName]="profileFormFields.password?.aliasName" [placeholder]="profileFormFields.password?.placeholder"
+            [passwordShow]="passwordFormFields.password?.passwordShow"
+            [content]="profileFormFields.password?.content" [submitted]="submitted" [isDisabled]="profileFormFields.password?.isDisabled"></app-reusable-forms>
+        </div>
+      </div>
+    </div>
+
+  </form> -->
+
+</div>
+
+<!-- Save and Update  -->
+
+<div class="product-save-btn">
+  <button class="cancel" (click)="cancelCompanyDetail()">{{'myShop.Cancel'|translate}}</button>
+  <button class="save" (click)="update()">{{'myShop.Save'|translate}}</button>
+</div>
+
+<!-- Change Email Modal -->
+<div class="modal fade assignattributesmodal-categories" id="changeEmailModal" data-bs-backdrop="static"
+  data-bs-keyboard="false" tabindex="-1" aria-labelledby="changeEmailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-heading">
+        <h3>{{'myShop.ChangeEmail'|translate}}</h3>
+        <p>{{'myShop.youremailaddress'|translate}} <span class="emailcolour">{{userDetails?.customerDetail?.email}}</span> {{'myShop.youremailaddressContinue'|translate}}</p>
+      </div>
+      <div class="modal-body">
+        <div class="delete-wrap">
+
+          <div class="changeemail-form">
+            <form>
+              <div class="input-group mb-35">
+                <div class="ig-row">
+                  <app-reusable-forms [type]="emailFormFields.password?.type"
+                    [control]="emailFormFields.password?.control" [label]="emailFormFields.password?.label"
+                    [inputId]="emailFormFields.password?.inputId" [aliasName]="emailFormFields.password?.aliasName"
+                    [placeholder]="emailFormFields.password?.placeholder"
+                    [passwordShow]="emailFormFields.password?.passwordShow"
+                    [submitted]="emailSubmitted"></app-reusable-forms>
+
+                </div>
+              </div>
+
+              <div class="input-group mb-35">
+                <div class="ig-row">
+                  <app-reusable-forms [type]="emailFormFields.newEmail?.type"
+                    [control]="emailFormFields.newEmail?.control" [label]="emailFormFields.newEmail?.label"
+                    [inputId]="emailFormFields.newEmail?.inputId" [aliasName]="emailFormFields.newEmail?.aliasName"
+                    [placeholder]="emailFormFields.newEmail?.placeholder"
+                    [mandatory]="emailFormFields.newEmail?.mandatory"
+                    [submitted]="emailSubmitted"></app-reusable-forms>
+
+                </div>
+              </div>
+
+              <div class="input-group mb-35">
+                <div class="ig-row">
+                  <app-reusable-forms [type]="emailFormFields.confirmEmail?.type"
+                    [control]="emailFormFields.confirmEmail?.control" [label]="emailFormFields.confirmEmail?.label"
+                    [inputId]="emailFormFields.confirmEmail?.inputId"
+                    [aliasName]="emailFormFields.confirmEmail?.aliasName"
+                    [placeholder]="emailFormFields.confirmEmail?.placeholder"
+                    [mandatory]="emailFormFields.newEmail?.mandatory"
+                    [submitted]="emailSubmitted"></app-reusable-forms>
+                </div>
+                <div class="error-color"
+                *ngIf="emailFormFields.newEmail?.control.value != emailFormFields.confirmEmail?.control.value && !emailFormFields.confirmEmail?.control.errors">
+                {{'myShop.confirmEmail'|translate}}
+            </div>
+              </div>
+             
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-save-btn modal-save-btn">
+        <button class="cancel" #closeChangeEmailModal (click)="emailCancel()"
+          data-bs-dismiss="modal">{{'myShop.Cancel'|translate}}</button>
+        <button class="save" [ngClass]="{'btn-disabled': myProfileSandbox.changeEmailLoading$ | async}"
+          (click)="changeEmail()">{{'myShop.Proceed'|translate}} <mat-spinner
+            *ngIf="myProfileSandbox.changeEmailLoading$ | async" color="black" diameter="20"></mat-spinner></button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Change Password Modal -->
+<div class="modal fade assignattributesmodal-categories" id="changePasswordModal" data-bs-backdrop="static"
+  data-bs-keyboard="false" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-heading">
+        <h3>{{'myShop.ChangePassword'|translate}}</h3>
+        <p>{{'myShop.Tochangeyour'|translate}} </p>
+      </div>
+      <div class="modal-body">
+        <div class="delete-wrap">
+
+          <div class="changeemail-form">
+            <form>
+              <div class="input-group mb-35">
+                <div class="ig-row">
+                  <app-reusable-forms [type]="passwordFormFields.currentPassword?.type"
+                    [control]="passwordFormFields.currentPassword?.control"
+                    [label]="passwordFormFields.currentPassword?.label"
+                    [inputId]="passwordFormFields.currentPassword?.inputId"
+                    [aliasName]="passwordFormFields.currentPassword?.aliasName"
+                    [passwordShow]="passwordFormFields.currentPassword?.passwordShow"
+                    [placeholder]="passwordFormFields.currentPassword?.placeholder"
+                    [mandatory]="passwordFormFields.currentPassword?.mandatory"
+                    [submitted]="passwordSubmitted"></app-reusable-forms>
+
+                </div>
+              </div>
+
+              <div class="input-group mb-35">
+                <div class="ig-row">
+                  <app-reusable-forms [type]="passwordFormFields.newPassword?.type"
+                    [control]="passwordFormFields.newPassword?.control" [label]="passwordFormFields.newPassword?.label"
+                    [inputId]="passwordFormFields.newPassword?.inputId"
+                    [aliasName]="passwordFormFields.newPassword?.aliasName"
+                    [placeholder]="passwordFormFields.newPassword?.placeholder"
+                    [passwordShow]="passwordFormFields.newPassword?.passwordShow"
+                    [mandatory]="passwordFormFields.currentPassword?.mandatory"
+                    [submitted]="passwordSubmitted"></app-reusable-forms>
+                </div>
+              </div>
+
+              <div class="input-group mb-35">
+                <div class="ig-row">
+                  <app-reusable-forms [type]="passwordFormFields.confirmNewPassword?.type"
+                    [control]="passwordFormFields.confirmNewPassword?.control"
+                    [label]="passwordFormFields.confirmNewPassword?.label"
+                    [inputId]="passwordFormFields.confirmNewPassword?.inputId"
+                    [aliasName]="passwordFormFields.confirmNewPassword?.aliasName"
+                    [placeholder]="passwordFormFields.confirmNewPassword?.placeholder"
+                    [isDisabled]="passwordFormFields.confirmNewPassword?.isDisabled"
+                    [passwordShow]="passwordFormFields.confirmNewPassword?.passwordShow"
+                    [mandatory]="passwordFormFields.currentPassword?.mandatory"
+                    [submitted]="passwordSubmitted"
+                    [optionalErrorMessage]="passwordFormFields.currentPassword?.optionalErrorMessage"></app-reusable-forms>
+                </div>
+                <div class="error-color"
+                *ngIf="passwordFormFields.newPassword?.control.value != passwordFormFields.confirmNewPassword?.control.value && !passwordFormFields.confirmNewPassword?.control.errors">
+                {{'myShop.Confirmpasswordmismatch'|translate}}
+            </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <!-- Proceed -->
+      <div class="product-save-btn modal-save-btn">
+        <button class="cancel" #closeChangePasswordModal (click)="passwordCancel()"
+          data-bs-dismiss="modal">{{'myShop.Cancel'|translate}}</button>
+        <button class="save" [ngClass]="{'btn-disabled': myProfileSandbox.changePasswordLoading$ | async}"
+          (click)="changePassword()">{{'myShop.Proceed'|translate}} <mat-spinner
+            *ngIf="myProfileSandbox.changePasswordLoading$ | async" color="black" diameter="20"></mat-spinner></button>
+      </div>
+    </div>
+  </div>
+</div>

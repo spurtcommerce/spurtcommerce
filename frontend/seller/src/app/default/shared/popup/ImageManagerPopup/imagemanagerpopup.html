@@ -1,0 +1,145 @@
+<div class="image-manager">
+    <div class="modal-body"
+    [ngClass]="{ 
+     'loading': (mediaSandbox.getbucketlistRequestLoading$ | async) || 
+                (mediaSandbox.getCreateFolderLoading$ | async) || 
+                imageLoader 
+   }"
+   >
+        <div class="search-nav">
+            <div class="search-section">
+                <h4 style="word-break: break-word;" class="modal-title" id="modal-basic-title">
+                 {{'common.Media'|translate}}
+                    {{folderPathNames?folderPathNames:prefixId}}</h4>
+ 
+            </div>
+            <div class="img-action-links">
+                <ul class="flex align-items-center" id="menu">
+                    <li *ngIf="((mediaSandbox.getBucketListData$ | async)?.Prefix) as prefix">
+                        <a [ngClass]="{'disabled': ((mediaSandbox.getBucketListData$ | async)?.Prefix) === prefixId}"
+                            href="javascript:void(0)" (click)="goBack(prefix)">
+                            <img src="assets/imgs/back_img_gallary.svg" class="default-icon" style="width: 1.2rem;"> 
+                          </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" (click)="refresh()">
+                         <img alt="Refresh" title="Refresh" src="assets/imgs/refresh-ico.svg" class="default-icon">
+                        </a>
+                    </li>
+ 
+                    <li class="folder">
+                        <input id="check02" type="checkbox"   name="menu" />
+                        <label for="check02" placement="bottom"  >
+                            <img alt="Search" title="Search" src="assets/imgs/search-dark.svg" class="default-icon">
+                                                </label>
+                        <ul class="submenu">
+                            <li>    
+                                <input type="text" class="search" [(ngModel)]="textValues"  placeholder="{{'common.SearchFolderName' | translate}}"   (keyup)="searchFolder($event.target.value)">
+                                <label for="check02" (click)="clearFiles()" >
+                                 <img src="assets/imgs/close.svg" alt="" class="default-icon">
+                            </label>
+                            </li>
+                          
+                        </ul>
+                    </li>
+ 
+                   
+                    <li class="folder">
+                        <input id="check01" appNoLeadingSpace type="checkbox" name="menu" [ngModelOptions]="{standalone:true}" [(ngModel)]="createFolderEnable" />
+                        <label for="check01" placement="bottom"><img alt="File Open" title="File Open" src="assets/imgs/file-open-ico.svg" class="default-icon">
+                     </label>
+                        <ul class="submenu">
+                            <li>{{'Shared.ImageManager.CreateFolder'|translate}}
+                            </li>
+                            <li class="input-row-inn">
+                                <input [appLimitText]="restrict" type="text" appNoLeadingSpace   placeholder="{{'common.CreateFolder' | translate}}" style="position: relative;"  [(ngModel)]="textValue"  >
+                             
+                                <label for="check01" (click)="clearAddFolders()">
+                                 <img src="assets/imgs/close.svg"   style="position: absolute;right: 55px;top: 10px;"  class="default-icon"/> 
+                              </label>
+                                <button (click)="createFolder()" class="create" >{{'common.Add'|translate}}
+                                    
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" (click)="deleteFile()">  <img title="Delete" alt="Delete" src="assets/imgs/trash-new.svg" class="default-icon">
+                        </a>
+                    </li>
+            
+ 
+ 
+                    <input type="file"  (change)="uploadImageAction($event)" accept="image/*" #filePath
+                        style="display: none" />
+                    <li>
+                        <a href="javascript:void(0)" (click)="uploadImage()" class="upload-lnk">
+                         {{'common.Upload'|translate}}
+                        </a>
+                    </li>
+                    <li>
+                        <a *ngIf="checkedData.length > 0" href="javascript:void(0)" (click)="registerImage()"
+                            class="upload-lnk">
+                            {{'common.Insert'|translate}}
+                        </a>
+ 
+ 
+                    </li>
+                    <li class="close-modal">
+                     <button type="button" class="btn-close" (click)="dismiss()">
+                         <img src="assets/imgs/close.svg"  class="default-icon">   
+                         <!-- <img src="assets/imgs/close-white2.svg" (click)="dismiss()" class="dark-icon">                                                    -->
+                    </button>
+                 </li>
+ 
+ 
+                </ul>
+            </div>
+        </div>
+ 
+        
+ 
+        <div class="image-row">
+            <div class="image-folder">{{'common.Folders'|translate}}</div>
+            <div class="image-folder">
+                <div class="image-col" *ngFor="let folder of (mediaSandbox.getBucketListData$ | async)?.CommonPrefixes"
+                    (click)="openFolder(folder?.Prefix)">
+                    <div class="img-bdy cursor"><img src="assets/imgs/file-img.svg"></div>
+                    <div class="if-col">
+                       
+                        <p style="word-break: break-word;">{{removeSlash(folder?.Prefix)}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="image-folder image-folder-files">{{'common.Files'|translate}}</div>
+            <div class="image-row-img">
+                <div class="image-col" *ngFor="let images of (mediaSandbox.getBucketListData$ | async)?.Contents">
+                    <div class="img-bdy" (click)="selectFile(images.Key)">
+                    
+ 
+ 
+ 
+                        <img alt="Image" title="Image" class="cursor"
+                            [src]="imageUrls + '?width=120&height=120&path=' + '&name=' + images.Key">
+                    </div>
+                    <p class="img-name" placement="top" ngbTooltip="{{enhanceName(images?.Key)}}" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()">{{ enhanceName(images.Key) }}</p>
+ 
+                    <button class="expand"> <img src="assets/imgs/expand-arrows.svg" alt=""> </button>
+ 
+                    <input type="checkbox" class="iri-check" [(ngModel)]="images.selected" value="{{images.Key}}"
+                        (change)="fileCheckBox($event, images.Key, i)" [disabled]="!images.selected && imageLimit >=10"
+                        type="checkbox" [id]="images.Key" [checked]="images.selected" />
+                </div>
+ 
+ 
+               
+            </div>
+        </div>
+    </div>
+    <div *ngIf="(mediaSandbox.getbucketlistRequestLoading$ | async) || (mediaSandbox.getCreateFolderLoading$ | async) || imageLoader"
+        class="loader" style="position: absolute;
+    top: 50%;
+    right: 50%;">
+        <app-loader></app-loader>
+    </div>
+ </div>

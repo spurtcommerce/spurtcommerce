@@ -1,0 +1,726 @@
+<div>
+    <header class="flex-row">
+        <h1>{{'myShop.Myshop'|translate}}</h1>
+        <a *ngIf="basicDetailData" href="{{shopUrl}}"
+            class="link-reg link-sm primary ms-auto" target="_blank">{{'myShop.Preview'|translate}}</a>
+    </header>
+    <div class="product-add-container">
+        <!-- <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">My Account</a></li>
+                <li class="breadcrumb-item" aria-current="page">My Shop</li>
+            </ol>
+        </nav> -->
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+            <li [ngbNavItem]="1">
+                <a ngbNavLink (click)="updateQueryParam()">{{'myShop.BasicCompanyDetails'|translate}}</a>
+                <ng-template ngbNavContent>
+
+                    <div class="px-3">
+                        <div class="company-banner">
+                            <img *ngIf="!postImageUrl" src="assets/imgs/company-banner-default.svg" alt=""
+                                style="object-fit: cover;">
+                            <img *ngIf="postImageUrl" [src]="postImageUrl" alt=""
+                                style="width: 100%;height: 331px; object-fit: cover;">
+                            <a href="javascript:void(0)" class="link-reg link-sm tertiary">
+                                <input type="file" (change)="uploadChange($event)" #filePath class="img-banner" (click)="$event.target.value = null">
+                                <img src="assets/imgs/img-dark.svg" alt=""> {{'myShop.AddCoverImage'|translate}}
+                            </a>
+                            <div *ngIf="imageSizeError" class="upload-error validation-error" style="color: red;">
+                                {{imageSizeSupport}} </div>
+                            <div *ngIf="imageTypeError" class="upload-error validation-error" style="color: red;">
+                                {{imageTypeSupport}} </div>
+                        </div>
+                        <div class="loading"
+                            *ngIf="(myShopSandbox.basicDetailGetLoading$ | async) || (myShopSandbox.basicDetailCreateLoading$ | async) ">
+                            <app-loader></app-loader>
+                        </div>
+                        <!-- <div class="company-banner">
+                                <img src="assets/imgs/company-banner.jpg" alt="">
+                                <a href="javascript:void(0)" class="link-reg link-sm tertiary"> <img src="assets/imgs/img.svg" alt=""> Add Cover Image </a>
+                            </div> -->
+                        <div class="company-details-form">
+                            <div class="input-group">
+                                <label for="">
+                                    {{'myShop.CompanyLogo'|translate}}
+                                    <p>{{'myShop.CompanyLogoDescription'|translate}}</p>
+                                </label>
+                                <div class="company-logo">
+                                    <div class="company-logo-img">
+                                        <img *ngIf="!postImageUrlLogo" src="assets/imgs/img.svg" alt="">
+                                        <img *ngIf="postImageUrlLogo" [src]="postImageUrlLogo" alt="" >
+                                    </div>
+                                    <div class="company-logo-content">
+                                        <a style="position: relative;" href="javascript:void(0)"
+
+                                            class="link-reg link-sm primary"> <input class="img-banner" type="file" #filePathLogo
+                                                (change)="uploadChangeLogo($event)" (click)="$event.target.value = null"> {{'myShop.UploadLogo'|translate}} </a>
+
+                                       
+                                      
+
+                                        <a href="javascript:void(0)" class="link-reg link-sm tertiary"
+                                            (click)="removeImage()"
+                                            *ngIf="!['',null,undefined].includes(postImageUrlLogo) || !['',null,undefined].includes(ImageUrlLogo)">
+                                            {{'myShop.RemoveLogo'|translate}} </a>
+                                        <p>{{'myShop.AtleastPNGJPGfil' | translate }} {{imageDimension}}</p>
+
+
+                                    </div>
+
+                                </div>
+                                <div *ngIf="imageSizeLogoError" class="upload-error validation-error"
+                                    style="color: red;">
+                                    {{imageSizeSupport}}
+                                </div>
+                                <div *ngIf="imageTypeLogoError" class="upload-error validation-error"
+                                    style="color: red;">
+                                    {{imageTypeSupport}}</div>
+                            </div>
+                            <div class="input-group mb-35">
+                                <label>
+                                    {{'myShop.ShopName'|translate}}
+                                    <p>{{'myShop.ShopNameDescription'|translate}} </p>
+                                </label>
+                                <div class="ig-row">
+                                    <input type="text" [(ngModel)]="basicDetailData" disabled>
+                                </div>
+
+                            </div>
+
+                            <!-- <div class="input-group">
+                                    <label for="">
+                                        Company Logo
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                    </label>
+                                    <div class="company-logo">
+                                        <div class="company-logo-img">
+                                            <img src="assets/imgs/company-logo.jpg" alt="">
+                                        </div>
+                                        <div class="company-logo-content">
+                                            <a href="javascript:void(0)" class="link-reg link-sm primary"> Upload Logo </a>
+                                            <a href="javascript:void(0)" class="link-reg link-sm tertiary"> Remove Logo </a>
+                                            <p>At least 120 x 120px PNG or JPG file.</p>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            <!-- <div class="input-group mb-35">
+                                    <label>
+                                        Company Number
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                    </label>
+                                    <div class="ig-row">
+                                        <input type="text">
+                                    </div>
+                                </div> -->
+                            <div class="input-group mb-35">
+                                <label class="label-btn">
+                                    <!-- <div>
+                                            Capabilities
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                                        </div> -->
+                                    <a style="cursor: pointer;" class="link-reg link-sm primary ms-auto"
+                                        (click)="openaddcapabilities()">{{'myShop.Create'|translate}}</a>
+                                </label>
+                                <div class="ig-row">
+                                    <!-- <div class="create-capabilities flexx">
+                                            <img src="assets/imgs/tick-round-wave.svg" alt="">
+                                            <h4>Create your first Capabilities</h4>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+                                            <a href="javascript:void(0)"  (click)="openaddcapabilities()"></a>
+                                        </div> -->
+                                    <div class="table-responsive">
+                                        <table class="table text-nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th>{{'myShop.Capabilities'|translate}}</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of capabilitiesDataList;let i = index">
+                                                    <td>{{item.data}}</td>
+                                                    <td></td>
+                                                    <td class="text-end">
+                                                        <span class="status-badge active"
+                                                            *ngIf="item.status == true">{{'myShop.Active'|translate}}</span>
+                                                        <span class="status-badge inactive"
+                                                            *ngIf="item.status == false">{{'myShop.InActive'|translate}}</span>
+                                                        <a href="javascript:void(0)" (click)="openaddcapabilities(i)"
+                                                            class="link-action d-inline-flex px-2"> <img
+                                                                src="assets/imgs/edit.svg"
+                                                                alt="">{{'myShop.Edit'|translate}} </a>
+                                                        <a href="javascript:void(0)" (click)="capabilitiesDelete(i)"
+                                                            class="link-action d-inline-flex px-2"> <img
+                                                                src="assets/imgs/delete.svg"
+                                                                alt="">{{'myShop.Delete'|translate}} </a>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+
+                                            <!-- <app-common-table [HeadArray]="capabilitiesTableData"
+                                                [GridArray]="capabilitiesDataList"
+                                                (buttonChangeEvent)="buttonAction($event)"
+                                                [customTemplate]="{pending:itemTemplateRef}">
+                                            </app-common-table>
+                                            <ng-template #itemTemplateRef let-item let-index="index">
+                                                <span class="status-badge active"
+                                                    *ngIf="item.status == true">Active</span>
+                                                <span class="status-badge inactive"
+                                                    *ngIf="item.status == false">InActive</span>
+                                            </ng-template> -->
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-35">
+                                <label>
+                                    {{'myShop.VendorDescription'|translate}}
+                                    <p>{{'myShop.VendorDetailsDescription'|translate}} </p>
+                                </label>
+                                <div class="ig-row">
+                                    <ckeditor [editor]="editor" [config]="config" (ready)="ulpoadAdapterDrop($event)"
+                                        [(ngModel)]="productDescription"> </ckeditor>
+                                    <!-- <textarea name="" id=""></textarea> -->
+                                    <!-- <div class="text-count">  <span>0/1240</span> </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-save-btn">
+                        <button class="cancel" (click)="cancelCompanyDetail()">{{'myShop.Cancel'|translate}}</button>
+                        <button class="save" (click)="save()">{{'myShop.Save'|translate}}</button>
+                    </div>
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+                <a ngbNavLink (click)="updateQueryParam()">{{'myShop.Certification'|translate}}</a>
+                <ng-template ngbNavContent>
+                    <div class="myshop-filter">
+                        <h1>{{'myShop.Certification'|translate}}</h1>
+                        <div class="header-list-rht ms-auto flexx">
+                            <div class="per-page flexx"
+                                [ngClass]="{'disabled-class': (myShopSandbox.certificateListLoaded$ | async) && (myShopSandbox.certificateList$ | async).length == 0 &&  _object.keys(filterSearch).length == 0}">
+                                <p>{{'myShop.PerPage'|translate}}</p>
+                                <div class="ig-row">
+                                    <ng-select [searchable]="false" [clearable]="false" [(ngModel)]="limit"
+                                        [items]="page" bindLabel="id" bindValue="id" placeholder="10"
+                                        (change)="pageSizeChange($event)">
+                                    </ng-select>
+                                </div>
+                            </div>
+                            <!-- <div class="search-filter" ngbDropdown>
+                                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                                    ngbTooltip="Filter" placement="bottom">
+                                    <img src="assets/imgs/search.svg" alt="">
+                                </button>
+                                <div ngbDropdownMenu aria-labelledby="navbarDropdown2"
+                                    class="dropdown-menu dropdown-menu-end">
+                                    <h5>Search</h5>
+                                    <div class="input-group">
+                                        <div class="ig-row">
+                                            <input type="text" class="search" placeholder="Search">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="search-filter" ngbDropdown #dropdownContent="ngbDropdown">
+                                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                                    ngbTooltip="Search" placement="bottom" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()"
+                                    [ngClass]="{'disabled-class': (myShopSandbox.certificateListLoaded$ | async) && (myShopSandbox.certificateList$ | async).length == 0 &&  _object.keys(filterSearch).length == 0}">
+                                    <img src="assets/imgs/search.svg" alt="">
+                                </button>
+                                <div ngbDropdownMenu aria-labelledby="navbarDropdown2"
+                                    class="dropdown-menu dropdown-menu-end">
+                                    <h5>{{'common.Search'|translate}}</h5>
+
+
+
+                                    <div class="input-group">
+                                        <div class="ig-row">
+                                            <input type="text" placeholder="{{'myShop.Search'|translate}}"
+                                                (keyup)="($event.target.value === '' ? clearSearch()  : '') "
+                                                [(ngModel)]="keyword" #myInput (keydown.enter)="searchItems()"
+                                                [ngModelOptions]="{standalone:true}">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="search-filter" ngbDropdown #dropdownContentFilter="ngbDropdown"
+                                [autoClose]="false">
+                                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                                    ngbTooltip="Filter" placement="bottom" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()"
+                                    [ngClass]="{'disabled-class': (myShopSandbox.certificateListLoaded$ | async) && (myShopSandbox.certificateList$ | async).length == 0 &&  _object.keys(filterSearch).length == 0}">
+                                    <img src="assets/imgs/filter.svg" alt="">
+                                </button>
+                                <div ngbDropdownMenu aria-labelledby="navbarDropdown2"
+                                    class="dropdown-menu dropdown-menu-end">
+                                    <h5>{{'myShop.Filter'|translate}}</h5>
+                                    <form action="" class="flex" [formGroup]="certificateFilterForm">
+                                        <div class="filter-content">
+                                            <div class="input-group mb-2">
+                                                <div class="ig-row">
+                                                    <label for="">
+                                                        {{'myShop.Name'|translate}}
+                                                    </label>
+                                                    <div class="ig-row">
+                                                        <input type="text" formControlName="Name" name="id"
+                                                            placeholder="{{'myShop.Enterthename'|translate}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-group mb-2">
+                                                <div class="ig-row">
+                                                    <label for="">
+                                                        {{'myShop.ReferenceNo'|translate}}
+                                                    </label>
+                                                    <div class="ig-row">
+                                                        <input type="text" formControlName="Reference No" name="id"
+                                                            placeholder="{{'myShop.EnterthereferenceNo'|translate}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-group mb-2">
+                                                <label>
+                                                    {{'myShop.ValidateFrom'|translate}}
+
+                                                </label>
+                                                <div class="ig-row" style="margin-left: 0">
+                                                    <mat-form-field class="floating-date">
+                                                        <input matInput formControlName="Validate From"
+                                                            [matDatepicker]="dp1" (click)="$event.stopPropagation()">
+                                                        <mat-datepicker-toggle matSuffix
+                                                            [for]="dp1"></mat-datepicker-toggle>
+                                                        <mat-datepicker #dp1></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="input-group mb-2">
+                                                <label>
+                                                    {{'myShop.ValidateTo'|translate}}
+
+                                                </label>
+                                                <div class="ig-row" style="margin-left: 0">
+                                                    <mat-form-field class="floating-date">
+                                                        <input matInput formControlName="Validate To"
+                                                            [matDatepicker]="dp2" (click)="$event.stopPropagation()">
+                                                        <mat-datepicker-toggle matSuffix
+                                                            [for]="dp2"></mat-datepicker-toggle>
+                                                        <mat-datepicker #dp2></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="filter-action">
+                                            <button class="button-reg btn-sm primary" (click)="applyFilter()">
+                                                {{'common.apply filters'|translate}}</button>
+                                            <button class="button-reg btn-sm trans-btn"
+                                                (click)="filterReset()">{{'common.reset'|translate}}</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- ----------------Dynamic Coloums -->
+                            <div class="search-filters" ngbDropdown #dropdownContentDynamicColumn>
+                                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                                    ngbTooltip="Dynamic Columns" placement="bottom" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()"
+                                    [ngClass]="{'disabled-class': (myShopSandbox.certificateListLoaded$ | async) && (myShopSandbox.certificateList$ | async).length == 0 &&  _object.keys(filterSearch).length == 0}">
+                                    <img src="assets/imgs/grid.svg" alt="">
+                                </button>
+                                <!-- <button ngbTooltip="Dynamic Coloums" placement="bottom"> <img src="assets/imgs/grid.svg" alt=""> </button> -->
+                                <div ngbDropdownMenu aria-labelledby="navbarDropdown2"
+                                    class="dropdown-menu dropdown-menu-end" style="width: max-content;">
+                                    <!-- <h4> Available Columns </h4> -->
+                                    <div class="available-column-list">
+                                        <ng-container *ngFor="let key of objectKeys(dynamicTableTitle);">
+                                            <div class="custom-control custom-checkbox">
+                                                <input class="custom-control-input" type="checkbox"
+                                                    (input)="changecheckbox($event,key)"
+                                                    [checked]="dynamicTableTitle[key]" value="" [id]="key">
+                                                <label class="custom-control-label" [for]="key"
+                                                    style="padding-left: 10px;">
+                                                    {{key}}
+                                                </label>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                    <!-- <button class="clm-button" >Save</button> -->
+                                </div>
+                            </div>
+                            <a href="javascript:Void(0)" (click)="addDocument()" class="link-reg link-sm primary">
+                                + {{'myShop.AddCertificate'|translate}} </a>
+                        </div>
+                    </div>
+                    <!-- filter -->
+                    <div class="filter-result-row flexx" *ngIf="_object.keys(filterSearch)?.length > 0">
+                        <div class="filter-result-col" *ngFor="let filter of filterSearch | keyvalue">
+                            <ng-container *ngIf="!['',null,undefined].includes(filter.value)">
+                                <span>{{ filter?.key }} : </span>
+                                {{ filter?.value}}
+                                <button (click)="removeFilter(filter)" class="remove-btn">
+                                    <img src="assets/imgs/close-sm.svg" alt="" />
+                                </button>
+                            </ng-container>
+                        </div>
+                        <a *ngIf="selectAll" href="javascript:void(0)" class="clear" (click)="filterReset()">
+                            {{'myShop.ClearFilters'|translate}}</a>
+
+                    </div>
+
+                    <div class="px-3">
+                        <!-- <div class="info-row flexx">
+                            <a href="javascript:void(0)" class="info-close"> <img src="assets/imgs/close.svg" alt=""> </a>
+                            <img src="assets/imgs/info-circle-green.svg" alt="">
+                            <div class="info-content">
+                                <h4>You have not started a billing plan yet.</h4>
+                                <p>To add a payment method and start paying for API usage, go to the Billing overview
+                                    page and select “Add payment details” to continue.</p>
+                            </div>
+                        </div> -->
+
+
+                        <div class="table-responsive">
+                            <table class="table text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th *ngIf="this.dynamicTableTitle['Certificate Type']">
+                                            {{'myShop.CertificateType'|translate}}</th>
+                                        <th *ngIf="this.dynamicTableTitle['Reference No']">
+                                            {{'myShop.ReferenceNo'|translate}}</th>
+                                        <th *ngIf="this.dynamicTableTitle['Name']">{{'myShop.Name'|translate}}</th>
+                                        <th *ngIf="this.dynamicTableTitle['Issued By']">{{'myShop.IssuedBy'|translate}}
+                                        </th>
+                                        <th *ngIf="this.dynamicTableTitle['Validate From']">
+                                            {{'myShop.ValidateFrom'|translate}}</th>
+                                        <th *ngIf="this.dynamicTableTitle['Validate To']">
+                                            {{'myShop.ValidateTo'|translate}}</th>
+                                        <th *ngIf="this.dynamicTableTitle['Status']">{{'myShop.Status'|translate}}</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of documentListData">
+                                        <td *ngIf="this.dynamicTableTitle['Certificate Type']">
+                                            {{data.additionalInfo?.certificationType}}</td>
+                                        <td *ngIf="this.dynamicTableTitle['Reference No']">
+                                            {{data.additionalInfo?.refrenceNo}}</td>
+                                        <td *ngIf="this.dynamicTableTitle['Name']">{{data.additionalInfo?.name}}</td>
+                                        <td *ngIf="this.dynamicTableTitle['Issued By']">
+                                            {{data.additionalInfo?.issuedBy}}</td>
+                                        <td *ngIf="this.dynamicTableTitle['Validate From']">
+                                            {{data.additionalInfo.validFrom | sellerDynamicDate}}</td>
+                                        <td *ngIf="this.dynamicTableTitle['Validate To']">{{data.additionalInfo.validTo
+                                            | sellerDynamicDate }}</td>
+                                        <td *ngIf="this.dynamicTableTitle['Status']"><span class="status-badge active"
+                                                *ngIf="data.status == true">{{'myShop.Active'|translate}}</span>
+                                            <span class="status-badge inactive"
+                                                *ngIf="data.status == false">{{'myShop.InActive'|translate}}</span>
+                                        </td>
+                                        <td class="text-end">
+                                            <div ngbDropdown container="body" class="d-inline-block">
+                                                <button type="button" class="" id="dropdownBasic1" ngbDropdownToggle>
+                                                    <img src="assets/imgs/v-dots.svg" alt="">
+                                                </button>
+                                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                    <!-- <h5>Actions</h5> -->
+                                                    <a href="javascript:void(0)" ngbDropdownItem
+                                                        (click)="editDocument(data.id)"> <img src="assets/imgs/edit.svg"
+                                                            alt="">{{'myShop.Edit'|translate}} </a>
+                                                    <a href="javascript:void(0)" ngbDropdownItem
+                                                        (click)="delete(data.id)"> <img src="assets/imgs/delete.svg"
+                                                            alt="">{{'myShop.Delete'|translate}} </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                            <div class="loading" *ngIf="(myShopSandbox.certificateListLoading$ | async)">
+                                <app-loader></app-loader>
+                            </div>
+                        </div>
+                        <div class="nodata flexx" *ngIf="documentListData.length == 0 && (myShopSandbox.certificateListLoaded$ | async)">
+                            <span><img src="assets/imgs/img-dark.svg" alt=""></span>
+                            <h4>{{_object.keys(filterSearch).length == 0 ?
+                                ('myShop.NoCertificatesareadded'|translate):('myShop.NoDataAvailableForTheFilteredCriteria'|translate)}}
+                            </h4>
+                            <p>{{'myShop.NoCertifications'|translate}}</p>
+                            <ng-container *ngIf="_object.keys(filterSearch).length == 0">
+                                <a href="javascript:void(0)" class="link-reg link-sm primary" (click)="addDocument()">
+                                    +{{'myShop.AddCertificate'|translate}} </a>
+                            </ng-container>
+                        </div>
+                        <div class="pagination flexx">
+                            <app-reusable-pagination *ngIf="(myShopSandbox.certificateListCount$ |async)  > 0"
+                                class="pagination flexx" [type]="'numbers'" [currentPage]="1" [pageSize]="limit"
+                                [totalItems]="myShopSandbox.certificateListCount$ | async"
+                                (pageChange)="onPageChange($event)"></app-reusable-pagination>
+                        </div>
+                    </div>
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="3">
+                <a ngbNavLink (click)="updateQueryParam()">{{'myShop.Image'|translate}}</a>
+                <ng-template ngbNavContent>
+                    <div class="myshop-filter">
+                        <h1>{{'myShop.Image'|translate}}</h1>
+                        <div class="header-list-rht ms-auto flexx">
+                            <a href="javascript:Void(0)" class="link-reg link-sm primary"
+                                (click)="uploadProductImages()"> +{{'myShop.AddImage'|translate}} </a>
+                        </div>
+                    </div>
+                    <div class="px-3">
+                        <div class="info-row flexx">
+                            <!-- <img src="assets/imgs/close.svg" alt=""> -->
+                            <!-- <a href="javascript:void(0)" class="info-close">  </a> -->
+                            <img src="assets/imgs/info-circle-green.svg" alt="">
+                            <div class="info-content">
+                                <!-- <h4>Lorem Ipsum is simply</h4> -->
+                                <p>{{'CommonContent.Atleast one image is mandatory.' | translate}}</p>
+                            </div>
+                        </div>
+                        <div class="nodata flexx"
+                            *ngIf="uploadImage?.length == 0 && !(myShopSandbox.imageUpdateLoading$ | async)">
+                            <span><img src="assets/imgs/img-dark.svg" alt=""></span>
+                            <h4>{{'myShop.UploadImages'|translate}}</h4>
+                            <p>{{'myShop.Lorem'|translate}}</p>
+                            <a href="javascript:void(0)" class="link-reg link-sm primary"
+                                (click)="uploadProductImages()"> + {{'myShop.AddImage'|translate}} </a>
+                        </div>
+                        <div class="loading" style="position: absolute; top: 50%; left: 50%;"
+                            *ngIf="(myShopSandbox.imageUpdateLoading$ | async)">
+                            <app-loader></app-loader>
+                        </div>
+                        <div class="image-count" *ngIf="totalImageLength?.length > 0">
+                            <span>{{totalImageLength?.length}}/10</span>
+                        </div>
+                        <div class="image-grid-row">
+                            <ng-container *ngFor="let data of uploadImage;let i=index">
+                                <div class="image-grid-col"
+                                    *ngIf="!['',null,undefined].includes(data.fileName);else templateName">
+
+                                    <img [src]="BaseImageUrl + '?path=' + data.filePath + '&name=' + data.fileName+ '&width=200&height=200'"
+                                        alt="">
+                                    <div class="photo-video-hover" *ngIf="!['',null,undefined].includes(data.fileName)">
+                                        <!-- *ngIf="totalImageLength.length > 1 " -->
+                                        <a href="javascript:void(0)" 
+                                            (click)="imageremove(i,data)"> <img src="assets/imgs/delete.svg" alt="">
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <ng-template #templateName>
+                                    <div class="image-grid-col"> </div>
+                                </ng-template>
+
+                            </ng-container>
+                            <!-- <div class="image-grid-col">
+                                <img src="assets/imgs/product-img2.jpg" alt="">
+                                <div class="photo-video-hover">
+                                    <a href="javascript:void(0)"> <img src="assets/imgs/delete.svg" alt=""> </a>
+                                </div>
+                            </div>
+                            <div class="image-grid-col">
+                                <img src="assets/imgs/product-img3.jpg" alt="">
+                                <div class="photo-video-hover">
+                                    <a href="javascript:void(0)"> <img src="assets/imgs/delete.svg" alt=""> </a>
+                                </div>
+                            </div> -->
+                            <!-- <div class="image-grid-col"> </div>
+                            <div class="image-grid-col"> </div>
+                            <div class="image-grid-col"> </div>
+                            <div class="image-grid-col"> </div>
+                            <div class="image-grid-col"> </div>
+                            <div class="image-grid-col"> </div> -->
+                            <!-- <div class="image-grid-col"> </div> -->
+
+                        </div>
+                    </div>
+                    <div class="product-save-btn image-save">
+                        <button class="cancel" (click)="cancelImage()">{{'myShop.Cancel'|translate}}</button>
+                        <button class="save" 
+                            (click)="saveImage()">{{'myShop.Save'|translate}}</button>
+                    </div>
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="4">
+                <a ngbNavLink (click)="updateQueryParam()">{{'myShop.Video'|translate}}</a>
+                <ng-template ngbNavContent>
+                    <div class="myshop-filter">
+                        <h1>{{'myShop.Video'|translate}}</h1>
+                        <div class="header-list-rht ms-auto flexx">
+                            <!-- <div class="search-filter" ngbDropdown>
+                                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                                    ngbTooltip="Filter" placement="bottom">
+                                    <img src="assets/imgs/search.svg" alt="">
+                                </button>
+                                <div ngbDropdownMenu aria-labelledby="navbarDropdown2"
+                                    class="dropdown-menu dropdown-menu-end">
+                                    <h5>Search</h5>
+                                    <div class="input-group">
+                                        <div class="ig-row">
+                                            <input type="text" class="search" placeholder="Search">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-filter" ngbDropdown>
+                                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+                                    ngbTooltip="Filter" placement="bottom">
+                                    <img src="assets/imgs/filter.svg" alt="">
+                                </button>
+                                <div ngbDropdownMenu aria-labelledby="navbarDropdown2"
+                                    class="dropdown-menu dropdown-menu-end">
+                                    <h5>Filter</h5>
+                                    <div class="filter-content">
+                                        <div class="input-group mb-2">
+                                            <div class="ig-row">
+                                                <label for="">
+                                                    Product Title
+                                                </label>
+                                                <div class="ig-row">
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-group mb-2">
+                                            <div class="ig-row">
+                                                <label for="">
+                                                    Category
+                                                </label>
+                                                <div class="ig-row">
+                                                    <ng-select [items]="category" bindLabel="name"
+                                                        placeholder="category" [(ngModel)]="selectedboard">
+                                                    </ng-select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter-action">
+                                        <button class="button-reg btn-sm primary">Apply Filter</button>
+                                        <button class="button-reg btn-sm trans-btn">Reset Filter</button>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <a href="javascript:Void(0)" class="link-reg link-sm primary" (click)="openaddvideo()"> +
+                                {{'myShop.AddVideo'|translate}} </a>
+                        </div>
+                    </div>
+                    <div class="info-row flexx mx-3">
+                        <!-- <img src="assets/imgs/close.svg" alt=""> -->
+                        <!-- <a href="javascript:void(0)" class="info-close">  </a> -->
+                        <img src="assets/imgs/info-circle-green.svg" alt="">
+                        <div class="info-content">
+                            <!-- <h4>Lorem Ipsum is simply</h4> -->
+                            <p>{{'CommonContent.Atleast one video is mandatory.' | translate}}</p>
+                        </div>
+                    </div>
+                    <div class="loading" *ngIf="(myShopSandbox.videoUpdateLoading$ | async)">
+                        <app-loader></app-loader>
+                    </div>
+                    <div class="video-container">
+                        <div class="video-col" *ngIf="videoDataList.length > 0">
+                            <!-- <div class="video-upload-day"> Today, 24 May </div> -->
+                            <div class="video-list-row" *ngFor="let item of videoDataList; let i = index">
+                                <div class="video-list-vid youtube-logo">
+                                    <img [src]="item.thumbNail" alt="">
+                                </div>
+                                <div class="video-list-content">
+                                    <h3>{{'myShop.VideoTitle'|translate}} : {{item.title}}
+                                    </h3>
+                                    <!-- <p>{{item.duration}}</p> -->
+                                </div>
+                                <a href="javascript:void(0)" (click)="embed(item,i)"></a>
+                            </div>
+                            <!-- <div class="video-list-row">
+                                <div class="video-list-vid"> <img src="assets/imgs/video-img.jpg" alt=""> </div>
+                                <div class="video-list-content">
+                                    <h3>Video Title : Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                                    </h3>
+                                    <p>11:12</p>
+                                </div>
+                                <a href="javascript:void(0)"></a>
+                            </div> -->
+                            <!-- <div class="video-list-row">
+                                <div class="video-list-vid"> <img src="assets/imgs/video-img.jpg" alt=""> </div>
+                                <div class="video-list-content">
+                                    <h3>Video Title : Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                                    </h3>
+                                    <p>11:12</p>
+                                </div>
+                                <a href="javascript:void(0)"></a>
+                            </div> -->
+                            <!-- <div class="video-upload-day"> 2 days ago, 22 May </div> -->
+                            <!-- <div class="video-list-row">
+                                <div class="video-list-vid"> <img src="assets/imgs/video-img.jpg" alt=""> </div>
+                                <div class="video-list-content">
+                                    <h3>Video Title : Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                                    </h3>
+                                    <p>11:12</p>
+                                </div>
+                                <a href="javascript:void(0)"></a>
+                            </div> -->
+
+                        </div>
+                        <div class="nodata flexx" *ngIf="videoDataList.length == 0">
+                            <span><img src="assets/imgs/video.svg" alt=""></span>
+                            <h4>{{'myShop.UploadVideos'|translate}}</h4>
+                            <p>{{'myShop.NoVideos'|translate}}</p>
+                            <a href="javascript:void(0)" class="link-reg link-sm primary" (click)="openaddvideo()">
+                                +{{'myShop.AddVideo'|translate}} </a>
+                        </div>
+                        <div class="video-col" style="margin-bottom: 150px;">
+                            <div *ngIf="urlSafe != '' " class="video-list-row video-list-detail">
+                                <div class="video-list-vid">
+                                    <!-- <img src="assets/imgs/video-img.jpg" alt=""> <a
+                                        href="javascript:void(0)"></a>  -->
+                                    <iframe style="width: 100%; height: auto; aspect-ratio: 16/9;" [src]="urlSafe"
+                                        frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-list-content">
+                                    <h3>{{'myShop.VideoTitle'|translate}} : {{editVideoValue.title}}
+                                    </h3>
+                                </div>
+                                <div class="capabilties-toggle d-flex">
+                                    <p>{{'myShop.DoyouwanttoshowitonStorefront'|translate}}</p>
+                                    <div class="on-off-toggle">
+                                        <input class="on-off-toggle__input" type="checkbox" id="video-tgl"
+                                            [(ngModel)]="editVideoValue.isActive"
+                                            (change)="statusChange(editVideoValue.isActive)" />
+                                        <label for="video-tgl" class="on-off-toggle__slider"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nodata flexx" *ngIf="urlSafe == ''">
+                                <h4>{{'myShop.Selectvideotoplay'|translate}}</h4>
+                            </div>
+                            <!-- [ngClass]="{'imageDisable':videoDataList.length == 1}" -->
+                            <!-- [disabled]="videoDataList.length == 1" -->
+                            <div class="product-save-btn" *ngIf="urlSafe != '' ">
+                                <button class="button-reg btn-sm prev" (click)="deleteVideo()"  > <img src="assets/imgs/delete.svg"
+                                        alt="">{{'myShop.Delete'|translate}} </button>
+                                <button class="button-reg btn-sm prev" (click)="opeEditvideo()"><img src="assets/imgs/edit.svg" alt="">
+                                    {{'myShop.Edit'|translate}} </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-save-btn image-save">
+                        <button class="cancel" (click)="cancelVideo()">{{'myShop.Cancel'|translate}}</button>
+                        <button class="save" (click)="saveVideo()" [ngClass]="{'imageDisable':isVideoEnable}"
+                            [disabled]="isVideoEnable">{{'myShop.Save'|translate}}</button>
+                    </div>
+                </ng-template>
+            </li>
+        </ul>
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+</div>

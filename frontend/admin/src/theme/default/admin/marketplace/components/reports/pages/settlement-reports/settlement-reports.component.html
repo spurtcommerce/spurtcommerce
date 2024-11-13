@@ -1,0 +1,253 @@
+<!-- Leader -->
+<div *ngIf="sandbox.exportSettlementReportLoading$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+<main class="cards">
+    <!-- Heaser -->
+    <div class="top-btn">
+        <h3 class="page-title">{{'marketplace.reports.SettlementReport'| translate}}</h3>
+    </div>
+
+    <!-- Filter Form -->
+    <form [formGroup]="settlementReportFilterForm">
+
+        <div class="flex filter">
+
+            <div class="filter-deate form-group settlement-report-form">
+                <label for="">{{'marketplace.reports.chooseDate'| translate}} </label>
+                <mat-radio-group formControlName="settlementFlag">
+                    <div value="0" class="mat-rad-fdst" style="display:flex">
+
+                        <div class="form-group" style="position: relative;width: 136px">
+
+                            <input readonly style="cursor: pointer;" type="text" class="form-control date1"
+                                formControlName="fromDate" (dateChange)="onDateChange($event)" placeholder="dd/mm/yyyy"
+                                name="dp" id="cal-in" ngbDatepicker #f="ngbDatepicker" (click)="f.toggle()"
+                                [maxDate]="todaysDate" />
+                        </div>
+                        <div class="form-group" style="position: relative;width: 136px">
+
+                            <input readonly style="cursor: pointer;" type="text" class="form-control date1"
+                                formControlName="toDate" [minDate]="settlementReportFilterForm.value.fromDate"
+                                placeholder="dd/mm/yyyy" name="dp" id="cal-in" ngbDatepicker #h="ngbDatepicker"
+                                (click)="h.toggle()" [maxDate]="todaysDate" />
+                        </div>
+                    </div>
+                    <mat-radio-button value="">{{'marketplace.reports.All'| translate}}</mat-radio-button>
+                    <mat-radio-button value="1">{{'marketplace.reports.Settled'| translate}}</mat-radio-button>
+                    <mat-radio-button value="2">{{'marketplace.reports.NotSettled'| translate}}</mat-radio-button>
+                </mat-radio-group>
+
+            </div>
+
+            <div class="flex vr-filter-row2" style="flex-wrap: nowrap;">
+                <div class="vrfr-rht">
+                    <div class="vrfr-rht-row flex">
+                        <div class="form-group">
+                            <label>{{'marketplace.reports.ChooseVendors'| translate}}</label>
+                            <div class="vrf-fg">
+                                <div class="dropdown" ngbDropdown>
+                                    <input type="text" class="form-control-search"
+                                        placeholder="{{'marketplace.reports.ChooseVendors'| translate}}"
+                                        ngbDropdownToggle (keyup)="new($event.target.value)">
+                                    <div ngbDropdownMenu class="dropdown-menu">
+                                        <form>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        (change)="selectAll()" [(ngModel)]="selectedAll" id="all"
+                                                        [ngModelOptions]="{standalone: true}">
+                                                    <label class="custom-control-label"
+                                                        for="all">{{'marketplace.reports.AllVendors'|
+                                                        translate}}</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" *ngFor="let data of productListArray"
+                                                style="padding-bottom: 9px;padding-left: 1.5rem;">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        (change)="checkIfAllSelected()" id="{{ data.vendorId }}"
+                                                        [(ngModel)]="data.selected"
+                                                        [ngModelOptions]="{standalone: true}">
+                                                    <label class="custom-control-label"
+                                                        for="{{ data.vendorId }}">{{data.companyName}}</label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>{{'marketplace.reports.OrderStatus'| translate}}</label>
+                            <div class="vrf-fg">
+                                <div class="dropdown" ngbDropdown>
+                                    <input type="text" class="form-control-search"
+                                        placeholder="{{'marketplace.reports.OrderStatus'| translate}}" ngbDropdownToggle
+                                        (keyup)="newOrder($event.target.value)">
+                                    <div ngbDropdownMenu class="dropdown-menu">
+                                        <form>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        (change)="selectOrderAll()" [(ngModel)]="selectedOrderAll"
+                                                        id="allOrder" [ngModelOptions]="{standalone: true}">
+                                                    <label class="custom-control-label"
+                                                        for="allOrder">{{'marketplace.reports.allOrderStatus'|
+                                                        translate}}</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox"
+                                                    *ngFor="let data of orderListArray"
+                                                    style="padding-bottom: 9px;padding-left: 1.5rem;">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        (change)="checkIfAllOrderSelected()"
+                                                        [id]="'order'+data.orderStatusId" [(ngModel)]="data.selected"
+                                                        [ngModelOptions]="{standalone: true}">
+                                                    <label class="custom-control-label"
+                                                        [for]="'order'+data.orderStatusId">{{data.name}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="button-reg btn-sm primary" (click)="generateReport()">
+                            {{'marketplace.reports.GenerateReport'| translate}}
+                        </button>
+
+                        <button type="submit" class="button-reg btn-sm tertiary" (click)="reset()">
+                            {{'marketplace.reports.reset'| translate}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Selected Seller And Oeder -->
+            <div class="flex vr-filter-row2">
+                <div class="vrfr-rht">
+                    <div class="vrfr-rht-row flex">
+                    </div>
+                    <div class="selected-vendors-list flex" *ngIf="filterDataId.length > 0 || filterOrderId.length > 0">
+                        <a href="javascript:Void(0)" class="clear-all" (click)="clearall()">
+                            {{'marketplace.reports.clearAll'| translate}}
+                        </a>
+                        <span *ngFor="let datas of filterData"> {{datas.companyName}}
+                            <a (click)="delete(datas)">
+                                <img src="assets/img/close.svg" alt="close">
+                            </a>
+                        </span>
+                    </div>
+                    <div class="selected-vendors-list flex" *ngIf="filterOrderId.length>0">
+                        <span *ngFor="let datas of filterOrder"> {{datas.name}}
+                            <a (click)="clear(datas)">
+                                <img src="assets/img/close.svg" alt="close">
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Export Section -->
+    <div class="flex export-btn"
+        *ngIf="(sandbox.settlementReportLoaded$ | async) && (sandbox.settlementReport$ | async).length > 0">
+        <h4>{{'marketplace.reports.vendors'| translate}} :
+            <span>{{(sandbox.settlementReport$ | async).length}}</span>
+        </h4>
+        <button class="button-reg btn-sm primary" (click)="exportSettlementReport()">
+            <img src="assets/img/export-white.svg" alt="export">
+            {{'Sales.Abandoned.Export'| translate}} </button>
+    </div>
+    <!-- Loader -->
+    <div class="spinner-wrapper">
+        <app-global-loader [isShow]="sandbox.settlementReportLoading$ | async"
+            style="transform: translate(0%, 50%);position:absolute">
+        </app-global-loader>
+    </div>
+    <!-- Table -->
+    <div class="vr-table-container"
+        *ngIf="(sandbox.settlementReportLoaded$ | async) && (sandbox.settlementReport$ | async).length > 0">
+        <div class="product-table">
+            <div class="table-responsive" *ngFor="let reports of sandbox.settlementReport$ | async; let i = index">
+                <h3>{{'marketplace.reports.Member'| translate}} - {{reports.companyName}} <span
+                        style="font-weight: normal;font-size: 10px;">{{reports.vendorOrderDetailsCount}}
+                        {{'marketplace.reports.records'| translate}}
+                    </span>
+                </h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>{{'marketplace.reports.Order-Line-No'| translate}}</th>
+                            <th>{{'marketplace.reports.Order-Line-No-Date'| translate}}</th>
+                            <th>{{'marketplace.reports.Sub-Invoice'| translate}} </th>
+                            <th>{{'marketplace.reports.Item'| translate}}</th>
+                            <th>{{'marketplace.reports.Description'| translate}}</th>
+                            <th>{{'marketplace.reports.SettlementStatus'| translate}}</th>
+                            <th class="text-center">{{'marketplace.reports.Quantity'| translate}}</th>
+                            <th class="text-right">{{'marketplace.reports.BaseValue'| translate}}</th>
+                            <th class="text-right">{{'marketplace.reports.Tax'| translate}}</th>
+                            <th class="text-right">{{'marketplace.reports.TotalValue'| translate}}</th>
+                            <th>{{'marketplace.reports.OrderStatus'| translate}} </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let list of reports.vendorOrderDetails; let j = index">
+                            <td>{{list.orderProductPrefixId}}</td>
+                            <td>{{list.createdDate | date: "dd/MM/yyyy"}}</td>
+                            <td>{{list.invoiceNo}}</td>
+                            <td>{{list.skuName}}</td>
+                            <td>{{list.productName}}</td>
+                            <td>{{list.settlementStatus}}</td>
+                            <td class="text-center">{{list.quantity}}</td>
+                            <td class="text-right">{{list.basePrice | currencysymbol}}</td>
+                            <td class="text-right">{{list.taxAmount | currencysymbol}}
+                                <p style="font-size: 9px">{{list.taxTypeValue}}</p>
+                            </td>
+                            <td class="text-right">{{list.total | currencysymbol}}</td>
+                            <td>{{list.orderStatusName}}</td>
+                        </tr>
+
+                        <tr class="total">
+                            <td colspan="6" class="text-right stotal">{{'marketplace.reports.SubTotal'| translate}}</td>
+                            <td class="text-center">{{reports?.quantityTotal}}</td>
+                            <td class="text-right">{{reports?.baseTotal | currencysymbol}}</td>
+                            <td class="text-right">{{reports.taxTotal | currencysymbol}}</td>
+                            <td class="text-right">{{reports?.subTotal | currencysymbol}}</td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="10"></td>
+                        </tr>
+                        <tr class="total gtotal" *ngIf="((sandbox.settlementReport$ | async).length - 1) === i">
+                            <td colspan="6" class="text-right stotal">{{'marketplace.reports.GrandTotal'| translate}}
+                            </td>
+                            <td class="text-center">{{quantityTotal}}</td>
+                            <td class="text-right">{{baseTotal | currencysymbol}}</td>
+                            <td class="text-right">{{taxTotal | currencysymbol}}</td>
+                            <td class="text-right">{{subTotal | currencysymbol}}</td>
+                            <td> </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- No Data Found -->
+    <div class="vr-wrap">
+        <div class="table-responsive">
+            <div class="no_data"
+                *ngIf="(sandbox.settlementReportLoaded$ | async) && (sandbox.settlementReport$ | async).length === 0">
+                <p>{{'marketplace.reports.DataNotFound'| translate}}</p>
+            </div>
+        </div>
+    </div>
+
+</main>

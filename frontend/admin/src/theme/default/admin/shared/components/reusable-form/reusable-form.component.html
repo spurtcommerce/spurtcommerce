@@ -1,0 +1,125 @@
+<div class="form-groups">
+
+    <label class="label" *ngIf="label" [ngClass]="{'disabledTag': isDisabled}" [for]="inputId">{{label}}
+        <span class="requiredColor" *ngIf="mandatory">*</span>
+        <ng-container *ngIf="toolTip">
+            <span [attr.tooltip]="toolTip.name" flow="right"> <img src='assets/imgs/info.svg'> </span>
+        </ng-container>
+    </label>
+
+    <!-- Text -->
+    <ng-container *ngIf="type==='text'">
+
+        <input class="txt" noLeadingSpace [placeholder]="placeholder" [ngClass]="{'error1': submitted && control?.errors,'disabledTag': isDisabled}" 
+            [formControl]="control" type="text" [id]="inputId" maxlength="100"/>
+
+    </ng-container>
+
+    <!-- number -->
+    <ng-container *ngIf="type==='number'">
+        <input [placeholder]="placeholder" appNumberAllowed  [ngClass]="{'error1': submitted && control?.errors}" class="txt" [formControl]="control"
+            type="text" [id]="inputId" />
+    </ng-container>
+    
+        <!-- Text -->
+        <ng-container *ngIf="type==='text-area'">
+            <textarea class="text-area" [formControl]="control" rows="4" cols="50">
+                </textarea>
+        </ng-container>
+    <!-- Date -->
+    <ng-container *ngIf="type==='date'">
+        <!-- <input [ngClass]="{'error1': submitted && control?.errors}" class="form-control date" [formControl]="control" placeholder="dd/mm/yyyy" name="dp" id="cal-in" [maxDate]="minPickerDate" ngbDatepicker #f="ngbDatepicker"
+            type="date" [id]="inputId" /> -->
+
+        <input readonly datepicker-append-to-body="true" style="cursor: pointer;overflow:visible;" type="text"
+            [ngClass]="{'error1': submitted && control?.errors}" class="form-control date" [formControl]="control"
+            [placeholder]="placeholder" name="dp" id="cal-in" [minDate]="minDate" [maxDate]="minPickerDate" ngbDatepicker #f="ngbDatepicker"
+            (click)="f.toggle()" />
+    </ng-container>
+
+
+    <!-- radio -->
+
+    <!-- <ng-container *ngIf="type=='radio'">
+        <ng-container *ngFor="let val of customData.data">
+            <label>{{val[customData.key]}}</label>
+        <input [value]="val[customData.value]" [formControl]="control"
+            type="radio" [id]="inputId" />
+        </ng-container>
+    </ng-container> -->
+
+    <ng-container *ngIf="type=='radio'">
+        <ng-container *ngFor="let val of customData.data">
+            <div style="display: inline-flex; padding-left: 10px;">
+                <input [placeholder]="placeholder" style="margin-right: 10px; display: inline-flex; " [value]="val[customData.value]"
+                    [formControl]="control" type="radio" [id]="inputId" />
+                <label>{{val[customData.key]}}</label>
+            </div>
+        </ng-container>
+    </ng-container>
+
+    <!-- select -->
+    <ng-container *ngIf="type==='select'">
+        <select [placeholder]="placeholder" name="dropdown" [id]="inputId" [ngClass]="{'error-fields': submitted && control?.errors}"
+            class="form-control" [formControl]="control" type="text" [id]="inputId">
+            <option  [value]="val[customData.value]" *ngFor="let val of customData.data">{{val[customData.key]}}</option>
+        </select>
+    </ng-container>
+    <!-- ngSelect ---- -->
+    <ng-container *ngIf="type==='ngSelect'">
+       
+        <ng-select [clearable]="false" name="dropdown" [formControl]="control"  
+            [ngClass]="{'error-fields': submitted && control?.errors}" type="text" [placeholder]="placeholder" [searchable]="true">
+            <ng-option [value]="val[customData?.value]"
+                *ngFor="let val of customData.data">{{val[customData.key]}}</ng-option>
+               
+        </ng-select>
+    </ng-container>
+
+    <!-- -------password----- -->
+    <ng-container *ngIf="type==='password'">
+        <input [ngClass]="{'error1': submitted && control?.errors, 'disabledTag': isDisabled}" class="form-control" [formControl]="control"
+            [type]="showPassword ? 'text' : 'password'" [id]="inputId" autocomplete="new-password"  [placeholder]="placeholder"/>
+        <a href="javascript:void(0)" class="fa fa-eye " (click)="togglePassword()" [class.fa-eye-slash]="!showPassword" [class.fa-eye]="showPassword">
+            <img src="assets/imgs/eye-slash.svg" alt="">
+            <img src="assets/imgs/eye.svg" alt="">
+        </a>
+            <!-- <i class="fa fa-eye " (click)="togglePassword()" [class.fa-eye-slash]="!showPassword"
+            [class.fa-eye]="showPassword"></i> -->
+    </ng-container>
+
+    <!-- checkbox -->
+    <ng-container *ngIf="type=='checkbox'">
+        <input type="checkbox" [ngClass]="{'error1': submitted && control?.errors}" [formControl]="control"
+            type="checkbox" [id]="inputId" />
+    </ng-container>
+    <!--Multiple checkbox with and without selectAll-->
+    <ng-container *ngIf="type==='multiplecheckbox'">
+        <ng-container *ngIf="customData.enableSelectAll">
+            <input type="checkbox" [(ngModel)]="customData.isSelectAll" [id]="inputId"
+                (change)="checkboxChange('selectAll',customData)" />
+            <label [for]="inputId">{{'shared.selectall'| translate}}</label>
+        </ng-container>
+        <div *ngFor="let datas of customData.data">
+            <input type="checkbox" [(ngModel)]="datas.checked" type="checkbox" id="{{inputId}}{{datas[customData.key]}}"
+                (change)="checkboxChange('singleSelect',customData)" />
+            <label for="{{inputId}}{{datas[customData.key]}}">{{datas[customData.key]}}</label>
+        </div>
+        <div class="error" *ngIf="customData.enableValidation && customData.checkedDatas.length==0">
+            {{'shared.selectatleastone'| translate}}
+        </div>
+    </ng-container>
+    <!-- Toggle -->
+    <ng-container *ngIf="type==='toggle'">
+        <div class="toggle" [ngClass]="{'disabledTag': customData?.isDisabled}">
+            <input [formControl]="control" class="tgl tgl-light" [id]="customData?.toggleName"
+                 [ngModelOptions]="{standalone: true}" type="checkbox" />
+            <label class="tgl-btn" [for]="customData?.toggleName"></label>
+        </div>
+    </ng-container>
+
+
+    <!-- Error Message -->
+    <app-reusable-error-message [controls]="control" [submitted]="submitted" [aliasName]="aliasName"
+        [errorMessage]="this.errorMessage"></app-reusable-error-message>
+</div> 

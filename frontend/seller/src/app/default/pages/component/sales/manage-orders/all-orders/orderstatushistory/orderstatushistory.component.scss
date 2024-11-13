@@ -1,0 +1,104 @@
+.osh-body {
+    padding: 0 1.5rem 0rem 3rem;
+    height: calc(100vh - 21rem);
+    overflow: auto;
+}
+.osh-card {
+    position: relative;
+    border: solid thin #D9D9E3;
+    padding: 1rem;
+    border-radius: 0.3125rem;
+    margin-bottom: 1.25rem;
+    h4 {
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: #6E6E81;
+        margin-bottom: 0.3125rem;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        span {
+            font-size: 0.625rem;
+            font-weight: 400;
+            color: #9FABB4;
+            font-style: italic;
+            text-transform: capitalize;
+        }
+    }
+    p {
+        font-size: 0.8125rem;
+        font-weight: 400;
+        color: #6E6E81;
+        margin: 0;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        left: -1.5rem;
+        width: 1px;
+        height: calc(100% + 1.5rem);
+        top: 0;
+        background-color: #C2C9DB;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        left: -2rem;
+        top: 0;
+        width: 1rem;
+        aspect-ratio: 1;
+        background-image: url(../../../../../../../../assets/imgs/empty-circle.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: white;
+    }
+    &:last-child {
+        margin: 0;
+        &::before {
+            display: none;
+        }
+    }
+    &.completed {
+        h4 {
+            color: #353740;
+            text-transform: capitalize;
+        }
+        &::before {
+            background-color: #398D10;
+        }
+        &::after {
+            background-image: url(../../../../../../../../assets/imgs/check-green-rd.svg);
+        }
+        &.current-prev {
+            &::before {
+                background-color: #EB7E1A;
+            }
+        }
+        p {
+            color: #8997A6;
+        }
+    }
+    &.current {
+        h4 {
+            color: #FC7937;
+            text-transform: capitalize;
+        }
+        p {
+            color: #FC7937;
+        }
+        &::after {
+            background-image: url(../../../../../../../../assets/imgs/current-ico.svg);
+        }
+        &::before {
+            background-color: #C2C9DB;
+        }
+    }
+}
+
+
+.osh-card .h4 {
+    color: #4e5a79 !important;
+}

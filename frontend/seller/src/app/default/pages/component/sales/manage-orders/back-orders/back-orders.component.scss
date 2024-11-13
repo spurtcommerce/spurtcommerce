@@ -1,0 +1,353 @@
+.btn-group {
+    white-space: nowrap;
+}
+
+.btn-group .btn {
+    float: none;
+    display: inline-block;
+}
+
+.pay-table {
+    position: relative;
+    opacity: 0.5;
+    pointer-events: none;
+    .inv-loader {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+    }
+}
+
+.no-data {
+    span {
+        color: gray;
+        display: block;
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+
+.loading {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+.dropdown .dropdown-menu form .input-group input , .dropdown .dropdown-menu form .input-group ng-select{
+    width: 100%;
+}
+.date-tag {
+    display: -webkit-box;
+    display: flex;
+    background: #1b5ed8;
+    padding: 2px 8px;
+    width: 20%;
+    margin: 10px auto;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    color: white;
+    font-size: 12px;
+    border-radius: 10px;
+}
+
+.filter-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #222222;
+    margin-bottom: 30px;
+}
+
+.act-filter-labels {
+    font-weight: 450;
+    font-size: 13px;
+    color: #000;
+    letter-spacing: -.12px;
+    text-align: center;
+    display: inline-block;
+    width: 30%;
+}
+
+.filter-group {
+    border: 1px solid #eee!important;
+    width: 30% !important;
+}
+
+.input-group {
+    width: 100%;
+}
+
+.date-input {
+    border: none!important;
+    background: unset !important;
+}
+
+.btn+.dropdown-toggle {
+    margin-left: -4px;
+}
+
+.product-list-wrap {
+    p.added-prd {
+        font-size: 13px;
+        font-weight: 500;
+        color: #787878;
+        margin-bottom: 4px;
+        padding-left: 15px;
+    }
+}
+
+.product-count {
+    margin-bottom: 40px;
+    li {
+        span {
+            border: solid 1px #e1e1e1;
+            background-color: #eeeeee;
+            color: #222222;
+        }
+        p {
+            color: #a0a0a0;
+        }
+    }
+}
+
+.manage-products {
+    ul {
+        li {
+            a {
+                color: #333;
+                border-bottom: solid thin #333;
+            }
+        }
+    }
+}
+
+:host ::ng-deep .mat-form-field-suffix {
+    margin-top: 16px !important;
+    float: right !important;
+    position: absolute !important;
+    right: 10px !important;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+    width: 100% !important;
+    border-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+:host ::ng-deep .mat-form-field {
+    line-height: 0 !important;
+    width: 100% !important;
+}
+
+:host ::ng-deep .mat-form-field-underline {
+    width: 0px !important;
+}
+
+:host ::ng-deep .mat-datepicker-toggle-default-icon {
+    width: 2em !important;
+}
+
+
+.amt {
+    background-color: #edfaff;
+    font-size: 15px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.cmsn {
+    background-color: #fff8e2;
+    font-size: 15px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.invoice-menu {
+    transform: translate3d(-125px, 21px, 0px) !important;
+    li {
+        padding: 15px;
+    }
+}
+
+.dropdown-menu {
+    border: none !important;
+    box-shadow: rgba(0, 0, 0, 0.23) 0px 2px 7px 0px;
+    background-color: white;
+    top: 0px;
+    left: 0px;
+    transform: translate3d(-102px, -100px, 0px);
+    a {
+        font-size: 14px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #a4a4a4;
+    }
+}
+
+.mat-btn-1 {
+    padding-top: 10px;
+    padding-left: 45px;
+}
+
+.status-all {
+    width: 100%;
+    text-align: center;
+}
+
+
+/* make sidebar nav vertical */
+
+@media (min-width: 992px) {}
+
+@media screen and (max-width: 992px) and (min-width: 767px) {}
+
+@media screen and (max-width: 992px) {}
+
+@media screen and (max-width: 766px) and (min-width: 500px) {}
+
+@media screen and (max-width: 500px) {}
+
+.cust-tbl {
+    background: #def9d5;
+}
+
+.cust-tbl thead th {
+    vertical-align: bottom;
+    border-bottom: 0px solid #dee2e6 !important;
+}
+
+.ar-dwn {
+    width: 15px !important;
+}
+
+
+.loading {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #979797;
+    background-color: #979797;
+    border-radius: 0px;
+    outline: none !important;
+    cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+.text-centers {
+    text-align: center !important;
+}
+.pagination {
+    padding: 1.5rem 0;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 50px;
+    p {
+        font-weight: 300;
+        font-size: 0.875rem;
+        color: #5D636D;
+        span {
+            font-weight: 500;
+        }
+    }
+    .pagi-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto; 
+        gap: 0.5rem;
+        a {
+            width: 2.5rem;
+            aspect-ratio: 1;
+            border: 1px solid #CED4DA;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: #4F575E;
+            &:first-child {
+                opacity: 0.5;
+            }
+            &.active {
+                border: 1px solid #407BFF;
+                color: #407BFF;
+            }
+        }
+    }
+}
+.disabled{
+    pointer-events: none;
+    background-color: #f5f5f5;
+}
+.my_class{
+    background-color: rgb(176, 207, 176);
+}
+.filter-content {
+    width: 100%;
+}
+.search-filters {
+    .dropdown-menu {
+        width: 15rem !important;
+        h5 {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #353740;
+        }
+        .filter-content {
+            max-height: 20rem;
+            overflow: auto;
+        }
+        .input-group {
+            label {
+                margin-bottom: 0.125rem;
+                font-size: 0.75rem;
+            }
+            .ig-row {
+                input {
+                    height: 2.125rem;
+                    padding-inline: 0.5rem;
+                    font-size: 0.875rem;
+                    font-weight: 400;
+                    color: #353740;
+                }
+                .ng-select {
+                    .ng-select-container {
+                        height: 2.125rem!important;
+                        min-height: 2.125rem;
+                    }
+                }
+            }
+        }
+        .filter-action {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+    }
+}
+

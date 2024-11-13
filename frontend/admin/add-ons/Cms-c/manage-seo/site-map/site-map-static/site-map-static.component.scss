@@ -1,0 +1,212 @@
+/*reset*/
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.addon-grd {
+  display: grid;
+  grid-template-columns: 1fr 22.5rem;
+  gap: 2.5rem;
+  padding: 1.5rem 1rem;
+}
+
+
+.addon-banner img {
+  width: 100%;
+}
+
+.addon-head {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.41;
+  color: #202123;
+  margin-bottom: 1rem;
+}
+
+.addon-para {
+  font-size: 1.125rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #353740;
+  margin-bottom: 1rem;
+}
+
+
+.addon-list {
+  font-size: 1.125rem;
+  font-weight: normal;
+  line-height: 1.22;
+  color: #353740;
+  margin-bottom: .5rem;
+  list-style-type: disc;
+}
+
+.addon-head:last-child,
+.addon-para:last-child,
+.addon-list:last-child {
+  margin-bottom: 0;
+}
+
+.QA-card {
+  position: sticky;
+  top: 2.5rem;
+  height: fit-content;
+}
+
+.QA-top {
+  display: flex;
+  gap: 1.125rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.QA-head h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: normal;
+  color: #202123;
+  margin-bottom: .25rem;
+}
+
+.QA-head p {
+  font-size: .875rem;
+  font-weight: 500;
+  color: #202123;
+  padding: .0625rem .5rem;
+  border-radius: .1875rem;
+  box-shadow: 0 0 .375rem 0 rgba(0, 0, 0, 0.12);
+  background-color: #f6ba01;
+  display: inline-block;
+}
+
+.QA-subHead {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: normal;
+  color: #353740;
+  margin-bottom: .5rem;
+}
+
+.QA-para {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: normal;
+  color: #6E6E81;
+  margin-bottom: .3125rem;
+}
+
+.QA-lnk:last-of-type,
+.QA-para:last-of-type {
+  margin-bottom: 0;
+}
+
+.QA-lnk {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .3125rem;
+  width: fit-content;
+}
+
+.QA-lnk span {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: normal;
+  color: #2D7FBF;
+  text-decoration: underline;
+}
+
+.QA-btn {
+  padding: 1.0625rem;
+  border-radius: .5rem;
+  text-align: center;
+  width: 100%;
+  background-color: #fc7937;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: normal;
+  color: #fff;
+  display: block;
+  margin-top: 2.5rem;
+  text-decoration: none;
+  height: 3.5rem;
+}
+
+.QA-btn:hover {
+  color: #ffffff;
+  background-color: #db600c;
+}
+
+li.QA-para {
+  display: flex;
+  gap: .25rem;
+}
+
+li.QA-para::before {
+  content: '';
+  display: inline-block;
+  min-width: .6875rem;
+  height: .6875rem;
+  background-image: url(../../../../../src/assets/static-img/check-green.svg);
+  background-size: contain;
+  position: relative;
+  top: .25rem;
+}
+
+.addon-grd {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.addon-list-cont {
+  padding-left: 18px;
+}
+
+
+@media only screen and (max-width: 992px) {
+
+  .addon-grd {
+    padding: 1.5rem 1rem 3rem 1rem;
+  }
+
+  .QA-card {
+    top: 24px;
+  }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+  .addon-grd {
+    grid-template-columns: 1fr;
+
+  }
+
+  .QA-card {
+    position: static;
+  }
+
+
+
+}
+
+.addon-banner {
+  border-radius: .5rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.addon-banner iframe {
+  aspect-ratio: 16/9;
+}
+.addon-bold{
+  font-weight: bold;
+}
+
+.clickme{
+  display: inline;
+}

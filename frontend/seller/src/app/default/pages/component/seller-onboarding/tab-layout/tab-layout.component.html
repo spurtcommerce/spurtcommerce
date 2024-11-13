@@ -1,0 +1,610 @@
+<div>
+  <header class="flex-row">
+    <h1>{{'newContent.MyBusiness'|translate}}</h1>
+  </header>
+  <div class="product-add-container ">
+
+    <!-----------tab 1-------------------  -->
+
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+      <li [ngbNavItem]="1">
+        <a ngbNavLink (click)="updateQueryParam()">{{'myShop.CompanyDetails'|translate}}
+          <ng-container
+            *ngIf="verificationDetails?.verification?.companyDetail==0 && verificationDetails?.kycStatus=='rejected'">❌</ng-container>
+        </a>
+        <ng-template ngbNavContent>
+          <!--  -->
+          <div class="page-content  page-min-content"  [ngClass]="{'disable':kycStatusMond}">
+            <div class="inner-heading">
+              <!-- <h3>{{'myProfile.CompanyDetails'|translate}}</h3> -->
+              <p>{{'myProfile.CompanyDetailsDescription'|translate}}.</p>
+            </div>
+
+
+            <form [formGroup]="newCompanyDetailsForm">
+
+              <div class="product-specs-heading">
+                <div class="product-specs-heading-lft">
+                  <h4>{{'myProfile.BasicCompanyDetails'|translate}}</h4>
+                  <p>
+                    {{'myShop.CompanyDetailsInfo'|translate}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="details-row3 mb-5">
+
+                <div class="input-group">
+                  <label>
+                    {{'myShop.CompanyRegisteredCountry'|translate}} <sup>*</sup>
+                    <p>{{'myShop.CompanyRegisterDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <ng-select [items]="countryListData" bindLabel="name" 
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['companyRegisteredCountry'].hasError('required') && submitted )}"
+                      bindValue="countryId" placeholder="{{'myShop.Selectcountry'|translate}}"
+                      formControlName="companyRegisteredCountry">
+                    </ng-select>
+                  </div>
+                  <div
+                    *ngIf="(newCompanyDetailsForm.controls['companyRegisteredCountry'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.CompanyRegisteredCountryisrequired'|translate}}</div>
+                </div>
+                <div class="input-group">
+                  <label>
+                    {{'myShop.BusinessName'|translate}} <sup>*</sup>
+                    <p>{{'myShop.BuisnessNameDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace placeholder="{{'myShop.Enterbusinessname'|translate}}"
+                      formControlName="businessName"
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['businessName'].hasError('required') && submitted ) ||(newCompanyDetailsForm.controls['businessName'].hasError('invalidCharacters') && submitted)  }">
+                  </div>
+                  <div *ngIf="(newCompanyDetailsForm.controls['businessName'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.BusinessNameisrequired'|translate}}</div>
+                    <div *ngIf="(newCompanyDetailsForm.controls['businessName'].hasError('invalidCharacters') && submitted )"
+                    class="error-data">{{'ValidationsErrorMessage.Onlyalphabetsnumbersspacesdollarsignscommasapostrophesampersandsandhyphensareallowed'|translate}}.</div>
+                    
+                </div>
+
+
+                <div class="input-group">
+                  <label>
+                    {{'myShop.BusinessType'|translate}} <sup>*</sup>
+                    <p>{{'myShop.BuisnessTypeDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <ng-select [items]="type" bindLabel="name" 
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['businessType'].hasError('required') && submitted )}"
+                      bindValue="name" placeholder="{{'myShop.Selectbusinesstype'|translate}}"
+                      formControlName="businessType"
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['businessType'].hasError('required') && submitted )}">
+                    </ng-select>
+                  </div>
+                  <div *ngIf="(newCompanyDetailsForm.controls['businessType'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.BusinessTypeisrequired'|translate}}</div>
+                </div>
+                <div class="input-group">
+                  <label>
+                    {{'myShop.BusinessSegment'|translate}} <sup>*</sup>
+                    <p>{{'myShop.BuisnessSegmentDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <ng-select [items]="segment" bindLabel="name" bindValue="name" 
+                      placeholder="{{'myShop.Enterbusinesssegment'|translate}}" formControlName="businessSegment"
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['businessSegment'].hasError('required') && submitted )}">
+                    </ng-select>
+                  </div>
+                  <div *ngIf="(newCompanyDetailsForm.controls['businessSegment'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.BusinessSegmentisrequired'|translate}}</div>
+                </div>
+                <div class="input-group">
+                  <label>
+                    {{'myShop.BusinessDomainIndustry'|translate}} <sup>*</sup>
+                    <p>{{'myShop.BuisnessDomainDescription'|translate}} </p>
+                  </label>
+                  <div class="ig-row">
+                    <ng-select [items]="sellerIndustryData" bindLabel="name" bindValue="id"
+                      placeholder="{{'myShop.Selectbusinessdomain'|translate}}" formControlName="businessDomain"
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['businessDomain'].hasError('required') && submitted )}">
+                    </ng-select>
+                  </div>
+                  <div *ngIf="(newCompanyDetailsForm.controls['businessDomain'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.BusinessDomainIndustryisrequired'|translate}}</div>
+                </div>
+                <div class="input-group">
+                  <label>
+                    {{'myShop.SellerLegalName'|translate}}
+                    <p>{{'myShop.SellerLegalDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text" appNoLeadingSpace placeholder="{{'myShop.Entersellerlegalname'|translate}}"
+                      formControlName="sellerLegalName">
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label>{{'myShop.ChooseyouruniquebusinessdisplaynameinSpurt'|translate}} <sup>*</sup>
+                    <p>{{'myShop.UniqueNameDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row ">
+                    <input type="text" appNoSpecialChar appNoLeadingSpace placeholder="{{'myShop.Enteruniquebusinessname'|translate}}" (input)="displayNamechange()"
+                      formControlName="businessDisplayName" [(ngModel)]="displayName" 
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['businessDisplayName'].hasError('required') && submitted ) || (newCompanyDetailsForm.controls['businessDisplayName'].hasError('pattern'))|| newCompanyDetailsForm.controls['businessDisplayName'].hasError('maxlength')}" />
+                    <button type="button" class="check-btn"
+                      [ngClass]="{'disable-btn': (sandbox.displayAvailabilityLoading$ | async) || ((sandbox.getProfile$ | async)?.displayNameUrl == displayName) || !displayName || (newCompanyDetailsForm.controls['businessDisplayName'].hasError('maxlength')) || (newCompanyDetailsForm.controls['businessDisplayName'].hasError('pattern'))}"
+                      (click)="checkAvailability()">{{'myProfile.Check'|translate}}</button>
+                  </div>
+                  <div *ngIf="displayavalibestatus==1" class="success"> Business name is available</div>
+                  <div *ngIf="displayavalibestatus==2 && checkstatus==true" class="error-data"> Business name is not
+                    available</div>
+                  <div
+                    *ngIf="(newCompanyDetailsForm.controls['businessDisplayName'].hasError('required') && submitted && !newCompanyDetailsForm.controls['businessDisplayName'].hasError('pattern') && !newCompanyDetailsForm.controls['businessDisplayName'].hasError('maxlength')  )"
+                    class="error-data">{{'myShop.DisplayNameisrequired'|translate}}</div>
+                    <div  class="error-data">
+                    <div
+                    *ngIf="(newCompanyDetailsForm.controls['businessDisplayName'].hasError('pattern')  && !newCompanyDetailsForm.controls['businessDisplayName'].hasError('required'))"
+                    >{{'ValidationsErrorMessage.special characters not allowed'|translate}}</div>
+                    <div style="margin-bottom: 2px"
+                    *ngIf="(newCompanyDetailsForm.controls['businessDisplayName'].hasError('maxlength') && !newCompanyDetailsForm.controls['businessDisplayName'].hasError('required'))"
+                    >{{'ValidationsErrorMessage.MustBe30CharacterLong'|translate}}</div>
+                  </div>
+                </div>
+               
+
+              </div>
+
+              <hr class="sep">
+
+              <div class="product-specs-heading mt-4">
+                <div class="product-specs-heading-lft">
+                  <h4>{{'myProfile.BusinessAddress'|translate}}</h4>
+                  <p>
+                    {{'myShop.BuisnessAddressDescription'|translate}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="details-row3 mb-60">
+
+                <div class="input-group">
+                  <label>
+                    {{'myShop.Pincode'|translate}} <sup>*</sup>
+                    <p>{{'myShop.PincodeDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text" maxlength="15" appNoLeadingSpace appOnlyNumber
+                      placeholder="{{'myShop.Enterpincode'|translate}}" formControlName="pincode"
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['pincode'].hasError('required') && submitted )}">
+                  </div>
+                  <div *ngIf="(newCompanyDetailsForm.controls['pincode'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.Pincodeisrequired'|translate}}</div>
+                  <div
+                    *ngIf="!newCompanyDetailsForm.controls['pincode'].hasError('required')&&(newCompanyDetailsForm.controls['pincode'].errors?.pattern && submitted )"
+                    class="error-data">{{'myShop.NumbersOnlyallowed'|translate}}</div>
+                </div>
+                <div class="input-group">
+                  <label>
+                    {{'myShop.AddressLine1'|translate}} <sup>*</sup>
+                    <p>{{'myShop.Address1Description'|translate}} </p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text" appNoLeadingSpace placeholder="{{'myShop.Enteraddressline1'|translate}}"
+                      formControlName="addressLine1"
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['addressLine1'].hasError('required') && submitted )}">
+                  </div>
+                  <div *ngIf="(newCompanyDetailsForm.controls['addressLine1'].hasError('required') && submitted )"
+                    class="error-data"> {{'myShop.AddressLine1isrequired'|translate}}</div>
+                </div>
+                <div class="input-group">
+                  <label>
+                    {{'myShop.AddressLine2'|translate}} <sup>*</sup>
+                    <p>{{'myShop.Address2Description'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace placeholder="{{'myShop.Enteraddressline2'|translate}}"
+                      formControlName="addressLine2"
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['addressLine2'].hasError('required') && submitted )}">
+                  </div>
+                  <div *ngIf="(newCompanyDetailsForm.controls['addressLine2'].hasError('required') && submitted )"
+                    class="error-data"> {{'myShop.AddressLine2isrequired'|translate}}</div>
+                </div>
+                <div class="input-group">
+                  <label> {{'myShop.Area'|translate}}
+                    <p>{{'myShop.AreaDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace placeholder="{{'myShop.Enterarea'|translate}}"
+                      formControlName="area">
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label> {{'myShop.City'|translate}}
+                    <p>{{'myShop.CityDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace placeholder="{{'myShop.Entercity'|translate}}"
+                      formControlName="city">
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label>{{'myShop.Country'|translate}} <sup>*</sup>
+                    <p>{{'myShop.CountryDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <ng-select [items]="countryListData" bindLabel="name" bindValue="countryId"
+                      placeholder="{{'myShop.Selectcountry'|translate}}" formControlName="country"
+                      (change)=" valueChange()"
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['country'].hasError('required') && submitted )}">
+                    </ng-select>
+                  </div>
+                  <div *ngIf="(newCompanyDetailsForm.controls['country'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.Countryisrequired'|translate}} </div>
+                </div>
+                <div class="input-group">
+                  <label>{{'myShop.State'|translate}} <sup>*</sup>
+                    <p>{{'myShop.StateDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <ng-select [items]="selelcteZoneList" bindLabel="name" bindValue="zoneId"
+                      placeholder="{{'myShop.Selectstate'|translate}}" formControlName="state"
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['state'].hasError('required') && submitted )}">
+                    </ng-select>
+                  </div>
+                  <div *ngIf="(newCompanyDetailsForm.controls['state'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.Stateisrequired'|translate}}</div>
+                </div>
+                <div class="input-group">
+                  <label>{{'myShop.ContactNumber'|translate}}
+                    <p>{{'myShop.ContactDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace maxlength="15" appOnlyNumber
+                      placeholder="{{'myShop.Entercontactnumber'|translate}}" formControlName="contactNumber">
+                  </div>
+                  
+                </div>
+                <div class="input-group">
+                  <label>
+                    {{'myShop.ChoosePreferredShippingMethod'|translate}} <sup>*</sup>
+                    <p>{{'myShop.ShippingDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <ng-select [items]="shipingData"  bindLabel="label" bindValue="label"
+                      placeholder="{{'myShop.Selectshippingmethod'|translate}}"
+                      formControlName="preferredShippingMethod"
+                      [ngClass]="{'error-color':(newCompanyDetailsForm.controls['preferredShippingMethod'].hasError('required') && submitted )}">
+                    </ng-select>
+                  </div>
+                  <div
+                    *ngIf="(newCompanyDetailsForm.controls['preferredShippingMethod'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.ShippingMethodisrequired'|translate}}</div>
+                </div>
+                <div class="input-group">
+                  <label>{{'myShop.TaxNumber'|translate}}
+                    <p>{{'myShop.TaxDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace placeholder="{{'myShop.Entertaxnumber'|translate}}"
+                      formControlName="taxNumber">
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label>{{'myShop.BusinessIdentificationNumber'|translate}}
+                    <p>{{'myShop.IdentifyNoDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text" appNoLeadingSpace 
+                      placeholder="{{'myShop.Enterbusinessidentificationnumber'|translate}}"
+                      formControlName="businessIdentificationNumber">
+                  </div>
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+          <!-- [ngClass]="{'cancel-disable': companyCancelDisable}" -->
+          <div class="product-save-btn">
+            <button class="cancel" (click)="companyFormCancel()"
+              [ngClass]="{'cancel-disable': !newCompanyDetailsForm.dirty}"
+              routerLinkActive="router-link-active">{{'myShop.Cancel'|translate}}</button>
+            <!-- <button class="save"
+              [ngClass]="{'disable': (sandbox.updateProfileDetailsLoading$ | async)  || vendorDetails?.approvalFlag==1}"
+              (click)="updateCompanyDetails()">
+              {{'myShop.Draft'|translate}}<mat-spinner *ngIf="sandbox.updateProfileDetailsLoading$ | async" color="black"
+                diameter="20"></mat-spinner>
+            </button> -->
+            <!--  -->
+          
+          <button class="save"   [ngClass]="{'disable':kycStatusMond}"  
+              
+          (click)="CompanySubmit()">{{'myShop.Submit'|translate}}</button>
+          </div>
+
+        </ng-template>
+      </li>
+      <!-----------tab 2-------------------  -->
+      <li [ngbNavItem]="2">
+        <a ngbNavLink (click)="updateQueryParam()">{{'myShop.BankAccount'|translate}}
+          <ng-container
+            *ngIf="verificationDetails.verification?.bankAccount==0 && verificationDetails?.kycStatus=='rejected'">❌</ng-container>
+        </a>
+        <ng-template ngbNavContent>
+          <!-- / -->
+          <div class="page-content  page-min-content"  [ngClass]="{'disable':kycStatusMond}">
+
+            <div class="inner-heading">
+              <!-- <h3>{{'myProfile.BankAccount'|translate}}</h3> -->
+              <p>{{'myProfile.FillinyourBankDetailshere'|translate}}.</p>
+            </div>
+
+            <form [formGroup]="newBankDetailsForm">
+
+              <div class="product-specs-heading">
+                <div class="product-specs-heading-lft">
+                  <h4>{{'myProfile.BankAccountInfo'|translate}}</h4>
+                  <p>
+                    {{'myShop.BankAccountInfo'|translate}}
+                </div>
+              </div>
+
+              <div class="details-row3 mb-35">
+
+                <div class="input-group">
+                  <label> {{'myShop.BankName'|translate}} <sup>*</sup>
+                    <p>{{'myShop.BankNameNote'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace placeholder="{{'myShop.EnterBankName'|translate}}"
+                      formControlName="bankName"
+                      [ngClass]="{'error-color':(newBankDetailsForm.controls['bankName'].hasError('required') && submitted ) || newBankDetailsForm.controls['bankName'].hasError('pattern')}">
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['bankName'].hasError('required') && submitted )"
+                    class="error-data">
+                    {{'myShop.BankNameisrequired'|translate}}</div>
+                    <div *ngIf="(newBankDetailsForm.controls['bankName'].hasError('pattern'))"
+                    class="error-data">
+                    {{'ValidationsErrorMessage.Onlyalphabetsnumbersandspacesareallowed'|translate}}</div>
+                </div>
+
+                <div class="input-group">
+                  <label> {{'myShop.AccountHolderName'|translate}} <sup>*</sup>
+                    <p>{{'myShop.AccountNameNote'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace appAlphabetOnly
+                      placeholder="{{'myShop.EnterAccountHolderName'|translate}}" formControlName="accountHolderName"
+                      [ngClass]="{'error-color':(newBankDetailsForm.controls['accountHolderName'].hasError('required') && submitted ) || newBankDetailsForm.controls['accountHolderName'].hasError('pattern')}">
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['accountHolderName'].hasError('required') && submitted )"
+                    class="error-data">
+                    {{'myShop.AccountHolderNameisrequired'|translate}}</div>
+
+                    <div *ngIf="(newBankDetailsForm.controls['accountHolderName'].hasError('pattern'))"
+                    class="error-data">
+                    {{'ValidationsErrorMessage.Allowonlyalphabetsspaces'|translate}}</div>
+                    
+                </div>
+
+                <div class="input-group">
+                  <label>{{'myShop.Branch'|translate}} <sup>*</sup>
+                    <p>{{'myShop.BranchNote'|translate}} </p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text" id="branchField" #branchField appNoLeadingSpace placeholder="{{'myShop.EnterBranch'|translate}}"
+                      formControlName="branch"
+                      [ngClass]="{'error-color':(newBankDetailsForm.controls['branch'].hasError('required') && submitted ) || newBankDetailsForm.controls['branch'].hasError('pattern')}">
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['branch'].hasError('required') && submitted )"
+                    class="error-data">
+                    {{'myShop.Branchisrequired'|translate}}</div>
+
+                    <div *ngIf="(newBankDetailsForm.controls['branch'].hasError('pattern'))"
+                    class="error-data">
+                    {{'ValidationsErrorMessage.Onlyalphabetsnumbersandspacesareallowed'|translate}}</div>
+                </div>
+
+                <div class="input-group">
+                  <label> {{'myShop.AccountNumber'|translate}} <sup>*</sup>
+                    <p>{{'myShop.AccountNumberNote'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace placeholder="{{'myShop.EnterAccountNumber'|translate}}"
+                      formControlName="accountNumber"
+                      [ngClass]="{'error-color':(newBankDetailsForm.controls['accountNumber'].hasError('required') && submitted ) || newBankDetailsForm.controls['accountNumber'].hasError('pattern')}">
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['accountNumber'].hasError('required') && submitted )"
+                    class="error-data">
+                    {{'myShop.AccountNumberisrequired'|translate}}</div>
+                    <div *ngIf="(newBankDetailsForm.controls['accountNumber'].hasError('pattern'))"
+                    class="error-data">
+                    {{'ValidationsErrorMessage.Onlynumbersareallowed'|translate}}</div>
+                </div>
+
+                <div class="input-group">
+                  <label> {{'myShop.IFSCCode'|translate}} <sup>*</sup>
+                    <p>{{'myShop.IFSCNote'|translate}}</p>
+                  </label>
+                  <div class="ig-row"> 
+                    <input type="text"  appNoLeadingSpace placeholder="{{'myShop.EnterIFSCCode'|translate}}"
+                      formControlName="IFSCCode"
+                      [ngClass]="{'error-color':(newBankDetailsForm.controls['IFSCCode'].hasError('required') && submitted ) || newBankDetailsForm.controls['IFSCCode'].hasError('pattern')}">
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['IFSCCode'].hasError('required') && submitted )"
+                    class="error-data">
+                    {{'myShop.IFSCCodeisrequired'|translate}}</div>
+                    <div *ngIf="(newBankDetailsForm.controls['IFSCCode'].hasError('pattern'))"
+                    class="error-data">
+                    {{'ValidationsErrorMessage.AllowonlyalphabetsandNumbers'|translate}}</div>
+                
+                </div>
+
+                <div class="input-group">
+                  <label>
+                    {{'myShop.BICorSWIFTCode'|translate}}
+                    <p>{{'myShop.BICNote'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace placeholder=" {{'myShop.EnterBICorSWIFTCode'|translate}}"
+                      formControlName="BICorSWIFTCode" [ngClass]="{'error-color':newBankDetailsForm.controls['BICorSWIFTCode'].hasError('pattern')}" >
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['BICorSWIFTCode'].hasError('pattern'))"
+                    class="error-data">
+                    {{'ValidationsErrorMessage.AllowonlyalphabetsandNumbers'|translate}}</div>
+                </div>
+
+                <div class="input-group">
+                  <label>{{'myShop.AccountSince'|translate}}
+                    <p>{{'myShop.SinceNote'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace placeholder="{{'myShop.AccountSinceeg'|translate}}"
+                      formControlName="accountSince">
+                  </div>
+                </div>
+
+              </div>
+
+              <hr class="sep">
+
+              <div class="product-specs-heading mt-4">
+                <div class="product-specs-heading-lft">
+                  <h4>{{'myProfile.BankAddress'|translate}}</h4>
+                  <p>
+                    {{'myShop.BankAddressNote'|translate}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="details-row3 mb-60">
+
+                <div class="input-group">
+                  <!-- <sup *ngIf="(newBankDetailsForm.controls['addressLine1'].invalid && submitted )">*</sup> -->
+                  <label> {{'myShop.AddressLine1'|translate}}
+                    <p>{{'myShop.Address1Description'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text" appNoLeadingSpace placeholder="{{'myShop.EnterAddressLine1'|translate}}"
+                      formControlName="addressLine1"
+                      [ngClass]="{'error-color':(newBankDetailsForm.controls['addressLine1'].invalid && submitted )}">
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['addressLine1'].invalid && submitted )"
+                    class="error-data">{{'myShop.AddressLine1isrequired'|translate}}</div>
+                </div>
+
+                <div class="input-group">
+                  <label> {{'myShop.AddressLine2'|translate}}
+                    <p>{{'myShop.Address2Description'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text" appNoLeadingSpace placeholder="{{'myShop.EnterAddressLine2'|translate}}"
+                      formControlName="addressLine2" [ngClass]="{'error-color':(newBankDetailsForm.controls['addressLine2'].invalid && submitted )}">
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <!-- <sup *ngIf="(newBankDetailsForm.controls['area'].invalid && submitted)">*</sup> -->
+                  <label>{{'myShop.Area'|translate}} 
+                    <p>{{'myShop.AreaDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace placeholder="{{'myShop.EnterArea'|translate}}"
+                      formControlName="area"
+                      [ngClass]="{'error-color':(newBankDetailsForm.controls['area'].hasError('required') && submitted )}">
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['area'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.Areaisrequired'|translate}}</div>
+                </div>
+
+                <div class="input-group">
+                  <!-- <sup *ngIf="(newBankDetailsForm.controls['city'].invalid && submitted)">*</sup> -->
+                  <label> {{'myShop.City'|translate}} 
+                    <p>{{'myShop.CityDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text"  appNoLeadingSpace placeholder="{{'myShop.EnterCity'|translate}} "
+                      formControlName="city"
+                      [ngClass]="{'error-color':(newBankDetailsForm.controls['city'].hasError('required') && submitted )}">
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['city'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.Cityisrequired'|translate}}</div>
+                </div>
+
+                <div class="input-group">
+                  <!-- <sup *ngIf="(newBankDetailsForm.controls['country'].invalid && submitted)">*</sup> -->
+                  <label> {{'myShop.Country'|translate}} 
+                    <p>{{'myShop.CountryDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <ng-select [items]="countryListData"  bindLabel="name" bindValue="countryId"
+                      placeholder="{{'myShop.Selectcountry'|translate}}" formControlName="country"
+                      (change)="bankValueChange()"
+                      [ngClass]="{'error-color':(newBankDetailsForm.controls['country'].hasError('required') && submitted )}">
+                    </ng-select>
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['country'].hasError('required') && submitted )"
+                    class="error-data"> {{'myShop.Countryisrequired'|translate}}</div>
+                </div>
+
+                <div class="input-group">
+                  <!-- <sup *ngIf="(newBankDetailsForm.controls['state'].invalid && submitted)">*</sup> -->
+                  <label> {{'myShop.State'|translate}} 
+                    <p>{{'myShop.StateDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <ng-select [items]="bankselelcteZoneList"  bindLabel="name" bindValue="zoneId"
+                      placeholder="{{'myShop.Selectstate'|translate}}" formControlName="state"
+                      [ngClass]="{'error-color':(newBankDetailsForm.controls['state'].hasError('required') && submitted )}">
+                    </ng-select>
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['state'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.Stateisrequired'|translate}}</div>
+                </div>
+
+                <div class="input-group">
+                  <!-- <sup *ngIf="(newBankDetailsForm.controls['pincode'].invalid && submitted)">*</sup> -->
+                  <label> {{'myShop.Pincode'|translate}} 
+                    <p>{{'myShop.PincodeDescription'|translate}}</p>
+                  </label>
+                  <div class="ig-row">
+                    <input type="text" appNoLeadingSpace appOnlyNumber
+                      placeholder="{{'myShop.EnterPincode'|translate}} "  formControlName="pincode"
+                      [ngClass]="{'error-color':(newBankDetailsForm.controls['pincode'].hasError('required') && submitted )}">
+                  </div>
+                  <div *ngIf="(newBankDetailsForm.controls['pincode'].hasError('required') && submitted )"
+                    class="error-data">{{'myShop.Pincodeisrequired'|translate}}</div>
+                  <div
+                    *ngIf="!newBankDetailsForm.controls['pincode'].hasError('required') && (newBankDetailsForm.controls['pincode'].errors?.pattern && submitted )"
+                    class="error-data">{{'myShop.NumbersOnlyallowed'|translate}}</div>
+                </div>
+
+              </div>
+
+            </form>
+
+          </div>
+
+          <div class="product-save-btn">
+            <button class="cancel" (click)="goToCompany()" [ngClass]="{'cancel-disable': !newBankDetailsForm.dirty}"
+              routerLinkActive="router-link-active">{{'myShop.Cancel'|translate}}</button>
+            <!-- <button class="save"
+              [ngClass]="{'disable': (sandbox.updateProfileDetailsLoading$ | async)|| vendorDetails?.approvalFlag==1 }"
+              (click)="saveBankAccountInfo()">
+              {{'myShop.Draft'|translate}} <mat-spinner *ngIf="sandbox.updateProfileDetailsLoading$ | async"
+                color="black" diameter="20"></mat-spinner>
+            </button> -->
+            <!--  -->
+            <button class="save"  
+              
+              (click)="BankSubmit()"[ngClass]="{'disable':kycStatusMond}">{{'myShop.Submit'|translate}}</button>
+            <!-- <button class="btn-reg btn-sm primary" [ngClass]="{'btn-disabled': settingsSandbox.sellerBankCreateLoading$ | async}" (click)="saveBankAccountInfo()">{{'myProfile.SaveProfile'|translate}} <mat-spinner *ngIf="settingsSandbox.sellerBankCreateLoading$ | async" color="black" diameter="20"></mat-spinner></button> -->
+          </div>
+
+        </ng-template>
+      </li>
+
+
+    </ul>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+</div>

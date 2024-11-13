@@ -1,0 +1,178 @@
+$chat-window-width:300px;
+$chat-window-height:350px;
+.chat-windows {
+    position: fixed;
+    bottom: 0px;
+    right: 280px;
+    height: $chat-window-height;
+    max-height: $chat-window-height;
+    z-index: 9999;
+    transition: 600ms;
+    &.show-chat {
+        bottom: 0px;
+    }
+    &.hide-chat {
+        bottom: -$chat-window-height;
+    }
+    .user-chat {
+        min-width: $chat-window-width;
+        min-height: $chat-window-height;
+        background-color: $white;
+        box-shadow: $shadow;
+        float: $rgt;
+        margin: 0 2px 0 0;
+        &.mini-chat {
+            min-width: 40px;
+            min-height: 40px;
+            bottom: 0px;
+            top: 310px;
+            position: relative;
+            .chat-head .name,
+            .chat-head i,
+            .chat-footer,
+            .chat-body {
+                display: none;
+            }
+            .chat-head {
+                img {
+                    margin: 0;
+                }
+                .status {
+                    left: 28px;
+                    top: 10px;
+                }
+            }
+        }
+        .chat-head {
+            height: 40px;
+            padding: 10px;
+            background-color: $info;
+            color: $white;
+            position: relative;
+            img {
+                border-radius: 50%;
+                height: 25px;
+                width: 25px;
+                vertical-align: middle;
+                margin: -4px 8px 0 0;
+                display: inline-block;
+                cursor: pointer;
+            }
+            .status {
+                border: 1px solid $white;
+                border-radius: 50%;
+                position: absolute;
+                height: 8px;
+                width: 8px;
+                left: 28px;
+                top: 7px;
+            }
+            .online {
+                background-color: $success;
+            }
+            .busy {
+                background-color: $danger;
+            }
+            .away {
+                background-color: $orange;
+            }
+            .offline {
+                background-color: $warning;
+            }
+            i {
+                font-size: 14px;
+                float: right;
+                color: $white;
+                margin: 3px 0 0 5px;
+                cursor: pointer;
+            }
+        }
+        .chat-footer {
+            padding: 0px;
+            border-top: 1px solid $border-color;
+            .form-control {
+                background-color: transparent;
+                color: $body-color;
+                font-size: 14px;
+                border: 0px;
+                width: 100%;
+                height: 40px;
+                &:focus,
+                &:hover {
+                    border: 0px;
+                }
+            }
+        }
+        .chat-body {
+            height: 270px;
+            padding: 15px 15px 0;
+            background-color: $body-bg;
+            overflow: hidden;
+            max-width: $chat-window-width;
+            position: relative;
+            
+        }
+    }
+}
+
+.chat-list {
+    margin: 0px;
+    padding: 0px;
+    .msg_receive, .msg_sent {
+        list-style: none;
+        margin-top: 30px;
+        .chat-img {
+            display: inline-block;
+            width: 45px;
+            vertical-align: top;
+            img{
+                width: 100%;
+                border-radius: 100%;
+            }
+        }
+        .chat-content {
+            width: calc(100% - 50px);
+            display: inline-block;
+            padding-left: 15px;
+            .box {
+                display: inline-block;
+                padding: 10px;
+                margin-bottom: 3px;
+                background: $white;
+            }
+        }
+        .chat-time {
+            display: block;
+            font-size: 10px;
+            color: $text-muted;
+            margin: 5px 0 15px 15px;
+        }
+        &.odd .chat-content {
+            text-align: right;
+            width: calc(100% - 0px);
+            .box {
+                clear: both;
+                color: $white;
+                background: $info;
+            }
+        }
+        &.odd .chat-time, .reverse {
+            text-align: right;
+        }
+        &.odd + .odd {
+            margin-top: 0px;
+        }
+        &.reverse {
+            .chat-content {
+                padding-left: 0px;
+                padding-right: 15px;
+            }
+            .chat-time {
+                text-align: left;
+            }
+        }
+    }
+}
+.mailbox .chat-scroll{
+    height:calc(100vh - 100px);
+}

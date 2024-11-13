@@ -1,0 +1,88 @@
+<!--Loader -->
+<div class="spinner-wrapper">
+  <app-global-loader [isShow]="(categorySandbox.translationDetailLoading$ | async) && (languageSandbox.languageListLoading$ | async)" style="transform: translate(50%, 400%); position: absolute; z-index: 1;">
+  </app-global-loader>
+</div>
+
+<div
+  class='Language_page_wrapper__Qb2id undefined Language_page_wrapper_normal__oteTI Language_add_page_wrapper__KbanA'>
+  <div class='add_user_container add_role_container'>
+
+    <!-- Detail -->
+    <div class="flex prod-dtl">
+        <a class="to-back" (click)="cancel()">
+          <img src="assets/imgs/back.svg" alt="">
+       </a>
+      <div class="prod-dtl-img">
+        <img
+          [src]="imageUrl + '?path=' + categoryDetail?.imagePath + '&name=' + categoryDetail?.image + '&width=50&height=50'"
+          onError="this.src='/assets/error-images/Load-icon-Products.png';">
+      </div>
+
+      <div class="prod-dtl-content">
+        <h3>{{categoryDetail?.name}}</h3>
+        <!-- <div class="title-align">
+          <h4>{{'marketplace.common.Description' | translate}}</h4><span>:</span>
+          <h4 [innerHTML]="categoryDescription"></h4>
+        </div> -->
+      </div>
+    </div>
+
+    <div class='add_role_title'>
+      <h3 class="mt-3"> {{'marketplace.common.Languages' | translate}} </h3>
+      <p>{{'localization.Categories' | translate}} </p>
+    </div>
+    <div class='languages_nav_list flexx'>
+      <a (click)="scrollToLanguage(lang.name)" *ngFor="let lang of languageList">{{ lang.name }}</a>
+    </div>
+
+    <div class="addproduct-wrap p-0">
+
+      <div class="card ap-general" *ngFor="let lang of languageList; let i = index" [id]="lang.name">
+        <div class="ap-header sub-sub-header">
+          <h3>
+            <img [src]="imageUrl + '?path=' + lang.imagePath + '&name=' +  lang.image + '&width=25&height=15'" />
+            {{ lang.name }}, <span>{{ lang.code }}</span>
+          </h3>
+        </div>
+        <div class="ap-body">
+          <form [formGroup]="categoryForms[i]">
+            <input type="hidden" formControlName="languageId" [value]="lang.languageId" [placeholder]="lang.languageId">
+            <div class='languges_card__row'>
+              <div class='form-group flex-column mb-3'>
+                <label>{{'marketplace.common.CategoryTitle' | translate}} </label>
+                <div class="ig-row">
+                  <input formControlName="categoryName" type="text" class='int form-control' />
+                  <div
+                    *ngIf="categoryForms[i].get('categoryName').invalid && categoryForms[i].get('categoryName').touched">
+                    {{'marketplace.common.CategoryTitleisrequired' | translate}} .
+                  </div>
+                </div>
+              </div>
+              <div class='form-group flex-column'>
+                <label> {{'marketplace.common.Description' | translate}} </label>
+                <div class="ig-row">
+                  <ckeditor class='tex' [editor]="editor" [config]="config" formControlName="categoryDescription">
+                  </ckeditor>
+                  <div
+                    *ngIf="categoryForms[i].get('categoryDescription').invalid && categoryForms[i].get('categoryDescription').touched">
+                    {{'marketplace.common.Descriptionisrequired' | translate}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-button-container flex">
+    <button (click)="cancel()" class="button-reg btn-md secondary">
+      {{ 'Customers.Customer.Cancel' | translate }}
+    </button>
+    <button class="button-reg btn-md primary" (click)="save()">
+      {{ 'Customers.Customer.Save' | translate }}
+    </button>
+  </div>
+</div>

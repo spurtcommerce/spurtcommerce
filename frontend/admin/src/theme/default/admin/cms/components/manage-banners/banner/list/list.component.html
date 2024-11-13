@@ -1,0 +1,92 @@
+<div *ngIf="sandbox.exportExcelLoading$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+
+<div class="flex filter-row">
+    <div class="filter-lft">
+        <h2>{{'CMS.Pages.Banners' | translate}} ({{ sandbox.getbannerListCount$ | async}})</h2>
+    </div>
+
+    <div class="filter-rht flex">
+
+        <!-- filter -->
+        <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue;trackBy: trackByIndex">
+            <div class="added-filter-col flex filter-detail" *ngIf="!empty.includes(filter.value)">
+                <span>{{ filter.key }} : {{ filter.value}} </span>
+                <button (click)="removeFilter(filter)">
+                    <img src="assets/img/close.svg" alt="" />
+                </button>
+            </div>
+        </div>
+
+        <!--search filter -->
+        <div class="filter-search">
+            <form class="" (keyup.enter)="applyFilter()">
+                <app-common-form [type]="dynamicObjControls?.Search?.type"
+                    [control]="dynamicObjControls?.Search?.control" 
+                    [inputId]="dynamicObjControls?.Search?.inputId"
+                    [aliasName]="dynamicObjControls?.Search?.aliasName"
+                    [placeholder]="dynamicObjControls?.Search?.placeholder">
+                </app-common-form>
+            </form>
+        </div>
+        
+        <button class="button-reg btn-sm primary" (click)="addBanner()" [appHideIfUnauthorized]="'create-banners'"> +
+            {{'CMS.Banners.NewBanners'|
+            translate}}
+        </button>
+        <!-- <a href="javascript:void(0)" (click)="openbannerviewmodal('')"> Banner View </a> -->
+    </div>
+</div>
+
+<div class="flex product-wrap example-full-width">
+    <div class="product-table">
+
+        <!--Loader -->
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="sandbox.getbannerlistloading$ | async"
+                style="transform: translate(38%, 50%);position:absolute">
+            </app-global-loader>
+        </div>
+        <div class="table-responsive">
+
+            <!-- common -table -->
+            <app-common-table [customTemplate]="{Active:itemTemplateRef, bannerName:itemTemplateRef1}"
+                [HeadArray]="customTable" [GridArray]="approvedProductList" (buttonChangeEvent)="buttonAction($event)"
+                [selectAll]="tableCheckbox">
+            </app-common-table>
+            <ng-template #itemTemplateRef let-item let-index="index">
+                <div *ngIf="item.active == 1">
+                    <span class="tags-action tag-active">{{'marketplace.seller.Active'| translate}}</span>
+                </div>
+                <div *ngIf="item.active == 0">
+                    <span class="tags-action tag-inactive">{{'Settings.Role.InActive'| translate}}</span>
+                </div>
+            </ng-template>
+            <ng-template #itemTemplateRef1 let-item let-index="index">
+                <span class="detail" style="cursor: pointer;" (click)="openbannerviewmodal(item)">{{item.title}}</span>
+            </ng-template>
+
+            <!-- No Data Found -->
+            <div class="nodata-found" *ngIf="(sandbox.getbannerlist$ |async)?.length==0">
+                <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+                <h5>{{'common.Items Not Found'| translate}}</h5>
+                <button class="button-reg btn-sm primary" (click)="addBanner()">
+                    {{'CMS.Pages.AddBanner' | translate}}
+                </button>
+            </div>
+
+            <!--pagination -->
+            <div class="pagination flex" *ngIf="(sandbox.getbannerListCount$ | async) > limit">
+                <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+                    [totalItems]="sandbox.getbannerListCount$ | async" [pageSize]="limit"
+                    (pageChange)="onPageChange($event)">
+                </app-reusable-pagination>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bulk Action -->
+<app-bulk-action *ngIf="selectedDatas?.length > 0" [count]="selectedDatas?.length" [bulkList]="bulkAction"
+    (actionEvent)="actionType($event)"></app-bulk-action>

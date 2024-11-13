@@ -1,0 +1,84 @@
+<!-- ============================================================== -->
+<!-- toggle and nav items -->
+<!-- ============================================================== -->
+<ul class="navbar-nav float-left mr-auto navbar-left">
+    <!-- ============================================================== -->
+    <li class="nav-item dashboard-nav">
+        <a href="javascript:void(0)" class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="'active'">
+            <img src="assets/img/header-icons/MainDashboard.svg">
+            {{'Dashboard.Dashboard'| translate}}
+        </a>
+    </li>
+
+
+    <!-- <li class="nav-item mega-dropdown sales-nav" [appHideIfUnauthorized]="'sales'">
+        <a class="nav-link waves-effect waves-dark" [routerLink]="['/sales']" [routerLinkActive]="'active'" href="javascript:void(0)" aria-expanded="false">
+            <img src="assets/img/header-icons/MainSales.svg" class="nav-img-default"> 
+            <img src="assets/img/header-icons/MainSales-on.svg" class="nav-img-on"> 
+            {{'Dashboard.Sale'| translate}}
+        </a>
+    </li> -->
+
+    <li class="nav-item mega-dropdown customers-nav" [appHideIfUnauthorized]="'buyers'">
+        <a [routerLink]="['/customers']" [routerLinkActive]="'active'" class="nav-link waves-effect waves-dark" href="javascript:void(0)">            
+            <img src="assets/img/header-icons/MainBuyers.svg">
+            {{'Dashboard.Buyers'| translate}}
+        </a>
+    </li>
+
+    <li class="nav-item mega-dropdown sales-nav" [appHideIfUnauthorized]="'sellers'">
+
+        <a class="nav-link waves-effect waves-dark" [routerLink]="['seller/manage-seller']" [routerLinkActive]="'active'" class="nav-link waves-effect waves-dark" href="javascript:void(0)">
+            <img src="assets/img/header-icons/MainSellers.svg">
+            {{'Dashboard.Sellers'| translate}}
+        </a>
+    </li>
+
+    <li class="nav-item mega-dropdown vendor-nav" [appHideIfUnauthorized]="'marketplace-new'">
+        <a [routerLink]="['/vendors']" [routerLinkActive]="'active'" class="nav-link waves-effect waves-dark" href="javascript:void(0)">            
+            <img src="assets/img/header-icons/MainMarketplace.svg">
+            {{'Dashboard.marketPlace'| translate}}          
+        </a>
+    </li>
+
+    <!-- mega menu -->
+    <!-- ============================================================== -->
+    <!-- <li class="nav-item mega-dropdown catalog-nav" [appHideIfUnauthorized]="'catalog'">
+        <a class="nav-link waves-effect waves-dark" href="javascript:void(0)" [routerLink]="['/catalog']" [routerLinkActive]="'active'">            
+            <img src="assets/img/header-icons/MainCatelog.svg" class="nav-img-default">
+            <img src="assets/img/header-icons/MainCatelog-on.svg" class="nav-img-on">
+            {{'Dashboard.Catalog'| translate}}      
+        </a>
+    </li> -->
+    <!-- ============================================================== -->
+    <!-- End mega menu -->
+  
+    <li class="nav-item mega-dropdown cms-nav" [appHideIfUnauthorized]="'cms'">
+        <a [routerLink]="['/cms']" [routerLinkActive]="'active'" class="nav-link waves-effect waves-dark" href="javascript:void(0)">            
+            <img src="assets/img/header-icons/MainCMS.svg">
+            {{'Dashboard.CMS'| translate}}         
+        </a>
+    </li>
+    <li class="nav-item mega-dropdown marketing-nav" [appHideIfUnauthorized]="'Marketing'">
+        <a [routerLink]="['/marketing']" [routerLinkActive]="'active'" class="nav-link waves-effect waves-dark" href="javascript:void(0)">
+                <img src="assets/img/header-icons/MainMarketing.svg">
+                 {{'Dashboard.Marketing'| translate}}                  
+        </a>
+    </li>
+   
+
+    <!-- <li class="nav-item mega-dropdown service-nav" [appHideIfUnauthorized]="'reports'">
+        <a [routerLink]="['/reports']" [routerLinkActive]="'active'" class="nav-link waves-effect waves-dark" href="javascript:void(0)">
+            <img src="assets/img/header-icons/MainAuditlog.svg" class="nav-img-default">
+            <img src="assets/img/header-icons/MainAuditlog-on.svg" class="nav-img-on">
+            {{'Dashboard.LOG'| translate}}  
+        </a>
+    </li> -->
+    
+
+   
+</ul>
+<!-- ============================================================== -->
+<!-- Right side toggle and nav items -->
+<!-- ============================================================== -->
+<app-profile-bar (logout)="logout.emit($event)" [userDetails]="userDetails"></app-profile-bar>

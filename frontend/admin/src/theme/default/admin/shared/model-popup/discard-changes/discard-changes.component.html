@@ -1,0 +1,29 @@
+<div class="modal-body">
+    <button type="button" class="close" (click)="close()">
+        <span aria-hidden="true" style="background-color:white">&times;</span>
+    </button>
+    <h3>Discard changes</h3>
+
+    <p>Are you sure You want to {{deleteMessage}} ?</p>
+
+
+   
+    <h4></h4>
+    <div class="delete-btns flex">
+        <button type="button" class="btn btn-danger" (click)="close()">{{'CommonFormAll.No' | translate}}  </button>
+        <button type="button" class="btn btn-success" (click)="deleteContent()">{{'CommonFormAll.Yes' | translate}} </button>
+        
+    </div>
+</div>
+
+
+<!-- <div class="modal-body">
+    <button type="button" class="close" (click)="close()">
+        <span aria-hidden="true" style="background-color:white">&times;</span>
+    </button>
+    <h4>  {{deleteText| translate}} </h4>
+    <div class="delete-btns flex">
+        <button type="button" class="btn btn-danger" (click)="close()"> {{'CommonFormAll.No' | translate}}  </button>
+        <button type="button" class="btn btn-success" (click)="deleteContent()"> {{'CommonFormAll.Yes' | translate}}</button>
+    </div>
+</div> -->

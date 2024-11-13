@@ -1,0 +1,57 @@
+/* LOGIN VALIDATION*/
+
+.validationcolor {
+    border-color: red !important;
+}
+
+.error {
+    color: red;
+}
+
+.dark-modal .modal-content {
+    background-color: #009efb;
+    color: white;
+}
+
+.dark-modal .close {
+    color: white;
+}
+
+.light-blue-backdrop {
+    background-color: #5cb3fd;
+}
+
+.image-manager .modal-dialog {
+    max-width: 70%;
+}
+
+td {
+    vertical-align: top;
+}
+
+.error-field {
+    border: 1px solid red !important;
+}
+
+.error-fields {
+    .ng-select-container {
+        border: 1px solid red !important;
+    }
+}
+
+.txtarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.add {
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.new {
+    height: 500 px;
+}

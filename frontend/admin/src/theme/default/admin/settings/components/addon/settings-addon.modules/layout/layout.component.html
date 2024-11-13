@@ -1,0 +1,57 @@
+<div class="setup-wrapper">
+    <div class="setup-container localization-container">
+        <div class="loc-lay-title">
+        </div>
+
+        <div class="card ap-general ap-info set-loc-card">
+
+            <div class="localize-tab"> 
+                <ul class="nav-tabs nav"> 
+
+                    <li class="nav-item" [appHideIfUnauthorized]="'list-attribute'"  >
+                        <a class="nav-link" [routerLinkActive]="'active'"  [routerLink]="['/settings/add-on/settings/settingsLayout/attributes/list']" >
+                            <span>{{'common.Attributes'|translate}} </span></a> 
+                        <a class="nav-link" [routerLinkActive]="'active'"  style="display: none;" [routerLink]="['/settings/add-on/settings/settingsLayout/attributes/add']"></a>
+                        <a class="nav-link" [routerLinkActive]="'active'"  style="display: none;" [routerLink]="['/settings/add-on/settings/settingsLayout/attributes/edit/']"></a>
+                    </li>
+                    
+
+                    <li class="nav-item" [appHideIfUnauthorized]="'attribute-group-list'"  >
+                        <a class="nav-link"  [routerLinkActive]="'active'"  [routerLinkActive]="'active'" [routerLink]="['/settings/add-on/settings/settingsLayout/attributes-group/list']" > <span> {{'common.Attributes Group'|translate}} </span></a>     
+                        <a class="nav-link"  [routerLinkActive]="'active'"  style="display: none;" [routerLink]="['/settings/add-on/settings/settingsLayout/attributes-group/add']"></a>
+                        <a class="nav-link" [routerLinkActive]="'active'"  style="display: none;" [routerLink]="['/settings/add-on/settings/settingsLayout/attributes-group/edit/']"></a>
+                    </li>
+                    
+
+                        <li class="nav-item" [appHideIfUnauthorized]="'product-specification'" [routerLinkActive]="'active'"   >
+                            <a class="nav-link" [routerLinkActive]="'active'"  style="color: #222" [routerLink]="['/settings/add-on/settings/settingsLayout/product-specification/list']"> <span>{{'attributes.ProductSpecification'| translate}} </span></a>
+                            <a class="nav-link" [routerLinkActive]="'active'"  style="display: none;" [routerLink]="['/settings/add-on/settings/settingsLayout/product-specification/add']"></a>
+                            <a class="nav-link" [routerLinkActive]="'active'"  style="display: none;" [routerLink]="['/settings/add-on/settings/settingsLayout/product-specification/edit']"></a>
+                            </li>
+
+
+                            <li class="nav-item" [appHideIfUnauthorized]="'family'" [routerLinkActive]="'active'"   >
+                                <a class="nav-link" [routerLinkActive]="'active'"  style="color: #222" [routerLink]="['/settings/add-on/settings/settingsLayout/family/list']"> <span> {{'attributes.Family'| translate}} </span></a>
+                                <a class="nav-link" [routerLinkActive]="'active'"  style="display: none;" [routerLink]="['/settings/add-on/settings/settingsLayout/family/add']"></a>
+                                <a class="nav-link" [routerLinkActive]="'active'"  style="display: none;" [routerLink]="['/settings/add-on/settings/settingsLayout/family/edit']"></a>
+                                </li>
+
+                                
+                    <li class="nav-item" [appHideIfUnauthorized]="'filters'" [routerLinkActive]="'active'"   >
+                        <a class="nav-link " [routerLinkActive]="'active'"  style="color: #222" [routerLink]="['/settings/add-on/settings/filter/settingsLayout/filter/list']"> <span>{{'common.Filters'|translate}} </span> </a>
+                        <a class="nav-link" [routerLinkActive]="'active'"  style="display: none;" [routerLink]="['/settings/add-on/settings/filter/settingsLayout/filter/add']"></a>
+                        <a class="nav-link" [routerLinkActive]="'active'"  style="display: none;" [routerLink]="['/settings/add-on/settings/filter/settingsLayout/filter/edit']"></a>
+                        </li>
+                     </ul>
+            </div>
+
+        </div> 
+
+    </div>
+
+</div>
+
+
+
+
+    <router-outlet></router-outlet>

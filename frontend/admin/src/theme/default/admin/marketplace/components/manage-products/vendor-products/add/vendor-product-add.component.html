@@ -1,0 +1,843 @@
+<!--REACTIVE FORM-->
+<app-header-layout></app-header-layout>
+<div *ngIf="productSandbox.getSellerListLoading$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+<form novalidate [formGroup]="user">
+    <div class="col-12">
+        <div class="breadcrumbs-row noborder" style="margin-top: 10px;">
+            <div class="bc-col">
+            </div>
+            <div class="bc-col-btn ap-col-btn flex">
+                <button class="button-reg primary" (click)="onSubmit(user.value)">
+                    <img src="assets/img/tick-outline-white.svg" alt="save">
+                    {{ 'catalog.product.Save' | translate }}
+                </button>
+                <button class="button-reg secondary" [routerLink]="['/vendors/manage-products/vendor-products']"
+                    [queryParams]="queryDetails">
+                    <img src="assets/img/close-outline-green.svg" alt="cancel">
+                    {{ 'catalog.product.Cancel' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumbs-->
+    <div class="flex addproduct-wrap" #scrollMe>
+        <div class="card ap-general">
+            <div class="ap-header sub-sub-header">
+                <span> 1 </span>{{ 'catalog.product.General' | translate }}
+            </div>
+            <div class="flex ap-body">
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>{{'marketplace.product.ProductsName'| translate}}<sup>*</sup></label>
+                        <input type="text"
+                        class="form-control"
+                        placeholder="{{ 'marketplace.product.ProductsName' | translate }}"
+                        formControlName="productName"
+                        [ngClass]="{ 'validationcolor': user.controls.productName.errors && submittedValues }" />
+                 
+                 <div class="validation-error" *ngIf="user.get('productName').hasError('required') && submittedValues">
+                     {{ 'marketplace.Errors.ProductNameRequired' | translate }}
+                 </div>
+                 
+                 <div class="validation-error" *ngIf="user.get('productName').hasError('maxlength')">
+                     {{ 'marketplace.Errors.Mustbemax255characters' | translate }}
+                 </div>
+                 
+
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label> {{'marketplace.product.Sku'| translate}}<sup>*</sup>
+                            <button type="button" class="btn" placement="right"
+                                ngbTooltip="A SKU is a unique code consisting of letters and numbers that identify characteristics about each vendor product.">
+                                <img src="assets/img/info-ico.png" alt="info"></button></label>
+                        <input type="text" class="form-control" placeholder="{{'marketplace.product.Sku'| translate}}"
+                            formControlName="sku"
+                            [ngClass]="{'validationcolor':user.controls.sku.errors && submittedValues}" />
+
+                        <div class="validation-error" *ngIf="
+                user.get('sku').hasError('required') &&
+                user.get('sku') &&
+                submittedValues">
+                            {{'marketplace.Errors.skuRequired'| translate}}
+                        </div>
+                        <div class="validation-error" *ngIf="user.get('sku').hasError('maxlength')">
+                            {{'marketplace.Errors.Mustbemaximum64'| translate}}
+                        </div>
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>{{'marketplace.product.ProductSlug'| translate}}
+                            <button type="button" class="btn" placement="right"
+                                ngbTooltip="Enter product slug title for the product.">
+                                <img src="assets/img/info-ico.png" alt="info"></button></label>
+                        <input type="text" class="form-control"
+                            placeholder="{{'marketplace.product.ProductSlug'| translate}}" formControlName="productSlug"
+                            [ngClass]="{'validationcolor':user.controls.productSlug.errors&&submittedValues}" />
+
+                        <div class="validation-error" *ngIf="
+                user.get('productSlug').hasError('required') &&
+                user.get('productSlug') &&
+                submittedValues">
+                            {{'marketplace.Errors.MetaTagTitleRequired'| translate}}
+                        </div>
+                        <div class="validation-error" *ngIf="user.controls['productSlug'].hasError('maxlength')">
+                            {{'marketplace.Errors.Mustbemax255characters'| translate}}</div>
+
+                    </div>
+                </div>
+                <!--Col-->
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label>{{'marketplace.product.VendorName'| translate}}<sup>*</sup></label>
+                        <ng-select [clearable]="false"
+                            placeholder="{{'marketplace.product.ChooseVendorName'| translate}}"
+                            [ngClass]="{'error-fields':user.controls.vendorId.errors&&submittedValues==true}"
+                            [items]="option" (change)="getCategory($event)" formControlName="vendorId"
+                            bindLabel="firstName" [searchFn]="customSearchFn" [editableSearchTerm]="true">
+                            <ng-template ng-option-tmp let-item="item">
+
+                                <img [src]="
+                        imageUrls +
+                        '?path=' +
+                        item.avatarPath +
+                        '&name=' +
+                        item.avatar +
+                        '&width=20&height=20'
+                      " style=" width:20px; height:20px;overflow: hidden;border-radius: 50%;"
+                                    onError="this.src='./assets/img/avatar-img1.png';"
+                                    [alt]="item.name?item.name:image" />
+                                <small>{{item.email}}</small><br />
+                                <small>{{item.mobileNumber}}</small>
+                            </ng-template>
+                        </ng-select>
+                        <div class="validation-error" *ngIf="
+              user.get('vendorId').hasError('required') &&
+              user.get('vendorId') &&
+              submittedValues == true
+            ">
+                            {{'marketplace.Errors.Vendornameisrequired'| translate}}
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="ap-body-col width100">
+                    <div class="form-group">
+                        <label>{{'marketplace.product.ProductDescription'| translate}}</label>
+                        <ckeditor formControlName="productDescription" [config]="config">
+                        </ckeditor>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--General-->
+
+        <div class="card ap-general ap-info">
+            <div class="ap-header sub-sub-header"><span> 2 </span>{{'marketplace.product.MoreInformation'| translate}}
+            </div>
+            <div class="flex ap-body">
+                <ul ngbNav style="width:100%;" #nav="ngbNav" class="nav-tabs" [(activeId)]="active">
+                    <li ngbNavItem [ngbNavItem]="1">
+                        <a ngbNavLink>{{'marketplace.product.Categories'| translate}}</a>
+                        <ng-template ngbNavContent>
+                            <div class="flex categories-row" >
+                                <div class="categories-col ">
+                                    <h3 class="sub-sub-header"  [ngStyle]="{'color': selectedCategories.length === 0  && isSaved ? 'red' : 'black'}" >{{'marketplace.product.AvailableCategories'| translate}}
+                                    </h3>
+                                    <div class="categories-col-innr">
+                                        <div class="form-group search-categories">
+                                            <form class="example-form">
+                                                <!-- <mat-form-field class="example-full-width" style="    width: 100%;"> -->
+                                                    <input type="text" class="example-full-width custom-search" style="    width: 100%;" [(ngModel)]="searchText"
+                                                        placeholder="{{'marketplace.product.AvailableCategories'| translate}}"
+                                                        [ngModelOptions]="{standalone: true}"/>
+                                                <!-- </mat-form-field> -->
+                                            </form>
+                                        </div>
+                                        <ul class="flex category-list over-flowx">
+                                            <li *ngFor="
+                            let arr of (productSandbox.getCatListResponse$ | async) | filter : searchText;
+                            let i = index
+                        " (click)="selectCategory(arr, i)" style="cursor: pointer">
+                                                <p>{{ arr.levels }}</p>
+                                                <a href="javascript:void(0)"><img src="assets/img/add-outline-dark.svg"
+                                                        alt="add" /> </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!---->
+                                <div class="categories-col">
+                                    <h3 class="sub-sub-header">
+                                        {{'marketplace.product.SelectedCategories'| translate}}
+                                    </h3>
+                                    <div class="categories-col-innr">
+                                        <div class="form-group search-categories">
+                                            <!-- <form class="example-form"> -->
+                                                <!-- <mat-form-field class="example-full-width" style="    width: 100%;"> -->
+                                                    <input type="text" class="example-full-width custom-search"
+                                                     placeholder="{{'placeholder.Search Selected Categories'|translate}}"
+                                                        aria-label="Assignee" matInput
+                                                        (keyup)="searchSelectedCategory($event.target.value)" />
+                                                <!-- </mat-form-field> -->
+                                            <!-- </form> -->
+
+                                            <ul class="flex category-list over-flowx" style="cursor: pointer">
+                                                <span>
+                                                    <li *ngFor="let data of selectedCategories; let i = index"
+                                                        (click)="removeCategory(data, i)">
+                                                        <p>{{data.levels}}</p>
+                                                        <a href="javascript:void(0)">
+                                                            <img src="assets/img/minus-dark.svg" alt="delete" />
+                                                        </a>
+                                                    </li>
+                                                </span>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </li>
+                    <li ngbNavItem id="13" [ngbNavItem]="13">
+                        <a ngbNavLink> {{'marketplace.product.Data'| translate}}</a>
+                        <ng-template ngbNavContent>
+                            <div class="flex data-row">
+
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label> {{'marketplace.product.Upc'| translate}}</label>
+                                        <input maxlength="12" type="text" class="form-control"
+                                            placeholder="{{ 'catalog.product.Upc' | translate }}" formControlName="upc"
+                                            appOnlyNumber
+                                            [ngClass]="{'validationcolor':user.controls.upc.errors&&submittedValues==true}" />
+                                        <div class="validation-error" *ngIf="user.get('upc').hasError('maxlength')">
+                                            {{'marketplace.Errors.Mustbemaximum12'| translate}}
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>{{'marketplace.product.Hsn'| translate}} </label>
+                                        <input type="text" class="form-control"
+                                            placeholder="{{'marketplace.product.Hsn'| translate}}" formControlName="hsn"
+                                            appOnlyNumber
+                                            [ngClass]="{'validationcolor':user.controls.hsn.errors&&submittedValues==true}" />
+                                        <div class="validation-error" *ngIf="user.get('hsn').hasError('minlength')">
+                                            {{'marketplace.product.MustbeMinimum2characters'|translate}}
+                                        </div>
+                                        <div class="validation-error" *ngIf="user.get('hsn').hasError('maxlength')">
+                                            {{'marketplace.product.MustbeMaximum8characters'|translate}}
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>{{'catalog.product.Quantity'| translate}}<sup>*</sup></label>
+                                        <input maxlength="3" type="text" class="form-control" appOnlyNumber
+                                            placeholder="{{'catalog.product.Quantity'| translate}}"
+                                            formControlName="quantity"
+                                            [ngClass]="{'validationcolor':user.get('quantity').hasError('required')&&submittedValues==true}">
+
+                                        <div class="validation-error"
+                                            *ngIf="user.get('quantity').hasError('required')&&submittedValues==true">
+                                            {{'catalog.Error.QuantityRequired'| translate}}
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <!--Col-->
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label class="control-label">{{'catalog.product.DateAvailable' | translate
+                                            }}</label>
+                                        <input readonly style="cursor: pointer;background-color: white;width:100%;"
+                                            type="text" class="form-control date1" formControlName="dateAvailable"
+                                            [ngClass]="{'validationcolor':user.get('dateAvailable').hasError('required')&&submittedValues==true}"
+                                            placeholder="dd/mm/yyyy" name="dp" ngbDatepicker #f="ngbDatepicker"
+                                            (click)="f.toggle()" [minDate]="minPickerDate" />
+                                        <div class="validation-error"
+                                            *ngIf="user.get('dateAvailable').hasError('required')&&submittedValues==true">
+                                            {{'marketplace.product.Dateisrequired'|translate}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label>{{ 'catalog.product.SortOrder' | translate }}</label>
+                                        <input type="text" class="form-control" maxlength="4" appOnlyNumber placeholder="{{
+                        'catalog.product.SortOrder' | translate
+                      }}" formControlName="sortOrder" />
+                                    </div>
+                                </div>
+
+
+
+
+
+                            </div>
+                        </ng-template>
+                    </li>
+                    <li ngbNavItem id="10" [ngbNavItem]="10">
+                        <a ngbNavLink>{{ 'catalog.product.Images' | translate }}
+                        </a>
+                        <ng-template ngbNavContent>
+                            <div class="flex image-row">
+                                <div class="image-col" *ngFor="let data of uploadImage; let i = index">
+                                    <div class="img-hdr flex" *ngIf="!editId">
+                                        <input type="radio" name="'imageSelection'" [checked]="length == i"
+                                            (change)="checkBox($event, i)" style="cursor:pointer" />
+                                        <a href="javascript:void(0)" (click)="deleteImage(i,length)">
+                                            <img src="assets/img/delete-ico.png" alt="delete" />
+                                        </a>
+                                    </div>
+                                    <div class="img-hdr flex" *ngIf="editId">
+                                        <input type="radio" name="'imageSelection'"
+                                            [checked]="defaultImageValue == data.defaultImage || length == i"
+                                            (change)="checkBox($event, i)" style="cursor:pointer" />
+                                        <a href="javascript:void(0)" (click)="deleteImage(i,length)">
+                                            <img src="assets/img/delete-ico.png" alt="delete" />
+                                        </a>
+                                    </div>
+                                    <div class="img-bdy">
+                                        <img [src]="
+                        imageUrls +
+                        '?path=' +
+                        data.containerName +
+                        '&name=' +
+                        data.image +
+                        '&width=60&height=60'
+                      " style=" width:100%; height:100%;overflow: hidden;" [alt]="item.name?item.name:image" />
+                                    </div>
+                                </div>
+                                <!--Col-->
+                                <div class="image-col">
+                                    <div class="img-dflt">
+                                        <input style="cursor: pointer" (click)="uploadProductImages()" />
+                                        <img src="assets/img/add-photo-big.png" alt="add photo" />
+                                        <p>{{ 'catalog.product.Addimages' | translate }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="uploadImage.length === 0 && submittedValues === true" class="error">
+                                {{'marketplace.Errors.Imageisrequired'| translate}}</div>
+                        </ng-template>
+                    </li>
+
+                    <li ngbNavItem>
+                        <a ngbNavLink>{{'catalog.product.Video'| translate}}</a>
+                        <ng-template ngbNavContent>
+                            <div>
+                                <div class="data-col">
+                                    <div class="form-group">
+                                        <label class="vdo-col">{{'marketplace.product.Selectmediasource'|
+                                            translate}}
+                                        </label>
+                                        <mat-radio-group [(ngModel)]="values" [ngModelOptions]="{standalone: true}"
+                                            aria-label="Select an option">
+                                            <mat-radio-button value="0"
+                                                style="font-size: 12px;font-weight: 500; color: #474747;">
+                                                {{'marketplace.product.EmbedYoutube'| translate}}
+                                            </mat-radio-button>
+                                            <mat-radio-button value="1"
+                                                style="font-size: 12px;font-weight: 500; color: #474747;">
+                                                {{'marketplace.product.Uploadvideo'| translate}}
+                                            </mat-radio-button>
+                                        </mat-radio-group>
+
+                                    </div>
+                                    <div class="flex youtube-embeded">
+                                        <div *ngIf="values === '0'">
+                                            <div class="vdo-col">
+                                                {{'marketplace.product.Copy & pasteYoutubelinkbelow'| translate}}</div>
+                                            <input [(ngModel)]="videoUrl" [ngModelOptions]="{standalone: true}"
+                                                type="text" class="video-input" placeholder="https://www.youtube.com/">
+                                            <button (click)="embed(videoUrl)"
+                                                class="video-button">{{'marketplace.product.Embed'| translate}}</button>
+                                        </div>
+                                        <div style="position:relative;">
+                                            <i style="position: absolute;right:-15px;top:0px;cursor:pointer"
+                                                *ngIf="embeded === true && values === '0' || editId && urlSafe!=='' && values === '0'"
+                                                class="fa fa-trash" aria-hidden="true" (click)="videoremove()"></i>
+
+                                            <iframe
+                                                *ngIf="embeded === true && values === '0' || editId && urlSafe!=='' && values === '0'"
+                                                width="320" height="180" [src]="urlSafe" frameborder="0"
+                                                allowfullscreen></iframe>
+
+                                        </div>
+                                    </div>
+                                    <div class="flex youtube-embeded">
+                                        <div *ngIf="values === '1'">
+                                            <div class="vdo-col">{{'marketplace.product.UploadYourVideo'| translate}}
+                                            </div>
+                                            <div class="youtube-embe-row flex">
+                                                <div class="video-input">{{videoName ? videoName:''}}</div>
+                                                <input [hidden]="true" type="file" (change)="uploadVideoFinal($event)"
+                                                    accept=".MP4,.WebM" class="video-input" readonly #filePath>
+                                                <button class="vdo-browse"
+                                                    (click)="uploadVideo($event)">{{'marketplace.product.Browse & Upload'| translate}}</button>
+                                            </div>
+                                        </div>
+                                        <div style="position:relative;">
+                                            <i style="position: absolute;right:-15px;top:0px;cursor: pointer;"
+                                                *ngIf="values === '1' && uploaded === true && !(productSandbox.videoUploadLoading$|async) || editId && videoName!=='' && values === '1'"
+                                                class="fa fa-trash" aria-hidden="true" (click)="videofileremove()"></i>
+                                            <video
+                                                *ngIf="values === '1' && uploaded === true && !(productSandbox.videoUploadLoading$|async) || editId && videoName!=='' && values === '1'"
+                                                [src]="uploadedVideoUrl" type="video/mp4" height="180" width="320"
+                                                controls></video>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </ng-template>
+                    </li>
+
+                    <li ngbNavItem [ngbNavItem]="8">
+                        <a ngbNavLink>{{'marketplace.product.Price'| translate}}</a>
+                        <ng-template ngbNavContent>
+                            <mat-accordion>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            {{'marketplace.product.DefaultPrice'| translate}}
+                                        </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <div class="main-content">
+                                        <form [formGroup]="priceForm" class="price-flex">
+                                            <div class="sub-content form-group price-cal">
+                                                <label style="font-size: 12px;font-weight: 500; color: #474747;">
+                                                    {{'marketplace.product.VendorCost'| translate}}
+                                                </label>
+                                                <div class="price-group"
+                                                    [ngClass]="{'error-field':(priceForm.controls['productPrice'].hasError('required')||priceForm.value.productPrice == 0 && !priceForm.controls['productPrice'].hasError('required')) && submittedValues}">
+                                                    <span class="input-group-addon"
+                                                        [ngClass]="{'error-field':(priceForm.controls['productPrice'].hasError('required')||priceForm.value.productPrice == 0 && !priceForm.controls['productPrice'].hasError('required')) && submittedValues}">{{currencySymbol?.symbol}}</span>
+                                                    <input maxlength="8" class="form-control" type="text"
+                                                        (keyup)="getPrice($event)" (keypress)="numberOnly($event)"
+                                                        formControlName="productPrice">
+                                                 
+                                                    <p class="validation-error" style="position: absolute"
+                                                        *ngIf="priceForm.value.productPrice == 0 && !priceForm.controls['productPrice'].hasError('required')">
+                                                        {{'marketplace.Errors.ProductcostMustNotBeZero'| translate}}</p>
+
+                                                    <p class="validation-error" style="position: absolute"
+                                                        *ngIf="priceForm.controls['productPrice'].hasError('required') && submittedValues">
+                                                        {{'catalog.Error.Productcostisrequired'| translate}}</p>
+                                                </div>
+                                            </div>
+                                            <span class="add-symbol">+</span>
+                                            <div class="sub-content form-group ">
+                                                <label style="font-size: 12px;font-weight: 500; color: #474747;">
+                                                    {{'marketplace.product.Tax'| translate}}<span class="toot-tip"> <img src="assets/imgs/info-dark.svg" alt=""> 
+                                                        <div class="hide-content">
+                                                            The default price displayed here includes applicable taxes. The amount of tax can either be the exact tax amount or a percentage of the default price. 
+                                                        </div>
+                                                    </span>
+                                                   
+                                                </label>
+                                                <div class="price-group" *ngIf="taxType === '2'">
+                                                    <ng-select appendTo="body" [clearable]="false"
+                                                        placeholder="{{'marketplace.product.SelectStatus'| translate}}"
+                                                        [searchable]="false" [(ngModel)]="currentTaxId"
+                                                        [ngModelOptions]="{standalone: true}"
+                                                        (change)="getTaxPercentage(currentTaxId)">
+                                                        <ng-option [value]="array?.taxId"
+                                                            *ngFor="let array of (taxSandbox.taxList$ | async)">
+                                                            {{array?.title}} - {{array?.value}}</ng-option>
+                                                    </ng-select>
+                                                </div>
+
+                                                <div class="price-group" *ngIf="taxType === '1'">
+                                                    <span class="input-group-addon">{{currencySymbol?.symbol}}</span>
+                                                    <input class="form-control" type="text"
+                                                        (keyup)="getTax($event.target.value)" [(ngModel)]="taxValue"
+                                                        [ngModelOptions]="{standalone: true}"
+                                                        (keypress)="numberOnly($event)" maxlength="8">
+                                                </div>
+                                                <div class="tax-choice">
+                                                    <input name="tax" type="radio" value="1"
+                                                        [checked]="taxType === '1'" (change)="getTaxValue($event)">
+                                                    {{'marketplace.product.Value'| translate}}
+                                                    <input name="tax" type="radio" value="2"
+                                                        [checked]="taxType === '2'" (change)="getTaxValue($event)">
+                                                    {{'marketplace.product.Percentage'| translate}}
+                                                </div>
+                                            </div>
+                                            <span class="add-symbol">=</span>
+
+                                            <div class="sub-content form-group price-cal">
+                                                <label>
+                                                    {{'marketplace.product.TotalCost(MRP)'| translate}}
+                                                </label>
+                                                <div class="price-group">
+                                                    <span class="input-group-addon">{{currencySymbol?.symbol}}</span>
+                                                    <input class="form-control" type="text" readonly
+                                                        [(ngModel)]="totalPrice" [ngModelOptions]="{standalone: true}">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </mat-expansion-panel>
+                                <mat-expansion-panel style="overflow: visible;"
+                                    *ngIf="((productSandbox.skuArrayList$ | async)?.length > 0 && editId) || !editId">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            {{'marketplace.product.Discount'| translate}}
+                                        </mat-panel-title>
+                                        <mat-panel-description>
+
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <div class="discount-main-content">
+                                        <form [formGroup]="discountForm">
+                                            <div formArrayName="discountItems"
+                                                *ngFor="let item of discountForm.get('discountItems')['controls']; let i = index;">
+                                                <div [formGroupName]="i">
+                                                    <div class="sub-content">
+                                                        <label> {{'marketplace.product.Sku'| translate}} </label>
+                                            
+                                                        <ng-select [items]="productSandbox.skuArrayList$ | async"
+                                                            [searchable]="false"
+                                                            placeholder="{{'catalog.product.SelectSku'| translate}}"
+                                                            bindLabel="skuName" autofocus bindValue="skuName"
+                                                            formControlName="discountSku"
+                                                            (change)="onskuchange($event,i)" [clearable]="false">
+                                                        </ng-select>
+
+                                                        <p class="validation-error"
+                                                            *ngIf="discountForm.value.discountItems[i].discountSku==null">
+                                                            {{'marketplace.product.Skuisrequired' |translate}} </p>
+                                                    </div>
+                                                    <div class="sub-content">
+                                                        <label>
+                                                            {{'marketplace.product.Priority'| translate}}</label>
+                                                        <input appOnlyNumber class="dark-input form-control" type="text"
+                                                            formControlName="discountPriority">
+                                                        <p class="validation-error"
+                                                            *ngIf="discountForm.value.discountItems[i].discountPriority==''">
+                                                            {{'marketplace.product.Priorityisrequired' |translate}}</p>
+                                                    </div>
+                                                    <div class="sub-content" hidden>
+                                                        <label>
+                                                            {{'marketplace.product.varientprice' |translate}} </label>
+                                                        <ng-select [items]="productSandbox.skuArrayList$ | async"
+                                                            [clearable]="false" bindLabel="price" autofocus
+                                                            bindValue="price" formControlName="discountvarprice"
+                                                            (change)="onskuchange($event,i)"
+                                                            placeholder="{{'catalog.product.SelectSku'| translate}}"
+                                                            [searchable]="false">
+                                                        </ng-select>
+                                                    </div>
+
+
+                                                    <div class="sub-content">
+                                                        <label>
+                                                            {{'marketplace.product.Price'| translate}}
+                                                        </label>
+                                                        <input appOnlyNumber class="dark-input form-control" type="text"
+                                                            formControlName="discountPrice">
+                                                        <p class="validation-error"
+                                                            *ngIf="discountForm.value.discountItems[i].discountPrice>=totalPrice">
+                                                            {{'marketplave.product.DiscountPriceshouldbelessthanTotalPrice'
+                                                            |translate}}</p>
+                                                        <p class="validation-error"
+                                                            *ngIf="discountForm.value.discountItems[i].discountPrice==''">
+                                                            {{'marketplace.product.Priceisrequired' |translate}}</p>
+                                                    </div>
+
+                                                    <div class="sub-content">
+                                                        <label>
+                                                            {{'marketplace.product.DateStart'| translate}}
+                                                        </label>
+                                                      
+                                                        <input readonly
+                                                            style="cursor: pointer;background-color: white;width:100%;"
+                                                            type="text" class="form-control date1"
+                                                            formControlName="discountDateStart" placeholder="dd/mm/yyyy"
+                                                            name="dp" ngbDatepicker #g="ngbDatepicker"
+                                                            (click)="g.toggle()"
+                                                            [minDate]="discountForm.value.discountItems[i].discountDateStart < minPickerDate ? discountForm.value.discountItems[i].discountDateStart || minPickerDate:minPickerDate" />
+                                                        <p class="validation-error"
+                                                            *ngIf="discountForm.value.discountItems[i].discountDateStart==''">
+                                                            {{'marketplace.product.Startdateisrequired'|translate}}</p>
+                                                    </div>
+
+                                                    <div class="sub-content">
+                                                        <label>
+                                                            {{'marketplace.product.DateEnd'| translate}}
+                                                        </label>
+                                                      
+                                                        <input readonly
+                                                            style="cursor: pointer;background-color: white;width:100%;"
+                                                            type="text" class="form-control date1"
+                                                            formControlName="discountDateEnd" placeholder="dd/mm/yyyy"
+                                                            name="dp" ngbDatepicker #h="ngbDatepicker"
+                                                            (click)="h.toggle()"
+                                                            [minDate]="discountForm.value.discountItems[i].discountDateStart || minPickerDate" />
+                                                        <p class="validation-error"
+                                                            *ngIf="discountForm.value.discountItems[i].discountDateEnd==''">
+                                                            {{'marketplace.product.productEnddateisrequired'|translate}}
+                                                        </p>
+                                                    </div>
+                                                    <img style="margin-top: 52px;" title="Remove discount"
+                                                        class="remove" src="assets/img/minus-red-ico-big.png"
+                                                        alt="delete" (click)="removeDiscountForm(i)">
+                                                </div>
+                                            </div>
+                                            <div class="add">
+                                                <img [matTooltip]="editId ? 'Add more dicount price' : 'you can add discount price while update'"
+                                                    src="assets/img/add-blue-circle.svg" alt="add"
+                                                    (click)="addDiscountForm()">
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+
+                                </mat-expansion-panel>
+                                <mat-expansion-panel style="overflow: visible;"
+                                    *ngIf="((productSandbox.skuArrayList$ | async)?.length > 0 && editId) || !editId">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            {{'marketplace.product.Special'| translate}}
+                                        </mat-panel-title>
+                                        <mat-panel-description>
+
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+
+                                    <div class="discount-main-content">
+                                        <form [formGroup]="specialForm">
+                                            <div formArrayName="specialItems"
+                                                *ngFor="let item of specialForm.get('specialItems')['controls']; let i = index;">
+                                                <div [formGroupName]="i">
+                                                    <div class="sub-content">
+                                                        <label> {{'marketplace.product.Sku'| translate}}</label>
+                                       
+                                                        <ng-select [searchable]="false" [clearable]="false"
+                                                            [items]="productSandbox.skuArrayList$ | async"
+                                                            placeholder="{{'catalog.product.SelectSku'| translate}}"
+                                                            bindLabel="skuName" autofocus bindValue="skuName"
+                                                            formControlName="specialSku"
+                                                            (change)="specialskuchange($event,i)">
+                                                        </ng-select>
+                                                        <p class="validation-error"
+                                                            *ngIf="specialForm.value.specialItems[i].specialSku==null">
+                                                            {{'marketplace.product.Skuisrequired'|translate}}</p>
+                                                    </div>
+                                                    <div class="sub-content">
+                                                        <label>
+                                                            {{'marketplace.product.Priority'| translate}}</label>
+                                                        <input appOnlyNumber class="dark-input form-control" type="text"
+                                                            formControlName="specialPriority">
+                                                        <p class="validation-error"
+                                                            *ngIf="specialForm.value.specialItems[i].specialPriority==''">
+                                                            {{'marketplace.product.Priorityisrequired'|translate}}</p>
+                                                    </div>
+                                                    <div class="sub-content" hidden>
+                                                        <label>
+                                                            {{'marketplace.product.varientprice'|translate}} </label>
+                                                        <ng-select [items]="productSandbox.skuArrayList$ | async"
+                                                            bindLabel="price" autofocus bindValue="pice"
+                                                            formControlName="specialvarprice" [clearable]="false"
+                                                            (change)="specialskuchange($event,i)"
+                                                            placeholder="{{'catalog.product.SelectSku'| translate}}"
+                                                            [searchable]="false">
+                                                        </ng-select>
+                                                    </div>
+
+                                                    <div class="sub-content">
+                                                        <label>
+                                                            {{'marketplace.product.Price'| translate}}
+                                                        </label>
+                                                        <input appOnlyNumber class="dark-input form-control" type="text"
+                                                            formControlName="specialPrice">
+                                                        <p class="validation-error"
+                                                            *ngIf="specialForm.value.specialItems[i].specialPrice>=totalPrice">
+                                                            {{'marketplace.product.SpecialPriceshouldbelessthanTotalPrice'|translate}}
+                                                        </p>
+                                                      
+                                                        <p class="validation-error"
+                                                            *ngIf="specialForm.value.specialItems[i].specialPrice==''">
+                                                            {{'marketplace.product.Priceisrequired'|translate}}</p>
+                                                    </div>
+
+                                                    <div class="sub-content">
+                                                        <label>
+                                                            {{'marketplace.product.DateStart'| translate}}
+                                                        </label>
+                                                        <input readonly
+                                                            style="cursor: pointer;background-color: white;width:100%;"
+                                                            type="text" class="form-control date1"
+                                                            formControlName="specialDateStart" placeholder="dd/mm/yyyy"
+                                                            name="dp" ngbDatepicker #l="ngbDatepicker"
+                                                            (click)="l.toggle()"
+                                                            [minDate]="specialForm.value.specialItems[i].specialDateStart < minPickerDate ? specialForm.value.specialItems[i].specialDateStart || minPickerDate:minPickerDate" />
+                                                        <p class="validation-error"
+                                                            *ngIf="specialForm.value.specialItems[i].specialDateStart==''">
+                                                            {{'marketplace.product.Startdateisrequired'|translate}}</p>
+                                                    </div>
+
+                                                    <div class="sub-content">
+                                                        <label>
+                                                            {{'marketplace.product.DateEnd'| translate}}
+                                                        </label>
+                                                        <input readonly
+                                                            style="cursor: pointer;background-color: white;width:100%;"
+                                                            type="text" class="form-control date1"
+                                                            formControlName="specialDateEnd" placeholder="dd/mm/yyyy"
+                                                            name="dp" ngbDatepicker #j="ngbDatepicker"
+                                                            (click)="j.toggle()"
+                                                            [minDate]="specialForm.value.specialItems[i].specialDateStart || minPickerDate" />
+                                                        <p class="validation-error"
+                                                            *ngIf="specialForm.value.specialItems[i].specialDateEnd==''">
+                                                            {{'marketplace.product.Enddateisrequired'|translate}}</p>
+                                                    </div>
+                                                    <img style="margin-top: 55px;" title="Remove special price"
+                                                        class="remove" src="assets/img/minus-red-ico-big.png"
+                                                        (click)="removeSpecialForm(i)">
+                                                </div>
+                                            </div>
+                                            <div class="add">
+                                                <img [matTooltip]="editId ? 'Add more special price' : 'You can add special price while update'"
+                                                    src="assets/img/add-blue-circle.svg" alt="add"
+                                                    (click)="addSpecialForm()">
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+
+                        </ng-template>
+                    </li>
+
+                    <!-- Tier Price -->
+                    <li ngbNavItem [ngbNavItem]="16"
+                        *ngIf="((productSandbox.skuArrayList$ | async)?.length > 0 && editId) || !editId">
+                        <a ngbNavLink>{{'marketplace.product.ManageTierPrice'| translate}}</a>
+                        <ng-template ngbNavContent>
+                            <div class="option-table">
+                                <div class="add-discount" *ngIf="user.controls['tierForm'].disabled">
+                                    <a href="javascript:void(0)"
+                                        [matTooltip]="editId ? 'Add tire price' : 'You can add tire price while update'"
+                                        (click)='addTierForm()'>
+                                        <img src="assets/img/add-blue-circle-big.png" alt="add"></a>
+                                </div>
+                                <div formGroupName="tierForm" *ngIf="user.controls['tierForm'].enabled">
+                                    <div class="form-row" style="margin-top: 20px;">
+                                        <span class="form-lft">{{'marketplace.product.Doyouwanttoactivatethisprice?'|
+                                            translate}}</span>
+                                        <label class="switch">
+                                            <mat-radio-group aria-label="Select an option" formControlName="hasTire">
+                                                <mat-radio-button value="1">{{'marketplace.product.Yes'| translate}}
+                                                </mat-radio-button>
+                                                <mat-radio-button value="0" style="margin-left:4px">
+                                                    {{'marketplace.product.No'| translate}}</mat-radio-button>
+                                            </mat-radio-group>
+                                        </label>
+                                    </div>
+                                    <div formArrayName='tierFormArray'>
+                                        <table>
+                                            <tr>
+                                                <th style="width: 250px">{{'marketplace.product.Sku'| translate}}</th>
+                                                <th style="width: 335px">{{'marketplace.product.Quantity'| translate}}
+                                                </th>
+                                                <th>{{'marketplace.product.Price'| translate}}<span
+                                                        style="color: grey">{{'marketplace.product.(per product)'|
+                                                        translate}}</span>
+                                                </th>
+                                            </tr>
+                                        </table>
+                                        <div *ngFor='let group of tierArray["controls"]; let i=index;'>
+                                            <div [formGroupName]='i'>
+                                                <tr>
+                                                    <td style="width: 250px">
+                                                        <div class="form-group flex">
+                                                            <ng-select style="cursor: pointer; padding: 0;"
+                                                                class="col-12" formControlName="skuName"
+                                                                [searchable]="false" [clearable]="false"
+                                                                placeholder="{{'marketplace.product.SelectSku'| translate}}">
+                                                                <ng-option value="{{list.skuName}}"
+                                                                    *ngFor="let list of productSandbox.skuArrayList$ | async">
+                                                                    {{list.skuName}}</ng-option>
+                                                            </ng-select>
+                                                            <p class="validation-error"
+                                                                *ngIf="this.user.controls.tierForm.value.tierFormArray[i]?.skuName==null">
+                                                                {{'marketplace.product.Skuisrequired'|translate}}</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div style="margin-left:5px" class="form-group flex">
+                                                            <input style="width:250px;" type="text" min="1"
+                                                                maxlength="3" class="tier-inp form-control"
+                                                                appOnlyNumber
+                                                                placeholder="{{'marketplace.product.quantity'| translate}}"
+                                                                formControlName="quantity"><span
+                                                                style="padding: 7px">{{'marketplace.product.andabove'|
+                                                                translate}}</span>
+
+                                                        </div>
+                                                        <p class="validation-error"
+                                                            *ngIf="this.user.controls.tierForm.value.tierFormArray[i]?.quantity==''">
+                                                            {{'marketplace.product.Quantityisrequired'|translate}}</p>
+                                                    </td>
+                                                    <td style="padding-left: 5px">
+                                                        <div class="form-group">
+                                                            <input type="text" appTwoDigitDecimaNumber
+                                                                class="tier-inp form-control"
+                                                                placeholder="{{'marketplace.product.price'| translate}}"
+                                                                formControlName="price">
+                                                            <p class="validation-error"
+                                                                *ngIf="this.user.controls.tierForm.value.tierFormArray[i]?.price==''">
+                                                                {{'marketplace.product.Priceisrequired' |translate}}</p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center"
+                                                        style="padding-left: 5px; padding-bottom: 15px">
+                                                        <a href="javascript:void(0)" (click)='deleteTierForm(i)'>
+                                                            <img src="assets/img/minus-red-ico-big.png" alt="delete">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td valign="top" class="text-center" style=""
+                                            *ngIf="user.controls['tierForm'].enabled">
+                                            <a href="javascript:void(0)" (click)='addTierForm()'>
+                                                <img src="assets/img/add-blue-circle-big.png" alt="add"></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </ng-template>
+                    </li>
+                </ul>
+                <div style="width: 100%;" [ngbNavOutlet]="nav" class="mt-2"></div>
+            </div>
+        </div>
+    </div>
+</form>

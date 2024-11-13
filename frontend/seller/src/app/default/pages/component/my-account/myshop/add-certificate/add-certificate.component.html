@@ -1,0 +1,181 @@
+<div>
+    <form [formGroup]="certificateForm">
+        <div>
+            <header class="flex-row">
+                <h1>{{editId ? ('payments.UpdateCertificate'|translate):('payments.AddCertificate'|translate)}}</h1>
+            </header>
+            <div class="product-add-container">
+
+                <div class="details-row2 px-3 py-4">
+
+                    <div class="certification-col">
+                        <div class="input-group mb-35">
+                            <label>
+                                {{'myShop.TypeofCertification'|translate}}  <span>*</span>
+                                <p>{{'myShop.TypeofCertificationNote'|translate}}</p>
+                            </label>
+                            <div class="ig-row">
+                                <ng-select [items]="category" bindLabel="name" bindValue="name"
+                                    placeholder="{{'myShop.SelectCertificateType'|translate}}"
+                                    [(ngModel)]="selectedcategory" formControlName="certificateType"
+                                    [ngClass]="{'error-color':(certificateForm.controls['certificateType'].hasError('required') && submitted )}">
+                                </ng-select>
+                            </div>
+                            <div *ngIf="(certificateForm.controls['certificateType'].hasError('required') && submitted )"
+                                class="error-data">{{'myShop.CertificateTypeisrequired'|translate}}</div>
+                        </div>
+                        <div class="input-group mb-35">
+                            <label>
+                                {{'myShop.ReferenceNo'|translate}} <span >*</span>
+                                <p>{{'myShop.ReferenceNote'|translate}}</p>
+                            </label>
+                            <div class="ig-row">
+                                <input appNoLeadingSpace type="text"
+                                    [ngClass]="{'error-color':(certificateForm.controls['referenceNumber'].hasError('required') && submitted )}"
+                                    placeholder="{{'myShop.Enterthereferenceno'|translate}}"
+                                    formControlName="referenceNumber">
+                            </div>
+                            <div *ngIf="(certificateForm.controls['referenceNumber'].hasError('required') && submitted )"
+                                class="error-data">{{'myShop.Referencenoisrequired'|translate}}</div>
+                        </div>
+
+
+                        <div class="input-group mb-35">
+                            <label>
+                                {{'myShop.Name'|translate}} <span >*</span>
+                                <p>{{'myShop.NameNote'|translate}} </p>
+                            </label>
+                            <div class="ig-row">
+                                <input type="text" appNoLeadingSpace
+                                    [ngClass]="{'error-color':(certificateForm.controls['name'].hasError('required') && submitted ) || certificateForm.controls['name'].hasError('pattern')}"
+                                    placeholder="{{'myShop.Enterthename'|translate}}" formControlName="name">
+                            </div>
+                            <div *ngIf="(certificateForm.controls['name'].hasError('required') && submitted )"
+                                class="error-data">{{'myShop.Nameisrequired'|translate}}</div>
+                                <div *ngIf="(certificateForm.controls['name'].hasError('pattern'))"
+                                class="error-data">{{'ValidationsErrorMessage.Allowonlyalphabetsspaces'|translate}}</div>
+                        </div>
+                        <div class="input-group mb-35">
+                            <label>
+                                {{'myShop.Issuedby'|translate}}  <span>*</span>
+                                <p>{{'myShop.IssuedbyNote'|translate}}</p>
+                            </label>
+                            <div class="ig-row">
+                                <input appNoLeadingSpace
+                                    [ngClass]="{'error-color':(certificateForm.controls['issuedBy'].hasError('required') && submitted )}"
+                                    type="text" placeholder="{{'myShop.EntertheIssuedby'|translate}}" formControlName="issuedBy">
+                            </div>
+                            <div *ngIf="(certificateForm.controls['issuedBy'].hasError('required') && submitted )"
+                                class="error-data">{{'myShop.Issuedbyisrequired'|translate}}</div>
+                        </div>
+
+                        <div class="details-row2">
+                            <div class="input-group">
+                                <label>
+                                    {{'myShop.ValidateFrom'|translate}} <span>*</span>
+                                    <p>{{'myShop.ValidateFromNote'|translate}}</p>
+                                </label>
+                                <div class="ig-row">
+                                    <!-- (dateChange)="onFromDateChange($event)" -->
+                                    <!-- [min]="fromDate" -->
+                                    <mat-form-field class="floating-date">
+                                        <input (dateChange)="onFromDateChange($event)"
+                                            [ngClass]="{'error-color':(certificateForm.controls['fromDateValid'].hasError('required') && submitted )}"
+                                            matInput formControlName="fromDateValid" [matDatepicker]="dp1">
+                                        <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                                        <mat-datepicker #dp1></mat-datepicker>
+                                        <mat-error></mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <!-- <div class="error-data" *ngIf="(certificateForm.controls['fromDateValid'].hasError('pastDate') && submitted)">
+                                    Start date should be greater than today date
+                                </div> -->
+                                <div *ngIf="(certificateForm.controls['fromDateValid'].hasError('required') && submitted )"
+                                    class="error-data">{{'myShop.Fromdateisrequired'|translate}}</div>
+                            </div>
+                            <div class="input-group">
+                                <label>
+                                    {{'myShop.ValidateTo'|translate}} <span>*</span>
+                                    <p>{{'myShop.ValidateToNote'|translate}}</p>
+                                </label>
+                                <div class="ig-row">
+                                    <!-- [min]="validtoDate" -->
+                                    <mat-form-field class="floating-date">
+                                        <input [min]="minDate"
+                                            [ngClass]="{'error-color':(certificateForm.controls['validtoDate'].hasError('required') && submitted )}"
+                                            matInput formControlName="validtoDate" [matDatepicker]="dp2">
+                                        <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                                        <mat-datepicker #dp2></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                                <!-- <div class="error-data" *ngIf="(certificateForm.controls['validtoDate'].hasError('pastDate') && submitted)">
+                                    End date should be greater than today date
+                                </div> -->
+                                <div *ngIf="(certificateForm.controls['validtoDate'].hasError('required') && submitted )"
+                                    class="error-data">{{'myShop.Todateisrequired'|translate}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-col">
+                        <div class="input-group mb-35">
+                            <label>
+                                {{'myShop.DocumentType'|translate}}  <span>*</span>
+                                <p>{{'myShop.DocumentTypeNote'|translate}}</p>
+                            </label>
+                            <div class="ig-row">
+                                <ng-select [items]="DocumentData" bindLabel="name" bindValue="id"
+                                    placeholder="{{'myShop.DocumentType'|translate}}" formControlName="documentType"
+                                    (change)="documentTypeChanges()"
+                                    [ngClass]="{'error-color':(certificateForm.controls['documentType'].hasError('required') && submitted ) || doumentTypeValid}">
+                                </ng-select>
+                            </div>
+                            <div *ngIf="(certificateForm.controls['documentType'].hasError('required') && submitted ) || doumentTypeValid"
+                                class="error-data">{{'myShop.DocumentTypeisrequired'|translate}}</div>
+                        </div>  
+                        <div class="documentLoading"
+                            *ngIf="(myShopSandbox.certificateDetailLoading$ | async) || (myShopSandbox.certificateUpdateLoading$ | async)
+                        || (myShopSandbox.basicDetailCreateLoading$ | async)|| (myShopSandbox.DocumentUploadLoading$ | async) || dowloadLoad">
+                            <app-loader></app-loader>
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                {{'myShop.UploadCertificate'|translate}} <span>*</span>
+                                <p>{{'myShop.UploadCertificateNotes'|translate}}</p>
+                            </label>
+                            <div class="ig-row">
+                                <div class="create-capabilities flexx"
+                                    [ngClass]="{'disable-div': _object.keys(this.uploadFileLocation)?.length >= 1,'error-color': _object.keys(this.uploadFileLocation)?.length == 0 && submitted}">
+                                    <img src="assets/imgs/certificates.svg" alt="">
+                                    <h4>{{'myShop.UploadCertificates'|translate}}</h4>
+                                    <p>{{'myShop.UploadCertificateDescription'|translate}}</p>
+                                    <a href="javascript:void(0)"> <input type="file"
+                                            (click)="$event.target.value = null" (change)="addDocumentFile($event)"
+                                            style="cursor: pointer;height: 100%;"> </a>
+                                </div>
+                                <p style="font-size: .75rem;font-weight: 400;">{{documentMessage}}</p>
+                                <div *ngIf="(_object.keys(this.uploadFileLocation)?.length == 0 && submitted )"
+                                    class="error-data">{{'myShop.UploadCertificateisrequired'|translate}}</div>
+                                <div *ngIf="documentFileType && _object.keys(uploadFileLocation).length == 0"
+                                    class="error-data">{{'myShop.Pleaseselectapdffileonly'|translate}}</div>
+                                <div *ngIf="documentFileSize" class="error-data">{{'myShop.PleaseUploadBelow4MB'|translate}} {{error}} MB</div>
+                                <div class="added-certificates flexx"
+                                    *ngIf="_object.keys(uploadFileLocation).length > 0">
+                                    <p>{{uploadFileLocation.file}}</p>
+                                    <button (click)="downloadDocument()"> <img src="assets/imgs/download-new.svg" alt=""> Download </button>
+                                    <button (click)="removeDocument()"> <img src="assets/imgs/delete.svg" alt=""> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="product-save-btn">
+                <button class="cancel" (click)="cancel()">{{'myShop.Cancel'|translate}}</button>
+                <button class="save" (click)="save()">{{editId ? ('payments.Update'|translate):('payments.Save'|translate)}}</button>
+            </div>
+
+        </div>
+    </form>
+</div>

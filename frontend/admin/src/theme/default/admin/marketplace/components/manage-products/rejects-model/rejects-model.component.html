@@ -1,0 +1,67 @@
+<div class="reject-popup">
+  <div class="offcanvas-header">
+
+    <div class="reject-header">
+      <h1>{{'marketplace.common.RejectReason' | translate}}</h1>
+      <a href="javascript:void(0)" (click)="close()"> <img src="assets/imgs/close-modal.svg" alt=""> </a>
+    </div>
+  </div>
+
+  <div class="offcanvas-body p-3">
+    <div class="reject-card">
+      <div *ngIf="defaultImage" class="dflt-img">
+        <img [src]="imageUrl + '?path=' + defaultImage?.containerName + '&name=' + defaultImage?.image + '&width=100&height=100'" onError="this.src='/assets/error-images/Load-icon-Products.png';" alt="">
+      </div>
+      <div *ngIf="fullData?.image" class="dflt-img">
+        <img [src]="imageUrl + '?path=' + fullData?.containerName + '&name=' + fullData?.image + '&width=100&height=100'"
+          onError="this.src='/assets/error-images/Load-icon-Products.png';" alt="">
+      </div>
+      <div class="reject-card-content">
+        <h3>{{fullData?.name}}</h3>
+        <strong>{{fullData?.price| currencysymbol}}</strong>
+        <div class="reject-card-company">
+          <div class="rjt-img">
+            <img *ngIf="fullData?.companyLogo"
+              [src]="imageUrl + '?path=' + fullData?.companyLogoPath + '&name=' + fullData?.companyLogo + '&width=100&height=100'" onError="this.src='/assets/error-images/Load-icon-Products.png';"
+              alt="">
+            <img *ngIf="fullData?.vendor"
+              [src]="imageUrl + '?path=' + fullData?.vendor?.companyLogoPath + '&name=' + fullData?.vendor?.companyLogo + '&width=100&height=100'" onError="this.src='/assets/error-images/Load-icon-Products.png';"
+              alt="">
+          </div>
+
+          <div>
+            <h3>{{fullData?.companyName ? fullData?.companyName : fullData?.vendor?.companyName}}</h3>
+            <p>{{fullData?.vendorName ? fullData?.vendorName : fullData?.vendor?.vendorName}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reject-reason">
+      <label for="">{{'marketplace.common.Reasonforreject' | translate}} <sup>*</sup>
+        <!-- <span class="d-grid">
+          <img src="assets/img/info-icon.svg" alt="info">
+        </span> -->
+      </label>
+      <textarea [(ngModel)]="rejectReason"
+        [ngClass]="{'validationcolor':['',null,undefined].includes(rejectReason) && submitted==true}" name="" id="">
+      </textarea>
+      <div class="" *ngIf="['',null,undefined].includes(this.rejectReason) && submitted==true">
+        <p style="color: red;">{{'marketplace.common.ReasonIsRequired' | translate}}</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="action-button-container flex">
+  <button class="button-reg btn-md primary" (click)="Submit()">
+    {{'marketplace.common.Submit' | translate}}
+  </button>
+  <!-- Cancel Button -->
+  <button (click)="close()" class="button-reg btn-md secondary">
+    {{'marketplace.common.Cancel' | translate}}
+  </button>
+</div>

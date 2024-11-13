@@ -1,0 +1,89 @@
+<div class="setup-wrapper">
+
+    <div class="breadcrumbs-row">
+        <div class="bc-col mar">
+            <ul>
+                <li class="cusror"><a href="javascript:void(0)" style="color: gray">
+                        {{'Settings.nav.Settings'|translate}} </a></li>
+                <li>{{'Settings.nav.SettingsHome'|translate}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="settings-container">
+
+        <div class="settings-wrap flex">
+            <div class="settings-col" [routerLink]="['/settings/multiple-websites']"
+                [appHideIfUnauthorized]="'settings-general-setting'" [multipleHide]="">
+                <a href="javascript:void(0)">
+                    <h3> <img src="assets/img/store.svg">{{'Additional.Multiple websites'|translate}}</h3>
+                    <p>{{'Settings.nav.AdminCreate'|translate}}</p>
+                </a>
+            </div>
+
+            <div class="settings-col" [routerLink]="['/settings/local']"
+                [appHideIfUnauthorized]="'settings-general-setting'"
+                [multipleHide]="['delivery-location-list','list-country','list-zone','list-language','list-currency','list-tax']">
+                <a href="javascript:void(0)">
+                    <h3> <img src="assets/img/localization.svg"> {{'Settings.nav.Localization'|translate}} </h3>
+                    <p>{{'Settings.nav.LocalizationAdaptation'|translate}}</p>
+                </a>
+            </div>
+
+            <div class="settings-col" [routerLink]="['/settings/access-and-permission']"
+                [appHideIfUnauthorized]="'settings-general-setting'" [multipleHide]="['list-role','list-user']">
+                <a href="javascript:void(0)">
+                    <h3> <img src="assets/img/permission.svg"> {{'Settings.nav.Accessandpermission'|translate}} </h3>
+                    <p>{{'Settings.nav.AdminSection'|translate}}</p>
+                </a>
+            </div>
+
+            <div class="settings-col" [routerLink]="['/settings/sitesettings']"
+                [appHideIfUnauthorized]="'settings-general-setting'" [multipleHide]="">
+                <a href="javascript:void(0)">
+                    <h3> <img src="assets/img/system.svg"> {{'Settings.nav.System'|translate}} </h3>
+                    <p>{{'Settings.nav.Adminsheader'|translate}}</p>
+                </a>
+            </div>
+
+            <div class="settings-col" [routerLink]="['/settings/personalize']"
+                [appHideIfUnauthorized]="'settings-general-setting'"
+                [multipleHide]="['edit-personalize-order','edit-personalize-product','list-email-template','edit-social-url']">
+                <a href="javascript:void(0)">
+                    <h3> <img src="assets/img/personalize.svg"> {{'Settings.nav.Personalize' | translate}} </h3>
+                    <p>{{'Settings.nav.AdminConfigure'|translate}}</p>
+                </a>
+            </div>
+            <div class="settings-col" [routerLink]="['/settings/site-settings']"
+                [appHideIfUnauthorized]="'settings-general-setting'"
+                [multipleHide]="['settings-site-seo','settings-site-social','settings-site-variant','filter-list','list-attribute','attribute-group-list']">
+                <a href="javascript:void(0)">
+                    <h3> <img src="assets/img/settings.svg">{{'common.SEO'| translate}}</h3>
+                    <p> {{'Settings.nav.Adminsection'|translate}}</p>
+                </a>
+            </div>
+
+            <div class="settings-col" [routerLink]="['/settings/order-fullfillment']"
+                [appHideIfUnauthorized]="'settings-general-setting'"
+                [multipleHide]="['list-order-status','list-stock-status']">
+                <a href="javascript:void(0)">
+                    <h3> <img src="assets/img/order-fulfill.svg"> {{'Settings.nav.OrderFull-FillmentStatus'|translate}}
+                    </h3>
+                    <p>{{'Settings.nav.Adminrequire'|translate}}</p>
+                </a>
+            </div>
+            <div class="settings-col" [routerLink]="['/settings/add-on']"
+                [appHideIfUnauthorized]="'settings-general-setting'" [multipleHide]="">
+                <a href="javascript:void(0)">
+                    <h3> <img src="assets/img/addons.svg"> {{'Settings.nav.Add-Ons'|translate}} </h3>
+                    <p>{{'Settings.nav.AdminCreate'|translate}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<router-outlet></router-outlet>

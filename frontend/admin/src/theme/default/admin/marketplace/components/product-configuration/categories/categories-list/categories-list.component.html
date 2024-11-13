@@ -1,0 +1,124 @@
+<div class="flex filter-row">
+  <div class="filter-lft">
+    <h2> {{'marketplace.common.Categories' | translate}} ({{categorySandbox.getCategoriesListCount$ | async}})</h2>
+  </div>
+
+  <div class="filter-rht flex">
+
+    <!-- filter -->
+    <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue;trackBy: trackByIndex">
+      <div class="added-filter-col flex filter-detail" *ngIf="!empty.includes(filter.value)">
+        <span>{{ filter.key }} :&nbsp;</span>
+        <ng-container [ngSwitch]="filter.key">
+          <ng-container *ngSwitchCase="'status'">
+            {{ filter.value == 1 ? 'Active' : 'In-Active' }}
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            {{ filter.value }}
+          </ng-container>
+        </ng-container>
+        <button (click)="removeFilter(filter)">
+          <img src="assets/img/close.svg" alt="" />
+        </button>
+      </div>
+    </div>
+
+    <!--search filter -->
+    <div class="filter-search">
+      <form class="" (keyup.enter)="applyFilter()">
+        <app-common-form [type]="dynamicObjControls?.Search?.type" [control]="dynamicObjControls?.Search?.control"
+          [label]="dynamicObjControls?.Search?.label" [inputId]="dynamicObjControls?.Search?.inputId"
+          [aliasName]="dynamicObjControls?.Search?.aliasName" [placeholder]="dynamicObjControls?.Search?.placeholder">
+        </app-common-form>
+      </form>
+    </div>
+
+    <!--filter  -->
+    <div class="dropdown filter-dropdown" ngbDropdown #myDropdown="ngbDropdown" [autoClose]="false">
+      <button class="button-reg tertiary btn-sm" ngbDropdownToggle>
+        <img src="assets/img/filter.svg" alt="">
+        {{'marketplace.common.Filters' | translate}}
+      </button>
+      <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+        <h4> {{'marketplace.common.QuickFilter' | translate}} </h4>
+        <form class="filter-form">
+          <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+            <app-common-form *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+              [control]="dynamicObjControls[val]?.control" [label]="dynamicObjControls[val]?.label"
+              [inputId]="dynamicObjControls[val]?.inputId" [aliasName]="dynamicObjControls[val]?.aliasName"
+              [placeholder]="dynamicObjControls[val]?.placeholder" [customData]="dynamicObjControls[val]?.customData">
+            </app-common-form>
+          </div>
+          <div class="filter-btn flex">
+            <button class="btn btn-sm primary btn-sm" (click)="applyFilter()">
+              {{'marketplace.common.ApplyFilter' | translate}}
+            </button>
+            <button class="btn btn-sm btn-outline-secondary" (click)="filterReset('')">
+              {{'marketplace.common.Reset' | translate}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <button class="button-reg primary btn-sm" [routerLink]="['/vendors/product-config/categories/add']"
+      *ngIf="(categorySandbox.getCategoriesList$ | async)?.length > 0" [appHideIfUnauthorized]="'create-category'">+
+      {{'catalog.categories.AddCategory'| translate}}
+    </button>
+
+    <button class="button-reg primary btn-sm" [routerLink]="['/vendors/product-config/categories/localization']"
+      *ngIf="(categorySandbox.getCategoriesList$ | async)?.length > 0"
+      [appHideIfUnauthorized]="'add-category-localization'">+
+      {{'marketplace.common.Localization' | translate}}
+    </button>
+  </div>
+</div>
+
+<div class="flex product-wrap example-full-width">
+  <div class="product-table">
+
+    <!--Loader -->
+    <div class="spinner-wrapper">
+      <app-global-loader [isShow]="categorySandbox.getCategoriesListRequestLoading$ | async"
+        style="transform: translate(38%, 50%);position:absolute">
+      </app-global-loader>
+    </div>
+    
+    <div class="table-responsive">
+
+      <!-- common -table -->
+      <app-common-table [customTemplate]="{status: itemTemplateRef}" [HeadArray]="customTable"
+        [GridArray]="categoriesList" (buttonChangeEvent)="buttonAction($event)" [selectAll]="tableCheckbox">
+      </app-common-table>
+      <ng-template #itemTemplateRef let-item let-index="index">
+        <!-- <span  [ngClass]="{'status-badge active': item?.isActive == 1, 'status-badge inactive': item?.isActive == 0}">
+          {{ item?.isActive == 1 ? ('marketplace.seller.Active' | translate) : ('Settings.Role.InActive' | translate) }}
+        </span> -->
+        <span *ngIf="item?.isActive == 1 " class="status-badge active" href="javascript:void(0)">{{'common.Active'|translate}}</span>
+        <span *ngIf="item?.isActive == 0 " class="status-badge inactive" href="javascript:void(0)">{{'common.In-Active'|translate}}</span>
+      </ng-template>
+
+      <!-- No Data Found -->
+      <div class="nodata-found" *ngIf="!(categorySandbox.getCategoriesListRequestLoading$ | async)  && categoriesList.length == 0">
+        <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+        <h5>{{'Settings.data.DataNotFound' | translate}}</h5>
+        <button class="button-reg btn-sm primary" [routerLink]="['/vendors/product-config/categories/add']">
+          {{'catalog.categories.AddCategory'| translate}}
+        </button>
+      </div>
+
+
+      <!--pagination -->
+      <div class="pagination flex"
+        *ngIf="!(categorySandbox.getCategoriesListRequestLoading$ | async) && (categorySandbox.getCategoriesListCount$ | async) > limit">
+        <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+          [totalItems]="categorySandbox.getCategoriesListCount$ | async" [pageSize]="limit"
+          (pageChange)="onPageChange($event)">
+        </app-reusable-pagination>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bulk Action -->
+<app-bulk-action *ngIf="selectedDatas?.length > 0" [count]="selectedDatas?.length" [bulkList]="bulkAction"
+  (actionEvent)="actionType($event)"></app-bulk-action>

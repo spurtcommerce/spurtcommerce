@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 10 10">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5689" data-name="Rectangle 5689" width="10" height="10" fill="#6e6e7f" stroke="#6e6e7f" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_855" data-name="Mask Group 855" clip-path="url(#clip-path)">
+    <path id="caret-down_1_" data-name="caret-down (1)" d="M12.289,11.71,8.2,7.619a.409.409,0,0,0-.579,0L3.528,11.71a.409.409,0,0,0,.579.579l3.8-3.8,3.8,3.8a.409.409,0,1,0,.579-.579Z" transform="translate(-2.946 -4.953)" fill="#6e6e7f" stroke="#6e6e7f" stroke-width="0.2"/>
+  </g>
+</svg>

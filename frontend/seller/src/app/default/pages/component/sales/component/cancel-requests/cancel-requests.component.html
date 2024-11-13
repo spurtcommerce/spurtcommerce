@@ -1,0 +1,140 @@
+<div class="page-title">
+    <h3>{{'common.Cancel Requests'|translate}}</h3>
+</div>
+<div class="flex search-exp">
+    <div class="search-left flex">
+        <input type="text" placeholder="{{'common.SearchOrderProductIdName' | translate}}" class="search-menu" (keydown.enter)="searchCancelRequests($event.target.value)">
+        <div ngbDropdown class="d-inline-block">
+            <form [formGroup]="filterForm">
+                <img src="assets/imgs/filter.svg" title="Filter" alt="Filter" class="btn cursor" id="dropdownConfig" ngbDropdownToggle />
+                <div ngbDropdownMenu aria-labelledby="dropdownConfig" style="left: -22px !important;" class="act-filter-dropdown filter-menu" autoClose="false">
+                    <button type="button" class="close" aria-label="Close" (click)="close()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <p class="filter-title">{{'Sales.shared.filters'| translate}}</p>
+                    <div class="filter-innr-row">
+                        <p class="act-filter-labels">{{'Sales.shared.From Date'| translate}}</p>
+                        <div class="input-group w-100 filter-group">
+                            <input readonly class="form-control  placeholder-fix date-input" autocomplete="off" (dateSelect)="onDateSelect($event)" name="dp" id="cal-in" ngbDatepicker #f="ngbDatepicker" formControlName="fromDate" [maxDate]="minPickerDate">
+                            <div class="input-group-append">
+                                <button class="no-shadow border-clr calendar-btn" (click)="f.toggle()" type="button">
+                                    <img title="From Date" alt="From Date" src="assets/imgs/calender-ico.png"> </button>
+                            </div>
+                        </div>
+                        <p class="act-filter-labels">{{'Sales.shared.To Date'| translate}}</p>
+                        <div class="input-group w-100 filter-group">
+                            <input readonly class="form-control  placeholder-fix date-input" name="dp" autocomplete="off" id="cal-in" ngbDatepicker #d="ngbDatepicker" formControlName="toDate" [ngClass]="{'disabled': dateError !== ''}" [minDate]="miniDate" [maxDate]="minPickerDate">
+                            <div class="input-group-append">
+                                <button class="border-clr no-shadow calendar-btn" type="button" (click)="setMinValue(d)">
+                                    <img title="To Date" alt="To Date" src="assets/imgs/calender-ico.png"> </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="error" style="color: red;">
+                        {{dateError}}
+                    </div>
+                    <div class="error" *ngIf="isRequired">
+                        {{'Sales.shared.to date is required'| translate}}
+                    </div>
+                    <button class="btn" style="background-color:#1b5ed8; color: white; margin: 20px 7px 0px 24px;
+                      float: right;" type="submit" (click)="applyFilter()"> {{'Sales.shared.apply filters'| translate}} </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="filterDataId.length > 0" class="search-right flex" [title]=" filterDataId.length === 0 ? 'Bulk export' : 'Export'">
+        <a href="javascript:void(0)" class="flex ripple" (click)="exportCancelOrder()"> <img title="Export" alt="Export" src="assets/imgs/export.svg" style="width:16px"> {{'Sales.shared.export'| translate}}</a>
+        <span class="multi-spin" *ngIf="(orderSandbox.exportCancelOrderLoading$ | async)"><i
+                class="fas fa-spinner fa-spin fa-2x" style="color: blue;"></i></span>
+    </div>
+    <div *ngIf="filterDataId.length > 0" class="search-right status-all flex">
+        <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="1" class="mat-btn-1" (change)="changeAllStatus($event)">{{'Sales.shared.Approve'| translate}}
+            </mat-radio-button>
+            <mat-radio-button value="2" class="mat-btn-1" (change)="changeAllStatus($event)">{{'Sales.shared.Reject'| translate}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div *ngIf="filterDataId.length === 0" class="search-right flex" [title]=" filterDataId.length === 0 ? 'Bulk export' : 'Export'">
+        <a href="javascript:void(0)" class="flex ripple" (click)="exportAllCancelOrder()"> <img title="Export All" alt="Export All" src="assets/imgs/export.svg" style="width:16px">{{'Sales.shared.export all'|translate}}
+        </a>
+        <span class="multi-spin" *ngIf="(orderSandbox.exportAllCancelOrderLoading$ | async)"><i
+                class="fas fa-spinner fa-spin fa-2x" style="color: blue;"></i></span>
+    </div>
+</div>
+<span *ngIf="filter" class="date-tag">{{startDate}} {{'common.to' | translate}} {{endDate}}
+    <img class="cursor" alt="Reset Filter" title="Reset Filter" (click)="resetFilter()" src="assets/imgs/close-white-ico.png">
+</span>
+<!---->
+
+<div class="product-list-wrap">
+    <div class="loading" *ngIf="(orderSandbox.cancelOrderListLoading$ | async) || (orderSandbox.cancelOrderStatusLoading$ | async)
+    || (orderSandbox.bulkCancelOrderStatusLoading$ | async)">
+        <app-loader></app-loader>
+    </div>
+    <div class="no-data" *ngIf="(orderSandbox.cancelOrderList$ | async)?.length === 0 && (orderSandbox.cancelOrderListLoaded$ | async)">
+        <span>{{'Sales.shared.Nocancelordersfound'| translate}}</span> </div>
+    <div class="table-responsive " *ngIf="(orderSandbox.cancelOrderList$ | async)?.length > 0 && (orderSandbox.cancelOrderListLoaded$ | async)">
+        <table class="table" [ngClass]="{'pay-table': (orderSandbox.downloadCsvLoading$ | async)}">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="form-group" title="Click To Export">
+                            <input type="checkbox" id="checkbox1" [(ngModel)]="selectedAll" (change)="selectAll($event)" [ngModelOptions]="{standalone: true}">
+                            <label for="checkbox1"></label>
+                        </div>
+                    </th>
+                    <th>{{'Sales.shared.OrderProductID'| translate}}</th>
+                    <th>{{'Sales.failedorders.Created Date'| translate}}</th>
+                    <th class="text-center">{{'Sales.shared.Buyer'| translate}}</th>
+                    <th class="cmsn text-center">{{'Sales.shared.Reason'| translate}}</th>
+                    <th class="amt text-center">{{'Sales.shared.Remarks'| translate}}</th>
+                    <th class="text-center">{{'Sales.allorders.action'| translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let array of (orderSandbox.cancelOrderList$ | async); let i = index;">
+                    <td>
+                        <div class="form-group" title="Click To Export">
+                            <input type="checkbox" [id]="array.orderProductId" class="custom-control-input chk" [(ngModel)]="array.selected" (change)="checkIfAllSelected()" [value]="array.orderProductId" [ngModelOptions]="{standalone: true}">
+                            <label [for]="array.orderProductId"></label>
+                        </div>
+                    </td>
+                    <td width="200px">
+                        <h3 class="id-col">{{array?.orderProductPrefixId}}</h3>
+                    </td>
+                    <td>
+                        {{array.createdDate|date:'dd/MM/yy'}}
+                    </td>
+                    <td width="130px">
+                        <div class="buyer flex text-center">
+                            <span class="flex logo">{{((array?.customerFirstName).charAt(0)) | uppercase}}</span>
+                            <p><span class="name">{{array?.customerFirstName}}</span>{{array?.shippingCity}}, {{array?.shippingCountry}}
+                            </p>
+                        </div>
+                    </td>
+
+                    <td class="cmsn text-center">{{array?.cancelReason}}</td>
+                    <td class="amt text-center">{{array?.cancelReasonDescription}}</td>
+                    <td width="200px">
+                        <mat-radio-group aria-label="Select an option">
+                            <mat-radio-button value="1" [checked]="array?.cancelRequestStatus === 1" (change)="changeStatus(array, $event)">{{array?.cancelRequestStatus === 1? 'Approved' : 'Approve'}}</mat-radio-button>
+                            <mat-radio-button value="2" style="margin-left: 3px;" [checked]="array?.cancelRequestStatus === 2" (change)="changeStatus(array, $event)">{{array?.cancelRequestStatus === 2? 'Rejected' : 'Reject'}}</mat-radio-button>
+                        </mat-radio-group>
+                    </td>
+                </tr>
+            </tbody>
+            <i class="fas inv-loader fa-spinner fa-spin fa-2x" *ngIf="(orderSandbox.downloadCsvLoading$ | async)" style="color: blue;"></i>
+
+        </table>
+        <div class="pager" style="position: absolute; right: 0;">
+            <!-- <app-pager (pageChange)="pageChange($event)" [pageSize]="limit" [currentPage]="currentPage" [counts]="(orderSandbox.cancelOrderListCount$ | async)"></app-pager> -->
+
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,44 @@
+<div class="setup-wrapper">
+    <div class="setup-container localization-container">
+        <div class="loc-lay-title">
+        </div>
+
+        <div class="card ap-general ap-info set-loc-card">
+
+            <div class="localize-tab">
+
+                <ul class="nav-tabs nav">
+                    <li class="nav-item" [appHideIfUnauthorized]="'variant'" [routerLinkActive]="'active'"
+                        [routerLink]="['/vendors/product-config/product_variant/settings/variants/']">
+                        <a class="nav-link" [routerLinkActive]="'active'" style="color: #222"
+                            [routerLink]="['/vendors/product-config/product_variant/settings/variants/']">{{'common.Variants'|
+                            translate}}</a>
+                        <a class="nav-link" [routerLinkActive]="'active'" style="display: none;"
+                            [routerLink]="['/vendors/product-config/product_variant/settings/variants/variantlocalization-list']"></a>
+                        <a class="nav-link" [routerLinkActive]="'active'" style="display: none;"
+                            [routerLink]="['/vendors/product-config/product_variant/settings/variants/localization-update/']"></a>
+                    </li>
+                    <li class="nav-item" [appHideIfUnauthorized]="'filters'" [routerLinkActive]="'active'"
+                    [routerLink]="['/vendors/product-config/product_variant/settings/filter/']">
+                        <a class="nav-link" [routerLinkActive]="'active'" style="color: #222"
+                            [routerLink]="['/vendors/product-config/product_variant/settings/filter/list']">{{'common.Filters'|
+                            translate}}</a>
+                        <a class="nav-link" [routerLinkActive]="'active'" style="display: none;"
+                            [routerLink]="['/vendors/product-config/product_variant/variant-settings/filters/edit']"></a>
+                        <a class="nav-link" [routerLinkActive]="'active'" style="display: none;"
+                            [routerLink]="['/vendors/product-config/product_variant/variant-settings/filters/add']"></a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<router-outlet></router-outlet>

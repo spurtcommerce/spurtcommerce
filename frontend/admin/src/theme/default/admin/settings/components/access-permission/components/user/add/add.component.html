@@ -1,0 +1,23 @@
+<!-- Close Icon  -->
+<div class="flex setting2-inner-header">
+    <h3 class="modal-header__title"> {{updateTitle ? 'Update User' : 'Add User'}} </h3>
+    <button (click)="close()" class="close-modal"> <img src="assets/img/modal-close.svg"> </button>
+</div>
+
+<div class="modal-body">
+    <ng-container *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+        <div class="form-group">
+          <app-common-form [type]="dynamicObjControls[val]?.type" [control]="dynamicObjControls[val]?.control"
+            [label]="dynamicObjControls[val]?.label" [inputId]="dynamicObjControls[val]?.inputId"
+            [aliasName]="dynamicObjControls[val]?.aliasName" [placeholder]="dynamicObjControls[val]?.placeholder"
+            [submitted]="submitted" [customData]="dynamicObjControls[val]?.customData"
+            [optionalErrorMessage]="dynamicObjControls[val]?.optionalErrorMessage"
+            [mandatory]="dynamicObjControls[val]?.mandatory">
+          </app-common-form>
+        </div>
+      </ng-container>
+</div>
+<div class="action-button-container flex">
+    <button (click)="UserCancle()" class="button-reg btn-md tertiary">{{'Settings.User.Cancle' | translate}}</button>
+    <button type="submit" (click)="onSubmit()" class="button-reg btn-md primary">{{updateTitle ? 'Update User' : 'Save' | translate}} </button>
+</div>

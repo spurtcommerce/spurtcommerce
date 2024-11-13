@@ -1,0 +1,39 @@
+
+.spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+
+.btn-align {
+    margin-left: auto;
+    width: fit-content;
+  }
+
+  .filter-row .filter-rht .filter-search {
+    position: relative;
+  }
+ 
+  .apply-filter{
+    background-color: #078e05;
+      border: 0;
+      color: #fff;
+  }
+
+   .dropdown .filter-menu-dropdown {
+    width: 389px;
+    padding: 1rem;
+    height: 20rem;
+    overflow: auto;
+    border: 0;
+}
+
+.selected-container .selected-btn::after {
+  content: "";
+  position: absolute;
+  inset: auto;
+  width: 0;
+  height: 1;
+  background-color: transparent;
+}

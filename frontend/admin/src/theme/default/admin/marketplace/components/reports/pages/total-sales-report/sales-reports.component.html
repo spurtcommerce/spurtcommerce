@@ -1,0 +1,147 @@
+<!-- Loader -->
+<div *ngIf="sandbox.exportTotalSalesReportLoading$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+<main class="cards">
+    <!-- Header -->
+    <div class="top-btn">
+        <h3 class="page-title">{{'marketplace.product.TotalSalesReport'| translate}} </h3>
+    </div>
+    <!-- Filter Form -->
+    <form [formGroup]="totalReportFilterForm">
+
+        <div class="flex filter">
+
+            <div class="filter-deate">
+                <mat-radio-group formControlName="dateRange">
+                    <mat-radio-button [checked]="isChecked" value="0" class="mat-rad-fdst">
+                        {{'marketplace.reports.Custom'| translate}} :
+                        <div class="form-group d-inline-block m-0">
+
+                            <input readonly style="cursor: pointer; width: 130px;" type="text"
+                                class="form-control date1" formControlName="fromDate" placeholder="dd/mm/yyyy" name="dp"
+                                id="cal-in" ngbDatepicker #g="ngbDatepicker" [minDate]="todayDate" (click)="g.toggle()"
+                                [maxDate]="todaysDate" />
+                        </div>
+
+                        <div class="form-group d-inline-block m-0 ms-2">
+
+                            <input readonly style="cursor: pointer; width: 130px;" type="text"
+                                class="form-control date1" formControlName="toDate"
+                                [minDate]="totalReportFilterForm.value.fromDate" placeholder="dd/mm/yyyy" name="dp"
+                                id="cal-in" ngbDatepicker #h="ngbDatepicker" (click)="h.toggle()"
+                                [maxDate]="todaysDate" />
+                        </div>
+                    </mat-radio-button>
+                    <mat-radio-button value="1">{{'marketplace.reports.ThisMonth'| translate}}</mat-radio-button>
+                    <mat-radio-button value="2">{{'marketplace.reports.3Months'| translate}}</mat-radio-button>
+                    <mat-radio-button value="3">{{'marketplace.reports.6Months'| translate}}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div class="flex vr-filter-row">
+                <p>{{'marketplace.reports.Amountrange'| translate}}</p>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="rangeFrom" appOnlyNumber
+                        placeholder="{{'marketplace.reports.RangeFrom'| translate}}" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="rangeTo" appOnlyNumber
+                        placeholder="{{'marketplace.reports.RangeTo'| translate}}" />
+                </div>
+                <button type="submit" class="button-reg btn-sm primary" (click)="generateReport()">
+                    {{'marketplace.reports.GenerateReport'| translate}}
+                </button>
+
+                <button type="submit" class="button-reg btn-sm tertiary" (click)="reset()" style="margin-left: 10px;">
+                    {{'marketplace.reports.reset'| translate}}
+                </button>
+
+            </div>
+        </div>
+    </form>
+    <!-- Export Button -->
+    <div class="flex export-btn"
+        *ngIf="(sandbox.totalSalesReportLoaded$ | async) && (sandbox.totalSalesReport$ | async).length > 0">
+        <h4> <span></span></h4>
+        <button class="button-reg btn-sm primary" (click)="exportSalesReport()"> <img src="assets/img/export-white.svg"
+                alt="">
+            {{'Sales.Abandoned.Export'| translate}} </button>
+    </div>
+
+    <div class="vr-table-container">
+        <!-- Loader -->
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="sandbox.totalSalesReportLoading$ | async"
+                style="transform: translate(0%, 50%);position:absolute"></app-global-loader>
+        </div>
+        <!-- Table -->
+        <div class="product-table">
+            <div class="table-responsive">
+                <table class="table"
+                    *ngIf="(sandbox.totalSalesReportLoaded$ | async) && (sandbox.totalSalesReport$ | async).length > 0">
+                    <thead>
+                        <tr>
+                            <th>{{'marketplace.reports.Order-Line-No'| translate}}</th>
+                            <th>{{'marketplace.reports.Order-Line-No-Date'| translate}}</th>
+                            <th>{{'marketplace.reports.Sub-Invoice'| translate}} </th>
+                            <th>{{'marketplace.reports.Item'| translate}}</th>
+                            <th>{{'marketplace.reports.Description'| translate}}</th>
+                            <th class="text-center">{{'marketplace.reports.Quantity'| translate}}</th>
+                            <th class="text-right">{{'marketplace.reports.BaseValue'| translate}}</th>
+                            <th class="text-center">{{'marketplace.reports.Tax'| translate}}</th>
+                            <th class="text-right">{{'marketplace.reports.TotalValue'| translate}}</th>
+                            <th>{{'marketplace.reports.OrderStatus'| translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let reports of sandbox.totalSalesReport$ | async; let i = index">
+                        <tr *ngFor="let list of reports.orderProduct; let j = index">
+                            <td>{{list.orderProductPrefixId}}</td>
+                            <td class="text-center">{{list.createdDate | date: "dd/MM/yyyy"}}</td>
+                            <td>{{list.invoiceNo}}</td>
+                            <td>{{list.skuName}}</td>
+                            <td>{{list.productName}}</td>
+                            <td class="text-center">{{list.quantity}}</td>
+                            <td class="text-right">{{list.basePrice | currencysymbol}}</td>
+                            <td class="text-right">{{list.taxAmount | currencysymbol}}
+                                <p style="font-size: 9px">{{list.taxTypeValue}}</p>
+                            </td>
+                            <td class="text-right">{{list.total | currencysymbol}}</td>
+                            <td>{{list.orderStatusName}}</td>
+                        </tr>
+
+                        <tr class="total">
+                            <td colspan="5" class="text-right stotal">{{'marketplace.reports.SubTotal'| translate}}</td>
+                            <td class="text-center">{{reports?.quantityTotal}}</td>
+                            <td class="text-right">{{reports?.baseTotal | currencysymbol}}</td>
+                            <td class="text-right">{{reports.taxTotal | currencysymbol}}</td>
+                            <td class="text-right">{{reports?.subTotal | currencysymbol}}</td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="10"></td>
+                        </tr>
+                        <tr class="total gtotal" *ngIf="((sandbox.totalSalesReport$ | async).length - 1) === i">
+                            <td colspan="5" class="text-right stotal">{{'marketplace.reports.GrandTotal'| translate}}
+                            </td>
+                            <td class="text-center">{{quantityTotal}}</td>
+                            <td class="text-right">{{baseTotal | currencysymbol}}</td>
+                            <td class="text-right">{{taxTotal | currencysymbol}}</td>
+                            <td class="text-right">{{subTotal | currencysymbol}}</td>
+                            <td> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- No Data Found -->
+    <div class="vr-wrap">
+        <div class="table-responsive">
+            <div class="no_data"
+                *ngIf="(sandbox.totalSalesReport$ | async)?.length == 0 && (sandbox.totalSalesReportLoaded$ | async)">
+                <p>{{'marketplace.reports.DataNotFound'| translate}}</p>
+            </div>
+        </div>
+    </div>
+</main>

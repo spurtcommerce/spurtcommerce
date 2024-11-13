@@ -1,0 +1,128 @@
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    margin-bottom: 2rem;
+    border: 0;
+    h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #222222;
+        span {
+            color: #398D10;
+        }
+    }
+    button {
+        background-color: transparent;
+        border: 0;
+    }
+}
+.timeline {
+    h3 {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: #222222;
+        margin-bottom: 2.5rem;
+    }
+    .timeline-row {
+        .timeline-card {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 2rem;
+            span {
+                height: 1.0875rem;
+                padding-inline: 0.12rem;
+                display: inlin-flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #f1f7fd;
+                font-size: 0.6875rem;
+                font-weight: 400;
+                color: #0e2a3e;
+                margin-bottom: 0.75rem;
+                border-radius: 0.1875rem;
+            }
+            a {
+                font-size: .875rem;
+                font-weight: 400;
+                color: #2e7fbf;
+                margin-bottom: 0.0625rem;
+                display: block;
+            }
+            h4 {
+                font-size: .625rem;
+                font-weight: 400;
+                color: #0e2a3e;
+                margin-bottom: 0.3125rem;
+            }
+            p {
+                font-size: 0.75rem;
+                font-weight: 400;
+                color: #222222;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0rem;
+                top: 0;
+                background-color: white;
+                border: solid thin #222222;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+                background-position: center;
+                background-size: 0.625rem;
+                background-repeat: no-repeat;
+                z-index: 2;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                width: 1px;
+                left: 0.75rem;
+                height: 100%;
+                background-color: #222222;
+                top: 0;
+                z-index: 1;
+            }
+            &:last-child {
+                &::after {
+                    // height: 0;
+                }
+            }
+            &.tc-upload {
+                &::before {
+                    background-image: url(../../../../../../assets/imgs/upload.svg);
+                }
+            }
+            &.tc-rejected {
+                &::before {
+                    background-image: url(../../../../../../assets/imgs/close.svg);
+                }
+            }
+            &.tc-approved {
+                &::before {
+                    border: solid thin #48b13f;
+                    background-image: url(../../../../../../assets/imgs/tick.svg);
+                }
+            }
+        }
+    }    
+}
+
+.timeline-cardss {
+    &::after {
+        height: 0 !important;
+    }
+}
+::ng-deep .timeline-chart {
+    max-width: 30rem!important;
+    .modal-content {
+        padding: 2rem;
+    }
+}

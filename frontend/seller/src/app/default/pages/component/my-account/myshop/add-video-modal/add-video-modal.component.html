@@ -1,0 +1,60 @@
+<div class="modal-heading">
+    <h3 *ngIf="name=='create'">{{'myShop.AddVideo'|translate}}</h3>
+    <h3 *ngIf="name=='edit'">{{'myShop.EditVideo'|translate}}</h3>
+</div>
+<form [formGroup]="VideoForm">
+    <div class="modal-body">
+        <div class="input-group mb-35">
+            <label>
+                {{'myShop.VideoTitle'|translate}} <span>*</span>
+                <p>{{'myShop.AddVideoUpload'|translate}} </p>
+            </label>
+            <div class="ig-row">
+                <input appNoLeadingSpace type="text" formControlName="title"
+                    placeholder="{{'myShop.Entervideotitle'|translate}}"
+                    [ngClass]="{'error-color':VideoForm.controls['title'].hasError('required') && submitted}">
+            </div>
+            <div *ngIf="(VideoForm.controls['title'].hasError('required') && submitted )" class="error-data">
+                {{'myShop.VideoTitleisrequired'|translate}}</div>
+        </div>
+        <div class="input-group mb-35">
+            <label>
+                {{'myShop.EmbeddedURL'|translate}} <span>*</span>
+                <p>{{'myShop.EmbeddedURLNote'|translate}}</p>
+            </label>
+            <div class="ig-row">
+                <input type="text" formControlName="url" placeholder="https://www.youtube.com/"
+                    [ngClass]="{'error-color':VideoForm.controls['url'].hasError('required') && submitted}">
+                <button class="embed-btn" (click)="embed()"
+                    [ngClass]="{'btn-disable':['',null,undefined].includes(this.VideoForm.value.url)}">Embed</button>
+            </div>
+            <div *ngIf="(VideoForm.controls['url'].hasError('required') && submitted )" class="error-data">
+                {{'myShop.Urlisrequired'|translate}}</div>
+            <div class="error-data"
+                *ngIf="(VideoForm.controls['url'].hasError('invalidYoutubeUrl') && !(VideoForm.controls['url'].hasError('required'))&& submitted)">
+                {{'myShop.Pleaseentervalidurl'|translate}} 
+            </div>
+        </div>
+
+        <div class="video-list-row video-list-detail">
+            <div class="video-list-vid" *ngIf="videoPlay">
+                <iframe width="400" height="180" [src]="urlSafe" frameborder="0" allowfullscreen></iframe>
+                <!-- <img src="assets/imgs/video-img.jpg" alt=""> <a href="javascript:void(0)"></a>  -->
+            </div>
+
+        </div>
+        <div class="capabilties-toggle d-flex">
+            <p>{{'myShop.DoyouwanttoshowitonStorefront'|translate}}</p>
+            <div class="on-off-toggle">
+                <input class="on-off-toggle__input" type="checkbox" id="bopis" formControlName="isActive" />
+                <label for="bopis" class="on-off-toggle__slider"></label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="product-save-btn modal-save-btn">
+        <button class="cancel" (click)="dismiss()">{{'myShop.Cancel'|translate}}</button>
+        <button class="save" (click)="save()">{{'myShop.Save'|translate}}</button>
+    </div>
+</form>

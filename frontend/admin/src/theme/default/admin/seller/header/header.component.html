@@ -1,0 +1,41 @@
+<div class="subtoolbar catalogtoolbar">
+    <div class="sub-nav-menu">
+        <div class="dd" [appHideIfUnauthorized]="'sellers-data'" [multipleHide]="['sellers-data','seller-group','seller-signup-request','seller-onboarding']">
+            <div class="dd-a">
+                <a href="javascript:void(0)" [appHideIfUnauthorized]="'sellers-data'" [routerLink]="['/seller/manage-seller/seller']" [routerLinkActive]="'active'">
+                    <span><img src="assets/img/header-icons/MainSellers.svg" alt="product"></span> {{'marketplace.seller.ManageVendors' | translate}}
+                    <img src="assets/img/caret-down.svg" alt="" class="drop-arrow">
+                </a>
+            </div>
+            <input type="checkbox" [checked]="checked" id="check" (click)="$event.stopPropagation(); onclick($event)">
+            <div class="dd-c">
+                <ul>
+                    <li [appHideIfUnauthorized]="'sellers-data'" >
+                        <a href="javascript:void(0)" [routerLink]="['/seller/manage-seller/seller/seller']" [routerLinkActive]="'active'">
+                            {{'marketplace.seller.Vendors' | translate}}
+                        </a>
+                    </li>
+                    <li [appHideIfUnauthorized]="'seller-group'" >
+                        <a href="javascript:void(0)" [routerLink]="['/seller/manage-seller/seller/seller-group']" [routerLinkActive]="'active'">
+                            {{'marketplace.seller.VendorGroup' | translate}}
+                        </a>
+                    </li>
+
+                    <!-- // told by banu mam oct-17-2024 -->
+
+                    <!-- <li [appHideIfUnauthorized]="'seller-signup-request'">
+                        <a href="#" [routerLink]="['/seller/manage-seller/seller/seller-signup/']" [routerLinkActive]="'active'">
+                            {{'marketplace.seller.Seller Signup Request' | translate}}
+                        </a>
+                    </li> --> 
+                </ul>
+            </div>
+            
+        </div>
+     
+    </div>
+</div>
+
+
+
+

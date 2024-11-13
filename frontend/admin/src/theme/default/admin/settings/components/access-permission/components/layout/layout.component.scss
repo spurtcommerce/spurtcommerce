@@ -1,0 +1,33 @@
+  /* Style the tab */
+  /* Style the buttons that are used to open the tab content */
+  
+  .setup-wrapper {
+      padding: 16px;
+      margin-bottom: 0!important;
+  }
+  /* Style the tab content */
+  
+  .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+  }
+  
+  .back-buttons {
+      background: #f20a6d!important;
+      border: solid thin #dddddd!important;
+      color: white!important;
+      padding: 4px 16px!important;
+      float: right!important;
+      margin-top: -45px;
+      margin-right: 10px;
+  }
+  :host{
+    // width: calc(100% - 250px);
+  }
+ 
+  .active{
+    background-color: transparent;
+    border-bottom: solid  green;
+  }

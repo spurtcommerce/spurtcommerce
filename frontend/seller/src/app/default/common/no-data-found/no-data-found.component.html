@@ -1,0 +1,11 @@
+<div class="nodata flexx">
+    <span><img src="assets/imgs/nodata.svg" alt=""></span>
+    <h4 >
+        
+        <ng-container *ngIf="actionType=='FirstTimeLoading';else second">{{messageFromParent}}!</ng-container>
+
+        <ng-template #second>{{messageFromParent}}!</ng-template>
+
+        </h4>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+</div>

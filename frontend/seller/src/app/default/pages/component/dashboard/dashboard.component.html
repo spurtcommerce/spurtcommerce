@@ -1,0 +1,586 @@
+<app-open-sidebar></app-open-sidebar>
+<div class="page-wrappers page-wrapper-nosidebar">
+    <header>
+        <h1>{{'Dashboard.dashboard'|translate}}</h1>
+    </header>
+
+
+
+    <!-- /* Seller  approved */ -->
+    <div class="page-content"
+        *ngIf="(vendorDetails?.approvalFlag ==1 ) || vendorSetting?.kycMandate ==0 ">
+        <div class="dash-count-row">
+            <!-- /*ActiveProducts */ -->
+            <div class="dash-count-col">
+                <span> <img src="assets/imgs/active-products.svg" alt=""> </span>
+                <div class="dash-count-innr">
+                    <p>{{'Dashboard.ActiveProducts' | translate}}</p>
+                    <h3 *ngIf="(dashboardSandbox.dashboardCountLoading$ | async)"><i
+                            class="fa fa-circle-o-notch fa-spin" style="font-size:20px; color: #1d5ed8;"></i></h3>
+                    <h3 *ngIf="(dashboardSandbox.dashboardCountLoaded$ | async)">
+                        {{(dashboardSandbox.dashboardCount$ | async)?.activeProductCount}}</h3>
+                </div>
+            </div>
+            <!-- /*InactiveProducts */ -->
+            <div class="dash-count-col">
+                <span> <img src="assets/imgs/inactive-products.svg" alt=""> </span>
+                <div class="dash-count-innr">
+                    <p>{{'Dashboard.InactiveProducts' | translate}}</p>
+                    <h3 *ngIf="(dashboardSandbox.dashboardCountLoading$ | async)"><i
+                            class="fa fa-circle-o-notch fa-spin" style="font-size:20px; color: #1d5ed8;"></i></h3>
+                    <h3 *ngIf="(dashboardSandbox.dashboardCountLoaded$ | async)"> {{(dashboardSandbox.dashboardCount$ |
+                        async)?.inActiveVendorProductList}}</h3>
+                </div>
+            </div>
+            <!-- /*TotalOrders */ -->
+            <div class="dash-count-col">
+                <span> <img src="assets/imgs/total-orders.svg" alt=""> </span>
+                <div class="dash-count-innr">
+                    <p>{{'Dashboard.TotalOrders' | translate}}</p>
+                    <h3 *ngIf="(dashboardSandbox.dashboardCountLoading$ | async)"><i
+                            class="fa fa-circle-o-notch fa-spin" style="font-size:20px; color: #1d5ed8;"></i></h3>
+                    <h3 *ngIf="(dashboardSandbox.dashboardCountLoaded$ | async)">{{(dashboardSandbox.dashboardCount$ |
+                        async)?.totalOrderCount}}</h3>
+                </div>
+            </div>
+            <!-- /*TotalSales */ -->
+            <div class="dash-count-col">
+                <span> <img src="assets/imgs/total-sales.svg" alt=""> </span>
+                <div class="dash-count-innr">
+                    <p>{{'Dashboard.TotalSales' | translate}}</p>
+                    <h3 *ngIf="(dashboardSandbox.dashboardCountLoading$ | async)"><i
+                            class="fa fa-circle-o-notch fa-spin" style="font-size:20px; color: #1d5ed8;"></i></h3>
+                    <h3 *ngIf="(dashboardSandbox.dashboardCountLoaded$ | async)">{{(dashboardSandbox.dashboardCount$ |
+                        async)?.salesCount}}</h3>
+                </div>
+            </div>
+            <!-- /*TotalRevenue */ -->
+            <div class="dash-count-col">
+                <span> <img src="assets/imgs/total-revenue.svg" alt=""> </span>
+                <div class="dash-count-innr">
+                    <p>{{'Dashboard.TotalRevenue' | translate}}</p>
+                    <h3 *ngIf="(dashboardSandbox.dashboardCountLoading$ | async)"><i
+                            class="fa fa-circle-o-notch fa-spin" style="font-size:20px; color: #1d5ed8;"></i></h3>
+                    <h3 class="revenue" *ngIf="(dashboardSandbox.dashboardCountLoaded$ | async)">
+                        {{(dashboardSandbox.dashboardCount$ | async)?.revenue | currencysymbol}}
+                    </h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="top-sel-rec">
+            <!-- /*TOPSELLINGPRODUCTS*/ -->
+            <div class="ts-col">
+                <div class="flex tsc-head">
+                    <h3>{{'Dashboard.TOPSELLINGPRODUCTS'| translate}}</h3>
+                    <div class="dash-select input-group">
+                        <div class="ig-row">
+                            <ng-select [clearable]="false" [searchable]="false" [ngModel]="duration"
+                                placeholder="-- {{'common.Select' | translate}} --" (change)="getDuration($event)">
+                                <ng-option [value]="1">{{'Dashboard.thisweek'| translate}}</ng-option>
+                                <ng-option [value]="2">{{'Dashboard.thismonth'| translate}}</ng-option>
+                                <ng-option [value]="3">{{'Dashboard.thisyear'| translate}}</ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+                <!--head-->
+                <div class="nodata flexx" *ngIf="(dashboardSandbox.getTopSellingProductsList$ | async)?.length === 0">
+                    <span><img src="assets/imgs/no-selling-products.svg" alt=""></span>
+                    <!-- <h4>{{'Dashboard.NoProductsfound'| translate}}</h4> -->
+                    <h4>{{'Dashboard.NoProductsfound' | translate}} !</h4>
+                    <p>{{'Dashboard.TopSellingDescription' | translate}}</p>
+                </div>
+
+                <div class="table-responsive" *ngIf="(dashboardSandbox.getTopSellingProductsList$ | async)?.length > 0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{{'Dashboard.Product'| translate}}</th>
+                                <th class="text-center">{{'Dashboard.Sold'| translate}}</th>
+                                <th class="text-center">{{'Dashboard.Buyer'| translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let array of (dashboardSandbox.getTopSellingProductsList$ | async)">
+                                <td width="60%">
+                                    <div class="d-flex align-items-center product-details">
+                                        <h4>{{array?.product?.name}}</h4>
+                                    </div>
+                                </td>
+                                <td class="text-center">{{array?.soldCount}} </td>
+                                <td class="text-center">{{array?.buyerCount}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- /*RECEIVEDORDERS*/ -->
+
+            <div class="ts-col">
+                <div class="flex tsc-head">
+                    <h3>{{'Dashboard.RECEIVEDORDERS'| translate}}</h3>
+                    <div class="dash-select  input-group">
+                        <div class="ig-row">
+                            <ng-select [clearable]="false" placeholder="-- {{'common.Select' | translate}} --"
+                                [ngModel]="orderDuration" [searchable]="false" (change)="getChartDuration($event)">
+                                <ng-option [value]="1">{{'Dashboard.thisweek'| translate}}</ng-option>
+                                <ng-option [value]="2">{{'Dashboard.thismonth'| translate}}</ng-option>
+                                <ng-option [value]="3">{{'Dashboard.thisyear'| translate}}</ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+                <!--head-->
+                <div class="nodata flexx" *ngIf="(dashboardSandbox.getLanguageList$ | async)?.orderCount == 0">
+                    <span><img src="assets/imgs/no-received-orders.svg" alt=""></span>
+                    <h4>{{'Dashboard.noordersfound'| translate}} !</h4>
+                    <p>{{'Dashboard.ReceiveOrdersDescription' | translate}}</p>
+                </div>
+
+                <div *ngIf="(dashboardSandbox.getLanguageList$ | async)?.orderCount != 0" class="chartOver">
+                    <div class="scrollable">
+                        <div class="labels" *ngFor="let val of data.labels; let i = index;">
+                            <div class="labels-row">
+                                <input type="checkbox" [checked]="checkedStates[i]"
+                                    (click)="chartColor($event.target.checked,i)" id="custom-checkbox-{{i}}"
+                                    style="display: none;" />
+                                <label for="custom-checkbox-{{i}}" [ngStyle]="{
+                                        'border-radius':'50%',
+                                        'background-color': checkedStates[i] ? '#ccc' :data.datasets[0].backgroundColor[i],
+                                        'width': '12px',
+                                        'height': '12px',
+                                        'border': '0px solid #ccc',
+                                        'display': 'inline-block',
+                                        'cursor': 'pointer',
+                                        'position': 'relative'
+                                    }"></label>
+
+                                {{val}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart">
+                        <canvas class="pie-chart" *ngIf="(dashboardSandbox.getLanguageList$ | async)?.orderCount != 0"
+                            baseChart [data]="data" [labels]="pieChartLabels" [type]="'pie'" [options]="pieChartOptions"
+                            [plugins]="pieChartPlugins">
+                        </canvas>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- /*RecentOrders*/ -->
+            <div class="ts-col">
+                <div class="flex tsc-head">
+                    <h3>{{'Dashboard.RecentOrders'| translate}}</h3>
+                </div>
+                <div class="nodata flexx" *ngIf="(dashboardSandbox.orderList$ | async)?.length === 0">
+                    <span><img src="assets/imgs/no-recent-orders.svg" alt=""></span>
+                    <!-- <h4>{{'Dashboard.noorderstoday'| translate}}</h4> -->
+                    <h4>{{'Dashboard.noorderstoday'| translate}} !</h4>
+                    <p>{{'Dashboard.RecentOrderDescription' | translate}}</p>
+                </div>
+
+                <div class="table-responsive" *ngIf="(dashboardSandbox.orderList$ | async)?.length > 0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{{'Dashboard.Invoice' | translate}}</th>
+                                <th>{{'Dashboard.OrderStatus' | translate}}</th>
+                                <th class="text-end">{{'Dashboard.Amount' | translate}}</th>
+                                <th>{{'Dashboard.CreatedDate' | translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            </tr>
+                            <tr *ngFor="let array of (dashboardSandbox.orderList$ | async)">
+                                <td class=""> {{array?.subOrderId}} </td>
+                                <td><span
+                                        [ngClass]="{'paid': array.orderStatusName === 'paid', 'placed': array.orderStatusName === 'order-placed'}">{{array?.orderStatusName
+                                        | uppercase}}</span>
+                                <td class="text-right text-nowrap"> {{array?.NetAmount | currencysymbol}} </td>
+                                <td class="text-nowrap">{{array?.createdDate | date:"dd/MM/yy, hh:mm a"}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /*recent sales*/ -->
+
+            <div class="ts-col">
+                <div class="flex tsc-head">
+                    <h3>{{'Dashboard.RecentSales'| translate}}</h3>
+                </div>
+                <div class="nodata flexx" *ngIf="(paymentSandbox.paymentList$ | async)?.length === 0">
+                    <span><img src="assets/imgs/no-recent-sales.svg" alt=""></span>
+                    <h4>{{'common.No recent sales'| translate}} !</h4>
+                    <p>{{'Dashboard.RecentSalesDescription' | translate}}</p>
+                </div>
+
+                <div class="table-responsive" *ngIf="(paymentSandbox.paymentList$ | async)?.length > 0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{{'Dashboard.Invoice'| translate}}</th>
+                                <th>{{'Dashboard.BuyerName'| translate}}</th>
+                                <th class="text-end">{{'Dashboard.Amount'| translate}}</th>
+                                <th>{{'Dashboard.OrderedDate'| translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            </tr>
+                            <tr *ngFor="let array of (paymentSandbox.paymentList$ | async); let i = index;">
+                                <td class="">{{array?.subOrderId}} </td>
+                                <td>{{array?.customerFirstName}}</td>
+                                <td class="text-right text-nowrap"> {{array?.NetAmount | currencysymbol}} </td>
+                                <td class="text-nowrap">{{array?.createdDate | date:'dd/MM/yyyy, hh:mm a'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="page-content"
+        *ngIf="vendorSetting?.kycMandate ==1 && ['verified'].includes(vendorDetails?.kycStatus) &&[0,2].includes(vendorDetails?.approvalFlag)">
+        <!-- First Time Seller -->
+        <div class="seller-new-container">
+            <div class="seller-new-content">
+                <h2>{{'content.Welcome' | translate}} {{vendorDetails.customerDetail.firstName}} 👋</h2>
+                <p>{{'content.Welcome' | translate}} {{vendorDetails.customerDetail.firstName}},
+                    <span *ngIf="vendorDetails?.approvalFlag==3;else normal">
+                        {{'Dashboard.WelcomeBacktoYourSellerAccount' | translate}}
+                    </span>
+                    <ng-template #normal>{{'content.welcomeMessage' | translate}}{{sellerEmail}} </ng-template>
+                </p>
+            </div>
+            <div class="seller-new-list">
+                <div class="seller-new-list-row" *ngIf="[1,3,2].includes(vendorDetails?.verification?.email)">
+                    <div class="seller-profile-ico"> <img src="assets/imgs/profile-ico.svg" alt=""> </div>
+                    <div class="seller-profile-detail">
+                        <h4>{{'common.Complete your profile' | translate}}</h4>
+                        <p>{{'CommonContent.emailNumber'| translate}}</p>
+                    </div>
+                    <div class="seller-profile-link"
+                        *ngIf="vendorDetails?.verification?.email ==1 && !['',null,undefined].includes(vendorDetails?.customerDetail?.mobileNumber)">
+                        <img src="assets/imgs/check-circle.svg" alt="">
+                    </div>
+
+
+                </div>
+
+                <!-- on-boarding-->
+
+                <div class="seller-new-list-row">
+                    <div class="seller-profile-ico"> <img src="assets/imgs/onboarding-ico.svg" alt=""> </div>
+                    <div class="seller-profile-detail">
+                        <h4>{{'common.Complete your onboarding' | translate}}</h4>
+                        <p> {{'CommonContent.onboardingcontent' | translate}}</p>
+                    </div>
+                    <div class="seller-profile-link"
+                        *ngIf="[0,3].includes(vendorDetails?.verification?.bankAccount) && [0,3].includes(vendorDetails?.verification?.companyDetail) && [0,3].includes(vendorDetails?.verification?.document); else nodata">
+                        <a href="javascript:void(0)" class="link-reg link-sm primary"
+                            [routerLink]="['/seller-onboarding/seller-onboarding-Details']"
+                            routerLinkActive="router-link-active">
+                            <span *ngIf="vendorDetails?.approvalFlag==3;else approvalone">
+                                {{'CommonContent.Pending approval' | translate}}
+                            </span>
+                            <ng-template #approvalone>{{'common.Proceed' | translate}} <img
+                                    src="assets/imgs/arrow-right-long.svg" alt=""> </ng-template>
+                        </a>
+                    </div>
+
+                    <ng-template #nodata>
+
+                        <div class="seller-profile-link"
+                            *ngIf="[0].includes(vendorDetails?.verification?.bankAccount) || [0].includes(vendorDetails?.verification?.companyDetail) || [0].includes(vendorDetails?.verification?.document)">
+                            <a href="javascript:void(0)" class="link-reg link-sm primary"
+                                [routerLink]="['/seller-onboarding/seller-onboarding-Details']"
+                                routerLinkActive="router-link-active">
+                                <span *ngIf="vendorDetails?.approvalFlag==3;else approvalone">
+                                    {{'CommonContent.Pending approval' | translate}}
+                                </span>
+                                <ng-template #approvalone>{{'common.Proceed' | translate}} <img
+                                        src="assets/imgs/arrow-right-long.svg" alt=""> </ng-template>
+                            </a>
+                        </div>
+
+                    </ng-template>
+
+
+
+                    <div class="seller-profile-link"
+                        *ngIf="vendorDetails?.verification?.bankAccount ==1 && vendorDetails?.verification?.companyDetail ==1 && vendorDetails?.verification?.document ==1">
+                        <img src="assets/imgs/check-circle.svg" alt="">
+                    </div>
+
+                </div>
+
+                <!-- shop-->
+
+                <div class="seller-new-list-row">
+                    <div class="seller-profile-ico"> <img src="assets/imgs/docs-ico.svg" alt=""> </div>
+                    <div class="seller-profile-detail">
+                        <h4>{{'CommonContent.Enhance Store Info' | translate}} </h4>
+                        <p>{{'CommonContent.shopcontent' | translate}}</p>
+                    </div>
+                    <div class="seller-profile-link"> <a (click)="uploaddocument()" href="javascript:void(0)"
+                            class="link-reg link-sm primary">
+                            {{'common.Proceed' | translate}} <img src="assets/imgs/arrow-right-long.svg" alt=""> </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- /* Seller not approved */ -->
+    <div class="page-content"
+        *ngIf="vendorSetting?.kycMandate ==1 && ['pending','submitted'].includes(vendorDetails?.kycStatus)">
+        <!-- First Time Seller -->
+        <div class="seller-new-container">
+            <div class="seller-new-content">
+                <h2>{{'content.Welcome' | translate}} {{vendorDetails.customerDetail.firstName}} 👋</h2>
+                <p>{{'content.Welcome' | translate}} {{vendorDetails.customerDetail.firstName}},
+                    <span *ngIf="vendorDetails?.approvalFlag==3;else normal">
+                        {{'Dashboard.WelcomeBacktoYourSellerAccount' | translate}}
+                    </span>
+                    <ng-template #normal>{{'content.welcomeMessage' | translate}}{{sellerEmail}} </ng-template>
+                </p>
+            </div>
+            <div class="seller-new-list">
+                <div class="seller-new-list-row" *ngIf="[1,3,2].includes(vendorDetails?.verification?.email)">
+                    <div class="seller-profile-ico"> <img src="assets/imgs/profile-ico.svg" alt=""> </div>
+                    <div class="seller-profile-detail">
+                        <h4>{{'common.Complete your profile' | translate}}</h4>
+                        <p>{{'CommonContent.emailNumber'| translate}}</p>
+                    </div>
+                    <div class="seller-profile-link"
+                        *ngIf="[1].includes(vendorDetails?.verification?.email) && ['',null,undefined].includes(vendorDetails?.customerDetail?.mobileNumber)">
+                        <a href="javascript:void(0)" class="link-reg link-sm primary" [routerLink]="['/my-profile']"
+                            routerLinkActive="router-link-active">
+                            {{'common.Proceed' | translate}} <img src="assets/imgs/arrow-right-long.svg" alt=""> </a>
+                    </div>
+
+                    <div class="seller-profile-link"
+                        *ngIf="vendorDetails?.verification?.email ==1 && !['',null,undefined].includes(vendorDetails?.customerDetail?.mobileNumber)">
+                        <img src="assets/imgs/check-circle.svg" alt="">
+                    </div>
+                    <!-- <div class="seller-profile-link"
+                        *ngIf="[0,3].includes(vendorDetails?.verification?.bankAccount) && [0,3].includes(vendorDetails?.verification?.companyDetail) &&[0,3].includes(vendorDetails?.verification?.document) ;else normal">
+                        <a href="javascript:void(0)" class="link-reg link-sm primary"
+                            [routerLink]="['/seller-onboarding/seller-onboarding-Details']"
+                            routerLinkActive="router-link-active">
+                            {{'common.Proceed' | translate}} <img src="assets/imgs/arrow-right-long.svg" alt=""> </a>
+                    </div>
+
+                    <ng-template #normal>
+                        <div class="seller-profile-link"
+                            *ngIf="[1].includes(vendorDetails?.verification?.bankAccount) && [1].includes(vendorDetails?.verification?.companyDetail) && [1].includes(vendorDetails?.verification?.document)">
+                            <a href="javascript:void(0)" class="link-reg link-sm primary">
+                                <img src="assets/imgs/check-circle.svg" alt=""> </a>
+                        </div>
+                    </ng-template> -->
+
+                </div>
+
+                <!-- on-boarding-->
+
+                <div class="seller-new-list-row">
+                    <div class="seller-profile-ico"> <img src="assets/imgs/onboarding-ico.svg" alt=""> </div>
+                    <div class="seller-profile-detail">
+                        <h4>{{'common.Complete your onboarding' | translate}}</h4>
+                        <p> {{'CommonContent.onboardingcontent' | translate}}</p>
+                    </div>
+                    <div class="seller-profile-link"
+                        *ngIf="[0,3].includes(vendorDetails?.verification?.bankAccount) && [0,3].includes(vendorDetails?.verification?.companyDetail) && [0,3].includes(vendorDetails?.verification?.document); else nodata">
+                        <a href="javascript:void(0)" class="link-reg link-sm primary"
+                            [routerLink]="['/seller-onboarding/seller-onboarding-Details']"
+                            routerLinkActive="router-link-active">
+                            <span *ngIf="vendorDetails?.approvalFlag==3;else approvalone">
+                                {{'CommonContent.Pending approval' | translate}}
+                            </span>
+                            <ng-template #approvalone>{{'common.Proceed' | translate}} <img
+                                    src="assets/imgs/arrow-right-long.svg" alt=""> </ng-template>
+                        </a>
+                    </div>
+
+                    <ng-template #nodata>
+
+                        <div class="seller-profile-link"
+                            *ngIf="[0].includes(vendorDetails?.verification?.bankAccount) || [0].includes(vendorDetails?.verification?.companyDetail) || [0].includes(vendorDetails?.verification?.document)">
+                            <a href="javascript:void(0)" class="link-reg link-sm primary"
+                                [routerLink]="['/seller-onboarding/seller-onboarding-Details']"
+                                routerLinkActive="router-link-active">
+                                <span *ngIf="vendorDetails?.approvalFlag==3;else approvalone">
+                                    {{'CommonContent.Pending approval' | translate}}
+                                </span>
+                                <ng-template #approvalone>{{'common.Proceed' | translate}} <img
+                                        src="assets/imgs/arrow-right-long.svg" alt=""> </ng-template>
+                            </a>
+                        </div>
+
+                    </ng-template>
+
+
+
+                    <div class="seller-profile-link"
+                        *ngIf="vendorDetails?.verification?.bankAccount ==1 && vendorDetails?.verification?.companyDetail ==1 && vendorDetails?.verification?.document ==1">
+                        <img src="assets/imgs/check-circle.svg" alt="">
+                    </div>
+
+                </div>
+
+                <!-- shop-->
+
+                <div class="seller-new-list-row">
+                    <div class="seller-profile-ico"> <img src="assets/imgs/docs-ico.svg" alt=""> </div>
+                    <div class="seller-profile-detail">
+                        <h4>{{'CommonContent.Enhance Store Info' | translate}} </h4>
+                        <p>{{'CommonContent.shopcontent' | translate}}</p>
+                    </div>
+                    <div class="seller-profile-link"> <a (click)="uploaddocument()" href="javascript:void(0)"
+                            class="link-reg link-sm primary">
+                            {{'common.Proceed' | translate}} <img src="assets/imgs/arrow-right-long.svg" alt=""> </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- /* Seller not approved */ -->
+    <div class="page-content" *ngIf="vendorSetting?.kycMandate ==1 && vendorDetails?.kycStatus=='rejected'">
+        <!-- Seller Rejection -->
+        <div class="seller-new-container">
+            <div class="seller-new-content seller-rejection-content">
+                <h2>{{'content.RejectDocument' | translate}}❌</h2>
+                <p>{{'content.FailedDashbalances' | translate}}</p>
+                <!-- <p>{{'content.FailedDash' | translate}} <a href={{sellerEmail}}>{{sellerEmail}}</a>
+                    {{'content.FailedDashbalances' | translate}}</p> -->
+            </div>
+            <div class="seller-new-list">
+                <div class="seller-new-list-row" *ngIf="[1,3,2].includes(vendorDetails?.verification?.email)">
+                    <div class="seller-profile-ico"> <img src="assets/imgs/profile-ico.svg" alt=""> </div>
+                    <div class="seller-profile-detail">
+                        <h4>{{'common.Complete your profile' | translate}}</h4>
+                        <p *ngIf="[0].includes(vendorDetails?.verification?.email)">{{'CommonContent.emailNumber'|
+                            translate}}</p>
+                        <p
+                            *ngIf="[1,3].includes(vendorDetails?.verification?.email) && !['',null,undefined].includes(vendorDetails?.customerDetail?.mobileNumber)">
+                            {{'CommonContent.YourSellerProfile' | translate}}
+                        </p>
+                    </div>
+                    <div class="seller-profile-link"
+                        *ngIf="[1].includes(vendorDetails?.verification?.email) && ['',null,undefined].includes(vendorDetails?.customerDetail?.mobileNumber)">
+                        <a href="javascript:void(0)" class="link-reg link-sm primary" [routerLink]="['/my-profile']"
+                            routerLinkActive="router-link-active">
+                            {{'common.Proceed' | translate}} <img src="assets/imgs/arrow-right-long.svg" alt=""> </a>
+                    </div>
+
+                    <div class="seller-profile-link"
+                        *ngIf="vendorDetails?.verification?.email ==1 && !['',null,undefined].includes(vendorDetails?.customerDetail?.mobileNumber)">
+                        <img src="assets/imgs/check-circle.svg" alt="">
+                    </div>
+
+
+                </div>
+
+                <!-- on-boarding-->
+
+                <div class="seller-new-list-row">
+                    <div class="seller-profile-ico"> <img src="assets/imgs/onboarding-ico.svg" alt=""> </div>
+                    <div class="seller-profile-detail">
+                        <h4>{{'common.Complete your onboarding' | translate}}</h4>
+                        <p> {{'CommonContent.onboardingcontent'| translate}}</p>
+                    </div>
+
+                    <div class="seller-profile-link"
+                        *ngIf="vendorDetails?.verification?.bankAccount ==1 && vendorDetails?.verification?.companyDetail ==1 && vendorDetails?.verification?.document ==1">
+                        <img src="assets/imgs/check-circle.svg" alt="">
+                    </div>
+                    <div class="seller-profile-link"
+                        *ngIf="[0,3].includes(vendorDetails?.verification?.bankAccount) && [0,3].includes(vendorDetails?.verification?.companyDetail) && [0,3].includes(vendorDetails?.verification?.document);else nodates">
+                        <a href="javascript:void(0)" class="link-reg link-sm primary"
+                            [routerLink]="['/seller-onboarding/seller-onboarding-Details']"
+                            routerLinkActive="router-link-active">
+                            <span *ngIf="vendorDetails?.approvalFlag==3;else approvalone">
+                                {{'CommonContent.Pending approval' | translate}}
+                            </span>
+                            <ng-template #approvalone>{{'common.Proceed' | translate}} <img
+                                    src="assets/imgs/arrow-right-long.svg" alt=""> </ng-template>
+                        </a>
+
+                    </div>
+                    <ng-template #nodates>
+                        <div class="seller-profile-link"
+                            *ngIf="[0].includes(vendorDetails?.verification?.bankAccount) || [0].includes(vendorDetails?.verification?.companyDetail) || [0].includes(vendorDetails?.verification?.document)">
+                            <a href="javascript:void(0)" class="link-reg link-sm primary"
+                                [routerLink]="['/seller-onboarding/seller-onboarding-Details']"
+                                routerLinkActive="router-link-active">
+                                <span *ngIf="vendorDetails?.approvalFlag==2  ;else approvalone">
+                                    {{'CommonContent.Pending approval' | translate}}
+                                </span>
+
+                                <ng-template #approvalone>{{'common.Proceed' | translate}} <img
+                                        src="assets/imgs/arrow-right-long.svg" alt=""> </ng-template>
+                            </a>
+
+                        </div>
+                    </ng-template>
+
+
+
+
+                </div>
+
+                <!-- shop-->
+
+                <div class="seller-new-list-row">
+                    <div class="seller-profile-ico"> <img src="assets/imgs/docs-ico.svg" alt=""> </div>
+                    <div class="seller-profile-detail">
+                        <h4>{{'CommonContent.Enhance Store Info' | translate}} </h4>
+                        <p>{{'CommonContent.shopcontent' | translate}}</p>
+                    </div>
+                    <div class="seller-profile-link"> <a (click)="uploaddocument()" href="javascript:void(0)"
+                            class="link-reg link-sm primary">
+                            {{'common.Proceed' | translate}} <img src="assets/imgs/arrow-right-long.svg" alt=""> </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>

@@ -1,0 +1,43 @@
+*{
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+.cropper-wrapper {
+  min-height: 300px;
+  position: absolute;
+}
+.rotationBar,.zoomBar{
+  height: 4px;
+  display: block;
+  width: 100%;
+  accent-color:#239323;
+  cursor: pointer;
+}
+.change {
+  height: 1000px;
+  width: 1000px;
+}
+.ngx-ic-overlay{
+  width: 400px;
+  height: 400px;
+}
+.image-zoom {
+  transform: scale(1.2); /* Zoom in by 20% */
+  transition: transform 0.3s ease-in-out;
+}
+.image-cropper:hover .image-zoom {
+  transform: scale(1.4); /* Zoom in by 40% on hover */
+}
+.image-cropper .image-zoom.zoomed-out {
+  transform: scale(1); /* Reset to original size when not zoomed in */
+}

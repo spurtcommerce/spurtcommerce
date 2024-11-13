@@ -1,0 +1,21 @@
+/* LOGIN VALIDATION*/
+
+.validationcolor {
+    border-color: red;
+}
+
+.error {
+    color: red;
+}
+
+
+:host ::ng-deep.fa, .log-group
+.fas {
+    margin-top: 0px !important;
+    margin-right: 5px;
+}
+
+:host ::ng-deep.password-show-hide {   
+        top: 2.7rem !important;
+    }
+

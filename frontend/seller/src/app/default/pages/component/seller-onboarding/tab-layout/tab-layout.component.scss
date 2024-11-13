@@ -1,0 +1,172 @@
+.nav-tabs {
+  top: 57px;
+  margin: 0;
+}
+
+.company_card {
+  background-color: white;
+  padding: 1.5rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+
+  .company_card__row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    column-gap: 1rem;
+  }
+
+  &:last-child {
+    margin-bottom: 3rem;
+  }
+}
+
+.check_button {
+  position: relative;
+  width: 100%;
+
+  input {
+    display: block;
+    width: 100%;
+    border: 1px solid #EBEFF3;
+    height: 2rem;
+    border-radius: 0.1875rem;
+    border-top-right-radius: 0;
+    padding: 0 0.5rem;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    color: hsl(0, 0%, 20%);
+    border-bottom-right-radius: 0;
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4.4375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #131921;
+    border-radius: 0 0.1875rem 0.1875rem 0;
+    font-size: 0.875rem !important;
+    font-weight: 400;
+    color: #fff;
+    border: 0;
+    height: 2rem;
+  }
+}
+
+.save_wrapper_full {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 4.625rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 2rem;
+  background-color: #ebe9e8;
+  box-shadow: 0 -2px 4px #0000000d;
+  z-index: 8;
+}
+
+.save_wrapper_full .save_btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.save_wrapper_full .save_btn button.primary {
+  background-color: #fc7937;
+  border: 1px solid #FC7937;
+  color: #fff;
+}
+
+.save_wrapper_full .save_btn button.secondary {
+  background-color: transparent;
+  color: #4c4c4c;
+  border: 1px solid #D4D5D8;
+}
+
+
+.error-color {
+  border-color: red !important;
+}
+
+::ng-deep .error-color .ng-select-container {
+  border-color: red !important;
+}
+
+.mandatory-class {
+  color: red;
+}
+
+.check-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 4.4375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #131921;
+  border-radius: 0 0.1875rem 0.1875rem 0;
+  font-size: 0.875rem !important;
+  font-weight: 400;
+  color: #fff;
+  border: 0;
+  height: 100%;
+}
+
+.disable-btn {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.page-content {
+  padding: 0 1rem 1rem;
+}
+
+.disable {
+  pointer-events: none;
+  position: relative;
+}
+
+.loading {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.error-data {
+  position: absolute;
+  top: 100%;
+}
+
+
+sup {
+  color: #131921 !important;
+}
+
+.cancel-disable {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.success {
+  font-size: 12px;
+  color: green;
+
+}
+
+.details-row3 {
+  row-gap: 2rem;
+}
+
+.handsymbolromve {
+  pointer-events: none;
+}

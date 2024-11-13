@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5629" data-name="Rectangle 5629" width="24" height="24" transform="translate(1211 374)" fill="#fff" stroke="#2a2e34" stroke-width="1.5"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_837" data-name="Mask Group 837" transform="translate(-1211 -374)" clip-path="url(#clip-path)">
+    <g id="database-add-stroke-rounded" transform="translate(1209.604 372.605)">
+      <path id="Path_6851" data-name="Path 6851" d="M12.279,16.744c-4.932,0-8.93-1.5-8.93-3.349" fill="none" stroke="#2a2e34" stroke-linecap="round" stroke-width="1.5"/>
+      <path id="Path_6852" data-name="Path 6852" d="M21.209,5.581v7.256M3.349,5.581V21.209c0,1.85,4,3.349,8.93,3.349q.281,0,.558-.006" fill="none" stroke="#2a2e34" stroke-linecap="round" stroke-width="1.5"/>
+      <ellipse id="Ellipse_381" data-name="Ellipse 381" cx="8.93" cy="3.349" rx="8.93" ry="3.349" transform="translate(3.349 2.233)" fill="none" stroke="#2a2e34" stroke-width="1.5"/>
+      <path id="Path_6853" data-name="Path 6853" d="M7.814,8.93v2.233" fill="none" stroke="#2a2e34" stroke-linecap="round" stroke-width="1.5"/>
+      <path id="Path_6854" data-name="Path 6854" d="M7.814,16.744v2.233" fill="none" stroke="#2a2e34" stroke-linecap="round" stroke-width="1.5"/>
+      <path id="Path_6855" data-name="Path 6855" d="M23.442,20.093a4.465,4.465,0,1,1-4.465-4.465A4.465,4.465,0,0,1,23.442,20.093Z" fill="none" stroke="#2a2e34" stroke-linecap="round" stroke-width="1.5"/>
+      <g id="information-circle-stroke-rounded_6_" data-name="information-circle-stroke-rounded (6)" transform="translate(18.754 17.793)">
+        <path id="Path_6849" data-name="Path 6849" d="M11.687,13.667V11.444c0-.21,0-.314-.065-.379S11.452,11,11.242,11" transform="translate(-11.242 -9.098)" fill="none" stroke="#2a2e34" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <path id="Path_6850" data-name="Path 6850" d="M11.992,8h0" transform="translate(-11.659 -7.898)" fill="none" stroke="#2a2e34" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

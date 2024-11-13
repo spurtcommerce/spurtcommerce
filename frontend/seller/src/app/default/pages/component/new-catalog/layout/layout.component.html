@@ -1,0 +1,21 @@
+
+<div class="page-wrapper">
+    <div class="page-subnav">
+        <h2>{{'nav.catalog.CatalogManagement' | translate}}</h2>
+        <div class="page-subnav-sublist" [ngClass]="{handSymbolRemove: allowUnapprovedSeller}">
+            <a href="javascript:void(0)" class="{{status}}"  [routerLink]="['/new-catalog/products/list']">{{'nav.catalog.ProductList' | translate}}</a>
+            <!-- <a href="javascript:void(0)"  [routerLinkActive]="'active'" [routerLink]="['/new-catalog/reject-product/list']"> {{'Sales.shared.Reject' | translate}} {{'Dashboard.Product' | translate}} </a> -->
+            <a *ngIf="addOnsRouteProduct" href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/new-catalog/common-products/list']">{{'nav.catalog.CommonProduct' | translate}}</a>
+            <a *ngIf="addOnsRoute" href="javascript:void(0)"  [routerLinkActive]="'active'" [routerLink]="['/new-catalog/related-products']">{{'nav.catalog.RelatedProducts' | translate}}</a>
+            <a href="javascript:void(0)"  [routerLinkActive]="'active'" [routerLink]="['/new-catalog/product-localizaton']"> {{'nav.catalog.ProductLocalization' | translate}} </a>
+            <a href="javascript:void(0)"   [routerLinkActive]="'active'"  [routerLink]="['/new-catalog/pricing']"> {{'sideBar.Pricing' | translate}} </a>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/new-catalog/varient']">
+                {{'configuration.ProductVariants'|translate}}</a>
+
+
+        </div>
+    </div>
+    <div class="page-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>

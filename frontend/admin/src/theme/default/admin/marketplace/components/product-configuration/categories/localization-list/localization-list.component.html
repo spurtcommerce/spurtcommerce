@@ -1,0 +1,100 @@
+<div class="row products-section vendor-section">
+    <div class="flex filter-row">
+        <div *ngIf="(categorySandbox.getCategoryTranslationList$ | async)?.length > 0" class="filter-lft">
+            <a class="to-back" [routerLink]="['/vendors/product-config/categories/list']">
+                <img src="assets/imgs/back.svg" alt=""> 
+            </a>
+            <h2> {{'marketplace.common.Categories' | translate}} ({{ listCount }})</h2>
+        </div>
+        <div class="filter-rht flex">
+            <div class="added-filter flex" *ngFor="let filter of filterSearch | keyvalue">
+                <div class="added-filter-col flex" *ngIf="filter.value">
+                    <span>{{ filter.key }} : {{ getStatusDisplay(filter.key, filter.value) }} </span>
+                    <button (click)="removeFilter(filter)">
+                        <img src="assets/img/close.svg" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="filter-search">
+                <input type="text" [placeholder]="'marketplace.common.Search' | translate"
+                    (change)="keywordchange($event.target.value)" [(ngModel)]="keyword" appNoLeadingSpace
+                    (keydown.enter)="searchList()" #myInput />
+                <span> / </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flex product-wrap example-full-width">
+
+    <!--LIST-->
+    <div class="product-table">
+        <div class="table-responsive">
+            <!-- Loader -->
+            <div class="spinner-wrapper">
+                <app-global-loader [isShow]="categorySandbox.getCategoryTranslationListLoading$ | async"
+                    style="transform: translate(0%, 300%); position:absolute;"></app-global-loader>
+            </div>
+            <table class="table"
+                *ngIf="(categorySandbox.getCategoryTranslationList$ | async)?.length > 0 && (categorySandbox.getCategoryTranslationListLoaded$ | async)">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ 'catalog.product.Image' | translate }}</th>
+                        <th scope="col">{{'marketplace.common.CategoryName' | translate}} </th>
+                        <th class="text-center" scope="col" *ngFor="let list of languageList"> {{list.name}} </th>
+                        <th>{{'marketplace.common.LastUpdated' | translate}} </th>
+                        <th class="text-center" scope="col" [appHideIfUnauthorized]="" [multipleHide]="['edit-vendor']">
+                            {{'marketplace.seller.Action'| translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of categoryListArray;let i = index">
+                        <td class="product-image">
+                            <img *ngIf="category?.image"
+                                [src]="imageUrl + '?path=' + category.imagePath + '&name=' + category.image + '&width=60&height=60'"
+                                [alt]="category.name">
+                            <img *ngIf="[null, undefined , ''].includes(category?.image)"
+                                src="./assets/error-images/Load-icon-Products.png" alt="error-img">
+                        <td> {{ category.name }} </td>
+                        <td class="text-center" *ngFor="let lang of languageList">
+
+                            <img *ngIf="category.languageIDS.includes(lang.languageId); else elseBlock"
+                                src="assets/imgs/tick-green.svg">
+
+                            <ng-template #elseBlock>
+                                <a href="javascript:void(0)" class="link-text"
+                                    (click)="editCategory(category)">{{'marketplace.common.Add' | translate}} </a>
+                            </ng-template>
+                        </td>
+                        <td class="text-nowrap"> {{category.lastModifieDate ? (category.lastModifieDate | dynamicDate:'dd/MM/yyyy hh:mm a') : '-' }}</td>
+                      
+
+                        <td class="text-center action-btn" [multipleHide]="['edit-category']">
+                            <div class="dropdown" ngbDropdown>
+                                <button ngbDropdownToggle> <img src="assets/img/elliptical-h.svg" alt=""> </button>
+                                <div ngbDropdownMenu class="dropdown-menu-end">
+                                    <button [appHideIfUnauthorized]="'edit-category'" href="javascript:void(0)"
+                                        (click)="editCategory(category)"> <img src="assets/img/edit.svg" alt="edit">
+                                        {{'marketplace.seller.Edit'| translate}}
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                        <!-- Modal -->
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- No Data Found -->
+            <div class="nodata-found"
+                *ngIf="(categorySandbox.getCategoryTranslationList$ | async)?.length == 0 && (categorySandbox.getCategoryTranslationListLoaded$ | async)">
+                <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+                <h5>{{'marketplace.payments.DataNotFound'| translate}}</h5>
+            </div>
+        </div>
+
+        <!-- pagination -->
+        <app-reusable-pagination *ngIf="listCount > limit" [type]="'numbers'" [currentPage]="currentPage"
+            [totalItems]="listCount" [pageSize]="limit" (pageChange)="onPageChange($event)">
+        </app-reusable-pagination>
+    </div>
+</div>

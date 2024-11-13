@@ -1,0 +1,28 @@
+<form [formGroup]="filterForm" class="flex">
+    <div class="filter-content">
+        <div class="input-group mb-2">
+            <div class="ig-row">
+                <label>{{'Catalog.localization.ProductName'| translate}}</label>
+            </div>
+            <div class="ig-row">
+                <input type="text" formControlName="keyword" id="Keyword"
+                    placeholder="{{'Catalog.localization.SearchProductName'|translate}}">
+            </div>
+        </div>
+        <div class="input-group mb-2">
+            <div class="ig-row">
+                <label>{{'Catalog.localization.SKU'| translate}}</label>
+            </div>
+            <div class="ig-row">
+                <input type="text" formControlName="sku" id="sku"
+                    placeholder="{{'Catalog.localization.SearchSKU'|translate}}">
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-action">
+        <button type="submit" class="button-reg btn-sm primary" (click)="applyFilter()">
+            {{'Marketing.nav.Filters'|translate}}</button>
+        <button class="button-reg btn-sm trans-btn" (click)="resetFilter()">{{'common.reset'|translate}}</button>
+    </div>
+</form>

@@ -1,0 +1,248 @@
+<app-banner-layout></app-banner-layout>
+
+<div *ngIf="sandbox.categoryListsLoading$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+
+<div class="verify-seller-info">
+    <a href="javascript:void(0)" (click)="bannerCancel()"> <img src="assets/imgs/back.svg" alt=""> </a>
+    <h2>{{editBannerId ? ("CMS.Banners.EditBanner" | translate):("CMS.Banners.CreateBanner"| translate)}}</h2>
+</div>
+<div class="flex addproduct-wrap">
+    <form [formGroup]="bannerForm" style="width: 100%;">
+        <div class="card ap-general">
+
+            <div class="ap-header sub-sub-header">
+                <h3>{{'CMS.Pages.GeneralInformation'| translate}}</h3>
+                <p>{{'pageManage.Banner' | translate}}</p>
+            </div>
+
+            <div class="ap-body">
+
+                <div class="ap-form-row6">
+                    <div class="ap-body-col mb-4">
+                        <div class="form-group">    
+                            <label for="">{{'CMS.Banners.BannerTitle'| translate}}
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    ngbTooltip="{{'CMS.Pages.Bannersadvertisementappearingparagraph' | translate}}">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <input class="form-control" type="text" [(ngModel)]="bannerTitle" appNoLeadingSpace
+                                formControlName="bannerTitle"
+                                placeholder="{{'CMS.BannerPlaceholder.BannerTitle'| translate}}"
+                                [ngClass]="{ 'is-invalid': submitted && f.bannerTitle.errors }">
+                            <div *ngIf="submitted && f.bannerTitle.errors" class="validation-error">
+                                <div *ngIf="f.bannerTitle.errors.required">
+                                    {{'CMS.BannerError.BannerTitleIsRequired'|
+                                    translate}}</div>
+                                <div class="error" *ngIf="bannerForm.get('bannerTitle').hasError('maxlength')">
+                                    {{'CMS.BannerError.MustBe255CharacterLong'| translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ap-body-col mb-4">
+                        <div class="form-group">
+                            <label for="">{{'common.Status'| translate}} </label>
+                            <div class="d-flex align-items-center">
+                                <p class="m-0 fs-12 fw-normal">Activate the banner to display them on the storefront.</p>
+                                <div class="toggle">
+                                    <input class="tgl tgl-light" id="cb1" type="checkbox" [(ngModel)]="statusValue"
+                                        [ngModelOptions]="{standalone: true}" />
+                                    <label class="tgl-btn" for="cb1"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="ap-body-col mb-4">
+                    <div class="form-group">
+                        <label for="">{{'CMS.Pages.BannerContent' | translate}}
+                            <button type="button" class="tooltip-btn" placement="end"
+                                ngbTooltip="{{'CMS.Pages.Purposeofthebanner' | translate}}">
+                                <img src="assets/img/info-ico.svg" />
+                            </button>
+                        </label>
+                        <div class="">
+                            <ckeditor [editor]="editor" [config]="config" (ready)="ulpoadAdapterDrop($event)" formControlName="bannerContent"
+                                [ngClass]="{'Validationcolor':bannerForm.get('bannerContent').hasError('required') && bannerForm.get('bannerContent').touched&&submitted==true}">
+                            </ckeditor>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ap-body-col mb-4">
+                    <div class="form-group">
+                        <label for="">{{'CMS.Pages.URLLink' | translate}}
+                            <button type="button" class="tooltip-btn" placement="end"
+                                ngbTooltip="{{'CMS.Pages.TheeCommerceportal' | translate}}">
+                                <img src="assets/img/info-ico.svg" />
+                            </button>
+                        </label>
+                        <div class="cms-url mb-4">
+                            <mat-radio-group aria-label="Select an option" (change)="productevent($event.value)"
+                                formControlName="type" class=" mb-4">
+                                <mat-radio-button [checked]="checkedval==1" value="1">{{'CMS.Pages.Custom' |
+                                    translate}}</mat-radio-button>
+                                <mat-radio-button [checked]="checkedval==2" value="2">{{'CMS.Pages.Product' |
+                                    translate}}</mat-radio-button>
+                                <mat-radio-button [checked]="checkedval==3" value="3">{{'CMS.Pages.Category' |
+                                    translate}}</mat-radio-button>
+                            </mat-radio-group>
+
+                            <div class="cms-inp-group form-group" *ngIf="customproduct==1">
+                                <label>{{'CMS.Pages.Custom' | translate}}</label>
+                                <input type="text" class="form-control" appNoLeadingSpace
+                                    placeholder="https://example.com" formControlName="bannerLink"
+                                    [ngClass]="{'is-invalid':this.checkedval==1 && submitted && (bannerForm.get('bannerLink').hasError('required')) ||  (submitted && bannerForm.get('bannerLink').hasError('pattern')) || (submitted && bannerForm.get('bannerLink').hasError('required'))}">
+
+                                <p class="validation-error"
+                                    *ngIf="(this.checkedval==1 && submitted && bannerForm.get('bannerLink').hasError('required')) || (submitted && bannerForm.get('bannerLink').hasError('required')) ">
+                                    {{'CMS.BannerError.LinkIsRequired'| translate}}</p>
+                                <p class="validation-error"
+                                    *ngIf="(this.checkedval==1 && submitted && bannerForm.get('bannerLink').hasError('pattern')) || (submitted && bannerForm.get('bannerLink').hasError('pattern')) ">
+                                    {{'CMS.Pages.Pleasetypethevalidlink' | translate}}
+                                    </p>
+                            </div>
+
+                            <div class="form-group" *ngIf="customproduct==2">
+                                <label>{{'CMS.Pages.Product' | translate}}</label>
+                                <ng-select placeholder="{{'placeholder.Select Product'|translate}}"
+                                    [editableSearchTerm]="true" [dropdownPosition]="'bottom'"
+                                    [(ngModel)]="productslugvalue" [ngModelOptions]="{standalone: true}"
+                                    (change)="productslug($event)"
+                                    [ngClass]="{'error-fields':this.checkedval==2 && submitted && !this.productslugvalue}"
+                                    [clearable]="false">
+                                    <ng-option *ngFor="let product of productList" [value]='product.productSlug'>{{
+                                        product.name
+                                        }}</ng-option>
+                                </ng-select>
+                                <p class="validation-error"
+                                    *ngIf="this.checkedval==2 && submitted && !this.productslugvalue">
+                                    {{'CMS.Error.ProductLinkisrequired' | translate}}</p>
+                            </div>
+
+
+                            <div class="form-group" *ngIf="customproduct==3">
+                                <label>{{'CMS.Pages.Category' | translate}}</label>
+                                <ng-select placeholder="{{'placeholder.Select Category'|translate}}"
+                                    [(ngModel)]="categoryslugvalue" [ngModelOptions]="{standalone: true}"
+                                    [editableSearchTerm]="true" [dropdownPosition]="'bottom'"
+                                    (change)="categoryslug($event)"
+                                    [ngClass]="{'error-fields':this.checkedval==3 && submitted && !this.categoryslugvalue}"
+                                    [clearable]="false">
+                                    <ng-option *ngFor="let arr of categoryBannerList" [value]='arr.categorySlug'>{{
+                                        arr.name
+                                        }}</ng-option>
+                                </ng-select>
+                                <p class="validation-error"
+                                    *ngIf="this.checkedval==3 && submitted && !this.categoryslugvalue">
+                                    {{'CMS.Error.CategoryLinkisrequired' | translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ap-form-row6">
+                    <div class="ap-body-col mb-4">
+                        <div class="form-group">
+                            <label for="">{{'CMS.BannerPlaceholder.Position'| translate}}*
+                                <button type="button" class="tooltip-btn" placement="end"
+                                    ngbTooltip="{{'CMS.Pages.Sequencetheparticularbanner' | translate}}">
+                                    <img src="assets/img/info-ico.svg" />
+                                </button>
+                            </label>
+                            <div class="">
+                                <input class="form-control" type="text" [(ngModel)]="position" appOnlyNumber maxlength="4"
+                                    formControlName="position"
+                                    placeholder="{{'CMS.BannerPlaceholder.EnterPosition'| translate}}"
+                                    [ngClass]="{ 'is-invalid': submitted && f.position.errors }">
+                                <div *ngIf="submitted && f.position.errors" class="validation-error">
+                                    <div *ngIf="f.position.errors.required">{{'CMS.BannerError.PositionIsRequired'|
+                                        translate}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ap-body-col">
+                    <div class="form-group">
+                        <label for="">{{'CMS.Pages.AddImage' | translate}}*
+                        </label>
+                        
+                        <div class="cms-blog-image flex">
+                            <!-- <div> -->
+                            <div class="cmsbi-row flex">
+                                <a href="javascript:void(0)">
+                                    <input type="file" name="userImg" accept="image/*" multiple #filePath
+                                        style="display: none">
+                                        <!-- formControlName="imageInput" -->
+                                    <input (click)="uploadChange($event)" name="fileHidden"
+                                        />
+                                    <!-- {{'CMS.Banners.UploadPic'| translate}} -->
+                                     <img src="assets/imgs/images.svg" alt="">
+                                </a>
+                                <div class="cmsbir-col flex">
+                                    
+                                    
+                                    <!-- <div>
+                                        <p>{{'CMS.Pages.SupportFormat & below 2MB Files allowed' | translate}}</p>
+                                        <div class="validation-error" style="margin-top: 5px;"
+                                            *ngIf="submitted && f.imageInput.errors">
+                                            <div *ngIf="f.imageInput.errors.required" style="padding-top: 13px; text-align: center;">{{'catalog.Error.Imageisrequired'| translate}}
+                                     </div>
+                                        </div>
+                                        <div style="margin-top: -14px;" *ngIf="imageSizeError"
+                                            class="upload-error validation-error">{{'CMS.BannerError.ImageShouldBeLessThan2MB'|
+                                            translate}}</div>
+                                        <div style="padding-top: 13px; text-align: center;" *ngIf="imageTypeError"
+                                            class="upload-error validation-error">
+                                            {{'CMS.BannerError.PleaseUploadImagesOnly(.png,.jpg,.jpeg)'| translate}}</div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="image-row" *ngFor="let item of bulkImageStore;let i = index">
+                                <!-- <img  class="imege" src="assets/img/add-photo-big.png" alt="add photo"
+                                    height="50%" width="70%"> -->
+                                <!-- <p >{{'CMS.Pages.UploadImages' | translate}}</p> -->
+                                <a href="javascript:void(0)" (click)="imageremove(i,item)"> <img
+                                        src="assets/imgs/delete.svg" alt="">
+                                </a>
+                                <ng-container *ngIf="item.imageName">
+                                    <img [src]="imageUrl + '?path=' + item.imagePath + '&name=' + item.imageName + '&width=332&height=223'">
+                                </ng-container>
+                                <ng-container *ngIf="item.image">
+                                    <img [src]="imageUrl + '?path=' + item.containerName + '&name=' + item.image + '&width=332&height=223'">
+                                </ng-container>
+                                
+                            </div>
+                            
+                            <div class="validation-error" style="margin-top: 5px; position: absolute;top: 100%;" *ngIf="submitted && bulkImageStore.length == 0">
+                                <div>
+                                    {{'catalog.Error.Imageisrequired'| translate}}
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+<div class="action-button-container flex">
+    <button class="button-reg btn-md tertiary" (click)="bannerCancel()">{{'CMS.Banners.Cancel'| translate}}
+    </button>
+    <button class="button-reg btn-md primary" (click)="onSubmit()">{{'CMS.Banners.Save'| translate}}
+    </button>
+</div>

@@ -1,0 +1,32 @@
+
+<div class="search-filter dropdown" ngbDropdown>
+    <button ngbDropdownToggle ngbTooltip="Sort By" id="navbarDropdown4" placement="bottom" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()">
+        <img src="assets/imgs/sort.svg" alt="">
+    </button>
+    <div ngbDropdownMenu aria-labelledby="navbarDropdown4" class="dropdown-menu sortby-drop dropdown-menu-end">
+        <h5>Sort By</h5>
+        <div class="sortby-list">
+            <div class="form-check  form-check-inline" *ngFor="let item of sortOption;let i= index">
+                <input class="form-check-input" type="radio"  name="flexRadioDefault" [id]="i" (change)="emitValue(item)">
+                <label class="form-check-label" [for]="i" (change)="emitValue(item)"> 
+                  {{item.label | translate}}
+                </label>
+            </div> 
+                             
+        </div>
+        <div class="sortby-list2">
+            <div class="form-check  form-check-inline">
+                <input class="form-check-input" type="radio" name="flexRadioDefault1" id="ascending" checked (change)="emitValueOrder('ASC')">
+                <label class="form-check-label" for="ascending">
+                  Ascending
+                </label>
+            </div>  
+            <div class="form-check  form-check-inline">
+                <input class="form-check-input" type="radio" name="flexRadioDefault1" id="descending" (change)="emitValueOrder('DESC')">
+                <label class="form-check-label" for="descending">
+                  Descending
+                </label>
+            </div> 
+        </div>
+    </div>
+</div>

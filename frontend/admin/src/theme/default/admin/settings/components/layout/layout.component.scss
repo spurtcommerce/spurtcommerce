@@ -1,0 +1,21 @@
+.sidebar_menu:focus {
+    color: #f2086d;
+    background: white;
+}
+
+.sidebar_menu:hover:active {
+    color: #f2086d;
+    background: white;
+}
+
+.mat-menu-item {
+    outline: none !important;
+}
+.settings-section {
+    z-index: unset !important;
+}
+
+
+::ng-deep .toast-container{
+    top: 38px !important;
+}

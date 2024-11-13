@@ -1,0 +1,29 @@
+<div class="row products-section">
+    <div class="col-12">
+        <div class="card">
+            <div class="product-ts-left">
+                <ul>
+                    <li>
+                        <p>{{'CMS.Pages.totalWidgets'| translate}}</p>
+                        <span *ngIf="(sandbox.getWidgetCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                        <button type="button" class="btn" placement="bottom" ngbTooltip=" Total number of created widgets . The number includes both active and in-active widgets."> <img src="assets/img/info-ico.png" alt="info"></button>
+                        <h3 *ngIf="!(sandbox.getWidgetCountLoading$ | async)">{{(sandbox.getWidgetCount$ | async)?.totalWidget}} </h3>
+                    </li>
+                    <li>
+                        <p>{{'CMS.Pages.activeWidgets'| translate}}</p>
+                        <span *ngIf="(sandbox.getWidgetCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                        <button type="button" class="btn" placement="bottom" ngbTooltip="Total number of active widgets. As it is active, it will display on the storefront. "><img src="assets/img/info-ico.png" alt="info"></button>
+                        <h3 *ngIf="!(sandbox.getWidgetCountLoading$ | async)">{{(sandbox.getWidgetCount$ | async)?.activeWidget}}</h3>
+                    </li>
+                    <li>
+                        <p>{{'CMS.Pages.inactiveWidgets'| translate}}</p>
+                        <span *ngIf="(sandbox.getWidgetCountLoading$ | async)" class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                        <button type="button" class="btn" placement="left" ngbTooltip="Total number of in-active widgets. As it is in-active, it will not display on the storefront."><img src="assets/img/info-ico.png" alt="info"></button>
+                        <h3 *ngIf="!(sandbox.getWidgetCountLoading$ | async)">{{(sandbox.getWidgetCount$ | async)?.inActiveWidget}}</h3>
+                    </li>
+                </ul>
+            </div>
+            <!--Left-->
+        </div>
+    </div>
+</div>

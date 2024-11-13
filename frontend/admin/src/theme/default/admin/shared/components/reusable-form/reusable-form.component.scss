@@ -1,0 +1,82 @@
+.eyeButtonAlign {
+  position: relative;
+
+}
+
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  top: 36px;
+  right: 19px;
+  cursor: pointer;
+}
+
+.form-date {
+  justify-content: space-between;
+  align-items: center;
+
+  input {
+    width: calc(100% - 30px);
+  }
+}
+
+::ng-deep .cdk-overlay-container {
+  z-index: 2000;
+}
+
+.txt {
+  display: block;
+  width: 100%;
+  height: 2.125rem;
+  border-radius: 0px;
+  border: solid 1px #D4D5D8;
+  background-color: #fff;
+  padding: 0 .5rem;
+  font-size: .8125rem;
+  font-weight: 400;
+  color: #000;
+
+}
+
+.form-groups {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2F3030;
+  margin: 0 0 0.25rem;
+  width: 100%;
+}
+
+.text-area {
+  display: block;
+  width: 100%;
+  border: 1px solid #ebeff3;
+  height: 2rem;
+  border-radius: 0.1875rem;
+  padding: 0 0.5rem;
+  font-weight: 400;
+  font-size: .875rem;
+  line-height: 1.125rem;
+  color: #333;
+  height: 7.5rem;
+  padding: 0.5rem;
+}
+
+.disabledTag {
+  pointer-events: none;
+}
+
+.error1 {
+  border: 1px solid red;
+}
+
+.form-control {
+  background-color: white;
+  border-radius: 0;
+  height: 2.125rem;
+  border: 1px solid #D4D5D8;
+}

@@ -1,0 +1,61 @@
+.overallClass {
+  padding: 2rem 0 0 2rem !important;
+  max-width: 94%;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+
+    .header-style {
+      h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: .625rem;
+      }
+
+      p {
+        font-size: .875rem;
+        font-weight: 400;
+        color: #000;
+        margin-bottom: .5rem;
+      }
+
+      a {
+        font-size: .875rem;
+        color: #2e7fbf;
+        text-decoration: none;
+      }
+
+      .otp-field {
+        margin: .5rem 0;
+      }
+    }
+  }
+}
+
+.footer-content {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 2rem 1rem;
+  margin: 0;
+}
+
+.cancel-btn {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  margin-top: 16px;
+  margin-right: 10px;
+  inset: 1rem 1rem auto auto;
+}
+
+.footer-data {
+  display: flex;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  padding: 10px !important;
+  gap: 1rem;
+}

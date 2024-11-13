@@ -1,0 +1,160 @@
+<aside>
+    <div class="logo cusors flexx" (click)="logorouter()"> <img [src]="miniPostSellerImageUrl" alt="">
+       
+        <p> <img [src]="maxPostSellerImageUrl"></p>
+    </div>
+    <ul>
+        <li>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/dashboard']"
+                [ngClass]="{handSymbolRemove: approvalFlag }">
+                <span>
+                    <img src="assets/imgs/dashboard.svg" alt="" class="dafault-icon">
+                    <img src="assets/imgs/dashboard-on.svg" alt="" class="on-icon">
+                </span>
+                <p>{{'sideBar.Dashboard' | translate}}</p>
+            </a>
+
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/sales']"
+                [ngClass]="{handSymbolRemove: approvalFlag }">
+                <span>
+                    <img src="assets/imgs/sales.svg" alt="" class="dafault-icon">
+                    <img src="assets/imgs/sales-on.svg" alt="" class="on-icon">
+                </span>
+                <p>{{'sideBar.Sales' | translate}}</p>
+            </a>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/new-catalog']"
+                [ngClass]="{handSymbolRemove: approvalFlag }">
+                <span>
+                    <img src="assets/imgs/catalog.svg" alt="" class="dafault-icon">
+                    <img src="assets/imgs/catalog-on.svg" alt="" class="on-icon">
+                </span>
+                <p>{{'sideBar.Catalog' | translate}}</p>
+            </a>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/crm']"
+                [ngClass]="{handSymbolRemove: approvalFlag }">
+                <span>
+                    <img src="assets/imgs/crm.svg" alt="" class="dafault-icon">
+                    <img src="assets/imgs/crm-on.svg" alt="" class="on-icon">
+                </span>
+                <p>{{'sideBar.CRM' | translate}}</p>
+            </a>
+
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/marketing']"
+                [ngClass]="{handSymbolRemove: approvalFlag }">
+                <span>
+                    <img src="assets/imgs/marketing.svg" alt="" class="dafault-icon">
+                    <img src="assets/imgs/marketing-on.svg" alt="" class="on-icon">
+                </span>
+                <p>{{'sideBar.Marketing' | translate}}</p>
+            </a>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/supplier-management']"
+                [ngClass]="{handSymbolRemove: approvalFlag }">
+
+                <span>
+                    <img src="assets/imgs/supplier.svg" alt="" class="dafault-icon">
+                    <img src="assets/imgs/supplier-on.svg" alt="" class="on-icon">
+                </span>
+                <p>{{'sideBar.Supplier Management' | translate}}</p>
+
+            </a>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/payments']"
+                [ngClass]="{handSymbolRemove: approvalFlag }">
+                <span>
+                    <img src="assets/imgs/payments.svg" alt="" class="dafault-icon">
+                    <img src="assets/imgs/payments-on.svg" alt="" class="on-icon">
+                </span>
+                <p>{{'sideBar.Payments' | translate}}</p>
+            </a>
+            <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/reports']"
+                [ngClass]="{handSymbolRemove: approvalFlag }">
+                <span>
+                    <img src="assets/imgs/reports.svg" alt="" class="dafault-icon">
+                    <img src="assets/imgs/reports-on.svg" alt="" class="on-icon">
+                </span>
+                <p>{{'sideBar.Reports' | translate}}</p>
+            </a>
+
+        </li>
+    </ul>
+    <div class="aside-bottom flexx">
+        <!-- <a class="chatss" >           
+            <span ><img _ngcontent-ivn-c95="" style="width: 29px; height: 14px;" src="https://image.spurtcart.com/?path=language/&amp;name=Img_1622893818038.png&amp;width=20&amp;height=20" alt="English"></span>             
+            <p>English</p>  
+        </a>  -->
+        
+        <!-- <a href="javascript:void(0)" [routerLinkActive]="'active'">
+            <span>
+                <img src="assets/imgs/settings.svg" alt="">
+            </span>
+            <p>Settings</p>
+        </a> -->
+        
+        <div class="btn-group dropup profile-dropup">
+            <a href="javascript:void(0)" dropdown-toggle data-bs-toggle="dropdown" [routerLinkActive]="'active'">
+                <!-- {{ProfileImage}} -->
+                <span>
+                    <img class="rounded-circle" [src]="!['',null,undefined].includes(image) ? image : 'assets/imgs/default-profile.png'" alt="" >
+                </span>
+                <p>{{userProfileDetails?.firstName}} {{userProfileDetails?.lastName}} <img src="assets/imgs/dropup.svg" alt=""> </p>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="javascript:void(0)" [routerLinkActive]="'active'" (click)="logout()">
+                        <span>
+                            <img src="../../../../assets/imgs/logout.svg" alt="">
+                        </span>
+                        <p>{{'sideBar.logout' | translate}}</p>
+                    </a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                    <a  [ngClass]="{handSymbolRemove: approvalFlag }">
+                        <span>
+                            <img src="assets/imgs/theme.svg" alt="">
+                        </span>
+                        <div class="theme-col">
+                            Theme
+                            <div class="button-tgl b2" id="button-10">
+                                <input type="checkbox" class="checkbox" />
+                                <div class="knobs">
+                                  <span>  </span>
+                                </div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </a>
+                    <a  [ngClass]="{handSymbolRemove: approvalFlag }">
+                        <span>
+                            <img src="assets/imgs/globe.svg" alt="">
+                        </span>
+                        <p>Language : {{showLanguage}}</p>
+                    </a>
+                    <a href="javascript:void(0)" class="active-notify"  [ngClass]="{handSymbolRemove: approvalFlag }">
+                        <span>
+                            <img src="assets/imgs/bell-dark.svg" alt="">
+                        </span>
+                        <p>{{'sideBar.Notification' | translate}} </p>
+                        <!-- <span class="notify-hover">New</span> -->
+                    </a>
+                    <a *ngIf="addonData.length>0" href="javascript:void(0)" class="chats" (click)="chatconversation()"  [ngClass]="{handSymbolRemove: approvalFlag }"
+                        [ngClass]="{handSymbolRemove: approvalFlag }">
+                        <span>
+                            <img src="assets/imgs/chat_new.svg" alt="" class="default-icon">
+                        </span>
+                        <!-- <img src="assets/imgs/chats-white.svg" class="dark-icon" alt="">   -->
+                        <p>{{'sideBar.Chat' | translate}}</p>
+                    </a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                    <a href="javascript:void(0)" [routerLinkActive]="'active'" [routerLink]="['/my-profile']">
+                        <span>
+                            <img src="../../../../assets/imgs/settings-dark.svg" alt="">
+                        </span>
+                        <p>Account Settings</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</aside>

@@ -1,0 +1,55 @@
+<div class="local-content">
+    <div class="set-lay-notes flex">
+        <h4>{{'Settings.nav.Note:' | translate}}</h4>
+        <p>{{'Settings.paragraph.Facebookpagelink' | translate}} </p>
+    </div>
+
+    <div class="settings-right-wrapper addnewuser" style="padding-bottom: 0;">
+        <div class="spinner-wrapper" style="display: flex;justify-content: center;justify-items: center;">
+            <app-global-loader [isShow]="socialsandbox.getSettingLoading$ | async" style="transform: translate(35%, 18%);position:absolute"></app-global-loader>
+        </div>
+
+        <form  [formGroup]="socialForm" class="form-horizontal m-t-20" >
+            <div class="flex addproduct-wrap p-0">
+                <div class="card ap-general">
+                    <div class="ap-header">
+                        <h3>Websites details</h3>
+                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et</p>
+                    </div>
+                    <div class="ap-body">
+                        <div class="ap-form-row">
+
+                            <div class="ap-body-col">
+                                <div class="form-group">
+                                    <label>{{'Settings.Social.Facebook' | translate}}</label>
+                                    <input [appDisableIfUnauthorized]="'edit-social-url'" type="text" placeholder="{{'Settings.Social.Facebook'| translate}}" formControlName="facebook" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="ap-body-col">
+                                <div class="form-group">
+                                    <label>{{'Settings.Social.Twitter' | translate}}</label>
+                                    <input [appDisableIfUnauthorized]="'edit-social-url'" type="text" class="form-control" formControlName="twitter" placeholder="{{'Settings.Social.TwitterLink' | translate}}">
+                                </div>
+                            </div>
+
+                            <div class="ap-body-col">
+                                <div class="form-group">
+                                    <label>{{'Settings.Social.Instagram' | translate}}</label>
+                                    <input [appDisableIfUnauthorized]="'edit-social-url'" type="text" class="form-control" formControlName="instagram" placeholder="{{'Settings.Social.Instagram'| translate}}">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="action-button-container flex flex">
+    <button class="button-reg btn-md tertiary"(click)="cancel()" [appHideIfUnauthorized]="'edit-social-url'" >{{'Settings.Social.Cancel' | translate}}</button>
+    <button class="button-reg btn-md primary" type="button" (click)="onSubmit()" [appHideIfUnauthorized]="'edit-social-url'">{{'Settings.Social.Save' | translate}}</button>
+</div>

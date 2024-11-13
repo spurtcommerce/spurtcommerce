@@ -1,0 +1,164 @@
+.vd-stat-modal {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #00000080;
+    z-index: 999;
+    .vd-stat-content {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        max-width: 720px;
+        width: 100%;
+        background: #fff;
+        z-index: 9;
+        padding: 34px 20px;
+        overflow-y: auto;
+        .closemod {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        h3 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #000;
+            margin: 0 0 27px;
+        }
+        .vds-row {
+            width: 100%;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 0 0 6px;
+            p {
+                font-size: 14px;
+                font-weight: normal;
+                color: #000;
+                width: 130px;
+                margin: 0;
+            }
+            h4 {
+                font-size: 14px;
+                font-weight: 500;
+                color: #000;
+                width: calc(100% - 130px);
+                margin: 0;
+                i {
+                    color: #696969;
+                    font-weight: 400;
+                }
+            }
+            select {
+                max-width: 193px;
+                border-radius: 2px;
+                border: solid 1px #979797;
+                background-color: white;
+                height: 35px;
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: normal;
+                color: #000;
+                padding-inline: 12px;
+            }
+            &.vds-row-stat {
+                margin-block: 20px;
+            }
+        }
+        .vds-note {
+            margin: 0 0 30px;
+            p {
+                width: 100%;
+                font-size: 14px;
+                font-weight: normal;
+                color: #000;
+            }
+            textarea {
+                width: 100%;
+                border: solid 1px #979797;
+                background-color: white;
+            }
+        }
+        .vds-submit {
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 49px;
+            button {
+                width: 103px;
+                height: 29px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 3px;
+                border: solid 1px #dc4d5b;
+                background-color: #dc4d5b;
+                font-size: 14px;
+                font-weight: normal;
+                color: #fff;
+            }
+        }
+        .vd-activity-log {
+            width: 100%;
+            padding-inline: 10px;
+            h4 {
+                font-size: 15px;
+                font-weight: 500;
+                color: #222;
+                margin: 0 0 18px;
+            }
+            .vdal-row {
+                width: 100%;
+                padding: 0 0 12px 22px;
+                position: relative;
+                h5 {
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #222;
+                    margin: 0 0 3px;
+                    text-transform: uppercase;
+                }
+                p {
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #696969;
+                    margin: 0 0px;
+                }
+                h6 {
+                    padding-inline: 9px;
+                    font-size: 10px;
+                    font-weight: 400;
+                    color: #696969;
+                }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 9px;
+                    height: 9px;
+                    border-radius: 50%;
+                    background-color: #695c4e;
+                }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 4px;
+                    top: 0;
+                    width: 1px;
+                    height: 100%;
+                    border-radius: 50%;
+                    background-color: #695c4e;
+                }
+                &:last-child {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

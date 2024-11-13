@@ -1,0 +1,24 @@
+<div class="setup-wrapper">
+    <!-- common Menu  -->
+    
+        <div class="setup-container localization-container">
+    
+            <div class="loc-lay-title">
+                <h3 class="page-title">{{'Settings.nav.OrderFullfilmentStatus' | translate}}</h3>
+                <p class="text14">{{'Settings.paragraph.Admincanconfigurethepermissions' | translate}} </p>
+            </div>
+    
+            <div class="card ap-general ap-info set-loc-card">
+                <ul class="nav-tabs nav"> 
+                    <li class="nav-item"><a [routerLinkActive]="'active'" [routerLink]="['/settings/order-fullfillment/list']"  class="nav-link"> <span>{{'fullfillment.Manage order status'| translate}}</span> </a></li>
+                    <li class="nav-item"><a [routerLinkActive]="'active'" [routerLink]="['/settings/order-fullfillment/manage-fullfillment']" [appHideIfUnauthorized]="'list-language'" class="nav-link"> <span>{{'fullfillment.Manage fullfillment status'| translate}}</span></a>
+                    <li class="nav-item"><a [routerLinkActive]="'active'" [routerLink]="['/settings/order-fullfillment/fullfillment-mapping']" [appHideIfUnauthorized]="'list-zone'" class="nav-link"> <span>{{'fullfillment.Manage order & fullfillment mapping'| translate}}</span></a>       
+                </ul>
+            </div>
+    
+           
+    
+        </div>
+    </div>
+    <!-- Router outlet page shows here  -->
+    <router-outlet></router-outlet>

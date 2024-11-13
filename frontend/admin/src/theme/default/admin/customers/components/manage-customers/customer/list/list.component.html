@@ -1,0 +1,153 @@
+<div *ngIf="sandbox.exportExcelLoading | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+
+<div class="flex filter-row" (keyup.Tab)="focusInput()">
+    <div class="filter-lft">
+        <h2>{{ 'Customers.Customer.Customer' | translate }} ({{customerCount}})</h2>
+    </div>
+
+    <div class="filter-rht flex">
+
+        <!-- filter -->
+        <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue; trackBy: trackByIndex">
+            <div class="added-filter-col flex filter-detail" *ngIf="!empty.includes(filter.value)">
+                <span>{{ filter.key }} : </span>
+                <ng-container [ngSwitch]="filter.key">
+                    <ng-container *ngSwitchCase="'Date'">
+                        {{ filter.value | date: 'dd/MM/YYYY' }}
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'status'">
+                        {{ filter.value==1 ?'Active':'In-active'}}
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'Buyer Group'">
+                       {{ buyerGroupName }}
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                        {{ filter.value }}
+                    </ng-container>
+                </ng-container>
+                <button (click)="removeFilter(filter)">
+                    <img src="assets/img/close.svg" alt="" />
+                </button>
+            </div>
+        </div>
+
+        <!--search filter -->
+        <div class="filter-search">
+            <form class="" (keyup.enter)="applyFilter()">
+                <div class="input-group">
+                    <div class="ig-row">
+                        <app-common-form [type]="dynamicObjControls?.Search?.type"
+                            [control]="dynamicObjControls?.Search?.control" [label]="dynamicObjControls?.Search?.label"
+                            [inputId]="dynamicObjControls?.Search?.inputId"
+                            [aliasName]="dynamicObjControls?.Search?.aliasName"
+                            [placeholder]="dynamicObjControls?.Search?.placeholder">
+                        </app-common-form>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--filter  -->
+        <div class="dropdown filter-dropdown" ngbDropdown #myDropdown="ngbDropdown" [autoClose]="false">
+            <button class="button-reg tertiary btn-sm" ngbDropdownToggle>
+                <img src="assets/img/filter.svg" alt="">
+                {{'marketplace.common.Filters' | translate}}
+            </button>
+            <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end" data-popper-placement="bottom-end">
+                <h4> {{'marketplace.common.QuickFilter' | translate}} </h4>
+                <form class="filter-form">
+                    <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                        <app-common-form *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+                            [control]="dynamicObjControls[val]?.control" [label]="dynamicObjControls[val]?.label"
+                            [inputId]="dynamicObjControls[val]?.inputId"
+                            [aliasName]="dynamicObjControls[val]?.aliasName"
+                            [placeholder]="dynamicObjControls[val]?.placeholder"
+                            [customData]="dynamicObjControls[val]?.customData">
+                        </app-common-form>
+                    </div>
+                    <div class="filter-btn flex">
+                        <button type="submit" (click)="applyFilter()" class="button-reg btn-sm primary">
+                            {{ 'Customers.Customer.ApplyFilters' | translate }}
+                        </button>
+                        <button (click)="filterReset('')" class="button-reg btn-sm tertiary">
+                            {{'Customers.Customer.Reset' | translate }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- add buyer -->
+        <button class="button-reg primary btn-sm" (click)="addCustomer()"
+            *ngIf="(sandbox.customerList$ | async)?.length > 0" [appHideIfUnauthorized]="'create-buyer'">
+            + {{ 'Customers.Customer.AddCustomer' | translate }}
+        </button>
+
+    </div>
+</div>
+
+
+<div class="flex product-wrap example-full-width" (keyup.Tab)="focusInput()">
+    <div class="product-table">
+        <!-- loader -->
+        <div class="spinner-wrapper">
+            <app-global-loader [isShow]="sandbox.listLoading$ | async"
+                style="transform: translate(38%, 50%);position:absolute"></app-global-loader>
+        </div>
+        <div class="table-responsive">
+
+            <!-- common table -->
+            <app-common-table
+                [customTemplate]="{address:itemTemplateRef,detail:itemTemplateRefDetail,status:itemTemplateRefStatus}"
+                [HeadArray]="customTable" [GridArray]="customerListArray" (buttonChangeEvent)="buttonAction($event)"
+                [selectAll]="tableCheckbox">
+            </app-common-table>
+            <!-- add address -->
+            <ng-template #itemTemplateRef let-item let-index="index">
+                
+                    <a href="javascript:void(0)" class="link-text" (click)="addAddress(item.id)">
+                        <img src="assets/imgs/address.svg" alt=""> Address
+                        <!-- <i class="fa fa-address-card" style="font-size:20px;color:gray"></i> -->
+                    </a>
+            </ng-template>
+            <!-- detail page -->
+            <ng-template #itemTemplateRefDetail let-item let-index="index">
+                <span class="text-center" (click)="viewcustomer(item.id,item)" style="cursor: pointer;">
+                    {{item.firstName + item.lastName ? item.firstName : '-'}}
+                </span>
+            </ng-template>
+            <!-- status -->
+            <ng-template #itemTemplateRefStatus let-item let-index="index">
+                <app-common-badge
+                    [badge]="badgeStatusMappings.hasOwnProperty(item.isActive)?badgeStatusMappings[item.isActive]:''">
+                </app-common-badge>
+            </ng-template>
+        </div>
+
+          <!-- No Data Found -->
+          <div class="nodata-found" *ngIf="(sandbox.customerList$ | async)?.length == 0">
+            <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+            <h5>{{'Settings.data.DataNotFound' | translate}}</h5>
+            <button class="button-reg btn-sm primary" (click)="addCustomer()"> 
+                {{ 'Customers.Customer.AddCustomer' | translate }} 
+            </button>
+        </div>
+
+        <!-- pagination -->
+        <div class="pagination flex"
+            *ngIf="!(sandbox.exportExcelLoading | async) && customerCount > limit">
+            <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+                [totalItems]="(sandbox.customerListCount$ | async).data" [pageSize]="limit"
+                (pageChange)="onPageChange($event)">
+            </app-reusable-pagination>
+        </div>
+    </div>
+
+    <!-- Bulk Action -->
+    <app-bulk-action *ngIf="selectedDatas?.length > 0" [count]="selectedDatas?.length" [bulkList]="bulkAction"
+        (actionEvent)="actionType($event)">
+    </app-bulk-action>
+
+</div>

@@ -1,0 +1,82 @@
+<div class="modal-content right">
+    <!-- <form [formGroup]="SettleForm"> -->
+    <div class="modal-body">
+  
+        <button type="button" class="close-modal" data-dismiss="modal" aria-label="Close" (click)="close()">
+          <img src="assets/img/modal-close.svg" alt="cancel">
+        </button>
+
+        <h3 class="modal-header__title">{{'marketplace.settlement.Settlement'| translate}}</h3>
+
+        <!-- <div class="form-group">
+            <label>{{'marketplace.settlement.Title'| translate}}</label>
+            <input type="text" [(ngModel)]="settleTitle" class="form-control">
+            <span class="error-msg" *ngIf="submitted && title === ''">
+              
+                {{'marketplace.Errors.Titleisrequired'| translate}}
+            </span>
+           
+        </div> -->
+
+        <div class="form-group">
+        
+            <label>{{'marketplace.settlement.Title'| translate}}<sup class="supvalidation">*</sup></label>
+            <input type="text" [(ngModel)]="title" class="form-control">
+            
+            <span class="error-msg" *ngIf="isSubmitted && title === ''">
+              
+                {{'marketplace.Errors.Titleisrequired'| translate}}
+            </span>
+        </div> 
+     
+
+      <!-- <div class="form-group">
+        
+        <label>{{'marketplace.settlement.Title'| translate}}<sup class="supvalidation">*</sup></label>
+        <input type="text" [(ngModel)]="title" class="form-control"  [ngClass]="{validationcolor:title.errors && submitted}">
+        
+        <div class="validation-error" *ngIf="title.hasError('required') && isSubmitted">
+            Title is required
+        </div>
+    </div> 
+  -->
+       
+<div class="title-align">
+    <h4>{{'marketplace.settlement.TotalOrders'| translate}} </h4>  <span>:</span>   <h4><b>{{settlementArray.length}}</b></h4>
+    <h4>{{'marketplace.settlement.TotalSettlementValue'| translate}} </h4> <span>:</span>  <h4><b>{{currency.symbol}}{{settlementAmount}}</b></h4>
+</div>
+        
+
+        <h5 class="header">{{'marketplace.settlement.SettlementDetails'| translate}}</h5>
+
+        <div class="product-table">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="25%" class="text-left">{{'marketplace.settlement.OrderLineNo'| translate}}</th>
+                            <th width="35%" class="text-left">{{'marketplace.payments.CompanyName'| translate}}</th>
+                            <th width="40%" class="text-right">{{'marketplace.payments.Amount'| translate}}</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let list of settlementArray">
+                            <td>{{list.orderProductPrefixId}} </td>
+                            <td>{{ list.companyName }}</td>
+                            <td class="text-right price">{{list.currencySymbolLeft}} {{list.NetAmount}} {{list.currencySymbolRight}}</td>
+                            <td class="text-center action-btn"><button [ngClass]="{'disable': settlementArray.length == 1}" (click)="removeSettlementItem(list)"><img src="assets/img/cancel-btn.png" alt="cancel"> </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="modal-action-btns flex">
+            <button (click)="makeSettlement()">{{'marketplace.product.Save'| translate}}</button>
+        </div>
+
+        </div>
+<!-- </form> -->
+</div>
+<!-- modal-content -->

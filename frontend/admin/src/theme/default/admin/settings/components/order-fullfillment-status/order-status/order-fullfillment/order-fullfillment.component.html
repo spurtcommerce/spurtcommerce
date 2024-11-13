@@ -1,0 +1,99 @@
+<!-- Order Full filment Page -->
+<div class="setup-wrapper">
+
+    <div class="ofs-container">
+       
+        <div class="ofs-table">
+            <div class="ofs-row ofs-row-header flex">
+                <div class="ofs-col-fst">
+                    <h3>{{'Settings.nav.Status' | translate}}</h3>
+                </div>
+                <div class="ofs-col-lst flex">
+                    <div class="ofs-col-lst-col">{{'Settings.nav.Admin' | translate}}</div>
+                    <div class="ofs-col-lst-col">{{'Settings.nav.Vendor' | translate}}</div>
+                    <div class="ofs-col-lst-col">{{'Settings.nav.Buyer' | translate}}</div>
+                    <div class="ofs-col-lst-col">{{'Settings.nav.API' | translate}}</div>
+                    <div class="ofs-col-lst-action"></div>
+                </div>
+            </div>
+            <!-- Spinner  -->
+            <div class="spinner-wrapper" style="display: flex;justify-content: center;justify-items: center;">
+                <app-global-loader [isShow]="Orderfullfillmentsandbox.OrderfullfillmentlistLoading$ | async" style="transform: translate(58%, 18%);position:absolute"></app-global-loader>
+            </div>
+            <div class="ofs-row-scroll" >
+
+                <div class="ofs-row-tit flex">
+                    <!-- {{data.name}} -->
+                    <h3> {{'common.Order status'| translate}}</h3>
+                    <a
+                    class="globe_icon" placement="end" style="cursor: pointer;"
+                    ngbTooltip="Represents name or text of each possible statuses of an order">
+                    <img src="assets/images/info.svg"/>
+                  </a>
+                    <!-- <a> <img src="assets/images/info.svg" alt=""> </a> -->
+                </div>
+                <div class="ofs-row-new flex"> 
+                    <!-- <p *ngIf="data.name==='Default'">{{'Settings.paragraph.Aprovisionforadding' | translate}} </p>
+                    <p *ngIf="data.name==='packed'">{{'Settings.paragraph.Aprovisionforaddingaddinganewstatus' | translate}} </p>
+                    <p *ngIf="data.name==='Order Cancelled'">{{'Settings.paragraph.OrdercancelledCreateone' | translate}}</p>
+                    <p *ngIf="data.name==='order hold'">{{'Settings.pargraph.OrderonholdCreateone' | translate}}</p>
+                    <p *ngIf="data.name==='order arrived'">{{'Settings.paragraph.returnreceivedCreate' | translate}} </p>
+                    <p *ngIf="data.name==='delivered'">{{'Settings.paragraph.DeliveredCreateone'| translate}}</p> -->
+                    <button [appHideIfUnauthorized]="'create-order-status'" class="button-reg btn-sm primary ms-auto" (click)="addOrderStatus()"> + {{'Settings.nav.Newstatus' | translate}}</button>
+                </div>
+                <!-- State Shower  -->
+                <div class="ofs-row ofs-row-def flex" *ngFor="let datas of (Orderfullfillmentsandbox.Orderfullfillmentlist$ | async);let i=index">
+                    <div class="ofs-col-fst flex"> 
+                        <div class="ofscsf-stit">
+                            <span style="padding:6px; font-size: 1px ;margin-right: 5px;display: inline-block;" [ngStyle]="{
+                                color: 'white',
+                                background: datas.colorCode
+                              }">
+                            </span>
+                            {{datas.name}}</div>
+                    </div>
+                    <div class="ofs-col-lst flex">
+                        <div class="ofs-col-lst-col">
+                            <img src="assets/images/check-green.svg" class="img-resize" alt="" *ngIf="datas.isAdmin===1">
+                            <img class="img-resize" src="assets/images/red-x.svg" alt="" *ngIf="datas.isAdmin!==1">
+                        </div>
+                        <div class="ofs-col-lst-col">
+                            <img class="img-resize" src="assets/images/check-green.svg" alt="" *ngIf="datas.isVendor===1">
+                            <img src="assets/images/red-x.svg" class="img-resize" alt="" *ngIf="datas.isVendor!==1">
+                        </div>
+                        <div class="ofs-col-lst-col">
+                            <img class="img-resize" src="assets/images/check-green.svg" alt="" *ngIf="datas.isBuyer===1">
+                            <img src="assets/images/red-x.svg" class="img-resize" alt="" *ngIf="datas.isBuyer!==1">
+                        </div>
+                        <div class="ofs-col-lst-col">
+                            <img class="img-resize" src="assets/images/check-green.svg" alt="" *ngIf="datas.isApi===1">
+                            <img src="assets/images/red-x.svg" alt="" class="img-resize" *ngIf="datas.isApi!==1">
+                        </div>
+                        <div class="ofs-col-lst-action flex">
+                            <div class="toggle">
+                                <input class="tgl tgl-light" id="{{ datas.orderStatusId }}" [(ngModel)]="datas.isActive" (change)="statuschange($event, datas)" type="checkbox" />
+                                <label class="tgl-btn" for="{{ datas.orderStatusId }}"></label>
+                            </div>
+                            <div class="dropdown" ngbDropdown >
+                                <button ngbDropdownToggle> <img src="assets/img/elliptical-h.svg" alt=""> </button>
+                                <div ngbDropdownMenu >                                    
+                                    <a href="javascript:void(0)" [appHideIfUnauthorized]="'edit-order-status'" ngbDropdownItem  (click)="editOrderStatus(datas,'edit')"> 
+                                        <img src="assets/img/edit.svg" alt="edit"> {{'fullfillment.Edit'| translate}} 
+                                    </a>
+                                    <a  href="javascript:void(0)" [appHideIfUnauthorized]="'delete-order-status'" ngbDropdownItem *ngIf="datas.defaultStatus !== 1"  (click)="deleteOrderStatus(datas)"> 
+                                        <img src="assets/img/delete-new.svg" alt="edit">{{'fullfillment.Delete'| translate}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+            </div>
+           
+
+        </div>
+
+    </div>
+</div>

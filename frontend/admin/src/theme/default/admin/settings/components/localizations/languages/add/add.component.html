@@ -1,0 +1,53 @@
+<div class="flex setting2-inner-header">
+    <h3 class="modal-header__title">{{updateTitle ? 'Update Language' : 'Add Language' | translate}}</h3>
+    <button (click)="close()" class="close-modal"> <img src="assets/img/modal-close.svg"> </button>
+</div>
+<div class="modal-body">
+    <ng-container *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <app-common-form [type]="dynamicObjControls[val]?.type" [control]="dynamicObjControls[val]?.control"
+                    [label]="dynamicObjControls[val]?.label" [inputId]="dynamicObjControls[val]?.inputId"
+                    [aliasName]="dynamicObjControls[val]?.aliasName"
+                    [placeholder]="dynamicObjControls[val]?.placeholder" [submitted]="submitted"
+                    [customData]="dynamicObjControls[val]?.customData"
+                    [optionalErrorMessage]="dynamicObjControls[val]?.optionalErrorMessage"
+                    [mandatory]="dynamicObjControls[val]?.mandatory">
+                </app-common-form>
+            </div>
+        </div>
+    </ng-container>
+    <div class="form-group">
+        <div class="image-col">
+            <div class="img-dflt">
+                <div class="upload-pics-col">
+                    <img *ngIf="!postImageUrl" class="imege" src="assets/img/add-image.svg" alt="add photo">
+                    <img *ngIf="postImageUrl" [src]="postImageUrl" onError="this.src='/assets/img/add-image.svg';">
+                </div>
+                <div class="upload-pics-btn">
+                    <input type="file" name="userImg" (change)="uploadChange($event)" accept="image/*" #filePath
+                        style="display: none">
+                    <p></p>
+                    <button class="button-reg btn-sm" (click)="uploadButtonClick()" type="button">
+                        <img src="assets/img/upload-dark.svg" alt="">
+                        {{'Settings.Local.Language.UploadPic' | translate}}
+                    </button>
+                    <p style="font-size: 10px">{{support}}</p>
+                </div>
+            </div>
+            <div *ngIf="imageSizeError" class="upload-error validation-error">
+                {{ imageSizeSupport }}
+            </div>
+            <div *ngIf="imageTypeError" class="upload-error validation-error">
+                {{ imageTypeSupport }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="action-button-container flex">
+    <button class="button-reg btn-md tertiary" (click)="close()">{{'common.Cancel'| translate}}</button>
+    <button type="submit" (click)="onSubmit()" class="button-reg btn-md primary">
+        {{'Settings.Local.Save' | translate}}
+    </button>
+</div>

@@ -1,0 +1,28 @@
+<div class="search-filters" ngbDropdown #dropdownContentDynamicColumn="ngbDropdown">
+    <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"
+        ngbTooltip=" {{'common.CustomColumns'|translate}}" placement="bottom" (click)="open()" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()">
+        <img src="assets/imgs/grid.svg" alt="">
+    </button>
+    <div ngbDropdownMenu aria-labelledby="navbarDropdown2"
+        class="dropdown-menu dropdown-menu-end  column-dropdown">
+        <h4> {{'common.CustomColumns'|translate}} </h4>
+        <div class="available-column-list">
+            <ng-container *ngFor="let key of _Object.keys(filterColumnData);trackBy: trackByIndex;">
+                <div class="form-check">
+                    <button><img src="assets/imgs/drag.svg" alt=""></button>
+                    <input [id]="key" type="checkbox"
+                        class="form-check-input ng-tns-c210-1 ng-valid ng-dirty ng-touched cursor-pointer"
+                        [(ngModel)]="filterColumnData[key]" (change)="calculateCount()"
+                        [disabled]="totalCount<=filterDisableLimit && filterColumnData[key]">
+                    <label class="custom-control-label cursor-pointer" [for]="key">{{key | translate}}</label>
+                </div>
+            </ng-container>
+            <div class="custom-col-row flexx">
+                <button (click)="save()"
+                    class="button-reg btn-sm primary">{{'common.Save'|translate}}</button>
+            </div>
+
+        </div>
+        <!-- Dynamic table columns -->
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<button [ngClass]="{'disable-page': currentPage === 1}" (click)="goToPreviousPage()"> <img src="assets/imgs/CaretLeft.svg" alt="">
+</button>
+<input type="number" [value]="currentPage" readonly (input)="pageChanged($event.target.value)">
+
+<button [ngClass]="{'disable-page': currentPage === totalPages}" (click)="goToNextPage()"> <img src="assets/imgs/CaretRight.svg" alt="">
+</button>
+<p>of {{totalPages}}</p>

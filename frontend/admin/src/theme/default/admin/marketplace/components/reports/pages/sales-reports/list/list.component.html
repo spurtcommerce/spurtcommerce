@@ -1,0 +1,212 @@
+<!-- Loading -->
+<div *ngIf="sandbox.exportListLoading$ | async" class="loading-data">
+    <img style="height: 10vh" src="./assets/loader/Spurt-commerce-Loader-2.1.gif" />
+</div>
+<main class="cards">
+<!-- Header -->
+    <div class="title-card flex">
+        <h3 class="page-title">{{'Dashboard.SalesReport'|translate}}</h3>
+    </div>
+
+    <div class="report-wrapper">
+
+        <div class="flex filter-row">
+            <!-- Select Category -->
+            <div class="form-group form-cat">
+                <label class="flex">{{'CMS.Widgets.Category'|translate}}</label>
+                <input [(ngModel)]="categorySearch" type="text" class="form-control-search"
+                    placeholder="{{'placeholder.Search....'|translate}}" #ckey (keyup)="searchCategory(ckey.value)">
+                <div class="frm-chk">
+                    <div class="loader" *ngIf="sandbox.categoryListLoading$ | async">
+                        <span *ngIf="(sandbox.categoryListLoading$ | async)"
+                            class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    </div>
+                    <ng-container>
+                        <div style="display: flex;" class="custom-control custom-checkbox"
+                            *ngFor="let list of sandbox.categoryList$ | async">
+                            <input style="height: 15px; width: 15px;" type="checkbox" class="custom-control-input"
+                                id="{{list.categoryId}}" (change)="selectCategory($event.target.checked, list)"
+                                [checked]="list.isSelected">
+                            <label style="cursor:pointer" class="custom-control-label"
+                                for="{{list.categoryId}}">{{list.name}}</label>
+                        </div>
+                    </ng-container>
+
+                </div>
+            </div>
+            <!-- Select Product -->
+            <div class="form-group form-cat form-cat-product">
+                <label class="flex">{{'Sales.Orders.Product'|translate}}<span>{{(sandbox.selectedProductList$ |
+                        async)?.length }} {{'CMS.Widgets.itemsselected'| translate}}</span></label>
+                <input [(ngModel)]="productSearch" class="form-control-search" type="text"
+                    placeholder="{{'placeholder.Search....'|translate}}" #pkey (keyup)="searchProduct(pkey.value)">
+                <div class="frm-chk">
+                    <div class="loader" *ngIf="sandbox.productListLoading$ | async">
+                        <span *ngIf="(sandbox.productListLoading$ | async)"
+                            class="spinner-border spinner-border-sm pull-right" aria-hidden="true"></span>
+                    </div>
+                    <ng-container *ngFor="let list of sandbox.productList$ | async">
+                        <div style="display: flex;" class="custom-control custom-checkbox">
+                            <input style="height: 15px; width: 15px;" type="checkbox" class="custom-control-input"
+                                id="{{list.productId}} + 'prod'" (change)="selectProduct($event.target.checked, list)"
+                                [checked]="list.isSelected">
+                            <label style="cursor:pointer" class="custom-control-label"
+                                for="{{list.productId}} + 'prod'">{{list.name}}</label>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="validation-error" *ngIf="submitted && productError">
+                    {{'CMS.Widgets.pleaseSelectProduct'|translate}}</div>
+            </div>
+            <!-- Date Picker and Generate Report Start -->
+            <div class="form-group form-date">
+                <label>{{'marketplace.seller.SalesFrom'| translate}}</label>
+                <div class="form-date flex">
+
+                    <input readonly style="cursor: pointer;margin-bottom: 21px;" type="text" class="form-control date1"
+                        placeholder="dd/mm/yyyy" name="dp" id="cal-in" ngbDatepicker #g="ngbDatepicker"
+                        [(ngModel)]="fromDate" (click)="g.toggle()" [maxDate]="todaysDate" />
+                </div>
+            </div>
+            <div class="form-group form-date">
+                <label>{{'marketplace.seller.SalesTo'| translate}}</label>
+                <div class="form-date flex">
+
+                    <input [minDate]="fromDate" readonly style="cursor: pointer;margin-bottom: 21px;" type="text"
+                        class="form-control date1" placeholder="dd/mm/yyyy" name="dp" [(ngModel)]="toDate" ngbDatepicker
+                        #f="ngbDatepicker" (click)="f.toggle()" [maxDate]="todaysDate" />
+                </div>
+                <div class="sales-rep-btn flex">
+                    <button class="button-reg btn-sm tertiary"
+                        (click)="resetReport()">{{'marketplace.seller.ResetReport'|translate}}</button>
+                    <button class="button-reg btn-sm primary"
+                        (click)="generateReport()">{{'CMS.Pages.GenerateReport'|translate}}</button>
+                </div>
+            </div>
+            <!-- Date Picker and Generate Report End -->
+        </div>
+        <!-- Export Excel -->
+        <div class="export-row flex"
+            *ngIf="(sandbox.salesReportListLoaded$ | async) && (sandbox.salesReportList$ | async)?.data.length > 0">
+            <button class="button-reg btn-sm primary" [appHideIfUnauthorized]="'sales-report-export'"
+                (click)="exportSalesReport()">{{'CMS.Pages.ExportToExcel/Csv'|translate}}</button>
+        </div>
+        <!-- Report -->
+        <div class="report-inner">
+
+            <h2 *ngIf="(sandbox.salesReportListLoaded$ | async)">{{'Dashboard.SalesReport'|translate}}</h2>
+
+            <div class="rep-inn-head flex" *ngIf="(sandbox.salesReportListLoaded$ | async)">
+                <div class="rih-col flex">
+                    <div class="rih-dte"> <span>{{'Sales.Orders.FromDate'|translate}} : </span>
+                        {{filterParams?.startDate | date: "dd/MM/yyyy"}} </div>
+                    <div class="rih-dte"> <span>{{'Sales.Orders.ToDate'|translate}} : </span> {{filterParams?.endDate |
+                        date: "dd/MM/yyyy"}} </div>
+                </div>
+            </div>
+            <!-- Records Found -->
+            <div class="records-found"
+                *ngIf="(sandbox.salesReportListLoaded$ | async) && (sandbox.salesReportList$ | async)?.data.length > 0">
+                <p>{{(sandbox.salesReportList$ | async)?.orderCount}} {{'common.RecordsFound' | translate}} </p>
+                <div class="report-type-dropdown" ngbDropdown placement="bottom-right" style="display:dynamic">
+                    <img src="assets/img/columns.svg" #drop2 id="dropdownForm1" ngbDropdownToggle>
+                    <div ngbDropdownMenu aria-labelledby="dropdownForm1" class="dropdown-type">
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="3+'sales'" [(ngModel)]="orderId">
+                            <label class="custom-control-label"
+                                for="3+'sales'">{{'Sales.Orders.OrderId'|translate}}</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="4+'sales'"
+                                [(ngModel)]="orderStatus">
+                            <label class="custom-control-label"
+                                for="4+'sales'">{{'Sales.Orders.OrderStatus'|translate}}</label>
+                        </div>
+                        <div class="custom-control custom-checkbox" style="display:flex">
+                            <input type="checkbox" class="custom-control-input" id="5+'sales'"
+                                [(ngModel)]="customerGroup">
+                            <label class="custom-control-label"
+                                for="5+'sales'">{{'Sales.Orders.CustomerGroup'|translate}}</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="6+'sales'"
+                                [(ngModel)]="paymentType">
+                            <label class="custom-control-label"
+                                for="6+'sales'">{{'Sales.Orders.PaymentType'|translate}}</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Table -->
+            <div class="product-table">
+                <div class="spinner-wrapper">
+                    <app-global-loader [isShow]="sandbox.salesReportListLoading$ | async"
+                        style="transform: translate(58%, 18%);position:absolute"></app-global-loader>
+                </div>
+                <div class="table-responsive" *ngIf="(sandbox.salesReportListLoaded$ | async)">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{{'Customers.Customer.BuyerName'|translate}}</th>
+                                <th class="text-center">{{'Sales.Orders.Quantity'|translate}}</th>
+                                <th class="text-center">{{'CMS.Pages.PurchaseDate'|translate}}</th>
+                                <th *ngIf="paymentType">{{'Sales.Orders.PaymentType'|translate}}</th>
+                                <th class="text-right">{{'CMS.Pages.OriginalAmount'|translate}}</th>
+                                <th class="text-right">{{'catalog.Error.DiscountAmount'|translate}}</th>
+                                <th class="text-right">{{'Sales.Orders.CouponDiscountAmount'|translate}}</th>
+                                <th class="text-right">{{'Sales.Orders.TotalAmount'|translate}}</th>
+                                <th class="text-center" *ngIf="orderId">{{'Sales.Orders.OrderId'|translate}}</th>
+                                <th class="text-center" *ngIf="orderStatus">{{'Sales.Orders.OrderStatus'|translate}}
+                                </th>
+                                <th class="text-center" *ngIf="customerGroup">{{'Sales.Orders.CustomerGroup'|translate}}
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let list of (sandbox.salesReportList$ | async)?.data">
+                                <tr class="row-tit">
+                                    <td colspan="5" class="name">{{list.productName}} </td>
+                                </tr>
+                                <tr class="bordtop0" *ngFor="let item of list.buyers">
+                                    <td class="name">{{item?.firstName}} {{item?.lastName}} </td>
+                                    <td class="text-center">{{item?.quantity}}</td>
+                                    <td class="text-center">{{item?.createdDate | date : "dd/MM/yyyy h:mm a"}}</td>
+                                    <td *ngIf="paymentType"> {{item.paymentType}}<span
+                                            *ngIf="item.paymentType == 'wallet' || item.paymentType == 'third party'"><span
+                                                *ngIf="item.operatorName">({{item.operatorName}})</span></span>
+                                    </td>
+                                    <td class="text-right"> {{item?.basePrice | currencysymbol: (layoutSandbox.settings$
+                                        | async)}}</td>
+                                    <td class="text-right"> {{item.discountAmount | currencysymbol:
+                                        (layoutSandbox.settings$ | async)}}</td>
+                                    <td class="text-right"> {{(item.couponDiscountAmount ? item.couponDiscountAmount :
+                                        0) | currencysymbol: (layoutSandbox.settings$ | async)}}</td>
+                                    <td class="text-right"> {{item.total| currencysymbol: (layoutSandbox.settings$ |
+                                        async)}}</td>
+                                    <td class="text-center" *ngIf="orderId">{{item?.orderProductPrefixId}}</td>
+                                    <td class="text-center" *ngIf="orderStatus">{{item?.orderStatusName}}</td>
+                                    <td class="text-center" *ngIf="customerGroup">{{item?.customerGroup}}</td>
+                                </tr>
+                            </ng-container>
+                            <tr *ngIf="(sandbox.salesReportList$ | async)?.data.length === 0">
+                                <td class="text-center" colspan="7">{{'CMS.Error.NoRecordFound'|translate}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- Total Sale -->
+        <div class="total-sale" *ngIf="(sandbox.salesReportListLoaded$ | async)">
+            <span>{{'Sales.Orders.TotalSales'|translate}} : </span> {{((sandbox.salesReportList$ |
+            async)?.total?.toFixed(2)) | currencysymbol: (layoutSandbox.settings$ | async)}}
+        </div>
+
+    </div>
+
+</main>

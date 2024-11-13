@@ -1,0 +1,151 @@
+<header>
+    <div class="header-list flexx">
+        <h1>{{'payments.EarningsList'|translate}}</h1>
+        {{(EarningSandbox.GetEarning$ | async)?.length}}
+        <div class="header-list-rht ms-auto flexx"
+            [ngClass]="{'disabled-class': (EarningSandbox.GetEarningLoaded$ | async) && paymentListArray?.length == 0 || selectedDatas?.length>0}">
+            <!--Item per page -->
+            <div class="per-page flexx">
+                <p>{{'common.PerPage'|translate}}</p>
+                <div class="ig-row">
+                    <ng-select [items]="pageSizeList" bindLabel="id" [searchable]="false" [clearable]="false"
+                        (change)="pageSizeChange($event)" [(ngModel)]="limit">
+                    </ng-select>
+                </div>
+            </div>
+
+            <!--Search filter -->
+            <div class="search-filter" ngbDropdown #dropdownContent="ngbDropdown"
+                [ngClass]="{'disabled-class': (EarningSandbox.GetEarningLoaded$ | async) && (EarningSandbox.GetEarning$ | async)?.length == 0 }">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button" ngbTooltip="Search" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()"
+                    placement="bottom">
+                    <img src="assets/imgs/search.svg" alt="">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+                    <h5>{{'payments.Search'|translate}}</h5>
+                    <form class="" (keyup.enter)="applyFilter()">
+                        <div class="input-group">
+                            <div class="ig-row">
+                                <app-reusable-forms [type]="dynamicObjControls.Search?.type"
+                                    [control]="dynamicObjControls.Search?.control"
+                                    [label]="dynamicObjControls.Search?.label"
+                                    [inputId]="dynamicObjControls.Search?.inputId"
+                                    [aliasName]="dynamicObjControls.Search?.aliasName"
+                                    [placeholder]="dynamicObjControls.Search?.placeholder">
+                                </app-reusable-forms>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--Filter  -->
+            <div class="search-filter" ngbDropdown #dropdownContentFilter="ngbDropdown"
+                [ngClass]="{'disabled-class': (EarningSandbox.GetEarningLoaded$ | async) && (EarningSandbox.GetEarning$ | async)?.length == 0 }">
+                <button tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button" ngbTooltip="Filter" role="button" #tooltip="ngbTooltip" (mouseleave)="tooltip.close()"
+                    placement="bottom">
+                    <img src="assets/imgs/filter.svg" alt="">
+                </button>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+                    <h5>{{'payments.Filter'|translate}}</h5>
+                    <form action="" class="flex">
+                        <div class="filter-content">
+                            <div *ngFor="let val of _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+                                <app-reusable-forms *ngIf="val !== 'Search'" [type]="dynamicObjControls[val]?.type"
+                                    [control]="dynamicObjControls[val]?.control"
+                                    [label]="dynamicObjControls[val]?.label"
+                                    [inputId]="dynamicObjControls[val]?.inputId"
+                                    [aliasName]="dynamicObjControls[val]?.aliasName"
+                                    [placeholder]="dynamicObjControls[val]?.placeholder"></app-reusable-forms>
+                            </div>
+                        </div>
+                        <div class="filter-action">
+                            <button class="button-reg btn-sm primary" (click)="applyFilter()">
+                                {{'payments.ApplyFilter'|translate}}</button>
+                            <button class="button-reg btn-sm trans-btn" (click)="filterReset('')">
+                                {{'payments.ResetFilter'|translate}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Dynamic Coloums -->
+            <app-dynamic-columns [filterColumns]="backupColumns" (selectedColumns)="saveColumns($event)">
+            </app-dynamic-columns>
+        </div>
+    </div>
+</header>
+<!-- filter -->
+<div class="filter-result-row flexx" *ngIf="formValueExists">
+    <h4>{{'common.Filter' | translate}}:</h4>
+    <ng-container *ngFor="let filter of backupFormValue | keyvalue; trackBy: trackByIndex">
+        <div class="filter-result-col" *ngIf="!['',null,undefined].includes(filter.value)">
+            <span>{{ filter.key }} : </span>
+            {{ filter.value}}
+            <a href="javascript:void(0)" (click)="removeFilter(filter)"><img src="assets/imgs/close-sm.svg" alt=""></a>
+        </div>
+    </ng-container>
+    <a href="javascript:void(0)" class="clear" (click)="filterReset('clearAll')">{{'common.ClearFilters' |
+        translate}}</a>
+</div>
+
+<div class="page-content">
+
+    <!--content -->
+    <app-alert-content *ngIf="paymentListArray?.length > 0" [alert]="alertConfig"></app-alert-content>
+
+    <!--Loader -->
+    <div class="loading" *ngIf="(EarningSandbox.GetEarningLoading$ | async)">
+        <app-loader></app-loader>
+    </div>
+
+    <!-- Common -table -->
+    <app-common-table *ngIf="paymentListArray?.length > 0" [HeadArray]="dynamicColumnFields"
+        [GridArray]="paymentListArray" [selectAll]="tableCheckbox" (buttonChangeEvent)="buttonAction($event)"
+        [customTemplate]="{totalRevenue:itemVal,name:itemTemplateRefName}">
+    </app-common-table>
+    <ng-template #itemVal let-item let-index="index">
+        <p>{{ item?.totalRevenue !== 0 ?(item?.totalRevenue | currencysymbol) : '0.00' | currencysymbol }}</p>
+    </ng-template>
+
+    <ng-template #itemTemplateRefName let-item let-index="index">
+        <div class="d-flex align-items-center product-details">
+
+            <span *ngIf=" item.name?.length > 100; else fullTextDisplay" matTooltip="{{ item.name }}"
+                matTooltipPosition="above">
+                <a href="javascript:void(0)">{{item.truncatedText }}...</a>
+            </span>
+            <ng-template style="pointer-events: none;" #fullTextDisplay>
+                <a style="pointer-events: none;" href="javascript:void(0)"> {{item.name}} </a>
+            </ng-template>
+        </div>
+
+    </ng-template>
+
+    <!--No data found -->
+    <div class="nodata flexx" *ngIf="(EarningSandbox.GetEarningLoaded$ | async) && paymentListArray?.length == 0">
+        <span><img src="assets/imgs/nodata.svg" alt=""></span>
+        <h4>
+            <ng-container *ngIf="formValueExists; else nodatafound">
+                {{'common.NoDataAvailablefortheFilteredCriteria'|translate}}
+            </ng-container>
+            <ng-template #nodatafound>
+                {{'payments.NoEarningsareadded'|translate}}
+            </ng-template>
+        </h4>
+
+    </div>
+
+    <ng-container *ngIf="(EarningSandbox.GetEarningLoaded$ | async) && paymentListArray?.length > 0">
+        <!--Pagination -->
+        <app-reusable-pagination *ngIf="count>0" [ngClass]="{'disabled-class':selectedDatas?.length>0}"
+            class="pagination flexx" [type]="'numbers'" [currentPage]="currentPage" [pageSize]="limit"
+            [totalItems]="count" (pageChange)="onPageChange($event)">
+        </app-reusable-pagination>
+    </ng-container>
+
+</div>
+
+<!-- Bulk action -->
+<app-bulk-action *ngIf="selectedDatas?.length>0" [count]="selectedDatas?.length" [bulkList]="bulkAction"
+    (actionEvent)="actionType($event)"></app-bulk-action>

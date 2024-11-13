@@ -1,0 +1,47 @@
+.vendor-sidebar {
+    margin-top: 64px;
+    position: fixed;
+    width: 50px;
+    height: calc(100vh - 63px);
+    background: #f79110;
+    top: 0;
+    padding: 100px 0 0;
+    z-index: 9999 !important;
+    a {
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background: #ffffff45;
+        border-radius: 50%;
+        margin-bottom: 30px;
+        img:nth-child(2) {
+            display: none;
+        }
+        &.active {
+            background: #fff;
+            img:nth-child(1) {
+                display: none;
+            }
+            img:nth-child(2) {
+                display: flex;
+            }
+        }
+    }
+}
+
+.vendor-wrapper {
+    padding: 0 0 0 50px;
+}
+
+
+.tip {
+    z-index: 0;
+}
+
+::ng-deep .tooltip {
+    width: 150px !important;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: Roboto !important;
+  }

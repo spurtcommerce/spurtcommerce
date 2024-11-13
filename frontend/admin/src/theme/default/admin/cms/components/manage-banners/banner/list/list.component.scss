@@ -1,0 +1,34 @@
+// .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+//     background-color: #b282e7 !important;
+//     border: #b282e7 !important;
+// }
+// .product-wrap .product-table .table .custom-checkbox {
+//     top: 0;
+// }
+// .form-group {
+//     margin-bottom: 0;
+// }
+// .export-data {
+//     background: #d2a9ff !important;
+// }
+
+
+
+
+.product-wrap .product-table .table .custom-checkbox {
+    top: 0;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.export-data {
+    background: #d2a9ff !important;
+}
+
+.spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}

@@ -1,0 +1,78 @@
+
+<div class="flex setting2-inner-header">
+    <h3 class="modal-header__title"> {{currencyId ? 'Update Currency' : 'Add Currency'}} </h3>
+    <button (click)="close()" class="close-modal"> <img src="assets/img/modal-close.svg"> </button>
+</div>
+<div class="modal-body">
+
+    <form class="form-horizontal">
+        <div class="form-group">
+             <app-common-form [type]="dynamicObjControls.title?.type"
+                            [control]="dynamicObjControls.title?.control"
+                            [label]="dynamicObjControls.title?.label"
+                            [inputId]="dynamicObjControls.title?.inputId"
+                            [aliasName]="dynamicObjControls.title?.aliasName"
+                            [placeholder]="dynamicObjControls.title?.placeholder"
+                            [customData]="dynamicObjControls.title?.customData"
+                            [mandatory]="dynamicObjControls.title?.mandatory"
+                            [optionalErrorMessage]="dynamicObjControls.title?.optionalErrorMessage"
+                            [toolTip]="dynamicObjControls.title?.toolTip"
+                            [submitted]="submitted" >
+                        </app-common-form> 
+        </div>
+        <div class="form-group">
+            <app-common-form [type]="dynamicObjControls.code?.type"
+                            [control]="dynamicObjControls.code?.control"
+                            [label]="dynamicObjControls.code?.label"
+                            [inputId]="dynamicObjControls.code?.inputId"
+                            [aliasName]="dynamicObjControls.code?.aliasName"
+                            [placeholder]="dynamicObjControls.code?.placeholder"
+                            [customData]="dynamicObjControls.code?.customData"
+                            [mandatory]="dynamicObjControls.code?.mandatory"
+                            [optionalErrorMessage]="dynamicObjControls.code?.optionalErrorMessage"
+                            [toolTip]="dynamicObjControls.code?.toolTip"
+                            [submitted]="submitted" >
+                        </app-common-form> 
+        </div>
+        <div class="form-group">
+            <label class="control-label">{{'Settings.Local.Currency.SymbolLeft' | translate}}</label>
+            <input type="text" (keyup)="checkEnable('left', $event)"
+                placeholder="{{'Settings.Local.Currency.SymbolLeft' | translate}}" class="form-control"
+                [formControl]="dynamicObjControls?.symbolLeft?.control"
+               >
+            <div class="error" *ngIf="rupeeError['left']">
+                {{'Settings.Local.Currency.Error.EnteravalidsymbolforINR(₹)' | translate}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>{{'Settings.Local.Currency.SymbolRight' | translate}}</label>
+            <input type="text" (keyup)="checkEnable('right', $event)"
+                placeholder="{{'Settings.Local.Currency.SymbolRight' | translate}}" class="form-control"
+                [formControl]="dynamicObjControls?.symbolRight?.control">
+            <div class="error" *ngIf="rupeeError['right']">
+                {{'Settings.Local.Currency.Error.EnteravalidsymbolforINR(₹)' | translate}}
+            </div>
+        </div>
+        <div class="form-group">
+            <app-common-form [type]="dynamicObjControls.status?.type"
+            [control]="dynamicObjControls.status?.control"
+            [label]="dynamicObjControls.status?.label"
+            [inputId]="dynamicObjControls.status?.inputId"
+            [aliasName]="dynamicObjControls.status?.aliasName"
+            [placeholder]="dynamicObjControls.status?.placeholder"
+            [customData]="dynamicObjControls.status?.customData"
+            [mandatory]="dynamicObjControls.status?.mandatory"
+            [optionalErrorMessage]="dynamicObjControls.status?.optionalErrorMessage"
+            [toolTip]="dynamicObjControls.status?.toolTip"
+            [submitted]="submitted" >
+        </app-common-form>
+
+        </div>        
+    </form>
+    
+</div>
+
+<div class="action-button-container flex">
+    <button (click)="close()" class="button-reg btn-md tertiary">{{'common.Cancel'| translate}}</button>
+    <button type="button" (click)="onSubmit()" class="button-reg btn-md primary">{{'Settings.Local.Save' | translate}}</button>
+</div>

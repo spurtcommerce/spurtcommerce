@@ -1,0 +1,23 @@
+// Variables;
+
+@import "../../variable";
+
+/*******************
+ Campaign
+*******************/
+.earningsbox {
+  .c3-line {
+    stroke-width: 2px;
+  }
+}
+
+.product-sales {
+  &.c3 line,
+  &.c3 path {
+    stroke: $gray-200;
+  }
+  .c3-shape {
+    stroke: $white !important;
+    stroke-width: 3px;
+  }
+}

@@ -1,0 +1,40 @@
+<div
+  class='Language_page_wrapper__Qb2id undefined Language_page_wrapper_normal__oteTI Language_add_page_wrapper__KbanA'>
+  <div class='add_user_container add_role_container'>
+    <div class='add_role_title'>
+      <h3>{{'Settings.nav.Languages'|translate}}</h3>
+    </div>
+    <div class='languages_nav_list flexx'>
+      <a (click)="scrollToLanguage(lang.name)" *ngFor="let lang of languageList">{{ lang.name }}</a>
+    </div>
+    <div class='languges_card' *ngFor="let lang of languageList; let i = index" [id]="lang.name">
+      <h3>
+        <img [src]="imageUrl + '?path=' + lang.imagePath + '&name=' +  lang.image + '&width=25&height=15'" />
+        {{ lang.name }}, <span>{{ lang.code }}</span>
+      </h3>
+      <form [formGroup]="productForms[i]">
+        <input type="hidden" formControlName="languageId" [value]="lang.languageId" [placeholder]="lang.languageId">
+         <div class='languges_card__row'>
+           <div class='input_group'>
+             <p>Product Title</p>
+              <div class="ig-row">
+                <input formControlName="productName" type="text" class='int' />
+              </div>
+           </div>
+          <div class='input_group'>
+            <p>Description</p>
+            <div class="ig-row">
+              <ckeditor class='tex' [config]="config" formControlName="productDescription"></ckeditor>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="action-button-container flex">
+    <div class="footer-btn">
+      <button class="button-reg btn-md secondary" (click)="cancel()">{{'CMS.Pages.Cancel' | translate}}</button>
+      <button class="button-reg btn-md primary" (click)="save()">{{'CMS.Pages.Save' | translate}}</button>
+    </div>
+  </div>
+</div>

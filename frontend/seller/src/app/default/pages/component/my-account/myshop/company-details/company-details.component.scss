@@ -1,0 +1,146 @@
+::ng-deep.cke_bottom {
+    display: none !important;
+}
+
+.img-banner{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    font-size: 0;
+    cursor: pointer;
+}
+.loading {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    z-index: 3000;
+}
+
+.search-filters {
+    .dropdown-menu {
+        width: 15rem !important;
+        h5 {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #353740;
+        }
+        .filter-content {
+            max-height: 20rem;
+            overflow: auto;
+        }
+        .input-group {
+            label {
+                margin-bottom: 0.125rem;
+                font-size: 0.75rem;
+            }
+            .ig-row {
+                input {
+                    height: 2.125rem;
+                    padding-inline: 0.5rem;
+                    font-size: 0.875rem;
+                    font-weight: 400;
+                    color: #353740;
+                }
+                .ng-select {
+                    .ng-select-container {
+                        height: 2.125rem!important;
+                        min-height: 2.125rem;
+                    }
+                }
+            }
+        }
+        .filter-action {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+    }
+}
+
+
+
+.remove-btn{
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+header .header-list .header-list-rht .search-filter .dropdown-menu .filter-action {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: .8125rem !important;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+header .header-list .header-list-rht button.dropdown-toggle, header .header-list .header-list-rht>button {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.8125rem;
+    height: 2rem;
+    background-color: #ececf1;
+    border: 0;
+    border-radius: 0.3125rem;
+}
+.image-grid-row {
+    grid-template-columns: repeat(auto-fill,minmax(12rem,1fr)) !important;
+}
+
+.image-save{
+    position: fixed;
+    width: calc(100vw - 272px);
+    right: 0;
+    left: auto !important;
+}
+
+.youtube-logo{
+            &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 1.5rem;
+            height: 1rem;
+            background-image: url(../../../../../../../../src/assets/imgs/youtube.svg);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+}
+
+.imageDisable{
+    opacity: 0.16;
+    cursor: default;
+}
+
+.disabled-class {
+    pointer-events: none;
+    opacity: 0.5;
+}
+.product-save-btn {
+    button {
+        font-size: 0.875rem;
+        padding-inline: .75rem;
+    }
+}

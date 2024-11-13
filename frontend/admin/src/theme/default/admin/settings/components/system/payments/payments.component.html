@@ -1,0 +1,41 @@
+
+
+<div class="setup-wrapper setup-personalize">
+    <div class="setup-container flex">
+
+        <div class="setup-left">
+            <h3>{{'Settings.nav.WhatPaymentdetailsarerequired?'|transalte}}</h3>
+            <p>{{'Settings.nav.SettingPayment'|translate}}</p>
+        </div>
+
+        <div class="setup-right">
+            <form [formGroup]="seoForm" class="form-horizontal">
+
+                <div class="sup-rht-section">
+
+                    <div class="suprs-form">
+                        <div class="suprs-form-row flex">
+                            <label>{{'Settings.nav.PaymentDetails'|transalte}} <a href="javascript:void(0)"> <img src="assets/img/icon-information-circle-outline.svg"> </a> </label>
+                            <div class="suprs-form-col">
+                                <textarea></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+            
+
+                    <div class="flex srbtn">
+                        <button (click)="seoCancel()" [appHideIfUnauthorized]="'edit-seo-url'" class="cancel">{{'Settings.SiteSettings.Cancel' | translate}}</button>
+                        <button type="submit" [appHideIfUnauthorized]="'edit-seo-url'">{{'Settings.SiteSettings.Save' | translate}}</button>
+                    </div>
+
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>

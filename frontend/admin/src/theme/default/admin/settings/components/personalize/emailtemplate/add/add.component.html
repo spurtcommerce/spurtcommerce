@@ -1,0 +1,37 @@
+<div class="flex setting2-inner-header">
+    <h3 class="modal-header__title">{{updateTitle ? 'Update Email Template' : 'Add Email Template' | translate}}</h3>
+    <button (click)="close()" class="close-modal"> <img src="assets/img/modal-close.svg"> </button>
+</div>
+<div class="modal-body">
+    <ng-container *ngFor="let val of  _Object.keys(dynamicObjControls);let i=index;trackBy: trackByIndex">
+        <ng-container *ngIf="val=='Content'">
+            <div class="form-group">
+                <label>{{'Settings.Local.Emailtemplate.Content' | translate}}<sup>*</sup></label>
+                <textarea [formControl]="dynamicObjControls[val]?.control"   style="height: 9rem;"
+                    [ngClass]="{ 'is-invalid': submitted && f.content.errors,'isDisable' :dynamicObjControls[val]?.isDisabled}" [readonly]="dynamicObjControls[val]?.isDisabled"></textarea>
+                <!-- <ckeditor [editor]="editor" [config]="config" [formControl]="dynamicObjControls[val]?.control"[ngClass]="{ 'is-invalid': submitted && f.content.errors }"></ckeditor> -->
+                <div *ngIf="submitted && f.content.errors" class="invalid-feedback">
+                    <div *ngIf="f.content.errors.required">{{'Settings.Local.Emailtemplate.Error.Contentisrequired' |
+                        translate}}</div>
+                </div>
+                <div class="errors" *ngIf="dynamicFieldsValue && submitted">
+                    {{'common.Dynamic field value'| translate}}
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="val !='Content'">
+            <app-common-form [type]="dynamicObjControls[val]?.type" [control]="dynamicObjControls[val]?.control"
+                [label]="dynamicObjControls[val]?.label" [inputId]="dynamicObjControls[val]?.inputId"
+                [aliasName]="dynamicObjControls[val]?.aliasName" [placeholder]="dynamicObjControls[val]?.placeholder"
+                [submitted]="submitted" [customData]="dynamicObjControls[val]?.customData"
+                [mandatory]="dynamicObjControls[val]?.mandatory" [isDisabled]="dynamicObjControls[val]?.isDisabled">
+            </app-common-form>
+        </ng-container>
+    </ng-container>
+</div>
+<div class="action-button-container flex">
+    <button class="button-reg btn-md tertiary" (click)="close()">{{'Settings.generalsettings.Cancel'|
+        translate}}</button>
+    <button class="button-reg btn-md primary" (click)="onSubmit()" type="submit()">{{'Settings.generalsettings.Save'|
+        translate}}</button>
+</div>

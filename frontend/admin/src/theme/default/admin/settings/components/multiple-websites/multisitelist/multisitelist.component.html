@@ -1,0 +1,22 @@
+<div class="multisitelist-wrapper">
+    <div class="multisitelist-title flex">
+        <button [routerLink]="['/settings']"> <img src="assets/img/arrow-back-dark.svg" alt=""> </button>
+        <h3>{{'Additional.Multiple websites'|translate}}</h3>
+    </div>
+
+    <div class="multisitelist-create flex"> <button (click)="create()" disabled style="opacity: 0.5;" routerLinkActive="router-link-active"  class="button-reg btn-sm primary">{{'Additional.Create new site'|translate}}</button> </div>
+    <div class="multi-site-list-row" *ngFor="let list of (multipleWebsitesSandbox.MultipleWebsitesList$ | async)?.data">
+        <div class="multi-site-list-col">
+            <div class="multi-site-list-top">
+               
+                <h4><a [href]="convertLink(list.storeUrl)" target="_blank">{{ list.storeUrl }}</a></h4>
+                <div class="multi-site-top-right"> {{ list.storeName }} </div>
+            </div>
+            <div class="multi-site-list-top">
+                <p>{{'Additional.This is the main URL for'|translate}} {{ list.storeName }}</p>
+                <div [ngClass]="{'text-success': list.isActive === 1, 'text-danger': list.isActive === 2, 'text-primary': list.isActive === 3, 'text-warning': list.isActive > 3}" class="multi-site-top-right mstr-stat active"> {{ list.isActive === 1 ? 'Active' : list.isActive === 2 ? 'in active' : list.isActive === 3 ? 'Maintenance' : 'Pending'}} </div>
+            </div>
+        </div>
+    <button (click)="setting(list)" routerLinkActive="router-link-active"  class="button-reg btn-sm tertiary">{{'Additional.Settings'|translate}}</button>
+    </div>
+</div>

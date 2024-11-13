@@ -1,0 +1,25 @@
+<div class="modal-body">
+    <div class="modal-header">
+        <h1>Change Payment Status</h1>
+    </div>
+    <div class="input-group">
+        <label for="">
+            Payment Status
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et</p>
+        </label>
+        <div class="ig-radio-check">
+            <div class="radio">
+            <input id="radio-1" value="1" [(ngModel)]="paymentStatus" name="radio" type="radio">            
+            <label for="radio-1" class="radio-label">Paid</label>
+            </div>
+            <div class="radio">
+                <input id="radio-2" value="0" [(ngModel)]="paymentStatus" name="radio" type="radio">            
+                <label for="radio-2" class="radio-label">Pending</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-save-btn">
+    <button class="prev" (click)="dismiss()">Cancel</button>
+    <button class="save" (click)="submit()">Save</button>
+</div>

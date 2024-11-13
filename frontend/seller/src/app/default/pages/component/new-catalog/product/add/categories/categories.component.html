@@ -1,0 +1,95 @@
+<header>
+    <h1>{{editId ? ((productsandbox.ProductUpdateDetails$ | async)?.data?.name + ('common.edit' | translate)) : ('common.Create Product' | translate)}}</h1>
+    <ng-container  *ngIf="productsandbox.ProductUpdateDetails$ | async as productDetails">
+    <button *ngIf="productDetails?.data?.approvalflag == 2" (click)="openrejectedreasonmodal(productDetails?.data)" class="button-reg btn-sm cancel ms-auto"> Rejected Reasons </button>
+    </ng-container>
+</header>
+<!--Tab-->
+<div  class="product-add-container">
+    <div class="product-add-nav">
+        <div class="product-add-nav-col current">
+            <p>{{'common.Current' | translate}}</p>
+            <h3>1. {{'common.Choose Categories' | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col">
+            <p>{{"common.Yet to create" | translate}}</p>
+            <h3>2. {{"common.Product Details" | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col">
+            <p>{{"common.Yet to create" | translate}}</p>
+            <h3>3. {{"common.Product Specification" | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col" *ngIf="ProductSeo">
+            <p>{{"common.Yet to create" | translate}}</p>
+            <h3>4. {{"common.Seo" | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col">
+            <p>{{"common.Yet to create" | translate}}</p>
+            <h3>5. {{"common.Pricing Setup" | translate}}</h3>
+        </div>
+       
+    </div>
+
+    <div class="product-add-section">                
+        <div class="prodcut-add-categories">
+            <div class="prodcut-add-categories-col">
+                <div class="categories-heading">
+                    <h4>{{"Catalog.product.AvailableCategories" | translate}}</h4>
+                    <p>{{'Catalog.product.AvailableCategoriesDescription' | translate}}</p>
+                </div>
+                <div class="input-group categories-search">
+                    <div class="ig-row">
+                        <input (keydown)="onKeyDown($event)" #inputField2 type="text" placeholder="{{'common.Search' | translate}}" class="search"  [(ngModel)]="keyword" appNospace>
+                        <div      class="input-info"> / </div>
+                    </div>
+                </div>
+                <div class="product-categories-list">
+                    <div (click)="addCategories(item)" class="product-categories-list-row" *ngFor="let item of categoriesList  | search:['levels']:keyword">
+                        <div class="drag-icon"> <img src="assets/imgs/drag.svg" alt=""> </div>
+                        <div class="categories-list-txt">
+                            
+                            <ng-container *ngFor="let item of item.newlevels; let last=last">
+                              
+                                {{item}}  <img src="assets/imgs/caret-right.svg" alt="" *ngIf="!last">
+                            </ng-container>
+                        </div>
+                        <button (click)="addCategories(item)"> <img src="assets/imgs/add-plus.svg" alt=""> </button>
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="prodcut-add-categories-col">
+                <div class="categories-heading">
+                    <h4>{{'Catalog.product.SelectedCategories' | translate}} <sup>*</sup></h4>
+                    <p>{{'Catalog.product.SelectedCategoriesDescription' | translate}}</p>
+                </div>
+                <div class="input-group categories-search">
+                    <div class="ig-row">
+                        <input (keydown)="onKeyDown($event)" #inputField type="text" placeholder="{{'common.Search' | translate}}" class="search" [(ngModel)]="rightKeyword" appNospace>    
+                                            <div class="input-info"> Ctrl + / </div>
+                    </div>
+                </div>
+                <div class="product-categories-list">
+                    <div class="product-categories-list-row"  *ngFor="let item of rightarrayList | search:['levels']:rightKeyword;let i =index">
+                        <div class="drag-icon"> <img src="assets/imgs/drag.svg" alt=""> </div>
+                        <div class="categories-list-txt">
+                            <ng-container *ngFor="let item of item?.newlevels; let last=last">
+                              
+                                {{item}}  <img src="assets/imgs/caret-right.svg" alt="" *ngIf="!last">
+                            </ng-container>
+                        </div>
+                        <button (click)="removeCategories(item,i)"> <img src="assets/imgs/minus.svg" alt=""> </button>
+                    </div>
+                    <div class="product-category-list-empty" *ngIf="rightarrayList?.length==0">
+                        <img src="assets/imgs/add-category.svg" alt="">
+                        <p>{{'Catalog.product.SelectedCategoriesWarn' | translate}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+<div class="product-save-btn">
+    <button class="cancel" (click)="cancel()">{{'common.Cancel' | translate}}</button>
+    <button class="save" (click)="Next()">{{'common.Next' | translate}}</button>
+</div>

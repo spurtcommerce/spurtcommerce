@@ -1,0 +1,14 @@
+<div class="page-wrapper">
+    <div class="page-subnav">
+        <h2>Support</h2>
+        <div class="page-subnav-sublist">
+            <a   [routerLinkActive]="'active'" >{{'Layout.AdminSupportTickets' | translate}} <span class="tool-hover">New</span></a>
+            <a  [routerLinkActive]="'active'" >{{'Layout.CustomerSupportTickets' | translate}} <span class="tool-hover">New</span></a>
+
+        </div>
+    </div>
+    <div class="page-container">
+      
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,238 @@
+<header>
+    <h1>{{editId ? (editDetails?.name + ('common.edit' | translate)) : ('common.Create Product' | translate)}}</h1>
+</header>
+<div class="product-add-container">
+    <div class="product-add-nav">
+        <div class="product-add-nav-col completed">
+            <p>{{'common.Completed' | translate}}</p>
+            <h3>1. {{'common.Choose Categories' | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col current">
+            <p>{{'common.Current' | translate}}</p>
+            <h3>2. {{'common.Product Details' | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col">
+            <p>{{"common.Yet to create" | translate}}</p>
+            <h3>3. {{'common.Product Specification' | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col" *ngIf="ProductSeo==true">
+            <p>{{"common.Yet to create" | translate}}</p>
+            <h3>4. {{"common.Seo" | translate}}</h3>
+        </div>
+        <div class="product-add-nav-col">
+            <p>{{"common.Yet to create" | translate}}</p>
+            <h3>5. {{'common.Pricing Setup' | translate}}</h3>
+        </div>
+    </div>
+    <div class="product-add-section">
+        <div class="inner-heading">
+            <h3>{{'common.PRODUCT DETAILS' | translate}}</h3>
+            <p>{{'common.ProductDetailsContent' | translate}}</p>
+        </div>
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <!-- <div class="input-group">
+                <label>
+                    {{'common.Product Name' | translate}} *
+                    <p>{{'common.ProductNameLabel' | translate}}</p>
+                </label>
+                <div class="ig-row">
+                    <input type="text" #productInput maxlength="140" formControlName="productName" appNospace
+                        placeholder="{{'common.Enter Product Name' | translate}}"
+                        [ngClass]="{'error-field':(myForm.controls['productName'].hasError('required')||myForm.value.productPrice == 0 && !myForm.controls['productName'].hasError('required'))}">
+                    <div class="text-count"> <span>{{ productInput?.value?.length }}/140</span> </div>
+
+                </div>
+                <div class="error" style="position: absolute;bottom: 0;color: red;font-size: 13px;"
+                    *ngIf="myForm.controls['productName'].hasError('required') && submit==true">
+                    {{'common.ProductNameIsRequired' | translate}}
+                </div>
+
+            </div> -->
+
+            <div class="details-row2">
+                <div class="input-group mb-35">
+                    <label>
+                        {{'common.Product Name' | translate}} *
+                        <p>{{'common.ProductNameLabel' | translate}}</p>
+                    </label>
+                    <div class="ig-row">
+                        <input type="text" #productInput maxlength="140" formControlName="productName" appNospace
+                            placeholder="{{'common.Enter Product Name' | translate}}"
+                            [ngClass]="{'error-field':(myForm.controls['productName'].hasError('required')||myForm.value.productPrice == 0 && !myForm.controls['productName'].hasError('required'))}">
+                        <div class="text-count"> <span>{{ productInput?.value?.length }}/140</span> </div>
+
+                    </div>
+                    <div class="error" style="position: absolute;bottom: 0;color: red;font-size: 13px;"
+                        *ngIf="myForm.controls['productName'].hasError('required') && submit==true">
+                        {{'common.ProductNameIsRequired' | translate}}
+                    </div>
+                    <div class="error" style="position: absolute;bottom: 0;color: red;font-size: 13px;"
+                        *ngIf="myForm.get('productName').hasError('minlength')">
+                        {{'ValidationsErrorMessage.Mimimumlengthshouldbe10characters'|translate}}
+                    </div>
+                    <div class="error" style="position: absolute;bottom: 0;color: red;font-size: 13px;"
+                        *ngIf="myForm.controls['productName'].hasError('pattern')">
+                        {{'ValidationsErrorMessage.Onlyalphabetsnumbersspaceshyphensandunderscoresareallowed'|translate}}
+                    </div>
+                </div>
+                <div class="input-group mb-35">
+                    <label>
+                        {{'CommonContent.Product Available From' | translate}} *
+                        <p> {{'CommonContent.dateProduct' | translate}}</p>
+                    </label>
+
+                    <div class="ig-row" style="bottom: 20px !important;">
+                        <mat-form-field class="floating-date">
+                            <input matInput formControlName="fromDateValid" [matDatepicker]="dp1" readonly>
+                            <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                            <mat-datepicker #dp1></mat-datepicker>
+                            <mat-error></mat-error>
+                        </mat-form-field>
+                        <div class="error" style="position: absolute;top: 100%;color: red;font-size: 13px;"
+                            *ngIf="myForm.controls['fromDateValid'].hasError('required') && submit==true">
+                            {{'CommonContent.Productavailablefromisrequired' | translate}}
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="details-row2">
+                <div class="input-group mb-35" [ngClass]="{disabled: editDetails?.isSimplified==0}">
+                    <label>
+                        {{'common.SKUNumber' | translate}} *
+                        <p>{{'common.SKUDescription' | translate}}</p>
+                    </label>
+                    <div class="ig-row">
+                        <input type="text" formControlName="skuNumber" appNospace placeholder="Enter SKU Number">
+                    </div>
+                    <div class="error" style="position: absolute;top: 100%;color: red;font-size: 13px;"
+                        *ngIf="myForm.controls['skuNumber'].hasError('required') && submit==true">
+                        {{'common.SKUnumberisrequired' | translate}}
+                    </div>
+                </div>
+                <div class="input-group mb-35" [ngClass]="{disabled: editDetails?.isSimplified==0}">
+                    <label>
+                        {{'common.Inventory' | translate}} *
+                        <p *ngIf="editDetails?.isSimplified !==0;else otherContent">{{'common.InventoryDescription' |
+                            translate}}</p>
+                        <ng-template #otherContent>
+                            <p>{{'CommonContent.inventory' | translate}}</p>
+                        </ng-template>
+                    </label>
+                    <div class="ig-row">
+                        <input type="number" formControlName="inventory" appNospace placeholder="Enter Inventory">
+                    </div>
+                    <div class="error" style="position: absolute;top: 100%;color: red;font-size: 13px;"
+                        *ngIf="myForm.controls['inventory'].hasError('required') && submit==true">
+                        {{'common.Inventoryisrequired' | translate}}
+                    </div>
+                </div>
+
+            </div>
+            <div class="input-group mb-4">
+                <label>
+                    {{'common.Product Description' | translate}} *
+                    <p>{{'common.ProductDescriptionLabe' | translate}}</p>
+                </label>
+                <div class="ig-row">
+                    <ckeditor [editor]="editor" [config]="config" (ready)="ulpoadAdapterDrop($event)"
+                        formControlName="productDescription" placeholder="common.Product Description"> </ckeditor>
+                </div>
+                <div class="error" style="position: absolute;bottom: -23px;color: red;font-size: 13px;"
+                    *ngIf="myForm.controls['productDescription'].hasError('required') && submit==true">
+                    {{'common.Productdescriptionisrequired' | translate}}
+                </div>
+            </div>
+            <div class="input-group mb-4">
+                <label>
+                    {{'common.productHighlights' | translate}} *
+                    <p>{{'common.ProductDescriptionLabe' | translate}}</p>
+                </label>
+                <div class="ig-row">
+                    <ckeditor [editor]="editor" [config]="config" (ready)="ulpoadAdapterDrop($event)"
+                        formControlName="productHighlights"> </ckeditor>
+                </div>
+                <div class="error" style="position: absolute;bottom: -21px;color: red;font-size: 13px;"
+                    *ngIf="myForm.controls['productHighlights'].hasError('required') && submit==true">
+                    {{'common.productHighlightserror' | translate}}
+                </div>
+            </div>
+        </form>
+
+        <div class="input-group">
+            <label>
+                {{'common.Photos & Video' | translate}} *
+                <p>{{'common.P&V-Description' | translate}}</p>
+            </label>
+
+            <div class="photo-video-section" style="cursor: pointer;">
+                <div class="photo-video-col grid-center position-relative" (click)="uploadimageprimary()"
+                    [ngClass]="{error_image: imageError?.length>0}">
+                    <input type="text" class="position-absolute opacity-0 inset-0 h-100 w-100 cursor-pointer"
+                        style="cursor: pointer;" accept=".png,.jpeg,jpg,svg,.mp4" />
+                    <span class="set-primary">{{'common.Primary' | translate}}</span>
+
+                    <div class="product-category-list-empty" *ngIf="primaryImgae.length==0; else image">
+                        <img [src]="assets/imgs/add-image.svg" alt="">
+                        <p>{{'common.ImageRequired' | translate}}</p>
+                    </div>
+                    <ng-template #image>
+                        <ng-container *ngFor="let data of primaryImgae">
+                            <img [src]="imageUrls + '?path=' + data?.containerName + '&name=' + data?.image + '&width=400&height=400'"
+                                alt="">
+                        </ng-container>
+                    </ng-template>
+
+
+                </div>
+
+                <ng-container *ngIf="uploadImage.length>0">
+                    <div class="photo-video-col grid-center" *ngFor="let data of uploadImage;let i=index">
+                        <div (click)="uploadProductImages(i)"
+                            style="position: absolute; inset: 0; width: 100%; height: 100%;"></div>
+                        <ng-container *ngIf="['',null,undefined].includes(data?.image);else nn">
+                            <img src="assets/imgs/add-image.svg" alt="">
+                        </ng-container>
+                        <ng-template #nn> <img
+                                [src]="imageUrls + '?path=' + data.containerName + '&name=' + data.image + '&width=162&height=162'"
+                                alt=""> </ng-template>
+                        <div class="photo-video-hover" *ngIf="!['',null,undefined].includes(data?.image)">
+                            <a href="javascript:void(0)" class="image-expand" (click)="openexpandimage()"> <img
+                                    src="assets/imgs/expand.svg" alt=""> </a>
+                            <a href="javascript:void(0)" (click)="imageremove(i,data)"> <img
+                                    src="assets/imgs/trash-new.svg" alt=""> </a>
+                        </div>
+                    </div>
+
+                    <div class="photo-video-col grid-center">
+                        <!--Loader -->
+                        <div class="loading" *ngIf="(productsandbox.ProductVideoUploadLoading$ | async)">
+                            <app-loader></app-loader>
+                        </div>
+                        <input type="file" class="position-absolute opacity-0 inset-0 h-100 w-100 cursor-pointer"
+                            (click)="clearFileInput($event)" style="cursor: pointer;" accept=".mp4"
+                            (change)="uploadVideo($event)" />
+                        <img src="assets/imgs/add-video.svg" alt="" *ngIf="!videourl && !(productsandbox.ProductVideoUploadLoading$ | async)">
+                        <div class="video-ico" *ngIf="!['',null,undefined,].includes(videourl)"> <img
+                                src="assets/imgs/play.svg" alt=""> </div>
+                        <video [src]="videourl" #videoPlayer *ngIf="videourl" height="150"></video>
+                        <div class="photo-video-hover" *ngIf="!['',null,undefined,].includes(videourl)">
+                            <a href="javascript:void(0)" class="image-expand" (click)="openexpandimage()"> <img
+                                    src="assets/imgs/expand.svg" alt=""> </a>
+                            <a href="javascript:void(0)" (click)="videoRemove(i)"> <img src="assets/imgs/trash-new.svg"
+                                    alt=""> </a>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-save-btn">
+    <button class="cancel" (click)="cancel()">{{'common.Cancel' | translate}}</button>
+    <button class="prev" (click)="prev()">{{'common.Previous' | translate}}</button>
+    <button class="save" (click)="onSubmit()">{{'common.Next' | translate}}</button>
+</div>

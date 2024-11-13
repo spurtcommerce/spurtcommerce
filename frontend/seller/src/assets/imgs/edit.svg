@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5819" data-name="Rectangle 5819" width="12" height="12" transform="translate(-17510 4617)" fill="#fff" stroke="#363740" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="edit" transform="translate(17510 -4617)" clip-path="url(#clip-path)">
+    <g id="pencil-edit-02-stroke-rounded_1_" data-name="pencil-edit-02-stroke-rounded (1)" transform="translate(-17511.373 4615.733)">
+      <path id="Path_7227" data-name="Path 7227" d="M10.019,2.809l.6-.6a1.281,1.281,0,0,1,1.812,1.812l-.6.6M10.019,2.809,5.957,6.871a2.416,2.416,0,0,0-.635,1.122L4.88,9.76l1.766-.442a2.415,2.415,0,0,0,1.122-.635L11.83,4.621M10.019,2.809,11.83,4.621" fill="none" stroke="#363740" stroke-linejoin="round" stroke-width="1"/>
+      <path id="Path_7228" data-name="Path 7228" d="M11.59,8.235c0,2.005,0,3.008-.554,3.683a2.438,2.438,0,0,1-.338.338c-.675.554-1.677.554-3.683.554h-.3c-2.3,0-3.451,0-4.165-.715S1.83,10.23,1.83,7.93v-.3c0-2.005,0-3.008.554-3.683A2.441,2.441,0,0,1,2.722,3.6C3.4,3.05,4.4,3.05,6.4,3.05" fill="none" stroke="#363740" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

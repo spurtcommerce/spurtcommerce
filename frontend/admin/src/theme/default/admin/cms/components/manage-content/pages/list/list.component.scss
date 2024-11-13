@@ -1,0 +1,17 @@
+.spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.product-table .table tbody tr td {
+    vertical-align: middle;
+}
+
+.selected-container .selected-btn::after {
+    content: "";
+    position: absolute;
+    inset: auto;
+    width: 0;
+    height: 1;
+    background-color: transparent;
+  }

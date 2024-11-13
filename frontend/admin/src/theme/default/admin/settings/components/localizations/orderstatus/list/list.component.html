@@ -1,0 +1,80 @@
+<div class="set-lay-notes flex" style="padding: 0 10px 10px 10px;">
+    <h4>{{'Setting.nav.Note:' | translate}}</h4>
+    <p>{{'Settings.paragraph.createandmaintainthemasterlist' | translate}} </p>
+</div>
+
+<div class="setup-wrapper set-loc-wrapper">
+    <div class="setup-container localization-container">
+        <div class="card ap-general ap-info">
+            <div class="flex ap-body">
+                <div class="localize-header flex" style="width: 100%;">
+                    <div class="loc-hdr-lft">
+                        <div class="input-group">
+                            <p>{{'Settings.Local.Resultsperpage' | translate}}</p>
+                            <div class="select">
+                                <select [(ngModel)]="pageSize" (change)="orderStatusList()">
+                                                <option *ngIf="pageSize!== '10' && pageSize!== '20' && pageSize!== '30'" value="{{pageSize}}">{{pageSize}}</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="30">30</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button style="width: 164px !important;" class="button-reg primary" (click)="addOrderStatus('','add')" [appHideIfUnauthorized]="'create-order-status'"><img
+                    src="assets/img/add-white-ico.png" alt="add">{{'Settings.Local.Orderstatus.AddOrderStatus'
+                    | translate}}
+                    </button>
+                </div>
+                <div class="setup-right">
+                    <!-- Spinner  -->
+                    <div class="spinner-wrapper" style="display: flex;justify-content: center;justify-items: center;">
+                        <app-global-loader [isShow]="Sandbox.OrderstatusListLoading$ | async" style="transform: translate(58%, 18%);position:absolute"></app-global-loader>
+                    </div>
+                    <div class="product-table">
+                        <!-- Table  -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>{{'Settings.Local.Orderstatus.OrderStatusName' | translate}}</th>
+                                        <th>{{'Settings.Local.Orderstatus.Status' | translate}}</th>
+                                        <th class="text-right" [appHideIfUnauthorized]="" [multipleHide]="['edit-order-status','delete-order-status']">
+                                            {{'Settings.Local.Orderstatus.Action' | translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let Orderstatuslist of Sandbox.getOrderstatuslist$ | async; let i=index">
+    
+    
+                                        <td class="ord-stat-td"><span style="padding:5px;background:#00b259;" [ngStyle]="{'color':'white', 'background':Orderstatuslist.colorCode}">
+                                                        </span> {{Orderstatuslist.name}}</td>
+                                        <td>
+                                            <div *ngIf="Orderstatuslist.isActive === 1">
+                                                {{'marketplace.seller.Active'| translate}}
+                                            </div>
+                                            <div *ngIf="Orderstatuslist.isActive === 0">
+                                                {{'Settings.Local.Orderstatus.InActive' | translate}}
+                                            </div>
+                                        </td>
+                                        <td class="text-right" [appHideIfUnauthorized]="" [multipleHide]="['edit-order-status','delete-order-status']">
+                                            <button [appHideIfUnauthorized]="'edit-order-status'" (click)="addOrderStatus(Orderstatuslist,'edit')"> <img src="assets/img/edit.svg" alt="edit" /> {{'Settings.Local.Edit' | translate}} </button>
+                                            <button [appHideIfUnauthorized]="'delete-order-status'" (click)="deleteStockStatus(Orderstatuslist.orderStatusId)"> <img src="assets/img/delete-new.svg" alt="delete"> {{'Settings.Local.Delete' | translate}} </button>
+                                            
+                                        </td>
+    
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Pagination  -->
+                            <mat-paginator [length]="Sandbox.getOrderstatuspaginationcount$ | async" [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)">
+                            </mat-paginator>
+                        </div>
+                    </div>                    
+                </div>
+              
+            </div>
+        </div>
+    </div>
+
+</div>

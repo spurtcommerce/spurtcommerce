@@ -1,0 +1,93 @@
+:host ::ng-deep .ng-select.ng-select-single {
+    width: 106px;
+    font-size: 12px;
+    font-weight: 600;
+    .ng-select-container {
+        
+    }
+}
+
+:host ::ng-deep .ng-select {
+    .ng-option {
+        font-size: small;
+    }
+    .ng-dropdown-panel.ng-select-bottom {
+        margin-left: 0px;
+        width: fit-content;
+        width: 100%;
+    }
+    .ng-dropdown-panel.ng-select-top {
+        margin-left: 0px;
+        width: fit-content;
+        
+        width: 100%;
+    }
+}
+
+.dashboard-card-content {
+    // width: 100%;
+    width: calc(100% - 150px);
+    height: calc(100% - 30px);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.no-data {
+    padding: 20px;
+    text-align: center;
+}
+
+.checkbox-data {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    span {
+        padding: 5px;
+        font-size: 12px;
+        color: #000;
+    }
+}
+
+.no-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.rad-chart {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.rad-chart-left {
+    width: 200px;
+}
+
+.rad-chart-right {
+    width: calc(100% - 150px);
+    display: flex;
+    justify-content: center;
+}
+
+.product-name {
+    text-overflow: ellipsis;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.no-document {
+    display: flex;
+    justify-content: center !important;
+    color: gray;
+    font-size: 14px;
+}

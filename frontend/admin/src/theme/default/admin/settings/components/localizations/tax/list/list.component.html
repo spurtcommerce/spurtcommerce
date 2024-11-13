@@ -1,0 +1,81 @@
+<div class="local-content">
+    <div class="set-lay-notes flex">
+        <h4>{{'Settings.nav.Note:' | translate}}</h4>
+        <p>{{'Settings.paragraph.admincanaddvarioustaxes' | translate}} </p>
+    </div>
+    <div class="flex filter-row">
+        <div class="filter-lft">
+            <h2> {{'Settings.Common.TotalTax' | translate}} ( {{ taxCount }} )</h2>
+        </div>
+        <!-- Search -->
+        <div class="filter-rht flex">
+            <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue">
+                <div class="added-filter-col flex" *ngIf="!empty.includes(filter.value)">
+                    <span>{{ filter.key }} : </span>
+                    <ng-container [ngSwitch]="filter.key">
+                        <ng-container *ngSwitchCase="'Date'">
+                            {{ filter.value | date: 'dd/MM/YYYY' }}
+                        </ng-container>
+                        <ng-container *ngSwitchCase="'Status'">
+                            {{ filter.value==1 ?'Active':'In-active'}}
+                        </ng-container>
+                        <ng-container *ngSwitchDefault>
+                            {{ filter.value }}
+                        </ng-container>
+                    </ng-container>
+                    <button (click)="removeFilter(filter)">
+                        <img src="assets/img/close.svg" alt="" />
+                    </button>
+                </div>
+            </div>
+            <div class="filter-search">
+                <form class="" (keyup.enter)="applyFilter()">
+                    <app-common-form [type]="dynamicObjControls?.search?.type"
+                        [control]="dynamicObjControls?.search?.control" [inputId]="dynamicObjControls?.search?.inputId"
+                        [placeholder]="dynamicObjControls?.search?.placeholder">
+                    </app-common-form>
+                </form>
+            </div>
+            <!-- Add Tax -->
+            <button class="button-reg primary btn-sm" (click)="addTax('','add')" [appHideIfUnauthorized]="'create-tax'">
+                + {{'Settings.Local.Tax.AddTax' | translate}}
+            </button>
+        </div>
+    </div>
+    <!-- Filter -->
+    <div class="flex product-wrap example-full-width">
+
+        <div class="product-table">
+            <!-- Loader -->
+            <div class="spinner-wrapper" style="display: flex;justify-content: center;justify-items: center;">
+                <app-global-loader [isShow]="sandbox.taxListLoading$ | async"
+                    style="transform: translate(58%, 18%);position:absolute"></app-global-loader>
+            </div>
+            <!--common table -->
+            <div class="table-responsive">
+                <app-common-table *ngIf="(sandbox.taxList$ | async)?.length > 0" [HeadArray]="dynamicColumnFields"
+                    [GridArray]="sandbox.taxList$ | async" (buttonChangeEvent)="buttonAction($event)"
+                    [customTemplate]="{productStatus:itemTemplateRef}">
+                </app-common-table>
+                <ng-template #itemTemplateRef let-item let-index="index">
+                    <app-common-badge
+                        [badge]="badgeStatusMappings.hasOwnProperty(item.isActive)?badgeStatusMappings[item.isActive]:''"></app-common-badge>
+                </ng-template>
+
+                  <!-- no data found -->
+                  <div class="nodata-found" *ngIf="(sandbox.taxList$ | async)?.length === 0 && sandbox.taxListLoaded$| async">
+                    <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+                    <h5>{{'Dashboard.NoDatafound'| translate}}</h5>
+                </div>
+                
+                <!--pagination -->
+                <div class="pagination flex" *ngIf="taxCount > limit">
+                    <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+                        [totalItems]="taxCount" [pageSize]="limit"
+                        (pageChange)="onPageChange($event)">
+                    </app-reusable-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

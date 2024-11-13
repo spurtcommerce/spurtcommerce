@@ -1,0 +1,81 @@
+<div class="local-content">
+    <div class="set-lay-notes flex">
+        <h4>{{'Settings.nav.Note:'|translate}}</h4>
+        <p>{{'Settings.nav.Superadmin'|translate}} </p>
+    </div>
+    <div class="flex filter-row">
+        <div class="filter-lft">
+            <h2> {{'Settings.Common.TotalUsers' | translate}} ( {{ sandbox.userPagination$ | async }} )</h2>
+        </div>
+        <div class="filter-rht flex">
+            <!-- filter -->
+            <div class="added-filter flex" *ngFor="let filter of backupFormValue | keyvalue; trackBy: trackByIndex">
+                <div class="added-filter-col flex filter-detail" *ngIf="!empty.includes(filter.value)">
+                    <span>{{ filter.key }} :{{filter.value}} </span>
+                    <button (click)="removeFilter(filter)">
+                        <img src="assets/img/close.svg" alt="" />
+                    </button>
+                </div>
+            </div>
+            <!--search filter -->
+            <div class="filter-search">
+                <form (keyup.enter)="applyFilter()">
+                    <div class="input-group">
+                        <div class="ig-row">
+                            <app-common-form [type]="dynamicObjControls?.Search?.type"
+                                [control]="dynamicObjControls?.Search?.control"
+                                [label]="dynamicObjControls?.Search?.label"
+                                [inputId]="dynamicObjControls?.Search?.inputId"
+                                [aliasName]="dynamicObjControls?.Search?.aliasName"
+                                [placeholder]="dynamicObjControls?.Search?.placeholder">
+                            </app-common-form>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <button class="button-reg primary btn-sm" (click)=" addNewUser('','add')"
+                [appHideIfUnauthorized]="'create-user'"> + {{'Settings.User.AddNewUser' | translate}}
+            </button>
+        </div>
+    </div>
+    <div class="flex product-wrap example-full-width" (keyup.Tab)="focusInput()">
+        <div class="product-table">
+            <!-- Loader -->
+            <div class="spinner-wrapper" style="display: flex;justify-content: center;justify-items: center;">
+                <app-global-loader [isShow]="sandbox.userListLoading$ | async"
+                    style="transform: translate(58%, 18%);position:absolute"></app-global-loader>
+            </div>
+            <div class="table-responsive">
+                <!-- common table -->
+                <app-common-table *ngIf="( sandbox.getUsersList$ | async)?.length > 0" [HeadArray]="dynamicColumnFields"
+                    [GridArray]="sandbox.getUsersList$ | async" (buttonChangeEvent)="buttonAction($event)"
+                    [customTemplate]="{productStatus:itemTemplateRef,firstandlastname:itempTemplateName,role:itemTemplateRefRole}">
+                </app-common-table>
+                <ng-template #itemTemplateRefRole let-item let-index="index">
+                    {{item.usergroup.name}}
+                </ng-template>
+                <ng-template #itempTemplateName let-item let-index="index">
+                    {{item.firstName +" "+item.lastName}}
+                </ng-template>
+                <ng-template #itemTemplateRef let-item let-index="index">
+                    <app-common-badge
+                        [badge]="badgeStatusMappings.hasOwnProperty(item.isActive)?badgeStatusMappings[item.isActive]:''"></app-common-badge>
+                </ng-template>
+            
+                  <!-- no data found -->
+                  <div class="nodata-found" *ngIf="(sandbox.getUsersList$ | async)?.length === 0">
+                    <span> <img src="assets/imgs/nodatafound.svg" alt=""> </span>
+                    <h5>{{'Dashboard.NoDatafound'| translate}}</h5>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination flex" *ngIf="( sandbox.userPagination$ | async) > limit">
+                    <app-reusable-pagination [type]="'numbers'" [currentPage]="currentPage"
+                        [totalItems]="sandbox.userPagination$ | async" [pageSize]="limit"
+                        (pageChange)="onPageChange($event)">
+                    </app-reusable-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

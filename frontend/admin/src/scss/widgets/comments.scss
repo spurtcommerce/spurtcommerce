@@ -1,0 +1,53 @@
+/*******************/
+/*Comment widgets*/
+/*******************/
+
+.comment-widgets {
+    position: relative;
+    margin-bottom: 10px;
+    .comment-row {
+        border-bottom:1px solid transparent;
+        padding: 14px;
+        display: flex;
+        margin: 10px 0;
+        &:last-child{
+            border-bottom:0px;
+        }
+        &:hover,
+        &.active {
+            background:$transparent-dark-bg; 
+        }
+    }
+}
+
+.comment-text {
+    padding-left: 15px;
+    width:100%;
+    &:hover .comment-footer,
+    &.active .comment-footer {
+        .action-icons {
+            visibility: visible;
+        }
+    }
+    p {
+        max-height: 65px;
+        width:100%;
+        overflow: hidden;
+        
+    } 
+}
+
+.comment-footer {
+    .action-icons {
+        visibility: hidden;
+        a {
+            padding-left: 7px;
+            vertical-align: middle;
+            color: $gray-500;
+            &:hover,
+            &.active {
+                color: $info;
+            }
+        }
+    }
+}

@@ -1,0 +1,111 @@
+<!-- // mmodal heading -->
+<div class="modal-heading">
+    <h3>{{'common.Update Bulk Info' | translate}}</h3>
+</div>
+<!-- // mmodal body Name and content in Single -->
+<div class="modal-body">
+
+    <div class="input-group mb-4" *ngIf="fulfillment !=='fulfillment'">
+        <label for="">
+            {{Name | translate}}
+            <p>{{Content | translate}}</p>
+            <!-- {{'common.OrderStatus' | translate}}
+            <p>{{'common.BulkUpdateDescription' | translate}}</p> -->
+        </label>
+        <div class="ig-row" *ngIf="action=='Single'">
+            <ng-select [items]="data" bindLabel="name" [(ngModel)]="Status" bindValue="id" placeholder="{{'common.Status'|translate}}">
+            </ng-select>
+        </div>
+
+
+    </div>
+
+
+
+
+    <ng-container *ngIf="fulfillment =='product'">
+        <div class="input-group mb-4">
+            <label for="">
+                Date Available From
+            </label>
+            <div class="ig-row">
+
+                <mat-form-field class="floating-date">
+                    <input matInput (dateChange)="onFromDateChange($event)"  [(ngModel)]="datePicker"  placeholder="{{'Dashboard.DateAvailableFrom'|translate}}"
+                        [matDatepicker]="dp1" readonly>
+                    <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                    <mat-datepicker #dp1></mat-datepicker>
+                    <mat-error></mat-error>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <div class="input-group mb-4">
+            <label for="">
+                Price
+            </label>
+            <div class="ig-row">
+                <input type="number" min="0" [(ngModel)]="price" placeholder="{{'Dashboard.Price'|translate}}"/>
+            </div>
+
+        </div>
+
+        <div class="input-group mb-4">
+            <label for="">
+                Inventory
+            </label>
+            <div class="ig-row">
+                <input type="number" min="0" [(ngModel)]="inventory" placeholder="{{'Dashboard.Inventory'|translate}}"/>
+            </div>
+
+        </div>
+
+    </ng-container>
+
+
+
+    <div class="input-group mb-4" *ngIf="fulfillment=='fulfillment'">
+        <label for="">
+            {{Name | translate}}
+            <p>{{Content | translate}}</p>
+            <!-- {{'common.OrderStatus' | translate}}
+            <p>{{'common.BulkUpdateDescription' | translate}}</p> -->
+        </label>
+        <div class="ig-row" *ngIf="action=='Single'">
+            <ng-select [items]="data" bindLabel="name" [(ngModel)]="Status" bindValue="id"  placeholder="{{'Dashboard.OrderStatus'|translate}}"
+                (change)="fulfillmentChange()">
+            </ng-select>
+        </div>
+
+
+    </div>
+
+
+    <div class="input-group mb-4" *ngIf="fulfillment=='fulfillment'">
+        <label for="">
+            Fullfillment Status
+
+            <!-- {{'common.OrderStatus' | translate}}
+            <p>{{'common.BulkUpdateDescription' | translate}}</p> -->
+        </label>
+        <div class="ig-row">
+            <ng-select [items]="option" bindLabel="name" [(ngModel)]="fulfillmentId" bindValue="id" placeholder="{{'Dashboard.FullfillmentStatus'|translate}}">
+            </ng-select>
+        </div>
+
+
+    </div>
+
+
+
+
+
+</div>
+
+<!-- // mmodal footer-->
+
+<div class="product-save-btn modal-save-btn">
+    <button class="cancel" (click)="close()">Cancel</button>
+    <button class="save" (click)="Save()">Update</button>
+</div>

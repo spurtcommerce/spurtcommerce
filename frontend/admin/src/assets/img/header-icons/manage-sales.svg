@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5052" data-name="Rectangle 5052" width="16" height="16" transform="translate(382 109)" fill="#fff" stroke="#fff" stroke-width="0.25"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_452" data-name="Mask Group 452" transform="translate(-382 -109)" clip-path="url(#clip-path)">
+    <g id="profit-growth" transform="translate(379.369 105.637)">
+      <path id="Path_5548" data-name="Path 5548" d="M15.7,6.963h-2.42a.316.316,0,0,0-.315.316V18.062a.316.316,0,0,0,.315.316H15.7a.317.317,0,0,0,.318-.316V7.279A.317.317,0,0,0,15.7,6.963Zm-2.105.632h1.79V17.746h-1.79Z" transform="translate(2.483 0.485)" fill="#fff" stroke="#fff" stroke-width="0.25" fill-rule="evenodd"/>
+      <path id="Path_5549" data-name="Path 5549" d="M12.347,8.72H9.925a.316.316,0,0,0-.315.316V17.6a.316.316,0,0,0,.315.316h2.423a.316.316,0,0,0,.315-.316V9.036a.316.316,0,0,0-.315-.316Zm-2.105.632H12.03v7.935H10.242Z" transform="translate(1.608 0.944)" fill="#fff" stroke="#fff" stroke-width="0.25" fill-rule="evenodd"/>
+      <path id="Path_5550" data-name="Path 5550" d="M9.309,10.794a.316.316,0,0,0-.315-.316H6.573a.315.315,0,0,0-.315.316v6.351a.315.315,0,0,0,.315.316h2.42a.316.316,0,0,0,.315-.316Zm-.631.316v5.719H6.889V11.11Z" transform="translate(0.734 1.402)" fill="#fff" stroke="#fff" stroke-width="0.25" fill-rule="evenodd"/>
+      <path id="Path_5551" data-name="Path 5551" d="M5.956,12.551a.315.315,0,0,0-.315-.316H3.22a.315.315,0,0,0-.315.316v4.135A.315.315,0,0,0,3.22,17h2.42a.315.315,0,0,0,.315-.316Zm-2.42.316h1.79v3.5H3.536Z" transform="translate(-0.141 1.861)" fill="#fff" stroke="#fff" stroke-width="0.25" fill-rule="evenodd"/>
+      <path id="Path_5552" data-name="Path 5552" d="M4.212,11.792a.394.394,0,0,1-.273-.158.316.316,0,0,1,.115-.431L14.8,5l-1.284-.254a.316.316,0,0,1,.122-.62l2.11.418a.318.318,0,0,1,.238.411L15.29,6.99a.32.32,0,0,1-.3.214.317.317,0,0,1-.3-.418l.423-1.24L4.369,11.75c-.049.028-.05.071-.158.042Z" transform="translate(0.118 -0.256)" fill="#fff" stroke="#fff" stroke-width="0.25" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<div [dir]="'languageKey.languagedirection' | translate">
+    <router-outlet></router-outlet>
+
+    <div *ngIf="status">
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="nointernet" *ngIf="!status">
+        <img src="assets/img/nointernet.svg" alt="">
+        <h2>{{'common.Oops'|translate}}!</h2>
+        <p>{{'common.No Internet connection found'|translate}}. <br>
+            {{'common.Check your connection or try again'|translate}} </p>
+    </div>
+</div>

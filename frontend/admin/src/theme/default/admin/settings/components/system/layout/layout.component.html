@@ -1,0 +1,28 @@
+<div class="setup-wrapper">
+
+    <div class="setup-container localization-container">
+
+        <div class="loc-lay-title">
+            <h3 class="page-title">{{'Settings.nav.System'|translate}}</h3>
+            <p class="text14">{{'Settings.nav.SystemSection'|translate}}</p>
+        </div>
+
+        <div class="card ap-general ap-info set-loc-card">
+            <ul class="nav-tabs nav"> 
+                <li class="nav-item"><a [routerLinkActive]="'active'" [routerLink]="['/settings/sitesettings/maintenance']" [appHideIfUnauthorized]="'edit-general-settings'" class="nav-link"> <span> {{'Settings.nav.Maintenance'|translate}} </span> </a></li>
+                <li class="nav-item"><a [routerLinkActive]="'active'" [routerLink]="['/settings/sitesettings/audit-log/list']" [appHideIfUnauthorized]="'audit-log'" class="nav-link"> <span> {{'Settings.nav.AuditLog'|translate}} </span></a>
+                <li class="nav-item"><a [appHideIfUnauthorized]="'edit-general-settings'" [routerLinkActive]="'active'" [routerLink]="['/settings/sitesettings/data-import']" class="nav-link"> <span> {{'Settings.nav.DataImport'|translate}} </span></a>
+                <li class="nav-item"><a [appHideIfUnauthorized]="'edit-general-settings'" [routerLinkActive]="'active'" [routerLink]="['/settings/sitesettings/data-export']" class="nav-link"> <span> {{'Settings.nav.DataExport'|translate}} </span></a>
+            </ul>          
+        </div>
+
+    
+
+    </div>
+
+</div>
+
+
+
+
+<router-outlet></router-outlet>

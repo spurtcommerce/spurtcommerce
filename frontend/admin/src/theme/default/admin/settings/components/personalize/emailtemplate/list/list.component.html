@@ -1,0 +1,62 @@
+<div class="local-content">
+    <div class="set-lay-notes flex">
+        <h4>{{'Settings.nav.Note:' | translate}}</h4>
+        <p>{{'Settings.paragraph.Forsendingnotifications' | translate}} </p>
+    </div>
+
+
+    <div class="setup-wrapper set-loc-wrapper">
+
+        <div class="setup-container localization-container">
+            <div class="card ap-general ap-info">
+                <div class="flex ap-body">
+
+                    <ul ngbNav style="width:100%;"  #nav="ngbNav">
+                        <li ngbNavItem>
+                            <ng-template ngbNavContent style="display: flex !important;">
+                                <div class="localize-header flex">
+                                    <div class="loc-hdr-lft">
+                                    </div>
+                                </div>
+
+                            <div class="setup-right">
+                                <div class="spinner-wrapper" style="display: flex;justify-content: center;justify-items: center;">
+                                    <app-global-loader [isShow]="sandbox.emailTempListLoading$ | async" style="transform: translate(58%, 18%);position:absolute"></app-global-loader>
+                                </div>
+                                <div class="product-table">
+                                    <div class="table-responsive">
+                                 
+                                        <app-common-table *ngIf="(sandbox.emailTempList$ | async)?.length > 0"
+                                            [HeadArray]="dynamicColumnFields" [GridArray]="sandbox.emailTempList$ | async"
+                                            (buttonChangeEvent)="buttonAction($event)" [customTemplate]="{productStatus:itemTemplateRef,itemsDynamic:dynamicFieldsRef,ElementEmailContent:elementEmailContent}">
+                                        </app-common-table>
+                                        <ng-template #itemTemplateRef let-item let-index="index">
+                                            <app-common-badge 
+                                               [badge]="badgeStatusMappings.hasOwnProperty(item.isActive)?badgeStatusMappings[item.isActive]:''"></app-common-badge>
+                                           </ng-template>
+                                           <ng-template #elementEmailContent let-item let-index="index">
+                                            <span >{{item.content}}</span>
+                                           </ng-template>
+                                           <ng-template #dynamicFieldsRef let-item let-index="index">
+                                            <span [innerHTML]="item.dynamicFieldsRef"></span>
+                                           </ng-template>
+                                    
+                                        <app-reusable-pagination  *ngIf="listCount > limit" [type]="'numbers'" [currentPage]="currentPage"
+                                        [totalItems]="listCount" [pageSize]="limit"
+                                        (pageChange)="onPageChange($event)">
+                                        </app-reusable-pagination>
+                                   
+                                    </div>
+                                </div>                                
+                            </div>
+                        </ng-template>
+                   
+
+                    </ul>
+                    <div [ngbNavOutlet]="nav" class="mt-2" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

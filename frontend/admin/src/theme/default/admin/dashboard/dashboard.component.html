@@ -1,0 +1,297 @@
+<div class="dashboard-wrapper">
+
+    <div class="dash-topper flex">
+        <div class="dast-col">
+            <div class="dastc-top flex">
+                <h4>{{'Dashboard.totalRevenue'| translate}}</h4>
+                <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" [(ngModel)]="totalRevenues" (change)="totalRevenue()">
+                    <ng-option value="1">{{'Dashboard.today'| translate}}</ng-option>
+                    <ng-option value="2">{{'Dashboard.thisWeek'| translate}}</ng-option>
+                    <ng-option value="3">{{'Dashboard.thisMonth'| translate}}</ng-option>
+                    <ng-option value="4">{{'Dashboard.thisYear'| translate}}</ng-option>
+                </ng-select>
+            </div>
+            <p></p>
+            <div class="flex dastc-vtm">
+                <span class="dastcbtm-ig"> <img src="assets/img/total-revenue.png" alt=""> </span>
+                <span *ngIf="(dashboardSandbox.totalRevenueLoading$ | async)" class="spinner-border spinner-border-sm " style="margin-left:20px" aria-hidden="true"></span>
+                <h2>{{((dashboardSandbox.totalRevenue$ | async)?.toString())
+                    < 0 ? ((dashboardSandbox.totalRevenue$ | async)?.toString())*-1 :((dashboardSandbox.totalRevenue$ | async)?.toString()) | currencysymbol}}</h2>
+            </div>
+        </div>
+        <div class="dast-col">
+            <div class="dastc-top flex">
+                <h4>{{'Dashboard.totalOrders'| translate}} </h4>
+                <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" (change)="totalOrders()" [(ngModel)]="totalorderscount">
+                    <ng-option value="1">{{'Dashboard.today'| translate}}</ng-option>
+                    <ng-option value="2">{{'Dashboard.thisWeek'| translate}}</ng-option>
+                    <ng-option value="3">{{'Dashboard.thisMonth'| translate}}</ng-option>
+                    <ng-option value="4">{{'Dashboard.thisYear'| translate}}</ng-option>
+                </ng-select>
+            </div>
+            <div class="flex dastc-vtm">
+                <span class="dastcbtm-ig"> <img src="assets/img/total-orders.png" alt=""> </span>
+                <span *ngIf="(dashboardSandbox.totalOrdersLoading$ | async)" class="spinner-border spinner-border-sm " style="margin-left:20px" aria-hidden="true"></span>
+                <h2>{{(dashboardSandbox.totalOrders$ | async)?.ordersCount}}</h2>
+                <h5>{{(dashboardSandbox.totalOrders$ | async)?.vendorsCount}} {{'Dashboard.vendors'| translate}}</h5>
+            </div>
+        </div>
+        <div class="dast-col">
+            <div class="dastc-top flex">
+                <h4>{{'Dashboard.newCustomers'| translate}}</h4>
+                <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" [(ngModel)]="newcustomerscount" (change)="newCustomers()">
+                    <ng-option value="1">{{'Dashboard.today'| translate}}</ng-option>
+                    <ng-option value="2">{{'Dashboard.thisWeek'| translate}}</ng-option>
+                    <ng-option value="3">{{'Dashboard.thisMonth'| translate}}</ng-option>
+                    <ng-option value="4">{{'Dashboard.thisYear'| translate}}</ng-option>
+                </ng-select>
+            </div>
+            <div class="flex dastc-vtm">
+                <span class="dastcbtm-ig"> <img src="assets/img/new-customers.png" alt=""> </span>
+                <span *ngIf="(dashboardSandbox.newCustomersLoading$ | async)" class="spinner-border spinner-border-sm " style="margin-left:20px" aria-hidden="true"></span>
+                <h2>{{(dashboardSandbox.newCustomers$ | async)}}</h2>
+            </div>
+        </div>
+        <div class="dast-col">
+            <div class="dastc-top flex">
+                <h4 style="margin-top: 8px;">{{'Dashboard.totalCustomers'| translate}}</h4>
+            </div>
+            <div class="flex dastc-vtm" style="margin-top: 23px;">
+                <span class="dastcbtm-ig"> <img src="assets/img/total-customers.png" alt=""> </span>
+                <span *ngIf="(dashboardSandbox.dashboardCountLoading$ | async)" class="spinner-border spinner-border-sm " style="margin-left:20px" aria-hidden="true"></span>
+                <h2>{{(dashboardSandbox.dashboardCount$ | async)?.customers}}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-main flex">
+
+        <div class="dm-lft">
+            <div class="dml-top flex">
+                <div class="dmlt-roe flex">
+                    <div class="dmlt-lft-img"><img src="assets/img/top-performing.png" alt=""></div>
+                    <div class="dmlt-lft-cont">
+                        <h3>{{'Dashboard.TopPerformingProducts'| translate}}</h3>
+                        <h4>{{(dashboardSandbox.getTopSellingProductListCount$ | async) }} {{'Dashboard.products'| translate}}</h4>
+
+                    </div>
+
+
+                    <ng-select style="margin-left: 7px;" name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" [(ngModel)]="topProducts" (change)="getTopSellingProductList()">
+                        <ng-option value="1">{{'Dashboard.today'| translate}}</ng-option>
+                        <ng-option value="2">{{'Dashboard.thisWeek'| translate}}</ng-option>
+                        <ng-option value="3">{{'Dashboard.thisMonth'| translate}}</ng-option>
+                        <ng-option value="4">{{'Dashboard.thisYear'| translate}}</ng-option>
+                    </ng-select>
+                </div>
+                <!-- row -->
+                <div class="dmlt-prd-list">
+                    <span *ngIf="(dashboardSandbox.topSellingProductsLoading$ | async)" class="spinner-border" style="position:absolute; margin-left: 130px; margin-top: 110px;" aria-hidden="true"></span>
+                    <div class="dmltprdlist-row flex" *ngFor="let topSellingProducts of dashboardSandbox.topSellingProducts$ | async">
+                        <div class="dmltprdlist-lft flex">
+                            <div class="dmltprdlist-lft-img">
+                                <img *ngIf="topSellingProducts" [src]="imageURL + '?path=' + topSellingProducts.containerName + '&name=' + topSellingProducts.image +'&width=40&height=40'" onError="this.src='assets/error-images/Load-icon-Products.png';" [alt]="topSellingProducts.productName"
+                                    (load)="topSellingImageLoading(topSellingProducts.productId)" [hidden]="!topSellingImage[topSellingProducts.productId]">
+                                <img src="./assets/error-images/Load-icon-Products.png" alt="error-img" [hidden]="topSellingImage[topSellingProducts.productId]">
+                            </div>
+                            <div class="dmltprdlist-lft-cont">
+                                <h3>{{topSellingProducts.productName | slice:0:51}}
+                                    <span style="margin-left: -2px" *ngIf="topSellingProducts.productName?.length > 51">...</span>
+                                </h3>
+                                <h4 *ngIf="topSellingProducts.companyName!==null">{{'Dashboard.Vendors'| translate}} : {{topSellingProducts.companyName}}</h4>
+                            </div>
+                        </div>
+                        <h2>{{topSellingProducts.topPerformingProductCount}} {{'Dashboard.nos'| translate}}</h2>
+                    </div>
+                    <h2 *ngIf="(dashboardSandbox.getTopSellingProductListCount$ | async)===0" style="font-size: 16px;width: 139px;margin: auto;margin-top: 31%;">{{'marketplace.product.NoProductsfound'| translate}}</h2>
+                    <!-- row -->
+                </div>
+                <!-- list -->
+            </div>
+            <!-- top -->
+            <div class="dml-btm">
+                <h3>{{'Dashboard.repeatedCustomers'| translate}} </h3>
+                <div class="dml-btm-row flex">
+                    <span *ngIf="(dashboardSandbox.recentVisitorListLoading$ | async)" class="spinner-border spinner-border-sm " style="margin-left:120px;margin:auto" aria-hidden="true"></span>
+                    <div class="dml-btm-col flex" *ngFor="let visitorList of dashboardSandbox.recentVisitorList$ | async">
+                        <div class="dmlbtmc-img">
+                            <img style="border-radius: 50%;width:24px;height:24px" [src]="imageURL + '?path=' + visitorList.avatarPath + '&name=' + visitorList.avatar +'&width=50&height=50'" onError="this.src='assets/error-images/Load-icon-Products.png';">
+                            <span>{{visitorList.orderCount}}</span> </div>
+                        <div class="dmlbtmc-content">
+                            <h4 style="overflow: hidden;">{{visitorList.firstName}}</h4>
+                            <p>{{visitorList.paymentCity}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- btm -->
+        </div>
+        <!-- lft -->
+
+        <div class="dm-rht">
+            <div class="dmr-top flex">
+                <div class="dmrt-col">
+                    <h4>{{'marketplace.seller.TotalVendors'| translate}}</h4>
+                    <span *ngIf="(dashboardSandbox.dashboardCountLoading$ | async)" class="spinner-border spinner-border-sm " aria-hidden="true"></span>
+                    <div class="flex dmrtc-rw">
+                        <h2>{{(dashboardSandbox.dashboardCount$ | async)?.vendors}}</h2>
+                    </div>
+                </div>
+                <!-- col -->
+                <div class="dmrt-col">
+                    <h4>{{'catalog.categories.TotalProduct'| translate}}</h4>
+                    <span *ngIf="(dashboardSandbox.dashboardCountLoading$ | async)" class="spinner-border spinner-border-sm " aria-hidden="true"></span>
+                    <div class="flex dmrtc-rw">
+                        <h2>{{(dashboardSandbox.dashboardCount$ | async)?.products}}</h2>
+                    </div>
+                </div>
+                <!-- col -->
+                <div class="dmrt-col">
+                    <h4>{{'Dashboard.averageorderValue'| translate}}</h4>
+                    <div class="flex dmrtc-rw">
+                        <span *ngIf="(dashboardSandbox.averageOrderValueLoading$ | async)" class="spinner-border spinner-border-sm " style="margin-left:20px" aria-hidden="true"></span>
+                        <h2>{{(dashboardSandbox.averageOrderValue$ | async) | currencysymbol }}</h2>
+                        <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" (change)="averageOrderValue()" [(ngModel)]="averagevalue">
+                            <ng-option value="1">{{'Dashboard.today'| translate}}</ng-option>
+                            <ng-option value="2">{{'Dashboard.thisWeek'| translate}}</ng-option>
+                            <ng-option value="3">{{'Dashboard.thisMonth'| translate}}</ng-option>
+                            <ng-option value="4">{{'Dashboard.thisYear'| translate}}</ng-option>
+                        </ng-select>
+                    </div>
+                </div>
+                <!-- col -->
+                <div class="dmrt-col">
+                    <h4>{{'Dashboard.averageConversionRatio'| translate}}</h4>
+                    <div class="flex dmrtc-rw">
+                        <span *ngIf="(dashboardSandbox.averageConversionRatioLoading$ | async)" class="spinner-border spinner-border-sm " style="margin-left:20px" aria-hidden="true"></span>
+                        <h2>{{(dashboardSandbox.averageConversionRatio$ | async)}}%</h2>
+                        <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" [(ngModel)]="averageConvertionRatios" (change)="averageConversionRatio()">
+                            <ng-option value="1">{{'Dashboard.today'| translate}}</ng-option>
+                            <ng-option value="2">{{'Dashboard.thisWeek'| translate}}</ng-option>
+                            <ng-option value="3">{{'Dashboard.thisMonth'| translate}}</ng-option>
+                            <ng-option value="4">{{'Dashboard.thisYear'| translate}}</ng-option>
+                        </ng-select>
+                    </div>
+                </div>
+                <!-- col -->
+            </div>
+            <!-- top -->
+            <div class="dmr-btm flex">
+
+                <div class="dmr-btm-lft">
+                    <div class="tabset">
+                        <!-- Tab 1 -->
+                        <input type="radio" (click)="salesgraph()" name="tabset" id="tab1" aria-controls="marzen" checked>
+                        <label for="tab1">{{'Sales.Orders.Sales'| translate}}</label>
+                        <!-- Tab 2 -->
+                        <input type="radio" (click)="getSalesOrderList()" name="tabset" id="tab2" aria-controls="rauchbier">
+                        <label for="tab2">{{'Dashboard.customerVisits'| translate}}</label>
+                        <!-- Tab 3 -->
+                        <input type="radio" (click)="vendor()" name="tabset" id="tab3" aria-controls="dunkles">
+                        <label for="tab3">{{'Dashboard.seller'| translate}}</label>
+                        <!-- Tab 4 -->
+                        <input type="radio" (click)="weeklysalesproduct()" name="tabset" id="tab4" aria-controls="sales">
+                        <label for="tab4">{{'Dashboard.10weeklySales'| translate}}</label>
+
+                        <div class="tab-panels">
+                            <section id="marzen" class="tab-panel">
+                                <div class="dmrbtop flex">
+                                    <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" [(ngModel)]="salesgraphyear" (change)="salesgraph()">
+                                        <ng-option value="{{yearr.Values}}" *ngFor="let yearr of year">{{yearr.name}}</ng-option>
+                                    </ng-select>
+                                    <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" [(ngModel)]="salesgraphmonth" (change)="salesgraph()">
+                                        <ng-option value="{{months.Values}}" *ngFor="let months of month">{{months.name}}</ng-option>
+                                    </ng-select>
+                                </div>
+                                <div class="spinner-wrapper">
+                                    <app-global-loader [isShow]="dashboardSandbox.salesgraphLoading$ | async"></app-global-loader>
+                                </div>
+                                <plotly-plot *ngIf="(dashboardSandbox.salesgraph$ | async)?.length> 0 && (dashboardSandbox.salesgraphLoaded$ | async)" [config]="salesconfig" [data]="salesdata" [layout]="saleslayout"></plotly-plot>
+                                <p class="no-data" *ngIf="(dashboardSandbox.salesgraph$ | async)?.length== 0 && (dashboardSandbox.salesgraphLoaded$ | async)">{{'Dashboard.NoDatafound'| translate}}</p>
+                            </section>
+                            <section id="rauchbier" class="tab-panel">
+                                <div class="dmrbtop flex">
+                                    <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" [(ngModel)]="customersVisityear" (change)="getSalesOrderList()">
+                                        <ng-option value="{{yearr.Values}}" *ngFor="let yearr of year">{{yearr.name}}</ng-option>
+                                    </ng-select>
+                                    <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" [(ngModel)]="customersVisitmonth" (change)="getSalesOrderList()">
+                                        <ng-option value="{{months.Values}}" *ngFor="let months of month">{{months.name}}</ng-option>
+                                    </ng-select>
+                                </div>
+                                <div class="spinner-wrapper">
+                                    <app-global-loader [isShow]="dashboardSandbox.salesOrderListLoading$ | async"></app-global-loader>
+                                </div>
+                                <plotly-plot *ngIf="(dashboardSandbox.salesOrderList$ | async)?.length> 0 && (dashboardSandbox.salesOrderListLoaded$ | async)" [config]="config" [data]="data" [layout]="layout"></plotly-plot>
+
+                                <p class="no-data" *ngIf="(dashboardSandbox.salesOrderList$ | async)?.length === 0 && (dashboardSandbox.salesOrderListLoaded$ | async)">{{'Dashboard.NoMonthlysalesfound'| translate}}</p>
+                            </section>
+                            <section id="dunkles" class="tab-panel dmrtab-vendor">
+                                <div class="dmrbtop flex">
+                                    <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" [(ngModel)]="vendorID" (change)="vendor()" placeholder="{{'placeholder.Choose Vendor'|translate}}">
+                                        <ng-option value="{{list.vendorId}}" *ngFor="let list of vendorList">{{list.customer.firstName}}</ng-option>
+                                    </ng-select>
+                                    <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" [(ngModel)]="vendorsyear" (change)="vendor()">
+                                        <ng-option value="{{yearr.Values}}" *ngFor="let yearr of year">{{yearr.name}}</ng-option>
+                                    </ng-select>
+                                </div>
+                                <div class="spinner-wrapper">
+                                    <app-global-loader [isShow]="dashboardSandbox.vendorLoading$ | async"></app-global-loader>
+                                </div>
+                                <div *ngIf="vendorDetails.productCount > 0 && !(dashboardSandbox.vendorLoading$ | async)" class="flex dmrtabvenrow">
+                                    <div class="dmrtabvenlft">
+                                        <h3>{{vendorDetails?.companyName}}</h3>
+                                        <p>{{'Sales.Orders.Products'| translate}} -{{vendorDetails?.productCount}}</p>
+                                        <p>{{'Dashboard.productsSold'| translate}} -{{vendorDetails?.productSoldCount}}</p>
+                                        <p>{{'Dashboard.outofStock'| translate}} -{{vendorDetails?.outOfStockCount}}</p>
+                                        <p>{{'Dashboard.delivered'| translate}} -{{vendorDetails?.deliveryCount}}</p>
+                                    </div>
+                                    <div class="dmrtabvenrht" class="dashboard-card-content">
+                                        <ngx-charts-pie-chart [results]="vendors" [view]="view" [scheme]="colorScheme" [gradient]="gradient" [legend]="false" [legendPosition]="legendPosition" [labels]="showLabels" [doughnut]="isDoughnut" [trimLabels]="false" [arcWidth]="-0.4">
+                                        </ngx-charts-pie-chart>
+                                    </div>
+                                </div>
+                                <div class="no-data" *ngIf="vendorDetails.productCount === 0">{{'Dashboard.NoDatafound' | translate}}</div>
+                            </section>
+                            <section id="sales" class="tab-panel dmrb-sales">
+                               
+                                <div class="rad-chart">
+
+                                    <div class="rad-chart-left">
+                                        <p class="checkbox-data" style="display: flex;" *ngFor="let item of top10weeklyproductlist;let i=index">
+                                            <input type="checkbox" [(ngModel)]="item.checked" (change)="checkboxweekly($event,item,i)" style="cursor: pointer; position: relative; top: 7px;">
+                                            <span class="product-name" ngbTooltip="{{item.productName}}" placement="top-left">{{item.productName}}
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="rad-chart-right">
+                                        <canvas *ngIf="top10weeklyproductlist?.length > 0" baseChart [datasets]="toptenweeklysalesdata" [labels]="demoradarChartLabels" [type]="'radar'" [options]="optionsradar" [legend]="false" width="300" height="300"></canvas></div>
+                                </div>
+                                <div class="no-data" *ngIf="top10weeklyproductlist?.length === 0">{{'Dashboard.NoDatafound'| translate}}</div>
+                            </section>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- lft -->
+
+                <div class="dmr-btm-rht">
+                    <div class="dmrbtop flex">
+                        <h3>{{'Dashboard.transaction'| translate}}</h3>
+                        <ng-select name="" id="" class="ng-sel-width" [searchable]="false" [clearable]="false" [(ngModel)]="transactionlistyear" (change)="transactionValues()">
+                            <ng-option value="{{yearr.Values}}" *ngFor="let yearr of year">{{yearr.name}}</ng-option>
+                        </ng-select>
+                    </div>
+                    <span *ngIf="(dashboardSandbox.transactionValuesLoading$ | async)" class="spinner-border" style="position:absolute; margin-left: 150px; margin-top: 110px;" aria-hidden="true"></span>
+                    <plotly-plot *ngIf="(dashboardSandbox.transactionValues$ | async)?.length> 0 && (dashboardSandbox.transactionValuesLoaded$ | async)" [data]="data1" [layout]="layout1" [config]="config1"></plotly-plot>
+                    <p class="no-data" *ngIf="(dashboardSandbox.transactionValues$ | async)?.length== 0 && (dashboardSandbox.transactionValuesLoaded$ | async)">{{'Dashboard.NoDatafound'| translate}}</p>
+                </div>
+                <!-- lft -->
+
+            </div>
+            <!-- tab -->
+        </div>
+        <!-- rht -->
+
+    </div>
+
+</div>

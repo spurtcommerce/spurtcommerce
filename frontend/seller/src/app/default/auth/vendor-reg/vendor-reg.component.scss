@@ -1,0 +1,131 @@
+.signin-col button.sign-btn{
+    width: 203px;
+        height: 47px;
+        border-radius: 3px;
+        background-color: #ec4e20;
+        line-height: 47px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        color: #fff;
+    }
+    p {
+        margin-top:0;
+        margin-bottom: 0rem;
+    }
+
+    * {
+        font-family: "Lato", sans-serif!important;
+    }
+
+
+    .error-symbol{
+        color: red;
+    }
+    
+    .disableClass{
+         opacity: 0.16;
+         cursor: default;
+    }
+    
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0; 
+    }
+    
+    input[type=number] {
+        -moz-appearance:textfield;
+    }
+    .error-color{
+    border-color: red
+    }
+    .text-colors{
+    color: red;
+    }
+     .error-color.did-floating-input:focus + .did-floating-label{
+        color: red;
+    }
+    .error-color{
+        ::ng-deep.ng-select-container{
+            border-color: red
+        }
+    }
+
+    
+button {
+    &.button-reg {
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px !important;
+        font-size: 12px;
+        font-weight: 600;
+        color: #fff;
+        border: 0;
+        gap: 10px;
+        padding-inline: 10px;
+        text-transform: capitalize;
+        cursor: pointer;
+
+        &.primary,
+        &.dark {
+            background-color: #000;
+        }
+
+        &.secondary {
+            background-color: transparent;
+            border: solid 1px #000;
+            color: #000;
+        }
+
+        // &.orange {
+        //     background-color: #fc7937;
+        //     color: white;
+        // }
+
+        &.cancel {
+            border: solid thin #D4D5D8;
+            background-color: #fff;
+            color: #4c4c4c;
+        }
+    }
+}
+:host ::ng-deep.fa,
+.fas {
+    margin-top: -15px !important;
+}
+
+    
+    .button-reg.primary{
+        gap: 5px !important;
+    }
+    .auth-form .auth-form-innr .auth-form-email button.button-reg.primary {
+        white-space: nowrap !important;
+    }
+    
+    .error-color.did-floating-input:focus+.did-floating-label {
+        color: red !important;
+    }
+    
+    .error-color.did-floating-input:not(:placeholder-shown)~.did-floating-label {
+        color: red !important;
+    }
+   
+    
+@media screen and (max-width: 1300px) {
+    .auth-form .auth-form-innr {
+        margin: 1rem auto 0;
+    }
+}
+    
+    
+.termsandcondition{
+    border: none;
+    background: none;
+    padding: 0px;
+}
+    

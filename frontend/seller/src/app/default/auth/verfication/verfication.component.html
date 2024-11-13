@@ -1,0 +1,32 @@
+
+<div class="login_wrapper">
+    <div class="login__logo"> <img src='assets/imgs/spurt-logo.svg' width={35} height={40} alt='' /> </div>
+    <div class="login__container">
+        <div class="login__content">
+            <form [formGroup]="loginForm">
+            <h2>Verification</h2>
+            <div class="did-floating-label-content mb-24">
+                <input class="did-floating-input" type="text" placeholder=" " (input)="changeemail()" (focusout)="focusouterrorShow()" formControlName="username" [ngClass]="{'error-color':(loginForm.controls['username'].hasError('required')  && submitted==true) || emailValidationVerification || emailInvalidShow}" (input)="emailValidationChange()">
+                <label class="did-floating-label">Enter Email</label>
+                <div *ngIf="(loginForm.controls['username'].hasError('required') && submitted==true )" class="error-data">{{'common.Email is required'|translate}}</div>
+                <div *ngIf="(loginForm.controls['username'].hasError('invalidEmail') && emailInvalidShow)" class="error-data">Incorrect Email.Please check the email you have entered.</div>
+                <div *ngIf="emailValidationVerification" class="error-data">Mismatch Email Id.Please check the email you have entered.</div>
+            </div>
+ 
+            <div class="did-floating-label-content password-content mb-10">
+                <input class="did-floating-input" (keyup.enter)="onLoginFormSubmit(loginForm.value)"  [type]="passwordFieldType" placeholder=" "  (keydown.space)="$event.preventDefault()" formControlName="password" (input)="passwordValidationChange()" [ngClass]="{'error-color':(loginForm.controls['password'].hasError('required') && submitted==true)|| passwordValidationVerification}">
+                <label class="did-floating-label">Enter Password</label>
+                <button class="show" type="button" (click)="togglePasswordVisibility()"> {{ showPassword ? 'Hide' : 'Show' }}
+                </button>
+                <div *ngIf="(loginForm.controls['password'].hasError('required') && submitted==true)" class="error-data">{{'common.Password is required'|translate}}</div>
+                <div *ngIf="passwordValidationVerification" class="error-data">Invalid Password.Please check the password you have entered.</div>
+            </div>
+            <button class='signin' [ngClass]="{disableClass: !loginForm.valid}" [disabled]="!loginForm.valid" (click)="onLoginFormSubmit(loginForm.value)" >Verify</button>
+        </form>
+        </div>
+
+    </div>
+    <div class='login__footer'>
+        © 2007-2023 Spurtcommerce eSolutions Private Limited. All rights reserved.
+    </div>
+</div>

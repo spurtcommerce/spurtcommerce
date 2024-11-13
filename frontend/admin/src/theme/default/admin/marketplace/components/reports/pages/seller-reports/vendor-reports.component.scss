@@ -1,0 +1,229 @@
+.cards {
+  padding: 0 30px;
+  min-height: 80vh;
+  margin-top: 0px;
+
+  .top-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    h3.title {
+      font-size: 20px;
+      font-weight: 500;
+      color: #000000;
+      margin-bottom: 0px;
+    }
+  }
+
+  .filter {
+    border-radius: 3px;
+    background-color: #fff;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+
+    .vr-filter-row {
+      width: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 10px;
+
+      &.form-group {
+        .form-group-col {
+          margin-right: 16px;
+        }
+      }
+    }
+
+    .vr-filter-row2 {
+      width: 100%;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      .vrfr-rht {
+        width: calc(100% - 120px);
+
+        .vrfr-rht-row {
+          width: 100%;
+          justify-content: flex-start;
+          align-items: flex-start;
+          gap: 1.25rem;
+        }
+
+        .selected-vendors-list {
+          justify-content: flex-start;
+          align-items: flex-start;
+          width: 100%;
+          margin: 16px 0;
+          position: relative;
+          padding-right: 40px;
+          gap: 10px;
+
+          a.clear-all {
+            position: absolute;
+            top: -5px;
+            right: -41px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #078e05;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .form-group {
+        max-width: 952px;
+        width: 100%;
+        background-color: #f8fbff;
+
+        .vrf-fg {
+          position: relative;
+          width: 100%;
+
+          .dropdown-menu {
+            width: 100%;
+            height: 128px;
+            overflow-y: auto;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
+            background-color: #fff;
+
+            form {
+              .form-group {
+                max-width: 100%;
+                background: transparent;
+                padding-left: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .form-group {
+      .custom-control {
+        .custom-control-label {
+          padding-left: 30px;
+          padding-top: 4px;
+        }
+      }
+
+      .hd {
+        font-size: 14px;
+        font-weight: normal;
+        color: #4a4a4a;
+        margin-bottom: 9px;
+      }
+    }
+  }
+
+  .export-btn {
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #f9f9f9;
+    margin: 40px 0 20px;
+
+    h4 {
+      font-size: 16px;
+      font-weight: 500;
+      color: #646464;
+      line-height: 1.19;
+      margin: 0;
+
+      span {
+        color: #000;
+      }
+    }
+
+    button {
+      // width: 88px;
+      // height: 32px;
+      // border-radius: 3px;
+      // border: solid 0px #3283ec;
+      // background-color: white;
+      // box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
+      // line-height: 32px;
+      // font-size: 14px;
+      // font-weight: 400;
+      // color: #3585ed;
+      // text-align: center;
+      img {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .vr-wrap {
+    border-radius: 3px;
+    box-shadow: 0 2px 4px 0 #0000001d;
+    background-color: white;
+
+    .vr-tit {
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: #404040;
+      padding: 20px 20px 10px;
+
+      span {
+        font-size: 15px;
+        font-weight: normal;
+        color: #404040;
+        margin-left: 80px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .mat-form-field-wrapper {
+  padding-bottom: unset !important;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+  padding: unset !important;
+}
+
+.vr-table-container {
+  border-radius: 3px;
+  border: solid 1px #f3f3f3;
+  background-color: #fff;
+  margin-bottom: 16px;
+
+  h3 {
+    padding: 12px 16px;
+    border-radius: 3px;
+    border: solid 1px #f2f2f2;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+    margin: 0;
+
+    span {
+      font-size: 20px;
+      font-weight: 500;
+      color: #000;
+      margin-left: 8px;
+    }
+  }
+}
+
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.custom-control .custom-control-label::after {
+  content: "";
+  position: absolute;
+  top: 6px !important;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  transform: rotate(45deg);
+}
