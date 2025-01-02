@@ -121,9 +121,11 @@ Completion of above steps should successfully setup frontend builds of all 3 pan
 * Vendor Panel can be accessed by http://{your-domian or IP}/vendor/#/auth/login 
 * Admin panel be accessed by http://{your-domian or IP}:{your-port}/admin/#/auth/login
 
-# Default Admin Panel Loging Details
+## Default Admin Panel Login Details
 
+<br />
 Username : "marketplace@spurtcart.com" 
+<br />
 Password : "Piccosoft2012"
 
 Above steps concludes successful installation and setup of Spurtcommerce Marketplace solution build in your local (or) server.
