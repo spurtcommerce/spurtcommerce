@@ -7,7 +7,6 @@ api/*.log*
 # Node files #
 api/node_modules/
 api/npm-debug.log
-api/package-lock.json
 api/yarn-error.log
 
 # OS generated files #
