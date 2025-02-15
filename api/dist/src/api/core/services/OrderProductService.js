@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -66,6 +66,12 @@ let OrderProductService = class OrderProductService {
     buyedCount(id, customerId) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             return yield this.orderProductRepository.buyedCount(id, customerId);
+        });
+    }
+    // getting buyed count
+    buyedCountBySku(sku, customerId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.orderProductRepository.buyedCountBySku(sku, customerId);
         });
     }
     // count

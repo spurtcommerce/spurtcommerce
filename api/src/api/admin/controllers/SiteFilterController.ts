@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -255,7 +255,7 @@ export class SiteFilterController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/site-filter-list')
-    @Authorized(['admin', 'filter-list'])
+    @Authorized(['admin'])
     public async siteFilterList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
         const select = ['id', 'filterName'];
         const relation = [];

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -111,6 +111,7 @@ let CategoryController = class CategoryController {
                 containerName: name,
                 containerPath: path,
                 parentInt: category.parentInt,
+                industryId: category.industryId,
                 sortOrder: category.sortOrder,
                 categorySlug: category.categorySlug,
                 categoryDescription: category.categoryDescription,
@@ -168,7 +169,6 @@ let CategoryController = class CategoryController {
      */
     updateCategory(category, response, request) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            console.log('update:', category);
             const categoryId = yield this.categoryService.findOne({
                 where: {
                     categoryId: category.categoryId,
@@ -207,6 +207,7 @@ let CategoryController = class CategoryController {
             }
             categoryId.parentInt = category.parentInt;
             categoryId.sortOrder = category.sortOrder;
+            categoryId.industryId = category.industryId;
             const metaTagTitle = category.categorySlug ? category.categorySlug : category.name;
             const slug = metaTagTitle.trim();
             const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
@@ -389,55 +390,10 @@ let CategoryController = class CategoryController {
      * @apiErrorExample {json} Category error
      * HTTP/1.1 500 Internal Server Error
      */
-    categorylist(limit, offset, keyword, sortOrder, status, count, name, response) {
+    categorylist(limit, offset, keyword, sortOrder, status, count, name, industryId, response) {
         var _a;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const listCategory = yield (0, product_1.categoryList)((0, typeorm_1.getConnection)(), limit, offset, keyword, status, name, sortOrder);
-            return response.status(listCategory.status ? 200 : 400).send({
-                status: listCategory.status,
-                message: listCategory.message,
-                data: (_a = listCategory.data) !== null && _a !== void 0 ? _a : undefined,
-            });
-        });
-    }
-    // Category List API
-    /**
-     * @api {get} /api/category Category List API
-     * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} name name
-     * @apiParam (Request body) {Number} sortOrder sortOrder
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {String} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "successfully got the complete category list",
-     *      "status": "1"
-     *      "data":"[{
-     *              "categoryId": "",
-     *              "sortOrder": "",
-     *              "parentInt": "",
-     *              "name": "",
-     *              "image": "",
-     *              "imagePath": "",
-     *              "isActive": "",
-     *              "createdDate": "",
-     *              "categorySlug": "",
-     *              "levels": ""
-     *               }]"
-     * }
-     * @apiSampleRequest /api/category
-     * @apiErrorExample {json} Category error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    categorylistBySite(limit, offset, keyword, sortOrder, status, count, name, response) {
-        var _a;
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const listCategory = yield (0, product_1.categoryList)((0, typeorm_1.getConnection)(), limit, offset, keyword, status, name, sortOrder);
+            const listCategory = yield (0, product_1.categoryList)((0, typeorm_1.getConnection)(), limit, offset, keyword, status, name, sortOrder, industryId);
             return response.status(listCategory.status ? 200 : 400).send({
                 status: listCategory.status,
                 message: listCategory.message,
@@ -764,8 +720,8 @@ let CategoryController = class CategoryController {
             // Add export log
             const newExportLog = new ExportLog_1.ExportLog();
             newExportLog.module = 'Product Categories';
-            newExportLog.recordAvailable = categoryLists.length;
-            newExportLog.createdBy = 1;
+            newExportLog.referenceType = 1;
+            newExportLog.referenceId = request.user.userId;
             yield this.exportLogService.create(newExportLog);
             return new Promise((resolve, reject) => {
                 response.download(fileName, (err, data) => {
@@ -958,26 +914,12 @@ tslib_1.__decorate([
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
     tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
     tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('name')),
-    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('industryId')),
+    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object, String, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object, String, Number, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CategoryController.prototype, "categorylist", null);
-tslib_1.__decorate([
-    (0, routing_controllers_1.Get)(),
-    (0, routing_controllers_1.Authorized)(),
-    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
-    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
-    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('sortOrder')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
-    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('name')),
-    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object, String, Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], CategoryController.prototype, "categorylistBySite", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/category-intree'),
     (0, routing_controllers_1.Authorized)(),

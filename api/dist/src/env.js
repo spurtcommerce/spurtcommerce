@@ -4,7 +4,7 @@ exports.gcp = exports.sms = exports.aws_setup = exports.mail = exports.env = voi
 const tslib_1 = require("tslib");
 /*
  * SpurtCommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -73,14 +73,12 @@ exports.env = {
     },
     imageserver: (0, env_1.getOsEnv)('IMAGE_SERVER'),
     imageUploadSize: (0, env_1.getOsEnv)('IMAGE_UPLOAD_SIZE'),
-    storeUrl: (0, env_1.getOsEnv)('STORE_URL'),
-    cancelUrl: (0, env_1.getOsEnv)('CANCEL_URL'),
     baseUrl: (0, env_1.getOsEnv)('BASE_URL'),
     storeRedirectUrl: (0, env_1.getOsEnv)('STORE_REDIRECT_URL'),
     adminRedirectUrl: (0, env_1.getOsEnv)('ADMIN_REDIRECT_URL'),
     vendorRedirectUrl: (0, env_1.getOsEnv)('VENDOR_REDIRECT_URL'),
     storeForgetPasswordLink: (0, env_1.getOsEnv)('STORE_FORGET_PASSWORD_URL'),
-    vendorForgetPasswordLink: (0, env_1.getOsEnv)('FORGET_PASSWORD_URL'),
+    vendorForgetPasswordLink: (0, env_1.getOsEnv)('VENDOR_FORGET_PASSWORD_URL'),
     adminForgetPasswordLink: (0, env_1.getOsEnv)('ADMIN_FORGET_PASSWORD_URL'),
     productRedirectUrl: (0, env_1.getOsEnv)('PRODUCT_REDIRECT_URL'),
     categoryRedirectUrl: (0, env_1.getOsEnv)('CATEGORY_REDIRECT_URL'),

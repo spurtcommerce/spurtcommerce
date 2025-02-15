@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -18,7 +18,6 @@ import { Country } from './Country';
 import { IsNotEmpty } from 'class-validator';
 import { ProductViewLog } from './productViewLog';
 import { CustomerCart } from './CustomerCart';
-import { ExportLog } from './ExportLog';
 
 @Entity('customer')
 export class Customer extends BaseModel {
@@ -154,9 +153,6 @@ export class Customer extends BaseModel {
 
     @OneToMany(type => Order, order => order.customer)
     public order: Order[];
-
-    @OneToOne(type => ExportLog, exportLog => exportLog.user)
-    public exportLog: ExportLog;
 
     @OneToMany(type => ProductViewLog, productviewlog => productviewlog.customer)
     public productviewlog: ProductViewLog[];

@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -116,6 +116,7 @@ export class CategoryController {
             containerName: name,
             containerPath: path,
             parentInt: category.parentInt,
+            industryId: category.industryId,
             sortOrder: category.sortOrder,
             categorySlug: category.categorySlug,
             categoryDescription: category.categoryDescription,
@@ -175,7 +176,7 @@ export class CategoryController {
     @Put('/:id')
     @Authorized(['admin', 'edit-category'])
     public async updateCategory(@Body({ validate: true }) category: UpdateCategoryRequest, @Res() response: any, @Req() request: any): Promise<Category> {
-        console.log('update:', category);
+
         const categoryId = await this.categoryService.findOne({
             where: {
                 categoryId: category.categoryId,
@@ -215,6 +216,7 @@ export class CategoryController {
         }
         categoryId.parentInt = category.parentInt;
         categoryId.sortOrder = category.sortOrder;
+        categoryId.industryId = category.industryId;
         const metaTagTitle = category.categorySlug ? category.categorySlug : category.name;
         const slug = metaTagTitle.trim();
         const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
@@ -403,62 +405,17 @@ export class CategoryController {
      */
     @Get()
     @Authorized()
-    public async categorylist(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('sortOrder') sortOrder: number, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @QueryParam('name') name: string, @Res() response: any): Promise<any> {
-        const listCategory = await categoryList (
-            getConnection(),
-            limit,
-            offset,
-            keyword,
-            status,
-            name,
-            sortOrder
-        );
-
-        return response.status(listCategory.status ? 200 : 400).send({
-            status: listCategory.status,
-            message: listCategory.message,
-            data: listCategory.data ?? undefined,
-        });
-    }
-
-    // Category List API
-    /**
-     * @api {get} /api/category Category List API
-     * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} name name
-     * @apiParam (Request body) {Number} sortOrder sortOrder
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {String} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "successfully got the complete category list",
-     *      "status": "1"
-     *      "data":"[{
-     *              "categoryId": "",
-     *              "sortOrder": "",
-     *              "parentInt": "",
-     *              "name": "",
-     *              "image": "",
-     *              "imagePath": "",
-     *              "isActive": "",
-     *              "createdDate": "",
-     *              "categorySlug": "",
-     *              "levels": ""
-     *               }]"
-     * }
-     * @apiSampleRequest /api/category
-     * @apiErrorExample {json} Category error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get()
-    @Authorized()
-    public async categorylistBySite(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('sortOrder') sortOrder: number, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @QueryParam('name') name: string, @Res() response: any): Promise<any> {
-
+    public async categorylist(
+        @QueryParam('limit') limit: number,
+        @QueryParam('offset') offset: number,
+        @QueryParam('keyword') keyword: string,
+        @QueryParam('sortOrder') sortOrder: number,
+        @QueryParam('status') status: string,
+        @QueryParam('count') count: number | boolean,
+        @QueryParam('name') name: string,
+        @QueryParam('industryId') industryId: number,
+        @Res() response: any
+    ): Promise<any> {
         const listCategory = await categoryList(
             getConnection(),
             limit,
@@ -466,7 +423,8 @@ export class CategoryController {
             keyword,
             status,
             name,
-            sortOrder
+            sortOrder,
+            industryId
         );
 
         return response.status(listCategory.status ? 200 : 400).send({
@@ -794,8 +752,8 @@ export class CategoryController {
         // Add export log
         const newExportLog = new ExportLog();
         newExportLog.module = 'Product Categories';
-        newExportLog.recordAvailable = categoryLists.length;
-        newExportLog.createdBy = 1;
+        newExportLog.referenceType = 1;
+        newExportLog.referenceId = request.user.userId;
         await this.exportLogService.create(newExportLog);
         return new Promise((resolve, reject) => {
             response.download(fileName, (err, data) => {

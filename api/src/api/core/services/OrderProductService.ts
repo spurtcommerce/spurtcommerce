@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -66,6 +66,11 @@ export class OrderProductService {
     // getting buyed count
     public async buyedCount(id: number, customerId: number): Promise<any> {
         return await this.orderProductRepository.buyedCount(id, customerId);
+    }
+
+    // getting buyed count
+    public async buyedCountBySku(sku: string, customerId: number): Promise<any> {
+        return await this.orderProductRepository.buyedCountBySku(sku, customerId);
     }
 
     // count

@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -117,7 +117,7 @@ export class CustomerController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post()
-    @Authorized(['admin', 'create-customer'])
+    @Authorized(['admin', 'create-buyer'])
     public async addCustomer(@Body({ validate: true }) customerParam: CreateCustomer, @Res() response: any): Promise<any> {
         const newCustomer: any = new Customer();
         const resultUser = await this.customerService.findOne({ where: { email: customerParam.email, deleteFlag: 0 } });
@@ -214,7 +214,7 @@ export class CustomerController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get()
-    @Authorized(['admin-vendor', 'list-customer'])
+    @Authorized(['admin-vendor', 'list-buyer'])
     public async customerList(
         @QueryParam('limit') limit: number,
         @QueryParam('offset') offset: number,
@@ -367,7 +367,7 @@ export class CustomerController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Put('/:id')
-    @Authorized(['admin', 'edit-customer'])
+    @Authorized(['admin', 'update-buyer'])
     public async updateCustomer(@Param('id') id: number, @Body({ validate: true }) customerParam: UpdateCustomer, @Res() response: any): Promise<any> {
         const customer = await this.customerService.findOne({
             where: {
@@ -505,7 +505,7 @@ export class CustomerController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/customer-detail/:id')
-    @Authorized(['admin', 'view-customer'])
+    @Authorized(['admin', 'list-buyer'])
     public async customerDetails(@Param('id') Id: number, @Res() response: any): Promise<any> {
         const customer = await this.customerService.findOne({
             select: ['id', 'firstName', 'email', 'mobileNumber', 'address', 'lastLogin', 'isActive', 'mailStatus', 'customerGroupId', 'avatar', 'avatarPath', 'siteId', 'createdDate', 'modifiedDate'],
@@ -637,7 +637,7 @@ export class CustomerController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/delete-customer')
-    @Authorized(['admin', 'delete-customer'])
+    @Authorized(['admin', 'delete-buyer'])
     public async deleteMultipleCustomer(@Body({ validate: true }) deleteCustomerId: DeleteCustomerRequest, @Req() request: any, @Res() response: any): Promise<any> {
         const customers = deleteCustomerId.customerId.toString();
         const customer: any = customers.split(',');
@@ -708,7 +708,7 @@ export class CustomerController {
      */
 
     @Get('/customer-excel-list')
-    @Authorized(['admin', 'export-customer'])
+    @Authorized(['admin'])
     public async excelCustomerView(@QueryParam('customerId') customerId: string, @QueryParam('status') status: string, @Req() request: any, @Res() response: any): Promise<any> {
         const excel = require('exceljs');
         const workbook = new excel.Workbook();
@@ -774,7 +774,8 @@ export class CustomerController {
         const newExportLog = new ExportLog();
         newExportLog.module = 'Manage Customers';
         newExportLog.recordAvailable = customerid.length;
-        newExportLog.createdBy = request.user.userId;
+        newExportLog.referenceId = request.user.userId;
+        newExportLog.referenceType = 1;
         await this.exportLogService.create(newExportLog);
         return new Promise((resolve, reject) => {
             response.download(fileName, (err, data) => {
@@ -811,7 +812,7 @@ export class CustomerController {
      */
 
     @Get('/allcustomer-excel-list')
-    @Authorized(['admin', 'export-all-customer'])
+    @Authorized(['admin'])
     public async AllCustomerExcel(@QueryParam('name') name: string, @QueryParam('status') status: string, @QueryParam('email') email: string, @QueryParam('customerGroup') customerGroup: string, @QueryParam('date') date: string, @Req() request: any, @Res() response: any): Promise<any> {
         const excel = require('exceljs');
         const workbook = new excel.Workbook();
@@ -1291,6 +1292,7 @@ export class CustomerController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/bulk-status')
+    @Authorized()
     public async updateVendorCustomerStatus(@Body({ validate: true }) params: { customerIds: number[], statusId: number }, @Res() response: any): Promise<any> {
         const customerIds = params.customerIds;
         const updateCustomerValue = [];

@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -78,7 +78,6 @@ export function authorizationChecker(connection: Connection): (action: Action, r
                 return false;
             }
             const routeName = roles[1];
-            console.log(routeName + 'routeName');
             const userGroupId = (action.request.user && action.request.user.userGroupId) ? action.request.user.userGroupId : undefined;
             if (userGroupId) {
                 const getUserGroup = await authService.validateUserGroup(userGroupId);
@@ -87,13 +86,9 @@ export function authorizationChecker(connection: Connection): (action: Action, r
                         return true;
                     } else {
                         if (routeName) {
-                            let permissions;
-                            if (action.request.user.permission) {
-                                permissions = action.request.user.permission ? JSON.parse(action.request.user.permission) : {};
-                            } else {
-                                permissions = getUserGroup.permission ? JSON.parse(getUserGroup.permission) : {};
-                            }
-                            if (permissions) {
+                            const permissions = action.request.user.permission ? JSON.parse(action.request.user.permission) : {};
+                            const rolePermission = getUserGroup.permission ? JSON.parse(getUserGroup.permission) : {};
+                            if (!rolePermission[routeName]) {
                                 if (!permissions[routeName]) {
                                     log.warn('Forbidden');
                                     return false;

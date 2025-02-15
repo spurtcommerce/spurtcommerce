@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -309,6 +309,7 @@ export class SettingController {
      * @apiParam (Request body) {String} instagram instagram
      * @apiParam (Request body) {String} google google
      * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {String} timeZone time zone
      * @apiParamExample {json} Input
      * {
      *      "siteUrl" : "",
@@ -338,6 +339,7 @@ export class SettingController {
      *      "instagram" : "",
      *      "facebook" : "",
      *      "twitter" : "",
+     *      "timeZone": "",
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
@@ -404,6 +406,7 @@ export class SettingController {
      *        "countryIds": [
      *                   ""
      *           ]
+     *        "timeZone": "",
      *       }
      * }
      * @apiSampleRequest /api/settings
@@ -458,6 +461,7 @@ export class SettingController {
             newSettings.dateFormat = settings.dateFormat;
             newSettings.timeFormat = settings.timeFormat;
             newSettings.defaultCountry = settings.defaultCountry;
+            newSettings.timeZone = settings.timeZone;
             if (settings.defaultWebsite) {
                 const settingsUpdate = new Settings();
                 settingsUpdate.defaultWebsite = 0;
@@ -683,6 +687,7 @@ export class SettingController {
             settingValue.defaultWebsite = settings.defaultWebsite;
             settingValue.pendingStatus = settings.pendingStatus;
             settingValue.accessKey = settings.accessKey?.trim();
+            settingValue.timeZone = settings.timeZone;
             if (settings.siteCategory?.trim()) {
                 const newCategory: string[] = settings.siteCategory.split(',');
                 settingValue.siteCategory = newCategory.toString();

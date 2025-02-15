@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -56,7 +56,13 @@ let AdminPermissionController = class AdminPermissionController {
     permissionList(limit, offset, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = ['moduleGroupId', 'name', 'slugName', 'sortOrder'];
-            const search = [];
+            const search = [
+                {
+                    name: 'name',
+                    op: 'not-in',
+                    value: ['Data Export', 'Product'],
+                },
+            ];
             const WhereConditions = [];
             const permissionModuleGroupList = yield this.permissionModuleGroupService.list(limit, offset, select, search, WhereConditions, count);
             if (count) {
@@ -68,8 +74,27 @@ let AdminPermissionController = class AdminPermissionController {
                 return response.status(200).send(successRes);
             }
             const promise = permissionModuleGroupList.map((result) => tslib_1.__awaiter(this, void 0, void 0, function* () {
-                const permissionModule = yield this.permissionModuleService.findAll({ select: ['moduleId', 'moduleGroupId', 'name', 'slugName'], where: { moduleGroupId: result.moduleGroupId }, orderBy: { sortOrder: 'ASC' } });
-                const temp = result;
+                const permissionModuleList = yield this.permissionModuleService.findAll({
+                    select: ['moduleId', 'moduleGroupId', 'name', 'slugName'],
+                    where: { moduleGroupId: result.moduleGroupId },
+                    orderBy: { sortOrder: 'ASC' },
+                });
+                const permissionModule = permissionModuleList.filter((module) => {
+                    // Remove the module if 'slugName' contains 'export'
+                    if (module.slugName.includes('export')) {
+                        return false; // Return false to filter out the module
+                    }
+                    // if (module.slugName.includes('import')) {
+                    //     return false;  // Return false to filter out the module
+                    // }
+                    // Otherwise, add 'isList' based on whether 'slugName' includes 'list'
+                    if (module.slugName !== 'settlement-report-list') {
+                        module.isList = module.slugName.includes('list');
+                    }
+                    return true; // Keep the module
+                });
+                // Add permissionModule to result
+                const temp = Object.assign({}, result);
                 temp.permissionModule = permissionModule;
                 return temp;
             }));
@@ -153,7 +178,7 @@ let AdminPermissionController = class AdminPermissionController {
                     };
                     return response.status(400).send(errorResponse);
                 }
-                if (request.user.userId !== refId) {
+                if (request.user.userId === refId) {
                     const errorResponse = {
                         status: 0,
                         message: 'Permission denied to perform this action',
@@ -284,8 +309,9 @@ let AdminPermissionController = class AdminPermissionController {
     }
 };
 tslib_1.__decorate([
-    (0, routing_controllers_1.Get)('/list'),
-    (0, routing_controllers_1.Authorized)(),
+    (0, routing_controllers_1.Get)('/list')
+    // @Authorized()
+    ,
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('count')),

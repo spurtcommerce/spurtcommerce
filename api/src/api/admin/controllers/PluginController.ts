@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -197,9 +197,9 @@ export class PluginController {
         });
     }
 
-    // Update Plugin
+    // Update Plugin API
     /**
-     * @api {put} /api/plugins/logo/:id Update Plugin API
+     * @api {put} /api/plugins/additional-info/:id Update Plugin API
      * @apiGroup Product
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} pluginAdditionalInfo
@@ -210,11 +210,11 @@ export class PluginController {
      *      "message": "Successfully updated plugin",
      *      "data":"{}"
      * }
-     * @apiSampleRequest /api/plugins/logo/:id
+     * @apiSampleRequest /api/plugins/additional-info/:id
      * @apiErrorExample {json} plugin update error
      * HTTP/1.1 500 Internal Server Error
      */
-    @Put('/logo/:id')
+    @Put('/additional-info/:id')
     public async updatePlugin(@Param('id') id: number, @Body({ validate: true }) payload: any, @Res() response: any): Promise<any> {
 
         const plugin: Plugins = await this.pluginService.findOne({
@@ -236,7 +236,7 @@ export class PluginController {
 
         return response.status(200).send({
             status: 1,
-            message: `Successfully updated plugin`,
+            message: `Successfully updated plugin.`,
             data: pluginSave,
         });
 

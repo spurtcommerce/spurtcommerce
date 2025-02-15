@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -30,6 +30,8 @@ export class AddCategory {
     public status: number;
 
     public categorySlug: string;
+
+    public industryId: number;
 
     public categoryDescription: string;
 }

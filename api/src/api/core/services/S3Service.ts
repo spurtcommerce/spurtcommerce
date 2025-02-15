@@ -1,6 +1,6 @@
 /*
  * SpurtCommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -117,13 +117,13 @@ export class S3Service {
 
         const byteArray = await response.Body.transformToByteArray();
         const buffer = Buffer.from(byteArray);
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
             const gm = require('gm').subClass({ imageMagick: true });
             return gm(buffer)
                 .resize(widthString, heightString)
                 .toBuffer((error: any, data: any) => {
                     if (error) {
-                        throw error;
+                        return reject(error);
                     } else {
                         return resolve(data);
                     }
@@ -266,7 +266,7 @@ export class S3Service {
 
         const command = new GetObjectCommand({
             Bucket: aws_setup.AWS_BUCKET,
-            Key: folderName + '/' + dataFile,
+            Key: folderName + dataFile,
         });
 
         try {

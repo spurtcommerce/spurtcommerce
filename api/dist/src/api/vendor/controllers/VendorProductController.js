@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -45,6 +45,8 @@ const ImageService_1 = require("../../core/services/ImageService");
 const CategoryPathService_1 = require("../../core/services/CategoryPathService");
 const VendorProductAdditionalFileService_1 = require("../../../../src/api/core/services/VendorProductAdditionalFileService");
 const pluginLoader_1 = require("../../../loaders/pluginLoader");
+const ProductController_1 = require("../../admin/controllers/ProductController");
+const VendorBulkImportRequest_1 = require("./requests/VendorBulkImportRequest");
 const uncino_1 = tslib_1.__importDefault(require("uncino"));
 const VendorProductAdditionalFileModel_1 = require("../../../../src/api/core/models/VendorProductAdditionalFileModel");
 const typeorm_1 = require("typeorm");
@@ -55,7 +57,7 @@ const UserService_1 = require("../../../api/core/services/UserService");
 const mail_services_1 = require("../../../auth/mail.services");
 const hooks = (0, uncino_1.default)();
 let VendorProductController = class VendorProductController {
-    constructor(productService, s3Service, productToCategoryService, productImageService, categoryService, vendorProductAdditionalFileService, productDiscountService, productSpecialService, orderProductService, customerService, vendorService, skuService, vendorProductService, productTirePriceService, productVideoService, categoryPathService, imageService, emailTemplateService, settingService, userService) {
+    constructor(productService, s3Service, productToCategoryService, productImageService, categoryService, vendorProductAdditionalFileService, productDiscountService, productSpecialService, orderProductService, customerService, vendorService, skuService, vendorProductService, productTirePriceService, productVideoService, categoryPathService, imageService, productController, bulkImport, emailTemplateService, settingService, userService) {
         this.productService = productService;
         this.s3Service = s3Service;
         this.productToCategoryService = productToCategoryService;
@@ -73,6 +75,8 @@ let VendorProductController = class VendorProductController {
         this.productVideoService = productVideoService;
         this.categoryPathService = categoryPathService;
         this.imageService = imageService;
+        this.productController = productController;
+        this.bulkImport = bulkImport;
         this.emailTemplateService = emailTemplateService;
         this.settingService = settingService;
         this.userService = userService;
@@ -1402,6 +1406,287 @@ let VendorProductController = class VendorProductController {
                 data: value,
             };
             return response.status(200).send(successResponse);
+        });
+    }
+    // Download sample zip for vendor product import
+    /**
+     * @api {Get} /api/vendor-product/download-product-sample Download Vendor Product Import Sample Zip
+     * @apiGroup Vendor Product
+     * @apiSampleRequest /api/vendor-product/download-product-sample
+     * @apiErrorExample {json} Download Data error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    downloadSample(response, request) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            // product list excel
+            const productWorkbook = new excel.Workbook();
+            const productWorksheet = productWorkbook.addWorksheet('product List');
+            const products = [];
+            // Excel sheet column define
+            productWorksheet.columns = [
+                { header: 'productId', key: 'id', size: 16, width: 15 },
+                { header: 'ProductName', key: 'first_name', size: 16, width: 15 },
+            ];
+            productWorksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            productWorksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const where = (qb) => {
+                qb.where('Product__vendorProducts.vendorId = :vendorId', { vendorId: request.user.vendorId });
+            };
+            const product = yield this.productService.find({ where, select: ['productId', 'name'], relations: ['vendorProducts'] });
+            for (const prod of product) {
+                products.push([prod.productId, prod.name]);
+            }
+            products.push(['If you want to map multiple related Product to product,you have to give relatedProductId splitted with commas (,) ']);
+            productWorksheet.addRows(products);
+            const productFileName = './demo/Productlist.xlsx';
+            yield productWorkbook.xlsx.writeFile(productFileName);
+            // for category excel
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Category List');
+            const rows = [];
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'CategoryId', key: 'id', size: 16, width: 15 },
+                { header: 'Levels', key: 'first_name', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const select = [
+                'CategoryPath.categoryId as categoryId',
+                'category.name as name',
+                'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'CategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',
+            ];
+            const relations = [
+                {
+                    tableName: 'CategoryPath.category',
+                    aliasName: 'category',
+                },
+                {
+                    tableName: 'CategoryPath.path',
+                    aliasName: 'path',
+                },
+                {
+                    tableName: 'category.vendorGroupCategory',
+                    aliasName: 'vendorGroupCategory',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'CategoryPath.category_id',
+                },
+            ];
+            const whereConditions = [
+                {
+                    op: 'where',
+                    value: request.user.vendorGroupId,
+                    name: 'vendorGroupCategory.vendorGroupId',
+                },
+            ];
+            const searchConditions = [];
+            const sort = [];
+            const vendorCategoryList = yield this.categoryPathService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            for (const id of vendorCategoryList) {
+                rows.push([id.categoryId, id.levels]);
+            }
+            rows.push(['If you want to map multiple category to product,you have to give categoryId splitted with commas (,) ']);
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './demo/Category.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            const zipfolder = require('zip-a-folder');
+            yield zipfolder.zip(path.join(process.cwd(), 'demo'), path.join(process.cwd(), 'demo.zip'));
+            const file = path.basename('/demo.zip');
+            return new Promise(() => {
+                response.download(file, 'demo.zip');
+            });
+        });
+    }
+    // Import Product data
+    /**
+     * @api {Post} /api/vendor-product/import-product-data Import vendor product Data
+     * @apiGroup Vendor Product
+     * @apiParam (Request body) {String} file File
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Product Imported Successfully",
+     *      "status": "1",
+     * }
+     * @apiSampleRequest /api/vendor-product/import-product-data
+     * @apiErrorExample {json} Import product Data error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    ImportProductPrice(files, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+            const StreamZip = require('node-stream-zip');
+            const random = Math.floor((Math.random() * 100) + 1);
+            const name = files.originalname;
+            const type = name.split('.')[1];
+            const mainFileName = './product_' + random + '.' + type;
+            yield this.imageService.writeFile(mainFileName, files.buffer);
+            const rimraf = require('rimraf');
+            // check zip contains invalid file
+            const zip = new StreamZip({ file: path.join(process.cwd(), mainFileName) });
+            const AcceptedFiles = ['xlsx', 'zip'];
+            const zipRead = yield new Promise((resolved, reject) => {
+                zip.on('ready', () => {
+                    const errExtension = [];
+                    for (const entry of Object.values(zip.entries())) {
+                        const fileNameEntries = (Object.values(entry)[16]).split('.')[1];
+                        if (AcceptedFiles.includes(fileNameEntries) === false) {
+                            errExtension.push(fileNameEntries);
+                        }
+                    }
+                    resolved(errExtension);
+                    // Do not forget to close the file once you're done
+                    zip.close();
+                });
+            });
+            if (zipRead.length > 0) {
+                rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                }));
+                fs.unlinkSync(path.join(process.cwd(), mainFileName));
+                return response.status(400).send({
+                    status: 0,
+                    message: 'The file you uploaded contains some invalid extensions',
+                });
+            }
+            const resolve = require('path').resolve;
+            const distPath = resolve('product_' + random);
+            yield this.imageService.extractZip(mainFileName, distPath);
+            // const unzipper = require('unzipper');
+            // await new Promise((promiseResolve, reject) => {
+            //     fs.createReadStream(mainFileName)
+            //         .pipe(unzipper.Extract({ path: distPath }))
+            //         .on('close', promiseResolve)
+            //         .on('error', reject);
+            // });
+            const directoryPath = path.join(process.cwd(), 'product_' + random);
+            const mainFiles = yield this.productController.readDir(directoryPath);
+            // check the image zip contains invalid data
+            for (const fileExtNames of mainFiles) {
+                const fileType = fileExtNames.split('.')[1];
+                if (fileType === 'zip') {
+                    const czip = new StreamZip({ file: path.join(process.cwd(), 'product_' + random + '/' + fileExtNames) });
+                    const cAcceptedFiles = ['png', 'jpg', 'jpeg'];
+                    const czipRead = yield new Promise((resolved, reject) => {
+                        czip.on('ready', () => {
+                            const cerrExtension = [];
+                            for (const entry of Object.values(czip.entries())) {
+                                const cfileNameEntries = (Object.values(entry)[16]).split('.')[1];
+                                if (cfileNameEntries) {
+                                    if (cAcceptedFiles.includes(cfileNameEntries) === false) {
+                                        cerrExtension.push(cfileNameEntries);
+                                    }
+                                }
+                            }
+                            resolved(cerrExtension);
+                            czip.close();
+                        });
+                    });
+                    if (czipRead.length > 0) {
+                        fs.unlinkSync(path.join(process.cwd(), mainFileName));
+                        return response.status(400).send({
+                            status: 0,
+                            message: 'The file you uploaded contains some invalid extensions',
+                        });
+                    }
+                }
+            }
+            try {
+                for (const fileNames of mainFiles) {
+                    const fileType = fileNames.split('.')[1];
+                    if (fileType === 'xlsx') {
+                        if (fileNames === 'productData.xlsx') {
+                            const directoryPathh = path.join(process.cwd(), 'product_' + random + '/' + fileNames);
+                            const result = yield this.imageService.xlsxToJson(directoryPathh);
+                            const forExport = yield this.bulkImport.validateAndFormatData(result, request.user.vendorGroupId);
+                            if (forExport.errorStatus) {
+                                fs.unlinkSync(mainFileName);
+                                const findDuplicateSku = forExport.data.find((obj) => obj.Error.includes('give some other name'));
+                                if (findDuplicateSku) {
+                                    throw new Error('Duplicate sku name, give some other name');
+                                }
+                                const checkCategory = forExport.data.find((obj) => obj.Error.includes('Invalid category'));
+                                if (checkCategory) {
+                                    throw new Error('Invalid category given. please check');
+                                }
+                                throw new Error('Oops! Data format mismatch detected');
+                            }
+                            const authorization = request.headers.authorization;
+                            const productsWithVendorId = result.map((obj) => (Object.assign(Object.assign({}, obj), { VendorId: request.user.vendorId })));
+                            const createProduct = yield this.productController.bulkProductImport(productsWithVendorId, authorization);
+                            rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
+                                if (err) {
+                                    throw err;
+                                }
+                            }));
+                            fs.unlinkSync(mainFileName);
+                            return response.status(200).send({ status: 1, message: createProduct });
+                        }
+                    }
+                    else if (fileNames === 'image.zip') {
+                        const directPath = path.join(process.cwd(), 'product_' + random + '/' + fileNames);
+                        yield this.imageService.extractZip(directPath, distPath);
+                        const directoryPat = path.join(process.cwd(), 'product_' + random + '/' + 'image');
+                        const filesss = yield this.productController.readDir(directoryPat);
+                        for (const fileNme of filesss) {
+                            const image2base64 = require('image-to-base64');
+                            const imagePath = directoryPat + '/' + fileNme;
+                            const imageType = fileNme.split('.')[1];
+                            image2base64(imagePath)
+                                .then((responsee) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                                const base64Data = Buffer.from(responsee, 'base64');
+                                if (env_1.env.imageserver === 's3') {
+                                    yield this.s3Service.imageUpload((fileNme), base64Data, imageType);
+                                }
+                                else {
+                                    yield this.imageService.imageUpload((fileNme), base64Data);
+                                }
+                            }))
+                                .catch((error) => {
+                                throw error;
+                            });
+                        }
+                    }
+                    else {
+                        rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
+                            if (err) {
+                                throw err;
+                            }
+                        }));
+                        fs.unlinkSync(mainFileName);
+                        throw new Error('Only xlsx and zip file are accepted');
+                    }
+                }
+                rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                }));
+                fs.unlinkSync(mainFileName);
+                const successResponse = {
+                    status: 1,
+                    message: 'Product Imported Successfully',
+                };
+                return response.status(200).send(successResponse);
+            }
+            catch (error) {
+                rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                }));
+                return response.status(400).send({
+                    status: 0,
+                    message: error.message,
+                });
+            }
         });
     }
     // ExportProductsById
@@ -2849,6 +3134,25 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorProductController.prototype, "inventoryVendorProductList", null);
 tslib_1.__decorate([
+    (0, routing_controllers_1.Authorized)('vendor'),
+    (0, routing_controllers_1.Get)('/download-product-sample'),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductController.prototype, "downloadSample", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/import-product-data'),
+    (0, routing_controllers_1.Authorized)(['vendor']),
+    tslib_1.__param(0, (0, routing_controllers_1.UploadedFile)('file')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorProductController.prototype, "ImportProductPrice", null);
+tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/vendor-product-excel'),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('productId')),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
@@ -2974,6 +3278,8 @@ VendorProductController = tslib_1.__decorate([
         ProductVideoService_1.ProductVideoService,
         CategoryPathService_1.CategoryPathService,
         ImageService_1.ImageService,
+        ProductController_1.ProductController,
+        VendorBulkImportRequest_1.VendorBulkImport,
         EmailTemplateService_1.EmailTemplateService,
         SettingService_1.SettingService,
         UserService_1.UserService])

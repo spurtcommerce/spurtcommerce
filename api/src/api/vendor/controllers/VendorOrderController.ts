@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -979,14 +979,22 @@ export class VendorOrderController {
     @Get('/vendor-order-status-list')
     @Authorized('vendor')
     public async orderStatusList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
+
         const select = ['orderStatusId', 'name', 'colorCode', 'priority', 'isActive', 'defaultStatus', 'isAdmin', 'isVendor', 'isBuyer', 'isApi'];
+
         const search = [];
+
         const WhereConditions = [
             {
                 name: 'isVendor',
                 value: 1,
             },
+            {
+                name: 'isActive',
+                value: 1,
+            },
         ];
+
         if (keyword) {
             search.push(
                 {
@@ -997,22 +1005,12 @@ export class VendorOrderController {
             );
         }
 
-        if (status) {
-            search.push(
-                {
-                    name: 'isActive',
-                    op: 'like',
-                    value: status,
-                }
-            );
-        }
-
         const orderStatusList = await this.orderStatusService.list(limit, offset, select, search, WhereConditions, count);
 
         if (!count) {
             const orderStatusWithFullFillmentStatusList = await Promise.all(orderStatusList.map(async (orderStatus) => {
                 const fullFillmentStatusIds = (await this.orderStatusToFullfillmentService.findAll({ where: { orderStatusId: orderStatus.orderStatusId } })).map((orderToFullfillmentStatus) => orderToFullfillmentStatus.orderFulfillmentStatusId);
-                orderStatus.fullfillmentStatus = await this.orderFullfillmentStatusService.findAll({ where: { id: In(fullFillmentStatusIds), isActive: status ? +status : 1 } });
+                orderStatus.fullfillmentStatus = await this.orderFullfillmentStatusService.findAll({ where: { id: In(fullFillmentStatusIds), isActive: 1 } });
                 return orderStatus;
             }));
 
@@ -1822,7 +1820,7 @@ export class VendorOrderController {
     public async archiveOrderList(
         @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string,
         @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string, @QueryParam('deliverylist') deliverylist: number, @QueryParam('orderId') orderId: string,
-        @QueryParam('count') count: number | boolean, @QueryParam('dateAdded') dateAdded: string, @Req() request: any, @Res() response: any): Promise<any> {
+        @QueryParam('count') count: number | boolean, @QueryParam('sortBy') sortBy: string, @QueryParam('sortOrder') sortOrder: string, @QueryParam('dateAdded') dateAdded: string, @Req() request: any, @Res() response: any): Promise<any> {
         const startDateMin = moment(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
         const date = endDate + ' 23:59:59';
         const endDateMin = moment(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
@@ -1920,10 +1918,30 @@ export class VendorOrderController {
             });
         }
         const sort = [];
-        sort.push({
-            name: 'order.createdDate',
-            order: 'DESC',
-        });
+        if (sortBy === 'buyerName') {
+            sort.push({
+                name: 'order.shippingFirstname',
+                order: sortOrder ?? 'DESC',
+            });
+        }
+        if (sortBy === 'location') {
+            sort.push({
+                name: 'order.shippingCity',
+                order: sortOrder ?? 'DESC',
+            });
+        }
+        if (sortBy === 'total') {
+            sort.push({
+                name: 'VendorOrderArchive.total',
+                order: sortOrder ?? 'DESC',
+            });
+        }
+        if (sortBy === 'orderDate' || !sortBy || sortBy === 'orderId') {
+            sort.push({
+                name: 'order.createdDate',
+                order: sortOrder ?? 'DESC',
+            });
+        }
 
         const orderArchiveList: any = await this.vendorOrderArchiveService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
         const orderArchiveResponse = orderArchiveList.map(async (value: any) => {
@@ -2328,6 +2346,18 @@ export class VendorOrderController {
         if (sortBy === 'location') {
             sort.push({
                 name: 'orderDetail.shippingCity',
+                order: sortOrder ?? 'DESC',
+            });
+        }
+        if (sortBy === 'orderId') {
+            sort.push({
+                name: 'VendorOrders.orderId',
+                order: sortOrder ?? 'DESC',
+            });
+        }
+        if (sortBy === 'total') {
+            sort.push({
+                name: 'VendorOrders.total',
                 order: sortOrder ?? 'DESC',
             });
         }
@@ -4131,7 +4161,7 @@ export class VendorOrderController {
     @Authorized('vendor')
     public async backOrderProductList(
         @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('customerName') customerName: string, @QueryParam('orderId') orderId: string, @QueryParam('amount') amount: number, @QueryParam('dateAdded') dateAdded: string, @QueryParam('keyword') keyword: string,
-        @QueryParam('orderStatus') orderStatus: string, @QueryParam('skuName') skuName: string, @QueryParam('count') count: number, @Req() request: any, @Res() response: any): Promise<any> {
+        @QueryParam('orderStatus') orderStatus: string, @QueryParam('skuName') skuName: string, @QueryParam('sortBy') sortBy: string, @QueryParam('sortOrder') sortOrder: string, @QueryParam('count') count: number, @Req() request: any, @Res() response: any): Promise<any> {
         const select = [
             'Order.createdDate as createdDate',
             'Order.orderId as orderId',
@@ -4232,10 +4262,30 @@ export class VendorOrderController {
             });
         }
         const sort = [];
-        sort.push({
-            name: 'Order.createdDate',
-            order: 'DESC',
-        });
+        if (sortBy === 'buyerName') {
+            sort.push({
+                name: 'Order.shippingFirstname',
+                order: sortOrder ?? 'DESC',
+            });
+        }
+        if (sortBy === 'location') {
+            sort.push({
+                name: 'Order.shippingCity',
+                order: sortOrder ?? 'DESC',
+            });
+        }
+        if (sortBy === 'total') {
+            sort.push({
+                name: 'orderProduct.total',
+                order: sortOrder ?? 'DESC',
+            });
+        }
+        if (sortBy === 'orderDate' || !sortBy || sortBy === 'orderId') {
+            sort.push({
+                name: 'Order.createdDate',
+                order: sortOrder ?? 'DESC',
+            });
+        }
         if (count) {
             const orderCount: any = await this.orderService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
             const Response: any = {
@@ -4831,7 +4881,7 @@ export class VendorOrderController {
                     const products = await this.orderProductService.findOne({ orderProductId: items.orderProductId });
                     if (products) {
                         rows.push([products.orderProductPrefixId, order.orderPrefixId, products.name, products.quantity, (order?.currencySymbolLeft ?? order?.currencySymbolRight) + ' ' + products.productPrice, (order?.currencySymbolLeft ?? order?.currencySymbolRight) + ' ' + products.discountAmount,
-                        (order?.currencySymbolLeft ?? order?.currencySymbolRight) + ' ' + products.couponDiscountAmount ?? 0.00, (order?.currencySymbolLeft ?? order?.currencySymbolRight) + ' ' + products.total]);
+                        (order?.currencySymbolLeft ?? order?.currencySymbolRight) + '' + (products.couponDiscountAmount ?? 0.00), (order?.currencySymbolLeft ?? order?.currencySymbolRight) + ' ' + products.total]);
                     }
                 }
             }
@@ -5061,8 +5111,10 @@ export class VendorOrderController {
         const select = [
             'MAX(order.customerId) as customerId',
             `MAX(order.email) as email`,
-            `MAX(order.shippingFirstname) as firstName`,
-            `MAX(order.shippingLastname) as lastName`,
+            // `MAX(order.shippingFirstname) as firstName`,
+            // `MAX(order.shippingLastname) as lastName`,
+            'orderCustomer.firstName as firstName',
+            'orderCustomer.lastName as lastName',
             `MAX(order.telephone) as mobileNumber`,
             `orderCustomer.customerGroupId as customerGroupId`,
             `MAX(order.shippingAddress1) as shippingAddress1`,

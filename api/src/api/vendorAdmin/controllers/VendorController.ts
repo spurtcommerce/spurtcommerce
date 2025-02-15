@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -392,6 +392,13 @@ export class VendorAdminController {
                         }
                         const stringPad = String(vendors.vendorId).padStart(4, '0');
                         newVendor.vendorPrefixId = 'Sel'.concat(stringPad);
+                        if (env.imageserver === 's3') {
+                            const prefixId = newVendor.vendorPrefixId.replace('#', '');
+                            await this.s3Service.createFolder(prefixId + '/');
+                        } else {
+                            const prefixId = newVendor.vendorPrefixId.replace('#', '');
+                            await this.imageService.createFolder(prefixId);
+                        }
                         await this.vendorService.update(vendors.vendorId, newVendor);
                         if (customerParam.mailStatus === 1) {
                             const emailContent = await this.emailTemplateService.findOne(13);
@@ -530,7 +537,7 @@ export class VendorAdminController {
                     vendor.vendorGroupId = customerParam.vendorGroupId;
                     vendor.customerId = customerSave.id;
                     vendor.companyName = customerParam.companyName;
-                    vendor.vendorDescription = customerParam.vendorDescription;
+                    vendor.companyDescription = customerParam.companyDescription;
                     vendor.paymentInformation = customerParam.paymentInformation;
                     vendor.companyAddress1 = customerParam.companyAddress1;
                     vendor.companyAddress2 = customerParam.companyAddress2;
@@ -629,6 +636,13 @@ export class VendorAdminController {
                         });
                     }
                     if (vendorSave) {
+                        if (env.imageserver === 's3') {
+                            const prefixId = vendorSave.vendorPrefixId.replace('#', '');
+                            await this.s3Service.createFolder(prefixId + '/');
+                        } else {
+                            const prefixId = vendorSave.vendorPrefixId.replace('#', '');
+                            await this.imageService.createFolder(prefixId);
+                        }
                         if (customerParam.mailStatus === 1) {
                             const emailContent = await this.emailTemplateService.findOne(13);
                             const logo = await this.settingService.findOne();
@@ -828,6 +842,7 @@ export class VendorAdminController {
                 message: 'Invalid vendor Id..!',
             });
         }
+        const oldVendorApprovalStatus = vendor.approvalFlag;
         const displayName = updateCustomerParam.displayNameUrl.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
         const vendorDisplayNameUrl = await this.vendorService.validateDisplayUrlName(displayName, 1, vendor.vendorId);
 
@@ -954,7 +969,7 @@ export class VendorAdminController {
         vendor.vendorGroupId = updateCustomerParam.vendorGroupId;
         vendor.customerId = customerSave.id;
         vendor.companyName = updateCustomerParam.companyName;
-        vendor.vendorDescription = updateCustomerParam.companyDescription;
+        vendor.companyDescription = updateCustomerParam.companyDescription;
         vendor.paymentInformation = updateCustomerParam.paymentInformation;
         vendor.companyAddress1 = updateCustomerParam.companyAddress1;
         vendor.companyAddress2 = updateCustomerParam.companyAddress2;
@@ -995,7 +1010,7 @@ export class VendorAdminController {
         const account = {} as BankAccount;
         account.accountHolderName = updateCustomerParam.companyAccountHolderName;
         account.accountNumber = updateCustomerParam.companyAccountNumber;
-        account.ifsc = updateCustomerParam.companyAccountIfsc;
+        account.ifsc = updateCustomerParam.ifscCode;
         account.branch = updateCustomerParam.companyAccountBranch;
         account.accountCreatedOn = updateCustomerParam.companyAccountCreatedOn;
         account.bankName = updateCustomerParam.companyAccountBankName;
@@ -1037,14 +1052,14 @@ export class VendorAdminController {
             });
         }
         if (updateCustomerParam.approvalFlag === 1) {
-            if (vendor.approvalFlag !== 1) {
-                if (env.imageserver === 's3') {
-                    const prefixId = vendorSave.vendorPrefixId.replace('#', '');
-                    await this.s3Service.createFolder(prefixId + '/');
-                } else {
-                    const prefixId = vendorSave.vendorPrefixId.replace('#', '');
-                    await this.imageService.createFolder(prefixId);
-                }
+            if (oldVendorApprovalStatus !== 1) {
+                // if (env.imageserver === 's3') {
+                //     const prefixId = vendorSave.vendorPrefixId.replace('#', '');
+                //     await this.s3Service.createFolder(prefixId + '/');
+                // } else {
+                //     const prefixId = vendorSave.vendorPrefixId.replace('#', '');
+                //     await this.imageService.createFolder(prefixId);
+                // }
                 const vendorCustomer = await this.customerService.findOne({ where: { id: vendor.customerId } });
                 vendorCustomer.isActive = 1;
                 await this.customerService.create(vendorCustomer);
@@ -1743,7 +1758,8 @@ export class VendorAdminController {
         const newExportLog = new ExportLog();
         newExportLog.module = 'Seller';
         newExportLog.recordAvailable = rows.length;
-        newExportLog.createdBy = request.user.userId;
+        newExportLog.referenceId = request.user.userId;
+        newExportLog.referenceType = 1;
         await this.exportLogService.create(newExportLog);
         // Add all rows data in sheet
         rows.sort((a, b) => a[0] - b[0]);
@@ -2277,7 +2293,7 @@ export class VendorAdminController {
             vendor.approvalFlag = payload.approvalFlag;
 
             const comment = {
-                date: moment().format('YYYY-MM-DD HH:mm:ss'),
+                date: moment().format(),
                 comment: payload.comment,
             };
 
@@ -2295,7 +2311,7 @@ export class VendorAdminController {
             vendor.approvalFlag = payload.approvalFlag;
 
             const comment = {
-                date: moment().format('YYYY-MM-DD HH:mm:ss'),
+                date: moment().format(),
                 comment: payload.comment,
             };
             vendor.kycStatus = KycStatus.REJECTED;
@@ -2313,7 +2329,7 @@ export class VendorAdminController {
         if (payload.commentFor) {
 
             const comment = {
-                date: moment().format('YYYY-MM-DD HH:mm:ss'),
+                date: moment().format(),
                 comment: payload.comment,
                 commentFor: payload.commentFor,
             };

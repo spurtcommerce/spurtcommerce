@@ -2,6 +2,7 @@ export * from '../api/core/middlewares/AddonValidationMiddleware';
 export * from '../api/core/middlewares/AuditLogMiddleware';
 export * from '../api/core/middlewares/CompressionMiddleware';
 export * from '../api/core/middlewares/ErrorHandlerMiddleware';
+export * from '../api/core/middlewares/IndustryValidationMiddleware';
 export * from '../api/core/middlewares/LogMiddleware';
 export * from '../api/core/middlewares/SanitizeMiddleware';
 export * from '../api/core/middlewares/SecurityHstsMiddleware';

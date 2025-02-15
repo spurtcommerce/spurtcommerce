@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -80,7 +80,7 @@ let VendorPaymentController = class VendorPaymentController {
      * @apiErrorExample {json} order error
      * HTTP/1.1 500 Internal Server Error
      */
-    orderList(limit, offset, customerName, startDate, endDate, count, response) {
+    orderList(limit, offset, customerName, startDate, endDate, keyword, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -138,6 +138,12 @@ let VendorPaymentController = class VendorPaymentController {
                 searchConditions.push({
                     name: ['orderDetail.shippingFirstname'],
                     value: customerName.toLowerCase(),
+                });
+            }
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['orderDetail.shippingFirstname', 'vendorOrders.subOrderId'],
+                    value: keyword.toLowerCase(),
                 });
             }
             const sort = [];
@@ -1011,10 +1017,11 @@ tslib_1.__decorate([
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('customerName')),
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
-    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorPaymentController.prototype, "orderList", null);
 tslib_1.__decorate([

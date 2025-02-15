@@ -4,7 +4,7 @@ exports.OrderProductRepository = void 0;
 const tslib_1 = require("tslib");
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -85,6 +85,16 @@ let OrderProductRepository = class OrderProductRepository extends typeorm_1.Repo
             query.select('orderProduct.orderProductId');
             query.innerJoin('orderProduct.order', 'order');
             query.where('orderProduct.productId = :id AND order.customerId = :customerId ', { id: productId, customerId });
+            query.andWhere('order.paymentStatus = :paymentStatus', { paymentStatus: 1 });
+            return query.getRawMany();
+        });
+    }
+    buyedCountBySku(sku, customerId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(OrderProduct_1.OrderProduct, 'orderProduct');
+            query.select('orderProduct.orderProductId');
+            query.innerJoin('orderProduct.order', 'order');
+            query.where('orderProduct.skuName = :sku AND order.customerId = :customerId ', { sku, customerId });
             query.andWhere('order.paymentStatus = :paymentStatus', { paymentStatus: 1 });
             return query.getRawMany();
         });

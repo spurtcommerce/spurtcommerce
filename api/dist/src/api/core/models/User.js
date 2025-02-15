@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -12,7 +12,6 @@ const tslib_1 = require("tslib");
 const bcrypt = tslib_1.__importStar(require("bcrypt"));
 const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
-const ExportLog_1 = require("./ExportLog");
 const typeorm_1 = require("typeorm");
 const UserGroup_1 = require("./UserGroup");
 const BaseModel_1 = require("./BaseModel");
@@ -147,10 +146,6 @@ tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => AuditLog_1.AuditLog, auditLog => auditLog.user),
     tslib_1.__metadata("design:type", Array)
 ], User.prototype, "auditLog", void 0);
-tslib_1.__decorate([
-    (0, typeorm_1.OneToOne)(type => ExportLog_1.ExportLog, exportLog => exportLog.user),
-    tslib_1.__metadata("design:type", ExportLog_1.ExportLog)
-], User.prototype, "exportLog", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.BeforeInsert)(),
     tslib_1.__metadata("design:type", Function),

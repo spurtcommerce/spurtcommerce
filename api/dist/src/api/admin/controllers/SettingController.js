@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -275,6 +275,7 @@ let SettingController = class SettingController {
      * @apiParam (Request body) {String} instagram instagram
      * @apiParam (Request body) {String} google google
      * @apiParam (Request body) {Number} status status
+     * @apiParam (Request body) {String} timeZone time zone
      * @apiParamExample {json} Input
      * {
      *      "siteUrl" : "",
@@ -304,6 +305,7 @@ let SettingController = class SettingController {
      *      "instagram" : "",
      *      "facebook" : "",
      *      "twitter" : "",
+     *      "timeZone": "",
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
@@ -370,6 +372,7 @@ let SettingController = class SettingController {
      *        "countryIds": [
      *                   ""
      *           ]
+     *        "timeZone": "",
      *       }
      * }
      * @apiSampleRequest /api/settings
@@ -420,6 +423,7 @@ let SettingController = class SettingController {
                 newSettings.dateFormat = settings.dateFormat;
                 newSettings.timeFormat = settings.timeFormat;
                 newSettings.defaultCountry = settings.defaultCountry;
+                newSettings.timeZone = settings.timeZone;
                 if (settings.defaultWebsite) {
                     const settingsUpdate = new Setting_1.Settings();
                     settingsUpdate.defaultWebsite = 0;
@@ -643,6 +647,7 @@ let SettingController = class SettingController {
                 settingValue.defaultWebsite = settings.defaultWebsite;
                 settingValue.pendingStatus = settings.pendingStatus;
                 settingValue.accessKey = (_c = settings.accessKey) === null || _c === void 0 ? void 0 : _c.trim();
+                settingValue.timeZone = settings.timeZone;
                 if ((_d = settings.siteCategory) === null || _d === void 0 ? void 0 : _d.trim()) {
                     const newCategory = settings.siteCategory.split(',');
                     settingValue.siteCategory = newCategory.toString();

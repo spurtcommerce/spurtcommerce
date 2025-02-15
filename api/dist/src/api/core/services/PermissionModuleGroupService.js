@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -62,6 +62,12 @@ let PermissionModuleGroupService = class PermissionModuleGroupService {
                 }
                 else if (operator === 'like' && table.value !== undefined) {
                     condition.where[table.name] = (0, index_1.Like)('%' + table.value + '%');
+                }
+                else if (operator === 'not-like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, index_1.Not)((0, index_1.Like)('%' + table.value + '%'));
+                }
+                else if (operator === 'not-in' && table.value !== undefined) {
+                    condition.where[table.name] = (0, index_1.Not)((0, index_1.In)(table.value));
                 }
             });
         }

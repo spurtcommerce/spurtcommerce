@@ -5,6 +5,7 @@ tslib_1.__exportStar(require("../api/core/middlewares/AddonValidationMiddleware"
 tslib_1.__exportStar(require("../api/core/middlewares/AuditLogMiddleware"), exports);
 tslib_1.__exportStar(require("../api/core/middlewares/CompressionMiddleware"), exports);
 tslib_1.__exportStar(require("../api/core/middlewares/ErrorHandlerMiddleware"), exports);
+tslib_1.__exportStar(require("../api/core/middlewares/IndustryValidationMiddleware"), exports);
 tslib_1.__exportStar(require("../api/core/middlewares/LogMiddleware"), exports);
 tslib_1.__exportStar(require("../api/core/middlewares/SanitizeMiddleware"), exports);
 tslib_1.__exportStar(require("../api/core/middlewares/SecurityHstsMiddleware"), exports);

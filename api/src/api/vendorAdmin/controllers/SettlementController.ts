@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -156,7 +156,7 @@ export class SettlementController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get()
-    @Authorized(['admin', 'settlement-history-list'])
+    @Authorized(['admin'])
     public async orderListtt(
         @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string,
         @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string, @QueryParam('amountFrom') amountFrom: string, @QueryParam('amountTo') amountTo: string,
@@ -1865,7 +1865,7 @@ export class SettlementController {
                     name: '`VendorOrders`.`created_date`',
                     op: 'raw',
                     sign: '<=',
-                    value: endDate + '23:59:59',
+                    value: endDate + ' 23:59:59',
                 });
             }
 

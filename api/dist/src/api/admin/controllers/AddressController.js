@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -433,7 +433,7 @@ let AddressController = class AddressController {
 };
 tslib_1.__decorate([
     (0, routing_controllers_1.Post)(),
-    (0, routing_controllers_1.Authorized)(['admin', 'add-customer-address']),
+    (0, routing_controllers_1.Authorized)(['admin']),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),

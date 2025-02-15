@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -56,6 +56,8 @@ import { ImageService } from '../../core/services/ImageService';
 import { CategoryPathService } from '../../core/services/CategoryPathService';
 import { VendorProductAdditionalFileService } from '../../../../src/api/core/services/VendorProductAdditionalFileService';
 import { pluginModule } from '../../../loaders/pluginLoader';
+import { ProductController } from '../../admin/controllers/ProductController';
+import { VendorBulkImport } from './requests/VendorBulkImportRequest';
 import uncino from 'uncino';
 import { VendorProductAdditionalFile } from '../../../../src/api/core/models/VendorProductAdditionalFileModel';
 import { getConnection, In } from 'typeorm';
@@ -86,6 +88,8 @@ export class VendorProductController {
         private productVideoService: ProductVideoService,
         private categoryPathService: CategoryPathService,
         private imageService: ImageService,
+        private productController: ProductController,
+        private bulkImport: VendorBulkImport,
         private emailTemplateService: EmailTemplateService,
         private settingService: SettingService,
         private userService: UserService
@@ -1504,6 +1508,293 @@ export class VendorProductController {
             data: value,
         };
         return response.status(200).send(successResponse);
+    }
+    // Download sample zip for vendor product import
+    /**
+     * @api {Get} /api/vendor-product/download-product-sample Download Vendor Product Import Sample Zip
+     * @apiGroup Vendor Product
+     * @apiSampleRequest /api/vendor-product/download-product-sample
+     * @apiErrorExample {json} Download Data error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    @Authorized('vendor')
+    @Get('/download-product-sample')
+    public async downloadSample(@Res() response: any, @Req() request: any): Promise<any> {
+        const excel = require('exceljs');
+        // product list excel
+        const productWorkbook = new excel.Workbook();
+        const productWorksheet = productWorkbook.addWorksheet('product List');
+        const products = [];
+        // Excel sheet column define
+        productWorksheet.columns = [
+            { header: 'productId', key: 'id', size: 16, width: 15 },
+            { header: 'ProductName', key: 'first_name', size: 16, width: 15 },
+        ];
+        productWorksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+        productWorksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+        const where = (qb) => {
+            qb.where('Product__vendorProducts.vendorId = :vendorId', { vendorId: request.user.vendorId });
+        };
+        const product = await this.productService.find({ where, select: ['productId', 'name'], relations: ['vendorProducts'] });
+        for (const prod of product) {
+            products.push([prod.productId, prod.name]);
+        }
+        products.push(['If you want to map multiple related Product to product,you have to give relatedProductId splitted with commas (,) ']);
+        productWorksheet.addRows(products);
+        const productFileName = './demo/Productlist.xlsx';
+        await productWorkbook.xlsx.writeFile(productFileName);
+        // for category excel
+        const workbook = new excel.Workbook();
+        const worksheet = workbook.addWorksheet('Category List');
+        const rows = [];
+        // Excel sheet column define
+        worksheet.columns = [
+            { header: 'CategoryId', key: 'id', size: 16, width: 15 },
+            { header: 'Levels', key: 'first_name', size: 16, width: 15 },
+        ];
+        worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+        worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+        const select = [
+            'CategoryPath.categoryId as categoryId',
+            'category.name as name',
+            'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'CategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',
+        ];
+        const relations = [
+            {
+                tableName: 'CategoryPath.category',
+                aliasName: 'category',
+            },
+            {
+                tableName: 'CategoryPath.path',
+                aliasName: 'path',
+            },
+            {
+                tableName: 'category.vendorGroupCategory',
+                aliasName: 'vendorGroupCategory',
+            },
+        ];
+        const groupBy = [
+            {
+                name: 'CategoryPath.category_id',
+            },
+        ];
+        const whereConditions = [
+            {
+                op: 'where',
+                value: request.user.vendorGroupId,
+                name: 'vendorGroupCategory.vendorGroupId',
+            },
+        ];
+        const searchConditions = [];
+        const sort = [];
+        const vendorCategoryList: any = await this.categoryPathService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+        for (const id of vendorCategoryList) {
+            rows.push([id.categoryId, id.levels]);
+        }
+        rows.push(['If you want to map multiple category to product,you have to give categoryId splitted with commas (,) ']);
+        // Add all rows data in sheet
+        worksheet.addRows(rows);
+        const fileName = './demo/Category.xlsx';
+        await workbook.xlsx.writeFile(fileName);
+        const zipfolder = require('zip-a-folder');
+        await zipfolder.zip(path.join(process.cwd(), 'demo'), path.join(process.cwd(), 'demo.zip'));
+        const file = path.basename('/demo.zip');
+        return new Promise(() => {
+            response.download(file, 'demo.zip');
+        });
+    }
+
+    // Import Product data
+    /**
+     * @api {Post} /api/vendor-product/import-product-data Import vendor product Data
+     * @apiGroup Vendor Product
+     * @apiParam (Request body) {String} file File
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Product Imported Successfully",
+     *      "status": "1",
+     * }
+     * @apiSampleRequest /api/vendor-product/import-product-data
+     * @apiErrorExample {json} Import product Data error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    @Post('/import-product-data')
+    @Authorized(['vendor'])
+    public async ImportProductPrice(@UploadedFile('file') files: any, @Req() request: any, @Res() response: any): Promise<any> {
+        // --
+        const StreamZip = require('node-stream-zip');
+        const random = Math.floor((Math.random() * 100) + 1);
+        const name = files.originalname;
+        const type = name.split('.')[1];
+        const mainFileName = './product_' + random + '.' + type;
+        await this.imageService.writeFile(mainFileName, files.buffer);
+        const rimraf = require('rimraf');
+        // check zip contains invalid file
+        const zip = new StreamZip({ file: path.join(process.cwd(), mainFileName) });
+        const AcceptedFiles = ['xlsx', 'zip'];
+        const zipRead: any = await new Promise((resolved, reject) => {
+            zip.on('ready', () => {
+                const errExtension = [];
+                for (const entry of Object.values(zip.entries())) {
+                    const fileNameEntries = (Object.values(entry)[16]).split('.')[1];
+                    if (AcceptedFiles.includes(fileNameEntries) === false) {
+                        errExtension.push(fileNameEntries);
+                    }
+                }
+                resolved(errExtension);
+                // Do not forget to close the file once you're done
+                zip.close();
+            });
+        });
+        if (zipRead.length > 0) {
+            rimraf(path.join(process.cwd(), 'product_' + random), ((err: any) => {
+                if (err) {
+                    throw err;
+                }
+            }));
+            fs.unlinkSync(path.join(process.cwd(), mainFileName));
+            return response.status(400).send({
+                status: 0,
+                message: 'The file you uploaded contains some invalid extensions',
+            });
+
+        }
+        const resolve = require('path').resolve;
+        const distPath = resolve('product_' + random);
+        await this.imageService.extractZip(mainFileName, distPath);
+        // const unzipper = require('unzipper');
+        // await new Promise((promiseResolve, reject) => {
+        //     fs.createReadStream(mainFileName)
+        //         .pipe(unzipper.Extract({ path: distPath }))
+        //         .on('close', promiseResolve)
+        //         .on('error', reject);
+        // });
+        const directoryPath = path.join(process.cwd(), 'product_' + random);
+        const mainFiles = await this.productController.readDir(directoryPath);
+        // check the image zip contains invalid data
+        for (const fileExtNames of mainFiles) {
+            const fileType = fileExtNames.split('.')[1];
+            if (fileType === 'zip') {
+                const czip = new StreamZip({ file: path.join(process.cwd(), 'product_' + random + '/' + fileExtNames) });
+                const cAcceptedFiles = ['png', 'jpg', 'jpeg'];
+                const czipRead: any = await new Promise((resolved, reject) => {
+                    czip.on('ready', () => {
+                        const cerrExtension = [];
+                        for (const entry of Object.values(czip.entries())) {
+                            const cfileNameEntries = (Object.values(entry)[16]).split('.')[1];
+                            if (cfileNameEntries) {
+
+                                if (cAcceptedFiles.includes(cfileNameEntries) === false) {
+                                    cerrExtension.push(cfileNameEntries);
+                                }
+                            }
+                        }
+                        resolved(cerrExtension);
+                        czip.close();
+                    });
+                });
+                if (czipRead.length > 0) {
+                    fs.unlinkSync(path.join(process.cwd(), mainFileName));
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'The file you uploaded contains some invalid extensions',
+                    });
+
+                }
+            }
+        }
+        try {
+            for (const fileNames of mainFiles) {
+                const fileType = fileNames.split('.')[1];
+                if (fileType === 'xlsx') {
+                    if (fileNames === 'productData.xlsx') {
+                        const directoryPathh = path.join(process.cwd(), 'product_' + random + '/' + fileNames);
+                        const result = await this.imageService.xlsxToJson(directoryPathh);
+                        const forExport = await this.bulkImport.validateAndFormatData(result, request.user.vendorGroupId);
+                        if (forExport.errorStatus) {
+                            fs.unlinkSync(mainFileName);
+                            const findDuplicateSku = forExport.data.find((obj) => obj.Error.includes('give some other name'));
+                            if (findDuplicateSku) {
+                                throw new Error('Duplicate sku name, give some other name');
+                            }
+                            const checkCategory = forExport.data.find((obj) => obj.Error.includes('Invalid category'));
+                            if (checkCategory) {
+                                throw new Error('Invalid category given. please check');
+                            }
+                            throw new Error('Oops! Data format mismatch detected');
+                        }
+                        const authorization = request.headers.authorization;
+                        const productsWithVendorId = result.map((obj) => ({
+                            ...obj,
+                            VendorId: request.user.vendorId,
+                        }));
+                        const createProduct = await this.productController.bulkProductImport(productsWithVendorId, authorization);
+                        rimraf(path.join(process.cwd(), 'product_' + random), ((err: any) => {
+                            if (err) {
+                                throw err;
+                            }
+                        }));
+                        fs.unlinkSync(mainFileName);
+                        return response.status(200).send({ status: 1, message: createProduct });
+                    }
+                } else if (fileNames === 'image.zip') {
+                    const directPath = path.join(process.cwd(), 'product_' + random + '/' + fileNames);
+                    await this.imageService.extractZip(directPath, distPath);
+                    const directoryPat = path.join(process.cwd(), 'product_' + random + '/' + 'image');
+                    const filesss = await this.productController.readDir(directoryPat);
+                    for (const fileNme of filesss) {
+                        const image2base64 = require('image-to-base64');
+                        const imagePath = directoryPat + '/' + fileNme;
+                        const imageType = fileNme.split('.')[1];
+                        image2base64(imagePath)
+                            .then(async (responsee) => {
+                                const base64Data = Buffer.from(responsee, 'base64');
+                                if (env.imageserver === 's3') {
+                                    await this.s3Service.imageUpload((fileNme), base64Data, imageType);
+                                } else {
+                                    await this.imageService.imageUpload((fileNme), base64Data);
+                                }
+                            }
+                            )
+                            .catch(
+                                (error) => {
+                                    throw error;
+                                }
+                            );
+                    }
+                } else {
+                    rimraf(path.join(process.cwd(), 'product_' + random), ((err: any) => {
+                        if (err) {
+                            throw err;
+                        }
+                    }));
+                    fs.unlinkSync(mainFileName);
+                    throw new Error('Only xlsx and zip file are accepted');
+                }
+            }
+            rimraf(path.join(process.cwd(), 'product_' + random), ((err: any) => {
+                if (err) {
+                    throw err;
+                }
+            }));
+            fs.unlinkSync(mainFileName);
+            const successResponse: any = {
+                status: 1,
+                message: 'Product Imported Successfully',
+            };
+            return response.status(200).send(successResponse);
+        } catch (error: any) {
+            rimraf(path.join(process.cwd(), 'product_' + random), ((err: any) => {
+                if (err) {
+                    throw err;
+                }
+            }));
+            return response.status(400).send({
+                status: 0,
+                message: error.message,
+            });
+        }
     }
 
     // ExportProductsById

@@ -216,6 +216,9 @@ export class Settings extends BaseModel {
     @Column({ name: 'seller_logo2_path' })
     public sellerLogo2Path: string;
 
+    @Column({ name: 'time_zone' })
+    public timeZone: string;
+
     @BeforeInsert()
     public async createDetails(): Promise<void> {
         this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');

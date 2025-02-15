@@ -59,6 +59,15 @@ let SanitizeMiddleware = class SanitizeMiddleware {
                 if (name.includes('^')) {
                     return false;
                 }
+                if (name.includes("'")) {
+                    return false;
+                }
+                if (name.includes('%')) {
+                    return false;
+                }
+                if (name.includes('_')) {
+                    return false;
+                }
                 return true;
             };
             const isValid3 = (name) => {
