@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -305,8 +305,13 @@ export class ProductService {
         }
         // orderBy
         if (sort && sort.length > 0) {
-            sort.forEach((item: any) => {
-                query.orderBy('' + item.name + '', '' + item.order + '');
+            sort.forEach((item: any, index: number) => {
+                // query.orderBy('' + item.name + '', '' + item.order + '');
+                if (index === 0) {
+                    query.orderBy('' + item.name + '', '' + item.order + '');
+                } else {
+                    query.addOrderBy('' + item.name + '', '' + item.order + '');
+                }
             });
         }
         // Limit & Offset

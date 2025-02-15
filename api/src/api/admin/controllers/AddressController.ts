@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -95,7 +95,7 @@ export class AddressController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post()
-    @Authorized(['admin', 'add-customer-address'])
+    @Authorized(['admin'])
     public async createAddress(@Body({ validate: true }) addressParam: CreateAddress, @Res() response: any): Promise<any> {
         const customer = await this.customerService.findOne({
             where: {

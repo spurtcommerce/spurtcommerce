@@ -59,6 +59,9 @@ export class WebHookClientController {
                 const urlObj = new URL(url);
                 return `${urlObj.protocol}//${urlObj.host}${urlObj.pathname.split('/').slice(0, -1).join('/')}`;
             }
+
+            bcc = bcc ? true : Array.isArray(recipientMailId);
+
             templateContentDetails.baseUrl = env.baseUrl;
             templateContentDetails.productInfo = templateContentDetails.productInfo ?? [];
             const countryService = Container.get<CountryService>(CountryService);
@@ -85,6 +88,7 @@ export class WebHookClientController {
                     if (bcc) {
                         mailOptions = {
                             from: mail.FROM,
+                            to: Array.isArray(recipientMailId) ? recipientMailId[0] : undefined,
                             bcc: recipientMailId,
                             cc: templateContentDetails.ccEmail ? templateContentDetails.ccEmail : '',
                             subject: mailSubject,

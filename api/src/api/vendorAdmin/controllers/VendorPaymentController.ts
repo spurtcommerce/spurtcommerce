@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -89,6 +89,7 @@ export class VendorPaymentController {
         @QueryParam('customerName') customerName: string,
         @QueryParam('startDate') startDate: string,
         @QueryParam('endDate') endDate: string,
+        @QueryParam('keyword') keyword: string,
         @QueryParam('count') count: number | boolean,
         @Res() response: any
     ): Promise<any> {
@@ -156,6 +157,12 @@ export class VendorPaymentController {
             searchConditions.push({
                 name: ['orderDetail.shippingFirstname'],
                 value: customerName.toLowerCase(),
+            });
+        }
+        if (keyword && keyword !== '') {
+            searchConditions.push({
+                name: ['orderDetail.shippingFirstname', 'vendorOrders.subOrderId'],
+                value: keyword.toLowerCase(),
             });
         }
 

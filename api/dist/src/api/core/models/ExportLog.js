@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -12,7 +12,6 @@ const tslib_1 = require("tslib");
 const typeorm_1 = require("typeorm");
 const moment = require("moment/moment");
 const class_validator_1 = require("class-validator");
-const Customer_1 = require("./Customer");
 let ExportLog = class ExportLog {
     createdDetails() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -39,14 +38,13 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], ExportLog.prototype, "createdDate", void 0);
 tslib_1.__decorate([
-    (0, typeorm_1.Column)({ name: 'created_by' }),
+    (0, typeorm_1.Column)({ name: 'reference_id' }),
     tslib_1.__metadata("design:type", Number)
-], ExportLog.prototype, "createdBy", void 0);
+], ExportLog.prototype, "referenceId", void 0);
 tslib_1.__decorate([
-    (0, typeorm_1.OneToOne)(type => Customer_1.Customer, user => user.exportLog),
-    (0, typeorm_1.JoinColumn)({ name: 'created_by' }),
-    tslib_1.__metadata("design:type", Customer_1.Customer)
-], ExportLog.prototype, "user", void 0);
+    (0, typeorm_1.Column)({ name: 'reference_type' }),
+    tslib_1.__metadata("design:type", Number)
+], ExportLog.prototype, "referenceType", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.BeforeInsert)(),
     tslib_1.__metadata("design:type", Function),

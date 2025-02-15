@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -734,7 +734,8 @@ let CustomerController = class CustomerController {
             const newExportLog = new ExportLog_1.ExportLog();
             newExportLog.module = 'Manage Customers';
             newExportLog.recordAvailable = customerid.length;
-            newExportLog.createdBy = request.user.userId;
+            newExportLog.referenceId = request.user.userId;
+            newExportLog.referenceType = 1;
             yield this.exportLogService.create(newExportLog);
             return new Promise((resolve, reject) => {
                 response.download(fileName, (err, data) => {
@@ -1268,7 +1269,7 @@ let CustomerController = class CustomerController {
 };
 tslib_1.__decorate([
     (0, routing_controllers_1.Post)(),
-    (0, routing_controllers_1.Authorized)(['admin', 'create-customer']),
+    (0, routing_controllers_1.Authorized)(['admin', 'create-buyer']),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
@@ -1277,7 +1278,7 @@ tslib_1.__decorate([
 ], CustomerController.prototype, "addCustomer", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)(),
-    (0, routing_controllers_1.Authorized)(['admin-vendor', 'list-customer']),
+    (0, routing_controllers_1.Authorized)(['admin-vendor', 'list-buyer']),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('name')),
@@ -1304,7 +1305,7 @@ tslib_1.__decorate([
 ], CustomerController.prototype, "deleteCustomer", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Put)('/:id'),
-    (0, routing_controllers_1.Authorized)(['admin', 'edit-customer']),
+    (0, routing_controllers_1.Authorized)(['admin', 'update-buyer']),
     tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
     tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(2, (0, routing_controllers_1.Res)()),
@@ -1314,7 +1315,7 @@ tslib_1.__decorate([
 ], CustomerController.prototype, "updateCustomer", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/customer-detail/:id'),
-    (0, routing_controllers_1.Authorized)(['admin', 'view-customer']),
+    (0, routing_controllers_1.Authorized)(['admin', 'list-buyer']),
     tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
@@ -1339,7 +1340,7 @@ tslib_1.__decorate([
 ], CustomerController.prototype, "customerCount", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Post)('/delete-customer'),
-    (0, routing_controllers_1.Authorized)(['admin', 'delete-customer']),
+    (0, routing_controllers_1.Authorized)(['admin', 'delete-buyer']),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
     tslib_1.__param(2, (0, routing_controllers_1.Res)()),
@@ -1349,7 +1350,7 @@ tslib_1.__decorate([
 ], CustomerController.prototype, "deleteMultipleCustomer", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/customer-excel-list'),
-    (0, routing_controllers_1.Authorized)(['admin', 'export-customer']),
+    (0, routing_controllers_1.Authorized)(['admin']),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('customerId')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('status')),
     tslib_1.__param(2, (0, routing_controllers_1.Req)()),
@@ -1360,7 +1361,7 @@ tslib_1.__decorate([
 ], CustomerController.prototype, "excelCustomerView", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/allcustomer-excel-list'),
-    (0, routing_controllers_1.Authorized)(['admin', 'export-all-customer']),
+    (0, routing_controllers_1.Authorized)(['admin']),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('name')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('status')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('email')),
@@ -1426,6 +1427,7 @@ tslib_1.__decorate([
 ], CustomerController.prototype, "customerVisitList", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Post)('/bulk-status'),
+    (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(1, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),

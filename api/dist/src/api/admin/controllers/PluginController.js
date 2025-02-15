@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -178,9 +178,9 @@ let PluginController = class PluginController {
             });
         });
     }
-    // Update Plugin
+    // Update Plugin API
     /**
-     * @api {put} /api/plugins/logo/:id Update Plugin API
+     * @api {put} /api/plugins/additional-info/:id Update Plugin API
      * @apiGroup Product
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} pluginAdditionalInfo
@@ -191,7 +191,7 @@ let PluginController = class PluginController {
      *      "message": "Successfully updated plugin",
      *      "data":"{}"
      * }
-     * @apiSampleRequest /api/plugins/logo/:id
+     * @apiSampleRequest /api/plugins/additional-info/:id
      * @apiErrorExample {json} plugin update error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -212,7 +212,7 @@ let PluginController = class PluginController {
             const pluginSave = yield this.pluginService.create(plugin);
             return response.status(200).send({
                 status: 1,
-                message: `Successfully updated plugin`,
+                message: `Successfully updated plugin.`,
                 data: pluginSave,
             });
         });
@@ -320,7 +320,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], PluginController.prototype, "updatePluginStatus", null);
 tslib_1.__decorate([
-    (0, routing_controllers_1.Put)('/logo/:id'),
+    (0, routing_controllers_1.Put)('/additional-info/:id'),
     tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
     tslib_1.__param(1, (0, routing_controllers_1.Body)({ validate: true })),
     tslib_1.__param(2, (0, routing_controllers_1.Res)()),

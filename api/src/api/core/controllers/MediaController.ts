@@ -1,6 +1,6 @@
 /*
  * SpurtCommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -477,7 +477,7 @@ export class MediaController {
         }
         const successResponse: any = {
             status: 1,
-            message: 'Image Uploaded Successfully',
+            message: 'File Uploaded Successfully',
             data: {
                 file: name,
                 path,

@@ -1,13 +1,13 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
  */
 
 import 'reflect-metadata';
-import {IsNotEmpty, MaxLength} from 'class-validator';
+import { IsNotEmpty, MaxLength } from 'class-validator';
 
 export class CreateOrderStatus {
     @MaxLength(32, {
@@ -36,5 +36,4 @@ export class CreateOrderStatus {
     public isVendor: number;
     public isBuyer: number;
     public isApi: number;
-    public isFullfillment: number;
 }

@@ -298,6 +298,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], Settings.prototype, "sellerLogo2Path", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'time_zone' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "timeZone", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.BeforeInsert)(),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", []),

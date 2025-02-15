@@ -1,6 +1,6 @@
 /*
  * spurtcommerce marketplace API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -979,7 +979,8 @@ export class PaymentController {
         const newExportLog = new ExportLog();
         newExportLog.module = 'Archive Payments';
         newExportLog.recordAvailable = totalData;
-        newExportLog.createdBy = request.user.userId;
+        newExportLog.referenceId = request.user.userId;
+        newExportLog.referenceType = 1;
         await this.exportLogService.create(newExportLog);
         return new Promise((resolve, reject) => {
             response.download(fileName, (err, data) => {

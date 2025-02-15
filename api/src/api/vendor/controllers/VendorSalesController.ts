@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -21,6 +21,7 @@ import { VendorOrderArchiveService } from '../../core/services/VendorOrderArchiv
 import { PaymentItemsService } from '../../core/services/PaymentItemsService';
 import * as fs from 'fs';
 import moment from 'moment';
+import { VendorPayment } from '../../core/models/VendorPayment';
 
 @JsonController('/vendor-sales')
 export class VendorSaleController {
@@ -46,6 +47,7 @@ export class VendorSaleController {
      * @apiParam (Request body) {Number} limit limit
      * @apiParam (Request body) {Number} offset offset
      * @apiParam (Request body) {String} keyword search by orderId, customer name
+     * @apiParam (Request body) {String} isSettlement isSettlement
      * @apiParam (Request body) {String} startDate search by startDate
      * @apiParam (Request body) {String} orderId orderId
      * @apiParam (Requst body) {String} endDate search by endDate
@@ -82,7 +84,7 @@ export class VendorSaleController {
     @Authorized('vendor')
     public async paymentList(
         @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string,
-        @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string, @QueryParam('deliverylist') deliverylist: number, @QueryParam('count') count: number | boolean, @QueryParam('orderId') orderId: string, @Req() request: any, @Res() response: any): Promise<any> {
+        @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string, @QueryParam('deliverylist') deliverylist: number, @QueryParam('isSettlement') isSettlement: number, @QueryParam('count') count: number | boolean, @QueryParam('orderId') orderId: string, @Req() request: any, @Res() response: any): Promise<any> {
         const startDateMin = moment(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
         const date = endDate + ' 23:59:59';
         const endDateMin = moment(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
@@ -130,9 +132,18 @@ export class VendorSaleController {
 
         whereConditions.push({
             name: 'VendorPayment.vendorId',
-            op: 'and',
+            op: 'where',
             value: request.user.vendorId,
-        });
+        }, {
+            name: 'order.paymentProcess',
+            op: 'and',
+            value: 1,
+        }, {
+            name: 'order.paymentStatus',
+            op: 'and',
+            value: 1,
+        }
+        );
 
         if (startDate && startDate !== '') {
 
@@ -154,6 +165,13 @@ export class VendorSaleController {
                 value: endDateMin,
             });
 
+        }
+        if (isSettlement === 1 || isSettlement === 0) {
+            whereConditions.push({
+                name: '`vendorOrders`.`make_settlement`',
+                op: 'and',
+                value: isSettlement,
+            });
         }
 
         const searchConditions = [];
@@ -874,12 +892,13 @@ export class VendorSaleController {
      */
 
     @Get('/product-earning-export')
+    @Authorized('vendor')
     public async productEarningExport(@QueryParam('productId') productId: string, @Req() request: any, @Res() response: any): Promise<any> {
         const excel = require('exceljs');
         const workbook = new excel.Workbook();
         const worksheet = workbook.addWorksheet('Product earning export detail');
         const rows = [];
-        const splitProduct = productId.split(',');
+        const splitProduct = productId !== '' ? productId.split(',') : [];
         for (const record of splitProduct) {
             const dataId = await this.vendorProductService.find({ where: { productId: record } });
             if (dataId === undefined) {
@@ -909,6 +928,10 @@ export class VendorSaleController {
         for (const data of splitProduct) {
             const vendorProducts = await this.vendorProductService.findOne({ where: { productId: data } });
             arr.push(vendorProducts);
+        }
+        if (splitProduct.length === 0) {
+            const vendorProducts = await this.vendorProductService.find({ where: { vendorId: request.user.vendorId } });
+            arr.push(...vendorProducts);
         }
         for (const vendorProduct of arr) {
             const productValue = await this.productService.findOne({
@@ -995,6 +1018,58 @@ export class VendorSaleController {
         const successResponse: any = {
             status: 1,
             message: 'Successfully archived your payments',
+        };
+        return response.status(200).send(successResponse);
+    }
+
+    // Revoke Vendor payment Archive API
+    /**
+     * @api {Post} /api/vendor-sales/revoke-vendor-payment-archive Revoke Vendor Payment Archive API
+     * @apiGroup Vendor Sales
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorPaymentArchiveId vendorPaymentArchiveId
+     * @apiParamExample {json} Input
+     * {
+     *   "vendorPaymentArchiveId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Payment revoked successfully.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-sales/revoke-vendor-payment-archive
+     * @apiErrorExample {json} MakePaymentArchive error
+     * HTTP/1.1 500 Internal Server Error
+     */
+
+    @Post('/revoke-vendor-payment-archive')
+    @Authorized('vendor')
+    public async revokePaymentArchiv(@BodyParam('vendorPaymentArchiveId') vendorPaymentArchiveId: number, @Req() request: any, @Res() response: any): Promise<any> {
+        const vendorPaymentArchive = await this.vendorPaymentArchiveService.findOne({
+            where: {
+                id: vendorPaymentArchiveId,
+            },
+        });
+        if (!vendorPaymentArchive) {
+            const errorResponse: any = {
+                status: 0,
+                message: 'Invalid Seller Payment Archive Id',
+            };
+            return response.status(400).send(errorResponse);
+        }
+        const newVendorPayment: any = new VendorPayment();
+        newVendorPayment.vendorId = vendorPaymentArchive.vendorId;
+        newVendorPayment.vendorOrderId = vendorPaymentArchive.vendorOrderId;
+        newVendorPayment.paymentItemId = vendorPaymentArchive.paymentItemId;
+        newVendorPayment.amount = vendorPaymentArchive.amount;
+        newVendorPayment.commissionAmount = vendorPaymentArchive.commissionAmount;
+        await this.vendorPaymentService.create(newVendorPayment);
+
+        await this.vendorPaymentArchiveService.delete(vendorPaymentArchive.id);
+        const successResponse: any = {
+            status: 1,
+            message: 'Payment revoked successfully.',
         };
         return response.status(200).send(successResponse);
     }

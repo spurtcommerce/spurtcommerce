@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -1664,7 +1664,11 @@ export class VendorController {
                 op: 'like',
                 value: 1,
             },
-
+            {
+                name: 'isVendor',
+                op: 'like',
+                value: 1,
+            },
         ];
         const WhereConditions = [];
         const orderStatusList = await this.orderStatusService.list(0, 0, select, search, WhereConditions, 0);
@@ -1749,8 +1753,14 @@ export class VendorController {
         mailContents.emailContent = message;
         mailContents.redirectUrl = env.vendorRedirectUrl;
         mailContents.productDetailData = '';
-        const vendor = await this.vendorService.findOne({ where: { customerId: customer.customerId } });
-
+        const vendor = await this.vendorService.findOne({ where: { customerId: customer.customerId, isDelete: 0 } });
+        if (!vendor) {
+            const errResponse: any = {
+                status: 0,
+                message: 'Invalid Email! The email you have entered is not registered with us',
+            };
+            return response.status(400).send(errResponse);
+        }
         if (vendor.verification.email === 1) {
             MAILService.sendMail(mailContents, customer.email, emailContent.subject, false, false, '');
         }

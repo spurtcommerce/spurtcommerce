@@ -6,6 +6,7 @@ tslib_1.__exportStar(require("../api/admin/controllers/AdminFacebookController")
 tslib_1.__exportStar(require("../api/admin/controllers/AdminGmailController"), exports);
 tslib_1.__exportStar(require("../api/admin/controllers/AuditLogController"), exports);
 tslib_1.__exportStar(require("../api/admin/controllers/BannerController"), exports);
+tslib_1.__exportStar(require("../api/admin/controllers/BulkImportController"), exports);
 tslib_1.__exportStar(require("../api/admin/controllers/CategoryController"), exports);
 tslib_1.__exportStar(require("../api/admin/controllers/CategoryTranslationController"), exports);
 tslib_1.__exportStar(require("../api/admin/controllers/CountryController"), exports);
@@ -14,6 +15,7 @@ tslib_1.__exportStar(require("../api/admin/controllers/CustomerController"), exp
 tslib_1.__exportStar(require("../api/admin/controllers/CustomerGroupController"), exports);
 tslib_1.__exportStar(require("../api/admin/controllers/DocumentController"), exports);
 tslib_1.__exportStar(require("../api/admin/controllers/EmailTemplateController"), exports);
+tslib_1.__exportStar(require("../api/admin/controllers/ExportLogController"), exports);
 tslib_1.__exportStar(require("../api/admin/controllers/GmapController"), exports);
 tslib_1.__exportStar(require("../api/admin/controllers/LanguageController"), exports);
 tslib_1.__exportStar(require("../api/admin/controllers/OrderController"), exports);
@@ -38,9 +40,11 @@ tslib_1.__exportStar(require("../api/admin/controllers/UserController"), exports
 tslib_1.__exportStar(require("../api/admin/controllers/ZoneController"), exports);
 tslib_1.__exportStar(require("../api/core/controllers/CommonController"), exports);
 tslib_1.__exportStar(require("../api/core/controllers/MediaController"), exports);
+tslib_1.__exportStar(require("../api/vendor/controllers/VendorBulkImportController"), exports);
 tslib_1.__exportStar(require("../api/vendor/controllers/VendorController"), exports);
 tslib_1.__exportStar(require("../api/vendor/controllers/VendorCustomerGroupController"), exports);
 tslib_1.__exportStar(require("../api/vendor/controllers/VendorDocumentController"), exports);
+tslib_1.__exportStar(require("../api/vendor/controllers/VendorExportController"), exports);
 tslib_1.__exportStar(require("../api/vendor/controllers/VendorOrderController"), exports);
 tslib_1.__exportStar(require("../api/vendor/controllers/VendorProductController"), exports);
 tslib_1.__exportStar(require("../api/vendor/controllers/VendorProductTranslationController"), exports);

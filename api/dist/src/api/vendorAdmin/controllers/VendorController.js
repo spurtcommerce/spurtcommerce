@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -382,6 +382,14 @@ let VendorAdminController = class VendorAdminController {
                             }
                             const stringPad = String(vendors.vendorId).padStart(4, '0');
                             newVendor.vendorPrefixId = 'Sel'.concat(stringPad);
+                            if (env_1.env.imageserver === 's3') {
+                                const prefixId = newVendor.vendorPrefixId.replace('#', '');
+                                yield this.s3Service.createFolder(prefixId + '/');
+                            }
+                            else {
+                                const prefixId = newVendor.vendorPrefixId.replace('#', '');
+                                yield this.imageService.createFolder(prefixId);
+                            }
                             yield this.vendorService.update(vendors.vendorId, newVendor);
                             if (customerParam.mailStatus === 1) {
                                 const emailContent = yield this.emailTemplateService.findOne(13);
@@ -522,7 +530,7 @@ let VendorAdminController = class VendorAdminController {
                         vendor.vendorGroupId = customerParam.vendorGroupId;
                         vendor.customerId = customerSave.id;
                         vendor.companyName = customerParam.companyName;
-                        vendor.vendorDescription = customerParam.vendorDescription;
+                        vendor.companyDescription = customerParam.companyDescription;
                         vendor.paymentInformation = customerParam.paymentInformation;
                         vendor.companyAddress1 = customerParam.companyAddress1;
                         vendor.companyAddress2 = customerParam.companyAddress2;
@@ -622,6 +630,14 @@ let VendorAdminController = class VendorAdminController {
                             }));
                         }
                         if (vendorSave) {
+                            if (env_1.env.imageserver === 's3') {
+                                const prefixId = vendorSave.vendorPrefixId.replace('#', '');
+                                yield this.s3Service.createFolder(prefixId + '/');
+                            }
+                            else {
+                                const prefixId = vendorSave.vendorPrefixId.replace('#', '');
+                                yield this.imageService.createFolder(prefixId);
+                            }
                             if (customerParam.mailStatus === 1) {
                                 const emailContent = yield this.emailTemplateService.findOne(13);
                                 const logo = yield this.settingService.findOne();
@@ -823,6 +839,7 @@ let VendorAdminController = class VendorAdminController {
                     message: 'Invalid vendor Id..!',
                 });
             }
+            const oldVendorApprovalStatus = vendor.approvalFlag;
             const displayName = updateCustomerParam.displayNameUrl.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
             const vendorDisplayNameUrl = yield this.vendorService.validateDisplayUrlName(displayName, 1, vendor.vendorId);
             if (vendorDisplayNameUrl) {
@@ -949,7 +966,7 @@ let VendorAdminController = class VendorAdminController {
             vendor.vendorGroupId = updateCustomerParam.vendorGroupId;
             vendor.customerId = customerSave.id;
             vendor.companyName = updateCustomerParam.companyName;
-            vendor.vendorDescription = updateCustomerParam.companyDescription;
+            vendor.companyDescription = updateCustomerParam.companyDescription;
             vendor.paymentInformation = updateCustomerParam.paymentInformation;
             vendor.companyAddress1 = updateCustomerParam.companyAddress1;
             vendor.companyAddress2 = updateCustomerParam.companyAddress2;
@@ -989,7 +1006,7 @@ let VendorAdminController = class VendorAdminController {
             const account = {};
             account.accountHolderName = updateCustomerParam.companyAccountHolderName;
             account.accountNumber = updateCustomerParam.companyAccountNumber;
-            account.ifsc = updateCustomerParam.companyAccountIfsc;
+            account.ifsc = updateCustomerParam.ifscCode;
             account.branch = updateCustomerParam.companyAccountBranch;
             account.accountCreatedOn = updateCustomerParam.companyAccountCreatedOn;
             account.bankName = updateCustomerParam.companyAccountBankName;
@@ -1030,15 +1047,14 @@ let VendorAdminController = class VendorAdminController {
                 }));
             }
             if (updateCustomerParam.approvalFlag === 1) {
-                if (vendor.approvalFlag !== 1) {
-                    if (env_1.env.imageserver === 's3') {
-                        const prefixId = vendorSave.vendorPrefixId.replace('#', '');
-                        yield this.s3Service.createFolder(prefixId + '/');
-                    }
-                    else {
-                        const prefixId = vendorSave.vendorPrefixId.replace('#', '');
-                        yield this.imageService.createFolder(prefixId);
-                    }
+                if (oldVendorApprovalStatus !== 1) {
+                    // if (env.imageserver === 's3') {
+                    //     const prefixId = vendorSave.vendorPrefixId.replace('#', '');
+                    //     await this.s3Service.createFolder(prefixId + '/');
+                    // } else {
+                    //     const prefixId = vendorSave.vendorPrefixId.replace('#', '');
+                    //     await this.imageService.createFolder(prefixId);
+                    // }
                     const vendorCustomer = yield this.customerService.findOne({ where: { id: vendor.customerId } });
                     vendorCustomer.isActive = 1;
                     yield this.customerService.create(vendorCustomer);
@@ -1663,7 +1679,8 @@ let VendorAdminController = class VendorAdminController {
             const newExportLog = new ExportLog_1.ExportLog();
             newExportLog.module = 'Seller';
             newExportLog.recordAvailable = rows.length;
-            newExportLog.createdBy = request.user.userId;
+            newExportLog.referenceId = request.user.userId;
+            newExportLog.referenceType = 1;
             yield this.exportLogService.create(newExportLog);
             // Add all rows data in sheet
             rows.sort((a, b) => a[0] - b[0]);
@@ -2168,7 +2185,7 @@ let VendorAdminController = class VendorAdminController {
                 }
                 vendor.approvalFlag = payload.approvalFlag;
                 const comment = {
-                    date: (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss'),
+                    date: (0, moment_1.default)().format(),
                     comment: payload.comment,
                 };
                 vendor.kycStatus = Vendor_1.KycStatus.VERIFIED;
@@ -2183,7 +2200,7 @@ let VendorAdminController = class VendorAdminController {
                 }
                 vendor.approvalFlag = payload.approvalFlag;
                 const comment = {
-                    date: (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss'),
+                    date: (0, moment_1.default)().format(),
                     comment: payload.comment,
                 };
                 vendor.kycStatus = Vendor_1.KycStatus.REJECTED;
@@ -2197,7 +2214,7 @@ let VendorAdminController = class VendorAdminController {
             }
             if (payload.commentFor) {
                 const comment = {
-                    date: (0, moment_1.default)().format('YYYY-MM-DD HH:mm:ss'),
+                    date: (0, moment_1.default)().format(),
                     comment: payload.comment,
                     commentFor: payload.commentFor,
                 };

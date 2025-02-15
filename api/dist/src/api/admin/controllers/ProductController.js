@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -14,7 +14,9 @@ const routing_controllers_1 = require("routing-controllers");
 const ProductService_1 = require("../../core/services/ProductService");
 const ProductToCategoryService_1 = require("../../core/services/ProductToCategoryService");
 const ProductImageService_1 = require("../../core/services/ProductImageService");
+const ProductModel_1 = require("../../core/models/ProductModel");
 const ProductDiscount_1 = require("../../core/models/ProductDiscount");
+const VendorProducts_1 = require("../../core/models/VendorProducts");
 const ProductSpecial_1 = require("../../core/models/ProductSpecial");
 const class_transformer_1 = require("class-transformer");
 const DeleteProductRequest_1 = require("./requests/DeleteProductRequest");
@@ -36,11 +38,14 @@ const CustomerService_1 = require("../../core/services/CustomerService");
 const fs = require("fs");
 const TaxService_1 = require("../../core/services/TaxService");
 const PaymentService_1 = require("../../core/services/PaymentService");
+const path = tslib_1.__importStar(require("path"));
 const ImageService_1 = require("../../core/services/ImageService");
 const CategoryPathService_1 = require("../../core/services/CategoryPathService");
 const ProductTirePriceService_1 = require("../../core/services/ProductTirePriceService");
 const SkuService_1 = require("../../core/services/SkuService");
 const SkuModel_1 = require("../../core/models/SkuModel");
+const env_1 = require("../../../env");
+const S3Service_1 = require("../../core/services/S3Service");
 const VendorProductService_1 = require("../../core/services/VendorProductService");
 const ProductVideoService_1 = require("../../core/services/ProductVideoService");
 const ProductVideo_1 = require("../../core/models/ProductVideo");
@@ -48,7 +53,11 @@ const VendorService_1 = require("../../core/services/VendorService");
 const VendorPaymentService_1 = require("../../core/services/VendorPaymentService");
 const CustomerCartService_1 = require("../../core/services/CustomerCartService");
 const pluginLoader_1 = require("../../../loaders/pluginLoader");
+const BulkImportRequest_1 = require("./requests/BulkImportRequest");
+// import { Category } from '../../core/models/CategoryModel';
+// import { CategoryPath } from '../../core/models/CategoryPath';
 const product_1 = require("@spurtcommerce/product");
+const PluginService_1 = require("../../core/services/PluginService");
 const ExportLog_1 = require("../../core/models/ExportLog");
 const ExportLogService_1 = require("../../core/services/ExportLogService");
 const uncino_1 = tslib_1.__importDefault(require("uncino"));
@@ -57,7 +66,7 @@ const typeorm_1 = require("typeorm");
 const hooks = (0, uncino_1.default)();
 // @UseBefore(TranslationMiddleware)
 let ProductController = class ProductController {
-    constructor(productService, productToCategoryService, productImageService, categoryService, orderProductService, orderService, productViewLogService, productDiscountService, productSpecialService, customerService, taxService, paymentService, categoryPathService, productTirePriceService, skuService, productVideoService, imageService, vendorProductService, vendorServie, vendorPaymentService, customerCartService, exportLogService) {
+    constructor(productService, productToCategoryService, productImageService, categoryService, orderProductService, orderService, productViewLogService, productDiscountService, productSpecialService, customerService, taxService, paymentService, categoryPathService, productTirePriceService, skuService, s3Service, productVideoService, imageService, vendorProductService, vendorServie, vendorPaymentService, customerCartService, bulkImport, pluginService, exportLogService) {
         this.productService = productService;
         this.productToCategoryService = productToCategoryService;
         this.productImageService = productImageService;
@@ -73,12 +82,15 @@ let ProductController = class ProductController {
         this.categoryPathService = categoryPathService;
         this.productTirePriceService = productTirePriceService;
         this.skuService = skuService;
+        this.s3Service = s3Service;
         this.productVideoService = productVideoService;
         this.imageService = imageService;
         this.vendorProductService = vendorProductService;
         this.vendorServie = vendorServie;
         this.vendorPaymentService = vendorPaymentService;
         this.customerCartService = customerCartService;
+        this.bulkImport = bulkImport;
+        this.pluginService = pluginService;
         this.exportLogService = exportLogService;
     }
     // Product List API
@@ -1549,8 +1561,8 @@ let ProductController = class ProductController {
             const newExportLog = new ExportLog_1.ExportLog();
             newExportLog.module = 'Manage Products';
             newExportLog.recordAvailable = productIds.length;
-            newExportLog.createdBy = request.user.userId;
-            newExportLog.createdBy = 80;
+            newExportLog.referenceId = request.user.userId;
+            newExportLog.referenceType = 1;
             yield this.exportLogService.create(newExportLog);
             return new Promise((resolve, reject) => {
                 response.download(excelFile, (err, data) => {
@@ -2111,6 +2123,623 @@ let ProductController = class ProductController {
                 data: product,
             };
             return response.status(200).send(successResponse);
+        });
+    }
+    // Import Product data
+    /**
+     * @api {post} /api/product/import-product-data Import product Data
+     * @apiGroup Product
+     * @apiParam (Request body) {String} file File
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully saved imported data..!!",
+     *      "status": "1",
+     *      "data": {},
+     * }
+     * @apiSampleRequest /api/product/import-product-data
+     * @apiErrorExample {json} Import product Data
+     * HTTP/1.1 500 Internal Server Error
+     */
+    ImportProductPrice(files, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // --
+            const StreamZip = require('node-stream-zip');
+            const random = Math.floor((Math.random() * 100) + 1);
+            const name = files.originalname;
+            const type = name.split('.')[1];
+            const mainFileName = './product_' + random + '.' + type;
+            yield this.imageService.writeFile(mainFileName, files.buffer);
+            const rimraf = require('rimraf');
+            // check zip contains invalid file
+            const zip = new StreamZip({ file: path.join(process.cwd(), mainFileName) });
+            const AcceptedFiles = ['xlsx', 'zip'];
+            const zipRead = yield new Promise((resolved, reject) => {
+                zip.on('ready', () => {
+                    const errExtension = [];
+                    for (const entry of Object.values(zip.entries())) {
+                        const fileNameEntries = (Object.values(entry)[16]).split('.')[1];
+                        if (AcceptedFiles.includes(fileNameEntries) === false) {
+                            errExtension.push(fileNameEntries);
+                        }
+                    }
+                    resolved(errExtension);
+                    // Do not forget to close the file once you're done
+                    zip.close();
+                });
+            });
+            if (zipRead.length > 0) {
+                rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                }));
+                fs.unlinkSync(path.join(process.cwd(), mainFileName));
+                return response.status(400).send({
+                    status: 0,
+                    message: 'The file you uploaded contains some invalid extensions',
+                });
+            }
+            const resolve = require('path').resolve;
+            const distPath = resolve('product_' + random);
+            yield this.imageService.extractZip(mainFileName, distPath);
+            const directoryPath = path.join(process.cwd(), 'product_' + random);
+            const mainFiles = yield this.readDir(directoryPath);
+            // check the image zip contains invalid data
+            for (const fileExtNames of mainFiles) {
+                const fileType = fileExtNames.split('.')[1];
+                if (fileType === 'zip') {
+                    const czip = new StreamZip({ file: path.join(process.cwd(), 'product_' + random + '/' + fileExtNames) });
+                    const cAcceptedFiles = ['png', 'jpg', 'jpeg'];
+                    const czipRead = yield new Promise((resolved, reject) => {
+                        czip.on('ready', () => {
+                            const cerrExtension = [];
+                            for (const entry of Object.values(czip.entries())) {
+                                const cfileNameEntries = (Object.values(entry)[16]).split('.')[1];
+                                if (cfileNameEntries) {
+                                    if (cAcceptedFiles.includes(cfileNameEntries) === false) {
+                                        cerrExtension.push(cfileNameEntries);
+                                    }
+                                }
+                            }
+                            resolved(cerrExtension);
+                            czip.close();
+                        });
+                    });
+                    if (czipRead.length > 0) {
+                        fs.unlinkSync(path.join(process.cwd(), mainFileName));
+                        return response.status(400).send({
+                            status: 0,
+                            message: 'The file you uploaded contains some invalid extensions',
+                        });
+                    }
+                }
+            }
+            try {
+                for (const fileNames of mainFiles) {
+                    const fileType = fileNames.split('.')[1];
+                    if (fileType === 'xlsx') {
+                        if (fileNames === 'productData.xlsx') {
+                            const directoryPathh = path.join(process.cwd(), 'product_' + random + '/' + fileNames);
+                            const result = yield this.imageService.xlsxToJson(directoryPathh);
+                            const forExport = yield this.bulkImport.validateAndFormatData(result);
+                            if (forExport.errorStatus) {
+                                const findDuplicateSku = forExport.data.find((obj) => obj.Error.includes('give some other name'));
+                                fs.unlinkSync(mainFileName);
+                                if (findDuplicateSku) {
+                                    throw new Error('Duplicate sku name, give some other name');
+                                }
+                                throw new Error('Oops! Data format mismatch detected');
+                            }
+                            const authorization = request.headers.authorization;
+                            const createProduct = yield this.bulkProductImport(result, authorization);
+                            return response.status(200).send({ status: 1, message: createProduct });
+                        }
+                    }
+                    else if (fileNames === 'image.zip') {
+                        const directPath = path.join(process.cwd(), 'product_' + random + '/' + fileNames);
+                        yield this.imageService.extractZip(directPath, distPath);
+                        const directoryPat = path.join(process.cwd(), 'product_' + random + '/' + 'image');
+                        const filesss = yield this.readDir(directoryPat);
+                        for (const fileNme of filesss) {
+                            const image2base64 = require('image-to-base64');
+                            const imagePath = directoryPat + '/' + fileNme;
+                            const imageType = fileNme.split('.')[1];
+                            image2base64(imagePath)
+                                .then((responsee) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                                const base64Data = Buffer.from(responsee, 'base64');
+                                if (env_1.env.imageserver === 's3') {
+                                    yield this.s3Service.imageUpload((fileNme), base64Data, imageType);
+                                }
+                                else {
+                                    yield this.imageService.imageUpload((fileNme), base64Data);
+                                }
+                            }))
+                                .catch((error) => {
+                                throw error;
+                            });
+                        }
+                    }
+                    else {
+                        rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
+                            if (err) {
+                                throw err;
+                            }
+                        }));
+                        fs.unlinkSync(mainFileName);
+                        throw new Error('Only xlsx and zip file are accepted');
+                    }
+                }
+                rimraf(path.join(process.cwd(), 'product_' + random), ((err) => {
+                    if (err) {
+                        throw err;
+                    }
+                }));
+                fs.unlinkSync(mainFileName);
+                const successResponse = {
+                    status: 1,
+                    message: 'Product Imported Successfully',
+                };
+                return response.status(200).send(successResponse);
+            }
+            catch (error) {
+                return response.status(400).send({
+                    status: 0,
+                    message: error.message,
+                });
+            }
+        });
+    }
+    bulkProductImport(jsonData, authorization) {
+        var _a, _b, _c, _d;
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const productNames = jsonData.map(value => value.Name);
+            const filterName = productNames.filter((item, index) => productNames.indexOf(item) === index);
+            const productRequest = yield this.bulkImport.bulkImportRequest(filterName, jsonData);
+            // Create category data
+            const categoryProduct = [];
+            for (const categorydata of productRequest) {
+                const categoryIds = [];
+                for (const data of categorydata.category) {
+                    const categoryArr = (_a = data.category) === null || _a === void 0 ? void 0 : _a.split('>');
+                    const length = categoryArr.length;
+                    if (length === 1) {
+                        const ifCategory = yield this.categoryService.findCategory(categoryArr[0], 0);
+                        if (!ifCategory) {
+                            // const newCategory = new Category();
+                            // const randomNumber = Math.floor(Math.random() * 90) + 10;
+                            // newCategory.name = categoryArr[0];
+                            // newCategory.sortOrder = 1;
+                            // newCategory.parentInt = 0;
+                            // newCategory.categorySlug = categoryArr[0] + randomNumber;
+                            // newCategory.isActive = 1;
+                            // const createCategoryData = await this.categoryService.create(newCategory);
+                            // const newCategoryPath = new CategoryPath();
+                            // newCategoryPath.categoryId = createCategoryData.categoryId;
+                            // newCategoryPath.pathId = createCategoryData.categoryId;
+                            // newCategoryPath.level = 0;
+                            // await this.categoryPathService.create(newCategoryPath);
+                            // data.categoryId = createCategoryData.categoryId;
+                            // categoryIds.push(data);
+                        }
+                        else {
+                            data.categoryId = ifCategory.categoryId;
+                            categoryIds.push(data);
+                        }
+                    }
+                    //  else {
+                    //     let index = 0;
+                    //     let categoryIdss = 0;
+                    //     let sortOrder = 1;
+                    //     for (const value of categoryArr) {
+                    //         if (index === 0) {
+                    //             const ifCategory = await this.categoryService.findCategory(categoryArr[index], 0);
+                    //             if (!ifCategory) {
+                    //                 const newCategory = new Category();
+                    //                 const randomNumber = Math.floor(Math.random() * 90) + 10;
+                    //                 newCategory.name = value;
+                    //                 newCategory.sortOrder = sortOrder;
+                    //                 newCategory.parentInt = 0;
+                    //                 newCategory.categorySlug = categoryArr[0] + randomNumber;
+                    //                 newCategory.isActive = 1;
+                    //                 const createCategory = await this.categoryService.create(newCategory);
+                    //                 categoryIdss = createCategory.categoryId;
+                    //                 const newCategoryPath = new CategoryPath();
+                    //                 newCategoryPath.categoryId = createCategory.categoryId;
+                    //                 newCategoryPath.pathId = createCategory.categoryId;
+                    //                 newCategoryPath.level = 0;
+                    //                 await this.categoryPathService.create(newCategoryPath);
+                    //                 sortOrder++;
+                    //             } else {
+                    //                 categoryIdss = ifCategory.categoryId;
+                    //             }
+                    //         } else {
+                    //             const parentCategoryName = categoryArr[index - 1];
+                    //             const ifCategory = await this.categoryService.findCategory(parentCategoryName.toLowerCase(), 0);
+                    //             const paentInt = ifCategory.categoryId ? ifCategory.categoryId : 0;
+                    //             const checkCategory = await this.categoryService.findCategory(value.toLowerCase(), paentInt);
+                    //             if (!checkCategory && ifCategory) {
+                    //                 const newCategory = new Category();
+                    //                 const randomNumber = Math.floor(Math.random() * 90) + 10;
+                    //                 newCategory.categorySlug = categoryArr[0] + randomNumber;
+                    //                 newCategory.name = value;
+                    //                 newCategory.sortOrder = sortOrder;
+                    //                 newCategory.parentInt = ifCategory.categoryId;
+                    //                 newCategory.isActive = 1;
+                    //                 const createCategory = await this.categoryService.create(newCategory);
+                    //                 categoryIdss = createCategory.categoryId;
+                    //                 // create category path
+                    //                 const getAllPath: any = await this.categoryPathService.find({
+                    //                     where: { categoryId: createCategory.parentInt },
+                    //                     order: { level: 'ASC' },
+                    //                 });
+                    //                 let level = 0;
+                    //                 for (const paths of getAllPath) {
+                    //                     const CategoryPathLoop: any = new CategoryPath();
+                    //                     CategoryPathLoop.categoryId = createCategory.categoryId;
+                    //                     CategoryPathLoop.pathId = paths.pathId;
+                    //                     CategoryPathLoop.level = level;
+                    //                     await this.categoryPathService.create(CategoryPathLoop);
+                    //                     level++;
+                    //                     sortOrder++;
+                    //                 }
+                    //                 const newCategoryPath = new CategoryPath();
+                    //                 newCategoryPath.categoryId = createCategory.categoryId;
+                    //                 newCategoryPath.pathId = createCategory.categoryId;
+                    //                 newCategoryPath.level = level;
+                    //                 await this.categoryPathService.create(newCategoryPath);
+                    //             } else {
+                    //                 categoryIdss = checkCategory.categoryId;
+                    //             }
+                    //         }
+                    //         index++;
+                    //     }
+                    //     data.categoryId = categoryIdss;
+                    //     categoryIds.push(data);
+                    // }
+                }
+                // categorydata.category = categoryIds;
+                categoryProduct.push(categorydata);
+            }
+            // create product datas...
+            for (const data of categoryProduct) {
+                if (data.Price === '' || data.Name === '') {
+                    throw new Error('Product Price or Product Name should not empty');
+                }
+                const product = new ProductModel_1.Product();
+                product.sku = data.SKU;
+                product.upc = data.UPC;
+                product.hsn = data.HSN;
+                product.quantity = data.Quantity;
+                product.taxType = 1;
+                product.taxValue = (_b = data.Tax) !== null && _b !== void 0 ? _b : 0;
+                product.stockStatusId = data.StockStatusId;
+                product.shipping = data.Required_Shipping;
+                const serviceCharge = {};
+                serviceCharge.productCost = data.Price;
+                serviceCharge.packingCost = data.PackageCost ? data.PackageCost : 0;
+                serviceCharge.shippingCost = data.ShippingCost ? data.ShippingCost : 0;
+                serviceCharge.others = product.others ? product.others : 0;
+                product.serviceCharges = JSON.stringify(serviceCharge);
+                product.price = +serviceCharge.productCost + +serviceCharge.packingCost + +serviceCharge.shippingCost + +serviceCharge.others;
+                product.price = data.Price;
+                product.dateAvailable = data.DateAvailable;
+                // saving sku //
+                const newSku = new SkuModel_1.Sku();
+                newSku.skuName = data.SKU;
+                newSku.price = data.Price;
+                newSku.quantity = data.Quantity ? Math.round(data.Quantity) : 1;
+                newSku.isActive = 1;
+                const saveSku = yield this.skuService.create(newSku);
+                // ending sku //
+                product.skuId = saveSku.id;
+                product.name = data.Name;
+                product.description = data.Description;
+                product.shipping = 1;
+                product.stockStatusId = 1;
+                product.isFeatured = 0;
+                product.todayDeals = 0;
+                product.isActive = 0;
+                product.sortOrder = 1;
+                product.isSimplified = 1;
+                // adding category name and product name in keyword field for keyword search
+                const rowsArr = [];
+                if (data.category.length > 0) {
+                    const categories = data.category;
+                    for (const categorys of categories) {
+                        const categoryNames = categorys.category.split('>');
+                        const categoryLength = categoryNames.length;
+                        const categoryData = yield this.categoryService.findOne({ where: { name: (categoryNames[categoryLength - 1]).trimStart() } });
+                        const categoryName = '~' + categoryData.name + '~';
+                        rowsArr.push(categoryName);
+                    }
+                }
+                rowsArr.push('~' + data.Name + '~');
+                const values = rowsArr.toString();
+                product.keywords = values;
+                const metaTagTitle = data.ProductSlug ? data.ProductSlug : data.Name;
+                const slug = metaTagTitle.trim();
+                const dataValue = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+                product.productSlug = yield this.validate_slug(dataValue);
+                product.height = data.Height !== '' ? data.Height !== '' : data.Height;
+                product.weight = data.Weight !== '' ? data.Weight !== '' : data.Height;
+                product.width = data.Width !== '' ? data.Width !== '' : data.Width;
+                product.length = data.Length !== '' ? data.Length !== '' : data.Length;
+                const savedProduct = yield this.productService.create(product);
+                if (data.VendorId) {
+                    const vendor = yield this.vendorServie.findOne({
+                        where: {
+                            vendorId: data.VendorId,
+                        },
+                    });
+                    if (vendor) {
+                        const vendorProduct = new VendorProducts_1.VendorProducts();
+                        vendorProduct.vendorId = data.VendorId;
+                        vendorProduct.productId = savedProduct.productId;
+                        vendorProduct.approvalFlag = 0;
+                        yield this.vendorProductService.create(vendorProduct);
+                    }
+                }
+                if (data.Images) {
+                    const images = data.Images;
+                    const findI = images.toString().includes(',');
+                    if (findI === true) {
+                        const image = data.Images.split(',');
+                        for (const img of image) {
+                            const productImage = new ProductImage_1.ProductImage();
+                            productImage.image = img;
+                            productImage.containerName = '';
+                            productImage.productId = savedProduct.productId;
+                            yield this.productImageService.create(productImage);
+                        }
+                    }
+                    else {
+                        const productImage = new ProductImage_1.ProductImage();
+                        productImage.image = images;
+                        productImage.containerName = '';
+                        productImage.productId = savedProduct.productId;
+                        yield this.productImageService.create(productImage);
+                    }
+                    const findImage = yield this.productImageService.findOne({ productId: savedProduct.productId });
+                    findImage.defaultImage = 1;
+                    yield this.productImageService.create(findImage);
+                }
+                if (data.category.length >= 1) {
+                    for (const category of data.category) {
+                        const categoryNames = category.category.split('>');
+                        const categoryLength = categoryNames.length;
+                        const categoryData = yield this.categoryService.findOne({ where: { name: (categoryNames[categoryLength - 1]).trimStart() } });
+                        // const categoryData = await this.categoryService.findOne({ where: { name: category } });
+                        const newProductToCategory = new ProductToCategory_1.ProductToCategory();
+                        newProductToCategory.productId = savedProduct.productId;
+                        newProductToCategory.categoryId = categoryData.categoryId;
+                        newProductToCategory.isActive = 1;
+                        this.productToCategoryService.create(newProductToCategory);
+                    }
+                }
+                // Create Variant
+                const findProductVariantbuteStatus = yield this.pluginService.findOne({ where: { pluginName: 'ProductVariants', pluginStatus: 1 } });
+                if (data.variant.length > 0 && data.variant[0].variantSku !== '' && data.variant[0].variantSku && findProductVariantbuteStatus) {
+                    const variantData = data.variant;
+                    for (const datas of variantData) {
+                        yield hooks.removeHook('product-variant', 'MPV-namespace');
+                        if (pluginLoader_1.pluginModule.includes('ProductVariants')) {
+                            // Add variant hook
+                            hooks.addHook('product-variant', 'MPV-namespace', () => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                                const importPath = '../../../../add-ons/ProductVariants/BulkProductVariant';
+                                const variant = yield require(importPath);
+                                return yield variant.variantProcess(datas, savedProduct.productId);
+                            }));
+                            // Run variant hook
+                            // const results =
+                            yield hooks.runHook('product-variant');
+                        }
+                    }
+                    // update sku quantity
+                    let quantity = 0;
+                    console.log(variantData);
+                    for (const quadata of variantData) {
+                        quantity = quantity + ((_c = quadata.variantQuantity) !== null && _c !== void 0 ? _c : 0);
+                        console.log(quantity);
+                    }
+                    if (data.variant.length > 0 && pluginLoader_1.pluginModule.includes('ProductVariants')) {
+                        const findSkuValue = yield this.skuService.findOne({ where: { id: savedProduct.skuId } });
+                        findSkuValue.quantity = quantity;
+                        yield this.skuService.create(findSkuValue);
+                        savedProduct.isSimplified = 0;
+                        yield this.productService.create(savedProduct);
+                    }
+                }
+                const discountData = data.productDiscount;
+                // Product Discount
+                if (discountData.length > 0) {
+                    for (const discount of discountData) {
+                        const newdiscountData = new ProductDiscount_1.ProductDiscount();
+                        const skuData = yield this.skuService.findOne({ where: { skuName: discount.sku } });
+                        newdiscountData.skuId = skuData.id;
+                        newdiscountData.productId = savedProduct.productId;
+                        newdiscountData.quantity = 1;
+                        newdiscountData.priority = discount.discountPriority;
+                        newdiscountData.price = discount.discountPrice;
+                        newdiscountData.dateStart = moment(discount.discountStartDate).toISOString();
+                        newdiscountData.dateEnd = moment(discount.discountEndDate).toISOString();
+                        if (discount.discountPriority !== undefined && discount.discountStartDate !== undefined && discount.discountEndDate !== undefined) {
+                            yield this.productDiscountService.create(newdiscountData);
+                        }
+                    }
+                }
+                // Product Special
+                if (data.productSpecialPrice.length > 0) {
+                    const productSpecials = data.productSpecialPrice;
+                    for (const special of productSpecials) {
+                        const specialPriceData = new ProductSpecial_1.ProductSpecial();
+                        const skuData = yield this.skuService.findOne({ where: { skuName: special.sku } });
+                        specialPriceData.skuId = skuData.id;
+                        specialPriceData.productId = savedProduct.productId;
+                        specialPriceData.priority = special.priority;
+                        specialPriceData.price = special.price;
+                        specialPriceData.customerGroupId = special.customerGroupId;
+                        specialPriceData.dateStart = moment(special.startDate).toISOString();
+                        specialPriceData.dateEnd = moment(special.endDate).toISOString();
+                        if (special.priority !== undefined && special.price !== undefined && special.startDate !== undefined && special.startDate !== undefined && special.endDate !== undefined) {
+                            yield this.productSpecialService.create(specialPriceData);
+                        }
+                    }
+                }
+                // Product tire price
+                if (data.productTirePrice.length > 0) {
+                    const tirePrice = data.productTirePrice;
+                    for (const tire of tirePrice) {
+                        const productTirePrice = new ProductTirePrice_1.ProductTirePrice();
+                        const skuData = yield this.skuService.findOne({ where: { skuName: tire.sku } });
+                        productTirePrice.skuId = skuData.id;
+                        productTirePrice.productId = savedProduct.productId;
+                        productTirePrice.quantity = tire.quantity;
+                        productTirePrice.price = tire.price;
+                        if (tire.quantity !== undefined && tire.price !== undefined) {
+                            yield this.productTirePriceService.create(productTirePrice);
+                        }
+                    }
+                }
+                // product video
+                if (data.video.length > 0) {
+                    for (const videoData of data.video) {
+                        const productVideo = new ProductVideo_1.ProductVideo();
+                        productVideo.productId = savedProduct.productId;
+                        productVideo.path = videoData;
+                        productVideo.type = 2;
+                        yield this.productVideoService.create(productVideo);
+                    }
+                }
+                const axios = require('axios');
+                const headers = {
+                    'Authorization': authorization,
+                    'Content-Type': 'application/json',
+                };
+                // Create Related Product
+                const relatedProductsId = (_d = data === null || data === void 0 ? void 0 : data.RelatedProductId) === null || _d === void 0 ? void 0 : _d.split(',');
+                const findProductRelated = yield this.pluginService.findOne({ where: { pluginName: 'ProductRelated', pluginStatus: 1 } });
+                if ((relatedProductsId === null || relatedProductsId === void 0 ? void 0 : relatedProductsId.length) > 0 && pluginLoader_1.pluginModule.includes('ProductRelated') && findProductRelated && relatedProductsId[0] !== '') {
+                    const relatedProductObject = {
+                        productId: savedProduct.productId,
+                        relatedProductId: relatedProductsId,
+                    };
+                    yield axios.post(env_1.env.baseUrl + '/vendor-related-product/update-vendor-related-product', relatedProductObject, { headers });
+                }
+                // Create product Seo
+                const findSeo = yield this.pluginService.findOne({ where: { pluginName: 'Seo', pluginStatus: 1 } });
+                if ((data === null || data === void 0 ? void 0 : data.MetaTagTitle) && (data === null || data === void 0 ? void 0 : data.MetaTagDescription) && (data === null || data === void 0 ? void 0 : data.MetaTagKeyword) && (data === null || data === void 0 ? void 0 : data.MetaTagTitle) !== '' && (data === null || data === void 0 ? void 0 : data.MetaTagDescription) !== '' && (data === null || data === void 0 ? void 0 : data.MetaTagKeyword) !== '') {
+                    if (pluginLoader_1.pluginModule.includes('Seo') && findSeo) {
+                        const seoObject = {
+                            metaTagTitle: data === null || data === void 0 ? void 0 : data.MetaTagTitle,
+                            metaTagDescription: data === null || data === void 0 ? void 0 : data.MetaTagDescription,
+                            metaTagKeyword: data === null || data === void 0 ? void 0 : data.MetaTagKeyword,
+                        };
+                        axios.post(env_1.env.baseUrl + '/vendor-product-seo/' + savedProduct.productId, seoObject, { headers });
+                    }
+                }
+            }
+            const successMessage = 'Bulk product data created successfully';
+            return successMessage;
+        });
+    }
+    // Download sample zip for product import
+    /**
+     * @api {get} /api/product/download-product-sample Download Product Import Sample Zip
+     * @apiGroup Product
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Successfully download the file..!!",
+     *      "status": "1",
+     * }
+     * @apiSampleRequest /api/product/download-product-sample
+     * @apiErrorExample {json} Download Data
+     * HTTP/1.1 500 Internal Server Error
+     */
+    downloadSample(response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const excel = require('exceljs');
+            // product list excel
+            const productWorkbook = new excel.Workbook();
+            const productWorksheet = productWorkbook.addWorksheet('product List');
+            const products = [];
+            // Excel sheet column define
+            productWorksheet.columns = [
+                { header: 'productId', key: 'id', size: 16, width: 15 },
+                { header: 'ProductName', key: 'first_name', size: 16, width: 15 },
+            ];
+            productWorksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            productWorksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const product = yield this.productService.find({ select: ['productId', 'name'] });
+            for (const prod of product) {
+                products.push([prod.productId, prod.name]);
+            }
+            products.push(['If you want to map multiple related Product to product,you have to give relatedProductId splitted with commas (,) ']);
+            productWorksheet.addRows(products);
+            const productFileName = './demo/Productlist.xlsx';
+            yield productWorkbook.xlsx.writeFile(productFileName);
+            // for category excel
+            const workbook = new excel.Workbook();
+            const worksheet = workbook.addWorksheet('Category List');
+            const rows = [];
+            // Excel sheet column define
+            worksheet.columns = [
+                { header: 'CategoryId', key: 'id', size: 16, width: 15 },
+                { header: 'Levels', key: 'first_name', size: 16, width: 15 },
+            ];
+            worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            const select = [
+                'CategoryPath.categoryId as categoryId',
+                'category.name as name',
+                'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'CategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',
+            ];
+            const relations = [
+                {
+                    tableName: 'CategoryPath.category',
+                    aliasName: 'category',
+                },
+                {
+                    tableName: 'CategoryPath.path',
+                    aliasName: 'path',
+                },
+            ];
+            const groupBy = [
+                {
+                    name: 'CategoryPath.category_id',
+                },
+            ];
+            const whereConditions = [];
+            const searchConditions = [];
+            const sort = [];
+            const vendorCategoryList = yield this.categoryPathService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+            for (const id of vendorCategoryList) {
+                rows.push([id.categoryId, id.levels]);
+            }
+            rows.push(['If you want to map multiple category to product,you have to give categoryId splitted with commas (,) ']);
+            // Add all rows data in sheet
+            worksheet.addRows(rows);
+            const fileName = './demo/Category.xlsx';
+            yield workbook.xlsx.writeFile(fileName);
+            const zipfolder = require('zip-a-folder');
+            yield zipfolder.zip(path.join(process.cwd(), 'demo'), path.join(process.cwd(), 'demo.zip'));
+            const file = path.basename('/demo.zip');
+            return new Promise(() => {
+                response.download(file, 'demo.zip');
+            });
+        });
+    }
+    readDir(pathfile) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return new Promise((subresolve, subreject) => {
+                fs.readdir(pathfile, (error, files) => {
+                    if (error) {
+                        return subreject(error);
+                    }
+                    subresolve(files);
+                });
+            });
         });
     }
     // update stock  API
@@ -2970,6 +3599,23 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], ProductController.prototype, "productCount", null);
 tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/import-product-data'),
+    (0, routing_controllers_1.Authorized)(['admin', 'import-product']),
+    tslib_1.__param(0, (0, routing_controllers_1.UploadedFile)('file')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "ImportProductPrice", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/download-product-sample'),
+    tslib_1.__param(0, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], ProductController.prototype, "downloadSample", null);
+tslib_1.__decorate([
     (0, routing_controllers_1.Post)('/update-stock'),
     (0, routing_controllers_1.Authorized)(),
     tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
@@ -3074,12 +3720,15 @@ ProductController = tslib_1.__decorate([
         CategoryPathService_1.CategoryPathService,
         ProductTirePriceService_1.ProductTirePriceService,
         SkuService_1.SkuService,
+        S3Service_1.S3Service,
         ProductVideoService_1.ProductVideoService,
         ImageService_1.ImageService,
         VendorProductService_1.VendorProductService,
         VendorService_1.VendorService,
         VendorPaymentService_1.VendorPaymentService,
         CustomerCartService_1.CustomerCartService,
+        BulkImportRequest_1.BulkImport,
+        PluginService_1.PluginService,
         ExportLogService_1.ExportLogService])
 ], ProductController);
 exports.ProductController = ProductController;

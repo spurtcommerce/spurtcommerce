@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -962,6 +962,10 @@ let VendorOrderController = class VendorOrderController {
                     name: 'isVendor',
                     value: 1,
                 },
+                {
+                    name: 'isActive',
+                    value: 1,
+                },
             ];
             if (keyword) {
                 search.push({
@@ -970,18 +974,11 @@ let VendorOrderController = class VendorOrderController {
                     value: keyword,
                 });
             }
-            if (status) {
-                search.push({
-                    name: 'isActive',
-                    op: 'like',
-                    value: status,
-                });
-            }
             const orderStatusList = yield this.orderStatusService.list(limit, offset, select, search, WhereConditions, count);
             if (!count) {
                 const orderStatusWithFullFillmentStatusList = yield Promise.all(orderStatusList.map((orderStatus) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                     const fullFillmentStatusIds = (yield this.orderStatusToFullfillmentService.findAll({ where: { orderStatusId: orderStatus.orderStatusId } })).map((orderToFullfillmentStatus) => orderToFullfillmentStatus.orderFulfillmentStatusId);
-                    orderStatus.fullfillmentStatus = yield this.orderFullfillmentStatusService.findAll({ where: { id: (0, typeorm_1.In)(fullFillmentStatusIds), isActive: status ? +status : 1 } });
+                    orderStatus.fullfillmentStatus = yield this.orderFullfillmentStatusService.findAll({ where: { id: (0, typeorm_1.In)(fullFillmentStatusIds), isActive: 1 } });
                     return orderStatus;
                 })));
                 return response.status(200).send({
@@ -1779,7 +1776,7 @@ let VendorOrderController = class VendorOrderController {
      * @apiErrorExample {json} ArchiveOrderList error
      * HTTP/1.1 500 Internal Server Error
      */
-    archiveOrderList(limit, offset, keyword, startDate, endDate, deliverylist, orderId, count, dateAdded, request, response) {
+    archiveOrderList(limit, offset, keyword, startDate, endDate, deliverylist, orderId, count, sortBy, sortOrder, dateAdded, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -1868,10 +1865,30 @@ let VendorOrderController = class VendorOrderController {
                 });
             }
             const sort = [];
-            sort.push({
-                name: 'order.createdDate',
-                order: 'DESC',
-            });
+            if (sortBy === 'buyerName') {
+                sort.push({
+                    name: 'order.shippingFirstname',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
+            if (sortBy === 'location') {
+                sort.push({
+                    name: 'order.shippingCity',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
+            if (sortBy === 'total') {
+                sort.push({
+                    name: 'VendorOrderArchive.total',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
+            if (sortBy === 'orderDate' || !sortBy || sortBy === 'orderId') {
+                sort.push({
+                    name: 'order.createdDate',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
             const orderArchiveList = yield this.vendorOrderArchiveService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
             const orderArchiveResponse = orderArchiveList.map((value) => tslib_1.__awaiter(this, void 0, void 0, function* () {
                 var _a, _b;
@@ -2235,6 +2252,18 @@ let VendorOrderController = class VendorOrderController {
             if (sortBy === 'location') {
                 sort.push({
                     name: 'orderDetail.shippingCity',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
+            if (sortBy === 'orderId') {
+                sort.push({
+                    name: 'VendorOrders.orderId',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
+            if (sortBy === 'total') {
+                sort.push({
+                    name: 'VendorOrders.total',
                     order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
                 });
             }
@@ -3984,7 +4013,7 @@ let VendorOrderController = class VendorOrderController {
      * HTTP/1.1 500 Internal Server Error
      */
     // Order Cancel Request List Function
-    backOrderProductList(limit, offset, customerName, orderId, amount, dateAdded, keyword, orderStatus, skuName, count, request, response) {
+    backOrderProductList(limit, offset, customerName, orderId, amount, dateAdded, keyword, orderStatus, skuName, sortBy, sortOrder, count, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = [
                 'Order.createdDate as createdDate',
@@ -4083,10 +4112,30 @@ let VendorOrderController = class VendorOrderController {
                 });
             }
             const sort = [];
-            sort.push({
-                name: 'Order.createdDate',
-                order: 'DESC',
-            });
+            if (sortBy === 'buyerName') {
+                sort.push({
+                    name: 'Order.shippingFirstname',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
+            if (sortBy === 'location') {
+                sort.push({
+                    name: 'Order.shippingCity',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
+            if (sortBy === 'total') {
+                sort.push({
+                    name: 'orderProduct.total',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
+            if (sortBy === 'orderDate' || !sortBy || sortBy === 'orderId') {
+                sort.push({
+                    name: 'Order.createdDate',
+                    order: sortOrder !== null && sortOrder !== void 0 ? sortOrder : 'DESC',
+                });
+            }
             if (count) {
                 const orderCount = yield this.orderService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
                 const Response = {
@@ -4662,7 +4711,8 @@ let VendorOrderController = class VendorOrderController {
                     for (const items of productItems) {
                         const products = yield this.orderProductService.findOne({ orderProductId: items.orderProductId });
                         if (products) {
-                            rows.push([products.orderProductPrefixId, order.orderPrefixId, products.name, products.quantity, ((_a = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _a !== void 0 ? _a : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + products.productPrice, ((_b = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _b !== void 0 ? _b : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + products.discountAmount, (_d = ((_c = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _c !== void 0 ? _c : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + products.couponDiscountAmount) !== null && _d !== void 0 ? _d : 0.00, ((_e = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _e !== void 0 ? _e : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + products.total]);
+                            rows.push([products.orderProductPrefixId, order.orderPrefixId, products.name, products.quantity, ((_a = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _a !== void 0 ? _a : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + products.productPrice, ((_b = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _b !== void 0 ? _b : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + products.discountAmount,
+                                ((_c = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _c !== void 0 ? _c : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + '' + ((_d = products.couponDiscountAmount) !== null && _d !== void 0 ? _d : 0.00), ((_e = order === null || order === void 0 ? void 0 : order.currencySymbolLeft) !== null && _e !== void 0 ? _e : order === null || order === void 0 ? void 0 : order.currencySymbolRight) + ' ' + products.total]);
                         }
                     }
                 }
@@ -4875,8 +4925,10 @@ let VendorOrderController = class VendorOrderController {
             const select = [
                 'MAX(order.customerId) as customerId',
                 `MAX(order.email) as email`,
-                `MAX(order.shippingFirstname) as firstName`,
-                `MAX(order.shippingLastname) as lastName`,
+                // `MAX(order.shippingFirstname) as firstName`,
+                // `MAX(order.shippingLastname) as lastName`,
+                'orderCustomer.firstName as firstName',
+                'orderCustomer.lastName as lastName',
                 `MAX(order.telephone) as mobileNumber`,
                 `orderCustomer.customerGroupId as customerGroupId`,
                 `MAX(order.shippingAddress1) as shippingAddress1`,
@@ -5785,11 +5837,13 @@ tslib_1.__decorate([
     tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('deliverylist')),
     tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('orderId')),
     tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('dateAdded')),
-    tslib_1.__param(9, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(10, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('sortBy')),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(10, (0, routing_controllers_1.QueryParam)('dateAdded')),
+    tslib_1.__param(11, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(12, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, String, Object, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, String, Object, String, String, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "archiveOrderList", null);
 tslib_1.__decorate([
@@ -6002,11 +6056,13 @@ tslib_1.__decorate([
     tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('keyword')),
     tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('orderStatus')),
     tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('skuName')),
-    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(10, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(11, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('sortBy')),
+    tslib_1.__param(10, (0, routing_controllers_1.QueryParam)('sortOrder')),
+    tslib_1.__param(11, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(12, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(13, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Number, String, String, String, String, Number, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, Number, String, String, String, String, String, String, Number, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "backOrderProductList", null);
 tslib_1.__decorate([

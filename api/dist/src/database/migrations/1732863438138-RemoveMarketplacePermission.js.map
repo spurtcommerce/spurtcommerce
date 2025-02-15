@@ -1,0 +1,1 @@
+{"version":3,"file":"1732863438138-RemoveMarketplacePermission.js","sourceRoot":"","sources":["../../../../src/database/migrations/1732863438138-RemoveMarketplacePermission.ts"],"names":[],"mappings":";;;;AAEA,MAAa,wCAAwC;IAEpC,EAAE,CAAC,WAAwB;;YACpC,MAAM,WAAW,CAAC,KAAK,CAAC;;;SAGvB,CAAC,CAAC;QACP,CAAC;KAAA;IAEY,IAAI,CAAC,WAAwB;;YACtC,KAAK;QACT,CAAC;KAAA;CAEJ;AAbD,4FAaC"}

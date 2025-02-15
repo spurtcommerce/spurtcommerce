@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -9,7 +9,7 @@
 import { Service } from 'typedi';
 import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
-import { Like } from 'typeorm/index';
+import { In, Like, Not } from 'typeorm/index';
 import { PermissionModuleGroupRepository } from '../repositories/PermissionModuleGroupRepository';
 import { PermissionModuleGroup } from '../models/PermissionModuleGroup';
 
@@ -66,6 +66,10 @@ export class PermissionModuleGroupService {
                     condition.where[table.name] = table.value;
                 } else if (operator === 'like' && table.value !== undefined) {
                     condition.where[table.name] = Like('%' + table.value + '%');
+                } else if (operator === 'not-like' && table.value !== undefined) {
+                    condition.where[table.name] = Not(Like('%' + table.value + '%'));
+                } else if (operator === 'not-in' && table.value !== undefined) {
+                    condition.where[table.name] = Not(In(table.value));
                 }
             });
         }

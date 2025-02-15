@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -462,7 +462,7 @@ tslib_1.__decorate([
 ], SiteFilterController.prototype, "updateSiteFilter", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/site-filter-list'),
-    (0, routing_controllers_1.Authorized)(['admin', 'filter-list']),
+    (0, routing_controllers_1.Authorized)(['admin']),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),

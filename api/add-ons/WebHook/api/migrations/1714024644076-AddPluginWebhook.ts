@@ -12,6 +12,7 @@ export class AddPluginWebhook1714024644076 implements MigrationInterface {
                 pluginAvatarPath: '',
                 pluginTimestamp: 1714024644076,
                 pluginType: 'Utility',
+                displayName: 'Web Hook (Tech Addon)',
                 pluginStatus: 1,
                 isEditable: 0,
                 routes: '',

@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -113,7 +113,7 @@ export class OrderStatusController {
         newOrderStatus.isVendor = orderStatusParam.isVendor;
         newOrderStatus.isBuyer = orderStatusParam.isBuyer;
         newOrderStatus.isApi = orderStatusParam.isApi;
-        newOrderStatus.defaultStatus = orderStatusParam.isFullfillment ? 2 : 0;
+        newOrderStatus.defaultStatus = 0;
 
         const orderStatusSave = await this.orderStatusService.create(newOrderStatus);
         if (orderStatusSave !== undefined) {

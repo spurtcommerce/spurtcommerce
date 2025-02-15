@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -973,7 +973,8 @@ let OrderController = class OrderController {
             const newExportLog = new ExportLog_1.ExportLog();
             newExportLog.module = failedOrder ? 'Failed Orders' : 'Orders';
             newExportLog.recordAvailable = totalData;
-            newExportLog.createdBy = request.user.userId;
+            newExportLog.referenceId = request.user.userId;
+            newExportLog.referenceType = 1;
             yield this.exportLogService.create(newExportLog);
             return new Promise((resolve, reject) => {
                 response.download(fileName, (err, data) => {
@@ -2424,61 +2425,63 @@ let OrderController = class OrderController {
      */
     failedOrderList(limit, offset, orderId, keyword, orderStatusId, customerName, totalAmount, dateAdded, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const select = ['orderId', 'orderStatusId', 'orderPrefixId', 'shippingFirstname', 'total', 'createdDate', 'customerId', 'isActive', 'modifiedDate', 'currencyCode', 'currencySymbolLeft', 'currencySymbolRight'];
-            const search = [
-                {
-                    name: 'orderPrefixId',
-                    op: 'like',
-                    value: orderId,
-                },
-                {
-                    name: 'orderStatusId',
-                    op: 'like',
-                    value: orderStatusId,
-                },
-                {
-                    name: 'shippingFirstname',
-                    op: 'like',
-                    value: customerName,
-                },
-                {
-                    name: 'total',
-                    op: 'where',
-                    value: totalAmount,
-                },
-                {
-                    name: 'createdDate',
-                    op: 'like',
-                    value: dateAdded,
-                },
-                {
-                    name: 'paymentProcess',
-                    op: 'where',
-                    value: 0,
-                },
-            ];
-            if (keyword && keyword !== '') {
-                search.push({
-                    name: 'orderPrefixId',
-                    op: 'like',
-                    value: keyword,
-                }, {
-                    name: 'shippingFirstname',
-                    op: 'like',
-                    value: keyword,
-                }, {
-                    name: 'total',
-                    op: 'where',
-                    value: keyword,
-                }, {
-                    name: 'createdDate',
-                    op: 'like',
-                    value: keyword,
+            const select = ['Order.orderId', 'Order.orderStatusId', 'Order.orderPrefixId', 'Order.shippingFirstname', 'Order.total', 'Order.createdDate', 'Order.customerId', 'Order.isActive', 'Order.modifiedDate', 'Order.currencyCode', 'Order.currencySymbolLeft', 'Order.currencySymbolRight'];
+            const searchConditions = [];
+            if (orderId && orderId !== '') {
+                searchConditions.push({
+                    name: ['Order.orderPrefixId'],
+                    value: orderId.toLowerCase(),
                 });
             }
-            const relations = ['orderProduct'];
-            const WhereConditions = [];
-            const failedOrderList = yield this.orderService.list(limit, offset, select, search, WhereConditions, relations, count);
+            if (orderStatusId && orderStatusId !== '') {
+                searchConditions.push({
+                    name: ['Order.orderStatusId'],
+                    value: orderStatusId.toLowerCase(),
+                });
+            }
+            if (customerName && customerName !== '') {
+                searchConditions.push({
+                    name: ['Order.shippingFirstname'],
+                    value: customerName.toLowerCase(),
+                });
+            }
+            if (dateAdded) {
+                searchConditions.push({
+                    name: ['Order.createdDate'],
+                    value: dateAdded,
+                });
+            }
+            if (keyword && keyword !== '') {
+                searchConditions.push({
+                    name: ['Order.shippingFirstname', 'Order.orderPrefixId'],
+                    value: keyword.toLowerCase(),
+                });
+            }
+            const whereConditions = [];
+            if (totalAmount && totalAmount !== '') {
+                whereConditions.push({
+                    name: ['Order.total'],
+                    op: 'where',
+                    value: totalAmount,
+                });
+            }
+            whereConditions.push({
+                name: 'Order.paymentProcess',
+                op: 'and',
+                value: 0,
+            });
+            const sort = [];
+            sort.push({
+                name: 'Order.createdDate',
+                order: 'DESC',
+            });
+            const relations = [];
+            relations.push({
+                tableName: 'Order.orderProduct',
+                op: 'left-select',
+                aliasName: 'orderProduct',
+            });
+            const failedOrderList = yield this.orderService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, [], sort, count, false);
             if (count) {
                 const Response = {
                     status: 1,

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -21,7 +21,6 @@ const Country_1 = require("./Country");
 const class_validator_1 = require("class-validator");
 const productViewLog_1 = require("./productViewLog");
 const CustomerCart_1 = require("./CustomerCart");
-const ExportLog_1 = require("./ExportLog");
 let Customer = class Customer extends BaseModel_1.BaseModel {
     static hashPassword(password) {
         return new Promise((resolve, reject) => {
@@ -215,10 +214,6 @@ tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => Order_1.Order, order => order.customer),
     tslib_1.__metadata("design:type", Array)
 ], Customer.prototype, "order", void 0);
-tslib_1.__decorate([
-    (0, typeorm_1.OneToOne)(type => ExportLog_1.ExportLog, exportLog => exportLog.user),
-    tslib_1.__metadata("design:type", ExportLog_1.ExportLog)
-], Customer.prototype, "exportLog", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => productViewLog_1.ProductViewLog, productviewlog => productviewlog.customer),
     tslib_1.__metadata("design:type", Array)

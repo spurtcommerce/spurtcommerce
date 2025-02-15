@@ -1,6 +1,6 @@
 /*
  * SpurtCommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -76,14 +76,12 @@ export const env = {
     },
     imageserver: getOsEnv('IMAGE_SERVER'),
     imageUploadSize: getOsEnv('IMAGE_UPLOAD_SIZE'),
-    storeUrl: getOsEnv('STORE_URL'),
-    cancelUrl: getOsEnv('CANCEL_URL'),
     baseUrl: getOsEnv('BASE_URL'),
     storeRedirectUrl: getOsEnv('STORE_REDIRECT_URL'),
     adminRedirectUrl: getOsEnv('ADMIN_REDIRECT_URL'),
     vendorRedirectUrl: getOsEnv('VENDOR_REDIRECT_URL'),
     storeForgetPasswordLink: getOsEnv('STORE_FORGET_PASSWORD_URL'),
-    vendorForgetPasswordLink: getOsEnv('FORGET_PASSWORD_URL'),
+    vendorForgetPasswordLink: getOsEnv('VENDOR_FORGET_PASSWORD_URL'),
     adminForgetPasswordLink: getOsEnv('ADMIN_FORGET_PASSWORD_URL'),
     productRedirectUrl: getOsEnv('PRODUCT_REDIRECT_URL'),
     categoryRedirectUrl: getOsEnv('CATEGORY_REDIRECT_URL'),

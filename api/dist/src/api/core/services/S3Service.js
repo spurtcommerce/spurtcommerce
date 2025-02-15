@@ -1,7 +1,7 @@
 "use strict";
 /*
  * SpurtCommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -109,13 +109,13 @@ let S3Service = class S3Service {
             }));
             const byteArray = yield response.Body.transformToByteArray();
             const buffer = Buffer.from(byteArray);
-            return new Promise((resolve) => {
+            return new Promise((resolve, reject) => {
                 const gm = require('gm').subClass({ imageMagick: true });
                 return gm(buffer)
                     .resize(widthString, heightString)
                     .toBuffer((error, data) => {
                     if (error) {
-                        throw error;
+                        return reject(error);
                     }
                     else {
                         return resolve(data);
@@ -251,7 +251,7 @@ let S3Service = class S3Service {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const command = new client_s3_1.GetObjectCommand({
                 Bucket: env_1.aws_setup.AWS_BUCKET,
-                Key: folderName + '/' + dataFile,
+                Key: folderName + dataFile,
             });
             try {
                 const response = yield s3.send(command);

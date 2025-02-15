@@ -1,0 +1,1 @@
+{"version":3,"file":"1733808519425-SetIndustryIdToNull.js","sourceRoot":"","sources":["../../../../src/database/migrations/1733808519425-SetIndustryIdToNull.ts"],"names":[],"mappings":";;;;AAEA,MAAa,gCAAgC;IAE5B,EAAE,CAAC,WAAwB;;YACpC,MAAM,WAAW,CAAC,KAAK,CAAC,wCAAwC,CAAC,CAAC;QACtE,CAAC;KAAA;IAEY,IAAI,CAAC,WAAwB;;YACtC,KAAK;QACT,CAAC;KAAA;CAEJ;AAVD,4EAUC"}

@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -1770,7 +1770,7 @@ let VendorAdminProductController = class VendorAdminProductController {
             vendorProduct.approvedBy = approvalFlag === 1 ? request.user.userId : undefined;
             const today = new Date().toISOString().slice(0, 10);
             vendorProduct.approvalDate = approvalFlag === 1 ? today : undefined;
-            const vendorProductSave = yield this.vendorProductService.create(vendorProduct);
+            const vendorProductSave = yield this.vendorProductService.update(vendorProduct.vendorProductId, vendorProduct);
             const vendor = yield this.vendorService.findOne({ select: ['customerId'], where: { vendorId: vendorProductSave.vendorId } });
             const vendorCustomer = yield this.customerService.findOne({ select: ['firstName', 'email'], where: { id: vendor.customerId } });
             if (vendorProductSave.approvalFlag === 1) {

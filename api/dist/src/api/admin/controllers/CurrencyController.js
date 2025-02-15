@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -135,12 +135,14 @@ let CurrencyController = class CurrencyController {
                     value: keyword,
                 });
             }
-            search.push({
-                name: 'isActive',
-                op: 'like',
-                value: status,
-            });
             const WhereConditions = [];
+            if (status && status !== '') {
+                WhereConditions.push({
+                    name: 'Currency.isActive',
+                    op: 'where',
+                    value: status,
+                });
+            }
             const currencyList = yield this.currencyService.list(limit, offset, select, WhereConditions, search, count);
             if (count) {
                 return response.status(200).send({

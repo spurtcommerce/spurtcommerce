@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -24,6 +24,7 @@ const VendorOrderArchiveService_1 = require("../../core/services/VendorOrderArch
 const PaymentItemsService_1 = require("../../core/services/PaymentItemsService");
 const fs = tslib_1.__importStar(require("fs"));
 const moment_1 = tslib_1.__importDefault(require("moment"));
+const VendorPayment_1 = require("../../core/models/VendorPayment");
 let VendorSaleController = class VendorSaleController {
     constructor(productImageService, productService, vendorProductService, vendorOrdersService, vendorPaymentService, orderService, vendorPaymentArchiveService, vendorOrderArchiveService, paymentItemsService, orderProductService) {
         this.productImageService = productImageService;
@@ -45,6 +46,7 @@ let VendorSaleController = class VendorSaleController {
      * @apiParam (Request body) {Number} limit limit
      * @apiParam (Request body) {Number} offset offset
      * @apiParam (Request body) {String} keyword search by orderId, customer name
+     * @apiParam (Request body) {String} isSettlement isSettlement
      * @apiParam (Request body) {String} startDate search by startDate
      * @apiParam (Request body) {String} orderId orderId
      * @apiParam (Requst body) {String} endDate search by endDate
@@ -77,7 +79,7 @@ let VendorSaleController = class VendorSaleController {
      * @apiErrorExample {json} paymentList error
      * HTTP/1.1 500 Internal Server Error
      */
-    paymentList(limit, offset, keyword, startDate, endDate, deliverylist, count, orderId, request, response) {
+    paymentList(limit, offset, keyword, startDate, endDate, deliverylist, isSettlement, count, orderId, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -123,8 +125,16 @@ let VendorSaleController = class VendorSaleController {
             const whereConditions = [];
             whereConditions.push({
                 name: 'VendorPayment.vendorId',
-                op: 'and',
+                op: 'where',
                 value: request.user.vendorId,
+            }, {
+                name: 'order.paymentProcess',
+                op: 'and',
+                value: 1,
+            }, {
+                name: 'order.paymentStatus',
+                op: 'and',
+                value: 1,
             });
             if (startDate && startDate !== '') {
                 whereConditions.push({
@@ -140,6 +150,13 @@ let VendorSaleController = class VendorSaleController {
                     op: 'raw',
                     sign: '<=',
                     value: endDateMin,
+                });
+            }
+            if (isSettlement === 1 || isSettlement === 0) {
+                whereConditions.push({
+                    name: '`vendorOrders`.`make_settlement`',
+                    op: 'and',
+                    value: isSettlement,
                 });
             }
             const searchConditions = [];
@@ -813,7 +830,7 @@ let VendorSaleController = class VendorSaleController {
             const workbook = new excel.Workbook();
             const worksheet = workbook.addWorksheet('Product earning export detail');
             const rows = [];
-            const splitProduct = productId.split(',');
+            const splitProduct = productId !== '' ? productId.split(',') : [];
             for (const record of splitProduct) {
                 const dataId = yield this.vendorProductService.find({ where: { productId: record } });
                 if (dataId === undefined) {
@@ -843,6 +860,10 @@ let VendorSaleController = class VendorSaleController {
             for (const data of splitProduct) {
                 const vendorProducts = yield this.vendorProductService.findOne({ where: { productId: data } });
                 arr.push(vendorProducts);
+            }
+            if (splitProduct.length === 0) {
+                const vendorProducts = yield this.vendorProductService.find({ where: { vendorId: request.user.vendorId } });
+                arr.push(...vendorProducts);
             }
             for (const vendorProduct of arr) {
                 const productValue = yield this.productService.findOne({
@@ -929,6 +950,55 @@ let VendorSaleController = class VendorSaleController {
             const successResponse = {
                 status: 1,
                 message: 'Successfully archived your payments',
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // Revoke Vendor payment Archive API
+    /**
+     * @api {Post} /api/vendor-sales/revoke-vendor-payment-archive Revoke Vendor Payment Archive API
+     * @apiGroup Vendor Sales
+     * @apiHeader {String} Authorization
+     * @apiParam (Request body) {Number} vendorPaymentArchiveId vendorPaymentArchiveId
+     * @apiParamExample {json} Input
+     * {
+     *   "vendorPaymentArchiveId" : "",
+     * }
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "message": "Payment revoked successfully.",
+     *      "status": "1"
+     * }
+     * @apiSampleRequest /api/vendor-sales/revoke-vendor-payment-archive
+     * @apiErrorExample {json} MakePaymentArchive error
+     * HTTP/1.1 500 Internal Server Error
+     */
+    revokePaymentArchiv(vendorPaymentArchiveId, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const vendorPaymentArchive = yield this.vendorPaymentArchiveService.findOne({
+                where: {
+                    id: vendorPaymentArchiveId,
+                },
+            });
+            if (!vendorPaymentArchive) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Seller Payment Archive Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const newVendorPayment = new VendorPayment_1.VendorPayment();
+            newVendorPayment.vendorId = vendorPaymentArchive.vendorId;
+            newVendorPayment.vendorOrderId = vendorPaymentArchive.vendorOrderId;
+            newVendorPayment.paymentItemId = vendorPaymentArchive.paymentItemId;
+            newVendorPayment.amount = vendorPaymentArchive.amount;
+            newVendorPayment.commissionAmount = vendorPaymentArchive.commissionAmount;
+            yield this.vendorPaymentService.create(newVendorPayment);
+            yield this.vendorPaymentArchiveService.delete(vendorPaymentArchive.id);
+            const successResponse = {
+                status: 1,
+                message: 'Payment revoked successfully.',
             };
             return response.status(200).send(successResponse);
         });
@@ -1392,12 +1462,13 @@ tslib_1.__decorate([
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
     tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('deliverylist')),
-    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('orderId')),
-    tslib_1.__param(8, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('isSettlement')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('orderId')),
+    tslib_1.__param(9, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(10, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, Object, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Number, Number, Object, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorSaleController.prototype, "paymentList", null);
 tslib_1.__decorate([
@@ -1475,6 +1546,7 @@ tslib_1.__decorate([
 ], VendorSaleController.prototype, "vendorSalesExport", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/product-earning-export'),
+    (0, routing_controllers_1.Authorized)('vendor'),
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('productId')),
     tslib_1.__param(1, (0, routing_controllers_1.Req)()),
     tslib_1.__param(2, (0, routing_controllers_1.Res)()),
@@ -1492,6 +1564,16 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorSaleController.prototype, "makePaymentArchive", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/revoke-vendor-payment-archive'),
+    (0, routing_controllers_1.Authorized)('vendor'),
+    tslib_1.__param(0, (0, routing_controllers_1.BodyParam)('vendorPaymentArchiveId')),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], VendorSaleController.prototype, "revokePaymentArchiv", null);
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/archive-payment-list'),
     (0, routing_controllers_1.Authorized)('vendor'),

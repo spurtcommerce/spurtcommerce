@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.0.0
+ * version 5.1.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -203,8 +203,8 @@ let UserController = class UserController {
             const user = yield this.userService.list(limit, offset, ['userId', 'username', 'firstName', 'lastName', 'email', 'address', 'phoneNumber', 'avatar', 'avatarPath', 'password', 'createdDate', 'modifiedDate'], relation, WhereConditions, keyword, count);
             const successResponse = {
                 status: 1,
-                data: user,
                 message: 'Successfully got all user list',
+                data: user,
             };
             return response.status(200).send(successResponse);
         });
