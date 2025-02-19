@@ -3,7 +3,7 @@
        <a style="color:#36f" href="https://www.spurtcommerce.com/#gh-light-mode-only">
             <img src="https://www.spurtcommerce.com/spurtcommerce.svg" width="318px" alt="Spurtcommerce logo" />
             <br>
-           🎉 <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"> <strong>Spurtcommerce v5.0 is now available!</strong> 
+           🎉 <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"> <strong>Spurtcommerce v5.1 is now available!</strong> 
         </a>
     </div>
     Opensource Multi Vendor Marketplace for B2C , B2B  <br>
@@ -54,7 +54,7 @@
 </a>
 
 > [!IMPORTANT]
-> 🎉 <strong>Spurtcommerce 5.0.0 is now available!</strong> Read more in the <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"><strong>announcement post</strong></a>.
+> 🎉 <strong>Spurtcommerce 5.1.0 is now available!</strong> Read more in the <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"><strong>announcement post</strong></a>.
 <br />
 
 ## ❯  🚀 Easy to Deploy Spurtcommerce API on your server
@@ -139,7 +139,7 @@ Above steps concludes successful installation and setup of Spurtcommerce Marketp
 
 ## 🤔 Support , Document and Help
 
-Spurtcommerce 5.0.0 is published to npm under the `@spurtcommerce/*` namespace.
+Spurtcommerce 5.1.0 is published to npm under the `@spurtcommerce/*` namespace.
 
 You can find our extended documentation on our [www.spurtcommerce.dev](https://www.spurtcommerce.dev), but some quick links that might be helpful:
 
