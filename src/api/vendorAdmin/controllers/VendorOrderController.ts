@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -104,7 +104,7 @@ export class VendorAdminOrderController {
     @Authorized()
     public async orderList(
         @QueryParam('keyword') keyword: string, @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('customerName') customerName: string, @QueryParam('orderPrefixId') orderPrefixId: string, @QueryParam('dateAdded') dateAdded: string,
-        @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string, @QueryParam('count') count: number | boolean, @QueryParam('vendorName') vendorName: string, @Req() request: any, @Res() response: any): Promise<any> {
+        @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string, @QueryParam('filter') filter: string, @QueryParam('count') count: number | boolean, @QueryParam('vendorName') vendorName: string, @Req() request: any, @Res() response: any): Promise<any> {
         const date = endDate + ' 23:59:59';
         const endDateMin = moment(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
         const select = [
@@ -160,6 +160,14 @@ export class VendorAdminOrderController {
                 value: endDateMin,
             });
 
+        }
+
+        if (filter && filter !== '') {
+            whereConditions.push({
+                op: 'raw',
+                name: '(' + filter + ')',
+                value: '',
+            });
         }
 
         const searchConditions = [];

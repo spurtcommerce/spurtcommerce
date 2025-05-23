@@ -1,6 +1,6 @@
 /*
  * SpurtCommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -518,7 +518,7 @@ export class MediaController {
         if (env.imageserver === 's3') {
             await this.s3Service.videoUpload((path + name), files.buffer, 'multipart/form-data');
         } else {
-            await this.imageService.videoUpload((path + name), files.buffer);
+            await this.imageService.videoUpload((path + '/' + name), files.buffer);
         }
         const successResponse: any = {
             status: 1,

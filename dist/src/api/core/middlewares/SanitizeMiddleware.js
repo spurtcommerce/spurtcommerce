@@ -85,6 +85,24 @@ let SanitizeMiddleware = class SanitizeMiddleware {
                 }
                 return true;
             };
+            const isValid4 = (name) => {
+                if (name.includes('$')) {
+                    return false;
+                }
+                if (name.includes('"')) {
+                    return false;
+                }
+                if (name.includes('*')) {
+                    return false;
+                }
+                if (name.includes('^')) {
+                    return false;
+                }
+                if (name.includes('#')) {
+                    return false;
+                }
+                return true;
+            };
             const isValidColourCode = (input) => {
                 if (input.includes("'")) {
                     return false;
@@ -259,6 +277,11 @@ let SanitizeMiddleware = class SanitizeMiddleware {
                                 return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
                             }
                             return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
+                        }
+                        else if (key === 'filter') {
+                            if (!isValid4(value.toString())) {
+                                return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
+                            }
                         }
                         else if (key === 'colorcode' || key === 'colorCode') {
                             if (!isValidColourCode(value.toString())) {

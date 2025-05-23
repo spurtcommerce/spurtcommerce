@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -390,10 +390,10 @@ let CategoryController = class CategoryController {
      * @apiErrorExample {json} Category error
      * HTTP/1.1 500 Internal Server Error
      */
-    categorylist(limit, offset, keyword, sortOrder, status, count, name, industryId, response) {
+    categorylist(limit, offset, keyword, sortOrder, status, count, name, levelFilter, industryId, response) {
         var _a;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const listCategory = yield (0, product_1.categoryList)((0, typeorm_1.getConnection)(), limit, offset, keyword, status, name, sortOrder, industryId);
+            const listCategory = yield (0, product_1.categoryList)((0, typeorm_1.getConnection)(), limit, offset, keyword, status, name, sortOrder, levelFilter, industryId);
             return response.status(listCategory.status ? 200 : 400).send({
                 status: listCategory.status,
                 message: listCategory.message,
@@ -914,10 +914,11 @@ tslib_1.__decorate([
     tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('status')),
     tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
     tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('name')),
-    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('industryId')),
-    tslib_1.__param(8, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('levelFilter')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('industryId')),
+    tslib_1.__param(9, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object, String, Number, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, Object, String, Number, Number, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CategoryController.prototype, "categorylist", null);
 tslib_1.__decorate([

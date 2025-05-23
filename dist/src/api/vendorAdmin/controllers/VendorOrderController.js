@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -99,7 +99,7 @@ let VendorAdminOrderController = class VendorAdminOrderController {
      * @apiErrorExample {json} order error
      * HTTP/1.1 500 Internal Server Error
      */
-    orderList(keyword, limit, offset, customerName, orderPrefixId, dateAdded, startDate, endDate, count, vendorName, request, response) {
+    orderList(keyword, limit, offset, customerName, orderPrefixId, dateAdded, startDate, endDate, filter, count, vendorName, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const date = endDate + ' 23:59:59';
             const endDateMin = (0, moment_1.default)(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
@@ -151,6 +151,13 @@ let VendorAdminOrderController = class VendorAdminOrderController {
                     op: 'raw',
                     sign: '<=',
                     value: endDateMin,
+                });
+            }
+            if (filter && filter !== '') {
+                whereConditions.push({
+                    op: 'raw',
+                    name: '(' + filter + ')',
+                    value: '',
                 });
             }
             const searchConditions = [];
@@ -968,12 +975,13 @@ tslib_1.__decorate([
     tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('dateAdded')),
     tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('startDate')),
     tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('endDate')),
-    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('vendorName')),
-    tslib_1.__param(10, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(11, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('filter')),
+    tslib_1.__param(9, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(10, (0, routing_controllers_1.QueryParam)('vendorName')),
+    tslib_1.__param(11, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(12, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String, Number, Number, String, String, String, String, String, Object, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [String, Number, Number, String, String, String, String, String, String, Object, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorAdminOrderController.prototype, "orderList", null);
 tslib_1.__decorate([

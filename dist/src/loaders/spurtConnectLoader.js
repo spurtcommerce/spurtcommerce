@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -32,7 +32,7 @@ const spurtConnectLoader = (settings) => {
         const sessionStore = new MySQLStore(options);
         expressApp
             // view engine setup
-            .set('views', path.join(__dirname, '../../../', 'views'))
+            .set('views', path.join(__dirname, '../../', 'views'))
             .set('view engine', 'ejs')
             .use(expressEjsLayout)
             .set('layout', 'pages/layouts/common')

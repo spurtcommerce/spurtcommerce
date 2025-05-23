@@ -37,6 +37,7 @@ tslib_1.__exportStar(require("../api/core/models/OrderCancelReason"), exports);
 tslib_1.__exportStar(require("../api/core/models/OrderFullfillmentStatus"), exports);
 tslib_1.__exportStar(require("../api/core/models/OrderLog"), exports);
 tslib_1.__exportStar(require("../api/core/models/OrderProduct"), exports);
+tslib_1.__exportStar(require("../api/core/models/OrderProductCancelLog"), exports);
 tslib_1.__exportStar(require("../api/core/models/OrderProductLog"), exports);
 tslib_1.__exportStar(require("../api/core/models/OrderStatus"), exports);
 tslib_1.__exportStar(require("../api/core/models/OrderStatusToFullfillment"), exports);

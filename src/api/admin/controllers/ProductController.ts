@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -2275,7 +2275,7 @@ export class ProductController {
                     if (fileNames === 'productData.xlsx') {
                         const directoryPathh = path.join(process.cwd(), 'product_' + random + '/' + fileNames);
                         const result = await this.imageService.xlsxToJson(directoryPathh);
-                        const forExport = await this.bulkImport.validateAndFormatData(result);
+                        const forExport = await this.bulkImport.validateAndFormatData(result, 0);
                         if (forExport.errorStatus) {
                             const findDuplicateSku = forExport.data.find((obj) => obj.Error.includes('give some other name'));
                             fs.unlinkSync(mainFileName);
@@ -2490,7 +2490,7 @@ export class ProductController {
             product.todayDeals = 0;
             product.isActive = 0;
             product.sortOrder = 1;
-            product.isSimplified = 1;
+            product.isSimplified = data.isSimplified;
 
             // adding category name and product name in keyword field for keyword search
             const rowsArr: any = [];
@@ -2569,7 +2569,7 @@ export class ProductController {
 
             // Create Variant
             const findProductVariantbuteStatus = await this.pluginService.findOne({ where: { pluginName: 'ProductVariants', pluginStatus: 1 } });
-            if (data.variant.length > 0 && data.variant[0].variantSku !== '' && data.variant[0].variantSku && findProductVariantbuteStatus) {
+            if (data.variant.length > 0 && data.variant[0].variantSku !== '' && data.variant[0].variantSku && findProductVariantbuteStatus && product.isSimplified === 0) {
                 const variantData = data.variant;
                 for (const datas of variantData) {
                     await hooks.removeHook('product-variant', 'MPV-namespace');

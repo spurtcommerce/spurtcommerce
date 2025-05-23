@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -61,6 +61,15 @@ let CategoryRepository = class CategoryRepository extends typeorm_1.Repository {
                 query.andWhere('category.parentInt = :parentId', { parentId });
             }
             return query.getOne();
+        });
+    }
+    updateFamily(categoryIds, familyId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const query = yield this.manager.createQueryBuilder(CategoryModel_1.Category, 'category');
+            query.update()
+                .set({ familyId })
+                .where('categoryId IN (:...categoryIds)', { categoryIds })
+                .execute();
         });
     }
 };

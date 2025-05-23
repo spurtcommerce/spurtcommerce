@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -110,7 +110,11 @@ export class CategoryPathService {
         // Join
         if (relations && relations.length > 0) {
             relations.forEach((joinTb: any) => {
-                query.innerJoin(joinTb.tableName, joinTb.aliasName);
+                if (joinTb.op === 'left-cond') {
+                    query.leftJoin(joinTb.tableName, joinTb.aliasName, joinTb.cond);
+                } else {
+                    query.innerJoin(joinTb.tableName, joinTb.aliasName);
+                }
             });
         }
         // Where

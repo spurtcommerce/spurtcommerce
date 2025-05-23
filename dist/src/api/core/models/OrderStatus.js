@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -18,6 +18,7 @@ const VendorOrders_1 = require("./VendorOrders");
 const VendorOrderArchive_1 = require("./VendorOrderArchive");
 const OrderProductLog_1 = require("./OrderProductLog");
 const VendorOrderArchiveLog_1 = require("./VendorOrderArchiveLog");
+const OrderProduct_1 = require("./OrderProduct");
 let OrderStatus = class OrderStatus extends BaseModel_1.BaseModel {
     createDetails() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
@@ -92,6 +93,10 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'color_code' }),
     tslib_1.__metadata("design:type", String)
 ], OrderStatus.prototype, "colorCode", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(type => OrderProduct_1.OrderProduct, orderProduct => orderProduct.orderStatus),
+    tslib_1.__metadata("design:type", OrderProduct_1.OrderProduct)
+], OrderStatus.prototype, "orderProduct", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(type => OrderProductLog_1.OrderProductLog, orderProductLog => orderProductLog.orderStatus),
     tslib_1.__metadata("design:type", Array)

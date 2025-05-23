@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -13,6 +13,7 @@ const typedi_1 = require("typedi");
 const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
 const Logger_1 = require("../../../decorators/Logger");
 const OrderCancelReasonRepository_1 = require("../repositories/OrderCancelReasonRepository");
+const typeorm_1 = require("typeorm");
 let OrderCancelReasonService = class OrderCancelReasonService {
     constructor(orderCancelReasonRepository, log) {
         this.orderCancelReasonRepository = orderCancelReasonRepository;
@@ -46,10 +47,24 @@ let OrderCancelReasonService = class OrderCancelReasonService {
                 condition.where[item.name] = item.value;
             });
         }
+        if (search && search.length > 0) {
+            search.forEach((table) => {
+                const operator = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                }
+                else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = (0, typeorm_1.Like)('%' + table.value + '%');
+                }
+            });
+        }
         if (limit && limit > 0) {
             condition.take = limit;
             condition.skip = offset;
         }
+        condition.order = {
+            createdDate: 'DESC',
+        };
         if (count) {
             return this.orderCancelReasonRepository.count(condition);
         }

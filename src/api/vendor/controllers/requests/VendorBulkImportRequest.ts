@@ -4,6 +4,7 @@ import { SkuService } from '../../../core/services/SkuService';
 import { CategoryService } from '../../../core/services/CategoryService';
 import 'reflect-metadata';
 import { VendorGroupCategoryService } from '../../../core/services/VendorGroupCategoryService';
+import { PluginService } from '../../../core/services/PluginService';
 interface ValidationConfig {
     [key: string]: string; // Map of required field and corresponding error message
 }
@@ -39,7 +40,8 @@ export class VendorBulkImport {
     constructor(
         private skuService: SkuService,
         private categoryService: CategoryService,
-        private vendorGroupCategoryService: VendorGroupCategoryService
+        private vendorGroupCategoryService: VendorGroupCategoryService,
+        private pluginService: PluginService
     ) { }
 
     public async bulkImportRequest(filterName: any, inputData: any): Promise<any> {
@@ -326,12 +328,18 @@ export class VendorBulkImport {
     }
 
     public async validateAndFormatData(data: any[], vendorGroupId: number): Promise<any> {
-        const requiredFields = ['SKU', 'Quantity', 'Price', 'DateAvailable', 'Name', 'Images', 'Category1', 'Description'];
+        const requiredFields = ['SKU', 'Quantity', 'Price', 'DateAvailable', 'Name', 'Images', 'Category1', 'Description', 'ProductType', 'Family'];
 
+        const productType = {
+            simple: 2,
+            config: 1,
+            variant: 0,
+        };
         const result = [];
         // For checking error occur or not
         let errorStatus = false;
         for (const jsonValue of data) {
+            const familyName = jsonValue.Family?.trim();
             const errors = [];
             // category validation
             const categories1 = jsonValue.Category1.split('>');
@@ -347,6 +355,17 @@ export class VendorBulkImport {
                     errorStatus = true;
                 }
             }
+            const findProductAttributeStatus = await this.pluginService.findOne({ where: { pluginName: 'ProductAttribute', pluginStatus: 1 } });
+            if ([0, 1].includes(productType[jsonValue.ProductType]) && pluginModule.includes('ProductAttribute') && findProductAttributeStatus) {
+                const importPath = '../../../../../add-ons/ProductAttribute/Family';
+                const family = await require(importPath);
+
+                const familyExist = await family.findOne({ where: { id: checkCategory.familyId, isDelete: 0 } });
+                if (!familyExist || familyExist?.familyName !== familyName) {
+                    errors.push('Invalid family');
+                    errorStatus = true;
+                }
+            }
             const categories2 = jsonValue.Category1.split('>');
             const categoryLength2 = categories1.length;
             const checkCategory2 = await this.categoryService.findOne({ where: { name: (categories2[categoryLength2 - 1]).trimStart() } });
@@ -357,6 +376,16 @@ export class VendorBulkImport {
                 const vendorGroup2 = await this.vendorGroupCategoryService.findOne({ where: { vendorGroupId, categoryId: checkCategory2.categoryId } });
                 if (!vendorGroup2) {
                     errors.push('Invalid category');
+                    errorStatus = true;
+                }
+            }
+            if ([0, 1].includes(productType[jsonValue.ProductType]) && pluginModule.includes('ProductAttribute') && findProductAttributeStatus) {
+                const importPath = '../../../../../add-ons/ProductAttribute/Family';
+                const family = await require(importPath);
+
+                const familyExist = await family.findOne({ where: { id: checkCategory2.familyId, isDelete: 0 } });
+                if (!familyExist && familyExist.name !== familyName) {
+                    errors.push('Invalid family');
                     errorStatus = true;
                 }
             }
@@ -442,7 +471,7 @@ export class VendorBulkImport {
                 if (!jsonValue.hasOwnProperty(requiredValue)) {
                     errors.push(`Missing ${requiredValue} field`);
                     errorStatus = true;
-                } else if ((requiredValue === 'Name' && jsonValue.Name === '') || (requiredValue === 'Price' && jsonValue.Price === '')) {
+                } else if ((requiredValue === 'Name' && jsonValue.Name === '') || (requiredValue === 'Price' && jsonValue.Price === '') || (requiredValue === 'ProductType' && jsonValue.ProductType === '')) {
                     errors.push(`Missing ${requiredValue} value`);
                 }
             }

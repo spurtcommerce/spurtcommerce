@@ -1,6 +1,6 @@
 /*
  * SpurtCommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -95,6 +95,8 @@ export const env = {
     availAllowTypes: getOsEnv('AVAILABLE_ALLOW_TYPES'),
     vendorMailVerifyUrl: getOsEnv('VENDOR_MAIL_VERIFY_URL'),
     kycMandate: getOsEnv('KYC_MANDATE'),
+    paymentSuccessRedirectUrl: getOsEnv('PAYMENT_SUCCESS_REDIRECT_URL'),
+    paymentFailureRedirectUrl: getOsEnv('PAYMENT_FAILURE_REDIRECT_URL'),
 };
 
 export const mail = {

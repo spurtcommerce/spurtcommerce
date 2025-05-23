@@ -34,6 +34,7 @@ export * from '../api/core/models/OrderCancelReason';
 export * from '../api/core/models/OrderFullfillmentStatus';
 export * from '../api/core/models/OrderLog';
 export * from '../api/core/models/OrderProduct';
+export * from '../api/core/models/OrderProductCancelLog';
 export * from '../api/core/models/OrderProductLog';
 export * from '../api/core/models/OrderStatus';
 export * from '../api/core/models/OrderStatusToFullfillment';

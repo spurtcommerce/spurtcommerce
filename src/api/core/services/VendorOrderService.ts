@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -178,6 +178,8 @@ export class VendorOrdersService {
                     query.andWhere(' \'' + item.name + '\'' + ' ' + item.sign + ' \'' + item.value + '\'');
                 } else if (item.op === 'raw' && item.sign !== undefined) {
                     query.andWhere(item.name + ' ' + item.sign + ' \'' + item.value + '\'');
+                } else if (item.op === 'raw' && item.sign === undefined) {
+                    query.andWhere(item.name + ' ');
                 } else if (item.op === 'or' && item.sign === undefined) {
                     query.orWhere(item.name + ' = ' + item.value);
                 } else if (item.op === 'IN' && item.sign === undefined) {

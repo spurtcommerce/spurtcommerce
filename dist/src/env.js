@@ -4,7 +4,7 @@ exports.gcp = exports.sms = exports.aws_setup = exports.mail = exports.env = voi
 const tslib_1 = require("tslib");
 /*
  * SpurtCommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -92,6 +92,8 @@ exports.env = {
     availAllowTypes: (0, env_1.getOsEnv)('AVAILABLE_ALLOW_TYPES'),
     vendorMailVerifyUrl: (0, env_1.getOsEnv)('VENDOR_MAIL_VERIFY_URL'),
     kycMandate: (0, env_1.getOsEnv)('KYC_MANDATE'),
+    paymentSuccessRedirectUrl: (0, env_1.getOsEnv)('PAYMENT_SUCCESS_REDIRECT_URL'),
+    paymentFailureRedirectUrl: (0, env_1.getOsEnv)('PAYMENT_FAILURE_REDIRECT_URL'),
 };
 exports.mail = {
     HOST: (0, env_1.getOsEnv)('MAIL_HOST'),

@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -194,6 +194,9 @@ export class Product extends BaseModel {
 
     @Column({ name: 'setted_as_common_on' })
     public settedAsCommonOn: string;
+
+    @Column({ name: 'is_cancellable' })
+    public isCancellable: string;
 
     @Column({ name: 'product_highlights', type: 'json', default: [] })
     public productHighlights: any;

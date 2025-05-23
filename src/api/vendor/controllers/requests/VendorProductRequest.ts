@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -105,4 +105,9 @@ export class VendorProductRequest {
     public containerName: string;
 
     public productHighlights: string;
+
+    public isCancellable: number;
+
+    @IsNotEmpty()
+    public productType: number;
 }

@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -8,7 +8,7 @@
 
 import 'reflect-metadata';
 import { Response } from 'express';
-import { Get, JsonController, Res, Body, Post, Authorized, Put, BodyParam, Param, Req, QueryParam } from 'routing-controllers';
+import { Get, JsonController, Res, Body, Post, Authorized, Put, BodyParam, Param, Req, QueryParam, Delete } from 'routing-controllers';
 import { SettingService } from '../../core/services/SettingService';
 import { Settings } from '../../core/models/Setting';
 import { CreateSettingRequest } from './requests/CreateSettingRequest';
@@ -19,6 +19,9 @@ import { CurrencyService } from '../../core/services/CurrencyService';
 import { Currency } from 'src/common/entities-index';
 import { v4 as uuidv4 } from 'uuid';
 import { Not } from 'typeorm';
+import { OrderCancelReasonService } from '../../core/services/OrderCancelReasonService';
+import { OrderCancelReason } from '../../core/models/OrderCancelReason';
+import { OrderCancelReasonRequest } from './requests/OrderCancelReasonRequest';
 
 interface SettingsView extends Omit<Settings, 'createDetails' | 'updateDetails'> {
     currencyCode: string;
@@ -47,7 +50,8 @@ export class SettingController {
         private settingService: SettingService,
         private s3Service: S3Service,
         private imageService: ImageService,
-        private currencyService: CurrencyService
+        private currencyService: CurrencyService,
+        private orderCancelReasonService: OrderCancelReasonService
         // private categoryService: CategoryService
     ) {
         // --
@@ -254,6 +258,7 @@ export class SettingController {
                 settingsId,
             },
         });
+
         if (!settings) {
             return response.status(400).send({
                 status: 0,
@@ -462,6 +467,13 @@ export class SettingController {
             newSettings.timeFormat = settings.timeFormat;
             newSettings.defaultCountry = settings.defaultCountry;
             newSettings.timeZone = settings.timeZone;
+            newSettings.orderCancelStatusId = settings.orderCancelStatusId;
+            newSettings.cancellationType = settings.cancellationType;
+            newSettings.isAutoApproveCancellation = settings.isAutoApproveCancellation;
+            newSettings.sellerApprovalTimeframeUnit = settings.sellerApprovalTimeframeUnit;
+            newSettings.sellerApprovalTimeframeValue = settings.sellerApprovalTimeframeValue;
+            newSettings.isProductCancellable = settings.isProductCancellable;
+            newSettings.copyrights = settings.copyrights;
             if (settings.defaultWebsite) {
                 const settingsUpdate = new Settings();
                 settingsUpdate.defaultWebsite = 0;
@@ -688,6 +700,13 @@ export class SettingController {
             settingValue.pendingStatus = settings.pendingStatus;
             settingValue.accessKey = settings.accessKey?.trim();
             settingValue.timeZone = settings.timeZone;
+            settingValue.orderCancelStatusId = settings.orderCancelStatusId;
+            settingValue.cancellationType = settings.cancellationType;
+            settingValue.isAutoApproveCancellation = settings.isAutoApproveCancellation;
+            settingValue.sellerApprovalTimeframeUnit = settings.sellerApprovalTimeframeUnit;
+            settingValue.sellerApprovalTimeframeValue = settings.sellerApprovalTimeframeValue;
+            settingValue.isProductCancellable = settings.isProductCancellable;
+            settingValue.copyrights = settings.copyrights;
             if (settings.siteCategory?.trim()) {
                 const newCategory: string[] = settings.siteCategory.split(',');
                 settingValue.siteCategory = newCategory.toString();
@@ -956,5 +975,236 @@ export class SettingController {
                 accessKey: siteId ? settingsSave.accessKey : uuidv4(),
             },
         });
+    }
+
+    // create order cancelletion reason
+    /**
+     * @api {post} /api/settings/order-cancel/reason Submit or Update Order Cancel Reason
+     * @apiGroup Settings
+     * @apiName SubmitOrUpdateOrderCancelReason
+     * @apiDescription Creates or updates an order cancellation reason.
+     *
+     * @apiParam (Request body) {String} reason The reason for canceling the order
+     * @apiParam (Request body) {Number} status The status of the reason
+     * @apiParam (Request body) {Number} reasonId The ID of the reason
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated reason.",
+     *         "data": {
+     *             "createdBy": "",
+     *             "createdDate": "",
+     *             "modifiedBy": "",
+     *             "modifiedDate": "",
+     *             "id": "",
+     *             "reason": "",
+     *             "isActive": ""
+     *         }
+     *     }
+     *
+     * @apiSampleRequest /api/settings/order-cancel/reason
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Failed to save reason."
+     *     }
+     */
+
+    @Post('/order-cancel/reason')
+    @Authorized()
+    public async addReason(@Body({ validate: true }) reason: OrderCancelReasonRequest, @Req() request: any, @Res() response: any): Promise<any> {
+        const orderCancel = await this.orderCancelReasonService.findOne({ where: { id: reason.reasonId } });
+        if (orderCancel) {
+            orderCancel.reason = reason.reason;
+            orderCancel.isActive = reason.status;
+            await this.orderCancelReasonService.update(orderCancel.id, orderCancel);
+
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully updated reason.',
+                data: orderCancel,
+            });
+        }
+
+        const newReason = new OrderCancelReason();
+        newReason.reason = reason.reason;
+        newReason.isActive = reason.status;
+        const cancelReason = await this.orderCancelReasonService.create(newReason);
+
+        const successResponse: any = {
+            status: 1,
+            message: 'Successfully created reason.',
+            data: cancelReason,
+        };
+        return response.status(200).send(successResponse);
+    }
+
+    // get order cancel reason
+    /**
+     * @api {get} /api/settings/order-cancel/reason Get Order Cancel Reasons
+     * @apiGroup Settings
+     * @apiName GetOrderCancelReasons
+     * @apiDescription Retrieves a list of order cancellation reasons with optional pagination and search.
+     *
+     * @apiParam (Query Params) {Number} limit Number of records to return
+     * @apiParam (Query Params) {Number} offset Number of records to skip
+     * @apiParam (Query Params) {String} keyword Keyword to search in reasons
+     * @apiParam (Query Params) {Number} count If 1, returns only the count of results
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully reason list.",
+     *         "data": [
+     *             {
+     *                 "createdBy": "",
+     *                 "createdDate": "",
+     *                 "modifiedBy": "",
+     *                 "modifiedDate": "",
+     *                 "id": "",
+     *                 "reason": "",
+     *                 "isActive": ""
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiSampleRequest /api/settings/order-cancel/reason
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Failed to retrieve reason list."
+     *     }
+     */
+
+    @Get('/order-cancel/reason')
+    @Authorized()
+    public async reasonList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number, @Req() request: any, @Res() response: any): Promise<any> {
+
+        const search = [];
+        const whereConditions = [];
+        if (keyword && keyword !== '') {
+            search.push({
+                name: ['reason'],
+                op: 'like',
+                value: keyword,
+            });
+        }
+        const cancelReason = await this.orderCancelReasonService.list(limit, offset, [], search, whereConditions, count);
+        const successResponse: any = {
+            status: 1,
+            message: count ? 'Successfully got reason count.' : 'Successfully reason list.',
+            data: cancelReason,
+        };
+        return response.status(200).send(successResponse);
+    }
+
+    // delete order cancel reason
+    /**
+     * @api {delete} /api/settings/order-cancel/reason/:id Delete Order Cancel Reason
+     * @apiGroup Settings
+     * @apiName DeleteOrderCancelReason
+     * @apiDescription Deletes an order cancellation reason by its ID.
+     *
+     * @apiParam (Path Params) {Number} id The ID of the reason to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully reason deleted."
+     *     }
+     *
+     * @apiSampleRequest /api/settings/order-cancel/reason/:id
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Failed to delete reason."
+     *     }
+     */
+
+    @Delete('/order-cancel/reason/:id')
+    @Authorized()
+    public async deleteReason(@Param('id') id: number, @Res() response: any): Promise<any> {
+        const orderCancelReason = await this.orderCancelReasonService.findOne({ where: { id } });
+        if (!orderCancelReason) {
+            const errorResponse: any = {
+                status: 0,
+                message: 'Invalid reason.',
+            };
+            return response.status(400).send(errorResponse);
+        }
+
+        await this.orderCancelReasonService.delete(orderCancelReason);
+        const successResponse: any = {
+            status: 1,
+            message: 'Successfully reason deleted.',
+            data: orderCancelReason,
+        };
+        return response.status(200).send(successResponse);
+    }
+
+    // get reason details
+    /**
+     * @api {get} /order-cancel/reason/:id Get Order Cancel Reason by ID
+     * @apiGroup Settings
+     * @apiName GetOrderCancelReasonById
+     * @apiDescription Retrieves the details of a specific order cancellation reason by its ID.
+     *
+     * @apiParam (Path Params) {Number} id The ID of the cancellation reason
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully reason details.",
+     *         "data": {
+     *             "createdBy": "",
+     *             "createdDate": "",
+     *             "modifiedBy": "",
+     *             "modifiedDate": "",
+     *             "id": "",
+     *             "reason": "",
+     *             "isActive": ""
+     *         }
+     *     }
+     *
+     * @apiSampleRequest /order-cancel/reason/:id
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 404 Not Found
+     *     {
+     *         "status": 0,
+     *         "message": "Reason not found."
+     *     }
+     */
+
+    @Get('/order-cancel/reason/:id')
+    @Authorized()
+    public async reasonDetails(@Param('id') id: number, @Res() response: any): Promise<any> {
+        const reason = await this.orderCancelReasonService.findOne({ where: { id } });
+        if (!reason) {
+            const errorResponse: any = {
+                status: 0,
+                message: 'Invalid reason id.',
+            };
+            return response.status(400).send(errorResponse);
+        }
+
+        const successResponse: any = {
+            status: 1,
+            message: 'Successfully reason details.',
+            data: reason,
+        };
+        return response.status(200).send(successResponse);
+
     }
 }

@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -1067,7 +1067,7 @@ export class VendorAdminController {
                 const emailContent = await this.emailTemplateService.findOne(15);
                 const setting = await this.settingService.findOne();
                 const message = emailContent.content.replace('{name}', vendorCustomer.firstName).replace('{link}', env.vendorRedirectUrl).replace('{siteName}', setting.siteName).replace('{siteName}', setting.siteName)
-                    .replace('{siteName}', setting.siteName).replace('{siteName}', setting.siteName).replace('{supportUrl}', setting.siteUrl);
+                    .replace('{siteName}', setting.siteName).replace('{siteName}', setting.siteName).replaceAll('{supportUrl}', setting.siteUrl);
                 const redirectUrl = env.vendorRedirectUrl;
                 const mailContents: any = {};
                 mailContents.logo = setting;
@@ -1587,7 +1587,7 @@ export class VendorAdminController {
         if (decisionDate?.trim()) {
             searchConditions.push(
                 {
-                    name: [`vendor.approvedDate`],
+                    name: [`vendor.approvalDate`],
                     value: decisionDate,
                 }
             );

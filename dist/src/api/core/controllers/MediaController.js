@@ -1,7 +1,7 @@
 "use strict";
 /*
  * SpurtCommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 PICCOSOFT
  * Author piccosoft <support@spurtcommerce.com>
  * Licensed under the MIT license.
@@ -514,7 +514,7 @@ let MediaController = class MediaController {
                 yield this.s3Service.videoUpload((path + name), files.buffer, 'multipart/form-data');
             }
             else {
-                yield this.imageService.videoUpload((path + name), files.buffer);
+                yield this.imageService.videoUpload((path + '/' + name), files.buffer);
             }
             const successResponse = {
                 status: 1,

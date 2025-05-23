@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -1292,99 +1292,71 @@ export class VendorController {
      * @apiErrorExample {json} Edit Vendor API error
      * HTTP/1.1 500 Internal Server Error
      */
+
     @Put('/edit-vendor/:customerId')
     @Authorized('vendor-unapproved')
-    public async update(
-        @Body({ validate: true }) updateParam: UpdateVendorRequest,
-        @Param('customerId') customerId: number,
-        @Res() response: any,
-        @Req() request: any
-    ): Promise<any> {
+    public async update(@Body({ validate: false }) updateParam: UpdateVendorRequest, @Param('customerId') customerId: number, @Res() response: any, @Req() request: any): Promise<any> {
         const vendor = await this.vendorService.findOne({
             where: {
                 customerId,
             },
         });
-        const companyLogo = updateParam.companyLogo;
-        if (companyLogo) {
-            const type = companyLogo.split(';')[0].split('/')[1];
-            const availableTypes = env.availImageTypes.split(',');
-            if (!availableTypes.includes(type)) {
-                const errorTypeResponse: any = {
-                    status: 0,
-                    message: 'Only ' + env.availImageTypes + ' types are allowed',
-                };
-                return response.status(400).send(errorTypeResponse);
-            }
-            const name = 'Img_' + Date.now() + '.' + type;
-            const path = 'logo/';
-            const base64Data = Buffer.from(companyLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
 
-            if (env.imageserver === 's3') {
-                await this.s3Service.imageUpload((path + name), base64Data, type);
-            } else {
-                await this.imageService.imageUpload((path + name), base64Data);
-            }
+        const checkVendorSettings = ['basic-company-details', 'business-address', 'bank-account-info', 'bank-address'];
 
-            vendor.companyLogo = name;
-            vendor.companyLogoPath = path;
-        } else if (updateParam.companyLogo === '') {
-            vendor.companyLogo = '';
-            vendor.companyLogoPath = '';
+        if (checkVendorSettings.includes(updateParam.blogType) && ['verified', 'submitted'].includes(vendor.kycStatus)) {
+            const errorResponse: any = {
+                status: 0,
+                message: `Profile editing is not allowed. Your KYC has been ${vendor.kycStatus}.`,
+            };
+            return response.status(400).send(errorResponse);
         }
-        const companyCoverImage = updateParam.companyCoverImage;
-        if (companyCoverImage) {
-            const covertype = companyCoverImage.split(';')[0].split('/')[1];
-            const imgName = 'Img_' + Date.now() + '.' + covertype;
-            const imgPath = 'logo/';
-            const coverbase64Data = Buffer.from(companyCoverImage.replace(/^data:image\/\w+;base64,/, ''), 'base64');
 
-            if (env.imageserver === 's3') {
-                await this.s3Service.imageUpload((imgPath + imgName), coverbase64Data, covertype);
-            } else {
-                await this.imageService.imageUpload((imgPath + imgName), coverbase64Data);
-            }
+        const customer = await this.customerService.findOne({
+            where: {
+                id: customerId,
+            },
+        });
 
-            vendor.companyCoverImage = imgName;
-            vendor.companyCoverImagePath = imgPath;
+        // Basic Company Details
+        if (updateParam.blogType === 'basic-company-details') {
+            vendor.companyName = updateParam.companyName;
+            vendor.businessType = updateParam.businessType;
+            vendor.businessSegment = updateParam.businessSegment;
+            vendor.displayNameUrl = updateParam.displayName;
+            customer.firstName = updateParam.firstName;
+
+            // Company Registered Country
+            // Business Domain / Industry
         }
-        vendor.companyName = updateParam.companyName;
-        if (updateParam?.companyName) {
-            const slug = updateParam.companyName;
-            const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
-            vendor.vendorSlugName = data;
-        }
-        vendor.avatar = updateParam.avatar;
-        vendor.companyAddress1 = updateParam.companyAddress1;
-        vendor.facebook = updateParam.companyFacebook;
-        vendor.companyAddress2 = updateParam.companyAddress2;
-        vendor.companyCity = updateParam.companyCity;
-        vendor.companyState = updateParam.state ?? '';
-        vendor.zoneId = updateParam.zoneId;
-        vendor.designation = updateParam.designation;
-        vendor.companyCountryId = updateParam.companyCountryId;
-        vendor.pincode = updateParam.pincode;
-        vendor.companyMobileNumber = updateParam.companyMobileNumber;
-        vendor.companyEmailId = updateParam.companyEmailId;
-        vendor.companyWebsite = updateParam.companyWebsite;
-        vendor.companyTaxNumber = updateParam.companyTaxNumber;
-        vendor.companyPanNumber = updateParam.companyPanNumber;
-        vendor.companyGstNumber = updateParam.companyGstNumber;
-        vendor.whatsapp = updateParam.companyWhatsapp;
-        vendor.youtube = updateParam.companyYoutube;
-        vendor.instagram = updateParam.companyInstagram;
-        vendor.countryName = updateParam.countryName;
-        vendor.paymentInformation = updateParam.paymentInformation;
-        vendor.businessSegment = updateParam.businessSegment;
-        vendor.businessType = updateParam.businessType;
-        vendor.businessNumber = updateParam.companyBusinessNumber;
-        vendor.preferredShippingMethod = updateParam.preferredShippingMethod;
-        vendor.displayNameUrl = updateParam.displayName;
-        vendor.companyLocation = updateParam.companyLocation;
 
-        // Bank Info
-        if (updateParam.bankPayload) {
-            const account = {} as BankAccount;
+        // Business Address
+        if (updateParam.blogType === 'business-address') {
+            vendor.pincode = updateParam.pincode;
+            vendor.companyAddress1 = updateParam.companyAddress1;
+            vendor.companyAddress2 = updateParam.companyAddress2;
+            vendor.companyLocation = updateParam.companyLocation;
+            vendor.companyCity = updateParam.companyCity;
+            vendor.zoneId = updateParam.zoneId;
+            vendor.companyCountryId = updateParam.companyCountryId;
+            vendor.companyMobileNumber = updateParam.companyMobileNumber;
+            vendor.businessNumber = updateParam.companyBusinessNumber;
+            vendor.preferredShippingMethod = updateParam.preferredShippingMethod;
+            vendor.companyTaxNumber = updateParam.companyTaxNumber;
+
+            customer.address = updateParam.companyAddress1;
+            customer.address2 = updateParam.companyAddress2;
+            customer.countryId = updateParam.companyCountryId;
+            customer.zoneId = updateParam.zoneId;
+            customer.city = updateParam.companyCity;
+            customer.pincode = updateParam.pincode;
+            customer.landmark = updateParam.landmark;
+        }
+
+        // const account = {} as BankAccount;
+        const account = vendor.bankAccount || {} as BankAccount;
+        // Bank Account Info
+        if (updateParam.blogType === 'bank-account-info') {
             account.accountHolderName = updateParam.bankPayload.companyAccountHolderName;
             account.accountNumber = updateParam.bankPayload.companyAccountNumber;
             account.ifsc = updateParam.bankPayload.companyIFSC;
@@ -1392,6 +1364,9 @@ export class VendorController {
             account.accountCreatedOn = updateParam.bankPayload.companyAccountCreatedOn;
             account.bankName = updateParam.bankPayload.companyAccountBankName;
             account.bic = updateParam.bankPayload.companyAccountBic;
+        }
+        // Bank Address
+        if (updateParam.blogType === 'bank-address') {
             account.bankAddress1 = updateParam.bankPayload.bankAddress1;
             account.bankAddress2 = updateParam.bankPayload.bankAddress2;
             account.bankArea = updateParam.bankPayload.bankArea;
@@ -1399,15 +1374,67 @@ export class VendorController {
             account.bankCountryId = updateParam.bankPayload.bankCountryId;
             account.bankStateId = updateParam.bankPayload.bankStateId;
             account.bankPincode = updateParam.bankPayload.bankPincode;
-
-            vendor.bankAccount = account;
         }
 
-        if (updateParam.capabilities) {
-            vendor.capabilities = updateParam.capabilities;
+        vendor.bankAccount = account;
+
+        // Basic Profile
+        if (updateParam.blogType === 'basic-profile') {
+            // profile image not founded
+            const avatar = updateParam.avatar;
+            if (avatar) {
+                const type = avatar.split(';')[0].split('/')[1];
+                const availableTypes = env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse: any = {
+                        status: 0,
+                        message: 'Only ' + env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                const name = 'Img_' + Date.now() + '.' + type;
+                const path = 'customer/';
+                const base64Data = Buffer.from(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+
+                if (customer.avatarPath && customer.avatar) {
+                    const deleteService = env.imageserver === 's3' ? this.s3Service : this.imageService;
+                    await deleteService.deleteFile(customer.avatarPath + '/' + customer.avatar);
+                }
+                if (env.imageserver === 's3') {
+                    await this.s3Service.imageUpload((path + name), base64Data, type);
+                } else {
+                    await this.imageService.imageUpload((path + name), base64Data);
+                }
+
+                customer.avatar = name;
+                customer.avatarPath = path;
+            } else if (updateParam.reset === 1) {
+                const deleteService = env.imageserver === 's3' ? this.s3Service : this.imageService;
+                if (customer.avatarPath && customer.avatar) {
+                    await deleteService.deleteFile(customer.avatarPath + '/' + customer.avatar);
+                }
+                customer.avatar = '';
+                customer.avatarPath = '';
+            }
+            vendor.avatar = updateParam.avatar;
+            customer.firstName = updateParam.firstName;
+            customer.lastName = updateParam.lastName ?? '';
+            customer.gender = updateParam.gender;
+            customer.dob = updateParam.dob;
+            customer.mobileNumber = updateParam.mobileNumber;
+            // username not found
         }
+
+        // Personalised Setting
+        if (updateParam.blogType === 'personalised-setting') {
+            vendor.personalizedSettings.defaultLanguage = updateParam.personalizedSetting.defaultLanguage;
+            vendor.personalizedSettings.dateFormat = updateParam.personalizedSetting.dateFormat;
+            vendor.personalizedSettings.timeFormat = updateParam.personalizedSetting.timeFormat;
+            vendor.personalizedSettings.timeZone = updateParam.personalizedSetting.timeZone;
+        }
+
         // vendor media
-        if (updateParam?.vendorMedia.length > 0) {
+        if (updateParam?.vendorMedia?.length > 0) {
             // single create check
             updateParam.vendorMedia.forEach(async (mediaParam) => {
                 await this.vendorMediaService.delete({ vendorId: vendor.vendorId, mediaType: mediaParam.mediaType });
@@ -1436,72 +1463,92 @@ export class VendorController {
             });
         }
 
-        vendor.vendorDescription = updateParam.vendorDescription;
-        if (updateParam?.personalizedSetting) {
-            vendor.personalizedSettings.defaultLanguage = updateParam.personalizedSetting.defaultLanguage;
-            vendor.personalizedSettings.dateFormat = updateParam.personalizedSetting.dateFormat;
-            vendor.personalizedSettings.timeFormat = updateParam.personalizedSetting.timeFormat;
-            vendor.personalizedSettings.timeZone = updateParam.personalizedSetting.timeZone;
+        // Basic Company Details
+        if (updateParam.blogType === 'my-shop-basic-company-details') {
+            const companyLogo = updateParam.companyLogo;
+            if (companyLogo) {
+                const type = companyLogo.split(';')[0].split('/')[1];
+                const availableTypes = env.availImageTypes.split(',');
+                if (!availableTypes.includes(type)) {
+                    const errorTypeResponse: any = {
+                        status: 0,
+                        message: 'Only ' + env.availImageTypes + ' types are allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+                const name = 'Img_' + Date.now() + '.' + type;
+                const path = 'logo/';
+                const base64Data = Buffer.from(companyLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+
+                if (env.imageserver === 's3') {
+                    await this.s3Service.imageUpload((path + name), base64Data, type);
+                } else {
+                    await this.imageService.imageUpload((path + name), base64Data);
+                }
+
+                vendor.companyLogo = name;
+                vendor.companyLogoPath = path;
+            } else if (updateParam.companyLogo === '') {
+                vendor.companyLogo = '';
+                vendor.companyLogoPath = '';
+            }
+
+            const companyCoverImage = updateParam.companyCoverImage;
+            if (companyCoverImage) {
+                const covertype = companyCoverImage.split(';')[0].split('/')[1];
+                const imgName = 'Img_' + Date.now() + '.' + covertype;
+                const imgPath = 'logo/';
+                const coverbase64Data = Buffer.from(companyCoverImage.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+
+                if (env.imageserver === 's3') {
+                    await this.s3Service.imageUpload((imgPath + imgName), coverbase64Data, covertype);
+                } else {
+                    await this.imageService.imageUpload((imgPath + imgName), coverbase64Data);
+                }
+
+                vendor.companyCoverImage = imgName;
+                vendor.companyCoverImagePath = imgPath;
+            } else if (companyCoverImage === '') {
+                vendor.companyCoverImage = '';
+                vendor.companyCoverImagePath = '';
+            }
+
+            if (updateParam.capabilities) {
+                vendor.capabilities = updateParam.capabilities;
+            }
         }
+
+        // Vendor Description
+        if (updateParam.blogType === 'my-shop-vendor-description') {
+            vendor.vendorDescription = updateParam.vendorDescription;
+        }
+
+        if (updateParam?.companyName) {
+            const slug = updateParam.companyName;
+            const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
+            vendor.vendorSlugName = data;
+        }
+
+        vendor.facebook = updateParam.companyFacebook;
+        vendor.companyState = updateParam.state ?? '';
+        vendor.designation = updateParam.designation;
+        vendor.companyEmailId = updateParam.companyEmailId;
+        vendor.companyWebsite = updateParam.companyWebsite;
+        vendor.companyPanNumber = updateParam.companyPanNumber;
+        vendor.companyGstNumber = updateParam.companyGstNumber;
+        vendor.whatsapp = updateParam.companyWhatsapp;
+        vendor.youtube = updateParam.companyYoutube;
+        vendor.instagram = updateParam.companyInstagram;
+        vendor.countryName = updateParam.countryName;
+        vendor.paymentInformation = updateParam.paymentInformation;
+
         await this.vendorService.create(vendor);
-        const customer = await this.customerService.findOne({
-            where: {
-                id: customerId,
-            },
-        });
-        const avatar = updateParam.avatar;
-        if (avatar) {
-            const type = avatar.split(';')[0].split('/')[1];
-            const availableTypes = env.availImageTypes.split(',');
-            if (!availableTypes.includes(type)) {
-                const errorTypeResponse: any = {
-                    status: 0,
-                    message: 'Only ' + env.availImageTypes + ' types are allowed',
-                };
-                return response.status(400).send(errorTypeResponse);
-            }
-            const name = 'Img_' + Date.now() + '.' + type;
-            const path = 'customer/';
-            const base64Data = Buffer.from(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-
-            if (customer.avatarPath && customer.avatar) {
-                const deleteService = env.imageserver === 's3' ? this.s3Service : this.imageService;
-                await deleteService.deleteFile(customer.avatarPath + '/' + customer.avatar);
-            }
-            if (env.imageserver === 's3') {
-                await this.s3Service.imageUpload((path + name), base64Data, type);
-            } else {
-                await this.imageService.imageUpload((path + name), base64Data);
-            }
-
-            customer.avatar = name;
-            customer.avatarPath = path;
-        } else if (updateParam.reset === 1) {
-            const deleteService = env.imageserver === 's3' ? this.s3Service : this.imageService;
-            if (customer.avatarPath && customer.avatar) {
-                await deleteService.deleteFile(customer.avatarPath + '/' + customer.avatar);
-            }
-            customer.avatar = '';
-            customer.avatarPath = '';
-        }
-        customer.firstName = updateParam.firstName;
-        customer.lastName = updateParam.lastName ?? '';
-        customer.mobileNumber = updateParam.mobileNumber;
-        customer.gender = updateParam.gender;
-        customer.dob = updateParam.dob;
-        customer.address = updateParam.companyAddress1;
-        customer.address2 = updateParam.companyAddress2;
-        customer.countryId = updateParam.companyCountryId;
-        customer.zoneId = updateParam.zoneId;
-        customer.city = updateParam.companyCity;
-        customer.pincode = updateParam.pincode;
-        customer.landmark = updateParam.landmark;
         const editCustomer = await this.customerService.create(customer);
 
         if (editCustomer) {
             const successResponse: any = {
                 status: 1,
-                message: `Successfully Updated ..!`,
+                message: 'Vendor account settings updated successfully.',
                 data: instanceToPlain(editCustomer), vendor,
             };
             return response.status(200).send(successResponse);

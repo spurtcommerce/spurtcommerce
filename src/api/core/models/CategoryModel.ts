@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -42,6 +42,9 @@ export class Category extends BaseModel {
 
     @Column({ name: 'industry_id' })
     public industryId: number;
+
+    @Column({ name: 'family_id' })
+    public familyId: number;
 
     @Column({ name: 'is_active' })
     public isActive: number;

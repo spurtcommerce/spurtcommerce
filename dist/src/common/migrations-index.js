@@ -345,7 +345,6 @@ tslib_1.__exportStar(require("../database/migrations/1724649879628-AddColumnPerm
 tslib_1.__exportStar(require("../database/migrations/1724654771491-UpdateDataIslistPermissionModule"), exports);
 tslib_1.__exportStar(require("../database/migrations/1724666603680-AddOrderStatusData"), exports);
 tslib_1.__exportStar(require("../database/migrations/1725367849558-AddColumnPlugin"), exports);
-tslib_1.__exportStar(require("../database/migrations/1725368681950-AddPluginDisplayData"), exports);
 tslib_1.__exportStar(require("../database/migrations/1725963267756-AddPriceGroupDetailIdToOrderProduct"), exports);
 tslib_1.__exportStar(require("../database/migrations/1726146037222-AlterEmailTemplateVendorRegisteration"), exports);
 tslib_1.__exportStar(require("../database/migrations/1726149005488-AlterEmailTemplateVendorVerifyMail"), exports);
@@ -396,6 +395,15 @@ tslib_1.__exportStar(require("../database/migrations/1737091346152-CreateProduct
 tslib_1.__exportStar(require("../database/migrations/1737171769521-AddPermissionModuleGroupSeller"), exports);
 tslib_1.__exportStar(require("../database/migrations/1737719913797-AddVarientInPermissionModule"), exports);
 tslib_1.__exportStar(require("../database/migrations/1738299112649-AddEmailTemplateForVendorNotifyProduct"), exports);
+tslib_1.__exportStar(require("../database/migrations/1743163860003-AddCollumnsSettingsTable"), exports);
+tslib_1.__exportStar(require("../database/migrations/1743426704992-AddColumnProductTable"), exports);
+tslib_1.__exportStar(require("../database/migrations/1743501439629-CreateTableOrderProductCancelLogTable"), exports);
+tslib_1.__exportStar(require("../database/migrations/1744017287521-CreateOrderCancellationEmailTemplate"), exports);
+tslib_1.__exportStar(require("../database/migrations/1744979289113-AddCopyRightsColumnInSettings"), exports);
+tslib_1.__exportStar(require("../database/migrations/1746270416041-UpdateEmailTemplate"), exports);
+tslib_1.__exportStar(require("../database/migrations/1746690271994-UpdateEmailTemplateSellerApproval"), exports);
+tslib_1.__exportStar(require("../database/migrations/1747114024567-UpdateCODLogo"), exports);
+tslib_1.__exportStar(require("../database/migrations/1747824069232-AddCollumnCategoryTable"), exports);
 tslib_1.__exportStar(require("../../add-ons/WebHook/api/migrations/1714024644076-AddPluginWebhook"), exports);
 tslib_1.__exportStar(require("../../add-ons/WebHook/api/migrations/1714025757863-CreateWebHookTable"), exports);
 //# sourceMappingURL=migrations-index.js.map
