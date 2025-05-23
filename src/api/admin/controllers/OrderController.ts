@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -1729,7 +1729,7 @@ export class OrderController {
     // Order Cancel Request List Function
     @Get('/order-cancel-request-list')
     @Authorized(['admin', 'cancel-request-list'])
-    public async canceledOrderProductList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('status') status: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
+    public async canceledOrderProductList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('status') status: number, @QueryParam('keyword') keyword: string, @QueryParam('paymentProcess') paymentProcess: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
         const select = [
             'order.createdDate as createdDate',
             'order.orderId as orderId',
@@ -1775,11 +1775,16 @@ export class OrderController {
             name: 'OrderProduct.cancelRequest',
             op: 'and',
             value: 1,
-        }, {
-            name: 'order.paymentProcess',
-            op: 'and',
-            value: 1,
         });
+
+        if (paymentProcess && paymentProcess) {
+
+            whereConditions.push({
+                name: 'order.paymentProcess',
+                op: 'and',
+                value: paymentProcess,
+            });
+        }
 
         if (status) {
             whereConditions.push({
@@ -1891,7 +1896,7 @@ export class OrderController {
         } else if (orderProductStatusUpdate.cancelRequestStatus === 2) {
             status = 'rejected';
             res = 'Successfully rejected the cancelled orders';
-        } else if (orderProductStatusUpdate.cancelRequestStatus === 0) {
+        } else if (orderProductStatusUpdate.cancelRequestStatus === 3) {
             status = 'pending';
         }
         const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{productname}', orderProduct.name).replace('{status}', status);
@@ -1981,7 +1986,7 @@ export class OrderController {
             } else if (orderProductStatusUpdate.cancelRequestStatus === 2) {
                 status = 'rejected';
                 res = 'Successfully rejected the cancelled orders';
-            } else if (orderProductStatusUpdate.cancelRequestStatus === 0) {
+            } else if (orderProductStatusUpdate.cancelRequestStatus === 3) {
                 status = 'pending';
             }
             const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{productname}', orderProdt.name).replace('{status}', status);
@@ -2068,7 +2073,7 @@ export class OrderController {
                 status = 'approved';
             } else if (data.cancelRequestStatus === 2) {
                 status = 'rejected';
-            } else if (data.cancelRequestStatus === 0) {
+            } else if (data.cancelRequestStatus === 3) {
                 status = 'pending';
             }
             const right = dataId.currencySymbolRight;
@@ -2236,7 +2241,7 @@ export class OrderController {
                 requestStatus = 'approved';
             } else if (data.cancelRequestStatus === 2) {
                 requestStatus = 'rejected';
-            } else if (data.cancelRequestStatus === 0) {
+            } else if (data.cancelRequestStatus === 3) {
                 requestStatus = 'pending';
             }
             const right = dataId.currencySymbolRight;

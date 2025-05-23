@@ -7,10 +7,14 @@ const pluginLoader_1 = require("../../../../loaders/pluginLoader");
 const SkuService_1 = require("../../../core/services/SkuService");
 const CategoryService_1 = require("../../../core/services/CategoryService");
 require("reflect-metadata");
+const VendorGroupCategoryService_1 = require("../../../core/services/VendorGroupCategoryService");
+const PluginService_1 = require("../../../core/services/PluginService");
 let BulkImport = class BulkImport {
-    constructor(skuService, categoryService) {
+    constructor(skuService, categoryService, vendorGroupCategoryService, pluginService) {
         this.skuService = skuService;
         this.categoryService = categoryService;
+        this.vendorGroupCategoryService = vendorGroupCategoryService;
+        this.pluginService = pluginService;
         this.validationConfig = {
             Quantity: 'Quantity value should be numeric format',
             Price: 'Price value should be numeric format',
@@ -45,6 +49,11 @@ let BulkImport = class BulkImport {
             let totalSpecial = 0;
             let totalTire = 0;
             const productArr = [];
+            const productType = {
+                simple: 2,
+                config: 1,
+                variant: 0,
+            };
             for (const fName of filterName) {
                 const tempObj = {};
                 const variantOption = [];
@@ -90,6 +99,7 @@ let BulkImport = class BulkImport {
                         tempObj.PackageCost = data.Package_Cost;
                         tempObj.ShippingCost = data.Shipping_Cost;
                         tempObj.VendorId = data.VendorId;
+                        tempObj.isSimplified = productType[data.ProductType];
                         const highlight = [];
                         tempObj.productHighlights = highlight.push({ data: data.Product_Highlights });
                         const videoArr = data.Video_Link;
@@ -102,11 +112,13 @@ let BulkImport = class BulkImport {
                                 productVideo.push(data.Video_Link);
                             }
                         }
-                        variantOptionObj.variantSku = data.Variant_sku;
-                        variantOptionObj.variantQuantity = data.Variant_Quantity;
-                        variantOptionObj.variantImage = data.Variant_Image;
-                        variantOptionObj.variantPrice = data.Variant_Price;
-                        variantOptionObj.variantOriginalPrice = data.Variant_OriginalPrice;
+                        if (tempObj.isSimplified === 0) {
+                            variantOptionObj.variantSku = data.Variant_sku;
+                            variantOptionObj.variantQuantity = data.Variant_Quantity;
+                            variantOptionObj.variantImage = data.Variant_Image;
+                            variantOptionObj.variantPrice = data.Variant_Price;
+                            variantOptionObj.variantOriginalPrice = data.Variant_OriginalPrice;
+                        }
                         // Discount price
                         let m = 1;
                         while (m >= 1) {
@@ -203,45 +215,49 @@ let BulkImport = class BulkImport {
                         const variantOptions = [];
                         let j = 1;
                         // Variant option
-                        while (j >= 1) {
-                            if ('Variant_Name' + j in data === true) {
-                                const variantOptionsObj = {};
-                                variantOptionsObj.varianName = (_h = data['Variant_Name' + j]) !== null && _h !== void 0 ? _h : undefined;
-                                variantOptionsObj.variantValue = (_j = data['Variant_Value' + j]) !== null && _j !== void 0 ? _j : undefined;
-                                variantOptions.push(variantOptionsObj);
-                                j++;
+                        if (tempObj.isSimplified === 0) {
+                            while (j >= 1) {
+                                if ('Variant_Name' + j in data === true) {
+                                    const variantOptionsObj = {};
+                                    variantOptionsObj.varianName = (_h = data['Variant_Name' + j]) !== null && _h !== void 0 ? _h : undefined;
+                                    variantOptionsObj.variantValue = (_j = data['Variant_Value' + j]) !== null && _j !== void 0 ? _j : undefined;
+                                    variantOptions.push(variantOptionsObj);
+                                    j++;
+                                }
+                                else {
+                                    j = 0;
+                                }
                             }
-                            else {
-                                j = 0;
-                            }
+                            variantOptionObj.variantOptions = variantOptions;
+                            variantOption.push(variantOptionObj);
                         }
-                        variantOptionObj.variantOptions = variantOptions;
-                        variantOption.push(variantOptionObj);
                         i++;
                     }
                     else if (fName === data.Name && i > 0) {
                         let j = 1;
-                        variantOptionObj.variantSku = data.Variant_sku;
-                        variantOptionObj.variantQuantity = data.Variant_Quantity;
-                        variantOptionObj.variantImage = data.Variant_Image;
-                        variantOptionObj.variantPrice = data.Variant_Price;
-                        variantOptionObj.variantOriginalPrice = data.Variant_OriginalPrice;
-                        const variantOptions = [];
-                        while (j >= 1) {
-                            if ('Variant_Name' + j in data === true) {
-                                const variantOptionsObj = {};
-                                variantOptionsObj.varianName = data['Variant_Name' + j] ? data['Variant_Name' + j] : undefined;
-                                variantOptionsObj.variantValue = data['Variant_Value' + j] ? data['Variant_Value' + j] : undefined;
-                                variantOptions.push(variantOptionsObj);
-                                j++;
+                        if (tempObj.isSimplified === 0) {
+                            variantOptionObj.variantSku = data.Variant_sku;
+                            variantOptionObj.variantQuantity = data.Variant_Quantity;
+                            variantOptionObj.variantImage = data.Variant_Image;
+                            variantOptionObj.variantPrice = data.Variant_Price;
+                            variantOptionObj.variantOriginalPrice = data.Variant_OriginalPrice;
+                            const variantOptions = [];
+                            while (j >= 1) {
+                                if ('Variant_Name' + j in data === true) {
+                                    const variantOptionsObj = {};
+                                    variantOptionsObj.varianName = data['Variant_Name' + j] ? data['Variant_Name' + j] : undefined;
+                                    variantOptionsObj.variantValue = data['Variant_Value' + j] ? data['Variant_Value' + j] : undefined;
+                                    variantOptions.push(variantOptionsObj);
+                                    j++;
+                                }
+                                else {
+                                    j = 0;
+                                }
                             }
-                            else {
-                                j = 0;
+                            variantOptionObj.variantOptions = variantOptions;
+                            if (variantOptionObj.skuName !== '') {
+                                variantOption.push(variantOptionObj);
                             }
-                        }
-                        variantOptionObj.variantOptions = variantOptions;
-                        if (variantOptionObj.skuName !== '') {
-                            variantOption.push(variantOptionObj);
                         }
                         i = i++;
                         const videoArr = data.Video_Link;
@@ -331,10 +347,15 @@ let BulkImport = class BulkImport {
             return productArr;
         });
     }
-    validateAndFormatData(data) {
+    validateAndFormatData(data, vendorGroupId) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const requiredFields = ['SKU', 'Quantity', 'Price', 'DateAvailable', 'Name', 'Images', 'Category1', 'Description'];
+            const requiredFields = ['SKU', 'Quantity', 'Price', 'DateAvailable', 'Name', 'Images', 'Category1', 'Description', 'ProductType'];
             const result = [];
+            const productType = {
+                simple: 2,
+                config: 1,
+                variant: 0,
+            };
             // For checking error occur or not
             let errorStatus = false;
             for (const jsonValue of data) {
@@ -355,6 +376,31 @@ let BulkImport = class BulkImport {
                 if (findSkuFromExcel) {
                     errors.push('Duplicate SKU in your Uploaded file');
                     errorStatus = true;
+                }
+                // category validation
+                const categories1 = jsonValue.Category1.split('>');
+                const categoryLength = categories1.length;
+                const checkCategory = yield this.categoryService.findOne({ where: { name: (categories1[categoryLength - 1]).trimStart() } });
+                if (!checkCategory) {
+                    errors.push('Invalid category');
+                    errorStatus = true;
+                }
+                else {
+                    const vendorGroup = yield this.vendorGroupCategoryService.findOne({ where: { vendorGroupId, categoryId: checkCategory.categoryId } });
+                    if (!vendorGroup) {
+                        errors.push('Invalid category');
+                        errorStatus = true;
+                    }
+                }
+                const findProductAttributeStatus = yield this.pluginService.findOne({ where: { pluginName: 'ProductAttribute', pluginStatus: 1 } });
+                if ([0, 1].includes(productType[jsonValue.ProductType]) && pluginLoader_1.pluginModule.includes('ProductAttribute') && findProductAttributeStatus) {
+                    const importPath = '../../../../../add-ons/ProductAttribute/Family';
+                    const family = yield require(importPath);
+                    const familyExist = yield family.findOne({ where: { id: checkCategory.familyId, isDelete: 0 } });
+                    if (!familyExist) {
+                        errors.push('Invalid family');
+                        errorStatus = true;
+                    }
                 }
                 // add discount price into validationConfig
                 let m = 1;
@@ -486,7 +532,9 @@ let BulkImport = class BulkImport {
 BulkImport = tslib_1.__decorate([
     (0, typedi_1.Service)(),
     tslib_1.__metadata("design:paramtypes", [SkuService_1.SkuService,
-        CategoryService_1.CategoryService])
+        CategoryService_1.CategoryService,
+        VendorGroupCategoryService_1.VendorGroupCategoryService,
+        PluginService_1.PluginService])
 ], BulkImport);
 exports.BulkImport = BulkImport;
 //# sourceMappingURL=BulkImportRequest.js.map

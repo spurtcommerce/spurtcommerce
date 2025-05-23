@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -21,6 +21,7 @@ const typeormLoader_1 = require("./loaders/typeormLoader");
 const winstonLoader_1 = require("./loaders/winstonLoader");
 const swaggerLoader_1 = require("./loaders/swaggerLoader");
 const pluginLoader_1 = require("./loaders/pluginLoader");
+// import { cronLoader } from './loaders/cronLoader';
 /**
  * EXPRESS TYPESCRIPT BOILERPLATE
  * ----------------------------------------
@@ -46,6 +47,7 @@ const log = new logger_1.Logger(__filename);
         monitorLoader_1.monitorLoader,
         homeLoader_1.homeLoader,
         publicLoader_1.publicLoader,
+        // cronLoader,
         // spurtConnectLoader,
     ],
 })

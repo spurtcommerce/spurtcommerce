@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -59,9 +59,10 @@ const typeorm_1 = require("typeorm");
 const SkuService_1 = require("../../../../src/api/core/services/SkuService");
 const OrderStatusToFullfillmentService_1 = require("../../../../src/api/core/services/OrderStatusToFullfillmentService");
 const OrderFullfillmentStatusService_1 = require("../../../../src/api/core/services/OrderFullfillmentStatusService");
+const OrderProductCancelLog_1 = require("../../../../src/api/core/services/OrderProductCancelLog");
 // import { In } from 'typeorm';
 let VendorOrderController = class VendorOrderController {
-    constructor(vendorOrdersService, orderService, orderProductService, pluginService, vendorProductService, productImageService, vendorOrderLogService, productService, pdfService, countryService, zoneService, s3Service, vendorOrderArchiveLogService, vendorOrderArchiveService, orderStatusService, orderProductLogService, emailTemplateService, vendorPaymentService, vendorPaymentArchiveService, vendorInvoiceService, vendorInvoiceItemService, vendorService, imageService, settingService, customerService, paymentItemsService, paymentArchiveService, paymentService, vendorGroupService, vendorGlobalSettingService, skuService, orderStatusToFullfillmentService, orderFullfillmentStatusService) {
+    constructor(vendorOrdersService, orderService, orderProductService, pluginService, vendorProductService, productImageService, vendorOrderLogService, productService, pdfService, countryService, zoneService, s3Service, vendorOrderArchiveLogService, vendorOrderArchiveService, orderStatusService, orderProductLogService, emailTemplateService, vendorPaymentService, vendorPaymentArchiveService, vendorInvoiceService, vendorInvoiceItemService, vendorService, imageService, settingService, customerService, paymentItemsService, paymentArchiveService, paymentService, vendorGroupService, vendorGlobalSettingService, skuService, orderStatusToFullfillmentService, orderFullfillmentStatusService, orderProductCancelLogService) {
         this.vendorOrdersService = vendorOrdersService;
         this.orderService = orderService;
         this.orderProductService = orderProductService;
@@ -95,6 +96,7 @@ let VendorOrderController = class VendorOrderController {
         this.skuService = skuService;
         this.orderStatusToFullfillmentService = orderStatusToFullfillmentService;
         this.orderFullfillmentStatusService = orderFullfillmentStatusService;
+        this.orderProductCancelLogService = orderProductCancelLogService;
         // --
     }
     // Recent order List API
@@ -2095,7 +2097,7 @@ let VendorOrderController = class VendorOrderController {
      * @apiErrorExample {json} orderList error
      * HTTP/1.1 500 Internal Server Error
      */
-    orderListtt(limit, offset, customerName, orderId, amount, keyword, isBackOrder, skuName, paymentProcess, orderStatus, tags, startDate, endDate, sortBy, sortOrder, deliverylist, dateAdded, count, statusType, request, response) {
+    orderListtt(limit, offset, customerName, orderId, amount, keyword, isBackOrder, skuName, paymentProcess, orderStatus, tags, startDate, endDate, sortBy, sortOrder, deliverylist, dateAdded, count, statusType, filter, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -2120,6 +2122,7 @@ let VendorOrderController = class VendorOrderController {
                 'VendorOrders.commission as commission',
                 'orderDetail.isActive as isActive',
                 'orderDetail.shippingCity as shippingCity',
+                'orderProduct.orderProductId as orderProductId',
                 'orderProduct.orderProductPrefixId as orderProductPrefixId',
                 'orderProduct.discountAmount as discountAmount',
                 'orderProduct.quantity as quantity',
@@ -2180,11 +2183,21 @@ let VendorOrderController = class VendorOrderController {
                 name: 'VendorOrders.vendorId',
                 op: 'and',
                 value: request.user.vendorId,
-            }, {
-                name: 'orderDetail.paymentProcess',
-                op: 'and',
-                value: paymentProcess ? 1 : 0,
             });
+            if (paymentProcess === 0 || paymentProcess === 1) {
+                whereConditions.push({
+                    name: 'orderDetail.paymentProcess',
+                    op: 'and',
+                    value: paymentProcess ? 1 : 0,
+                });
+            }
+            if (filter && filter !== '') {
+                whereConditions.push({
+                    op: 'raw',
+                    name: '(' + filter + ')',
+                    value: '',
+                });
+            }
             if (+deliverylist) {
                 whereConditions.push({
                     name: 'orderDetail.paymentStatus',
@@ -2659,7 +2672,7 @@ let VendorOrderController = class VendorOrderController {
      * @apiErrorExample {json} cancelorderListtt error
      * HTTP/1.1 500 Internal Server Error
      */
-    cancelorderListtt(limit, offset, keyword, startDate, endDate, count, request, response) {
+    cancelorderListtt(limit, offset, keyword, paymentProcess, cancelRequestStatus, startDate, endDate, cancelStatus, count, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const startDateMin = (0, moment_1.default)(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
             const date = endDate + ' 23:59:59';
@@ -2692,7 +2705,10 @@ let VendorOrderController = class VendorOrderController {
                 'orderProduct.discountAmount as discountAmount',
                 'orderProduct.couponDiscountAmount as couponDiscountAmount',
                 'orderProduct.discountedAmount as discountedAmount',
-                'orderProduct.cancelReasonDescription as cancelReasonDescription'
+                'orderProduct.cancelReasonDescription as cancelReasonDescription',
+                'orderProductCancelLog.status as cancelStatus',
+                'orderProductCancelLog.comments as cancelComments',
+                'orderProductCancelLog.createdDate as commentsPostedDate',
             ];
             const relations = [
                 {
@@ -2707,6 +2723,12 @@ let VendorOrderController = class VendorOrderController {
                     tableName: 'VendorOrders.orderProduct',
                     aliasName: 'orderProduct',
                 },
+                {
+                    tableName: 'order_product_cancel_log',
+                    op: 'cond',
+                    cond: 'orderProduct.orderProductId = orderProductCancelLog.orderProductId',
+                    aliasName: 'orderProductCancelLog',
+                },
             ];
             const groupBy = [];
             const whereConditions = [];
@@ -2714,10 +2736,6 @@ let VendorOrderController = class VendorOrderController {
                 name: 'VendorOrders.vendorId',
                 op: 'and',
                 value: request.user.vendorId,
-            }, {
-                name: 'orderDetail.paymentProcess',
-                op: 'and',
-                value: 1,
             }, {
                 name: 'orderProduct.cancelRequest',
                 op: 'and',
@@ -2737,6 +2755,27 @@ let VendorOrderController = class VendorOrderController {
                     op: 'raw',
                     sign: '<=',
                     value: endDateMin,
+                });
+            }
+            if (paymentProcess && paymentProcess) {
+                whereConditions.push({
+                    name: 'orderDetail.paymentProcess',
+                    op: 'and',
+                    value: paymentProcess,
+                });
+            }
+            if (cancelRequestStatus && cancelRequestStatus !== '') {
+                whereConditions.push({
+                    name: 'orderProduct.cancelRequestStatus',
+                    op: 'and',
+                    value: cancelRequestStatus,
+                });
+            }
+            if (cancelStatus && cancelStatus !== '') {
+                whereConditions.push({
+                    name: 'orderProductCancelLog.status',
+                    op: 'and',
+                    value: cancelStatus,
                 });
             }
             const searchConditions = [];
@@ -2799,7 +2838,7 @@ let VendorOrderController = class VendorOrderController {
      * @apiErrorExample {json} UpdateVendorOrderCancelStatus error
      * HTTP/1.1 500 Internal Server Error
      */
-    updateVendorOrderCancelStatus(orderProductId, cancelStatusId, request, response) {
+    updateVendorOrderCancelStatus(orderProductId, cancelStatusId, comments, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const orderProduct = yield this.orderProductService.findOne({
                 where: {
@@ -2826,7 +2865,23 @@ let VendorOrderController = class VendorOrderController {
                 return response.status(400).send(errorResponse);
             }
             orderProduct.cancelRequestStatus = cancelStatusId;
+            if (orderProduct.cancelRequestStatus === 1) {
+                // add inventory
+                const skuInfo = yield this.skuService.findOne({ where: { skuName: orderProduct.skuName } });
+                skuInfo.quantity = skuInfo.quantity + orderProduct.quantity;
+                yield this.skuService.update(skuInfo.id, skuInfo);
+                //  change orderStatus
+                const orderStatus = yield this.orderStatusService.findOne({
+                    where: { name: 'Order cancelled' },
+                });
+                orderProduct.orderStatusId = orderStatus ? orderStatus.orderStatusId : 4;
+            }
             const orderProductStatusUpdate = yield this.orderProductService.update(orderProduct.orderProductId, orderProduct);
+            // orderProductCancelLog
+            const cancelOrder = yield this.orderProductCancelLogService.findOne({ where: { orderProductId: orderProductStatusUpdate.orderProductId } });
+            cancelOrder.comments = comments;
+            cancelOrder.status = orderProductStatusUpdate.cancelRequestStatus;
+            yield this.orderProductCancelLogService.create(cancelOrder);
             const order = yield this.orderService.findOrder({ where: { orderId: orderProduct.orderId } });
             const emailContent = yield this.emailTemplateService.findOne(20);
             const logo = yield this.settingService.findOne();
@@ -2834,13 +2889,13 @@ let VendorOrderController = class VendorOrderController {
             let res;
             if (orderProductStatusUpdate.cancelRequestStatus === 1) {
                 status = 'approved';
-                res = 'Successfully accepted the cancelled orders';
+                res = 'Successfully approved the cancelled orders';
             }
             else if (orderProductStatusUpdate.cancelRequestStatus === 2) {
                 status = 'rejected';
                 res = 'Successfully rejected the cancelled orders';
             }
-            else if (orderProductStatusUpdate.cancelRequestStatus === 0) {
+            else if (orderProductStatusUpdate.cancelRequestStatus === 3) {
                 status = 'pending';
             }
             const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{productname}', orderProduct.name).replace('{status}', status);
@@ -2942,7 +2997,7 @@ let VendorOrderController = class VendorOrderController {
                 else if (orderProductStatusUpdate.cancelRequestStatus === 2) {
                     status = 'rejected';
                 }
-                else if (orderProductStatusUpdate.cancelRequestStatus === 0) {
+                else if (orderProductStatusUpdate.cancelRequestStatus === 3) {
                     status = 'pending';
                 }
                 const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{productname}', orderProdt.name).replace('{status}', status);
@@ -3025,7 +3080,7 @@ let VendorOrderController = class VendorOrderController {
                     else if (data.cancelRequestStatus === 2) {
                         status = 'rejected';
                     }
-                    else if (data.cancelRequestStatus === 0) {
+                    else if (data.cancelRequestStatus === 3) {
                         status = 'pending';
                     }
                     const right = dataId.currencySymbolRight;
@@ -3179,7 +3234,7 @@ let VendorOrderController = class VendorOrderController {
                 else if (id.cancelRequestStatus === 2) {
                     status = 'rejected';
                 }
-                else if (id.cancelRequestStatus === 0) {
+                else if (id.cancelRequestStatus === 3) {
                     status = 'pending';
                 }
                 const right = id.currencySymbolRight;
@@ -4992,13 +5047,13 @@ let VendorOrderController = class VendorOrderController {
             const searchConditions = [];
             if (keyword && keyword !== '') {
                 searchConditions.push({
-                    name: ['order.email', 'order.shippingLastname', 'order.shippingFirstname', 'order.telephone', 'customerGroup.name'],
+                    name: ['order.email', 'orderCustomer.lastName', 'orderCustomer.firstName', 'order.telephone', 'customerGroup.name'],
                     value: keyword.toLowerCase(),
                 });
             }
             if (customerName === null || customerName === void 0 ? void 0 : customerName.trim()) {
                 searchConditions.push({
-                    name: ['order.shippingLastname', 'order.shippingFirstname'],
+                    name: ['orderCustomer.lastName', 'orderCustomer.firstName'],
                     value: customerName,
                 });
             }
@@ -5602,6 +5657,40 @@ let VendorOrderController = class VendorOrderController {
             return response.status(200).send(successResponse);
         });
     }
+    autoVendorOrderCancelStatus() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const settings = yield this.settingService.findOne();
+            const timeframeValue = settings.sellerApprovalTimeframeValue;
+            const timeframeUnit = settings.sellerApprovalTimeframeUnit;
+            const startDateJS = moment_1.default.utc().subtract(timeframeValue, timeframeUnit.toLowerCase()).toDate();
+            const orderCancelProduct = yield this.orderProductCancelLogService.find({
+                where: { createdDate: (0, typeorm_1.LessThan)(startDateJS), status: 3 },
+            });
+            if (orderCancelProduct) {
+                for (const orderProductDetail of orderCancelProduct) {
+                    const orderProduct = yield this.orderProductService.findOne({
+                        where: { orderProductId: orderProductDetail.orderProductId },
+                    });
+                    const orderStatus = yield this.orderStatusService.findOne({
+                        where: { name: 'Order cancelled' },
+                    });
+                    orderProduct.orderStatusId = orderStatus ? orderStatus.orderStatusId : 4;
+                    orderProduct.cancelRequestStatus = 1;
+                    yield this.orderProductService.update(orderProduct.orderProductId, orderProduct);
+                    // Cancel product and add to inventory
+                    const skuInfo = yield this.skuService.findOne({ where: { skuName: orderProduct.skuName } });
+                    skuInfo.quantity = skuInfo.quantity + orderProduct.quantity;
+                    yield this.skuService.update(skuInfo.id, skuInfo);
+                    const orderCancelProductLog = yield this.orderProductCancelLogService.findOne({
+                        where: { orderProductId: orderProduct.orderProductId },
+                    });
+                    orderCancelProductLog.status = 1;
+                    yield this.orderProductCancelLogService.update(orderCancelProductLog.id, orderCancelProductLog);
+                }
+            }
+            console.log('successfully updated order status');
+        });
+    }
 };
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/recent-order-list'),
@@ -5885,10 +5974,11 @@ tslib_1.__decorate([
     tslib_1.__param(16, (0, routing_controllers_1.QueryParam)('dateAdded')),
     tslib_1.__param(17, (0, routing_controllers_1.QueryParam)('count')),
     tslib_1.__param(18, (0, routing_controllers_1.QueryParam)('statusType')),
-    tslib_1.__param(19, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(20, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(19, (0, routing_controllers_1.QueryParam)('filter')),
+    tslib_1.__param(20, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(21, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Number, Number, Number, String, String, String, String, String, String, Number, String, Object, String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, String, Number, Number, Number, String, String, String, String, String, String, Number, String, Object, String, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "orderListtt", null);
 tslib_1.__decorate([
@@ -5927,13 +6017,16 @@ tslib_1.__decorate([
     tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('startDate')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('endDate')),
-    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(6, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('paymentProcess')),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('cancelRequestStatus')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('startDate')),
+    tslib_1.__param(6, (0, routing_controllers_1.QueryParam)('endDate')),
+    tslib_1.__param(7, (0, routing_controllers_1.QueryParam)('cancelStatus')),
+    tslib_1.__param(8, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(9, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(10, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, String, String, String, Object, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, String, String, String, String, Object, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "cancelorderListtt", null);
 tslib_1.__decorate([
@@ -5941,10 +6034,11 @@ tslib_1.__decorate([
     (0, routing_controllers_1.Authorized)('vendor'),
     tslib_1.__param(0, (0, routing_controllers_1.Param)('orderProductId')),
     tslib_1.__param(1, (0, routing_controllers_1.BodyParam)('cancelStatusId')),
-    tslib_1.__param(2, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(3, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(2, (0, routing_controllers_1.BodyParam)('comments')),
+    tslib_1.__param(3, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(4, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], VendorOrderController.prototype, "updateVendorOrderCancelStatus", null);
 tslib_1.__decorate([
@@ -6251,7 +6345,8 @@ VendorOrderController = tslib_1.__decorate([
         VendorSettingService_1.VendorGlobalSettingService,
         SkuService_1.SkuService,
         OrderStatusToFullfillmentService_1.OrderStatusToFullfillmentService,
-        OrderFullfillmentStatusService_1.OrderFullfillmentStatusService])
+        OrderFullfillmentStatusService_1.OrderFullfillmentStatusService,
+        OrderProductCancelLog_1.OrderProductCancelLogService])
 ], VendorOrderController);
 exports.VendorOrderController = VendorOrderController;
 //# sourceMappingURL=VendorOrderController.js.map

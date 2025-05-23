@@ -23,8 +23,8 @@ define({ "api": [
     "url": "",
     "version": "0.0.0",
     "filename": "src/public/apidoc/main.js",
-    "group": "/home/pt049-poobalan-nodejs/Documents/Antlijefri/spurtcommerce/spurtcommerce-git/spurtcommerce/api/src/public/apidoc/main.js",
-    "groupTitle": "/home/pt049-poobalan-nodejs/Documents/Antlijefri/spurtcommerce/spurtcommerce-git/spurtcommerce/api/src/public/apidoc/main.js",
+    "group": "/media/pt081-karan-nodejs/backup/Project/v5-2-spurt-release-enterprise-community/v5-2-community-code-split/spurtcommerce-v5-api/src/public/apidoc/main.js",
+    "groupTitle": "/media/pt081-karan-nodejs/backup/Project/v5-2-spurt-release-enterprise-community/v5-2-community-code-split/spurtcommerce-v5-api/src/public/apidoc/main.js",
     "name": ""
   },
   {
@@ -21460,6 +21460,53 @@ define({ "api": [
     "name": "PutApiServiceCategoryUpdateServiceCategoryId"
   },
   {
+    "type": "delete",
+    "url": "/api/settings/order-cancel/reason/:id",
+    "title": "Delete Order Cancel Reason",
+    "group": "Settings",
+    "name": "DeleteOrderCancelReason",
+    "description": "<p>Deletes an order cancellation reason by its ID.</p>",
+    "parameter": {
+      "fields": {
+        "Path Params": [
+          {
+            "group": "Path Params",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The ID of the reason to delete</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"message\": \"Successfully reason deleted.\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/settings/order-cancel/reason/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n    \"status\": 0,\n    \"message\": \"Failed to delete reason.\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/admin/controllers/SettingController.ts",
+    "groupTitle": "Settings"
+  },
+  {
     "type": "get",
     "url": "/api/media/get-settings",
     "title": "Get Setting common API",
@@ -21651,6 +21698,121 @@ define({ "api": [
     "filename": "src/api/admin/controllers/SettingController.ts",
     "groupTitle": "Settings",
     "name": "GetApiSettingsStoreSetting"
+  },
+  {
+    "type": "get",
+    "url": "/order-cancel/reason/:id",
+    "title": "Get Order Cancel Reason by ID",
+    "group": "Settings",
+    "name": "GetOrderCancelReasonById",
+    "description": "<p>Retrieves the details of a specific order cancellation reason by its ID.</p>",
+    "parameter": {
+      "fields": {
+        "Path Params": [
+          {
+            "group": "Path Params",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The ID of the cancellation reason</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"message\": \"Successfully reason details.\",\n    \"data\": {\n        \"createdBy\": \"\",\n        \"createdDate\": \"\",\n        \"modifiedBy\": \"\",\n        \"modifiedDate\": \"\",\n        \"id\": \"\",\n        \"reason\": \"\",\n        \"isActive\": \"\"\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/order-cancel/reason/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 Not Found\n{\n    \"status\": 0,\n    \"message\": \"Reason not found.\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/admin/controllers/SettingController.ts",
+    "groupTitle": "Settings"
+  },
+  {
+    "type": "get",
+    "url": "/api/settings/order-cancel/reason",
+    "title": "Get Order Cancel Reasons",
+    "group": "Settings",
+    "name": "GetOrderCancelReasons",
+    "description": "<p>Retrieves a list of order cancellation reasons with optional pagination and search.</p>",
+    "parameter": {
+      "fields": {
+        "Query Params": [
+          {
+            "group": "Query Params",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>Number of records to return</p>"
+          },
+          {
+            "group": "Query Params",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>Number of records to skip</p>"
+          },
+          {
+            "group": "Query Params",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>Keyword to search in reasons</p>"
+          },
+          {
+            "group": "Query Params",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>If 1, returns only the count of results</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"message\": \"Successfully reason list.\",\n    \"data\": [\n        {\n            \"createdBy\": \"\",\n            \"createdDate\": \"\",\n            \"modifiedBy\": \"\",\n            \"modifiedDate\": \"\",\n            \"id\": \"\",\n            \"reason\": \"\",\n            \"isActive\": \"\"\n        }\n    ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/settings/order-cancel/reason"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n    \"status\": 0,\n    \"message\": \"Failed to retrieve reason list.\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/admin/controllers/SettingController.ts",
+    "groupTitle": "Settings"
   },
   {
     "type": "post",
@@ -22012,6 +22174,67 @@ define({ "api": [
     "filename": "src/api/admin/controllers/SettingController.ts",
     "groupTitle": "Settings",
     "name": "PutApiSettingsMaintainance"
+  },
+  {
+    "type": "post",
+    "url": "/api/settings/order-cancel/reason",
+    "title": "Submit or Update Order Cancel Reason",
+    "group": "Settings",
+    "name": "SubmitOrUpdateOrderCancelReason",
+    "description": "<p>Creates or updates an order cancellation reason.</p>",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "reason",
+            "description": "<p>The reason for canceling the order</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>The status of the reason</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "reasonId",
+            "description": "<p>The ID of the reason</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"message\": \"Successfully updated reason.\",\n    \"data\": {\n        \"createdBy\": \"\",\n        \"createdDate\": \"\",\n        \"modifiedBy\": \"\",\n        \"modifiedDate\": \"\",\n        \"id\": \"\",\n        \"reason\": \"\",\n        \"isActive\": \"\"\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/settings/order-cancel/reason"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n    \"status\": 0,\n    \"message\": \"Failed to save reason.\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/admin/controllers/SettingController.ts",
+    "groupTitle": "Settings"
   },
   {
     "type": "get",
@@ -31382,7 +31605,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"\",\n     \"data\": [{\n            \"vendorProductId\": 875,\n            \"vendorProductCommission\": 0,\n            \"quotationAvailable\": 0,\n            \"approvalFlag\": 0,\n            \"vendorId\": 10,\n            \"productId\": 1782,\n            \"name\": \"attractive\",\n            \"sku\": \"12\",\n            \"skuId\": 3339,\n            \"productprice\": \"1222.00\",\n            \"quantity\": 12,\n            \"vendorName\": \"Marcello\",\n            \"sortOrder\": 1,\n            \"isActive\": 0,\n            \"productSlug\": \"attractive\",\n            \"width\": \"0.00\",\n            \"height\": \"0.00\",\n            \"length\": \"0.00\",\n            \"weight\": \"0.00\",\n            \"createdDate\": \"2024-08-03T05:49:35.000Z\",\n            \"keywords\": \"~Mens Top Wear~,~attractive~\",\n            \"isSimplified\": 1,\n            \"attributeKeyword\": \"\",\n            \"image\": \"\",\n            \"containerName\": \"\",\n            \"price\": \"1222.00\",\n            \"modifiedPrice\": \"1222.00\",\n            \"productDiscount\": \"\",\n            \"productSpecial\": \"\",\n            \"vendorCategory\": [\n                {\n                    \"productId\": 1782,\n                    \"categoryId\": 6,\n                    \"categoryName\": \"Mens Top Wear\"\n                }\n            ],\n            \"pricerefer\": \"\",\n            \"flag\": \"\",\n            \"earnings\": \"\"\n        },\n            \"status\": \"1\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"\",\n     \"data\": [{\n            \"vendorProductId\": 875,\n            \"vendorProductCommission\": 0,\n            \"quotationAvailable\": 0,\n            \"approvalFlag\": 0,\n            \"vendorId\": 10,\n            \"productId\": 1782,\n            \"name\": \"attractive\",\n            \"sku\": \"12\",\n            \"skuId\": 3339,\n            \"productprice\": \"1222.00\",\n            \"quantity\": 12,\n            \"vendorName\": \"Marcello\",\n            \"sortOrder\": 1,\n            \"isActive\": 0,\n            \"productSlug\": \"attractive\",\n            \"width\": \"0.00\",\n            \"height\": \"0.00\",\n            \"length\": \"0.00\",\n            \"weight\": \"0.00\",\n            \"createdDate\": \"2024-08-03T05:49:35.000Z\",\n            \"keywords\": \"~Mens Top Wear~,~attractive~\",\n            \"isSimplified\": 1,\n            \"attributeKeyword\": \"\",\n            \"image\": \"\",\n            \"containerName\": \"\",\n            \"price\": \"1222.00\",\n            \"modifiedPrice\": \"1222.00\",\n            \"productDiscount\": \"\",\n            \"productSpecial\": \"\",\n            \"vendorCategory\": [\n                {\n                    \"productId\": 1782,\n                    \"categoryId\": 6,\n                    \"categoryName\": \"Mens Top Wear\"\n                }\n            ],\n            \"pricerefer\": \"\",\n            \"flag\": \"\",\n            \"earnings\": \"\"\n        },\n            \"productPricing\":[],\n            \"status\": \"1\"\n}",
           "type": "json"
         }
       ]
@@ -31502,7 +31725,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\",\n     \"message\": \"Successfully get product Detail\",\n     \"data\": {\n              \"createdDate\": \"2024-08-03T05:49:35.000Z\",\n              \"productId\": 1782,\n              \"sku\": \"12\",\n              \"upc\": \"1\",\n              \"hsn\": \"\",\n              \"location\": null,\n              \"quantity\": 12,\n              \"minimumQuantity\": null,\n              \"subtractStock\": null,\n              \"stockStatusId\": 1,\n              \"quotationAvailable\": 0,\n              \"image\": null,\n              \"imagePath\": null,\n              \"manufacturerId\": null,\n              \"shipping\": null,\n              \"serviceCharges\": \"{\\\"productCost\\\":1222,\\\"packingCost\\\":0,\\\"shippingCost\\\":0,\\\"tax\\\":0,\\\"others\\\":0}\",\n              \"taxType\": 1,\n              \"taxValue\": 12,\n              \"price\": \"1222.00\",\n              \"priceUpdateFileLogId\": null,\n              \"dateAvailable\": \"2024-08-03T00:00:00.000Z\",\n              \"sortOrder\": 1,\n              \"name\": \"attractive\",\n              \"description\": \"&lt;p&gt;Provide a detailed description of your product‚ highlighting its unique features‚ benefits‚ and specifications. This helps potential buyers make informed purchasing decisions and enhances your product&amp;quotes;s appeal.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Paragraph&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;\",\n              \"amount\": null,\n              \"keywords\": \"~Mens Top Wear~,~attractive~\",\n              \"discount\": null,\n              \"deleteFlag\": 0,\n              \"isFeatured\": null,\n              \"todayDeals\": null,\n              \"condition\": null,\n              \"rating\": null,\n              \"wishListStatus\": null,\n              \"productSlug\": \"attractive\",\n              \"isActive\": 0,\n              \"width\": \"0.00\",\n              \"height\": \"0.00\",\n              \"length\": \"0.00\",\n              \"weight\": \"0.00\",\n              \"hasStock\": 1,\n              \"priceType\": 1,\n              \"isSimplified\": 1,\n              \"owner\": 2,\n              \"isCommon\": 0,\n              \"skuId\": 3339,\n              \"hasTirePrice\": 0,\n              \"outOfStockThreshold\": null,\n              \"notifyMinQuantity\": null,\n              \"minQuantityAllowedCart\": null,\n              \"maxQuantityAllowedCart\": null,\n              \"enableBackOrders\": null,\n              \"pincodeBasedDelivery\": 0,\n              \"attributeKeyword\": null,\n              \"settedAsCommonOn\": null,\n              \"productHighlights\": [\n                {\n                  \"data\": \"\"\n                }\n              ],\n              \"productCost\": 1222,\n              \"packingCost\": 0,\n              \"shippingCost\": 0,\n              \"tax\": 0,\n              \"others\": 0,\n              \"approvalflag\": 0,\n              \"vendorId\": 10,\n              \"vendorName\": \"Marcello\",\n              \"productImage\": [\n                {\n                  \"productId\": 1782,\n                  \"image\": \"1000_F_581192928_KgFAFEa4pmRm0mjFuESvYzjY0MXs2TIi.jpg\",\n                  \"containerName\": \"\",\n                  \"sortOrder\": 1,\n                  \"defaultImage\": 1\n                }\n              ],\n              \"productVideo\": {\n                \"id\": 3107,\n                \"productId\": 1782,\n                \"name\": \"\",\n                \"path\": \"\",\n                \"type\": 1\n              },\n              \"Category\": [\n                {\n                  \"createdBy\": null,\n                  \"createdDate\": null,\n                  \"modifiedBy\": null,\n                  \"modifiedDate\": \"2024-05-17T12:46:35.000Z\",\n                  \"categoryId\": 6,\n                  \"name\": \"Mens Top Wear\",\n                  \"image\": \"Img_1715949995235.png\",\n                  \"imagePath\": \"category/\",\n                  \"parentInt\": 304,\n                  \"sortOrder\": 1,\n                  \"categorySlug\": \"mens-top-wear11111111111\",\n                  \"isActive\": \"1\",\n                  \"categoryDescription\": \"&lt;p&gt;Men&amp;&#35;39;s shirts come in many different varieties. Depending on the event&amp;sbquo; types of shirts for men could be&amp;nbsp;&lt;strong&gt;an Oxford&amp;sbquo; a dress shirt&amp;sbquo; a flannel&amp;sbquo; a henley or a polo&lt;/strong&gt;.&lt;/p&gt;\\n\",\n                  \"levels\": \"Mens Top  Wear > Mens Top Wear\"\n                }\n              ],\n              \"productSpecialPrice\": [],\n              \"productTirePrices\": [],\n              \"productDiscountData\": []\n}",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\",\n     \"message\": \"Successfully get product Detail\",\n     \"data\": {\n              \"createdDate\": \"2024-08-03T05:49:35.000Z\",\n              \"productId\": 1782,\n              \"sku\": \"12\",\n              \"upc\": \"1\",\n              \"hsn\": \"\",\n              \"location\": null,\n              \"quantity\": 12,\n              \"minimumQuantity\": null,\n              \"subtractStock\": null,\n              \"stockStatusId\": 1,\n              \"quotationAvailable\": 0,\n              \"image\": null,\n              \"imagePath\": null,\n              \"manufacturerId\": null,\n              \"shipping\": null,\n              \"serviceCharges\": \"{\\\"productCost\\\":1222,\\\"packingCost\\\":0,\\\"shippingCost\\\":0,\\\"tax\\\":0,\\\"others\\\":0}\",\n              \"taxType\": 1,\n              \"taxValue\": 12,\n              \"price\": \"1222.00\",\n              \"priceUpdateFileLogId\": null,\n              \"dateAvailable\": \"2024-08-03T00:00:00.000Z\",\n              \"sortOrder\": 1,\n              \"name\": \"attractive\",\n              \"description\": \"&lt;p&gt;Provide a detailed description of your product‚ highlighting its unique features‚ benefits‚ and specifications. This helps potential buyers make informed purchasing decisions and enhances your product&amp;quotes;s appeal.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Paragraph&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;\",\n              \"amount\": null,\n              \"keywords\": \"~Mens Top Wear~,~attractive~\",\n              \"discount\": null,\n              \"deleteFlag\": 0,\n              \"isFeatured\": null,\n              \"todayDeals\": null,\n              \"condition\": null,\n              \"rating\": null,\n              \"wishListStatus\": null,\n              \"productSlug\": \"attractive\",\n              \"isActive\": 0,\n              \"width\": \"0.00\",\n              \"height\": \"0.00\",\n              \"length\": \"0.00\",\n              \"weight\": \"0.00\",\n              \"hasStock\": 1,\n              \"priceType\": 1,\n              \"isSimplified\": 1,\n              \"owner\": 2,\n              \"isCommon\": 0,\n              \"skuId\": 3339,\n              \"hasTirePrice\": 0,\n              \"outOfStockThreshold\": null,\n              \"notifyMinQuantity\": null,\n              \"minQuantityAllowedCart\": null,\n              \"maxQuantityAllowedCart\": null,\n              \"enableBackOrders\": null,\n              \"pincodeBasedDelivery\": 0,\n              \"attributeKeyword\": null,\n              \"settedAsCommonOn\": null,\n              \"productHighlights\": [\n                {\n                  \"data\": \"\"\n                }\n              ],\n              \"productCost\": 1222,\n              \"packingCost\": 0,\n              \"shippingCost\": 0,\n              \"tax\": 0,\n              \"others\": 0,\n              \"approvalflag\": 0,\n              \"vendorId\": 10,\n              \"vendorName\": \"Marcello\",\n              \"productImage\": [\n                {\n                  \"productId\": 1782,\n                  \"image\": \"1000_F_581192928_KgFAFEa4pmRm0mjFuESvYzjY0MXs2TIi.jpg\",\n                  \"containerName\": \"\",\n                  \"sortOrder\": 1,\n                  \"defaultImage\": 1\n                }\n              ],\n              \"productVideo\": {\n                \"id\": 3107,\n                \"productId\": 1782,\n                \"name\": \"\",\n                \"path\": \"\",\n                \"type\": 1\n              },\n              \"Category\": [\n                {\n                  \"createdBy\": null,\n                  \"createdDate\": null,\n                  \"modifiedBy\": null,\n                  \"modifiedDate\": \"2024-05-17T12:46:35.000Z\",\n                  \"categoryId\": 6,\n                  \"name\": \"Mens Top Wear\",\n                  \"image\": \"Img_1715949995235.png\",\n                  \"imagePath\": \"category/\",\n                  \"parentInt\": 304,\n                  \"sortOrder\": 1,\n                  \"categorySlug\": \"mens-top-wear11111111111\",\n                  \"isActive\": \"1\",\n                  \"categoryDescription\": \"&lt;p&gt;Men&amp;&#35;39;s shirts come in many different varieties. Depending on the event&amp;sbquo; types of shirts for men could be&amp;nbsp;&lt;strong&gt;an Oxford&amp;sbquo; a dress shirt&amp;sbquo; a flannel&amp;sbquo; a henley or a polo&lt;/strong&gt;.&lt;/p&gt;\\n\",\n                  \"levels\": \"Mens Top  Wear > Mens Top Wear\"\n                }\n              ],\n              \"productSpecialPrice\": [],\n              \"productTirePrices\": [],\n              \"productDiscountData\": [],\n              \"productPricing\": [],\n}",
           "type": "json"
         }
       ]

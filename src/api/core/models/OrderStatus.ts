@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -15,6 +15,7 @@ import { VendorOrders } from './VendorOrders';
 import { VendorOrderArchive } from './VendorOrderArchive';
 import { OrderProductLog } from './OrderProductLog';
 import { VendorOrderArchiveLog } from './VendorOrderArchiveLog';
+import { OrderProduct } from './OrderProduct';
 
 @Entity('order_status')
 export class OrderStatus extends BaseModel {
@@ -63,6 +64,9 @@ export class OrderStatus extends BaseModel {
 
     @Column({ name: 'color_code' })
     public colorCode: string;
+
+    @OneToMany(type => OrderProduct, orderProduct => orderProduct.orderStatus)
+    public orderProduct: OrderProduct;
 
     @OneToMany(type => OrderProductLog, orderProductLog => orderProductLog.orderStatus)
     public orderProductLog: OrderProductLog[];

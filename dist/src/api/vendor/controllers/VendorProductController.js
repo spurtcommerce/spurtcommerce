@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -55,9 +55,10 @@ const EmailTemplateService_1 = require("../../core/services/EmailTemplateService
 const SettingService_1 = require("../../core/services/SettingService");
 const UserService_1 = require("../../../api/core/services/UserService");
 const mail_services_1 = require("../../../auth/mail.services");
+const PluginService_1 = require("../../../../src/api/core/services/PluginService");
 const hooks = (0, uncino_1.default)();
 let VendorProductController = class VendorProductController {
-    constructor(productService, s3Service, productToCategoryService, productImageService, categoryService, vendorProductAdditionalFileService, productDiscountService, productSpecialService, orderProductService, customerService, vendorService, skuService, vendorProductService, productTirePriceService, productVideoService, categoryPathService, imageService, productController, bulkImport, emailTemplateService, settingService, userService) {
+    constructor(productService, s3Service, productToCategoryService, productImageService, categoryService, vendorProductAdditionalFileService, productDiscountService, productSpecialService, orderProductService, customerService, vendorService, skuService, vendorProductService, productTirePriceService, productVideoService, categoryPathService, imageService, productController, bulkImport, emailTemplateService, settingService, userService, pluginService) {
         this.productService = productService;
         this.s3Service = s3Service;
         this.productToCategoryService = productToCategoryService;
@@ -80,6 +81,7 @@ let VendorProductController = class VendorProductController {
         this.emailTemplateService = emailTemplateService;
         this.settingService = settingService;
         this.userService = userService;
+        this.pluginService = pluginService;
     }
     // Create Vendor Product API
     /**
@@ -359,7 +361,7 @@ let VendorProductController = class VendorProductController {
                 productVideo.type = video.type;
                 yield this.productVideoService.create(productVideo);
             }
-            saveProduct.isSimplified = 1;
+            saveProduct.isSimplified = product.productType;
             yield this.productService.create(saveProduct);
             // Product Discount
             if (product.productDiscount) {
@@ -648,6 +650,18 @@ let VendorProductController = class VendorProductController {
                 };
                 return response.status(400).send(errorResponse);
             }
+            const vendorProduct = yield this.vendorProductService.findOne({
+                where: {
+                    productId: id,
+                },
+            });
+            if (vendorProduct.approvalFlag === 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'You cannot edit this product while its status is pending.',
+                };
+                return response.status(400).send(errorResponse);
+            }
             const metaTagTitle = product.productSlug ? product.productSlug : product.productName;
             const slug = metaTagTitle.trim();
             const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
@@ -898,11 +912,6 @@ let VendorProductController = class VendorProductController {
                 newProductVideo.path = video.path;
                 yield this.productVideoService.create(newProductVideo);
             }
-            const vendorProduct = yield this.vendorProductService.findOne({
-                where: {
-                    productId: id,
-                },
-            });
             vendorProduct.sku_id = saveSku.id;
             vendorProduct.approvalFlag = 0;
             yield this.vendorProductService.create(vendorProduct);
@@ -980,6 +989,7 @@ let VendorProductController = class VendorProductController {
      *             "flag": "",
      *             "earnings": ""
      *         },
+     *             "productPricing":[],
      *             "status": "1"
      * }
      * @apiSampleRequest /api/vendor-product
@@ -988,7 +998,7 @@ let VendorProductController = class VendorProductController {
      */
     vendorProductList(limit, offset, status, keyword, price, approvalFlag, productName, vendorName, updatedOn, sortBy, sortOrder, count, sku, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const vendorProductDetails = yield (0, marketplace_1.vendorProductList)((0, typeorm_1.getConnection)(), limit, offset, keyword, sku, status, approvalFlag, +price, productName, vendorName, updatedOn, sortBy, sortOrder, count, request.user.vendorId);
+            const vendorProductDetails = yield (0, marketplace_1.vendorProductList)((0, typeorm_1.getConnection)(), pluginLoader_1.pluginModule, limit, offset, keyword, sku, status, approvalFlag, +price, productName, vendorName, updatedOn, sortBy, sortOrder, count, request.user.vendorId);
             return response.status(200).send({
                 status: vendorProductDetails.status,
                 message: vendorProductDetails.message,
@@ -1017,6 +1027,34 @@ let VendorProductController = class VendorProductController {
      */
     deleteProduct(productid, response, request) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const product = yield this.productService.findOne(productid);
+            if (product === undefined) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid productId',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const vendorProduct = yield this.vendorProductService.findOne({
+                where: {
+                    productId: productid,
+                    vendorId: request.user.vendorId,
+                },
+            });
+            if (!vendorProduct) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid Vendor Product Id',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            if (vendorProduct.approvalFlag === 0) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Product cannot be deleted because its status is pending.',
+                };
+                return response.status(400).send(errorResponse);
+            }
             // Remove's Hook if in Memory
             hooks.removeHook('coupon-delete', 'CD1-namespace');
             // --
@@ -1033,14 +1071,6 @@ let VendorProductController = class VendorProductController {
                 return false;
             }
             // ---
-            const product = yield this.productService.findOne(productid);
-            if (product === undefined) {
-                const errorResponse = {
-                    status: 0,
-                    message: 'Invalid productId',
-                };
-                return response.status(400).send(errorResponse);
-            }
             const orderProductId = yield this.orderProductService.findOne({ where: { productId: productid } });
             if (orderProductId) {
                 const errorResponse = {
@@ -1329,14 +1359,13 @@ let VendorProductController = class VendorProductController {
                 aliasName: 'product',
             });
             whereCondition.push({
-                name: 'product.isSimplified',
-                op: 'and',
-                value: 1,
-            });
-            whereCondition.push({
                 name: 'VendorProducts.vendorId',
-                op: 'and',
+                op: 'where',
                 value: vendorId,
+            }, {
+                name: `product.isSimplified`,
+                op: 'IN',
+                value: '1,2',
             });
             if (status) {
                 whereCondition.push({
@@ -1448,13 +1477,16 @@ let VendorProductController = class VendorProductController {
             // Excel sheet column define
             worksheet.columns = [
                 { header: 'CategoryId', key: 'id', size: 16, width: 15 },
+                { header: 'FamilyName', key: 'familyName', size: 16, width: 15 },
                 { header: 'Levels', key: 'first_name', size: 16, width: 15 },
             ];
             worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             const select = [
                 'CategoryPath.categoryId as categoryId',
                 'category.name as name',
+                'family.familyName as familyName',
                 'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'CategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',
             ];
             const relations = [
@@ -1469,6 +1501,11 @@ let VendorProductController = class VendorProductController {
                 {
                     tableName: 'category.vendorGroupCategory',
                     aliasName: 'vendorGroupCategory',
+                }, {
+                    tableName: 'family',
+                    op: 'left-cond',
+                    cond: 'category.family_id = family.id',
+                    aliasName: 'family',
                 },
             ];
             const groupBy = [
@@ -1487,9 +1524,9 @@ let VendorProductController = class VendorProductController {
             const sort = [];
             const vendorCategoryList = yield this.categoryPathService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
             for (const id of vendorCategoryList) {
-                rows.push([id.categoryId, id.levels]);
+                rows.push([id.categoryId, id.familyName, id.levels]);
             }
-            rows.push(['If you want to map multiple category to product,you have to give categoryId splitted with commas (,) ']);
+            rows.push(['If you want to map multiple categories to a product, you have to provide category IDs separated by commas (,). If you are creating a simple product, you can choose any category. But if you are creating a configurable or variant product, you must select a family category only. ']);
             // Add all rows data in sheet
             worksheet.addRows(rows);
             const fileName = './demo/Category.xlsx';
@@ -1615,6 +1652,10 @@ let VendorProductController = class VendorProductController {
                                 const checkCategory = forExport.data.find((obj) => obj.Error.includes('Invalid category'));
                                 if (checkCategory) {
                                     throw new Error('Invalid category given. please check');
+                                }
+                                const checkFamily = forExport.data.find((obj) => obj.Error.includes('Invalid family'));
+                                if (checkFamily) {
+                                    throw new Error('Invalid family given. please check');
                                 }
                                 throw new Error('Oops! Data format mismatch detected');
                             }
@@ -2238,7 +2279,7 @@ let VendorProductController = class VendorProductController {
             const workbook = new excel.Workbook();
             const worksheet = workbook.addWorksheet('Product Detail Sheet');
             const rows = [];
-            const productIds = yield (0, marketplace_1.vendorProductList)((0, typeorm_1.getConnection)(), 0, 0, '', '', '', '', price, '', '', '', '', '', 0, request.user.vendorId).then((val) => {
+            const productIds = yield (0, marketplace_1.vendorProductList)((0, typeorm_1.getConnection)(), pluginLoader_1.pluginModule, 0, 0, '', '', '', '', price, '', '', '', '', '', 0, request.user.vendorId).then((val) => {
                 const getProductId = val.data.map((productVal) => productVal.productId);
                 return getProductId;
             });
@@ -2881,7 +2922,8 @@ let VendorProductController = class VendorProductController {
      *               ],
      *               "productSpecialPrice": [],
      *               "productTirePrices": [],
-     *               "productDiscountData": []
+     *               "productDiscountData": [],
+     *               "productPricing": [],
      * }
      * @apiSampleRequest /api/vendor-product/:id
      * @apiErrorExample {json} productDetail error
@@ -2915,7 +2957,7 @@ let VendorProductController = class VendorProductController {
             productDetails.quantity = productSku ? productSku.quantity : productDetails.quantity;
             const vendorProduct = yield this.vendorProductService.findOne({
                 select: ['vendorId', 'productId', 'approvalFlag', 'rejectReason'],
-                where: { productId: id },
+                where: { productId: id, vendorId: request.user.vendorId },
             });
             const vendor = yield this.vendorService.findOne({
                 select: ['customerId'],
@@ -3017,6 +3059,28 @@ let VendorProductController = class VendorProductController {
                 const results = Promise.all(discount);
                 return results;
             });
+            if (pluginLoader_1.pluginModule.includes('ProductPriceGroup') && (yield this.pluginService.findOne({ where: { slugName: 'product-price-group', pluginStatus: 1 } }))) {
+                const { vendorPriceGroupDetailService } = require('../../../../add-ons/ProductPriceGroup/priceGroupHook');
+                const { productVariantService } = require('../../../../add-ons/ProductVariants/VariantHook');
+                if (productDetail.isSimplified === 0) {
+                    const varientSku = yield productVariantService('find', { where: { productId: productDetail.productId } });
+                    const skuIds = varientSku.map((sku) => sku.skuId);
+                    const pricing = yield vendorPriceGroupDetailService('find', {
+                        select: ['id', 'createdDate', 'maxQuantity', 'price', 'unitId', 'isDefault'],
+                        where: { skuId: (0, typeorm_1.In)(skuIds) },
+                        relations: ['vendorPriceGroup', 'skuDetail'],
+                    });
+                    productDetails.productPricing = pricing;
+                }
+                else {
+                    const pricing = yield vendorPriceGroupDetailService('find', {
+                        select: ['id', 'createdDate', 'maxQuantity', 'price', 'unitId', 'isDefault'],
+                        where: { skuId: productDetail.skuId },
+                        relations: ['vendorPriceGroup'],
+                    });
+                    productDetails.productPricing = pricing;
+                }
+            }
             const successResponse = {
                 status: 1,
                 message: 'Successfully get productDetail',
@@ -3282,7 +3346,8 @@ VendorProductController = tslib_1.__decorate([
         VendorBulkImportRequest_1.VendorBulkImport,
         EmailTemplateService_1.EmailTemplateService,
         SettingService_1.SettingService,
-        UserService_1.UserService])
+        UserService_1.UserService,
+        PluginService_1.PluginService])
 ], VendorProductController);
 exports.VendorProductController = VendorProductController;
 //# sourceMappingURL=VendorProductController.js.map

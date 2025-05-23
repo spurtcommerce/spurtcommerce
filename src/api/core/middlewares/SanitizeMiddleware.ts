@@ -37,6 +37,14 @@ export class SanitizeMiddleware implements ExpressMiddlewareInterface {
       if (name.includes('^')) { return false; }
       return true;
     };
+    const isValid4 = (name: any) => {
+      if (name.includes('$')) { return false; }
+      if (name.includes('"')) { return false; }
+      if (name.includes('*')) { return false; }
+      if (name.includes('^')) { return false; }
+      if (name.includes('#')) { return false; }
+      return true;
+    };
     const isValidColourCode = (input: any) => {
       if (input.includes("'")) { return false; }
       if (input.includes('"')) { return false; }
@@ -162,6 +170,10 @@ export class SanitizeMiddleware implements ExpressMiddlewareInterface {
               return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
             }
             return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
+          } else if (key === 'filter') {
+            if (!isValid4(value.toString())) {
+              return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });
+            }
           } else if (key === 'colorcode' || key === 'colorCode') {
             if (!isValidColourCode(value.toString())) {
               return res.status(400).send({ status: 0, message: `Invalid character in ${key}` });

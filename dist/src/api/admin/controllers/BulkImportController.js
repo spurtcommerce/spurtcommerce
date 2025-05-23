@@ -55,7 +55,7 @@ let ImportController = class ImportController {
                 const mainFileName = `./import_${random}.xlsx`;
                 yield this.imageService.writeFile(mainFileName, new Uint8Array(bufferValue));
                 const xlsxToJson = yield this.imageService.xlsxToJson(mainFileName);
-                const forExport = yield this.bulkImport.validateAndFormatData(xlsxToJson);
+                const forExport = yield this.bulkImport.validateAndFormatData(xlsxToJson, 0);
                 const excel = require('exceljs');
                 const workbook = new excel.Workbook();
                 const worksheet = workbook.addWorksheet('Products Sheet');

@@ -8,11 +8,13 @@ const SkuService_1 = require("../../../core/services/SkuService");
 const CategoryService_1 = require("../../../core/services/CategoryService");
 require("reflect-metadata");
 const VendorGroupCategoryService_1 = require("../../../core/services/VendorGroupCategoryService");
+const PluginService_1 = require("../../../core/services/PluginService");
 let VendorBulkImport = class VendorBulkImport {
-    constructor(skuService, categoryService, vendorGroupCategoryService) {
+    constructor(skuService, categoryService, vendorGroupCategoryService, pluginService) {
         this.skuService = skuService;
         this.categoryService = categoryService;
         this.vendorGroupCategoryService = vendorGroupCategoryService;
+        this.pluginService = pluginService;
         this.validationConfig = {
             Quantity: 'Quantity value should be numeric format',
             Price: 'Price value should be numeric format',
@@ -332,12 +334,19 @@ let VendorBulkImport = class VendorBulkImport {
         });
     }
     validateAndFormatData(data, vendorGroupId) {
+        var _a;
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const requiredFields = ['SKU', 'Quantity', 'Price', 'DateAvailable', 'Name', 'Images', 'Category1', 'Description'];
+            const requiredFields = ['SKU', 'Quantity', 'Price', 'DateAvailable', 'Name', 'Images', 'Category1', 'Description', 'ProductType', 'Family'];
+            const productType = {
+                simple: 2,
+                config: 1,
+                variant: 0,
+            };
             const result = [];
             // For checking error occur or not
             let errorStatus = false;
             for (const jsonValue of data) {
+                const familyName = (_a = jsonValue.Family) === null || _a === void 0 ? void 0 : _a.trim();
                 const errors = [];
                 // category validation
                 const categories1 = jsonValue.Category1.split('>');
@@ -354,6 +363,16 @@ let VendorBulkImport = class VendorBulkImport {
                         errorStatus = true;
                     }
                 }
+                const findProductAttributeStatus = yield this.pluginService.findOne({ where: { pluginName: 'ProductAttribute', pluginStatus: 1 } });
+                if ([0, 1].includes(productType[jsonValue.ProductType]) && pluginLoader_1.pluginModule.includes('ProductAttribute') && findProductAttributeStatus) {
+                    const importPath = '../../../../../add-ons/ProductAttribute/Family';
+                    const family = yield require(importPath);
+                    const familyExist = yield family.findOne({ where: { id: checkCategory.familyId, isDelete: 0 } });
+                    if (!familyExist || (familyExist === null || familyExist === void 0 ? void 0 : familyExist.familyName) !== familyName) {
+                        errors.push('Invalid family');
+                        errorStatus = true;
+                    }
+                }
                 const categories2 = jsonValue.Category1.split('>');
                 const categoryLength2 = categories1.length;
                 const checkCategory2 = yield this.categoryService.findOne({ where: { name: (categories2[categoryLength2 - 1]).trimStart() } });
@@ -365,6 +384,15 @@ let VendorBulkImport = class VendorBulkImport {
                     const vendorGroup2 = yield this.vendorGroupCategoryService.findOne({ where: { vendorGroupId, categoryId: checkCategory2.categoryId } });
                     if (!vendorGroup2) {
                         errors.push('Invalid category');
+                        errorStatus = true;
+                    }
+                }
+                if ([0, 1].includes(productType[jsonValue.ProductType]) && pluginLoader_1.pluginModule.includes('ProductAttribute') && findProductAttributeStatus) {
+                    const importPath = '../../../../../add-ons/ProductAttribute/Family';
+                    const family = yield require(importPath);
+                    const familyExist = yield family.findOne({ where: { id: checkCategory2.familyId, isDelete: 0 } });
+                    if (!familyExist && familyExist.name !== familyName) {
+                        errors.push('Invalid family');
                         errorStatus = true;
                     }
                 }
@@ -450,7 +478,7 @@ let VendorBulkImport = class VendorBulkImport {
                         errors.push(`Missing ${requiredValue} field`);
                         errorStatus = true;
                     }
-                    else if ((requiredValue === 'Name' && jsonValue.Name === '') || (requiredValue === 'Price' && jsonValue.Price === '')) {
+                    else if ((requiredValue === 'Name' && jsonValue.Name === '') || (requiredValue === 'Price' && jsonValue.Price === '') || (requiredValue === 'ProductType' && jsonValue.ProductType === '')) {
                         errors.push(`Missing ${requiredValue} value`);
                     }
                 }
@@ -516,7 +544,8 @@ VendorBulkImport = tslib_1.__decorate([
     (0, typedi_1.Service)(),
     tslib_1.__metadata("design:paramtypes", [SkuService_1.SkuService,
         CategoryService_1.CategoryService,
-        VendorGroupCategoryService_1.VendorGroupCategoryService])
+        VendorGroupCategoryService_1.VendorGroupCategoryService,
+        PluginService_1.PluginService])
 ], VendorBulkImport);
 exports.VendorBulkImport = VendorBulkImport;
 //# sourceMappingURL=VendorBulkImportRequest.js.map

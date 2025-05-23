@@ -1,6 +1,6 @@
 {
     "name": "spurtcommerce",
-    "version": "5.1.0",
+    "version": "5.2.0",
     "description": "Spurtcommerce RESTFUL API",
     "main": "src/app.ts",
     "scripts": {
@@ -38,7 +38,7 @@
     ],
     "apidoc": {
         "name": "spurtcommerce v5",
-        "version": "5.1.0",
+        "version": "5.2.0",
         "description": "Spurtcommerce RESTFUL API Document",
         "title": "Spurtcommerce RESTFUL API Document"
     },
@@ -97,9 +97,9 @@
         "@spurtcommerce/auth": "^2.0.4",
         "@spurtcommerce/cart": "^2.0.0",
         "@spurtcommerce/customer": "1.1.4",
-        "@spurtcommerce/marketplace": "^1.2.3",
-        "@spurtcommerce/order": "^2.0.1",
-        "@spurtcommerce/product": "^2.1.0",
+        "@spurtcommerce/marketplace": "^1.2.5",
+        "@spurtcommerce/order": "^2.0.2",
+        "@spurtcommerce/product": "^2.1.1",
         "@types/express-ejs-layouts": "^2.3.1",
         "@types/express-session": "^1.15.12",
         "@types/lusca": "^1.6.0",
@@ -170,6 +170,7 @@
         "morgan": "^1.9.0",
         "multer": "^1.4.5-lts.1",
         "mysql": "^2.16.0",
+        "node-cron": "^3.0.3",
         "node-stream-zip": "^1.15.0",
         "node-webhooks": "^1.4.2",
         "nodemailer": "^6.7.2",

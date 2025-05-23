@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -11,6 +11,7 @@ import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { OrderCancelReasonRepository } from '../repositories/OrderCancelReasonRepository';
 import { OrderCancelReason } from '../models/OrderCancelReason';
+import { Like } from 'typeorm';
 
 @Service()
 export class OrderCancelReasonService {
@@ -52,10 +53,25 @@ export class OrderCancelReasonService {
             });
         }
 
+        if (search && search.length > 0) {
+            search.forEach((table: any) => {
+                const operator: string = table.op;
+                if (operator === 'where' && table.value !== undefined) {
+                    condition.where[table.name] = table.value;
+                } else if (operator === 'like' && table.value !== undefined) {
+                    condition.where[table.name] = Like('%' + table.value + '%');
+                }
+            });
+        }
+
         if (limit && limit > 0) {
             condition.take = limit;
             condition.skip = offset;
         }
+
+        condition.order = {
+            createdDate: 'DESC',
+        };
         if (count) {
             return this.orderCancelReasonRepository.count(condition);
         } else {

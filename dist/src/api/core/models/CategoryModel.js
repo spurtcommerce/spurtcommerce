@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -66,6 +66,10 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'industry_id' }),
     tslib_1.__metadata("design:type", Number)
 ], Category.prototype, "industryId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'family_id' }),
+    tslib_1.__metadata("design:type", Number)
+], Category.prototype, "familyId", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'is_active' }),
     tslib_1.__metadata("design:type", Number)

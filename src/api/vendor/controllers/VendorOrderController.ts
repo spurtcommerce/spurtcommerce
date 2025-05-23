@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -52,10 +52,11 @@ import { VendorGroupService } from '../../core/services/VendorGroupService';
 import { VendorGlobalSettingService } from '../../core/services/VendorSettingService';
 import { PaymentItems } from '../../core/models/PaymentItems';
 import { Payment } from '../../core/models/Payment';
-import { In } from 'typeorm';
+import { In, LessThan } from 'typeorm';
 import { SkuService } from '../../../../src/api/core/services/SkuService';
 import { OrderStatusToFullfillmentService } from '../../../../src/api/core/services/OrderStatusToFullfillmentService';
 import { OrderFullfillmentStatusService } from '../../../../src/api/core/services/OrderFullfillmentStatusService';
+import { OrderProductCancelLogService } from '../../../../src/api/core/services/OrderProductCancelLog';
 // import { In } from 'typeorm';
 @JsonController('/vendor-order')
 export class VendorOrderController {
@@ -92,7 +93,8 @@ export class VendorOrderController {
         private vendorGlobalSettingService: VendorGlobalSettingService,
         private skuService: SkuService,
         private orderStatusToFullfillmentService: OrderStatusToFullfillmentService,
-        private orderFullfillmentStatusService: OrderFullfillmentStatusService
+        private orderFullfillmentStatusService: OrderFullfillmentStatusService,
+        private orderProductCancelLogService: OrderProductCancelLogService
     ) {
         // --
     }
@@ -2168,7 +2170,7 @@ export class VendorOrderController {
     public async orderListtt(
         @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('customerName') customerName: string, @QueryParam('orderId') orderId: string, @QueryParam('amount') amount: string, @QueryParam('keyword') keyword: string, @QueryParam('isBackOrder') isBackOrder: number, @QueryParam('skuName') skuName: number, @QueryParam('paymentProcess') paymentProcess: number,
         @QueryParam('orderStatus') orderStatus: string, @QueryParam('tags') tags: string, @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string, @QueryParam('sortBy') sortBy: string, @QueryParam('sortOrder') sortOrder: string, @QueryParam('deliverylist') deliverylist: number, @QueryParam('dateAdded') dateAdded: string,
-        @QueryParam('count') count: number | boolean, @QueryParam('statusType') statusType: string, @Req() request: any, @Res() response: any
+        @QueryParam('count') count: number | boolean, @QueryParam('statusType') statusType: string, @QueryParam('filter') filter: string, @Req() request: any, @Res() response: any
     ): Promise<any> {
         const startDateMin = moment(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
         const date = endDate + ' 23:59:59';
@@ -2193,6 +2195,7 @@ export class VendorOrderController {
             'VendorOrders.commission as commission',
             'orderDetail.isActive as isActive',
             'orderDetail.shippingCity as shippingCity',
+            'orderProduct.orderProductId as orderProductId',
             'orderProduct.orderProductPrefixId as orderProductPrefixId',
             'orderProduct.discountAmount as discountAmount',
             'orderProduct.quantity as quantity',
@@ -2255,13 +2258,23 @@ export class VendorOrderController {
                 name: 'VendorOrders.vendorId',
                 op: 'and',
                 value: request.user.vendorId,
-            },
-            {
+            }
+        );
+
+        if (paymentProcess === 0 || paymentProcess === 1) {
+            whereConditions.push({
                 name: 'orderDetail.paymentProcess',
                 op: 'and',
                 value: paymentProcess ? 1 : 0,
-            }
-        );
+            });
+        }
+        if (filter && filter !== '') {
+            whereConditions.push({
+                op: 'raw',
+                name: '(' + filter + ')',
+                value: '',
+            });
+        }
 
         if (+deliverylist) {
             whereConditions.push({
@@ -2757,8 +2770,8 @@ export class VendorOrderController {
     @Get('/cancel-order-list')
     @Authorized('vendor')
     public async cancelorderListtt(
-        @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string,
-        @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
+        @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('paymentProcess') paymentProcess: number, @QueryParam('cancelRequestStatus') cancelRequestStatus: string,
+        @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string, @QueryParam('cancelStatus') cancelStatus: string, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
         const startDateMin = moment(startDate).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
         const date = endDate + ' 23:59:59';
         const endDateMin = moment(date).subtract(5, 'hours').subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss');
@@ -2790,7 +2803,11 @@ export class VendorOrderController {
             'orderProduct.discountAmount as discountAmount',
             'orderProduct.couponDiscountAmount as couponDiscountAmount',
             'orderProduct.discountedAmount as discountedAmount',
-            'orderProduct.cancelReasonDescription as cancelReasonDescription'];
+            'orderProduct.cancelReasonDescription as cancelReasonDescription',
+            'orderProductCancelLog.status as cancelStatus',
+            'orderProductCancelLog.comments as cancelComments',
+            'orderProductCancelLog.createdDate as commentsPostedDate',
+        ];
 
         const relations = [
             {
@@ -2805,6 +2822,12 @@ export class VendorOrderController {
                 tableName: 'VendorOrders.orderProduct',
                 aliasName: 'orderProduct',
             },
+            {
+                tableName: 'order_product_cancel_log',
+                op: 'cond',
+                cond: 'orderProduct.orderProductId = orderProductCancelLog.orderProductId',
+                aliasName: 'orderProductCancelLog',
+            },
         ];
         const groupBy = [];
 
@@ -2814,10 +2837,6 @@ export class VendorOrderController {
             name: 'VendorOrders.vendorId',
             op: 'and',
             value: request.user.vendorId,
-        }, {
-            name: 'orderDetail.paymentProcess',
-            op: 'and',
-            value: 1,
         }, {
             name: 'orderProduct.cancelRequest',
             op: 'and',
@@ -2846,13 +2865,37 @@ export class VendorOrderController {
 
         }
 
+        if (paymentProcess && paymentProcess) {
+
+            whereConditions.push({
+                name: 'orderDetail.paymentProcess',
+                op: 'and',
+                value: paymentProcess,
+            });
+        }
+
+        if (cancelRequestStatus && cancelRequestStatus !== '') {
+            whereConditions.push({
+                name: 'orderProduct.cancelRequestStatus',
+                op: 'and',
+                value: cancelRequestStatus,
+            });
+        }
+
+        if (cancelStatus && cancelStatus !== '') {
+            whereConditions.push({
+                name: 'orderProductCancelLog.status',
+                op: 'and',
+                value: cancelStatus,
+            });
+        }
+
         const searchConditions = [];
         if (keyword && keyword !== '') {
             searchConditions.push({
                 name: ['shipping_firstname', 'orderProduct.orderProductPrefixId'],
                 value: keyword.toLowerCase(),
             });
-
         }
 
         const sort = [];
@@ -2911,7 +2954,7 @@ export class VendorOrderController {
      */
     @Put('/update-vendor-order-cancel-request/:orderProductId')
     @Authorized('vendor')
-    public async updateVendorOrderCancelStatus(@Param('orderProductId') orderProductId: number, @BodyParam('cancelStatusId') cancelStatusId: number, @Req() request: any, @Res() response: any): Promise<any> {
+    public async updateVendorOrderCancelStatus(@Param('orderProductId') orderProductId: number, @BodyParam('cancelStatusId') cancelStatusId: number, @BodyParam('comments') comments: string, @Req() request: any, @Res() response: any): Promise<any> {
         const orderProduct = await this.orderProductService.findOne({
             where: {
                 orderProductId,
@@ -2937,7 +2980,28 @@ export class VendorOrderController {
             return response.status(400).send(errorResponse);
         }
         orderProduct.cancelRequestStatus = cancelStatusId;
+
+        if (orderProduct.cancelRequestStatus === 1) {
+            // add inventory
+            const skuInfo = await this.skuService.findOne({ where: { skuName: orderProduct.skuName } });
+            skuInfo.quantity = skuInfo.quantity + orderProduct.quantity;
+            await this.skuService.update(skuInfo.id, skuInfo);
+
+            //  change orderStatus
+            const orderStatus = await this.orderStatusService.findOne({
+                where: { name: 'Order cancelled' },
+            });
+            orderProduct.orderStatusId = orderStatus ? orderStatus.orderStatusId : 4;
+        }
+
         const orderProductStatusUpdate = await this.orderProductService.update(orderProduct.orderProductId, orderProduct);
+
+        // orderProductCancelLog
+        const cancelOrder = await this.orderProductCancelLogService.findOne({ where: { orderProductId: orderProductStatusUpdate.orderProductId } });
+        cancelOrder.comments = comments;
+        cancelOrder.status = orderProductStatusUpdate.cancelRequestStatus;
+        await this.orderProductCancelLogService.create(cancelOrder);
+
         const order = await this.orderService.findOrder({ where: { orderId: orderProduct.orderId } });
         const emailContent = await this.emailTemplateService.findOne(20);
         const logo = await this.settingService.findOne();
@@ -2945,11 +3009,11 @@ export class VendorOrderController {
         let res;
         if (orderProductStatusUpdate.cancelRequestStatus === 1) {
             status = 'approved';
-            res = 'Successfully accepted the cancelled orders';
+            res = 'Successfully approved the cancelled orders';
         } else if (orderProductStatusUpdate.cancelRequestStatus === 2) {
             status = 'rejected';
             res = 'Successfully rejected the cancelled orders';
-        } else if (orderProductStatusUpdate.cancelRequestStatus === 0) {
+        } else if (orderProductStatusUpdate.cancelRequestStatus === 3) {
             status = 'pending';
         }
         const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{productname}', orderProduct.name).replace('{status}', status);
@@ -3049,7 +3113,7 @@ export class VendorOrderController {
                 status = 'approved';
             } else if (orderProductStatusUpdate.cancelRequestStatus === 2) {
                 status = 'rejected';
-            } else if (orderProductStatusUpdate.cancelRequestStatus === 0) {
+            } else if (orderProductStatusUpdate.cancelRequestStatus === 3) {
                 status = 'pending';
             }
             const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{productname}', orderProdt.name).replace('{status}', status);
@@ -3132,7 +3196,7 @@ export class VendorOrderController {
                     status = 'approved';
                 } else if (data.cancelRequestStatus === 2) {
                     status = 'rejected';
-                } else if (data.cancelRequestStatus === 0) {
+                } else if (data.cancelRequestStatus === 3) {
                     status = 'pending';
                 }
                 const right = dataId.currencySymbolRight;
@@ -3286,7 +3350,7 @@ export class VendorOrderController {
                 status = 'approved';
             } else if (id.cancelRequestStatus === 2) {
                 status = 'rejected';
-            } else if (id.cancelRequestStatus === 0) {
+            } else if (id.cancelRequestStatus === 3) {
                 status = 'pending';
             }
             const right = id.currencySymbolRight;
@@ -5183,7 +5247,7 @@ export class VendorOrderController {
 
         if (keyword && keyword !== '') {
             searchConditions.push({
-                name: ['order.email', 'order.shippingLastname', 'order.shippingFirstname', 'order.telephone', 'customerGroup.name'],
+                name: ['order.email', 'orderCustomer.lastName', 'orderCustomer.firstName', 'order.telephone', 'customerGroup.name'],
                 value: keyword.toLowerCase(),
             });
         }
@@ -5191,7 +5255,7 @@ export class VendorOrderController {
         if (customerName?.trim()) {
             searchConditions.push(
                 {
-                    name: ['order.shippingLastname', 'order.shippingFirstname'],
+                    name: ['orderCustomer.lastName', 'orderCustomer.firstName'],
                     value: customerName,
                 }
             );
@@ -5827,5 +5891,45 @@ export class VendorOrderController {
             data: updateOrder,
         };
         return response.status(200).send(successResponse);
+    }
+
+    public async autoVendorOrderCancelStatus(): Promise<any> {
+        const settings = await this.settingService.findOne();
+
+        const timeframeValue = settings.sellerApprovalTimeframeValue;
+        const timeframeUnit = settings.sellerApprovalTimeframeUnit;
+
+        const startDateJS = moment.utc().subtract(timeframeValue, timeframeUnit.toLowerCase()).toDate();
+
+        const orderCancelProduct = await this.orderProductCancelLogService.find({
+            where: { createdDate: LessThan(startDateJS), status: 3 },
+        });
+        if (orderCancelProduct) {
+            for (const orderProductDetail of orderCancelProduct) {
+                const orderProduct = await this.orderProductService.findOne({
+                    where: { orderProductId: orderProductDetail.orderProductId },
+                });
+
+                const orderStatus = await this.orderStatusService.findOne({
+                    where: { name: 'Order cancelled' },
+                });
+
+                orderProduct.orderStatusId = orderStatus ? orderStatus.orderStatusId : 4;
+                orderProduct.cancelRequestStatus = 1;
+                await this.orderProductService.update(orderProduct.orderProductId, orderProduct);
+
+                // Cancel product and add to inventory
+                const skuInfo = await this.skuService.findOne({ where: { skuName: orderProduct.skuName } });
+                skuInfo.quantity = skuInfo.quantity + orderProduct.quantity;
+                await this.skuService.update(skuInfo.id, skuInfo);
+
+                const orderCancelProductLog = await this.orderProductCancelLogService.findOne({
+                    where: { orderProductId: orderProduct.orderProductId },
+                });
+                orderCancelProductLog.status = 1;
+                await this.orderProductCancelLogService.update(orderCancelProductLog.id, orderCancelProductLog);
+            }
+        }
+        console.log('successfully updated order status');
     }
 }

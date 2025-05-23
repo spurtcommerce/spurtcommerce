@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -260,6 +260,10 @@ tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'setted_as_common_on' }),
     tslib_1.__metadata("design:type", String)
 ], Product.prototype, "settedAsCommonOn", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_cancellable' }),
+    tslib_1.__metadata("design:type", String)
+], Product.prototype, "isCancellable", void 0);
 tslib_1.__decorate([
     (0, typeorm_1.Column)({ name: 'product_highlights', type: 'json', default: [] }),
     tslib_1.__metadata("design:type", Object)

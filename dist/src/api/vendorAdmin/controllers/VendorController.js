@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -1061,7 +1061,7 @@ let VendorAdminController = class VendorAdminController {
                     const emailContent = yield this.emailTemplateService.findOne(15);
                     const setting = yield this.settingService.findOne();
                     const message = emailContent.content.replace('{name}', vendorCustomer.firstName).replace('{link}', env_1.env.vendorRedirectUrl).replace('{siteName}', setting.siteName).replace('{siteName}', setting.siteName)
-                        .replace('{siteName}', setting.siteName).replace('{siteName}', setting.siteName).replace('{supportUrl}', setting.siteUrl);
+                        .replace('{siteName}', setting.siteName).replace('{siteName}', setting.siteName).replaceAll('{supportUrl}', setting.siteUrl);
                     const redirectUrl = env_1.env.vendorRedirectUrl;
                     const mailContents = {};
                     mailContents.logo = setting;
@@ -1521,7 +1521,7 @@ let VendorAdminController = class VendorAdminController {
             }
             if (decisionDate === null || decisionDate === void 0 ? void 0 : decisionDate.trim()) {
                 searchConditions.push({
-                    name: [`vendor.approvedDate`],
+                    name: [`vendor.approvalDate`],
                     value: decisionDate,
                 });
             }

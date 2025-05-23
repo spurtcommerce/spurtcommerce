@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -1698,7 +1698,7 @@ let OrderController = class OrderController {
      * HTTP/1.1 500 Internal Server Error
      */
     // Order Cancel Request List Function
-    canceledOrderProductList(limit, offset, status, keyword, count, request, response) {
+    canceledOrderProductList(limit, offset, status, keyword, paymentProcess, count, request, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = [
                 'order.createdDate as createdDate',
@@ -1742,11 +1742,14 @@ let OrderController = class OrderController {
                 name: 'OrderProduct.cancelRequest',
                 op: 'and',
                 value: 1,
-            }, {
-                name: 'order.paymentProcess',
-                op: 'and',
-                value: 1,
             });
+            if (paymentProcess && paymentProcess) {
+                whereConditions.push({
+                    name: 'order.paymentProcess',
+                    op: 'and',
+                    value: paymentProcess,
+                });
+            }
             if (status) {
                 whereConditions.push({
                     name: 'OrderProduct.cancelRequestStatus',
@@ -1856,7 +1859,7 @@ let OrderController = class OrderController {
                 status = 'rejected';
                 res = 'Successfully rejected the cancelled orders';
             }
-            else if (orderProductStatusUpdate.cancelRequestStatus === 0) {
+            else if (orderProductStatusUpdate.cancelRequestStatus === 3) {
                 status = 'pending';
             }
             const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{productname}', orderProduct.name).replace('{status}', status);
@@ -1948,7 +1951,7 @@ let OrderController = class OrderController {
                     status = 'rejected';
                     res = 'Successfully rejected the cancelled orders';
                 }
-                else if (orderProductStatusUpdate.cancelRequestStatus === 0) {
+                else if (orderProductStatusUpdate.cancelRequestStatus === 3) {
                     status = 'pending';
                 }
                 const message = emailContent.content.replace('{name}', order.shippingFirstname).replace('{productname}', orderProdt.name).replace('{status}', status);
@@ -2035,7 +2038,7 @@ let OrderController = class OrderController {
                 else if (data.cancelRequestStatus === 2) {
                     status = 'rejected';
                 }
-                else if (data.cancelRequestStatus === 0) {
+                else if (data.cancelRequestStatus === 3) {
                     status = 'pending';
                 }
                 const right = dataId.currencySymbolRight;
@@ -2199,7 +2202,7 @@ let OrderController = class OrderController {
                 else if (data.cancelRequestStatus === 2) {
                     requestStatus = 'rejected';
                 }
-                else if (data.cancelRequestStatus === 0) {
+                else if (data.cancelRequestStatus === 3) {
                     requestStatus = 'pending';
                 }
                 const right = dataId.currencySymbolRight;
@@ -3188,11 +3191,12 @@ tslib_1.__decorate([
     tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
     tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('status')),
     tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('keyword')),
-    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('count')),
-    tslib_1.__param(5, (0, routing_controllers_1.Req)()),
-    tslib_1.__param(6, (0, routing_controllers_1.Res)()),
+    tslib_1.__param(4, (0, routing_controllers_1.QueryParam)('paymentProcess')),
+    tslib_1.__param(5, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(6, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(7, (0, routing_controllers_1.Res)()),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, String, Object, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number, String, Number, Object, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], OrderController.prototype, "canceledOrderProductList", null);
 tslib_1.__decorate([

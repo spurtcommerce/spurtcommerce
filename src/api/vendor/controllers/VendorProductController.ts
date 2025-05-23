@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -66,6 +66,7 @@ import { EmailTemplateService } from '../../core/services/EmailTemplateService';
 import { SettingService } from '../../core/services/SettingService';
 import { UserService } from '../../../api/core/services/UserService';
 import { MAILService } from '../../../auth/mail.services';
+import { PluginService } from '../../../../src/api/core/services/PluginService';
 const hooks = uncino();
 
 @JsonController('/vendor-product')
@@ -92,7 +93,8 @@ export class VendorProductController {
         private bulkImport: VendorBulkImport,
         private emailTemplateService: EmailTemplateService,
         private settingService: SettingService,
-        private userService: UserService
+        private userService: UserService,
+        private pluginService: PluginService
     ) {
     }
 
@@ -378,7 +380,7 @@ export class VendorProductController {
             productVideo.type = video.type;
             await this.productVideoService.create(productVideo);
         }
-        saveProduct.isSimplified = 1;
+        saveProduct.isSimplified = product.productType;
         await this.productService.create(saveProduct);
         // Product Discount
         if (product.productDiscount) {
@@ -687,6 +689,18 @@ export class VendorProductController {
             };
             return response.status(400).send(errorResponse);
         }
+        const vendorProduct: any = await this.vendorProductService.findOne({
+            where: {
+                productId: id,
+            },
+        });
+        if (vendorProduct.approvalFlag === 0) {
+            const errorResponse: any = {
+                status: 0,
+                message: 'You cannot edit this product while its status is pending.',
+            };
+            return response.status(400).send(errorResponse);
+        }
         const metaTagTitle = product.productSlug ? product.productSlug : product.productName;
         const slug = metaTagTitle.trim();
         const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
@@ -938,11 +952,6 @@ export class VendorProductController {
             await this.productVideoService.create(newProductVideo);
         }
 
-        const vendorProduct: any = await this.vendorProductService.findOne({
-            where: {
-                productId: id,
-            },
-        });
         vendorProduct.sku_id = saveSku.id;
         vendorProduct.approvalFlag = 0;
         await this.vendorProductService.create(vendorProduct);
@@ -1020,6 +1029,7 @@ export class VendorProductController {
      *             "flag": "",
      *             "earnings": ""
      *         },
+     *             "productPricing":[],
      *             "status": "1"
      * }
      * @apiSampleRequest /api/vendor-product
@@ -1047,6 +1057,7 @@ export class VendorProductController {
 
         const vendorProductDetails = await vendorProductList(
             getConnection(),
+            pluginModule,
             limit,
             offset,
             keyword,
@@ -1068,6 +1079,7 @@ export class VendorProductController {
             message: vendorProductDetails.message,
             data: vendorProductDetails.data,
         });
+
     }
 
     // Delete Product API
@@ -1092,6 +1104,34 @@ export class VendorProductController {
     @Delete('/:id')
     @Authorized('vendor')
     public async deleteProduct(@Param('id') productid: number, @Res() response: any, @Req() request: any): Promise<Product> {
+        const product = await this.productService.findOne(productid);
+        if (product === undefined) {
+            const errorResponse: any = {
+                status: 0,
+                message: 'Invalid productId',
+            };
+            return response.status(400).send(errorResponse);
+        }
+        const vendorProduct: any = await this.vendorProductService.findOne({
+            where: {
+                productId: productid,
+                vendorId: request.user.vendorId,
+            },
+        });
+        if (!vendorProduct) {
+            const errorResponse: any = {
+                status: 0,
+                message: 'Invalid Vendor Product Id',
+            };
+            return response.status(400).send(errorResponse);
+        }
+        if (vendorProduct.approvalFlag === 0) {
+            const errorResponse: any = {
+                status: 0,
+                message: 'Product cannot be deleted because its status is pending.',
+            };
+            return response.status(400).send(errorResponse);
+        }
         // Remove's Hook if in Memory
         hooks.removeHook('coupon-delete', 'CD1-namespace');
         // --
@@ -1109,14 +1149,6 @@ export class VendorProductController {
         }
         // ---
 
-        const product = await this.productService.findOne(productid);
-        if (product === undefined) {
-            const errorResponse: any = {
-                status: 0,
-                message: 'Invalid productId',
-            };
-            return response.status(400).send(errorResponse);
-        }
         const orderProductId = await this.orderProductService.findOne({ where: { productId: productid } });
         if (orderProductId) {
             const errorResponse: any = {
@@ -1426,15 +1458,15 @@ export class VendorProductController {
             aliasName: 'product',
         });
         whereCondition.push({
-            name: 'product.isSimplified',
-            op: 'and',
-            value: 1,
-        });
-        whereCondition.push({
             name: 'VendorProducts.vendorId',
-            op: 'and',
+            op: 'where',
             value: vendorId,
+        }, {
+            name: `product.isSimplified`,
+            op: 'IN',
+            value: '1,2',
         });
+
         if (status) {
             whereCondition.push({
                 name: 'product.isActive',
@@ -1550,13 +1582,16 @@ export class VendorProductController {
         // Excel sheet column define
         worksheet.columns = [
             { header: 'CategoryId', key: 'id', size: 16, width: 15 },
+            { header: 'FamilyName', key: 'familyName', size: 16, width: 15 },
             { header: 'Levels', key: 'first_name', size: 16, width: 15 },
         ];
         worksheet.getCell('A1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         worksheet.getCell('B1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+        worksheet.getCell('C1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
         const select = [
             'CategoryPath.categoryId as categoryId',
             'category.name as name',
+            'family.familyName as familyName',
             'GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'CategoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels',
         ];
         const relations = [
@@ -1571,6 +1606,11 @@ export class VendorProductController {
             {
                 tableName: 'category.vendorGroupCategory',
                 aliasName: 'vendorGroupCategory',
+            }, {
+                tableName: 'family',
+                op: 'left-cond',
+                cond: 'category.family_id = family.id',
+                aliasName: 'family',
             },
         ];
         const groupBy = [
@@ -1589,9 +1629,9 @@ export class VendorProductController {
         const sort = [];
         const vendorCategoryList: any = await this.categoryPathService.listByQueryBuilder(0, 0, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
         for (const id of vendorCategoryList) {
-            rows.push([id.categoryId, id.levels]);
+            rows.push([id.categoryId, id.familyName, id.levels]);
         }
-        rows.push(['If you want to map multiple category to product,you have to give categoryId splitted with commas (,) ']);
+        rows.push(['If you want to map multiple categories to a product, you have to provide category IDs separated by commas (,). If you are creating a simple product, you can choose any category. But if you are creating a configurable or variant product, you must select a family category only. ']);
         // Add all rows data in sheet
         worksheet.addRows(rows);
         const fileName = './demo/Category.xlsx';
@@ -1721,6 +1761,10 @@ export class VendorProductController {
                             const checkCategory = forExport.data.find((obj) => obj.Error.includes('Invalid category'));
                             if (checkCategory) {
                                 throw new Error('Invalid category given. please check');
+                            }
+                            const checkFamily = forExport.data.find((obj) => obj.Error.includes('Invalid family'));
+                            if (checkFamily) {
+                                throw new Error('Invalid family given. please check');
                             }
                             throw new Error('Oops! Data format mismatch detected');
                         }
@@ -2352,6 +2396,7 @@ export class VendorProductController {
         const rows = [];
         const productIds = await vendorProductList(
             getConnection(),
+            pluginModule,
             0,
             0,
             '',
@@ -3019,7 +3064,8 @@ export class VendorProductController {
      *               ],
      *               "productSpecialPrice": [],
      *               "productTirePrices": [],
-     *               "productDiscountData": []
+     *               "productDiscountData": [],
+     *               "productPricing": [],
      * }
      * @apiSampleRequest /api/vendor-product/:id
      * @apiErrorExample {json} productDetail error
@@ -3054,7 +3100,7 @@ export class VendorProductController {
         productDetails.quantity = productSku ? productSku.quantity : productDetails.quantity;
         const vendorProduct = await this.vendorProductService.findOne({
             select: ['vendorId', 'productId', 'approvalFlag', 'rejectReason'],
-            where: { productId: id },
+            where: { productId: id, vendorId: request.user.vendorId },
         });
         const vendor = await this.vendorService.findOne({
             select: ['customerId'],
@@ -3154,6 +3200,28 @@ export class VendorProductController {
             const results = Promise.all(discount);
             return results;
         });
+        if (pluginModule.includes('ProductPriceGroup') && await this.pluginService.findOne({ where: { slugName: 'product-price-group', pluginStatus: 1 } })) {
+            const { vendorPriceGroupDetailService } = require('../../../../add-ons/ProductPriceGroup/priceGroupHook');
+            const { productVariantService } = require('../../../../add-ons/ProductVariants/VariantHook');
+            if (productDetail.isSimplified === 0) {
+                const varientSku = await productVariantService('find', { where: { productId: productDetail.productId } });
+                const skuIds = varientSku.map((sku) => sku.skuId);
+                const pricing = await vendorPriceGroupDetailService('find', {
+                    select: ['id', 'createdDate', 'maxQuantity', 'price', 'unitId', 'isDefault'],
+                    where: { skuId: In(skuIds) },
+                    relations: ['vendorPriceGroup', 'skuDetail'],
+                });
+                productDetails.productPricing = pricing;
+            } else {
+                const pricing = await vendorPriceGroupDetailService('find', {
+                    select: ['id', 'createdDate', 'maxQuantity', 'price', 'unitId', 'isDefault'],
+                    where: { skuId: productDetail.skuId },
+                    relations: ['vendorPriceGroup'],
+                });
+                productDetails.productPricing = pricing;
+            }
+        }
+
         const successResponse: any = {
             status: 1,
             message: 'Successfully get productDetail',

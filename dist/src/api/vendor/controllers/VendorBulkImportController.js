@@ -53,7 +53,7 @@ let VendorImportController = class VendorImportController {
                 const mainFileName = `./import_${random}.xlsx`;
                 yield this.imageService.writeFile(mainFileName, new Uint8Array(bufferValue));
                 const xlsxToJson = yield this.imageService.xlsxToJson(mainFileName);
-                const forExport = yield this.bulkImport.validateAndFormatData(xlsxToJson);
+                const forExport = yield this.bulkImport.validateAndFormatData(xlsxToJson, request.user.vendorGroupId);
                 const excel = require('exceljs');
                 const workbook = new excel.Workbook();
                 const worksheet = workbook.addWorksheet('Products Sheet');
@@ -77,8 +77,14 @@ let VendorImportController = class VendorImportController {
                     return response.status(200).send({ status: 1, fileName });
                 }
                 fs.unlinkSync(path.join(process.cwd(), mainFileName));
+                const productType = {
+                    simple: 2,
+                    config: 1,
+                    variant: 0,
+                };
                 const addVendorId = xlsxToJson.map((value) => {
                     const temp = value;
+                    temp.isSimplified = productType[value.ProductType];
                     temp.VendorId = request.user.vendorId;
                     return temp;
                 });

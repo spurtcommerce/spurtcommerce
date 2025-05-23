@@ -302,6 +302,34 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], Settings.prototype, "timeZone", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'order_cancel_status_id' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "orderCancelStatusId", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'cancellation_type' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "cancellationType", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_auto_approve_cancellation' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "isAutoApproveCancellation", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'seller_approval_timeframe_unit' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "sellerApprovalTimeframeUnit", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'seller_approval_timeframe_value' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "sellerApprovalTimeframeValue", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'is_product_cancellable' }),
+    tslib_1.__metadata("design:type", Number)
+], Settings.prototype, "isProductCancellable", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'copyrights' }),
+    tslib_1.__metadata("design:type", String)
+], Settings.prototype, "copyrights", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.BeforeInsert)(),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", []),

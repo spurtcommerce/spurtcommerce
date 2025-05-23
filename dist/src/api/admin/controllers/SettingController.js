@@ -1,7 +1,7 @@
 "use strict";
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -20,14 +20,18 @@ const ImageService_1 = require("../../core/services/ImageService");
 const CurrencyService_1 = require("../../core/services/CurrencyService");
 const uuid_1 = require("uuid");
 const typeorm_1 = require("typeorm");
+const OrderCancelReasonService_1 = require("../../core/services/OrderCancelReasonService");
+const OrderCancelReason_1 = require("../../core/models/OrderCancelReason");
+const OrderCancelReasonRequest_1 = require("./requests/OrderCancelReasonRequest");
 let SettingController = class SettingController {
-    constructor(settingService, s3Service, imageService, currencyService
+    constructor(settingService, s3Service, imageService, currencyService, orderCancelReasonService
     // private categoryService: CategoryService
     ) {
         this.settingService = settingService;
         this.s3Service = s3Service;
         this.imageService = imageService;
         this.currencyService = currencyService;
+        this.orderCancelReasonService = orderCancelReasonService;
         // --
     }
     // Get Settings list API
@@ -424,6 +428,13 @@ let SettingController = class SettingController {
                 newSettings.timeFormat = settings.timeFormat;
                 newSettings.defaultCountry = settings.defaultCountry;
                 newSettings.timeZone = settings.timeZone;
+                newSettings.orderCancelStatusId = settings.orderCancelStatusId;
+                newSettings.cancellationType = settings.cancellationType;
+                newSettings.isAutoApproveCancellation = settings.isAutoApproveCancellation;
+                newSettings.sellerApprovalTimeframeUnit = settings.sellerApprovalTimeframeUnit;
+                newSettings.sellerApprovalTimeframeValue = settings.sellerApprovalTimeframeValue;
+                newSettings.isProductCancellable = settings.isProductCancellable;
+                newSettings.copyrights = settings.copyrights;
                 if (settings.defaultWebsite) {
                     const settingsUpdate = new Setting_1.Settings();
                     settingsUpdate.defaultWebsite = 0;
@@ -648,6 +659,13 @@ let SettingController = class SettingController {
                 settingValue.pendingStatus = settings.pendingStatus;
                 settingValue.accessKey = (_c = settings.accessKey) === null || _c === void 0 ? void 0 : _c.trim();
                 settingValue.timeZone = settings.timeZone;
+                settingValue.orderCancelStatusId = settings.orderCancelStatusId;
+                settingValue.cancellationType = settings.cancellationType;
+                settingValue.isAutoApproveCancellation = settings.isAutoApproveCancellation;
+                settingValue.sellerApprovalTimeframeUnit = settings.sellerApprovalTimeframeUnit;
+                settingValue.sellerApprovalTimeframeValue = settings.sellerApprovalTimeframeValue;
+                settingValue.isProductCancellable = settings.isProductCancellable;
+                settingValue.copyrights = settings.copyrights;
                 if ((_d = settings.siteCategory) === null || _d === void 0 ? void 0 : _d.trim()) {
                     const newCategory = settings.siteCategory.split(',');
                     settingValue.siteCategory = newCategory.toString();
@@ -909,6 +927,222 @@ let SettingController = class SettingController {
             });
         });
     }
+    // create order cancelletion reason
+    /**
+     * @api {post} /api/settings/order-cancel/reason Submit or Update Order Cancel Reason
+     * @apiGroup Settings
+     * @apiName SubmitOrUpdateOrderCancelReason
+     * @apiDescription Creates or updates an order cancellation reason.
+     *
+     * @apiParam (Request body) {String} reason The reason for canceling the order
+     * @apiParam (Request body) {Number} status The status of the reason
+     * @apiParam (Request body) {Number} reasonId The ID of the reason
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated reason.",
+     *         "data": {
+     *             "createdBy": "",
+     *             "createdDate": "",
+     *             "modifiedBy": "",
+     *             "modifiedDate": "",
+     *             "id": "",
+     *             "reason": "",
+     *             "isActive": ""
+     *         }
+     *     }
+     *
+     * @apiSampleRequest /api/settings/order-cancel/reason
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Failed to save reason."
+     *     }
+     */
+    addReason(reason, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderCancel = yield this.orderCancelReasonService.findOne({ where: { id: reason.reasonId } });
+            if (orderCancel) {
+                orderCancel.reason = reason.reason;
+                orderCancel.isActive = reason.status;
+                yield this.orderCancelReasonService.update(orderCancel.id, orderCancel);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully updated reason.',
+                    data: orderCancel,
+                });
+            }
+            const newReason = new OrderCancelReason_1.OrderCancelReason();
+            newReason.reason = reason.reason;
+            newReason.isActive = reason.status;
+            const cancelReason = yield this.orderCancelReasonService.create(newReason);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully created reason.',
+                data: cancelReason,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // get order cancel reason
+    /**
+     * @api {get} /api/settings/order-cancel/reason Get Order Cancel Reasons
+     * @apiGroup Settings
+     * @apiName GetOrderCancelReasons
+     * @apiDescription Retrieves a list of order cancellation reasons with optional pagination and search.
+     *
+     * @apiParam (Query Params) {Number} limit Number of records to return
+     * @apiParam (Query Params) {Number} offset Number of records to skip
+     * @apiParam (Query Params) {String} keyword Keyword to search in reasons
+     * @apiParam (Query Params) {Number} count If 1, returns only the count of results
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully reason list.",
+     *         "data": [
+     *             {
+     *                 "createdBy": "",
+     *                 "createdDate": "",
+     *                 "modifiedBy": "",
+     *                 "modifiedDate": "",
+     *                 "id": "",
+     *                 "reason": "",
+     *                 "isActive": ""
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiSampleRequest /api/settings/order-cancel/reason
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Failed to retrieve reason list."
+     *     }
+     */
+    reasonList(limit, offset, keyword, count, request, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const search = [];
+            const whereConditions = [];
+            if (keyword && keyword !== '') {
+                search.push({
+                    name: ['reason'],
+                    op: 'like',
+                    value: keyword,
+                });
+            }
+            const cancelReason = yield this.orderCancelReasonService.list(limit, offset, [], search, whereConditions, count);
+            const successResponse = {
+                status: 1,
+                message: count ? 'Successfully got reason count.' : 'Successfully reason list.',
+                data: cancelReason,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // delete order cancel reason
+    /**
+     * @api {delete} /api/settings/order-cancel/reason/:id Delete Order Cancel Reason
+     * @apiGroup Settings
+     * @apiName DeleteOrderCancelReason
+     * @apiDescription Deletes an order cancellation reason by its ID.
+     *
+     * @apiParam (Path Params) {Number} id The ID of the reason to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully reason deleted."
+     *     }
+     *
+     * @apiSampleRequest /api/settings/order-cancel/reason/:id
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Failed to delete reason."
+     *     }
+     */
+    deleteReason(id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const orderCancelReason = yield this.orderCancelReasonService.findOne({ where: { id } });
+            if (!orderCancelReason) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid reason.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            yield this.orderCancelReasonService.delete(orderCancelReason);
+            const successResponse = {
+                status: 1,
+                message: 'Successfully reason deleted.',
+                data: orderCancelReason,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
+    // get reason details
+    /**
+     * @api {get} /order-cancel/reason/:id Get Order Cancel Reason by ID
+     * @apiGroup Settings
+     * @apiName GetOrderCancelReasonById
+     * @apiDescription Retrieves the details of a specific order cancellation reason by its ID.
+     *
+     * @apiParam (Path Params) {Number} id The ID of the cancellation reason
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully reason details.",
+     *         "data": {
+     *             "createdBy": "",
+     *             "createdDate": "",
+     *             "modifiedBy": "",
+     *             "modifiedDate": "",
+     *             "id": "",
+     *             "reason": "",
+     *             "isActive": ""
+     *         }
+     *     }
+     *
+     * @apiSampleRequest /order-cancel/reason/:id
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 404 Not Found
+     *     {
+     *         "status": 0,
+     *         "message": "Reason not found."
+     *     }
+     */
+    reasonDetails(id, response) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const reason = yield this.orderCancelReasonService.findOne({ where: { id } });
+            if (!reason) {
+                const errorResponse = {
+                    status: 0,
+                    message: 'Invalid reason id.',
+                };
+                return response.status(400).send(errorResponse);
+            }
+            const successResponse = {
+                status: 1,
+                message: 'Successfully reason details.',
+                data: reason,
+            };
+            return response.status(200).send(successResponse);
+        });
+    }
 };
 tslib_1.__decorate([
     (0, routing_controllers_1.Get)('/')
@@ -968,12 +1202,54 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Object, Number]),
     tslib_1.__metadata("design:returntype", Promise)
 ], SettingController.prototype, "generateKeySite", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Post)('/order-cancel/reason'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Body)({ validate: true })),
+    tslib_1.__param(1, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(2, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [OrderCancelReasonRequest_1.OrderCancelReasonRequest, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettingController.prototype, "addReason", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-cancel/reason'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.QueryParam)('limit')),
+    tslib_1.__param(1, (0, routing_controllers_1.QueryParam)('offset')),
+    tslib_1.__param(2, (0, routing_controllers_1.QueryParam)('keyword')),
+    tslib_1.__param(3, (0, routing_controllers_1.QueryParam)('count')),
+    tslib_1.__param(4, (0, routing_controllers_1.Req)()),
+    tslib_1.__param(5, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, String, Number, Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettingController.prototype, "reasonList", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Delete)('/order-cancel/reason/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettingController.prototype, "deleteReason", null);
+tslib_1.__decorate([
+    (0, routing_controllers_1.Get)('/order-cancel/reason/:id'),
+    (0, routing_controllers_1.Authorized)(),
+    tslib_1.__param(0, (0, routing_controllers_1.Param)('id')),
+    tslib_1.__param(1, (0, routing_controllers_1.Res)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], SettingController.prototype, "reasonDetails", null);
 SettingController = tslib_1.__decorate([
     (0, routing_controllers_1.JsonController)('/settings'),
     tslib_1.__metadata("design:paramtypes", [SettingService_1.SettingService,
         S3Service_1.S3Service,
         ImageService_1.ImageService,
-        CurrencyService_1.CurrencyService
+        CurrencyService_1.CurrencyService,
+        OrderCancelReasonService_1.OrderCancelReasonService
         // private categoryService: CategoryService
     ])
 ], SettingController);

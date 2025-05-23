@@ -1,6 +1,6 @@
 /*
  * spurtcommerce API
- * version 5.1.0
+ * version 5.2.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
@@ -11,7 +11,7 @@ import { EntityRepository, Repository } from 'typeorm';
 import { Category } from '../models/CategoryModel';
 
 @EntityRepository(Category)
-export class CategoryRepository extends Repository<Category>  {
+export class CategoryRepository extends Repository<Category> {
 
     public async categorySlug(data: string): Promise<any> {
         const query: any = await this.manager.createQueryBuilder(Category, 'category');
@@ -52,10 +52,18 @@ export class CategoryRepository extends Repository<Category>  {
 
     public async findCategory(categoryName: string, parentId: number): Promise<any> {
         const query = await this.manager.createQueryBuilder(Category, 'category');
-        query.where('LOWER(category.name) = :categoryName', {categoryName});
+        query.where('LOWER(category.name) = :categoryName', { categoryName });
         if (parentId !== 0) {
-            query.andWhere('category.parentInt = :parentId', {parentId});
+            query.andWhere('category.parentInt = :parentId', { parentId });
         }
         return query.getOne();
+    }
+
+    public async updateFamily(categoryIds: any, familyId: any): Promise<any> {
+        const query = await this.manager.createQueryBuilder(Category, 'category');
+        query.update()
+            .set({ familyId })
+            .where('categoryId IN (:...categoryIds)', { categoryIds })
+            .execute();
     }
 }

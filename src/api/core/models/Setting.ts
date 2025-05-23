@@ -219,6 +219,27 @@ export class Settings extends BaseModel {
     @Column({ name: 'time_zone' })
     public timeZone: string;
 
+    @Column({ name: 'order_cancel_status_id' })
+    public orderCancelStatusId: number;
+
+    @Column({ name: 'cancellation_type' })
+    public cancellationType: number;
+
+    @Column({ name: 'is_auto_approve_cancellation' })
+    public isAutoApproveCancellation: number;
+
+    @Column({ name: 'seller_approval_timeframe_unit' })
+    public sellerApprovalTimeframeUnit: number;
+
+    @Column({ name: 'seller_approval_timeframe_value' })
+    public sellerApprovalTimeframeValue: number;
+
+    @Column({ name: 'is_product_cancellable' })
+    public isProductCancellable: number;
+
+    @Column({ name: 'copyrights' })
+    public copyrights: string;
+
     @BeforeInsert()
     public async createDetails(): Promise<void> {
         this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
