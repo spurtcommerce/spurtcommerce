@@ -37,7 +37,6 @@ coverage/
 !test/preprocessor.js
 
 # Uploads #
-uploads/
 *.zip
 *.xlx
 *.xlsx
