@@ -11641,7 +11641,7 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("../img/login-logo.png");
+  background: url("../img/login-logo.svg");
   background-position: center;
   background-size: cover;
 }

@@ -1,5 +1,5 @@
 {
-    "name": "spurtcommerce",
+    "name": "Dank Deals",
     "version": "5.2.0",
     "description": "Spurtcommerce RESTFUL API",
     "main": "src/app.ts",
@@ -37,10 +37,10 @@
         "express"
     ],
     "apidoc": {
-        "name": "spurtcommerce v5",
+        "name": "Dank Deals v5",
         "version": "5.2.0",
         "description": "Spurtcommerce RESTFUL API Document",
-        "title": "Spurtcommerce RESTFUL API Document"
+        "title": "Dank Deals RESTFUL API Document"
     },
     "author": "Piccosoft",
     "overrides": {
