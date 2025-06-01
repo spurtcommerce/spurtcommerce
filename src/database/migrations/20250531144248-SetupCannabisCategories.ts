@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, getRepository } from 'typeorm';
+import { MigrationInterface, QueryRunner } from 'typeorm';
 import { Category } from '../../api/core/models/CategoryModel'; // Adjust path as necessary
 
 interface CannabisCategory {
@@ -28,14 +28,16 @@ export class SetupCannabisCategories20250531144248 implements MigrationInterface
         let currentSortOrder = 0;
 
         // Try to find the highest current sortOrder to continue from there
-        const lastCategory = await categoryRepository.findOne({ order: { sortOrder: 'DESC' } });
-        if (lastCategory && lastCategory.sortOrder) {
+        // Select only necessary fields to avoid issues with columns like family_id if they don't exist in DB
+        const lastCategory = await categoryRepository.findOne({ select: ["categoryId", "sortOrder"], order: { sortOrder: 'DESC' } });
+        if (lastCategory && typeof lastCategory.sortOrder === 'number') { // Check if sortOrder is a number
             currentSortOrder = lastCategory.sortOrder;
         }
 
         for (const catData of this.categories) {
             const categorySlug = this.generateSlug(catData.name);
-            const existingCategory = await categoryRepository.findOne({ where: { categorySlug } });
+            // Select only necessary fields for checking existence
+            const existingCategory = await categoryRepository.findOne({ select: ["categoryId", "categorySlug"], where: { categorySlug } });
 
             if (!existingCategory) {
                 currentSortOrder++;
@@ -48,7 +50,8 @@ export class SetupCannabisCategories20250531144248 implements MigrationInterface
                     isActive: 1,
                     image: '', // No image for now
                     imagePath: '', // No image path for now
-                    // industryId: 1, // Assuming a default industryId if required and not nullable
+                    industryId: 0, // Provide a default value
+                    familyId: 0,   // Provide a default value
                 });
                 await categoryRepository.save(newCategory);
                 console.log(`Category "${catData.name}" created with slug "${categorySlug}" and sortOrder ${currentSortOrder}`);

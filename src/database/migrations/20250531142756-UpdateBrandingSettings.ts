@@ -1,11 +1,12 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
+import { Settings } from '../../api/core/models/Setting';
 
 export class UpdateBrandingSettings20250531142756 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
-        const settingsRepository = queryRunner.manager.getRepository('settings');
+        const settingsRepository = queryRunner.manager.getRepository(Settings);
 
-        // Attempt to find the existing setting with settings_id = 1
-        let setting = await settingsRepository.findOne({ where: { settingsId: 1 } });
+        // Attempt to find the existing setting with settings_id = 2
+        let setting = await settingsRepository.findOne({ where: { settingsId: 2 } });
 
         if (setting) {
             setting.siteUrl = 'https://dankdeals.org';
@@ -27,7 +28,7 @@ export class UpdateBrandingSettings20250531142756 implements MigrationInterface 
             // Fallback or error handling if settings_id = 1 is not found
             // This might involve inserting a new record or logging an error
             // For now, we'll log a message.
-            console.log('Settings record with settings_id = 1 not found. No branding updates applied.');
+            console.log('Settings record with settings_id = 2 not found. No branding updates applied.');
             // Optionally, you could try to find by a default store name if that's more stable
             // let settingByName = await settingsRepository.findOne({ where: { storeName: 'your store name' } });
             // if (settingByName) { ... apply changes ... }
@@ -36,8 +37,8 @@ export class UpdateBrandingSettings20250531142756 implements MigrationInterface 
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         // Minimal down migration: Revert to known placeholder values or log
-        const settingsRepository = queryRunner.manager.getRepository('settings');
-        let setting = await settingsRepository.findOne({ where: { settingsId: 1 } });
+        const settingsRepository = queryRunner.manager.getRepository(Settings);
+        let setting = await settingsRepository.findOne({ where: { settingsId: 2 } });
 
         if (setting) {
             // Revert to some default/original values if known, or placeholders
@@ -55,9 +56,9 @@ export class UpdateBrandingSettings20250531142756 implements MigrationInterface 
             setting.google = '';
 
             await settingsRepository.save(setting);
-            console.log('Branding settings reverted for settings_id = 1 (minimal rollback)');
+            console.log('Branding settings reverted for settings_id = 2 (minimal rollback)');
         } else {
-            console.log('Settings record with settings_id = 1 not found. No rollback action taken.');
+            console.log('Settings record with settings_id = 2 not found. No rollback action taken.');
         }
     }
 }

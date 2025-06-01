@@ -402,6 +402,7 @@ export * from '../database/migrations/1746690271994-UpdateEmailTemplateSellerApp
 export * from '../database/migrations/1747114024567-UpdateCODLogo';
 export * from '../database/migrations/1747824069232-AddCollumnCategoryTable';
 export * from '../database/migrations/20250531142756-UpdateBrandingSettings';
+export * from '../database/migrations/20250531144200-AddFamilyIdToCategoryTable';
 export * from '../database/migrations/20250531144248-SetupCannabisCategories';
 export * from '../database/migrations/20250531144516-SetupTwinCitiesZone';
 export * from '../database/migrations/20250531144707-UpdateSettingsWithGeoIds';

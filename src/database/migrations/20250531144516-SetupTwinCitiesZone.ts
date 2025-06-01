@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, getRepository } from 'typeorm';
+import { MigrationInterface, QueryRunner } from 'typeorm';
 import { Country } from '../../api/core/models/Country'; // Adjust if path is different
 import { Zone } from '../../api/core/models/Zone';       // Adjust if path is different
 

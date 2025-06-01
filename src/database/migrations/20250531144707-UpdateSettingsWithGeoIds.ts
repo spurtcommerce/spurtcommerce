@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, getRepository } from 'typeorm';
+import { MigrationInterface, QueryRunner } from 'typeorm';
 import { Country } from '../../api/core/models/Country'; // Adjust path as per your project
 import { Zone } from '../../api/core/models/Zone';       // Adjust path as per your project
 import { Settings } from '../../api/core/models/Setting'; // Adjust path as per your project
@@ -34,8 +34,8 @@ export class UpdateSettingsWithGeoIds20250531144707 implements MigrationInterfac
         const twinCitiesZoneId = twinCitiesZone.zoneId;
         console.log(`Found Zone: Twin Cities Metro with ID: ${twinCitiesZoneId}`);
 
-        // 3. Find the settings record (settings_id = 1)
-        const settingToUpdate = await settingsRepository.findOne({ where: { settingsId: 1 } });
+        // 3. Find the settings record (settings_id = 2)
+        const settingToUpdate = await settingsRepository.findOne({ where: { settingsId: 2 } });
 
         if (settingToUpdate) {
             settingToUpdate.countryId = usaCountryId;
@@ -43,15 +43,15 @@ export class UpdateSettingsWithGeoIds20250531144707 implements MigrationInterfac
             // Other address fields like storeAddress1, storeCity etc. could be updated here if desired
             // For now, only countryId and zoneId as per subtask.
             await settingsRepository.save(settingToUpdate);
-            console.log(`Settings record (settings_id = 1) updated with Country ID: ${usaCountryId} and Zone ID: ${twinCitiesZoneId}`);
+            console.log(`Settings record (settings_id = 2) updated with Country ID: ${usaCountryId} and Zone ID: ${twinCitiesZoneId}`);
         } else {
-            console.error('Migration Error: Settings record with settings_id = 1 not found. Cannot update Geo IDs.');
+            console.error('Migration Error: Settings record with settings_id = 2 not found. Cannot update Geo IDs.');
         }
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         const settingsRepository = queryRunner.manager.getRepository(Settings);
-        const settingToRevert = await settingsRepository.findOne({ where: { settingsId: 1 } });
+        const settingToRevert = await settingsRepository.findOne({ where: { settingsId: 2 } });
 
         if (settingToRevert) {
             // Revert to a known default or null.
@@ -66,9 +66,9 @@ export class UpdateSettingsWithGeoIds20250531144707 implements MigrationInterfac
             settingToRevert.countryId = null; // Or a specific default like 226 (USA) if known from original seed
             settingToRevert.zoneId = null;   // Or a specific default like 3757 (Texas) if known from original seed
             await settingsRepository.save(settingToRevert);
-            console.log('Reverted country_id and zone_id in settings record (settings_id = 1) to null or placeholder defaults.');
+            console.log('Reverted country_id and zone_id in settings record (settings_id = 2) to null or placeholder defaults.');
         } else {
-            console.log('Settings record with settings_id = 1 not found. No Geo ID rollback action taken.');
+            console.log('Settings record with settings_id = 2 not found. No Geo ID rollback action taken.');
         }
     }
 }
