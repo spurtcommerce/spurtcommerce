@@ -1,5 +1,5 @@
 {
-    "name": "spurtcommerce",
+    "name": "Dank Deals",
     "version": "5.2.0",
     "description": "Spurtcommerce RESTFUL API",
     "main": "src/app.ts",
@@ -37,10 +37,10 @@
         "express"
     ],
     "apidoc": {
-        "name": "spurtcommerce v5",
+        "name": "Dank Deals v5",
         "version": "5.2.0",
         "description": "Spurtcommerce RESTFUL API Document",
-        "title": "Spurtcommerce RESTFUL API Document"
+        "title": "Dank Deals RESTFUL API Document"
     },
     "author": "Piccosoft",
     "overrides": {
@@ -201,7 +201,6 @@
         "swagger-ui-express": "^4.3.0",
         "to-words": "^2.2.5",
         "ts-jest": "^29.1.0",
-        "ts-node": "7.0.1",
         "tslib": "^2.6.0",
         "tslint": "^5.8.0",
         "type-graphql": "^1.1.1",
@@ -265,6 +264,7 @@
         "mock-express-response": "^0.2.1",
         "ncp": "^2.0.0",
         "nock": "10.0.0",
-        "pre-commit": "^1.2.2"
+        "pre-commit": "^1.2.2",
+        "ts-node": "^10.9.2"
     }
 }
