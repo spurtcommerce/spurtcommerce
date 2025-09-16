@@ -59,7 +59,7 @@
 
 ## ❯  🚀 Easy to Deploy Spurtcommerce API on your server
 
-This is the official repository of Spurtcommerce. Using these Build , you can easily deploy Spurtcommerce Multi-Vendor Marketplace in your local server.
+This is the official repository of Spurtcommerce. Using these Build, you can easily deploy Spurtcommerce Multi-Vendor Marketplace in your local server.
 
 ### Step 1:
 Navigate to the cloned repository directory “multivendor-marketplace” in the terminal and locate the "api" folder
