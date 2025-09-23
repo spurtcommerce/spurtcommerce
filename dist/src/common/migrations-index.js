@@ -404,6 +404,10 @@ tslib_1.__exportStar(require("../database/migrations/1746270416041-UpdateEmailTe
 tslib_1.__exportStar(require("../database/migrations/1746690271994-UpdateEmailTemplateSellerApproval"), exports);
 tslib_1.__exportStar(require("../database/migrations/1747114024567-UpdateCODLogo"), exports);
 tslib_1.__exportStar(require("../database/migrations/1747824069232-AddCollumnCategoryTable"), exports);
+tslib_1.__exportStar(require("../database/migrations/20250531142756-UpdateBrandingSettings"), exports);
+tslib_1.__exportStar(require("../database/migrations/20250531144248-SetupCannabisCategories"), exports);
+tslib_1.__exportStar(require("../database/migrations/20250531144516-SetupTwinCitiesZone"), exports);
+tslib_1.__exportStar(require("../database/migrations/20250531144707-UpdateSettingsWithGeoIds"), exports);
 tslib_1.__exportStar(require("../../add-ons/WebHook/api/migrations/1714024644076-AddPluginWebhook"), exports);
 tslib_1.__exportStar(require("../../add-ons/WebHook/api/migrations/1714025757863-CreateWebHookTable"), exports);
 //# sourceMappingURL=migrations-index.js.map
