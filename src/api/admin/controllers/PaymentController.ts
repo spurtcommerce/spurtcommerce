@@ -18,7 +18,9 @@ import * as fs from 'fs';
 import moment from 'moment';
 import { ExportLog } from '../../core/models/ExportLog';
 import { ExportLogService } from '../../core/services/ExportLogService';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/payment')
 export class PaymentController {
     constructor(private paymentService: PaymentService,

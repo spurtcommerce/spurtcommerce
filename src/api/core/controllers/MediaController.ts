@@ -20,6 +20,8 @@ import { DeleteMultipleImage } from './requests/DeleteMultipleImage';
 import { MultipleImageUpload } from './requests/MultipleImageUpload';
 import { DocumentService } from '../services/DocumentService';
 import { GCPService } from '../services/GCPService';
+import { Service } from 'typedi';
+@Service()
 @JsonController('/media')
 export class MediaController {
     constructor(

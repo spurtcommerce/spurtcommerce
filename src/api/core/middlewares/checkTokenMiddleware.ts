@@ -1,10 +1,11 @@
 import { env } from '../../../env';
 import { Customer } from '../models/Customer';
 import { AccessToken } from '../models/AccessTokenModel';
-import { getManager } from 'typeorm';
+import { getDataSource } from '../../../../src/loaders/typeormLoader';
+
 export function CheckTokenMiddleware(request: any, response: any, next: any): any {
-    const customerRepository = getManager().getRepository(Customer);
-    const accessTokenRepository = getManager().getRepository(AccessToken);
+    const customerRepository = getDataSource().getRepository(Customer);
+    const accessTokenRepository = getDataSource().getRepository(AccessToken);
     const jwt = require('jsonwebtoken');
     const authorization = request.header('authorization');
     if (authorization) {
@@ -44,8 +45,8 @@ export function CheckTokenMiddleware(request: any, response: any, next: any): an
 export function CheckCustomerMiddleware(request: any, response: any, next?: (err?: any) => any): any {
     const jwt = require('jsonwebtoken');
     const authorization = request.header('authorization');
-    const customerRepository = getManager().getRepository(Customer);
-    const accessTokenRepository = getManager().getRepository(AccessToken);
+    const customerRepository = getDataSource().getRepository(Customer);
+    const accessTokenRepository = getDataSource().getRepository(AccessToken);
     if (authorization) {
         const encryptString = authorization.split(' ')[1];
         const Crypto = require('crypto-js');

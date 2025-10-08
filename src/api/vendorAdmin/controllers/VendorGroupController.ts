@@ -20,7 +20,8 @@ import { CategoryPathService } from '../../core/services/CategoryPathService';
 import { VendorProductService } from '../../core/services/VendorProductService';
 import { CategoryService } from '../../core/services/CategoryService';
 import * as fs from 'fs';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/vendor-group')
 export class VendorGroupController {
 

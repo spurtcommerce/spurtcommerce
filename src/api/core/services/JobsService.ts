@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like } from 'typeorm/index';
 import { JobsRepository } from '../repositories/JobsRepository';
@@ -16,29 +15,29 @@ import { JobsRepository } from '../repositories/JobsRepository';
 export class JobsService {
 
     constructor(
-        @OrmRepository() private jobsRepository: JobsRepository,
+        private jobsRepository: JobsRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create job
     public async create(job: any): Promise<any> {
         this.log.info('Create a new job ');
-        return this.jobsRepository.save(job);
+        return this.jobsRepository.repository.save(job);
     }
 
     // find One job
     public findOne(job: any): Promise<any> {
-        return this.jobsRepository.findOne(job);
+        return this.jobsRepository.repository.findOne(job);
     }
 
     // findAll job
     public findAll(job: any): Promise<any> {
-        return this.jobsRepository.find(job);
+        return this.jobsRepository.repository.find(job);
     }
 
     // update job
     public update(job: any): Promise<any> {
-        return this.jobsRepository.save(job);
+        return this.jobsRepository.repository.save(job);
     }
 
     // job List
@@ -70,14 +69,14 @@ export class JobsService {
             condition.skip = offset;
         }
         if (count) {
-            return this.jobsRepository.count(condition);
+            return this.jobsRepository.repository.count(condition);
         } else {
-            return this.jobsRepository.find(condition);
+            return this.jobsRepository.repository.find(condition);
         }
     }
 
     // delete job
     public async delete(id: number): Promise<any> {
-        return await this.jobsRepository.delete(id);
+        return await this.jobsRepository.repository.delete(id);
     }
 }

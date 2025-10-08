@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { PaymentArchiveRepository } from '../repositories/PaymentArchiveRepository';
 import { Like, Brackets, getConnection } from 'typeorm/index';
 import { PaymentArchive } from '../models/PaymentArchive';
@@ -15,24 +14,24 @@ import { PaymentArchive } from '../models/PaymentArchive';
 @Service()
 export class PaymentArchiveService {
 
-    constructor(@OrmRepository() private paymentArchiveRepository: PaymentArchiveRepository) {
+    constructor(private paymentArchiveRepository: PaymentArchiveRepository) {
     }
 
     // create related product
     public async create(product: any): Promise<any> {
 
-        const newProduct = await this.paymentArchiveRepository.save(product);
+        const newProduct = await this.paymentArchiveRepository.repository.save(product);
         return newProduct;
     }
 
     // find payment
     public async findAll(plugins: any): Promise<any> {
-        return await this.paymentArchiveRepository.find(plugins);
+        return await this.paymentArchiveRepository.repository.find(plugins);
     }
 
     // find payment without condition
     public async findData(): Promise<any> {
-        return await this.paymentArchiveRepository.find();
+        return await this.paymentArchiveRepository.repository.find();
     }
 
     // payment List
@@ -66,21 +65,21 @@ export class PaymentArchiveService {
             condition.skip = offset;
         }
         if (count) {
-            return this.paymentArchiveRepository.count(condition);
+            return this.paymentArchiveRepository.repository.count(condition);
         } else {
-            return this.paymentArchiveRepository.find(condition);
+            return this.paymentArchiveRepository.repository.find(condition);
         }
     }
     // delete plugin
     public async delete(id: any): Promise<any> {
 
-        const newProduct = await this.paymentArchiveRepository.delete(id);
+        const newProduct = await this.paymentArchiveRepository.repository.delete(id);
         return newProduct;
     }
 
     // find one plugin
     public findOne(plugins: any): Promise<any> {
-        return this.paymentArchiveRepository.findOne(plugins);
+        return this.paymentArchiveRepository.repository.findOne(plugins);
     }
 
     public async listByQueryBuilder(
@@ -192,7 +191,7 @@ export class PaymentArchiveService {
         }
         if (!count) {
             if (rawQuery) {
-               return query.getRawMany();
+                return query.getRawMany();
             }
             return query.getMany();
         } else {

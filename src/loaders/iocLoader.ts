@@ -1,16 +1,16 @@
 /*
  * spurtcommerce API
- * version 5.2.0
+ * version 1.0.0
  * Copyright (c) 2021 piccosoft ltd
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
  */
 
+import 'reflect-metadata';
 import { useContainer as classValidatorUseContainer } from 'class-validator';
-import { MicroframeworkLoader, MicroframeworkSettings } from 'microframework-w3tec';
 import { useContainer as routingUseContainer } from 'routing-controllers';
+import { MicroframeworkLoader, MicroframeworkSettings } from 'microframework-w3tec';
 import { Container } from 'typedi';
-import { useContainer as ormUseContainer } from 'typeorm';
 
 export const iocLoader: MicroframeworkLoader = (settings: MicroframeworkSettings | undefined) => {
 
@@ -18,6 +18,8 @@ export const iocLoader: MicroframeworkLoader = (settings: MicroframeworkSettings
      * Setup routing-controllers to use typedi container.
      */
     routingUseContainer(Container);
-    ormUseContainer(Container);
-    classValidatorUseContainer(Container);
+    classValidatorUseContainer(Container, {
+        fallback: true,
+        fallbackOnErrors: true,
+    });
 };

@@ -57,7 +57,8 @@ import { SkuService } from '../../../../src/api/core/services/SkuService';
 import { OrderStatusToFullfillmentService } from '../../../../src/api/core/services/OrderStatusToFullfillmentService';
 import { OrderFullfillmentStatusService } from '../../../../src/api/core/services/OrderFullfillmentStatusService';
 import { OrderProductCancelLogService } from '../../../../src/api/core/services/OrderProductCancelLog';
-// import { In } from 'typeorm';
+import { Service } from 'typedi';
+@Service()
 @JsonController('/vendor-order')
 export class VendorOrderController {
     constructor(

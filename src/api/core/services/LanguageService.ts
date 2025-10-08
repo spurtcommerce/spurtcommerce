@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { LanguageRepository } from '../repositories/LanguageRepository';
 import { Brackets, getConnection, Like } from 'typeorm/index';
@@ -17,30 +16,30 @@ import { Language } from '../models/Language';
 export class LanguageService {
 
     constructor(
-        @OrmRepository() private languageRepository: LanguageRepository,
+        private languageRepository: LanguageRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create language
     public async create(language: any): Promise<any> {
         this.log.info('Create a new language ');
-        return this.languageRepository.save(language);
+        return this.languageRepository.repository.save(language);
     }
 
     // find condition
     public async find(language: any): Promise<any> {
-        return this.languageRepository.find(language);
+        return this.languageRepository.repository.find(language);
     }
 
     // find Condition
     public findOne(orderStatus: any): Promise<any> {
-        return this.languageRepository.findOne(orderStatus);
+        return this.languageRepository.repository.findOne(orderStatus);
     }
 
     // update language
     public update(id: any, language: Language): Promise<any> {
         language.languageId = id;
-        return this.languageRepository.save(language);
+        return this.languageRepository.repository.save(language);
     }
 
     // language List
@@ -80,9 +79,9 @@ export class LanguageService {
         };
 
         if (count) {
-            return this.languageRepository.count(condition);
+            return this.languageRepository.repository.count(condition);
         } else {
-            return this.languageRepository.find(condition);
+            return this.languageRepository.repository.find(condition);
         }
     }
     public async listByQueryBuilder(
@@ -215,6 +214,6 @@ export class LanguageService {
     }
     // delete language
     public async delete(id: number): Promise<any> {
-        return await this.languageRepository.delete(id);
+        return await this.languageRepository.repository.delete(id);
     }
 }

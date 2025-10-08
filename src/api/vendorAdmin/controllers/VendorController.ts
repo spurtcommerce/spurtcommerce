@@ -55,6 +55,8 @@ import { VendorOrdersService } from '../../../api/core/services/VendorOrderServi
 import { ExportLog } from '../../core/models/ExportLog';
 import { ExportLogService } from '../../core/services/ExportLogService';
 import { VendorDocument } from '../../../api/core/models/VendorDocument';
+import { Service } from 'typedi';
+@Service()
 @JsonController('/admin-vendor')
 export class VendorAdminController {
     constructor(

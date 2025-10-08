@@ -7,24 +7,23 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { RegistrationOtp } from '../models/RegistrationOtpModel';
 import { RegistrationOtpRepository } from '../repositories/RegistrationUserRepository';
-import { Brackets, FindOneOptions, Like } from 'typeorm';
+import { Brackets,  FindOneOptions,  Like } from 'typeorm';
 
 @Service()
 export class RegistrationOtpService {
 
     constructor(
-        @OrmRepository() private registrationOtpRepository: RegistrationOtpRepository,
+        private registrationOtpRepository: RegistrationOtpRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find userOtp
     public findOne(findCondition: FindOneOptions<RegistrationOtp>): Promise<RegistrationOtp> {
         this.log.info('Find all userOtp');
-        return this.registrationOtpRepository.findOne(findCondition);
+        return this.registrationOtpRepository.repository.findOne(findCondition);
     }
 
     // userOtp list
@@ -115,9 +114,9 @@ export class RegistrationOtpService {
         }
 
         if (count) {
-            return this.registrationOtpRepository.count(condition);
+            return this.registrationOtpRepository.repository.count(condition);
         } else {
-            return this.registrationOtpRepository.find(condition);
+            return this.registrationOtpRepository.repository.find(condition);
         }
 
     }
@@ -125,7 +124,7 @@ export class RegistrationOtpService {
     // create userOtp
     public async create(userOtp: RegistrationOtp): Promise<RegistrationOtp> {
         this.log.info('Create a new userOtp => ', userOtp.toString());
-        const newUserOtp = await this.registrationOtpRepository.save(userOtp);
+        const newUserOtp = await this.registrationOtpRepository.repository.save(userOtp);
         return newUserOtp;
     }
 
@@ -133,18 +132,18 @@ export class RegistrationOtpService {
     public update(id: any, userOtp: RegistrationOtp): Promise<RegistrationOtp> {
         this.log.info('Update a userOtp');
         userOtp.id = id;
-        return this.registrationOtpRepository.save(userOtp);
+        return this.registrationOtpRepository.repository.save(userOtp);
     }
 
     // delete userOtp
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a userOtp');
-        return await this.registrationOtpRepository.delete(id);
+        return await this.registrationOtpRepository.repository.delete(id);
     }
 
     // find userOtp
     public findAll(findCondition: any): Promise<any> {
         this.log.info('Find all userOtp');
-        return this.registrationOtpRepository.find(findCondition);
+        return this.registrationOtpRepository.repository.find(findCondition);
     }
 }

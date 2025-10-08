@@ -7,9 +7,8 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
-import { FindManyOptions, FindOneOptions, Like } from 'typeorm/index';
+import { FindManyOptions,  FindOneOptions,  Like } from 'typeorm/index';
 import { ProductTranslationRepository } from '../repositories/ProductTranslationRepository';
 import { ProductTranslation } from '../models/ProductTranslation';
 
@@ -17,33 +16,33 @@ import { ProductTranslation } from '../models/ProductTranslation';
 export class ProductTranslationService {
 
     constructor(
-        @OrmRepository() private productTranslationService: ProductTranslationRepository,
+        private productTranslationService: ProductTranslationRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create productTranslation
     public async save(productTranslation: ProductTranslation): Promise<ProductTranslation> {
         this.log.info('Create a new productTranslation ');
-        return this.productTranslationService.save(productTranslation);
+        return this.productTranslationService.repository.save(productTranslation);
     }
 
     // create productTranslation
     public async bulkSave(productTranslation: ProductTranslation[]): Promise<ProductTranslation[]> {
-        return this.productTranslationService.save(productTranslation);
+        return this.productTranslationService.repository.save(productTranslation);
     }
 
     // find Condition
     public findOne(productTranslation: FindOneOptions<ProductTranslation>): Promise<ProductTranslation> {
-        return this.productTranslationService.findOne(productTranslation);
+        return this.productTranslationService.repository.findOne(productTranslation);
     }
 
     public find(productTranslation: FindManyOptions<ProductTranslation>): Promise<ProductTranslation[]> {
-        return this.productTranslationService.find(productTranslation);
+        return this.productTranslationService.repository.find(productTranslation);
     }
     // find all product translation
     public findAll(): Promise<ProductTranslation[]> {
         this.log.info('Find all product translation');
-        return this.productTranslationService.find();
+        return this.productTranslationService.repository.find();
     }
 
     // productTranslation List
@@ -82,14 +81,14 @@ export class ProductTranslationService {
         };
 
         if (count) {
-            return this.productTranslationService.count(condition);
+            return this.productTranslationService.repository.count(condition);
         } else {
-            return this.productTranslationService.find(condition);
+            return this.productTranslationService.repository.find(condition);
         }
     }
 
     // delete productTranslation
     public async delete(id: number): Promise<any> {
-        return await this.productTranslationService.delete(id);
+        return await this.productTranslationService.repository.delete(id);
     }
 }

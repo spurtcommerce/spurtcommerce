@@ -6,14 +6,20 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { ProductTirePrice } from '../models/ProductTirePrice';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(ProductTirePrice)
-export class ProductTirePriceRepository extends Repository<ProductTirePrice>  {
+@Service()
+export class ProductTirePriceRepository {
+    public repository: Repository<ProductTirePrice>;
+    constructor() {
+        this.repository = getDataSource().getRepository(ProductTirePrice);
+    }
     public async findTirePrice(productId: number, skuId: string, quantity: number): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(ProductTirePrice, 'productTirePrice');
+        const query: any = await this.repository.createQueryBuilder('productTirePrice');
         query.select(['productTirePrice.price as price', 'productTirePrice.quantity as quantity', 'productTirePrice.productId as productId']);
         query.where('productTirePrice.productId = ' + productId);
         query.where('productTirePrice.skuId = ' + skuId);

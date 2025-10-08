@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { VendorPaymentArchiveRepository } from '../repositories/VendorPaymentArchiveRepository';
 import { Like } from 'typeorm/index';
 import { VendorPaymentArchive } from '../models/VendorPaymentArchive';
@@ -16,20 +15,20 @@ import { Brackets, getConnection } from 'typeorm';
 @Service()
 export class VendorPaymentArchiveService {
 
-    constructor(@OrmRepository() private vendorPaymentArchiveRepository: VendorPaymentArchiveRepository) {
+    constructor(private vendorPaymentArchiveRepository: VendorPaymentArchiveRepository) {
     }
 
     // create related product
     public async create(product: any): Promise<any> {
 
-        const newProduct = await this.vendorPaymentArchiveRepository.save(product);
+        const newProduct = await this.vendorPaymentArchiveRepository.repository.save(product);
         return newProduct;
     }
 
     // find plugins
     public async findAll(plugins: any): Promise<any> {
 
-        return await this.vendorPaymentArchiveRepository.find(plugins);
+        return await this.vendorPaymentArchiveRepository.repository.find(plugins);
     }
 
     // country List
@@ -63,9 +62,9 @@ export class VendorPaymentArchiveService {
             condition.skip = offset;
         }
         if (count) {
-            return this.vendorPaymentArchiveRepository.count(condition);
+            return this.vendorPaymentArchiveRepository.repository.count(condition);
         } else {
-            return this.vendorPaymentArchiveRepository.find(condition);
+            return this.vendorPaymentArchiveRepository.repository.find(condition);
         }
     }
 
@@ -189,12 +188,12 @@ export class VendorPaymentArchiveService {
     // delete plugin
     public async delete(id: any): Promise<any> {
 
-        const newProduct = await this.vendorPaymentArchiveRepository.delete(id);
+        const newProduct = await this.vendorPaymentArchiveRepository.repository.delete(id);
         return newProduct;
     }
 
     // find one plugin
     public findOne(plugins: any): Promise<any> {
-        return this.vendorPaymentArchiveRepository.findOne(plugins);
+        return this.vendorPaymentArchiveRepository.repository.findOne(plugins);
     }
 }

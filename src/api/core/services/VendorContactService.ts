@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like } from 'typeorm';
 import { VendorContactRepository } from '../repositories/VendorContactRepository';
@@ -17,14 +16,14 @@ import { VendorContact } from '../models/VendorContact';
 export class VendorContactService {
 
     constructor(
-        @OrmRepository() private vendorContactRepository: VendorContactRepository,
+        private vendorContactRepository: VendorContactRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find user
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find all vendor contact');
-        return this.vendorContactRepository.findOne(findCondition);
+        return this.vendorContactRepository.repository.findOne(findCondition);
     }
 
     // user list
@@ -62,32 +61,32 @@ export class VendorContactService {
         }
 
         if (count) {
-            return this.vendorContactRepository.count(condition);
+            return this.vendorContactRepository.repository.count(condition);
         } else {
-            return this.vendorContactRepository.find(condition);
+            return this.vendorContactRepository.repository.find(condition);
         }
 
     }
 
     // create user
     public async create(vendorContact: VendorContact): Promise<any> {
-        const newUser = await this.vendorContactRepository.save(vendorContact);
+        const newUser = await this.vendorContactRepository.repository.save(vendorContact);
         return newUser;
     }
 
     // update user
     public update(id: any, vendorContact: VendorContact): Promise<any> {
-        return this.vendorContactRepository.save(vendorContact);
+        return this.vendorContactRepository.repository.save(vendorContact);
     }
 
     // delete user
     public async delete(id: number): Promise<any> {
-        const newUser = await this.vendorContactRepository.delete(id);
+        const newUser = await this.vendorContactRepository.repository.delete(id);
         return newUser;
     }
 
     // find user
     public findAll(findCondition: any): Promise<any> {
-        return this.vendorContactRepository.find(findCondition);
+        return this.vendorContactRepository.repository.find(findCondition);
     }
 }

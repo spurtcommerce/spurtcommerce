@@ -4,7 +4,8 @@ import { ProductTranslation } from '../../core/models/ProductTranslation';
 import { VendorProductTranslationRequest } from './requests/VendorProductTranslationRequest';
 import { ProductTranslationService } from '../../core/services/ProductTranslationService';
 import { VendorProductService } from '../../core/services/VendorProductService';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/vendor-product-translation')
 export class VendorProductTranslationController {
     constructor(

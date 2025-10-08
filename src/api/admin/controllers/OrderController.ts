@@ -48,6 +48,9 @@ import { VendorGroupService } from '../../core/services/VendorGroupService';
 
 import { ExportLog } from '../../core/models/ExportLog';
 import { ExportLogService } from '../../core/services/ExportLogService';
+import { Service } from 'typedi';
+
+@Service()
 @JsonController('/order')
 export class OrderController {
     constructor(

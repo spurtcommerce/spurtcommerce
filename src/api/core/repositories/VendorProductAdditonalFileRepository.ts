@@ -1,7 +1,12 @@
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { VendorProductAdditionalFile } from '../models/VendorProductAdditionalFileModel';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(VendorProductAdditionalFile)
-export class VendorProductAdditionalFileRepository extends Repository<VendorProductAdditionalFile>  {
-
+@Service()
+export class VendorProductAdditionalFileRepository {
+    public repository: Repository<VendorProductAdditionalFile>;
+    constructor() {
+        this.repository = getDataSource().getRepository(VendorProductAdditionalFile);
+    }
 }

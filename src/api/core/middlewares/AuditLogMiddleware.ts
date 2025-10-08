@@ -1,9 +1,10 @@
 import { AuditLog } from '../models/AuditLog';
-import { Container } from 'typedi';
+import { Container, Service } from 'typedi';
 import { AuditLogService } from '../services/AuditLogService';
 import { ExpressMiddlewareInterface, Middleware } from 'routing-controllers';
 import moment from 'moment';
 import { LessThan } from 'typeorm';
+@Service()
 @Middleware({ type: 'after' })
 export class LoggingMiddleware implements ExpressMiddlewareInterface {
   public async use(request: any, response: any, next: any): Promise<void> {

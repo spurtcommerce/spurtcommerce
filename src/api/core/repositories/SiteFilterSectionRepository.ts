@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { SiteFilterSection } from '../models/SiteFilterSection';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(SiteFilterSection)
-export class SiteFilterSectionRepository extends Repository<SiteFilterSection>  {
-
+@Service()
+export class SiteFilterSectionRepository {
+    public repository: Repository<SiteFilterSection>;
+    constructor() {
+        this.repository = getDataSource().getRepository(SiteFilterSection);
+    }
 }

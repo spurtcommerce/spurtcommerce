@@ -1,6 +1,5 @@
 import { Service } from 'typedi';
 import { Brackets, getConnection } from 'typeorm';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { AuditLog } from '../models/AuditLog';
 import { AuditLogRepository } from '../repositories/AuditLogRepository';
@@ -9,18 +8,18 @@ import { AuditLogRepository } from '../repositories/AuditLogRepository';
 export class AuditLogService {
 
     constructor(
-        @OrmRepository() private auditLogRepository: AuditLogRepository,
+        private auditLogRepository: AuditLogRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     public async createOrUpdate(object: AuditLog): Promise<AuditLog> {
-        const addedData = await this.auditLogRepository.save(object);
+        const addedData = await this.auditLogRepository.repository.save(object);
         return addedData;
     }
     public async QueryBuilder(limit: number, offset: number, whereCondition: any = [], relations: any = [],
                               search: any = [], count: number | boolean, order: any): Promise<any> {
     this.log.info('list');
-                                const queryConditions: any = await this.auditLogRepository.createQueryBuilder('AuditLog');
+                                const queryConditions: any = await this.auditLogRepository.repository.createQueryBuilder('AuditLog');
       if (relations && relations.length > 0) {
           relations.forEach((joinTb: any) => {
               if (joinTb.val === 1) {
@@ -188,11 +187,11 @@ export class AuditLogService {
     }
 
     public find(condition: any): Promise<any> {
-        return this.auditLogRepository.find(condition);
+        return this.auditLogRepository.repository.find(condition);
     }
 
     public async delete(data: any): Promise<any> {
-        await this.auditLogRepository.delete(data);
+        await this.auditLogRepository.repository.delete(data);
         return;
     }
 

@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { User } from '../models/User';
 import { UserRepository } from '../repositories/UserRepository';
@@ -17,14 +16,14 @@ import { Like } from 'typeorm';
 export class UserService {
 
     constructor(
-        @OrmRepository() private userLoginRepository: UserRepository,
+        private userLoginRepository: UserRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find user
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find all users');
-        return this.userLoginRepository.findOne(findCondition);
+        return this.userLoginRepository.repository.findOne(findCondition);
     }
 
     // user list
@@ -64,9 +63,9 @@ export class UserService {
             condition.skip = offset;
         }
         if (count) {
-            return this.userLoginRepository.count(condition);
+            return this.userLoginRepository.repository.count(condition);
         } else {
-            return this.userLoginRepository.find(condition);
+            return this.userLoginRepository.repository.find(condition);
         }
 
     }
@@ -74,7 +73,7 @@ export class UserService {
     // create user
     public async create(user: User): Promise<User> {
         this.log.info('Create a new user => ', user.toString());
-        const newUser = await this.userLoginRepository.save(user);
+        const newUser = await this.userLoginRepository.repository.save(user);
         return newUser;
     }
 
@@ -82,19 +81,19 @@ export class UserService {
     public update(id: any, user: User): Promise<User> {
         this.log.info('Update a user');
         user.userId = id;
-        return this.userLoginRepository.save(user);
+        return this.userLoginRepository.repository.save(user);
     }
 
     // delete user
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a user');
-        const newUser = await this.userLoginRepository.delete(id);
+        const newUser = await this.userLoginRepository.repository.delete(id);
         return newUser;
     }
 
     // find user
     public findAll(findCondition: any): Promise<any> {
         this.log.info('Find all users');
-        return this.userLoginRepository.find(findCondition);
+        return this.userLoginRepository.repository.find(findCondition);
     }
 }

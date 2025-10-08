@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Settings } from '../models/Setting';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(Settings)
-export class SettingsRepository extends Repository<Settings>  {
-
+@Service()
+export class SettingsRepository {
+    public repository: Repository<Settings>;
+    constructor() {
+        this.repository = getDataSource().getRepository(Settings);
+    }
 }

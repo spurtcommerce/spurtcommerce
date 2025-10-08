@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { SettlementItem } from '../models/SettlementItem';
 import { SettlementItemRepository } from '../repositories/SettlementItemRepository';
@@ -17,19 +16,19 @@ import { Like } from 'typeorm';
 export class SettlementItemService {
 
     constructor(
-        @OrmRepository() private settlementItemRepository: SettlementItemRepository,
+        private settlementItemRepository: SettlementItemRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // find one condition
     public findOne(data: any): Promise<any> {
-        return this.settlementItemRepository.findOne(data);
+        return this.settlementItemRepository.repository.findOne(data);
     }
 
     // find all
     public findAll(data: any): Promise<any> {
         this.log.info('Find all');
-        return this.settlementItemRepository.find(data);
+        return this.settlementItemRepository.repository.find(data);
     }
 
     // list
@@ -67,15 +66,15 @@ export class SettlementItemService {
 
         }
         if (count) {
-            return this.settlementItemRepository.count(condition);
+            return this.settlementItemRepository.repository.count(condition);
         } else {
-            return this.settlementItemRepository.find(condition);
+            return this.settlementItemRepository.repository.find(condition);
         }
     }
 
     // create
     public async create(settlementItem: SettlementItem): Promise<SettlementItem> {
-        const newSettlement = await this.settlementItemRepository.save(settlementItem);
+        const newSettlement = await this.settlementItemRepository.repository.save(settlementItem);
         return newSettlement;
     }
 
@@ -83,13 +82,13 @@ export class SettlementItemService {
     public update(id: any, settlementItem: SettlementItem): Promise<SettlementItem> {
         this.log.info('Update');
         settlementItem.id = id;
-        return this.settlementItemRepository.save(settlementItem);
+        return this.settlementItemRepository.repository.save(settlementItem);
     }
 
     // delete
     public async delete(id: any): Promise<any> {
         this.log.info('Delete');
-        const newSettlement = await this.settlementItemRepository.delete(id);
+        const newSettlement = await this.settlementItemRepository.repository.delete(id);
         return newSettlement;
     }
 }

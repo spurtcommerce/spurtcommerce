@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { AccessToken } from '../models/AccessTokenModel';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(AccessToken)
-export class AccessTokenRepository extends Repository<AccessToken>  {
-
+@Service()
+export class AccessTokenRepository {
+    public repository: Repository<AccessToken>;
+    constructor() {
+        this.repository = getDataSource().getRepository(AccessToken);
+    }
 }

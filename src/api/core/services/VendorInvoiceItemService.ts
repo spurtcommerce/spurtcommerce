@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { VendorInvoiceItem } from '../models/VendorInvoiceItem';
 import { VendorInvoiceItemRepository } from '../repositories/VendorInvoiceItemRepository';
@@ -17,14 +16,14 @@ import { Like } from 'typeorm';
 export class VendorInvoiceItemService {
 
     constructor(
-        @OrmRepository() private vendorInvoiceItemRepository: VendorInvoiceItemRepository,
+        private vendorInvoiceItemRepository: VendorInvoiceItemRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find role');
-        return this.vendorInvoiceItemRepository.findOne(findCondition);
+        return this.vendorInvoiceItemRepository.repository.findOne(findCondition);
     }
     // list
     public list(limit: any, offset: any, select: any = [], search: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -56,14 +55,14 @@ export class VendorInvoiceItemService {
         }
 
         if (count) {
-            return this.vendorInvoiceItemRepository.count(condition);
+            return this.vendorInvoiceItemRepository.repository.count(condition);
         }
-        return this.vendorInvoiceItemRepository.find(condition);
+        return this.vendorInvoiceItemRepository.repository.find(condition);
     }
 
     // create
     public async create(vendorInvoiceItem: VendorInvoiceItem): Promise<VendorInvoiceItem> {
-        const newvendorInvoiceItem = await this.vendorInvoiceItemRepository.save(vendorInvoiceItem);
+        const newvendorInvoiceItem = await this.vendorInvoiceItemRepository.repository.save(vendorInvoiceItem);
         return newvendorInvoiceItem;
     }
 
@@ -71,19 +70,19 @@ export class VendorInvoiceItemService {
     public update(id: any, vendorInvoiceItem: VendorInvoiceItem): Promise<VendorInvoiceItem> {
         this.log.info('Update a vendorInvoiceItem');
         vendorInvoiceItem.vendorInvoiceItemId = id;
-        return this.vendorInvoiceItemRepository.save(vendorInvoiceItem);
+        return this.vendorInvoiceItemRepository.repository.save(vendorInvoiceItem);
     }
 
     // delete
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a vendorOrders');
-        const deleteVendorInvoiceItem = await this.vendorInvoiceItemRepository.delete(id);
+        const deleteVendorInvoiceItem = await this.vendorInvoiceItemRepository.repository.delete(id);
         return deleteVendorInvoiceItem;
     }
 
     // find Services
     public findAll(data: any): Promise<any> {
-        return this.vendorInvoiceItemRepository.find(data);
+        return this.vendorInvoiceItemRepository.repository.find(data);
     }
 
 }

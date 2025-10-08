@@ -7,34 +7,33 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { DocumentRepository } from '../repositories/DocumentRepository';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
-import { DeleteResult, FindConditions, FindManyOptions, FindOneOptions } from 'typeorm';
+import { DeleteResult, FindManyOptions, FindOptionsWhere } from 'typeorm';
 import { Document } from '../models/Document';
-import {Brackets, getConnection} from 'typeorm/index';
+import { Brackets, FindOneOptions, getConnection } from 'typeorm/index';
 
 @Service()
 export class DocumentService {
     constructor(
-        @OrmRepository() private documentRepository: DocumentRepository,
+        private documentRepository: DocumentRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create document
     public async save(document: Document): Promise<Document> {
         this.log.info('Create a new document ');
-        return this.documentRepository.save(document);
+        return this.documentRepository.repository.save(document);
     }
 
     // find document
     public async findOne(data: FindOneOptions<Document>): Promise<any> {
-        return this.documentRepository.findOne(data);
+        return this.documentRepository.repository.findOne(data);
     }
 
     // find All Document
     public async find(data: FindManyOptions<Document>): Promise<Document[]> {
-        return this.documentRepository.find(data);
+        return this.documentRepository.repository.find(data);
     }
 
     public async listByQueryBuilder(
@@ -61,7 +60,7 @@ export class DocumentService {
                 if (joinTb.op === 'left') {
                     query.leftJoinAndSelect(joinTb.tableName, joinTb.aliasName);
                 } else {
-                query.innerJoinAndSelect(joinTb.tableName, joinTb.aliasName);
+                    query.innerJoinAndSelect(joinTb.tableName, joinTb.aliasName);
                 }
             });
         }
@@ -129,7 +128,7 @@ export class DocumentService {
         if (groupBy && groupBy.length > 0) {
             let i = 0;
             groupBy.forEach((item: any) => {
-                if ( i === 0) {
+                if (i === 0) {
                     query.groupBy(item.name);
                 } else {
                     query.addGroupBy(item.name);
@@ -150,7 +149,7 @@ export class DocumentService {
         }
         if (!count) {
             if (rawQuery) {
-               return query.getRawMany();
+                return query.getRawMany();
             }
             return query.getMany();
         } else {
@@ -158,7 +157,7 @@ export class DocumentService {
         }
     }
 
-    public async delete(payload: FindConditions<Document>): Promise<DeleteResult> {
-        return this.documentRepository.delete(payload);
+    public async delete(payload: FindOptionsWhere<Document>): Promise<DeleteResult> {
+        return this.documentRepository.repository.delete(payload);
     }
 }

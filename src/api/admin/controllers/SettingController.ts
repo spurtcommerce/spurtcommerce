@@ -22,7 +22,7 @@ import { Not } from 'typeorm';
 import { OrderCancelReasonService } from '../../core/services/OrderCancelReasonService';
 import { OrderCancelReason } from '../../core/models/OrderCancelReason';
 import { OrderCancelReasonRequest } from './requests/OrderCancelReasonRequest';
-
+import { Service } from 'typedi';
 interface SettingsView extends Omit<Settings, 'createDetails' | 'updateDetails'> {
     currencyCode: string;
     symbolLeft: string;
@@ -43,7 +43,7 @@ export interface ApiResponse<T> {
     message: string;
     data?: T;
 }
-
+@Service()
 @JsonController('/settings')
 export class SettingController {
     constructor(

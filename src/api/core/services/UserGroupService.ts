@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { UserGroup } from '../models/UserGroup';
 import { UserGroupRepository } from '../repositories/UserGroupRepository';
@@ -17,14 +16,14 @@ import { Like } from 'typeorm';
 export class UserGroupService {
 
     constructor(
-        @OrmRepository() private userGroupRepository: UserGroupRepository,
+        private userGroupRepository: UserGroupRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find Role
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find role');
-        return this.userGroupRepository.findOne(findCondition);
+        return this.userGroupRepository.repository.findOne(findCondition);
     }
     // Role list
     public list(limit: any, offset: any, select: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -52,14 +51,14 @@ export class UserGroupService {
         }
 
         if (count) {
-            return this.userGroupRepository.count(condition);
+            return this.userGroupRepository.repository.count(condition);
         }
-        return this.userGroupRepository.find(condition);
+        return this.userGroupRepository.repository.find(condition);
     }
 
     // create role
     public async create(userGroup: UserGroup): Promise<UserGroup> {
-        const newUserGroup = await this.userGroupRepository.save(userGroup);
+        const newUserGroup = await this.userGroupRepository.repository.save(userGroup);
         return newUserGroup;
     }
 
@@ -67,13 +66,13 @@ export class UserGroupService {
     public update(id: any, userGroup: UserGroup): Promise<UserGroup> {
         this.log.info('Update a role');
         userGroup.groupId = id;
-        return this.userGroupRepository.save(userGroup);
+        return this.userGroupRepository.repository.save(userGroup);
     }
 
     // delete role
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a role');
-        const deleteUser = await this.userGroupRepository.delete(id);
+        const deleteUser = await this.userGroupRepository.repository.delete(id);
         return deleteUser;
     }
 }

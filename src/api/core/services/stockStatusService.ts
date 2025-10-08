@@ -7,7 +7,6 @@
  */
 
 import {Service} from 'typedi';
-import {OrmRepository} from 'typeorm-typedi-extensions';
 import {Logger, LoggerInterface} from '../../../decorators/Logger';
 import {StockStatusRepository} from '../repositories/StockStatusRepository';
 import {Like} from 'typeorm/index';
@@ -15,20 +14,20 @@ import {Like} from 'typeorm/index';
 @Service()
 export class StockStatusService {
 
-    constructor(@OrmRepository() private stockStatusRepository: StockStatusRepository,
+    constructor(private stockStatusRepository: StockStatusRepository,
                 @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create stock Status
     public async create(stockStatus: any): Promise<any> {
-        const newStockStatus = await this.stockStatusRepository.save(stockStatus);
+        const newStockStatus = await this.stockStatusRepository.repository.save(stockStatus);
         this.log.info('Create a stockStatus');
         return newStockStatus;
     }
 
     // find stsscok status
     public findOne(stockStatus: any): Promise<any> {
-        return this.stockStatusRepository.findOne(stockStatus);
+        return this.stockStatusRepository.repository.findOne(stockStatus);
     }
 
     // stock Status list
@@ -63,14 +62,14 @@ export class StockStatusService {
         }
 
         if (count) {
-            return this.stockStatusRepository.count(condition);
+            return this.stockStatusRepository.repository.count(condition);
         } else {
-            return this.stockStatusRepository.find(condition);
+            return this.stockStatusRepository.repository.find(condition);
         }
     }
 
     // delete StockStatus
     public async delete(id: number): Promise<any> {
-        return await this.stockStatusRepository.delete(id);
+        return await this.stockStatusRepository.repository.delete(id);
     }
 }

@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Sku } from '../models/SkuModel';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(Sku)
-export class SkuRepository extends Repository<Sku>  {
-
+@Service()
+export class SkuRepository {
+    public repository: Repository<Sku>;
+    constructor() {
+        this.repository = getDataSource().getRepository(Sku);
+    }
 }

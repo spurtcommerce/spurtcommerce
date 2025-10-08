@@ -6,28 +6,33 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
-
+import { Repository } from 'typeorm';
 import { Category } from '../models/CategoryModel';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(Category)
-export class CategoryRepository extends Repository<Category> {
+@Service()
+export class CategoryRepository {
+    public repository: Repository<Category>;
+    constructor() {
+        this.repository = getDataSource().getRepository(Category);
+    }
 
     public async categorySlug(data: string): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Category, 'category');
+        const query: any = await this.repository.createQueryBuilder('category');
         query.orWhere('category.name = :name', { name: data });
         return query.getMany();
     }
 
     public async categorySlugData(data: string): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Category, 'category');
+        const query: any = await this.repository.createQueryBuilder('category');
         query.select('category_slug');
         query.orWhere('category.name = :name', { name: data });
         return query.getMany();
     }
 
     public async categoryCount(limit: number, offset: number, keyword: string, sortOrder: number, status: string): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Category, 'category');
+        const query: any = await this.repository.createQueryBuilder('category');
         query.select('COUNT(category.categoryId) as categoryCount');
         if (status !== '') {
             query.where('category.is_Active = :value', { value: status });
@@ -42,7 +47,7 @@ export class CategoryRepository extends Repository<Category> {
     }
 
     public async checkSlugData(slug: string, id: number): Promise<number> {
-        const query = await this.manager.createQueryBuilder(Category, 'category');
+        const query = await this.repository.createQueryBuilder('category');
         query.where('category.category_slug = :slug', { slug });
         if (id > 0) {
             query.andWhere('category.categoryId != :id', { id });
@@ -51,7 +56,7 @@ export class CategoryRepository extends Repository<Category> {
     }
 
     public async findCategory(categoryName: string, parentId: number): Promise<any> {
-        const query = await this.manager.createQueryBuilder(Category, 'category');
+        const query = await this.repository.createQueryBuilder('category');
         query.where('LOWER(category.name) = :categoryName', { categoryName });
         if (parentId !== 0) {
             query.andWhere('category.parentInt = :parentId', { parentId });
@@ -60,7 +65,7 @@ export class CategoryRepository extends Repository<Category> {
     }
 
     public async updateFamily(categoryIds: any, familyId: any): Promise<any> {
-        const query = await this.manager.createQueryBuilder(Category, 'category');
+        const query = await this.repository.createQueryBuilder('category');
         query.update()
             .set({ familyId })
             .where('categoryId IN (:...categoryIds)', { categoryIds })

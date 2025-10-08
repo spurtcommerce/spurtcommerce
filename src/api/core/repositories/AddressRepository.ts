@@ -6,10 +6,14 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Address } from '../models/Address';
-
-@EntityRepository(Address)
-export class AddressRepository extends Repository<Address>  {
-
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
+@Service()
+export class AddressRepository {
+    public repository: Repository<Address>;
+    constructor() {
+        this.repository = getDataSource().getRepository(Address);
+    }
 }

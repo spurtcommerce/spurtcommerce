@@ -32,7 +32,8 @@ import { VendorInvoiceService } from '../../core/services/VendorInvoiceService';
 import * as fs from 'fs';
 import moment from 'moment';
 import { FindManyOptions, In } from 'typeorm';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/settlement')
 export class SettlementController {
     constructor(private settlementItemService: SettlementItemService, private vendorService: VendorService, private vendorInvoiceService: VendorInvoiceService, private orderService: OrderService, private settlementService: SettlementService, private orderProductService: OrderProductService, private vendorOrderService: VendorOrdersService) {

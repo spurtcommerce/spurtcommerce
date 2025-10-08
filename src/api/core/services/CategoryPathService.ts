@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { CategoryPath } from '../models/CategoryPath';
 import { CategoryPathRepository } from '../repositories/CategoryPathRepository';
 import { Like, Brackets, getConnection } from 'typeorm/index';
@@ -16,20 +15,20 @@ import { Like, Brackets, getConnection } from 'typeorm/index';
 export class CategoryPathService {
 
     constructor(
-        @OrmRepository() private categoryPathRepository: CategoryPathRepository
+        private categoryPathRepository: CategoryPathRepository
     ) {
     }
     // create CategoryPath
     public async create(categoryPath: any): Promise<CategoryPath> {
-        return this.categoryPathRepository.save(categoryPath);
+        return this.categoryPathRepository.repository.save(categoryPath);
     }
     // findone CategoryPath
     public findOne(categoryPath: any): Promise<any> {
-        return this.categoryPathRepository.findOne(categoryPath);
+        return this.categoryPathRepository.repository.findOne(categoryPath);
     }
     // delete CategoryPath
     public async delete(id: any): Promise<any> {
-        await this.categoryPathRepository.delete(id);
+        await this.categoryPathRepository.repository.delete(id);
         return;
     }
     // categoryList
@@ -74,14 +73,14 @@ export class CategoryPathService {
             };
         }
         if (count) {
-            return this.categoryPathRepository.count(condition);
+            return this.categoryPathRepository.repository.count(condition);
         }
-        return this.categoryPathRepository.find(condition);
+        return this.categoryPathRepository.repository.find(condition);
     }
 
     // find categoryPath
     public find(categoryPath: any): Promise<any> {
-        return this.categoryPathRepository.find(categoryPath);
+        return this.categoryPathRepository.repository.find(categoryPath);
     }
 
     // find One category level

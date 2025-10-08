@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { OrderCancelReason } from '../models/OrderCancelReason';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(OrderCancelReason)
-export class OrderCancelReasonRepository extends Repository<OrderCancelReason>  {
-
+@Service()
+export class OrderCancelReasonRepository {
+    public repository: Repository<OrderCancelReason>;
+  constructor() {
+    this.repository = getDataSource().getRepository(OrderCancelReason);
+  }
 }

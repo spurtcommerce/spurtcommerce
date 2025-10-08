@@ -2,7 +2,9 @@ import { Body, Delete, Get, JsonController, Param, Post, Res, QueryParam, Author
 import { DocumentService } from '../../../../src/api/core/services/DocumentService';
 import { Document } from '../../core/models/Document';
 import { CreateDocumentRequest } from './requests/CreateDocumentRequest';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/document')
 export class AdminDocumentController {
     constructor(

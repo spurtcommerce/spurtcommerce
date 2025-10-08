@@ -6,15 +6,20 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
-
+import { Repository } from 'typeorm';
 import { CategoryPath } from '../models/CategoryPath';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(CategoryPath)
-export class CategoryPathRepository extends Repository<CategoryPath>  {
+@Service()
+export class CategoryPathRepository {
+    public repository: Repository<CategoryPath>;
+    constructor() {
+        this.repository = getDataSource().getRepository(CategoryPath);
+    }
 
     public async findOneCategoryLevel(categorySlug: string): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(CategoryPath, 'categoryPath');
+        const query: any = await this.repository.createQueryBuilder('categoryPath');
         query.select(['GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'categoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels']);
         query.leftJoin('categoryPath.category', 'category');
         query.leftJoin('categoryPath.path', 'path');

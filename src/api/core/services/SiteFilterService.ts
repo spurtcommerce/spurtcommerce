@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { SiteFilter } from '../models/SiteFilter';
 import { SiteFilterRepository } from '../repositories/SiteFilterRepository';
@@ -17,19 +16,19 @@ import { Like } from 'typeorm';
 export class SiteFilterService {
 
     constructor(
-        @OrmRepository() private siteFilterRepository: SiteFilterRepository,
+        private siteFilterRepository: SiteFilterRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // find one condition
     public findOne(siteFilter: any): Promise<any> {
-        return this.siteFilterRepository.findOne(siteFilter);
+        return this.siteFilterRepository.repository.findOne(siteFilter);
     }
 
     // find all
     public findAll(siteFilter: any): Promise<any> {
         this.log.info('Find all');
-        return this.siteFilterRepository.find(siteFilter);
+        return this.siteFilterRepository.repository.find(siteFilter);
     }
 
     // list
@@ -67,15 +66,15 @@ export class SiteFilterService {
 
         }
         if (count) {
-            return this.siteFilterRepository.count(condition);
+            return this.siteFilterRepository.repository.count(condition);
         } else {
-            return this.siteFilterRepository.find(condition);
+            return this.siteFilterRepository.repository.find(condition);
         }
     }
 
     // create
     public async create(siteFilter: SiteFilter): Promise<SiteFilter> {
-        const newSiteFilter = await this.siteFilterRepository.save(siteFilter);
+        const newSiteFilter = await this.siteFilterRepository.repository.save(siteFilter);
         return newSiteFilter;
     }
 
@@ -83,13 +82,13 @@ export class SiteFilterService {
     public update(id: any, siteFilter: SiteFilter): Promise<SiteFilter> {
         this.log.info('Update');
         siteFilter.id = id;
-        return this.siteFilterRepository.save(siteFilter);
+        return this.siteFilterRepository.repository.save(siteFilter);
     }
 
     // delete
     public async delete(id: any): Promise<any> {
         this.log.info('Delete');
-        const newSiteFilter = await this.siteFilterRepository.delete(id);
+        const newSiteFilter = await this.siteFilterRepository.repository.delete(id);
         return newSiteFilter;
     }
 }

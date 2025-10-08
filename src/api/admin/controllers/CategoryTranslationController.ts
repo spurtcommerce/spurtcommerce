@@ -5,7 +5,9 @@ import { CategoryTranslation } from '../../core/models/CategoryTranslation';
 import { CategoryTranslationService } from '../../core/services/CategoryTranslationService';
 import { FindManyOptions, Like } from 'typeorm';
 import { Category } from '../../core/models/CategoryModel';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/category')
 export class CategoryTranslationController {
     constructor(

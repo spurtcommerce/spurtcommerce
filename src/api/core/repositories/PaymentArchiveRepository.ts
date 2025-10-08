@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { PaymentArchive } from '../models/PaymentArchive';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(PaymentArchive)
-export class PaymentArchiveRepository extends Repository<PaymentArchive>  {
-
+@Service()
+export class PaymentArchiveRepository {
+    public repository: Repository<PaymentArchive>;
+    constructor() {
+        this.repository = getDataSource().getRepository(PaymentArchive);
+    }
 }

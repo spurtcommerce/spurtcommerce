@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like } from 'typeorm/index';
 import { LoginLogRepository } from '../repositories/LoginLogRepository';
@@ -16,25 +15,25 @@ import { LoginLogRepository } from '../repositories/LoginLogRepository';
 export class LoginLogService {
 
     constructor(
-        @OrmRepository() private loginLogRepository: LoginLogRepository,
+        private loginLogRepository: LoginLogRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create banner
     public async create(loginLog: any): Promise<any> {
         this.log.info('Create a new log ');
-        return this.loginLogRepository.save(loginLog);
+        return this.loginLogRepository.repository.save(loginLog);
     }
 
     // find Condition
     public findOne(loginLog: any): Promise<any> {
-        return this.loginLogRepository.findOne(loginLog);
+        return this.loginLogRepository.repository.findOne(loginLog);
     }
 
     // update loginlog
     public update(id: any, loginLog: any): Promise<any> {
         loginLog.id = id;
-        return this.loginLogRepository.save(loginLog);
+        return this.loginLogRepository.repository.save(loginLog);
     }
 
     // log List
@@ -68,15 +67,15 @@ export class LoginLogService {
             condition.skip = offset;
         }
         if (count) {
-            return this.loginLogRepository.count(condition);
+            return this.loginLogRepository.repository.count(condition);
         } else {
-            return this.loginLogRepository.find(condition);
+            return this.loginLogRepository.repository.find(condition);
         }
     }
 
     // delete loginlog
     public async delete(id: number): Promise<any> {
-        return await this.loginLogRepository.delete(id);
+        return await this.loginLogRepository.repository.delete(id);
     }
 
     // log list query

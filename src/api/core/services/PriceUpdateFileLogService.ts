@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { PriceUpdateFileLog } from '../models/PriceUpdateFileLog';
 import { PriceUpdateFileLogRepository } from '../repositories/PriceUpdateFileLogRepository';
@@ -16,35 +15,35 @@ import { Like } from 'typeorm';
 @Service()
 export class PriceUpdateFileLogService {
     constructor(
-        @OrmRepository() private priceUpdateFileLogRepository: PriceUpdateFileLogRepository,
+        private priceUpdateFileLogRepository: PriceUpdateFileLogRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // create a data
     public async create(Data: any): Promise<PriceUpdateFileLog> {
         this.log.info('create a data');
-        return this.priceUpdateFileLogRepository.save(Data);
+        return this.priceUpdateFileLogRepository.repository.save(Data);
     }
     // findone a data
     public findOne(id: number): Promise<PriceUpdateFileLog> {
         this.log.info('Find a data');
-        return this.priceUpdateFileLogRepository.findOne(id);
+        return this.priceUpdateFileLogRepository.repository.findOne(id);
     }
     // find a data
     public findAll(productSpecial: any): Promise<PriceUpdateFileLog[]> {
         this.log.info('Find a data');
-        return this.priceUpdateFileLogRepository.find(productSpecial);
+        return this.priceUpdateFileLogRepository.repository.find(productSpecial);
     }
 
     // find a data
     public find(): Promise<PriceUpdateFileLog[]> {
         this.log.info('Find a data');
-        return this.priceUpdateFileLogRepository.find();
+        return this.priceUpdateFileLogRepository.repository.find();
     }
     // delete product option
     public async delete(id: any): Promise<any> {
         this.log.info('Delete a product option value');
-        const deleteProductOptionValue = await this.priceUpdateFileLogRepository.delete(id);
+        const deleteProductOptionValue = await this.priceUpdateFileLogRepository.repository.delete(id);
         return deleteProductOptionValue;
     }
 
@@ -84,9 +83,9 @@ export class PriceUpdateFileLogService {
         };
 
         if (count) {
-            return this.priceUpdateFileLogRepository.count(condition);
+            return this.priceUpdateFileLogRepository.repository.count(condition);
         } else {
-            return this.priceUpdateFileLogRepository.find(condition);
+            return this.priceUpdateFileLogRepository.repository.find(condition);
         }
     }
 

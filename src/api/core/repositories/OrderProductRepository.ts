@@ -5,13 +5,20 @@
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
  */
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { OrderProduct } from '../models/OrderProduct';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(OrderProduct)
-export class OrderProductRepository extends Repository<OrderProduct> {
+@Service()
+export class OrderProductRepository {
+    public repository: Repository<OrderProduct>;
+    constructor() {
+        this.repository = getDataSource().getRepository(OrderProduct);
+    }
+
     public async topPerformingProduct(limit: number, offset: number, count: number | boolean, duration: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(OrderProduct, 'OrderProduct');
+        const query: any = await this.repository.createQueryBuilder('OrderProduct');
         query.select([
             'COUNT(OrderProduct.product_id) as topPerformingProductCount',
             'MAX(OrderProduct.name) as productName',
@@ -51,7 +58,7 @@ export class OrderProductRepository extends Repository<OrderProduct> {
         }
     }
     public async List(limit: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(OrderProduct, 'orderProduct');
+        const query: any = await this.repository.createQueryBuilder('orderProduct');
         query.select(['DISTINCT product_id as productId', 'order_id as orderId', 'name as ProductName', 'quantity as Quantity', 'total as Total', ' created_date as CreatedDate', 'sku_name as skuName', 'varient_name as varientName']);
         query.orderBy('created_date', 'DESC');
         query.limit(limit);
@@ -59,7 +66,7 @@ export class OrderProductRepository extends Repository<OrderProduct> {
     }
     // get earnings
     public async getEarnings(id: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(OrderProduct, 'orderProduct');
+        const query: any = await this.repository.createQueryBuilder('orderProduct');
         query.select(['SUM(orderProduct.total + orderProduct.discountAmount) as productPriceTotal', 'COUNT(orderProduct.orderId) as orderCount', 'SUM(orderProduct.quantity) as quantityCount', 'COUNT(DISTINCT(product.customer_id)) as buyerCount']);
         query.innerJoin('orderProduct.product', 'product');
         query.where('orderProduct.productId = :productId', { productId: id });
@@ -68,7 +75,7 @@ export class OrderProductRepository extends Repository<OrderProduct> {
     }
 
     public async buyedCount(productId: number, customerId: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(OrderProduct, 'orderProduct');
+        const query: any = await this.repository.createQueryBuilder('orderProduct');
         query.select('orderProduct.orderProductId');
         query.innerJoin('orderProduct.order', 'order');
         query.where('orderProduct.productId = :id AND order.customerId = :customerId ', { id: productId, customerId });
@@ -77,7 +84,7 @@ export class OrderProductRepository extends Repository<OrderProduct> {
     }
 
     public async buyedCountBySku(sku: string, customerId: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(OrderProduct, 'orderProduct');
+        const query: any = await this.repository.createQueryBuilder('orderProduct');
         query.select('orderProduct.orderProductId');
         query.innerJoin('orderProduct.order', 'order');
         query.where('orderProduct.skuName = :sku AND order.customerId = :customerId ', { sku, customerId });
@@ -87,7 +94,7 @@ export class OrderProductRepository extends Repository<OrderProduct> {
 
     // get product payment process
     public async productPaymentProcess(id: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(OrderProduct, 'orderProduct');
+        const query: any = await this.repository.createQueryBuilder('orderProduct');
         query.select(['orderProduct.orderProductId']);
         query.innerJoin('orderProduct.order', 'order');
         query.where('orderProduct.productId = :productId', { productId: id });
@@ -97,7 +104,7 @@ export class OrderProductRepository extends Repository<OrderProduct> {
 
     // get product varient payment process
     public async productVarientPaymentProcess(sku: string): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(OrderProduct, 'orderProduct');
+        const query: any = await this.repository.createQueryBuilder('orderProduct');
         query.select(['orderProduct.orderProductId']);
         query.innerJoin('orderProduct.order', 'order');
         query.where('orderProduct.skuName = :sku', { sku });
@@ -105,7 +112,7 @@ export class OrderProductRepository extends Repository<OrderProduct> {
         return query.getRawOne();
     }
     public async salesGraphList(year: string, month: string): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(OrderProduct, 'orderProduct');
+        const query: any = await this.repository.createQueryBuilder('orderProduct');
         query.select(['COUNT(product_id) as productCount', 'DAYOFMONTH(MAX(orderProduct.created_date)) as dayOfMonth', 'MONTH(MAX(orderProduct.created_date)) as month', 'YEAR(MAX(orderProduct.created_date)) as year']);
         query.leftJoin('orderProduct.order', 'order');
         query.where('order.payment_process = :process', { process: 1 });
@@ -119,7 +126,7 @@ export class OrderProductRepository extends Repository<OrderProduct> {
     }
     // Top ten weekly sales list API
     public async topTenWeeklySales(productId: any): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(OrderProduct, 'OrderProduct');
+        const query: any = await this.repository.createQueryBuilder('OrderProduct');
         query.select(['MAX(DAYNAME(OrderProduct.created_date)) as days', 'COUNT(OrderProduct.product_id) as value']);
         query.leftJoin('OrderProduct.product', 'product');
         query.where('OrderProduct.product_id = :val', { val: productId });
@@ -132,7 +139,7 @@ export class OrderProductRepository extends Repository<OrderProduct> {
 
     // getting sum of total from order products
     public async dashboardOrderProductsTotal(duration: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(OrderProduct, 'OrderProduct');
+        const query: any = await this.repository.createQueryBuilder('OrderProduct');
         query.select(['ROUND(SUM(OrderProduct.total), 2) as orderProductsTotal', 'COUNT(OrderProduct.orderId) as ordersCount']);
         query.leftJoin('OrderProduct.product', 'product');
         query.where('NOT EXISTS(SELECT vendor_product.product_id FROM vendor_product WHERE vendor_product.product_id = OrderProduct.productId)');
@@ -149,7 +156,7 @@ export class OrderProductRepository extends Repository<OrderProduct> {
         return query.getRawOne();
     }
     public async checkSkuForVariant(skuName: string): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(OrderProduct, 'orderProduct');
+        const query: any = await this.repository.createQueryBuilder('orderProduct');
         query.select('orderProduct.skuName');
         query.innerJoin('orderProduct.order', 'order');
         query.where('orderProduct.skuName = :sku', { sku: skuName });

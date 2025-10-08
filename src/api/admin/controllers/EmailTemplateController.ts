@@ -12,7 +12,9 @@ import { EmailTemplate } from '../../core/models/EmailTemplate';
 import { CreateEmailTemplate } from './requests/CreateEmailTemplateRequest';
 import { EmailTemplateService } from '../../core/services/EmailTemplateService';
 import { Not } from 'typeorm';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/email-template')
 export class EmailTemplateController {
     constructor(private emailTemplateService: EmailTemplateService) {

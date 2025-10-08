@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { VendorOrderLog } from '../models/VendorOrderLog';
 import { VendorOrderLogRepository } from '../repositories/VendorOrderLogRepository';
@@ -17,14 +16,14 @@ import { Like } from 'typeorm';
 export class VendorOrderLogService {
 
     constructor(
-        @OrmRepository() private vendorOrderLogRepository: VendorOrderLogRepository,
+        private vendorOrderLogRepository: VendorOrderLogRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find one vendorOrderLog
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find role');
-        return this.vendorOrderLogRepository.findOne(findCondition);
+        return this.vendorOrderLogRepository.repository.findOne(findCondition);
     }
     // vendorOrderLog list
     public list(limit: any, offset: any, select: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -53,14 +52,14 @@ export class VendorOrderLogService {
         }
 
         if (count) {
-            return this.vendorOrderLogRepository.count(condition);
+            return this.vendorOrderLogRepository.repository.count(condition);
         }
-        return this.vendorOrderLogRepository.find(condition);
+        return this.vendorOrderLogRepository.repository.find(condition);
     }
 
     // create vendor order log
     public async create(vendorOrderLog: VendorOrderLog): Promise<VendorOrderLog> {
-        const newVendorOrderLog = await this.vendorOrderLogRepository.save(vendorOrderLog);
+        const newVendorOrderLog = await this.vendorOrderLogRepository.repository.save(vendorOrderLog);
         return newVendorOrderLog;
     }
 
@@ -68,18 +67,18 @@ export class VendorOrderLogService {
     public update(id: any, vendorOrderLog: VendorOrderLog): Promise<VendorOrderLog> {
         this.log.info('Update a vendor order log');
         vendorOrderLog.vendorOrderLogId = id;
-        return this.vendorOrderLogRepository.save(vendorOrderLog);
+        return this.vendorOrderLogRepository.repository.save(vendorOrderLog);
     }
 
     // delete vendor order log
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a vendor order log');
-        const deleteVendorOrderLog = await this.vendorOrderLogRepository.delete(id);
+        const deleteVendorOrderLog = await this.vendorOrderLogRepository.repository.delete(id);
         return deleteVendorOrderLog;
     }
 
     public find(data: any): Promise<any> {
         this.log.info('Find all VendorProducts');
-        return this.vendorOrderLogRepository.find(data);
+        return this.vendorOrderLogRepository.repository.find(data);
     }
 }

@@ -16,7 +16,8 @@ import { VendorPaymentArchiveService } from '../../core/services/VendorPaymentAr
 import * as fs from 'fs';
 import { VendorPaymentArchive } from '../../core/models/VendorPaymentArchive';
 import moment from 'moment';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/admin-vendor-payment')
 export class VendorPaymentController {
     constructor(

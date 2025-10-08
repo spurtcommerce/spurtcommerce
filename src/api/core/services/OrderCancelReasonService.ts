@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { OrderCancelReasonRepository } from '../repositories/OrderCancelReasonRepository';
 import { OrderCancelReason } from '../models/OrderCancelReason';
@@ -17,24 +16,24 @@ import { Like } from 'typeorm';
 export class OrderCancelReasonService {
 
     constructor(
-        @OrmRepository() private orderCancelReasonRepository: OrderCancelReasonRepository,
+        private orderCancelReasonRepository: OrderCancelReasonRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create
     public async create(orderCancelReason: OrderCancelReason): Promise<any> {
         this.log.info('Create a new address ');
-        return this.orderCancelReasonRepository.save(orderCancelReason);
+        return this.orderCancelReasonRepository.repository.save(orderCancelReason);
     }
 
     // findOne
     public findOne(orderCancelReason: any): Promise<any> {
-        return this.orderCancelReasonRepository.findOne(orderCancelReason);
+        return this.orderCancelReasonRepository.repository.findOne(orderCancelReason);
     }
     // update
     public update(id: number, orderCancelReason: OrderCancelReason): Promise<any> {
         orderCancelReason.id = id;
-        return this.orderCancelReasonRepository.save(orderCancelReason);
+        return this.orderCancelReasonRepository.repository.save(orderCancelReason);
     }
 
     // address
@@ -73,20 +72,20 @@ export class OrderCancelReasonService {
             createdDate: 'DESC',
         };
         if (count) {
-            return this.orderCancelReasonRepository.count(condition);
+            return this.orderCancelReasonRepository.repository.count(condition);
         } else {
-            return this.orderCancelReasonRepository.find(condition);
+            return this.orderCancelReasonRepository.repository.find(condition);
         }
     }
 
     // delete
     public async delete(id: number): Promise<any> {
-        await this.orderCancelReasonRepository.delete(id);
+        await this.orderCancelReasonRepository.repository.delete(id);
         return 1;
     }
 
     // find Al
     public find(address: any): Promise<any> {
-        return this.orderCancelReasonRepository.find(address);
+        return this.orderCancelReasonRepository.repository.find(address);
     }
 }

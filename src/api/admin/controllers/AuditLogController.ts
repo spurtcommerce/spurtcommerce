@@ -18,7 +18,9 @@ import {
     Res,
 } from 'routing-controllers';
 import { AuditLogService } from '../../core/services/AuditLogService';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/auditlog')
 export class AdminAuditLogController {
     constructor(private auditLogService: AuditLogService) {

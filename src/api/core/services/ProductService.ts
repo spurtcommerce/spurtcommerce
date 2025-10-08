@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Product } from '../models/ProductModel';
 import { ProductRepository } from '../repositories/ProductRepository';
@@ -20,23 +19,23 @@ const hooks = uncino();
 @Service()
 export class ProductService {
     constructor(
-        @OrmRepository() private productRepository: ProductRepository,
+        private productRepository: ProductRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // find product
     public find(product: any): Promise<any> {
-        return this.productRepository.find(product);
+        return this.productRepository.repository.find(product);
     }
 
     // find product
     public findAll(): Promise<any> {
-        return this.productRepository.find();
+        return this.productRepository.repository.find();
     }
 
     // find one product
     public async findOne(findCondition: any): Promise<any> {
-        return await this.productRepository.findOne(findCondition);
+        return await this.productRepository.repository.findOne(findCondition);
     }
 
     // product list
@@ -93,20 +92,20 @@ export class ProductService {
             condition.skip = offset;
         }
         if (count) {
-            return this.productRepository.count(condition);
+            return this.productRepository.repository.count(condition);
         }
-        return this.productRepository.find(condition);
+        return this.productRepository.repository.find(condition);
     }
 
     // create product
     public async create(product: Product): Promise<Product> {
-        const newProduct = await this.productRepository.save(product);
+        const newProduct = await this.productRepository.repository.save(product);
         return newProduct;
     }
 
     // Bulk Create
     public async bulkCreate(productData: Product[]): Promise<any> {
-        const newProducts = await this.productRepository.save(productData);
+        const newProducts = await this.productRepository.repository.save(productData);
         return newProducts;
     }
 
@@ -114,13 +113,13 @@ export class ProductService {
     public update(id: any, product: Partial<Product>): Promise<Product> {
         this.log.info('Update a product');
         product.productId = id;
-        return this.productRepository.save(product);
+        return this.productRepository.repository.save(product);
     }
 
     // delete product
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a product');
-        const newProduct = await this.productRepository.delete(id);
+        const newProduct = await this.productRepository.repository.delete(id);
         return newProduct;
     }
 

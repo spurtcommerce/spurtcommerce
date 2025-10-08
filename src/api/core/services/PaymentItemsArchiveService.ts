@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { PaymentItemsArchiveRepository } from '../repositories/PaymentItemsArchiveRepository';
 import { Like, Brackets, getConnection } from 'typeorm/index';
 import { PaymentItemsArchive } from '../models/PaymentItemsArchive';
@@ -15,20 +14,20 @@ import { PaymentItemsArchive } from '../models/PaymentItemsArchive';
 @Service()
 export class PaymentItemsArchiveService {
 
-    constructor(@OrmRepository() private paymentItemsArchiveRepository: PaymentItemsArchiveRepository) {
+    constructor(private paymentItemsArchiveRepository: PaymentItemsArchiveRepository) {
     }
 
     // create related product
     public async create(product: any): Promise<any> {
 
-        const newProduct = await this.paymentItemsArchiveRepository.save(product);
+        const newProduct = await this.paymentItemsArchiveRepository.repository.save(product);
         return newProduct;
     }
 
     // find plugins
     public async findAll(plugins: any): Promise<any> {
 
-        return await this.paymentItemsArchiveRepository.find(plugins);
+        return await this.paymentItemsArchiveRepository.repository.find(plugins);
     }
 
     // country List
@@ -62,21 +61,21 @@ export class PaymentItemsArchiveService {
             condition.skip = offset;
         }
         if (count) {
-            return this.paymentItemsArchiveRepository.count(condition);
+            return this.paymentItemsArchiveRepository.repository.count(condition);
         } else {
-            return this.paymentItemsArchiveRepository.find(condition);
+            return this.paymentItemsArchiveRepository.repository.find(condition);
         }
     }
     // delete plugin
     public async delete(id: any): Promise<any> {
 
-        const newProduct = await this.paymentItemsArchiveRepository.delete(id);
+        const newProduct = await this.paymentItemsArchiveRepository.repository.delete(id);
         return newProduct;
     }
 
     // find one plugin
     public findOne(plugins: any): Promise<any> {
-        return this.paymentItemsArchiveRepository.findOne(plugins);
+        return this.paymentItemsArchiveRepository.repository.findOne(plugins);
     }
 
     public async listByQueryBuilder(

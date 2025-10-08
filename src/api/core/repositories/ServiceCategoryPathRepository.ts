@@ -8,11 +8,16 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 
 import { ServiceCategoryPath } from '../models/ServiceCategoryPath';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(ServiceCategoryPath)
-export class ServiceCategoryPathRepository extends Repository<ServiceCategoryPath>  {
-
+@Service()
+export class ServiceCategoryPathRepository {
+    public repository: Repository<ServiceCategoryPath>;
+    constructor() {
+        this.repository = getDataSource().getRepository(ServiceCategoryPath);
+    }
 }

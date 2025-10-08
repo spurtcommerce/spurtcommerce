@@ -60,15 +60,17 @@ import { ProductController } from '../../admin/controllers/ProductController';
 import { VendorBulkImport } from './requests/VendorBulkImportRequest';
 import uncino from 'uncino';
 import { VendorProductAdditionalFile } from '../../../../src/api/core/models/VendorProductAdditionalFileModel';
-import { getConnection, In } from 'typeorm';
+import { In } from 'typeorm';
 import { vendorProductList } from '@spurtcommerce/marketplace';
 import { EmailTemplateService } from '../../core/services/EmailTemplateService';
 import { SettingService } from '../../core/services/SettingService';
 import { UserService } from '../../../api/core/services/UserService';
 import { MAILService } from '../../../auth/mail.services';
 import { PluginService } from '../../../../src/api/core/services/PluginService';
+import { getDataSource } from '../../../../src/loaders/typeormLoader';
 const hooks = uncino();
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/vendor-product')
 export class VendorProductController {
     constructor(
@@ -1056,7 +1058,7 @@ export class VendorProductController {
         @Res() response: any): Promise<any> {
 
         const vendorProductDetails = await vendorProductList(
-            getConnection(),
+            getDataSource(),
             pluginModule,
             limit,
             offset,
@@ -1067,6 +1069,7 @@ export class VendorProductController {
             +price,
             productName,
             vendorName,
+            '',
             updatedOn,
             sortBy,
             sortOrder,
@@ -2395,7 +2398,7 @@ export class VendorProductController {
         const worksheet = workbook.addWorksheet('Product Detail Sheet');
         const rows = [];
         const productIds = await vendorProductList(
-            getConnection(),
+            getDataSource(),
             pluginModule,
             0,
             0,
@@ -2403,7 +2406,8 @@ export class VendorProductController {
             '',
             '',
             '',
-            price,
+            0,
+            '',
             '',
             '',
             '',

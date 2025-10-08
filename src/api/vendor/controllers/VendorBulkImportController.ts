@@ -15,12 +15,14 @@ import { ProductController } from '../../admin/controllers/ProductController';
 import { env } from '../../../env';
 import { S3Service } from '../../core/services/S3Service';
 import { promisify } from 'util';
-import { getConnection } from 'typeorm';
 import { categoryCreate } from '@spurtcommerce/product';
 import { CategoryService } from '../../core/services/CategoryService';
+import { getDataSource } from '../../../../src/loaders/typeormLoader';
 
 const unlinkAsync = promisify(fs.unlink);
 const rmdirAsync = promisify(fs.rm);
+import { Service } from 'typedi';
+@Service()
 @JsonController('/vendor-import-datas')
 export class VendorImportController {
     constructor(
@@ -265,7 +267,7 @@ export class VendorImportController {
             for (const data of xlsxToJson) {
                 const ifCategory = await this.categoryService.findCategory(data?.Category_Name, 0);
                 if (!ifCategory) {
-                    await categoryCreate(getConnection(), {
+                    await categoryCreate(getDataSource(), {
                         name: data?.Category_Name,
                         containerName: data?.Image,
                         containerPath: 'category/',

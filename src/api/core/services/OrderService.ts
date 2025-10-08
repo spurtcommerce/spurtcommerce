@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like, Brackets, getConnection, In } from 'typeorm/index';
 import { Between } from 'typeorm/index';
@@ -18,24 +17,24 @@ import { Order } from '../models/Order';
 export class OrderService {
 
     constructor(
-        @OrmRepository() private orderRepository: OrderRepository,
+        private orderRepository: OrderRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create order
     public async create(order: any): Promise<any> {
         this.log.info('Create a new order ');
-        return this.orderRepository.save(order);
+        return this.orderRepository.repository.save(order);
     }
 
     // order count
     public find(order: any): Promise<any> {
-        return this.orderRepository.find(order);
+        return this.orderRepository.repository.find(order);
     }
 
     // order count
     public findAll(): Promise<any> {
-        return this.orderRepository.find();
+        return this.orderRepository.repository.find();
     }
 
     // findOne Condition
@@ -48,17 +47,17 @@ export class OrderService {
         } else {
             condition.orderId = whereCondition;
         }
-        return this.orderRepository.findOne(condition);
+        return this.orderRepository.repository.findOne(condition);
     }
 
     // update order
     public update(id: any, order: any): Promise<any> {
         order.oderId = id;
-        return this.orderRepository.save(order);
+        return this.orderRepository.repository.save(order);
     }
 
     public bulkUpdateByIds(ids: number[], payload: Partial<Order>): Promise<any> {
-        return this.orderRepository.update({ orderId: In(ids) }, payload);
+        return this.orderRepository.repository.update({ orderId: In(ids) }, payload);
     }
 
     // order List
@@ -104,21 +103,21 @@ export class OrderService {
         };
 
         if (count) {
-            return this.orderRepository.count(condition);
+            return this.orderRepository.repository.count(condition);
         } else {
-            const query = this.orderRepository.find(condition);
+            const query = this.orderRepository.repository.find(condition);
             return query;
         }
     }
 
     // findOne order
     public findOrder(order: any): Promise<any> {
-        return this.orderRepository.findOne(order);
+        return this.orderRepository.repository.findOne(order);
     }
 
     // delete order
     public async delete(id: number): Promise<any> {
-        return await this.orderRepository.delete(id);
+        return await this.orderRepository.repository.delete(id);
     }
 
     // sales list

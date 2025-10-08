@@ -14,7 +14,9 @@ import { PageService } from '../../core/services/PageService';
 import { UpdatePage } from './requests/UpdatePageRequest';
 import { DeletePageRequest } from './requests/DeletePageRequest';
 import { PageGroupService } from '../../core/services/PageGroupService';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/page')
 export class PageController {
     constructor(private pageService: PageService, private pageGroupService: PageGroupService) {

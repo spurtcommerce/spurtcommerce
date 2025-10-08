@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { CustomerActivity } from '../models/CustomerActivity';
 import { CustomerActivityRepository } from '../repositories/CustomerActivityRepository';
@@ -17,14 +16,14 @@ import { Like } from 'typeorm';
 export class CustomerActivityService {
 
     constructor(
-        @OrmRepository() private customerActivityRepository: CustomerActivityRepository,
+        private customerActivityRepository: CustomerActivityRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find Role
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find role');
-        return this.customerActivityRepository.findOne(findCondition);
+        return this.customerActivityRepository.repository.findOne(findCondition);
     }
     // Role list
     public list(limit: any, offset: any, select: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -52,14 +51,14 @@ export class CustomerActivityService {
         }
 
         if (count) {
-            return this.customerActivityRepository.count(condition);
+            return this.customerActivityRepository.repository.count(condition);
         }
-        return this.customerActivityRepository.find(condition);
+        return this.customerActivityRepository.repository.find(condition);
     }
 
     // create role
     public async create(customerActivity: CustomerActivity): Promise<CustomerActivity> {
-        const newCustomerActivity = await this.customerActivityRepository.save(customerActivity);
+        const newCustomerActivity = await this.customerActivityRepository.repository.save(customerActivity);
         return newCustomerActivity;
     }
 
@@ -67,13 +66,13 @@ export class CustomerActivityService {
     public update(id: any, customerActivity: CustomerActivity): Promise<CustomerActivity> {
         this.log.info('Update a activity');
         customerActivity.customerActivityId = id;
-        return this.customerActivityRepository.save(customerActivity);
+        return this.customerActivityRepository.repository.save(customerActivity);
     }
 
     // delete role
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a activity');
-        const deleteCustomerActivity = await this.customerActivityRepository.delete(id);
+        const deleteCustomerActivity = await this.customerActivityRepository.repository.delete(id);
         return deleteCustomerActivity;
     }
 }

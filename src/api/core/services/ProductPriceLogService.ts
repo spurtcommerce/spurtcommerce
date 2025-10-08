@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { ProductPriceLog } from '../models/ProductPriceLog';
 import { ProductPriceLogRepository } from '../repositories/ProductPriceLogRepository';
@@ -16,35 +15,35 @@ import { Like } from 'typeorm';
 @Service()
 export class ProductPriceLogService {
     constructor(
-        @OrmRepository() private productPriceLogRepository: ProductPriceLogRepository,
+        private productPriceLogRepository: ProductPriceLogRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // create a data
     public async create(Data: any): Promise<ProductPriceLog> {
         this.log.info('create a data');
-        return this.productPriceLogRepository.save(Data);
+        return this.productPriceLogRepository.repository.save(Data);
     }
     // findone a data
     public findOne(id: any): Promise<ProductPriceLog> {
         this.log.info('Find a data');
-        return this.productPriceLogRepository.findOne(id);
+        return this.productPriceLogRepository.repository.findOne(id);
     }
     // find a data
     public findAll(productSpecial: any): Promise<ProductPriceLog[]> {
         this.log.info('Find a data');
-        return this.productPriceLogRepository.find(productSpecial);
+        return this.productPriceLogRepository.repository.find(productSpecial);
     }
 
     // find a data
     public find(): Promise<ProductPriceLog[]> {
         this.log.info('Find a data');
-        return this.productPriceLogRepository.find();
+        return this.productPriceLogRepository.repository.find();
     }
     // delete product option
     public async delete(id: any): Promise<any> {
         this.log.info('Delete a product option value');
-        const deleteProductOptionValue = await this.productPriceLogRepository.delete(id);
+        const deleteProductOptionValue = await this.productPriceLogRepository.repository.delete(id);
         return deleteProductOptionValue;
     }
 
@@ -79,9 +78,9 @@ export class ProductPriceLogService {
             condition.skip = offset;
         }
         if (count) {
-            return this.productPriceLogRepository.count(condition);
+            return this.productPriceLogRepository.repository.count(condition);
         } else {
-            return this.productPriceLogRepository.find(condition);
+            return this.productPriceLogRepository.repository.find(condition);
         }
     }
 

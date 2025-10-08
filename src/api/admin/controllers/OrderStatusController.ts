@@ -31,7 +31,9 @@ import { OrderFullfillmentStatusService } from '../../core/services/OrderFullfil
 import { OrderFullfillmentStatus } from '../../core/models/OrderFullfillmentStatus';
 import { OrderStatusToFullfillmentService } from '../../../../src/api/core/services/OrderStatusToFullfillmentService';
 import { OrderStatusToFullfillment } from '../../../api/core/models/OrderStatusToFullfillment';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/order-status')
 export class OrderStatusController {
     constructor(

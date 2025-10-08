@@ -22,7 +22,8 @@ import { PaymentItemsService } from '../../core/services/PaymentItemsService';
 import * as fs from 'fs';
 import moment from 'moment';
 import { VendorPayment } from '../../core/models/VendorPayment';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/vendor-sales')
 export class VendorSaleController {
     constructor(

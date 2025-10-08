@@ -5,7 +5,9 @@ import { ProductTranslationRequest } from './requests/ProductTranslationRequest'
 import { ProductTranslationService } from '../../core/services/ProductTranslationService';
 import { Product } from '../../core/models/ProductModel';
 import { FindManyOptions, Like } from 'typeorm';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/product')
 export class ProductTranslationController {
     constructor(

@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like, Brackets, getConnection } from 'typeorm/index';
 import { ProductViewLogRepository } from '../repositories/ProductViewLogRepository';
@@ -17,30 +16,30 @@ import { ProductViewLog } from '../models/productViewLog';
 export class ProductViewLogService {
 
     constructor(
-        @OrmRepository() private productViewLogRepository: ProductViewLogRepository,
+        private productViewLogRepository: ProductViewLogRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create view log
     public async create(productViewLog: any): Promise<ProductViewLog> {
         this.log.info('Create a new view log ');
-        return this.productViewLogRepository.save(productViewLog);
+        return this.productViewLogRepository.repository.save(productViewLog);
     }
 
     // find product
     public find(productViewLog: any): Promise<any> {
-        return this.productViewLogRepository.find(productViewLog);
+        return this.productViewLogRepository.repository.find(productViewLog);
     }
 
     // find Condition
     public findOne(zone: any): Promise<any> {
-        return this.productViewLogRepository.findOne(zone);
+        return this.productViewLogRepository.repository.findOne(zone);
     }
 
     // update view log
     public update(id: any, productViewLog: ProductViewLog): Promise<any> {
         productViewLog.id = id;
-        return this.productViewLogRepository.save(productViewLog);
+        return this.productViewLogRepository.repository.save(productViewLog);
     }
 
     // view log List
@@ -81,9 +80,9 @@ export class ProductViewLogService {
             id: 'DESC',
         };
         if (count) {
-            return this.productViewLogRepository.count(condition);
+            return this.productViewLogRepository.repository.count(condition);
         } else {
-            return this.productViewLogRepository.find(condition);
+            return this.productViewLogRepository.repository.find(condition);
         }
     }
 
@@ -206,6 +205,6 @@ export class ProductViewLogService {
 
     // delete view log
     public async delete(id: number): Promise<any> {
-        return await this.productViewLogRepository.delete(id);
+        return await this.productViewLogRepository.repository.delete(id);
     }
 }

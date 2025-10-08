@@ -6,15 +6,21 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { VendorPayment } from '../models/VendorPayment';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(VendorPayment)
-export class VendorPaymentRepository extends Repository<VendorPayment>  {
+@Service()
+export class VendorPaymentRepository {
+    public repository: Repository<VendorPayment>;
+    constructor() {
+        this.repository = getDataSource().getRepository(VendorPayment);
+    }
 
     //  sale count
     public async getTotalSales(id: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(VendorPayment, 'vendorPayment');
+        const query: any = await this.repository.createQueryBuilder('vendorPayment');
         query.select(['COUNT(vendorPayment.vendorPaymentId) as salesCount']);
         query.where('vendorPayment.vendorId = :id', { id });
         return query.getRawOne();
@@ -22,7 +28,7 @@ export class VendorPaymentRepository extends Repository<VendorPayment>  {
 
     //  buyer count with login
     public async getTotalBuyers(id: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(VendorPayment, 'vendorPayment');
+        const query: any = await this.repository.createQueryBuilder('vendorPayment');
         query.select(['COUNT(DISTINCT(order.customer_id)) as buyerCount']);
         query.leftJoin('vendorPayment.vendorOrders', 'vendorOrders');
         query.leftJoin('vendorOrders.order', 'order');
@@ -33,14 +39,14 @@ export class VendorPaymentRepository extends Repository<VendorPayment>  {
 
     // get total vendor revenue
     public async getTotalVendorRevenue(vendorId: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(VendorPayment, 'vendorPayment');
+        const query: any = await this.repository.createQueryBuilder('vendorPayment');
         query.select(['vendorPayment.amount as amount', 'vendorPayment.commissionAmount as commissionAmount']);
         query.where('vendorPayment.vendorId = :id', { id: vendorId });
         return query.getRawMany();
     }
 
     public async dashboardVendorCommissionTotal(duration: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(VendorPayment, 'vendorPayment');
+        const query: any = await this.repository.createQueryBuilder('vendorPayment');
         query.select(['ROUND(SUM(vendorPayment.commissionAmount), 2) as vendorCommission', 'COUNT(vendorPayment.vendorPaymentId) as vendorCommissionCount']);
         if (duration === 1 && duration) {
             query.andWhere('DATE(vendorPayment.created_date) = DATE(NOW())');

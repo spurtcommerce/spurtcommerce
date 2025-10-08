@@ -7,9 +7,8 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
-import { FindOneOptions, Like } from 'typeorm/index';
+import {  FindOneOptions, Like } from 'typeorm/index';
 import { CategoryTranslationRepository } from '../repositories/CategoryTranslationRepository';
 import { CategoryTranslation } from '../models/CategoryTranslation';
 
@@ -17,28 +16,28 @@ import { CategoryTranslation } from '../models/CategoryTranslation';
 export class CategoryTranslationService {
 
     constructor(
-        @OrmRepository() private categoryTranslationRepository: CategoryTranslationRepository,
+        private categoryTranslationRepository: CategoryTranslationRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create categoryTranslation
     public async save(categoryTranslation: any): Promise<any> {
         this.log.info('Create a new categoryTranslation ');
-        return this.categoryTranslationRepository.save(categoryTranslation);
+        return this.categoryTranslationRepository.repository.save(categoryTranslation);
     }
 
     public async bulkSave(categoryTranslation: CategoryTranslation[]): Promise<CategoryTranslation[]> {
-        return this.categoryTranslationRepository.save(categoryTranslation);
+        return this.categoryTranslationRepository.repository.save(categoryTranslation);
     }
 
     // find Condition
     public findOne(categoryTranslation: FindOneOptions<CategoryTranslation>): Promise<CategoryTranslation> {
-        return this.categoryTranslationRepository.findOne(categoryTranslation);
+        return this.categoryTranslationRepository.repository.findOne(categoryTranslation);
     }
 
     // update categoryTranslation
     public update(categoryTranslation: any): Promise<any> {
-        return this.categoryTranslationRepository.save(categoryTranslation);
+        return this.categoryTranslationRepository.repository.save(categoryTranslation);
     }
 
     // categoryTranslation List
@@ -78,14 +77,14 @@ export class CategoryTranslationService {
         };
 
         if (count) {
-            return this.categoryTranslationRepository.count(condition);
+            return this.categoryTranslationRepository.repository.count(condition);
         } else {
-            return this.categoryTranslationRepository.find(condition);
+            return this.categoryTranslationRepository.repository.find(condition);
         }
     }
 
     // delete categoryTranslation
     public async delete(id: number): Promise<any> {
-        return await this.categoryTranslationRepository.delete(id);
+        return await this.categoryTranslationRepository.repository.delete(id);
     }
 }

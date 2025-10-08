@@ -6,14 +6,20 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { PromotionalBannerItem } from '../models/PromotionalBannerItem';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(PromotionalBannerItem)
-export class PromotionalBannerItemRepository extends Repository<PromotionalBannerItem>  {
+@Service()
+export class PromotionalBannerItemRepository {
+    public repository: Repository<PromotionalBannerItem>;
+    constructor() {
+        this.repository = getDataSource().getRepository(PromotionalBannerItem);
+    }
 
     public async findProduct(productId: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(PromotionalBannerItem, 'promotionalBannerItem');
+        const query: any = await this.repository.createQueryBuilder('promotionalBannerItem');
         query.select(['promotionalBannerItem.id as id']);
         query.innerJoin('promotionalBannerItem.promotionalBanner', 'promotionalBanner');
         query.where('promotionalBannerItem.refId = :productId', { productId });
@@ -22,7 +28,7 @@ export class PromotionalBannerItemRepository extends Repository<PromotionalBanne
     }
 
     public async findCategory(categoryId: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(PromotionalBannerItem, 'promotionalBannerItem');
+        const query: any = await this.repository.createQueryBuilder('promotionalBannerItem');
         query.select(['promotionalBannerItem.id as id']);
         query.innerJoin('promotionalBannerItem.promotionalBanner', 'promotionalBanner');
         query.where('promotionalBannerItem.refId = :categoryId', { categoryId });

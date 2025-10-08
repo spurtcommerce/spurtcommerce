@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { SiteFilterSection } from '../models/SiteFilterSection';
 import { SiteFilterSectionRepository } from '../repositories/SiteFilterSectionRepository';
@@ -17,19 +16,19 @@ import { Like } from 'typeorm';
 export class SiteFilterSectionService {
 
     constructor(
-        @OrmRepository() private siteFilterSectionRepository: SiteFilterSectionRepository,
+        private siteFilterSectionRepository: SiteFilterSectionRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // find one condition
     public findOne(siteFilterSection: any): Promise<any> {
-        return this.siteFilterSectionRepository.findOne(siteFilterSection);
+        return this.siteFilterSectionRepository.repository.findOne(siteFilterSection);
     }
 
     // find all
     public findAll(siteFilterSection: any): Promise<any> {
         this.log.info('Find all');
-        return this.siteFilterSectionRepository.find(siteFilterSection);
+        return this.siteFilterSectionRepository.repository.find(siteFilterSection);
     }
 
     // list
@@ -67,15 +66,15 @@ export class SiteFilterSectionService {
 
         }
         if (count) {
-            return this.siteFilterSectionRepository.count(condition);
+            return this.siteFilterSectionRepository.repository.count(condition);
         } else {
-            return this.siteFilterSectionRepository.find(condition);
+            return this.siteFilterSectionRepository.repository.find(condition);
         }
     }
 
     // create
     public async create(siteFilterSection: SiteFilterSection): Promise<SiteFilterSection> {
-        const newSiteFilterSection = await this.siteFilterSectionRepository.save(siteFilterSection);
+        const newSiteFilterSection = await this.siteFilterSectionRepository.repository.save(siteFilterSection);
         return newSiteFilterSection;
     }
 
@@ -83,13 +82,13 @@ export class SiteFilterSectionService {
     public update(id: any, siteFilterSection: SiteFilterSection): Promise<SiteFilterSection> {
         this.log.info('Update');
         siteFilterSection.id = id;
-        return this.siteFilterSectionRepository.save(siteFilterSection);
+        return this.siteFilterSectionRepository.repository.save(siteFilterSection);
     }
 
     // delete
     public async delete(id: any): Promise<any> {
         this.log.info('Delete');
-        const newSiteFilter = await this.siteFilterSectionRepository.delete(id);
+        const newSiteFilter = await this.siteFilterSectionRepository.repository.delete(id);
         return newSiteFilter;
     }
 }

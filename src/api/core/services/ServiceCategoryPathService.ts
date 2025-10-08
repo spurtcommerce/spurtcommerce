@@ -9,32 +9,31 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { ServiceCategoryPath } from '../models/ServiceCategoryPath';
 import { ServiceCategoryPathRepository } from '../repositories/ServiceCategoryPathRepository';
 import { Like, getConnection, Brackets } from 'typeorm/index';
 
 @Service()
 export class ServiceCategoryPathService {
-    constructor(@OrmRepository() private serviceCategoryPathRepository: ServiceCategoryPathRepository
+    constructor(private serviceCategoryPathRepository: ServiceCategoryPathRepository
     ) {
     }
     // create serviceCategoryPath
     public async create(categoryPath: any): Promise<ServiceCategoryPath> {
-        return this.serviceCategoryPathRepository.save(categoryPath);
+        return this.serviceCategoryPathRepository.repository.save(categoryPath);
     }
     // findone serviceCategoryPath
     public findOne(categoryPath: any): Promise<any> {
-        return this.serviceCategoryPathRepository.findOne(categoryPath);
+        return this.serviceCategoryPathRepository.repository.findOne(categoryPath);
     }
     // delete serviceCategoryPath
     public async delete(id: any): Promise<any> {
-        await this.serviceCategoryPathRepository.delete(id);
+        await this.serviceCategoryPathRepository.repository.delete(id);
         return;
     }
     // find serviceCategoryPath
     public find(categoryPath: any): Promise<any> {
-        return this.serviceCategoryPathRepository.find(categoryPath);
+        return this.serviceCategoryPathRepository.repository.find(categoryPath);
     }
     // serviceCategoryPath list
     public list(limit: any, offset: any, select: any = [], search: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -63,9 +62,9 @@ export class ServiceCategoryPathService {
             condition.skip = offset;
         }
         if (count) {
-            return this.serviceCategoryPathRepository.count(condition);
+            return this.serviceCategoryPathRepository.repository.count(condition);
         }
-        return this.serviceCategoryPathRepository.find(condition);
+        return this.serviceCategoryPathRepository.repository.find(condition);
     }
 
     public async listByQueryBuilder(

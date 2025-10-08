@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { LiveAddressRepository } from '../repositories/LiveAddressRepository';
 import { LiveAddress } from '../models/LiveAddress';
 import { DeleteResult } from 'typeorm';
@@ -16,33 +15,33 @@ import { DeleteResult } from 'typeorm';
 export class LiveAddressService {
 
     constructor(
-        @OrmRepository() private liveAddressRepository: LiveAddressRepository
+        private liveAddressRepository: LiveAddressRepository
     ) {
     }
 
     // create address
     public async create(address: LiveAddress): Promise<LiveAddress> {
-        return this.liveAddressRepository.save(address);
+        return this.liveAddressRepository.repository.save(address);
     }
 
     // find Condition
     public findOne(address: any): Promise<LiveAddress> {
-        return this.liveAddressRepository.findOne(address);
+        return this.liveAddressRepository.repository.findOne(address);
     }
     // update address
     public update(id: number, address: LiveAddress): Promise<LiveAddress> {
         address.id = id;
-        return this.liveAddressRepository.save(address);
+        return this.liveAddressRepository.repository.save(address);
     }
 
     // delete address
     public async delete(address: Partial<LiveAddress>): Promise<DeleteResult> {
-        return await this.liveAddressRepository.delete(address);
+        return await this.liveAddressRepository.repository.delete(address);
     }
 
     // find Customer addresses
     public find(address: any): Promise<LiveAddress[]> {
-        return this.liveAddressRepository.find(address);
+        return this.liveAddressRepository.repository.find(address);
     }
 
     // address List
@@ -66,9 +65,9 @@ export class LiveAddressService {
             condition.skip = offset;
         }
         if (count) {
-            return this.liveAddressRepository.count(condition);
+            return this.liveAddressRepository.repository.count(condition);
         } else {
-            return this.liveAddressRepository.find(condition);
+            return this.liveAddressRepository.repository.find(condition);
         }
     }
 

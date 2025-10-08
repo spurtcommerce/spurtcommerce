@@ -32,7 +32,7 @@ const spurtConnectLoader = (settings) => {
         const sessionStore = new MySQLStore(options);
         expressApp
             // view engine setup
-            .set('views', path.join(__dirname, '../../', 'views'))
+            .set('views', path.join(__dirname, '../../../', 'views'))
             .set('view engine', 'ejs')
             .use(expressEjsLayout)
             .set('layout', 'pages/layouts/common')

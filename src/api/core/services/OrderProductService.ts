@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { OrderProduct } from '../models/OrderProduct';
 import { OrderProductRepository } from '../repositories/OrderProductRepository';
@@ -16,31 +15,31 @@ import { getConnection, Brackets } from 'typeorm';
 @Service()
 export class OrderProductService {
     constructor(
-        @OrmRepository() private orderProductRepository: OrderProductRepository,
+        private orderProductRepository: OrderProductRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     public async createData(checkoutdata: any): Promise<OrderProduct> {
         this.log.info('create a order product data');
-        return this.orderProductRepository.save(checkoutdata);
+        return this.orderProductRepository.repository.save(checkoutdata);
     }
     public async findData(productid: number, orderid: number, orderProductid: number): Promise<any> {
         this.log.info('find a order product data');
-        return this.orderProductRepository.find({ where: { productId: productid, orderId: orderid, orderProductId: orderProductid } });
+        return this.orderProductRepository.repository.find({ where: { productId: productid, orderId: orderid, orderProductId: orderProductid } });
 
     }
 
     public find(order: any): Promise<any> {
-        return this.orderProductRepository.find(order);
+        return this.orderProductRepository.repository.find(order);
     }
 
     public findOne(productData: any): Promise<any> {
-        return this.orderProductRepository.findOne(productData);
+        return this.orderProductRepository.repository.findOne(productData);
     }
 
     // findAll
     public findAll(orderProduct: any): Promise<any> {
-        return this.orderProductRepository.find(orderProduct);
+        return this.orderProductRepository.repository.find(orderProduct);
     }
 
     // order list
@@ -50,7 +49,7 @@ export class OrderProductService {
 
     // order count
     public findAndCount(where: any): Promise<any> {
-        return this.orderProductRepository.findAndCount(where);
+        return this.orderProductRepository.repository.findAndCount(where);
     }
 
     // getting earnings
@@ -75,7 +74,7 @@ export class OrderProductService {
 
     // count
     public count(productData: any): Promise<any> {
-        return this.orderProductRepository.count(productData);
+        return this.orderProductRepository.repository.count(productData);
     }
 
     public async listByQueryBuilder(
@@ -210,7 +209,7 @@ export class OrderProductService {
     public update(id: any, orderProduct: OrderProduct): Promise<OrderProduct> {
         this.log.info('Update a order produts');
         orderProduct.orderProductId = id;
-        return this.orderProductRepository.save(orderProduct);
+        return this.orderProductRepository.repository.save(orderProduct);
     }
 
     //  find Product varient

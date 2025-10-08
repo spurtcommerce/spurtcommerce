@@ -7,40 +7,39 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { OrderStatusRepository } from '../repositories/OrderStatusRepository';
-import { FindConditions, Like } from 'typeorm/index';
+import { FindOptionsWhere, Like } from 'typeorm/index';
 import { OrderStatus } from '../models/OrderStatus';
 
 @Service()
 export class OrderStatusService {
 
     constructor(
-        @OrmRepository() private orderStatusRepository: OrderStatusRepository,
+        private orderStatusRepository: OrderStatusRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create orderStatus
     public async create(orderStatus: any): Promise<any> {
-        const newOrderStatus = await this.orderStatusRepository.save(orderStatus);
+        const newOrderStatus = await this.orderStatusRepository.repository.save(orderStatus);
         this.log.info('Create a orderStatus');
         return newOrderStatus;
     }
 
-    public async update(condition: FindConditions<OrderStatus>, orderStatus: Partial<OrderStatus>): Promise<any> {
-        const newOrderStatus = await this.orderStatusRepository.update(condition, orderStatus);
+    public async update(condition: FindOptionsWhere<OrderStatus>, orderStatus: Partial<OrderStatus>): Promise<any> {
+        const newOrderStatus = await this.orderStatusRepository.repository.update(condition, orderStatus);
         return newOrderStatus;
     }
 
     // find one orderStatus
     public findOne(orderStatus: any): Promise<any> {
-        return this.orderStatusRepository.findOne(orderStatus);
+        return this.orderStatusRepository.repository.findOne(orderStatus);
     }
 
     // find one orderStatus
     public findAll(orderStatus: any): Promise<any> {
-        return this.orderStatusRepository.find(orderStatus);
+        return this.orderStatusRepository.repository.find(orderStatus);
     }
 
     // orderStatus List
@@ -80,14 +79,14 @@ export class OrderStatusService {
         };
 
         if (count) {
-            return this.orderStatusRepository.count(condition);
+            return this.orderStatusRepository.repository.count(condition);
         } else {
-            return this.orderStatusRepository.find(condition);
+            return this.orderStatusRepository.repository.find(condition);
         }
     }
 
     // delete orderStatus
     public async delete(id: number): Promise<any> {
-        return await this.orderStatusRepository.delete(id);
+        return await this.orderStatusRepository.repository.delete(id);
     }
 }

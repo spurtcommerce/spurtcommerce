@@ -5,22 +5,28 @@
  * Author piccosoft ltd <support@piccosoft.com>
  * Licensed under the MIT license.
  */
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Customer } from '../models/Customer';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(Customer)
-export class CustomerRepository extends Repository<Customer>  {
+@Service()
+export class CustomerRepository {
+    public repository: Repository<Customer>;
+    constructor() {
+        this.repository = getDataSource().getRepository(Customer);
+    }
 
     public async TodayCustomerCount(todaydate: string): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(Customer, 'customer');
+        const query: any = await this.repository.createQueryBuilder('customer');
         query.select(['COUNT(customer.id) as customerCount']);
         query.where('DATE(customer.createdDate) = :todaydate', { todaydate });
         return query.getRawOne();
     }
 
     public async dashboardCustomerCount(duration: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Customer, 'Customer');
+        const query: any = await this.repository.createQueryBuilder('Customer');
         query.where('Customer.deleteFlag = 0');
         if (duration === 1 && duration) {
             query.andWhere('DATE(Customer.created_date) = DATE(NOW())');

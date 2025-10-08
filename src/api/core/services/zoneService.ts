@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Brackets, getConnection, Like } from 'typeorm/index';
 import { ZoneRepository } from '../repositories/ZoneRepository';
@@ -17,30 +16,30 @@ import { Zone } from '../models/Zone';
 export class ZoneService {
 
     constructor(
-        @OrmRepository() private zoneRepository: ZoneRepository,
+        private zoneRepository: ZoneRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create zone
     public async create(zone: any): Promise<Zone> {
         this.log.info('Create a new zone ');
-        return this.zoneRepository.save(zone);
+        return this.zoneRepository.repository.save(zone);
     }
 
     // find condition
     public async find(zone: any): Promise<any> {
-        return this.zoneRepository.find(zone);
+        return this.zoneRepository.repository.find(zone);
     }
 
     // find one Condition
     public findOne(zone: any): Promise<any> {
-        return this.zoneRepository.findOne(zone);
+        return this.zoneRepository.repository.findOne(zone);
     }
 
     // update zone
     public update(id: any, zone: Zone): Promise<any> {
         zone.zoneId = id;
-        return this.zoneRepository.save(zone);
+        return this.zoneRepository.repository.save(zone);
     }
 
     // zone List
@@ -80,9 +79,9 @@ export class ZoneService {
         condition.order = { createdDate: 'DESC' };
 
         if (count) {
-            return this.zoneRepository.count(condition);
+            return this.zoneRepository.repository.count(condition);
         } else {
-            return this.zoneRepository.find(condition);
+            return this.zoneRepository.repository.find(condition);
         }
     }
     public async listByQueryBuilder(
@@ -215,6 +214,6 @@ export class ZoneService {
     }
     // delete Zone
     public async delete(id: number): Promise<any> {
-        return await this.zoneRepository.delete(id);
+        return await this.zoneRepository.repository.delete(id);
     }
 }

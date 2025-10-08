@@ -7,18 +7,17 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { VendorDocumentRepository } from '../repositories/VendorDocumentRepository';
 import { VendorDocument } from '../models/VendorDocument';
-import { FindConditions, FindManyOptions, FindOneOptions, UpdateResult } from 'typeorm';
+import { FindOptionsWhere, FindManyOptions,  UpdateResult, FindOneOptions } from 'typeorm';
 import { Brackets, getConnection } from 'typeorm/index';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 @Service()
 export class VendorDocumentService {
 
     constructor(
-        @OrmRepository() private vendorDocumentRepository: VendorDocumentRepository,
+        private vendorDocumentRepository: VendorDocumentRepository,
         @Logger(__filename) private log: LoggerInterface
     ) {
         // --
@@ -27,23 +26,23 @@ export class VendorDocumentService {
     // create customer document
     public async create(vendorDocument: VendorDocument): Promise<VendorDocument> {
         this.log.info('Create a new vendor document ');
-        return this.vendorDocumentRepository.save(vendorDocument);
+        return this.vendorDocumentRepository.repository.save(vendorDocument);
     }
 
     // create customer document
-    public async update(condition: FindConditions<VendorDocument>, vendorDocument: QueryDeepPartialEntity<VendorDocument>): Promise<UpdateResult> {
+    public async update(condition: FindOptionsWhere<VendorDocument>, vendorDocument: QueryDeepPartialEntity<VendorDocument>): Promise<UpdateResult> {
         this.log.info('Create a new vendor document ');
-        return this.vendorDocumentRepository.update(condition, vendorDocument);
+        return this.vendorDocumentRepository.repository.update(condition, vendorDocument);
     }
 
     // find Condition
     public findOne(vendorDocument: FindOneOptions<VendorDocument>): Promise<VendorDocument> {
-        return this.vendorDocumentRepository.findOne(vendorDocument);
+        return this.vendorDocumentRepository.repository.findOne(vendorDocument);
     }
 
     // find Condition
     public find(data: FindManyOptions<VendorDocument>): Promise<VendorDocument[]> {
-        return this.vendorDocumentRepository.find(data);
+        return this.vendorDocumentRepository.repository.find(data);
     }
 
     public async listByQueryBuilder(
@@ -168,10 +167,10 @@ export class VendorDocumentService {
 
     // delete customer document
     public async delete(id: number): Promise<any> {
-        return await this.vendorDocumentRepository.delete(id);
+        return await this.vendorDocumentRepository.repository.delete(id);
     }
 
     public async softDelete(id: number): Promise<any> {
-        return await this.vendorDocumentRepository.update({ id }, { isDelete: 1 });
+        return await this.vendorDocumentRepository.repository.update({ id }, { isDelete: 1 });
     }
 }

@@ -18,7 +18,7 @@ const publicLoader = (settings) => {
         expressApp
             // Serve static filles like images from the public folder
             .use(express.static(path.join(__dirname, '..', 'public'), { maxAge: 31557600000 }))
-            .use(express.static(path.join(__dirname, '../../', 'views/assets'), { maxAge: 31557600000 }))
+            .use(express.static(path.join(__dirname, '../../../', 'views/assets'), { maxAge: 31557600000 }))
             // A favicon is a visual cue that client software, like browsers, use to identify a site
             .use((0, serve_favicon_1.default)(path.join(__dirname, '..', 'public', 'favicon.ico')));
     }

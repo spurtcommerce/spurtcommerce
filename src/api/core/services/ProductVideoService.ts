@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { ProductVideo } from '../models/ProductVideo';
 import { ProductVideoRepository } from '../repositories/ProductVideoRepository';
@@ -17,19 +16,19 @@ import { Like } from 'typeorm';
 export class ProductVideoService {
 
     constructor(
-        @OrmRepository() private productVideoRepository: ProductVideoRepository,
+        private productVideoRepository: ProductVideoRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // find one condition
     public findOne(data: any): Promise<any> {
-        return this.productVideoRepository.findOne(data);
+        return this.productVideoRepository.repository.findOne(data);
     }
 
     // find all
     public findAll(data: any): Promise<any> {
         this.log.info('Find all');
-        return this.productVideoRepository.find(data);
+        return this.productVideoRepository.repository.find(data);
     }
 
     // list
@@ -67,15 +66,15 @@ export class ProductVideoService {
 
         }
         if (count) {
-            return this.productVideoRepository.count(condition);
+            return this.productVideoRepository.repository.count(condition);
         } else {
-            return this.productVideoRepository.find(condition);
+            return this.productVideoRepository.repository.find(condition);
         }
     }
 
     // create
     public async create(productVideo: ProductVideo): Promise<ProductVideo> {
-        const newVarient = await this.productVideoRepository.save(productVideo);
+        const newVarient = await this.productVideoRepository.repository.save(productVideo);
         return newVarient;
     }
 
@@ -83,13 +82,13 @@ export class ProductVideoService {
     public update(id: any, productVideo: ProductVideo): Promise<ProductVideo> {
         this.log.info('Update a product video');
         productVideo.id = id;
-        return this.productVideoRepository.save(productVideo);
+        return this.productVideoRepository.repository.save(productVideo);
     }
 
     // delete
     public async delete(id: any): Promise<any> {
         this.log.info('Delete a product video');
-        const newVideo = await this.productVideoRepository.delete(id);
+        const newVideo = await this.productVideoRepository.repository.delete(id);
         return newVideo;
     }
 }

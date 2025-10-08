@@ -14,7 +14,9 @@ import { PageTranslationService } from '../../core/services/PageTranslationServi
 import { PageTranslation } from '../../core/models/PageTranslation';
 import { FindManyOptions, Like } from 'typeorm';
 import { Page } from '../../core/models/Page';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/page-translation')
 export class AdminPageTranslationController {
     constructor(

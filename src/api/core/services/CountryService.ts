@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Country } from '../models/Country';
 import { CountryRepository } from '../repositories/CountryRepository';
@@ -17,25 +16,25 @@ import { Brackets, getConnection, Like } from 'typeorm/index';
 export class CountryService {
 
     constructor(
-        @OrmRepository() private countryRepository: CountryRepository,
+        private countryRepository: CountryRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create Country
     public async create(country: any): Promise<Country> {
         this.log.info('Create a new country ');
-        return this.countryRepository.save(country);
+        return this.countryRepository.repository.save(country);
     }
 
     // findCondition
     public findOne(country: any): Promise<any> {
-        return this.countryRepository.findOne(country);
+        return this.countryRepository.repository.findOne(country);
     }
 
     // update country
     public update(id: any, country: Country): Promise<any> {
         country.countryId = id;
-        return this.countryRepository.save(country);
+        return this.countryRepository.repository.save(country);
     }
 
     // country List
@@ -70,9 +69,9 @@ export class CountryService {
         }
 
         if (count) {
-            return this.countryRepository.count(condition);
+            return this.countryRepository.repository.count(condition);
         } else {
-            return this.countryRepository.find(condition);
+            return this.countryRepository.repository.find(condition);
         }
     }
     public async listByQueryBuilder(
@@ -206,6 +205,6 @@ export class CountryService {
 
     // delete Country
     public async delete(id: number): Promise<any> {
-        return await this.countryRepository.delete(id);
+        return await this.countryRepository.repository.delete(id);
     }
 }

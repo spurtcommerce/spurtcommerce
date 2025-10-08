@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { PageGroupTranslation } from '../models/PageGroupTranslation';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(PageGroupTranslation)
-export class PageGroupTranslationRepository extends Repository<PageGroupTranslation>  {
-
+@Service()
+export class PageGroupTranslationRepository {
+     public repository: Repository<PageGroupTranslation>;
+  constructor() {
+    this.repository = getDataSource().getRepository(PageGroupTranslation);
+  }
 }

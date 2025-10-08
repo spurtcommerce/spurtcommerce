@@ -9,7 +9,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { ServiceEnquiry } from '../models/ServiceEnquiry';
 import { ServiceEnquiryRepository } from '../repositories/ServiceEnquiryRepository';
@@ -18,27 +17,27 @@ import { Like } from 'typeorm/index';
 @Service()
 export class ServiceEnquiryService {
     constructor(
-        @OrmRepository() private serviceEnquiryRepository: ServiceEnquiryRepository,
+        private serviceEnquiryRepository: ServiceEnquiryRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
     // create enquiry
     public async create(enquiry: any): Promise<ServiceEnquiry> {
         this.log.info('Create a new enquiry => ', enquiry.toString());
-        return this.serviceEnquiryRepository.save(enquiry);
+        return this.serviceEnquiryRepository.repository.save(enquiry);
     }
     // findone enquiry
     public findOne(enquiry: any): Promise<any> {
-        return this.serviceEnquiryRepository.findOne(enquiry);
+        return this.serviceEnquiryRepository.repository.findOne(enquiry);
     }
     // delete enquiry
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a enquiry');
-        await this.serviceEnquiryRepository.delete(id);
+        await this.serviceEnquiryRepository.repository.delete(id);
         return;
     }
     // find enquiry
     public find(enquiry: any): Promise<any> {
-        return this.serviceEnquiryRepository.find(enquiry);
+        return this.serviceEnquiryRepository.repository.find(enquiry);
     }
     // enquiry list
     public list(limit: number, offset: number, select: any = [], search: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -70,8 +69,8 @@ export class ServiceEnquiryService {
             condition.skip = offset;
         }
         if (count) {
-            return this.serviceEnquiryRepository.count(condition);
+            return this.serviceEnquiryRepository.repository.count(condition);
         }
-        return this.serviceEnquiryRepository.find(condition);
+        return this.serviceEnquiryRepository.repository.find(condition);
     }
 }

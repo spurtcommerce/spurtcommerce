@@ -19,7 +19,9 @@ import { S3Service } from '../../core/services/S3Service';
 import { env } from '../../../env';
 import { ImageService } from '../../core/services/ImageService';
 import { ServiceToCategoryService } from '../../core/services/ServiceToCategoryService';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/service-category')
 export class ServiceCategoryController {
     constructor(

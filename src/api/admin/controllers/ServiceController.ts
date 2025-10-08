@@ -22,7 +22,9 @@ import { DeleteEnquiry } from './requests/DeleteEnquiryRequest';
 import { DeleteService } from './requests/DeleteServiceRequest';
 import { ServiceImageService } from '../../core/services/ServiceImageService';
 import * as fs from 'fs';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/service')
 export class ServiceController {
     constructor(

@@ -31,6 +31,8 @@ import { S3Service } from '../../core/services/S3Service';
 import { SettingService } from '../../core/services/SettingService';
 import { Not, Raw } from 'typeorm';
 import moment from 'moment';
+import { Service } from 'typedi';
+@Service()
 @JsonController('/auth')
 export class UserController {
 

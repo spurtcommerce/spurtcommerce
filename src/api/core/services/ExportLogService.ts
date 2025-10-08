@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Brackets, getConnection, Like } from 'typeorm';
 import { ExportLogRepository } from '../repositories/ExportLogRepository';
@@ -17,14 +16,14 @@ import { ExportLog } from '../models/ExportLog';
 export class ExportLogService {
 
     constructor(
-        @OrmRepository() private exportLogRepository: ExportLogRepository,
+        private exportLogRepository: ExportLogRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find exportLog
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find all exportLogs');
-        return this.exportLogRepository.findOne(findCondition);
+        return this.exportLogRepository.repository.findOne(findCondition);
     }
 
     // exportLog list
@@ -74,9 +73,9 @@ export class ExportLogService {
         }
 
         if (count) {
-            return this.exportLogRepository.count(condition);
+            return this.exportLogRepository.repository.count(condition);
         } else {
-            return this.exportLogRepository.find(condition);
+            return this.exportLogRepository.repository.find(condition);
         }
 
     }
@@ -230,7 +229,7 @@ export class ExportLogService {
     // create exportLog
     public async create(exportLog: ExportLog): Promise<ExportLog> {
         this.log.info('Create a new exportLog');
-        const newExport = await this.exportLogRepository.save(exportLog);
+        const newExport = await this.exportLogRepository.repository.save(exportLog);
         return newExport;
     }
 
@@ -238,19 +237,19 @@ export class ExportLogService {
     public update(id: any, exportLog: ExportLog): Promise<ExportLog> {
         this.log.info('Update a exportLog');
         exportLog.id = id;
-        return this.exportLogRepository.save(exportLog);
+        return this.exportLogRepository.repository.save(exportLog);
     }
 
     // delete exportLog
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a exportLog');
-        const newExport = await this.exportLogRepository.delete(id);
+        const newExport = await this.exportLogRepository.repository.delete(id);
         return newExport;
     }
 
     // find exportLog
     public findAll(findCondition: any): Promise<any> {
         this.log.info('Find all exportLogs');
-        return this.exportLogRepository.find(findCondition);
+        return this.exportLogRepository.repository.find(findCondition);
     }
 }

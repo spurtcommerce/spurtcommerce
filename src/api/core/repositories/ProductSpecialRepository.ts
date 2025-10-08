@@ -8,15 +8,21 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { ProductSpecial } from '../models/ProductSpecial';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(ProductSpecial)
-export class ProductSpecialRepository extends Repository<ProductSpecial> {
+@Service()
+export class ProductSpecialRepository {
+    public repository: Repository<ProductSpecial>;
+    constructor() {
+        this.repository = getDataSource().getRepository(ProductSpecial);
+    }
 
     public async findSpecialPrice(productId: number, todaydate: string): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(ProductSpecial, 'productSpecial');
+        const query: any = await this.repository.createQueryBuilder('productSpecial');
         query.select(['productSpecial.price as price', 'productSpecial.dateStart as dateStart', 'productSpecial.dateEnd as dateEnd']);
         query.where('productSpecial.productId = ' + productId);
         query.andWhere('(productSpecial.dateStart <= :todaydate AND productSpecial.dateEnd >= :todaydate)', { todaydate });
@@ -28,7 +34,7 @@ export class ProductSpecialRepository extends Repository<ProductSpecial> {
 
     public async findSpecialPriceWithSku(productId: number, skuId: number, todaydate: string): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(ProductSpecial, 'productSpecial');
+        const query: any = await this.repository.createQueryBuilder('productSpecial');
         query.select(['productSpecial.price as price', 'productSpecial.dateStart as dateStart', 'productSpecial.dateEnd as dateEnd', 'productSpecial.skuId as skuId']);
         query.where('productSpecial.productId = ' + productId);
         query.andWhere('productSpecial.skuId = ' + skuId);

@@ -8,7 +8,6 @@
 
 import { Service } from 'typedi';
 import { Brackets, getConnection } from 'typeorm';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { CustomerWishlist } from '../models/CustomerWishlist';
 import { CustomerWishlistRepository } from '../repositories/CustomerWishlistRepository';
@@ -16,24 +15,24 @@ import { CustomerWishlistRepository } from '../repositories/CustomerWishlistRepo
 @Service()
 export class CustomerWishlistService {
     constructor(
-        @OrmRepository() private customerWishlistRepository: CustomerWishlistRepository,
+        private customerWishlistRepository: CustomerWishlistRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     public async create(productdata: any): Promise<CustomerWishlist> {
         this.log.info('create a wishlist product');
-        return this.customerWishlistRepository.save(productdata);
+        return this.customerWishlistRepository.repository.save(productdata);
     }
 
     // find Condition
     public findOne(customer: any): Promise<any> {
-        return this.customerWishlistRepository.findOne(customer);
+        return this.customerWishlistRepository.repository.findOne(customer);
     }
 
     // delete customer wishlist
     public async delete(id: number): Promise<any> {
         this.log.info('delete a wishlist product');
-        return await this.customerWishlistRepository.delete(id);
+        return await this.customerWishlistRepository.repository.delete(id);
     }
 
     // customer wishlist
@@ -53,14 +52,14 @@ export class CustomerWishlistService {
         }
 
         if (count) {
-            return this.customerWishlistRepository.count(condition);
+            return this.customerWishlistRepository.repository.count(condition);
         }
-        return this.customerWishlistRepository.find(condition);
+        return this.customerWishlistRepository.repository.find(condition);
     }
     // find customer
     public async find(customerId: any): Promise<any> {
         this.log.info('Find a customer');
-        return this.customerWishlistRepository.find(customerId);
+        return this.customerWishlistRepository.repository.find(customerId);
     }
 
     public async listByQueryBuilder(

@@ -1,11 +1,13 @@
-import { getManager } from 'typeorm';
 import { Industry } from '../models/Industry';
+import { getDataSource } from '../../../../src/loaders/typeormLoader';
 
 export async function IndustryValidationMiddleware(req: any, res: any, next: any): Promise<any> {
-    const settingService = getManager().getRepository(Industry);
+    const settingService = getDataSource().getRepository(Industry);
     const industryName = req.get('industry');
     const industryExist = await settingService.findOne({
-        slug: industryName ?? 'none',
+        where: {
+            slug: industryName ?? 'none',
+        },
     });
     if (!industryExist && industryName) {
         return res.status(400).send({

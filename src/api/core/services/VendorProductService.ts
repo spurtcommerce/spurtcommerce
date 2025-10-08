@@ -8,7 +8,6 @@
 
 import { Service } from 'typedi';
 import { Brackets, getConnection } from 'typeorm';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { VendorProducts } from '../models/VendorProducts';
 import { VendorProductsRepository } from '../repositories/VendorProductRepository';
@@ -17,14 +16,14 @@ import { VendorProductsRepository } from '../repositories/VendorProductRepositor
 export class VendorProductService {
 
     constructor(
-        @OrmRepository() private vendorProductsRepository: VendorProductsRepository,
+        private vendorProductsRepository: VendorProductsRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find user
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find all users');
-        return this.vendorProductsRepository.findOne(findCondition);
+        return this.vendorProductsRepository.repository.findOne(findCondition);
     }
 
     // user list
@@ -57,9 +56,9 @@ export class VendorProductService {
             condition.skip = offset;
         }
         if (count) {
-            return this.vendorProductsRepository.count(condition);
+            return this.vendorProductsRepository.repository.count(condition);
         } else {
-            return this.vendorProductsRepository.find(condition);
+            return this.vendorProductsRepository.repository.find(condition);
         }
 
     }
@@ -67,7 +66,7 @@ export class VendorProductService {
     // create user
     public async create(vendorProducts: VendorProducts): Promise<VendorProducts> {
         this.log.info('Create a new vendorProducts => ', vendorProducts.toString());
-        const newVendorProducts = await this.vendorProductsRepository.save(vendorProducts);
+        const newVendorProducts = await this.vendorProductsRepository.repository.save(vendorProducts);
         return newVendorProducts;
     }
 
@@ -75,26 +74,26 @@ export class VendorProductService {
     public update(id: any, vendorProducts: VendorProducts): Promise<VendorProducts> {
         this.log.info('Update a VendorProducts');
         vendorProducts.vendorProductId = id;
-        return this.vendorProductsRepository.save(vendorProducts);
+        return this.vendorProductsRepository.repository.save(vendorProducts);
     }
 
     // delete user
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a VendorProducts');
-        const vendorProducts = await this.vendorProductsRepository.delete(id);
+        const vendorProducts = await this.vendorProductsRepository.repository.delete(id);
         return vendorProducts;
     }
 
     // find user
     public findAll(): Promise<any> {
         this.log.info('Find all VendorProducts');
-        return this.vendorProductsRepository.find();
+        return this.vendorProductsRepository.repository.find();
     }
 
     // find user
     public find(data: any): Promise<any> {
         this.log.info('Find all VendorProducts');
-        return this.vendorProductsRepository.find(data);
+        return this.vendorProductsRepository.repository.find(data);
     }
 
     // find user

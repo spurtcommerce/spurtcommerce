@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Industry } from '../models/Industry';
 import { Brackets, getConnection } from 'typeorm/index';
@@ -17,29 +16,29 @@ import { IndustryRepository } from '../repositories/IndustryRepository';
 export class IndustryService {
 
     constructor(
-        @OrmRepository() private industryRepository: IndustryRepository,
+        private industryRepository: IndustryRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create industry
     public async create(industy: any): Promise<any> {
         this.log.info('Create a new industy ');
-        return this.industryRepository.save(industy);
+        return this.industryRepository.repository.save(industy);
     }
 
     // find One industry
     public findOne(industry: any): Promise<any> {
-        return this.industryRepository.findOne(industry);
+        return this.industryRepository.repository.findOne(industry);
     }
 
     // findAll industry
     public findAll(industry: any): Promise<any> {
-        return this.industryRepository.find(industry);
+        return this.industryRepository.repository.find(industry);
     }
 
     // update industry
     public update(industry: any): Promise<any> {
-        return this.industryRepository.save(industry);
+        return this.industryRepository.repository.save(industry);
     }
 
     // list by query builder
@@ -168,6 +167,6 @@ export class IndustryService {
 
     // delete industry
     public async delete(id: number): Promise<any> {
-        return await this.industryRepository.delete(id);
+        return await this.industryRepository.repository.delete(id);
     }
 }

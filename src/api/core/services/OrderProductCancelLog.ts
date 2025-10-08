@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { OrderProductCancelLogRepository } from '../repositories/OrderProductCancelLogRepository';
 import { Brackets, getConnection } from 'typeorm';
@@ -16,17 +15,17 @@ import { OrderProductCancelLog } from '../models/OrderProductCancelLog';
 @Service()
 export class OrderProductCancelLogService {
     constructor(
-        @OrmRepository() private orderProductCancelLogRepository: OrderProductCancelLogRepository,
+        private orderProductCancelLogRepository: OrderProductCancelLogRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     public find(orderProductCancelLog: any): Promise<any> {
         this.log.info('Find a data');
-        return this.orderProductCancelLogRepository.find(orderProductCancelLog);
+        return this.orderProductCancelLogRepository.repository.find(orderProductCancelLog);
     }
 
     public findOne(orderProductCancelLog: any): Promise<any> {
-        return this.orderProductCancelLogRepository.findOne(orderProductCancelLog);
+        return this.orderProductCancelLogRepository.repository.findOne(orderProductCancelLog);
     }
 
     // order list
@@ -49,9 +48,9 @@ export class OrderProductCancelLogService {
             condition.skip = offset;
         }
         if (count) {
-            return this.orderProductCancelLogRepository.count(condition);
+            return this.orderProductCancelLogRepository.repository.count(condition);
         } else {
-            return this.orderProductCancelLogRepository.find(condition);
+            return this.orderProductCancelLogRepository.repository.find(condition);
         }
     }
 
@@ -181,15 +180,15 @@ export class OrderProductCancelLogService {
 
     // order count
     public findAndCount(where: any): Promise<any> {
-        return this.orderProductCancelLogRepository.findAndCount(where);
+        return this.orderProductCancelLogRepository.repository.findAndCount(where);
     }
 
     public async create(orderProductCancelLog: any): Promise<any> {
-        return this.orderProductCancelLogRepository.save(orderProductCancelLog);
+        return this.orderProductCancelLogRepository.repository.save(orderProductCancelLog);
     }
 
     public async update(orderProductCancelLogId: number, orderProductCancelLog: any): Promise<any> {
         orderProductCancelLog.id = orderProductCancelLogId;
-        return this.orderProductCancelLogRepository.save(orderProductCancelLog);
+        return this.orderProductCancelLogRepository.repository.save(orderProductCancelLog);
     }
 }

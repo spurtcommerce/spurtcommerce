@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { ProductDiscount } from '../models/ProductDiscount';
 import { ProductDiscountRepository } from '../repositories/ProductDiscountRepository';
@@ -15,41 +14,41 @@ import { ProductDiscountRepository } from '../repositories/ProductDiscountReposi
 @Service()
 export class ProductDiscountService {
     constructor(
-        @OrmRepository() private productDiscountRepository: ProductDiscountRepository,
+        private productDiscountRepository: ProductDiscountRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // create a data
     public async create(Data: any): Promise<ProductDiscount> {
         this.log.info('create a data');
-        return this.productDiscountRepository.save(Data);
+        return this.productDiscountRepository.repository.save(Data);
     }
     // findone a data
     public findOne(id: any): Promise<ProductDiscount> {
         this.log.info('Find a data');
-        return this.productDiscountRepository.findOne(id);
+        return this.productDiscountRepository.repository.findOne(id);
     }
 
     // findone a data
     public findOneValue(id: any): Promise<ProductDiscount> {
         this.log.info('Find a data');
-        return this.productDiscountRepository.findOne(id);
+        return this.productDiscountRepository.repository.findOne(id);
     }
     // find a data
     public findAll(productDiscount: any): Promise<ProductDiscount[]> {
         this.log.info('Find a data');
-        return this.productDiscountRepository.find(productDiscount);
+        return this.productDiscountRepository.repository.find(productDiscount);
     }
 
     // find a data
     public find(): Promise<ProductDiscount[]> {
         this.log.info('Find a data');
-        return this.productDiscountRepository.find();
+        return this.productDiscountRepository.repository.find();
     }
     // delete product option
     public async delete(id: any): Promise<any> {
         this.log.info('Delete a product option');
-        const deleteProductDiscount = await this.productDiscountRepository.delete(id);
+        const deleteProductDiscount = await this.productDiscountRepository.repository.delete(id);
         return deleteProductDiscount;
     }
 

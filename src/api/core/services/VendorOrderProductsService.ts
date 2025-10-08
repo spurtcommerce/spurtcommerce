@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { VendorOrderProducts } from '../models/VendorOrderProducts';
 import { VendorOrderProductsRepository } from '../repositories/VendorOrderProductsRepository';
@@ -17,14 +16,14 @@ import { Like } from 'typeorm';
 export class VendorOrderProductsService {
 
     constructor(
-        @OrmRepository() private vendorOrderProductsRepository: VendorOrderProductsRepository,
+        private vendorOrderProductsRepository: VendorOrderProductsRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find Role
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find role');
-        return this.vendorOrderProductsRepository.findOne(findCondition);
+        return this.vendorOrderProductsRepository.repository.findOne(findCondition);
     }
     // Role list
     public list(limit: any, offset: any, select: any = [], search: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -56,14 +55,14 @@ export class VendorOrderProductsService {
         }
 
         if (count) {
-            return this.vendorOrderProductsRepository.count(condition);
+            return this.vendorOrderProductsRepository.repository.count(condition);
         }
-        return this.vendorOrderProductsRepository.find(condition);
+        return this.vendorOrderProductsRepository.repository.find(condition);
     }
 
     // create role
     public async create(vendorOrderProduct: VendorOrderProducts): Promise<VendorOrderProducts> {
-        const newvendorOrderProduct = await this.vendorOrderProductsRepository.save(vendorOrderProduct);
+        const newvendorOrderProduct = await this.vendorOrderProductsRepository.repository.save(vendorOrderProduct);
         return newvendorOrderProduct;
     }
 
@@ -71,19 +70,19 @@ export class VendorOrderProductsService {
     public update(id: any, vendorOrderProducts: VendorOrderProducts): Promise<VendorOrderProducts> {
         this.log.info('Update a vendorOrders');
         vendorOrderProducts.vendorOrderProductId = id;
-        return this.vendorOrderProductsRepository.save(vendorOrderProducts);
+        return this.vendorOrderProductsRepository.repository.save(vendorOrderProducts);
     }
 
     // delete role
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a vendorOrders');
-        const deleteVendorOrderProducts = await this.vendorOrderProductsRepository.delete(id);
+        const deleteVendorOrderProducts = await this.vendorOrderProductsRepository.repository.delete(id);
         return deleteVendorOrderProducts;
     }
 
     // find Services
     public findAll(data: any): Promise<any> {
-        return this.vendorOrderProductsRepository.find(data);
+        return this.vendorOrderProductsRepository.repository.find(data);
     }
 
 }

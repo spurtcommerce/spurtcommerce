@@ -22,11 +22,14 @@ import { S3Service } from '../../core/services/S3Service';
 import { env } from '../../../env';
 import { ImageService } from '../../core/services/ImageService';
 import * as fs from 'fs';
-import { getConnection } from 'typeorm';
 import { categoryCreate, categoryList } from '@spurtcommerce/product';
 import { ExportLog } from '../../core/models/ExportLog';
 import { ExportLogService } from '../../core/services/ExportLogService';
 import { VendorGroupCategoryService } from '../../core/services/VendorGroupCategoryService';
+import { getDataSource } from '../../../../src/loaders/typeormLoader';
+import { Service } from 'typedi';
+
+@Service()
 @JsonController('/category')
 export class CategoryController {
     constructor(
@@ -111,7 +114,7 @@ export class CategoryController {
 
         }
 
-        const categorySave = await categoryCreate(getConnection(), {
+        const categorySave = await categoryCreate(getDataSource(), {
             name: category.name,
             containerName: name,
             containerPath: path,
@@ -418,7 +421,7 @@ export class CategoryController {
         @Res() response: any
     ): Promise<any> {
         const listCategory = await categoryList(
-            getConnection(),
+            getDataSource(),
             limit,
             offset,
             keyword,

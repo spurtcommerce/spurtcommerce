@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { In, Like, Not } from 'typeorm/index';
 import { PermissionModuleGroupRepository } from '../repositories/PermissionModuleGroupRepository';
@@ -17,31 +16,31 @@ import { PermissionModuleGroup } from '../models/PermissionModuleGroup';
 export class PermissionModuleGroupService {
 
     constructor(
-        @OrmRepository() private permissionModuleGroupRepository: PermissionModuleGroupRepository,
+        private permissionModuleGroupRepository: PermissionModuleGroupRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create page
     public async create(data: any): Promise<any> {
         this.log.info('Create a new page ');
-        return this.permissionModuleGroupRepository.save(data);
+        return this.permissionModuleGroupRepository.repository.save(data);
     }
 
     // find one page
     public findOne(data: any): Promise<any> {
-        return this.permissionModuleGroupRepository.findOne(data);
+        return this.permissionModuleGroupRepository.repository.findOne(data);
     }
 
     // update page
     public update(id: any, data: PermissionModuleGroup): Promise<any> {
         this.log.info('Update a page');
         data.moduleGroupId = id;
-        return this.permissionModuleGroupRepository.save(data);
+        return this.permissionModuleGroupRepository.repository.save(data);
     }
 
     // find permission module group
     public async findAll(data: any): Promise<any> {
-        return await this.permissionModuleGroupRepository.find(data);
+        return await this.permissionModuleGroupRepository.repository.find(data);
     }
 
     // page List
@@ -81,14 +80,14 @@ export class PermissionModuleGroupService {
             condition.skip = offset;
         }
         if (count) {
-            return this.permissionModuleGroupRepository.count(condition);
+            return this.permissionModuleGroupRepository.repository.count(condition);
         } else {
-            return this.permissionModuleGroupRepository.find(condition);
+            return this.permissionModuleGroupRepository.repository.find(condition);
         }
     }
 
     // delete page
     public async delete(id: number): Promise<any> {
-        return await this.permissionModuleGroupRepository.delete(id);
+        return await this.permissionModuleGroupRepository.repository.delete(id);
     }
 }
