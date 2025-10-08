@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { VendorCategory } from '../models/VendorCategory';
 import { VendorCategoryRepository } from '../repositories/VendorCategoryRepository';
@@ -17,14 +16,14 @@ import { Like } from 'typeorm';
 export class VendorCategoryService {
 
     constructor(
-        @OrmRepository() private vendorCategoryRepository: VendorCategoryRepository,
+        private vendorCategoryRepository: VendorCategoryRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find Role
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find role');
-        return this.vendorCategoryRepository.findOne(findCondition);
+        return this.vendorCategoryRepository.repository.findOne(findCondition);
     }
 
     // query builder category list
@@ -58,14 +57,14 @@ export class VendorCategoryService {
         }
 
         if (count) {
-            return this.vendorCategoryRepository.count(condition);
+            return this.vendorCategoryRepository.repository.count(condition);
         }
-        return this.vendorCategoryRepository.find(condition);
+        return this.vendorCategoryRepository.repository.find(condition);
     }
 
     // create role
     public async create(vendorCategory: VendorCategory): Promise<VendorCategory> {
-        const newVendorCategory = await this.vendorCategoryRepository.save(vendorCategory);
+        const newVendorCategory = await this.vendorCategoryRepository.repository.save(vendorCategory);
         return newVendorCategory;
     }
 
@@ -73,13 +72,13 @@ export class VendorCategoryService {
     public update(id: any, vendorCategory: VendorCategory): Promise<VendorCategory> {
         this.log.info('Update a vendorCategory');
         vendorCategory.vendorCategoryId = id;
-        return this.vendorCategoryRepository.save(vendorCategory);
+        return this.vendorCategoryRepository.repository.save(vendorCategory);
     }
 
     // delete role
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a vendorCategory');
-        const deleteUser = await this.vendorCategoryRepository.delete(id);
+        const deleteUser = await this.vendorCategoryRepository.repository.delete(id);
         return deleteUser;
     }
 
@@ -89,6 +88,6 @@ export class VendorCategoryService {
 
     // find Services
     public findAll(data: any): Promise<any> {
-        return this.vendorCategoryRepository.find(data);
+        return this.vendorCategoryRepository.repository.find(data);
     }
 }

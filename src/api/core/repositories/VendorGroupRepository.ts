@@ -6,13 +6,19 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { VendorGroup } from '../models/VendorGroup';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(VendorGroup)
-export class VendorGroupRepository extends Repository<VendorGroup>  {
+@Service()
+export class VendorGroupRepository {
+    public repository: Repository<VendorGroup>;
+    constructor() {
+        this.repository = getDataSource().getRepository(VendorGroup);
+    }
     public async getVendorCount(id: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(VendorGroup, 'vendorGroup');
+        const query: any = await this.repository.createQueryBuilder('vendorGroup');
         query.select(['vendorGroup.groupId as vendorCount']);
         query.where('vendorGroup.id = :value', { value: id });
         query.innerJoin('vendorGroup.vendor', 'vendor');

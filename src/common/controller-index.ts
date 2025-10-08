@@ -3,7 +3,6 @@ export * from '../api/admin/controllers/AdminFacebookController';
 export * from '../api/admin/controllers/AdminGmailController';
 export * from '../api/admin/controllers/AuditLogController';
 export * from '../api/admin/controllers/BannerController';
-export * from '../api/admin/controllers/BulkImportController';
 export * from '../api/admin/controllers/CategoryController';
 export * from '../api/admin/controllers/CategoryTranslationController';
 export * from '../api/admin/controllers/CountryController';

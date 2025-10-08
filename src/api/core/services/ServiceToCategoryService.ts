@@ -9,7 +9,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { ServiceToCategory } from '../models/ServiceToCategory';
 import { ServiceToCategoryRepository } from '../repositories/ServiceToCategoryRepository';
@@ -18,27 +17,27 @@ import { Like } from 'typeorm';
 @Service()
 export class ServiceToCategoryService {
     constructor(
-        @OrmRepository() private serviceToCategoryRepository: ServiceToCategoryRepository,
+        private serviceToCategoryRepository: ServiceToCategoryRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // create ServiceToCategory
     public async create(data: any): Promise<ServiceToCategory> {
         this.log.info('Create a new ServiceToCategory => ', data.toString());
-        return this.serviceToCategoryRepository.save(data);
+        return this.serviceToCategoryRepository.repository.save(data);
     }
     // findone ServiceToCategory
     public findOne(data: any): Promise<any> {
-        return this.serviceToCategoryRepository.findOne(data);
+        return this.serviceToCategoryRepository.repository.findOne(data);
     }
     // delete ServiceToCategory
     public async delete(id: any): Promise<any> {
         this.log.info('Delete a ServiceToCategory');
-        return this.serviceToCategoryRepository.delete(id);
+        return this.serviceToCategoryRepository.repository.delete(id);
     }
     // find ServiceToCategory
     public find(data: any): Promise<any> {
-        return this.serviceToCategoryRepository.find(data);
+        return this.serviceToCategoryRepository.repository.find(data);
     }
     // ServiceToCategory List
     public list(limit: any, offset: any, select: any = [], search: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -67,8 +66,8 @@ export class ServiceToCategoryService {
             condition.skip = offset;
         }
         if (count) {
-            return this.serviceToCategoryRepository.count(condition);
+            return this.serviceToCategoryRepository.repository.count(condition);
         }
-        return this.serviceToCategoryRepository.find(condition);
+        return this.serviceToCategoryRepository.repository.find(condition);
     }
 }

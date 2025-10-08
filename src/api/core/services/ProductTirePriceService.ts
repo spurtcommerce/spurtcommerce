@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { ProductTirePrice } from '../models/ProductTirePrice';
 import { ProductTirePriceRepository } from '../repositories/ProductTirePriceRepository';
@@ -15,24 +14,24 @@ import { ProductTirePriceRepository } from '../repositories/ProductTirePriceRepo
 @Service()
 export class ProductTirePriceService {
     constructor(
-        @OrmRepository() private productTirePriceRepository: ProductTirePriceRepository,
+        private productTirePriceRepository: ProductTirePriceRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // create a data
     public async create(Data: any): Promise<ProductTirePrice> {
         this.log.info('create a data');
-        return this.productTirePriceRepository.save(Data);
+        return this.productTirePriceRepository.repository.save(Data);
     }
     // findone a data
     public findOne(id: any): Promise<ProductTirePrice> {
         this.log.info('Find a data');
-        return this.productTirePriceRepository.findOne(id);
+        return this.productTirePriceRepository.repository.findOne(id);
     }
     // find a data
     public findAll(productPrice: any): Promise<ProductTirePrice[]> {
         this.log.info('Find a data');
-        return this.productTirePriceRepository.find(productPrice);
+        return this.productTirePriceRepository.repository.find(productPrice);
     }
 
     // List
@@ -52,16 +51,16 @@ export class ProductTirePriceService {
             condition.skip = offset;
         }
         if (count) {
-            return this.productTirePriceRepository.count(condition);
+            return this.productTirePriceRepository.repository.count(condition);
         } else {
-            return this.productTirePriceRepository.find(condition);
+            return this.productTirePriceRepository.repository.find(condition);
         }
     }
 
     // delete product tire price
     public async delete(id: any): Promise<any> {
         this.log.info('Delete a product option value');
-        const deleteProductTireValue = await this.productTirePriceRepository.delete(id);
+        const deleteProductTireValue = await this.productTirePriceRepository.repository.delete(id);
         return deleteProductTireValue;
     }
 

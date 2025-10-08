@@ -1,22 +1,24 @@
 import { Language } from '../models/Language';
-import { getManager } from 'typeorm';
 import { Settings } from '../models/Setting';
+import { getDataSource } from '../../../../src/loaders/typeormLoader';
 
 export async function TranslationMiddleware(request: any, response: any, next: any): Promise<any> {
 
-    const languageRepository = getManager().getRepository(Language);
-    const settingRepository = getManager().getRepository(Settings);
+    const languageRepository = getDataSource().getRepository(Language);
+    const settingRepository = getDataSource().getRepository(Settings);
 
     const origin = request.get('origin');
 
     const languageKey: number = request.header('languagekey');
 
-    const validLanguage = await languageRepository.findOne(languageKey ?? 0);
+    const validLanguage = await languageRepository.findOne({ where: { languageId: languageKey ?? 0 }});
 
     const accessKey = request.get('key');
 
     const siteData = await settingRepository.findOne({
-        accessKey: accessKey ?? '',
+        where: {
+            accessKey: accessKey ?? '',
+        },
     });
 
     if (!siteData) {

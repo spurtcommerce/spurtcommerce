@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { CustomerCart } from '../models/CustomerCart';
 import { CustomerCartRepository } from '../repositories/CustomerCartRepository';
@@ -16,27 +15,27 @@ import { Brackets, DeleteResult, getConnection, In, Like } from 'typeorm';
 @Service()
 export class CustomerCartService {
     constructor(
-        @OrmRepository() private customerCartRepository: CustomerCartRepository,
+        private customerCartRepository: CustomerCartRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     public async createData(checkoutdata: any): Promise<CustomerCart> {
         this.log.info('create a order product data');
-        return this.customerCartRepository.save(checkoutdata);
+        return this.customerCartRepository.repository.save(checkoutdata);
     }
 
     public find(order: any): Promise<CustomerCart[]> {
-        return this.customerCartRepository.find(order);
+        return this.customerCartRepository.repository.find(order);
     }
 
     public findById(id: number): Promise<any> {
-        return this.customerCartRepository.find({
+        return this.customerCartRepository.repository.find({
             select: ['name', 'quantity', 'productPrice', 'total'],
         });
     }
 
     public async update(cartId: number[], customerId: number): Promise<void> {
-        await this.customerCartRepository.update({ id: In(cartId) }, { customerId });
+        await this.customerCartRepository.repository.update({ id: In(cartId) }, { customerId });
     }
 
     public list(limit: number, offset: number, select: any[], relation: any = [], whereConditions: any = [], search: any = [], count: number | boolean): Promise<any> {
@@ -74,20 +73,20 @@ export class CustomerCartService {
             createdDate: 'DESC',
         };
         if (count) {
-            return this.customerCartRepository.count(condition);
+            return this.customerCartRepository.repository.count(condition);
         } else {
-            return this.customerCartRepository.find(condition);
+            return this.customerCartRepository.repository.find(condition);
         }
     }
     // findOne cart
     public findOne(productData: any): Promise<any> {
-        return this.customerCartRepository.findOne(productData);
+        return this.customerCartRepository.repository.findOne(productData);
     }
 
     // delete cart
     public async delete(id: any): Promise<DeleteResult> {
         this.log.info('Delete a cart');
-        const newProduct = await this.customerCartRepository.delete(id);
+        const newProduct = await this.customerCartRepository.repository.delete(id);
         return newProduct;
     }
 

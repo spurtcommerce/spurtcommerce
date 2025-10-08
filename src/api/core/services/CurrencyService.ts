@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Brackets } from 'typeorm/index';
 import { CurrencyRepository } from '../repositories/CurrencyRepository';
@@ -16,25 +15,25 @@ import { CurrencyRepository } from '../repositories/CurrencyRepository';
 export class CurrencyService {
 
     constructor(
-        @OrmRepository() private currencyRepository: CurrencyRepository,
+        private currencyRepository: CurrencyRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create Currency
     public async create(currency: any): Promise<any> {
         this.log.info('Create a new currency ');
-        return this.currencyRepository.save(currency);
+        return this.currencyRepository.repository.save(currency);
     }
 
     // findCondition
     public findOne(country: any): Promise<any> {
-        return this.currencyRepository.findOne(country);
+        return this.currencyRepository.repository.findOne(country);
     }
 
     // update currency
     public update(id: any, currency: any): Promise<any> {
         currency.currencyId = id;
-        return this.currencyRepository.save(currency);
+        return this.currencyRepository.repository.save(currency);
     }
 
     // currency List
@@ -113,16 +112,16 @@ export class CurrencyService {
         }
 
         if (count) {
-            return this.currencyRepository.count(condition);
+            return this.currencyRepository.repository.count(condition);
         } else {
-            return this.currencyRepository.find(condition);
+            return this.currencyRepository.repository.find(condition);
         }
 
     }
 
     // delete currency
     public async delete(id: number): Promise<any> {
-        await this.currencyRepository.delete(id);
+        await this.currencyRepository.repository.delete(id);
         return;
     }
 }

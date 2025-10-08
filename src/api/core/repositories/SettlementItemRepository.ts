@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { SettlementItem } from '../models/SettlementItem';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(SettlementItem)
-export class SettlementItemRepository extends Repository<SettlementItem>  {
-
+@Service()
+export class SettlementItemRepository {
+    public repository: Repository<SettlementItem>;
+    constructor() {
+        this.repository = getDataSource().getRepository(SettlementItem);
+    }
 }

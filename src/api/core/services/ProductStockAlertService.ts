@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { ProductStockAlertRepository } from '../repositories/ProductStockAlertRepository';
 import { Like } from 'typeorm/index';
@@ -16,20 +15,20 @@ import { Like } from 'typeorm/index';
 export class ProductStockAlertService {
 
     constructor(
-        @OrmRepository() private productStockAlertRepository: ProductStockAlertRepository,
+        private productStockAlertRepository: ProductStockAlertRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create
     public async create(stockAlert: any): Promise<any> {
-        const newStockAlert = await this.productStockAlertRepository.save(stockAlert);
+        const newStockAlert = await this.productStockAlertRepository.repository.save(stockAlert);
         this.log.info('Create a stockAlert');
         return newStockAlert;
     }
 
     // find stock
     public findOne(stockAlert: any): Promise<any> {
-        return this.productStockAlertRepository.findOne(stockAlert);
+        return this.productStockAlertRepository.repository.findOne(stockAlert);
     }
 
     // list
@@ -64,14 +63,14 @@ export class ProductStockAlertService {
         }
 
         if (count) {
-            return this.productStockAlertRepository.count(condition);
+            return this.productStockAlertRepository.repository.count(condition);
         } else {
-            return this.productStockAlertRepository.find(condition);
+            return this.productStockAlertRepository.repository.find(condition);
         }
     }
 
     // delete
     public async delete(id: number): Promise<any> {
-        return await this.productStockAlertRepository.delete(id);
+        return await this.productStockAlertRepository.repository.delete(id);
     }
 }

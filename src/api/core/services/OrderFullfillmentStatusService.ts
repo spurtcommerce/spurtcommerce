@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { OrderFulfillmentStatusRepository } from '../repositories/OrderFullfillmentStatusRepository';
 import { OrderFullfillmentStatus } from '../models/OrderFullfillmentStatus';
@@ -17,34 +16,34 @@ import { FindManyOptions, Like } from 'typeorm';
 export class OrderFullfillmentStatusService {
 
     constructor(
-        @OrmRepository() private orderFulfillmentStatusRepository: OrderFulfillmentStatusRepository,
+        private orderFulfillmentStatusRepository: OrderFulfillmentStatusRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create payload
     public async create(payload: any): Promise<any> {
         this.log.info('Create a new payload ');
-        return this.orderFulfillmentStatusRepository.save(payload);
+        return this.orderFulfillmentStatusRepository.repository.save(payload);
     }
 
     // find One payload
     public findOne(payload: any): Promise<OrderFullfillmentStatus> {
-        return this.orderFulfillmentStatusRepository.findOne(payload);
+        return this.orderFulfillmentStatusRepository.repository.findOne(payload);
     }
 
     // findAll payload
     public findAll(payload: FindManyOptions<OrderFullfillmentStatus>): Promise<any> {
-        return this.orderFulfillmentStatusRepository.find(payload);
+        return this.orderFulfillmentStatusRepository.repository.find(payload);
     }
 
     // update payload
     public update(payload: any): Promise<any> {
-        return this.orderFulfillmentStatusRepository.save(payload);
+        return this.orderFulfillmentStatusRepository.repository.save(payload);
     }
 
     // delete payload
     public async delete(id: number): Promise<any> {
-        return await this.orderFulfillmentStatusRepository.delete(id);
+        return await this.orderFulfillmentStatusRepository.repository.delete(id);
     }
 
     // orderStatus List
@@ -83,9 +82,9 @@ export class OrderFullfillmentStatusService {
         };
 
         if (count) {
-            return this.orderFulfillmentStatusRepository.count(condition);
+            return this.orderFulfillmentStatusRepository.repository.count(condition);
         } else {
-            return this.orderFulfillmentStatusRepository.find(condition);
+            return this.orderFulfillmentStatusRepository.repository.find(condition);
         }
     }
 }

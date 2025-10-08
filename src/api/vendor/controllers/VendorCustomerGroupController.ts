@@ -6,7 +6,9 @@ import { In, Not } from 'typeorm';
 import { CustomerToGroup } from '../../../../src/api/core/models/CustomerToGroup';
 import { CustomerToGroupService } from '../../../../src/api/core/services/CustomerToGroupService';
 import { CustomerService } from '../../../../src/api/core/services/CustomerService';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/vendor-customer-group')
 export class VendorCustomerGroupController {
     constructor(

@@ -25,7 +25,8 @@ import { VendorCategory } from '../../core/models/VendorCategory';
 import { CreateVendorCategoryRequest } from './requests/CreateVendorCategoryRequest';
 import { CategoryPathService } from '../../core/services/CategoryPathService';
 import { VendorService } from '../../core/services/VendorService';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/vendor-category')
 export class VendorCategoryController {
     constructor(

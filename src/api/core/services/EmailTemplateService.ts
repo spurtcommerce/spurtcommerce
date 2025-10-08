@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like } from 'typeorm/index';
 import { EmailTemplateRepository } from '../repositories/EmailTemplateRepository';
@@ -15,25 +14,25 @@ import { EmailTemplateRepository } from '../repositories/EmailTemplateRepository
 @Service()
 export class EmailTemplateService {
     constructor(
-        @OrmRepository() private emailTemplateRepository: EmailTemplateRepository,
+        private emailTemplateRepository: EmailTemplateRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // Create emailTemplate
     public async create(emailTemplate: any): Promise<any> {
         this.log.info('Create a new emailTemplate ');
-        return this.emailTemplateRepository.save(emailTemplate);
+        return this.emailTemplateRepository.repository.save(emailTemplate);
     }
 
     // Find Condition
     public findOne(emailTemplate: any): Promise<any> {
-        return this.emailTemplateRepository.findOne(emailTemplate);
+        return this.emailTemplateRepository.repository.findOne(emailTemplate);
     }
 
     // Update EmailTemplate
     public update(id: any, emailTemplate: any): Promise<any> {
         emailTemplate.id = id;
-        return this.emailTemplateRepository.save(emailTemplate);
+        return this.emailTemplateRepository.repository.save(emailTemplate);
     }
 
     // EmailTemplate List
@@ -70,14 +69,14 @@ export class EmailTemplateService {
             condition.skip = offset;
         }
         if (count) {
-            return this.emailTemplateRepository.count(condition);
+            return this.emailTemplateRepository.repository.count(condition);
         } else {
-            return this.emailTemplateRepository.find(condition);
+            return this.emailTemplateRepository.repository.find(condition);
         }
     }
 
     // Delete EmailTemplate
     public async delete(id: number): Promise<any> {
-        return await this.emailTemplateRepository.delete(id);
+        return await this.emailTemplateRepository.repository.delete(id);
     }
 }

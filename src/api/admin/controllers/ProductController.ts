@@ -68,13 +68,15 @@ import { productList, productCreate, excelExportProduct } from '@spurtcommerce/p
 import { PluginService } from '../../core/services/PluginService';
 import { ExportLog } from '../../core/models/ExportLog';
 import { ExportLogService } from '../../core/services/ExportLogService';
-
 import uncino from 'uncino';
-import { getConnection } from 'typeorm';
+import { getDataSource } from '../../../../src/loaders/typeormLoader';
 // import { TranslationMiddleware } from '../../core/middlewares/TranslationMiddleware';
 const hooks = uncino();
 
 // @UseBefore(TranslationMiddleware)
+import { Service } from 'typedi';
+
+@Service()
 @JsonController('/product')
 export class ProductController {
     constructor(
@@ -158,7 +160,7 @@ export class ProductController {
     public async getProductList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('sku') sku: string, @QueryParam('status') status: string, @QueryParam('price') price: number, @QueryParam('count') count: number | boolean, @Res() response: any, @Req() request: any): Promise<Product> {
 
         const list = await productList(
-            getConnection(),
+            getDataSource(),
             [
                 'productId',
                 'sku',
@@ -341,7 +343,7 @@ export class ProductController {
     @Authorized(['admin', 'create-product'])
     public async addProduct(@Body({ validate: true }) product: AddProductRequest, @Req() request: any, @Res() response: any): Promise<any> {
 
-        const productNpm = await productCreate(product, getConnection());
+        const productNpm = await productCreate(product, getDataSource());
 
         if (productNpm.status === 0) {
             return response.status(400).send({
@@ -1558,7 +1560,7 @@ export class ProductController {
         let list: any;
         if (!productId || productId === '') {
             list = await productList(
-                getConnection(),
+                getDataSource(),
                 [
                     'productId',
                     'sku',
@@ -1601,7 +1603,7 @@ export class ProductController {
         // if ()
         const productIds: number[] = productId ? productId.split(',').map((id) => +id) : list.length > 0 ? list : [];
 
-        const excelFile = await excelExportProduct(getConnection(), productIds);
+        const excelFile = await excelExportProduct(getDataSource(), productIds);
 
         // Add export log
         const newExportLog = new ExportLog();

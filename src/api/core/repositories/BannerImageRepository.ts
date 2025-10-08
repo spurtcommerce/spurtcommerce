@@ -1,7 +1,12 @@
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { BannerImage } from '../models/BannerImage';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(BannerImage)
-export class BannerImageRepository extends Repository<BannerImage> {
-
+@Service()
+export class BannerImageRepository {
+    public repository: Repository<BannerImage>;
+    constructor() {
+        this.repository = getDataSource().getRepository(BannerImage);
+    }
 }

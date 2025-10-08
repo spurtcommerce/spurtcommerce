@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Currency } from '../models/Currency';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(Currency)
-export class CurrencyRepository extends Repository<Currency>  {
-
+@Service()
+export class CurrencyRepository {
+    public repository: Repository<Currency>;
+    constructor() {
+        this.repository = getDataSource().getRepository(Currency);
+    }
 }

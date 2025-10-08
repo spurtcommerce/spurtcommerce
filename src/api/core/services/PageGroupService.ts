@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { PageGroupRepository } from '../repositories/PageGroupRepository';
 import { PageGroup } from '../models/PageGroup';
@@ -18,24 +17,24 @@ import {Brackets, getConnection} from 'typeorm/index';
 export class PageGroupService {
 
     constructor(
-        @OrmRepository() private pageGroupRepository: PageGroupRepository,
+        private pageGroupRepository: PageGroupRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create page group
     public async create(pageGroup: any): Promise<any> {
         this.log.info('Create a new page ');
-        return this.pageGroupRepository.save(pageGroup);
+        return this.pageGroupRepository.repository.save(pageGroup);
     }
 
     // find all page group
     public findAll(pageGroup: any): Promise<any> {
-        return this.pageGroupRepository.find(pageGroup);
+        return this.pageGroupRepository.repository.find(pageGroup);
     }
 
     // find one page group
     public findOne(pageGroup: any): Promise<any> {
-        return this.pageGroupRepository.findOne(pageGroup);
+        return this.pageGroupRepository.repository.findOne(pageGroup);
     }
 
     // page group List
@@ -76,9 +75,9 @@ export class PageGroupService {
             createdDate: 'DESC',
         };
         if (count) {
-            return this.pageGroupRepository.count(condition);
+            return this.pageGroupRepository.repository.count(condition);
         } else {
-            return this.pageGroupRepository.find(condition);
+            return this.pageGroupRepository.repository.find(condition);
         }
     }
 
@@ -205,6 +204,6 @@ export class PageGroupService {
 
     // delete page group
     public async delete(id: number): Promise<any> {
-        return await this.pageGroupRepository.delete(id);
+        return await this.pageGroupRepository.repository.delete(id);
     }
 }

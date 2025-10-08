@@ -6,20 +6,26 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Page } from '../models/Page';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(Page)
-export class PageRepository extends Repository<Page>  {
+@Service()
+export class PageRepository {
+    public repository: Repository<Page>;
+    constructor() {
+        this.repository = getDataSource().getRepository(Page);
+    }
 
     public async pageSlug(data: string): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Page, 'page');
+        const query: any = await this.repository.createQueryBuilder('page');
         query.where('page.title = :value', { value: data });
         return query.getMany();
     }
 
     public async checkSlugData(slug: string, id: number): Promise<number> {
-        const query = await this.manager.createQueryBuilder(Page, 'page');
+        const query = await this.repository.createQueryBuilder('page');
         query.where('page.slug_name = :slug', { slug });
         if (id > 0) {
             query.andWhere('page.page_id != :id', { id });

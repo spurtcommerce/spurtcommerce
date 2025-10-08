@@ -7,7 +7,9 @@ export async function StoreCategoryValidator(req: any, res: any, next: any): Pro
     const origin = req.get('origin');
     const AccessKey = req.get('key');
     const siteData = await settingService.findOne({
-        accessKey: AccessKey,
+        where: {
+            accessKey: AccessKey,
+        },
     });
     if (!siteData) {
         return res.status(400).send({
@@ -20,9 +22,9 @@ export async function StoreCategoryValidator(req: any, res: any, next: any): Pro
     let tempParentId: number[] = [];
     const siteSettingCategories = siteData.siteCategory.split(',');
     const categoryService = getManager().getRepository(Category);
-    const siteCategories: Category[] = await categoryService.find({
+    const siteCategories: Category[] = await categoryService.find({ where: {
         categorySlug: In(siteSettingCategories),
-    });
+    }});
     for (const siteCategory of siteCategories) {
         tempParentId = [siteCategory.categoryId];
         categories.push(siteCategory);

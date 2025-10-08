@@ -8,10 +8,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { ServiceImage } from '../models/ServiceImage';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(ServiceImage)
-export class ServiceImageRepository extends Repository<ServiceImage>  {
-
+@Service()
+export class ServiceImageRepository {
+    public repository: Repository<ServiceImage>;
+    constructor() {
+        this.repository = getDataSource().getRepository(ServiceImage);
+    }
 }

@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Settlement } from '../models/Settlement';
 import { SettlementRepository } from '../repositories/SettlementRepository';
@@ -17,25 +16,25 @@ import { Brackets, getConnection, Like } from 'typeorm';
 export class SettlementService {
 
     constructor(
-        @OrmRepository() private settlementRepository: SettlementRepository,
+        private settlementRepository: SettlementRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // find one condition
     public findOne(siteFilter: any): Promise<any> {
-        return this.settlementRepository.findOne(siteFilter);
+        return this.settlementRepository.repository.findOne(siteFilter);
     }
 
     // find all
     public findAll(siteFilter: any): Promise<any> {
         this.log.info('Find all');
-        return this.settlementRepository.find(siteFilter);
+        return this.settlementRepository.repository.find(siteFilter);
     }
 
     // find all settlement by id
     public findAllsettlement(): Promise<any> {
         this.log.info('Find all settlement');
-        return this.settlementRepository.find();
+        return this.settlementRepository.repository.find();
     }
 
     // list
@@ -73,15 +72,15 @@ export class SettlementService {
 
         }
         if (count) {
-            return this.settlementRepository.count(condition);
+            return this.settlementRepository.repository.count(condition);
         } else {
-            return this.settlementRepository.find(condition);
+            return this.settlementRepository.repository.find(condition);
         }
     }
 
     // create
     public async create(settlement: Settlement): Promise<Settlement> {
-        const newSettlement = await this.settlementRepository.save(settlement);
+        const newSettlement = await this.settlementRepository.repository.save(settlement);
         return newSettlement;
     }
 
@@ -89,13 +88,13 @@ export class SettlementService {
     public update(id: any, settlement: Settlement): Promise<Settlement> {
         this.log.info('Update');
         settlement.id = id;
-        return this.settlementRepository.save(settlement);
+        return this.settlementRepository.repository.save(settlement);
     }
 
     // delete
     public async delete(id: any): Promise<any> {
         this.log.info('Delete');
-        const newSettlement = await this.settlementRepository.delete(id);
+        const newSettlement = await this.settlementRepository.repository.delete(id);
         return newSettlement;
     }
 

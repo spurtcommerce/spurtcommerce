@@ -13,7 +13,8 @@ import { ExpressErrorMiddlewareInterface, HttpError, Middleware } from 'routing-
 import { ValidationError } from 'class-validator';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { env } from '../../../env';
-
+import { Service } from 'typedi';
+@Service()
 @Middleware({ type: 'after' })
 export class ErrorHandlerMiddleware implements ExpressErrorMiddlewareInterface {
 

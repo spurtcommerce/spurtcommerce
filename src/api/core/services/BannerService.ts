@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like } from 'typeorm/index';
 import { BannerRepository } from '../repositories/BannerRepository';
@@ -16,24 +15,24 @@ import { BannerRepository } from '../repositories/BannerRepository';
 export class BannerService {
 
     constructor(
-        @OrmRepository() private bannerRepository: BannerRepository,
+        private bannerRepository: BannerRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create banner
     public async create(banner: any): Promise<any> {
         this.log.info('Create a new banner ');
-        return this.bannerRepository.save(banner);
+        return this.bannerRepository.repository.save(banner);
     }
 
     // find Condition
     public findOne(banner: any): Promise<any> {
-        return this.bannerRepository.findOne(banner);
+        return this.bannerRepository.repository.findOne(banner);
     }
 
     // update banner
     public update(banner: any): Promise<any> {
-        return this.bannerRepository.save(banner);
+        return this.bannerRepository.repository.save(banner);
     }
 
     // banner List
@@ -78,14 +77,14 @@ export class BannerService {
         };
 
         if (count) {
-            return this.bannerRepository.count(condition);
+            return this.bannerRepository.repository.count(condition);
         } else {
-            return this.bannerRepository.find(condition);
+            return this.bannerRepository.repository.find(condition);
         }
     }
 
     // delete banner
     public async delete(id: number): Promise<any> {
-        return await this.bannerRepository.delete(id);
+        return await this.bannerRepository.repository.delete(id);
     }
 }

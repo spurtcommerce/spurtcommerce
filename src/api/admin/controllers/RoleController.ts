@@ -17,7 +17,9 @@ import { UserGroupService } from '../../core/services/UserGroupService';
 import { UserService } from '../../core/services/UserService';
 import { UserGroup } from '../../core/models/UserGroup';
 import { Not } from 'typeorm';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/role')
 export class RoleController {
 

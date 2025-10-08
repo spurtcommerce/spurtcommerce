@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like } from 'typeorm/index';
 import { PageRepository } from '../repositories/PageRepository';
@@ -18,31 +17,31 @@ import {Brackets, getConnection} from 'typeorm/index';
 export class PageService {
 
     constructor(
-        @OrmRepository() private pageRepository: PageRepository,
+        private pageRepository: PageRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create page
     public async create(page: any): Promise<any> {
         this.log.info('Create a new page ');
-        return this.pageRepository.save(page);
+        return this.pageRepository.repository.save(page);
     }
 
     // find one page
     public findOne(page: any): Promise<any> {
-        return this.pageRepository.findOne(page);
+        return this.pageRepository.repository.findOne(page);
     }
 
     // find all page
     public findAll(page: any): Promise<any> {
-        return this.pageRepository.find(page);
+        return this.pageRepository.repository.find(page);
     }
 
     // update page
     public update(id: any, page: Page): Promise<any> {
         this.log.info('Update a page');
         page.pageId = id;
-        return this.pageRepository.save(page);
+        return this.pageRepository.repository.save(page);
     }
 
     // page List
@@ -82,9 +81,9 @@ export class PageService {
             condition.skip = offset;
         }
         if (count) {
-            return this.pageRepository.count(condition);
+            return this.pageRepository.repository.count(condition);
         } else {
-            return this.pageRepository.find(condition);
+            return this.pageRepository.repository.find(condition);
         }
     }
 
@@ -211,7 +210,7 @@ export class PageService {
 
     // delete page
     public async delete(id: number): Promise<any> {
-        return await this.pageRepository.delete(id);
+        return await this.pageRepository.repository.delete(id);
     }
 
     public async slugData(data: string): Promise<any> {

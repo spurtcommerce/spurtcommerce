@@ -8,10 +8,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { ServiceEnquiry } from '../models/ServiceEnquiry';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(ServiceEnquiry)
-export class ServiceEnquiryRepository extends Repository<ServiceEnquiry>  {
-
+@Service()
+export class ServiceEnquiryRepository {
+    public repository: Repository<ServiceEnquiry>;
+    constructor() {
+        this.repository = getDataSource().getRepository(ServiceEnquiry);
+    }
 }

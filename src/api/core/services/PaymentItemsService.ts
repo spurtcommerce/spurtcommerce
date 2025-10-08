@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { PaymentItemsRepository } from '../repositories/PaymentItemsRepository';
 import { Like, Brackets, getConnection } from 'typeorm/index';
 import { PaymentItems } from '../models/PaymentItems';
@@ -15,20 +14,20 @@ import { PaymentItems } from '../models/PaymentItems';
 @Service()
 export class PaymentItemsService {
 
-    constructor(@OrmRepository() private paymentItemsRepository: PaymentItemsRepository) {
+    constructor(private paymentItemsRepository: PaymentItemsRepository) {
     }
 
     // create related product
     public async create(product: any): Promise<any> {
 
-        const newProduct = await this.paymentItemsRepository.save(product);
+        const newProduct = await this.paymentItemsRepository.repository.save(product);
         return newProduct;
     }
 
     // find plugins
     public async findAll(plugins: any): Promise<any> {
 
-        return await this.paymentItemsRepository.find(plugins);
+        return await this.paymentItemsRepository.repository.find(plugins);
     }
 
     // country List
@@ -62,21 +61,21 @@ export class PaymentItemsService {
             condition.skip = offset;
         }
         if (count) {
-            return this.paymentItemsRepository.count(condition);
+            return this.paymentItemsRepository.repository.count(condition);
         } else {
-            return this.paymentItemsRepository.find(condition);
+            return this.paymentItemsRepository.repository.find(condition);
         }
     }
     // delete plugin
     public async delete(id: any): Promise<any> {
 
-        const newProduct = await this.paymentItemsRepository.delete(id);
+        const newProduct = await this.paymentItemsRepository.repository.delete(id);
         return newProduct;
     }
 
     // find one plugin
     public findOne(plugins: any): Promise<any> {
-        return this.paymentItemsRepository.findOne(plugins);
+        return this.paymentItemsRepository.repository.findOne(plugins);
     }
 
     public async listByQueryBuilder(

@@ -7,9 +7,8 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
-import { FindConditions, FindManyOptions, Like } from 'typeorm/index';
+import { FindManyOptions,  FindOptionsWhere, Like } from 'typeorm/index';
 import { CustomerToGroupRepository } from '../repositories/CustomerToGroupRepository';
 import { CustomerToGroup } from '../models/CustomerToGroup';
 
@@ -17,29 +16,29 @@ import { CustomerToGroup } from '../models/CustomerToGroup';
 export class CustomerToGroupService {
 
     constructor(
-        @OrmRepository() private customerToGroupRepository: CustomerToGroupRepository,
+        private customerToGroupRepository: CustomerToGroupRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create job
     public async create(job: any): Promise<any> {
         this.log.info('Create a new job ');
-        return this.customerToGroupRepository.save(job);
+        return this.customerToGroupRepository.repository.save(job);
     }
 
     // find One job
     public findOne(job: any): Promise<any> {
-        return this.customerToGroupRepository.findOne(job);
+        return this.customerToGroupRepository.repository.findOne(job);
     }
 
     // findAll job
     public find(job: FindManyOptions<CustomerToGroup>): Promise<CustomerToGroup[]> {
-        return this.customerToGroupRepository.find(job);
+        return this.customerToGroupRepository.repository.find(job);
     }
 
     // update job
     public update(job: any): Promise<any> {
-        return this.customerToGroupRepository.save(job);
+        return this.customerToGroupRepository.repository.save(job);
     }
 
     // job List
@@ -71,14 +70,14 @@ export class CustomerToGroupService {
             condition.skip = offset;
         }
         if (count) {
-            return this.customerToGroupRepository.count(condition);
+            return this.customerToGroupRepository.repository.count(condition);
         } else {
-            return this.customerToGroupRepository.find(condition);
+            return this.customerToGroupRepository.repository.find(condition);
         }
     }
 
     // delete job
-    public async delete(id: FindConditions<CustomerToGroup>): Promise<any> {
-        return await this.customerToGroupRepository.delete(id);
+    public async delete(id: FindOptionsWhere<CustomerToGroup>): Promise<any> {
+        return await this.customerToGroupRepository.repository.delete(id);
     }
 }

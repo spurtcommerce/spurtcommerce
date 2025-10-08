@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
-
+import { Repository } from 'typeorm';
 import { CustomerWishlist } from '../models/CustomerWishlist';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(CustomerWishlist)
-export class CustomerWishlistRepository extends Repository<CustomerWishlist>  {
+@Service()
+export class CustomerWishlistRepository {
+    public repository: Repository<CustomerWishlist>;
+    constructor() {
+        this.repository = getDataSource().getRepository(CustomerWishlist);
+    }
 }

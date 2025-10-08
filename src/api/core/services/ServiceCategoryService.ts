@@ -9,7 +9,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { ServiceCategory } from '../models/ServiceCategory';
 import { ServiceCategoryRepository } from '../repositories/ServiceCategoryRepository';
@@ -18,27 +17,27 @@ import {Like} from 'typeorm/index';
 @Service()
 export class ServiceCategoryService {
     constructor(
-        @OrmRepository() private serviceCategoryRepository: ServiceCategoryRepository,
+        private serviceCategoryRepository: ServiceCategoryRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
      // create Category
     public async create(category: any): Promise<ServiceCategory> {
         this.log.info('Create a new category => ', category.toString());
-        return this.serviceCategoryRepository.save(category);
+        return this.serviceCategoryRepository.repository.save(category);
     }
     // findone category
     public findOne(category: any): Promise<any> {
-        return this.serviceCategoryRepository.findOne(category);
+        return this.serviceCategoryRepository.repository.findOne(category);
     }
      // delete Category
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a Category');
-        await this.serviceCategoryRepository.delete(id);
+        await this.serviceCategoryRepository.repository.delete(id);
         return;
     }
      // find category
      public find(category: any): Promise<any> {
-        return this.serviceCategoryRepository.find(category);
+        return this.serviceCategoryRepository.repository.find(category);
     }
 
     // Service category List
@@ -69,8 +68,8 @@ export class ServiceCategoryService {
         }
         condition.order = { sortOrder: (sortOrder === 2) ? 'DESC' : 'ASC'};
         if (count) {
-            return this.serviceCategoryRepository.count(condition);
+            return this.serviceCategoryRepository.repository.count(condition);
         }
-        return this.serviceCategoryRepository.find(condition);
+        return this.serviceCategoryRepository.repository.find(condition);
     }
 }

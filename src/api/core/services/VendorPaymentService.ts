@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { VendorPaymentRepository } from '../repositories/VendorPaymentRepository';
 import { Like } from 'typeorm/index';
 import { VendorPayment } from '../models/VendorPayment';
@@ -16,20 +15,20 @@ import { Brackets, getConnection } from 'typeorm';
 @Service()
 export class VendorPaymentService {
 
-    constructor(@OrmRepository() private vendorPaymentRepository: VendorPaymentRepository) {
+    constructor(private vendorPaymentRepository: VendorPaymentRepository) {
     }
 
     // create related product
     public async create(product: any): Promise<any> {
 
-        const newProduct = await this.vendorPaymentRepository.save(product);
+        const newProduct = await this.vendorPaymentRepository.repository.save(product);
         return newProduct;
     }
 
     // find plugins
     public async findAll(plugins: any): Promise<any> {
 
-        return await this.vendorPaymentRepository.find(plugins);
+        return await this.vendorPaymentRepository.repository.find(plugins);
     }
 
     // country List
@@ -63,9 +62,9 @@ export class VendorPaymentService {
             condition.skip = offset;
         }
         if (count) {
-            return this.vendorPaymentRepository.count(condition);
+            return this.vendorPaymentRepository.repository.count(condition);
         } else {
-            return this.vendorPaymentRepository.find(condition);
+            return this.vendorPaymentRepository.repository.find(condition);
         }
     }
 
@@ -189,13 +188,13 @@ export class VendorPaymentService {
     // delete plugin
     public async delete(id: any): Promise<any> {
 
-        const newProduct = await this.vendorPaymentRepository.delete(id);
+        const newProduct = await this.vendorPaymentRepository.repository.delete(id);
         return newProduct;
     }
 
     // find one plugin
     public findOne(plugins: any): Promise<any> {
-        return this.vendorPaymentRepository.findOne(plugins);
+        return this.vendorPaymentRepository.repository.findOne(plugins);
     }
 
     // find buyer count and sales count

@@ -34,7 +34,6 @@ import { AccessToken } from '../../core/models/AccessTokenModel';
 import { AccessTokenService } from '../../core/services/AccessTokenService';
 import moment from 'moment';
 import { getVendorProfile } from '@spurtcommerce/marketplace';
-import { getConnection } from 'typeorm';
 import { VendorVerifiedRequest } from './requests/VendorVerifiedRequest';
 import { BankAccount, KycStatus, Vendor } from '../../core/models/Vendor';
 import { MailChangeRequest } from './requests/MailChangeRequest';
@@ -44,7 +43,9 @@ import { RegistrationOtp, VendorMedia } from '../../../common/entities-index';
 import { VendorMediaService } from '../../../api/core/services/VendorMediaService';
 import { RegistrationOtpService } from '../../../api/core/services/RegistraionOtpService';
 import { UserService } from '../../../api/core/services/UserService';
-
+import { getDataSource } from '../../../../src/loaders/typeormLoader';
+import { Service } from 'typedi';
+@Service()
 @JsonController('/vendor')
 export class VendorController {
     constructor(
@@ -905,7 +906,7 @@ export class VendorController {
     @Authorized('vendor-unapproved')
     public async vendorDetails(@Req() request: any, @Res() response: any): Promise<any> {
 
-        const vendorDetail = await getVendorProfile(getConnection(), { vendorId: request.user.vendorId });
+        const vendorDetail = await getVendorProfile(getDataSource(), { vendorId: request.user.vendorId });
         const customerInfo = await this.customerService.findOne({ where: { id: vendorDetail.data.customerId } });
         vendorDetail.data.customerDetail.dob = customerInfo?.dob ?? '';
         vendorDetail.data.customerDetail.gender = customerInfo?.gender ?? '';

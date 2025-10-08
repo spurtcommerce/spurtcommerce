@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Tax } from '../models/Tax';
 import { TaxRepository } from '../repositories/TaxRepository';
@@ -17,14 +16,14 @@ import { Like } from 'typeorm';
 export class TaxService {
 
     constructor(
-        @OrmRepository() private taxRepository: TaxRepository,
+        private taxRepository: TaxRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find tax
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find all tax');
-        return this.taxRepository.findOne(findCondition);
+        return this.taxRepository.repository.findOne(findCondition);
     }
 
     // tax list
@@ -58,9 +57,9 @@ export class TaxService {
         }
 
         if (count) {
-            return this.taxRepository.count(condition);
+            return this.taxRepository.repository.count(condition);
         } else {
-            return this.taxRepository.find(condition);
+            return this.taxRepository.repository.find(condition);
         }
 
     }
@@ -68,7 +67,7 @@ export class TaxService {
     // create tax
     public async create(tax: Tax): Promise<Tax> {
         this.log.info('Create a new tax => ', tax.toString());
-        const newTax = await this.taxRepository.save(tax);
+        const newTax = await this.taxRepository.repository.save(tax);
         return newTax;
     }
 
@@ -76,19 +75,19 @@ export class TaxService {
     public update(id: any, tax: Tax): Promise<Tax> {
         this.log.info('Update a tax');
         tax.taxId = id;
-        return this.taxRepository.save(tax);
+        return this.taxRepository.repository.save(tax);
     }
 
     // delete tax
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a tax');
-        const newTax = await this.taxRepository.delete(id);
+        const newTax = await this.taxRepository.repository.delete(id);
         return newTax;
     }
 
     // find tax
     public findAll(findCondition: any): Promise<any> {
         this.log.info('Find all tax');
-        return this.taxRepository.find(findCondition);
+        return this.taxRepository.repository.find(findCondition);
     }
 }

@@ -1,5 +1,6 @@
 import { ExpressMiddlewareInterface, Middleware } from 'routing-controllers';
-
+import { Service } from 'typedi';
+@Service()
 @Middleware({ type: 'before' })
 
 export class SanitizeMiddleware implements ExpressMiddlewareInterface {

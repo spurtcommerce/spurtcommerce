@@ -6,18 +6,24 @@
  * Licensed under the MIT license.
  */
 
-import {EntityRepository, Repository} from 'typeorm';
-import {ProductDiscount} from '../models/ProductDiscount';
+import { Repository } from 'typeorm';
+import { ProductDiscount } from '../models/ProductDiscount';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(ProductDiscount)
-export class ProductDiscountRepository extends Repository<ProductDiscount> {
+@Service()
+export class ProductDiscountRepository {
+    public repository: Repository<ProductDiscount>;
+    constructor() {
+        this.repository = getDataSource().getRepository(ProductDiscount);
+    }
 
     public async findDiscountPrice(productId: number, todaydate: string): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(ProductDiscount, 'productDiscount');
+        const query: any = await this.repository.createQueryBuilder('productDiscount');
         query.select(['productDiscount.price as price', 'productDiscount.dateStart as dateStart', 'productDiscount.dateEnd as dateEnd']);
         query.where('productDiscount.productId = ' + productId);
-        query.andWhere('(productDiscount.dateStart <= :todaydate AND productDiscount.dateEnd >= :todaydate)', {todaydate});
+        query.andWhere('(productDiscount.dateStart <= :todaydate AND productDiscount.dateEnd >= :todaydate)', { todaydate });
         query.orderBy('productDiscount.priority', 'ASC');
         query.addOrderBy('productDiscount.price', 'ASC');
         query.limit('1');
@@ -26,11 +32,11 @@ export class ProductDiscountRepository extends Repository<ProductDiscount> {
 
     public async findDiscountPricewithSku(productId: number, skuId: number, todaydate: string): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(ProductDiscount, 'productDiscount');
+        const query: any = await this.repository.createQueryBuilder('productDiscount');
         query.select(['productDiscount.price as price', 'productDiscount.dateStart as dateStart', 'productDiscount.dateEnd as dateEnd']);
         query.where('productDiscount.productId = ' + productId);
         query.where('productDiscount.skuId = ' + skuId);
-        query.andWhere('(productDiscount.dateStart <= :todaydate AND productDiscount.dateEnd >= :todaydate)', {todaydate});
+        query.andWhere('(productDiscount.dateStart <= :todaydate AND productDiscount.dateEnd >= :todaydate)', { todaydate });
         query.orderBy('productDiscount.priority', 'ASC');
         query.addOrderBy('productDiscount.price', 'ASC');
         query.limit('1');

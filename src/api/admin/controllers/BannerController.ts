@@ -32,7 +32,9 @@ import { CategoryService } from '../../core/services/CategoryService';
 import { In, Not } from 'typeorm';
 import { BannerImage } from '../../core/models/BannerImage';
 import { BannerImageService } from '../../core/services/BannerImageService';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/banner')
 export class BannerController {
     constructor(

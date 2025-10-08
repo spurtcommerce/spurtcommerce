@@ -1,9 +1,10 @@
 import { MicroframeworkLoader, MicroframeworkSettings } from 'microframework-w3tec';
 import path from 'path';
 import { readdir } from 'fs/promises';
-import { getConnection, In, Not } from 'typeorm';
+import { In, Not } from 'typeorm';
 import { Plugins } from '../api/core/models/Plugin';
 import { Migrations } from '../api/core/models/Migrations';
+import { getDataSource } from './typeormLoader';
 
 export let pluginModule: string[] = [];
 
@@ -31,10 +32,10 @@ export const pluginLoader: MicroframeworkLoader = async (settings: Microframewor
         });
 
     await Promise.all(pluginList);
-    const pluginManager = getConnection().getRepository(Plugins);
-    const migrations = getConnection().getRepository(Migrations);
+    const pluginManager = getDataSource().getRepository(Plugins);
+    const migrations = getDataSource().getRepository(Migrations);
     const PluginList = await pluginManager.find({
-        pluginName: Not(In(pluginModule)),
+        where: { pluginName: Not(In(pluginModule)) },
     });
     const timestamp: number[] = PluginList.map((plugin) => plugin.pluginTimestamp);
     Promise.all(timestamp);

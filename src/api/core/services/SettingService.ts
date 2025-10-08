@@ -7,29 +7,28 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Settings } from '../models/Setting';
 import { SettingsRepository } from '../repositories/SettingsRepository';
-import { FindConditions, Like, UpdateResult } from 'typeorm';
+import { FindOptionsWhere, Like, UpdateResult } from 'typeorm';
 
 @Service()
 export class SettingService {
 
     constructor(
-        @OrmRepository() private settingsRepository: SettingsRepository,
+        private settingsRepository: SettingsRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // find one condition
     public findOne(condition?: any): Promise<any> {
-        return this.settingsRepository.findOne(condition ? condition : {});
+        return this.settingsRepository.repository.findOne(condition ? condition : {});
     }
 
     // find all setting
     public findAll(condition?: any): Promise<Settings[]> {
         this.log.info('Find all setting');
-        return this.settingsRepository.find(condition ?? {});
+        return this.settingsRepository.repository.find(condition ?? {});
     }
 
     // setting list
@@ -61,24 +60,24 @@ export class SettingService {
             condition.take = limit;
 
         }
-        return this.settingsRepository.find(condition);
+        return this.settingsRepository.repository.find(condition);
     }
 
     // create setting
     public async create(settings: Settings): Promise<Settings> {
-        const newSettings = await this.settingsRepository.save(settings);
+        const newSettings = await this.settingsRepository.repository.save(settings);
         return newSettings;
     }
 
     // update setting
-    public update(condition: FindConditions<Settings>, settings: Settings): Promise<UpdateResult> {
-        return this.settingsRepository.update(condition, settings);
+    public update(condition: FindOptionsWhere<Settings>, settings: Settings): Promise<UpdateResult> {
+        return this.settingsRepository.repository.update(condition, settings);
     }
 
     // delete setting
     public async delete(id: any): Promise<any> {
         this.log.info('Delete a product');
-        const newSettings = await this.settingsRepository.delete(id);
+        const newSettings = await this.settingsRepository.repository.delete(id);
         return newSettings;
     }
 }

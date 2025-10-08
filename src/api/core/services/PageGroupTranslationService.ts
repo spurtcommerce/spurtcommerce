@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { PageGroupTranslationRepository } from '../repositories/PageGroupTranslationRepository';
 import { Like } from 'typeorm';
@@ -16,19 +15,19 @@ import { Like } from 'typeorm';
 export class PageGroupTranslationService {
 
     constructor(
-        @OrmRepository() private pageGroupTranslationRepository: PageGroupTranslationRepository,
+        private pageGroupTranslationRepository: PageGroupTranslationRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create page group translation
     public async create(page: any): Promise<any> {
         this.log.info('Create a new page group translation');
-        return this.pageGroupTranslationRepository.save(page);
+        return this.pageGroupTranslationRepository.repository.save(page);
     }
 
     // find one page group translation
     public findOne(page: any): Promise<any> {
-        return this.pageGroupTranslationRepository.findOne(page);
+        return this.pageGroupTranslationRepository.repository.findOne(page);
     }
 
     // page group translation list
@@ -69,14 +68,14 @@ export class PageGroupTranslationService {
             createdDate: 'DESC',
         };
         if (count) {
-            return this.pageGroupTranslationRepository.count(condition);
+            return this.pageGroupTranslationRepository.repository.count(condition);
         } else {
-            return this.pageGroupTranslationRepository.find(condition);
+            return this.pageGroupTranslationRepository.repository.find(condition);
         }
     }
 
     // delete page group translation
     public async delete(id: number): Promise<any> {
-        return await this.pageGroupTranslationRepository.delete(id);
+        return await this.pageGroupTranslationRepository.repository.delete(id);
     }
 }

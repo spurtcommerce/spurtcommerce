@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { VendorGroup } from '../models/VendorGroup';
 import { VendorGroupRepository } from '../repositories/VendorGroupRepository';
@@ -17,14 +16,14 @@ import { FindManyOptions, Like } from 'typeorm';
 export class VendorGroupService {
 
     constructor(
-        @OrmRepository() private vendorGroupRepository: VendorGroupRepository,
+        private vendorGroupRepository: VendorGroupRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find Group
     public async findOne(findCondition: any): Promise<any> {
         this.log.info('Find group');
-        return await this.vendorGroupRepository.findOne(findCondition);
+        return await this.vendorGroupRepository.repository.findOne(findCondition);
     }
 
     // Group list
@@ -57,32 +56,32 @@ export class VendorGroupService {
         }
 
         if (count) {
-            return await this.vendorGroupRepository.count(condition);
+            return await this.vendorGroupRepository.repository.count(condition);
         }
 
         condition.order = {
             createdDate: 'DESC',
         };
 
-        return await this.vendorGroupRepository.find(condition);
+        return await this.vendorGroupRepository.repository.find(condition);
     }
 
     // create group
     public async create(vendorGroup: VendorGroup): Promise<VendorGroup> {
-        return await this.vendorGroupRepository.save(vendorGroup);
+        return await this.vendorGroupRepository.repository.save(vendorGroup);
     }
 
     // update group
     public async update(id: any, vendorGroup: VendorGroup): Promise<VendorGroup> {
         this.log.info('Update a group');
         vendorGroup.groupId = id;
-        return await this.vendorGroupRepository.save(vendorGroup);
+        return await this.vendorGroupRepository.repository.save(vendorGroup);
     }
 
     // delete group
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a group');
-        const deleteVendor = await this.vendorGroupRepository.delete(id);
+        const deleteVendor = await this.vendorGroupRepository.repository.delete(id);
         return deleteVendor;
     }
 

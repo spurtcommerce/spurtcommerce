@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { ProductViewLog } from '../models/productViewLog';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(ProductViewLog)
-export class ProductViewLogRepository extends Repository<ProductViewLog>  {
-
+@Service()
+export class ProductViewLogRepository {
+    public repository: Repository<ProductViewLog>;
+    constructor() {
+        this.repository = getDataSource().getRepository(ProductViewLog);
+    }
 }

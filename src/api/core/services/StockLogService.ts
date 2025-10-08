@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { StockLogRepository } from '../repositories/StockLogRepository';
 import { Like } from 'typeorm/index';
@@ -16,20 +15,20 @@ import { Like } from 'typeorm/index';
 export class StockLogService {
 
     constructor(
-        @OrmRepository() private stockLogRepository: StockLogRepository,
+        private stockLogRepository: StockLogRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create
     public async create(stockLog: any): Promise<any> {
-        const newStockLog = await this.stockLogRepository.save(stockLog);
+        const newStockLog = await this.stockLogRepository.repository.save(stockLog);
         this.log.info('Create a stockLog');
         return newStockLog;
     }
 
     // find stock
     public findOne(stockLog: any): Promise<any> {
-        return this.stockLogRepository.findOne(stockLog);
+        return this.stockLogRepository.repository.findOne(stockLog);
     }
 
     // stock log list
@@ -64,14 +63,14 @@ export class StockLogService {
         }
 
         if (count) {
-            return this.stockLogRepository.count(condition);
+            return this.stockLogRepository.repository.count(condition);
         } else {
-            return this.stockLogRepository.find(condition);
+            return this.stockLogRepository.repository.find(condition);
         }
     }
 
     // delete StockLog
     public async delete(id: number): Promise<any> {
-        return await this.stockLogRepository.delete(id);
+        return await this.stockLogRepository.repository.delete(id);
     }
 }

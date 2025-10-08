@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { VendorOrderArchiveLog } from '../models/VendorOrderArchiveLog';
 import { VendorOrderArchiveLogRepository } from '../repositories/VendorOrderArchiveLogRepository';
@@ -17,14 +16,14 @@ import { Like } from 'typeorm';
 export class VendorOrderArchiveLogService {
 
     constructor(
-        @OrmRepository() private vendorOrderArchiveLogRepository: VendorOrderArchiveLogRepository,
+        private vendorOrderArchiveLogRepository: VendorOrderArchiveLogRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find one vendorOrderArchiveLog
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find role');
-        return this.vendorOrderArchiveLogRepository.findOne(findCondition);
+        return this.vendorOrderArchiveLogRepository.repository.findOne(findCondition);
     }
     // vendorOrderArchiveLog list
     public list(limit: any, offset: any, select: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -52,14 +51,14 @@ export class VendorOrderArchiveLogService {
         }
 
         if (count) {
-            return this.vendorOrderArchiveLogRepository.count(condition);
+            return this.vendorOrderArchiveLogRepository.repository.count(condition);
         }
-        return this.vendorOrderArchiveLogRepository.find(condition);
+        return this.vendorOrderArchiveLogRepository.repository.find(condition);
     }
 
     // create vendor order archive log
     public async create(vendorOrderArchiveLog: VendorOrderArchiveLog): Promise<VendorOrderArchiveLog> {
-        const newVendorOrderArchiveLog = await this.vendorOrderArchiveLogRepository.save(vendorOrderArchiveLog);
+        const newVendorOrderArchiveLog = await this.vendorOrderArchiveLogRepository.repository.save(vendorOrderArchiveLog);
         return newVendorOrderArchiveLog;
     }
 
@@ -67,18 +66,18 @@ export class VendorOrderArchiveLogService {
     public update(id: any, vendorOrderArchiveLog: VendorOrderArchiveLog): Promise<VendorOrderArchiveLog> {
         this.log.info('Update a vendor order archive log');
         vendorOrderArchiveLog.vendorOrderArchiveLogId = id;
-        return this.vendorOrderArchiveLogRepository.save(vendorOrderArchiveLog);
+        return this.vendorOrderArchiveLogRepository.repository.save(vendorOrderArchiveLog);
     }
 
     // delete vendor order archive log
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a vendor order archive log');
-        const deleteVendorOrderArchiveLog = await this.vendorOrderArchiveLogRepository.delete(id);
+        const deleteVendorOrderArchiveLog = await this.vendorOrderArchiveLogRepository.repository.delete(id);
         return deleteVendorOrderArchiveLog;
     }
 
     public find(data: any): Promise<any> {
         this.log.info('Find all VendorProducts');
-        return this.vendorOrderArchiveLogRepository.find(data);
+        return this.vendorOrderArchiveLogRepository.repository.find(data);
     }
 }

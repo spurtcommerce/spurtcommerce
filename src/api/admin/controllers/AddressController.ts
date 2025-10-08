@@ -24,7 +24,9 @@ import { AddressService } from '../../core/services/AddressService';
 import { Address } from '../../core/models/Address';
 import { CreateAddress } from './requests/CreateAddressRequest';
 import { CustomerService } from '../../core/services/CustomerService';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/address')
 export class AddressController {
     constructor(

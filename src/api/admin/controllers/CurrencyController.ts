@@ -25,7 +25,9 @@ import { CreateCurrency } from './requests/CreateCurrencyRequest';
 import { CurrencyService } from '../../core/services/CurrencyService';
 import { UpdateCurrency } from './requests/UpdateCurrenyRequest';
 import { Not } from 'typeorm';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/currency')
 export class CurrencyController {
     constructor(private currencyService: CurrencyService) {

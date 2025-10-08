@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { LoginAttemptsRepository } from '../repositories/LoginAttemptsRepository';
 import { LoginAttemptsModel } from '../models/LoginAttemptsModel';
 
@@ -15,23 +14,23 @@ import { LoginAttemptsModel } from '../models/LoginAttemptsModel';
 export class LoginAttemptsService {
 
     constructor(
-        @OrmRepository() private loginAttemptsRepository: LoginAttemptsRepository ) {
+        private loginAttemptsRepository: LoginAttemptsRepository ) {
     }
 
     public find(attempts: any): Promise<any> {
-        return this.loginAttemptsRepository.find(attempts);
+        return this.loginAttemptsRepository.repository.find(attempts);
     }
 
     public findOne(accessToken: any): Promise<any> {
-        return this.loginAttemptsRepository.findOne(accessToken);
+        return this.loginAttemptsRepository.repository.findOne(accessToken);
     }
     // delete token
     public async delete(id: number): Promise<any> {
-    await this.loginAttemptsRepository.delete(id);
+    await this.loginAttemptsRepository.repository.delete(id);
         return;
     }
     // create token
     public async create(loginAttempts: any): Promise<LoginAttemptsModel> {
-        return this.loginAttemptsRepository.save(loginAttempts);
+        return this.loginAttemptsRepository.repository.save(loginAttempts);
     }
 }

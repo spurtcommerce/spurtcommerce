@@ -14,7 +14,9 @@ import { PageGroupTranslationService } from '../../core/services/PageGroupTransl
 import { PageGroupTranslation } from '../../core/models/PageGroupTranslation';
 import { FindManyOptions, Like } from 'typeorm';
 import { PageGroup } from '../../core/models/PageGroup';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/page-group-translation')
 export class PageGroupTranslationController {
     constructor(

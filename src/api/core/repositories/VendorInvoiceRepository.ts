@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { VendorInvoice } from '../models/VendorInvoice';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(VendorInvoice)
-export class VendorInvoiceRepository extends Repository<VendorInvoice>  {
-
+@Service()
+export class VendorInvoiceRepository {
+    public repository: Repository<VendorInvoice>;
+    constructor() {
+        this.repository = getDataSource().getRepository(VendorInvoice);
+    }
 }

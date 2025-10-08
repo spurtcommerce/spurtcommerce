@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { ProductSpecial } from '../models/ProductSpecial';
 import { ProductSpecialRepository } from '../repositories/ProductSpecialRepository';
@@ -15,35 +14,35 @@ import { ProductSpecialRepository } from '../repositories/ProductSpecialReposito
 @Service()
 export class ProductSpecialService {
     constructor(
-        @OrmRepository() private productSpecialRepository: ProductSpecialRepository,
+        private productSpecialRepository: ProductSpecialRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // create a data
     public async create(Data: any): Promise<ProductSpecial> {
         this.log.info('create a data');
-        return this.productSpecialRepository.save(Data);
+        return this.productSpecialRepository.repository.save(Data);
     }
     // findone a data
     public findOne(id: any): Promise<ProductSpecial> {
         this.log.info('Find a data');
-        return this.productSpecialRepository.findOne(id);
+        return this.productSpecialRepository.repository.findOne(id);
     }
     // find a data
     public findAll(productSpecial: any): Promise<ProductSpecial[]> {
         this.log.info('Find a data');
-        return this.productSpecialRepository.find(productSpecial);
+        return this.productSpecialRepository.repository.find(productSpecial);
     }
 
     // find a data
     public find(): Promise<ProductSpecial[]> {
         this.log.info('Find a data');
-        return this.productSpecialRepository.find();
+        return this.productSpecialRepository.repository.find();
     }
      // delete product option
      public async delete(id: any): Promise<any> {
         this.log.info('Delete a product option value');
-        const deleteProductOptionValue = await this.productSpecialRepository.delete(id);
+        const deleteProductOptionValue = await this.productSpecialRepository.repository.delete(id);
         return deleteProductOptionValue;
     }
 

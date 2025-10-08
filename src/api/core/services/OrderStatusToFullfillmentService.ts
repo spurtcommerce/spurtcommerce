@@ -7,43 +7,42 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { OrderStatusToFullfillmentRepository } from '../repositories/OrderStatusToFullfillmentRepository';
 import { OrderStatusToFullfillment } from '../models/OrderStatusToFullfillment';
-import { FindConditions } from 'typeorm';
+import { FindOptionsWhere } from 'typeorm';
 
 @Service()
 export class OrderStatusToFullfillmentService {
 
     constructor(
-        @OrmRepository() private orderStatusToFullfillmentRepository: OrderStatusToFullfillmentRepository,
+        private orderStatusToFullfillmentRepository: OrderStatusToFullfillmentRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create payload
     public async create(payload: OrderStatusToFullfillment): Promise<any> {
         this.log.info('Create a new payload ');
-        return this.orderStatusToFullfillmentRepository.save(payload);
+        return this.orderStatusToFullfillmentRepository.repository.save(payload);
     }
 
     // find One payload
     public findOne(payload: any): Promise<any> {
-        return this.orderStatusToFullfillmentRepository.findOne(payload);
+        return this.orderStatusToFullfillmentRepository.repository.findOne(payload);
     }
 
     // findAll payload
     public findAll(payload: any): Promise<any> {
-        return this.orderStatusToFullfillmentRepository.find(payload);
+        return this.orderStatusToFullfillmentRepository.repository.find(payload);
     }
 
     // update payload
     public update(payload: any): Promise<any> {
-        return this.orderStatusToFullfillmentRepository.save(payload);
+        return this.orderStatusToFullfillmentRepository.repository.save(payload);
     }
 
     // delete payload
-    public async delete(id: FindConditions<OrderStatusToFullfillment>): Promise<any> {
-        return await this.orderStatusToFullfillmentRepository.delete(id);
+    public async delete(id: FindOptionsWhere<OrderStatusToFullfillment>): Promise<any> {
+        return await this.orderStatusToFullfillmentRepository.repository.delete(id);
     }
 }

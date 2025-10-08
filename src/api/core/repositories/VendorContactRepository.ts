@@ -6,9 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { VendorContact } from '../models/VendorContact';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(VendorContact)
-export class VendorContactRepository extends Repository<VendorContact>  {
+@Service()
+export class VendorContactRepository {
+    public repository: Repository<VendorContact>;
+    constructor() {
+        this.repository = getDataSource().getRepository(VendorContact);
+    }
 }

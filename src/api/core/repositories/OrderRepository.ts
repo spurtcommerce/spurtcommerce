@@ -6,15 +6,20 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Order } from '../models/Order';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(Order)
-export class OrderRepository extends Repository<Order>  {
-
+@Service()
+export class OrderRepository {
+    public repository: Repository<Order>;
+    constructor() {
+        this.repository = getDataSource().getRepository(Order);
+    }
     public async salesList(): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(Order, 'order');
+        const query: any = await this.repository.createQueryBuilder('order');
         query.select(['COUNT(order_id) as ordercount', 'MONTH(created_date) as month', 'YEAR(created_date) as year']);
         query.andWhere('payment_process = :process', { process: 1 });
         query.groupBy('month');
@@ -25,12 +30,12 @@ export class OrderRepository extends Repository<Order>  {
         return query.getRawMany();
     }
 
-    public async transactionList( year: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Order, 'order');
+    public async transactionList(year: number): Promise<any> {
+        const query: any = await this.repository.createQueryBuilder('order');
         query.select(['COUNT(order_id) as ordercount', 'MONTH(created_date) as month', 'SUM(order.total) as orderAmount']);
         query.where('order.payment_flag = 1 AND order.payment_status = 1');
         if (year) {
-        query.andWhere('YEAR(order.created_date) = :year', { year });
+            query.andWhere('YEAR(order.created_date) = :year', { year });
         }
         query.groupBy('month');
         query.addGroupBy('YEAR(created_date)');
@@ -41,7 +46,7 @@ export class OrderRepository extends Repository<Order>  {
 
     public async findAllTodayOrder(todaydate: string): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(Order, 'order');
+        const query: any = await this.repository.createQueryBuilder('order');
         query.select(['SUM(order.total) as total']);
         query.where('DATE(order.createdDate) = :todaydate', { todaydate });
         query.andWhere('payment_process = :process', { process: 1 });
@@ -50,14 +55,14 @@ export class OrderRepository extends Repository<Order>  {
 
     public async findAllTodayOrderCount(todaydate: string): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(Order, 'order');
+        const query: any = await this.repository.createQueryBuilder('order');
         query.select(['COUNT(order.orderId) as orderCount']);
         query.where('DATE(order.createdDate) = :todaydate', { todaydate });
         query.andWhere('payment_process = :process', { process: 1 });
         return query.getRawOne();
     }
     public async findTotalOrderAmount(): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Order, 'order');
+        const query: any = await this.repository.createQueryBuilder('order');
         query.select(['SUM(order.total) as total']);
         query.where('payment_process = :process', { process: 1 });
         return query.getRawOne();
@@ -65,7 +70,7 @@ export class OrderRepository extends Repository<Order>  {
 
     public async orderCount(orderId: string, orderStatusId: string, totalAmount: string, customerName: string, dateAdded: string): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(Order, 'order');
+        const query: any = await this.repository.createQueryBuilder('order');
         query.select(['COUNT(DISTINCT(order.orderId)) as orderCount']);
         query.innerJoin('order.orderProduct', 'orderProduct');
         query.where('payment_process = :process', { process: 1 });
@@ -87,7 +92,7 @@ export class OrderRepository extends Repository<Order>  {
         return query.getRawOne();
     }
     public async dashboardOrdersCount(duration: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Order, 'Order');
+        const query: any = await this.repository.createQueryBuilder('Order');
         query.select(['COUNT(Order.order_id) as ordersCount', 'COUNT(DISTINCT(vendorOrders.vendor_id)) as vendorsCount']);
         query.leftJoin('Order.vendorOrders', 'vendorOrders');
         query.where('Order.payment_status = 1 AND Order.payment_flag = 1 AND Order.paymentProcess = 1');
@@ -104,7 +109,7 @@ export class OrderRepository extends Repository<Order>  {
     }
 
     public async ordersCount(duration: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Order, 'Order');
+        const query: any = await this.repository.createQueryBuilder('Order');
         query.andWhere('Order.paymentFlag = 1 AND Order.paymentStatus = 1 AND Order.paymentProcess = 1');
         if (duration === 1 && duration) {
             query.andWhere('DATE(Order.created_date) = DATE(NOW())');

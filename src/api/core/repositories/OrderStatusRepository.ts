@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { OrderStatus } from '../models/OrderStatus';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(OrderStatus)
-export class OrderStatusRepository extends Repository<OrderStatus>  {
-
+@Service()
+export class OrderStatusRepository {
+    public repository: Repository<OrderStatus>;
+  constructor() {
+    this.repository = getDataSource().getRepository(OrderStatus);
+  }
 }

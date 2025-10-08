@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { VendorOrderArchive } from '../models/VendorOrderArchive';
 import { VendorOrderArchiveRepository } from '../repositories/VendorOrderArchiveRepository';
@@ -17,14 +16,14 @@ import { Like, Brackets, getConnection } from 'typeorm';
 export class VendorOrderArchiveService {
 
     constructor(
-        @OrmRepository() private vendorOrderArchiveRepository: VendorOrderArchiveRepository,
+        private vendorOrderArchiveRepository: VendorOrderArchiveRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find one vendorOrderArchive
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find role');
-        return this.vendorOrderArchiveRepository.findOne(findCondition);
+        return this.vendorOrderArchiveRepository.repository.findOne(findCondition);
     }
     // vendorOrderArchive list
     public list(limit: any, offset: any, select: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -52,14 +51,14 @@ export class VendorOrderArchiveService {
         }
 
         if (count) {
-            return this.vendorOrderArchiveRepository.count(condition);
+            return this.vendorOrderArchiveRepository.repository.count(condition);
         }
-        return this.vendorOrderArchiveRepository.find(condition);
+        return this.vendorOrderArchiveRepository.repository.find(condition);
     }
 
     // create vendor order archive
     public async create(vendorOrderArchive: VendorOrderArchive): Promise<VendorOrderArchive> {
-        const newVendorOrderArchive = await this.vendorOrderArchiveRepository.save(vendorOrderArchive);
+        const newVendorOrderArchive = await this.vendorOrderArchiveRepository.repository.save(vendorOrderArchive);
         return newVendorOrderArchive;
     }
 
@@ -67,13 +66,13 @@ export class VendorOrderArchiveService {
     public update(id: any, vendorOrderArchive: VendorOrderArchive): Promise<VendorOrderArchive> {
         this.log.info('Update a vendor order archive');
         vendorOrderArchive.vendorOrderArchiveId = id;
-        return this.vendorOrderArchiveRepository.save(vendorOrderArchive);
+        return this.vendorOrderArchiveRepository.repository.save(vendorOrderArchive);
     }
 
     // delete vendor order archive
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a vendor order archive');
-        const deleteVendorOrderArchive = await this.vendorOrderArchiveRepository.delete(id);
+        const deleteVendorOrderArchive = await this.vendorOrderArchiveRepository.repository.delete(id);
         return deleteVendorOrderArchive;
     }
 

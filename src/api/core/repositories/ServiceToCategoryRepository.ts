@@ -8,10 +8,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { ServiceToCategory } from '../models/ServiceToCategory';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(ServiceToCategory)
-export class ServiceToCategoryRepository extends Repository<ServiceToCategory>  {
-
+@Service()
+export class ServiceToCategoryRepository {
+    public repository: Repository<ServiceToCategory>;
+    constructor() {
+        this.repository = getDataSource().getRepository(ServiceToCategory);
+    }
 }

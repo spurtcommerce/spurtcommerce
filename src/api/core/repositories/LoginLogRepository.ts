@@ -6,14 +6,20 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
-
+import { Repository } from 'typeorm';
 import { LoginLog } from '../models/LoginLog';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(LoginLog)
-export class LoginLogRepository extends Repository<LoginLog> {
+@Service()
+export class LoginLogRepository {
+    public repository: Repository<LoginLog>;
+    constructor() {
+        this.repository = getDataSource().getRepository(LoginLog);
+    }
+
     public async logList(limit: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(LoginLog, 'LoginLog');
+        const query: any = await this.repository.createQueryBuilder('LoginLog');
         query.select(['COUNT(LoginLog.id) as logcount', 'DATE(created_date) as createdDate']);
         query.groupBy('createdDate');
         query.orderBy('createdDate', 'DESC');
@@ -21,11 +27,11 @@ export class LoginLogRepository extends Repository<LoginLog> {
         return query.getRawMany();
     }
 
-    public async customerVisitList( month: number, year: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(LoginLog, 'loginLog');
+    public async customerVisitList(month: number, year: number): Promise<any> {
+        const query: any = await this.repository.createQueryBuilder('loginLog');
         query.select(['COUNT(loginLog.id) as visitCount', 'MAX(DAYOFMONTH(created_date)) as dayOfMonth', 'MAX(MONTH(created_date)) as month', 'MAX(YEAR(created_date)) as year']);
         if (month && year) {
-            query.andWhere('MONTH(loginLog.created_date) = :month AND YEAR(loginLog.created_date) = :year', {month, year});
+            query.andWhere('MONTH(loginLog.created_date) = :month AND YEAR(loginLog.created_date) = :year', { month, year });
         }
         query.groupBy('DATE(created_date)');
         query.orderBy('DATE(created_date)', 'ASC');

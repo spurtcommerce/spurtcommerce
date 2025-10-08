@@ -7,25 +7,24 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { PluginRepository } from '../repositories/PluginRepository';
 import { Like } from 'typeorm/index';
 
 @Service()
 export class PluginService {
 
-    constructor(@OrmRepository() private pluginRepository: PluginRepository) {
+    constructor(private pluginRepository: PluginRepository) {
     }
 
     // create related product
     public async create(product: any): Promise<any> {
-        const newProduct = await this.pluginRepository.save(product);
+        const newProduct = await this.pluginRepository.repository.save(product);
         return newProduct;
     }
 
     // find plugins
     public async findAll(plugins: any): Promise<any> {
-        return await this.pluginRepository.find(plugins);
+        return await this.pluginRepository.repository.find(plugins);
     }
 
     // country List
@@ -59,20 +58,20 @@ export class PluginService {
             condition.skip = offset;
         }
         if (count) {
-            return this.pluginRepository.count(condition);
+            return this.pluginRepository.repository.count(condition);
         } else {
-            return this.pluginRepository.find(condition);
+            return this.pluginRepository.repository.find(condition);
         }
     }
     // delete plugin
     public async delete(id: any): Promise<any> {
-        const newProduct = await this.pluginRepository.delete(id);
+        const newProduct = await this.pluginRepository.repository.delete(id);
         return newProduct;
     }
 
     // find one plugin
     public findOne(plugins: any): Promise<any> {
-        return this.pluginRepository.findOne(plugins);
+        return this.pluginRepository.repository.findOne(plugins);
     }
 
     // Plugin list

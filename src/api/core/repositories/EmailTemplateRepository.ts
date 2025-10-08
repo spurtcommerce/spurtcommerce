@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { EmailTemplate } from '../models/EmailTemplate';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(EmailTemplate)
-export class EmailTemplateRepository extends Repository<EmailTemplate>  {
-
+@Service()
+export class EmailTemplateRepository {
+    public repository: Repository<EmailTemplate>;
+    constructor() {
+        this.repository = getDataSource().getRepository(EmailTemplate);
+    }
 }

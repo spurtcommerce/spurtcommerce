@@ -53,7 +53,8 @@ import { ProductTirePrice } from '../../core/models/ProductTirePrice';
 import { ProductTirePriceService } from '../../core/services/ProductTirePriceService';
 import { ImageService } from '../../core/services/ImageService';
 // import { vendorProductList } from '@spurtcommerce/marketplace';
-// import { getConnection } from 'typeorm';
+import { Service } from 'typedi';
+@Service()
 @JsonController('/admin-vendor-product')
 export class VendorAdminProductController {
     constructor(

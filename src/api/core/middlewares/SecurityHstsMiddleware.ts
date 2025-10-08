@@ -11,7 +11,8 @@
 import * as express from 'express';
 import * as helmet from 'helmet';
 import { ExpressMiddlewareInterface, Middleware } from 'routing-controllers';
-
+import { Service } from 'typedi';
+@Service()
 @Middleware({ type: 'before' })
 export class SecurityHstsMiddleware implements ExpressMiddlewareInterface {
 

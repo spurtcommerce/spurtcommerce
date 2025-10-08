@@ -14,7 +14,8 @@ import { ExpressMiddlewareInterface, Middleware } from 'routing-controllers';
 
 import { env } from '../../../env';
 import { Logger } from '../../../lib/logger';
-
+import { Service } from 'typedi';
+@Service()
 @Middleware({ type: 'before' })
 export class LogMiddleware implements ExpressMiddlewareInterface {
 

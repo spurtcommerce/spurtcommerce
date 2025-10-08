@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { FindManyOptions, Like } from 'typeorm';
 import { VendorMediaRepository } from '../repositories/VendorMediaRepository';
@@ -17,19 +16,19 @@ import { VendorMedia } from '../models/VendorMedia';
 export class VendorMediaService {
 
     constructor(
-        @OrmRepository() private vendorMediaRepository: VendorMediaRepository,
+        private vendorMediaRepository: VendorMediaRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // find one condition
     public findOne(data: any): Promise<any> {
-        return this.vendorMediaRepository.findOne(data);
+        return this.vendorMediaRepository.repository.findOne(data);
     }
 
     // find all
     public findAll(data: FindManyOptions<VendorMedia>): Promise<any> {
         this.log.info('Find all');
-        return this.vendorMediaRepository.find(data);
+        return this.vendorMediaRepository.repository.find(data);
     }
 
     // list
@@ -67,15 +66,15 @@ export class VendorMediaService {
 
         }
         if (count) {
-            return this.vendorMediaRepository.count(condition);
+            return this.vendorMediaRepository.repository.count(condition);
         } else {
-            return this.vendorMediaRepository.find(condition);
+            return this.vendorMediaRepository.repository.find(condition);
         }
     }
 
     // create
     public async create(mediaData: VendorMedia): Promise<VendorMedia> {
-        const newVarient = await this.vendorMediaRepository.save(mediaData);
+        const newVarient = await this.vendorMediaRepository.repository.save(mediaData);
         return newVarient;
     }
 
@@ -83,13 +82,13 @@ export class VendorMediaService {
     public update(id: any, mediaData: VendorMedia): Promise<VendorMedia> {
         this.log.info('Update vendor media');
         mediaData.id = id;
-        return this.vendorMediaRepository.save(mediaData);
+        return this.vendorMediaRepository.repository.save(mediaData);
     }
 
     // delete
     public async delete(id: any): Promise<any> {
         this.log.info('Delete vendor media');
-        const newVideo = await this.vendorMediaRepository.delete(id);
+        const newVideo = await this.vendorMediaRepository.repository.delete(id);
         return newVideo;
     }
 }

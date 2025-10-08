@@ -1,4 +1,4 @@
-import { getRepository } from 'typeorm';
+import { getDataSource } from '../../src/loaders/typeormLoader';
 import { Plugins } from '../../src/api/core/models/Plugin';
 import * as path from 'path';
 
@@ -8,7 +8,7 @@ export async function webHookInit(): Promise<any> {
 
     const webhooks = require('node-webhooks');
 
-    const pluginRepository = getRepository(Plugins);
+    const pluginRepository = getDataSource().getRepository(Plugins);
 
     const webHookUrlRegistrations = {};
 

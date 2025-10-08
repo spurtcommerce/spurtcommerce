@@ -7,29 +7,28 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Sku } from '../models/SkuModel';
 import { SkuRepository } from '../repositories/SkuRepository';
-import { FindConditions, Like } from 'typeorm';
+import { FindOptionsWhere, Like } from 'typeorm';
 
 @Service()
 export class SkuService {
 
     constructor(
-        @OrmRepository() private skuRepository: SkuRepository,
+        private skuRepository: SkuRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // find one condition
     public findOne(sku: any): Promise<any> {
-        return this.skuRepository.findOne(sku);
+        return this.skuRepository.repository.findOne(sku);
     }
 
     // find all sku
     public findAll(sku: any): Promise<any> {
         this.log.info('Find all sku');
-        return this.skuRepository.find(sku);
+        return this.skuRepository.repository.find(sku);
     }
 
     // list
@@ -67,15 +66,15 @@ export class SkuService {
 
         }
         if (count) {
-            return this.skuRepository.count(condition);
+            return this.skuRepository.repository.count(condition);
         } else {
-            return this.skuRepository.find(condition);
+            return this.skuRepository.repository.find(condition);
         }
     }
 
     // create sku
     public async create(sku: Sku): Promise<Sku> {
-        const newSku = await this.skuRepository.save(sku);
+        const newSku = await this.skuRepository.repository.save(sku);
         return newSku;
     }
 
@@ -83,19 +82,19 @@ export class SkuService {
     public update(id: any, sku: Sku): Promise<Sku> {
         this.log.info('Update a sku');
         sku.id = id;
-        return this.skuRepository.save(sku);
+        return this.skuRepository.repository.save(sku);
     }
 
     // delete sku
     public async delete(id: any): Promise<any> {
         this.log.info('Delete a sku');
-        const newSku = await this.skuRepository.delete(id);
+        const newSku = await this.skuRepository.repository.delete(id);
         return newSku;
     }
 
-    public async bulkDelete(id: FindConditions<Sku>): Promise<any> {
+    public async bulkDelete(id: FindOptionsWhere<Sku>): Promise<any> {
         this.log.info('Delete a sku');
-        const newSku = await this.skuRepository.delete(id);
+        const newSku = await this.skuRepository.repository.delete(id);
         return newSku;
     }
 }

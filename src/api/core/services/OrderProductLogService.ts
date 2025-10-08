@@ -7,24 +7,23 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { OrderProductLogRepository } from '../repositories/OrderProductLogRepository';
 
 @Service()
 export class OrderProductLogService {
     constructor(
-        @OrmRepository() private orderProductLogRepository: OrderProductLogRepository,
+        private orderProductLogRepository: OrderProductLogRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     public find(orderProductLog: any): Promise<any> {
         this.log.info('Find a data');
-        return this.orderProductLogRepository.find(orderProductLog);
+        return this.orderProductLogRepository.repository.find(orderProductLog);
     }
 
     public findOne(productData: any): Promise<any> {
-        return this.orderProductLogRepository.findOne(productData);
+        return this.orderProductLogRepository.repository.findOne(productData);
     }
 
     // order list
@@ -47,18 +46,18 @@ export class OrderProductLogService {
             condition.skip = offset;
         }
         if (count) {
-            return this.orderProductLogRepository.count(condition);
+            return this.orderProductLogRepository.repository.count(condition);
         } else {
-            return this.orderProductLogRepository.find(condition);
+            return this.orderProductLogRepository.repository.find(condition);
         }
     }
 
     // order count
     public findAndCount(where: any): Promise<any> {
-        return this.orderProductLogRepository.findAndCount(where);
+        return this.orderProductLogRepository.repository.findAndCount(where);
     }
 
     public async create(orderProductLog: any): Promise<any> {
-        return this.orderProductLogRepository.save(orderProductLog);
+        return this.orderProductLogRepository.repository.save(orderProductLog);
     }
 }

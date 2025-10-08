@@ -9,7 +9,9 @@
 import { JsonController, Get, Req, Res, QueryParam, Body, Post } from 'routing-controllers';
 import { ExportLogService } from '../../core/services/ExportLogService';
 import { ExportLog } from '../../core/models/ExportLog';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/export-log')
 export class ExportLogController {
     constructor(

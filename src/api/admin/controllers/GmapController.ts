@@ -15,7 +15,9 @@ import {
     Post,
 } from 'routing-controllers';
 import { PluginService } from '../../core/services/PluginService';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/admin-gmap')
 export class AdminGmapController {
     constructor(

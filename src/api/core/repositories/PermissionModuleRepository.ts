@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { PermissionModule } from '../models/PermissionModule';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(PermissionModule)
-export class PermissionModuleRepository extends Repository<PermissionModule>  {
-
+@Service()
+export class PermissionModuleRepository {
+    public repository: Repository<PermissionModule>;
+    constructor() {
+        this.repository = getDataSource().getRepository(PermissionModule);
+    }
 }

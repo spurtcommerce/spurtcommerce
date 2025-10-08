@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { CustomerGroup } from '../models/CustomerGroup';
 import { CustomerGroupRepository } from '../repositories/CustomerGroupRepository';
@@ -17,19 +16,19 @@ import { Brackets, Like, getConnection } from 'typeorm';
 export class CustomerGroupService {
 
     constructor(
-        @OrmRepository() private customerGroupRepository: CustomerGroupRepository,
+        private customerGroupRepository: CustomerGroupRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find Role
     public findOne(findCondition: any): Promise<CustomerGroup> {
         this.log.info('Find role');
-        return this.customerGroupRepository.findOne(findCondition);
+        return this.customerGroupRepository.repository.findOne(findCondition);
     }
 
     public find(findCondition: any): Promise<CustomerGroup[]> {
         this.log.info('Find role');
-        return this.customerGroupRepository.find(findCondition);
+        return this.customerGroupRepository.repository.find(findCondition);
     }
     // Role list
     public list(limit: any, offset: any, select: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -57,19 +56,19 @@ export class CustomerGroupService {
         }
 
         if (count) {
-            return this.customerGroupRepository.count(condition);
+            return this.customerGroupRepository.repository.count(condition);
         }
-        return this.customerGroupRepository.find(condition);
+        return this.customerGroupRepository.repository.find(condition);
     }
 
     // create role
     public async create(customerGroup: CustomerGroup): Promise<CustomerGroup> {
-        const newCustomerGroup = await this.customerGroupRepository.save(customerGroup);
+        const newCustomerGroup = await this.customerGroupRepository.repository.save(customerGroup);
         return newCustomerGroup;
     }
 
     public async createBulk(customerGroup: CustomerGroup[]): Promise<CustomerGroup[]> {
-        const newCustomerGroup = await this.customerGroupRepository.save(customerGroup);
+        const newCustomerGroup = await this.customerGroupRepository.repository.save(customerGroup);
         return newCustomerGroup;
     }
 
@@ -77,13 +76,13 @@ export class CustomerGroupService {
     public update(id: any, customerGroup: CustomerGroup): Promise<CustomerGroup> {
         this.log.info('Update a role');
         customerGroup.id = id;
-        return this.customerGroupRepository.save(customerGroup);
+        return this.customerGroupRepository.repository.save(customerGroup);
     }
 
     // delete role
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a role');
-        const deleteCustomer = await this.customerGroupRepository.delete(id);
+        const deleteCustomer = await this.customerGroupRepository.repository.delete(id);
         return deleteCustomer;
     }
 

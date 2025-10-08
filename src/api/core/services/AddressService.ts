@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { AddressRepository } from '../repositories/AddressRepository';
 import { Address } from '../models/Address';
@@ -16,24 +15,24 @@ import { Address } from '../models/Address';
 export class AddressService {
 
     constructor(
-        @OrmRepository() private addressRepository: AddressRepository,
+        private addressRepository: AddressRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create address
     public async create(address: Address): Promise<any> {
         this.log.info('Create a new address ');
-        return this.addressRepository.save(address);
+        return this.addressRepository.repository.save(address);
     }
 
     // find Condition
     public findOne(address: any): Promise<any> {
-        return this.addressRepository.findOne(address);
+        return this.addressRepository.repository.findOne(address);
     }
     // update address
     public update(id: number, address: Address): Promise<any> {
         address.addressId = id;
-        return this.addressRepository.save(address);
+        return this.addressRepository.repository.save(address);
     }
 
     // address List
@@ -64,20 +63,20 @@ export class AddressService {
             condition.skip = offset;
         }
         if (count) {
-            return this.addressRepository.count(condition);
+            return this.addressRepository.repository.count(condition);
         } else {
-            return this.addressRepository.find(condition);
+            return this.addressRepository.repository.find(condition);
         }
     }
 
     // delete address
     public async delete(id: number): Promise<any> {
-        await this.addressRepository.delete(id);
+        await this.addressRepository.repository.delete(id);
         return 1;
     }
 
     // find Customer addresses
     public find(address: any): Promise<any> {
-        return this.addressRepository.find(address);
+        return this.addressRepository.repository.find(address);
     }
 }

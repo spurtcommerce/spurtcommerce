@@ -9,7 +9,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like } from 'typeorm/index';
 import { ServiceImageRepository } from '../repositories/ServiceImageRepository';
@@ -17,26 +16,26 @@ import { ServiceImage } from '../models/ServiceImage';
 
 @Service()
 export class ServiceImageService {
-    constructor(@OrmRepository() private serviceImageRepository: ServiceImageRepository,
+    constructor(private serviceImageRepository: ServiceImageRepository,
                 @Logger(__filename) private log: LoggerInterface) {
     }
     // create service
     public async create(serviceImage: ServiceImage): Promise<any> {
         this.log.info('Create a new serviceImage');
-        return this.serviceImageRepository.save(serviceImage);
+        return this.serviceImageRepository.repository.save(serviceImage);
     }
     // find one service image
     public findOne(serviceImage: any): Promise<any> {
-        return this.serviceImageRepository.findOne(serviceImage);
+        return this.serviceImageRepository.repository.findOne(serviceImage);
     }
     // find all service images
     public findAll(serviceImage: any): Promise<any> {
-        return this.serviceImageRepository.find(serviceImage);
+        return this.serviceImageRepository.repository.find(serviceImage);
     }
     // update service images
     public update(id: any, serviceImage: ServiceImage): Promise<ServiceImage> {
         this.log.info('Update a serviceImage');
-        return this.serviceImageRepository.save(serviceImage);
+        return this.serviceImageRepository.repository.save(serviceImage);
     }
     // service Image List
     public list(limit: any, offset: any, select: any = [], search: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -65,17 +64,17 @@ export class ServiceImageService {
             condition.skip = offset;
         }
         if (count) {
-            return this.serviceImageRepository.count(condition);
+            return this.serviceImageRepository.repository.count(condition);
         } else {
-            return this.serviceImageRepository.find(condition);
+            return this.serviceImageRepository.repository.find(condition);
         }
     }
     // delete service image
     public async delete(id: any): Promise<any> {
-        return await this.serviceImageRepository.delete(id);
+        return await this.serviceImageRepository.repository.delete(id);
     }
     // delete service
     public async deleteProduct(id: number): Promise<any> {
-        return await this.serviceImageRepository.delete({ serviceId: id });
+        return await this.serviceImageRepository.repository.delete({ serviceId: id });
     }
 }

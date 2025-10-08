@@ -14,6 +14,8 @@ import { LanguageService } from '../../core/services/LanguageService';
 import { Not } from 'typeorm';
 import { IndustryService } from '../../core/services/IndustryService';
 import { PluginService } from '../services/PluginService';
+import { Service } from 'typedi';
+@Service()
 @JsonController('/list')
 export class CommonController {
     constructor(

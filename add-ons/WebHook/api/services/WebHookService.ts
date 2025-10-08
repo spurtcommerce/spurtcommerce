@@ -1,5 +1,4 @@
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { WebHookRepository } from '../repositories/WebHookRepository';
 import { FindManyOptions, FindOneOptions } from 'typeorm';
 import { WebHook } from '../models/WebHook';
@@ -8,7 +7,7 @@ import { WebHook } from '../models/WebHook';
 export class WebHookService {
 
     constructor(
-        @OrmRepository() private webHookRepository: WebHookRepository
+        private webHookRepository: WebHookRepository
     ) {
         // -
     }

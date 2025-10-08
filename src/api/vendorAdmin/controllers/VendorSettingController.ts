@@ -17,7 +17,8 @@ import {
 import { VendorGlobalSettingService } from '../../core/services/VendorSettingService';
 import { VendorGlobalSetting } from '../../core/models/VendorGlobalSettings';
 import { CreateVendorSettingRequest } from './requests/CreateVendorSettingRequest';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/vendor-setting')
 export class VendorAdminSettingController {
     constructor(private vendorGlobalSettingService: VendorGlobalSettingService

@@ -31,7 +31,8 @@ import moment from 'moment';
 import { CustomerService } from '../../core/services/CustomerService';
 import * as fs from 'fs';
 import { OrderFullfillmentStatusService } from '../../../../src/api/core/services/OrderFullfillmentStatusService';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/admin-vendor-order')
 export class VendorAdminOrderController {
     constructor(

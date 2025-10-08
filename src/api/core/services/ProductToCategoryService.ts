@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { ProductToCategory } from '../models/ProductToCategory';
 import { ProductToCategoryRepository } from '../repositories/ProductToCategoryRepository';
@@ -17,26 +16,26 @@ import { Like } from 'typeorm';
 export class ProductToCategoryService {
 
     constructor(
-        @OrmRepository() private productToCategoryRepository: ProductToCategoryRepository,
+        private productToCategoryRepository: ProductToCategoryRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // findOne condition
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find all product');
-        return this.productToCategoryRepository.findOne(findCondition);
+        return this.productToCategoryRepository.repository.findOne(findCondition);
     }
 
     // find all product
     public findAll(findCondition: any): Promise<any> {
         this.log.info('Find all product');
-        return this.productToCategoryRepository.find(findCondition);
+        return this.productToCategoryRepository.repository.find(findCondition);
     }
 
     // find all product
     public find(): Promise<any> {
         this.log.info('Find all product');
-        return this.productToCategoryRepository.find();
+        return this.productToCategoryRepository.repository.find();
     }
 
     // product list
@@ -82,14 +81,14 @@ export class ProductToCategoryService {
         }
 
         if (count) {
-            return this.productToCategoryRepository.count(condition);
+            return this.productToCategoryRepository.repository.count(condition);
         }
-        return this.productToCategoryRepository.find(condition);
+        return this.productToCategoryRepository.repository.find(condition);
     }
 
     // create product
     public async create(product: ProductToCategory): Promise<ProductToCategory> {
-        const newProduct = await this.productToCategoryRepository.save(product);
+        const newProduct = await this.productToCategoryRepository.repository.save(product);
         return newProduct;
     }
 
@@ -97,13 +96,13 @@ export class ProductToCategoryService {
     public update(id: any, product: ProductToCategory): Promise<ProductToCategory> {
         this.log.info('Update a product');
         product.productId = id;
-        return this.productToCategoryRepository.save(product);
+        return this.productToCategoryRepository.repository.save(product);
     }
 
     // delete product
     public async delete(id: any): Promise<any> {
         this.log.info('Delete a product');
-        const newProduct = await this.productToCategoryRepository.delete(id);
+        const newProduct = await this.productToCategoryRepository.repository.delete(id);
         return newProduct;
     }
 }

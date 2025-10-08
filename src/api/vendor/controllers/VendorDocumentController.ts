@@ -9,7 +9,8 @@ import { VendorDocumentService } from '../../../api/core/services/VendorDocument
 import { DocumentService } from '../../../api/core/services/DocumentService';
 import { VendorDocumentRequest } from './requests/VendorDocumentRequest';
 import { UpdateVendorDocumentRequest } from './requests/UpdateVendorDocument';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/vendor-document')
 export class VendorDocumentController {
     constructor(

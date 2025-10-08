@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like } from 'typeorm/index';
 import { PageTranslationRepository } from '../repositories/PageTranslationRepository';
@@ -16,24 +15,24 @@ import { PageTranslationRepository } from '../repositories/PageTranslationReposi
 export class PageTranslationService {
 
     constructor(
-        @OrmRepository() private pageTranslationRepository: PageTranslationRepository,
+        private pageTranslationRepository: PageTranslationRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create page translation
     public async create(page: any): Promise<any> {
         this.log.info('Create a new page translation');
-        return this.pageTranslationRepository.save(page);
+        return this.pageTranslationRepository.repository.save(page);
     }
 
     // find one page translation
     public findOne(page: any): Promise<any> {
-        return this.pageTranslationRepository.findOne(page);
+        return this.pageTranslationRepository.repository.findOne(page);
     }
 
     // find one page translation
     public find(page: any): Promise<any> {
-        return this.pageTranslationRepository.find(page);
+        return this.pageTranslationRepository.repository.find(page);
     }
 
     // page translation list
@@ -73,15 +72,15 @@ export class PageTranslationService {
             condition.skip = offset;
         }
         if (count) {
-            return this.pageTranslationRepository.count(condition);
+            return this.pageTranslationRepository.repository.count(condition);
         } else {
-            return this.pageTranslationRepository.find(condition);
+            return this.pageTranslationRepository.repository.find(condition);
         }
     }
 
     // delete page translation
     public async delete(id: number): Promise<any> {
-        return await this.pageTranslationRepository.delete(id);
+        return await this.pageTranslationRepository.repository.delete(id);
     }
 
 }

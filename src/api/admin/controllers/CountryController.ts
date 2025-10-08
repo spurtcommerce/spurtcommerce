@@ -25,7 +25,9 @@ import { Country } from '../../core/models/Country';
 import { CountryService } from '../../core/services/CountryService';
 import { UpdateCountry } from './requests/UpdateCountryRequest';
 import { Not, Raw } from 'typeorm';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/country')
 export class CountryController {
     constructor(private countryService: CountryService) {

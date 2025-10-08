@@ -9,7 +9,6 @@
 /* tslint:disable:no-string-literal */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Brackets, Like, getConnection } from 'typeorm/index';
 import { VendorRepository } from '../repositories/VendorRepository';
@@ -19,14 +18,14 @@ import { Vendor } from '../models/Vendor';
 export class VendorService {
 
     constructor(
-        @OrmRepository() private vendorRepository: VendorRepository,
+        private vendorRepository: VendorRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create customer
     public async create(vendor: any): Promise<any> {
         this.log.info('Create a new vendor');
-        return this.vendorRepository.save(vendor);
+        return this.vendorRepository.repository.save(vendor);
     }
 
     // find Condition
@@ -35,23 +34,23 @@ export class VendorService {
             ...vendor['where'],
             isDelete: 0,
         };
-        return this.vendorRepository.findOne(vendor);
+        return this.vendorRepository.repository.findOne(vendor);
     }
 
     // find Condition
     public findAll(condition?: any): Promise<any> {
-        return this.vendorRepository.find(condition ? condition : 1);
+        return this.vendorRepository.repository.find(condition ? condition : 1);
     }
 
     // find Condition
     public find(data: any): Promise<any> {
-        return this.vendorRepository.find(data);
+        return this.vendorRepository.repository.find(data);
     }
 
     // update vendor
     public update(id: any, vendor: any): Promise<any> {
         vendor.vendorId = id;
-        return this.vendorRepository.save(vendor);
+        return this.vendorRepository.repository.save(vendor);
     }
 
     public async listByQueryBuilder(
@@ -228,9 +227,9 @@ export class VendorService {
             condition.skip = offset;
         }
         if (count) {
-            return this.vendorRepository.count(condition);
+            return this.vendorRepository.repository.count(condition);
         } else {
-            return this.vendorRepository.find(condition);
+            return this.vendorRepository.repository.find(condition);
         }
     }
 
@@ -240,7 +239,7 @@ export class VendorService {
     }
     // delete customer
     public async delete(id: number): Promise<any> {
-        return await this.vendorRepository.delete(id);
+        return await this.vendorRepository.repository.delete(id);
     }
 
     public async slugData(data: string): Promise<any> {

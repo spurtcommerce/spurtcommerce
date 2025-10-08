@@ -17,7 +17,9 @@ import {
 } from 'routing-controllers';
 import { getManager } from 'typeorm';
 import { Plugins } from '../../../../src/api/core/models/Plugin';
+import { Service } from 'typedi';
 
+@Service()
 @Controller('/admin-facebook')
 export class AdminFacebookController {
     constructor(

@@ -9,7 +9,6 @@
 /* tslint:disable:no-string-literal */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Brackets, getConnection, Like } from 'typeorm/index';
 import { CustomerRepository } from '../repositories/CustomerRepository';
@@ -19,14 +18,14 @@ import { Customer } from '../models/Customer';
 export class CustomerService {
 
     constructor(
-        @OrmRepository() private customerRepository: CustomerRepository,
+        private customerRepository: CustomerRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create customer
     public async create(customer: any): Promise<any> {
         this.log.info('Create a new customer ');
-        return this.customerRepository.save(customer);
+        return this.customerRepository.repository.save(customer);
     }
 
     // find Condition
@@ -35,17 +34,17 @@ export class CustomerService {
             ...customer['where'],
             deleteFlag: 0,
         };
-        return this.customerRepository.findOne(customer);
+        return this.customerRepository.repository.findOne(customer);
     }
 
     // find Condition
     public findAll(): Promise<any> {
-        return this.customerRepository.find();
+        return this.customerRepository.repository.find();
     }
 
     // find Condition
     public find(data: any): Promise<any> {
-        return this.customerRepository.find(data);
+        return this.customerRepository.repository.find(data);
     }
 
     public async findCustomerById(customerId: number, select?: string[]): Promise<Customer> {
@@ -54,13 +53,13 @@ export class CustomerService {
             condition.select = select;
         }
         condition.where = { id: customerId };
-        return await this.customerRepository.findOne(condition);
+        return await this.customerRepository.repository.findOne(condition);
     }
 
     // update customer
     public update(id: any, customer: any): Promise<any> {
         customer.customerId = id;
-        return this.customerRepository.save(customer);
+        return this.customerRepository.repository.save(customer);
     }
     // customer List
     public list(limit: any, offset: any, search: any = [], whereConditions: any = [], order: number, count: number | boolean): Promise<any> {
@@ -102,14 +101,14 @@ export class CustomerService {
             condition.skip = offset;
         }
         if (count) {
-            return this.customerRepository.count(condition);
+            return this.customerRepository.repository.count(condition);
         } else {
-            return this.customerRepository.find(condition);
+            return this.customerRepository.repository.find(condition);
         }
     }
     // delete customer
     public async delete(id: number): Promise<any> {
-        return await this.customerRepository.delete(id);
+        return await this.customerRepository.repository.delete(id);
     }
     // today customer count
     public async todayCustomerCount(todaydate: string): Promise<any> {

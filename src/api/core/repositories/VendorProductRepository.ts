@@ -6,17 +6,23 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { VendorProducts } from '../models/VendorProducts';
 import { VendorOrders } from '../models/VendorOrders';
 import moment from 'moment';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(VendorProducts)
-export class VendorProductsRepository extends Repository<VendorProducts> {
+@Service()
+export class VendorProductsRepository {
+    public repository: Repository<VendorProducts>;
+    constructor() {
+        this.repository = getDataSource().getRepository(VendorProducts);
+    }
 
     public async topProductSelling(id: number, duration: number, limit: number): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(VendorOrders, 'vendorOrders');
+        const query: any = await this.repository.manager.createQueryBuilder(VendorOrders, 'vendorOrders');
         query.select(['SUM(orderProduct.quantity) as soldCount', 'COUNT(DISTINCT(order.customer_id)) as buyerCount', 'orderProduct.product_id as product']);
         query.leftJoin('vendorOrders.order', 'order');
         query.leftJoin('vendorOrders.orderProduct', 'orderProduct');
@@ -36,7 +42,7 @@ export class VendorProductsRepository extends Repository<VendorProducts> {
     }
 
     public async vendorActiveProduct(id: number, limit: number, offset: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(VendorProducts, 'vendorProducts');
+        const query: any = await this.repository.createQueryBuilder('vendorProducts');
         query.select(['vendorProducts.product_id as productId', 'product.is_active as isActive']);
         query.leftJoin('vendorProducts.product', 'product');
         query.where('vendorProducts.vendorId = :id', { id });
@@ -49,7 +55,7 @@ export class VendorProductsRepository extends Repository<VendorProducts> {
 
     // finding product for vendor category
     public async findingProduct(categoryId: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(VendorProducts, 'vendorProducts');
+        const query: any = await this.repository.createQueryBuilder('vendorProducts');
         query.select(['vendorProducts.product_id as productId']);
         query.innerJoin('vendorProducts.product', 'product');
         query.innerJoin('product.productToCategory', 'productToCategory');
@@ -59,7 +65,7 @@ export class VendorProductsRepository extends Repository<VendorProducts> {
 
     public async vendorProductBasedOnDuration(vendorId: number, duration: number): Promise<any> {
 
-        const query: any = await this.manager.createQueryBuilder(VendorProducts, 'vendorProducts');
+        const query: any = await this.repository.createQueryBuilder('vendorProducts');
         query.select(['vendorProducts.product_id as productsCount']);
         query.where('vendorProducts.vendorId = :id', { id: vendorId });
         if (duration === 2 && duration) {
@@ -75,7 +81,7 @@ export class VendorProductsRepository extends Repository<VendorProducts> {
     }
 
     public async outOfStockSBasedOnDuration(vendorId: number, duration: number, stock: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(VendorProducts, 'vendorProducts');
+        const query: any = await this.repository.createQueryBuilder('vendorProducts');
         query.select(['vendorProducts.product_id as productsCount']);
         query.innerJoin('vendorProducts.product', 'product');
         query.innerJoin('product.skuDetail', 'skuDetail');
@@ -98,14 +104,14 @@ export class VendorProductsRepository extends Repository<VendorProducts> {
         return query.getCount();
     }
     public async vendorProductsCount(id: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(VendorProducts, 'vendorProducts');
+        const query: any = await this.repository.createQueryBuilder('vendorProducts');
         query.select(['vendorProducts.vendorId']);
         query.innerJoin('vendorProducts.vendor', 'vendor');
         query.where('vendorProducts.vendor_id = :value', { value: id });
         return query.getCount();
     }
     public async activeVendorProductCount(id: number): Promise<any> {
-        const query = await this.manager.createQueryBuilder(VendorProducts, 'vendorProducts');
+        const query = await this.repository.createQueryBuilder('vendorProducts');
         const currentDate = moment().format('YY-MM-DD');
         query.select(['vendorProducts.vendorId']);
         query.innerJoin('vendorProducts.vendor', 'vendor');
@@ -119,7 +125,7 @@ export class VendorProductsRepository extends Repository<VendorProducts> {
     }
 
     public async vendorCount(id: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(VendorProducts, 'vendorProducts');
+        const query: any = await this.repository.createQueryBuilder('vendorProducts');
         query.select(['COUNT(vendorProducts.vendorId) as vendorCount']);
         query.where('vendorProducts.product_id = :value', { value: id });
         query.andWhere('vendorProducts.reuse = :val', { val: 1 });
@@ -127,7 +133,7 @@ export class VendorProductsRepository extends Repository<VendorProducts> {
     }
 
     public async vendorCountAndMinPrice(id: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(VendorProducts, 'vendorProducts');
+        const query: any = await this.repository.createQueryBuilder('vendorProducts');
         query.select(['COUNT(vendorProducts.vendorId) as vendorCount', 'MIN(sku.price) as minimumPrice']);
         query.leftJoin('vendorProducts.sku', 'sku');
         query.where('vendorProducts.product_id = :value', { value: id });

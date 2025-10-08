@@ -25,6 +25,9 @@ import { S3Service } from '../../core/services/S3Service';
 import { ImageService } from '../../core/services/ImageService';
 import { env } from '../../../../src/env';
 import { Plugins } from '../../core/models/Plugin';
+import { Service } from 'typedi';
+
+@Service()
 @JsonController('/plugins')
 export class PluginController {
     constructor(

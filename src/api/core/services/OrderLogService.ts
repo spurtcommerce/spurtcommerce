@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like } from 'typeorm/index';
 import { OrderLogRepository } from '../repositories/OrderLogRepository';
@@ -16,14 +15,14 @@ import { OrderLogRepository } from '../repositories/OrderLogRepository';
 export class OrderLogService {
 
     constructor(
-        @OrmRepository() private orderLogRepository: OrderLogRepository,
+        private orderLogRepository: OrderLogRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create orderLog
     public async create(order: any): Promise<any> {
         this.log.info('Create a new orderLog ');
-        return this.orderLogRepository.save(order);
+        return this.orderLogRepository.repository.save(order);
     }
 
     // find Condition
@@ -36,13 +35,13 @@ export class OrderLogService {
         } else {
             condition.id = whereCondition;
         }
-        return this.orderLogRepository.findOne(condition);
+        return this.orderLogRepository.repository.findOne(condition);
     }
 
     // update orderLog
     public update(id: any, order: any): Promise<any> {
         order.oderId = id;
-        return this.orderLogRepository.save(order);
+        return this.orderLogRepository.repository.save(order);
     }
 
     // orderLog List
@@ -77,19 +76,19 @@ export class OrderLogService {
             condition.skip = offset;
         }
         if (count) {
-            return this.orderLogRepository.count(condition);
+            return this.orderLogRepository.repository.count(condition);
         } else {
-            return this.orderLogRepository.find(condition);
+            return this.orderLogRepository.repository.find(condition);
         }
     }
 
     // delete orderLog
     public async delete(id: number): Promise<any> {
-        return await this.orderLogRepository.delete(id);
+        return await this.orderLogRepository.repository.delete(id);
     }
 
     // orderLog count
     public find(): Promise<any> {
-        return this.orderLogRepository.find();
+        return this.orderLogRepository.repository.find();
     }
 }

@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Category } from '../models/CategoryModel';
 import { CategoryRepository } from '../repositories/CategoryRepository';
@@ -16,22 +15,22 @@ import { Brackets, getConnection, Like } from 'typeorm/index';
 export class CategoryService {
 
     constructor(
-        @OrmRepository() private categoryRepository: CategoryRepository,
+        private categoryRepository: CategoryRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
     // create Category
     public async create(category: any): Promise<Category> {
         this.log.info('Create a new category => ', category.toString());
-        return this.categoryRepository.save(category);
+        return this.categoryRepository.repository.save(category);
     }
     // findone category
     public findOne(category: any): Promise<any> {
-        return this.categoryRepository.findOne(category);
+        return this.categoryRepository.repository.findOne(category);
     }
     // delete Category
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a user');
-        await this.categoryRepository.delete(id);
+        await this.categoryRepository.repository.delete(id);
         return;
     }
     // categoryList
@@ -71,9 +70,9 @@ export class CategoryService {
         condition.order = { sortOrder: (sortOrder === 2) ? 'DESC' : 'ASC', createdDate: 'DESC' };
 
         if (count) {
-            return this.categoryRepository.count(condition);
+            return this.categoryRepository.repository.count(condition);
         }
-        return this.categoryRepository.find(condition);
+        return this.categoryRepository.repository.find(condition);
     }
     // category List by queryBuilder
     public async listByQueryBuilder(
@@ -194,7 +193,7 @@ export class CategoryService {
     }
     // find category
     public find(category: any): Promise<any> {
-        return this.categoryRepository.find(category);
+        return this.categoryRepository.repository.find(category);
     }
 
     public async slugData(data: string): Promise<any> {
@@ -203,7 +202,7 @@ export class CategoryService {
 
     public findAll(): Promise<any> {
         this.log.info('Find all setting');
-        return this.categoryRepository.find();
+        return this.categoryRepository.repository.find();
     }
 
     public async slug(data: string): Promise<any> {

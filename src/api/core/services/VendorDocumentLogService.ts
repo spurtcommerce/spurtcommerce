@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { VendorDocumentLog } from '../models/VendorDocumentLog';
 import { VendorDocumentLogRepository } from '../repositories/VendorDocumentLogRepository';
@@ -17,14 +16,14 @@ import { Like } from 'typeorm';
 export class VendorDocumentLogService {
 
     constructor(
-        @OrmRepository() private vendorDocumentLogRepository: VendorDocumentLogRepository,
+        private vendorDocumentLogRepository: VendorDocumentLogRepository,
         @Logger(__filename) private log: LoggerInterface
     ) { }
 
     // find vendorDocLog
     public findOne(findCondition: any): Promise<any> {
         this.log.info('Find all vendorDocLogs');
-        return this.vendorDocumentLogRepository.findOne(findCondition);
+        return this.vendorDocumentLogRepository.repository.findOne(findCondition);
     }
 
     // vendorDocLog list
@@ -62,9 +61,9 @@ export class VendorDocumentLogService {
         }
 
         if (count) {
-            return this.vendorDocumentLogRepository.count(condition);
+            return this.vendorDocumentLogRepository.repository.count(condition);
         } else {
-            return this.vendorDocumentLogRepository.find(condition);
+            return this.vendorDocumentLogRepository.repository.find(condition);
         }
 
     }
@@ -72,7 +71,7 @@ export class VendorDocumentLogService {
     // create vendorDocLog
     public async create(vendorDocLog: VendorDocumentLog): Promise<VendorDocumentLog> {
         this.log.info('Create a new vendorDocLog => ', vendorDocLog.toString());
-        const newVendorDocumentLog = await this.vendorDocumentLogRepository.save(vendorDocLog);
+        const newVendorDocumentLog = await this.vendorDocumentLogRepository.repository.save(vendorDocLog);
         return newVendorDocumentLog;
     }
 
@@ -80,19 +79,19 @@ export class VendorDocumentLogService {
     public update(id: any, vendorDocLog: VendorDocumentLog): Promise<VendorDocumentLog> {
         this.log.info('Update a vendorDocLog');
         vendorDocLog.id = id;
-        return this.vendorDocumentLogRepository.save(vendorDocLog);
+        return this.vendorDocumentLogRepository.repository.save(vendorDocLog);
     }
 
     // delete vendorDocLog
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a vendorDocLog');
-        const newVendorDocumentLog = await this.vendorDocumentLogRepository.delete(id);
+        const newVendorDocumentLog = await this.vendorDocumentLogRepository.repository.delete(id);
         return newVendorDocumentLog;
     }
 
     // find vendorDocLog
     public findAll(findCondition: any): Promise<any> {
         this.log.info('Find all vendorDocLogs');
-        return this.vendorDocumentLogRepository.find(findCondition);
+        return this.vendorDocumentLogRepository.repository.find(findCondition);
     }
 }

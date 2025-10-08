@@ -25,7 +25,8 @@ import { Tax } from '../../core/models/Tax';
 import { CreateTaxRequest } from './requests/CreateTaxRequest';
 import { ProductService } from '../../core/services/ProductService';
 import { Not } from 'typeorm';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/tax')
 export class TaxController {
     constructor(private taxService: TaxService, private productService: ProductService) {

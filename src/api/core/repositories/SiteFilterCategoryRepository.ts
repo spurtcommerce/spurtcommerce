@@ -6,17 +6,22 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { SiteFilterCategory } from '../models/SiteFilterCategory';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(SiteFilterCategory)
-export class SiteFilterCategoryRepository extends Repository<SiteFilterCategory>  {
+@Service()
+export class SiteFilterCategoryRepository {
+    public repository: Repository<SiteFilterCategory>;
+    constructor() {
+        this.repository = getDataSource().getRepository(SiteFilterCategory);
+    }
 
     public async findDuplicateCategory(id: number, filterId: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(SiteFilterCategory, 'siteFilterCategory');
+        const query: any = await this.repository.createQueryBuilder('siteFilterCategory');
         query.where('siteFilterCategory.categoryId = :id', { id });
         query.andWhere('siteFilterCategory.filterId != :filterId', { filterId });
         return query.getRawOne();
     }
-
 }

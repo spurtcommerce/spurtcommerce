@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { UserGroup } from '../models/UserGroup';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(UserGroup)
-export class UserGroupRepository extends Repository<UserGroup>  {
-
+@Service()
+export class UserGroupRepository {
+    public repository: Repository<UserGroup>;
+    constructor() {
+        this.repository = getDataSource().getRepository(UserGroup);
+    }
 }

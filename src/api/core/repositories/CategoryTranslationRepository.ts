@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { CategoryTranslation } from '../models/CategoryTranslation';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(CategoryTranslation)
-export class CategoryTranslationRepository extends Repository<CategoryTranslation>  {
-    // --
+@Service()
+export class CategoryTranslationRepository {
+    public repository: Repository<CategoryTranslation>;
+    constructor() {
+        this.repository = getDataSource().getRepository(CategoryTranslation);
+    }
 }

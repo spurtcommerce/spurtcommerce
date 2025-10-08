@@ -9,7 +9,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Services } from '../models/Service';
 import { ServiceRepository } from '../repositories/ServiceRepository';
@@ -18,27 +17,27 @@ import { Like } from 'typeorm/index';
 @Service()
 export class ServiceService {
     constructor(
-        @OrmRepository() private serviceRepository: ServiceRepository,
+        private serviceRepository: ServiceRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
     // create Services
     public async create(data: any): Promise<Services> {
         this.log.info('Create a new Services => ', data.toString());
-        return this.serviceRepository.save(data);
+        return this.serviceRepository.repository.save(data);
     }
     // findone Services
     public findOne(data: any): Promise<any> {
-        return this.serviceRepository.findOne(data);
+        return this.serviceRepository.repository.findOne(data);
     }
     // delete Services
     public async delete(id: number): Promise<any> {
         this.log.info('Delete a Services');
-        await this.serviceRepository.delete(id);
+        await this.serviceRepository.repository.delete(id);
         return;
     }
     // find Services
     public find(data: any): Promise<any> {
-        return this.serviceRepository.find(data);
+        return this.serviceRepository.repository.find(data);
     }
     // service list
     public async serviceList(limit: number, offset: number, select: any = [], searchConditions: any = [], whereConditions: any = [], categoryId: any = [], count: number | boolean): Promise<any> {
@@ -76,8 +75,8 @@ export class ServiceService {
             condition.skip = offset;
         }
         if (count) {
-            return this.serviceRepository.count(condition);
+            return this.serviceRepository.repository.count(condition);
         }
-        return this.serviceRepository.find(condition);
+        return this.serviceRepository.repository.find(condition);
     }
 }

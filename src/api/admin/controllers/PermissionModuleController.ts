@@ -12,7 +12,9 @@ import { PermissionModuleService } from '../../core/services/PermissionModuleSer
 import { PermissionModuleGroupService } from '../../core/services/PermissionModuleGroupService';
 import { UserGroupService } from '../../core/services/UserGroupService';
 import { UserService } from '../../core/services/UserService';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/permission-module')
 export class AdminPermissionController {
     constructor(private permissionModuleService: PermissionModuleService, private permissionModuleGroupService: PermissionModuleGroupService, private userService: UserService, private userGroupService: UserGroupService) {

@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { SiteFilterSectionItem } from '../models/SiteFilterSectionItem';
 import { SiteFilterSectionItemRepository } from '../repositories/SiteFilterSectionItemRepository';
@@ -17,19 +16,19 @@ import { Like } from 'typeorm';
 export class SiteFilterSectionItemService {
 
     constructor(
-        @OrmRepository() private siteFilterSectionItemRepository: SiteFilterSectionItemRepository,
+        private siteFilterSectionItemRepository: SiteFilterSectionItemRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // find one condition
     public findOne(siteFilterSectionItem: any): Promise<any> {
-        return this.siteFilterSectionItemRepository.findOne(siteFilterSectionItem);
+        return this.siteFilterSectionItemRepository.repository.findOne(siteFilterSectionItem);
     }
 
     // find all
     public findAll(siteFilterSectionItem: any): Promise<any> {
         this.log.info('Find all');
-        return this.siteFilterSectionItemRepository.find(siteFilterSectionItem);
+        return this.siteFilterSectionItemRepository.repository.find(siteFilterSectionItem);
     }
 
     // list
@@ -67,15 +66,15 @@ export class SiteFilterSectionItemService {
 
         }
         if (count) {
-            return this.siteFilterSectionItemRepository.count(condition);
+            return this.siteFilterSectionItemRepository.repository.count(condition);
         } else {
-            return this.siteFilterSectionItemRepository.find(condition);
+            return this.siteFilterSectionItemRepository.repository.find(condition);
         }
     }
 
     // create
     public async create(siteFilterSectionItem: SiteFilterSectionItem): Promise<SiteFilterSectionItem> {
-        const newSiteFilterSection = await this.siteFilterSectionItemRepository.save(siteFilterSectionItem);
+        const newSiteFilterSection = await this.siteFilterSectionItemRepository.repository.save(siteFilterSectionItem);
         return newSiteFilterSection;
     }
 
@@ -83,13 +82,13 @@ export class SiteFilterSectionItemService {
     public update(id: any, siteFilterSectionItem: SiteFilterSectionItem): Promise<SiteFilterSectionItem> {
         this.log.info('Update');
         siteFilterSectionItem.id = id;
-        return this.siteFilterSectionItemRepository.save(siteFilterSectionItem);
+        return this.siteFilterSectionItemRepository.repository.save(siteFilterSectionItem);
     }
 
     // delete
     public async delete(id: any): Promise<any> {
         this.log.info('Delete');
-        const newSiteFilter = await this.siteFilterSectionItemRepository.delete(id);
+        const newSiteFilter = await this.siteFilterSectionItemRepository.repository.delete(id);
         return newSiteFilter;
     }
 }

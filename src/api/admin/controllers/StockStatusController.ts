@@ -23,7 +23,8 @@ import {
 import { CreateStockStatus } from './requests/CreateStockStatusRequest';
 import { StockStatus } from '../../core/models/stockStatus';
 import { StockStatusService } from '../../core/services/stockStatusService';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/stock-status')
 export class StockStatusController {
     constructor(private stockStatusService: StockStatusService) {

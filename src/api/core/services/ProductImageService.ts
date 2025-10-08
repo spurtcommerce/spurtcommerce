@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like } from 'typeorm/index';
 import { ProductImageRepository } from '../repositories/ProductImageRepository';
@@ -17,35 +16,35 @@ import { ProductImage } from '../models/ProductImage';
 export class ProductImageService {
 
     constructor(
-        @OrmRepository() private productImageRepository: ProductImageRepository,
+        private productImageRepository: ProductImageRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create product
     public async create(productImage: ProductImage): Promise<ProductImage> {
         this.log.info('Create a new productImage ');
-        return this.productImageRepository.save(productImage);
+        return this.productImageRepository.repository.save(productImage);
     }
     // find one product image
     public findOne(productImage: any): Promise<ProductImage> {
-        return this.productImageRepository.findOne(productImage);
+        return this.productImageRepository.repository.findOne(productImage);
     }
 
     // find all product images
     public findAll(productImage: any): Promise<any> {
-        return this.productImageRepository.find(productImage);
+        return this.productImageRepository.repository.find(productImage);
     }
 
     // find all product images
     public find(): Promise<any> {
-        return this.productImageRepository.find();
+        return this.productImageRepository.repository.find();
     }
 
     // update product images
     public update(id: any, productImage: ProductImage): Promise<ProductImage> {
         this.log.info('Update a productImage');
         productImage.productImageId = id;
-        return this.productImageRepository.save(productImage);
+        return this.productImageRepository.repository.save(productImage);
     }
     // ProductImage List
     public list(limit: any, offset: any, select: any = [], search: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
@@ -78,18 +77,18 @@ export class ProductImageService {
             condition.skip = offset;
         }
         if (count) {
-            return this.productImageRepository.count(condition);
+            return this.productImageRepository.repository.count(condition);
         } else {
-            return this.productImageRepository.find(condition);
+            return this.productImageRepository.repository.find(condition);
         }
     }
     // delete product image
     public async delete(id: any): Promise<any> {
-        return await this.productImageRepository.delete(id);
+        return await this.productImageRepository.repository.delete(id);
     }
 
     // delete product
     public async deleteProduct(id: number): Promise<any> {
-        return await this.productImageRepository.delete({ productId: id });
+        return await this.productImageRepository.repository.delete({ productId: id });
     }
 }

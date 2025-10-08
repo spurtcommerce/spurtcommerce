@@ -15,7 +15,9 @@ import { CreateCustomerGroup } from './requests/CreateCustomerGroupRequest';
 import { CustomerGroupService } from '../../core/services/CustomerGroupService';
 import { CustomerService } from '../../core/services/CustomerService';
 import { CustomerGroup } from '../../core/models/CustomerGroup';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/customer-group')
 export class CustomerGroupController {
 

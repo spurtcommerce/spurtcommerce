@@ -6,15 +6,21 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Vendor } from '../models/Vendor';
 import { Customer } from '../models/Customer';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(Vendor)
-export class VendorRepository extends Repository<Vendor> {
+@Service()
+export class VendorRepository {
+    public repository: Repository<Vendor>;
+    constructor() {
+        this.repository = getDataSource().getRepository(Vendor);
+    }
 
     public async vendorList(limit: number, offset: number, select: any = [], relations: any = [], searchConditions: any = [], whereConditions: any = [], count: number | boolean): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Vendor, 'vendor');
+        const query: any = await this.repository.createQueryBuilder('vendor');
         // Select
         if (select && select.length > 0) {
             query.select(select);
@@ -52,22 +58,20 @@ export class VendorRepository extends Repository<Vendor> {
             whereConditions.forEach((table: any) => {
                 const operator: string = table.op;
                 if (operator === 'where' && table.value !== undefined) {
-                    const subQb = this.manager
-                        .getRepository(Vendor)
+                    const subQb = this.repository
                         .createQueryBuilder('vendor')
                         .select('vendor_id')
                         .where('is_delete = ' + table.value);
                     query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
                 } else if (operator === 'email' && table.value !== undefined && table.value !== '') {
-                    const subQb = this.manager
+                    const subQb = this.repository.manager
                         .getRepository(Customer)
                         .createQueryBuilder('customer')
                         .select('id')
                         .where('email LIKE ' + "'%" + table.value + "%'" + ' ');
                     query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
                 } else if (operator === 'status' && table.value !== undefined && table.value !== '') {
-                    const subQb = this.manager
-                        .getRepository(Vendor)
+                    const subQb = this.repository
                         .createQueryBuilder('vendor')
                         .select('vendor_id')
                         .where('is_active = ' + table.value);
@@ -75,7 +79,7 @@ export class VendorRepository extends Repository<Vendor> {
                 } else if (operator === 'name' && table.value !== undefined && table.value !== '') {
                     query.andWhere(table.name + ' LIKE ' + "\'%" + table.value + "%\'");
                 } else if (operator === 'keyword' && table.value !== undefined && table.value !== '') {
-                    const subQb = this.manager
+                    const subQb = this.repository.manager
                         .getRepository(Customer)
                         .createQueryBuilder('customer')
                         .select('id')
@@ -83,7 +87,7 @@ export class VendorRepository extends Repository<Vendor> {
                         .orWhere('vendor.company_name LIKE ' + "'%" + table.value + "%'");
                     query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
                 } else if (operator === 'firstName' && table.value !== undefined && table.value !== '') {
-                    const subQb = this.manager
+                    const subQb = this.repository.manager
                         .getRepository(Customer)
                         .createQueryBuilder('customer')
                         .select('id')
@@ -106,7 +110,7 @@ export class VendorRepository extends Repository<Vendor> {
     }
 
     public async vendorSlug(data: string): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Vendor, 'vendor');
+        const query: any = await this.repository.createQueryBuilder('vendor');
         query.select(['vendor.vendor_id as vendorId', 'vendor.vendor_slug_name as vendorSlugName', 'customer.first_name as firstName']);
         query.where('customer.first_name = :value', { value: data });
         query.innerJoin('vendor.customer', 'customer');
@@ -114,7 +118,7 @@ export class VendorRepository extends Repository<Vendor> {
     }
 
     public async vendorSlugOne(data: string): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Vendor, 'vendor');
+        const query: any = await this.repository.createQueryBuilder('vendor');
         query.select(['vendor.vendor_id as vendorId', 'vendor.vendor_slug_name as vendorSlugName', 'customer.first_name as firstName']);
         query.where('customer.first_name = :value', { value: data });
         query.innerJoin('vendor.customer', 'customer');
@@ -122,7 +126,7 @@ export class VendorRepository extends Repository<Vendor> {
     }
 
     public async vendorSlugEmptySlug(data: string): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Vendor, 'vendor');
+        const query: any = await this.repository.createQueryBuilder('vendor');
         query.select(['vendor.vendor_id as vendorId', 'vendor.vendor_slug_name as vendorSlugName', 'customer.first_name as firstName']);
         query.where('customer.first_name = :value', { value: data });
         query.andWhere('vendor.vendor_slug_name IS :value1', { value1: undefined });
@@ -131,7 +135,7 @@ export class VendorRepository extends Repository<Vendor> {
     }
 
     public async validateDisplayUrlName(name: string, checkVendor: number, vendorId: number): Promise<any> {
-        const query: any = await this.manager.createQueryBuilder(Vendor, 'vendor');
+        const query: any = await this.repository.createQueryBuilder('vendor');
         query.where('vendor.displayNameUrl = :value', { value: name });
         query.andWhere('vendor.isDelete = :deleteFlag', { deleteFlag: 0 });
         if (checkVendor === 1) {

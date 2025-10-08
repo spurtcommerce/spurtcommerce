@@ -15,7 +15,9 @@ import { env } from '../../../env';
 import { S3Service } from '../../core/services/S3Service';
 import { ImageService } from '../../core/services/ImageService';
 import { Not } from 'typeorm';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/language')
 export class LanguageController {
     constructor(

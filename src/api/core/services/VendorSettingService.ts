@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { Like } from 'typeorm/index';
 import { VendorGlobalSettingRepository } from '../repositories/VendorSettingRepository';
@@ -17,31 +16,31 @@ import { VendorGlobalSetting } from '../models/VendorGlobalSettings';
 export class VendorGlobalSettingService {
 
     constructor(
-        @OrmRepository() private vendorGlobalSettingRepository: VendorGlobalSettingRepository,
+        private vendorGlobalSettingRepository: VendorGlobalSettingRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     // create page
     public async create(setting: any): Promise<any> {
         this.log.info('Create a new page ');
-        return this.vendorGlobalSettingRepository.save(setting);
+        return this.vendorGlobalSettingRepository.repository.save(setting);
     }
 
     // find one page
     public findOne(): Promise<any> {
-        return this.vendorGlobalSettingRepository.findOne();
+        return this.vendorGlobalSettingRepository.repository.findOne({});
     }
 
     // find one page
     public findOneData(data: any): Promise<any> {
-        return this.vendorGlobalSettingRepository.findOne(data);
+        return this.vendorGlobalSettingRepository.repository.findOne(data);
     }
 
     // update page
     public update(id: any, vendorGlobalSetting: VendorGlobalSetting): Promise<any> {
         this.log.info('Update a page');
         vendorGlobalSetting.settingId = id;
-        return this.vendorGlobalSettingRepository.save(vendorGlobalSetting);
+        return this.vendorGlobalSettingRepository.repository.save(vendorGlobalSetting);
     }
 
     // page List
@@ -77,14 +76,14 @@ export class VendorGlobalSettingService {
             condition.skip = offset;
         }
         if (count) {
-            return this.vendorGlobalSettingRepository.count(condition);
+            return this.vendorGlobalSettingRepository.repository.count(condition);
         } else {
-            return this.vendorGlobalSettingRepository.find(condition);
+            return this.vendorGlobalSettingRepository.repository.find(condition);
         }
     }
 
     // delete page
     public async delete(id: number): Promise<any> {
-        return await this.vendorGlobalSettingRepository.delete(id);
+        return await this.vendorGlobalSettingRepository.repository.delete(id);
     }
 }

@@ -26,7 +26,8 @@ import { Zone } from '../../core/models/Zone';
 import { CreateZone } from './requests/CreateZoneRequest';
 import { instanceToPlain } from 'class-transformer';
 import { Not } from 'typeorm';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/zone')
 export class ZoneController {
     constructor(

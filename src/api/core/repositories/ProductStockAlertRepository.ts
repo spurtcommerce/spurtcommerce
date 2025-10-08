@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { ProductStockAlert } from '../models/ProductStockAlert';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(ProductStockAlert)
-export class ProductStockAlertRepository extends Repository<ProductStockAlert>  {
-
+@Service()
+export class ProductStockAlertRepository {
+    public repository: Repository<ProductStockAlert>;
+    constructor() {
+        this.repository = getDataSource().getRepository(ProductStockAlert);
+    }
 }

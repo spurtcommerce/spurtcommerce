@@ -22,7 +22,9 @@ import {
 import { PageGroup } from '../../core/models/PageGroup';
 import { PageGroupService } from '../../core/services/PageGroupService';
 import { PageService } from '../../core/services/PageService';
+import { Service } from 'typedi';
 
+@Service()
 @JsonController('/page-group')
 export class PageGroupController {
     constructor(private pageGroupService: PageGroupService, private pageService: PageService) {

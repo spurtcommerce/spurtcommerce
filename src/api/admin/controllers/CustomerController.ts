@@ -49,6 +49,9 @@ import { S3, PutObjectCommand } from '@aws-sdk/client-s3';
 const s3 = new S3({
     region: aws_setup.AWS_DEFAULT_REGION,
 });
+import { Service } from 'typedi';
+
+@Service()
 @JsonController('/admin-customer')
 export class CustomerController {
     constructor(

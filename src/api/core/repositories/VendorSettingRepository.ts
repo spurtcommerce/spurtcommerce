@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { VendorGlobalSetting } from '../models/VendorGlobalSettings';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Service } from 'typedi';
 
-@EntityRepository(VendorGlobalSetting)
-export class VendorGlobalSettingRepository extends Repository<VendorGlobalSetting>  {
-
+@Service()
+export class VendorGlobalSettingRepository {
+    public repository: Repository<VendorGlobalSetting>;
+    constructor() {
+        this.repository = getDataSource().getRepository(VendorGlobalSetting);
+    }
 }

@@ -7,7 +7,6 @@
  */
 
 import { Service } from 'typedi';
-import { OrmRepository } from 'typeorm-typedi-extensions';
 import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { AccessTokenRepository } from '../repositories/AccessTokenRepository';
 import { AccessToken } from '../models/AccessTokenModel';
@@ -16,21 +15,21 @@ import { AccessToken } from '../models/AccessTokenModel';
 export class AccessTokenService {
 
     constructor(
-        @OrmRepository() private accessTokenRepository: AccessTokenRepository,
+        private accessTokenRepository: AccessTokenRepository,
         @Logger(__filename) private log: LoggerInterface) {
     }
 
     public findOne(accessToken: any): Promise<any> {
-        return this.accessTokenRepository.findOne(accessToken);
+        return this.accessTokenRepository.repository.findOne(accessToken);
     }
     // delete token
     public async delete(id: any): Promise<any> {
         this.log.info('Delete a token');
-        await this.accessTokenRepository.delete(id);
+        await this.accessTokenRepository.repository.delete(id);
         return;
     }
     // create token
     public async create(accessToken: any): Promise<AccessToken> {
-        return this.accessTokenRepository.save(accessToken);
+        return this.accessTokenRepository.repository.save(accessToken);
     }
 }

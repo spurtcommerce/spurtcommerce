@@ -31,7 +31,8 @@ import { SiteFilterSectionService } from '../../core/services/SiteFilterSectionS
 import { SiteFilterSectionItemService } from '../../core/services/SiteFilterSectionItemService';
 import { CategoryService } from '../../../../src/api/core/services/CategoryService';
 import { CategoryPathService } from '../../../../src/api/core/services/CategoryPathService';
-
+import { Service } from 'typedi';
+@Service()
 @JsonController('/site-filter')
 export class SiteFilterController {
     constructor(

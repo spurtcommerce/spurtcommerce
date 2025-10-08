@@ -6,10 +6,15 @@
  * Licensed under the MIT license.
  */
 
-import { EntityRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { PromotionalBanner } from '../models/PromotionalBanner';
+import { Service } from 'typedi';
+import { getDataSource } from '../../../loaders/typeormLoader';
 
-@EntityRepository(PromotionalBanner)
-export class PromotionalBannerRepository extends Repository<PromotionalBanner>  {
-
+@Service()
+export class PromotionalBannerRepository {
+    public repository: Repository<PromotionalBanner>;
+    constructor() {
+        this.repository = getDataSource().getRepository(PromotionalBanner);
+    }
 }
